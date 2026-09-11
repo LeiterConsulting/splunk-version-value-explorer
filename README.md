@@ -1,5 +1,8 @@
 # Splunk Version Value Explorer
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
+
 An interactive, customer-friendly read-ahead for understanding what becomes available—and what preparation is required—when moving between Splunk releases.
 
 ## [Open the live site →](https://splunk-version-value-explorer.majorgeneralrabidzagnut.chatgpt.site)
@@ -44,6 +47,20 @@ Release content is centralized in [`dist/data.js`](dist/data.js). To extend the 
 
 The selectors, path visualization, metrics, filters, capability cards, readiness guidance, citations, and shareable URL are generated automatically from that data.
 
+## Collaboration is welcome
+
+Updates, corrections, and improvements are encouraged—especially:
+
+- New Splunk Enterprise and Splunk Cloud Platform releases
+- Corrected upgrade paths or readiness requirements
+- Additional customer-value context backed by official documentation
+- Accessibility, responsive-design, and usability improvements
+- Clearer language for customer-facing read-aheads
+
+Open an issue to discuss an idea or submit a pull request with the proposed change. Please keep factual additions traceable to official Splunk documentation and preserve the distinction between customer-managed Enterprise upgrades and Splunk-managed Cloud releases.
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the content model, workflow, and review checklist.
+
 ## Run locally
 
 This is a dependency-free static site. Serve the repository root with any local HTTP server and open `/dist/`:
@@ -59,3 +76,7 @@ Then visit `http://localhost:8000/dist/`.
 The explorer summarizes official Splunk documentation and the supplied product-innovation timeline. It is a planning aid—not a substitute for release notes, compatibility guidance, or an environment-specific upgrade plan.
 
 Splunk is a registered trademark of Splunk Inc.
+
+## License
+
+Released under the [MIT License](LICENSE). This license covers the project source and original project content; third-party names, trademarks, and linked documentation remain the property of their respective owners.
