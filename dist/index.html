@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Compare Splunk platform releases, supported upgrade paths, readiness requirements, and the value delivered between versions." />
+    <meta name="theme-color" content="#07130f" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307130f'/%3E%3Cpath d='m18 20 18 12-18 12' fill='none' stroke='%236ce5a5' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M39 43h8' stroke='%23fff' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Splunk Version Value Explorer</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#results">Skip to comparison</a>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Version Value Explorer home"><span aria-hidden="true">&gt;_</span> Version Value Explorer</a>
+      <span class="reviewed">Reviewed September 2026</span>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="eyebrow"><span></span> SPLUNK PLATFORM READ-AHEAD</div>
+        <h1 id="page-title">See what the next<br />version makes possible.</h1>
+        <p class="dek">A clear, source-backed view of the capabilities gained, value unlocked, and preparation needed between two Splunk releases.</p>
+
+        <div class="selector-card" aria-label="Release comparison controls">
+          <fieldset class="platform-toggle">
+            <legend>Platform</legend>
+            <div class="toggle-options">
+              <label><input type="radio" name="platform" value="enterprise" checked /><span>Splunk Enterprise</span></label>
+              <label><input type="radio" name="platform" value="cloud" /><span>Splunk Cloud Platform</span></label>
+            </div>
+          </fieldset>
+          <div class="release-selectors">
+            <label for="from-release"><span>Release in place</span><select id="from-release"></select></label>
+            <div class="arrow" aria-hidden="true">→</div>
+            <label for="to-release"><span>Release under consideration</span><select id="to-release"></select></label>
+          </div>
+          <p class="selection-note" id="selection-note" aria-live="polite"></p>
+        </div>
+        <div class="scroll-cue" aria-hidden="true">EXPLORE THE CHANGE <span>↓</span></div>
+      </section>
+
+      <div id="results">
+        <section class="section path-section" aria-labelledby="path-title">
+          <div class="section-head">
+            <div><p class="kicker">01 / THE ROUTE</p><h2 id="path-title">Your path forward</h2></div>
+            <p id="path-intro"></p>
+          </div>
+          <div class="path-card">
+            <div class="path-line" id="path-line"></div>
+            <p class="path-caption" id="path-caption"></p>
+          </div>
+        </section>
+
+        <section class="section value-section" aria-labelledby="value-title">
+          <div class="section-head">
+            <div><p class="kicker">02 / THE RETURN</p><h2 id="value-title">What becomes available</h2></div>
+            <p>Benefits are organized around the outcomes teams can use—not a wall of release-note changes.</p>
+          </div>
+          <div class="value-band" id="value-band"></div>
+          <div class="filter-row" id="category-filters" aria-label="Filter benefits"></div>
+          <div class="benefit-grid" id="benefit-grid"></div>
+        </section>
+
+        <section class="section readiness-section" aria-labelledby="readiness-title">
+          <div class="section-head">
+            <div><p class="kicker">03 / READINESS</p><h2 id="readiness-title">Prepare with confidence</h2></div>
+            <p id="readiness-intro"></p>
+          </div>
+          <div class="readiness-list" id="readiness-list"></div>
+        </section>
+
+        <section class="section source-section" aria-labelledby="source-title">
+          <div class="source-card">
+            <div><p class="kicker">THE OFFICIAL WORD</p><h2 id="source-title">Go deeper in the release notes.</h2></div>
+            <div class="source-actions" id="source-actions"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <p><strong>About this guide</strong> This independent read-ahead summarizes official Splunk documentation and the supplied innovation timeline. It does not replace Splunk's release notes, compatibility guidance, or an environment-specific upgrade plan.</p>
+      <p>Splunk is a registered trademark of Splunk Inc. This experience does not collect or transmit visitor information.</p>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
