@@ -228,5 +228,63 @@ window.SPLUNK_DATA = {
         ]
       }
     }
+  },
+  migration: {
+    label: "Splunk Enterprise → Splunk Cloud Platform",
+    latest: "10.5.2605",
+    scmaMinimum: "9.1",
+    sources: {
+      overview: "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Overview",
+      readiness: "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Readiness",
+      prepare: "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Prepare",
+      validate: "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Validate",
+      approaches: "https://lantern.splunk.com/Manage_Performance_and_Health/Selecting_the_best_cloud_migration_approach",
+      scma: "https://splunkbase.splunk.com/app/4974"
+    },
+    operatingBenefits: [
+      ["Splunk-managed platform operations", "Platform operations", "Return time to higher-value work", "Splunk takes on most infrastructure, operating-system, backup, capacity, maintenance, and platform-upgrade responsibilities.", "Cloud operating model", "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Overview"],
+      ["Cloud Monitoring Console", "Platform operations", "Operate from service-level signals", "Monitor ingestion, data quality, forwarder connections, workload, license usage, and upgrade readiness from the managed Cloud Monitoring Console.", "Cloud operating model", "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Overview"],
+      ["Continuous managed releases", "Platform operations", "Reach innovation without platform projects", "Splunk manages recurring Cloud Platform releases and communicates maintenance and upgrade events to designated operational contacts.", "Cloud operating model", "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Overview"],
+      ["Familiar platform capabilities", "Search & AI", "Preserve the value already built", "Splunk documents greater than 95% feature overlap while noting that some capabilities and administrative interactions are implemented differently in Cloud Platform.", "Migration foundation", "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Overview"],
+      ["Self-service cloud administration", "Platform operations", "Move routine change closer to administrators", "Create indexes, manage retention, administer users and roles, configure supported inputs, and install eligible apps through cloud interfaces.", "Cloud operating model", "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Overview"],
+      ["Cloud-vetted application model", "Security & compliance", "Reduce extension risk", "Splunkbase and private apps follow Cloud compatibility and vetting paths, with AppInspect available to validate custom packages before installation.", "Migration foundation", "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Overview"],
+      ["Flexible data onboarding", "Data management", "Keep proven collection patterns", "Supported forwarders, HTTP Event Collector, modular inputs, and intermediate tiers remain available, with cloud-specific credentials and connectivity requirements.", "Migration foundation", "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Overview"],
+      ["Outcome-focused operating model", "Dashboards & experience", "Shift effort from upkeep to adoption", "Teams can redirect time from backend maintenance toward data governance, onboarding, workload performance, use cases, and measurable business value.", "Cloud operating model", "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Readiness"]
+    ],
+    approaches: [
+      {
+        title: "Greenfield",
+        signal: "Clean start",
+        fit: "Best when historical data can remain behind or age out and the priority is a clean, no-outage cutover.",
+        strengths: ["No migration outage", "Easy to align to current best practices", "Immediate user switchover after validation"],
+        tradeoff: "Historical data is not copied, and load testing is limited before redirection."
+      },
+      {
+        title: "Dual running",
+        signal: "Lowest cutover risk",
+        fit: "Best when the target must be validated with real production load and data can be sent to both environments temporarily.",
+        strengths: ["No migration outage", "Full validation under load", "Historical access can age out naturally"],
+        tradeoff: "Requires parallel capacity and usually creates the longest migration window."
+      },
+      {
+        title: "Full migration",
+        signal: "History moves too",
+        fit: "Best when historical data must move and the on-premises environment has a firm retirement deadline.",
+        strengths: ["Historical data is migrated", "Configuration can be prepared first", "Clear final-state cutover"],
+        tradeoff: "Requires an outage sized to data volume and offers the least forgiving rollback path."
+      }
+    ],
+    steps: [
+      ["Define value, owners, and decision rights", "Align the migration value proposition to measurable pain points, establish the delivery team, and clarify post-migration roles before technical execution begins.", "First", "Mobilize", "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Readiness"],
+      ["Run the Cloud Migration Assessment App", "Install the current Splunk-supported SCMA on the Monitoring Console, review its directional KPI checks, and use its export only when you intentionally choose to share assessment results with Splunk.", "First", "Assess", "https://splunkbase.splunk.com/app/4974"],
+      ["Choose the migration motion", "Decide between greenfield, dual running, and full historical migration using retention needs, outage tolerance, parallel cost, deadline, and production-load testing requirements.", "Decision", "Plan", "https://lantern.splunk.com/Manage_Performance_and_Health/Selecting_the_best_cloud_migration_approach"],
+      ["Inventory and remediate apps", "Build a compatibility matrix for Splunkbase, premium, private, and custom apps. Update cloud-compatible versions and use AppInspect for private packages before installation.", "Blocker", "Prepare", "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Prepare"],
+      ["Rationalize data, searches, and retention", "Measure daily ingest and retention, identify costly searches, remove unused knowledge objects and accelerations, correct data-quality issues, and avoid copying obsolete complexity.", "Plan", "Prepare", "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Prepare"],
+      ["Prove network and forwarding paths", "Validate firewall egress, on-premises integrations, supported forwarder versions, the Cloud credentials package, HTTP Event Collector paths, and any intermediate tier required for syslog or restricted systems.", "Blocker", "Prepare", "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Prepare"],
+      ["Rebuild identity and access deliberately", "Audit roles and permission patterns, simplify role-based access control where possible, and configure the target identity integration as part of migration—not after cutover.", "Validate", "Prepare", "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Prepare"],
+      ["Build, pilot, and reconcile", "Install approved apps, migrate supported configuration, send representative data, compare hosts, sources, source types, searches, alerts, dashboards, and performance, then resolve differences before user transition.", "Test", "Migrate", "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Validate"],
+      ["Complete SAT before UAT", "Have administrators complete System Acceptance Testing before subject-matter experts begin User Acceptance Testing across navigation, features, workflows, performance, and cloud administration.", "Test", "Validate", "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Validate"],
+      ["Cut over, monitor, and retire safely", "Confirm forwarding and critical workloads, monitor the Cloud stack, retain rollback options for the agreed period, and retire on-premises components only after acceptance and retention obligations are satisfied.", "Operate", "Transition", "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Overview"]
+    ]
   }
 };

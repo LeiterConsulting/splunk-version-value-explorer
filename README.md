@@ -3,14 +3,16 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-An interactive, customer-friendly read-ahead for understanding what becomes available—and what preparation is required—when moving between Splunk releases.
+An interactive, customer-friendly read-ahead for understanding what becomes available—and what preparation is required—when upgrading Splunk or moving from Splunk Enterprise to Splunk Cloud Platform.
 
 ## [Open the live site →](https://splunk-version-value-explorer.majorgeneralrabidzagnut.chatgpt.site)
 
-Select a platform, the release currently in place, and the release under consideration. The explorer builds a tailored view of:
+Choose an upgrade or migration journey, the release currently in place, and the destination under consideration. The explorer builds a tailored view of:
 
 - Supported Splunk Enterprise step-upgrade paths
 - Splunk Cloud Platform capability milestones
+- Enterprise-to-Cloud readiness gates and migration approaches
+- Version-aware Splunk Cloud Migration Assessment App (SCMA) guidance
 - New features grouped by customer outcome
 - Release-specific blockers, validation work, and planning considerations
 - Direct links to the relevant official Splunk documentation
@@ -19,9 +21,9 @@ No registration, lead form, subscription, or customer information is collected.
 
 ## Screenshots
 
-### Select the release journey
+### Select the upgrade or migration journey
 
-![Splunk Version Value Explorer release selectors](docs/images/version-selector.jpg)
+![Splunk Version Value Explorer journey and release selectors](docs/images/version-selector.jpg)
 
 ### Explore the value delivered
 
@@ -33,8 +35,11 @@ No registration, lead form, subscription, or customer information is collected.
 | --- | --- |
 | Splunk Enterprise | 8.1 through 10.4 |
 | Splunk Cloud Platform | 9.2.2406 through 10.5.2605 |
+| Enterprise → Cloud | Enterprise 8.1–10.4 to Cloud 9.2.2406–10.5.2605 |
 
-The content is organized around five value themes: Search & AI, Platform Operations, Data Management, Security & Compliance, and Dashboards & Experience.
+The content is organized around five value themes: Search & AI, Platform Operations, Data Management, Security & Compliance, and Dashboards & Experience. Enterprise-to-Cloud recommendations cover mobilization, assessment, migration-motion selection, app and data preparation, connectivity, access, acceptance testing, cutover, and retirement.
+
+See [`docs/enterprise-to-cloud.md`](docs/enterprise-to-cloud.md) for the migration guidance model, source map, and maintenance notes.
 
 ## Updating for a new release
 
@@ -45,6 +50,8 @@ Release content is centralized in [`dist/data.js`](dist/data.js). To extend the 
 3. For Splunk Enterprise, add supported transitions to the `edges` upgrade-path map.
 4. Update the platform's `latest` value and the reviewed date in [`dist/index.html`](dist/index.html).
 
+Enterprise-to-Cloud content is kept in the top-level `migration` object. It contains the SCMA compatibility floor, official source links, operating-model benefits, migration approaches, and recommended actions. When the latest Cloud destination changes, review both the Cloud release record and migration defaults.
+
 The selectors, path visualization, metrics, filters, capability cards, readiness guidance, citations, and shareable URL are generated automatically from that data.
 
 ## Collaboration is welcome
@@ -53,11 +60,12 @@ Updates, corrections, and improvements are encouraged—especially:
 
 - New Splunk Enterprise and Splunk Cloud Platform releases
 - Corrected upgrade paths or readiness requirements
+- Improved Enterprise-to-Cloud assessment, preparation, validation, or cutover guidance
 - Additional customer-value context backed by official documentation
 - Accessibility, responsive-design, and usability improvements
 - Clearer language for customer-facing read-aheads
 
-Open an issue to discuss an idea or submit a pull request with the proposed change. Please keep factual additions traceable to official Splunk documentation and preserve the distinction between customer-managed Enterprise upgrades and Splunk-managed Cloud releases.
+Open an issue to discuss an idea or submit a pull request with the proposed change. Please keep factual additions traceable to official Splunk documentation. Preserve the distinction between customer-managed Enterprise upgrades, Splunk-managed Cloud releases, and an Enterprise-to-Cloud migration program whose final sequence depends on the customer's environment.
 
 See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the content model, workflow, and review checklist.
 
@@ -73,7 +81,7 @@ Then visit `http://localhost:8000/dist/`.
 
 ## Source and scope
 
-The explorer summarizes official Splunk documentation and the supplied product-innovation timeline. It is a planning aid—not a substitute for release notes, compatibility guidance, or an environment-specific upgrade plan.
+The explorer summarizes official Splunk documentation, Splunk Lantern migration guidance, and the supplied product-innovation timeline. It is a planning aid—not a substitute for release notes, compatibility guidance, a Statement of Work, or an environment-specific upgrade or migration plan.
 
 Splunk is a registered trademark of Splunk Inc.
 

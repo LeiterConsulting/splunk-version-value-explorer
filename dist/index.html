@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Compare Splunk platform releases, supported upgrade paths, readiness requirements, and the value delivered between versions." />
+    <meta name="description" content="Compare Splunk releases or explore a source-backed Splunk Enterprise to Splunk Cloud Platform migration path, readiness requirements, and customer value." />
     <meta name="theme-color" content="#07130f" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307130f'/%3E%3Cpath d='m18 20 18 12-18 12' fill='none' stroke='%236ce5a5' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M39 43h8' stroke='%23fff' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="styles.css" />
@@ -19,21 +19,22 @@
     <main>
       <section class="hero" aria-labelledby="page-title">
         <div class="eyebrow"><span></span> SPLUNK PLATFORM READ-AHEAD</div>
-        <h1 id="page-title">See what the next<br />version makes possible.</h1>
-        <p class="dek">A clear, source-backed view of the capabilities gained, value unlocked, and preparation needed between two Splunk releases.</p>
+        <h1 id="page-title">See what the next<br />move makes possible.</h1>
+        <p class="dek">Compare releases—or map the move from Splunk Enterprise to Splunk Cloud Platform—with clear value, readiness guidance, and sources.</p>
 
         <div class="selector-card" aria-label="Release comparison controls">
           <fieldset class="platform-toggle">
-            <legend>Platform</legend>
+            <legend>Journey</legend>
             <div class="toggle-options">
-              <label><input type="radio" name="platform" value="enterprise" checked /><span>Splunk Enterprise</span></label>
-              <label><input type="radio" name="platform" value="cloud" /><span>Splunk Cloud Platform</span></label>
+              <label><input type="radio" name="platform" value="enterprise" checked /><span>Enterprise upgrades</span></label>
+              <label><input type="radio" name="platform" value="cloud" /><span>Cloud releases</span></label>
+              <label><input type="radio" name="platform" value="migration" /><span>Enterprise → Cloud</span></label>
             </div>
           </fieldset>
           <div class="release-selectors">
-            <label for="from-release"><span>Release in place</span><select id="from-release"></select></label>
+            <label for="from-release"><span id="from-label">Release in place</span><select id="from-release"></select></label>
             <div class="arrow" aria-hidden="true">→</div>
-            <label for="to-release"><span>Release under consideration</span><select id="to-release"></select></label>
+            <label for="to-release"><span id="to-label">Release under consideration</span><select id="to-release"></select></label>
           </div>
           <p class="selection-note" id="selection-note" aria-live="polite"></p>
         </div>
@@ -43,7 +44,7 @@
       <div id="results">
         <section class="section path-section" aria-labelledby="path-title">
           <div class="section-head">
-            <div><p class="kicker">01 / THE ROUTE</p><h2 id="path-title">Your path forward</h2></div>
+            <div><p class="kicker" id="path-kicker">01 / THE ROUTE</p><h2 id="path-title">Your path forward</h2></div>
             <p id="path-intro"></p>
           </div>
           <div class="path-card">
@@ -52,10 +53,19 @@
           </div>
         </section>
 
+        <section class="section approach-section" id="migration-approaches" aria-labelledby="approach-title" hidden>
+          <div class="section-head">
+            <div><p class="kicker">02 / MIGRATION MOTION</p><h2 id="approach-title">Choose the shape of the move</h2></div>
+            <p>Splunk documents three common approaches. The right one depends on historical-data requirements, outage tolerance, parallel-run cost, and the amount of production-load validation needed.</p>
+          </div>
+          <div class="approach-grid" id="approach-grid"></div>
+          <p class="approach-note">Make this decision with your Splunk account team or delivery partner after discovery; the explorer does not collect enough environment detail to prescribe one.</p>
+        </section>
+
         <section class="section value-section" aria-labelledby="value-title">
           <div class="section-head">
-            <div><p class="kicker">02 / THE RETURN</p><h2 id="value-title">What becomes available</h2></div>
-            <p>Benefits are organized around the outcomes teams can use—not a wall of release-note changes.</p>
+            <div><p class="kicker" id="value-kicker">02 / THE RETURN</p><h2 id="value-title">What becomes available</h2></div>
+            <p id="value-intro">Benefits are organized around the outcomes teams can use—not a wall of release-note changes.</p>
           </div>
           <div class="value-band" id="value-band"></div>
           <div class="filter-row" id="category-filters" aria-label="Filter benefits"></div>
@@ -64,7 +74,7 @@
 
         <section class="section readiness-section" aria-labelledby="readiness-title">
           <div class="section-head">
-            <div><p class="kicker">03 / READINESS</p><h2 id="readiness-title">Prepare with confidence</h2></div>
+            <div><p class="kicker" id="readiness-kicker">03 / READINESS</p><h2 id="readiness-title">Prepare with confidence</h2></div>
             <p id="readiness-intro"></p>
           </div>
           <div class="readiness-list" id="readiness-list"></div>
@@ -80,7 +90,7 @@
     </main>
 
     <footer>
-      <p><strong>About this guide</strong> This independent read-ahead summarizes official Splunk documentation and the supplied innovation timeline. It does not replace Splunk's release notes, compatibility guidance, or an environment-specific upgrade plan.</p>
+      <p><strong>About this guide</strong> This independent read-ahead summarizes official Splunk documentation, Splunk Lantern migration guidance, and the supplied innovation timeline. It does not replace release notes, compatibility guidance, a Statement of Work, or an environment-specific migration plan.</p>
       <p>Splunk is a registered trademark of Splunk Inc. This experience does not collect or transmit visitor information.</p>
     </footer>
 

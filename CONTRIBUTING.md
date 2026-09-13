@@ -6,6 +6,7 @@ Thank you for helping improve the Splunk Version Value Explorer. Contributions f
 
 - Add newly released Splunk Enterprise or Splunk Cloud Platform versions
 - Correct an upgrade transition or readiness requirement
+- Improve Enterprise-to-Cloud assessment, preparation, validation, cutover, or operating-model guidance
 - Add a meaningful capability or customer outcome
 - Improve citations, accessibility, responsive behavior, or interface clarity
 - Report an issue or propose a larger enhancement
@@ -18,7 +19,7 @@ Contributed guidance should be:
 
 1. **Source-backed.** Link factual release and upgrade claims to official Splunk documentation.
 2. **Outcome-oriented.** Explain why a capability matters instead of reproducing release-note text.
-3. **Platform-specific.** Treat Splunk Enterprise transitions as customer-managed upgrade paths and Splunk Cloud Platform releases as Splunk-managed capability milestones.
+3. **Journey-specific.** Treat Splunk Enterprise transitions as customer-managed upgrade paths, Splunk Cloud Platform releases as Splunk-managed capability milestones, and Enterprise-to-Cloud moves as environment-dependent migration programs.
 4. **Environment-aware.** Avoid presenting summarized guidance as a substitute for compatibility review or environment-specific planning.
 5. **Privacy-preserving.** Do not add forms, tracking, registration, or collection of customer details.
 
@@ -34,12 +35,25 @@ Release content lives in `dist/data.js`.
 6. Update the platform's `latest` value and the reviewed date in `dist/index.html`.
 7. Test several version combinations, including one that requires an intermediate Enterprise step upgrade.
 
+## Updating Enterprise-to-Cloud guidance
+
+Migration content lives in the top-level `migration` object in `dist/data.js`.
+
+1. Confirm the current SCMA release and its supported Splunk Enterprise versions on Splunkbase.
+2. Review Splunk's migration guided path for changes to readiness, preparation, validation, and transition guidance.
+3. Review the selected destination's Cloud Platform release notes and update destination capabilities separately from operating-model benefits.
+4. Keep migration approaches descriptive. Do not prescribe one without customer-specific discovery.
+5. Add or change a recommended action only when its source explains the underlying requirement or practice.
+6. Update `docs/enterprise-to-cloud.md`, the reviewed date, and screenshots when the user experience or guidance model changes materially.
+
 ## Pull-request checklist
 
 - [ ] Every factual release claim has an official source URL
 - [ ] Upgrade paths match the applicable Splunk upgrade-path table
 - [ ] New content is concise and written for a customer read-ahead
 - [ ] Existing Enterprise and Cloud comparisons still render correctly
+- [ ] Enterprise-to-Cloud guidance clearly separates blockers, decisions, tests, and operating steps
+- [ ] Partner-authored Splunk Lantern material is identified as guidance and not represented as a product warranty
 - [ ] Keyboard navigation and mobile layout remain usable
 - [ ] No secrets, customer data, analytics, or tracking code are included
 
