@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for helping improve the Splunk Version Value Explorer. Contributions from Splunk practitioners, customers, partners, and the broader community are welcome.
+Thank you for helping improve Version Compass. Contributions from Splunk practitioners, customers, partners, and the broader community are welcome.
 
 The published project is available at [versioncompass.com](https://versioncompass.com).
 
@@ -32,7 +32,7 @@ Release content lives in `dist/data.js`.
 1. Add the release identifier to the appropriate `releases` array.
 2. Add the release date and official release-note URL under `releasesData`.
 3. Add notable capabilities with a title, value theme, outcome, and concise explanation.
-4. Add documented blockers, tests, validation work, or planning considerations.
+4. Add documented blockers, tests, validation work, or planning considerations. Use the optional fifth `requirements` value (`true`) only when the source identifies a potential breaking change, removed support, changed default, compatibility constraint, or other behavior that can materially disrupt the selected route.
 5. For Splunk Enterprise, update the `edges` map with supported release transitions.
 6. Update the platform's `latest` value and the reviewed date in `dist/index.html`.
 7. Test several version combinations, including one that requires an intermediate Enterprise step upgrade.
@@ -45,8 +45,9 @@ Migration content lives in the top-level `migration` object in `dist/data.js`.
 2. Review Splunk's migration guided path for changes to readiness, preparation, validation, and transition guidance.
 3. Review the selected destination's Cloud Platform release notes and update destination capabilities separately from operating-model benefits.
 4. Keep migration approaches descriptive. Do not prescribe one without customer-specific discovery.
-5. Add or change a recommended action only when its source explains the underlying requirement or practice.
-6. Update `docs/enterprise-to-cloud.md`, the reviewed date, and screenshots when the user experience or guidance model changes materially.
+5. Review `migration.breakingChanges` against Splunk's current blockers/showstoppers and potential delay-causing risks. Keep those callouts separate from the sequenced action plan.
+6. Add or change a recommended action only when its source explains the underlying requirement or practice.
+7. Update `docs/enterprise-to-cloud.md`, the reviewed date, and screenshots when the user experience or guidance model changes materially.
 
 ## Pull-request checklist
 
@@ -55,6 +56,9 @@ Migration content lives in the top-level `migration` object in `dist/data.js`.
 - [ ] New content is concise and written for a customer read-ahead
 - [ ] Existing Enterprise and Cloud comparisons still render correctly
 - [ ] Enterprise-to-Cloud guidance clearly separates blockers, decisions, tests, and operating steps
+- [ ] Potential breaking changes are sourced, route-specific, and not presented as exhaustive
+- [ ] Shareable URLs restore the selected journey and both release values
+- [ ] The print view includes all value categories and remains readable when saved as PDF
 - [ ] Partner-authored Splunk Lantern material is identified as guidance and not represented as a product warranty
 - [ ] Keyboard navigation and mobile layout remain usable
 - [ ] No secrets, customer data, analytics, or tracking code are included

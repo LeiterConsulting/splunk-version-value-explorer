@@ -20,12 +20,21 @@
   const valueBand = document.getElementById("value-band");
   const filters = document.getElementById("category-filters");
   const benefitGrid = document.getElementById("benefit-grid");
+  const breakingKicker = document.getElementById("breaking-kicker");
+  const breakingTitle = document.getElementById("breaking-title");
+  const breakingIntro = document.getElementById("breaking-intro");
+  const breakingList = document.getElementById("breaking-list");
   const readinessKicker = document.getElementById("readiness-kicker");
   const readinessTitle = document.getElementById("readiness-title");
   const readinessIntro = document.getElementById("readiness-intro");
   const readinessList = document.getElementById("readiness-list");
   const sourceTitle = document.getElementById("source-title");
   const sourceActions = document.getElementById("source-actions");
+  const copyLinkButton = document.getElementById("copy-link");
+  const printButton = document.getElementById("print-report");
+  const shareStatus = document.getElementById("share-status");
+  const printTitle = document.getElementById("print-title");
+  const printSubtitle = document.getElementById("print-subtitle");
 
   const defaults = {
     enterprise: { from: "9.4", to: "10.4" },
@@ -68,6 +77,10 @@
     params.set("from", state.from);
     params.set("to", state.to);
     window.history.replaceState(null, "", "?" + params.toString());
+  }
+
+  function plural(count, singular, pluralForm) {
+    return count + " " + (count === 1 ? singular : (pluralForm || singular + "s"));
   }
 
   function fillSelectors() {
@@ -163,7 +176,7 @@
   function selectedRequirements() {
     if (state.platform === "migration") {
       const requirements = data.migration.steps.map(function (requirement) {
-        return { title: requirement[0], detail: requirement[1], level: requirement[2], milestone: requirement[3], source: requirement[4] };
+        return { title: requirement[0], detail: requirement[1], level: requirement[2], milestone: requirement[3], source: requirement[4], breaking: false };
       });
       const sourceIndex = data.enterprise.releases.indexOf(state.from);
       const scmaIndex = data.enterprise.releases.indexOf(data.migration.scmaMinimum);
@@ -189,9 +202,63 @@
     }
     return releasesBetween().flatMap(function (release) {
       return (data[state.platform].releasesData[release].requirements || []).map(function (requirement) {
-        return { title: requirement[0], detail: requirement[1], level: requirement[2], source: requirement[3], release: release };
+        return { title: requirement[0], detail: requirement[1], level: requirement[2], source: requirement[3], breaking: Boolean(requirement[4]), release: release };
       });
     });
+  }
+
+  function selectedBreakingChanges() {
+    if (state.platform === "migration") {
+      const migrationChanges = data.migration.breakingChanges.map(function (item) {
+        return { title: item[0], detail: item[1], level: item[2], milestone: item[3], source: item[4], breaking: true };
+      });
+      const destinationChanges = (data.cloud.releasesData[state.to].requirements || []).filter(function (item) {
+        return Boolean(item[4]);
+      }).map(function (item) {
+        return { title: item[0], detail: item[1], level: item[2], milestone: "Cloud " + state.to, source: item[3], breaking: true };
+      });
+      return migrationChanges.concat(destinationChanges);
+    }
+    return selectedRequirements().filter(function (item) { return item.breaking; });
+  }
+
+  function selectedReadinessItems() {
+    const releaseItems = selectedRequirements().filter(function (item) { return !item.breaking; });
+    if (state.platform === "migration") return releaseItems;
+    const targetSource = data[state.platform].releasesData[state.to].source;
+    const operationalSource = state.platform === "cloud" ? data.migration.sources.overview : targetSource;
+    const baseline = state.platform === "enterprise" ? [
+      {
+        title: "Confirm every app and add-on against the target",
+        detail: "Check Splunk premium-product compatibility and each Splunkbase or private app before the change. Delay the upgrade when a required app does not support the target release.",
+        level: "Test",
+        milestone: "Before the upgrade",
+        source: targetSource
+      },
+      {
+        title: "Back up and rehearse recovery",
+        detail: "Complete the backups called out by Splunk, including KV Store where applicable, and use your tested recovery plan. Splunk does not support rolling an Enterprise installation back to an earlier release.",
+        level: "Plan",
+        milestone: "Before the upgrade",
+        source: targetSource
+      }
+    ] : [
+      {
+        title: "Review the release communication",
+        detail: "Confirm the expected maintenance impact, notify users where needed, complete prescribed prechecks, and check app and forwarder compatibility.",
+        level: "Plan",
+        milestone: "Before the release",
+        source: operationalSource
+      },
+      {
+        title: "Validate critical work after the release",
+        detail: "Confirm reports, alerts, dashboards, integrations, and data hygiene after the managed upgrade reaches your environment.",
+        level: "Validate",
+        milestone: "After the release",
+        source: operationalSource
+      }
+    ];
+    return baseline.concat(releaseItems);
   }
 
   function renderPath() {
@@ -244,7 +311,8 @@
 
   function renderValue() {
     const features = selectedFeatures();
-    const requirements = selectedRequirements();
+    const requirements = selectedReadinessItems();
+    const breakingChanges = selectedBreakingChanges();
     const categories = Array.from(new Set(features.map(function (feature) { return feature.category; })));
 
     const metrics = state.platform === "migration" ? [
@@ -287,14 +355,43 @@
     });
 
     note.textContent = state.platform === "migration"
-      ? features.length + " destination advantages and " + requirements.length + " recommended actions for Enterprise " + state.from + " → Cloud " + state.to + "."
-      : features.length + " notable capabilities and " + requirements.length + " readiness item" + (requirements.length === 1 ? "" : "s") + " across the selected change.";
+      ? plural(features.length, "destination advantage") + ", " + plural(breakingChanges.length, "potential change") + ", and " + plural(requirements.length, "recommended action") + " for Enterprise " + state.from + " → Cloud " + state.to + "."
+      : plural(features.length, "notable capability", "notable capabilities") + ", " + plural(breakingChanges.length, "potential change") + ", and " + plural(requirements.length, "preparation action") + " across the selected route.";
+  }
+
+  function renderBreakingChanges() {
+    const changes = selectedBreakingChanges();
+    if (state.platform === "enterprise") {
+      breakingTitle.textContent = "Changes Splunk says could break an upgrade";
+      breakingIntro.textContent = "A concise view of high-priority items from Splunk's potential-breaking-change guidance for every release line on this route. It is not an exhaustive substitute for each READ THIS FIRST page.";
+    } else if (state.platform === "cloud") {
+      breakingTitle.textContent = "Changes to validate before the release";
+      breakingIntro.textContent = "Splunk manages the platform upgrade. These customer-facing behavior, compatibility, access, and integration changes can still require action before or after the release.";
+    } else {
+      breakingTitle.textContent = "Migration blockers and delay risks";
+      breakingIntro.textContent = "Splunk separates showstoppers that must be resolved before migration execution from risks that can cause serious delays if they are not planned early.";
+    }
+
+    if (!changes.length) {
+      breakingList.innerHTML = '<div class="empty-state breaking-empty"><span>✓</span><div><h3>No potential breaking change highlighted</h3><p>This summary is selective. Review the official guidance and validate apps, integrations, access, and critical workflows for your environment.</p></div></div>';
+      return;
+    }
+
+    breakingList.innerHTML = changes.map(function (item, index) {
+      const milestone = item.milestone || "Release " + item.release;
+      return '<article class="breaking-item">' +
+        '<div class="breaking-marker" aria-hidden="true">' + String(index + 1).padStart(2, "0") + '</div>' +
+        '<div class="breaking-copy"><div class="breaking-meta"><span class="impact ' + item.level.toLowerCase().replace(/\s+/g, "-") + '">' + escapeHtml(item.level) + '</span><span>' + escapeHtml(milestone) + '</span></div>' +
+        '<h3>' + escapeHtml(item.title) + '</h3><p>' + escapeHtml(item.detail) + '</p></div>' +
+        externalLink(item.source, "Review official callout", "guidance-link") +
+      '</article>';
+    }).join("");
   }
 
   function renderReadiness() {
-    const requirements = selectedRequirements();
+    const requirements = selectedReadinessItems();
     if (state.platform === "enterprise") {
-      readinessIntro.textContent = requirements.length ? "Release-specific checks to place into discovery, app testing, and change planning." : "No highlighted breaking-change checks in this summary; still complete Splunk's full pre-upgrade review.";
+      readinessIntro.textContent = requirements.length ? "Additional release-specific work to place into discovery, app testing, and change planning." : "No additional preparation action is highlighted here; still complete Splunk's full pre-upgrade review.";
     } else if (state.platform === "cloud") {
       readinessIntro.textContent = requirements.length ? "Splunk manages the platform release. Your work centers on integrations, apps, access, and changed behaviors." : "Splunk manages the release; validate app, integration, and feature availability for your environment.";
     } else {
@@ -333,6 +430,15 @@
     sourceActions.innerHTML = actions;
   }
 
+  function updateReportSummary() {
+    const journey = state.platform === "migration"
+      ? "Splunk Enterprise " + state.from + " → Splunk Cloud Platform " + state.to
+      : data[state.platform].label + " " + state.from + " → " + state.to;
+    printTitle.textContent = journey;
+    printSubtitle.textContent = "Source-backed guidance reviewed September 2026 · versioncompass.com";
+    document.title = "Version Compass | " + journey;
+  }
+
   function renderAll() {
     document.querySelector('input[name="platform"][value="' + state.platform + '"]').checked = true;
     const isMigration = state.platform === "migration";
@@ -342,15 +448,65 @@
     valueKicker.textContent = (isMigration ? "03" : "02") + " / THE RETURN";
     valueTitle.textContent = isMigration ? "What the move unlocks" : "What becomes available";
     valueIntro.textContent = isMigration ? "Cloud operating-model advantages are combined with highlights from the selected destination release." : "Benefits are organized around the outcomes teams can use—not a wall of release-note changes.";
-    readinessKicker.textContent = (isMigration ? "04" : "03") + " / " + (isMigration ? "NEXT STEPS" : "READINESS");
+    breakingKicker.textContent = (isMigration ? "04" : "03") + " / POTENTIAL BREAKING CHANGES";
+    readinessKicker.textContent = (isMigration ? "05" : "04") + " / " + (isMigration ? "NEXT STEPS" : "READINESS");
     readinessTitle.textContent = isMigration ? "Recommended next steps" : "Prepare with confidence";
     renderPath();
     renderApproaches();
     renderValue();
+    renderBreakingChanges();
     renderReadiness();
     renderSources();
     writeUrlState();
+    updateReportSummary();
   }
+
+  function showShareStatus(message) {
+    shareStatus.textContent = message;
+    window.setTimeout(function () {
+      if (shareStatus.textContent === message) shareStatus.textContent = "";
+    }, 2600);
+  }
+
+  function fallbackCopy(value) {
+    const input = document.createElement("textarea");
+    input.value = value;
+    input.setAttribute("readonly", "");
+    input.style.position = "fixed";
+    input.style.opacity = "0";
+    document.body.appendChild(input);
+    input.select();
+    const copied = document.execCommand("copy");
+    document.body.removeChild(input);
+    return copied;
+  }
+
+  copyLinkButton.addEventListener("click", function () {
+    writeUrlState();
+    const url = window.location.href;
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(url).then(function () {
+        showShareStatus("Report link copied");
+      }).catch(function () {
+        showShareStatus(fallbackCopy(url) ? "Report link copied" : "Copy was blocked by the browser");
+      });
+      return;
+    }
+    showShareStatus(fallbackCopy(url) ? "Report link copied" : "Copy was blocked by the browser");
+  });
+
+  printButton.addEventListener("click", function () {
+    const previousCategory = state.category;
+    state.category = "All";
+    renderValue();
+    document.documentElement.classList.add("printing-report");
+    window.setTimeout(function () {
+      window.print();
+      document.documentElement.classList.remove("printing-report");
+      state.category = previousCategory;
+      renderValue();
+    }, 40);
+  });
 
   platformInputs.forEach(function (input) {
     input.addEventListener("change", function () {

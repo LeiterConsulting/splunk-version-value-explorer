@@ -8,12 +8,13 @@ Because those inputs materially affect a migration, the explorer recommends disc
 
 ## What the journey shows
 
-The selected versions drive four parts of the experience:
+The selected versions drive five parts of the experience:
 
 1. **Migration route.** A five-gate program view from the source release through assessment, preparation, acceptance, and the selected Cloud destination.
 2. **Migration motion.** Greenfield, dual-running, and full historical migration patterns with their best-fit signals and principal tradeoffs.
 3. **Value return.** Cloud operating-model benefits combined with notable capabilities available by the selected destination release.
-4. **Recommended next steps.** A sequenced list covering ownership, SCMA, apps, data, connectivity, identity, testing, cutover, monitoring, and retirement.
+4. **Migration blockers and delay risks.** A dedicated section based on Splunk's blockers/showstoppers, potential delay-causing risks, and material differences in the Cloud operating model. Destination-specific Cloud behavior changes are included when relevant.
+5. **Recommended next steps.** A sequenced list covering ownership, SCMA, apps, data, connectivity, identity, testing, cutover, monitoring, and retirement.
 
 For Enterprise 8.1 or 8.2, the journey adds a source-readiness blocker because the current SCMA listing supports Splunk Enterprise 9.1 and later. For supported but older source lines, it asks the team to decide whether modernizing the source first is worthwhile. This is a planning prompt, not a claim that every migration must follow the same technical sequence.
 
@@ -40,6 +41,7 @@ Enterprise-to-Cloud content is centralized in `dist/data.js` under `migration`:
 - `sources` contains canonical documentation URLs.
 - `operatingBenefits` contains enduring Cloud operating-model value.
 - `approaches` describes migration motions and tradeoffs.
+- `breakingChanges` contains source-backed blockers, delay risks, and material operating-model differences that deserve explicit attention.
 - `steps` contains the sequenced, source-backed action plan.
 
 When Splunk publishes a new Enterprise version, Cloud version, SCMA release, or migration guide revision:
@@ -47,9 +49,12 @@ When Splunk publishes a new Enterprise version, Cloud version, SCMA release, or 
 1. Verify the source directly and record only claims supported by it.
 2. Update the Enterprise or Cloud release object first.
 3. Change the migration model only if the new material changes compatibility, sequencing, a migration approach, or an operating-model benefit.
-4. Test a pre-SCMA source line, a supported older source line, and the latest Enterprise source against at least two Cloud destinations.
-5. Update the reviewed date and any screenshots affected by the change.
+4. Reconcile `migration.breakingChanges` with Splunk's current showstopper and delay-risk guidance, then review the target Cloud release for changed defaults or compatibility constraints.
+5. Test a pre-SCMA source line, a supported older source line, and the latest Enterprise source against at least two Cloud destinations.
+6. Update the reviewed date and any screenshots affected by the change.
 
 ## Scope and privacy
 
-The explorer stores selections only in the page URL so a comparison can be shared. It has no registration, contact form, analytics, tracking, or customer-data submission. Any SCMA export is produced and shared outside this site and only through an explicit customer action described by Splunk.
+The explorer stores selections only in the page URL so a report can be shared. The **Copy report link** action copies that URL, including the journey, source, and destination selections. The **Print / save PDF** action uses the browser's native print dialog and does not upload report content.
+
+The site has no registration, contact form, analytics, tracking, or customer-data submission. Any SCMA export is produced and shared outside this site and only through an explicit customer action described by Splunk.

@@ -1,4 +1,4 @@
-# Splunk Version Value Explorer
+# Version Compass
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
@@ -14,8 +14,11 @@ Choose an upgrade or migration journey, the release currently in place, and the 
 - Enterprise-to-Cloud readiness gates and migration approaches
 - Version-aware Splunk Cloud Migration Assessment App (SCMA) guidance
 - New features grouped by customer outcome
-- Release-specific blockers, validation work, and planning considerations
+- A dedicated, route-aware view of potential breaking changes, migration blockers, and delay risks
+- Release-specific validation work and planning considerations
 - Direct links to the relevant official Splunk documentation
+- Shareable report URLs that preserve the selected journey and releases
+- A print-optimized report that can be saved as PDF from the browser
 
 No registration, lead form, subscription, or customer information is collected.
 
@@ -46,13 +49,13 @@ See [`docs/enterprise-to-cloud.md`](docs/enterprise-to-cloud.md) for the migrati
 Release content is centralized in [`dist/data.js`](dist/data.js). To extend the explorer:
 
 1. Add the release identifier to the platform's `releases` array.
-2. Add its date, official release-note URL, notable capabilities, and readiness requirements under `releasesData`.
+2. Add its date, official release-note URL, notable capabilities, and readiness requirements under `releasesData`. Set the optional fifth requirement value to `true` when the official source identifies a potential breaking or material behavior change.
 3. For Splunk Enterprise, add supported transitions to the `edges` upgrade-path map.
 4. Update the platform's `latest` value and the reviewed date in [`dist/index.html`](dist/index.html).
 
-Enterprise-to-Cloud content is kept in the top-level `migration` object. It contains the SCMA compatibility floor, official source links, operating-model benefits, migration approaches, and recommended actions. When the latest Cloud destination changes, review both the Cloud release record and migration defaults.
+Enterprise-to-Cloud content is kept in the top-level `migration` object. It contains the SCMA compatibility floor, official source links, operating-model benefits, migration approaches, potential breaking changes, and recommended actions. When the latest Cloud destination changes, review both the Cloud release record and migration defaults.
 
-The selectors, path visualization, metrics, filters, capability cards, readiness guidance, citations, and shareable URL are generated automatically from that data.
+The selectors, path visualization, metrics, filters, capability cards, breaking-change report, readiness guidance, citations, and shareable URL are generated automatically from that data. The **Print / save PDF** action temporarily includes every value category and uses the browser's native print dialog to create a portable report without sending data to a server.
 
 ## Collaboration is welcome
 

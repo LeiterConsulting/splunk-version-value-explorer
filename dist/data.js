@@ -44,7 +44,7 @@ window.SPLUNK_DATA = {
           ["Splunk Assist", "Search & AI", "Bring cloud-powered guidance on premises", "Receive configuration insights and recommendations from a connected cloud service."],
           ["SmartStore for Azure", "Data management", "Extend storage architecture", "Use Azure Blob Storage as a SmartStore remote object store."]
         ], requirements: [
-          ["Migrate the KV Store engine", "Splunk Enterprise 9.0 moves KV Store from MongoDB 3.6 to 4.2. Complete the documented migration and validate apps that depend on KV Store.", "Plan", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/9.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-9.0-read-this-first"]
+          ["Migrate the KV Store engine", "Splunk Enterprise 9.0 moves KV Store from MongoDB 3.6 to 4.2. Complete the documented migration and validate apps that depend on KV Store.", "Plan", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/9.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-9.0-read-this-first", true]
         ]
       },
       "9.1": {
@@ -56,7 +56,9 @@ window.SPLUNK_DATA = {
           ["Cluster-wide search history", "Search & AI", "Keep work visible across nodes", "Access search history across search head cluster members."],
           ["Redesigned home experience", "Dashboards & experience", "Reach work faster", "Navigate apps, recent objects, and learning resources from a cleaner starting point."]
         ], requirements: [
-          ["Test apps against jQuery 3.5", "jQuery 3.5 is the default. Review custom apps and dashboards for compatibility before production rollout.", "Test", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/9.1/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-9.1-read-this-first"]
+          ["Set UTF-8 before upgrading non-UTF-8 hosts", "An upgrade to 9.1 can fail—or leave Splunk Web blank—when the operating system does not use UTF-8. Apply Splunk's documented PYTHONUTF8 workaround before the upgrade.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/9.1/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-9.1-read-this-first", true],
+          ["Test older deployment clients", "A 9.1 deployment server can have communication problems with deployment clients earlier than 7.0. Review topology and client versions before upgrading the server.", "Test", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/9.1/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-9.1-read-this-first", true],
+          ["Test apps against jQuery 3.5", "Older jQuery libraries are restricted by default. Review custom apps and dashboards for compatibility before production rollout.", "Test", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/9.1/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-9.1-read-this-first", true]
         ]
       },
       "9.2": {
@@ -78,7 +80,7 @@ window.SPLUNK_DATA = {
           ["Scheduled PDF and PNG export", "Dashboards & experience", "Deliver insight in familiar formats", "Schedule Dashboard Studio exports for offline distribution."],
           ["Python 3.9 becomes default", "Platform operations", "Refresh the runtime baseline", "Move the embedded Python default to 3.9 for apps and integrations."]
         ], requirements: [
-          ["Validate field-filter roles", "Earlier role-based field filter syntax is not valid in 9.3. Review rules and confirm that restricted fields behave as expected.", "Validate", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/9.3/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-9.3-read-this-first"]
+          ["Validate field-filter roles", "Earlier role-based field filters are replaced by field filters in 9.3. Review rules and commands affected by field filtering before using it in production.", "Validate", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/9.3/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-9.3-read-this-first", true]
         ]
       },
       "9.4": {
@@ -90,8 +92,8 @@ window.SPLUNK_DATA = {
           ["Persistent queues for S2S", "Data management", "Increase delivery resilience", "Buffer Splunk-to-Splunk traffic through interruptions."],
           ["Oversized lookup quarantine", "Platform operations", "Protect cluster stability", "Prevent oversized lookups from disrupting search head cluster replication."]
         ], requirements: [
-          ["Confirm CPU instruction support", "Hosts require AVX, SSE4.2, and AES-NI processor support. Verify every target host—not only a representative node.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/9.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-9.4-read-this-first"],
-          ["Account for sidecar configuration", "New sidecar processes can write web.conf and restmap.conf under system/local. Update configuration-management ownership and drift rules.", "Plan", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/9.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-9.4-read-this-first"]
+          ["Confirm CPU instruction support", "Hosts require AVX, SSE4.2, and AES-NI processor support. Verify every target host—not only a representative node.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/9.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-9.4-read-this-first", true],
+          ["Account for sidecar configuration", "New sidecar processes can write web.conf and restmap.conf under system/local. Configuration-management tools that revert those changes can cause instability or restart loops.", "Plan", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/9.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-9.4-read-this-first", true]
         ]
       },
       "10.0": {
@@ -103,8 +105,9 @@ window.SPLUNK_DATA = {
           ["Fine-grained knowledge permissions", "Security & compliance", "Delegate access more precisely", "Apply more granular control to shared knowledge objects."],
           ["Audit Trail dashboards", "Dashboards & experience", "See administrative activity", "Explore security and platform audit events through purpose-built dashboards."]
         ], requirements: [
-          ["Remove Python 2 dependencies", "Splunk Enterprise 10.0 supports Python 3.9 only. Inventory custom scripts, modular inputs, and private apps before the jump.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.0-read-this-first"],
-          ["Test OpenSSL 3 compatibility", "Review custom apps, certificates, and integrations for the OpenSSL 3 baseline and updated cryptographic defaults.", "Test", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.0-read-this-first"]
+          ["Move Python 3.7 dependencies to 3.9", "Python 3.7 support is removed in 10.0. Confirm that apps and add-ons using Python work with the 3.9 interpreter before upgrading.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.0-read-this-first", true],
+          ["Replace Hadoop Data Roll", "Hadoop Data Roll is no longer supported and is turned off by default. Plan another archive destination for aged index data.", "Plan", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.0-read-this-first", true],
+          ["Test OpenSSL 3 compatibility", "Review custom apps, certificates, and integrations for the OpenSSL 3 baseline and updated cryptographic defaults.", "Test", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.0-read-this-first", true]
         ]
       },
       "10.2": {
@@ -116,9 +119,9 @@ window.SPLUNK_DATA = {
           ["OAuth 2.0 expansion", "Security & compliance", "Use modern delegated access", "Apply OAuth-based authentication across more supported interfaces."],
           ["Field filters become the default", "Security & compliance", "Operationalize least privilege", "Enable field filters by default and extend their behavior to accelerated searches."]
         ], requirements: [
-          ["Replace embedded Node.js dependencies", "The embedded Node.js runtime is removed. Package or redesign custom app components that depended on it.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.2/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.2-read-this-first"],
-          ["Review service identity and edge hosts", "Splunk no longer runs as root by default, and Edge Processor drops several older operating systems. Validate service accounts, file access, and edge nodes.", "Validate", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.2/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.2-read-this-first"],
-          ["Check federated provider names", "Federated provider names become case-insensitive. Resolve names that differ only by capitalization.", "Test", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.2/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.2-read-this-first"]
+          ["Replace embedded Node.js dependencies", "The embedded Node.js runtime is removed. Apps that require Node.js must ship their own runtime or be redesigned.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.2/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.2-read-this-first", true],
+          ["Review service identity and Edge Processor hosts", "Splunk no longer runs as root by default. Unsupported Linux versions can also make Edge Processor crash and cause data loss; validate service accounts, file access, and every edge node.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.2/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.2-read-this-first", true],
+          ["Check federated provider names", "Federated provider names become case-insensitive. Resolve names that differ only by capitalization.", "Test", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.2/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.2-read-this-first", true]
         ]
       },
       "10.4": {
@@ -133,11 +136,11 @@ window.SPLUNK_DATA = {
           ["Bulk data movement", "Data management", "Move indexed data with less manual work", "Orchestrate supported bulk data movement between locations."],
           ["HTTP/2 and targeted federation", "Search & AI", "Connect and search more efficiently", "Use newer transport and more selective targeting for federated workflows."]
         ], requirements: [
-          ["Reach KV Store 7 before upgrading", "All deployments must use KV Store 7. Complete the migration and verify app collections before moving to 10.4.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first"],
-          ["Modernize TLS and certificates", "TLS 1.0/1.1 and SHA-1-signed certificates are removed. Inventory every internal and external connection and replace incompatible endpoints.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first"],
-          ["Move away from privileged services", "Root and administrator service identities are no longer supported. Confirm file ownership, ports, boot configuration, and service accounts.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first"],
-          ["Validate apps and classic dashboards", "Run AppInspect, remove jQuery 2 dependencies, and plan migration for classic Simple XML dashboards affected by current lifecycle guidance.", "Test", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first"],
-          ["Review dashboard refresh permissions", "The auto_refresh_dashboards capability governs automatic dashboard refresh. Confirm roles retain intended behavior.", "Validate", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first"]
+          ["Reach KV Store 7 before upgrading", "All deployments must use KV Store 7. Complete the migration and verify app collections before moving to 10.4.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first", true],
+          ["Modernize TLS and certificates", "TLS 1.0/1.1 and SHA-1-signed certificates are removed. Inventory every internal and external connection and replace incompatible endpoints.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first", true],
+          ["Move away from privileged services", "Root and administrator service identities are no longer supported. Confirm file ownership, ports, boot configuration, and service accounts.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first", true],
+          ["Validate apps and classic dashboards", "Run AppInspect, remove jQuery 2 dependencies, and plan migration for classic Simple XML dashboards affected by current lifecycle guidance.", "Test", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first", true],
+          ["Review dashboard refresh permissions", "The auto_refresh_dashboards capability governs automatic dashboard refresh. Confirm roles retain intended behavior.", "Validate", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first", true]
         ]
       }
     }
@@ -172,8 +175,8 @@ window.SPLUNK_DATA = {
           ["Field-filter processing improvements", "Security & compliance", "Enforce data visibility more consistently", "Refine how field filters interact with the search pipeline."],
           ["API modernization", "Platform operations", "Move integrations to a current contract", "Adopt Search API v2 as v1 becomes disabled by default."]
         ], requirements: [
-          ["Move Search API clients to v2", "Search API v1 is disabled by default. Inventory integrations and validate them against API v2.", "Test", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.0.2503/splunk-cloud-platform-release-notes/whats-new"],
-          ["Check federated saved-search names", "Local saved searches beginning with “federated:” can conflict with updated naming behavior.", "Validate", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.0.2503/splunk-cloud-platform-release-notes/whats-new"]
+          ["Move Search API clients to v2", "Search API v1 is disabled by default. Inventory integrations and validate them against API v2.", "Test", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.0.2503/splunk-cloud-platform-release-notes/whats-new", true],
+          ["Check federated saved-search names", "Local saved searches beginning with “federated:” can conflict with updated naming behavior.", "Validate", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.0.2503/splunk-cloud-platform-release-notes/whats-new", true]
         ]
       },
       "10.1.2507": {
@@ -184,7 +187,7 @@ window.SPLUNK_DATA = {
           ["AI Assistant maturation", "Search & AI", "Build and understand SPL faster", "Use updated natural-language search guidance through the supported app."],
           ["Password network allow list", "Security & compliance", "Constrain credential use", "Limit password authentication to approved networks."]
         ], requirements: [
-          ["Align the AI Assistant app", "AI Assistant in Search requires a supported app version; release 1.3.2 or later is cited for this platform line.", "Validate", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.1.2507/splunk-cloud-platform-release-notes/whats-new"]
+          ["Align the AI Assistant app", "AI Assistant in Search requires a supported app version; release 1.3.2 or later is cited for this platform line.", "Validate", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.1.2507/splunk-cloud-platform-release-notes/whats-new", false]
         ]
       },
       "10.2.2510": {
@@ -195,7 +198,7 @@ window.SPLUNK_DATA = {
           ["Targeted app installation", "Platform operations", "Reduce app rollout scope", "Install compatible apps onto selected Victoria Experience search heads."],
           ["TLS sidecar verification", "Security & compliance", "Strengthen service-to-service trust", "Apply additional verification to platform sidecar connections."]
         ], requirements: [
-          ["Check federated provider names", "Provider names become case-insensitive. Resolve any names that differ only by capitalization.", "Validate", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.2.2510/splunk-cloud-platform-release-notes/whats-new"]
+          ["Check federated provider names", "Provider names become case-insensitive. Resolve any names that differ only by capitalization.", "Validate", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.2.2510/splunk-cloud-platform-release-notes/whats-new", true]
         ]
       },
       "10.4.2604": {
@@ -207,8 +210,8 @@ window.SPLUNK_DATA = {
           ["Azure data self-service", "Data management", "Activate remote data sooner", "Extend Dynamic Data Self-Storage workflows to supported Azure storage."],
           ["Unified federation", "Search & AI", "Simplify cross-environment access", "Use a more consistent foundation for supported federated data sources."]
         ], requirements: [
-          ["Replace SHA-1 certificates", "SHA-1-signed certificates are removed from supported trust paths. Confirm private integrations use modern signatures.", "Blocker", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.4.2604/splunk-cloud-platform-release-notes/whats-new"],
-          ["Review automatic refresh roles", "Confirm that roles needing automatic dashboard refresh have the auto_refresh_dashboards capability.", "Validate", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.4.2604/splunk-cloud-platform-release-notes/whats-new"]
+          ["Replace SHA-1 certificates", "SHA-1-signed certificates are removed from supported trust paths. Confirm private integrations use modern signatures.", "Blocker", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.4.2604/splunk-cloud-platform-release-notes/whats-new", true],
+          ["Review automatic refresh roles", "Automatic dashboard refresh now requires the auto_refresh_dashboards capability. Confirm intended roles retain this behavior after the release.", "Validate", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.4.2604/splunk-cloud-platform-release-notes/whats-new", true]
         ]
       },
       "10.5.2605": {
@@ -223,8 +226,8 @@ window.SPLUNK_DATA = {
           ["Fine-grained field extraction access", "Security & compliance", "Delegate knowledge creation safely", "Separate field-extraction privileges with more precise access controls."],
           ["Cisco Cloud Control integration", "Search & AI", "Connect a broader AI operations experience", "Integrate supported Splunk workflows with Cisco Cloud Control and AI Canvas."]
         ], requirements: [
-          ["Review scheduled-search limits", "Updated limits can affect high-volume scheduling patterns. Inventory concurrent workloads and validate critical schedules.", "Plan", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.5.2605/splunk-cloud-platform-release-notes/whats-new"],
-          ["Reconfirm password allow lists", "Password-authentication network controls become more restrictive. Confirm operational and break-glass access paths.", "Validate", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.5.2605/splunk-cloud-platform-release-notes/whats-new"]
+          ["Plan scheduled-search frequency limits", "New controls can set minimum schedule intervals by role or trigger action. Inventory high-volume workloads before enabling limits and validate critical schedules afterward.", "Plan", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.5.2605/splunk-cloud-platform-release-notes/whats-new", false],
+          ["Reconfirm password allow lists", "Password-authentication network controls become more restrictive. Confirm operational and break-glass access paths.", "Validate", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.5.2605/splunk-cloud-platform-release-notes/whats-new", true]
         ]
       }
     }
@@ -273,6 +276,13 @@ window.SPLUNK_DATA = {
         strengths: ["Historical data is migrated", "Configuration can be prepared first", "Clear final-state cutover"],
         tradeoff: "Requires an outage sized to data volume and offers the least forgiving rollback path."
       }
+    ],
+    breakingChanges: [
+      ["Open every required data and integration path", "Splunk lists blocked data-forwarding routes and blocked connections to on-premises services as migration showstoppers. Prove firewall egress and any ES, SOAR, UBA, HEC, or heavy-forwarder path before execution.", "Blocker", "Network gate", "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Prepare"],
+      ["Replace unsupported forwarding certificate patterns", "The requireClientCert = true setting in server.conf is not supported in Splunk Cloud Platform. Use the Cloud credentials package and a supported forwarding design instead.", "Blocker", "Forwarding security", "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Prepare"],
+      ["Remediate incompatible and custom apps", "Only Cloud-compatible, vetted apps can run in Splunk Cloud Platform. Custom apps and third-party apps that depend on unsupported or insecure access can require material redesign and can block a critical workflow.", "Delay risk", "App compatibility", "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Prepare"],
+      ["Upgrade unsupported forwarders before cutover", "Splunk identifies unsupported forwarder versions as a blocker to the final forwarding step. Large forwarder estates can take months to remediate, so start this work in parallel with migration planning.", "Cutover blocker", "Data flow", "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Prepare"],
+      ["Rework backend and administrative procedures", "Enterprise and Cloud Platform have substantial feature overlap, but some features and administrative interactions work differently and customers do not operate the backend. Validate operational procedures, permissions, and critical workflows in SAT and UAT.", "Behavior change", "Operating model", "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Overview"]
     ],
     steps: [
       ["Define value, owners, and decision rights", "Align the migration value proposition to measurable pain points, establish the delivery team, and clarify post-migration roles before technical execution begins.", "First", "Mobilize", "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Readiness"],

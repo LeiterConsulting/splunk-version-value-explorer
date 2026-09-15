@@ -7,12 +7,12 @@
     <meta name="theme-color" content="#07130f" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307130f'/%3E%3Cpath d='m18 20 18 12-18 12' fill='none' stroke='%236ce5a5' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M39 43h8' stroke='%23fff' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Splunk Version Value Explorer</title>
+    <title>Version Compass | Splunk upgrade and migration guide</title>
   </head>
   <body>
     <a class="skip-link" href="#results">Skip to comparison</a>
     <header class="site-header">
-      <a class="brand" href="./" aria-label="Version Value Explorer home"><span aria-hidden="true">&gt;_</span> Version Value Explorer</a>
+      <a class="brand" href="./" aria-label="Version Compass home"><span aria-hidden="true">&gt;_</span> Version Compass</a>
       <span class="reviewed">Reviewed September 2026</span>
     </header>
 
@@ -37,11 +37,22 @@
             <label for="to-release"><span id="to-label">Release under consideration</span><select id="to-release"></select></label>
           </div>
           <p class="selection-note" id="selection-note" aria-live="polite"></p>
+          <div class="report-actions" aria-label="Share or export this report">
+            <button type="button" id="copy-link"><span aria-hidden="true">↗</span> Copy report link</button>
+            <button type="button" id="print-report"><span aria-hidden="true">↓</span> Print / save PDF</button>
+            <span class="share-status" id="share-status" aria-live="polite"></span>
+          </div>
         </div>
         <div class="scroll-cue" aria-hidden="true">EXPLORE THE CHANGE <span>↓</span></div>
       </section>
 
       <div id="results">
+        <header class="print-summary" aria-hidden="true">
+          <p>VERSION COMPASS · CUSTOMER READ-AHEAD</p>
+          <h1 id="print-title">Selected Splunk journey</h1>
+          <span id="print-subtitle">Source-backed guidance reviewed September 2026</span>
+        </header>
+
         <section class="section path-section" aria-labelledby="path-title">
           <div class="section-head">
             <div><p class="kicker" id="path-kicker">01 / THE ROUTE</p><h2 id="path-title">Your path forward</h2></div>
@@ -70,6 +81,14 @@
           <div class="value-band" id="value-band"></div>
           <div class="filter-row" id="category-filters" aria-label="Filter benefits"></div>
           <div class="benefit-grid" id="benefit-grid"></div>
+        </section>
+
+        <section class="section breaking-section" aria-labelledby="breaking-title">
+          <div class="section-head">
+            <div><p class="kicker" id="breaking-kicker">03 / POTENTIAL BREAKING CHANGES</p><h2 id="breaking-title">Know what could change</h2></div>
+            <p id="breaking-intro">High-priority changes Splunk flags that could affect compatibility, behavior, access, or integrations across this route.</p>
+          </div>
+          <div class="breaking-list" id="breaking-list"></div>
         </section>
 
         <section class="section readiness-section" aria-labelledby="readiness-title">
