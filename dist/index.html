@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Compare Splunk releases or explore a source-backed Splunk Enterprise to Splunk Cloud Platform migration path, technical changes, readiness requirements, and customer value." />
+    <meta name="description" content="Compare source-backed release journeys across Splunk Platform, Enterprise Security, IT Service Intelligence, and Observability Cloud—including compatibility gates, technical changes, and readiness guidance." />
     <meta name="theme-color" content="#07130f" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307130f'/%3E%3Cpath d='m18 20 18 12-18 12' fill='none' stroke='%236ce5a5' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M39 43h8' stroke='%23fff' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Version Compass | Splunk upgrade and migration guide</title>
+    <title>Version Compass | Splunk product release guide</title>
   </head>
   <body>
     <a class="skip-link" href="#results">Skip to comparison</a>
@@ -18,25 +18,36 @@
 
     <main>
       <section class="hero" aria-labelledby="page-title">
-        <div class="eyebrow"><span></span> SPLUNK PLATFORM READ-AHEAD</div>
+        <div class="eyebrow"><span></span> SPLUNK PRODUCT READ-AHEAD</div>
         <h1 id="page-title">See what the next<br />move makes possible.</h1>
-        <p class="dek">Compare releases—or map the move from Splunk Enterprise to Splunk Cloud Platform—with clear value, technical changes, readiness guidance, and sources.</p>
+        <p class="dek">Compare platform and premium-product releases with clear value, compatibility gates, technical changes, readiness guidance, and official sources.</p>
 
         <div class="selector-card" aria-label="Release comparison controls">
-          <fieldset class="platform-toggle">
-            <legend>Journey</legend>
-            <div class="toggle-options">
-              <label><input type="radio" name="platform" value="enterprise" checked /><span>Enterprise upgrades</span></label>
-              <label><input type="radio" name="platform" value="cloud" /><span>Cloud releases</span></label>
-              <label><input type="radio" name="platform" value="migration" /><span>Enterprise → Cloud</span></label>
+          <fieldset class="product-switcher">
+            <legend>Product</legend>
+            <div class="product-options">
+              <label><input type="radio" name="product" value="platform" checked /><span><strong>Splunk</strong><small>Platform</small></span></label>
+              <label><input type="radio" name="product" value="es" /><span><strong>ES</strong><small>Enterprise Security</small></span></label>
+              <label><input type="radio" name="product" value="itsi" /><span><strong>ITSI</strong><small>Service Intelligence</small></span></label>
+              <label><input type="radio" name="product" value="observability" /><span><strong>O11y</strong><small>Observability Cloud</small></span></label>
             </div>
           </fieldset>
-          <div class="release-selectors">
+          <fieldset class="platform-toggle">
+            <legend id="journey-legend">Journey</legend>
+            <div class="toggle-options">
+              <label data-platform-option="enterprise"><input type="radio" name="platform" value="enterprise" checked /><span>Enterprise upgrades</span></label>
+              <label data-platform-option="cloud"><input type="radio" name="platform" value="cloud" /><span>Cloud releases</span></label>
+              <label data-platform-option="migration"><input type="radio" name="platform" value="migration" /><span>Enterprise → Cloud</span></label>
+            </div>
+          </fieldset>
+          <div class="release-selectors" id="release-selectors">
+            <label for="host-release" id="host-release-field" hidden><span id="host-label">Splunk release in place</span><select id="host-release"></select></label>
             <label for="from-release"><span id="from-label">Release in place</span><select id="from-release"></select></label>
             <div class="arrow" aria-hidden="true">→</div>
             <label for="to-release"><span id="to-label">Release under consideration</span><select id="to-release"></select></label>
           </div>
           <p class="selection-note" id="selection-note" aria-live="polite"></p>
+          <div class="compatibility-gate" id="compatibility-gate" aria-live="polite" hidden></div>
           <div class="report-actions" aria-label="Share or export this report">
             <button type="button" id="copy-link"><span aria-hidden="true">↗</span> Copy report link</button>
             <button type="button" id="print-report"><span aria-hidden="true">↓</span> Print / save PDF</button>
@@ -49,8 +60,9 @@
       <div id="results">
         <header class="print-summary" aria-hidden="true">
           <p>VERSION COMPASS · CUSTOMER READ-AHEAD</p>
-          <h1 id="print-title">Selected Splunk journey</h1>
+          <h1 id="print-title">Selected product journey</h1>
           <span id="print-subtitle">Source-backed guidance reviewed September 2026</span>
+          <div class="print-compatibility" id="print-compatibility"></div>
         </header>
 
         <section class="section path-section" aria-labelledby="path-title">
@@ -125,7 +137,7 @@
 
     <footer class="site-footer">
       <div class="footer-copy">
-        <p><strong>About this guide</strong> This independent read-ahead summarizes official Splunk documentation, Splunk Lantern migration guidance, and the supplied innovation timeline. It does not replace release notes, compatibility guidance, a Statement of Work, or an environment-specific migration plan.</p>
+        <p><strong>About this guide</strong> This independent read-ahead summarizes official Splunk product documentation, compatibility matrices, release notes, and Splunk Lantern migration guidance. It does not replace release notes, entitlement checks, compatibility guidance, a Statement of Work, or an environment-specific plan.</p>
         <p><strong>Independent project</strong> Version Compass is independently developed. It is not affiliated with, sponsored by, endorsed by, or an official product of Cisco or Splunk.</p>
       </div>
       <div class="footer-meta">
@@ -138,6 +150,7 @@
     </footer>
 
     <script src="data.js"></script>
+    <script src="product-data.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

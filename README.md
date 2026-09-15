@@ -3,15 +3,19 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-An interactive, customer-friendly read-ahead for understanding what becomes available—and what preparation is required—when upgrading Splunk or moving from Splunk Enterprise to Splunk Cloud Platform.
+An interactive, customer-friendly read-ahead for understanding what becomes available—and what preparation is required—across Splunk Platform, Splunk Enterprise Security, Splunk IT Service Intelligence, and Splunk Observability Cloud.
 
 ## [Open Version Compass →](https://versioncompass.com)
 
-Choose an upgrade or migration journey, the release currently in place, and the destination under consideration. The explorer builds a tailored view of:
+Choose a product first, then select its deployment context, current release, and destination. The explorer builds a tailored view of:
 
+- Product-aware release journeys for Splunk Platform, Enterprise Security, ITSI, and Observability Cloud
 - Supported Splunk Enterprise step-upgrade paths
 - Splunk Cloud Platform capability milestones
 - Enterprise-to-Cloud readiness gates and migration approaches
+- Enterprise Security and ITSI compatibility checks against the selected Splunk platform line
+- A direct platform-upgrade route when the selected premium-product target requires Splunk Enterprise to move first
+- Dated Observability Cloud milestones with separate OpenTelemetry Collector and instrumentation prerequisites
 - Version-aware Splunk Cloud Migration Assessment App (SCMA) guidance
 - New features grouped by customer outcome
 - A collapsed, route-specific technical delta covering runtimes, data stores, protocols, cryptography, host requirements, APIs, permissions, and operating-model changes
@@ -40,23 +44,30 @@ No registration, lead form, subscription, or customer information is collected.
 | Splunk Enterprise | 8.1 through 10.4 |
 | Splunk Cloud Platform | 9.2.2406 through 10.5.2605 |
 | Enterprise → Cloud | Enterprise 8.1–10.4 to Cloud 9.2.2406–10.5.2605 |
+| Splunk Enterprise Security | 7.3 through 8.7 |
+| Splunk IT Service Intelligence | 4.15 through 5.0.1 |
+| Splunk Observability Cloud | Dated milestones from November 2024 through September 2026 |
 
-The content is organized around five value themes: Search & AI, Platform Operations, Data Management, Security & Compliance, and Dashboards & Experience. A separate technical layer explains the documented before-and-after state, why it matters, and the recommended action without treating every component change as a breaking change. Enterprise-to-Cloud recommendations cover mobilization, assessment, migration-motion selection, app and data preparation, connectivity, access, acceptance testing, cutover, and retirement.
+The platform content is organized around five value themes: Search & AI, Platform Operations, Data Management, Security & Compliance, and Dashboards & Experience. Product-specific themes are added for security operations, service intelligence, and observability. A separate technical layer explains the documented before-and-after state, why it matters, and the recommended action without treating every component change as a breaking change. Enterprise-to-Cloud recommendations cover mobilization, assessment, migration-motion selection, app and data preparation, connectivity, access, acceptance testing, cutover, and retirement.
 
-See [`docs/technical-changes.md`](docs/technical-changes.md) for the technical-delta content model and [`docs/enterprise-to-cloud.md`](docs/enterprise-to-cloud.md) for the migration guidance model, source map, and maintenance notes.
+See [`docs/product-tracks.md`](docs/product-tracks.md) for the premium-product and Observability model, [`docs/technical-changes.md`](docs/technical-changes.md) for the technical-delta content model, and [`docs/enterprise-to-cloud.md`](docs/enterprise-to-cloud.md) for the migration guidance model, source map, and maintenance notes.
 
 ## Updating for a new release
 
-Release content is centralized in [`dist/data.js`](dist/data.js). To extend the explorer:
+Platform and Enterprise-to-Cloud content is centralized in [`dist/data.js`](dist/data.js). Premium-product and Observability content lives in [`dist/product-data.js`](dist/product-data.js). To extend the explorer:
 
 1. Add the release identifier to the platform's `releases` array.
 2. Add its date, official release-note URL, notable capabilities, technical changes, and readiness requirements under `releasesData`. Set the optional fifth requirement value to `true` when the official source identifies a potential breaking or material behavior change.
 3. For Splunk Enterprise, add supported transitions to the `edges` upgrade-path map.
-4. Update the platform's `latest` value and the reviewed date in [`dist/index.html`](dist/index.html).
+4. For Enterprise Security or ITSI, reconcile the official product compatibility matrix at the maintenance-release level and update the simplified platform-line mapping. Recheck the current Cloud service pairing separately.
+5. For Observability Cloud, add a dated service milestone and keep versioned Collector, Kubernetes chart, instrumentation, and semantic-convention dependencies distinct from rolling SaaS availability.
+6. Update the applicable `latest` value and the reviewed date in [`dist/index.html`](dist/index.html).
 
 Each `technicalChanges` record identifies the component or contract, technical area, change type, action level, documented before-and-after state, implication, recommended action, and official source. Preserve important scope distinctions such as bundled versus app-owned, default versus optional, deprecated versus removed, and platform-managed versus customer-managed.
 
 Enterprise-to-Cloud content is kept in the top-level `migration` object. It contains the SCMA compatibility floor, official source links, operating-model benefits, migration approaches, technical operating-model changes, potential breaking changes, and recommended actions. When the latest Cloud destination changes, review both the Cloud release record and migration defaults.
+
+Enterprise Security remains the security-product route even as Splunk expands integrated SIEM, SOAR, UEBA, threat-intelligence, exposure, and AI capabilities. These should be described with their documented edition, deployment, entitlement, and availability boundaries instead of being presented as universally included or as separate top-level version lines without an official version contract.
 
 The selectors, path visualization, metrics, filters, capability cards, collapsed technical delta, breaking-change report, readiness guidance, citations, and shareable URL are generated automatically from that data. The **Print / save PDF** action temporarily includes every value category, expands the technical detail, and uses the browser's native print dialog to create a portable report without sending data to a server.
 
@@ -64,8 +75,9 @@ The selectors, path visualization, metrics, filters, capability cards, collapsed
 
 Updates, corrections, and improvements are encouraged—especially:
 
-- New Splunk Enterprise and Splunk Cloud Platform releases
+- New Splunk Platform, Enterprise Security, and ITSI releases, plus Observability Cloud milestones
 - Corrected upgrade paths or readiness requirements
+- Corrected platform-to-premium-product compatibility or Cloud-managed availability guidance
 - Improved Enterprise-to-Cloud assessment, preparation, validation, or cutover guidance
 - Additional source-backed technical transitions and clearer implementation actions
 - Additional customer-value context backed by official documentation
