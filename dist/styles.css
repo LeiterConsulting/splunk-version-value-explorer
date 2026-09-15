@@ -228,6 +228,53 @@ a { color: inherit; }
 .benefit-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 15px; border-top: 1px solid #e5e9e6; color: #748078; font-size: .75rem; }
 .benefit-foot .source-link { font-size: .77rem; }
 
+.technical-section { padding-bottom: 45px; }
+.technical-heading { margin-bottom: 24px; }
+.technical-panel { overflow: hidden; border: 1px solid #bfcac4; border-radius: var(--radius); background: white; box-shadow: 0 18px 48px rgba(8, 32, 21, .08); }
+.technical-panel > summary { display: grid; grid-template-columns: 48px 1fr auto; gap: 16px; align-items: center; min-height: 94px; padding: 20px 24px; color: white; background: var(--night-soft); cursor: pointer; list-style: none; }
+.technical-panel > summary::-webkit-details-marker { display: none; }
+.technical-panel > summary:focus-visible { outline: 3px solid var(--green); outline-offset: -5px; }
+.technical-summary-icon { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #315244; border-radius: 11px; color: var(--green); background: #102b20; font: 750 .78rem/1 ui-monospace, monospace; }
+.technical-summary-copy { display: grid; gap: 4px; }
+.technical-summary-copy strong { font-size: 1.08rem; letter-spacing: -.015em; }
+.technical-summary-copy > span { color: #aabdb4; font-size: .81rem; }
+.technical-summary-action { display: flex; align-items: center; gap: 10px; color: #c4d5cd; font-size: .78rem; font-weight: 720; }
+.technical-summary-action .hide-label { display: none; }
+.technical-chevron { color: var(--green); font-size: 1.25rem; transition: transform .2s ease; }
+.technical-panel[open] .technical-summary-action .show-label { display: none; }
+.technical-panel[open] .technical-summary-action .hide-label { display: inline; }
+.technical-panel[open] .technical-chevron { transform: rotate(180deg); }
+.technical-content { padding: 0 24px 24px; }
+.technical-context { margin: 0 -24px 26px; padding: 18px 24px; border-bottom: 1px solid #dce3df; color: var(--muted); background: #f6f9f7; font-size: .86rem; }
+.technical-context strong { color: #294238; }
+.technical-group + .technical-group { margin-top: 30px; padding-top: 30px; border-top: 1px solid var(--line); }
+.technical-group-head { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; margin-bottom: 12px; }
+.technical-group-head h3 { margin: 0; font-size: 1.18rem; letter-spacing: -.02em; }
+.technical-group-head span { color: #79857f; font: 700 .75rem/1 ui-monospace, monospace; text-transform: uppercase; letter-spacing: .06em; }
+.technical-items { display: grid; gap: 10px; }
+.technical-item { padding: 20px; border: 1px solid #d8e0db; border-radius: 13px; background: #fbfcfa; break-inside: avoid; }
+.technical-item-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; }
+.technical-domain { display: block; margin-bottom: 4px; color: #627168; font: 720 .75rem/1.2 ui-monospace, monospace; text-transform: uppercase; letter-spacing: .055em; }
+.technical-item h4 { margin: 0; font-size: 1.08rem; letter-spacing: -.018em; }
+.technical-badges { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
+.change-type, .action-level { padding: 5px 8px; border-radius: 6px; font: 750 .75rem/1 ui-monospace, monospace; white-space: nowrap; }
+.change-type { color: #385248; background: #e7eeea; }
+.action-level.required { color: #832e00; background: #ffe2d0; }
+.action-level.review { color: #665000; background: #fff0b7; }
+.action-level.awareness { color: #07516a; background: #daf1f8; }
+.technical-transition { display: grid; grid-template-columns: minmax(0, 1fr) 26px minmax(0, 1fr); gap: 10px; align-items: center; margin: 18px 0; }
+.technical-transition > div { display: grid; align-content: start; gap: 4px; min-height: 70px; padding: 12px 14px; border-radius: 9px; background: white; border: 1px solid #e0e6e2; }
+.technical-transition > div:last-child { border-color: #b9dec9; background: #eef9f3; }
+.technical-transition span:not(.technical-arrow) { color: #7a8780; font: 720 .75rem/1.2 ui-monospace, monospace; text-transform: uppercase; letter-spacing: .06em; }
+.technical-transition strong { font-size: .87rem; line-height: 1.38; }
+.technical-arrow { color: var(--green-dark); text-align: center; font-size: 1.1rem; }
+.technical-explanation { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.technical-explanation p { margin: 0; color: var(--muted); font-size: .86rem; }
+.technical-explanation strong { display: block; margin-bottom: 4px; color: #294238; font-size: .75rem; text-transform: uppercase; letter-spacing: .045em; }
+.technical-item-foot { display: flex; justify-content: flex-end; margin-top: 15px; padding-top: 13px; border-top: 1px solid #e3e8e5; font-size: .78rem; }
+.technical-empty { padding: 25px 0 2px; color: var(--muted); }
+.technical-empty p { margin: 0; }
+
 .breaking-section { padding-top: 105px; }
 .breaking-section .kicker { color: var(--risk); }
 .breaking-list { overflow: hidden; border: 1px solid #efcdb9; border-radius: var(--radius); background: var(--risk-soft); box-shadow: 0 18px 48px rgba(76, 31, 7, .07); }
@@ -290,6 +337,7 @@ a { color: inherit; }
   .benefit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .approach-grid { grid-template-columns: 1fr; }
   .approach-card { min-height: auto; }
+  .technical-explanation { grid-template-columns: 1fr; gap: 12px; }
   .readiness-item { grid-template-columns: 44px 1fr; }
   .breaking-item { grid-template-columns: 44px 1fr; }
   .guidance-link { grid-column: 2; justify-self: start; }
@@ -324,6 +372,16 @@ a { color: inherit; }
   .value-band div + div { border-left: 0; border-top: 1px solid var(--line); }
   .benefit-grid { grid-template-columns: 1fr; }
   .benefit-card { min-height: 285px; }
+  .technical-panel > summary { grid-template-columns: 42px 1fr; padding: 18px; }
+  .technical-summary-action { grid-column: 2; justify-content: flex-start; }
+  .technical-content { padding: 0 14px 14px; }
+  .technical-context { margin: 0 -14px 20px; padding: 16px 14px; }
+  .technical-item { padding: 16px; }
+  .technical-item-head { display: grid; }
+  .technical-badges { justify-content: flex-start; }
+  .technical-transition { grid-template-columns: 1fr; }
+  .technical-transition > div { min-height: 0; }
+  .technical-arrow { transform: rotate(90deg); }
   .readiness-item { grid-template-columns: 32px 1fr; gap: 12px; align-items: start; }
   .breaking-item { grid-template-columns: 32px 1fr; gap: 12px; align-items: start; padding: 22px 18px; }
   .breaking-marker { width: 30px; height: 30px; border-radius: 8px; }
@@ -380,6 +438,28 @@ a { color: inherit; }
   .benefit-card h3 { font-size: 12pt; }
   .benefit-card .detail { margin: 8px 0 12px; font-size: 8.5pt; }
   .benefit-foot { padding-top: 8px; }
+  .technical-section { padding-bottom: 12px; }
+  .technical-panel { box-shadow: none; }
+  .technical-panel > summary { min-height: 0; padding: 14px 16px; grid-template-columns: 34px 1fr; }
+  .technical-summary-icon { width: 31px; height: 31px; border-radius: 7px; font-size: 7pt; }
+  .technical-summary-copy strong { font-size: 10pt; }
+  .technical-summary-copy > span { font-size: 7.5pt; }
+  .technical-summary-action { display: none; }
+  .technical-content { padding: 0 12px 12px; }
+  .technical-context { margin: 0 -12px 14px; padding: 12px; font-size: 8pt; }
+  .technical-group + .technical-group { margin-top: 18px; padding-top: 18px; }
+  .technical-group-head { margin-bottom: 8px; }
+  .technical-group-head h3 { font-size: 11pt; }
+  .technical-item { padding: 12px; }
+  .technical-item-head { gap: 10px; }
+  .technical-item h4 { font-size: 10.5pt; }
+  .change-type, .action-level { font-size: 6.5pt; }
+  .technical-transition { margin: 10px 0; }
+  .technical-transition > div { min-height: 50px; padding: 9px 10px; }
+  .technical-transition strong, .technical-explanation p { font-size: 8pt; }
+  .technical-explanation { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .technical-panel > .technical-content { display: block !important; }
+  .technical-item-foot { margin-top: 9px; padding-top: 8px; }
   .breaking-item, .readiness-item { grid-template-columns: 42px 1fr auto; gap: 14px; padding: 16px 12px; break-inside: avoid; }
   .breaking-marker { width: 30px; height: 30px; }
   .breaking-copy h3, .readiness-copy h3 { font-size: 11pt; }

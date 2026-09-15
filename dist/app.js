@@ -20,6 +20,13 @@
   const valueBand = document.getElementById("value-band");
   const filters = document.getElementById("category-filters");
   const benefitGrid = document.getElementById("benefit-grid");
+  const technicalKicker = document.getElementById("technical-kicker");
+  const technicalTitle = document.getElementById("technical-title");
+  const technicalIntro = document.getElementById("technical-intro");
+  const technicalPanel = document.getElementById("technical-panel");
+  const technicalSummaryTitle = document.getElementById("technical-summary-title");
+  const technicalSummaryMeta = document.getElementById("technical-summary-meta");
+  const technicalContent = document.getElementById("technical-content");
   const breakingKicker = document.getElementById("breaking-kicker");
   const breakingTitle = document.getElementById("breaking-title");
   const breakingIntro = document.getElementById("breaking-intro");
@@ -173,6 +180,26 @@
     });
   }
 
+  function selectedTechnicalChanges() {
+    if (state.platform === "migration") {
+      const migrationChanges = (data.migration.technicalChanges || []).map(function (item) {
+        return Object.assign({ milestone: "Enterprise → Cloud" }, item);
+      });
+      const destinationIndex = data.cloud.releases.indexOf(state.to);
+      const destinationChanges = data.cloud.releases.slice(0, destinationIndex + 1).flatMap(function (release) {
+        return (data.cloud.releasesData[release].technicalChanges || []).map(function (item) {
+          return Object.assign({ milestone: "Cloud " + release }, item);
+        });
+      });
+      return migrationChanges.concat(destinationChanges);
+    }
+    return releasesBetween().flatMap(function (release) {
+      return (data[state.platform].releasesData[release].technicalChanges || []).map(function (item) {
+        return Object.assign({ milestone: (state.platform === "cloud" ? "Cloud " : "Enterprise ") + release }, item);
+      });
+    });
+  }
+
   function selectedRequirements() {
     if (state.platform === "migration") {
       const requirements = data.migration.steps.map(function (requirement) {
@@ -313,6 +340,7 @@
     const features = selectedFeatures();
     const requirements = selectedReadinessItems();
     const breakingChanges = selectedBreakingChanges();
+    const technicalChanges = selectedTechnicalChanges();
     const categories = Array.from(new Set(features.map(function (feature) { return feature.category; })));
 
     const metrics = state.platform === "migration" ? [
@@ -355,8 +383,57 @@
     });
 
     note.textContent = state.platform === "migration"
-      ? plural(features.length, "destination advantage") + ", " + plural(breakingChanges.length, "potential change") + ", and " + plural(requirements.length, "recommended action") + " for Enterprise " + state.from + " → Cloud " + state.to + "."
-      : plural(features.length, "notable capability", "notable capabilities") + ", " + plural(breakingChanges.length, "potential change") + ", and " + plural(requirements.length, "preparation action") + " across the selected route.";
+      ? plural(features.length, "destination advantage") + ", " + plural(technicalChanges.length, "technical change") + ", " + plural(breakingChanges.length, "potential change") + ", and " + plural(requirements.length, "recommended action") + " for Enterprise " + state.from + " → Cloud " + state.to + "."
+      : plural(features.length, "notable capability", "notable capabilities") + ", " + plural(technicalChanges.length, "technical change") + ", " + plural(breakingChanges.length, "potential change") + ", and " + plural(requirements.length, "preparation action") + " across the selected route.";
+  }
+
+  function renderTechnicalChanges() {
+    const changes = selectedTechnicalChanges();
+    const requiredCount = changes.filter(function (item) { return item.actionLevel === "Required"; }).length;
+    const reviewCount = changes.filter(function (item) { return item.actionLevel === "Review"; }).length;
+
+    if (state.platform === "enterprise") {
+      technicalTitle.textContent = "What changes underneath";
+      technicalIntro.textContent = "Only technical transitions encountered across the selected route are shown. Component changes are kept separate from items Splunk explicitly identifies as potentially breaking.";
+    } else if (state.platform === "cloud") {
+      technicalTitle.textContent = "Customer-visible platform changes";
+      technicalIntro.textContent = "Splunk manages the underlying service. This view is limited to technical contracts customers may need to validate, including APIs, apps, certificates, permissions, and integrations.";
+    } else {
+      technicalTitle.textContent = "How the technical operating model changes";
+      technicalIntro.textContent = "The migration view focuses on customer-actionable differences between a self-managed Enterprise deployment and Splunk Cloud Platform, plus technical contracts present at the selected destination.";
+    }
+
+    if (!changes.length) {
+      technicalSummaryTitle.textContent = "No highlighted technical transition";
+      technicalSummaryMeta.textContent = "Review the official release guidance for environment-specific changes";
+      technicalContent.innerHTML = '<div class="technical-empty"><p>No technical baseline change is highlighted for this route. This curated view is not a software bill of materials or an exhaustive compatibility assessment.</p></div>';
+      return;
+    }
+
+    technicalSummaryTitle.textContent = plural(changes.length, "technical change") + " across this route";
+    const summaryParts = [];
+    if (requiredCount) summaryParts.push(plural(requiredCount, "required action"));
+    if (reviewCount) summaryParts.push(plural(reviewCount, "compatibility review"));
+    summaryParts.push(plural(new Set(changes.map(function (item) { return item.domain; })).size, "technical area"));
+    technicalSummaryMeta.textContent = summaryParts.join(" · ");
+
+    const milestones = Array.from(new Set(changes.map(function (item) { return item.milestone; })));
+    technicalContent.innerHTML = '<p class="technical-context"><strong>How to read this:</strong> “From” and “to” describe the documented platform state—not necessarily an in-place conversion performed by the installer. Required actions and compatibility reviews should be reconciled with the dedicated readiness and potential-breaking-change sections.</p>' +
+      milestones.map(function (milestone) {
+        const items = changes.filter(function (item) { return item.milestone === milestone; });
+        return '<section class="technical-group" aria-label="' + escapeHtml(milestone) + '">' +
+          '<div class="technical-group-head"><h3>' + escapeHtml(milestone) + '</h3><span>' + plural(items.length, "change") + '</span></div>' +
+          '<div class="technical-items">' + items.map(function (item) {
+            const actionClass = item.actionLevel.toLowerCase();
+            return '<article class="technical-item">' +
+              '<div class="technical-item-head"><div><span class="technical-domain">' + escapeHtml(item.domain) + '</span><h4>' + escapeHtml(item.component) + '</h4></div>' +
+              '<div class="technical-badges"><span class="change-type">' + escapeHtml(item.changeType) + '</span><span class="action-level ' + actionClass + '">' + escapeHtml(item.actionLevel) + '</span></div></div>' +
+              '<div class="technical-transition"><div><span>From</span><strong>' + escapeHtml(item.from) + '</strong></div><span class="technical-arrow" aria-hidden="true">→</span><div><span>To</span><strong>' + escapeHtml(item.to) + '</strong></div></div>' +
+              '<div class="technical-explanation"><p><strong>Why it matters</strong>' + escapeHtml(item.implication) + '</p><p><strong>Recommended action</strong>' + escapeHtml(item.action) + '</p></div>' +
+              '<div class="technical-item-foot">' + externalLink(item.source, "Official source") + '</div>' +
+            '</article>';
+          }).join("") + '</div></section>';
+      }).join("");
   }
 
   function renderBreakingChanges() {
@@ -448,12 +525,14 @@
     valueKicker.textContent = (isMigration ? "03" : "02") + " / THE RETURN";
     valueTitle.textContent = isMigration ? "What the move unlocks" : "What becomes available";
     valueIntro.textContent = isMigration ? "Cloud operating-model advantages are combined with highlights from the selected destination release." : "Benefits are organized around the outcomes teams can use—not a wall of release-note changes.";
-    breakingKicker.textContent = (isMigration ? "04" : "03") + " / POTENTIAL BREAKING CHANGES";
-    readinessKicker.textContent = (isMigration ? "05" : "04") + " / " + (isMigration ? "NEXT STEPS" : "READINESS");
+    technicalKicker.textContent = (isMigration ? "04" : "03") + " / TECHNICAL CHANGES";
+    breakingKicker.textContent = (isMigration ? "05" : "04") + " / POTENTIAL BREAKING CHANGES";
+    readinessKicker.textContent = (isMigration ? "06" : "05") + " / " + (isMigration ? "NEXT STEPS" : "READINESS");
     readinessTitle.textContent = isMigration ? "Recommended next steps" : "Prepare with confidence";
     renderPath();
     renderApproaches();
     renderValue();
+    renderTechnicalChanges();
     renderBreakingChanges();
     renderReadiness();
     renderSources();
@@ -495,17 +574,32 @@
     showShareStatus(fallbackCopy(url) ? "Report link copied" : "Copy was blocked by the browser");
   });
 
-  printButton.addEventListener("click", function () {
-    const previousCategory = state.category;
+  let printState = null;
+
+  function preparePrintReport() {
+    if (printState) return;
+    printState = { category: state.category, technicalOpen: technicalPanel.open };
     state.category = "All";
     renderValue();
+    technicalPanel.open = true;
     document.documentElement.classList.add("printing-report");
-    window.setTimeout(function () {
-      window.print();
-      document.documentElement.classList.remove("printing-report");
-      state.category = previousCategory;
-      renderValue();
-    }, 40);
+  }
+
+  function restorePrintReport() {
+    if (!printState) return;
+    document.documentElement.classList.remove("printing-report");
+    technicalPanel.open = printState.technicalOpen;
+    state.category = printState.category;
+    printState = null;
+    renderValue();
+  }
+
+  window.addEventListener("beforeprint", preparePrintReport);
+  window.addEventListener("afterprint", restorePrintReport);
+
+  printButton.addEventListener("click", function () {
+    preparePrintReport();
+    window.setTimeout(function () { window.print(); }, 40);
   });
 
   platformInputs.forEach(function (input) {

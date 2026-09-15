@@ -9,6 +9,7 @@ The published project is available at [versioncompass.com](https://versioncompas
 - Add newly released Splunk Enterprise or Splunk Cloud Platform versions
 - Correct an upgrade transition or readiness requirement
 - Improve Enterprise-to-Cloud assessment, preparation, validation, cutover, or operating-model guidance
+- Add or correct a route-specific technical transition
 - Add a meaningful capability or customer outcome
 - Improve citations, accessibility, responsive behavior, or interface clarity
 - Report an issue or propose a larger enhancement
@@ -22,8 +23,9 @@ Contributed guidance should be:
 1. **Source-backed.** Link factual release and upgrade claims to official Splunk documentation.
 2. **Outcome-oriented.** Explain why a capability matters instead of reproducing release-note text.
 3. **Journey-specific.** Treat Splunk Enterprise transitions as customer-managed upgrade paths, Splunk Cloud Platform releases as Splunk-managed capability milestones, and Enterprise-to-Cloud moves as environment-dependent migration programs.
-4. **Environment-aware.** Avoid presenting summarized guidance as a substitute for compatibility review or environment-specific planning.
-5. **Privacy-preserving.** Do not add forms, tracking, registration, or collection of customer details.
+4. **Technically scoped.** Distinguish bundled from app-owned runtimes, default from optional behavior, deprecation from removal, and a component change from a potential breaking change.
+5. **Environment-aware.** Avoid presenting summarized guidance as a substitute for compatibility review or environment-specific planning.
+6. **Privacy-preserving.** Do not add forms, tracking, registration, or collection of customer details.
 
 ## Adding a release
 
@@ -32,10 +34,13 @@ Release content lives in `dist/data.js`.
 1. Add the release identifier to the appropriate `releases` array.
 2. Add the release date and official release-note URL under `releasesData`.
 3. Add notable capabilities with a title, value theme, outcome, and concise explanation.
-4. Add documented blockers, tests, validation work, or planning considerations. Use the optional fifth `requirements` value (`true`) only when the source identifies a potential breaking change, removed support, changed default, compatibility constraint, or other behavior that can materially disrupt the selected route.
-5. For Splunk Enterprise, update the `edges` map with supported release transitions.
-6. Update the platform's `latest` value and the reviewed date in `dist/index.html`.
-7. Test several version combinations, including one that requires an intermediate Enterprise step upgrade.
+4. Add each meaningful technical transition to `technicalChanges`. Include the component, technical domain, change type, action level, documented `from` and `to` states, operational implication, recommended action, and an official source.
+5. Add documented blockers, tests, validation work, or planning considerations. Use the optional fifth `requirements` value (`true`) only when the source identifies a potential breaking change, removed support, changed default, compatibility constraint, or other behavior that can materially disrupt the selected route.
+6. For Splunk Enterprise, update the `edges` map with supported release transitions.
+7. Update the platform's `latest` value and the reviewed date in `dist/index.html`.
+8. Test several version combinations, including one that requires an intermediate Enterprise step upgrade, and confirm the technical section remains collapsed on screen but expands in print.
+
+See `docs/technical-changes.md` for field definitions, classification rules, and review guidance.
 
 ## Updating Enterprise-to-Cloud guidance
 
@@ -45,9 +50,10 @@ Migration content lives in the top-level `migration` object in `dist/data.js`.
 2. Review Splunk's migration guided path for changes to readiness, preparation, validation, and transition guidance.
 3. Review the selected destination's Cloud Platform release notes and update destination capabilities separately from operating-model benefits.
 4. Keep migration approaches descriptive. Do not prescribe one without customer-specific discovery.
-5. Review `migration.breakingChanges` against Splunk's current blockers/showstoppers and potential delay-causing risks. Keep those callouts separate from the sequenced action plan.
-6. Add or change a recommended action only when its source explains the underlying requirement or practice.
-7. Update `docs/enterprise-to-cloud.md`, the reviewed date, and screenshots when the user experience or guidance model changes materially.
+5. Review `migration.technicalChanges` for changes to apps, runtimes, connectivity, trust, identity, data movement, APIs, and the customer/Splunk operating boundary.
+6. Review `migration.breakingChanges` against Splunk's current blockers/showstoppers and potential delay-causing risks. Keep those callouts separate from the sequenced action plan.
+7. Add or change a recommended action only when its source explains the underlying requirement or practice.
+8. Update `docs/enterprise-to-cloud.md`, the reviewed date, and screenshots when the user experience or guidance model changes materially.
 
 ## Pull-request checklist
 
@@ -57,8 +63,10 @@ Migration content lives in the top-level `migration` object in `dist/data.js`.
 - [ ] Existing Enterprise and Cloud comparisons still render correctly
 - [ ] Enterprise-to-Cloud guidance clearly separates blockers, decisions, tests, and operating steps
 - [ ] Potential breaking changes are sourced, route-specific, and not presented as exhaustive
+- [ ] Technical changes state the correct scope and do not turn every component update into a breaking-change claim
+- [ ] Technical records include a useful implication and an evidence-supported recommended action
 - [ ] Shareable URLs restore the selected journey and both release values
-- [ ] The print view includes all value categories and remains readable when saved as PDF
+- [ ] The print view includes all value categories, expands technical details, and remains readable when saved as PDF
 - [ ] Partner-authored Splunk Lantern material is identified as guidance and not represented as a product warranty
 - [ ] Keyboard navigation and mobile layout remain usable
 - [ ] No secrets, customer data, analytics, or tracking code are included
