@@ -2,6 +2,8 @@
 
 Thank you for helping improve the Splunk Version Value Explorer. Contributions from Splunk practitioners, customers, partners, and the broader community are welcome.
 
+The published project is available at [versioncompass.com](https://versioncompass.com).
+
 ## Ways to contribute
 
 - Add newly released Splunk Enterprise or Splunk Cloud Platform versions

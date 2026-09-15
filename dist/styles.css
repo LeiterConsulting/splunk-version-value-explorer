@@ -250,9 +250,14 @@ a { color: inherit; }
 .primary-link:hover { background: #83ecb6; }
 .secondary-link:hover { border-color: var(--green); }
 
-footer { display: grid; grid-template-columns: 1.2fr .8fr; gap: 70px; max-width: var(--max); margin: 0 auto; padding: 25px 30px 55px; color: #748078; font-size: .74rem; }
-footer p { margin: 0; }
-footer strong { color: #435149; }
+.site-footer { display: grid; grid-template-columns: 1.15fr .85fr; gap: 70px; max-width: var(--max); margin: 0 auto; padding: 25px 30px 55px; color: #748078; font-size: .78rem; }
+.site-footer p { margin: 0; }
+.site-footer strong { color: #435149; }
+.footer-copy, .footer-meta { display: grid; align-content: start; gap: 14px; }
+.github-link { display: inline-flex; align-items: center; justify-self: start; gap: 9px; min-height: 42px; padding: 0 14px; border-radius: 9px; color: #eaf9f1; background: var(--night); font-weight: 740; text-decoration: none; transition: color .2s ease, background .2s ease, transform .2s ease; }
+.github-link svg { width: 20px; height: 20px; fill: currentColor; }
+.github-link:hover { color: var(--night); background: var(--green); transform: translateY(-2px); }
+.github-link:focus-visible { outline: 3px solid rgba(22,122,77,.3); outline-offset: 3px; }
 
 @media (max-width: 900px) {
   .hero { min-height: auto; padding-top: 135px; }
@@ -297,7 +302,7 @@ footer strong { color: #435149; }
   .source-card { padding: 34px 25px; }
   .source-actions { display: grid; width: 100%; }
   .primary-link, .secondary-link { justify-content: center; }
-  footer { grid-template-columns: 1fr; gap: 15px; padding: 0 20px 40px; }
+  .site-footer { grid-template-columns: 1fr; gap: 22px; padding: 0 20px 40px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

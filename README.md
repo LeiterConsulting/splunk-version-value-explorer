@@ -5,7 +5,7 @@
 
 An interactive, customer-friendly read-ahead for understanding what becomes available—and what preparation is required—when upgrading Splunk or moving from Splunk Enterprise to Splunk Cloud Platform.
 
-## [Open the live site →](https://splunk-version-value-explorer.majorgeneralrabidzagnut.chatgpt.site)
+## [Open Version Compass →](https://versioncompass.com)
 
 Choose an upgrade or migration journey, the release currently in place, and the destination under consideration. The explorer builds a tailored view of:
 
@@ -83,7 +83,7 @@ Then visit `http://localhost:8000/dist/`.
 
 The explorer summarizes official Splunk documentation, Splunk Lantern migration guidance, and the supplied product-innovation timeline. It is a planning aid—not a substitute for release notes, compatibility guidance, a Statement of Work, or an environment-specific upgrade or migration plan.
 
-Splunk is a registered trademark of Splunk Inc.
+Version Compass is independently developed. It is not affiliated with, sponsored by, endorsed by, or an official product of Cisco or Splunk. Splunk is a Cisco company, and Splunk and related marks are the property of Cisco and/or its affiliates.
 
 ## License
 

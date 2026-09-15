@@ -1,5 +1,7 @@
 # Enterprise-to-Cloud guidance model
 
+This guidance supports the published [Version Compass](https://versioncompass.com) experience.
+
 The Enterprise-to-Cloud journey is a customer-facing planning aid for early migration conversations. It asks only for the Splunk Enterprise release in place and the Splunk Cloud Platform destination line. It does not collect topology, data volume, retention, app inventory, compliance, identity, network, or customer-contact details.
 
 Because those inputs materially affect a migration, the explorer recommends discovery and decision gates instead of claiming to produce a complete migration plan.
