@@ -58,6 +58,17 @@ See [`docs/product-tracks.md`](docs/product-tracks.md) for the premium-product a
 
 Material changes are summarized by Eastern date in [`docs/releases`](docs/releases/README.md). Each daily note records what changed, why it matters, authoritative sources, and publication status. Scheduled audits do not create empty notes when no material change is found.
 
+## Automated maintenance
+
+Version Compass is maintained through two recurring review cycles:
+
+- A daily release watch checks for newly published versions, maintenance releases, security notices, compatibility changes, and customer-managed component updates.
+- A twice-weekly guidance audit rechecks upgrade paths, platform dependencies, recommended actions, citations, links, and report behavior.
+
+When authoritative evidence clearly supports a change, the maintenance workflow updates the relevant site content and documentation, validates representative journeys, commits the reviewed change, and republishes [versioncompass.com](https://versioncompass.com). If the evidence is ambiguous, conflicting, incomplete, or would require an unsupported inference, publication stops and the item is held for human review. No-change runs do not create commits or deployments.
+
+Published maintenance changes are recorded in the [daily release notes](docs/releases/README.md).
+
 ## Updating for a new release
 
 Platform and Enterprise-to-Cloud content is centralized in [`dist/data.js`](dist/data.js). Premium-product and Observability content lives in [`dist/product-data.js`](dist/product-data.js). To extend the explorer:
