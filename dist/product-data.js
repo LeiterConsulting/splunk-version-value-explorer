@@ -26,6 +26,11 @@
 
   const compatibilitySource = "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix";
   const cloudServiceSource = "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.5.2605/information-about-the-service/splunk-cloud-platform-service-details";
+  const collector160Source = "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.160.0";
+  const collector160PatchSource = "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.160.1";
+  const collectorChart160Source = "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.160.0";
+  const node411Source = "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.11.0";
+  const rum31Source = "https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.1.0";
 
   data.productTracks = {
     es: {
@@ -182,9 +187,17 @@
               implication: "Model choice, regional availability, entitlement, and the documented data boundary matter before sensitive security workflows are enabled.",
               action: "Confirm edition, region, model runtime, data-handling terms, and approved use cases with the Splunk team.",
               source: "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.6/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security"
+            },
+            {
+              component: "Enterprise Security 8.6 maintenance level", domain: "Security hardening", changeType: "Security fix floor", actionLevel: "Required",
+              from: "Enterprise Security versions below 8.6.1", to: "Enterprise Security 8.6.1 or higher",
+              implication: "Earlier 8.6 maintenance levels are affected by documented Analyst Queue SPL injection and UEBA search-macro permission vulnerabilities.",
+              action: "Use Enterprise Security 8.6.1 or higher and verify the installed maintenance release rather than treating 8.6 as an undifferentiated target.",
+              source: "https://advisory.splunk.com/advisories/SVD-2026-0807"
             }
           ],
           requirements: [
+            ["Use Enterprise Security 8.6.1 or higher", "Splunk's August 19, 2026 security advisory identifies releases below 8.6.1 as affected and sets 8.6.1 as the fixed version.", "Blocker", "https://advisory.splunk.com/advisories/SVD-2026-0807", true],
             ["Check the platform requirement for updated navigation", "Splunk documents the updated Enterprise Security navigation experience with Enterprise Security 8.6 and Splunk Platform 10.4. Do not promise the same navigation on an older host.", "Validate", "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.6/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security", false],
             ["Replace deprecated threat-intelligence feeds", "URLHaus and the Abuse SSL IP Blacklist are deprecated in this line. The replacement URLHaus source requires an API key.", "Plan", "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.6/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security", true]
           ]
@@ -518,10 +531,63 @@
           source: "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026",
           features: [
             ["Agent Observability", "Automation & AI", "Evaluate GenAI and agent behavior", "Use the integrated SaaS offering to observe, evaluate, and apply guardrails to eligible generative-AI and agentic applications."],
-            ["AI token and cost monitoring", "Usage & governance", "Connect AI activity to spend", "Monitor and alert on token use and cost across supported AI agents and infrastructure providers."]
+            ["AI token and cost monitoring", "Usage & governance", "Connect AI activity to spend", "Monitor and alert on token use and cost across supported AI agents and infrastructure providers."],
+            ["Collector lookup processor", "Telemetry & OpenTelemetry", "Enrich telemetry in the pipeline", "Use the lookup processor added in Splunk OpenTelemetry Collector 0.160.1 where its documented component scope fits the pipeline."],
+            ["Browser RUM 3.1", "Digital experience", "Capture richer interaction context", "Use expanded frustration signals, navigation context, Synthetics correlation, and more resilient Session Replay retry behavior after reviewing the new defaults."]
+          ],
+          technicalChanges: [
+            {
+              component: "Linux auto-instrumentation injector", domain: "Collector installation", changeType: "Configuration path changed", actionLevel: "Required",
+              from: "Custom injector configuration under /etc/splunk/zeroconfig with runtime-specific files", to: "Official OpenTelemetry injector configuration under /etc/opentelemetry/injector with a shared default_env.conf",
+              implication: "Existing custom values are not migrated automatically. Runtime variables outside the documented OTEL_* and SPLUNK_* set are ignored by the shared file, and instrumented services must be restarted after the preload or configuration change.",
+              action: "Inventory the legacy java.conf, node.conf, and dotnet.conf values, migrate supported variables before upgrading, move runtime-specific settings to each service environment, and plan the documented restart or reboot.",
+              source: collector160Source
+            },
+            {
+              component: "Scripted inputs receiver", domain: "Collector pipeline", changeType: "Removed", actionLevel: "Required",
+              from: "Deprecated scripted_inputs receiver remains available", to: "scripted_inputs is removed; splunk_inputs is the replacement behind the enableTArunner feature gate",
+              implication: "A Collector configuration that still declares scripted_inputs cannot preserve that collection path after the 0.160 upgrade.",
+              action: "Replace scripted_inputs with the documented splunk_inputs configuration, enable and validate the required feature gate, and test Linux or Windows scripts before rollout.",
+              source: collector160Source
+            },
+            {
+              component: "Kubernetes attributes processor", domain: "Collector configuration", changeType: "Option removed", actionLevel: "Required",
+              from: "deployment_name_from_replicaset can remain in k8sattributes configuration", to: "The option is removed and its presence causes a hard Collector startup failure",
+              implication: "Helm values or generated configurations that retain the key can prevent the Collector from starting. Old-format k8sattributes internal metrics are also disabled by default in this line.",
+              action: "Remove deployment_name_from_replicaset, validate the documented ReplicaSet-derived behavior, and migrate dashboards or alerts that rely on the old processor self-telemetry format.",
+              source: collector160Source
+            },
+            {
+              component: "Linux log sourcetypes", domain: "Log data contract", changeType: "Defaults changed", actionLevel: "Review",
+              from: "Hardcoded linux:varlog and linux:bash_history assignments in the packaged Linux configuration", to: "Filename-based Splunk TA-style assignments, including bash_history, syslog, linux_secure, linux_audit, and config_file",
+              implication: "Saved searches, routing, field extraction, retention, and billing assumptions keyed to the earlier sourcetypes can change after the package upgrade.",
+              action: "Compare representative Linux events before and after the upgrade and update downstream content only after confirming the new sourcetype contract.",
+              source: collector160Source
+            },
+            {
+              component: "Node.js instrumentation attributes", domain: "Semantic conventions", changeType: "Attribute names changed", actionLevel: "Required",
+              from: "Pre-stable OpenTelemetry HTTP and database semantic-convention attribute names", to: "Stable semantic conventions in Splunk OpenTelemetry Node.js 4.11.0",
+              implication: "Detectors, dashboards, MetricSets, routing, and API consumers that query renamed HTTP or database attributes can lose matches when the agent changes.",
+              action: "Diff the documented HTTP and database attribute migrations, update queries and rules, and validate dual-version traffic during the agent rollout.",
+              source: node411Source
+            },
+            {
+              component: "Browser RUM 3.1 defaults", domain: "RUM behavior", changeType: "Defaults changed", actionLevel: "Review",
+              from: "Rage clicks enabled by default, a five-second page-completion quiet window, and 2 MB localStorage retry persistence", to: "Four frustration signals enabled, a one-second quiet window, and up to 100 MB IndexedDB persistence for failed Session Replay uploads",
+              implication: "Interaction volume, Page Completion Time baselines, client storage, privacy review, and replay retry behavior can differ without an application-code change.",
+              action: "Review consent and storage policy, compare Page Completion Time baselines, and explicitly retain or disable earlier behaviors where the application requires them.",
+              source: rum31Source
+            }
           ],
           requirements: [
-            ["Confirm access to Agent Observability", "Splunk directs customers to contact their Splunk team for access to the Agent Observability SaaS deployment. Treat it as availability-bound, not universally enabled.", "Validate", "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026", false]
+            ["Confirm access to Agent Observability", "Splunk directs customers to contact their Splunk team for access to the Agent Observability SaaS deployment. Treat it as availability-bound, not universally enabled.", "Validate", "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026", false],
+            ["Treat chart 0.160.0 as a Collector 0.160 upgrade", "The Kubernetes chart released September 15, 2026 uses Collector 0.160.1 and updates bundled operator and instrumentation versions. Rehearse the Collector breaking changes instead of treating the Helm update as an isolated chart change.", "Blocker", collectorChart160Source, true],
+            ["Migrate injector configuration before Collector 0.160", "The 0.160 line replaces the custom injector shim and does not automatically migrate existing values into the new configuration files.", "Blocker", collector160Source, true],
+            ["Replace removed scripted_inputs pipelines", "Collector 0.160 removes scripted_inputs. Convert to the splunk_inputs receiver and validate the required enableTArunner feature gate before production.", "Blocker", collector160Source, true],
+            ["Remove the retired Kubernetes processor option", "Any k8sattributes configuration that still includes deployment_name_from_replicaset fails hard at startup in Collector 0.160.", "Blocker", collector160Source, true],
+            ["Validate the 0.160.1 patch release", "Collector 0.160.1 is the current 0.160 patch and is the version paired with Kubernetes chart 0.160.0. Validate its new lookup processor and experimental disk-queue extension only within their documented scope.", "Validate", collector160PatchSource, false],
+            ["Reconcile Node.js semantic conventions", "The chart updates Node.js instrumentation to 4.11.0, which adopts stable OpenTelemetry HTTP and database semantic conventions with renamed attributes.", "Validate", node411Source, true],
+            ["Baseline Browser RUM 3.1 defaults", "Browser RUM 3.1 changes frustration-signal collection, Page Completion Time quiet-window behavior, and failed-replay storage defaults. Confirm privacy, storage, and detector assumptions before broad rollout.", "Validate", rum31Source, true]
           ]
         }
       }

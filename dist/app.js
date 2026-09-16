@@ -698,7 +698,7 @@
       journey = activeTrack().label + " " + state.from + " → " + state.to + " · " + platformContext + state.host;
     }
     printTitle.textContent = journey;
-    printSubtitle.textContent = "Source-backed guidance reviewed September 2026 · versioncompass.com";
+    printSubtitle.textContent = "Source-backed guidance reviewed September 16, 2026 · versioncompass.com";
     document.title = "Version Compass | " + journey;
   }
 

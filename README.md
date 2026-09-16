@@ -50,6 +50,8 @@ No registration, lead form, subscription, or customer information is collected.
 
 The platform content is organized around five value themes: Search & AI, Platform Operations, Data Management, Security & Compliance, and Dashboards & Experience. Product-specific themes are added for security operations, service intelligence, and observability. A separate technical layer explains the documented before-and-after state, why it matters, and the recommended action without treating every component change as a breaking change. Enterprise-to-Cloud recommendations cover mobilization, assessment, migration-motion selection, app and data preparation, connectivity, access, acceptance testing, cutover, and retirement.
 
+The September 2026 Observability milestone includes customer-managed component guidance through Splunk OpenTelemetry Collector 0.160.1, the Kubernetes chart 0.160.0, Node.js instrumentation 4.11.0, and Browser RUM 3.1. These versions remain distinct from the rolling Observability Cloud service milestone.
+
 See [`docs/product-tracks.md`](docs/product-tracks.md) for the premium-product and Observability model, [`docs/technical-changes.md`](docs/technical-changes.md) for the technical-delta content model, and [`docs/enterprise-to-cloud.md`](docs/enterprise-to-cloud.md) for the migration guidance model, source map, and maintenance notes.
 
 ## Updating for a new release
