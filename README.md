@@ -54,6 +54,10 @@ The September 2026 Observability milestone includes customer-managed component g
 
 See [`docs/product-tracks.md`](docs/product-tracks.md) for the premium-product and Observability model, [`docs/technical-changes.md`](docs/technical-changes.md) for the technical-delta content model, and [`docs/enterprise-to-cloud.md`](docs/enterprise-to-cloud.md) for the migration guidance model, source map, and maintenance notes.
 
+## Release notes
+
+Material changes are summarized by Eastern date in [`docs/releases`](docs/releases/README.md). Each daily note records what changed, why it matters, authoritative sources, and publication status. Scheduled audits do not create empty notes when no material change is found.
+
 ## Updating for a new release
 
 Platform and Enterprise-to-Cloud content is centralized in [`dist/data.js`](dist/data.js). Premium-product and Observability content lives in [`dist/product-data.js`](dist/product-data.js). To extend the explorer:

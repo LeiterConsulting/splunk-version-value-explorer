@@ -59,6 +59,17 @@ Migration content lives in the top-level `migration` object in `dist/data.js`.
 7. Add or change a recommended action only when its source explains the underlying requirement or practice.
 8. Update `docs/enterprise-to-cloud.md`, the reviewed date, and screenshots when the user experience or guidance model changes materially.
 
+## Release notes for published changes
+
+Every material change that reaches the repository or live site must be represented in the release notes:
+
+1. Use `docs/releases/YYYY-MM-DD.md`, dated in `America/New_York`.
+2. Append to an existing note when more than one change is published on the same local date.
+3. Summarize the user-visible result, compatibility or risk impact, authoritative sources, validation, and publication status.
+4. Keep the note concise and written for reviewers; do not copy raw diffs or automation transcripts.
+5. Do not create a release note for a no-change audit.
+6. Add a new date to `docs/releases/README.md` when the day's first material change is published.
+
 ## Pull-request checklist
 
 - [ ] Every factual release claim has an official source URL
@@ -72,6 +83,7 @@ Migration content lives in the top-level `migration` object in `dist/data.js`.
 - [ ] Potential breaking changes are sourced, route-specific, and not presented as exhaustive
 - [ ] Technical changes state the correct scope and do not turn every component update into a breaking-change claim
 - [ ] Technical records include a useful implication and an evidence-supported recommended action
+- [ ] The applicable Eastern-date release note summarizes every published material change
 - [ ] Shareable URLs restore the selected product, platform context, host release, and both comparison values
 - [ ] The print view includes all value categories, expands technical details, and remains readable when saved as PDF
 - [ ] Partner-authored Splunk Lantern material is identified as guidance and not represented as a product warranty
