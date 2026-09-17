@@ -34,6 +34,8 @@ Observability Cloud is a rolling SaaS service. Its route uses dated release mile
 
 The Enterprise Security route can include documented SIEM, SOAR, UEBA, threat-intelligence, exposure, and AI capabilities when they are part of, integrated with, or surfaced through the ES experience. Every record must preserve edition, deployment model, entitlement, region, release stage, and external-service boundaries. Do not imply that a capability is included for all ES customers.
 
+For example, the Enterprise Security 8.7 route distinguishes Premier features that require Splunk enablement from Essentials capabilities (which Splunk also includes in Premier) and from features available in both editions.
+
 Add a separate top-level security product only when Splunk publishes a stable, independently versioned customer journey that cannot be represented accurately inside the ES route.
 
 ## Scheduled review checklist

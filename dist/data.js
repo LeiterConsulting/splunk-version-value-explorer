@@ -308,6 +308,13 @@ window.SPLUNK_DATA = {
         ],
         technicalChanges: [
           {
+            component: "Python application runtime", domain: "Runtime & apps", changeType: "Default changed", actionLevel: "Review",
+            from: "splunkd uses Python 3.9 by default with Python 3.13 opt-in; Splunk Web already uses Python 3.13", to: "Python 3.13 becomes the default interpreter with Python 3.9 available as a fallback",
+            implication: "Private apps, custom search commands, REST endpoints, scripted or modular inputs, and packaged libraries can expose Python-version assumptions when the default changes.",
+            action: "Inventory Python-dependent extensions, confirm supported app releases, and test representative workflows with the 3.13 default before production rollout.",
+            source: "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4"
+          },
+          {
             component: "Legacy TLS protocols", domain: "Security & cryptography", changeType: "Removed", actionLevel: "Required",
             from: "TLS 1.0 and 1.1 are deprecated but available", to: "TLS 1.0 and 1.1 support is completely removed",
             implication: "Splunk component and integration connections using a legacy protocol can no longer negotiate successfully.",
@@ -327,6 +334,13 @@ window.SPLUNK_DATA = {
             implication: "A deployment still using an older KV Store engine cannot rely on the 10.4 package to perform that older transition.",
             action: "Upgrade KV Store to MongoDB engine 7 or later and verify app collections before starting the 10.4 upgrade.",
             source: "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first"
+          },
+          {
+            component: "KV Store database engine", domain: "Data & storage", changeType: "Engine upgrade", actionLevel: "Review",
+            from: "MongoDB 7 is the supported pre-upgrade KV Store baseline", to: "MongoDB 8.0, upgraded automatically from a supported 10.x path",
+            implication: "MongoDB 4.x and 6.x cannot move directly to the 10.4 engine, so older deployments need a supported bridge release and a validated KV Store backup.",
+            action: "Reach the documented MongoDB 7 floor before 10.4, retain a validated KV Store backup, and verify app collections after the automatic engine upgrade.",
+            source: "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4"
           },
           {
             component: "KV Store TLS configuration", domain: "Security & cryptography", changeType: "Precedence changed", actionLevel: "Review",
@@ -467,7 +481,7 @@ window.SPLUNK_DATA = {
         date: "2026", source: "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.4.2604/splunk-cloud-platform-release-notes/whats-new",
         features: [
           ["Dashboard Studio framework", "Dashboards & experience", "Create richer operational views", "Use custom visualizations, token management, network graphs, and accelerated line charts."],
-          ["AI Canvas beta", "Search & AI", "Explore investigations visually", "Compose AI-assisted analytical workflows on a connected canvas."],
+          ["AI Canvas beta", "Search & AI", "Explore investigations visually", "For customers accepted into the beta and through its onboarding requirements, compose AI-assisted analytical workflows on a connected canvas."],
           ["Modern navigation reaches GA", "Dashboards & experience", "Move through the platform faster", "Use a production-ready navigation experience centered on common work."],
           ["Azure data self-service", "Data management", "Activate remote data sooner", "Extend Dynamic Data Self-Storage workflows to supported Azure storage."],
           ["Unified federation", "Search & AI", "Simplify cross-environment access", "Use a more consistent foundation for supported federated data sources."]
@@ -488,15 +502,24 @@ window.SPLUNK_DATA = {
             source: "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.4.2604/splunk-cloud-platform-release-notes/whats-new"
           },
           {
-            component: "jQuery application baseline", domain: "Apps & experience", changeType: "Removed", actionLevel: "Review",
-            from: "jQuery 2 compatibility artifacts can remain", to: "jQuery 2 and its compatibility controls are removed",
-            implication: "Cloud apps that hotlink jQuery 2 or depend on version-specific APIs no longer function.",
-            action: "Use AppInspect and current app releases, migrate affected classic dashboards, and update private JavaScript to supported APIs.",
-            source: "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first"
+            component: "Legacy TLS protocols", domain: "Security & cryptography", changeType: "Default disabled", actionLevel: "Review",
+            from: "TLS 1.0 and 1.1 remain enabled for applicable connections", to: "TLS 1.0 and 1.1 are disabled by default but remain available for documented migration use",
+            implication: "Customer-managed integrations that still negotiate only a legacy protocol can fail when the managed release reaches the stack.",
+            action: "Inventory integration endpoints, move them to TLS 1.2 or later, and use the release communication to validate timing for the affected stack.",
+            source: "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.4.2604/splunk-cloud-platform-release-notes/whats-new"
+          },
+          {
+            component: "Python application runtime", domain: "Apps & experience", changeType: "Default changed", actionLevel: "Review",
+            from: "Python 3.9 is the default interpreter", to: "Python 3.13 becomes the default interpreter with Python 3.9 available as a fallback",
+            implication: "Private apps and integrations with Python-version assumptions can behave differently even though Splunk manages the platform release.",
+            action: "Confirm Cloud-compatible app versions and test private Python extensions against the 3.13 default for the scheduled stack release.",
+            source: "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.4.2604/splunk-cloud-platform-release-notes/whats-new"
           }
         ], requirements: [
           ["Replace SHA-1 certificates", "SHA-1-signed certificates are removed from supported trust paths. Confirm private integrations use modern signatures.", "Blocker", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.4.2604/splunk-cloud-platform-release-notes/whats-new", true],
-          ["Review automatic refresh roles", "Automatic dashboard refresh now requires the auto_refresh_dashboards capability. Confirm intended roles retain this behavior after the release.", "Validate", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.4.2604/splunk-cloud-platform-release-notes/whats-new", true]
+          ["Review automatic refresh roles", "Automatic dashboard refresh now requires the auto_refresh_dashboards capability. Confirm intended roles retain this behavior after the release.", "Validate", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.4.2604/splunk-cloud-platform-release-notes/whats-new", true],
+          ["Treat AI Canvas as beta-only", "The app can be deployed but is inaccessible by default. Only customers participating in the beta and completing its onboarding requirements can use it.", "Validate", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.4.2604/splunk-cloud-platform-release-notes/whats-new", false],
+          ["Modernize legacy-protocol integrations", "TLS 1.0 and 1.1 are disabled by default for this Cloud line. Move customer-managed integration endpoints to TLS 1.2 or later before the scheduled stack release.", "Validate", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.4.2604/splunk-cloud-platform-release-notes/whats-new", true]
         ]
       },
       "10.5.2605": {

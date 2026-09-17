@@ -30,7 +30,7 @@ For Enterprise 8.1 or 8.2, the journey adds a source-readiness blocker because t
 | [Selecting a cloud migration approach](https://lantern.splunk.com/Manage_Performance_and_Health/Selecting_the_best_cloud_migration_approach) | Greenfield, dual-running, and full-migration tradeoffs; this Lantern article is partner-authored guidance |
 | [Cloud Migration Assessment App for Splunk](https://splunkbase.splunk.com/app/4974) | Current app version, compatibility floor, directional assessment scope, and explicit-upload behavior |
 | [Splunk Cloud Platform release notes](https://help.splunk.com/en/splunk-cloud-platform/release-notes) | Capabilities and readiness items for each selected Cloud destination |
-| [Splunk Enterprise upgrade paths](https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise/upgrade-paths-to-version-10.4) | Supported step path to the current SCMA compatibility floor when the selected source is older |
+| [Splunk Enterprise upgrade paths](https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise) | Supported step path to the current SCMA compatibility floor when the selected source is older |
 
 Splunk Lantern combines Splunk and community-authored operational guidance. The site links directly to each source and avoids presenting summarized guidance as a warranty, fixed timeline, or Statement of Work.
 
