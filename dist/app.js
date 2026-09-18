@@ -63,7 +63,7 @@
       cloud: { host: "10.5.2605", from: "8.2", to: "8.6" }
     },
     itsi: {
-      enterprise: { host: "10.4", from: "4.20", to: "5.0.1" },
+      enterprise: { host: "10.4", from: "4.20", to: "5.0.2" },
       cloud: { host: "10.5.2605", from: "4.20", to: "5.0" }
     },
     observability: {
@@ -698,7 +698,7 @@
       journey = activeTrack().label + " " + state.from + " → " + state.to + " · " + platformContext + state.host;
     }
     printTitle.textContent = journey;
-    printSubtitle.textContent = "Source-backed guidance reviewed September 17, 2026 · versioncompass.com";
+    printSubtitle.textContent = "Source-backed guidance reviewed September 18, 2026 · versioncompass.com";
     document.title = "Version Compass | " + journey;
   }
 

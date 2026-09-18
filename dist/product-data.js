@@ -232,8 +232,8 @@
 
     itsi: {
       label: "Splunk IT Service Intelligence",
-      latest: "5.0.1",
-      releases: ["4.15", "4.17", "4.18", "4.19", "4.20", "4.21", "5.0", "5.0.1"],
+      latest: "5.0.2",
+      releases: ["4.15", "4.17", "4.18", "4.19", "4.20", "4.21", "5.0", "5.0.1", "5.0.2"],
       compatibilitySource: compatibilitySource,
       relatedAppsSource: "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/install-and-upgrade/5.0/planning/itsi-compatibility-with-related-apps-and-add-ons",
       cloudServiceSource: cloudServiceSource,
@@ -247,7 +247,8 @@
           "4.20": ["9.2", "9.3", "9.4", "10.0"],
           "4.21": ["9.3", "9.4", "10.0", "10.2", "10.4"],
           "5.0": ["10.2", "10.4"],
-          "5.0.1": ["10.2", "10.4"]
+          "5.0.1": ["10.2", "10.4"],
+          "5.0.2": ["10.2", "10.4"]
         }
       },
       releasesData: {
@@ -352,7 +353,7 @@
           technicalChanges: [
             {
               component: "ITSI Python runtime", domain: "Runtime & apps", changeType: "Runtime changed", actionLevel: "Required",
-              from: "Python 3.7 or 3.9 depending on the 4.x platform pairing", to: "Python 3.13 for ITSI 5.0 and 5.0.1",
+              from: "Python 3.7 or 3.9 depending on the 4.x platform pairing", to: "Python 3.13 for the ITSI 5.0 release line",
               implication: "Private apps, algorithms, scripts, and packaged dependencies that are not Python 3.13-compatible can fail.",
               action: "Run the documented Python migration assessment, update code and dependencies, and test every ITSI extension on the target platform.",
               source: "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/install-and-upgrade/5.0/planning/itsi-compatibility-with-related-apps-and-add-ons"
@@ -399,6 +400,34 @@
             ["Rehearse the enforced episode-policy order", "ITSI 5.0.1 removes the opt-out for NEAP prioritization. Validate overlapping policies and expected episode grouping with production-like alerts.", "Blocker", "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/new-features-in-splunk-it-service-intelligence", true],
             ["Update ServiceNow work-note parameters", "Change custom uses of worknotes to work_notes and validate both create and update actions.", "Blocker", "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/new-features-in-splunk-it-service-intelligence", true],
             ["Use Java 17 or 21", "ITSI 5.0.1 requires Java 17 at minimum and supports Java 21. Java 8 and Java 11 are not supported.", "Blocker", "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/new-features-in-splunk-it-service-intelligence", true]
+          ]
+        },
+        "5.0.2": {
+          date: "September 17, 2026",
+          source: "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/new-features-in-splunk-it-service-intelligence",
+          features: [
+            ["Paginated ITSI MCP results", "Integrations & content", "Work through larger investigation results", "Use stateless count and offset parameters with the documented episodes, impacted-objects, and external-links tools."],
+            ["Event-action reliability fixes", "Event operations", "Reduce manual recovery and rework", "Apply fixes for episode-policy actions, timeline column order, multiline comments, NATS worker recovery, and HTTPS webhook certificate verification."]
+          ],
+          technicalChanges: [
+            {
+              component: "ITSI MCP result retrieval", domain: "APIs & integrations", changeType: "Pagination added", actionLevel: "Review",
+              from: "The three documented MCP investigation tools return results without count and offset controls", to: "SA-ITOA_get_episodes, SA-ITOA_get_impacted_objects, and SA-ITOA_get_external_links support stateless count and offset pagination",
+              implication: "Clients can retrieve large result sets in pages, but custom consumers must deliberately continue until all required results have been collected.",
+              action: "Review approved MCP clients and automations, set suitable page sizes, and test multi-page result handling where large investigations are expected.",
+              source: "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/new-features-in-splunk-it-service-intelligence"
+            },
+            {
+              component: "ITSI-bundled third-party libraries", domain: "Dependency stack", changeType: "Libraries updated", actionLevel: "Review",
+              from: "The ITSI 5.0.1 bundled dependency baseline", to: "ITSI 5.0.2 bundles ip-address 10.1.1, svgo 3.3.3, postcss 8.5.15, Bouncy Castle LTS 2.73.7, nanoid 3.3.8, Log4j API 2.25.4, DOMPurify 3.4.12, pip 26.1.2, and decode-uri-component 0.2.2",
+              implication: "The product-owned runtime and library baseline changes even when customer-owned apps and packages are unchanged.",
+              action: "Re-run security and compatibility validation for private extensions that interact with ITSI, and do not replace Splunk-bundled packages independently.",
+              source: "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/new-features-in-splunk-it-service-intelligence"
+            }
+          ],
+          requirements: [
+            ["Validate MCP pagination where used", "ITSI 5.0.2 adds count and offset parameters to three MCP tools. Test approved clients against large result sets and confirm that multi-page retrieval is complete.", "Validate", "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/new-features-in-splunk-it-service-intelligence", false],
+            ["Retest affected event and integration flows", "If the deployment uses NEAP actions, custom Episode Event Timeline columns, multiline comments, NATS processing, or HTTPS webhooks, verify the documented 5.0.2 fixes in a representative environment.", "Validate", "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/fixed-issues-in-splunk-it-service-intelligence", false]
           ]
         }
       }

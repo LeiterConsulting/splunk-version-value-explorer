@@ -45,7 +45,7 @@ No registration, lead form, subscription, or customer information is collected.
 | Splunk Cloud Platform | 9.2.2406 through 10.5.2605 |
 | Enterprise → Cloud | Enterprise 8.1–10.4 to Cloud 9.2.2406–10.5.2605 |
 | Splunk Enterprise Security | 7.3 through 8.7 |
-| Splunk IT Service Intelligence | 4.15 through 5.0.1 |
+| Splunk IT Service Intelligence | 4.15 through 5.0.2 |
 | Splunk Observability Cloud | Dated milestones from November 2024 through September 2026 |
 
 The platform content is organized around five value themes: Search & AI, Platform Operations, Data Management, Security & Compliance, and Dashboards & Experience. Product-specific themes are added for security operations, service intelligence, and observability. A separate technical layer explains the documented before-and-after state, why it matters, and the recommended action without treating every component change as a breaking change. Enterprise-to-Cloud recommendations cover mobilization, assessment, migration-motion selection, app and data preparation, connectivity, access, acceptance testing, cutover, and retirement.

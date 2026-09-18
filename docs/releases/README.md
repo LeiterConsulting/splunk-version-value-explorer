@@ -4,6 +4,7 @@ This directory contains concise, repository-only release notes for Version Compa
 
 ## Releases
 
+- [September 18, 2026](2026-09-18.md) — ITSI 5.0.2 maintenance release, MCP pagination, and reliability fixes
 - [September 17, 2026](2026-09-17.md) — Platform runtime guidance, Cloud scope corrections, and ES 8.7 edition boundaries
 - [September 16, 2026](2026-09-16.md) — Observability/OpenTelemetry updates and the Enterprise Security 8.6.1 security floor
 
