@@ -103,36 +103,42 @@
     state.category = "All";
   }
 
+  const guidance = window.VersionCompassGuidance;
+  let linkResolution = null;
   function readUrlState() {
-    const params = new URLSearchParams(window.location.search);
-    const requestedProduct = params.get("product");
-    if (requestedProduct && data.products[requestedProduct]) state.product = requestedProduct;
-    const requestedPlatform = params.get("platform");
-    if (requestedPlatform && ["enterprise", "cloud", "migration"].includes(requestedPlatform)) state.platform = requestedPlatform;
-    if (!isCore() && state.platform === "migration") state.platform = "enterprise";
-    useDefaults();
-
-    const fromReleases = trackReleases();
-    const toReleases = targetReleases();
-    const requestedFrom = params.get("from");
-    const requestedTo = params.get("to");
-    const requestedHost = params.get("host");
-    if (fromReleases.includes(requestedFrom)) state.from = requestedFrom;
-    if (toReleases.includes(requestedTo)) state.to = requestedTo;
-    if (!isCore() && hostReleases().includes(requestedHost)) state.host = requestedHost;
-
-    const invalidOrder = !isMigration() && toReleases.indexOf(state.to) <= fromReleases.indexOf(state.from);
-    if (!fromReleases.includes(state.from) || !toReleases.includes(state.to) || invalidOrder) useDefaults();
+    linkResolution = guidance.resolveUrl(window.location.search, defaults);
+    Object.assign(state, linkResolution.state);
   }
-
   function writeUrlState() {
-    const params = new URLSearchParams();
-    params.set("product", state.product);
-    params.set("platform", state.platform);
-    if (!isCore()) params.set("host", state.host);
-    params.set("from", state.from);
-    params.set("to", state.to);
-    window.history.replaceState(null, "", "?" + params.toString());
+    if (linkResolution && linkResolution.needsConfirmation) return;
+    window.history.replaceState(null, "", guidance.routeUrl(state));
+  }
+  function clearLinkContext() { linkResolution = null; }
+  function renderLinkNotice() {
+    const box = document.getElementById("link-notice");
+    const resolution = linkResolution;
+    box.hidden = !resolution || (!resolution.errors.length && !resolution.reasons.length);
+    if (box.hidden) { box.innerHTML = ""; document.getElementById("print-link-notice").innerHTML = ""; return; }
+    const blocked = resolution.needsConfirmation;
+    const items = resolution.errors.map(function (text) { return { text: text }; }).concat(resolution.reasons);
+    box.innerHTML = '<strong>' + (blocked ? 'This report link needs your review' : 'Review this shared comparison') + '</strong><p>' + (blocked ? 'We could not restore the complete route. The controls below are proposed selections; no replacement report has been generated.' : 'Your selected releases are preserved. These details may affect how you use the report:') + '</p><ul>' + items.map(function (item) {
+      return '<li>' + escapeHtml(item.text) + (item.source ? ' ' + externalLink(item.source, 'Source') : '') + (item.actionUrl ? ' ' + internalLink(item.actionUrl, item.actionLabel) : '') + '</li>';
+    }).join('') + '</ul>' + (blocked ? '<button type="button" id="accept-link-selections">Use the selections below</button>' : '');
+    document.getElementById("print-link-notice").innerHTML = blocked ? "" : "<strong>Shared-link context</strong><ul>" + items.map(function (item) { return "<li>" + escapeHtml(item.text) + "</li>"; }).join("") + "</ul>";
+    if (blocked) document.getElementById("accept-link-selections").addEventListener("click", function () { clearLinkContext(); renderAll(); });
+  }
+  function renderRouteGuidance() {
+    const summary = guidance.takeaway(state);
+    const point = function (item) { return escapeHtml(item.text) + ' ' + externalLink(item.source, 'Source'); };
+    document.getElementById("route-takeaway").innerHTML = '<h2 id="takeaway-title">This route at a glance</h2><div class="takeaway-grid"><div><h3>What you gain</h3>' + (summary.highlights.length ? '<ul>' + summary.highlights.map(function (item) { return '<li>' + point(item) + '</li>'; }).join('') + '</ul>' : '<p>No curated capability milestone in this interval.</p>') + '</div><div><h3>Before moving</h3><p>' + (summary.prerequisite ? point(summary.prerequisite) : 'Review the official upgrade guidance.') + '</p></div><div><h3>Watch for</h3><p>' + point(summary.risk) + '</p></div></div><p class="guidance-note">' + escapeHtml(summary.note) + '</p>';
+    const rows = guidance.routeLifecycle(state);
+    document.getElementById("lifecycle-summary").innerHTML = '<span>Support lifecycle</span>' + rows.map(function (row) { return '<span class="lifecycle-status ' + row.status + '">' + escapeHtml(row.role + ' · ' + row.label + (row.endOfSupport ? ' · ' + row.endOfSupport : '')) + '</span>'; }).join('');
+    document.getElementById("lifecycle-content").innerHTML = '<p class="guidance-note">Evaluated ' + escapeHtml(rows[0].asOf) + ' (Eastern date). Policy dates verified ' + escapeHtml(data.guidance.lifecycle.reviewed) + '.</p><div class="lifecycle-grid">' + rows.map(function (row) { return '<div><h3>' + escapeHtml(row.role + ' · ' + row.release) + '</h3><p>' + escapeHtml(row.label + (row.endOfSupport ? ': ' + row.endOfSupport : '')) + '</p><p>' + escapeHtml(row.detail) + '</p>' + externalLink(row.source, 'Support guidance') + '</div>'; }).join('') + '</div>';
+  }
+  function activationMarkup(feature) {
+    const activation = guidance.activationFor(feature, state);
+    const key = (feature.release || feature.milestone || '') + ':' + feature.title;
+    return '<details class="activation-details" data-activation-key="' + escapeHtml(key) + '"><summary>' + escapeHtml(activation.label) + '</summary><p>' + escapeHtml(activation.detail) + '</p>' + externalLink(activation.source, 'Activation guidance') + '</details>';
   }
 
   function fillJourneyOptions() {
@@ -285,7 +291,7 @@
     benefitGrid.innerHTML = visible.length ? visible.map(function (feature) {
       const category = data.categories[feature.category] || { icon: "•" };
       const milestone = feature.milestone || "Introduced in " + feature.release;
-      return '<article class="benefit-card"><div class="benefit-top"><span class="benefit-icon" aria-hidden="true">' + category.icon + '</span><span>' + escapeHtml(feature.category) + '</span></div><p class="outcome">' + escapeHtml(feature.outcome) + '</p><h3>' + escapeHtml(feature.title) + '</h3><p class="detail">' + escapeHtml(feature.detail) + '</p><div class="benefit-foot"><span>' + escapeHtml(milestone) + '</span>' + externalLink(feature.source, "Source") + '</div></article>';
+      return '<article class="benefit-card"><div class="benefit-top"><span class="benefit-icon" aria-hidden="true">' + category.icon + '</span><span>' + escapeHtml(feature.category) + '</span></div><p class="outcome">' + escapeHtml(feature.outcome) + '</p><h3>' + escapeHtml(feature.title) + '</h3><p class="detail">' + escapeHtml(feature.detail) + '</p>' + activationMarkup(feature) + '<div class="benefit-foot"><span>' + escapeHtml(milestone) + '</span>' + externalLink(feature.source, "Source") + '</div></article>';
     }).join("") : '<div class="empty-state"><span>i</span><div><h3>No curated capability milestone in this interval</h3><p>The release remains in the route for compatibility context. Open the official source for maintenance-level detail.</p></div></div>';
 
     filters.querySelectorAll("button").forEach(function (button) {
@@ -465,6 +471,13 @@
 
   function renderAll() {
     syncControls();
+    renderLinkNotice();
+    const blocked = Boolean(linkResolution && linkResolution.needsConfirmation);
+    document.getElementById("results").hidden = blocked;
+    copyLinkButton.disabled = blocked;
+    printButton.disabled = blocked;
+    if (blocked) { note.textContent = "Choose or confirm the comparison releases to continue."; return; }
+    renderRouteGuidance();
     const migration = isMigration();
     pathKicker.textContent = "01 / " + (migration ? "THE MIGRATION" : "THE ROUTE");
     valueKicker.textContent = (migration ? "03" : "02") + " / THE RETURN";
@@ -507,6 +520,7 @@
   }
 
   copyLinkButton.addEventListener("click", function () {
+    if (linkResolution && linkResolution.needsConfirmation) return;
     writeUrlState();
     const url = window.location.href;
     if (navigator.clipboard && window.isSecureContext) {
@@ -522,11 +536,14 @@
 
   let printState = null;
   function preparePrintReport() {
-    if (printState) return;
-    printState = { category: state.category, technicalOpen: technicalPanel.open };
+    if (printState || (linkResolution && linkResolution.needsConfirmation)) return;
+    const activationOpen = Array.from(document.querySelectorAll(".activation-details")).filter(function (panel) { return panel.open; }).map(function (panel) { return panel.dataset.activationKey; });
+    printState = { category: state.category, technicalOpen: technicalPanel.open, lifecycleOpen: document.getElementById("lifecycle-panel").open, activationOpen: activationOpen };
     state.category = "All";
     renderValue();
     technicalPanel.open = true;
+    document.getElementById("lifecycle-panel").open = true;
+    document.querySelectorAll(".activation-details").forEach(function (panel) { panel.open = true; });
     document.documentElement.classList.add("printing-report");
   }
 
@@ -535,19 +552,24 @@
     document.documentElement.classList.remove("printing-report");
     technicalPanel.open = printState.technicalOpen;
     state.category = printState.category;
+    document.getElementById("lifecycle-panel").open = printState.lifecycleOpen;
+    const activationOpen = printState.activationOpen;
     printState = null;
     renderValue();
+    document.querySelectorAll(".activation-details").forEach(function (panel) { panel.open = activationOpen.includes(panel.dataset.activationKey); });
   }
 
   window.addEventListener("beforeprint", preparePrintReport);
   window.addEventListener("afterprint", restorePrintReport);
   printButton.addEventListener("click", function () {
+    if (linkResolution && linkResolution.needsConfirmation) return;
     preparePrintReport();
     window.setTimeout(function () { window.print(); }, 40);
   });
 
   productInputs.forEach(function (input) {
     input.addEventListener("change", function () {
+      clearLinkContext();
       state.product = input.value;
       if (!isCore() && state.platform === "migration") state.platform = "enterprise";
       useDefaults();
@@ -558,6 +580,7 @@
 
   platformInputs.forEach(function (input) {
     input.addEventListener("change", function () {
+      clearLinkContext();
       state.platform = input.value;
       useDefaults();
       fillSelectors();
@@ -566,12 +589,14 @@
   });
 
   hostSelect.addEventListener("change", function () {
+    clearLinkContext();
     state.host = hostSelect.value;
     state.category = "All";
     renderAll();
   });
 
   fromSelect.addEventListener("change", function () {
+    clearLinkContext();
     state.from = fromSelect.value;
     state.category = "All";
     fillTargetSelector();
@@ -579,13 +604,15 @@
   });
 
   toSelect.addEventListener("change", function () {
+    clearLinkContext();
     state.to = toSelect.value;
     state.category = "All";
     renderAll();
   });
 
-  window.VersionCompassPage = Object.freeze({ getSelection: function () { return Object.assign({}, state); } });
+  window.VersionCompassPage = Object.freeze({ getSelection: function () { return Object.assign({}, state); }, getLinkContext: function () { return linkResolution ? JSON.parse(JSON.stringify(linkResolution)) : null; } });
 
+  window.addEventListener("popstate", function () { readUrlState(); fillSelectors(); renderAll(); });
   readUrlState();
   fillSelectors();
   renderAll();

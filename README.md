@@ -133,3 +133,7 @@ Version Compass is independently developed. It is not affiliated with, sponsored
 ## License
 
 Released under the [MIT License](LICENSE). This license covers the project source and original project content; third-party names, trademarks, and linked documentation remain the property of their respective owners.
+
+## Route guidance and historical links
+
+Reports include a cited route takeaway, expandable support lifecycle context, and capability activation qualifications. Older valid URLs preserve comparisons and explain relevant changes; unrecognized routes require review. New links carry the guidance review date. See [report guidance](docs/report-guidance.md) for behavior and maintenance.

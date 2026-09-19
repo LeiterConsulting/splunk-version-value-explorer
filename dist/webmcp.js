@@ -28,7 +28,7 @@
     const releaseNotesUrl = badge ? badge.href : null;
     const date = releaseNotesUrl && releaseNotesUrl.match(/\/(\d{4}-\d{2}-\d{2})\.md$/);
     return {
-      schemaVersion: "1.0",
+      schemaVersion: "1.1",
       site: "https://versioncompass.com",
       reviewedDate: date ? date[1] : null,
       releaseNotesUrl: releaseNotesUrl,
@@ -60,7 +60,8 @@
   function report(state, include) {
     const engine = window.VersionCompassComparison.create(data, state);
     const track = engine.isMigration() ? data.cloud : engine.activeTrack();
-    const features = engine.selectedFeatures();
+    const guidance = window.VersionCompassGuidance;
+    const features = engine.selectedFeatures().map(function (feature) { return Object.assign({}, feature, { activation: guidance.activationFor(feature, state) }); });
     const technicalChanges = engine.selectedTechnicalChanges();
     const breakingChanges = engine.selectedBreakingChanges();
     const readiness = engine.selectedReadinessItems();
@@ -69,10 +70,12 @@
     const enterprise = engine.isCore() && state.platform === "enterprise";
     const migration = engine.isMigration();
     const path = engine.selectedPath();
-    const params = new URLSearchParams(state);
+
     const result = {
       selection: state,
-      reportUrl: "https://versioncompass.com/?" + params.toString(),
+      reportUrl: "https://versioncompass.com/" + guidance.routeUrl(state),
+      takeaway: guidance.takeaway(state),
+      lifecycle: guidance.routeLifecycle(state),
       path: {
         kind: enterprise ? "enterprise_upgrade" : migration ? "migration_program" : engine.isCore() ? "cloud_capability_milestones" : engine.isObservability() ? "observability_service_milestones" : "product_milestones",
         status: enterprise ? (path.length ? "documented_in_curated_graph" : "unknown") : "planning_milestones",
@@ -91,13 +94,15 @@
     include.forEach(function (key) { result[key] = sections[key]; });
     const sources = new Set([result.path.source, track.releasesData[state.to].source]);
     if (compatibility) sources.add(compatibility.source);
-    include.forEach(function (key) { sections[key].forEach(function (item) { if (item.source) sources.add(item.source); }); });
+    result.lifecycle.forEach(function (row) { sources.add(row.source); });
+    result.takeaway.highlights.concat([result.takeaway.prerequisite, result.takeaway.risk]).forEach(function (item) { if (item) sources.add(item.source); });
+    include.forEach(function (key) { sections[key].forEach(function (item) { if (item.source) sources.add(item.source); if (item.activation) sources.add(item.activation.source); }); });
     result.sources = Array.from(sources).filter(Boolean);
     return result;
   }
 
   const includeSchema = { type: "array", items: { type: "string", enum: sectionNames }, uniqueItems: true, maxItems: sectionNames.length,
-    description: "Sections to return. Omit for all details; [] returns path, compatibility, counts, and core sources only." };
+    description: "Sections to return. Omit for all details; [] returns takeaway, lifecycle, path, compatibility, counts, and core sources only." };
   const routeSchema = {
     type: "object", additionalProperties: false, required: ["product", "platform", "from", "to"],
     properties: {
@@ -141,7 +146,7 @@
     },
     {
       name: "versioncompass_compare_routes", title: "Compare Splunk upgrade and migration routes",
-      description: "Read 1–5 comparisons using the same logic as the site: upgrade steps, compatibility gates, capabilities, technical changes, breaking risks, readiness actions, citations, and report links. Requires exact catalog versions. Does not change the displayed report or upgrade a system.",
+      description: "Read 1–5 comparisons using the same logic as the site: route takeaway, lifecycle, upgrade steps, compatibility gates, capabilities with activation qualifications, technical changes, breaking risks, readiness actions, citations, and report links. Requires exact catalog versions. Does not change the displayed report or upgrade a system.",
       inputSchema: { type: "object", additionalProperties: false, required: ["routes"], properties: { routes: { type: "array", minItems: 1, maxItems: 5, items: routeSchema }, include: includeSchema } },
       execute: executeSafely(function (input) {
         objectInput(input, ["routes", "include"]);
@@ -159,10 +164,12 @@
       execute: executeSafely(function (input) {
         objectInput(input, ["include"]);
         const include = has(input, "include") ? listInput(input.include, sectionNames, "include", sectionNames.length) : sectionNames;
+        const linkContext = window.VersionCompassPage.getLinkContext();
+        if (linkContext && linkContext.needsConfirmation) throw new Error("This page link could not be restored. The visitor must confirm the proposed route before reading a current report. Explicit compare_routes requests remain available.");
         const selected = window.VersionCompassPage.getSelection();
         const route = { product: selected.product, platform: selected.platform, from: selected.from, to: selected.to };
         if (selected.product !== "platform") route.host = selected.host;
-        return { metadata: metadata(), report: report(validateRoute(route), include) };
+        return { metadata: metadata(), linkContext: linkContext, report: report(validateRoute(route), include) };
       })
     }
   ];

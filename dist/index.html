@@ -22,6 +22,7 @@
         <h1 id="page-title">See what the next<br />move makes possible.</h1>
         <p class="dek">Compare platform and premium-product releases with clear value, compatibility gates, technical changes, readiness guidance, and official sources.</p>
 
+        <aside id="link-notice" class="link-notice" aria-live="polite" hidden></aside>
         <div class="selector-card" aria-label="Release comparison controls">
           <fieldset class="product-switcher">
             <legend>Product</legend>
@@ -63,8 +64,16 @@
           <h1 id="print-title">Selected product journey</h1>
           <span id="print-subtitle">Source-backed guidance reviewed September 19, 2026</span>
           <div class="print-compatibility" id="print-compatibility"></div>
+          <div id="print-link-notice"></div>
         </header>
 
+        <section class="section route-overview" aria-labelledby="takeaway-title">
+          <div class="route-takeaway" id="route-takeaway"></div>
+          <details class="lifecycle-panel" id="lifecycle-panel">
+            <summary id="lifecycle-summary">Support lifecycle</summary>
+            <div id="lifecycle-content"></div>
+          </details>
+        </section>
         <section class="section path-section" aria-labelledby="path-title">
           <div class="section-head">
             <div><p class="kicker" id="path-kicker">01 / THE ROUTE</p><h2 id="path-title">Your path forward</h2></div>
@@ -152,7 +161,9 @@
 
     <script src="data.js"></script>
     <script src="product-data.js"></script>
+    <script src="guidance-data.js"></script>
     <script src="comparison.js"></script>
+    <script src="guidance.js"></script>
     <script src="app.js"></script>
     <script src="webmcp.js"></script>
   </body>

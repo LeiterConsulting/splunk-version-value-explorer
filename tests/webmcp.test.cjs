@@ -18,13 +18,20 @@ const routes = [
 
 async function runtime({ support = true, failure = false, selection = routes[0] } = {}) {
   const elements = new Map(), events = {}, registered = new Map();
-  let registrations = 0;
+  let registrations = 0, activationPanels = [];
   function element(id) {
     if (elements.has(id)) return elements.get(id);
     const classes = new Set();
     const el = { id, innerHTML: '', textContent: '', value: '', hidden: false, open: false, checked: false, dataset: {}, style: {}, listeners: {},
       classList: { add: x => classes.add(x), remove: x => classes.delete(x), toggle: (x, enabled) => enabled ? classes.add(x) : classes.delete(x) },
       addEventListener: (type, fn) => { el.listeners[type] = fn; }, querySelector: () => element(id + '-span'), querySelectorAll: () => [] };
+    if (id === 'benefit-grid') {
+      let html = '';
+      Object.defineProperty(el, 'innerHTML', { get: () => html, set: value => {
+        html = value;
+        activationPanels = [...value.matchAll(/data-activation-key="([^"]+)"/g)].map(match => ({ dataset: { activationKey: match[1] }, open: false }));
+      } });
+    }
     elements.set(id, el); return el;
   }
   const products = ['platform', 'es', 'itsi', 'observability'].map(value => Object.assign(element('product-' + value), { value }));
@@ -34,7 +41,7 @@ async function runtime({ support = true, failure = false, selection = routes[0] 
   const badge = { href: badgeUrl };
   const document = {
     getElementById: element, documentElement: element('html'), title: '',
-    querySelectorAll: selector => selector === 'input[name="product"]' ? products : selector === 'input[name="platform"]' ? platforms : selector === '[data-platform-option]' ? labels : [],
+    querySelectorAll: selector => selector === 'input[name="product"]' ? products : selector === 'input[name="platform"]' ? platforms : selector === '[data-platform-option]' ? labels : selector === '.activation-details' ? activationPanels : [],
     querySelector: selector => {
       if (selector === 'a.reviewed') return badge;
       const match = selector.match(/input\[name="(product|platform)"\]\[value="([^"]+)"\]/);
@@ -51,7 +58,7 @@ async function runtime({ support = true, failure = false, selection = routes[0] 
   const window = { location: { search: '?' + new URLSearchParams(selection), href: 'https://versioncompass.com/' }, history: { replaceState: (_a, _b, url) => { window.location.search = url; window.location.href = 'https://versioncompass.com/' + url; } },
     addEventListener: (type, fn) => { (events[type] ||= []).push(fn); }, setTimeout: fn => fn(), print: () => {} };
   const context = vm.createContext({ window, document, navigator: {}, URL, URLSearchParams, AbortController, console: { warn: () => {} } });
-  for (const file of ['data.js', 'product-data.js', 'comparison.js', 'app.js', 'webmcp.js']) vm.runInContext(read('dist/' + file), context, { filename: file });
+  for (const file of ['data.js', 'product-data.js', 'guidance-data.js', 'comparison.js', 'guidance.js', 'app.js', 'webmcp.js']) vm.runInContext(read('dist/' + file), context, { filename: file });
   await tick();
   return { window, document, elements, registered, context, badge, events, registrations: () => registrations,
     run: (name, input) => plain(registered.get('versioncompass_' + name).execute(input)),
@@ -78,7 +85,7 @@ test('catalog and batches use current data, exact identifiers, citations, and is
         assert.equal(report.counts[section], report[section].length);
         report[section].forEach(item => assert.match(item.source, /^https:\/\//));
       }
-      assert.deepEqual(Object.fromEntries(new URL(report.reportUrl).searchParams), selection);
+      assert.deepEqual(Object.fromEntries(new URL(report.reportUrl).searchParams), { ...selection, reviewed: rt.window.SPLUNK_DATA.guidance.reviewed });
       if (report.path.kind === 'enterprise_upgrade') assert.notEqual(report.path.status, 'unknown');
       comparisons++;
     }
@@ -168,4 +175,127 @@ test('unsupported browsers, registration failures, duplicate scripts, and page l
   await rt.dispatch('pagehide'); assert.equal(rt.registered.size, 0);
   await rt.dispatch('pageshow'); assert.equal(rt.registered.size, 3);
   assert.equal(rt.registrations(), 6);
+});
+
+test('historical links preserve routes, explain newer guidance, and offer optional newer targets', async () => {
+  const selection = { platform: 'enterprise', from: '8.2', to: '9.4', reviewed: '2026-09-01' };
+  const rt = await runtime({ selection });
+  const context = plain(rt.window.VersionCompassPage.getLinkContext());
+  assert.equal(context.needsConfirmation, false);
+  assert.equal(rt.window.VersionCompassPage.getSelection().to, '9.4');
+  assert(context.reasons.some(x => x.code === 'newer_guidance'));
+  const newer = context.reasons.find(x => x.code === 'newer_target');
+  assert.equal(new URLSearchParams(newer.actionUrl).get('to'), '10.4');
+  assert.equal(new URLSearchParams(newer.actionUrl).get('from'), '8.2');
+  assert.match(rt.elements.get('link-notice').innerHTML, /original target is preserved/);
+  assert.match(rt.elements.get('print-link-notice').innerHTML, /2026-09-01/);
+  assert.equal(rt.run('get_current_report', {}).report.selection.to, '9.4');
+  rt.window.location.search = '?product=platform&platform=cloud&from=9.3.2408&to=10.4.2604';
+  await rt.dispatch('popstate');
+  assert.equal(rt.run('get_current_report', {}).report.selection.to, '10.4.2604');
+});
+
+test('unknown, incomplete, repeated, and reversed URL values never produce a replacement report', async () => {
+  const bad = [
+    { ...routes[0], from: '8.2.99' },
+    { ...routes[0], to: '<img src=x onerror=alert(1)>' },
+    { ...routes[0], product: '__proto__' },
+    { ...routes[0], from: '10.4', to: '9.4' },
+    { ...routes[0], from: '10.4' },
+    { ...routes[0], to: undefined },
+    { product: 'es', platform: 'enterprise', from: '7.3', to: '8.7' },
+    { ...routes[0], reviewed: '2026-02-30' },
+    { ...routes[0], host: '9.4' },
+    [['from','9.4'],['from','9.3'],['to','10.4']]
+  ];
+  for (const selection of bad) {
+    const rt = await runtime({ selection });
+    assert.equal(rt.elements.get('results').hidden, true, JSON.stringify(selection));
+    assert.equal(rt.elements.get('copy-link').disabled, true);
+    assert.equal(rt.elements.get('print-report').disabled, true);
+    assert.equal(rt.window.location.search, '?' + new URLSearchParams(selection));
+    assert.equal(rt.run('get_current_report', {}).ok, false);
+    assert(!rt.elements.get('link-notice').innerHTML.includes('<img'));
+    assert.equal(rt.run('compare_routes', { routes: [routes[0]] }).ok, true);
+    rt.elements.get('accept-link-selections').listeners.click();
+    assert.equal(rt.elements.get('results').hidden, false);
+    assert.equal(rt.run('get_current_report', {}).ok, true);
+  }
+  const rt = await runtime({ selection: { ...routes[0], from: 'missing' } });
+  rt.elements.get('from-release').value = '9.3';
+  rt.elements.get('from-release').listeners.change();
+  assert.equal(rt.run('get_current_report', {}).report.selection.from, '9.3');
+  const home = await runtime({ selection: {} });
+  assert.equal(home.window.VersionCompassPage.getLinkContext().needsConfirmation, false);
+  assert.equal(home.elements.get('link-notice').hidden, true);
+});
+
+test('every published report URL resolves exactly and only explicit aliases permit remapping', async () => {
+  const rt = await runtime();
+  const g = rt.window.VersionCompassGuidance;
+  const defaults = { platform: { enterprise: {from:'9.4',to:'10.4'}, cloud: {from:'9.3.2408',to:'10.5.2605'}, migration: {from:'9.4',to:'10.5.2605'} } };
+  const catalog = rt.run('get_catalog', {}).products;
+  for (const product of catalog) {
+    if (product.id !== 'platform') defaults[product.id] = {};
+    for (const ctx of product.contexts) {
+      if (product.id !== 'platform') defaults[product.id][ctx.platform] = {from:ctx.sourceReleases[0].id,to:ctx.latest,host:ctx.hostReleases.at(-1)};
+      for (const from of ctx.sourceReleases) for (const to of ctx.targetReleases) {
+        if (ctx.platform !== 'migration' && ctx.targetReleases.findIndex(x=>x.id===to.id) <= ctx.sourceReleases.findIndex(x=>x.id===from.id)) continue;
+        const state = {product:product.id,platform:ctx.platform,from:from.id,to:to.id};
+        if (product.id !== 'platform') state.host = ctx.hostReleases.at(-1);
+        const resolved = g.resolveUrl(g.routeUrl(state),defaults);
+        assert.equal(resolved.needsConfirmation,false);
+        for (const [key,value] of Object.entries(state)) assert.equal(resolved.state[key],value);
+      }
+    }
+  }
+  rt.window.SPLUNK_DATA.guidance.urlAliases.releases['platform:enterprise'] = { 'legacy-9.4': {to:'9.4',reason:'Test documented identifier rename.',source:'https://example.com/mapping'} };
+  const mapped = g.resolveUrl('?from=legacy-9.4&to=10.4',defaults);
+  assert.equal(mapped.needsConfirmation,false);
+  assert.equal(mapped.state.from,'9.4');
+  assert.equal(mapped.reasons[0].code,'mapped_identifier');
+  const future = g.resolveUrl('?from=9.4&to=10.4&reviewed=2099-01-01',defaults);
+  assert(future.reasons.some(x=>x.code==='newer_link'));
+});
+
+test('support windows use explicit dates, maintenance lines, and distinct managed-service context', async () => {
+  const rt = await runtime();
+  const lifecycle = rt.window.VersionCompassGuidance.lifecycle;
+  assert.equal(lifecycle('platform','enterprise','9.4','2026-09-19').status,'ending_soon');
+  assert.equal(lifecycle('platform','enterprise','9.4','2026-12-15').daysRemaining,1);
+  assert.equal(lifecycle('platform','enterprise','9.4','2026-12-16').status,'end_of_support');
+  assert.equal(lifecycle('platform','enterprise','10.4','2026-09-19').status,'supported');
+  assert.equal(lifecycle('platform','enterprise','8.1','2026-09-19').endOfSupport,'2023-04-19');
+  assert.equal(lifecycle('itsi','enterprise','5.0.2','2026-09-19').endOfSupport,lifecycle('itsi','enterprise','5.0','2026-09-19').endOfSupport);
+  assert.equal(lifecycle('platform','cloud','10.5.2605','2026-09-19').endOfSupport,null);
+  assert.equal(lifecycle('observability','enterprise','Sep 2026','2026-09-19').status,'service_milestone');
+  assert.equal(lifecycle('platform','enterprise','unknown','2026-09-19').status,'unverified');
+});
+
+test('activation qualifications match the page and print restores all expanded states', async () => {
+  const rt = await runtime({selection:routes[3]});
+  const report = rt.run('get_current_report',{}).report;
+  assert.equal(report.features.find(x=>x.title==='AI SOC Analyst').activation.label,'Premier + enablement');
+  assert(report.features.some(x=>x.activation.status==='not_assessed'));
+  for (const feature of report.features) {
+    assert(rt.elements.get('benefit-grid').innerHTML.includes(feature.activation.label.replace(/&/g,'&amp;')));
+    assert(report.sources.includes(feature.activation.source));
+  }
+  assert.equal(report.takeaway.highlights.length,3);
+  assert.equal(report.lifecycle.length,3);
+  assert.match(rt.elements.get('route-takeaway').innerHTML,/Upgrade Splunk Enterprise first/);
+  let panels = rt.document.querySelectorAll('.activation-details');
+  assert.equal(panels.length,report.features.length);
+  panels[0].open = true;
+  const original = panels[0].dataset.activationKey;
+  await rt.dispatch('beforeprint');
+  assert(rt.document.querySelectorAll('.activation-details').every(x=>x.open));
+  assert.equal(rt.elements.get('lifecycle-panel').open,true);
+  await rt.dispatch('afterprint');
+  panels = rt.document.querySelectorAll('.activation-details');
+  assert.equal(panels.filter(x=>x.open).length,1);
+  assert.equal(panels.find(x=>x.open).dataset.activationKey,original);
+  assert.equal(rt.elements.get('lifecycle-panel').open,false);
+  const migration = rt.run('compare_routes',{routes:[{...routes[2],to:'10.4.2604'}]}).reports[0];
+  assert.equal(migration.features.find(x=>x.title==='AI Canvas beta').activation.label,'Beta onboarding');
 });

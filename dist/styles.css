@@ -449,7 +449,43 @@ a { color: inherit; }
 
 @page { margin: .55in; }
 
+/* Compact report guidance: no additional selection controls. */
+.link-notice { margin: 0 0 20px; padding: 18px 22px; border: 1px solid #d9c395; border-left: 3px solid #947025; border-radius: 10px; background: #fff9ed; color: var(--ink); text-align: left; font-size: .875rem; overflow-wrap: anywhere; }
+.link-notice[hidden], #results[hidden] { display: none; }
+.link-notice p { margin: 7px 0; }
+.link-notice ul { margin: 8px 0 0; padding-left: 20px; }
+.link-notice li + li { margin-top: 7px; }
+.link-notice button { margin-top: 14px; padding: 9px 14px; border: 1px solid var(--green-dark); border-radius: 6px; background: var(--white); color: var(--green-dark); cursor: pointer; font: inherit; }
+.report-actions button:disabled { opacity: .5; cursor: not-allowed; }
+.route-overview { padding-bottom: 0; }
+.route-takeaway { border: 1px solid var(--line); border-radius: 14px; padding: 24px; background: var(--white); }
+.route-takeaway h2 { font-size: 1.25rem; margin: 0 0 18px; }
+.takeaway-grid, .lifecycle-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; }
+.takeaway-grid h3, .lifecycle-grid h3 { font-size: .875rem; margin: 0 0 8px; color: var(--green-dark); }
+.takeaway-grid p, .takeaway-grid li, .lifecycle-grid p { font-size: .875rem; line-height: 1.65; margin: 0; overflow-wrap: anywhere; }
+.takeaway-grid ul { padding-left: 18px; margin: 0; }
+.takeaway-grid li + li { margin-top: 7px; }
+.guidance-note { margin: 15px 0 0; font-size: .8125rem; color: var(--muted); }
+.lifecycle-panel { margin-top: 12px; border-bottom: 1px solid var(--line); padding: 12px 0; }
+.lifecycle-panel > summary { cursor: pointer; font-size: .875rem; line-height: 1.8; }
+.lifecycle-panel > summary > span:first-child { font-weight: 700; margin-right: 10px; }
+.lifecycle-status { display: inline-block; margin: 3px 8px 3px 0; padding: 1px 8px; background: #e9eeea; border-radius: 5px; color: #33453b; }
+.lifecycle-status.ending_soon, .lifecycle-status.end_of_support { background: #fff0dc; color: #754018; }
+.lifecycle-grid { margin-top: 16px; }
+.lifecycle-grid p { margin-bottom: 9px; }
+.activation-details { margin: 14px 0; padding-top: 10px; border-top: 1px solid var(--line); font-size: .875rem; }
+.activation-details summary { cursor: pointer; color: var(--green-dark); font-weight: 650; }
+.activation-details p { margin: 10px 0; line-height: 1.65; }
+.link-notice button:focus-visible, .activation-details summary:focus-visible, .lifecycle-panel summary:focus-visible { outline: 2px solid var(--green-dark); outline-offset: 4px; border-radius: 3px; }
+@media (max-width: 760px) { .takeaway-grid, .lifecycle-grid { grid-template-columns: 1fr; gap: 18px; } .route-takeaway { padding: 20px; } }
+
 @media print {
+  .route-takeaway { padding: 12px; break-inside: avoid; }
+  .route-takeaway h2 { font-size: 12pt; }
+  .takeaway-grid p, .takeaway-grid li, .lifecycle-grid p, .activation-details { font-size: 9pt; }
+  .lifecycle-panel, .activation-details { break-inside: avoid; }
+  .lifecycle-panel > summary { font-size: 9pt; }
+
   * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   html { scroll-behavior: auto; }
   body { background: white; color: #111; font-size: 10pt; }
