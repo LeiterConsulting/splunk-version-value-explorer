@@ -32,7 +32,7 @@ First call `versioncompass_get_catalog` with `{}`. Use its exact identifiers in 
 
 The second route returns the platform-first compatibility warning and an absolute link to the recommended Splunk Platform comparison. The first returns its documented intermediate upgrade releases. Open each `reportUrl` to review the same route in the interface.
 
-Omit `include` for all sections. Use `include: []` for a compact result containing route, path, compatibility, counts, and core sources. Available sections are `features`, `technicalChanges`, `breakingChanges`, `readiness`, and `migrationApproaches`. Counts always describe the full route; `includedSections` identifies the details returned.
+Omit `include` for all sections. Use `include: []` for a compact result containing route, takeaway, lifecycle, path, compatibility, counts, and core sources. Available sections are `features`, `technicalChanges`, `breakingChanges`, `readiness`, and `migrationApproaches`. Counts always describe the full route; `includedSections` identifies the details returned.
 
 Successful responses have `ok: true`, shared `metadata`, and either `products`, `reports`, or `report`. Metadata includes `schemaVersion`, the site's review date, its dated release-note link, and scope caveats. Individual facts carry their official `source`; reports also include a deduplicated source list.
 
@@ -46,11 +46,11 @@ Invalid input returns `ok: false` with an explanatory error. Missing hosts, unkn
 - Cloud-managed availability is not derived from Enterprise compatibility. Confirm stack, region, entitlement, edition, and maintenance timing in the cited guidance.
 - Observability milestones are dated service summaries. Collector, chart, instrumentation, and other customer-managed components retain their own versions and ownership.
 - Migration guidance remains an environment-dependent program. Destination capabilities do not mean that migrating every app, data source, or historical dataset is automatic.
-- These are curated planning results. An empty list does not establish that no other risks or changes exist. The review date records the site's review; individual records do not claim separate verification timestamps.
+- These are curated planning results. An empty list does not establish that no other risks or changes exist. The review date records the site's review; lifecycle and explicit activation records additionally identify their verification date.
 
 ## Implementation and maintenance
 
-- `dist/data.js` and `dist/product-data.js` remain the factual sources. There is no separate agent dataset to refresh.
+- `dist/data.js`, `dist/product-data.js`, and `dist/guidance-data.js` are the shared factual sources. There is no separate agent dataset to refresh.
 - `dist/comparison.js` contains the shared, DOM-free selection and compatibility logic used by both `dist/app.js` and `dist/webmcp.js`.
 - `dist/webmcp.js` validates inputs and registers tools once. Registrations use an `AbortSignal` for cleanup on `pagehide` and are restored on `pageshow`, including back/forward cache restoration. Unsupported browsers and failed registration leave the page functional.
 - The agent metadata reads the current reviewed badge's dated release-note link. Advance the badge date, destination, and print date together during content maintenance.
@@ -64,3 +64,7 @@ node --test tests/webmcp.test.cjs
 ```
 
 It exercises every catalog interval, representative page interactions and URL state, Enterprise platform-first gates, Cloud-managed context, migration readiness, source URLs, unsupported input, result isolation, unsupported browsers, registration failure, and lifecycle cleanup. The harness emulates the DOM and WebMCP registry; it does not claim to certify a particular browser vendor's implementation or PDF rendering. Browser-specific discovery and invocation should also be checked when a compatible browser runtime is available.
+
+## Schema 1.1 additions
+
+Reports include cited `takeaway` and `lifecycle` rows even with `include: []`. Included features carry `activation`; missing verification returns `status: "not_assessed"`. Report URLs include the current `reviewed` date. Current-report responses include `linkContext` alongside `report`; unresolved URLs return an error until the visitor confirms or changes the route. Explicit `compare_routes` requests remain available without changing the page. Tool names and input schemas are unchanged. See [report guidance](report-guidance.md).
