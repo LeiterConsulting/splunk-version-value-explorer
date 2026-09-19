@@ -67,9 +67,21 @@ a { color: inherit; }
   letter-spacing: -0.02em;
 }
 .brand span { color: var(--green); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
-.reviewed { color: #95aba1; font-size: 0.77rem; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
-.reviewed:hover { color: #d7eee3; }
-.reviewed:focus-visible { border-radius: 4px; outline: 2px solid #6ce5a5; outline-offset: 4px; }
+.reviewed {
+  color: #95aba1;
+  font-size: 0.77rem;
+  letter-spacing: .08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color .18s ease;
+}
+.reviewed:hover { color: var(--green); }
+.reviewed:focus-visible {
+  color: var(--green);
+  outline: 2px solid var(--green);
+  outline-offset: 5px;
+  border-radius: 2px;
+}
 
 .hero {
   position: relative;

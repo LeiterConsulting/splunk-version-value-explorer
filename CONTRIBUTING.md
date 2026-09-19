@@ -41,7 +41,7 @@ Platform release content lives in `dist/data.js`. Enterprise Security, ITSI, and
 6. For Splunk Enterprise, update the `edges` map with supported release transitions.
 7. For Enterprise Security or ITSI, update the platform-line mapping from the official patch-specific compatibility matrix and separately review the current Splunk Cloud service pairing.
 8. For Observability, use a dated service milestone and attach Collector, chart, instrumentation, RUM, exporter, semantic-convention, realm, or entitlement prerequisites only where the official guidance supports them. Keep a standalone Collector release distinct when the current chart packages an earlier version.
-9. Update the applicable `latest` value and the reviewed date in `dist/index.html`.
+9. Update the applicable `latest` value, the reviewed date, and the reviewed badge's direct link to that date's release note in `dist/index.html`.
 10. Test several combinations, including an Enterprise step upgrade, an incompatible premium-app pairing, a Cloud-managed pairing, and an Observability milestone. Confirm the technical section remains collapsed on screen but expands in print.
 
 See `docs/product-tracks.md` for the product dependency model and `docs/technical-changes.md` for field definitions, classification rules, and review guidance.

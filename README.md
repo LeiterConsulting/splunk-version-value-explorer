@@ -78,7 +78,7 @@ Platform and Enterprise-to-Cloud content is centralized in [`dist/data.js`](dist
 3. For Splunk Enterprise, add supported transitions to the `edges` upgrade-path map.
 4. For Enterprise Security or ITSI, reconcile the official product compatibility matrix at the maintenance-release level and update the simplified platform-line mapping. Recheck the current Cloud service pairing separately.
 5. For Observability Cloud, add a dated service milestone and keep versioned Collector, Kubernetes chart, instrumentation, and semantic-convention dependencies distinct from rolling SaaS availability.
-6. Update the applicable `latest` value and the reviewed date in [`dist/index.html`](dist/index.html).
+6. Update the applicable `latest` value, the reviewed date, and the reviewed badge's direct link to that date's release note in [`dist/index.html`](dist/index.html).
 
 Each `technicalChanges` record identifies the component or contract, technical area, change type, action level, documented before-and-after state, implication, recommended action, and official source. Preserve important scope distinctions such as bundled versus app-owned, default versus optional, deprecated versus removed, and platform-managed versus customer-managed.
 
