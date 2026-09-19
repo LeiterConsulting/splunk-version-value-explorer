@@ -46,6 +46,10 @@ Platform release content lives in `dist/data.js`. Enterprise Security, ITSI, and
 
 See `docs/product-tracks.md` for the product dependency model and `docs/technical-changes.md` for field definitions, classification rules, and review guidance.
 
+## WebMCP and shared comparison logic
+
+Keep `dist/comparison.js` as the common route engine for the page and agent tools. Do not copy factual data or compatibility rules into `dist/webmcp.js`. After relevant data or logic changes, run `node --test tests/webmcp.test.cjs` and review [`docs/webmcp.md`](docs/webmcp.md). Preserve exact-version validation, per-record citations, review metadata, Cloud/Enterprise scope, read-only behavior, and graceful operation without browser WebMCP support. Keep the reviewed badge date, dated release-note destination, and print date in sync.
+
 ## Updating Enterprise-to-Cloud guidance
 
 Migration content lives in the top-level `migration` object in `dist/data.js`.
@@ -88,6 +92,7 @@ Every material change that reaches the repository or live site must be represent
 - [ ] The print view includes all value categories, expands technical details, and remains readable when saved as PDF
 - [ ] Partner-authored Splunk Lantern material is identified as guidance and not represented as a product warranty
 - [ ] Keyboard navigation and mobile layout remain usable
+- [ ] WebMCP reports and the visible page use the same data and route logic; the contract harness passes
 - [ ] No secrets, customer data, analytics, or tracking code are included
 
 ## Working locally

@@ -24,6 +24,7 @@ Choose a product first, then select its deployment context, current release, and
 - Direct links to the relevant official Splunk documentation
 - Shareable report URLs that preserve the selected journey and releases
 - A print-optimized report that can be saved as PDF from the browser
+- Read-only WebMCP tools for agents to discover supported releases and retrieve cited comparisons from the same data
 
 No registration, lead form, subscription, or customer information is collected.
 
@@ -67,7 +68,15 @@ Version Compass is maintained through two recurring review cycles:
 
 When authoritative evidence clearly supports a change, the maintenance workflow updates the relevant site content and documentation, validates representative journeys, commits the reviewed change, and republishes [versioncompass.com](https://versioncompass.com). If the evidence is ambiguous, conflicting, incomplete, or would require an unsupported inference, publication stops and the item is held for human review. No-change runs do not create commits or deployments.
 
+Maintenance validation also covers the shared WebMCP comparison contract and its citations; uncertain findings remain subject to the same human-review stop.
+
 Published maintenance changes are recorded in the [daily release notes](docs/releases/README.md).
+
+## Agent access
+
+Open Version Compass in a WebMCP-capable browser to let an agent list supported releases, compare up to five routes, or read the current report. Results include compatibility warnings, technical changes, readiness work, official citations, review metadata, and shareable links. The tools use the same data and comparison logic as the interface, so scheduled content updates reach both.
+
+This is browser-scoped WebMCP; the site does not expose a standalone remote MCP server endpoint. See [`docs/webmcp.md`](docs/webmcp.md) for tool names, input examples, limitations, and validation.
 
 ## Updating for a new release
 
