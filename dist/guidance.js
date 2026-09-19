@@ -35,11 +35,6 @@
     params.set("reviewed", reviewed || data.guidance.reviewed);
     return "?" + params.toString();
   }
-  function activationFor(feature, state) {
-    if (feature.activation) return feature.activation;
-    // Missing qualification is explicitly unknown, never assumed automatic.
-    return { label: "Verify activation", status: "not_assessed", detail: "This guide has not verified the activation steps for this capability. Review its source for setup, access, and availability before treating it as ready to use.", source: feature.source };
-  }
   function takeaway(state) {
     const engine = window.VersionCompassComparison.create(data, state);
     const features = engine.selectedFeatures();
@@ -102,5 +97,5 @@
     }
     return { state: state, requested: requested, hasRoute: hasRoute, reasons: reasons, errors: errors, needsConfirmation: errors.length > 0 };
   }
-  window.VersionCompassGuidance = { today: today, lifecycle: lifecycle, routeLifecycle: routeLifecycle, routeUrl: routeUrl, activationFor: activationFor, takeaway: takeaway, resolveUrl: resolveUrl };
+  window.VersionCompassGuidance = { today: today, lifecycle: lifecycle, routeLifecycle: routeLifecycle, routeUrl: routeUrl, takeaway: takeaway, resolveUrl: resolveUrl };
 }());

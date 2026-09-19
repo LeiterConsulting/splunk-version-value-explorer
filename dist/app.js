@@ -135,12 +135,6 @@
     document.getElementById("lifecycle-summary").innerHTML = '<span>Support lifecycle</span>' + rows.map(function (row) { return '<span class="lifecycle-status ' + row.status + '">' + escapeHtml(row.role + ' · ' + row.label + (row.endOfSupport ? ' · ' + row.endOfSupport : '')) + '</span>'; }).join('');
     document.getElementById("lifecycle-content").innerHTML = '<p class="guidance-note">Evaluated ' + escapeHtml(rows[0].asOf) + ' (Eastern date). Policy dates verified ' + escapeHtml(data.guidance.lifecycle.reviewed) + '.</p><div class="lifecycle-grid">' + rows.map(function (row) { return '<div><h3>' + escapeHtml(row.role + ' · ' + row.release) + '</h3><p>' + escapeHtml(row.label + (row.endOfSupport ? ': ' + row.endOfSupport : '')) + '</p><p>' + escapeHtml(row.detail) + '</p>' + externalLink(row.source, 'Support guidance') + '</div>'; }).join('') + '</div>';
   }
-  function activationMarkup(feature) {
-    const activation = guidance.activationFor(feature, state);
-    const key = (feature.release || feature.milestone || '') + ':' + feature.title;
-    return '<details class="activation-details" data-activation-key="' + escapeHtml(key) + '"><summary>' + escapeHtml(activation.label) + '</summary><p>' + escapeHtml(activation.detail) + '</p>' + externalLink(activation.source, 'Activation guidance') + '</details>';
-  }
-
   function fillJourneyOptions() {
     const copy = isCore()
       ? { legend: "Journey", enterprise: "Enterprise upgrades", cloud: "Cloud releases", migration: "Enterprise → Cloud" }
@@ -291,7 +285,7 @@
     benefitGrid.innerHTML = visible.length ? visible.map(function (feature) {
       const category = data.categories[feature.category] || { icon: "•" };
       const milestone = feature.milestone || "Introduced in " + feature.release;
-      return '<article class="benefit-card"><div class="benefit-top"><span class="benefit-icon" aria-hidden="true">' + category.icon + '</span><span>' + escapeHtml(feature.category) + '</span></div><p class="outcome">' + escapeHtml(feature.outcome) + '</p><h3>' + escapeHtml(feature.title) + '</h3><p class="detail">' + escapeHtml(feature.detail) + '</p>' + activationMarkup(feature) + '<div class="benefit-foot"><span>' + escapeHtml(milestone) + '</span>' + externalLink(feature.source, "Source") + '</div></article>';
+      return '<article class="benefit-card"><div class="benefit-top"><span class="benefit-icon" aria-hidden="true">' + category.icon + '</span><span>' + escapeHtml(feature.category) + '</span></div><p class="outcome">' + escapeHtml(feature.outcome) + '</p><h3>' + escapeHtml(feature.title) + '</h3><p class="detail">' + escapeHtml(feature.detail) + '</p>' + '<div class="benefit-foot"><span>' + escapeHtml(milestone) + '</span>' + externalLink(feature.source, "Source") + '</div></article>';
     }).join("") : '<div class="empty-state"><span>i</span><div><h3>No curated capability milestone in this interval</h3><p>The release remains in the route for compatibility context. Open the official source for maintenance-level detail.</p></div></div>';
 
     filters.querySelectorAll("button").forEach(function (button) {
@@ -537,13 +531,11 @@
   let printState = null;
   function preparePrintReport() {
     if (printState || (linkResolution && linkResolution.needsConfirmation)) return;
-    const activationOpen = Array.from(document.querySelectorAll(".activation-details")).filter(function (panel) { return panel.open; }).map(function (panel) { return panel.dataset.activationKey; });
-    printState = { category: state.category, technicalOpen: technicalPanel.open, lifecycleOpen: document.getElementById("lifecycle-panel").open, activationOpen: activationOpen };
+    printState = { category: state.category, technicalOpen: technicalPanel.open, lifecycleOpen: document.getElementById("lifecycle-panel").open };
     state.category = "All";
     renderValue();
     technicalPanel.open = true;
     document.getElementById("lifecycle-panel").open = true;
-    document.querySelectorAll(".activation-details").forEach(function (panel) { panel.open = true; });
     document.documentElement.classList.add("printing-report");
   }
 
@@ -553,10 +545,8 @@
     technicalPanel.open = printState.technicalOpen;
     state.category = printState.category;
     document.getElementById("lifecycle-panel").open = printState.lifecycleOpen;
-    const activationOpen = printState.activationOpen;
     printState = null;
     renderValue();
-    document.querySelectorAll(".activation-details").forEach(function (panel) { panel.open = activationOpen.includes(panel.dataset.activationKey); });
   }
 
   window.addEventListener("beforeprint", preparePrintReport);

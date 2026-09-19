@@ -46,7 +46,7 @@ Invalid input returns `ok: false` with an explanatory error. Missing hosts, unkn
 - Cloud-managed availability is not derived from Enterprise compatibility. Confirm stack, region, entitlement, edition, and maintenance timing in the cited guidance.
 - Observability milestones are dated service summaries. Collector, chart, instrumentation, and other customer-managed components retain their own versions and ownership.
 - Migration guidance remains an environment-dependent program. Destination capabilities do not mean that migrating every app, data source, or historical dataset is automatic.
-- These are curated planning results. An empty list does not establish that no other risks or changes exist. The review date records the site's review; lifecycle and explicit activation records additionally identify their verification date.
+- These are curated planning results. An empty list does not establish that no other risks or changes exist. The review date records the site's review; lifecycle records additionally identify their verification date.
 
 ## Implementation and maintenance
 
@@ -65,6 +65,8 @@ node --test tests/webmcp.test.cjs
 
 It exercises every catalog interval, representative page interactions and URL state, Enterprise platform-first gates, Cloud-managed context, migration readiness, source URLs, unsupported input, result isolation, unsupported browsers, registration failure, and lifecycle cleanup. The harness emulates the DOM and WebMCP registry; it does not claim to certify a particular browser vendor's implementation or PDF rendering. Browser-specific discovery and invocation should also be checked when a compatible browser runtime is available.
 
-## Schema 1.1 additions
+## Schema 1.2
 
-Reports include cited `takeaway` and `lifecycle` rows even with `include: []`. Included features carry `activation`; missing verification returns `status: "not_assessed"`. Report URLs include the current `reviewed` date. Current-report responses include `linkContext` alongside `report`; unresolved URLs return an error until the visitor confirms or changes the route. Explicit `compare_routes` requests remain available without changing the page. Tool names and input schemas are unchanged. See [report guidance](report-guidance.md).
+Reports include cited `takeaway` and `lifecycle` rows even with `include: []`. Report URLs include the current `reviewed` date. Current-report responses include `linkContext` alongside `report`; unresolved URLs return an error until the visitor confirms or changes the route. Explicit `compare_routes` requests remain available without changing the page. Tool names and input schemas are unchanged. See [report guidance](report-guidance.md).
+
+Schema 1.2 removes the temporary feature activation field introduced in 1.1. Capability records retain their original factual descriptions and sources.

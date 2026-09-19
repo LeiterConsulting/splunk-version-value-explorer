@@ -58,14 +58,14 @@
         return { title: feature[0], category: feature[1], outcome: feature[2], detail: feature[3], milestone: feature[4], source: feature[5] };
       });
       const targetHighlights = data.cloud.releasesData[state.to].features.map(function (feature) {
-        return { title: feature[0], category: feature[1], outcome: feature[2], detail: feature[3], milestone: "Available by Cloud " + state.to, activation: feature[4] || null, source: data.cloud.releasesData[state.to].source };
+        return { title: feature[0], category: feature[1], outcome: feature[2], detail: feature[3], milestone: "Available by Cloud " + state.to, source: data.cloud.releasesData[state.to].source };
       });
       return operatingBenefits.concat(targetHighlights);
     }
     const track = activeTrack();
     return releasesBetween().flatMap(function (release) {
       return track.releasesData[release].features.map(function (feature) {
-        return { title: feature[0], category: feature[1], outcome: feature[2], detail: feature[3], release: release, activation: feature[4] || null, source: track.releasesData[release].source };
+        return { title: feature[0], category: feature[1], outcome: feature[2], detail: feature[3], release: release, source: track.releasesData[release].source };
       });
     });
   }
