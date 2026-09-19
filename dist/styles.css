@@ -75,6 +75,8 @@ a { color: inherit; }
   text-transform: uppercase;
   transition: color .18s ease;
 }
+.reviewed { flex-shrink: 0; white-space: nowrap; text-align: right; }
+.reviewed-compact { display: none; }
 .reviewed:hover { color: var(--green); }
 .reviewed:focus-visible {
   color: var(--green);
@@ -388,10 +390,16 @@ a { color: inherit; }
   .release-selectors.has-host #host-release-field { grid-column: 1 / -1; }
 }
 
+@media (max-width: 900px) and (orientation: portrait), (max-width: 480px) {
+  .reviewed-full { display: none; }
+  .reviewed-compact { display: inline; }
+  .site-header { gap: 12px; }
+}
+
 @media (max-width: 650px) {
   .site-header { height: 60px; padding: 0 20px; }
   .brand { font-size: .92rem; }
-  .reviewed { display: none; }
+  .reviewed { font-size: .65rem; letter-spacing: .035em; }
   .hero { padding: 88px 20px 42px; }
   .hero h1 { font-size: clamp(2.7rem, 13vw, 4.05rem); }
   .dek { margin: 16px 0 22px; }

@@ -112,3 +112,5 @@ Be respectful, specific, and constructive. Assume good intent, explain the evide
 ## Report guidance and URL compatibility
 
 Read [report guidance](docs/report-guidance.md) before changing lifecycle dates or URL identities. Preserve historical releases and use only documented equivalent aliases. Maintain explicit dates and sources in `dist/guidance-data.js`; never infer Cloud deadlines. Align `guidance.reviewed`, badge, print date, agent metadata, and release note. Run `node --test tests/webmcp.test.cjs`.
+
+The header keeps the reviewed date visible on mobile. When advancing the review date, update both the full date and compact time element (day, uppercase month, year), its datetime attribute, and the accessible link label. Portrait viewports up to 900px use the compact form; widths up to 480px also use it to prevent crowding in very small landscape windows.
