@@ -18,20 +18,13 @@ const routes = [
 
 async function runtime({ support = true, failure = false, selection = routes[0] } = {}) {
   const elements = new Map(), events = {}, registered = new Map();
-  let registrations = 0, activationPanels = [];
+  let registrations = 0;
   function element(id) {
     if (elements.has(id)) return elements.get(id);
     const classes = new Set();
     const el = { id, innerHTML: '', textContent: '', value: '', hidden: false, open: false, checked: false, dataset: {}, style: {}, listeners: {},
       classList: { add: x => classes.add(x), remove: x => classes.delete(x), toggle: (x, enabled) => enabled ? classes.add(x) : classes.delete(x) },
       addEventListener: (type, fn) => { el.listeners[type] = fn; }, querySelector: () => element(id + '-span'), querySelectorAll: () => [] };
-    if (id === 'benefit-grid') {
-      let html = '';
-      Object.defineProperty(el, 'innerHTML', { get: () => html, set: value => {
-        html = value;
-        activationPanels = [...value.matchAll(/data-activation-key="([^"]+)"/g)].map(match => ({ dataset: { activationKey: match[1] }, open: false }));
-      } });
-    }
     elements.set(id, el); return el;
   }
   const products = ['platform', 'es', 'itsi', 'observability'].map(value => Object.assign(element('product-' + value), { value }));
@@ -41,7 +34,7 @@ async function runtime({ support = true, failure = false, selection = routes[0] 
   const badge = { href: badgeUrl };
   const document = {
     getElementById: element, documentElement: element('html'), title: '',
-    querySelectorAll: selector => selector === 'input[name="product"]' ? products : selector === 'input[name="platform"]' ? platforms : selector === '[data-platform-option]' ? labels : selector === '.activation-details' ? activationPanels : [],
+    querySelectorAll: selector => selector === 'input[name="product"]' ? products : selector === 'input[name="platform"]' ? platforms : selector === '[data-platform-option]' ? labels : [],
     querySelector: selector => {
       if (selector === 'a.reviewed') return badge;
       const match = selector.match(/input\[name="(product|platform)"\]\[value="([^"]+)"\]/);
@@ -272,30 +265,14 @@ test('support windows use explicit dates, maintenance lines, and distinct manage
   assert.equal(lifecycle('platform','enterprise','unknown','2026-09-19').status,'unverified');
 });
 
-test('activation qualifications match the page and print restores all expanded states', async () => {
+test('route guidance remains available and lifecycle disclosure restores after print', async () => {
   const rt = await runtime({selection:routes[3]});
   const report = rt.run('get_current_report',{}).report;
-  assert.equal(report.features.find(x=>x.title==='AI SOC Analyst').activation.label,'Premier + enablement');
-  assert(report.features.some(x=>x.activation.status==='not_assessed'));
-  for (const feature of report.features) {
-    assert(rt.elements.get('benefit-grid').innerHTML.includes(feature.activation.label.replace(/&/g,'&amp;')));
-    assert(report.sources.includes(feature.activation.source));
-  }
   assert.equal(report.takeaway.highlights.length,3);
   assert.equal(report.lifecycle.length,3);
   assert.match(rt.elements.get('route-takeaway').innerHTML,/Upgrade Splunk Enterprise first/);
-  let panels = rt.document.querySelectorAll('.activation-details');
-  assert.equal(panels.length,report.features.length);
-  panels[0].open = true;
-  const original = panels[0].dataset.activationKey;
   await rt.dispatch('beforeprint');
-  assert(rt.document.querySelectorAll('.activation-details').every(x=>x.open));
   assert.equal(rt.elements.get('lifecycle-panel').open,true);
   await rt.dispatch('afterprint');
-  panels = rt.document.querySelectorAll('.activation-details');
-  assert.equal(panels.filter(x=>x.open).length,1);
-  assert.equal(panels.find(x=>x.open).dataset.activationKey,original);
   assert.equal(rt.elements.get('lifecycle-panel').open,false);
-  const migration = rt.run('compare_routes',{routes:[{...routes[2],to:'10.4.2604'}]}).reports[0];
-  assert.equal(migration.features.find(x=>x.title==='AI Canvas beta').activation.label,'Beta onboarding');
 });

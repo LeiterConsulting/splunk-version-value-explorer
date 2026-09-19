@@ -136,4 +136,4 @@ Released under the [MIT License](LICENSE). This license covers the project sourc
 
 ## Route guidance and historical links
 
-Reports include a cited route takeaway, expandable support lifecycle context, and capability activation qualifications. Older valid URLs preserve comparisons and explain relevant changes; unrecognized routes require review. New links carry the guidance review date. See [report guidance](docs/report-guidance.md) for behavior and maintenance.
+Reports include a cited route takeaway and expandable support lifecycle context. Older valid URLs preserve comparisons and explain relevant changes; unrecognized routes require review. New links carry the guidance review date. See [report guidance](docs/report-guidance.md) for behavior and maintenance.

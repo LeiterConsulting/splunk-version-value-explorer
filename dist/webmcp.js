@@ -28,7 +28,7 @@
     const releaseNotesUrl = badge ? badge.href : null;
     const date = releaseNotesUrl && releaseNotesUrl.match(/\/(\d{4}-\d{2}-\d{2})\.md$/);
     return {
-      schemaVersion: "1.1",
+      schemaVersion: "1.2",
       site: "https://versioncompass.com",
       reviewedDate: date ? date[1] : null,
       releaseNotesUrl: releaseNotesUrl,
@@ -61,7 +61,7 @@
     const engine = window.VersionCompassComparison.create(data, state);
     const track = engine.isMigration() ? data.cloud : engine.activeTrack();
     const guidance = window.VersionCompassGuidance;
-    const features = engine.selectedFeatures().map(function (feature) { return Object.assign({}, feature, { activation: guidance.activationFor(feature, state) }); });
+    const features = engine.selectedFeatures();
     const technicalChanges = engine.selectedTechnicalChanges();
     const breakingChanges = engine.selectedBreakingChanges();
     const readiness = engine.selectedReadinessItems();
@@ -96,7 +96,7 @@
     if (compatibility) sources.add(compatibility.source);
     result.lifecycle.forEach(function (row) { sources.add(row.source); });
     result.takeaway.highlights.concat([result.takeaway.prerequisite, result.takeaway.risk]).forEach(function (item) { if (item) sources.add(item.source); });
-    include.forEach(function (key) { sections[key].forEach(function (item) { if (item.source) sources.add(item.source); if (item.activation) sources.add(item.activation.source); }); });
+    include.forEach(function (key) { sections[key].forEach(function (item) { if (item.source) sources.add(item.source); }); });
     result.sources = Array.from(sources).filter(Boolean);
     return result;
   }
@@ -146,7 +146,7 @@
     },
     {
       name: "versioncompass_compare_routes", title: "Compare Splunk upgrade and migration routes",
-      description: "Read 1–5 comparisons using the same logic as the site: route takeaway, lifecycle, upgrade steps, compatibility gates, capabilities with activation qualifications, technical changes, breaking risks, readiness actions, citations, and report links. Requires exact catalog versions. Does not change the displayed report or upgrade a system.",
+      description: "Read 1–5 comparisons using the same logic as the site: route takeaway, lifecycle, upgrade steps, compatibility gates, capabilities, technical changes, breaking risks, readiness actions, citations, and report links. Requires exact catalog versions. Does not change the displayed report or upgrade a system.",
       inputSchema: { type: "object", additionalProperties: false, required: ["routes"], properties: { routes: { type: "array", minItems: 1, maxItems: 5, items: routeSchema }, include: includeSchema } },
       execute: executeSafely(function (input) {
         objectInput(input, ["routes", "include"]);

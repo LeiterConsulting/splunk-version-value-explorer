@@ -1,6 +1,6 @@
 # Report guidance and durable links
 
-The report adds a short route takeaway, an expandable lifecycle panel, and expandable activation notes on capability cards. UI and WebMCP share `dist/guidance.js`; explicit support dates and activation qualifications live in `dist/guidance-data.js`.
+The report adds a short route takeaway and an expandable lifecycle panel. UI and WebMCP share `dist/guidance.js`; explicit support dates live in `dist/guidance-data.js`.
 
 ## Route takeaway
 
@@ -13,14 +13,6 @@ Explicit deadlines come from [Splunk's software support policy](https://www.splu
 Dates are evaluated using the current America/New_York calendar date. A deadline on or before that date shows “End of support”; within 180 days it shows “Support ending soon.” The 180-day flag is a Version Compass planning reminder. Active support, compatible product combinations, and supported operating systems remain separate conditions.
 
 Cloud selections remain Splunk-managed without inferred Enterprise deadlines. Observability dates remain service milestones. Unknown dates show “Verify support date.” Rows include evaluation date, verified date, source, and applicable policy line.
-
-## Availability and activation
-
-The optional fifth standard capability-tuple field holds `{label, detail, source, reviewed}`. Migration operating-benefit tuples retain their existing fifth-field milestone label.
-
-Twelve initial qualifications cover SPL2 networking; Cloud AI Canvas beta, Azure storage, and federation setup; ES AI entitlement and MCP access; ITSI episode priorities and MCP; and Observability incident access and Collector setup. Other capabilities show “Verify activation.” Missing qualification never implies readiness. Qualifications describe the cited introduction or component release; verify current setup and access before use.
-
-Maintain direct official setup citations and edition, entitlement, release-stage, regional, and customer-managed component boundaries.
 
 ## Durable report links
 
@@ -39,4 +31,4 @@ Changing controls dismisses the original-link context and creates a current revi
 
 Advance `guidance.reviewed`, reviewed badge, dated release note, print date, and agent metadata together. Advance policy review dates only after verifying deadlines. The release watch and guidance audit maintain these records and guarantees.
 
-Run `node --test tests/webmcp.test.cjs`. Coverage includes every catalog interval and report-URL round trip, historical/invalid links, explicit aliases, policy boundaries, activation parity, and print-state restoration. The DOM/registry harness does not certify native browser layout, PDF pagination, or vendor WebMCP implementation.
+Run `node --test tests/webmcp.test.cjs`. Coverage includes every catalog interval and report-URL round trip, historical/invalid links, explicit aliases, policy boundaries, print-state restoration. The DOM/registry harness does not certify native browser layout, PDF pagination, or vendor WebMCP implementation.

@@ -111,4 +111,4 @@ Be respectful, specific, and constructive. Assume good intent, explain the evide
 
 ## Report guidance and URL compatibility
 
-Read [report guidance](docs/report-guidance.md) before changing lifecycle dates, activation qualifications, or URL identities. Preserve historical releases and use only documented equivalent aliases. Maintain explicit dates and sources in `dist/guidance-data.js`; never infer Cloud deadlines. Optional fifth standard feature-tuple fields hold activation objects; migration operating-benefit tuples retain milestone labels. Missing activation coverage remains unverified. Align `guidance.reviewed`, badge, print date, agent metadata, and release note. Run `node --test tests/webmcp.test.cjs`.
+Read [report guidance](docs/report-guidance.md) before changing lifecycle dates or URL identities. Preserve historical releases and use only documented equivalent aliases. Maintain explicit dates and sources in `dist/guidance-data.js`; never infer Cloud deadlines. Align `guidance.reviewed`, badge, print date, agent metadata, and release note. Run `node --test tests/webmcp.test.cjs`.
