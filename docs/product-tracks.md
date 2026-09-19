@@ -24,7 +24,7 @@ Observability Cloud is a rolling SaaS service. Its route uses dated release mile
 - Enterprise Security release notes and upgrade guidance linked from each ES release record
 - ITSI [5.0.2 Splunkbase listing](https://splunkbase.splunk.com/app/1841), [5.0 release-line notes](https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/new-features-in-splunk-it-service-intelligence), [fixed issues](https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/fixed-issues-in-splunk-it-service-intelligence), and [related app compatibility](https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/install-and-upgrade/5.0/planning/itsi-compatibility-with-related-apps-and-add-ons)
 - [Splunk Observability Cloud release notes overview](https://help.splunk.com/en/splunk-observability-cloud/release-notes/release-notes-overview)
-- [Splunk OpenTelemetry Collector 0.160.1](https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.160.1) and the [0.160.0 breaking-change record](https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.160.0)
+- [Splunk OpenTelemetry Collector 0.161.0](https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.161.0), [0.160.1](https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.160.1), and the [0.160.0 breaking-change record](https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.160.0)
 - [Splunk OpenTelemetry Collector for Kubernetes chart 0.160.0](https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.160.0)
 - [Splunk OpenTelemetry Node.js 4.11.0](https://github.com/signalfx/splunk-otel-js/releases/tag/v4.11.0) and [Browser RUM 3.1](https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.1.0)
 - [Splunk Distribution of the OpenTelemetry Collector guidance](https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector)
@@ -46,7 +46,7 @@ The daily release watch should check:
 2. New Enterprise Security and ITSI releases on official release-note pages and Splunkbase.
 3. Changes to the product compatibility matrix, including patch-specific footnotes.
 4. The current Cloud service-description pairing for premium apps.
-5. New dated Observability Cloud release-note pages and material Collector, chart, instrumentation, or RUM prerequisites.
+5. New dated Observability Cloud release-note pages and material Collector, chart, instrumentation, RUM, exporter, or semantic-convention prerequisites. Record a standalone Collector release separately when the current Kubernetes chart still packages an earlier Collector.
 
 The twice-weekly guidance audit should also check:
 

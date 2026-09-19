@@ -28,6 +28,7 @@
   const cloudServiceSource = "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.5.2605/information-about-the-service/splunk-cloud-platform-service-details";
   const collector160Source = "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.160.0";
   const collector160PatchSource = "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.160.1";
+  const collector161Source = "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.161.0";
   const collectorChart160Source = "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.160.0";
   const node411Source = "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.11.0";
   const rum31Source = "https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.1.0";
@@ -562,10 +563,46 @@
           features: [
             ["Agent Observability", "Automation & AI", "Evaluate GenAI and agent behavior", "Use the integrated SaaS offering to observe, evaluate, and apply guardrails to eligible generative-AI and agentic applications."],
             ["AI token and cost monitoring", "Usage & governance", "Connect AI activity to spend", "Monitor and alert on token use and cost across supported AI agents and infrastructure providers."],
+            ["Collector 0.161 pipeline controls", "Telemetry & OpenTelemetry", "Upgrade with clearer configuration and input lifecycle behavior", "Use hot reload for Splunk outputs and independent TA input reconciliation after validating the release's changed semantic conventions and metric defaults."],
             ["Collector lookup processor", "Telemetry & OpenTelemetry", "Enrich telemetry in the pipeline", "Use the lookup processor added in Splunk OpenTelemetry Collector 0.160.1 where its documented component scope fits the pipeline."],
             ["Browser RUM 3.1", "Digital experience", "Capture richer interaction context", "Use expanded frustration signals, navigation context, Synthetics correlation, and more resilient Session Replay retry behavior after reviewing the new defaults."]
           ],
           technicalChanges: [
+            {
+              component: "Kubernetes resource attributes", domain: "Semantic conventions", changeType: "Defaults changed", actionLevel: "Required",
+              from: "Legacy plural k8s.pod.labels.* attributes remain available while stable names are opt-in", to: "Collector 0.161 emits stable singular k8s.pod.label.* names and disables the legacy names by default",
+              implication: "Dashboards, detectors, MetricSets, routing, and exports that still query legacy Kubernetes label attributes can stop matching after a standalone Collector upgrade.",
+              action: "Use Splunk's documented dual-emission feature-gate combination during migration, update dependent content to the stable names, then retire the legacy attributes deliberately.",
+              source: collector161Source
+            },
+            {
+              component: "Kubelet CPU usage metrics", domain: "Kubernetes metrics", changeType: "Calculation changed", actionLevel: "Required",
+              from: "container, pod, and node CPU usage are read from kubelet UsageNanoCores", to: "Collector 0.161 calculates CPU usage and utilization from the rate of cumulative cpu.time counters by default",
+              implication: "The affected metrics are absent on the first scrape after startup and can shift alert or dashboard baselines compared with the kubelet-provided value.",
+              action: "Compare representative CPU series and detector thresholds before rollout; temporarily disable receiver.kubeletstats.cpuUsageScrapeBased only when the prior calculation must be retained.",
+              source: collector161Source
+            },
+            {
+              component: "Google Cloud audit-log RPC attributes", domain: "Semantic conventions", changeType: "Legacy attributes disabled", actionLevel: "Review",
+              from: "The audit-log parser emits rpc.jsonrpc.error_code and rpc.jsonrpc.error_message", to: "Collector 0.161 enables the feature gate that stops emitting the deprecated v1.38.0 RPC attributes",
+              implication: "Content that filters or enriches Google Cloud audit logs with the retired attribute names can lose matches.",
+              action: "Inventory queries and processors that use the legacy RPC fields, migrate them to the current semantic convention, or temporarily disable the documented feature gate during transition.",
+              source: collector161Source
+            },
+            {
+              component: "SQL Server top-query endpoint attributes", domain: "Log data contract", changeType: "Attribute scope changed", actionLevel: "Required",
+              from: "server.address and server.port appear on db.server.top_query log records", to: "Collector 0.161 removes the duplicate log attributes and emits them as resource attributes by default",
+              implication: "Queries, transforms, or exports that address these values only as log-record attributes can stop resolving the monitored endpoint.",
+              action: "Update affected content to read the resource attributes and remove reliance on the retired receiver.sqlserver.RemoveServerResourceAttribute feature gate.",
+              source: collector161Source
+            },
+            {
+              component: "Custom Collector service extensions", domain: "Collector extension API", changeType: "Deprecated API removed", actionLevel: "Review",
+              from: "Custom components can still compile against the deprecated pkg/service ZapOptions API", to: "OpenTelemetry Collector 0.161 removes ZapOptions from the service package",
+              implication: "The packaged Splunk distribution is not affected by customer configuration alone, but custom Collector builds or extensions using that API can fail to compile or initialize.",
+              action: "Review custom Collector source dependencies before rebasing on 0.161 and migrate off ZapOptions where applicable.",
+              source: collector161Source
+            },
             {
               component: "Linux auto-instrumentation injector", domain: "Collector installation", changeType: "Configuration path changed", actionLevel: "Required",
               from: "Custom injector configuration under /etc/splunk/zeroconfig with runtime-specific files", to: "Official OpenTelemetry injector configuration under /etc/opentelemetry/injector with a shared default_env.conf",
@@ -611,11 +648,15 @@
           ],
           requirements: [
             ["Confirm access to Agent Observability", "Splunk directs customers to contact their Splunk team for access to the Agent Observability SaaS deployment. Treat it as availability-bound, not universally enabled.", "Validate", "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026", false],
+            ["Migrate Kubernetes semantic conventions for Collector 0.161", "The standalone Collector now emits stable singular Kubernetes label attributes and disables the legacy plural names by default. Use dual emission while dashboards, detectors, MetricSets, routing, and exports are migrated.", "Blocker", collector161Source, true],
+            ["Rebaseline kubelet CPU metrics for Collector 0.161", "CPU usage and derived utilization now come from cpu.time rates by default and are absent on the first scrape after startup. Validate series behavior and thresholds before production rollout.", "Blocker", collector161Source, true],
+            ["Move SQL Server endpoint lookups to resource attributes", "Collector 0.161 removes server.address and server.port from db.server.top_query log attributes and makes them resource attributes by default.", "Blocker", collector161Source, true],
+            ["Keep Kubernetes chart and standalone Collector versions distinct", "The latest published chart remains 0.160.0 and packages Collector 0.160.1. Its users do not inherit Collector 0.161 behavior unless they separately change the image or Splunk publishes a later chart.", "Validate", collectorChart160Source, false],
             ["Treat chart 0.160.0 as a Collector 0.160 upgrade", "The Kubernetes chart released September 15, 2026 uses Collector 0.160.1 and updates bundled operator and instrumentation versions. Rehearse the Collector breaking changes instead of treating the Helm update as an isolated chart change.", "Blocker", collectorChart160Source, true],
             ["Migrate injector configuration before Collector 0.160", "The 0.160 line replaces the custom injector shim and does not automatically migrate existing values into the new configuration files.", "Blocker", collector160Source, true],
             ["Replace removed scripted_inputs pipelines", "Collector 0.160 removes scripted_inputs. Convert to the splunk_inputs receiver and validate the required enableTArunner feature gate before production.", "Blocker", collector160Source, true],
             ["Remove the retired Kubernetes processor option", "Any k8sattributes configuration that still includes deployment_name_from_replicaset fails hard at startup in Collector 0.160.", "Blocker", collector160Source, true],
-            ["Validate the 0.160.1 patch release", "Collector 0.160.1 is the current 0.160 patch and is the version paired with Kubernetes chart 0.160.0. Validate its new lookup processor and experimental disk-queue extension only within their documented scope.", "Validate", collector160PatchSource, false],
+            ["Validate the chart's 0.160.1 Collector patch", "Collector 0.160.1 remains the version paired with Kubernetes chart 0.160.0. Validate its lookup processor and experimental disk-queue extension only within their documented scope; standalone Collector 0.161 is a separate upgrade decision.", "Validate", collector160PatchSource, false],
             ["Reconcile Node.js semantic conventions", "The chart updates Node.js instrumentation to 4.11.0, which adopts stable OpenTelemetry HTTP and database semantic conventions with renamed attributes.", "Validate", node411Source, true],
             ["Baseline Browser RUM 3.1 defaults", "Browser RUM 3.1 changes frustration-signal collection, Page Completion Time quiet-window behavior, and failed-replay storage defaults. Confirm privacy, storage, and detector assumptions before broad rollout.", "Validate", rum31Source, true]
           ]
