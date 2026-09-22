@@ -276,3 +276,7 @@ test('route guidance remains available and lifecycle disclosure restores after p
   await rt.dispatch('afterprint');
   assert.equal(rt.elements.get('lifecycle-panel').open,false);
 });
+
+test('publication metadata and release index match the newest dated release note', () => {
+  require('node:child_process').execFileSync(process.execPath, [path.join(root, 'scripts/sync-release-metadata.cjs'), '--check']);
+});

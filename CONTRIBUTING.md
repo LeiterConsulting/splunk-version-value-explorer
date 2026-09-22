@@ -114,3 +114,9 @@ Be respectful, specific, and constructive. Assume good intent, explain the evide
 Read [report guidance](docs/report-guidance.md) before changing lifecycle dates or URL identities. Preserve historical releases and use only documented equivalent aliases. Maintain explicit dates and sources in `dist/guidance-data.js`; never infer Cloud deadlines. Align `guidance.reviewed`, badge, print date, agent metadata, and release note. Run `node --test tests/webmcp.test.cjs`.
 
 The header keeps the reviewed date visible on mobile. When advancing the review date, update both the full date and compact time element (day, uppercase month, year), its datetime attribute, and the accessible link label. Portrait viewports up to 900px use the compact form; widths up to 480px also use it to prevent crowding in very small landscape windows.
+
+### Required publication metadata gate
+
+After creating or appending the Eastern-date release note, run `node scripts/sync-release-metadata.cjs`. The newest dated file in `docs/releases` is the publication-date source of truth. This updates the desktop badge, compact mobile date, accessible label, direct note link, static and runtime print dates, shared report date, and release-note index together. WebMCP reads this same badge metadata. Do not advance `lifecycle.reviewed` unless the support policy was actually reverified.
+
+Before any commit or Sites publication, run `node scripts/sync-release-metadata.cjs --check` and `node --test tests/webmcp.test.cjs`. Both must pass on the exact source being published; GitHub CI checks them too. A stale badge/index is a repairable defect even when no new upstream product release was found. No-change checks must not advance dates or create empty notes. Publish the same validated files to GitHub and Sites, and report the actual outcome of each; do not report completion when either is blocked.

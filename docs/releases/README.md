@@ -4,7 +4,7 @@ This directory contains concise, repository-only release notes for Version Compa
 
 ## Releases
 
-- [September 22, 2026](2026-09-22.md) — Kubernetes chart 0.161.0 and Collector 0.161 migration guidance
+- [September 22, 2026](2026-09-22.md) — Kubernetes chart 0.161.0, Collector migration guidance, and release metadata synchronization
 - [September 21, 2026](2026-09-21.md) — Current product-first interface and capability screenshots
 - [September 19, 2026](2026-09-19.md) — Route takeaways, lifecycle guidance, durable links, WebMCP tools, and Collector 0.161 boundaries
 - [September 18, 2026](2026-09-18.md) — ITSI 5.0.2 maintenance release, MCP pagination, and reliability fixes
@@ -19,3 +19,4 @@ This directory contains concise, repository-only release notes for Version Compa
 - Summarize customer-visible behavior, compatibility or risk implications, authoritative evidence, validation, and publication state.
 - Write the note as part of the same reviewed change set whenever possible.
 - Keep the website itself focused on comparison and reporting; release history remains in this repository.
+- Before publishing, run `node scripts/sync-release-metadata.cjs` followed by `node scripts/sync-release-metadata.cjs --check`. This derives all publication labels and the direct header link from the newest dated note and maintains this index. CI and report tests reject stale metadata.
