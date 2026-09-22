@@ -539,6 +539,7 @@
     renderValue();
     technicalPanel.open = true;
     document.getElementById("lifecycle-panel").open = true;
+    document.getElementById("release-report").innerHTML = window.VersionCompassReleasePrint.build(document, window.location.href);
     document.documentElement.classList.add("printing-report");
   }
 

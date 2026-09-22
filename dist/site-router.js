@@ -3,7 +3,7 @@
   'use strict';
   const params = new URLSearchParams(window.location.search);
   const preview = params.getAll('view').length === 1 && params.get('view') === 'es-editions' || !params.has('view') && params.getAll('preview').length === 1 && params.get('preview') === 'es-editions';
-  const normal = ['data.js','product-data.js','guidance-data.js','comparison.js','guidance.js','app.js','webmcp.js'];
+  const normal = ['data.js','product-data.js','guidance-data.js','comparison.js','guidance.js','release-print.js','app.js','webmcp.js'];
   if (preview) {
     document.body.classList.add('editions-preview');
     document.querySelector('main').innerHTML = '<section class="hero"><p class="dek" role="status">Loading ES editions comparison…</p></section>';

@@ -51,7 +51,7 @@ async function runtime({ support = true, failure = false, selection = routes[0] 
   const window = { location: { search: '?' + new URLSearchParams(selection), href: 'https://versioncompass.com/' }, history: { replaceState: (_a, _b, url) => { window.location.search = url; window.location.href = 'https://versioncompass.com/' + url; } },
     addEventListener: (type, fn) => { (events[type] ||= []).push(fn); }, setTimeout: fn => fn(), print: () => {} };
   const context = vm.createContext({ window, document, navigator: {}, URL, URLSearchParams, AbortController, console: { warn: () => {} } });
-  for (const file of ['data.js', 'product-data.js', 'guidance-data.js', 'comparison.js', 'guidance.js', 'app.js', 'webmcp.js']) vm.runInContext(read('dist/' + file), context, { filename: file });
+  for (const file of ['data.js', 'product-data.js', 'guidance-data.js', 'comparison.js', 'guidance.js', 'release-print.js', 'app.js', 'webmcp.js']) vm.runInContext(read('dist/' + file), context, { filename: file });
   await tick();
   return { window, document, elements, registered, context, badge, events, registrations: () => registrations,
     run: (name, input) => plain(registered.get('versioncompass_' + name).execute(input)),
@@ -279,4 +279,21 @@ test('route guidance remains available and lifecycle disclosure restores after p
 
 test('publication metadata and release index match the newest dated release note', () => {
   require('node:child_process').execFileSync(process.execPath, [path.join(root, 'scripts/sync-release-metadata.cjs'), '--check']);
+});
+
+test('release print report preserves every route section and deduplicates source URLs',async()=>{
+ for(const selection of routes){
+  const rt=await runtime({selection});await rt.dispatch('beforeprint');
+  const report=rt.elements.get('release-report').innerHTML;
+  assert(report.includes('Public sources'));assert(report.includes('Independent public-source report'));
+  for(const id of ['benefit-grid','technical-content','breaking-list','readiness-list']){
+   const source=rt.elements.get(id).innerHTML;
+   for(const title of source.matchAll(/<h[34][^>]*>(.*?)<\/h[34]>/g))assert(report.includes(title[1]),title[1]);
+  }
+  const refs=[...report.matchAll(/<li id="release-source-(\d+)">/g)];assert(refs.length>0);
+  assert.equal(new Set(refs.map(x=>x[1])).size,refs.length);
+  assert(!report.includes('id="takeaway-title"'));
+  await rt.dispatch('afterprint');
+ }
+ const blocked=await runtime({selection:{product:'unknown'}});await blocked.dispatch('beforeprint');assert.equal(blocked.elements.get('results').hidden,true);assert(!blocked.elements.get('release-report')?.innerHTML);
 });
