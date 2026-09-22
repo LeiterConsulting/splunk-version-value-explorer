@@ -120,3 +120,7 @@ The header keeps the reviewed date visible on mobile. When advancing the review 
 After creating or appending the Eastern-date release note, run `node scripts/sync-release-metadata.cjs`. The newest dated file in `docs/releases` is the publication-date source of truth. This updates the desktop badge, compact mobile date, accessible label, direct note link, static and runtime print dates, shared report date, and release-note index together. WebMCP reads this same badge metadata. Do not advance `lifecycle.reviewed` unless the support policy was actually reverified.
 
 Before any commit or Sites publication, run `node scripts/sync-release-metadata.cjs --check` and `node --test tests/webmcp.test.cjs`. Both must pass on the exact source being published; GitHub CI checks them too. A stale badge/index is a repairable defect even when no new upstream product release was found. No-change checks must not advance dates or create empty notes. Publish the same validated files to GitHub and Sites, and report the actual outcome of each; do not report completion when either is blocked.
+
+## Unlisted ES editions evidence
+
+Read [ES editions maintenance](docs/es-editions.md) before changing the edition preview. Maintain linked public evidence and unresolved source conflicts; do not promote the preview into normal navigation without explicit approval. Run `node --test tests/*.test.cjs` so both the existing report and editions suites are included. Edition/source review dates are separate from the site's latest publication date.
