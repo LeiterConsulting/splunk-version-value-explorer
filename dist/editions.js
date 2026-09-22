@@ -1,0 +1,60 @@
+(function () {
+  'use strict';
+  const data = window.VersionCompassEditions;
+  const params = new URLSearchParams(location.search);
+  const allowedFilters = ['all','essentials','premier','changed','review'];
+  const state = { filter: allowedFilters.includes(params.get('filter')) ? params.get('filter') : 'all', query: (params.get('q') || '').slice(0,200), release: Object.hasOwn(data.history,params.get('release')) ? params.get('release') : data.release };
+  const esc = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const links = keys => keys.map(key => '<a href="'+esc(data.sources[key].u)+'" target="_blank" rel="noopener noreferrer">'+esc(data.sources[key].t)+' ↗</a>').join(' · ');
+  const sources = keys => '<p class="edition-sources">'+links(keys)+'</p>';
+  const status = cell => '<strong class="edition-status status-'+esc(cell.v)+'">'+({yes:'Included',no:'Not included',part:'Conditional',review:'Confirm scope'}[cell.v])+'</strong><span>'+esc(cell.n || '')+'</span>';
+  document.title = 'Version Compass | ES editions preview';
+  const agentNote = document.querySelector('.agent-note'); if (agentNote) agentNote.hidden = true;
+  document.querySelector('.skip-link').href = '#edition-comparison';
+  document.querySelector('main').innerHTML = `
+    <section class="hero edition-hero" aria-labelledby="edition-title">
+      <div class="eyebrow">UNLISTED PREVIEW · ENTERPRISE SECURITY</div>
+      <h1 id="edition-title">Two editions.<br><span>See the differences.</span></h1>
+      <p class="dek">Essentials and Premier, with deployment boundaries, prerequisites, and the public sources behind every comparison.</p>
+      <div class="edition-preview-note">For review · Independent Version Compass comparison. Not an official Cisco or Splunk tool.</div>
+      <div class="edition-toolbar"><a href="./">← Release upgrade guide</a><button id="edition-copy" type="button">Copy preview link</button><button id="edition-print" type="button">Print / save PDF</button><span id="edition-share-status" role="status"></span></div>
+    </section>
+    <div class="edition-body" id="edition-comparison">
+      <p class="edition-asof">Edition snapshot: ES ${esc(data.release)} · Sources checked ${esc(data.reviewed)} · ${links(['rn87','editions'])}</p>
+      <div class="edition-cards">
+        <article><p class="kicker">THE SHARED FOUNDATION</p><h2>Essentials</h2><p>SIEM, threat intelligence, Detection Studio, Exposure Analytics and the ES AI Assistant, with feature-specific deployment limits.</p>${sources(['editions'])}</article>
+        <article class="edition-premier"><p class="kicker">EXTENDS ESSENTIALS</p><h2>Premier</h2><p>Adds SOAR, UEBA and Automated Threat Analysis. Included capabilities still have deployment, pairing and availability requirements.</p>${sources(['editions','regions'])}</article>
+      </div>
+      <aside class="edition-caution"><strong>Some published sources disagree.</strong> Connector Builder and Guided Response have edition-scope discrepancies. Rows marked “Confirm scope” retain both sources; inclusion is not inferred.${sources(['agentic','rn87','matrix','guided'])}</aside>
+      <section class="edition-matrix-section" aria-labelledby="edition-matrix-title">
+        <div class="edition-heading"><div><p class="kicker">01 / COMPARE CAPABILITIES</p><h2 id="edition-matrix-title">Essentials → Premier</h2></div><p>Expand a capability for technical detail. These rows describe the current ${esc(data.release)} snapshot.</p></div>
+        <div class="edition-controls"><label>Find a capability<input id="edition-search" type="search" maxlength="200" placeholder="Search capabilities and prerequisites" value="${esc(state.query)}"></label><label>Show<select id="edition-filter"><option value="all">All capabilities</option><option value="essentials">Included in Essentials</option><option value="premier">Premier additions</option><option value="changed">New or updated in 8.7</option><option value="review">Confirm scope</option></select></label></div>
+        <p id="edition-count" role="status"></p><p class="edition-print-note">Printed report includes every capability and its citations. Search filters do not omit content.</p>
+        <div class="edition-column-labels" aria-hidden="true"><span>Capability / public sources</span><span>Essentials</span><span>Premier</span></div>
+        <div id="edition-rows">${data.capabilities.map(c => `<article class="edition-row" data-id="${esc(c.id)}"><div class="edition-row-grid"><div><h3>${esc(c.name)}</h3><small>${esc(c.lane)}${c.tag ? ' · '+({new:'New in 8.7',updated:'Updated in 8.7',conf:'September announcement'}[c.tag]) : ''}</small>${sources(c.src)}</div><div class="edition-cell"><span class="edition-mobile-label">Essentials</span>${status(c.ess)}</div><div class="edition-cell"><span class="edition-mobile-label">Premier</span>${status(c.prem)}</div></div><details><summary>Details and prerequisites${c.ess.v === 'review' ? ' · sources disagree' : ''}</summary><p>${esc(c.desc)}</p>${c.flag ? '<p class="edition-qualification">'+esc(c.flag)+'</p>' : ''}${sources(c.src)}</details></article>`).join('')}</div>
+        <p id="edition-empty" hidden>No matching capabilities. Try another search or filter.</p>
+      </section>
+      <section class="edition-detail-section"><p class="kicker">02 / DEPLOYMENT & LICENSING</p><h2>The boundaries that matter</h2><div class="edition-note-grid">${data.notes.map(note => `<details id="note-${esc(note.id)}"><summary>${esc(note.title)}</summary><p>${esc(note.text)}</p><p>${esc(note.details)}</p>${sources(note.src)}</details>`).join('')}</div></section>
+      <section class="edition-history-section"><p class="kicker">03 / RELEASE HISTORY</p><h2>How the Cloud editions evolved</h2><p>Release-specific highlights from Splunk’s Cloud matrix—not complete entitlements or an on-premises compatibility assessment. Selecting a release changes only this history panel.</p><label class="edition-history-control">History release<select id="edition-history">${Object.keys(data.history).map(v=>'<option value="'+v+'">ES '+v+'</option>').join('')}</select></label><div id="edition-timeline"></div><p class="edition-qualification">The matrix groups security-automation authoring under Premier in 8.7; the agent compatibility table differs for specific agents. The history preserves the matrix’s grouping rather than silently rewriting it.</p>${sources(['matrix','agentic','rn87'])}</section>
+      <details class="edition-provenance"><summary>Public sources and review scope</summary><p>Source checks apply to the edition snapshot above. The header links to the latest site release note; it does not imply every source was rechecked on that date. Unknown or conflicting entitlements remain unresolved.</p><ul>${Object.values(data.sources).map(s=>'<li><a href="'+esc(s.u)+'" target="_blank" rel="noopener noreferrer">'+esc(s.t)+'</a> · checked '+esc(s.reviewed)+'</li>').join('')}</ul></details>
+      <p class="edition-print-url"></p>
+    </div>`;
+  const query = document.getElementById('edition-search'), filter = document.getElementById('edition-filter'), release = document.getElementById('edition-history');
+  filter.value = state.filter; release.value = state.release;
+  function url() { const p = new URLSearchParams({preview:'es-editions'}); if(state.filter!=='all')p.set('filter',state.filter);if(state.query)p.set('q',state.query);p.set('release',state.release);return location.pathname+'?'+p; }
+  function syncUrl() { history.replaceState(null,'',url());document.querySelector('.edition-print-url').textContent='Preview link: https://versioncompass.com'+url(); }
+  function apply() {
+    let count=0;
+    data.capabilities.forEach(c=>{const match=(state.filter==='all'||state.filter==='essentials'&&['yes','part'].includes(c.ess.v)||state.filter==='premier'&&c.ess.v==='no'&&c.prem.v!=='no'||state.filter==='changed'&&['new','updated'].includes(c.tag)||state.filter==='review'&&c.ess.v==='review')&&JSON.stringify(c).toLowerCase().includes(state.query.toLowerCase());document.querySelector('[data-id="'+c.id+'"]').hidden=!match;if(match)count++;});
+    document.getElementById('edition-count').textContent=count+' of '+data.capabilities.length+' capabilities';document.getElementById('edition-empty').hidden=count>0;syncUrl();
+  }
+  function timeline() { const entry=data.history[state.release];document.getElementById('edition-timeline').innerHTML='<h3>ES '+esc(state.release)+' · Cloud matrix highlights</h3><div class="edition-cards">'+[['Essentials (also in Premier)',entry.e],['Premier column',entry.p]].map(([title,items])=>'<article><h3>'+title+'</h3><ul>'+items.map(item=>'<li>'+esc(item)+'</li>').join('')+'</ul></article>').join('')+'</div>';syncUrl(); }
+  query.addEventListener('input',()=>{state.query=query.value.trim();apply();});filter.addEventListener('change',()=>{state.filter=filter.value;apply();});release.addEventListener('change',()=>{state.release=release.value;timeline();});
+  document.getElementById('edition-copy').addEventListener('click',async()=>{const target='https://versioncompass.com'+url();const el=document.getElementById('edition-share-status');try{await navigator.clipboard.writeText(target);el.textContent='Preview link copied.';}catch(_){el.textContent='Copy this link: '+target;}});
+  let beforePrint=null;
+  function expandPrint(){if(beforePrint)return;beforePrint=[...document.querySelectorAll('main details')].map(el=>[el,el.open]);beforePrint.forEach(([el])=>el.open=true);}
+  function restorePrint(){if(!beforePrint)return;beforePrint.forEach(([el,open])=>el.open=open);beforePrint=null;}
+  window.addEventListener('beforeprint',expandPrint);window.addEventListener('afterprint',restorePrint);
+  document.getElementById('edition-print').addEventListener('click',()=>{expandPrint();window.print();});
+  apply();timeline();
+}());
