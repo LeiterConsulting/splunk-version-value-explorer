@@ -49,3 +49,13 @@ test('explanations and both sides of source questions remain visible without ope
  for(const w of data.workflows)for(const id of w.ids)assert(data.capabilities.some(c=>c.id===id));
  const changed=runtime('?preview=es-editions&filter=changed');assert.equal(changed.rows.get('detection-builder').hidden,false);
 });
+test('print report keeps all evidence and tracks selected history independently of filters',()=>{
+ const r=runtime('?preview=es-editions&filter=review&release=8.4');
+ const report=r.html.slice(r.html.indexOf('<article class="edition-report"'));
+ assert.equal((report.match(/<tr>/g)||[]).length,21);
+ for(const c of data.capabilities){assert(report.includes(c.name.replaceAll('&','&amp;')));if(c.flag)assert(report.includes(c.flag.replaceAll('&','&amp;')));}
+ for(const key of Object.keys(data.sources))assert.equal((report.match(new RegExp('id="report-ref-'+key+'"','g'))||[]).length,1);
+ assert(report.includes('<thead>'));assert(report.includes('Cisco Talos'));
+ const release=r.elements.get('edition-history');release.value='8.7';release.listeners.change();
+ assert(r.elements.get('edition-report-history').innerHTML.includes('Security MCP workflow tools'));
+});
