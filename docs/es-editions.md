@@ -39,3 +39,9 @@ For material changes, append the Eastern-date release note and index, run `node 
 ## Review status
 
 Automated checks pass. Rendered browser/mobile and PDF pagination review was unavailable in this static-site environment. The preview remains unlisted for colleague review of layout, scanability and substantive qualifications before any normal-navigation launch.
+
+## Expanded review presentation (22 September)
+
+Capability descriptions and deployment/licensing summaries are visible without expanding controls. The page adds linked workflow explanations and an 8.7 spotlight, with section navigation and wider description columns. Secondary qualifications remain expandable. Source questions show the two statements side by side, source versions, the practical interpretation and the exact unanswered question. Connector Builder is a direct conflict; Guided Response is a version/enhancement-scope ambiguity, not proof of a changed base entitlement.
+
+The daily watch and twice-weekly audit must cover `highlights`, `workflows` and `conflicts` alongside capabilities, notes and history. Each statement has source keys; source questions preserve separate citations for both sides. Keep these summaries synchronized with the underlying records and do not remove useful explanations merely because a source link is present. Workflow groupings are explicitly editorial. Detection Builder's 8.7 enhancements now participate in the changed-capabilities filter. Triage's visible description uses the 8.6 setup guide without assigning unsupported 8.7 prerequisites.

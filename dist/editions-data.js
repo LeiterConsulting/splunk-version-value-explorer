@@ -1,6 +1,6 @@
 /* Public-source ES edition evidence; preview only. See docs/es-editions.md. */
 window.VersionCompassEditions = {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "reviewed": "2026-09-22",
   "release": "8.7",
   "releaseDate": "2026-09-02",
@@ -279,7 +279,8 @@ window.VersionCompassEditions = {
         "agentic",
         "rn87"
       ],
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-22",
+      "tag": "updated"
     },
     {
       "id": "sop-agent",
@@ -368,10 +369,10 @@ window.VersionCompassEditions = {
       },
       "prem": {
         "v": "yes",
-        "n": "Deployment not stated"
+        "n": "8.7 Cloud matrix; verify setup scope"
       },
       "flag": "Do not infer missing deployment or version prerequisites from that omission. The linked setup page belongs to the 8.6 documentation set; confirm applicability to the target release.",
-      "desc": "Assists first-pass finding triage. The Cloud capability matrix lists 8.7 enhancements under Premier; the six-agent compatibility table omits this agent.",
+      "desc": "Investigates queued findings and presents a disposition, rationale and suggested next steps. The 8.6 setup guide describes response plans, actions and SPL searches as investigation guidance; the 8.7 Cloud matrix lists enhancements under Premier.",
       "src": [
         "matrix",
         "triage",
@@ -607,6 +608,134 @@ window.VersionCompassEditions = {
         "rn87"
       ],
       "details": "Keep marketing announcements, release features, regional delivery and customer enablement separate. Workflow groupings are explanatory, not an entitlement matrix."
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "connector-builder",
+      "kind": "Direct edition conflict",
+      "title": "Can Essentials use Connector Builder?",
+      "claims": [
+        {
+          "src": [
+            "agentic"
+          ],
+          "text": "The 8.7 agent compatibility table lists both Essentials and Premier, Cloud only, with ES 8.7+ and paired SOAR."
+        },
+        {
+          "src": [
+            "rn87"
+          ],
+          "text": "The 8.7 release notes assign Connector Builder to Premier and require enablement through a Splunk representative."
+        }
+      ],
+      "meaning": "These pages assign different editions to the same agent in the same release. Essentials availability remains unconfirmed; Premier still has pairing and enablement conditions.",
+      "question": "Ask Splunk to confirm Essentials entitlement and the enablement path for the target deployment."
+    },
+    {
+      "id": "guided-response",
+      "kind": "Version and enhancement scope",
+      "title": "Does the 8.7 label change Guided Response entitlement?",
+      "claims": [
+        {
+          "src": [
+            "guided"
+          ],
+          "text": "The 8.6 task guide allows Essentials and Premier on Cloud, with platform 10.2+, ES 8.6+ and paired SOAR."
+        },
+        {
+          "src": [
+            "matrix"
+          ],
+          "text": "The 8.7 Cloud matrix places Triage and Guided Response enhancements in the Premier column."
+        }
+      ],
+      "meaning": "An enhancement grouping does not establish that the underlying feature became Premier-only. The sources cover different versions and scopes; 8.7 Essentials applicability remains unresolved.",
+      "question": "Ask which 8.7 Guided Response capabilities are available in Essentials, and which enhancements require Premier."
+    }
+  ],
+  "workflows": [
+    {
+      "title": "Build and maintain detections",
+      "text": "Detection Studio manages detection content; Detection Builder assists authoring and troubleshooting. Automation Builder works with playbooks, while Connector Builder generates and refines integrations. The latter has an unresolved edition conflict.",
+      "ids": [
+        "detection-studio",
+        "detection-builder",
+        "automation-builder",
+        "connector-builder"
+      ],
+      "src": [
+        "editions",
+        "agentic",
+        "rn87"
+      ]
+    },
+    {
+      "title": "Investigate and respond",
+      "text": "Triage helps assess incoming findings; Guided Response helps run SOAR actions. AI SOC Analyst uses investigation and response-plan context. Check each agent’s edition and pairing requirements before treating this as an available end-to-end workflow.",
+      "ids": [
+        "triage-agent",
+        "guided-response",
+        "ai-soc-analyst"
+      ],
+      "src": [
+        "triage",
+        "guided",
+        "agentic",
+        "rn87"
+      ]
+    },
+    {
+      "title": "Understand suspicious activity",
+      "text": "Premier adds native UEBA for behavioral analysis and Automated Threat Analysis powered by Attack Analyzer. Its Malware Reversing and Phishing Agent summarizes suspicious scripts; that agent is Cloud only and requires paired SOAR.",
+      "ids": [
+        "ueba",
+        "ata",
+        "malware-reversing"
+      ],
+      "src": [
+        "editions",
+        "ueba",
+        "agentic"
+      ]
+    },
+    {
+      "title": "Bring context and procedures together",
+      "text": "TIM supplies threat intelligence, Exposure Analytics adds entity and business context, and the SOP Agent converts an existing procedure into a response plan. The SOP Agent needs the ES assistant and response-template permissions.",
+      "ids": [
+        "tim",
+        "exposure",
+        "sop-agent"
+      ],
+      "src": [
+        "editions",
+        "ea",
+        "agentic"
+      ]
+    }
+  ],
+  "highlights": [
+    {
+      "title": "Agent authoring and response",
+      "text": "8.7 introduces AI SOC Analyst and Connector Builder, with representative enablement. Automation Builder improves context handling; Detection Builder improves SPL guidance. Connector Builder’s edition scope remains disputed.",
+      "src": [
+        "rn87",
+        "agentic"
+      ]
+    },
+    {
+      "title": "Investigation context and navigation",
+      "text": "Security MCP tools expose investigation context. Navigation gains customization and preview; View Change History opens fuller analyst-change context through Activity Log searches.",
+      "src": [
+        "rn87"
+      ]
+    },
+    {
+      "title": "Cloud matrix additions",
+      "text": "The 8.7 matrix records Triage and Guided Response enhancements, automation-authoring changes and UEBA data-source and Entity Analysis performance improvements in Premier. Agent-level scope still needs the qualifications below.",
+      "src": [
+        "matrix"
+      ]
     }
   ]
 };

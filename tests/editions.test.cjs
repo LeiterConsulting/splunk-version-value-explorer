@@ -10,7 +10,7 @@ test('only the exact single preview switch loads editions; default and old route
 });
 test('all evidence records have dated, official HTTPS citations and known edition statuses',()=>{
  assert.equal(data.capabilities.length,20);assert.equal(new Set(data.capabilities.map(x=>x.id)).size,20);
- for(const r of [...data.capabilities,...data.notes]){assert(r.src.length);for(const key of r.src){const s=data.sources[key];assert(s,key);const u=new URL(s.u);assert.equal(u.protocol,'https:');assert(['www.splunk.com','help.splunk.com'].includes(u.hostname));assert.match(s.reviewed,/^\d{4}-\d{2}-\d{2}$/);} }
+ for(const r of [...data.capabilities,...data.notes,...data.workflows,...data.highlights,...data.conflicts.flatMap(c=>c.claims)]){assert(r.src.length);for(const key of r.src){const s=data.sources[key];assert(s,key);const u=new URL(s.u);assert.equal(u.protocol,'https:');assert(['www.splunk.com','help.splunk.com'].includes(u.hostname));assert.match(s.reviewed,/^\d{4}-\d{2}-\d{2}$/);} }
  for(const c of data.capabilities)for(const cell of [c.ess,c.prem])assert(['yes','no','part','review'].includes(cell.v));
  for(const id of ['connector-builder','guided-response']){const c=data.capabilities.find(x=>x.id===id);assert.equal(c.ess.v,'review');assert(c.flag);assert(c.src.length>=2);}
  assert(data.capabilities.find(x=>x.id==='automation-builder').flag.includes('still requires'));
@@ -39,4 +39,13 @@ test('search, filters, history URLs, copy links and print restoration work witho
 });
 test('malformed preview fields fall back safely and query text is escaped',()=>{
  const r=runtime('?preview=es-editions&release=unknown&filter=unknown&q=%22%3E%3Cimg%20src%3Dx%20onerror%3Dalert(1)%3E');assert.equal(r.elements.get('edition-history').value,'8.7');assert.equal(r.elements.get('edition-filter').value,'all');assert(!r.html.includes('<img'));assert(r.html.includes('&lt;img'));
+});
+
+test('explanations and both sides of source questions remain visible without opening disclosures',()=>{
+ const r=runtime();const visible=r.html.replace(/<details[\s\S]*?<\/details>/g,'');
+ assert.equal((visible.match(/class="edition-description"/g)||[]).length,data.capabilities.length);
+ for(const c of data.conflicts){assert(visible.includes(c.title));assert(visible.includes(c.meaning));for(const claim of c.claims)assert(visible.includes(data.sources[claim.src[0]].u));}
+ assert(visible.includes('Direct edition conflict'));assert(visible.includes('Version and enhancement scope'));
+ for(const w of data.workflows)for(const id of w.ids)assert(data.capabilities.some(c=>c.id===id));
+ const changed=runtime('?preview=es-editions&filter=changed');assert.equal(changed.rows.get('detection-builder').hidden,false);
 });
