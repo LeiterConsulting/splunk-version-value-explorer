@@ -19,8 +19,8 @@ html.theme-cisco{--ink:#17243a;--muted:#536078;--paper:#f2f4f9;--white:#fff;--ni
 
 .theme-cisco .product-options input:checked+span{background:#eaf1fa;border-color:#1969a7;color:#005a99}.theme-cisco .product-options strong{color:#17243a}.theme-cisco .path-node.target strong{background:#eaf1fa;border-color:#1969a7;color:#005a99;box-shadow:none}.theme-cisco .value-band strong{color:#005a99}.theme-cisco .technical-panel>summary{background:#131a2b}.theme-cisco .filter-row button.active{background:#17243a;border-color:#17243a;color:white}
 
-/* Full dark presentation from the supplied comparison, screen only. */
-@media screen {
+/* Full dark presentation shared by screen and print. */
+@media screen, print {
  html.theme-cisco{color-scheme:dark;--ink:#e9edf6;--muted:#a6b1c9;--paper:#05070e;--white:#0e1320;--night:#05070e;--night-soft:#131a2b;--green:#5b9dff;--green-dark:#8bb9ff;--lime:#ff6b9f;--line:#293248;--orange:#ff9b70;--risk:#ffbd68;--risk-soft:#211a20;--shadow:0 22px 70px rgba(0,0,0,.25)}
  .theme-cisco body{background:#05070e;color:#e9edf6}
  .theme-cisco .hero{background:radial-gradient(ellipse at 90% 110%,rgba(240,5,124,.43),transparent 49%),radial-gradient(ellipse at 110% 120%,rgba(255,107,53,.46),transparent 35%),linear-gradient(115deg,#05070e,#090c1b 75%);border-bottom:1px solid #232939}
@@ -61,4 +61,32 @@ html.theme-cisco{--ink:#17243a;--muted:#536078;--paper:#f2f4f9;--white:#fff;--ni
  .theme-cisco .compatibility-gate,.theme-cisco .compatibility-gate.info{background:#14243b;border-color:#42638c;color:#d2e3ff}
  .theme-cisco .compatibility-gate.warning{background:#302317;border-color:#9d6e3a;color:#ffd3a3}
  .theme-cisco :focus-visible{outline-color:#8bb9ff}
+}
+
+/* Explicit report overrides defeat the default white-page print styles. */
+@media print {
+ @page cisco {size:auto;margin:16mm 14mm 17mm;background:#05070e;color:#e9edf6;@bottom-left{content:"Version Compass · Independent public-source report";font:8pt Arial,sans-serif;color:#a6b1c9}@bottom-right{content:counter(page);font:8pt Arial,sans-serif;color:#a6b1c9}}
+ html.theme-cisco body{page:cisco;background:#05070e!important;color:#e9edf6!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .theme-cisco .editions-preview main>.edition-report{background:#05070e;color:#e9edf6}
+ .theme-cisco .edition-report .report-title,.theme-cisco .print-summary{background:linear-gradient(115deg,#0e1320 45%,#501037 85%,#81352c);border-bottom:2pt solid #f0057c;padding:12pt 14pt}
+ .theme-cisco .edition-report h1,.theme-cisco .edition-report h2,.theme-cisco .edition-report h3,.theme-cisco .print-summary h1{color:#edf2ff}
+ .theme-cisco .edition-report .report-title>p:first-child,.theme-cisco .print-summary p{color:#ff81ba}
+ .theme-cisco .edition-report .report-subtitle,.theme-cisco .edition-report .report-disclaimer,.theme-cisco .edition-report td .report-row-note,.theme-cisco .print-independence,.theme-cisco .print-summary span{color:#bac7df}
+ .theme-cisco .edition-report a{color:#8bb9ff}
+ .theme-cisco .edition-report th{background:#182033;color:#edf2ff;border-color:#f0057c}
+ .theme-cisco .edition-report th:nth-child(2),.theme-cisco .edition-report td:nth-child(2)>strong{color:#7bb0ff}
+ .theme-cisco .edition-report th:nth-child(3),.theme-cisco .edition-report td:nth-child(3)>strong{color:#ff77b3}
+ .theme-cisco .edition-report td{background:#0e1320;border-color:#34405a;color:#e9edf6}
+ .theme-cisco .edition-report tr:nth-child(even) td{background:#111a2a}
+ .theme-cisco .edition-report h2,.theme-cisco .edition-report .report-question{border-color:#34405a}
+ .theme-cisco .edition-report .report-label{color:#ffbd68}
+ .theme-cisco .edition-report .report-callout{background:#211923;color:#e9edf6;border-color:#e79b55}
+ .theme-cisco .section,.theme-cisco .value-section{background:#05070e;color:#e9edf6}
+ .theme-cisco .print-compatibility{background:#14243b;color:#d2e3ff;border-color:#5b9dff}
+ .theme-cisco .print-compatibility strong{color:#edf2ff}
+ .theme-cisco .primary-link,.theme-cisco .secondary-link{background:#14243b;color:#d2e3ff;border-color:#42638c}
+ .theme-cisco .source-card .kicker{color:#8bb9ff}
+}
+@media print {
+ .theme-cisco .edition-report .report-references li{margin-bottom:5pt;line-height:1.3}
 }
