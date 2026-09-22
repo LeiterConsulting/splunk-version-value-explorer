@@ -4,6 +4,7 @@ This directory contains concise, repository-only release notes for Version Compa
 
 ## Releases
 
+- [September 22, 2026](2026-09-22.md) — Kubernetes chart 0.161.0 and Collector 0.161 migration guidance
 - [September 21, 2026](2026-09-21.md) — Current product-first interface and capability screenshots
 - [September 19, 2026](2026-09-19.md) — Route takeaways, lifecycle guidance, durable links, WebMCP tools, and Collector 0.161 boundaries
 - [September 18, 2026](2026-09-18.md) — ITSI 5.0.2 maintenance release, MCP pagination, and reliability fixes

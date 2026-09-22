@@ -27,9 +27,8 @@
   const compatibilitySource = "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix";
   const cloudServiceSource = "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.5.2605/information-about-the-service/splunk-cloud-platform-service-details";
   const collector160Source = "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.160.0";
-  const collector160PatchSource = "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.160.1";
   const collector161Source = "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.161.0";
-  const collectorChart160Source = "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.160.0";
+  const collectorChart161Source = "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.161.0";
   const node411Source = "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.11.0";
   const rum31Source = "https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.1.0";
 
@@ -564,6 +563,7 @@
             ["Agent Observability", "Automation & AI", "Evaluate GenAI and agent behavior", "Use the integrated SaaS offering to observe, evaluate, and apply guardrails to eligible generative-AI and agentic applications."],
             ["AI token and cost monitoring", "Usage & governance", "Connect AI activity to spend", "Monitor and alert on token use and cost across supported AI agents and infrastructure providers."],
             ["Collector 0.161 pipeline controls", "Telemetry & OpenTelemetry", "Upgrade with clearer configuration and input lifecycle behavior", "Use hot reload for Splunk outputs and independent TA input reconciliation after validating the release's changed semantic conventions and metric defaults."],
+            ["Kubernetes chart 0.161", "Infrastructure & Kubernetes", "Bring the supported chart to Collector 0.161", "Adopt the chart that packages Collector 0.161, Target Allocator 0.159, and Operator 0.123 after migrating Kubernetes attributes and CPU-metric expectations."],
             ["Collector lookup processor", "Telemetry & OpenTelemetry", "Enrich telemetry in the pipeline", "Use the lookup processor added in Splunk OpenTelemetry Collector 0.160.1 where its documented component scope fits the pipeline."],
             ["Browser RUM 3.1", "Digital experience", "Capture richer interaction context", "Use expanded frustration signals, navigation context, Synthetics correlation, and more resilient Session Replay retry behavior after reviewing the new defaults."]
           ],
@@ -571,7 +571,7 @@
             {
               component: "Kubernetes resource attributes", domain: "Semantic conventions", changeType: "Defaults changed", actionLevel: "Required",
               from: "Legacy plural k8s.pod.labels.* attributes remain available while stable names are opt-in", to: "Collector 0.161 emits stable singular k8s.pod.label.* names and disables the legacy names by default",
-              implication: "Dashboards, detectors, MetricSets, routing, and exports that still query legacy Kubernetes label attributes can stop matching after a standalone Collector upgrade.",
+              implication: "Dashboards, detectors, MetricSets, routing, and exports that still query legacy Kubernetes label attributes can stop matching after a standalone Collector or chart upgrade.",
               action: "Use Splunk's documented dual-emission feature-gate combination during migration, update dependent content to the stable names, then retire the legacy attributes deliberately.",
               source: collector161Source
             },
@@ -581,6 +581,20 @@
               implication: "The affected metrics are absent on the first scrape after startup and can shift alert or dashboard baselines compared with the kubelet-provided value.",
               action: "Compare representative CPU series and detector thresholds before rollout; temporarily disable receiver.kubeletstats.cpuUsageScrapeBased only when the prior calculation must be retained.",
               source: collector161Source
+            },
+            {
+              component: "Kubernetes chart package baseline", domain: "Collector & operators", changeType: "Bundled versions updated", actionLevel: "Required",
+              from: "Chart 0.160.0 packages Collector 0.160.1, Target Allocator 0.158.0, and Operator 0.122.1", to: "Chart 0.161.0 packages Collector 0.161.0, Target Allocator 0.159.0, and Operator 0.123.0",
+              implication: "The supported chart now inherits Collector 0.161's stable Kubernetes attribute names and scrape-rate CPU behavior; chart users no longer remain on the earlier 0.160.1 Collector baseline.",
+              action: "Treat the Helm update as a Collector 0.161 rollout, migrate dependent content, rebaseline CPU signals, and validate the updated allocator and operator in a representative cluster.",
+              source: collectorChart161Source
+            },
+            {
+              component: "Light Prometheus Receiver feature gate", domain: "Kubernetes chart configuration", changeType: "Deprecated", actionLevel: "Plan",
+              from: "featureGates.useLightPrometheusReceiver remains an available chart path", to: "The light-receiver gate is deprecated in chart 0.161.0 and scheduled for removal in a future release",
+              implication: "Deployments that retain the light receiver need a planned transition before a later chart removes the feature gate.",
+              action: "Set featureGates.useLightPrometheusReceiver=false in a test deployment, validate standard Prometheus receiver collection and resource use, then schedule production migration.",
+              source: collectorChart161Source
             },
             {
               component: "Google Cloud audit-log RPC attributes", domain: "Semantic conventions", changeType: "Legacy attributes disabled", actionLevel: "Review",
@@ -648,15 +662,15 @@
           ],
           requirements: [
             ["Confirm access to Agent Observability", "Splunk directs customers to contact their Splunk team for access to the Agent Observability SaaS deployment. Treat it as availability-bound, not universally enabled.", "Validate", "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026", false],
-            ["Migrate Kubernetes semantic conventions for Collector 0.161", "The standalone Collector now emits stable singular Kubernetes label attributes and disables the legacy plural names by default. Use dual emission while dashboards, detectors, MetricSets, routing, and exports are migrated.", "Blocker", collector161Source, true],
-            ["Rebaseline kubelet CPU metrics for Collector 0.161", "CPU usage and derived utilization now come from cpu.time rates by default and are absent on the first scrape after startup. Validate series behavior and thresholds before production rollout.", "Blocker", collector161Source, true],
+            ["Migrate Kubernetes semantic conventions for Collector and chart 0.161", "Standalone Collector 0.161 and Kubernetes chart 0.161.0 use stable singular label and annotation attributes plus container.image.tags. Migrate dashboards, detectors, MetricSets, routing, and exports before rollout.", "Blocker", collectorChart161Source, true],
+            ["Rebaseline kubelet CPU metrics for Collector and chart 0.161", "CPU usage and derived utilization now come from cpu.time rates by default and are absent on the first scrape after startup. Validate series behavior and thresholds before production rollout.", "Blocker", collectorChart161Source, true],
             ["Move SQL Server endpoint lookups to resource attributes", "Collector 0.161 removes server.address and server.port from db.server.top_query log attributes and makes them resource attributes by default.", "Blocker", collector161Source, true],
-            ["Keep Kubernetes chart and standalone Collector versions distinct", "The latest published chart remains 0.160.0 and packages Collector 0.160.1. Its users do not inherit Collector 0.161 behavior unless they separately change the image or Splunk publishes a later chart.", "Validate", collectorChart160Source, false],
-            ["Treat chart 0.160.0 as a Collector 0.160 upgrade", "The Kubernetes chart released September 15, 2026 uses Collector 0.160.1 and updates bundled operator and instrumentation versions. Rehearse the Collector breaking changes instead of treating the Helm update as an isolated chart change.", "Blocker", collectorChart160Source, true],
+            ["Treat chart 0.161.0 as a Collector 0.161 upgrade", "The Kubernetes chart published September 21, 2026 packages Collector 0.161.0 and its breaking Kubernetes semantic-convention and CPU-calculation defaults. Rehearse the Collector changes instead of treating the Helm update as an isolated chart change.", "Blocker", collectorChart161Source, true],
+            ["Plan migration to the standard Prometheus receiver", "Chart 0.161.0 deprecates featureGates.useLightPrometheusReceiver. Validate the standard receiver with the gate set to false before a future chart removes the light-receiver path.", "Plan", collectorChart161Source, false],
+            ["Validate the updated chart control plane", "Chart 0.161.0 updates Target Allocator to 0.159.0 and Operator to 0.123.0. Validate allocation, reconciliation, and operator-managed instrumentation behavior in a representative cluster.", "Validate", collectorChart161Source, false],
             ["Migrate injector configuration before Collector 0.160", "The 0.160 line replaces the custom injector shim and does not automatically migrate existing values into the new configuration files.", "Blocker", collector160Source, true],
             ["Replace removed scripted_inputs pipelines", "Collector 0.160 removes scripted_inputs. Convert to the splunk_inputs receiver and validate the required enableTArunner feature gate before production.", "Blocker", collector160Source, true],
             ["Remove the retired Kubernetes processor option", "Any k8sattributes configuration that still includes deployment_name_from_replicaset fails hard at startup in Collector 0.160.", "Blocker", collector160Source, true],
-            ["Validate the chart's 0.160.1 Collector patch", "Collector 0.160.1 remains the version paired with Kubernetes chart 0.160.0. Validate its lookup processor and experimental disk-queue extension only within their documented scope; standalone Collector 0.161 is a separate upgrade decision.", "Validate", collector160PatchSource, false],
             ["Reconcile Node.js semantic conventions", "The chart updates Node.js instrumentation to 4.11.0, which adopts stable OpenTelemetry HTTP and database semantic conventions with renamed attributes.", "Validate", node411Source, true],
             ["Baseline Browser RUM 3.1 defaults", "Browser RUM 3.1 changes frustration-signal collection, Page Completion Time quiet-window behavior, and failed-replay storage defaults. Confirm privacy, storage, and detector assumptions before broad rollout.", "Validate", rum31Source, true]
           ]
