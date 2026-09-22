@@ -86,7 +86,10 @@
     return '<a class="' + (className || "source-link") + '" href="' + escapeHtml(url) + '" target="_blank" rel="noreferrer">' + escapeHtml(label) + ' <span aria-hidden="true">↗</span></a>';
   }
 
+  function themedUrl(url) { return window.VersionCompassTheme ? window.VersionCompassTheme.href(url) : url; }
+
   function internalLink(url, label) {
+    url = themedUrl(url);
     return '<a class="source-link" href="' + escapeHtml(url) + '">' + escapeHtml(label) + ' <span aria-hidden="true">→</span></a>';
   }
 
@@ -111,7 +114,7 @@
   }
   function writeUrlState() {
     if (linkResolution && linkResolution.needsConfirmation) return;
-    window.history.replaceState(null, "", guidance.routeUrl(state));
+    window.history.replaceState(null, "", themedUrl(guidance.routeUrl(state)));
   }
   function clearLinkContext() { linkResolution = null; }
   function renderLinkNotice() {

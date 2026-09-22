@@ -2,20 +2,21 @@
   'use strict';
   const data = window.VersionCompassEditions;
   const params = new URLSearchParams(location.search);
+  const themed = url => window.VersionCompassTheme ? window.VersionCompassTheme.href(url) : url;
   const allowedFilters = ['all','essentials','premier','changed','review'];
   const state = { filter: allowedFilters.includes(params.get('filter')) ? params.get('filter') : 'all', query: (params.get('q') || '').slice(0,200), release: Object.hasOwn(data.history,params.get('release')) ? params.get('release') : data.release };
   const esc = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const links = keys => keys.map(key => '<a href="'+esc(data.sources[key].u)+'" target="_blank" rel="noopener noreferrer">'+esc(data.sources[key].t)+' ↗</a>').join(' · ');
   const sources = keys => '<p class="edition-sources">'+links(keys)+'</p>';
-  const jump = ids => '<p class="edition-jumps">'+ids.map(id=>'<a href="?preview=es-editions&q='+encodeURIComponent(data.capabilities.find(c=>c.id===id).name)+'#edition-matrix-title">'+esc(data.capabilities.find(c=>c.id===id).name)+' →</a>').join('')+'</p>';
+  const jump = ids => '<p class="edition-jumps">'+ids.map(id=>'<a href="'+esc(themed('?view=es-editions&q='+encodeURIComponent(data.capabilities.find(c=>c.id===id).name)+'#edition-matrix-title'))+'">'+esc(data.capabilities.find(c=>c.id===id).name)+' →</a>').join('')+'</p>';
   const status = cell => '<strong class="edition-status status-'+esc(cell.v)+'">'+({yes:'Included',no:'Not included',part:'Conditional',review:'Confirm scope'}[cell.v])+'</strong><span>'+esc(cell.n || '')+'</span>';
   const refKeys = Object.keys(data.sources);
   const refs = keys => '<span class="report-citations">'+keys.map(key=>'<a href="#report-ref-'+esc(key)+'">['+(refKeys.indexOf(key)+1)+']</a>').join(' ')+'</span>';
   const reportCell = cell => '<strong>'+({yes:'Included',no:'Not included',part:'Conditional',review:'Confirm scope'}[cell.v])+'</strong><br>'+esc(cell.n || '');
   const reportHistory = () => '<h2>Cloud release history · ES '+esc(state.release)+'</h2><p>Selected Cloud matrix highlights; not a complete entitlement list or an on-premises assessment. '+refs(['matrix'])+'</p>'+[['Essentials (also in Premier)',data.history[state.release].e],['Premier column',data.history[state.release].p]].map(([title,items])=>'<h3>'+title+'</h3><ul>'+items.map(item=>'<li>'+esc(item)+'</li>').join('')+'</ul>').join('')+'<p>The matrix groups security-automation authoring under Premier in 8.7. Agent-specific scope differs; see the source questions in this report. '+refs(['matrix','agentic','rn87'])+'</p>';
   function report() { return `<article class="edition-report" aria-label="Printable ES editions report">
-    <header class="report-title"><p>VERSION COMPASS / ENTERPRISE SECURITY</p><h1>Essentials &amp; Premier</h1><p class="report-subtitle">Capability comparison and deployment guidance</p><p>ES ${esc(data.release)} · Evidence reviewed ${esc(data.reviewed)} · Unlisted review edition</p></header>
-    <p class="report-disclaimer">Independent public-source comparison. Not an official Cisco or Splunk publication. <a href="https://versioncompass.com/?preview=es-editions">Online comparison ↗</a></p>
+    <header class="report-title"><p>VERSION COMPASS / ENTERPRISE SECURITY</p><h1>Essentials &amp; Premier</h1><p class="report-subtitle">Capability comparison and deployment guidance</p><p>ES ${esc(data.release)} · Evidence reviewed ${esc(data.reviewed)} · Public-source edition comparison</p></header>
+    <p class="report-disclaimer">Independent public-source comparison. Not an official Cisco or Splunk publication. <a href="${esc(themed('https://versioncompass.com/?view=es-editions'))}">Online comparison ↗</a></p>
     <p>This report includes all ${data.capabilities.length} capabilities and their qualifications, regardless of screen filters. Numbered citations link to the source directory. History reflects the selected release.</p>
     <h2>Edition overview</h2><p><strong>Essentials:</strong> the shared SIEM foundation includes Detection Studio, TIM, Exposure Analytics and the ES AI Assistant. Deployment scope varies: Detection Studio and TIM reach on-premises through Cloud Connect; Essentials lists the assistant on Cloud where available. ${refs(['editions','cloudcx'])}</p>
     <p><strong>Premier:</strong> adds native SOAR, UEBA and Automated Threat Analysis; extends the assistant to on-premises through Cloud Connect. SOAR-dependent capabilities still require a supported, configured pairing. ${refs(['editions','regions'])}</p>
@@ -29,16 +30,16 @@
     <section class="report-section" id="edition-report-history">${reportHistory()}</section>
     <section class="report-section report-references"><h2>Public sources</h2><p>Review dates belong to this evidence set. Conflicting or incomplete claims remain qualified. Links are clickable in PDF exports that preserve hyperlinks.</p><ol>${refKeys.map(key=>'<li id="report-ref-'+esc(key)+'"><strong>'+esc(data.sources[key].t)+'</strong> · Checked '+esc(data.sources[key].reviewed)+'<br><a href="'+esc(data.sources[key].u)+'">'+esc(data.sources[key].u)+'</a></li>').join('')}</ol></section>
   </article>`; }
-  document.title = 'Version Compass | ES editions preview';
+  document.title = 'Version Compass | ES editions comparison';
   const agentNote = document.querySelector('.agent-note'); if (agentNote) agentNote.hidden = true;
   document.querySelector('.skip-link').href = '#edition-comparison';
   document.querySelector('main').innerHTML = `
     <section class="hero edition-hero" aria-labelledby="edition-title">
-      <div class="eyebrow">UNLISTED PREVIEW · ENTERPRISE SECURITY</div>
+      <div class="eyebrow">ENTERPRISE SECURITY · EDITION COMPARISON</div>
       <h1 id="edition-title">Two editions.<br><span>See the differences.</span></h1>
       <p class="dek">Essentials and Premier, with deployment boundaries, prerequisites, and the public sources behind every comparison.</p>
-      <div class="edition-preview-note">For review · Independent Version Compass comparison. Not an official Cisco or Splunk tool.</div>
-      <div class="edition-toolbar"><a href="./">← Release upgrade guide</a><button id="edition-copy" type="button">Copy preview link</button><button id="edition-print" type="button">Print / save PDF</button><span id="edition-share-status" role="status"></span></div>
+      <div class="edition-preview-note">Independent Version Compass comparison. Not an official Cisco or Splunk tool.</div>
+      <div class="edition-toolbar"><a href="${esc(themed('./'))}">← Release upgrade guide</a><button id="edition-copy" type="button">Copy comparison link</button><button id="edition-print" type="button">Print / save PDF</button><span id="edition-share-status" role="status"></span></div>
     </section>
     <div class="edition-body" id="edition-comparison">
       <p class="edition-asof">Edition snapshot: ES ${esc(data.release)} · Sources checked ${esc(data.reviewed)} · ${links(['rn87','editions'])}</p>
@@ -66,8 +67,8 @@
     </div>${report()}`;
   const query = document.getElementById('edition-search'), filter = document.getElementById('edition-filter'), release = document.getElementById('edition-history');
   filter.value = state.filter; release.value = state.release;
-  function url() { const p = new URLSearchParams({preview:'es-editions'}); if(state.filter!=='all')p.set('filter',state.filter);if(state.query)p.set('q',state.query);p.set('release',state.release);return location.pathname+'?'+p; }
-  function syncUrl() { history.replaceState(null,'',url()+(location.hash || ''));document.querySelector('.edition-print-url').textContent='Preview link: https://versioncompass.com'+url(); }
+  function url() { const p = new URLSearchParams({view:'es-editions'}); if(state.filter!=='all')p.set('filter',state.filter);if(state.query)p.set('q',state.query);p.set('release',state.release);return themed(location.pathname+'?'+p); }
+  function syncUrl() { history.replaceState(null,'',url()+(location.hash || ''));document.querySelector('.edition-print-url').textContent='Comparison link: https://versioncompass.com'+url(); }
   function apply() {
     let count=0;
     data.capabilities.forEach(c=>{const match=(state.filter==='all'||state.filter==='essentials'&&['yes','part'].includes(c.ess.v)||state.filter==='premier'&&c.ess.v==='no'&&c.prem.v!=='no'||state.filter==='changed'&&['new','updated'].includes(c.tag)||state.filter==='review'&&c.ess.v==='review')&&JSON.stringify(c).toLowerCase().includes(state.query.toLowerCase());document.querySelector('[data-id="'+c.id+'"]').hidden=!match;if(match)count++;});
@@ -75,7 +76,7 @@
   }
   function timeline() { document.getElementById('edition-report-history').innerHTML=reportHistory(); const entry=data.history[state.release];document.getElementById('edition-timeline').innerHTML='<h3>ES '+esc(state.release)+' · Cloud matrix highlights</h3><div class="edition-cards">'+[['Essentials (also in Premier)',entry.e],['Premier column',entry.p]].map(([title,items])=>'<article><h3>'+title+'</h3><ul>'+items.map(item=>'<li>'+esc(item)+'</li>').join('')+'</ul></article>').join('')+'</div>';syncUrl(); }
   query.addEventListener('input',()=>{state.query=query.value.trim();apply();});filter.addEventListener('change',()=>{state.filter=filter.value;apply();});release.addEventListener('change',()=>{state.release=release.value;timeline();});
-  document.getElementById('edition-copy').addEventListener('click',async()=>{const target='https://versioncompass.com'+url();const el=document.getElementById('edition-share-status');try{await navigator.clipboard.writeText(target);el.textContent='Preview link copied.';}catch(_){el.textContent='Copy this link: '+target;}});
+  document.getElementById('edition-copy').addEventListener('click',async()=>{const target='https://versioncompass.com'+url();const el=document.getElementById('edition-share-status');try{await navigator.clipboard.writeText(target);el.textContent='Comparison link copied.';}catch(_){el.textContent='Copy this link: '+target;}});
   let beforePrint=null;
   function expandPrint(){if(beforePrint)return;beforePrint=[...document.querySelectorAll('main details')].map(el=>[el,el.open]);beforePrint.forEach(([el])=>el.open=true);}
   function restorePrint(){if(!beforePrint)return;beforePrint.forEach(([el,open])=>el.open=open);beforePrint=null;}

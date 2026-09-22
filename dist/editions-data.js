@@ -1,4 +1,4 @@
-/* Public-source ES edition evidence; preview only. See docs/es-editions.md. */
+/* Public-source ES edition evidence. See docs/es-editions.md. */
 window.VersionCompassEditions = {
   "schemaVersion": 2,
   "reviewed": "2026-09-22",
@@ -452,7 +452,7 @@ window.VersionCompassEditions = {
         "v": "part",
         "n": "Cloud; paired SOAR; confirm enablement"
       },
-      "flag": "Source conflict: the agent compatibility table lists Essentials and Premier; the 8.7 release notes list Premier and representative enablement. Confirm Essentials entitlement with Splunk; the preview does not resolve this conflict.",
+      "flag": "Source conflict: the agent compatibility table lists Essentials and Premier; the 8.7 release notes list Premier and representative enablement. Confirm Essentials entitlement with Splunk; this comparison does not resolve this conflict.",
       "desc": "Generates and refines connectors. The compatibility table requires Cloud, ES 8.7+ and paired SOAR.",
       "src": [
         "agentic",
