@@ -1,84 +1,109 @@
 /* Public-source ES edition evidence. See docs/es-editions.md. */
 window.VersionCompassEditions = {
   "schemaVersion": 2,
-  "reviewed": "2026-09-22",
+  "reviewed": "2026-09-23",
   "release": "8.7",
   "releaseDate": "2026-09-02",
   "sources": {
     "rn87": {
       "t": "ES 8.7 release notes",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     "matrix": {
       "t": "Editions Cloud Capability Matrix",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/splunk-enterprise-security-editions-cloud-capability-matrix",
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     "editions": {
       "t": "Overview of ES Editions",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     "conf26": {
       "t": ".conf26 Agentic SOC announcement",
       "u": "https://www.splunk.com/en_us/blog/security/evolving-to-autonomous-defense-new-agentic-soc-capabilities.html",
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     "agentic": {
       "t": "Agentic AI offerings in ES",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     "cloudcx": {
       "t": "Access Splunk Cloud Connect in ES",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.7/introduction/access-splunk-cloud-connect-in-splunk-enterprise-security-to-access-cloud-extensions",
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     "aiassist": {
       "t": "AI Assistant overview (ES)",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/ai-assistant-overview",
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     "saia": {
       "t": "Splunk AI Assistant 2.2.0 release notes",
       "u": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.2.0/release-notes/whats-new-in-splunk-ai-assistant",
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     "pricing": {
-      "t": "Splunk for Security Pricing",
-      "u": "https://www.splunk.com/en_us/products/pricing/cyber-security.html",
-      "reviewed": "2026-09-22"
+      "t": "Splunk pricing — Enterprise Security and SOAR",
+      "u": "https://www.splunk.com/en_us/products/pricing.html",
+      "reviewed": "2026-09-23"
+    },
+    "pricingModels": {
+      "t": "Splunk pricing models and eligibility FAQ",
+      "u": "https://www.splunk.com/en_us/products/pricing/pricing-models.html",
+      "reviewed": "2026-09-23"
+    },
+    "automationTask": {
+      "t": "SOAR Cloud Automation Builder task guide",
+      "u": "https://help.splunk.com/en/splunk-soar/soar-cloud/develop-apps/build-playbooks/use-the-automation-builder-agent-to-build-and-understand-playbooks",
+      "reviewed": "2026-09-23"
+    },
+    "connectorTask": {
+      "t": "Connector Builder prerequisites (ES 8.7)",
+      "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/automation-with-playbooks/configure-splunk-soar-apps-in-splunk-enterprise-security",
+      "reviewed": "2026-09-23"
+    },
+    "socTask": {
+      "t": "AI SOC Analyst workflow prerequisites (ES 8.7)",
+      "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "reviewed": "2026-09-23"
+    },
+    "malwareTask": {
+      "t": "Malware Reversing and Phishing task guide (ES 8.7)",
+      "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/analyze-scripts-using-the-ai-powered-malware-reversing-agent-and-phishing-analysis-agent-in-splunk-enterprise-security",
+      "reviewed": "2026-09-23"
     },
     "ueba": {
       "t": "Splunk UEBA product page",
       "u": "https://www.splunk.com/en_us/products/user-and-entity-behavior-analytics.html",
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     "ea": {
       "t": "Exposure Analytics product page",
       "u": "https://www.splunk.com/en_us/products/exposure-analytics.html",
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     "licensing": {
       "t": "ES licensing and trials (8.6 documentation)",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.6/introduction/licensing-for-splunk-enterprise-security",
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     "regions": {
       "t": "ES 8.7 compatibility and regional availability",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     "guided": {
       "t": "Guided Response prerequisites (8.6 documentation)",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.6/ai-assistant-in-security-and-agentic-capabilities/run-soar-response-actions-using-the-guided-response-agent-in-splunk-enterprise-security",
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     "triage": {
       "t": "Triage agent setup (8.6 documentation)",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.6/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-triage-agent-in-splunk-enterprise-security",
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     }
   },
   "capabilities": [
@@ -99,7 +124,7 @@ window.VersionCompassEditions = {
         "editions",
         "pricing"
       ],
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     {
       "id": "ai",
@@ -118,7 +143,7 @@ window.VersionCompassEditions = {
         "editions",
         "agentic"
       ],
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     {
       "id": "tim",
@@ -138,7 +163,7 @@ window.VersionCompassEditions = {
         "cloudcx",
         "rn87"
       ],
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     {
       "id": "detection-studio",
@@ -159,7 +184,7 @@ window.VersionCompassEditions = {
         "pricing",
         "cloudcx"
       ],
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     {
       "id": "exposure",
@@ -174,13 +199,13 @@ window.VersionCompassEditions = {
         "v": "yes",
         "n": "Cloud and On-premises"
       },
-      "desc": "Entity and business context for exposure prioritization. Included in ES licensing at no additional cost; the September announcement describes entity discovery, change history and business context.",
+      "desc": "Entity and business context for exposure prioritization. Included in ES licensing at no additional cost; the September announcement describes entity discovery, change history and business context. The product page separately labels continuous posture metrics and Entity Profiling as coming soon; do not treat those named enhancements as shipped.",
       "src": [
         "editions",
         "ea",
         "conf26"
       ],
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     {
       "id": "ai-assistant",
@@ -202,7 +227,7 @@ window.VersionCompassEditions = {
         "aiassist",
         "cloudcx"
       ],
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     {
       "id": "mcp",
@@ -222,7 +247,7 @@ window.VersionCompassEditions = {
         "rn87",
         "matrix"
       ],
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     {
       "id": "nav",
@@ -241,7 +266,7 @@ window.VersionCompassEditions = {
       "src": [
         "rn87"
       ],
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     {
       "id": "change-history",
@@ -260,7 +285,7 @@ window.VersionCompassEditions = {
       "src": [
         "rn87"
       ],
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     {
       "id": "detection-builder",
@@ -279,7 +304,7 @@ window.VersionCompassEditions = {
         "agentic",
         "rn87"
       ],
-      "reviewed": "2026-09-22",
+      "reviewed": "2026-09-23",
       "tag": "updated"
     },
     {
@@ -298,7 +323,7 @@ window.VersionCompassEditions = {
       "src": [
         "agentic"
       ],
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     {
       "id": "soar",
@@ -313,13 +338,13 @@ window.VersionCompassEditions = {
         "n": "Included, natively integrated"
       },
       "flag": "Pairing has separate version and deployment constraints. Splunk Enterprise 9.4.0–9.4.2 does not support ES–SOAR pairing. Check the exact pairing matrix before planning integration.",
-      "desc": "Premier includes SOAR; standalone SOAR is also offered with user-seat pricing. Edition entitlement does not prove that a compatible instance is paired.",
+      "desc": "Premier includes SOAR; standalone SOAR is also offered. The current pricing page directs customers to a quote and does not specify a SOAR seat model. This does not establish a change to existing contracts. Edition entitlement does not prove that a compatible instance is paired.",
       "src": [
         "editions",
         "pricing",
         "regions"
       ],
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     {
       "id": "ueba",
@@ -339,7 +364,7 @@ window.VersionCompassEditions = {
         "ueba",
         "editions"
       ],
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     {
       "id": "ata",
@@ -358,7 +383,7 @@ window.VersionCompassEditions = {
         "matrix",
         "regions"
       ],
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     {
       "id": "triage-agent",
@@ -378,7 +403,7 @@ window.VersionCompassEditions = {
         "triage",
         "agentic"
       ],
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     {
       "id": "guided-response",
@@ -398,7 +423,7 @@ window.VersionCompassEditions = {
         "matrix",
         "guided"
       ],
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     {
       "id": "malware-reversing",
@@ -411,11 +436,13 @@ window.VersionCompassEditions = {
         "v": "yes",
         "n": "Cloud only"
       },
-      "desc": "Summarizes suspicious scripts. Premier, Cloud only; ES 8.5+ and paired SOAR.",
+      "desc": "Summarizes suspicious scripts. Premier, Cloud only, with paired SOAR. The 8.7 agent table lists ES 8.5+, but the 8.7 task guide specifies platform 10.2+ and ES 8.6+.",
+      "flag": "Minimum-version discrepancy: confirm the target deployment against both sources; ES 8.5 alone is not established as sufficient by the task guide.",
       "src": [
-        "agentic"
+        "agentic",
+        "malwareTask"
       ],
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     {
       "id": "automation-builder",
@@ -431,13 +458,14 @@ window.VersionCompassEditions = {
         "n": "Cloud; paired SOAR required"
       },
       "flag": "Premier includes SOAR, but still requires a supported, configured pairing. Buying a standalone SOAR license alone does not establish that this prerequisite is met.",
-      "desc": "Builds and explains playbooks. Both editions, Cloud only; ES 8.6+ and paired SOAR. ES 8.7 improves context handling.",
+      "desc": "Builds and explains playbooks. Both editions, Cloud only; ES 8.6+ and paired SOAR Cloud. The task guide additionally requires Cloud Platform 10.1+ and a Splunk user account, and excludes FedRAMP SOAR stacks. ES 8.7 improves context handling.",
       "src": [
         "agentic",
         "rn87",
-        "regions"
+        "regions",
+        "automationTask"
       ],
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     {
       "id": "connector-builder",
@@ -453,13 +481,14 @@ window.VersionCompassEditions = {
         "n": "Cloud; paired SOAR; confirm enablement"
       },
       "flag": "Source conflict: the agent compatibility table lists Essentials and Premier; the 8.7 release notes list Premier and representative enablement. Confirm Essentials entitlement with Splunk; this comparison does not resolve this conflict.",
-      "desc": "Generates and refines connectors. The compatibility table requires Cloud, ES 8.7+ and paired SOAR.",
+      "desc": "Generates and refines connectors. The 8.7 task guide requires platform 10.1+, ES 8.7+ paired with SOAR Cloud, and SOAR App: Edit and SOAR Asset: Edit permissions. These prerequisites do not resolve the edition conflict.",
       "src": [
         "agentic",
         "rn87",
-        "matrix"
+        "matrix",
+        "connectorTask"
       ],
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     },
     {
       "id": "ai-soc-analyst",
@@ -473,12 +502,14 @@ window.VersionCompassEditions = {
         "v": "yes",
         "n": "Cloud only; rep-enabled"
       },
-      "desc": "Assists investigation and response. Premier, Cloud only; platform 10.2+, ES 8.6+, paired SOAR and representative enablement. Listed as new in the 8.7 notes.",
+      "desc": "Assists investigation and response. Premier, Cloud only; platform 10.2+, paired SOAR and representative enablement. The 8.7 agent table lists ES 8.6+, while the 8.7 workflow guide requires ES 8.7+, connector and investigation permissions, and a finding with AI triage results.",
+      "flag": "Minimum-version discrepancy: the table and workflow guide disagree. Do not promise this workflow on ES 8.6; confirm the supported scope with Splunk.",
       "src": [
         "agentic",
-        "rn87"
+        "rn87",
+        "socTask"
       ],
-      "reviewed": "2026-09-22"
+      "reviewed": "2026-09-23"
     }
   ],
   "history": {
@@ -593,11 +624,12 @@ window.VersionCompassEditions = {
     {
       "id": "pricing",
       "title": "Public pricing models",
-      "text": "Splunk publishes workload and ingest options for ES and per-user-seat pricing for standalone SOAR. Public pages are a model overview, not a quote or a guarantee of a particular configuration.",
+      "text": "The current ES pricing section lists activity-based, workload and ingest options. The detailed activity-based FAQ identifies Splunk Cloud Platform, leaving ES deployment eligibility unclear. Standalone SOAR remains offered, but this page no longer specifies a seat-pricing model.",
       "src": [
-        "pricing"
+        "pricing",
+        "pricingModels"
       ],
-      "details": "Do not infer prices, seat counts or contractual eligibility. Evaluate standalone SOAR against the supported pairing guide; it does not automatically establish agent entitlement."
+      "details": "Confirm product, deployment and contract eligibility with Splunk; do not infer universal activity-based pricing or a change to existing SOAR contracts. A quote or standalone license does not establish supported pairing or agent entitlement."
     },
     {
       "id": "announcement",
@@ -611,6 +643,39 @@ window.VersionCompassEditions = {
     }
   ],
   "conflicts": [
+    {
+      "id": "soc-version",
+      "kind": "Minimum-version discrepancy",
+      "title": "Which ES version supports the AI SOC Analyst workflow?",
+      "claims": [
+        { "src": ["agentic"], "text": "The 8.7 agent compatibility table lists ES 8.6+ and platform 10.2+, Premier Cloud, with paired SOAR." },
+        { "src": ["socTask"], "text": "The 8.7 workflow task guide requires ES 8.7+ and platform 10.2+, Premier Cloud, paired SOAR and representative enablement." }
+      ],
+      "meaning": "The task-specific guide has a higher ES minimum. The comparison preserves both statements instead of certifying ES 8.6 for the workflow.",
+      "question": "Ask Splunk which workflow and ES minimum are supported on the target stack."
+    },
+    {
+      "id": "malware-version",
+      "kind": "Minimum-version discrepancy",
+      "title": "Which baseline supports Malware Reversing and Phishing?",
+      "claims": [
+        { "src": ["agentic"], "text": "The 8.7 agent table lists ES 8.5+, Premier Cloud and paired SOAR." },
+        { "src": ["malwareTask"], "text": "The 8.7 task guide specifies ES 8.6+, platform 10.2+ and paired SOAR." }
+      ],
+      "meaning": "Both sources describe these agents, but their minimum ES versions differ. The task guide also adds a platform prerequisite absent from the table.",
+      "question": "Confirm the agent-specific baseline before relying on ES 8.5 availability."
+    },
+    {
+      "id": "activity-pricing",
+      "kind": "Commercial deployment scope",
+      "title": "Where does activity-based ES pricing apply?",
+      "claims": [
+        { "src": ["pricing"], "text": "The current Enterprise Security pricing section lists activity-based, workload and ingest options." },
+        { "src": ["pricingModels"], "text": "The detailed activity-based pricing FAQ names Splunk Cloud Platform as the eligible product; it explicitly names ES for workload and ingest pricing." }
+      ],
+      "meaning": "These public pages do not establish activity-based eligibility for every ES deployment or contract. A pricing overview is not a quote.",
+      "question": "Confirm ES product, Cloud versus customer-managed deployment, and contract eligibility with Splunk."
+    },
     {
       "id": "connector-builder",
       "kind": "Direct edition conflict",

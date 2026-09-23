@@ -18,6 +18,19 @@ test('all evidence records have dated, official HTTPS citations and known editio
  assert(data.capabilities.find(x=>x.id==='automation-builder').flag.includes('still requires'));
  assert(data.notes.find(x=>x.id==='assistants').text.includes('Cloud Connected'));
 });
+test('task-level prerequisites and pricing uncertainty remain explicit without changing edition entitlement',()=>{
+ const cap=id=>data.capabilities.find(c=>c.id===id);
+ assert.match(cap('automation-builder').desc,/10\.1\+.*FedRAMP/);
+ assert.match(cap('connector-builder').desc,/SOAR App: Edit and SOAR Asset: Edit/);
+ assert.match(cap('ai-soc-analyst').desc,/8\.6\+.*8\.7\+/);
+ assert.match(cap('malware-reversing').desc,/8\.5\+.*10\.2\+.*8\.6\+/);
+ for(const id of ['ai-soc-analyst','malware-reversing']){assert.equal(cap(id).ess.v,'no');assert.match(cap(id).flag,/discrepancy/);}
+ assert.equal(data.conflicts.length,5);
+ for(const id of ['soc-version','malware-version','activity-pricing'])assert.equal(data.conflicts.find(c=>c.id===id).claims.length,2);
+ assert.match(data.notes.find(n=>n.id==='pricing').text,/eligibility unclear/);
+ assert(!cap('soar').desc.includes('offered with user-seat pricing'));
+ assert(data.capabilities.some(c=>c.name==='Exposure Analytics'&&c.desc.includes('coming soon')));
+});
 function runtime(search='?preview=es-editions'){
  const elements=new Map(),events={},details=[],rows=new Map(data.capabilities.map(c=>[c.id,{hidden:false}]));let copied='';let html='';
  const element=id=>{if(!elements.has(id))elements.set(id,{value:'',hidden:false,textContent:'',innerHTML:'',listeners:{},addEventListener(event,fn){this.listeners[event]=fn;}});return elements.get(id);};

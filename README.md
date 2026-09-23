@@ -141,3 +141,5 @@ Reports include a cited route takeaway and expandable support lifecycle context.
 ### Enterprise Security editions
 
 [Compare ES Essentials and Premier](https://versioncompass.com/?view=es-editions), including public-source capability scope, deployment requirements, source questions and a printable report. The older preview links remain compatible.
+
+Agent task guides are checked alongside the aggregate compatibility table. Where minimum versions or pricing eligibility differ, the comparison preserves both cited statements rather than certifying a lower baseline or universal commercial entitlement. See the [September 23 evidence review](docs/releases/2026-09-23.md).

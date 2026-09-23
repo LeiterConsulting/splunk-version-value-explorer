@@ -4,6 +4,7 @@ This directory contains concise, repository-only release notes for Version Compa
 
 ## Releases
 
+- [September 23, 2026](2026-09-23.md)
 - [September 22, 2026](2026-09-22.md) — Kubernetes chart 0.161.0, Collector migration guidance, and release metadata synchronization
 - [September 21, 2026](2026-09-21.md) — Current product-first interface and capability screenshots
 - [September 19, 2026](2026-09-19.md) — Route takeaways, lifecycle guidance, durable links, WebMCP tools, and Collector 0.161 boundaries
