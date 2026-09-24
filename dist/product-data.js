@@ -29,6 +29,7 @@
   const collector160Source = "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.160.0";
   const collector161Source = "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.161.0";
   const collectorChart161Source = "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.161.0";
+  const dotnet116Source = "https://github.com/signalfx/splunk-otel-dotnet/releases/tag/v1.16.0";
   const node411Source = "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.11.0";
   const rum31Source = "https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.1.0";
 
@@ -562,12 +563,48 @@
           features: [
             ["Agent Observability", "Automation & AI", "Evaluate GenAI and agent behavior", "Use the integrated SaaS offering to observe, evaluate, and apply guardrails to eligible generative-AI and agentic applications."],
             ["AI token and cost monitoring", "Usage & governance", "Connect AI activity to spend", "Monitor and alert on token use and cost across supported AI agents and infrastructure providers."],
+            ["Delegated APM rule management", "APM & troubleshooting", "Tune transaction coverage without broad admin access", "Use a custom role to let selected non-admin users create, update, or delete business transaction and endpoint rules."],
+            ["Richer APM endpoint and instance evidence", "APM & troubleshooting", "Move from a symptom to representative traces", "Inspect RED metrics plus the six highest-error and six longest traces from enhanced endpoint, application-instance, and service-instance detail panels."],
+            ["RUM Business Journeys", "Digital experience", "Analyze customer processes as complete journeys", "Create linear or nonlinear journeys with AI-assisted prompts and classify attributes for business-process analysis."],
+            ["RUM workflow links and latency split", "Digital experience", "Separate page-load and client-route behavior", "Open Tag Spotlight or Session Search from RUM and compare base-page-load latency with route-change latency for single-page applications."],
+            ["Synthetics private runner updates", "Digital experience", "Keep private test execution current", "Review the published 1.44.0 runtime with Chrome and Chromium 151 and the 1.39.0 restoration of NTLM authentication for HTTP tests."],
+            ["Observability Logs", "Dashboards & experience", "Investigate logs beside metrics and traces", "Use the cloud-only integrated logs experience with a Splunk Cloud stack, Unified Identity, centralized RBAC, data-level access control, and OpenTelemetry or Data Manager onboarding where available."],
+            ["Cloud 10.6 free-edition onboarding", "Dashboards & experience", "Start an Observability trial from a documented Cloud stack", "On Splunk Cloud Platform 10.6, eligible admin or sc_admin users can request a trial organization from the Discover app and inspect paired indexes for OpenTelemetry-compliant log sources."],
             ["Collector 0.161 pipeline controls", "Telemetry & OpenTelemetry", "Upgrade with clearer configuration and input lifecycle behavior", "Use hot reload for Splunk outputs and independent TA input reconciliation after validating the release's changed semantic conventions and metric defaults."],
             ["Kubernetes chart 0.161", "Infrastructure & Kubernetes", "Bring the supported chart to Collector 0.161", "Adopt the chart that packages Collector 0.161, Target Allocator 0.159, and Operator 0.123 after migrating Kubernetes attributes and CPU-metric expectations."],
             ["Collector lookup processor", "Telemetry & OpenTelemetry", "Enrich telemetry in the pipeline", "Use the lookup processor added in Splunk OpenTelemetry Collector 0.160.1 where its documented component scope fits the pipeline."],
+            [".NET instrumentation 1.16", "Telemetry & OpenTelemetry", "Verify instrumentation packages before install", "Use immutable, attested release assets and inspect snapshot-selection probability in effective configuration after satisfying the installer verification prerequisite."],
             ["Browser RUM 3.1", "Digital experience", "Capture richer interaction context", "Use expanded frustration signals, navigation context, Synthetics correlation, and more resilient Session Replay retry behavior after reviewing the new defaults."]
           ],
           technicalChanges: [
+            {
+              component: "APM transaction and endpoint rule permissions", domain: "Roles & permissions", changeType: "Delegated role available", actionLevel: "Review",
+              from: "Rule administration requires an administrator", to: "A custom role can grant non-admin users create, update, and delete access for business transaction and endpoint rules",
+              implication: "APM rule ownership can be delegated without giving broad administrative access, but an over-broad custom role can still change monitored transaction and endpoint scope.",
+              action: "Define the smallest rule-management role, assign it to the intended operators, and validate create, update, and delete behavior against change-control expectations.",
+              source: "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026"
+            },
+            {
+              component: "Synthetics private runner", domain: "Customer-managed test runtime", changeType: "Versions published", actionLevel: "Review",
+              from: "Earlier applicable private-runner browser and HTTP-test behavior", to: "Runner 1.44.0 uses Chrome and Chromium 151 with refreshed security and maintenance components; runner 1.39.0 restores NTLM authentication for HTTP tests",
+              implication: "Browser execution or NTLM-authenticated HTTP tests can behave differently depending on the private-runner line deployed; the two published version notes must not be treated as one universal SaaS backend change.",
+              action: "Identify the runner version used by each private location, validate critical journeys against its documented browser runtime, and retest NTLM HTTP tests where that 1.39.0 correction applies.",
+              source: "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026"
+            },
+            {
+              component: "Observability Logs operating boundary", domain: "Cloud integration & access", changeType: "Cloud-only integration introduced", actionLevel: "Review",
+              from: "Logs handled outside the new integrated Observability Logs experience", to: "A cloud-only logs experience backed by a Splunk Cloud stack, Unified Identity, centralized RBAC, data-level access control, and OpenTelemetry or Data Manager onboarding",
+              implication: "Access and data visibility depend on the paired Splunk Cloud environment, identities, roles, data-level controls, and onboarding path; this is not a customer-managed log service or proof of availability on every stack.",
+              action: "Confirm the eligible stack and organization pairing, map identities and data access, then validate the supported onboarding path and MELT workflow before adoption.",
+              source: "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026"
+            },
+            {
+              component: "Observability free-edition provisioning from Splunk Cloud", domain: "Cross-product onboarding", changeType: "Stack-specific self-service added", actionLevel: "Review",
+              from: "Observability trial onboarding outside the documented Splunk Cloud self-service flow", to: "Splunk Cloud Platform 10.6 admin or sc_admin users can request a trial organization in the Discover app and enumerate paired indexes for OpenTelemetry-compliant logs",
+              implication: "The release-note entry is scoped to a 10.6 Cloud environment and privileged roles. It does not establish a generally available 10.6 platform route, premium-app pairing, regional schedule, or entitlement in Version Compass.",
+              action: "Verify the actual Cloud stack version, Discover app, role, pairing, region, entitlement, and trial availability before using this onboarding path.",
+              source: "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026"
+            },
             {
               component: "Kubernetes resource attributes", domain: "Semantic conventions", changeType: "Defaults changed", actionLevel: "Required",
               from: "Legacy plural k8s.pod.labels.* attributes remain available while stable names are opt-in", to: "Collector 0.161 emits stable singular k8s.pod.label.* names and disables the legacy names by default",
@@ -646,6 +683,13 @@
               source: collector160Source
             },
             {
+              component: ".NET instrumentation installer verification", domain: "Instrumentation supply chain", changeType: "Default prerequisite added", actionLevel: "Required",
+              from: "PowerShell and shell installation or update without the new immutable-release attestation check", to: "Splunk OpenTelemetry .NET 1.16 verifies immutable release assets and requires GitHub CLI by default for the PowerShell commands and shell installer",
+              implication: "Customer-managed .NET instrumentation installation or update can stop before deployment when GitHub CLI is unavailable; explicit skip options bypass the new verification rather than satisfying it.",
+              action: "Install and authorize GitHub CLI in the deployment path, validate artifact-attestation verification in a representative host or image, and treat any decision to use the documented skip option as a security exception.",
+              source: dotnet116Source
+            },
+            {
               component: "Node.js instrumentation attributes", domain: "Semantic conventions", changeType: "Attribute names changed", actionLevel: "Required",
               from: "Pre-stable OpenTelemetry HTTP and database semantic-convention attribute names", to: "Stable semantic conventions in Splunk OpenTelemetry Node.js 4.11.0",
               implication: "Detectors, dashboards, MetricSets, routing, and API consumers that query renamed HTTP or database attributes can lose matches when the agent changes.",
@@ -662,6 +706,10 @@
           ],
           requirements: [
             ["Confirm access to Agent Observability", "Splunk directs customers to contact their Splunk team for access to the Agent Observability SaaS deployment. Treat it as availability-bound, not universally enabled.", "Validate", "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026", false],
+            ["Scope delegated APM rule permissions", "Use a custom role only for the non-admin users who should manage business transaction and endpoint rules, and validate create, update, and delete behavior under normal change controls.", "Validate", "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026", false],
+            ["Confirm Observability Logs pairing and access", "Observability Logs is cloud-only and uses a Splunk Cloud stack, Unified Identity, centralized RBAC, data-level access control, and a supported OpenTelemetry or Data Manager onboarding path. Confirm each boundary before adoption.", "Validate", "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026", false],
+            ["Validate the applicable Synthetics private-runner line", "Review private locations individually: runner 1.44.0 updates Chrome and Chromium to 151 and refreshes runtime components, while 1.39.0 restores NTLM authentication for HTTP tests.", "Validate", "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026", false],
+            ["Treat Cloud 10.6 trial onboarding as stack-specific", "The documented free-edition flow requires Splunk Cloud Platform 10.6, the Discover Splunk Observability Cloud app, and an admin or sc_admin role. Confirm stack, region, entitlement, schedule, pairing, and trial availability rather than inferring them from the current 10.5 release route.", "Validate", "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026", false],
             ["Migrate Kubernetes semantic conventions for Collector and chart 0.161", "Standalone Collector 0.161 and Kubernetes chart 0.161.0 use stable singular label and annotation attributes plus container.image.tags. Migrate dashboards, detectors, MetricSets, routing, and exports before rollout.", "Blocker", collectorChart161Source, true],
             ["Rebaseline kubelet CPU metrics for Collector and chart 0.161", "CPU usage and derived utilization now come from cpu.time rates by default and are absent on the first scrape after startup. Validate series behavior and thresholds before production rollout.", "Blocker", collectorChart161Source, true],
             ["Move SQL Server endpoint lookups to resource attributes", "Collector 0.161 removes server.address and server.port from db.server.top_query log attributes and makes them resource attributes by default.", "Blocker", collector161Source, true],
@@ -671,6 +719,7 @@
             ["Migrate injector configuration before Collector 0.160", "The 0.160 line replaces the custom injector shim and does not automatically migrate existing values into the new configuration files.", "Blocker", collector160Source, true],
             ["Replace removed scripted_inputs pipelines", "Collector 0.160 removes scripted_inputs. Convert to the splunk_inputs receiver and validate the required enableTArunner feature gate before production.", "Blocker", collector160Source, true],
             ["Remove the retired Kubernetes processor option", "Any k8sattributes configuration that still includes deployment_name_from_replicaset fails hard at startup in Collector 0.160.", "Blocker", collector160Source, true],
+            ["Provide GitHub CLI for .NET 1.16 installer verification", "Splunk OpenTelemetry .NET 1.16 requires GitHub CLI by default when its PowerShell installation/update commands or shell installer verify immutable release attestations. Validate the tool and network path before rollout; skipping verification is an explicit exception, not the default readiness path.", "Blocker", dotnet116Source, true],
             ["Reconcile Node.js semantic conventions", "The chart updates Node.js instrumentation to 4.11.0, which adopts stable OpenTelemetry HTTP and database semantic conventions with renamed attributes.", "Validate", node411Source, true],
             ["Baseline Browser RUM 3.1 defaults", "Browser RUM 3.1 changes frustration-signal collection, Page Completion Time quiet-window behavior, and failed-replay storage defaults. Confirm privacy, storage, and detector assumptions before broad rollout.", "Validate", rum31Source, true]
           ]

@@ -265,6 +265,22 @@ test('support windows use explicit dates, maintenance lines, and distinct manage
   assert.equal(lifecycle('platform','enterprise','unknown','2026-09-19').status,'unverified');
 });
 
+test('September Observability additions preserve SaaS, private-runner, and Cloud-route boundaries', async () => {
+  const rt = await runtime();
+  const selection = { product: 'observability', platform: 'cloud', host: '10.5.2605', from: 'Jul 2026', to: 'Sep 2026' };
+  const report = rt.run('compare_routes', { routes: [selection] }).reports[0];
+  for (const title of ['Delegated APM rule management', 'RUM Business Journeys', 'Synthetics private runner updates', 'Observability Logs', 'Cloud 10.6 free-edition onboarding', '.NET instrumentation 1.16']) {
+    assert(report.features.some(item => item.title === title), title);
+  }
+  assert(report.technicalChanges.some(item => item.component === 'Synthetics private runner' && item.to.includes('1.44.0') && item.to.includes('1.39.0')));
+  assert(report.technicalChanges.some(item => item.component === 'Observability Logs operating boundary' && item.implication.includes('not a customer-managed log service')));
+  assert(report.technicalChanges.some(item => item.component === '.NET instrumentation installer verification' && item.to.includes('requires GitHub CLI by default')));
+  assert(report.breakingChanges.some(item => item.title === 'Provide GitHub CLI for .NET 1.16 installer verification' && item.breaking));
+  assert(report.readiness.some(item => item.title === 'Treat Cloud 10.6 trial onboarding as stack-specific' && item.detail.includes('current 10.5 release route')));
+  const platformCloud = rt.run('get_catalog', {}).products.find(item => item.id === 'platform').contexts.find(item => item.platform === 'cloud');
+  assert(!platformCloud.targetReleases.some(item => item.id.startsWith('10.6')));
+});
+
 test('route guidance remains available and lifecycle disclosure restores after print', async () => {
   const rt = await runtime({selection:routes[3]});
   const report = rt.run('get_current_report',{}).report;

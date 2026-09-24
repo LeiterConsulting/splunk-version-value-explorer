@@ -32,6 +32,8 @@ Platform technical records live in each release's `technicalChanges` array in `d
 - For Enterprise Security and ITSI on customer-managed Enterprise, keep the product change distinct from the compatible platform maintenance pairing. A platform prerequisite belongs in the compatibility gate and readiness list as well as any relevant technical record.
 - For premium apps on Splunk Cloud Platform, describe availability as Splunk-managed and stack-, region-, entitlement-, or schedule-dependent where applicable. Do not infer Cloud compatibility from the Enterprise matrix.
 - For Observability Cloud, distinguish rolling-service availability from the customer-managed Collector, Kubernetes chart, instrumentation, RUM agent, exporter, and semantic-convention versions.
+- Keep customer-managed Synthetics private-runner versions and their browser or authentication behavior distinct from rolling SaaS changes.
+- A Cloud Platform version mentioned by an Observability integration announcement is a scoped prerequisite, not a new Platform route. Add the Platform identifier only when the applicable Cloud release notes and service details publish it; continue to preserve stack, role, region, entitlement, pairing, and schedule boundaries.
 - Keep standalone Collector and Kubernetes chart versions explicit when their release cadence diverges. Do not imply that a chart user receives a newer Collector default until the chart packages it or the customer deliberately overrides the image.
 
 ## Release review checklist

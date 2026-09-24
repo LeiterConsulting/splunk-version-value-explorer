@@ -17,6 +17,8 @@ For Splunk Cloud Platform, Splunk coordinates compatible platform and premium-ap
 
 Observability Cloud is a rolling SaaS service. Its route uses dated release milestones, while customer-managed OpenTelemetry Collectors, Kubernetes charts, language instrumentation, RUM agents, semantic conventions, realms, and entitlements are treated as separate versioned or availability-sensitive dependencies.
 
+Cross-product announcements keep the boundary published by their source. For example, the September 23 Observability milestone describes a free-edition flow from a Splunk Cloud Platform 10.6 environment, with a Discover app and privileged Cloud role. Version Compass records that as stack-specific Observability readiness, not as evidence that a generally available 10.6 Cloud release identifier or premium-app pairing should replace the current Platform route.
+
 ## Current source map
 
 - [Splunk products version compatibility matrix](https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix)
@@ -24,9 +26,10 @@ Observability Cloud is a rolling SaaS service. Its route uses dated release mile
 - Enterprise Security release notes and upgrade guidance linked from each ES release record
 - ITSI [5.0.2 Splunkbase listing](https://splunkbase.splunk.com/app/1841), [5.0 release-line notes](https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/new-features-in-splunk-it-service-intelligence), [fixed issues](https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/fixed-issues-in-splunk-it-service-intelligence), and [related app compatibility](https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/install-and-upgrade/5.0/planning/itsi-compatibility-with-related-apps-and-add-ons)
 - [Splunk Observability Cloud release notes overview](https://help.splunk.com/en/splunk-observability-cloud/release-notes/release-notes-overview)
+- [September 2026 Splunk Observability Cloud timeline](https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026), including the September 23 APM, RUM, Synthetics, Observability Logs, and Cloud-connected onboarding records
 - [Splunk OpenTelemetry Collector 0.161.0](https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.161.0), [0.160.1](https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.160.1), and the [0.160.0 breaking-change record](https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.160.0)
 - [Splunk OpenTelemetry Collector for Kubernetes chart 0.161.0](https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.161.0)
-- [Splunk OpenTelemetry Node.js 4.11.0](https://github.com/signalfx/splunk-otel-js/releases/tag/v4.11.0) and [Browser RUM 3.1](https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.1.0)
+- [Splunk OpenTelemetry .NET 1.16.0](https://github.com/signalfx/splunk-otel-dotnet/releases/tag/v1.16.0), [Node.js 4.11.0](https://github.com/signalfx/splunk-otel-js/releases/tag/v4.11.0), and [Browser RUM 3.1](https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.1.0)
 - [Splunk Distribution of the OpenTelemetry Collector guidance](https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector)
 - [Splunk Enterprise Security 8.6 security-fix floor](https://advisory.splunk.com/advisories/SVD-2026-0807)
 
