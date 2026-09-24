@@ -463,6 +463,8 @@
   }
 
   function syncControls() {
+    document.getElementById("es-editions-promo").hidden = state.product !== "es";
+    document.getElementById("es-editions-promo-link").href = themedUrl("?view=es-editions");
     const productInput = document.querySelector('input[name="product"][value="' + state.product + '"]');
     const platformInput = document.querySelector('input[name="platform"][value="' + state.platform + '"]');
     if (productInput) productInput.checked = true;
