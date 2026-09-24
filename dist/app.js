@@ -86,7 +86,12 @@
     return '<a class="' + (className || "source-link") + '" href="' + escapeHtml(url) + '" target="_blank" rel="noreferrer">' + escapeHtml(label) + ' <span aria-hidden="true">↗</span></a>';
   }
 
-  function themedUrl(url) { return window.VersionCompassTheme ? window.VersionCompassTheme.href(url) : url; }
+  function themedUrl(url) {
+    const u=new URL(url,window.location.href);
+    if(u.origin===new URL(window.location.href).origin)environment.append(u.searchParams,environment.enabled(state)?state.environment:{});
+    const value=u.pathname+u.search+u.hash;
+    return window.VersionCompassTheme ? window.VersionCompassTheme.href(value) : value;
+  }
 
   function internalLink(url, label) {
     url = themedUrl(url);
@@ -106,14 +111,24 @@
     state.category = "All";
   }
 
+  const environment = window.VersionCompassEnvironment;
+  document.getElementById("environment-controls-mount").innerHTML=environment.controls();
+  environment.bind(state,renderAll);
+  function renderEnvironment(){
+    environment.fill(state);
+    const box=document.getElementById('environment-overview');
+    box.hidden=!environment.assess(state).active;
+    box.innerHTML=box.hidden?'':'<h2>Cloud environment</h2>'+environment.body(state);
+  }
   const guidance = window.VersionCompassGuidance;
   let linkResolution = null;
   function readUrlState() {
     linkResolution = guidance.resolveUrl(window.location.search, defaults);
     Object.assign(state, linkResolution.state);
+    if(!linkResolution.hasRoute && Object.keys(state.environment||{}).length){state.platform="cloud";useDefaults();}
   }
   function writeUrlState() {
-    if (linkResolution && linkResolution.needsConfirmation) return;
+    if ((linkResolution && linkResolution.needsConfirmation)||state.environmentErrors?.length) return;
     window.history.replaceState(null, "", themedUrl(guidance.routeUrl(state)));
   }
   function clearLinkContext() { linkResolution = null; }
@@ -288,7 +303,7 @@
     benefitGrid.innerHTML = visible.length ? visible.map(function (feature) {
       const category = data.categories[feature.category] || { icon: "•" };
       const milestone = feature.milestone || "Introduced in " + feature.release;
-      return '<article class="benefit-card"><div class="benefit-top"><span class="benefit-icon" aria-hidden="true">' + category.icon + '</span><span>' + escapeHtml(feature.category) + '</span></div><p class="outcome">' + escapeHtml(feature.outcome) + '</p><h3>' + escapeHtml(feature.title) + '</h3><p class="detail">' + escapeHtml(feature.detail) + '</p>' + '<div class="benefit-foot"><span>' + escapeHtml(milestone) + '</span>' + externalLink(feature.source, "Source") + '</div></article>';
+      return '<article class="benefit-card"><div class="benefit-top"><span class="benefit-icon" aria-hidden="true">' + category.icon + '</span><span>' + escapeHtml(feature.category) + '</span></div><p class="outcome">' + escapeHtml(feature.outcome) + '</p><h3>' + escapeHtml(feature.title) + '</h3><p class="detail">' + escapeHtml(feature.detail) + '</p>' + environment.annotation(state,feature) + '<div class="benefit-foot"><span>' + escapeHtml(milestone) + '</span>' + externalLink(feature.source, "Source") + '</div></article>';
     }).join("") : '<div class="empty-state"><span>i</span><div><h3>No curated capability milestone in this interval</h3><p>The release remains in the route for compatibility context. Open the official source for maintenance-level detail.</p></div></div>';
 
     filters.querySelectorAll("button").forEach(function (button) {
@@ -468,12 +483,14 @@
 
   function renderAll() {
     syncControls();
+    environment.fill(state);
     renderLinkNotice();
     const blocked = Boolean(linkResolution && linkResolution.needsConfirmation);
     document.getElementById("results").hidden = blocked;
-    copyLinkButton.disabled = blocked;
-    printButton.disabled = blocked;
+    copyLinkButton.disabled = blocked || Boolean(state.environmentErrors?.length);
+    printButton.disabled = blocked || Boolean(state.environmentErrors?.length);
     if (blocked) { note.textContent = "Choose or confirm the comparison releases to continue."; return; }
+    renderEnvironment();
     renderRouteGuidance();
     const migration = isMigration();
     pathKicker.textContent = "01 / " + (migration ? "THE MIGRATION" : "THE ROUTE");
@@ -517,7 +534,7 @@
   }
 
   copyLinkButton.addEventListener("click", function () {
-    if (linkResolution && linkResolution.needsConfirmation) return;
+    if ((linkResolution && linkResolution.needsConfirmation)||state.environmentErrors?.length) return;
     writeUrlState();
     const url = window.location.href;
     if (navigator.clipboard && window.isSecureContext) {
@@ -556,7 +573,7 @@
   window.addEventListener("beforeprint", preparePrintReport);
   window.addEventListener("afterprint", restorePrintReport);
   printButton.addEventListener("click", function () {
-    if (linkResolution && linkResolution.needsConfirmation) return;
+    if ((linkResolution && linkResolution.needsConfirmation)||state.environmentErrors?.length) return;
     preparePrintReport();
     window.setTimeout(function () { window.print(); }, 40);
   });
@@ -565,6 +582,7 @@
     input.addEventListener("change", function () {
       clearLinkContext();
       state.product = input.value;
+      if(state.product==="observability"&&state.environment)delete state.environment.experience;
       if (!isCore() && state.platform === "migration") state.platform = "enterprise";
       useDefaults();
       fillSelectors();

@@ -36,3 +36,7 @@ Run `node --test tests/webmcp.test.cjs`. Coverage includes every catalog interva
 ## Dedicated Release Guide print layout
 
 `dist/release-print.js` builds a print-only report from the current, validated rendered route after the print handler renders all benefit categories. It does not maintain separate product facts. `dist/release-print.css` provides report typography, lifecycle columns, printable technical transitions, controlled page breaks and source-directory formatting. The output remains inside `#results`, so unresolved routes stay blocked. Preserve all compatibility, shared-link, support-policy and Cloud-managed-scope qualifications. Keep theme=cisco effective in PDF as on screen; default exports remain white. Deduplicate external citations by URL without changing source destinations, and preserve the exact themed comparison URL. Test all product families, migration, blocked URLs and post-print filter/disclosure restoration. Rendered PDF checks use local HTML-to-PDF output; native browser print engines may paginate differently.
+
+## Cloud environment evidence
+
+See [Cloud environments](cloud-environments.md) for independent CSP, region, FR-M/FR-H, and experience filters, shared report behavior, uncertainty boundaries, and dedicated maintenance ownership. Current hosting evidence does not establish historical release availability or authorize every product component.

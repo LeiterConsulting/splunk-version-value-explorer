@@ -75,3 +75,7 @@ All scheduled tasks must maintain the integrated route, original alias, release-
 Theme refinement: `theme=cisco` now uses the original reference's full dark screen treatment, not the earlier light card variant. All dark overrides are scoped to screen media; print retains the validated white-page report treatment. Audit contrast on nested cards, controls, comparison cells, source links and warnings in both the release and editions views.
 
 Print-theme correction (supersedes the screen-only refinement above): the active `theme=cisco` presentation now carries into print/PDF in full, using a named dark page, navy surfaces, gradient heading and edition accents. The unmodified default theme remains white. Preserve `print-color-adjust: exact`; browser print settings can still override background printing. The selected theme must not change factual content or omit source qualifications.
+
+## Cloud environment evidence
+
+See [Cloud environments](cloud-environments.md) for independent CSP, region, FR-M/FR-H, and experience filters, shared report behavior, uncertainty boundaries, and dedicated maintenance ownership. Current hosting evidence does not establish historical release availability or authorize every product component.

@@ -12,9 +12,10 @@ The configured schedules below use America/New_York time, including daylight-sav
 | --- | --- | --- |
 | Version Release Watch | Daily, 5:00 AM Eastern | New or revised releases, security and removal notices, platform compatibility, migration prerequisites, and customer-managed Observability components across the Release Guide. |
 | ES Editions Watch | Daily, 6:00 AM Eastern | Essentials/Premier capabilities, deployment and licensing qualifications, agent prerequisites, release history, workflow explanations, and unresolved source questions in the ES editions comparison. |
+| CSP FedRAMP Watch | Daily, around 7:00 AM Eastern | Hosting providers, regional differences, Classic/Victoria scope, and separate FR-M/FR-H availability and authorization evidence across products. |
 | Version Guidance Audit | Mondays and Thursdays, 8:00 AM Eastern | Broader revalidation of existing guidance across both views, including upgrade paths, dependencies, technical changes, lifecycle evidence, citations, historical URLs, report behavior, and presentation consistency. |
 
-The daily watches focus on changes; the wider audit also challenges information already published. The dedicated editions watch owns routine edition updates, while the release watch checks related product records and the guidance audit checks the complete experience. This division reduces duplicated editing without leaving the editions feature outside the broader review.
+The dedicated environment watch owns routine CSP and FedRAMP evidence updates; the other watches check related product changes and the broader audit checks cross-view consistency. The daily watches focus on changes; the wider audit also challenges information already published. The dedicated editions watch owns routine edition updates, while the release watch checks related product records and the guidance audit checks the complete experience. This division reduces duplicated editing without leaving the editions feature outside the broader review.
 
 ## Evidence and interpretation
 
@@ -27,6 +28,8 @@ The reviews preserve distinctions that can materially change a reader's decision
 - Rolling Observability service milestones versus versioned Collector, chart, instrumentation, and RUM components.
 - Announcements versus documented delivery, and general availability versus limited release stages.
 - Edition, entitlement, region, deployment, and paired-service requirements.
+- Hosting provider versus monitored workloads; region versus compliance environment; FR-M versus FR-H without inheritance between levels.
+- Offering authorization versus individual feature availability; current service evidence versus historical release availability.
 - Bundled versus app-owned components, defaults versus options, and deprecation versus removal.
 - A technical change versus a potential breaking change, required action, or validation item.
 - Support eligibility versus compatibility; one does not establish the other.
@@ -77,5 +80,6 @@ Copying or forking this repository does not copy its Codex tasks, credentials, p
 - [Enterprise-to-Cloud guidance](enterprise-to-cloud.md)
 - [Route guidance, lifecycle context, and historical links](report-guidance.md)
 - [ES editions evidence and maintenance](es-editions.md)
+- [Cloud environments and regional evidence](cloud-environments.md)
 - [Browser-based agent access](webmcp.md)
 - [Release history](releases/README.md)

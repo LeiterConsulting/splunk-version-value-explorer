@@ -15,6 +15,8 @@
     const section=(title,body,intro='')=>body?'<section class="report-section"><h2>'+title+'</h2>'+(intro?'<p>'+intro+'</p>':'')+cite(body)+'</section>':'';
     let body='<header class="report-title"><p>VERSION COMPASS / RELEASE GUIDE</p><h1>'+text('print-title')+'</h1><p>'+text('print-subtitle')+'</p></header><p class="report-disclaimer">Independent public-source report. Not an official Cisco or Splunk publication.</p><p>This report includes all curated benefits and technical details for the selected route. Numbered citations refer to the source directory.</p><p class="report-online"><a href="'+esc(url)+'">Open this exact comparison online</a></p>';
     body+=section('Route assessment',html('print-link-notice')+html('compatibility-gate')+html('route-takeaway'));
+    const envState=window.VersionCompassPage?.getSelection();
+    if(envState&&window.VersionCompassEnvironment)body+=section('Cloud environment',window.VersionCompassEnvironment.body(envState,true));
     body+=section('Support lifecycle',html('lifecycle-content'));
     body+=section(text('path-title')||'Selected path','<div class="report-path">'+html('path-line')+'</div><p>'+html('path-caption')+'</p>',text('path-intro'));
     if(!document.getElementById('migration-approaches').hidden)body+=section('Migration approaches',html('approach-grid')+'<p>Choose an approach with your account team or delivery partner after discovery; this guide does not collect enough environment detail to prescribe one.</p>'+html('source-actions'));

@@ -5,9 +5,9 @@ const read=f=>fs.readFileSync(path.join(__dirname,'..',f),'utf8');
 const dataContext={window:{}};vm.runInNewContext(read('dist/editions-data.js'),dataContext);const data=dataContext.window.VersionCompassEditions;
 function router(search){const loaded=[],head=[],main={innerHTML:''};const document={body:{classList:{add(){}},appendChild(el){loaded.push(el.src);el.onload();}},head:{appendChild(el){head.push(el);}},querySelector(){return main;},createElement(){return {};}};vm.runInNewContext(read('dist/site-router.js'),{window:{location:{search}},URLSearchParams,document});return {loaded,head,main};}
 test('public editions and legacy preview routes load editions; release routes stay isolated',()=>{
- for(const q of ['', '?product=es&platform=enterprise&host=10.4&from=8.6&to=8.7','?preview=no','?preview=es-editions&preview=es-editions']){const r=router(q);assert.deepEqual(r.loaded,['data.js','product-data.js','guidance-data.js','comparison.js','guidance.js','release-print.js','app.js','webmcp.js']);assert.equal(r.head.length,0);}
- const r=router('?preview=es-editions');assert.deepEqual(r.loaded,['editions-data.js','editions.js']);assert(!r.head.some(x=>x.name==='robots'));
- assert.deepEqual(router('?view=es-editions').loaded,['editions-data.js','editions.js']);
+ for(const q of ['', '?product=es&platform=enterprise&host=10.4&from=8.6&to=8.7','?preview=no','?preview=es-editions&preview=es-editions']){const r=router(q);assert.deepEqual(r.loaded,['environment-data.js','environment.js','data.js','product-data.js','guidance-data.js','comparison.js','guidance.js','release-print.js','app.js','webmcp.js']);assert.equal(r.head.length,0);}
+ const r=router('?preview=es-editions');assert.deepEqual(r.loaded,['environment-data.js','environment.js','editions-data.js','editions.js']);assert(!r.head.some(x=>x.name==='robots'));
+ assert.deepEqual(router('?view=es-editions').loaded,['environment-data.js','environment.js','editions-data.js','editions.js']);
  assert.deepEqual(router('?view=es-editions&view=es-editions').loaded,router('').loaded);
 });
 test('all evidence records have dated, official HTTPS citations and known edition statuses',()=>{
@@ -33,12 +33,13 @@ test('task-level prerequisites and pricing uncertainty remain explicit without c
 });
 function runtime(search='?preview=es-editions'){
  const elements=new Map(),events={},details=[],rows=new Map(data.capabilities.map(c=>[c.id,{hidden:false}]));let copied='';let html='';
- const element=id=>{if(!elements.has(id))elements.set(id,{value:'',hidden:false,textContent:'',innerHTML:'',listeners:{},addEventListener(event,fn){this.listeners[event]=fn;}});return elements.get(id);};
+ const element=id=>{if(!elements.has(id))elements.set(id,{value:'',hidden:false,textContent:'',innerHTML:'',listeners:{},querySelector(){return null;},addEventListener(event,fn){this.listeners[event]=fn;}});return elements.get(id);};
  const main={set innerHTML(value){html=value;for(let i=0;i<(value.match(/<details/g)||[]).length;i++)details.push({open:false});}};
- const document={title:'',querySelector(selector){if(selector==='main')return main;if(selector.startsWith('[data-id='))return rows.get(selector.match(/"([^"]+)"/)[1]);return element(selector);},getElementById:element,querySelectorAll(selector){assert.equal(selector,'main details');return details;}};
+ const document={title:'',querySelector(selector){if(selector==='main')return main;if(selector.startsWith('[data-id='))return rows.get(selector.match(/"([^"]+)"/)[1]);return element(selector);},getElementById:element,querySelectorAll(selector){if(selector==='[data-site-link]')return [];assert.equal(selector,'main details');return details;}};
  const location={search,pathname:'/'};const history={replaceState(_a,_b,url){location.search=url.slice(1);}};
  const window={VersionCompassTheme:{href(value){if(new URLSearchParams(search).get('theme')!=='cisco')return value;const u=new URL(value,'https://versioncompass.com/');u.searchParams.set('theme','cisco');return u.pathname+u.search+u.hash;}},VersionCompassEditions:data,addEventListener(name,fn){events[name]=fn;},print(){events.beforeprint();}};
- vm.runInNewContext(read('dist/editions.js'),{document,location,history,window,URLSearchParams,navigator:{clipboard:{async writeText(value){copied=value;}}}});
+ for(const f of ['environment-data.js','environment.js'])vm.runInNewContext(read('dist/'+f),{window,document,URL,URLSearchParams});
+ vm.runInNewContext(read('dist/editions.js'),{document,location,history,window,URL,URLSearchParams,navigator:{clipboard:{async writeText(value){copied=value;}}}});
  return {elements,details,events,rows,location,html,get copied(){return copied;}};
 }
 test('search, filters, history URLs, copy links and print restoration work without leaking preview tools',async()=>{
@@ -81,4 +82,15 @@ test('editions shares and navigation retain the optional theme',async()=>{
  await r.elements.get('edition-copy').listeners.click();
  assert(r.copied.includes('view=es-editions'));assert(r.copied.includes('theme=cisco'));
  assert(r.html.includes('theme=cisco#edition-matrix-title'));
+});
+
+test('editions environment filters stay independent and survive sharing and print',async()=>{
+ const r=runtime('?view=es-editions&csp=aws&region=us-gov-east-1&compliance=fr-h');
+ assert.match(r.elements.get('edition-environment-report').innerHTML,/Conflicting guidance/);
+ await r.elements.get('edition-copy').listeners.click();for(const v of ['csp=aws','region=us-gov-east-1','compliance=fr-h'])assert(r.copied.includes(v));
+ const provider=r.elements.get('env-csp');provider.value='azure';provider.listeners.change();
+ assert.equal(r.elements.get('env-region').value,'');assert.equal(r.elements.get('env-compliance').value,'fr-h');assert.match(r.elements.get('env-control-status').textContent,/Region cleared/);
+ assert.match(r.elements.get('edition-environment-report').innerHTML,/not an unavailability/);
+ r.elements.get('env-clear').listeners.click();assert.equal(r.elements.get('env-compliance').value,'');
+ const invalid=runtime('?view=es-editions&csp=aws&csp=gcp');assert.equal(invalid.elements.get('edition-copy').disabled,true);
 });

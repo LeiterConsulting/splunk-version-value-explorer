@@ -124,3 +124,7 @@ Before any commit or Sites publication, run `node scripts/sync-release-metadata.
 ## Unlisted ES editions evidence
 
 Read [ES editions maintenance](docs/es-editions.md) before changing the edition preview. Maintain linked public evidence and unresolved source conflicts; do not promote the preview into normal navigation without explicit approval. Run `node --test tests/*.test.cjs` so both the existing report and editions suites are included. Edition/source review dates are separate from the site's latest publication date.
+
+## Cloud environment evidence
+
+See [Cloud environments](docs/cloud-environments.md) for independent CSP, region, FR-M/FR-H, and experience filters, shared report behavior, uncertainty boundaries, and dedicated maintenance ownership. Current hosting evidence does not establish historical release availability or authorize every product component.

@@ -32,6 +32,7 @@
   function routeUrl(state, reviewed) {
     const params = new URLSearchParams();
     ["product", "platform", "host", "from", "to"].forEach(function (key) { if (state[key]) params.set(key, state[key]); });
+    if(window.VersionCompassEnvironment && window.VersionCompassEnvironment.enabled(state)) window.VersionCompassEnvironment.append(params,state.environment);
     params.set("reviewed", reviewed || data.guidance.reviewed);
     return "?" + params.toString();
   }
@@ -95,6 +96,7 @@
       const assessment = window.VersionCompassComparison.create(data,state).compatibilityAssessment();
       if (assessment && assessment.status === "warning") reasons.push({ code:"compatibility", text:assessment.title + ". " + assessment.detail, source:assessment.source });
     }
+    if(window.VersionCompassEnvironment){const env=window.VersionCompassEnvironment.read(search); state.environment=env.value; state.environmentErrors=env.errors;}
     return { state: state, requested: requested, hasRoute: hasRoute, reasons: reasons, errors: errors, needsConfirmation: errors.length > 0 };
   }
   window.VersionCompassGuidance = { today: today, lifecycle: lifecycle, routeLifecycle: routeLifecycle, routeUrl: routeUrl, takeaway: takeaway, resolveUrl: resolveUrl };

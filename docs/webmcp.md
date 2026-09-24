@@ -55,7 +55,7 @@ Invalid input returns `ok: false` with an explanatory error. Missing hosts, unkn
 - `dist/webmcp.js` validates inputs and registers tools once. Registrations use an `AbortSignal` for cleanup on `pagehide` and are restored on `pageshow`, including back/forward cache restoration. Unsupported browsers and failed registration leave the page functional.
 - The agent metadata reads the current reviewed badge's dated release-note link. Advance the badge date, destination, and print date together during content maintenance.
 - Preserve stable tool names and the `schemaVersion` contract. Document incompatible schema or semantic changes before publishing them.
-- Both scheduled maintenance workflows must check UI/tool parity, citations, exact identifiers, compatibility boundaries, and privacy behavior after relevant changes. Add new routes to this contract when expanding product coverage.
+- The scheduled maintenance reviews must check UI/tool parity, citations, exact identifiers, compatibility boundaries, and privacy behavior after relevant changes. Add new routes to this contract when expanding product coverage.
 
 Run the dependency-free contract and interaction harness from the repository root:
 
@@ -70,3 +70,11 @@ It exercises every catalog interval, representative page interactions and URL st
 Reports include cited `takeaway` and `lifecycle` rows even with `include: []`. Report URLs include the current `reviewed` date. Current-report responses include `linkContext` alongside `report`; unresolved URLs return an error until the visitor confirms or changes the route. Explicit `compare_routes` requests remain available without changing the page. Tool names and input schemas are unchanged. See [report guidance](report-guidance.md).
 
 Schema 1.2 removes the temporary feature activation field introduced in 1.1. Capability records retain their original factual descriptions and sources.
+
+## Schema 1.3: optional cloud environment
+
+Routes may include an optional `environment` object containing `csp`, `region`, `compliance`, and `experience`. The catalog returns their supported identifiers. Unknown fields, duplicate URL parameters, unsupported identifiers, and provider/region mismatches are rejected. Cloud, migration, and Observability routes support this context; it is not a customer-managed Enterprise availability assessment.
+
+Reports always include the environment assessment, including with `include: []`; requested feature rows also carry their matching evidence. `reportUrl` preserves selections. These read-only tools do not change the page. The current-report tool refuses malformed environment links until corrected.
+
+The assessment carries current service scope, uncertainty, separate offering authorization, review and source dates, and citations. An empty match is not an unavailability determination. See [Cloud environments](cloud-environments.md). Existing tool names and release compatibility behavior remain unchanged.

@@ -2,7 +2,9 @@
   'use strict';
   const data = window.VersionCompassEditions;
   const params = new URLSearchParams(location.search);
-  const themed = url => window.VersionCompassTheme ? window.VersionCompassTheme.href(url) : url;
+  const environment=window.VersionCompassEnvironment, envLink=environment.read(location.search);
+  const envState={product:'es',platform:'cloud',view:'es-editions',to:data.release,environment:envLink.value,environmentErrors:envLink.errors};
+  const themed = value => {const u=new URL(value,'https://versioncompass.com/');environment.append(u.searchParams,envState.environment);const url=u.pathname+u.search+u.hash;return window.VersionCompassTheme ? window.VersionCompassTheme.href(url) : url;};
   const allowedFilters = ['all','essentials','premier','changed','review'];
   const state = { filter: allowedFilters.includes(params.get('filter')) ? params.get('filter') : 'all', query: (params.get('q') || '').slice(0,200), release: Object.hasOwn(data.history,params.get('release')) ? params.get('release') : data.release };
   const esc = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
@@ -18,6 +20,7 @@
     <header class="report-title"><p>VERSION COMPASS / ENTERPRISE SECURITY</p><h1>Essentials &amp; Premier</h1><p class="report-subtitle">Capability comparison and deployment guidance</p><p>ES ${esc(data.release)} · Evidence reviewed ${esc(data.reviewed)} · Public-source edition comparison</p></header>
     <p class="report-disclaimer">Independent public-source comparison. Not an official Cisco or Splunk publication. <a href="${esc(themed('https://versioncompass.com/?view=es-editions'))}">Online comparison ↗</a></p>
     <p>This report includes all ${data.capabilities.length} capabilities and their qualifications, regardless of screen filters. Numbered citations link to the source directory. History reflects the selected release.</p>
+    <section id="edition-environment-report" class="report-section"></section>
     <h2>Edition overview</h2><p><strong>Essentials:</strong> the shared SIEM foundation includes Detection Studio, TIM, Exposure Analytics and the ES AI Assistant. Deployment scope varies: Detection Studio and TIM reach on-premises through Cloud Connect; Essentials lists the assistant on Cloud where available. ${refs(['editions','cloudcx'])}</p>
     <p><strong>Premier:</strong> adds native SOAR, UEBA and Automated Threat Analysis; extends the assistant to on-premises through Cloud Connect. SOAR-dependent capabilities still require a supported, configured pairing. ${refs(['editions','regions'])}</p>
     <h2>What changed in ES 8.7</h2>${data.highlights.map(h=>'<div class="report-block"><h3>'+esc(h.title)+'</h3><p>'+esc(h.text)+' '+refs(h.src)+'</p></div>').join('')}
@@ -39,9 +42,11 @@
       <h1 id="edition-title">Two editions.<br><span>See the differences.</span></h1>
       <p class="dek">Essentials and Premier, with deployment boundaries, prerequisites, and the public sources behind every comparison.</p>
       <div class="edition-preview-note">Independent Version Compass comparison. Not an official Cisco or Splunk tool.</div>
+      ${environment.controls()}
       <div class="edition-toolbar"><a href="${esc(themed('./'))}">← Release upgrade guide</a><button id="edition-copy" type="button">Copy comparison link</button><button id="edition-print" type="button">Print / save PDF</button><span id="edition-share-status" role="status"></span></div>
     </section>
     <div class="edition-body" id="edition-comparison">
+      <section id="environment-overview" class="env-overview" aria-label="Cloud environment guidance" hidden></section>
       <p class="edition-asof">Edition snapshot: ES ${esc(data.release)} · Sources checked ${esc(data.reviewed)} · ${links(['rn87','editions'])}</p>
       <nav class="edition-section-nav" aria-label="Editions sections"><a href="#edition-matrix-title">Compare</a><a href="#edition-conflicts">Source questions</a><a href="#edition-workflows">Workflows</a><a href="#edition-deployment">Deployment &amp; licensing</a><a href="#edition-history-title">History</a></nav>
       <div class="edition-cards">
@@ -55,7 +60,7 @@
         <div class="edition-controls"><label>Find a capability<input id="edition-search" type="search" maxlength="200" placeholder="Search capabilities and prerequisites" value="${esc(state.query)}"></label><label>Show<select id="edition-filter"><option value="all">All capabilities</option><option value="essentials">Included in Essentials</option><option value="premier">Premier additions</option><option value="changed">New or updated in 8.7</option><option value="review">Confirm scope</option></select></label></div>
         <p id="edition-count" role="status"></p><p class="edition-print-note">Printed report includes every capability and its citations. Search filters do not omit content.</p>
         <div class="edition-column-labels" aria-hidden="true"><span>Capability / public sources</span><span>Essentials</span><span>Premier</span></div>
-        <div id="edition-rows">${data.capabilities.map(c => `<article class="edition-row" data-id="${esc(c.id)}"><div class="edition-row-grid"><div><h3>${esc(c.name)}</h3><small>${esc(c.lane)}${c.tag ? ' · '+({new:'New in 8.7',updated:'Updated in 8.7',conf:'September announcement'}[c.tag]) : ''}</small><p class="edition-description">${esc(c.desc)}</p>${sources(c.src)}</div><div class="edition-cell"><span class="edition-mobile-label">Essentials</span>${status(c.ess)}</div><div class="edition-cell"><span class="edition-mobile-label">Premier</span>${status(c.prem)}</div></div>${c.ess.v === 'review' ? '<p class="edition-qualification"><strong>'+ (c.id==='connector-builder'?'Edition conflict: ':'Scope question: ')+'</strong><a href="#conflict-'+esc(c.id)+'">Compare the two source statements and what remains unresolved ↓</a></p>' : ''}${c.flag && c.ess.v !== 'review' ? '<details><summary>Additional qualification</summary><p>'+esc(c.flag)+'</p>'+sources(c.src)+'</details>' : ''}</article>`).join('')}</div>
+        <div id="edition-rows">${data.capabilities.map(c => `<article class="edition-row" data-id="${esc(c.id)}"><div class="edition-row-grid"><div><h3>${esc(c.name)}</h3><small>${esc(c.lane)}${c.tag ? ' · '+({new:'New in 8.7',updated:'Updated in 8.7',conf:'September announcement'}[c.tag]) : ''}</small><p class="edition-description">${esc(c.desc)}</p>${sources(c.src)}<div id="env-cap-${esc(c.id)}"></div></div><div class="edition-cell"><span class="edition-mobile-label">Essentials</span>${status(c.ess)}</div><div class="edition-cell"><span class="edition-mobile-label">Premier</span>${status(c.prem)}</div></div>${c.ess.v === 'review' ? '<p class="edition-qualification"><strong>'+ (c.id==='connector-builder'?'Edition conflict: ':'Scope question: ')+'</strong><a href="#conflict-'+esc(c.id)+'">Compare the two source statements and what remains unresolved ↓</a></p>' : ''}${c.flag && c.ess.v !== 'review' ? '<details><summary>Additional qualification</summary><p>'+esc(c.flag)+'</p>'+sources(c.src)+'</details>' : ''}</article>`).join('')}</div>
         <p id="edition-empty" hidden>No matching capabilities. Try another search or filter.</p>
       </section>
       <section class="edition-detail-section" id="edition-conflicts"><p class="kicker">02 / READ THE EVIDENCE</p><h2>What is unresolved—and why</h2><p>These are different kinds of uncertainty. None is silently converted into an inclusion or exclusion claim.</p>${data.conflicts.map(c=>`<article class="edition-conflict" id="conflict-${esc(c.id)}"><p class="kicker">${esc(c.kind)}</p><h3>${esc(c.title)}</h3><div class="edition-cards">${c.claims.map((claim,i)=>`<article><strong>Source ${i+1} says</strong><p>${esc(claim.text)}</p>${sources(claim.src)}</article>`).join('')}</div><p><strong>How to read this:</strong> ${esc(c.meaning)}</p><p class="edition-qualification"><strong>Open question:</strong> ${esc(c.question)}</p></article>`).join('')}</section>
@@ -68,7 +73,7 @@
   const query = document.getElementById('edition-search'), filter = document.getElementById('edition-filter'), release = document.getElementById('edition-history');
   filter.value = state.filter; release.value = state.release;
   function url() { const p = new URLSearchParams({view:'es-editions'}); if(state.filter!=='all')p.set('filter',state.filter);if(state.query)p.set('q',state.query);p.set('release',state.release);return themed(location.pathname+'?'+p); }
-  function syncUrl() { history.replaceState(null,'',url()+(location.hash || ''));document.querySelector('.edition-print-url').textContent='Comparison link: https://versioncompass.com'+url(); }
+  function syncUrl() { if(envState.environmentErrors.length)return;history.replaceState(null,'',url()+(location.hash || ''));document.querySelector('.edition-print-url').textContent='Comparison link: https://versioncompass.com'+url(); }
   function apply() {
     let count=0;
     data.capabilities.forEach(c=>{const match=(state.filter==='all'||state.filter==='essentials'&&['yes','part'].includes(c.ess.v)||state.filter==='premier'&&c.ess.v==='no'&&c.prem.v!=='no'||state.filter==='changed'&&['new','updated'].includes(c.tag)||state.filter==='review'&&c.ess.v==='review')&&JSON.stringify(c).toLowerCase().includes(state.query.toLowerCase());document.querySelector('[data-id="'+c.id+'"]').hidden=!match;if(match)count++;});
@@ -77,6 +82,20 @@
   function timeline() { document.getElementById('edition-report-history').innerHTML=reportHistory(); const entry=data.history[state.release];document.getElementById('edition-timeline').innerHTML='<h3>ES '+esc(state.release)+' · Cloud matrix highlights</h3><div class="edition-cards">'+[['Essentials (also in Premier)',entry.e],['Premier column',entry.p]].map(([title,items])=>'<article><h3>'+title+'</h3><ul>'+items.map(item=>'<li>'+esc(item)+'</li>').join('')+'</ul></article>').join('')+'</div>';syncUrl(); }
   query.addEventListener('input',()=>{state.query=query.value.trim();apply();});filter.addEventListener('change',()=>{state.filter=filter.value;apply();});release.addEventListener('change',()=>{state.release=release.value;timeline();});
   document.getElementById('edition-copy').addEventListener('click',async()=>{const target='https://versioncompass.com'+url();const el=document.getElementById('edition-share-status');try{await navigator.clipboard.writeText(target);el.textContent='Comparison link copied.';}catch(_){el.textContent='Copy this link: '+target;}});
+  function printEnvironment(){
+    let html=environment.body(envState,true);const urls=[],numbers=new Map();
+    html=html.replace(/<a href="(https?:[^" ]+)"[^>]*>([\s\S]*?)<\/a>/g,(_a,url,label)=>{if(!numbers.has(url)){numbers.set(url,urls.length+1);urls.push({url,label});}return '<a href="#env-source-'+numbers.get(url)+'">'+label+' [E'+numbers.get(url)+']</a>';});
+    return html+'<h3>Environment sources</h3><ol>'+urls.map((s,i)=>'<li id="env-source-'+(i+1)+'">[E'+(i+1)+'] '+s.label+'<br><a href="'+s.url+'">'+s.url+'</a></li>').join('')+'</ol>';
+  }
+  function renderEnvironment(){
+    environment.fill(envState);const a=environment.assess(envState),box=document.getElementById('environment-overview');
+    box.hidden=!a.active;box.innerHTML=a.active?'<h2>Cloud environment</h2>'+environment.body(envState):'';
+    document.getElementById('edition-environment-report').innerHTML=a.active?'<h2>Cloud environment</h2>'+printEnvironment():'';
+    data.capabilities.forEach(c=>{document.getElementById('env-cap-'+c.id).innerHTML=environment.annotation(envState,c);});
+    document.getElementById('edition-copy').disabled=envState.environmentErrors.length>0;document.getElementById('edition-print').disabled=envState.environmentErrors.length>0;
+    syncUrl();
+  }
+  environment.bind(envState,renderEnvironment);renderEnvironment();
   let beforePrint=null;
   function expandPrint(){if(beforePrint)return;beforePrint=[...document.querySelectorAll('main details')].map(el=>[el,el.open]);beforePrint.forEach(([el])=>el.open=true);}
   function restorePrint(){if(!beforePrint)return;beforePrint.forEach(([el,open])=>el.open=open);beforePrint=null;}

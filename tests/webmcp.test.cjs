@@ -51,7 +51,7 @@ async function runtime({ support = true, failure = false, selection = routes[0] 
   const window = { location: { search: '?' + new URLSearchParams(selection), href: 'https://versioncompass.com/' }, history: { replaceState: (_a, _b, url) => { window.location.search = url; window.location.href = 'https://versioncompass.com/' + url; } },
     addEventListener: (type, fn) => { (events[type] ||= []).push(fn); }, setTimeout: fn => fn(), print: () => {} };
   const context = vm.createContext({ window, document, navigator: {}, URL, URLSearchParams, AbortController, console: { warn: () => {} } });
-  for (const file of ['data.js', 'product-data.js', 'guidance-data.js', 'comparison.js', 'guidance.js', 'release-print.js', 'app.js', 'webmcp.js']) vm.runInContext(read('dist/' + file), context, { filename: file });
+  for (const file of ['environment-data.js','environment.js','data.js', 'product-data.js', 'guidance-data.js', 'comparison.js', 'guidance.js', 'release-print.js', 'app.js', 'webmcp.js']) vm.runInContext(read('dist/' + file), context, { filename: file });
   await tick();
   return { window, document, elements, registered, context, badge, events, registrations: () => registrations,
     run: (name, input) => plain(registered.get('versioncompass_' + name).execute(input)),
@@ -324,4 +324,19 @@ test('release print report preserves every route section and deduplicates source
   await rt.dispatch('afterprint');
  }
  const blocked=await runtime({selection:{product:'unknown'}});await blocked.dispatch('beforeprint');assert.equal(blocked.elements.get('results').hidden,true);assert(!blocked.elements.get('release-report')?.innerHTML);
+});
+
+test('environment selection survives page, read-only report, share URL and print without broadening scope',async()=>{
+ const selection={...routes[1],csp:'aws',region:'us-gov-east-1',compliance:'fr-h'};
+ const rt=await runtime({selection});
+ const current=rt.run('get_current_report',{});assert.equal(current.ok,true);
+ const report=current.report;assert.equal(report.environment.selection.region,selection.region);
+ assert.equal(report.environment.records.find(r=>r.id==='s3-high').availability,'conflicting');
+ const link=new URL(report.reportUrl);for(const k of ['csp','region','compliance'])assert.equal(link.searchParams.get(k),selection[k]);
+ const before=rt.window.location.href;
+ const compact=rt.run('compare_routes',{routes:[{...routes[1],environment:{csp:'azure',compliance:'fr-h'}}],include:[]});
+ assert.equal(compact.ok,true);assert.equal(compact.reports[0].environment.records.length,0);assert.match(compact.reports[0].environment.coverageNote,/not an unavailability/);assert.equal(rt.window.location.href,before);
+ await rt.dispatch('beforeprint');const html=rt.elements.get('release-report').innerHTML;assert.match(html,/Cloud environment/);assert.match(html,/Conflicting guidance/);assert.match(html,/February 2026/);
+ assert.equal(rt.run('compare_routes',{routes:[{...routes[1],environment:{csp:'aws',region:'gcp-oregon'}}]}).ok,false);
+ const invalid=await runtime({selection:{...routes[1],csp:'invalid'}});assert.equal(invalid.run('get_current_report',{}).ok,false);assert.equal(invalid.elements.get('copy-link').disabled,true);
 });

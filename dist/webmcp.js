@@ -28,7 +28,7 @@
     const releaseNotesUrl = badge ? badge.href : null;
     const date = releaseNotesUrl && releaseNotesUrl.match(/\/(\d{4}-\d{2}-\d{2})\.md$/);
     return {
-      schemaVersion: "1.2",
+      schemaVersion: "1.3",
       site: "https://versioncompass.com",
       reviewedDate: date ? date[1] : null,
       releaseNotesUrl: releaseNotesUrl,
@@ -39,7 +39,7 @@
   }
 
   function validateRoute(input) {
-    objectInput(input, ["product", "platform", "host", "from", "to"]);
+    objectInput(input, ["product", "platform", "host", "from", "to", "environment"]);
     if (!productNames.includes(input.product)) throw new Error("Unknown product. Call versioncompass_get_catalog for supported identifiers.");
     const platforms = input.product === "platform" ? ["enterprise", "cloud", "migration"] : ["enterprise", "cloud"];
     if (!platforms.includes(input.platform)) throw new Error("Unsupported platform for " + input.product + ": " + input.platform);
@@ -54,6 +54,7 @@
     if (!core && !data[input.platform].releases.includes(input.host)) throw new Error("A known host release is required for this product. Use the catalog's hostReleases.");
     const state = { product: input.product, platform: input.platform, from: input.from, to: input.to };
     if (!core) state.host = input.host;
+    if(has(input,"environment")){if(!window.VersionCompassEnvironment.enabled(state))throw new Error("Cloud environment applies only to Cloud, migration, or Observability routes.");state.environment=window.VersionCompassEnvironment.validate(input.environment);}
     return state;
   }
 
@@ -73,6 +74,7 @@
 
     const result = {
       selection: state,
+      environment: window.VersionCompassEnvironment.assess(state),
       reportUrl: "https://versioncompass.com/" + guidance.routeUrl(state),
       takeaway: guidance.takeaway(state),
       lifecycle: guidance.routeLifecycle(state),
@@ -97,6 +99,8 @@
     result.lifecycle.forEach(function (row) { sources.add(row.source); });
     result.takeaway.highlights.concat([result.takeaway.prerequisite, result.takeaway.risk]).forEach(function (item) { if (item) sources.add(item.source); });
     include.forEach(function (key) { sections[key].forEach(function (item) { if (item.source) sources.add(item.source); }); });
+    result.environment.sources.forEach(s=>sources.add(s.url));
+    if(result.features)result.features=result.features.map(f=>Object.assign({},f,{environment:window.VersionCompassEnvironment.featureRecords(state,f)}));
     result.sources = Array.from(sources).filter(Boolean);
     return result;
   }
@@ -106,6 +110,7 @@
   const routeSchema = {
     type: "object", additionalProperties: false, required: ["product", "platform", "from", "to"],
     properties: {
+      environment: {type:"object",additionalProperties:false,description:"Optional current hosting evidence; separate from historical release availability. FR-M and FR-H do not inherit each other.",properties:{csp:{type:"string",enum:Object.keys(window.VersionCompassEnvironment.data.providers)},region:{type:"string",enum:window.VersionCompassEnvironment.data.regions.map(r=>r.id)},compliance:{type:"string",enum:Object.keys(window.VersionCompassEnvironment.data.regimes)},experience:{type:"string",enum:Object.keys(window.VersionCompassEnvironment.data.experiences)}}},
       product: { type: "string", enum: productNames },
       platform: { type: "string", enum: ["enterprise", "cloud", "migration"], description: "migration is supported only for product=platform." },
       host: { type: "string", description: "Required for ES, ITSI, and Observability; omit for Splunk Platform. Exact identifier from hostReleases." },
@@ -130,7 +135,7 @@
         objectInput(input, ["products"]);
         const products = has(input, "products") ? listInput(input.products, productNames, "products", productNames.length) : productNames;
         if (!products.length) throw new Error("products must not be empty.");
-        return { metadata: metadata(), products: products.map(function (product) {
+        return { metadata: metadata(), environments: {providers:window.VersionCompassEnvironment.data.providers,regions:window.VersionCompassEnvironment.data.regions,compliance:window.VersionCompassEnvironment.data.regimes,experiences:window.VersionCompassEnvironment.data.experiences,scope:"Hosting context; blank selections imply no assurance. Availability and authorization are distinct."}, products: products.map(function (product) {
           const platforms = product === "platform" ? ["enterprise", "cloud", "migration"] : ["enterprise", "cloud"];
           return { id: product, label: data.products[product].label, contexts: platforms.map(function (platform) {
             const migration = platform === "migration";
@@ -167,8 +172,10 @@
         const linkContext = window.VersionCompassPage.getLinkContext();
         if (linkContext && linkContext.needsConfirmation) throw new Error("This page link could not be restored. The visitor must confirm the proposed route before reading a current report. Explicit compare_routes requests remain available.");
         const selected = window.VersionCompassPage.getSelection();
+        if(selected.environmentErrors?.length)throw new Error("The environment link needs review before reading this report.");
         const route = { product: selected.product, platform: selected.platform, from: selected.from, to: selected.to };
         if (selected.product !== "platform") route.host = selected.host;
+        if(window.VersionCompassEnvironment.enabled(selected)&&Object.keys(selected.environment||{}).length)route.environment=selected.environment;
         return { metadata: metadata(), linkContext: linkContext, report: report(validateRoute(route), include) };
       })
     }
