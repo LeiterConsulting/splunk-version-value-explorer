@@ -720,7 +720,7 @@
             ["Replace removed scripted_inputs pipelines", "Collector 0.160 removes scripted_inputs. Convert to the splunk_inputs receiver and validate the required enableTArunner feature gate before production.", "Blocker", collector160Source, true],
             ["Remove the retired Kubernetes processor option", "Any k8sattributes configuration that still includes deployment_name_from_replicaset fails hard at startup in Collector 0.160.", "Blocker", collector160Source, true],
             ["Provide GitHub CLI for .NET 1.16 installer verification", "Splunk OpenTelemetry .NET 1.16 requires GitHub CLI by default when its PowerShell installation/update commands or shell installer verify immutable release attestations. Validate the tool and network path before rollout; skipping verification is an explicit exception, not the default readiness path.", "Blocker", dotnet116Source, true],
-            ["Reconcile Node.js semantic conventions", "The chart updates Node.js instrumentation to 4.11.0, which adopts stable OpenTelemetry HTTP and database semantic conventions with renamed attributes.", "Validate", node411Source, true],
+            ["Reconcile Node.js semantic conventions", "Splunk OpenTelemetry Node.js 4.11.0 adopts stable OpenTelemetry HTTP and database semantic conventions with renamed attributes.", "Validate", node411Source, true],
             ["Baseline Browser RUM 3.1 defaults", "Browser RUM 3.1 changes frustration-signal collection, Page Completion Time quiet-window behavior, and failed-replay storage defaults. Confirm privacy, storage, and detector assumptions before broad rollout.", "Validate", rum31Source, true]
           ]
         }

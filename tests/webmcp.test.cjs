@@ -277,8 +277,20 @@ test('September Observability additions preserve SaaS, private-runner, and Cloud
   assert(report.technicalChanges.some(item => item.component === '.NET instrumentation installer verification' && item.to.includes('requires GitHub CLI by default')));
   assert(report.breakingChanges.some(item => item.title === 'Provide GitHub CLI for .NET 1.16 installer verification' && item.breaking));
   assert(report.readiness.some(item => item.title === 'Treat Cloud 10.6 trial onboarding as stack-specific' && item.detail.includes('current 10.5 release route')));
+  assert(report.breakingChanges.some(item => item.title === 'Reconcile Node.js semantic conventions' && item.detail.startsWith('Splunk OpenTelemetry Node.js 4.11.0') && !item.detail.includes('chart')));
   const platformCloud = rt.run('get_catalog', {}).products.find(item => item.id === 'platform').contexts.find(item => item.platform === 'cloud');
   assert(!platformCloud.targetReleases.some(item => item.id.startsWith('10.6')));
+});
+
+test('Cloud 10.5 guidance preserves release-stage, provider, role, and credential boundaries', async () => {
+  const rt = await runtime();
+  const selection = { product: 'platform', platform: 'cloud', from: '10.4.2604', to: '10.5.2605' };
+  const report = rt.run('compare_routes', { routes: [selection] }).reports[0];
+  assert(report.features.some(item => item.title === 'Targeted app installation on Victoria Experience' && !item.title.includes('GA')));
+  assert(report.features.some(item => item.title === 'Cisco Cloud Control integration (Controlled Availability)' && item.detail.includes('enrolled customers')));
+  assert(report.technicalChanges.some(item => item.component === 'Scheduled-search frequency' && item.changeType.includes('Controlled Availability') && item.to.includes('feature is enabled')));
+  assert(report.readiness.some(item => item.title === 'Validate targeted-app prerequisites' && item.detail.includes('sc_admin') && item.detail.includes('AWS') && item.detail.includes('GCP or Azure')));
+  assert(report.breakingChanges.some(item => item.title === 'Review password ACLs' && item.detail.includes('Credentials page') && !item.detail.includes('network')));
 });
 
 test('route guidance remains available and lifecycle disclosure restores after print', async () => {

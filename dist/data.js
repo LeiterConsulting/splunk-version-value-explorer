@@ -530,9 +530,9 @@ window.SPLUNK_DATA = {
           ["Catalog experience", "Data management", "Discover distributed data faster", "Browse and understand eligible datasets through a centralized catalog."],
           ["OAuth 2.1 with PKCE", "Security & compliance", "Modernize user authorization", "Use current authorization patterns with Proof Key for Code Exchange."],
           ["OpenAPI configuration management", "Platform operations", "Automate changes against a defined contract", "Build supported configuration workflows from an OpenAPI-described interface."],
-          ["Targeted app installation reaches GA", "Platform operations", "Control where apps land", "Deploy supported apps to selected search heads with production availability."],
+          ["Targeted app installation on Victoria Experience", "Platform operations", "Control where apps land", "Deploy supported apps to selected search heads where the documented cloud-provider, stack-version, and role prerequisites are met."],
           ["Fine-grained field extraction access", "Security & compliance", "Delegate knowledge creation safely", "Separate field-extraction privileges with more precise access controls."],
-          ["Cisco Cloud Control integration", "Search & AI", "Connect a broader AI operations experience", "Integrate supported Splunk workflows with Cisco Cloud Control and AI Canvas."]
+          ["Cisco Cloud Control integration (Controlled Availability)", "Search & AI", "Connect a broader AI operations experience", "For enrolled customers, integrate supported Splunk workflows with Cisco Cloud Control and AI Canvas within the documented Controlled Availability scope."]
         ],
         technicalChanges: [
           {
@@ -550,15 +550,16 @@ window.SPLUNK_DATA = {
             source: "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.5.2605/splunk-cloud-platform-release-notes/whats-new"
           },
           {
-            component: "Scheduled-search frequency", domain: "Workload controls", changeType: "Policy control added", actionLevel: "Review",
-            from: "Scheduling frequency is not constrained by a minimum interval policy", to: "Minimum schedule intervals can be set by role or trigger action",
-            implication: "Aggressive saved-search schedules can be governed, but critical workflows can also be delayed if limits are applied without inventory.",
-            action: "Inventory high-frequency searches and validate service-level expectations before enabling or tightening interval limits.",
+            component: "Scheduled-search frequency", domain: "Workload controls", changeType: "Controlled Availability policy added", actionLevel: "Review",
+            from: "Scheduling frequency is not constrained by the new minimum-interval policy", to: "Where the Controlled Availability feature is enabled, minimum schedule intervals can be set by role or trigger action",
+            implication: "The control is not universally available. On an enabled stack, aggressive saved-search schedules can be governed, but critical workflows can also be delayed if limits are applied without inventory.",
+            action: "Confirm feature availability with Splunk, inventory high-frequency searches, and validate service-level expectations before enabling or tightening interval limits.",
             source: "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.5.2605/splunk-cloud-platform-release-notes/whats-new"
           }
         ], requirements: [
-          ["Plan scheduled-search frequency limits", "New controls can set minimum schedule intervals by role or trigger action. Inventory high-volume workloads before enabling limits and validate critical schedules afterward.", "Plan", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.5.2605/splunk-cloud-platform-release-notes/whats-new", false],
-          ["Reconfirm password allow lists", "Password-authentication network controls become more restrictive. Confirm operational and break-glass access paths.", "Validate", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.5.2605/splunk-cloud-platform-release-notes/whats-new", true]
+          ["Validate targeted-app prerequisites", "Targeted app installation on Victoria Experience requires sc_admin. The documented minimum is 10.2.2510 on AWS and 10.5.2605.0 on GCP or Azure; confirm the actual cloud provider and stack before relying on the feature.", "Validate", "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-manual/10.5.2605/manage-apps-and-add-ons-in-splunk-cloud-platform/targeted-app-installation-on-victoria-experience", false],
+          ["Confirm and plan scheduled-search frequency limits", "This control is published as Controlled Availability. Confirm it is enabled for the stack, then inventory high-volume workloads and validate critical schedules before applying minimum intervals.", "Plan", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.5.2605/splunk-cloud-platform-release-notes/whats-new", false],
+          ["Review password ACLs", "Password settings are restrictive by default in the new Credentials page. Review ACLs for app and data-input credentials, and validate intended administrative and operational access.", "Validate", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.5.2605/splunk-cloud-platform-release-notes/whats-new", true]
         ]
       }
     }
