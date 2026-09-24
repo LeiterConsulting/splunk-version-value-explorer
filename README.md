@@ -61,16 +61,17 @@ Material changes are summarized by Eastern date in [`docs/releases`](docs/releas
 
 ## Automated maintenance
 
-Version Compass is maintained through two recurring review cycles:
+Version Compass is maintained through three scheduled reviews running in Codex:
 
 - A daily release watch checks for newly published versions, maintenance releases, security notices, compatibility changes, and customer-managed component updates.
+- A dedicated daily ES editions watch reviews Essentials/Premier capabilities, prerequisites, licensing qualifications, and source questions.
 - A twice-weekly guidance audit rechecks upgrade paths, platform dependencies, recommended actions, citations, links, and report behavior.
 
 When authoritative evidence clearly supports a change, the maintenance workflow updates the relevant site content and documentation, validates representative journeys, commits the reviewed change, and republishes [versioncompass.com](https://versioncompass.com). If the evidence is ambiguous, conflicting, incomplete, or would require an unsupported inference, publication stops and the item is held for human review. No-change runs do not create commits or deployments.
 
 Maintenance validation also covers the shared WebMCP comparison contract and its citations; uncertain findings remain subject to the same human-review stop.
 
-Published maintenance changes are recorded in the [daily release notes](docs/releases/README.md).
+Published maintenance changes are recorded in the [daily release notes](docs/releases/README.md). See [Scheduled maintenance](docs/scheduled-maintenance.md) for the review cadence, evidence standards, publication safeguards, and conceptual guidance for adapting the approach.
 
 ## Agent access
 
