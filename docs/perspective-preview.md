@@ -1,6 +1,6 @@
 # Cloud guidance perspectives
 
-Perspectives are part of the main Release Guide and ES Editions interface. The fixed navigation bar keeps the product tabs and reviewed release-note link accessible; its perspective selector sits below the date. The legacy `/perspectives.html` entry and `lab=perspectives` links remain usable, but new navigation and copied links remove the retired preview flag.
+Perspectives are part of the main Release Guide and ES Editions interface. The fixed navigation bar keeps the product tabs and reviewed release-note link accessible; the perspective selector and contextual help sit at the top right of the Cloud environment results tile, stacking below its title on narrow screens. The legacy `/perspectives.html` entry and `lab=perspectives` links remain usable, but new navigation and copied links remove the retired preview flag.
 
 The views are decision overview, security and compliance, platform and data operations, application observability, and all perspectives. They currently organize Cloud Environment guidance; they do not filter unrelated release benefits. Product, provider, region, compliance and experience remain explicit selections. A perspective never silently changes them.
 
@@ -14,4 +14,6 @@ For relevant changes verify representative perspectives against identical filter
 
 ## In-place selection
 
-The selector redraws only environment guidance and its report content; it must not navigate/reload or reset route, theme, search/filter, scroll or open comparison state. Header feedback explains scope and prioritized record counts, including no-match, no-environment and inapplicable journeys. The explicit jump action moves to guidance or environment controls. Test this behavior in tests/perspective-interaction.test.cjs. Preserve reduced-motion support, accessible status announcements and current-perspective shared URLs/print output.
+The selector redraws only environment guidance and its report content; it must not navigate/reload or reset route, theme, search/filter, scroll or open comparison state. Tile feedback explains scope and prioritized record counts, including no-match, no-environment and inapplicable journeys. The explicit jump action moves to guidance or environment controls. Test this behavior in tests/perspective-interaction.test.cjs. Preserve reduced-motion support, accessible status announcements and current-perspective shared URLs/print output.
+
+The selector is mounted only when Cloud environment guidance is applicable and visible. Keep the saved perspective when that tile disappears; never reveal it or change filters to satisfy a perspective. A no-match perspective retains the full comparison and explains the fallback. Preserve keyboard focus when re-rendering the tile.

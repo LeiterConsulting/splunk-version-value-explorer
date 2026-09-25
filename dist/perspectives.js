@@ -12,8 +12,8 @@ if(navigator.clipboard?.writeText){const write=navigator.clipboard.writeText.bin
 document.addEventListener('click',event=>{const a=event.target.closest('a');if(!a)return;const u=new URL(a.href,location.href);if(u.origin===location.origin&&(!u.pathname||u.pathname==='/'||u.pathname.endsWith('index.html'))){a.href=preserve(u.href);}},true);
 document.documentElement.classList.add('perspective-enabled');
 const css=document.createElement('link');css.rel='stylesheet';css.href='perspectives.css';document.head.appendChild(css);
-const header=document.querySelector('.site-header'),reviewed=header.querySelector('.reviewed');
-const area=document.createElement('div');area.className='perspective-header';reviewed.replaceWith(area);area.append(reviewed);
+const header=document.querySelector('.site-header');
+const area=document.createElement('div');area.className='perspective-controls';
 const label=document.createElement('label');label.className='perspective-choice';label.innerHTML='Perspective <select aria-label="Viewing perspective">'+Object.entries(choices).map(([id,title])=>'<option value="'+id+'"'+(id===role?' selected':'')+'>'+title+'</option>').join('')+'</select>';area.append(label);
 const select=label.querySelector('select');
 let renderer=null,lastState=null;
@@ -22,7 +22,15 @@ const message=document.createElement('span');message.setAttribute('role','status
 const reveal=document.createElement('button');reveal.type='button';reveal.textContent='View guidance';feedback.append(message,reveal);area.append(feedback);
 select.setAttribute('aria-controls','environment-overview');
 function describe(state){
- lastState=state;const a=E.assess(state);reveal.hidden=!E.enabled(state);
+ lastState=state;const a=E.assess(state),box=document.getElementById('environment-overview');
+ area.hidden=!E.enabled(state)||!a.active||!box||box.hidden;
+ if(area.hidden){area.remove();}
+ else {
+  let heading=box.querySelector('.cloud-environment-heading');
+  if(!heading){heading=document.createElement('div');heading.className='cloud-environment-heading';const title=box.querySelector('h2');if(title){title.replaceWith(heading);heading.append(title);}else box.prepend(heading);}
+  heading.append(area);
+ }
+ reveal.hidden=!E.enabled(state);
  if(!E.enabled(state)){message.textContent='Cloud guidance only · not applicable to this journey';return;}
  if(a.errors.length){message.textContent='Cloud filters need review before applying this view';return;}
  if(!a.active){message.textContent='Cloud guidance only · choose an environment to see differences';reveal.textContent='Choose environment';return;}
@@ -35,17 +43,21 @@ function update(value){
  role=Object.hasOwn(choices,value)?value:'overview';select.value=role;
  const u=new URL(location.href);u.searchParams.delete('lab');u.searchParams.set('perspective',role);history.replaceState(history.state,'',u.href);
  const box=document.getElementById('environment-overview');const disclosure=box?.querySelector('.perspective-full');const wasOpen=disclosure?.open;
- const x=window.scrollX,y=window.scrollY;
+ const x=window.scrollX,y=window.scrollY,restoreFocus=document.activeElement===select;
  if(renderer)renderer();
  // Preserve an explicitly open full comparison while changing the focused view.
  if(wasOpen){const next=box?.querySelector('.perspective-full');if(next)next.open=true;}
  if(lastState)describe(lastState);
+ if(restoreFocus){
+  if(!area.hidden)select.focus({preventScroll:true});
+  else {const fallback=document.getElementById('environment-controls');if(fallback&&!fallback.hidden){fallback.setAttribute('tabindex','-1');fallback.focus({preventScroll:true});}}
+ }
  window.scrollTo({left:x,top:y,behavior:'instant'});
  if(box&&!box.hidden){box.classList.remove('perspective-changed');requestAnimationFrame(()=>box.classList.add('perspective-changed'));}
 }
 select.addEventListener('change',e=>update(e.target.value));
 window.addEventListener('popstate',()=>{const value=new URLSearchParams(location.search).get('perspective');role=Object.hasOwn(choices,value)?value:'overview';select.value=role;if(renderer)renderer();});
-reveal.addEventListener('click',()=>{const box=document.getElementById('environment-overview');let target=box&&!box.hidden?box:document.getElementById('environment-controls');if(!target)return;if(target.tagName==='DETAILS')target.open=true;target.setAttribute('tabindex','-1');target.focus({preventScroll:true});target.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});});
+reveal.addEventListener('click',()=>{const box=document.getElementById('environment-overview');let target=box&&!box.hidden?(box.querySelector('.perspective-results')||box):document.getElementById('environment-controls');if(!target)return;if(target.tagName==='DETAILS')target.open=true;target.setAttribute('tabindex','-1');target.focus({preventScroll:true});target.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});});
 new ResizeObserver(()=>document.documentElement.style.setProperty('--perspective-header-height',header.getBoundingClientRect().height+'px')).observe(header);
 function relevant(r){return role==='security'?r.product==='es'||r.regimes.some(x=>x!=='commercial'):role==='platform'?r.product==='platform':role==='application'?r.product==='observability':true;}
 E.body=function(state,printing=false){
