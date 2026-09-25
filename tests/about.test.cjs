@@ -1,0 +1,20 @@
+const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+test('About search, combined filters, sorting, empty results and reset retain theme and route',()=>{
+ const nodes=new Map(),node=id=>{if(!nodes.has(id))nodes.set(id,{value:'',innerHTML:'',textContent:'',listeners:{},addEventListener(k,fn){this.listeners[k]=fn;},append(){},getBoundingClientRect(){return {height:90}}});return nodes.get(id);};
+ const document={querySelector:node,getElementById:node,createElement:()=>node('created'+nodes.size),head:{append(){}},documentElement:{classList:{add(){}},style:{setProperty(){}}}};
+ const location={href:'https://versioncompass.com/?view=about&theme=cisco',search:'?view=about&theme=cisco'};
+ const window={addEventListener(){}};
+ const history={replaceState(s,t,u){location.href=u.href;location.search=u.search;}};
+ const context={window,document,history,location,URL,URLSearchParams,ResizeObserver:class{observe(){}}};
+ vm.runInNewContext(fs.readFileSync('dist/source-register.js','utf8'),context);
+ vm.runInNewContext(fs.readFileSync('dist/about.js','utf8'),context);
+ assert.equal(node('source-count').textContent,window.VersionCompassSources.sources.length+' of '+window.VersionCompassSources.sources.length+' sources');
+ node('source-status').value='Needs reconciliation';node('source-status').listeners.change();
+ assert(!node('source-list').innerHTML.includes('Review date unknown'));
+ node('source-search').value='no-source-matches-this';node('source-search').listeners.input();
+ assert.match(node('source-list').innerHTML,/No sources match/);
+ assert.equal(new URL(location.href).searchParams.get('theme'),'cisco');
+ assert.equal(new URL(location.href).searchParams.get('view'),'about');
+ node('source-reset').listeners.click();assert.equal(node('source-search').value,'');assert.equal(node('source-status').value,'');assert.equal(node('source-count').textContent,window.VersionCompassSources.sources.length+' of '+window.VersionCompassSources.sources.length+' sources');
+ node('source-sort').value='review-old';node('source-sort').listeners.change();assert.equal(new URL(location.href).searchParams.get('source_sort'),'review-old');
+});

@@ -9,6 +9,7 @@ test('public editions and legacy preview routes load editions; release routes st
  const r=router('?preview=es-editions');assert.deepEqual(r.loaded,['environment-data.js','environment.js','perspectives.js','editions-data.js','editions.js','navigation.js']);assert(!r.head.some(x=>x.name==='robots'));
  assert.deepEqual(router('?view=es-editions').loaded,['environment-data.js','environment.js','perspectives.js','editions-data.js','editions.js','navigation.js']);
  assert.deepEqual(router('?view=es-editions&view=es-editions').loaded,router('').loaded);
+ assert.deepEqual(router('?view=about').loaded,['source-register.js','about.js']);
 });
 test('all evidence records have dated, official HTTPS citations and known edition statuses',()=>{
  assert.equal(data.capabilities.length,20);assert.equal(new Set(data.capabilities.map(x=>x.id)).size,20);

@@ -17,5 +17,5 @@
   }
   document.querySelectorAll('[data-site-link], .brand').forEach(link => { link.setAttribute('href',href(link.getAttribute('href'))); });
   const editions = params.get('view') === 'es-editions' || !params.has('view') && params.get('preview') === 'es-editions';
-  document.querySelectorAll('.site-nav a').forEach((link,index) => { if (index === (editions ? 1 : 0)) link.setAttribute('aria-current','page'); });
+  document.querySelectorAll('.site-nav a').forEach((link,index) => { if (index === (params.get('view') === 'about' ? 2 : editions ? 1 : 0)) link.setAttribute('aria-current','page'); });
 }());
