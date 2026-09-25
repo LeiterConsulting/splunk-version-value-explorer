@@ -94,7 +94,9 @@
     data.capabilities.forEach(c=>{document.getElementById('env-cap-'+c.id).innerHTML=environment.annotation(envState,c);});
     document.getElementById('edition-copy').disabled=envState.environmentErrors.length>0;document.getElementById('edition-print').disabled=envState.environmentErrors.length>0;
     syncUrl();
+    window.VersionCompassPerspective?.describe(envState);
   }
+  window.VersionCompassPerspective?.setRenderer(renderEnvironment);
   environment.bind(envState,renderEnvironment);renderEnvironment();
   let beforePrint=null;
   function expandPrint(){if(beforePrint)return;beforePrint=[...document.querySelectorAll('main details')].map(el=>[el,el.open]);beforePrint.forEach(([el])=>el.open=true);}

@@ -113,12 +113,14 @@
 
   const environment = window.VersionCompassEnvironment;
   document.getElementById("environment-controls-mount").innerHTML=environment.controls();
+  window.VersionCompassPerspective?.setRenderer(renderEnvironment);
   environment.bind(state,renderAll);
   function renderEnvironment(){
     environment.fill(state);
     const box=document.getElementById('environment-overview');
     box.hidden=!environment.assess(state).active;
     box.innerHTML=box.hidden?'':'<h2>Cloud environment</h2>'+environment.body(state);
+    window.VersionCompassPerspective?.describe(state);
   }
   const guidance = window.VersionCompassGuidance;
   let linkResolution = null;

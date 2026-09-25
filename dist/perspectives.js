@@ -3,7 +3,7 @@
 'use strict';
 const E=window.VersionCompassEnvironment,original=E.body;
 const choices={overview:'Decision overview',security:'Security & compliance',platform:'Platform & data operations',application:'Application observability',all:'All perspectives'};
-const params=new URLSearchParams(location.search);const role=Object.hasOwn(choices,params.get('perspective'))?params.get('perspective'):'overview';
+const params=new URLSearchParams(location.search);let role=Object.hasOwn(choices,params.get('perspective'))?params.get('perspective'):'overview';
 const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function preserve(value){const u=new URL(value,location.href);if(u.origin===location.origin){u.searchParams.delete('lab');u.searchParams.set('perspective',role);}return u.pathname+u.search+u.hash;}
 for(const method of ['replaceState','pushState']){const fn=history[method].bind(history);history[method]=function(s,t,u){return fn(s,t,u?preserve(u):u)}}
@@ -15,7 +15,37 @@ const css=document.createElement('link');css.rel='stylesheet';css.href='perspect
 const header=document.querySelector('.site-header'),reviewed=header.querySelector('.reviewed');
 const area=document.createElement('div');area.className='perspective-header';reviewed.replaceWith(area);area.append(reviewed);
 const label=document.createElement('label');label.className='perspective-choice';label.innerHTML='Perspective <select aria-label="Viewing perspective">'+Object.entries(choices).map(([id,title])=>'<option value="'+id+'"'+(id===role?' selected':'')+'>'+title+'</option>').join('')+'</select>';area.append(label);
-label.querySelector('select').addEventListener('change',e=>{const u=new URL(location.href);u.searchParams.delete('lab');u.searchParams.set('perspective',e.target.value);location.assign(u.href)});
+const select=label.querySelector('select');
+let renderer=null,lastState=null;
+const feedback=document.createElement('div');feedback.className='perspective-feedback';
+const message=document.createElement('span');message.setAttribute('role','status');message.setAttribute('aria-live','polite');
+const reveal=document.createElement('button');reveal.type='button';reveal.textContent='View guidance';feedback.append(message,reveal);area.append(feedback);
+select.setAttribute('aria-controls','environment-overview');
+function describe(state){
+ lastState=state;const a=E.assess(state);reveal.hidden=!E.enabled(state);
+ if(!E.enabled(state)){message.textContent='Cloud guidance only · not applicable to this journey';return;}
+ if(a.errors.length){message.textContent='Cloud filters need review before applying this view';return;}
+ if(!a.active){message.textContent='Cloud guidance only · choose an environment to see differences';reveal.textContent='Choose environment';return;}
+ reveal.textContent='View guidance';
+ const count=a.records.filter(relevant).length,total=a.records.length;
+ message.textContent=role==='overview'?'Cloud guidance · decision summary of '+total+' records':role==='all'?'Cloud guidance · all '+total+' records in comparison':count?'Cloud guidance · '+count+' of '+total+' records prioritized':'Cloud guidance · no matching priority records; full comparison retained';
+}
+window.VersionCompassPerspective={describe,setRenderer(fn){renderer=fn;}};
+function update(value){
+ role=Object.hasOwn(choices,value)?value:'overview';select.value=role;
+ const u=new URL(location.href);u.searchParams.delete('lab');u.searchParams.set('perspective',role);history.replaceState(history.state,'',u.href);
+ const box=document.getElementById('environment-overview');const disclosure=box?.querySelector('.perspective-full');const wasOpen=disclosure?.open;
+ const x=window.scrollX,y=window.scrollY;
+ if(renderer)renderer();
+ // Preserve an explicitly open full comparison while changing the focused view.
+ if(wasOpen){const next=box?.querySelector('.perspective-full');if(next)next.open=true;}
+ if(lastState)describe(lastState);
+ window.scrollTo({left:x,top:y,behavior:'instant'});
+ if(box&&!box.hidden){box.classList.remove('perspective-changed');requestAnimationFrame(()=>box.classList.add('perspective-changed'));}
+}
+select.addEventListener('change',e=>update(e.target.value));
+window.addEventListener('popstate',()=>{const value=new URLSearchParams(location.search).get('perspective');role=Object.hasOwn(choices,value)?value:'overview';select.value=role;if(renderer)renderer();});
+reveal.addEventListener('click',()=>{const box=document.getElementById('environment-overview');let target=box&&!box.hidden?box:document.getElementById('environment-controls');if(!target)return;if(target.tagName==='DETAILS')target.open=true;target.setAttribute('tabindex','-1');target.focus({preventScroll:true});target.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});});
 new ResizeObserver(()=>document.documentElement.style.setProperty('--perspective-header-height',header.getBoundingClientRect().height+'px')).observe(header);
 function relevant(r){return role==='security'?r.product==='es'||r.regimes.some(x=>x!=='commercial'):role==='platform'?r.product==='platform':role==='application'?r.product==='observability':true;}
 E.body=function(state,printing=false){
