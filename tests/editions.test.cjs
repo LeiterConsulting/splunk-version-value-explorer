@@ -5,9 +5,9 @@ const read=f=>fs.readFileSync(path.join(__dirname,'..',f),'utf8');
 const dataContext={window:{}};vm.runInNewContext(read('dist/editions-data.js'),dataContext);const data=dataContext.window.VersionCompassEditions;
 function router(search){const loaded=[],head=[],main={innerHTML:''};const document={body:{classList:{add(){}},appendChild(el){loaded.push(el.src);el.onload();}},head:{appendChild(el){head.push(el);}},querySelector(){return main;},createElement(){return {};}};vm.runInNewContext(read('dist/site-router.js'),{window:{location:{search}},URLSearchParams,document});return {loaded,head,main};}
 test('public editions and legacy preview routes load editions; release routes stay isolated',()=>{
- for(const q of ['', '?product=es&platform=enterprise&host=10.4&from=8.6&to=8.7','?preview=no','?preview=es-editions&preview=es-editions']){const r=router(q);assert.deepEqual(r.loaded,['environment-data.js','environment.js','perspectives.js','data.js','product-data.js','guidance-data.js','comparison.js','guidance.js','release-print.js','app.js','webmcp.js']);assert.equal(r.head.length,0);}
- const r=router('?preview=es-editions');assert.deepEqual(r.loaded,['environment-data.js','environment.js','perspectives.js','editions-data.js','editions.js']);assert(!r.head.some(x=>x.name==='robots'));
- assert.deepEqual(router('?view=es-editions').loaded,['environment-data.js','environment.js','perspectives.js','editions-data.js','editions.js']);
+ for(const q of ['', '?product=es&platform=enterprise&host=10.4&from=8.6&to=8.7','?preview=no','?preview=es-editions&preview=es-editions']){const r=router(q);assert.deepEqual(r.loaded,['environment-data.js','environment.js','perspectives.js','data.js','product-data.js','guidance-data.js','comparison.js','guidance.js','release-print.js','app.js','webmcp.js','navigation.js']);assert.equal(r.head.length,0);}
+ const r=router('?preview=es-editions');assert.deepEqual(r.loaded,['environment-data.js','environment.js','perspectives.js','editions-data.js','editions.js','navigation.js']);assert(!r.head.some(x=>x.name==='robots'));
+ assert.deepEqual(router('?view=es-editions').loaded,['environment-data.js','environment.js','perspectives.js','editions-data.js','editions.js','navigation.js']);
  assert.deepEqual(router('?view=es-editions&view=es-editions').loaded,router('').loaded);
 });
 test('all evidence records have dated, official HTTPS citations and known edition statuses',()=>{

@@ -21,5 +21,6 @@
   }
   const files = preview ? ['environment-data.js','environment.js','editions-data.js','editions.js'] : normal;
   files.splice(files.indexOf('environment.js') + 1, 0, 'perspectives.js');
+  files.push('navigation.js');
   load(files);
 }());

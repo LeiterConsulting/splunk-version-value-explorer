@@ -39,7 +39,7 @@
   document.querySelector('main').innerHTML = `
     <section class="hero edition-hero" aria-labelledby="edition-title">
       <div class="eyebrow">ENTERPRISE SECURITY · EDITION COMPARISON</div>
-      <h1 id="edition-title">Two editions.<br><span>See the differences.</span></h1>
+      <h1 id="edition-title">Essentials and Premier. <span>Compare the differences.</span></h1>
       <p class="dek">Essentials and Premier, with deployment boundaries, prerequisites, and the public sources behind every comparison.</p>
       <div class="edition-preview-note">Independent Version Compass comparison. Not an official Cisco or Splunk tool.</div>
       ${environment.controls()}

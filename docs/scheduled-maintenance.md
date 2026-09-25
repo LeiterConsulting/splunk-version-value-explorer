@@ -92,3 +92,7 @@ The four maintenance tasks also cover the integrated [Cloud guidance perspective
 ## Content-change markers
 
 All four tasks maintain the [content-change marker policy](content-updates.md). Scoped metadata makes changed content discoverable while distinguishing website edits from product lifecycle changes. Badges expire after two published factual-content cycles; ordinary checks and presentation-only changes do not consume a cycle. The tasks preserve cited deprecation/removal warnings after marker expiry.
+
+## Report navigation and density
+
+Preserve the compact working layout in `dist/navigation.css` and contextual section navigation in `dist/navigation.js`. Navigation reflects the rendered route, omits hidden sections, retains filters and theme, highlights reading position and opens technical details when requested. Review narrow-screen overflow, keyboard access, reduced-motion behavior and offsets below the fixed header; screen-only navigation must stay out of printed reports. Styling-only work does not advance badge cycles.
