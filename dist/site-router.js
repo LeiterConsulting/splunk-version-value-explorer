@@ -9,6 +9,7 @@
     document.querySelector('main').innerHTML = '<section class="hero"><p class="dek" role="status">Loading ES editions comparison…</p></section>';
     const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = 'editions.css'; document.head.appendChild(css);
   }
+  const perspectiveLab = params.get('lab') === 'perspectives';
   function load(files) {
     if (!files.length) return;
     const script = document.createElement('script'); script.src = files.shift();
@@ -19,5 +20,7 @@
     };
     document.body.appendChild(script);
   }
-  load(preview ? ['environment-data.js','environment.js','editions-data.js','editions.js'] : normal);
+  const files = preview ? ['environment-data.js','environment.js','editions-data.js','editions.js'] : normal;
+  if (perspectiveLab) files.splice(files.indexOf('environment.js') + 1, 0, 'perspectives.js');
+  load(files);
 }());
