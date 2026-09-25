@@ -7,3 +7,23 @@
 @media(max-width:760px){.perspective-enabled .hero{padding:20px 18px!important}.report-navigator{padding:6px 12px}.section{padding:30px 18px}.hero h1{font-size:1.8rem}.product-options{grid-template-columns:repeat(2,minmax(0,1fr))}.selector-card{padding:14px}.release-selectors.has-host{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.release-selectors.has-host .arrow{display:none}.release-selectors.has-host #host-release-field{grid-column:1/-1}}
 }
 @media print{.report-navigator{display:none!important}}
+
+/* Persistent report actions, shared by release and editions routes. */
+.header-meta{display:flex;align-items:center;justify-content:flex-end;gap:16px;min-width:0}
+.header-actions{display:flex;align-items:center;gap:6px;position:relative;flex:none}
+.header-action{position:relative;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:1px solid #547867;border-radius:8px;background:#132a20;color:#d8f7e7;cursor:pointer}
+.header-action:hover:not(:disabled){background:#244e39;border-color:#8ae7b5;color:#fff}
+.header-action:focus-visible{outline:2px solid #8ae7b5;outline-offset:3px}
+.header-action:disabled{opacity:.45;cursor:not-allowed}
+.header-action-label{position:absolute;top:calc(100% + 8px);right:0;padding:7px 10px;border:1px solid #547867;border-radius:6px;background:#132a20;color:#f2fff8;font:500 12px/1.4 var(--font-body, sans-serif);white-space:nowrap;pointer-events:none;opacity:0}
+.header-action:hover .header-action-label,.header-action:focus-visible .header-action-label{opacity:1}
+.header-share-status:not(:empty){position:absolute;top:calc(100% + 44px);right:0;width:max-content;max-width:min(360px,85vw);padding:8px 12px;border:1px solid #547867;border-radius:6px;background:#132a20;color:#f2fff8;font-size:12px;line-height:1.4;overflow-wrap:anywhere;text-align:left;box-shadow:0 4px 16px #0003}
+.theme-cisco .header-action{background:#14213a;border-color:#526c91;color:#bce5ff}
+.theme-cisco .header-action:hover:not(:disabled){background:#263e60;border-color:#8ed9ff;color:#fff}
+.theme-cisco .header-action:focus-visible{outline-color:#8ed9ff}
+.theme-cisco .header-action-label,.theme-cisco .header-share-status:not(:empty){background:#14213a;border-color:#526c91;color:#eef2ff}
+@media(max-width:1100px){.header-meta{gap:10px;flex-wrap:wrap}.header-meta .reviewed{width:100%;text-align:right}}
+@media(max-width:760px){.header-meta{gap:4px}.header-actions{gap:4px}.header-action{width:44px;height:44px}.header-meta .reviewed{font-size:11px}}
+@media print{.header-actions{display:none!important}}
+
+.header-share-status:empty{display:none}

@@ -96,3 +96,5 @@ All four tasks maintain the [content-change marker policy](content-updates.md). 
 ## Report navigation and density
 
 Preserve the compact working layout in `dist/navigation.css` and contextual section navigation in `dist/navigation.js`. Navigation reflects the rendered route, omits hidden sections, retains filters and theme, highlights reading position and opens technical details when requested. Review narrow-screen overflow, keyboard access, reduced-motion behavior and offsets below the fixed header; screen-only navigation must stay out of printed reports. Styling-only work does not advance badge cycles.
+
+Preserve the top-bar share-sheet (Copy Link) and floppy-disk (Print / save PDF) actions on both routes. Keep original validation and handlers, accessible names, hover/focus labels, copy feedback, 44px targets and both theme treatments; omit controls from print.
