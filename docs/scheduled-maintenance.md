@@ -88,3 +88,7 @@ Copying or forking this repository does not copy its Codex tasks, credentials, p
 ## Perspective presentation
 
 The four maintenance tasks also cover the integrated [Cloud guidance perspectives](perspective-preview.md). Product watches preserve relevant presentation, the CSP/FedRAMP watch reviews evidence relevance, and the twice-weekly audit reviews taxonomy, completeness, shared links, responsive header, both themes and print behavior. Editorial relevance never changes factual availability or removes conflicting evidence. All views use the same maintained data.
+
+## Content-change markers
+
+All four tasks maintain the [content-change marker policy](content-updates.md). Scoped metadata makes changed content discoverable while distinguishing website edits from product lifecycle changes. Badges expire after two published factual-content cycles; ordinary checks and presentation-only changes do not consume a cycle. The tasks preserve cited deprecation/removal warnings after marker expiry.
