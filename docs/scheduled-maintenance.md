@@ -83,3 +83,8 @@ Copying or forking this repository does not copy its Codex tasks, credentials, p
 - [Cloud environments and regional evidence](cloud-environments.md)
 - [Browser-based agent access](webmcp.md)
 - [Release history](releases/README.md)
+
+
+## Perspective presentation
+
+The four maintenance tasks also cover the integrated [Cloud guidance perspectives](perspective-preview.md). Product watches preserve relevant presentation, the CSP/FedRAMP watch reviews evidence relevance, and the twice-weekly audit reviews taxonomy, completeness, shared links, responsive header, both themes and print behavior. Editorial relevance never changes factual availability or removes conflicting evidence. All views use the same maintained data.
