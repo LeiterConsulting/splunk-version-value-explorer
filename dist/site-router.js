@@ -19,9 +19,10 @@
     };
     document.body.appendChild(script);
   }
-  if(params.getAll('view').length===1&&params.get('view')==='about'){load(['source-register.js','about.js']);return;}
+  if(params.getAll('view').length===1&&params.get('view')==='about'){load(['source-register.js','maintenance-status.js','about.js']);return;}
   const files = preview ? ['environment-data.js','environment.js','editions-data.js','editions.js'] : normal;
   files.splice(files.indexOf('environment.js') + 1, 0, 'perspectives.js');
   files.push('navigation.js');
+  files.unshift('source-register.js','evidence.js');
   load(files);
 }());

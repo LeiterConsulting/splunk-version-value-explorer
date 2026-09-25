@@ -18,7 +18,7 @@
     const envState=window.VersionCompassPage?.getSelection();
     if(envState&&window.VersionCompassEnvironment)body+=section('Cloud environment',window.VersionCompassEnvironment.body(envState,true));
     body+=section('Support lifecycle',html('lifecycle-content'));
-    body+=section(text('path-title')||'Selected path','<div class="report-path">'+html('path-line')+'</div><p>'+html('path-caption')+'</p>',text('path-intro'));
+    body+=section(text('path-title')||'Selected path','<div class="report-path">'+html('path-line')+'</div><p>'+html('path-caption')+'</p>'+html('path-evidence'),text('path-intro'));
     if(!document.getElementById('migration-approaches').hidden)body+=section('Migration approaches',html('approach-grid')+'<p>Choose an approach with your account team or delivery partner after discovery; this guide does not collect enough environment detail to prescribe one.</p>'+html('source-actions'));
     body+=section(text('value-title')||'Capabilities and benefits',html('benefit-grid'),text('value-intro'));
     body+=section(text('technical-title')||'Technical changes',html('technical-content'),text('technical-intro').replace('A collapsed, route-specific view','A route-specific view'));

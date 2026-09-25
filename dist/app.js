@@ -82,6 +82,9 @@
     });
   }
 
+  function evidence(claim,urls,qualification='',verified=null) {
+    return window.VersionCompassEvidence?.html({claim,urls,qualification,verified,scope:[state.product,state.platform,state.from+' → '+state.to,state.host?'Host '+state.host:''].filter(Boolean).join(' · ')})||'';
+  }
   function externalLink(url, label, className) {
     return '<a class="' + (className || "source-link") + '" href="' + escapeHtml(url) + '" target="_blank" rel="noreferrer">' + escapeHtml(label) + ' <span aria-hidden="true">↗</span></a>';
   }
@@ -223,11 +226,14 @@
     }
     compatibilityGate.className = "compatibility-gate " + assessment.status;
     compatibilityGate.innerHTML = '<span class="compatibility-icon" aria-hidden="true">' + escapeHtml(assessment.icon) + '</span><div class="compatibility-copy"><strong>' + escapeHtml(assessment.title) + '</strong><span>' + escapeHtml(assessment.detail) + '</span></div>' + (assessment.actionUrl ? internalLink(assessment.actionUrl, assessment.actionLabel) : externalLink(assessment.source, "Verify"));
+    compatibilityGate.innerHTML = compatibilityGate.innerHTML.replace('</span></div>', '</span>'+evidence(assessment.title+': '+assessment.detail,[assessment.source],'Release-line guidance; verify exact maintenance versions and separate Cloud service pairing.')+'</div>');
     printCompatibility.innerHTML = '<strong>' + escapeHtml(assessment.title) + '</strong> ' + escapeHtml(assessment.detail);
   }
 
   function renderPath() {
     const path = selectedPath();
+    const pathEvidence=document.getElementById('path-evidence');
+    if(pathEvidence)pathEvidence.innerHTML=isCore()&&state.platform==='enterprise'?evidence('Upgrade route: '+path.join(' → '),[data.enterprise.upgradeSource],'The 10.4 table was checked for 9.3, 9.4, 10.0 and 10.2 origins. Earlier historical edges have not been reverified in this pass.'):'';
     if (isCore() && state.platform === "enterprise") {
       const steps = Math.max(0, path.length - 2);
       pathIntro.textContent = !path.length ? "No supported upgrade path is recorded for this selection. Verify the official upgrade guide before proceeding." : steps ? "This combination needs " + steps + " intermediate release" + (steps > 1 ? "s" : "") + " before the target." : "The selected releases support a direct upgrade route.";
@@ -305,7 +311,7 @@
     benefitGrid.innerHTML = visible.length ? visible.map(function (feature) {
       const category = data.categories[feature.category] || { icon: "•" };
       const milestone = feature.milestone || "Introduced in " + feature.release;
-      return '<article class="benefit-card"><div class="benefit-top"><span class="benefit-icon" aria-hidden="true">' + category.icon + '</span><span>' + escapeHtml(feature.category) + '</span></div><p class="outcome">' + escapeHtml(feature.outcome) + '</p><h3>' + escapeHtml(feature.title) + (window.VersionCompassUpdates?.html('feature:'+state.product+':'+feature.title)||'') + '</h3><p class="detail">' + escapeHtml(feature.detail) + '</p>' + environment.annotation(state,feature) + '<div class="benefit-foot"><span>' + escapeHtml(milestone) + '</span>' + externalLink(feature.source, "Source") + '</div></article>';
+      return '<article class="benefit-card"><div class="benefit-top"><span class="benefit-icon" aria-hidden="true">' + category.icon + '</span><span>' + escapeHtml(feature.category) + '</span></div><p class="outcome">' + escapeHtml(feature.outcome) + '</p><h3>' + escapeHtml(feature.title) + (window.VersionCompassUpdates?.html('feature:'+state.product+':'+feature.title)||'') + '</h3><p class="detail">' + escapeHtml(feature.detail) + '</p>' + environment.annotation(state,feature) + '<div class="benefit-foot"><span>' + escapeHtml(milestone) + '</span>' + externalLink(feature.source, "Source") + '</div>' + evidence(feature.title+': '+feature.detail,[feature.source]) + '</article>';
     }).join("") : '<div class="empty-state"><span>i</span><div><h3>No curated capability milestone in this interval</h3><p>The release remains in the route for compatibility context. Open the official source for maintenance-level detail.</p></div></div>';
 
     filters.querySelectorAll("button").forEach(function (button) {
@@ -364,7 +370,7 @@
       const items = changes.filter(function (item) { return item.milestone === milestone; });
       return '<section class="technical-group" aria-label="' + escapeHtml(milestone) + '"><div class="technical-group-head"><h3>' + escapeHtml(milestone) + '</h3><span>' + plural(items.length, "change") + '</span></div><div class="technical-items">' + items.map(function (item) {
         const actionClass = item.actionLevel.toLowerCase();
-        return '<article class="technical-item"><div class="technical-item-head"><div><span class="technical-domain">' + escapeHtml(item.domain) + '</span><h4>' + escapeHtml(item.component) + (window.VersionCompassUpdates?.html('technical:'+state.product+':'+item.component)||'') + '</h4></div><div class="technical-badges"><span class="change-type">' + escapeHtml(item.changeType) + '</span><span class="action-level ' + actionClass + '">' + escapeHtml(item.actionLevel) + '</span></div></div><div class="technical-transition"><div><span>From</span><strong>' + escapeHtml(item.from) + '</strong></div><span class="technical-arrow" aria-hidden="true">→</span><div><span>To</span><strong>' + escapeHtml(item.to) + '</strong></div></div><div class="technical-explanation"><p><strong>Why it matters</strong>' + escapeHtml(item.implication) + '</p><p><strong>Recommended action</strong>' + escapeHtml(item.action) + '</p></div><div class="technical-item-foot">' + externalLink(item.source, "Official source") + '</div></article>';
+        return '<article class="technical-item"><div class="technical-item-head"><div><span class="technical-domain">' + escapeHtml(item.domain) + '</span><h4>' + escapeHtml(item.component) + (window.VersionCompassUpdates?.html('technical:'+state.product+':'+item.component)||'') + '</h4></div><div class="technical-badges"><span class="change-type">' + escapeHtml(item.changeType) + '</span><span class="action-level ' + actionClass + '">' + escapeHtml(item.actionLevel) + '</span></div></div><div class="technical-transition"><div><span>From</span><strong>' + escapeHtml(item.from) + '</strong></div><span class="technical-arrow" aria-hidden="true">→</span><div><span>To</span><strong>' + escapeHtml(item.to) + '</strong></div></div><div class="technical-explanation"><p><strong>Why it matters</strong>' + escapeHtml(item.implication) + '</p><p><strong>Recommended action</strong>' + escapeHtml(item.action) + '</p></div><div class="technical-item-foot">' + externalLink(item.source, "Official source") + '</div>' + evidence(item.component+': '+item.implication,[item.source],item.action) + '</article>';
       }).join("") + '</div></section>';
     }).join("");
   }
@@ -460,7 +466,7 @@
       journey = activeTrack().label + " " + state.from + " → " + state.to + " · " + platformContext + state.host;
     }
     printTitle.textContent = journey;
-    printSubtitle.textContent = "Source-backed guidance reviewed September 25, 2026 · versioncompass.com";
+    printSubtitle.textContent = "Site updated September 25, 2026 · versioncompass.com";
     document.title = "Version Compass | " + journey;
   }
 

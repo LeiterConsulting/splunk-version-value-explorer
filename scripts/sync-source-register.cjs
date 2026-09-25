@@ -54,8 +54,8 @@ const sources=[...rows.values()].map(r=>{
  else if(p.usage!=='In use')events.push({date:day,event:'Returned to use'});
  const reviewed=note.reviewed||r.reviews.sort().at(-1)||null;
  const status=note.outdatedAsOf?'Out of date':(note.conflict||r.conflict)?'Needs reconciliation':reviewed?'Reviewed':'Review date unknown';
- if(p&&(p.status!==status||p.reviewed!==reviewed))events.push({date:day,event:'Review status updated: '+status+(reviewed?' · '+reviewed:'')});
- return {...r,usage:'In use',reviewed,status,firstRecorded:p?.firstRecorded||day,firstUsed:note.firstUsed||p?.firstUsed||null,outdatedAsOf:note.outdatedAsOf||null,reason:note.reason||'',events};
+ if(p&&(p.status!==status||p.reviewed!==reviewed||p.verificationScope!==(note.verificationScope||'')))events.push({date:day,event:'Review status updated: '+status+(reviewed?' · '+reviewed:'')});
+ return {...r,usage:'In use',reviewed,status,firstRecorded:p?.firstRecorded||day,firstUsed:note.firstUsed||p?.firstUsed||null,outdatedAsOf:note.outdatedAsOf||null,reason:note.reason||'',section:note.section||'',verificationScope:note.verificationScope||'',events};
 });
 for(const p of previous.sources)if(!rows.has(p.url))sources.push({...p,usage:'Retired',events:p.usage==='Retired'?p.events:[...p.events,{date:day,event:'No longer cited in the maintained datasets'}]});
 sources.sort((a,b)=>a.url.localeCompare(b.url));

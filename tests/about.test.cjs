@@ -7,7 +7,10 @@ test('About search, combined filters, sorting, empty results and reset retain th
  const history={replaceState(s,t,u){location.href=u.href;location.search=u.search;}};
  const context={window,document,history,location,URL,URLSearchParams,ResizeObserver:class{observe(){}}};
  vm.runInNewContext(fs.readFileSync('dist/source-register.js','utf8'),context);
+ vm.runInNewContext(fs.readFileSync('dist/maintenance-status.js','utf8'),context);
  vm.runInNewContext(fs.readFileSync('dist/about.js','utf8'),context);
+ assert(node('maintenance-outcomes').innerHTML.includes('Last successful check'));
+ assert(node('maintenance-outcomes').innerHTML.includes('Version Release Watch'));
  assert.equal(node('source-count').textContent,window.VersionCompassSources.sources.length+' of '+window.VersionCompassSources.sources.length+' sources');
  node('source-status').value='Needs reconciliation';node('source-status').listeners.change();
  assert(!node('source-list').innerHTML.includes('Review date unknown'));

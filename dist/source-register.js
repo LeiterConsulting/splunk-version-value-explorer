@@ -21,6 +21,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -45,6 +47,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -69,6 +73,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -99,6 +105,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -129,6 +137,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -158,6 +168,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -183,6 +195,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -208,6 +222,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -233,6 +249,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -258,6 +276,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -282,6 +302,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -343,6 +365,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -378,6 +402,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -414,6 +440,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -442,6 +470,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -469,6 +499,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -496,6 +528,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -528,6 +562,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -557,6 +593,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -581,6 +619,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -605,6 +645,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -635,6 +677,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -667,6 +711,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -711,6 +757,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -743,6 +791,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -772,6 +822,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -805,6 +857,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -836,6 +890,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -875,6 +931,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -909,6 +967,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -933,6 +993,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -957,6 +1019,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -981,6 +1045,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1006,6 +1072,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1032,6 +1100,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1057,6 +1127,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1084,6 +1156,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1130,6 +1204,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1175,6 +1251,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1214,6 +1292,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1245,6 +1325,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1275,6 +1357,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1304,6 +1388,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1335,6 +1421,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1369,6 +1457,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1387,16 +1477,26 @@ window.VersionCompassSources = {
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": null,
-      "status": "Review date unknown",
+      "reviewed": "2026-09-25",
+      "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
+      "reason": "The introduction references 10.0, while the specific table is headed 10.4. This check relies on the explicitly labeled 10.4 upgrade table; it does not reverify historical pre-9.3 paths.",
+      "section": "Upgrade paths to version 10.4 — current-version table",
+      "verificationScope": "Checked intermediate hops from 9.3 and 9.4, plus paths from 10.0 and 10.2 to 10.4. Confirmed the existing route map requires those intermediate steps.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-25",
+          "event": "Review status updated: Reviewed · 2026-09-25"
+        },
+        {
+          "date": "2026-09-25",
+          "event": "Review status updated: Reviewed · 2026-09-25"
         }
       ]
     },
@@ -1420,6 +1520,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1449,6 +1551,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1475,6 +1579,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1500,6 +1606,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1529,6 +1637,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1550,16 +1660,22 @@ window.VersionCompassSources = {
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": null,
-      "status": "Review date unknown",
+      "reviewed": "2026-09-25",
+      "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
+      "reason": "A compatibility listing is not proof of a released upgrade destination; new release lines require separate release-note verification.",
+      "section": "Splunk Enterprise version 10.x — 10.4.x and 10.2.x rows",
+      "verificationScope": "Checked ES 8.7 against Enterprise 10.2.x and 10.4.x, and ITSI 5.0 in those rows. Maintenance-release qualifications in the matrix still apply. Other combinations were not reverified.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-25",
+          "event": "Review status updated: Reviewed · 2026-09-25"
         }
       ]
     },
@@ -1580,6 +1696,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1604,6 +1722,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1630,6 +1750,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1654,6 +1776,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1678,6 +1802,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1702,6 +1828,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1726,6 +1854,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1750,6 +1880,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1777,6 +1909,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1807,6 +1941,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1831,6 +1967,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1856,6 +1994,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1881,6 +2021,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1909,6 +2051,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1933,6 +2077,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -1968,6 +2114,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2004,6 +2152,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2028,6 +2178,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2055,6 +2207,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2082,6 +2236,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2108,6 +2264,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2133,6 +2291,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2157,6 +2317,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2181,6 +2343,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2209,6 +2373,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2242,6 +2408,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2269,6 +2437,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2295,6 +2465,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2329,6 +2501,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2366,6 +2540,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2392,6 +2568,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2418,6 +2596,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2443,6 +2623,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2469,7 +2651,9 @@ window.VersionCompassSources = {
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
+      "reason": "Offering-level status is distinct from feature-specific availability and customer authorization decisions.",
+      "section": "Status and Certification Profile — package F1607197917",
+      "verificationScope": "Confirmed the named Splunk Cloud Platform Moderate offering is listed as FedRAMP Certified, Class C (Moderate). This does not establish authorization for every feature, region, premium product, or another package.",
       "events": [
         {
           "date": "2026-09-25",
@@ -2497,6 +2681,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2526,6 +2712,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2553,6 +2741,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2580,6 +2770,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2608,6 +2800,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2634,6 +2828,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2662,6 +2858,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2694,6 +2892,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2727,6 +2927,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",
@@ -2759,6 +2961,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
+      "section": "",
+      "verificationScope": "",
       "events": [
         {
           "date": "2026-09-25",

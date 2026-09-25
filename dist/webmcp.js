@@ -30,7 +30,9 @@
     return {
       schemaVersion: "1.3",
       site: "https://versioncompass.com",
-      reviewedDate: date ? date[1] : null,
+      reviewedDate: date ? date[1] : null, // Legacy publication-date alias.
+      siteUpdatedDate: date ? date[1] : null,
+      dateSemantics: "reviewedDate is a legacy alias for siteUpdatedDate, not source verification. Source and claim dates are independent.",
       releaseNotesUrl: releaseNotesUrl,
       coverage: "Curated planning guidance, not an exhaustive change log or environment certification. Empty results do not establish that no risks exist.",
       versionScope: "Use exact identifiers from the catalog. Most platform entries are release lines; verify maintenance releases in the cited official documentation.",

@@ -19,9 +19,9 @@ function replace(file, pattern, replacement) {
   if (!pattern.test(original)) throw new Error(`Missing metadata field: ${file}`);
   updates.set(file, original.replace(pattern, replacement));
 }
-replace('dist/index.html', /<a class="reviewed"[^>]*>.*?<\/a>/, `<a class="reviewed" href="${url}" aria-label="View the latest Version Compass release notes, reviewed ${full}"><span class="reviewed-full">Reviewed ${full}</span><time class="reviewed-compact" datetime="${date}" aria-hidden="true">${compact}</time></a>`);
-replace('dist/index.html', /(<span id="print-subtitle">)Source-backed guidance reviewed [^<]+/, `$1Source-backed guidance reviewed ${full}`);
-replace('dist/app.js', /Source-backed guidance reviewed [A-Za-z]+ \d{1,2}, \d{4} · versioncompass\.com/, `Source-backed guidance reviewed ${full} · versioncompass.com`);
+replace('dist/index.html', /<a class="reviewed"[^>]*>.*?<\/a>/, `<a class="reviewed" href="${url}" aria-label="View the latest Version Compass release notes, site updated ${full}"><span class="reviewed-full">Site updated ${full}</span><time class="reviewed-compact" datetime="${date}" aria-hidden="true">${compact}</time></a>`);
+replace('dist/index.html', /(<span id="print-subtitle">)Site updated [^<]+/, `$1Site updated ${full}`);
+replace('dist/app.js', /Site updated [A-Za-z]+ \d{1,2}, \d{4} · versioncompass\.com/, `Site updated ${full} · versioncompass.com`);
 // Do not advance lifecycle.reviewed: it records a separate policy verification.
 replace('dist/guidance-data.js', /(data\.guidance = \{\s*reviewed: ")[^"]+/, `$1${date}`);
 const index = read('docs/releases/README.md');

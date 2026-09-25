@@ -100,3 +100,9 @@ Preserve the compact working layout in `dist/navigation.css` and contextual sect
 Preserve the top-bar share-sheet (Copy Link) and floppy-disk (Print / save PDF) actions on both routes. Keep original validation and handlers, accessible names, hover/focus labels, copy feedback, 44px targets and both theme treatments; omit controls from print.
 
 All four tasks maintain the [source compendium](source-register.md). Synchronize its persistent ledger after citation changes, retain retired sources, and preserve source-level review dates. Record verified inaccuracy findings with dates and scope; unknown first-use history stays unknown. Keep About's schedule accurate and run the source-register check before publication.
+
+## Verification and maintenance outcomes
+
+The header and report publication date are labeled Site updated. The historic reviewed URL field and reviewedDate agent field remain backward-compatible publication aliases; source and claim verification dates are independent. Do not advance them with UI publication.
+
+Follow [maintenance outcomes](maintenance-outcomes.md) for actual attempt/completion records. This supersedes the earlier no-change publication restriction for outcome-ledger updates only. Maintain claim evidence disclosures across screen/print and both themes; source-level verification must never be presented as verification of all dependent claims. Recheck consequential undated compatibility/authorization evidence first, recording exact supporting sections and bounded scope.
