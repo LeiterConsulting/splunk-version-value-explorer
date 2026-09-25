@@ -2,6 +2,33 @@ const {test}=require('node:test');const assert=require('node:assert/strict');con
 const window={};for(const f of ['environment-data.js','environment.js'])vm.runInNewContext(fs.readFileSync('dist/'+f,'utf8'),{window,URL,URLSearchParams});
 const env=window.VersionCompassEnvironment;
 const route=(environment,product='platform')=>({product,platform:'cloud',to:'10.5.2605',environment});
+test('Ingest Processor retains its Victoria prerequisite and visible Classic restriction',()=>{
+ for(const [region,compliance] of [['us-east-1','commercial'],['us-gov-east-1','fr-m']]){
+  for(const product of ['platform','es','itsi']){
+   const base={csp:'aws',region,compliance};
+   const classic=route({...base,experience:'classic'},product);
+   const victoria=route({...base,experience:'victoria'},product);
+   const rows=s=>env.assess(s).records.filter(r=>r.feature==='Ingest Processor');
+   assert.equal(rows(classic).length,1);assert.equal(rows(classic)[0].availability,'unavailable');
+   assert.equal(rows(victoria).length,1);assert.equal(rows(victoria)[0].availability,'conditional');
+   assert(rows(victoria)[0].sources.includes('ingest'));assert.match(rows(victoria)[0].detail,/tenant/);
+   for(const r of [...rows(classic),...rows(victoria)])assert.equal(r.authorization,'not_established');
+   assert.equal(rows(route(base,product)).length,2);
+   const html=env.body(classic,true);assert.match(html,/Classic Experience/);assert(html.includes(env.data.sources.ingest.url));assert(!html.includes('<details'));
+   assert.match(env.body(victoria,true),/Victoria Experience/);
+   const restored=env.read('?'+env.append(new URLSearchParams(),classic.environment));assert.deepEqual({...restored.value},classic.environment);
+  }
+ }
+ const high=env.assess(route({csp:'aws',compliance:'fr-h',experience:'victoria'}));
+ assert.equal(high.records.find(r=>r.id==='ingest-high-unknown').availability,'not_established');
+ assert.equal(high.records.find(r=>r.id==='s3-high').availability,'conflicting');
+ const historical={...route({csp:'aws',region:'us-east-1',experience:'classic'}),from:'8.2.2203',to:'9.2.2406'};
+ assert.match(env.assess(historical).scope,/separate from the selected historical/);
+ assert.match(env.annotation(historical,{title:'Ingest Processor'}),/Classic Experience.*Documented unavailable/);
+ const editions={...historical,view:'es-editions',product:'es'};
+ assert(env.assess(editions).records.some(r=>r.id==='ingest-classic-commercial'));
+ assert(!env.assess({...historical,product:'observability'}).records.some(r=>r.feature==='Ingest Processor'));
+});
 test('provider, region and compliance filters intersect without inferring unavailable combinations',()=>{
  const high=env.assess(route({csp:'aws',region:'us-gov-east-1',compliance:'fr-h'}));
  assert(high.records.length>0);assert(high.records.every(r=>r.provider==='aws'&&r.regions.includes('us-gov-east-1')&&r.regimes.includes('fr-h')));

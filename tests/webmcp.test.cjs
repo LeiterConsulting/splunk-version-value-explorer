@@ -328,6 +328,27 @@ test('release print report preserves every route section and deduplicates source
  const blocked=await runtime({selection:{product:'unknown'}});await blocked.dispatch('beforeprint');assert.equal(blocked.elements.get('results').hidden,true);assert(!blocked.elements.get('release-report')?.innerHTML);
 });
 
+test('Ingest Processor experience scope agrees in UI, print and existing read-only WebMCP reports',async()=>{
+ for(const experience of ['classic','victoria']){
+  const selection={...routes[1],csp:'aws',region:'us-east-1',compliance:'commercial',experience};
+  const rt=await runtime({selection});
+  const before=rt.window.location.href;
+  const current=rt.run('get_current_report',{}).report;
+  const batch=rt.run('compare_routes',{routes:[{...routes[1],environment:{csp:'aws',region:'us-east-1',compliance:'commercial',experience}}]}).reports[0];
+  assert.deepEqual(current.environment,batch.environment);
+  const row=current.environment.records.find(r=>r.feature==='Ingest Processor');
+  assert.equal(row.experience,experience);assert.equal(row.availability,experience==='classic'?'unavailable':'conditional');
+  assert(row.citations.some(s=>s.key==='ingest'));
+  assert.equal(new URL(current.reportUrl).searchParams.get('experience'),experience);
+  assert.equal(rt.window.location.href,before);
+  await rt.dispatch('beforeprint');
+  const html=rt.elements.get('release-report').innerHTML;
+  assert(html.includes(experience==='classic'?'Classic Experience':'Victoria Experience'));
+  assert(html.includes(row.citations.find(s=>s.key==='ingest').url));
+  await rt.dispatch('afterprint');assert.equal(rt.elements.get('technical-panel').open,false);
+ }
+});
+
 test('environment selection survives page, read-only report, share URL and print without broadening scope',async()=>{
  const selection={...routes[1],csp:'aws',region:'us-gov-east-1',compliance:'fr-h'};
  const rt=await runtime({selection});

@@ -29,6 +29,8 @@ The consolidated compliance matrix is dated February 2026. Its marks were not us
 
 A known conflict is preserved for Amazon S3 federated search in High: the 10.5 service-details table excludes High/IL5 while a service-description change-log entry describes support for specified 10.3 releases. Both statements and version scopes remain visible. Resolving a disagreement requires authoritative scope clarification, not choosing the newer-looking page automatically.
 
+Ingest Processor's [product guide](https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor) requires Victoria Experience and a provisioned tenant. The maintained Commercial and Moderate regional records therefore distinguish conditional Victoria availability from the explicit Classic restriction. Selecting Classic keeps the restriction visible instead of hiding the capability. With experience unspecified, both scoped records are shown; this is not a source conflict. High coverage remains independently unestablished. The guide's June 16 modification date and September 25 check date are not a new feature launch date.
+
 ## Source discovery
 
 The [10.5.2605 service-details page](https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.5.2605/information-about-the-service/splunk-cloud-platform-service-details) is a useful starting point, not an exclusive source. The evidence model also draws on:

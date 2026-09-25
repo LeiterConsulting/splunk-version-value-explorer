@@ -1,7 +1,7 @@
 /* Public environment evidence. See docs/cloud-environments.md. */
 window.VersionCompassEnvironmentData = {
   "schemaVersion": 1,
-  "checked": "2026-09-24",
+  "checked": "2026-09-25",
   "providers": {
     "aws": "AWS",
     "azure": "Microsoft Azure",
@@ -195,68 +195,75 @@ window.VersionCompassEnvironmentData = {
     "sg0": "ap-southeast-1"
   },
   "sources": {
+    "ingest": {
+      "title": "Ingest Processor experience and tenant prerequisites",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor",
+      "published": "2026-06-16",
+      "scope": "Current product guide; page modification date; Victoria-only prerequisite, not regional or authorization evidence",
+      "checked": "2026-09-25"
+    },
     "service": {
       "title": "Cloud Platform 10.5 service details",
       "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.5.2605/information-about-the-service/splunk-cloud-platform-service-details",
       "published": "2026-06-26",
       "scope": "10.5.2605; page modification date",
-      "checked": "2026-09-24"
+      "checked": "2026-09-25"
     },
     "changes": {
       "title": "Cloud service description change log",
       "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.5.2605/information-about-the-service/splunk-cloud-service-description-change-log",
       "published": "2026-08-25",
       "scope": "Latest dated entry in body; individual entries have their own effective dates",
-      "checked": "2026-09-24"
+      "checked": "2026-09-25"
     },
     "es": {
       "title": "ES 8.7 regional availability",
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
       "published": "2026-09-01",
       "scope": "ES 8.7; page modification date",
-      "checked": "2026-09-24"
+      "checked": "2026-09-25"
     },
     "compliance": {
       "title": "Splunk compliance scope matrix",
       "url": "https://www.splunk.com/en_us/about-splunk/splunk-data-security-and-privacy/compliance-at-splunk.html",
       "published": "2026-02",
       "scope": "Matrix explicitly dated February 2026; individual marks require direct visual verification",
-      "checked": "2026-09-24"
+      "checked": "2026-09-25"
     },
     "high": {
       "title": "FedRAMP Marketplace: Cloud Platform High",
       "url": "https://www.fedramp.gov/marketplace/products/FR2314156865/",
       "published": "2024-09-13",
       "scope": "Named offering status date, not feature-review date",
-      "checked": "2026-09-24"
+      "checked": "2026-09-25"
     },
     "moderate": {
       "title": "FedRAMP Marketplace: Cloud Platform Moderate",
       "url": "https://www.fedramp.gov/marketplace/products/F1607197917/",
       "published": null,
       "scope": "Named offering record; feature scope requires separate evidence",
-      "checked": "2026-09-24"
+      "checked": "2026-09-25"
     },
     "victoria": {
       "title": "Victoria Experience High announcement",
       "url": "https://www.splunk.com/en_us/blog/industries/splunk-victoria-experience-is-now-authorized-at-fedramp-high.html",
       "published": "2026-07-10",
       "scope": "Platform experience authorization announcement",
-      "checked": "2026-09-24"
+      "checked": "2026-09-25"
     },
     "esmoderate": {
       "title": "ES Premier Moderate announcement",
       "url": "https://www.splunk.com/en_us/blog/industries/splunk-enterprise-security-premier-achieves-fedramp-moderate-authorization.html",
       "published": "2026-06-25",
       "scope": "Premier Moderate announcement; not universal component authorization",
-      "checked": "2026-09-24"
+      "checked": "2026-09-25"
     },
     "o11y": {
       "title": "Observability service description and realms",
       "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
       "published": "2026-03-25",
       "scope": "Rolling service; page modification date",
-      "checked": "2026-09-24"
+      "checked": "2026-09-25"
     }
   },
   "records": [
@@ -593,12 +600,14 @@ window.VersionCompassEnvironmentData = {
       ],
       "availability": "conditional",
       "authorization": "not_established",
-      "detail": "Listed regions; service prerequisites apply.",
+      "detail": "Requires Victoria Experience and a tenant provisioned with Ingest Processor. Regional listing alone does not establish stack readiness or entitlement.",
       "sources": [
-        "service"
+        "service",
+        "ingest"
       ],
-      "checked": "2026-09-24",
-      "scope": "Current service guidance; not a historical availability guarantee"
+      "checked": "2026-09-25",
+      "scope": "Current service guidance; not a historical availability guarantee",
+      "experience": "victoria"
     },
     {
       "id": "ingest-moderate",
@@ -614,14 +623,51 @@ window.VersionCompassEnvironmentData = {
       ],
       "availability": "conditional",
       "authorization": "not_established",
-      "detail": "Moderate availability recorded May 22, 2026.",
+      "detail": "Moderate availability recorded May 22, 2026. Requires Victoria Experience and a provisioned tenant; this availability record does not independently establish feature authorization.",
       "sources": [
         "service",
-        "changes"
+        "changes",
+        "ingest"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-25",
       "scope": "Current service guidance; not a historical availability guarantee",
-      "effective": "2026-05-22"
+      "effective": "2026-05-22",
+      "experience": "victoria"
+    },
+    {
+      "id": "ingest-classic-commercial",
+      "product": "platform",
+      "feature": "Ingest Processor",
+      "provider": "aws",
+      "regions": [
+        "us-east-1", "us-west-2", "eu-west-1", "eu-west-2", "eu-west-3",
+        "eu-central-1", "eu-south-1", "ap-southeast-1", "ap-southeast-2",
+        "ap-southeast-3", "ap-northeast-1", "ap-northeast-2", "ap-south-1",
+        "ca-central-1", "sa-east-1", "ca-west-1"
+      ],
+      "regimes": ["commercial"],
+      "experience": "classic",
+      "availability": "unavailable",
+      "authorization": "not_established",
+      "detail": "Not available on Classic: the product guide requires Victoria Experience. The regional service listing does not override this prerequisite.",
+      "sources": ["service", "ingest"],
+      "checked": "2026-09-25",
+      "scope": "Current prerequisite applied to maintained regional service records; not a historical availability guarantee"
+    },
+    {
+      "id": "ingest-classic-moderate",
+      "product": "platform",
+      "feature": "Ingest Processor",
+      "provider": "aws",
+      "regions": ["us-gov-east-1", "us-gov-west-1"],
+      "regimes": ["fr-m"],
+      "experience": "classic",
+      "availability": "unavailable",
+      "authorization": "not_established",
+      "detail": "Not available on Classic: the product guide requires Victoria Experience. The Moderate regional listing is not a Classic exception or proof of feature authorization.",
+      "sources": ["service", "changes", "ingest"],
+      "checked": "2026-09-25",
+      "scope": "Current prerequisite applied to maintained Moderate service records; no inference of High coverage or historical availability"
     },
     {
       "id": "ingest-gcp",
