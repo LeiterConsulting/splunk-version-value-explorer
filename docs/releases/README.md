@@ -4,6 +4,7 @@ This directory contains concise, repository-only release notes for Version Compa
 
 ## Releases
 
+- [September 25, 2026](2026-09-25.md)
 - [September 24, 2026](2026-09-24.md)
 - [September 23, 2026](2026-09-23.md)
 - [September 22, 2026](2026-09-22.md) — Kubernetes chart 0.161.0, Collector migration guidance, and release metadata synchronization

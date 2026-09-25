@@ -28,6 +28,7 @@ Platform technical records live in each release's `technicalChanges` array in `d
 - Use **Awareness** for an implementation change that is useful context but does not normally require customer action.
 - Preserve scope precisely. “Bundled runtime removed” is different from “technology unsupported”; “Python 3.13 in Splunk Web” is different from “Python 3.13 is the platform default.”
 - Preserve lifecycle precision: introduced, available, optional, default, restricted, deprecated, and removed are distinct states.
+- A deprecated alias that remains functional is planning debt, not a mandatory migration or breaking change. Record the preferred replacement and keep the future-removal risk separate unless the source publishes an actual removal release.
 - For Splunk Cloud Platform, include only customer-visible contracts and customer-actionable changes. Do not present Splunk-managed backend component versions as customer responsibilities.
 - For Enterprise Security and ITSI on customer-managed Enterprise, keep the product change distinct from the compatible platform maintenance pairing. A platform prerequisite belongs in the compatibility gate and readiness list as well as any relevant technical record.
 - For premium apps on Splunk Cloud Platform, describe availability as Splunk-managed and stack-, region-, entitlement-, or schedule-dependent where applicable. Do not infer Cloud compatibility from the Enterprise matrix.

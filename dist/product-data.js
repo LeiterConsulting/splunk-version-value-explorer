@@ -32,6 +32,7 @@
   const dotnet116Source = "https://github.com/signalfx/splunk-otel-dotnet/releases/tag/v1.16.0";
   const node411Source = "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.11.0";
   const rum31Source = "https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.1.0";
+  const rum32Source = "https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.2.0";
 
   data.productTracks = {
     es: {
@@ -574,7 +575,7 @@
             ["Kubernetes chart 0.161", "Infrastructure & Kubernetes", "Bring the supported chart to Collector 0.161", "Adopt the chart that packages Collector 0.161, Target Allocator 0.159, and Operator 0.123 after migrating Kubernetes attributes and CPU-metric expectations."],
             ["Collector lookup processor", "Telemetry & OpenTelemetry", "Enrich telemetry in the pipeline", "Use the lookup processor added in Splunk OpenTelemetry Collector 0.160.1 where its documented component scope fits the pipeline."],
             [".NET instrumentation 1.16", "Telemetry & OpenTelemetry", "Verify instrumentation packages before install", "Use immutable, attested release assets and inspect snapshot-selection probability in effective configuration after satisfying the installer verification prerequisite."],
-            ["Browser RUM 3.1", "Digital experience", "Capture richer interaction context", "Use expanded frustration signals, navigation context, Synthetics correlation, and more resilient Session Replay retry behavior after reviewing the new defaults."]
+            ["Browser RUM 3.2", "Digital experience", "Measure application-defined page readiness", "Use manual page-load registration and optional blocking-element spans for application work that ordinary network and resource monitoring cannot observe; new configuration should use navigationMetrics while the spaMetrics alias remains deprecated but functional."]
           ],
           technicalChanges: [
             {
@@ -702,6 +703,13 @@
               implication: "Interaction volume, Page Completion Time baselines, client storage, privacy review, and replay retry behavior can differ without an application-code change.",
               action: "Review consent and storage policy, compare Page Completion Time baselines, and explicitly retain or disable earlier behaviors where the application requires them.",
               source: rum31Source
+            },
+            {
+              component: "Browser RUM navigation configuration", domain: "RUM configuration", changeType: "Configuration key deprecated", actionLevel: "Review",
+              from: "spaMetrics is the configuration name used for single-page application navigation and page-completion settings", to: "Browser RUM 3.2 renames the configuration to navigationMetrics; spaMetrics remains supported as a deprecated alias",
+              implication: "Existing deployments continue to work, but leaving the alias in templates or generated configuration creates future removal debt and can obscure where new manual page-load and blocking-element settings belong.",
+              action: "Use navigationMetrics in new configuration, migrate maintained templates from spaMetrics during the normal rollout, and validate manual page-load registrations against the default 180-second maximum wait when adopted.",
+              source: rum32Source
             }
           ],
           requirements: [
@@ -721,7 +729,8 @@
             ["Remove the retired Kubernetes processor option", "Any k8sattributes configuration that still includes deployment_name_from_replicaset fails hard at startup in Collector 0.160.", "Blocker", collector160Source, true],
             ["Provide GitHub CLI for .NET 1.16 installer verification", "Splunk OpenTelemetry .NET 1.16 requires GitHub CLI by default when its PowerShell installation/update commands or shell installer verify immutable release attestations. Validate the tool and network path before rollout; skipping verification is an explicit exception, not the default readiness path.", "Blocker", dotnet116Source, true],
             ["Reconcile Node.js semantic conventions", "Splunk OpenTelemetry Node.js 4.11.0 adopts stable OpenTelemetry HTTP and database semantic conventions with renamed attributes.", "Validate", node411Source, true],
-            ["Baseline Browser RUM 3.1 defaults", "Browser RUM 3.1 changes frustration-signal collection, Page Completion Time quiet-window behavior, and failed-replay storage defaults. Confirm privacy, storage, and detector assumptions before broad rollout.", "Validate", rum31Source, true]
+            ["Baseline Browser RUM 3.1 defaults", "Browser RUM 3.1 changes frustration-signal collection, Page Completion Time quiet-window behavior, and failed-replay storage defaults. Confirm privacy, storage, and detector assumptions before broad rollout.", "Validate", rum31Source, true],
+            ["Adopt the Browser RUM 3.2 navigationMetrics name", "Browser RUM 3.2 keeps spaMetrics working as a deprecated alias, so no mandatory code or configuration change is required for this release. Use navigationMetrics for new configuration and migrate maintained templates before a future removal.", "Plan", rum32Source, false]
           ]
         }
       }
