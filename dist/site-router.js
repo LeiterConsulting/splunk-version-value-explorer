@@ -19,5 +19,7 @@
     };
     document.body.appendChild(script);
   }
-  load(preview ? ['environment-data.js','environment.js','editions-data.js','editions.js'] : normal);
+  const files = preview ? ['environment-data.js','environment.js','editions-data.js','editions.js'] : normal;
+  files.splice(files.indexOf('environment.js') + 1, 0, 'perspectives.js');
+  load(files);
 }());
