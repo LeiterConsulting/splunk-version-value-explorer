@@ -17,12 +17,14 @@
   const refs = keys => '<span class="report-citations">'+keys.map(key=>'<a href="#report-ref-'+esc(key)+'">['+(refKeys.indexOf(key)+1)+']</a>').join(' ')+'</span>';
   const reportCell = cell => '<strong>'+({yes:'Included',no:'Not included',part:'Conditional',review:'Confirm scope'}[cell.v])+'</strong><br>'+esc(cell.n || '');
   const reportHistory = () => '<h2>Cloud release history · ES '+esc(state.release)+'</h2><p>Selected Cloud matrix highlights; not a complete entitlement list or an on-premises assessment. '+refs(['matrix'])+'</p>'+[['Essentials (also in Premier)',data.history[state.release].e],['Premier column',data.history[state.release].p]].map(([title,items])=>'<h3>'+title+'</h3><ul>'+items.map(item=>'<li>'+esc(item)+'</li>').join('')+'</ul>').join('')+'<p>The matrix groups security-automation authoring under Premier in 8.7. Agent-specific scope differs; see the source questions in this report. '+refs(['matrix','agentic','rn87'])+'</p>';
-  function report() { return `<article class="edition-report" aria-label="Printable ES editions report">
+  const decisionReport=()=> (document.getElementById('edition-decision-summary')?.innerHTML||'').replace(/ id="[^"]*"/g,'');
+  function report(){const html=rawReport();return window.VersionCompassReports?.decorate(html)||html;}
+  function rawReport() { return `<article class="edition-report" aria-label="Printable ES editions report">
     <header class="report-title"><p>VERSION COMPASS / ENTERPRISE SECURITY</p><h1>Essentials &amp; Premier</h1><p class="report-subtitle">Capability comparison and deployment guidance</p><p>ES ${esc(data.release)} · Evidence reviewed ${esc(data.reviewed)} · Public-source edition comparison</p></header>
     <p class="report-disclaimer">Independent public-source comparison. Not an official Cisco or Splunk publication. <a href="${esc(themed('https://versioncompass.com/?view=es-editions'))}">Online comparison ↗</a></p>
     <p>This report includes all ${data.capabilities.length} capabilities and their qualifications, regardless of screen filters. Numbered citations link to the source directory. History reflects the selected release.</p>
     <section id="edition-environment-report" class="report-section"></section>
-    <h2>Edition overview</h2><p><strong>Essentials:</strong> the shared SIEM foundation includes Detection Studio, TIM, Exposure Analytics and the ES AI Assistant. Deployment scope varies: Detection Studio and TIM reach on-premises through Cloud Connect; Essentials lists the assistant on Cloud where available. ${refs(['editions','cloudcx'])}</p>
+    <section class="report-section"><h2>Decision context</h2><div id="edition-decision-print">${decisionReport()}</div></section><h2>Edition overview</h2><p><strong>Essentials:</strong> the shared SIEM foundation includes Detection Studio, TIM, Exposure Analytics and the ES AI Assistant. Deployment scope varies: Detection Studio and TIM reach on-premises through Cloud Connect; Essentials lists the assistant on Cloud where available. ${refs(['editions','cloudcx'])}</p>
     <p><strong>Premier:</strong> adds native SOAR, UEBA and Automated Threat Analysis; extends the assistant to on-premises through Cloud Connect. SOAR-dependent capabilities still require a supported, configured pairing. ${refs(['editions','regions'])}</p>
     <h2>What changed in ES 8.7</h2>${data.highlights.map(h=>'<div class="report-block"><h3>'+esc(h.title)+'</h3><p>'+esc(h.text)+' '+refs(h.src)+'</p></div>').join('')}
     <p class="report-callout"><strong>Availability questions:</strong> Connector Builder has a direct edition conflict. Guided Response has a version-and-enhancement scope ambiguity. Both are explained after the comparison; neither is treated as confirmed Essentials availability.</p>
@@ -44,7 +46,7 @@
       <p class="dek">Essentials and Premier, with deployment boundaries, prerequisites, and the public sources behind every comparison.</p>
       <div class="edition-preview-note">Independent Version Compass comparison. Not an official Cisco or Splunk tool.</div>
       ${environment.controls()}
-      <div class="edition-toolbar"><a href="${esc(themed('./'))}">← Release upgrade guide</a><button id="edition-copy" type="button">Copy comparison link</button><button id="edition-print" type="button">Print / save PDF</button><span id="edition-share-status" role="status"></span></div>
+      <div id="edition-decision-summary"></div><div class="edition-toolbar"><a href="${esc(themed('./'))}">← Release upgrade guide</a><button id="edition-copy" type="button">Copy comparison link</button><button id="edition-print" type="button">Print / save PDF</button><span id="edition-share-status" role="status"></span></div>
     </section>
     <div class="edition-body" id="edition-comparison">
       <section id="environment-overview" class="env-overview" aria-label="Cloud environment guidance" hidden></section>
@@ -96,13 +98,16 @@
     document.getElementById('edition-copy').disabled=envState.environmentErrors.length>0;document.getElementById('edition-print').disabled=envState.environmentErrors.length>0;
     syncUrl();
     window.VersionCompassPerspective?.describe(envState);
+    window.VersionCompassDecision?.mount('edition-decision-summary',envState,null,data);
+    const decisionPrint=document.getElementById('edition-decision-print');if(decisionPrint)decisionPrint.innerHTML=decisionReport();
   }
   window.VersionCompassPerspective?.setRenderer(renderEnvironment);
   environment.bind(envState,renderEnvironment);renderEnvironment();
   let beforePrint=null;
-  function expandPrint(){if(beforePrint)return;beforePrint=[...document.querySelectorAll('main details')].map(el=>[el,el.open]);beforePrint.forEach(([el])=>el.open=true);}
+  function expandPrint(){if(beforePrint)return;const decisionPrint=document.getElementById('edition-decision-print');if(decisionPrint)decisionPrint.innerHTML=decisionReport();beforePrint=[...document.querySelectorAll('main details')].map(el=>[el,el.open]);beforePrint.forEach(([el])=>el.open=true);}
   function restorePrint(){if(!beforePrint)return;beforePrint.forEach(([el,open])=>el.open=open);beforePrint=null;}
   window.addEventListener('beforeprint',expandPrint);window.addEventListener('afterprint',restorePrint);
   document.getElementById('edition-print').addEventListener('click',()=>{expandPrint();window.print();});
+  window.VersionCompassBuildSnapshot=()=>{if(envState.environmentErrors.length)throw Error('Resolve environment warnings first.');return report();};
   apply();timeline();
 }());

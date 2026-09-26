@@ -154,6 +154,7 @@
     const summary = guidance.takeaway(state);
     const point = function (item) { return escapeHtml(item.text) + ' ' + externalLink(item.source, 'Source'); };
     document.getElementById("route-takeaway").innerHTML = '<h2 id="takeaway-title">This route at a glance</h2><div class="takeaway-grid"><div><h3>What you gain</h3>' + (summary.highlights.length ? '<ul>' + summary.highlights.map(function (item) { return '<li>' + point(item) + '</li>'; }).join('') + '</ul>' : '<p>No curated capability milestone in this interval.</p>') + '</div><div><h3>Before moving</h3><p>' + (summary.prerequisite ? point(summary.prerequisite) : 'Review the official upgrade guidance.') + '</p></div><div><h3>Watch for</h3><p>' + point(summary.risk) + '</p></div></div><p class="guidance-note">' + escapeHtml(summary.note) + '</p>';
+    window.VersionCompassDecision?.mount('route-takeaway',state,window.VersionCompassComparison.create(data,state));
     const rows = guidance.routeLifecycle(state);
     document.getElementById("lifecycle-summary").innerHTML = '<span>Support lifecycle</span>' + rows.map(function (row) { return '<span class="lifecycle-status ' + row.status + '">' + escapeHtml(row.role + ' · ' + row.label + (row.endOfSupport ? ' · ' + row.endOfSupport : '')) + '</span>'; }).join('');
     document.getElementById("lifecycle-content").innerHTML = '<p class="guidance-note">Evaluated ' + escapeHtml(rows[0].asOf) + ' (Eastern date). Policy dates verified ' + escapeHtml(data.guidance.lifecycle.reviewed) + '.</p><div class="lifecycle-grid">' + rows.map(function (row) { return '<div><h3>' + escapeHtml(row.role + ' · ' + row.release) + '</h3><p>' + escapeHtml(row.label + (row.endOfSupport ? ': ' + row.endOfSupport : '')) + '</p><p>' + escapeHtml(row.detail) + '</p>' + externalLink(row.source, 'Support guidance') + '</div>'; }).join('') + '</div>';
@@ -580,6 +581,10 @@
     renderValue();
   }
 
+  window.VersionCompassBuildSnapshot = function(){
+    if((linkResolution&&linkResolution.needsConfirmation)||state.environmentErrors?.length)throw Error('Resolve selection warnings first.');
+    try{preparePrintReport();return document.getElementById('release-report').innerHTML;}finally{restorePrintReport();}
+  };
   window.addEventListener("beforeprint", preparePrintReport);
   window.addEventListener("afterprint", restorePrintReport);
   printButton.addEventListener("click", function () {

@@ -13,7 +13,7 @@
       });
     }
     const section=(title,body,intro='')=>body?'<section class="report-section"><h2>'+title+'</h2>'+(intro?'<p>'+intro+'</p>':'')+cite(body)+'</section>':'';
-    let body='<header class="report-title"><p>VERSION COMPASS / RELEASE GUIDE</p><h1>'+text('print-title')+'</h1><p>'+text('print-subtitle')+'</p></header><p class="report-disclaimer">Independent public-source report. Not an official Cisco or Splunk publication.</p><p>This report includes all curated benefits and technical details for the selected route. Numbered citations refer to the source directory.</p><p class="report-online"><a href="'+esc(url)+'">Open this exact comparison online</a></p>';
+    let body='<header class="report-title"><p>VERSION COMPASS / RELEASE GUIDE</p><h1>'+text('print-title')+'</h1><p>'+text('print-subtitle')+'</p></header><p class="report-disclaimer">Independent public-source report. Not an official Cisco or Splunk publication.</p><p>This report includes all curated benefits and technical details for the selected route. Numbered citations refer to the source directory.</p><p class="report-online"><a href="'+esc(url)+'">Open current guidance for these selections</a></p>';
     body+=section('Route assessment',html('print-link-notice')+html('compatibility-gate')+html('route-takeaway'));
     const envState=window.VersionCompassPage?.getSelection();
     if(envState&&window.VersionCompassEnvironment)body+=section('Cloud environment',window.VersionCompassEnvironment.body(envState,true));
@@ -26,6 +26,6 @@
     body+=section(text('readiness-title')||'Readiness',html('readiness-list'),text('readiness-intro'));
     body+=section('Further official guidance',html('source-actions'));
     body+='<section class="report-section report-references"><h2>Public sources</h2><p>Sources are listed once in order of first citation. Consult the linked documentation for full requirements and environment-specific applicability.</p><ol>'+sources.map((s,i)=>'<li id="release-source-'+(i+1)+'"><strong>'+s.label+'</strong><br><a href="'+s.href+'">'+s.href+'</a></li>').join('')+'</ol></section>';
-    return body;
+    return window.VersionCompassReports?.decorate(body)||body;
   }};
 }());
