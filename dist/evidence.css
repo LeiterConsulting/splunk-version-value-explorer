@@ -8,3 +8,11 @@
 @media print{.report-provenance button,.snapshot-status,#comparison-changes label{display:none}.decision-grid{grid-template-columns:1fr 1fr}#decision-questions>*{display:block!important}}
 
 @media print{[data-save-snapshot]{display:none!important}}
+
+.decision-compact{margin:6px 0 10px!important;font-size:14px!important;line-height:1.5}
+.decision-details>summary{cursor:pointer;display:list-item;width:fit-content;padding:7px 0;font-size:14px;font-weight:600}
+.decision-details>summary:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.decision-collapse-label,.decision-details[open]>summary .decision-expand-label{display:none}
+.decision-details[open]>summary .decision-collapse-label{display:inline}
+.decision-details[open]>.decision-grid{margin-top:14px}
+@media print{.decision-compact,.decision-details>summary{display:none!important}.decision-details::details-content{content-visibility:visible!important;display:block!important}.decision-details>*{display:block}.decision-details>.decision-grid{display:grid}}

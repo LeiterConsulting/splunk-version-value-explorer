@@ -9,3 +9,5 @@ Shared links continue to point to evolving guidance. Save dated snapshot downloa
 Content revision is a deterministic hash of the shipped HTML/JS/CSS files, excluding the revision file itself. Run synchronization in this order: sync-release-metadata.cjs, sync-source-register.cjs, sync-content-revision.cjs. Run all corresponding --check gates before publication. Keep snapshot rendering aligned with the full print report, validate malformed selections before export, and restore on-screen filters after report generation.
 
 Presentation changes do not advance factual badge cycles. Add revision/verification semantics to any future export or report API without breaking existing shared links. User approved the existing visual layout September 25; new functional checks are separate from native browser/PDF rendering verification.
+
+Default summaries are condensed to coverage/question/change counts with an Expand details disclosure. Preserve the expanded state during in-page updates. Keep all supporting summaries, questions and provenance available inside it; report generation explicitly expands the disclosure for print/PDF and saved snapshots.
