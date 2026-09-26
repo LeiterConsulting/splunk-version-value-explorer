@@ -1,109 +1,109 @@
 /* Public-source ES edition evidence. See docs/es-editions.md. */
 window.VersionCompassEditions = {
   "schemaVersion": 2,
-  "reviewed": "2026-09-23",
+  "reviewed": "2026-09-26",
   "release": "8.7",
   "releaseDate": "2026-09-02",
   "sources": {
     "rn87": {
       "t": "ES 8.7 release notes",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     "matrix": {
       "t": "Editions Cloud Capability Matrix",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/splunk-enterprise-security-editions-cloud-capability-matrix",
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     "editions": {
       "t": "Overview of ES Editions",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     "conf26": {
       "t": ".conf26 Agentic SOC announcement",
       "u": "https://www.splunk.com/en_us/blog/security/evolving-to-autonomous-defense-new-agentic-soc-capabilities.html",
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     "agentic": {
       "t": "Agentic AI offerings in ES",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     "cloudcx": {
       "t": "Access Splunk Cloud Connect in ES",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.7/introduction/access-splunk-cloud-connect-in-splunk-enterprise-security-to-access-cloud-extensions",
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     "aiassist": {
       "t": "AI Assistant overview (ES)",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/ai-assistant-overview",
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     "saia": {
       "t": "Splunk AI Assistant 2.2.0 release notes",
       "u": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.2.0/release-notes/whats-new-in-splunk-ai-assistant",
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     "pricing": {
       "t": "Splunk pricing — Enterprise Security and SOAR",
       "u": "https://www.splunk.com/en_us/products/pricing.html",
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     "pricingModels": {
       "t": "Splunk pricing models and eligibility FAQ",
       "u": "https://www.splunk.com/en_us/products/pricing/pricing-models.html",
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     "automationTask": {
       "t": "SOAR Cloud Automation Builder task guide",
       "u": "https://help.splunk.com/en/splunk-soar/soar-cloud/develop-apps/build-playbooks/use-the-automation-builder-agent-to-build-and-understand-playbooks",
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     "connectorTask": {
       "t": "Connector Builder prerequisites (ES 8.7)",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/automation-with-playbooks/configure-splunk-soar-apps-in-splunk-enterprise-security",
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     "socTask": {
       "t": "AI SOC Analyst workflow prerequisites (ES 8.7)",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     "malwareTask": {
       "t": "Malware Reversing and Phishing task guide (ES 8.7)",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/analyze-scripts-using-the-ai-powered-malware-reversing-agent-and-phishing-analysis-agent-in-splunk-enterprise-security",
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     "ueba": {
       "t": "Splunk UEBA product page",
       "u": "https://www.splunk.com/en_us/products/user-and-entity-behavior-analytics.html",
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     "ea": {
       "t": "Exposure Analytics product page",
       "u": "https://www.splunk.com/en_us/products/exposure-analytics.html",
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     "licensing": {
       "t": "ES licensing and trials (8.6 documentation)",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.6/introduction/licensing-for-splunk-enterprise-security",
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     "regions": {
       "t": "ES 8.7 compatibility and regional availability",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     "guided": {
       "t": "Guided Response prerequisites (8.6 documentation)",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.6/ai-assistant-in-security-and-agentic-capabilities/run-soar-response-actions-using-the-guided-response-agent-in-splunk-enterprise-security",
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     "triage": {
       "t": "Triage agent setup (8.6 documentation)",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.6/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-triage-agent-in-splunk-enterprise-security",
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     }
   },
   "capabilities": [
@@ -124,7 +124,7 @@ window.VersionCompassEditions = {
         "editions",
         "pricing"
       ],
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     {
       "id": "ai",
@@ -143,7 +143,7 @@ window.VersionCompassEditions = {
         "editions",
         "agentic"
       ],
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     {
       "id": "tim",
@@ -163,7 +163,7 @@ window.VersionCompassEditions = {
         "cloudcx",
         "rn87"
       ],
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     {
       "id": "detection-studio",
@@ -184,7 +184,7 @@ window.VersionCompassEditions = {
         "pricing",
         "cloudcx"
       ],
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     {
       "id": "exposure",
@@ -205,7 +205,7 @@ window.VersionCompassEditions = {
         "ea",
         "conf26"
       ],
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     {
       "id": "ai-assistant",
@@ -227,7 +227,7 @@ window.VersionCompassEditions = {
         "aiassist",
         "cloudcx"
       ],
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     {
       "id": "mcp",
@@ -247,7 +247,7 @@ window.VersionCompassEditions = {
         "rn87",
         "matrix"
       ],
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     {
       "id": "nav",
@@ -266,7 +266,7 @@ window.VersionCompassEditions = {
       "src": [
         "rn87"
       ],
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     {
       "id": "change-history",
@@ -285,7 +285,7 @@ window.VersionCompassEditions = {
       "src": [
         "rn87"
       ],
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     {
       "id": "detection-builder",
@@ -304,7 +304,7 @@ window.VersionCompassEditions = {
         "agentic",
         "rn87"
       ],
-      "reviewed": "2026-09-23",
+      "reviewed": "2026-09-26",
       "tag": "updated"
     },
     {
@@ -323,7 +323,7 @@ window.VersionCompassEditions = {
       "src": [
         "agentic"
       ],
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     {
       "id": "soar",
@@ -344,7 +344,7 @@ window.VersionCompassEditions = {
         "pricing",
         "regions"
       ],
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     {
       "id": "ueba",
@@ -364,7 +364,7 @@ window.VersionCompassEditions = {
         "ueba",
         "editions"
       ],
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     {
       "id": "ata",
@@ -383,7 +383,7 @@ window.VersionCompassEditions = {
         "matrix",
         "regions"
       ],
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     {
       "id": "triage-agent",
@@ -403,7 +403,7 @@ window.VersionCompassEditions = {
         "triage",
         "agentic"
       ],
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     {
       "id": "guided-response",
@@ -423,7 +423,7 @@ window.VersionCompassEditions = {
         "matrix",
         "guided"
       ],
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     {
       "id": "malware-reversing",
@@ -442,7 +442,7 @@ window.VersionCompassEditions = {
         "agentic",
         "malwareTask"
       ],
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     {
       "id": "automation-builder",
@@ -465,7 +465,7 @@ window.VersionCompassEditions = {
         "regions",
         "automationTask"
       ],
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     {
       "id": "connector-builder",
@@ -488,7 +488,7 @@ window.VersionCompassEditions = {
         "matrix",
         "connectorTask"
       ],
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     },
     {
       "id": "ai-soc-analyst",
@@ -509,7 +509,7 @@ window.VersionCompassEditions = {
         "rn87",
         "socTask"
       ],
-      "reviewed": "2026-09-23"
+      "reviewed": "2026-09-26"
     }
   ],
   "history": {

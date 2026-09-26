@@ -671,18 +671,18 @@ window.VersionCompassSources = {
         "editions: editions.workflows.1"
       ],
       "reviews": [
-        "2026-09-23"
+        "2026-09-26"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-09-23",
+      "reviewed": "2026-09-26",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "The base-capability statement remains beside the later Premier enhancement entry; the latter does not prove base entitlement changed.",
+      "section": "Guided Response support and setup notes",
+      "verificationScope": "Checked both-editions, Cloud, agentic-chat, Platform 10.2 or higher, ES 8.6 or higher, paired-SOAR, connector-permission and SecA1-model exclusions.",
       "events": [
         {
           "date": "2026-09-25",
@@ -691,6 +691,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-25",
           "event": "Review status updated: Needs reconciliation · 2026-09-23"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Needs reconciliation · 2026-09-26"
         }
       ]
     },
@@ -706,21 +710,25 @@ window.VersionCompassSources = {
         "editions: editions.workflows.1"
       ],
       "reviews": [
-        "2026-09-23"
+        "2026-09-26"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-23",
+      "reviewed": "2026-09-26",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "The page describes workflow behavior without independently establishing edition entitlement.",
+      "section": "Triage agent overview and setup sequence",
+      "verificationScope": "Checked the autonomous-investigation, response-plan and per-detection setup description. Edition and version prerequisites continue to come from the agent table and capability history.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Reviewed · 2026-09-26"
         }
       ]
     },
@@ -751,18 +759,18 @@ window.VersionCompassSources = {
         "editions: editions.highlights.0"
       ],
       "reviews": [
-        "2026-09-23"
+        "2026-09-26"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-09-23",
+      "reviewed": "2026-09-26",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "The table remains alongside more specific task guides where published prerequisites differ.",
+      "section": "Agentic AI offerings table and agentic-chat deployment note",
+      "verificationScope": "Checked every displayed agent's edition, deployment, platform and ES-version prerequisites, paired-service requirements, permissions and the version 1 versus version 2 chat boundary.",
       "events": [
         {
           "date": "2026-09-25",
@@ -771,6 +779,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-25",
           "event": "Review status updated: Needs reconciliation · 2026-09-23"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Needs reconciliation · 2026-09-26"
         }
       ]
     },
@@ -786,21 +798,25 @@ window.VersionCompassSources = {
         "editions: editions.notes.2"
       ],
       "reviews": [
-        "2026-09-23"
+        "2026-09-26"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-23",
+      "reviewed": "2026-09-26",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "General deployment availability is not proof of Essentials on-premises entitlement.",
+      "section": "AI Assistant availability and Cloud Connect deployment statement",
+      "verificationScope": "Checked the Cloud and Cloud Connect paths and the ability to turn the assistant on or off. The page does not name edition entitlement.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Reviewed · 2026-09-26"
         }
       ]
     },
@@ -816,18 +832,18 @@ window.VersionCompassSources = {
         "editions: editions.conflicts.1.claims.1"
       ],
       "reviews": [
-        "2026-09-23"
+        "2026-09-26"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-09-23",
+      "reviewed": "2026-09-26",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "The task-level ES 8.6 floor remains explicit alongside the agent table's 8.5-or-higher entry.",
+      "section": "Malware Reversing and Phishing Analysis support note",
+      "verificationScope": "Checked Premier, Platform 10.2 or higher, ES 8.6 or higher and paired-SOAR requirements for automated threat analysis.",
       "events": [
         {
           "date": "2026-09-25",
@@ -836,6 +852,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-25",
           "event": "Review status updated: Needs reconciliation · 2026-09-23"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Needs reconciliation · 2026-09-26"
         }
       ]
     },
@@ -851,18 +871,18 @@ window.VersionCompassSources = {
         "editions: editions.conflicts.0.claims.1"
       ],
       "reviews": [
-        "2026-09-23"
+        "2026-09-26"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-09-23",
+      "reviewed": "2026-09-26",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "The task-level ES 8.7 floor remains explicit alongside the broader agent table's 8.6-or-higher entry.",
+      "section": "AI SOC Analyst workflow prerequisites",
+      "verificationScope": "Checked Premier, Cloud, agentic-chat, AI Assistant, Platform 10.2 or higher, ES 8.7 or higher, paired SOAR and inherited connector permissions.",
       "events": [
         {
           "date": "2026-09-25",
@@ -871,6 +891,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-25",
           "event": "Review status updated: Needs reconciliation · 2026-09-23"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Needs reconciliation · 2026-09-26"
         }
       ]
     },
@@ -885,21 +909,25 @@ window.VersionCompassSources = {
         "editions: editions.capabilities.18"
       ],
       "reviews": [
-        "2026-09-23"
+        "2026-09-26"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-23",
+      "reviewed": "2026-09-26",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "The page does not state an edition; the direct edition conflict between the agent table and 8.7 release notes remains unresolved.",
+      "section": "Create and edit connectors with Connector Builder — prerequisites and permissions",
+      "verificationScope": "Checked Platform 10.1 or higher, paired SOAR Cloud with ES 8.7 or higher, SOAR App and Asset edit permissions, and the human-review instruction.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Reviewed · 2026-09-26"
         }
       ]
     },
@@ -926,21 +954,25 @@ window.VersionCompassSources = {
         "editions: editions.workflows.3"
       ],
       "reviews": [
-        "2026-09-23"
+        "2026-09-26"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-23",
+      "reviewed": "2026-09-26",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "Overview labels retain their deployment and availability qualifiers rather than becoming universal eligibility claims.",
+      "section": "Essentials and Premier capability lists",
+      "verificationScope": "Checked capability, deployment and where-available wording for both editions, including Cloud Connect, AI Assistant, SOAR, UEBA, Attack Analyzer and agentic features.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Reviewed · 2026-09-26"
         }
       ]
     },
@@ -1198,22 +1230,26 @@ window.VersionCompassSources = {
         "editions: editions.notes.1"
       ],
       "reviews": [
-        "2026-09-23",
-        "2026-09-25"
+        "2026-09-25",
+        "2026-09-26"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-25",
+      "reviewed": "2026-09-26",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "Regional availability and offering compliance remain separate from feature entitlement and customer authorization.",
+      "section": "Platform compatibility, regional tables, Cloud Connect and SOAR pairing matrices",
+      "verificationScope": "Checked the ES 8.x Enterprise floor, edition-specific AWS exceptions, GCP/Azure limits, Cloud Connect regions, exact SOAR pairing rows, unsupported Enterprise 9.4.0–9.4.2 pairing and hybrid/FedRAMP limits.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Reviewed · 2026-09-26"
         }
       ]
     },
@@ -1245,18 +1281,18 @@ window.VersionCompassSources = {
         "editions: editions.highlights.1"
       ],
       "reviews": [
-        "2026-09-23"
+        "2026-09-26"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-09-23",
+      "reviewed": "2026-09-26",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "Release-specific scope does not supersede more specific prerequisite pages or resolve conflicting edition labels.",
+      "section": "Version 8.7 release table; deprecated or removed features and add-ons",
+      "verificationScope": "Checked the September 2 release entries, edition labels, representative-enablement notes, TIM feed deprecations and add-ons removed from the installer. Installer removal remains distinct from support removal.",
       "events": [
         {
           "date": "2026-09-25",
@@ -1265,6 +1301,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-25",
           "event": "Review status updated: Needs reconciliation · 2026-09-23"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Needs reconciliation · 2026-09-26"
         }
       ]
     },
@@ -1286,18 +1326,18 @@ window.VersionCompassSources = {
         "editions: editions.highlights.2"
       ],
       "reviews": [
-        "2026-09-23"
+        "2026-09-26"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-09-23",
+      "reviewed": "2026-09-26",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "A Premier enhancement entry does not by itself prove that an earlier base capability became Premier-only.",
+      "section": "Cloud capability history for Enterprise Security 8.2 through 8.7",
+      "verificationScope": "Checked every historical row and the edition labels for the 8.7 additions and enhancements. Historical identifiers and edition-qualified entries remain unchanged.",
       "events": [
         {
           "date": "2026-09-25",
@@ -1306,6 +1346,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-25",
           "event": "Review status updated: Needs reconciliation · 2026-09-23"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Needs reconciliation · 2026-09-26"
         }
       ]
     },
@@ -1320,21 +1364,25 @@ window.VersionCompassSources = {
         "editions: editions.notes.3"
       ],
       "reviews": [
-        "2026-09-23"
+        "2026-09-26"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-23",
+      "reviewed": "2026-09-26",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "Published trial mechanics do not imply general commercial availability or pricing.",
+      "section": "Licensing terms, capacity usage and trial-license behavior",
+      "verificationScope": "Checked premium-app/platform dependency, capacity types, 30-day Essentials and 90-day Premier trials, expiry behavior and the Cloud Connected Premier-trial entitlement-display caveat.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Reviewed · 2026-09-26"
         }
       ]
     },
@@ -1352,21 +1400,25 @@ window.VersionCompassSources = {
         "editions: editions.notes.0"
       ],
       "reviews": [
-        "2026-09-23"
+        "2026-09-26"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-23",
+      "reviewed": "2026-09-26",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "Cloud Connect access does not establish an edition entitlement for every connected capability.",
+      "section": "Cloud Connect scope, endpoints, permissions, proxy impact and access workflow",
+      "verificationScope": "Checked private-cloud and on-premises scope, permissions and endpoints, connection workflow, and the warning that proxy changes affect the whole Splunk Platform deployment.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Reviewed · 2026-09-26"
         }
       ]
     },
@@ -1941,21 +1993,25 @@ window.VersionCompassSources = {
         "editions: editions.notes.2"
       ],
       "reviews": [
-        "2026-09-23"
+        "2026-09-26"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-23",
+      "reviewed": "2026-09-26",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "A historic Cloud-only restriction is not generalized after the documented Cloud Connected expansion.",
+      "section": "Versions 2.0.0 through 2.2.0",
+      "verificationScope": "Checked Agent Mode deployment and regional changes, including the 2.1 Cloud Connected Enterprise path, while keeping this platform app distinct from AI Assistant for Security in ES.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Reviewed · 2026-09-26"
         }
       ]
     },
@@ -2473,21 +2529,25 @@ window.VersionCompassSources = {
         "editions: editions.capabilities.17"
       ],
       "reviews": [
-        "2026-09-23"
+        "2026-09-26"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-23",
+      "reviewed": "2026-09-26",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "Task-level requirements remain attached to Automation Builder rather than generalized across agentic capabilities.",
+      "section": "Automation Builder prerequisites and supported workflow",
+      "verificationScope": "Checked Cloud 10.1 or higher, paired SOAR Cloud with ES 8.6 or higher, Splunk-account, non-FedRAMP-SOAR-stack and human-review requirements.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Reviewed · 2026-09-26"
         }
       ]
     },
@@ -2836,21 +2896,25 @@ window.VersionCompassSources = {
         "editions: editions.notes.5"
       ],
       "reviews": [
-        "2026-09-23"
+        "2026-09-26"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-23",
+      "reviewed": "2026-09-26",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "Announcement context does not replace task-level prerequisites or establish unsupported edition entitlement.",
+      "section": "September 16 announcement — Agentic SOC and Exposure Analytics",
+      "verificationScope": "Checked the customer-facing agentic-workflow description and the now-available Exposure Analytics entity-discovery, history and business-context scope.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Reviewed · 2026-09-26"
         }
       ]
     },
@@ -2894,21 +2958,25 @@ window.VersionCompassSources = {
         "editions: editions.workflows.3"
       ],
       "reviews": [
-        "2026-09-23"
+        "2026-09-26"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-23",
+      "reviewed": "2026-09-26",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "Named coming-soon enhancements are not presented as currently shipped capabilities.",
+      "section": "Features, packaging FAQ and coming-soon labels",
+      "verificationScope": "Checked core ES inclusion at no additional cost, current entity discovery and investigation context, and separate coming-soon labels for posture metrics and Entity Profiling.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Reviewed · 2026-09-26"
         }
       ]
     },
@@ -2927,18 +2995,18 @@ window.VersionCompassSources = {
         "editions: editions.conflicts.2.claims.0"
       ],
       "reviews": [
-        "2026-09-23"
+        "2026-09-26"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-09-23",
+      "reviewed": "2026-09-26",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "The broad pricing page remains alongside the narrower pricing-model eligibility FAQ.",
+      "section": "Enterprise Security, SOAR and Attack Analyzer purchasing sections",
+      "verificationScope": "Checked the two-edition, deployment, capability, quote, trial and listed activity-, workload- and ingest-pricing statements. No price or universal eligibility is inferred.",
       "events": [
         {
           "date": "2026-09-25",
@@ -2947,6 +3015,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-25",
           "event": "Review status updated: Needs reconciliation · 2026-09-23"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Needs reconciliation · 2026-09-26"
         }
       ]
     },
@@ -2962,18 +3034,18 @@ window.VersionCompassSources = {
         "editions: editions.conflicts.2.claims.1"
       ],
       "reviews": [
-        "2026-09-23"
+        "2026-09-26"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-09-23",
+      "reviewed": "2026-09-26",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "The unresolved activity-pricing discrepancy remains explicit instead of becoming commercial advice.",
+      "section": "Activity-, workload- and ingest-pricing eligibility FAQ",
+      "verificationScope": "Checked product eligibility wording for all three models. The activity-based entry still names Cloud Platform rather than Enterprise Security.",
       "events": [
         {
           "date": "2026-09-25",
@@ -2982,6 +3054,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-25",
           "event": "Review status updated: Needs reconciliation · 2026-09-23"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Needs reconciliation · 2026-09-26"
         }
       ]
     },
@@ -2997,21 +3073,25 @@ window.VersionCompassSources = {
         "editions: editions.workflows.2"
       ],
       "reviews": [
-        "2026-09-23"
+        "2026-09-26"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-23",
+      "reviewed": "2026-09-26",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "The legacy standalone Splunk UBA lifecycle is not applied to integrated UEBA.",
+      "section": "UEBA FAQ — edition, deployment and Splunk UBA lifecycle",
+      "verificationScope": "Checked Premier inclusion, non-standalone/non-add-on status, Cloud-versus-on-premises differences, and separate legacy Splunk UBA lifecycle statements.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Reviewed · 2026-09-26"
         }
       ]
     }

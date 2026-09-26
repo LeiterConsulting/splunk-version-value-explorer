@@ -49,17 +49,30 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-09-25T10:03:41.288013+00:00",
-      "lastSuccess": null,
-      "outcome": "not-recorded",
-      "summary": "Scheduler records an attempt; completion and review outcome were not captured in this ledger.",
+      "lastAttempt": "2026-09-26T10:04:09Z",
+      "lastSuccess": "2026-09-26T10:10:18Z",
+      "outcome": "no-change",
+      "summary": "Reviewed all 20 maintained official ES Editions sources and every displayed claim; no material factual or scope change was found, and five unresolved source questions remain explicit.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
           "outcome": "not-recorded",
           "summary": "Imported scheduler attempt timestamp; not evidence of successful completion."
+        },
+        {
+          "at": "2026-09-26T10:04:09Z",
+          "outcome": "running",
+          "summary": "Reviewing the complete public ES Essentials and Premier evidence inventory, source questions, historical records, presentation and export behavior.",
+          "scope": "ES editions overview, release notes and Cloud capability history; agent and task guides; Cloud Connect; regional and SOAR pairing; pricing, licensing and trials; UEBA; Exposure Analytics; announcements; public route, filters, sharing and print integration."
+        },
+        {
+          "at": "2026-09-26T10:10:18Z",
+          "outcome": "no-change",
+          "summary": "Reviewed all 20 maintained official ES Editions sources and every displayed claim; no material factual or scope change was found, and five unresolved source questions remain explicit.",
+          "scope": "ES editions overview, release notes and Cloud capability history; agent and task guides; Cloud Connect; regional and SOAR pairing; pricing, licensing and trials; UEBA; Exposure Analytics; announcements; public route, filters, sharing and print integration."
         }
-      ]
+      ],
+      "scope": "ES editions overview, release notes and Cloud capability history; agent and task guides; Cloud Connect; regional and SOAR pairing; pricing, licensing and trials; UEBA; Exposure Analytics; announcements; public route, filters, sharing and print integration."
     },
     {
       "id": "version-guidance-audit",
