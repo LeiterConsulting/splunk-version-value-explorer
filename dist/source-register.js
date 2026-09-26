@@ -359,14 +359,14 @@ window.VersionCompassSources = {
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-09-25",
+      "reviewed": "2026-09-26",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "Cloud-managed pairing is maintained separately from the customer-managed Enterprise compatibility matrix.",
+      "section": "Splunk Cloud Platform subscription version table",
+      "verificationScope": "Confirmed the current published service pairing remains Splunk Cloud Platform 10.5, Enterprise Security 8.6 and ITSI 5.0. This current service-level pairing does not prove availability on a particular stack, region, entitlement or maintenance schedule.",
       "events": [
         {
           "date": "2026-09-25",
@@ -375,6 +375,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-25",
           "event": "Review status updated: Needs reconciliation · 2026-09-25"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Needs reconciliation · 2026-09-26"
         }
       ]
     },
@@ -1437,17 +1441,17 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.enterprise.releasesData.10.4.technicalChanges.1.source",
         "release.enterprise.releasesData.10.4.technicalChanges.2.source",
         "release.enterprise.releasesData.10.4.technicalChanges.3.source",
-        "release.enterprise.releasesData.10.4.technicalChanges.5.source",
+        "release.enterprise.releasesData.10.4.technicalChanges.4.source",
         "release.enterprise.releasesData.10.4.technicalChanges.6.source",
         "release.enterprise.releasesData.10.4.technicalChanges.7.source",
-        "release.enterprise.releasesData.10.4.requirements.0.3",
+        "release.enterprise.releasesData.10.4.technicalChanges.8.source",
         "release.enterprise.releasesData.10.4.requirements.1.3",
         "release.enterprise.releasesData.10.4.requirements.2.3",
         "release.enterprise.releasesData.10.4.requirements.3.3",
-        "release.enterprise.releasesData.10.4.requirements.4.3"
+        "release.enterprise.releasesData.10.4.requirements.4.3",
+        "release.enterprise.releasesData.10.4.requirements.5.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -1477,7 +1481,7 @@ window.VersionCompassSources = {
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": "2026-09-25",
+      "reviewed": "2026-09-26",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -1497,6 +1501,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-25",
           "event": "Review status updated: Reviewed · 2026-09-25"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Reviewed · 2026-09-26"
         }
       ]
     },
@@ -1660,14 +1668,14 @@ window.VersionCompassSources = {
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": "2026-09-25",
+      "reviewed": "2026-09-26",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "A compatibility listing is not proof of a released upgrade destination; new release lines require separate release-note verification.",
-      "section": "Splunk Enterprise version 10.x — 10.4.x and 10.2.x rows",
-      "verificationScope": "Checked ES 8.7 against Enterprise 10.2.x and 10.4.x, and ITSI 5.0 in those rows. Maintenance-release qualifications in the matrix still apply. Other combinations were not reverified.",
+      "section": "Splunk Enterprise version 10.x — 10.6.x, 10.5.x, 10.4.x and 10.2.x rows",
+      "verificationScope": "Checked the published ES and ITSI pairings across the 10.6.x, Cloud-only 10.5.x, 10.4.x and 10.2.x rows. The 10.6.x row is compatibility evidence only, not proof of a released Enterprise or Cloud upgrade destination. Maintenance-release qualifications still apply, and the Enterprise matrix is not used as a Cloud service-pairing rule.",
       "events": [
         {
           "date": "2026-09-25",
@@ -1676,6 +1684,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-25",
           "event": "Review status updated: Reviewed · 2026-09-25"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Reviewed · 2026-09-26"
         }
       ]
     },
@@ -1732,6 +1744,35 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues",
+      "title": "splunk enterprise 10.4.3 fixed issues",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.enterprise.releasesData.10.4.technicalChanges.0.source",
+        "release.enterprise.releasesData.10.4.requirements.0.3",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-09-26",
+      "status": "Reviewed",
+      "firstRecorded": "2026-09-26",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "The warning establishes an exact customer-managed maintenance floor without creating a separate major/minor release route or a Cloud rule.",
+      "section": "Splunk Enterprise 10.4.3 fixed issues — maintenance-release warning",
+      "verificationScope": "Confirmed Splunk's recommendation not to target 10.4.2 because tcpout with useACK=true can block forwarding pipelines on a receiving heavy forwarder or indexer, and the documented direction to use 10.4.3 or higher. Other 10.4.3 fixed issues were not converted into route requirements.",
+      "events": [
+        {
+          "date": "2026-09-26",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4",
       "title": "welcome to splunk enterprise 10.4",
       "areas": [
@@ -1739,8 +1780,8 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.enterprise.releasesData.10.4.source",
-        "release.enterprise.releasesData.10.4.technicalChanges.0.source",
-        "release.enterprise.releasesData.10.4.technicalChanges.4.source"
+        "release.enterprise.releasesData.10.4.technicalChanges.1.source",
+        "release.enterprise.releasesData.10.4.technicalChanges.5.source"
       ],
       "reviews": [],
       "usage": "In use",
@@ -2402,18 +2443,22 @@ window.VersionCompassSources = {
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": null,
-      "status": "Review date unknown",
+      "reviewed": "2026-09-26",
+      "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "Rolling SaaS milestones and customer-managed component versions are maintained as separate evidence.",
+      "section": "September 2026 timeline through the September 23 entries",
+      "verificationScope": "Checked the published September timeline and confirmed the latest customer-facing milestone remains September 23. The Cloud 10.6 free-edition reference stays scoped to the documented onboarding flow and is not treated as a generally released Platform destination.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Reviewed · 2026-09-26"
         }
       ]
     },

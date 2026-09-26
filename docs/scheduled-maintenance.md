@@ -62,7 +62,7 @@ For site changes, completion requires the same validated content in the remote r
 
 Each writer works from the freshest source. If another task changes it, reconciliation and renewed validation are necessary before publication; schedule spacing alone is not protection against concurrent edits. Unresolvable conflicts are surfaced rather than overwritten.
 
-Release notes document material changes, not every scheduled execution. The absence of a new note may reflect a no-change review and is not, by itself, proof that a task ran successfully. The schedules are maintained in Codex outside this repository; repository tests and CI checks are separate validation mechanisms.
+Release notes document material changes and published operational outcomes. An outcome-only entry must not advance factual review dates, lifecycle dates, or content-change cycles. The schedules are maintained in Codex outside this repository; repository tests and CI checks are separate validation mechanisms.
 
 ## Applying the approach to a similar site
 

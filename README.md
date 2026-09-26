@@ -53,11 +53,13 @@ The platform content is organized around five value themes: Search & AI, Platfor
 
 The September 2026 Observability milestone includes the September 23 APM, RUM, Synthetics private-runner, Observability Logs, and Cloud-connected trial announcements alongside customer-managed component guidance through standalone Splunk OpenTelemetry Collector 0.161.0, Kubernetes chart 0.161.0 (which packages Collector 0.161.0), .NET instrumentation 1.16.0, Node.js instrumentation 4.11.0, and Browser RUM 3.2. Browser RUM 3.1's changed defaults remain part of the readiness record; 3.2 keeps the old `spaMetrics` key as a deprecated alias while new configuration uses `navigationMetrics`. These versioned components remain distinct from the rolling Observability Cloud service milestone. The timeline's scoped reference to a Splunk Cloud Platform 10.6 free-edition flow does not create a 10.6 platform route: the current Cloud release-note and service-details sources still identify the 10.5 line.
 
+Splunk Enterprise 10.4 comparisons require a 10.4.3-or-later maintenance target. Splunk advises against 10.4.2 because acknowledged `tcpout` forwarding can block; the selector remains at the supported 10.4 release-line level while the report exposes this exact patch requirement.
+
 See [`docs/product-tracks.md`](docs/product-tracks.md) for the premium-product and Observability model, [`docs/technical-changes.md`](docs/technical-changes.md) for the technical-delta content model, and [`docs/enterprise-to-cloud.md`](docs/enterprise-to-cloud.md) for the migration guidance model, source map, and maintenance notes.
 
 ## Release notes
 
-Material changes are summarized by Eastern date in [`docs/releases`](docs/releases/README.md). Each daily note records what changed, why it matters, authoritative sources, and publication status. Scheduled audits do not create empty notes when no material change is found.
+Material changes and published maintenance outcomes are summarized by Eastern date in [`docs/releases`](docs/releases/README.md). Each daily note records what changed, why it matters, authoritative sources, and publication status. Outcome-only entries do not advance factual review dates or content-change cycles.
 
 ## Automated maintenance
 
@@ -68,7 +70,7 @@ Version Compass is maintained through four scheduled reviews running in Codex:
 - A dedicated daily CSP/FedRAMP watch checks hosting regions, service differences, and separate Moderate/High evidence.
 - A twice-weekly guidance audit rechecks upgrade paths, platform dependencies, recommended actions, citations, links, and report behavior.
 
-When authoritative evidence clearly supports a change, the maintenance workflow updates the relevant site content and documentation, validates representative journeys, commits the reviewed change, and republishes [versioncompass.com](https://versioncompass.com). If the evidence is ambiguous, conflicting, incomplete, or would require an unsupported inference, publication stops and the item is held for human review. No-change runs do not create commits or deployments.
+When authoritative evidence clearly supports a change, the maintenance workflow updates the relevant site content and documentation, validates representative journeys, commits the reviewed change, and republishes [versioncompass.com](https://versioncompass.com). If the evidence is ambiguous, conflicting, incomplete, or would require an unsupported inference, publication stops and the item is held for human review. A factual no-change review publishes only its bounded operational outcome; it does not advance factual review dates, lifecycle dates, or content-change cycles.
 
 Maintenance validation also covers the shared WebMCP comparison contract and its citations; uncertain findings remain subject to the same human-review stop.
 

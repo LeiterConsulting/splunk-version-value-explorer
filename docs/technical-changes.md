@@ -24,6 +24,7 @@ Platform technical records live in each release's `technicalChanges` array in `d
 
 - A technical change is not automatically a potential breaking change. Use `requirements` with its breaking flag only when Splunk identifies removal, incompatibility, a changed default, a prerequisite, or another condition that can materially disrupt the route.
 - Use **Required** only when the source establishes a prerequisite or an action necessary to preserve compatibility or service.
+- Treat an official warning not to target a particular maintenance release as a patch-specific **Required** record and readiness blocker. Keep the major/minor selector stable, name the safe maintenance floor exactly, and do not generalize the warning to Cloud-managed stacks.
 - Use **Review** when applicability depends on the customer's apps, topology, configuration, or integrations.
 - Use **Awareness** for an implementation change that is useful context but does not normally require customer action.
 - Preserve scope precisely. “Bundled runtime removed” is different from “technology unsupported”; “Python 3.13 in Splunk Web” is different from “Python 3.13 is the platform default.”

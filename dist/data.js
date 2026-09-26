@@ -308,6 +308,13 @@ window.SPLUNK_DATA = {
         ],
         technicalChanges: [
           {
+            component: "Enterprise 10.4 maintenance target", domain: "Platform operations", changeType: "Maintenance target", actionLevel: "Required",
+            from: "Splunk Enterprise 10.4.2", to: "Splunk Enterprise 10.4.3 or higher",
+            implication: "Version 10.4.2 can block tcpout forwarding pipelines when acknowledgements are enabled on a receiving heavy forwarder or indexer.",
+            action: "Do not target 10.4.2. Use 10.4.3 or later and validate acknowledged forwarding before production rollout.",
+            source: "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues"
+          },
+          {
             component: "Python application runtime", domain: "Runtime & apps", changeType: "Default changed", actionLevel: "Review",
             from: "splunkd uses Python 3.9 by default with Python 3.13 opt-in; Splunk Web already uses Python 3.13", to: "Python 3.13 becomes the default interpreter with Python 3.9 available as a fallback",
             implication: "Private apps, custom search commands, REST endpoints, scripted or modular inputs, and packaged libraries can expose Python-version assumptions when the default changes.",
@@ -364,6 +371,7 @@ window.SPLUNK_DATA = {
             source: "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first"
           }
         ], requirements: [
+          ["Use Enterprise 10.4.3 or higher", "Splunk recommends against 10.4.2 because tcpout with useACK=true can block forwarding pipelines. Target 10.4.3 or later and validate acknowledged forwarding.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues", true],
           ["Reach KV Store 7 before upgrading", "All deployments must use KV Store 7. Complete the migration and verify app collections before moving to 10.4.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first", true],
           ["Modernize TLS and certificates", "TLS 1.0/1.1 and SHA-1-signed certificates are removed. Inventory every internal and external connection and replace incompatible endpoints.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first", true],
           ["Move away from privileged services", "Root and administrator service identities are no longer supported. Confirm file ownership, ports, boot configuration, and service accounts.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first", true],

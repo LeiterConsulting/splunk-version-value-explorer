@@ -4,6 +4,7 @@ This directory contains concise, repository-only release notes for Version Compa
 
 ## Releases
 
+- [September 26, 2026](2026-09-26.md)
 - [September 25, 2026](2026-09-25.md)
 - [September 24, 2026](2026-09-24.md)
 - [September 23, 2026](2026-09-23.md)
@@ -18,7 +19,7 @@ This directory contains concise, repository-only release notes for Version Compa
 
 - Use one file per `America/New_York` calendar date: `YYYY-MM-DD.md`.
 - Append later changes to the existing note when multiple updates ship on the same date.
-- Record only material repository or live-site changes. A completed audit with no changes does not create an empty entry.
+- Record material repository or live-site changes and concise published maintenance outcomes. Outcome-only entries must not advance factual review dates, lifecycle dates, or content-change cycles.
 - Summarize customer-visible behavior, compatibility or risk implications, authoritative evidence, validation, and publication state.
 - Write the note as part of the same reviewed change set whenever possible.
 - Keep the website itself focused on comparison and reporting; release history remains in this repository.

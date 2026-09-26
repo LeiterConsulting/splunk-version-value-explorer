@@ -265,6 +265,19 @@ test('support windows use explicit dates, maintenance lines, and distinct manage
   assert.equal(lifecycle('platform','enterprise','unknown','2026-09-19').status,'unverified');
 });
 
+test('Enterprise 10.4 exposes the exact maintenance floor without becoming a Cloud rule', async () => {
+  const rt = await runtime();
+  const enterprise = rt.run('compare_routes', { routes: [{ product: 'platform', platform: 'enterprise', from: '10.2', to: '10.4' }] }).reports[0];
+  const maintenance = enterprise.technicalChanges.find(item => item.component === 'Enterprise 10.4 maintenance target');
+  assert.equal(maintenance.from, 'Splunk Enterprise 10.4.2');
+  assert.equal(maintenance.to, 'Splunk Enterprise 10.4.3 or higher');
+  assert.match(maintenance.source, /splunk-enterprise-10\.4\.3-fixed-issues$/);
+  assert(enterprise.breakingChanges.some(item => item.title === 'Use Enterprise 10.4.3 or higher' && item.breaking));
+  const cloud = rt.run('compare_routes', { routes: [{ product: 'platform', platform: 'cloud', from: '10.4.2604', to: '10.5.2605' }] }).reports[0];
+  assert(!cloud.technicalChanges.some(item => item.component === 'Enterprise 10.4 maintenance target'));
+  assert(!cloud.breakingChanges.some(item => item.title === 'Use Enterprise 10.4.3 or higher'));
+});
+
 test('September Observability additions preserve SaaS, private-runner, and Cloud-route boundaries', async () => {
   const rt = await runtime();
   const selection = { product: 'observability', platform: 'cloud', host: '10.5.2605', from: 'Jul 2026', to: 'Sep 2026' };

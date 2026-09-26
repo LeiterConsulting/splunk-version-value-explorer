@@ -38,6 +38,7 @@ Platform release content lives in `dist/data.js`. Enterprise Security, ITSI, and
 3. Add notable capabilities with a title, value theme, outcome, and concise explanation.
 4. Add each meaningful technical transition to `technicalChanges`. Include the component, technical domain, change type, action level, documented `from` and `to` states, operational implication, recommended action, and an official source.
 5. Add documented blockers, tests, validation work, or planning considerations. Use the optional fifth `requirements` value (`true`) only when the source identifies a potential breaking change, removed support, changed default, compatibility constraint, or other behavior that can materially disrupt the selected route.
+   An official warning against a specific Enterprise maintenance release belongs in the affected major/minor route as an exact patch-floor technical record and blocker; it does not require another selector or create a Cloud-managed rule.
 6. For Splunk Enterprise, update the `edges` map with supported release transitions.
 7. For Enterprise Security or ITSI, update the platform-line mapping from the official patch-specific compatibility matrix and separately review the current Splunk Cloud service pairing.
 8. For Observability, use a dated service milestone and attach Collector, chart, instrumentation, RUM, Synthetics private-runner, exporter, semantic-convention, realm, pairing, role, or entitlement prerequisites only where the official guidance supports them. Keep a standalone Collector release distinct when the current chart packages an earlier version. A Cloud Platform version named in an Observability integration announcement does not become a selectable Cloud release until the Platform release notes and service details establish that route.
@@ -71,7 +72,7 @@ Every material change that reaches the repository or live site must be represent
 2. Append to an existing note when more than one change is published on the same local date.
 3. Summarize the user-visible result, compatibility or risk impact, authoritative sources, validation, and publication status.
 4. Keep the note concise and written for reviewers; do not copy raw diffs or automation transcripts.
-5. Do not create a release note for a no-change audit.
+5. A published no-change maintenance outcome may create a concise operational entry, but it must not advance factual review dates, lifecycle dates, or content-change cycles.
 6. Add a new date to `docs/releases/README.md` when the day's first material change is published.
 
 ## Pull-request checklist
@@ -119,7 +120,7 @@ The header keeps the reviewed date visible on mobile. When advancing the review 
 
 After creating or appending the Eastern-date release note, run `node scripts/sync-release-metadata.cjs`. The newest dated file in `docs/releases` is the publication-date source of truth. This updates the desktop badge, compact mobile date, accessible label, direct note link, static and runtime print dates, shared report date, and release-note index together. WebMCP reads this same badge metadata. Do not advance `lifecycle.reviewed` unless the support policy was actually reverified.
 
-Before any commit or Sites publication, run `node scripts/sync-release-metadata.cjs --check` and `node --test tests/webmcp.test.cjs`. Both must pass on the exact source being published; GitHub CI checks them too. A stale badge/index is a repairable defect even when no new upstream product release was found. No-change checks must not advance dates or create empty notes. Publish the same validated files to GitHub and Sites, and report the actual outcome of each; do not report completion when either is blocked.
+Before any commit or Sites publication, run `node scripts/sync-release-metadata.cjs --check` and `node --test tests/webmcp.test.cjs`. Both must pass on the exact source being published; GitHub CI checks them too. A stale badge/index is a repairable defect even when no new upstream product release was found. Outcome-only publications must not advance factual review dates, lifecycle dates, or content-change cycles. Publish the same validated files to GitHub and Sites, and report the actual outcome of each; do not report completion when either is blocked.
 
 ## Unlisted ES editions evidence
 
