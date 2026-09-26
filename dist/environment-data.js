@@ -1,7 +1,7 @@
 /* Public environment evidence. See docs/cloud-environments.md. */
 window.VersionCompassEnvironmentData = {
   "schemaVersion": 1,
-  "checked": "2026-09-25",
+  "checked": "2026-09-26",
   "providers": {
     "aws": "AWS",
     "azure": "Microsoft Azure",
@@ -200,70 +200,70 @@ window.VersionCompassEnvironmentData = {
       "url": "https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor",
       "published": "2026-06-16",
       "scope": "Current product guide; page modification date; Victoria-only prerequisite, not regional or authorization evidence",
-      "checked": "2026-09-25"
+      "checked": "2026-09-26"
     },
     "service": {
       "title": "Cloud Platform 10.5 service details",
       "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.5.2605/information-about-the-service/splunk-cloud-platform-service-details",
       "published": "2026-06-26",
       "scope": "10.5.2605; page modification date",
-      "checked": "2026-09-25"
+      "checked": "2026-09-26"
     },
     "changes": {
       "title": "Cloud service description change log",
       "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.5.2605/information-about-the-service/splunk-cloud-service-description-change-log",
       "published": "2026-08-25",
       "scope": "Latest dated entry in body; individual entries have their own effective dates",
-      "checked": "2026-09-25"
+      "checked": "2026-09-26"
     },
     "es": {
       "title": "ES 8.7 regional availability",
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
       "published": "2026-09-01",
       "scope": "ES 8.7; page modification date",
-      "checked": "2026-09-25"
+      "checked": "2026-09-26"
     },
     "compliance": {
       "title": "Splunk compliance scope matrix",
       "url": "https://www.splunk.com/en_us/about-splunk/splunk-data-security-and-privacy/compliance-at-splunk.html",
       "published": "2026-02",
       "scope": "Matrix explicitly dated February 2026; individual marks require direct visual verification",
-      "checked": "2026-09-25"
+      "checked": "2026-09-26"
     },
     "high": {
       "title": "FedRAMP Marketplace: Cloud Platform High",
       "url": "https://www.fedramp.gov/marketplace/products/FR2314156865/",
       "published": "2024-09-13",
       "scope": "Named offering status date, not feature-review date",
-      "checked": "2026-09-25"
+      "checked": "2026-09-26"
     },
     "moderate": {
       "title": "FedRAMP Marketplace: Cloud Platform Moderate",
       "url": "https://www.fedramp.gov/marketplace/products/F1607197917/",
       "published": null,
       "scope": "Named offering record; feature scope requires separate evidence",
-      "checked": "2026-09-25"
+      "checked": "2026-09-26"
     },
     "victoria": {
       "title": "Victoria Experience High announcement",
       "url": "https://www.splunk.com/en_us/blog/industries/splunk-victoria-experience-is-now-authorized-at-fedramp-high.html",
       "published": "2026-07-10",
       "scope": "Platform experience authorization announcement",
-      "checked": "2026-09-25"
+      "checked": "2026-09-26"
     },
     "esmoderate": {
       "title": "ES Premier Moderate announcement",
       "url": "https://www.splunk.com/en_us/blog/industries/splunk-enterprise-security-premier-achieves-fedramp-moderate-authorization.html",
       "published": "2026-06-25",
       "scope": "Premier Moderate announcement; not universal component authorization",
-      "checked": "2026-09-25"
+      "checked": "2026-09-26"
     },
     "o11y": {
       "title": "Observability service description and realms",
       "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
       "published": "2026-03-25",
       "scope": "Rolling service; page modification date",
-      "checked": "2026-09-25"
+      "checked": "2026-09-26"
     }
   },
   "records": [
@@ -298,7 +298,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "service"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "experience": "victoria"
     },
@@ -321,7 +321,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "service"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "experience": "victoria"
     },
@@ -345,7 +345,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "service"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "experience": "victoria"
     },
@@ -370,7 +370,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "service"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "experience": "classic"
     },
@@ -391,7 +391,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "service"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "experience": "classic"
     },
@@ -415,7 +415,7 @@ window.VersionCompassEnvironmentData = {
         "service",
         "victoria"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "experience": "victoria"
     },
@@ -438,7 +438,7 @@ window.VersionCompassEnvironmentData = {
         "service",
         "moderate"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee"
     },
     {
@@ -460,7 +460,7 @@ window.VersionCompassEnvironmentData = {
         "service",
         "high"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee"
     },
     {
@@ -495,7 +495,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "service"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee"
     },
     {
@@ -517,7 +517,7 @@ window.VersionCompassEnvironmentData = {
         "service",
         "changes"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "effective": "2026-05-22"
     },
@@ -546,7 +546,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "service"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee"
     },
     {
@@ -569,7 +569,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "service"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee"
     },
     {
@@ -605,7 +605,7 @@ window.VersionCompassEnvironmentData = {
         "service",
         "ingest"
       ],
-      "checked": "2026-09-25",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "experience": "victoria"
     },
@@ -629,7 +629,7 @@ window.VersionCompassEnvironmentData = {
         "changes",
         "ingest"
       ],
-      "checked": "2026-09-25",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "effective": "2026-05-22",
       "experience": "victoria"
@@ -651,7 +651,7 @@ window.VersionCompassEnvironmentData = {
       "authorization": "not_established",
       "detail": "Not available on Classic: the product guide requires Victoria Experience. The regional service listing does not override this prerequisite.",
       "sources": ["service", "ingest"],
-      "checked": "2026-09-25",
+      "checked": "2026-09-26",
       "scope": "Current prerequisite applied to maintained regional service records; not a historical availability guarantee"
     },
     {
@@ -666,7 +666,7 @@ window.VersionCompassEnvironmentData = {
       "authorization": "not_established",
       "detail": "Not available on Classic: the product guide requires Victoria Experience. The Moderate regional listing is not a Classic exception or proof of feature authorization.",
       "sources": ["service", "changes", "ingest"],
-      "checked": "2026-09-25",
+      "checked": "2026-09-26",
       "scope": "Current prerequisite applied to maintained Moderate service records; no inference of High coverage or historical availability"
     },
     {
@@ -694,7 +694,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "service"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee"
     },
     {
@@ -717,7 +717,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "service"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee"
     },
     {
@@ -751,7 +751,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "service"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee"
     },
     {
@@ -772,7 +772,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "service"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee"
     },
     {
@@ -794,7 +794,7 @@ window.VersionCompassEnvironmentData = {
         "service",
         "changes"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "effective": "2026-04-08",
       "claims": [
@@ -833,7 +833,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "service"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee"
     },
     {
@@ -856,7 +856,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "service"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee"
     },
     {
@@ -878,7 +878,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "service"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee"
     },
     {
@@ -901,7 +901,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "service"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee"
     },
     {
@@ -923,7 +923,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "service"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee"
     },
     {
@@ -951,7 +951,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "service"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee"
     },
     {
@@ -974,7 +974,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "service"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee"
     },
     {
@@ -996,7 +996,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "es"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "release": "8.7"
     },
@@ -1020,7 +1020,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "es"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "release": "8.7"
     },
@@ -1043,7 +1043,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "es"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "release": "8.7"
     },
@@ -1065,7 +1065,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "es"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "release": "8.7"
     },
@@ -1088,7 +1088,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "es"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "release": "8.7"
     },
@@ -1115,7 +1115,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "es"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "release": "8.7"
     },
@@ -1144,7 +1144,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "es"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "release": "8.7"
     },
@@ -1172,7 +1172,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "es"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "release": "8.7"
     },
@@ -1196,7 +1196,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "es"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "release": "8.7"
     },
@@ -1220,7 +1220,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "es"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "release": "8.7"
     },
@@ -1241,7 +1241,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "es"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "release": "8.7"
     },
@@ -1264,7 +1264,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "es"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "release": "8.7"
     },
@@ -1287,7 +1287,7 @@ window.VersionCompassEnvironmentData = {
         "esmoderate",
         "es"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "effective": "2026-06-25"
     },
@@ -1308,7 +1308,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "o11y"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "realm": "us0"
     },
@@ -1329,7 +1329,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "o11y"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "realm": "us1"
     },
@@ -1350,7 +1350,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "o11y"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "realm": "us2"
     },
@@ -1371,7 +1371,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "o11y"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "realm": "eu0"
     },
@@ -1392,7 +1392,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "o11y"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "realm": "eu1"
     },
@@ -1413,7 +1413,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "o11y"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "realm": "eu2"
     },
@@ -1434,7 +1434,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "o11y"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "realm": "au0"
     },
@@ -1455,7 +1455,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "o11y"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "realm": "jp0"
     },
@@ -1476,7 +1476,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "o11y"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "realm": "sg0"
     },
@@ -1497,7 +1497,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "o11y"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current service guidance; not a historical availability guarantee",
       "realm": "us2"
     },
@@ -1520,7 +1520,7 @@ window.VersionCompassEnvironmentData = {
         "service",
         "compliance"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current evidence gap; not a denial of availability"
     },
     {
@@ -1542,7 +1542,7 @@ window.VersionCompassEnvironmentData = {
         "service",
         "compliance"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current evidence gap; not a denial of availability"
     },
     {
@@ -1565,7 +1565,7 @@ window.VersionCompassEnvironmentData = {
         "service",
         "compliance"
       ],
-      "checked": "2026-09-24",
+      "checked": "2026-09-26",
       "scope": "Current evidence gap; not a denial of availability"
     }
   ]

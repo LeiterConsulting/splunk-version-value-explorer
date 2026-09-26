@@ -355,7 +355,7 @@ window.VersionCompassSources = {
         "environment: environment.records.53"
       ],
       "reviews": [
-        "2026-09-25"
+        "2026-09-26"
       ],
       "conflict": true,
       "usage": "In use",
@@ -364,9 +364,9 @@ window.VersionCompassSources = {
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "Cloud-managed pairing is maintained separately from the customer-managed Enterprise compatibility matrix.",
-      "section": "Splunk Cloud Platform subscription version table",
-      "verificationScope": "Confirmed the current published service pairing remains Splunk Cloud Platform 10.5, Enterprise Security 8.6 and ITSI 5.0. This current service-level pairing does not prove availability on a particular stack, region, entitlement or maintenance schedule.",
+      "reason": "Current service evidence is not retrospective, Cloud-managed pairing remains separate from the Enterprise matrix, and a platform or region listing does not prove component authorization, entitlement or availability on a particular stack.",
+      "section": "Subscription version table; available-regions and region-differences table; experience designations",
+      "verificationScope": "Confirmed the current published service pairing remains Splunk Cloud Platform 10.5, Enterprise Security 8.6 and ITSI 5.0. Checked every maintained provider, region, experience and selected service-component row, including Victoria and Classic hosting, scheduled-maintenance visibility, Edge and Ingest Processor, federated services, ingest actions and Splunk AI Assistant for SPL. The service table still excludes Federated Search for Amazon S3 from FedRAMP High and DoD IL5, while the dated change log states that High availability was added for relevant 10.3 versions; Version Compass retains that conflict.",
       "events": [
         {
           "date": "2026-09-25",
@@ -375,6 +375,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-25",
           "event": "Review status updated: Needs reconciliation · 2026-09-25"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Needs reconciliation · 2026-09-26"
         },
         {
           "date": "2026-09-26",
@@ -396,18 +400,18 @@ window.VersionCompassSources = {
         "environment: environment.records.20"
       ],
       "reviews": [
-        "2026-09-25"
+        "2026-09-26"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-09-25",
+      "reviewed": "2026-09-26",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "Dated change-log entries have release-specific scope and do not silently supersede contradictory current table wording.",
+      "section": "August 25, May 22 and April 8, 2026 entries",
+      "verificationScope": "Confirmed the latest dated entry remains August 25, including Victoria expansion to Google Cloud Frankfurt and AWS FedRAMP High plus Edge and Ingest Processor expansion to AWS Canada West. Rechecked the May 22 Moderate processor entries and the April 8 Federated Search for Amazon S3 High entry. The latter still conflicts with the current 10.5 service table and remains qualified.",
       "events": [
         {
           "date": "2026-09-25",
@@ -416,6 +420,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-25",
           "event": "Review status updated: Needs reconciliation · 2026-09-25"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Needs reconciliation · 2026-09-26"
         }
       ]
     },
@@ -435,21 +443,25 @@ window.VersionCompassSources = {
         "environment: environment.records.15"
       ],
       "reviews": [
-        "2026-09-25"
+        "2026-09-26"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-25",
+      "reviewed": "2026-09-26",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "A service-region listing does not override the Victoria and tenant-provisioning prerequisites or establish authorization scope.",
+      "section": "Get started with Ingest Processor; compliance and certifications; provisioning request",
+      "verificationScope": "Confirmed that Ingest Processor requires Victoria Experience and a provisioned cloud tenant. The page warns that generally available features may not enter a third-party audit report until a later assessment cycle; it does not establish regional or FedRAMP feature authorization.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Reviewed · 2026-09-26"
         }
       ]
     },
@@ -1230,7 +1242,6 @@ window.VersionCompassSources = {
         "editions: editions.notes.1"
       ],
       "reviews": [
-        "2026-09-25",
         "2026-09-26"
       ],
       "usage": "In use",
@@ -1239,13 +1250,17 @@ window.VersionCompassSources = {
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "Regional availability and offering compliance remain separate from feature entitlement and customer authorization.",
+      "reason": "Edition, provider, region, product-component availability, supported pairing, offering compliance and customer authorization are separate facts.",
       "section": "Platform compatibility, regional tables, Cloud Connect and SOAR pairing matrices",
-      "verificationScope": "Checked the ES 8.x Enterprise floor, edition-specific AWS exceptions, GCP/Azure limits, Cloud Connect regions, exact SOAR pairing rows, unsupported Enterprise 9.4.0–9.4.2 pairing and hybrid/FedRAMP limits.",
+      "verificationScope": "Checked the ES 8.x Enterprise floor, every maintained edition-specific AWS exception, GCP and Azure component boundaries, Cloud Connect regions, exact SOAR version and same-provider pairing rows, unsupported Enterprise 9.4.0–9.4.2 pairing and hybrid/FedRAMP limits. These tables do not establish general Cloud premium-app availability or customer authorization.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Reviewed · 2026-09-26"
         },
         {
           "date": "2026-09-26",
@@ -2240,21 +2255,25 @@ window.VersionCompassSources = {
         "environment: environment.records.50"
       ],
       "reviews": [
-        "2026-09-25"
+        "2026-09-26"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-25",
+      "reviewed": "2026-09-26",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "Rolling SaaS realm hosting and component availability are separate from customer-managed component versions and from Splunk Platform compliance scope.",
+      "section": "Available regions and realms; available components per region or realm",
+      "verificationScope": "Confirmed the nine maintained Observability realms, their AWS or Google Cloud hosting mappings, and the component table including the absence of Database Monitoring from the Google Cloud us2 row. Realm hosting remains independent of monitored workload location and connected Splunk Platform authorization.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Reviewed · 2026-09-26"
         }
       ]
     },
@@ -2748,21 +2767,25 @@ window.VersionCompassSources = {
         "environment: environment.records.6"
       ],
       "reviews": [
-        "2026-09-25"
+        "2026-09-26"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-25",
+      "reviewed": "2026-09-26",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "Offering-level status is distinct from feature-specific availability and customer authorization decisions.",
       "section": "Status and Certification Profile — package F1607197917",
-      "verificationScope": "Confirmed the named Splunk Cloud Platform Moderate offering is listed as FedRAMP Certified, Class C (Moderate). This does not establish authorization for every feature, region, premium product, or another package.",
+      "verificationScope": "Confirmed the exact Splunk Cloud Platform for FedRAMP Moderate offering remains Ongoing Certification, FedRAMP Certified, Class C (Moderate), certified since October 11, 2019. This does not establish authorization for every feature, region, premium product or another package.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Reviewed · 2026-09-26"
         }
       ]
     },
@@ -2777,21 +2800,25 @@ window.VersionCompassSources = {
         "environment: environment.records.7"
       ],
       "reviews": [
-        "2026-09-25"
+        "2026-09-26"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-25",
+      "reviewed": "2026-09-26",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "Offering-level status is distinct from feature-specific availability, premium-product scope and customer authorization decisions.",
+      "section": "Status and Certification Profile — package FR2314156865",
+      "verificationScope": "Confirmed the exact Splunk Cloud Platform for FedRAMP High offering remains Ongoing Certification, FedRAMP Certified, Class D (High), certified since September 13, 2024.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Reviewed · 2026-09-26"
         }
       ]
     },
@@ -2808,21 +2835,25 @@ window.VersionCompassSources = {
         "environment: environment.records.53"
       ],
       "reviews": [
-        "2026-09-25"
+        "2026-09-26"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-25",
+      "reviewed": "2026-09-26",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "Rendered checkmarks, blank cells and product-level audit scope must not be inferred as universal feature availability, customer authorization or a current service snapshot.",
+      "section": "US Public Sector product-compliance table and February 2026 qualification",
+      "verificationScope": "Selected the US Public Sector tab and visually checked the symbol-bearing cells for the maintained Platform, ES, ITSI and Observability rows. The matrix remains explicitly dated February 2026. Blank High cells for Edge Processor, Ingest Processor, Federated Search S3 and Splunk AI Assistant remain missing evidence, not exclusions; ITSI host context is not converted into feature authorization and blank Observability cells remain not established.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Reviewed · 2026-09-26"
         }
       ]
     },
@@ -2837,21 +2868,25 @@ window.VersionCompassSources = {
         "environment: environment.records.40"
       ],
       "reviews": [
-        "2026-09-25"
+        "2026-09-26"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-25",
+      "reviewed": "2026-09-26",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "A named edition milestone is not universal component or deployment-pairing authorization.",
+      "section": "June 25, 2026 ES Premier Moderate announcement",
+      "verificationScope": "Confirmed the announcement names Enterprise Security Premier and FedRAMP Moderate. Individual components, regions, paired services, entitlements and customer authorization remain subject to their own evidence.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Reviewed · 2026-09-26"
         }
       ]
     },
@@ -2866,21 +2901,25 @@ window.VersionCompassSources = {
         "environment: environment.records.5"
       ],
       "reviews": [
-        "2026-09-25"
+        "2026-09-26"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-25",
+      "reviewed": "2026-09-26",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "An experience-level authorization announcement and migration signal do not prove authorization or availability for every capability or existing stack.",
+      "section": "July 10, 2026 Victoria Experience High announcement",
+      "verificationScope": "Confirmed the announcement scopes FedRAMP High authorization to Victoria Experience, states new deployments use Victoria, and describes existing-customer migrations as planned rather than universally completed.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-26",
+          "event": "Review status updated: Reviewed · 2026-09-26"
         }
       ]
     },

@@ -6,17 +6,30 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-09-25T11:19:20.913079+00:00",
-      "lastSuccess": null,
-      "outcome": "not-recorded",
-      "summary": "Scheduler records an attempt; completion and review outcome were not captured in this ledger.",
+      "lastAttempt": "2026-09-26T11:59:18Z",
+      "lastSuccess": "2026-09-26T12:07:11Z",
+      "outcome": "no-change",
+      "summary": "Reviewed all 10 maintained official environment sources and 54 records; no material factual or scope change was found, and the documented Federated Search for Amazon S3 High conflict remains explicit.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
           "outcome": "not-recorded",
           "summary": "Imported scheduler attempt timestamp; not evidence of successful completion."
+        },
+        {
+          "at": "2026-09-26T11:59:18Z",
+          "outcome": "running",
+          "summary": "Reviewing all maintained provider, region, experience, product-availability and FedRAMP evidence, including visual-symbol tables and preserved conflicts.",
+          "scope": "Cloud Platform service details and change log; feature and regional administration guides; ES, ITSI and SOAR regional evidence; Observability realms and service scope; Compliance at Splunk matrix; FedRAMP Marketplace Moderate and High offering records; environment filters, perspectives, reports, shared URLs and read-only agent parity."
+        },
+        {
+          "at": "2026-09-26T12:07:11Z",
+          "outcome": "no-change",
+          "summary": "Reviewed all 10 maintained official environment sources and 54 records; no material factual or scope change was found, and the documented Federated Search for Amazon S3 High conflict remains explicit.",
+          "scope": "Cloud Platform service details and change log; Ingest Processor prerequisites; ES and SOAR regional and pairing evidence; ITSI host-context boundary; Observability realms and component scope; rendered US Public Sector compliance symbols; exact FedRAMP Marketplace Moderate and High offerings; environment filters, perspectives, reports, shared URLs and read-only agent parity."
         }
-      ]
+      ],
+      "scope": "Cloud Platform service details and change log; Ingest Processor prerequisites; ES and SOAR regional and pairing evidence; ITSI host-context boundary; Observability realms and component scope; rendered US Public Sector compliance symbols; exact FedRAMP Marketplace Moderate and High offerings; environment filters, perspectives, reports, shared URLs and read-only agent parity."
     },
     {
       "id": "version-release-watch",
