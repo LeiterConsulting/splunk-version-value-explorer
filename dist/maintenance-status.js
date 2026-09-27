@@ -74,10 +74,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-09-26T10:04:09Z",
-      "lastSuccess": "2026-09-26T10:10:18Z",
+      "lastAttempt": "2026-09-27T10:05:39Z",
+      "lastSuccess": "2026-09-27T10:08:17Z",
       "outcome": "no-change",
-      "summary": "Reviewed all 20 maintained official ES Editions sources and every displayed claim; no material factual or scope change was found, and five unresolved source questions remain explicit.",
+      "summary": "No supported ES edition, prerequisite, deployment, history, workflow, or presentation claim changed; five documented source questions remain unresolved.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -95,9 +95,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Reviewed all 20 maintained official ES Editions sources and every displayed claim; no material factual or scope change was found, and five unresolved source questions remain explicit.",
           "scope": "ES editions overview, release notes and Cloud capability history; agent and task guides; Cloud Connect; regional and SOAR pairing; pricing, licensing and trials; UEBA; Exposure Analytics; announcements; public route, filters, sharing and print integration."
+        },
+        {
+          "at": "2026-09-27T10:05:39Z",
+          "outcome": "running",
+          "summary": "Reviewing the complete public ES Essentials/Premier evidence inventory and integrated report behavior.",
+          "scope": "Official ES editions overview, 8.7 release notes and Cloud matrix, agent compatibility and task guides, Cloud Connect, regional and SOAR pairing, pricing and licensing, UEBA, Exposure Analytics, announcements, unresolved source questions, routes, themes, sharing, print, and shared navigation."
+        },
+        {
+          "at": "2026-09-27T10:08:17Z",
+          "outcome": "no-change",
+          "summary": "No supported ES edition, prerequisite, deployment, history, workflow, or presentation claim changed; five documented source questions remain unresolved.",
+          "scope": "All 20 maintained official ES edition sources and every displayed capability, history, note, highlight, workflow, conflict, edition, deployment, region, version, pricing, licensing, release-stage, route, theme, sharing, print, and agent-boundary claim."
         }
       ],
-      "scope": "ES editions overview, release notes and Cloud capability history; agent and task guides; Cloud Connect; regional and SOAR pairing; pricing, licensing and trials; UEBA; Exposure Analytics; announcements; public route, filters, sharing and print integration."
+      "scope": "All 20 maintained official ES edition sources and every displayed capability, history, note, highlight, workflow, conflict, edition, deployment, region, version, pricing, licensing, release-stage, route, theme, sharing, print, and agent-boundary claim."
     },
     {
       "id": "version-guidance-audit",
