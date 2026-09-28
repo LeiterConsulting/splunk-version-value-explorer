@@ -162,17 +162,30 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-guidance-audit",
       "name": "Version Guidance Audit",
-      "lastAttempt": "2026-09-24T12:45:24.855849+00:00",
-      "lastSuccess": null,
-      "outcome": "not-recorded",
-      "summary": "Scheduler records an attempt; completion and review outcome were not captured in this ledger.",
+      "lastAttempt": "2026-09-28T12:50:24Z",
+      "lastSuccess": "2026-09-28T12:57:31Z",
+      "outcome": "no-change",
+      "summary": "Completed the cross-product guidance audit with no customer-facing factual correction required; revalidated the maintained Enterprise, ES and ITSI lifecycle tables and all route, export, share and WebMCP contracts.",
       "history": [
         {
           "at": "2026-09-24T12:45:24.855849+00:00",
           "outcome": "not-recorded",
           "summary": "Imported scheduler attempt timestamp; not evidence of successful completion."
+        },
+        {
+          "at": "2026-09-28T12:50:24Z",
+          "outcome": "running",
+          "summary": "Auditing current Version Compass guidance, evidence, route behavior and export/share integrity across all maintained products and views.",
+          "scope": "Enterprise and Cloud Platform routes; Enterprise-to-Cloud migration; Enterprise Security, ITSI and Observability routes; technical-change records; compatibility, lifecycle and source evidence; ES Editions; Cloud environments and perspectives; URL restoration, print/snapshot behavior, WebMCP parity, themes, navigation and publication metadata."
+        },
+        {
+          "at": "2026-09-28T12:57:31Z",
+          "outcome": "no-change",
+          "summary": "Completed the cross-product guidance audit with no customer-facing factual correction required; revalidated the maintained Enterprise, ES and ITSI lifecycle tables and all route, export, share and WebMCP contracts.",
+          "scope": "Enterprise and Cloud Platform routes; Enterprise-to-Cloud migration; Enterprise Security, ITSI and Observability routes; 72 technical-change records; compatibility and lifecycle evidence; ES Editions; Cloud environments and perspectives; malformed and exact URLs; print/snapshot restoration; WebMCP catalog, batches and current-report behavior; themes, navigation and publication metadata."
         }
-      ]
+      ],
+      "scope": "Enterprise and Cloud Platform routes; Enterprise-to-Cloud migration; Enterprise Security, ITSI and Observability routes; 72 technical-change records; compatibility and lifecycle evidence; ES Editions; Cloud environments and perspectives; malformed and exact URLs; print/snapshot restoration; WebMCP catalog, batches and current-report behavior; themes, navigation and publication metadata."
     }
   ]
 };

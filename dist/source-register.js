@@ -3167,21 +3167,25 @@ window.VersionCompassSources = {
         "release.guidance.lifecycle.source"
       ],
       "reviews": [
-        "2026-09-22"
+        "2026-09-28"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-22",
+      "reviewed": "2026-09-28",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "The lifecycle review date records a scoped policy-table verification; it does not recalculate deadlines, establish Cloud availability or advance unrelated source-review dates.",
+      "section": "Splunk Enterprise, Enterprise Security and IT Service Intelligence supported-version tables",
+      "verificationScope": "Checked every maintained Enterprise 8.1 through 10.4, Enterprise Security 7.3 through 8.7 and ITSI 4.15 through 5.0 support deadline against the current published tables, including the explicit Enterprise Security 7.3 support extension. Cloud-managed selections do not inherit these customer-managed lifecycle dates, and the 180-day reminder remains a Version Compass planning threshold rather than a support-policy rule.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-28",
+          "event": "Review status updated: Reviewed · 2026-09-28"
         }
       ]
     },
