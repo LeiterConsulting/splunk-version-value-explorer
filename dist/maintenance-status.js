@@ -98,10 +98,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-09-27T10:05:39Z",
-      "lastSuccess": "2026-09-27T10:08:17Z",
+      "lastAttempt": "2026-09-28T10:00:25Z",
+      "lastSuccess": "2026-09-28T10:04:46Z",
       "outcome": "no-change",
-      "summary": "No supported ES edition, prerequisite, deployment, history, workflow, or presentation claim changed; five documented source questions remain unresolved.",
+      "summary": "All maintained ES editions evidence remains consistent with the published comparison; no factual or entitlement change was required.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -131,9 +131,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "No supported ES edition, prerequisite, deployment, history, workflow, or presentation claim changed; five documented source questions remain unresolved.",
           "scope": "All 20 maintained official ES edition sources and every displayed capability, history, note, highlight, workflow, conflict, edition, deployment, region, version, pricing, licensing, release-stage, route, theme, sharing, print, and agent-boundary claim."
+        },
+        {
+          "at": "2026-09-28T10:00:25Z",
+          "outcome": "running",
+          "summary": "Reviewing the maintained public ES editions evidence set.",
+          "scope": "Twenty official ES editions, release, compatibility, agent, Cloud Connect, pricing, licensing, regional, UEBA, Exposure Analytics and announcement sources; integrated route, sharing, print, perspective and publication parity."
+        },
+        {
+          "at": "2026-09-28T10:04:46Z",
+          "outcome": "no-change",
+          "summary": "All maintained ES editions evidence remains consistent with the published comparison; no factual or entitlement change was required.",
+          "scope": "Rechecked all twenty official editions, release, capability-history, agent/task, Cloud Connect, pricing, licensing/trial, regional/SOAR pairing, UEBA, Exposure Analytics and announcement sources; preserved five explicit source questions and the integrated route/export boundaries."
         }
       ],
-      "scope": "All 20 maintained official ES edition sources and every displayed capability, history, note, highlight, workflow, conflict, edition, deployment, region, version, pricing, licensing, release-stage, route, theme, sharing, print, and agent-boundary claim."
+      "scope": "Rechecked all twenty official editions, release, capability-history, agent/task, Cloud Connect, pricing, licensing/trial, regional/SOAR pairing, UEBA, Exposure Analytics and announcement sources; preserved five explicit source questions and the integrated route/export boundaries."
     },
     {
       "id": "version-guidance-audit",
