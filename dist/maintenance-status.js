@@ -46,10 +46,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-09-27T09:49:29Z",
-      "lastSuccess": "2026-09-27T09:51:25Z",
+      "lastAttempt": "2026-09-28T09:50:44.662Z",
+      "lastSuccess": "2026-09-28T09:50:50.555Z",
       "outcome": "no-change",
-      "summary": "Reviewed the maintained official release, compatibility, migration, security, Splunkbase and Observability/OpenTelemetry streams; no material factual, compatibility, readiness or route change was found.",
+      "summary": "No newly published or revised official release information required a factual Version Compass update.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -79,9 +79,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Reviewed the maintained official release, compatibility, migration, security, Splunkbase and Observability/OpenTelemetry streams; no material factual, compatibility, readiness or route change was found.",
           "scope": "Splunk Enterprise 10.4 release, fixed-issue, upgrade-path, READ THIS FIRST, system-requirement and deprecation surfaces; Cloud Platform 10.5.2605 release and service-details pairing; Enterprise-to-Cloud guidance and SCMA 5.4.11; Enterprise Security 8.7 and ITSI 5.0.2 listings, release and customer-managed compatibility evidence; September security notice; September Observability timeline; maintained Collector 0.161.0, Kubernetes chart 0.161.0, .NET 1.16.0, Node.js 4.11.0, Java 2.31.1, Python 2.12.1 and Browser RUM 3.2.0 streams; route, share, print and WebMCP integration."
+        },
+        {
+          "at": "2026-09-28T09:50:44.662Z",
+          "outcome": "running",
+          "summary": "Reviewing current official Splunk release, compatibility, migration, security and Observability component sources.",
+          "scope": "Splunk Enterprise, Splunk Cloud Platform, Enterprise-to-Cloud migration, Enterprise Security, ITSI, Observability Cloud and maintained customer-managed component streams."
+        },
+        {
+          "at": "2026-09-28T09:50:50.555Z",
+          "outcome": "no-change",
+          "summary": "No newly published or revised official release information required a factual Version Compass update.",
+          "scope": "Checked current Splunk Enterprise and Cloud release notes, upgrade paths, system and compatibility guidance, ES and ITSI release/listing/dependency evidence, migration assessment listing, security notices, September Observability milestones, and maintained Collector, Kubernetes, .NET, Node.js, Java, Python and Browser RUM streams."
         }
       ],
-      "scope": "Splunk Enterprise 10.4 release, fixed-issue, upgrade-path, READ THIS FIRST, system-requirement and deprecation surfaces; Cloud Platform 10.5.2605 release and service-details pairing; Enterprise-to-Cloud guidance and SCMA 5.4.11; Enterprise Security 8.7 and ITSI 5.0.2 listings, release and customer-managed compatibility evidence; September security notice; September Observability timeline; maintained Collector 0.161.0, Kubernetes chart 0.161.0, .NET 1.16.0, Node.js 4.11.0, Java 2.31.1, Python 2.12.1 and Browser RUM 3.2.0 streams; route, share, print and WebMCP integration."
+      "scope": "Checked current Splunk Enterprise and Cloud release notes, upgrade paths, system and compatibility guidance, ES and ITSI release/listing/dependency evidence, migration assessment listing, security notices, September Observability milestones, and maintained Collector, Kubernetes, .NET, Node.js, Java, Python and Browser RUM streams."
     },
     {
       "id": "es-editions-watch",
