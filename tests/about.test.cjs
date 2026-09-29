@@ -1,6 +1,6 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 test('About search, combined filters, sorting, empty results and reset retain theme and route',()=>{
- const nodes=new Map(),node=id=>{if(!nodes.has(id))nodes.set(id,{value:'',innerHTML:'',textContent:'',listeners:{},addEventListener(k,fn){this.listeners[k]=fn;},append(){},getBoundingClientRect(){return {height:90}}});return nodes.get(id);};
+ const nodes=new Map(),node=id=>{if(!nodes.has(id))nodes.set(id,{value:'',innerHTML:'',textContent:'',listeners:{},addEventListener(k,fn){this.listeners[k]=fn;},append(){},querySelectorAll(selector){if(selector!=='.is-paged-out')return [];if(!this.paged)this.paged=Array.from({length:(this.innerHTML.match(/ is-paged-out/g)||[]).length},()=>({classList:{remove(k){this.removed=k;}}}));return this.paged.filter(x=>!x.classList.removed);},getBoundingClientRect(){return {height:90}}});return nodes.get(id);};
  const document={querySelector:node,getElementById:node,createElement:()=>node('created'+nodes.size),head:{append(){}},documentElement:{classList:{add(){}},style:{setProperty(){}}}};
  const location={href:'https://versioncompass.com/?view=about&theme=cisco',search:'?view=about&theme=cisco'};
  const window={addEventListener(){}};
@@ -11,15 +11,21 @@ test('About search, combined filters, sorting, empty results and reset retain th
  vm.runInNewContext(fs.readFileSync('dist/about.js','utf8'),context);
  assert(node('maintenance-outcomes').innerHTML.includes('Last successful check'));
  assert(node('maintenance-outcomes').innerHTML.includes('Version Release Watch'));
- assert.equal(node('source-count').textContent,window.VersionCompassSources.sources.length+' of '+window.VersionCompassSources.sources.length+' sources');
+ assert.equal(node('source-count').textContent,'Showing 20 of '+window.VersionCompassSources.sources.length+' sources');
+ assert.equal((node('source-list').innerHTML.match(/class="source-entry/g)||[]).length,window.VersionCompassSources.sources.length);
+ assert.match(node('source-list').innerHTML,/<summary>Evidence and usage<\/summary>/);
+ assert.equal(node('source-more').textContent,'Show 20 more · 87 remaining');
+ node('source-more').listeners.click();
+ assert.equal(node('source-count').textContent,'Showing 40 of 107 sources');
+ assert.equal(node('source-list').paged.filter(x=>x.classList.removed).length,20);
  node('source-status').value='Needs reconciliation';node('source-status').listeners.change();
  assert(!node('source-list').innerHTML.includes('Review date unknown'));
  node('source-search').value='no-source-matches-this';node('source-search').listeners.input();
  assert.match(node('source-list').innerHTML,/No sources match/);
  assert.equal(new URL(location.href).searchParams.get('theme'),'cisco');
  assert.equal(new URL(location.href).searchParams.get('view'),'about');
- node('source-reset').listeners.click();assert.equal(node('source-search').value,'');assert.equal(node('source-status').value,'');assert.equal(node('source-count').textContent,window.VersionCompassSources.sources.length+' of '+window.VersionCompassSources.sources.length+' sources');
- node('source-sort').value='review-old';node('source-sort').listeners.change();assert.equal(new URL(location.href).searchParams.get('source_sort'),'review-old');
+ node('source-reset').listeners.click();assert.equal(node('source-search').value,'');assert.equal(node('source-status').value,'');assert.equal(node('source-count').textContent,'Showing 20 of '+window.VersionCompassSources.sources.length+' sources');
+ node('source-sort').value='review-old';node('source-sort').listeners.change();assert.equal(new URL(location.href).searchParams.get('source_sort'),'review-old');assert.equal(node('source-refine-summary').textContent,'More filters · active');
 });
 test('About section tabs scroll to headings and follow the active section',()=>{
  const headings=new Map([['about-title',210],['automation-title',510],['maintenance-title',810],['sources-title',1110]].map(([id,top])=>[id,{id,top,closest:()=>null,getBoundingClientRect(){return {top:this.top}},setAttribute(k,v){this[k]=v},focus(){this.focused=true},scrollIntoView(opts){this.scrolled=opts}}]));
