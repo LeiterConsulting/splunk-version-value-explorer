@@ -112,3 +112,7 @@ Preserve [decision support and snapshots](decision-support.md): four-part summar
 ## September 28 Forwarders increment
 
 All four existing watches also follow [Forwarders coverage and maintenance](forwarders.md). Release Watch owns UF/HF releases and advisories; CSP FedRAMP Watch owns destination restrictions; Guidance Audit owns upgrade/receiver/OS/topology and report parity; ES Editions Watch covers ES-specific forwarding dependencies only. Schedules and factual-publication safeguards are unchanged. The expanded product scope was explicitly owner-authorized; subsequent Phase 2 progression remains gated on the owner's review after a successful-deployment-based three-day soak.
+
+## Concise presentation safeguard
+
+The Guidance Audit protects the route-first Forwarders interaction: five primary selections, one optional environment refinement, separate receiver/package/authorization labels, a source link for each step, and parity across screen, print, saved HTML and the read-only tool. Shared source context opens in one keyboard-accessible dialog; direct official links remain beside claims. Availability badges keep named regional restrictions scoped and must not turn partial negative evidence into a global exclusion. UI updates do not advance factual review dates.

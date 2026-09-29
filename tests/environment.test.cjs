@@ -61,3 +61,9 @@ test('regional feature notes and print retain every matching record and both con
  const es=route({csp:'azure',region:'azure-london',compliance:'commercial'},'es');assert.match(env.annotation(es,{title:'UEBA'}),/Documented unavailable/);
  assert.match(env.annotation(es,{title:'SOAR'}),/Cloud · Not established/);
 });
+test('regional exclusions do not become global unavailability badges',()=>{
+ const broad={product:'es',platform:'cloud',environment:{},environmentErrors:[]};
+ const scoped={...broad,environment:{region:'ca-west-1'}};
+ assert.equal(env.availability(broad,{title:'Agentic SOC'})[0].status,'not_established');
+ assert.equal(env.availability(scoped,{title:'Agentic SOC'})[0].status,'unavailable');
+});

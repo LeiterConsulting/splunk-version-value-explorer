@@ -34,3 +34,9 @@ Existing schedules remain unchanged; no additional recurring watch.
 - ES Editions Watch: ES-specific forwarding and ingestion dependencies only; do not assume forwarder compatibility grants an ES entitlement or pairing.
 
 Keep compact summaries, actionable blocker/check/question counts, the common share/save controls, category URL restoration, route-specific skip links and complete ES snapshot environment content. Run the full tests and all three synchronization gates. Failed checks block publication. Record actual limitations, task changes and deployment outcome in the Eastern-date release note. Routine factual updates continue during the soak; further Phase 2 stages require owner approval. A configured review or deployment attempt does not start a soak; only verified publication does.
+
+## Concise interactive flow
+
+The screen leads with forwarder, current, target, destination and receiver; the documented path appears immediately. OS, architecture, provider, region and topology are together under one optional refinement control. Receiver, package and authorization assessments remain separate. Required actions, selected issue/security guidance and an optional technical section follow. Each upgrade step links to its own evidence. Print/PDF and saved HTML retain the full selected report with qualifications and dated citations.
+
+A restriction documented for named regions must not become a global Unavailable label when no region is selected. A broad selection without positive evidence remains Not established; the exact regional records are available in source context.

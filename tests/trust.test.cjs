@@ -1,7 +1,7 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),os=require('node:os'),path=require('node:path'),cp=require('node:child_process');
 const read=f=>fs.readFileSync(f,'utf8');
 test('source verification never masquerades as claim verification; scope and escaping are retained',()=>{
- const c={window:{VersionCompassSources:{sources:[{url:'https://example.com',title:'Source',reviewed:'2026-09-25',status:'Reviewed',section:'Compatibility table',verificationScope:'Only ES 8.7 on Enterprise 10.4'}]}}};
+ const c={window:{VersionCompassSources:{sources:[{url:'https://example.com',title:'Source',reviewed:'2026-09-25',status:'Reviewed',section:'Compatibility table',verificationScope:'Only ES 8.7 on Enterprise 10.4'}]}},document:{addEventListener(){}}};
  vm.runInNewContext(read('dist/evidence.js'),c);
  const h=c.window.VersionCompassEvidence.html({claim:'<img onerror=x>',scope:'Cloud',urls:['https://example.com']});
  assert(h.includes('&lt;img'));assert(!h.includes('<img'));assert(h.includes('Claim last verified:</strong> Not separately recorded'));assert(h.includes('Source last verified:</strong> 2026-09-25'));assert(h.includes('Only ES 8.7'));assert(h.includes('source_search='));
