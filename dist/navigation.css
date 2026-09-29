@@ -42,6 +42,8 @@
 .forwarders-view .product-switcher{margin-bottom:15px}
 .forwarder-primary{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
 .forwarder-primary label,.forwarder-controls label{display:grid;gap:5px;min-width:0;font-size:14px;font-weight:650}
+.forwarder-primary label[hidden],.forwarder-controls label[hidden]{display:none!important}
+.forwarder-deployment-note{grid-column:1/-1;margin:2px 0 0;color:#41604d;font-size:14px;line-height:1.45}
 .forwarder-primary select,.forwarder-controls select,.forwarder-controls input{width:100%;min-height:44px;padding:7px 10px;border:1px solid #87988d;border-radius:6px;background:#fff;color:#14291d;font:400 16px/1.3 inherit;font-family:inherit;font-size:16px}
 .forwarder-advanced{border-top:1px solid #d8e1da;margin-top:16px;padding-top:8px}
 .forwarder-advanced>summary{cursor:pointer;width:fit-content;font-size:14px;font-weight:700;color:#145b3a;padding:7px 0}
@@ -71,6 +73,7 @@
 .forwarder-checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 32px;padding-left:24px;max-width:1000px}
 .forwarder-checks li{padding-left:6px}
 .forwarder-two-col{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:24px}
+.forwarder-two-col.single{grid-template-columns:1fr}
 .forwarder-two-col>div{border-top:1px solid #d4ded6;padding-top:14px}.forwarder-two-col h3{margin:0 0 7px;font-size:1.1rem}.forwarder-two-col p{margin:8px 0;font-size:14px}
 .forwarder-secondary-label{color:#536a5c;font-weight:650}
 .forwarder-availability,.feature-availability{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0}
@@ -84,6 +87,7 @@
 .forwarder-technical-body{padding:20px}.forwarder-technical-body h3{margin:16px 0 8px}.forwarder-technical{padding:10px 0;border-top:1px solid #dbe3dc}.forwarder-technical h4,.forwarder-technical p{margin:6px 0}
 .theme-cisco .forwarder-primary select,.theme-cisco .forwarder-controls input,.theme-cisco .forwarder-controls select{background:#131a2b;color:#edf2ff;border-color:#526c91}
 .theme-cisco .forwarder-fact{background:#121d32;color:#edf2ff;border-color:#435a7b}.theme-cisco .forwarder-path{color:#bce5ff}.theme-cisco .forwarder-path>span:nth-child(odd){background:#172b42;border-color:#526c91}.theme-cisco .forwarder-alert{background:#33251e;color:#ffe2c5}.theme-cisco .availability-item>button{background:#182b43;border-color:#526c91;color:#c5e9ff}.theme-cisco .forwarder-advanced>summary{color:#8ed9ff}.theme-cisco .forwarder-advanced>summary span,.theme-cisco .forwarder-advanced p,.theme-cisco .forwarder-step-sources,.theme-cisco .forwarder-scope,.theme-cisco .forwarder-coverage{color:#b9c9e0}.theme-cisco .forwarder-step-sources a{color:#8ed9ff}
+.theme-cisco .forwarder-deployment-note{color:#b9c9e0}
 @media(max-width:1000px){.forwarder-primary{grid-template-columns:repeat(3,minmax(0,1fr))}.forwarder-facts{grid-template-columns:1fr 1fr}}
 @media(max-width:700px){.forwarder-primary,.forwarder-advanced .forwarder-controls,.forwarder-facts,.forwarder-two-col,.forwarder-checks{grid-template-columns:1fr 1fr}.forwarders-view #results>.section{padding:25px 18px}.forwarder-facts .forwarder-fact:last-child{grid-column:1/-1}.forwarder-technical-section .technical-panel>summary{display:block}.forwarder-technical-section .technical-panel>summary span{display:block}}
 @media(max-width:480px){.forwarder-primary,.forwarder-advanced .forwarder-controls,.forwarder-facts,.forwarder-two-col,.forwarder-checks{grid-template-columns:1fr}.forwarder-facts .forwarder-fact:last-child{grid-column:auto}.forwarder-advanced>summary span{display:block;margin-left:0}}

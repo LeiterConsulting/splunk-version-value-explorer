@@ -396,6 +396,34 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/forward-and-process-data/forwarding-and-receiving-data/10.5.2605/configure-forwarders/configure-forwarding-with-outputs.conf",
+      "title": "Multiple forwarding target groups and data cloning",
+      "areas": [
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "forwarders.sources.routing.url"
+      ],
+      "reviews": [
+        "2026-09-29"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-09-29",
+      "status": "Reviewed",
+      "firstRecorded": "2026-09-29",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-09-29",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-cloud-platform/forward-and-process-data/universal-forwarder-manual/10.0/configure-the-universal-forwarder/enable-a-receiver-for-the-splunk-cloud-platform",
       "title": "Cloud forwarder certificate renewal prerequisites",
       "areas": [

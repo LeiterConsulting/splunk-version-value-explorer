@@ -11,7 +11,7 @@ The peer product route is `?product=forwarders`. `forwarders-data.js` records sc
 - HF technical records reference the existing Enterprise data and select forwarding-relevant components. Target runtime history is separate from route changes. Bundled-runtime changes never establish app-owned runtime or premium-app patch compatibility.
 - Automatic certificate renewal is a target-eligibility feature, not a newly introduced 10.4 feature. Preserve commercial AWS, excluded regions, direct topology, version floors, opt-in and single-output qualifications.
 - SVD-2026-0404 and SVD-2026-0505 are selected advisory-specific patch floors, not a complete vulnerability assessment. The 10.4.2 useACK defect also concerns receiving HF/indexers.
-- Shared feature availability now supplies Cloud/CMP/FR-M/FR-H disclosures. Generic offering evidence cannot establish feature scope. Missing CMP feature-specific records remain Not established rather than an inferred availability badge. Existing exact product/patch qualifications remain intact.
+- The deployment choices are Splunk Enterprise (customer-managed), Splunk Cloud, a hybrid Enterprise + Cloud output, FedRAMP Moderate and FedRAMP High. Enterprise is the default and does not show a Cloud certificate-renewal feature. Hybrid shows separate Enterprise receiver and Cloud stack checks; the Cloud table applies to the tier directly connected to Cloud, so an intermediate tier requires its own assessment. Two output groups may clone or selectively route events, but this comparison does not verify the configuration or event equivalence. Generic offering evidence cannot establish feature scope. Existing exact product/patch qualifications remain intact.
 
 ## Supplied-source resolution in this run
 
@@ -37,6 +37,6 @@ Keep compact summaries, actionable blocker/check/question counts, the common sha
 
 ## Concise interactive flow
 
-The screen leads with forwarder, current, target, destination and receiver; the documented path appears immediately. OS, architecture, provider, region and topology are together under one optional refinement control. Receiver, package and authorization assessments remain separate. Required actions, selected issue/security guidance and an optional technical section follow. Each upgrade step links to its own evidence. Print/PDF and saved HTML retain the full selected report with qualifications and dated citations.
+The screen leads with forwarder, current, target, deployment and receiver; the documented path appears immediately. Hybrid adds a second Cloud stack selector and explains the two receiving legs. OS, architecture, provider, region and topology are together under one optional refinement control; provider and region are hidden for Enterprise-only routes. Receiver, package and authorization assessments remain separate. Required actions, selected issue/security guidance and an optional technical section follow. Each upgrade step links to its own evidence. Print/PDF and saved HTML retain the full selected report with qualifications and dated citations.
 
 A restriction documented for named regions must not become a global Unavailable label when no region is selected. A broad selection without positive evidence remains Not established; the exact regional records are available in source context.
