@@ -16,11 +16,13 @@ if(header&&copy&&print){
   '<path d="M4 3h13l4 4v14H3V3h1Z"/><path d="M7 3v6h10V3M7 21v-8h10v8M14 5v2"/>'
  ];
  [copy,print].forEach((button,i)=>{
-  const label=i?'Print / save PDF':'Copy link';
+  const label=i?'Print / PDF':'Copy comparison link';
   button.classList.add('header-action');button.setAttribute('aria-label',label);
   button.innerHTML='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'+icons[i]+'</svg><span class="header-action-label">'+label+'</span>';
   actions.append(button);
  });
+ const save=document.createElement('button');save.type='button';save.className='header-action';save.dataset.saveSnapshot='';save.setAttribute('aria-label','Save dated snapshot');save.innerHTML='<span aria-hidden="true">↓</span><span class="header-action-label">Save dated snapshot</span>';actions.append(save);
+ const snapshotStatus=document.createElement('span');snapshotStatus.className='snapshot-status header-share-status';snapshotStatus.setAttribute('role','status');actions.append(snapshotStatus);
  if(status){status.classList.add('header-share-status');actions.append(status);}
  const meta=document.createElement('div');meta.className='header-meta';
  const reviewed=header.querySelector('.reviewed');if(reviewed)meta.append(reviewed);
@@ -28,6 +30,7 @@ if(header&&copy&&print){
  const empty=document.querySelector('.report-actions');if(empty&&!empty.children.length)empty.remove();
 }
 
+const scope=document.createElement('p');scope.className='export-scope';scope.textContent=(new URLSearchParams(location.search).get('product')==='forwarders')?'Copy comparison link preserves every forwarder selection with current guidance. Print / PDF and Save dated snapshot include the full selected report: requirements, route changes, warnings and citations. Snapshots preserve dated content offline.':'Copy comparison link preserves selections and screen filters with current guidance. Print / PDF and Save dated snapshot include all benefit categories or edition capabilities, qualifications and citations for the selected comparison. Snapshots preserve dated content offline.';document.querySelector('.hero')?.append(scope);
 const specs=edition?[['.edition-hero','Selection'],['#environment-overview','Cloud scope'],['#edition-matrix-title','Comparison'],['#edition-conflicts','Source questions'],['#edition-workflows','Workflows'],['#edition-deployment','Deployment'],['#edition-history-title','History']]:[['.hero','Selection'],['#route-takeaway','Summary'],['#environment-overview','Cloud scope'],['#path-title','Upgrade path'],['#migration-approaches','Migration'],['#value-title','Benefits'],['#technical-title','Technical'],['#breaking-title','Risks'],['#readiness-title','Readiness'],['#source-title','Sources']];
 let targets=[],signature='',queued=false;
 function available(el){return el&&!el.closest('[hidden]')&&getComputedStyle(el).display!=='none';}

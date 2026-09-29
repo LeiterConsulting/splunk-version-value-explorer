@@ -41,7 +41,7 @@ function runtime(search='?preview=es-editions'){
  const window={VersionCompassTheme:{href(value){if(new URLSearchParams(search).get('theme')!=='cisco')return value;const u=new URL(value,'https://versioncompass.com/');u.searchParams.set('theme','cisco');return u.pathname+u.search+u.hash;}},VersionCompassEditions:data,addEventListener(name,fn){events[name]=fn;},print(){events.beforeprint();}};
  for(const f of ['environment-data.js','environment.js'])vm.runInNewContext(read('dist/'+f),{window,document,URL,URLSearchParams});
  vm.runInNewContext(read('dist/editions.js'),{document,location,history,window,URL,URLSearchParams,navigator:{clipboard:{async writeText(value){copied=value;}}}});
- return {elements,details,events,rows,location,html,get copied(){return copied;}};
+ return {elements,details,events,rows,location,html,snapshot(){return window.VersionCompassBuildSnapshot();},get copied(){return copied;}};
 }
 test('search, filters, history URLs, copy links and print restoration work without leaking preview tools',async()=>{
  const r=runtime();assert.equal(r.elements.get('edition-count').textContent,'20 of 20 capabilities');assert(r.details.every(x=>!x.open));
@@ -94,4 +94,9 @@ test('editions environment filters stay independent and survive sharing and prin
  assert.match(r.elements.get('edition-environment-report').innerHTML,/not an unavailability/);
  r.elements.get('env-clear').listeners.click();assert.equal(r.elements.get('env-compliance').value,'');
  const invalid=runtime('?view=es-editions&csp=aws&csp=gcp');assert.equal(invalid.elements.get('edition-copy').disabled,true);
+});
+
+test('fresh ES HTML snapshot contains selected Cloud environment and source questions',()=>{
+ const r=runtime('?view=es-editions&csp=aws&region=us-gov-east-1&compliance=fr-h&filter=review');
+ const html=r.snapshot();assert.match(html,/Cloud environment/);assert.match(html,/Conflicting guidance/);assert.match(html,/us-gov-east-1|US East/);assert.match(html,/Environment sources/);assert.match(html,/all 20 capabilities/);assert.match(html,/Connector Builder/);
 });

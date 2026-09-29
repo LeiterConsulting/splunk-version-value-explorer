@@ -1,6 +1,6 @@
 /* Regenerate after evidence changes. Review dates are never inferred from publication dates. */
 const fs=require('node:fs'),vm=require('node:vm');
-const files=['data.js','product-data.js','guidance-data.js','environment-data.js','editions-data.js'];
+const files=['data.js','product-data.js','guidance-data.js','environment-data.js','editions-data.js','forwarders-data.js'];
 const day=process.env.SOURCE_REGISTER_DATE||new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
 const context={window:{}};vm.createContext(context);
 for(const f of files)vm.runInContext(fs.readFileSync('dist/'+f,'utf8'),context);
@@ -24,6 +24,7 @@ function walk(value,area,path,parent={}){
 walk(context.window.SPLUNK_DATA,'Release guide','release');
 walk(context.window.VersionCompassEnvironmentData,'Cloud environment','environment');
 walk(context.window.VersionCompassEditions,'ES editions','editions');
+walk(context.window.VersionCompassForwarderData,'Splunk Forwarders','forwarders');
 // Include directly embedded official citations as well as data-driven citations.
 for(const f of fs.readdirSync('dist').filter(f=>f.endsWith('.js')&&!['source-register.js','about.js',...files].includes(f))){
  const text=fs.readFileSync('dist/'+f,'utf8');

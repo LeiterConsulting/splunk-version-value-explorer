@@ -58,7 +58,20 @@
     const content=a.records.map(recordHtml).join('')||'<p>'+a.sources.map(link).join(' · ')+'</p>';
     return intro+warning+(printing?content:'<details class="env-records"><summary>'+a.records.length+' matching evidence records · availability, regions and sources</summary>'+content+'</details>');
   }
-  function annotation(state,feature){const rows=featureRecords(state,feature);return rows.length?'<div class="env-feature-note"><strong>Current hosting guidance</strong><ul>'+rows.map(r=>'<li>'+esc(data.providers[r.provider]+' · '+r.regimes.map(x=>data.regimes[x]).join('/')+(r.experience?' · '+data.experiences[r.experience]+' Experience':'')+' · '+r.availabilityLabel+': '+r.detail)+' '+r.citations.map(link).join(' · ')+'</li>').join('')+'</ul></div>':'';}
+  function availability(state,feature){
+    return [['Cloud','commercial'],['CMP',null],['FR-M','fr-m'],['FR-H','fr-h']].map(([label,regime])=>{
+      const rows=regime?featureRecords({...state,platform:'cloud',environment:{...(state.environment||{}),compliance:regime},environmentErrors:[]},feature).filter(r=>r.feature.toLowerCase()!=='es components beyond siem and soar'):[];
+      const states=new Set(rows.map(r=>r.availability));
+      const status=states.has('conflicting')||(states.has('unavailable')&&(states.has('available')||states.has('conditional')))?'conflicting':!rows.length?'not_established':states.has('not_established')?'not_established':states.has('available')||states.has('conditional')?'conditional':'unavailable';
+      return {label,status,rows};
+    });
+  }
+  function annotation(state,feature){
+    const statusLabels={available:'Available',conditional:'Conditional',unavailable:'Unavailable',not_established:'Not established',conflicting:'Conflicting evidence'};
+    const rows=featureRecords(state,feature);
+    const selected=rows.length?'<div class="env-feature-note"><strong>Current hosting guidance</strong><ul>'+rows.map(r=>'<li>'+esc(data.providers[r.provider]+' · '+r.regimes.map(x=>data.regimes[x]).join('/')+(r.experience?' · '+data.experiences[r.experience]+' Experience':'')+' · '+r.availabilityLabel+': '+r.detail)+' '+r.citations.map(link).join(' · ')+'</li>').join('')+'</ul></div>':'';
+    return selected+'<div class="feature-availability">'+availability(state,feature).map(a=>'<details><summary>'+a.label+' · '+statusLabels[a.status]+'</summary><p>Current evidence for documented scopes only; not historical release entitlement. CMP means customer-managed Splunk Enterprise. An offering authorization does not establish feature availability. '+(a.rows.length?'Read all provider, region, version and prerequisite qualifications below.':'Feature-specific availability for this deployment scope has not been established in this register; this does not mean unavailable.')+'</p>'+a.rows.map(recordHtml).join('')+'</details>').join('')+'</div>';
+  }
   function controls(){return '<details class="env-controls" id="environment-controls"><summary>Cloud environment <span>Provider · region · Commercial / FR-M / FR-H</span></summary><p>Filter where the Splunk service is hosted, independently of where your workloads run. Leave a field unspecified to compare documented scopes.</p><div class="env-fields">'+[['csp','Hosting provider'],['region','Hosting region'],['compliance','Compliance environment'],['experience','Platform experience']].map(([k,label])=>'<label for="env-'+k+'">'+label+'<select id="env-'+k+'"></select></label>').join('')+'</div><button type="button" id="env-clear">Clear environment filters</button><p id="env-control-status" role="status"></p></details>';}
   function fill(state){
     const env=state.environment||{},panel=document.getElementById('environment-controls');if(!panel)return;
@@ -79,5 +92,5 @@
     }));
     document.getElementById('env-clear').addEventListener('click',()=>{state.environment={};state.environmentErrors=[];render();});
   }
-  window.VersionCompassEnvironment={data,keys,labels,validate,read,append,enabled,assess,body,controls,fill,bind,annotation,featureRecords,selectionText};
+  window.VersionCompassEnvironment={data,keys,labels,validate,read,append,enabled,assess,body,controls,fill,bind,annotation,availability,featureRecords,selectionText};
 }());

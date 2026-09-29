@@ -31,7 +31,7 @@
   }
   function routeUrl(state, reviewed) {
     const params = new URLSearchParams();
-    ["product", "platform", "host", "from", "to"].forEach(function (key) { if (state[key]) params.set(key, state[key]); });
+    ["product", "platform", "host", "from", "to", "category"].forEach(function (key) { if (state[key]) params.set(key, state[key]); });
     if(window.VersionCompassEnvironment && window.VersionCompassEnvironment.enabled(state)) window.VersionCompassEnvironment.append(params,state.environment);
     params.set("reviewed", reviewed || data.guidance.reviewed);
     return "?" + params.toString();
@@ -73,7 +73,7 @@
     const migration = product === "platform" && platform === "migration";
     const track = product === "platform" ? data[migration ? "enterprise" : platform] : data.productTracks[product];
     const targetTrack = migration ? data.cloud : track;
-    const state = { product: product, platform: platform, host: selected.host || "", from: selected.from, to: selected.to, category: "All" };
+    const state = { product: product, platform: platform, host: selected.host || "", from: selected.from, to: selected.to, category: params.get("category") || "All" };
     state.from = identity("source release", requested.from, track.releases, selected.from, aliases.releases[product + ":" + (migration ? "enterprise" : platform)]);
     state.to = identity("target release", requested.to, targetTrack.releases, selected.to, aliases.releases[product + ":" + (migration ? "cloud" : platform)]);
     if (product !== "platform") {

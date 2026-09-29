@@ -319,6 +319,7 @@
       button.addEventListener("click", function () {
         state.category = button.dataset.category;
         renderValue();
+        writeUrlState();
       });
     });
 
@@ -595,6 +596,7 @@
 
   productInputs.forEach(function (input) {
     input.addEventListener("change", function () {
+      if(input.value === "forwarders"){ location.href = themedUrl("?product=forwarders"); return; }
       clearLinkContext();
       state.product = input.value;
       if(state.product==="observability"&&state.environment)delete state.environment.experience;

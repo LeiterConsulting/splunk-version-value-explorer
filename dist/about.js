@@ -2,6 +2,8 @@
 'use strict';
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 document.title='About & sources · Version Compass';
+document.querySelector('.skip-link').href='#about-title';
+document.querySelector('.skip-link').textContent='Skip to About & sources';
 document.documentElement.classList.add('perspective-enabled');
 const css=document.createElement('link');css.rel='stylesheet';css.href='perspectives.css';document.head.append(css);
 const styles=document.createElement('link');styles.rel='stylesheet';styles.href='about.css';document.head.append(styles);

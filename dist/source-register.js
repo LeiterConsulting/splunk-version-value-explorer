@@ -4,6 +4,90 @@ window.VersionCompassSources = {
   "trackingSince": "2026-09-25",
   "sources": [
     {
+      "url": "https://advisory.splunk.com/",
+      "title": "Splunk security advisory index",
+      "areas": [
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "forwarders.sources.advisories.url"
+      ],
+      "reviews": [
+        "2026-09-28"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-09-28",
+      "status": "Reviewed",
+      "firstRecorded": "2026-09-28",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "A schedule notice is not a vulnerability advisory or a product-version requirement.",
+      "section": "Advisory archive — September 2026 entries; Current index; not a complete applicability audit",
+      "verificationScope": "Checked the current archive and found only the published notice that the September 16 advisory release moved to October 7; no new customer-actionable advisory was added to Version Compass. Forwarders increment: verified only Current index; not a complete applicability audit. No complete patch, authorization or historical applicability audit.",
+      "events": [
+        {
+          "date": "2026-09-28",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-0404",
+      "title": "UF third-party package security fixes: SVD-2026-0404",
+      "areas": [
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "forwarders.sources.ufSecurity.url"
+      ],
+      "reviews": [
+        "2026-09-28"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-09-28",
+      "status": "Reviewed",
+      "firstRecorded": "2026-09-28",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Product Status and Solution",
+      "verificationScope": "Forwarders increment: verified only Product Status and Solution. No complete patch, authorization or historical applicability audit.",
+      "events": [
+        {
+          "date": "2026-09-28",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-0505",
+      "title": "Enterprise third-party package security fixes: SVD-2026-0505",
+      "areas": [
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "forwarders.sources.hfSecurity.url"
+      ],
+      "reviews": [
+        "2026-09-28"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-09-28",
+      "status": "Reviewed",
+      "firstRecorded": "2026-09-28",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Product Status; component-specific footnotes",
+      "verificationScope": "Forwarders increment: verified only Product Status; component-specific footnotes. No complete patch, authorization or historical applicability audit.",
+      "events": [
+        {
+          "date": "2026-09-28",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://advisory.splunk.com/advisories/SVD-2026-0807",
       "title": "SVD 2026 0807",
       "areas": [
@@ -312,16 +396,102 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/forward-and-process-data/universal-forwarder-manual/10.0/configure-the-universal-forwarder/enable-a-receiver-for-the-splunk-cloud-platform",
+      "title": "Cloud forwarder certificate renewal prerequisites",
+      "areas": [
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "forwarders.sources.renewal.url"
+      ],
+      "reviews": [
+        "2026-09-28"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-09-28",
+      "status": "Reviewed",
+      "firstRecorded": "2026-09-28",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Prerequisites for using automatic TLS certificate renewal",
+      "verificationScope": "Forwarders increment: verified only Prerequisites for using automatic TLS certificate renewal. No complete patch, authorization or historical applicability audit.",
+      "events": [
+        {
+          "date": "2026-09-28",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/forward-and-process-data/universal-forwarder-manual/10.4/release-notes/fixed-issues",
+      "title": "UF 10.4 fixed issue directory",
+      "areas": [
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "forwarders.sources.fixed.url"
+      ],
+      "reviews": [
+        "2026-09-28"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-09-28",
+      "status": "Reviewed",
+      "firstRecorded": "2026-09-28",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Pointer to Universal forwarder issues in Enterprise release notes",
+      "verificationScope": "Forwarders increment: verified only Pointer to Universal forwarder issues in Enterprise release notes. No complete patch, authorization or historical applicability audit.",
+      "events": [
+        {
+          "date": "2026-09-28",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/forward-and-process-data/universal-forwarder-manual/10.4/release-notes/known-issues",
+      "title": "UF 10.4 known issue directory",
+      "areas": [
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "forwarders.sources.known.url"
+      ],
+      "reviews": [
+        "2026-09-28"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-09-28",
+      "status": "Reviewed",
+      "firstRecorded": "2026-09-28",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Pointer to Universal forwarder issues in Enterprise release notes",
+      "verificationScope": "Forwarders increment: verified only Pointer to Universal forwarder issues in Enterprise release notes. No complete patch, authorization or historical applicability audit.",
+      "events": [
+        {
+          "date": "2026-09-28",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.5.2605/information-about-the-service/splunk-cloud-platform-service-details",
       "title": "splunk cloud platform service details",
       "areas": [
         "Release guide",
-        "Cloud environment"
+        "Cloud environment",
+        "Splunk Forwarders"
       ],
       "references": [
         "release.productTracks.es.cloudServiceSource",
         "release.productTracks.itsi.cloudServiceSource",
         "environment.sources.service.url",
+        "forwarders.sources.cloud.url",
         "environment: environment.records.0",
         "environment: environment.records.1",
         "environment: environment.records.2",
@@ -365,8 +535,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "Current service evidence is not retrospective, Cloud-managed pairing remains separate from the Enterprise matrix, and a platform or region listing does not prove component authorization, entitlement or availability on a particular stack.",
-      "section": "Subscription version table; available-regions and region-differences table; experience designations",
-      "verificationScope": "Confirmed the current published service pairing remains Splunk Cloud Platform 10.5, Enterprise Security 8.6 and ITSI 5.0. Checked every maintained provider, region, experience and selected service-component row, including Victoria and Classic hosting, scheduled-maintenance visibility, Edge and Ingest Processor, federated services, ingest actions and Splunk AI Assistant for SPL. The service table still excludes Federated Search for Amazon S3 from FedRAMP High and DoD IL5, while the dated change log states that High availability was added for relevant 10.3 versions; Version Compass retains that conflict.",
+      "section": "Subscription version table; available-regions and region-differences table; experience designations; Supported forwarder versions",
+      "verificationScope": "Confirmed the current published service pairing remains Splunk Cloud Platform 10.5, Enterprise Security 8.6 and ITSI 5.0. Checked every maintained provider, region, experience and selected service-component row, including Victoria and Classic hosting, scheduled-maintenance visibility, Edge and Ingest Processor, federated services, ingest actions and Splunk AI Assistant for SPL. The service table still excludes Federated Search for Amazon S3 from FedRAMP High and DoD IL5, while the dated change log states that High availability was added for relevant 10.3 versions; Version Compass retains that conflict. Forwarders increment: verified only Supported forwarder versions. No complete patch, authorization or historical applicability audit.",
       "events": [
         {
           "date": "2026-09-25",
@@ -387,6 +557,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-27",
           "event": "Review status updated: Needs reconciliation · 2026-09-27"
+        },
+        {
+          "date": "2026-09-28",
+          "event": "Review status updated: Needs reconciliation · 2026-09-28"
         },
         {
           "date": "2026-09-28",
@@ -1600,7 +1774,8 @@ window.VersionCompassSources = {
       "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.2/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.2-read-this-first",
       "title": "about upgrading to 10.2 read this first",
       "areas": [
-        "Release guide"
+        "Release guide",
+        "Splunk Forwarders"
       ],
       "references": [
         "release.enterprise.releasesData.10.2.technicalChanges.0.source",
@@ -1610,21 +1785,56 @@ window.VersionCompassSources = {
         "release.enterprise.releasesData.10.2.technicalChanges.4.source",
         "release.enterprise.releasesData.10.2.requirements.0.3",
         "release.enterprise.releasesData.10.2.requirements.1.3",
-        "release.enterprise.releasesData.10.2.requirements.2.3"
+        "release.enterprise.releasesData.10.2.requirements.2.3",
+        "forwarders.sources.upgrade102.url"
       ],
-      "reviews": [],
+      "reviews": [
+        "2026-09-28"
+      ],
       "usage": "In use",
-      "reviewed": null,
-      "status": "Review date unknown",
+      "reviewed": "2026-09-28",
+      "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "section": "Key points for upgrading to version 10.2",
+      "verificationScope": "Forwarders increment: verified only Key points for upgrading to version 10.2. No complete patch, authorization or historical applicability audit.",
       "events": [
         {
           "date": "2026-09-25",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-28",
+          "event": "Review status updated: Reviewed · 2026-09-28"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/plan-your-splunk-enterprise-installation/system-requirements-for-use-of-splunk-enterprise-on-premises",
+      "title": "10.4 OS and architecture package matrix",
+      "areas": [
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "forwarders.sources.os.url"
+      ],
+      "reviews": [
+        "2026-09-28"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-09-28",
+      "status": "Reviewed",
+      "firstRecorded": "2026-09-28",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Supported Operating Systems",
+      "verificationScope": "Forwarders increment: verified only Supported Operating Systems. No complete patch, authorization or historical applicability audit.",
+      "events": [
+        {
+          "date": "2026-09-28",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -1633,7 +1843,8 @@ window.VersionCompassSources = {
       "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first",
       "title": "about upgrading to 10.4 read this first",
       "areas": [
-        "Release guide"
+        "Release guide",
+        "Splunk Forwarders"
       ],
       "references": [
         "release.enterprise.releasesData.10.4.technicalChanges.2.source",
@@ -1646,22 +1857,29 @@ window.VersionCompassSources = {
         "release.enterprise.releasesData.10.4.requirements.2.3",
         "release.enterprise.releasesData.10.4.requirements.3.3",
         "release.enterprise.releasesData.10.4.requirements.4.3",
-        "release.enterprise.releasesData.10.4.requirements.5.3"
+        "release.enterprise.releasesData.10.4.requirements.5.3",
+        "forwarders.sources.upgrade104.url"
       ],
-      "reviews": [],
+      "reviews": [
+        "2026-09-28"
+      ],
       "usage": "In use",
-      "reviewed": null,
-      "status": "Review date unknown",
+      "reviewed": "2026-09-28",
+      "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "section": "Key points; component-specific changes",
+      "verificationScope": "Forwarders increment: verified only Key points; component-specific changes. No complete patch, authorization or historical applicability audit.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-28",
+          "event": "Review status updated: Reviewed · 2026-09-28"
         }
       ]
     },
@@ -1669,21 +1887,25 @@ window.VersionCompassSources = {
       "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise",
       "title": "how to upgrade splunk enterprise",
       "areas": [
-        "Release guide"
+        "Release guide",
+        "Splunk Forwarders"
       ],
       "references": [
-        "release.enterprise.upgradeSource"
+        "release.enterprise.upgradeSource",
+        "forwarders.sources.enterprise.url"
       ],
-      "reviews": [],
+      "reviews": [
+        "2026-09-28"
+      ],
       "usage": "In use",
-      "reviewed": "2026-09-26",
+      "reviewed": "2026-09-28",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "The introduction references 10.0, while the specific table is headed 10.4. This check relies on the explicitly labeled 10.4 upgrade table; it does not reverify historical pre-9.3 paths.",
-      "section": "Upgrade paths to version 10.4 — current-version table",
-      "verificationScope": "Checked intermediate hops from 9.3 and 9.4, plus paths from 10.0 and 10.2 to 10.4. Confirmed the existing route map requires those intermediate steps.",
+      "section": "Upgrade paths to version 10.4 — current-version table; Supported upgrade paths",
+      "verificationScope": "Checked intermediate hops from 9.3 and 9.4, plus paths from 10.0 and 10.2 to 10.4. Confirmed the existing route map requires those intermediate steps. Forwarders increment: verified only Supported upgrade paths. No complete patch, authorization or historical applicability audit.",
       "events": [
         {
           "date": "2026-09-25",
@@ -1700,6 +1922,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-26",
           "event": "Review status updated: Reviewed · 2026-09-26"
+        },
+        {
+          "date": "2026-09-28",
+          "event": "Review status updated: Reviewed · 2026-09-28"
         }
       ]
     },
@@ -1850,6 +2076,62 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.0-read-this-first",
+      "title": "Universal Forwarder upgrade to 10.0",
+      "areas": [
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "forwarders.sources.upgrade100.url"
+      ],
+      "reviews": [
+        "2026-09-28"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-09-28",
+      "status": "Reviewed",
+      "firstRecorded": "2026-09-28",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Key points for upgrading to version 10.0",
+      "verificationScope": "Forwarders increment: verified only Key points for upgrading to version 10.0. No complete patch, authorization or historical applicability audit.",
+      "events": [
+        {
+          "date": "2026-09-28",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers",
+      "title": "Forwarder / Enterprise indexer compatibility",
+      "areas": [
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "forwarders.sources.receiver.url"
+      ],
+      "reviews": [
+        "2026-09-28"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-09-28",
+      "status": "Reviewed",
+      "firstRecorded": "2026-09-28",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Determine forwarder-indexer compatibility",
+      "verificationScope": "Forwarders increment: verified only Determine forwarder-indexer compatibility. No complete patch, authorization or historical applicability audit.",
+      "events": [
+        {
+          "date": "2026-09-28",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
       "title": "splunk products version compatibility matrix",
       "areas": [
@@ -1943,27 +2225,35 @@ window.VersionCompassSources = {
       "title": "splunk enterprise 10.4.3 fixed issues",
       "areas": [
         "Release guide",
+        "Splunk Forwarders",
         "Shared guidance"
       ],
       "references": [
         "release.enterprise.releasesData.10.4.technicalChanges.0.source",
         "release.enterprise.releasesData.10.4.requirements.0.3",
+        "forwarders.sources.ack.url",
         "content-updates.js"
       ],
-      "reviews": [],
+      "reviews": [
+        "2026-09-28"
+      ],
       "usage": "In use",
-      "reviewed": "2026-09-26",
+      "reviewed": "2026-09-28",
       "status": "Reviewed",
       "firstRecorded": "2026-09-26",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "The warning establishes an exact customer-managed maintenance floor without creating a separate major/minor release route or a Cloud rule.",
-      "section": "Splunk Enterprise 10.4.3 fixed issues — maintenance-release warning",
-      "verificationScope": "Confirmed Splunk's recommendation not to target 10.4.2 because tcpout with useACK=true can block forwarding pipelines on a receiving heavy forwarder or indexer, and the documented direction to use 10.4.3 or higher. Other 10.4.3 fixed issues were not converted into route requirements.",
+      "section": "Splunk Enterprise 10.4.3 fixed issues — maintenance-release warning; Important upgrade notice",
+      "verificationScope": "Confirmed Splunk's recommendation not to target 10.4.2 because tcpout with useACK=true can block forwarding pipelines on a receiving heavy forwarder or indexer, and the documented direction to use 10.4.3 or higher. Other 10.4.3 fixed issues were not converted into route requirements. Forwarders increment: verified only Important upgrade notice. No complete patch, authorization or historical applicability audit.",
       "events": [
         {
           "date": "2026-09-26",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-28",
+          "event": "Review status updated: Reviewed · 2026-09-28"
         }
       ]
     },

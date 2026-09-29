@@ -13,7 +13,7 @@ test('source register retains removed sources without declaring them inaccurate;
  try{
   for(const d of ['scripts','docs','dist'])fs.mkdirSync(path.join(dir,d));
   fs.copyFileSync('scripts/sync-source-register.cjs',path.join(dir,'scripts/sync-source-register.cjs'));
-  for(const f of ['data.js','product-data.js','guidance-data.js','environment-data.js','editions-data.js','source-register.js'])fs.copyFileSync('dist/'+f,path.join(dir,'dist',f));
+  for(const f of ['data.js','product-data.js','guidance-data.js','environment-data.js','editions-data.js','forwarders-data.js','source-register.js'])fs.copyFileSync('dist/'+f,path.join(dir,'dist',f));
   const url='https://example.com/historical-source';
   const d=read('dist/source-register.js');d.sources.push({url,title:'Old source',areas:['Release guide'],references:['release.old'],reviews:[],status:'Review date unknown',reviewed:null,usage:'In use',firstRecorded:'2026-09-01',firstUsed:null,events:[]});
   fs.writeFileSync(path.join(dir,'dist/source-register.js'),'window.VersionCompassSources='+JSON.stringify(d));

@@ -22,3 +22,13 @@ test('report revision and verification appendix use only citations actually in t
  const source=w.VersionCompassSources.sources[0],body=w.VersionCompassReports.decorate('<a href="'+source.url+'">Source</a>');
  assert(body.includes('vc-test'));assert(body.includes(source.title));assert(body.includes(source.reviewed||'not recorded'));assert(!body.includes(w.VersionCompassSources.sources[1].url));
 });
+
+test('compact counts separate blockers, required actions and evidence questions',()=>{
+ const w=context().window,s={product:'platform',platform:'enterprise',from:'9.4',to:'10.4',environment:{},environmentErrors:[]};
+ const m=w.VersionCompassDecision.model(s,w.VersionCompassComparison.create(w.SPLUNK_DATA,s));
+ assert(m.blockers.length>0);assert(m.blockers.every(x=>x.level==='Blocker'));
+ assert(m.requiredChecks.some(x=>x.title==='Legacy TLS protocols'));
+ assert(m.requiredChecks.some(x=>x.title==='KV Store binaries'));
+ assert.equal(m.requiredChecks.length,3);
+ assert(m.requiredChecks.every(x=>x.level!=='Blocker'));
+});

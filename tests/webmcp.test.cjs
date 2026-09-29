@@ -234,7 +234,7 @@ test('every published report URL resolves exactly and only explicit aliases perm
       if (product.id !== 'platform') defaults[product.id][ctx.platform] = {from:ctx.sourceReleases[0].id,to:ctx.latest,host:ctx.hostReleases.at(-1)};
       for (const from of ctx.sourceReleases) for (const to of ctx.targetReleases) {
         if (ctx.platform !== 'migration' && ctx.targetReleases.findIndex(x=>x.id===to.id) <= ctx.sourceReleases.findIndex(x=>x.id===from.id)) continue;
-        const state = {product:product.id,platform:ctx.platform,from:from.id,to:to.id};
+        const state = {product:product.id,platform:ctx.platform,from:from.id,to:to.id,category:'security'};
         if (product.id !== 'platform') state.host = ctx.hostReleases.at(-1);
         const resolved = g.resolveUrl(g.routeUrl(state),defaults);
         assert.equal(resolved.needsConfirmation,false);

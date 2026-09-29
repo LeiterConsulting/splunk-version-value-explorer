@@ -59,5 +59,5 @@ test('regional feature notes and print retain every matching record and both con
  for(const s of ['service','changes'])assert(html.includes(env.data.sources[s].url));
  assert.match(env.annotation(state,{title:'Federated search for Amazon S3'}),/Conflicting guidance/);
  const es=route({csp:'azure',region:'azure-london',compliance:'commercial'},'es');assert.match(env.annotation(es,{title:'UEBA'}),/Documented unavailable/);
- assert.equal(env.annotation(es,{title:'SOAR'}),'');
+ assert.match(env.annotation(es,{title:'SOAR'}),/Cloud · Not established/);
 });
