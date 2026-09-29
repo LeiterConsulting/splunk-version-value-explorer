@@ -58,10 +58,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-09-28T09:50:44.662Z",
-      "lastSuccess": "2026-09-28T09:50:50.555Z",
+      "lastAttempt": "2026-09-29T09:26:16.742Z",
+      "lastSuccess": "2026-09-29T09:28:19.781Z",
       "outcome": "no-change",
-      "summary": "No newly published or revised official release information required a factual Version Compass update.",
+      "summary": "Reviewed the maintained official release, compatibility, migration, security, forwarder and Observability component sources; no material factual, compatibility, readiness or route change was found.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -103,9 +103,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "No newly published or revised official release information required a factual Version Compass update.",
           "scope": "Checked current Splunk Enterprise and Cloud release notes, upgrade paths, system and compatibility guidance, ES and ITSI release/listing/dependency evidence, migration assessment listing, security notices, September Observability milestones, and maintained Collector, Kubernetes, .NET, Node.js, Java, Python and Browser RUM streams."
+        },
+        {
+          "at": "2026-09-29T09:26:16.742Z",
+          "outcome": "running",
+          "summary": "Reviewing current official Splunk release, compatibility, migration, security, forwarder and Observability component sources.",
+          "scope": "Splunk Enterprise and Cloud Platform release notes, upgrade paths, system and compatibility guidance; Enterprise-to-Cloud migration and SCMA; Enterprise Security and ITSI releases, listings and dependencies; security and deprecation notices; Universal and Heavy Forwarder releases, issues and advisories; September Observability milestones; maintained Collector, Kubernetes chart, instrumentation and RUM streams; route, share, export and read-only agent parity."
+        },
+        {
+          "at": "2026-09-29T09:28:19.781Z",
+          "outcome": "no-change",
+          "summary": "Reviewed the maintained official release, compatibility, migration, security, forwarder and Observability component sources; no material factual, compatibility, readiness or route change was found.",
+          "scope": "Splunk Enterprise 10.4 and Cloud Platform 10.5.2605 release, upgrade, system, service-pairing and compatibility evidence; Enterprise-to-Cloud migration and SCMA 5.4.11; Enterprise Security 8.7.0 and ITSI 5.0.2 release/listing/dependency evidence; SVD-2026-0901 and forwarder advisories; Universal/Heavy Forwarder 10.4 issue, receiver and Cloud-direct support evidence; September Observability timeline; Collector 0.161.0, Kubernetes chart 0.161.0, .NET 1.16.0, Node.js 4.11.0, Java 2.31.1, Python 2.12.1 and Browser RUM 3.2.0 streams; route, share, export and read-only agent parity."
         }
       ],
-      "scope": "Checked current Splunk Enterprise and Cloud release notes, upgrade paths, system and compatibility guidance, ES and ITSI release/listing/dependency evidence, migration assessment listing, security notices, September Observability milestones, and maintained Collector, Kubernetes, .NET, Node.js, Java, Python and Browser RUM streams."
+      "scope": "Splunk Enterprise 10.4 and Cloud Platform 10.5.2605 release, upgrade, system, service-pairing and compatibility evidence; Enterprise-to-Cloud migration and SCMA 5.4.11; Enterprise Security 8.7.0 and ITSI 5.0.2 release/listing/dependency evidence; SVD-2026-0901 and forwarder advisories; Universal/Heavy Forwarder 10.4 issue, receiver and Cloud-direct support evidence; September Observability timeline; Collector 0.161.0, Kubernetes chart 0.161.0, .NET 1.16.0, Node.js 4.11.0, Java 2.31.1, Python 2.12.1 and Browser RUM 3.2.0 streams; route, share, export and read-only agent parity."
     },
     {
       "id": "es-editions-watch",
