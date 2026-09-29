@@ -341,6 +341,16 @@ test('release print report preserves every route section and deduplicates source
  const blocked=await runtime({selection:{product:'unknown'}});await blocked.dispatch('beforeprint');assert.equal(blocked.elements.get('results').hidden,true);assert(!blocked.elements.get('release-report')?.innerHTML);
 });
 
+test('benefit cards omit environment status tiles across Enterprise, Cloud and migration routes',async()=>{
+ for(const selection of [routes[0],routes[1],routes[2],{product:'es',platform:'enterprise',host:'10.4',from:'8.0',to:'8.7'},routes[4],routes[5]]){
+  const rt=await runtime({selection});
+  const cards=rt.elements.get('benefit-grid').innerHTML;
+  assert.match(cards,/class="benefit-card"/,JSON.stringify(selection));
+  assert.match(cards,/class="source-link"/,JSON.stringify(selection));
+  assert(!cards.includes('feature-availability')&&!cards.includes('compact-availability'),JSON.stringify(selection));
+ }
+});
+
 test('Ingest Processor experience scope agrees in UI, print and existing read-only WebMCP reports',async()=>{
  for(const experience of ['classic','victoria']){
   const selection={...routes[1],csp:'aws',region:'us-east-1',compliance:'commercial',experience};
