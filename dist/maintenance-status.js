@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-09-28T11:30:52Z",
-      "lastSuccess": "2026-09-28T11:31:36Z",
+      "lastAttempt": "2026-09-29T11:41:52Z",
+      "lastSuccess": "2026-09-29T11:46:36Z",
       "outcome": "no-change",
-      "summary": "Reviewed all 10 maintained official environment sources and 54 records; no material factual or scope change was found, and the Federated Search for Amazon S3 High conflict remains explicit.",
+      "summary": "Reviewed all 10 maintained official environment sources and 54 records; no material factual or scope change was found, and the documented Federated Search for Amazon S3 High conflict remains explicit.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -51,9 +51,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Reviewed all 10 maintained official environment sources and 54 records; no material factual or scope change was found, and the Federated Search for Amazon S3 High conflict remains explicit.",
           "scope": "Cloud Platform 10.5 service details and change log; Ingest Processor prerequisites; ES 8.7 and SOAR regional and pairing evidence; ITSI host-context boundary; Observability realms and component scope; visually verified February 2026 US Public Sector compliance symbols; exact FedRAMP Marketplace Moderate and High offerings; environment filters, perspectives, reports, shared URLs and read-only agent parity."
+        },
+        {
+          "at": "2026-09-29T11:41:52Z",
+          "outcome": "running",
+          "summary": "Reviewing current Cloud hosting, regional, FedRAMP, product-scope and Observability evidence.",
+          "scope": "Ten maintained official environment sources and all 54 records: Cloud Platform service details and change log; feature and experience guides; ES/SOAR regional evidence; public-sector compliance matrix; exact FedRAMP Moderate and High Marketplace offerings; scoped authorization announcements; Observability service realms; Forwarders destination/provider/region/topology restrictions; UI, sharing, print/snapshot and read-only agent parity."
+        },
+        {
+          "at": "2026-09-29T11:46:36Z",
+          "outcome": "no-change",
+          "summary": "Reviewed all 10 maintained official environment sources and 54 records; no material factual or scope change was found, and the documented Federated Search for Amazon S3 High conflict remains explicit.",
+          "scope": "Cloud Platform 10.5 service details and change log; Ingest Processor prerequisites; ES 8.7 and SOAR regional and pairing evidence; ITSI host-context boundary; Observability realms and component scope; visually verified February 2026 US Public Sector compliance symbols; exact FedRAMP Marketplace Moderate and High offerings; Forwarders destination/provider/region/topology restrictions; environment filters, perspectives, reports, shared URLs, print/snapshot and read-only agent parity."
         }
       ],
-      "scope": "Cloud Platform 10.5 service details and change log; Ingest Processor prerequisites; ES 8.7 and SOAR regional and pairing evidence; ITSI host-context boundary; Observability realms and component scope; visually verified February 2026 US Public Sector compliance symbols; exact FedRAMP Marketplace Moderate and High offerings; environment filters, perspectives, reports, shared URLs and read-only agent parity."
+      "scope": "Cloud Platform 10.5 service details and change log; Ingest Processor prerequisites; ES 8.7 and SOAR regional and pairing evidence; ITSI host-context boundary; Observability realms and component scope; visually verified February 2026 US Public Sector compliance symbols; exact FedRAMP Marketplace Moderate and High offerings; Forwarders destination/provider/region/topology restrictions; environment filters, perspectives, reports, shared URLs, print/snapshot and read-only agent parity."
     },
     {
       "id": "version-release-watch",
