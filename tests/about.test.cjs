@@ -21,3 +21,16 @@ test('About search, combined filters, sorting, empty results and reset retain th
  node('source-reset').listeners.click();assert.equal(node('source-search').value,'');assert.equal(node('source-status').value,'');assert.equal(node('source-count').textContent,window.VersionCompassSources.sources.length+' of '+window.VersionCompassSources.sources.length+' sources');
  node('source-sort').value='review-old';node('source-sort').listeners.change();assert.equal(new URL(location.href).searchParams.get('source_sort'),'review-old');
 });
+test('About section tabs scroll to headings and follow the active section',()=>{
+ const headings=new Map([['about-title',210],['automation-title',510],['maintenance-title',810],['sources-title',1110]].map(([id,top])=>[id,{id,top,closest:()=>null,getBoundingClientRect(){return {top:this.top}},setAttribute(k,v){this[k]=v},focus(){this.focused=true},scrollIntoView(opts){this.scrolled=opts}}]));
+ let nav;const listeners={};
+ const main={before(n){nav=n},querySelector:s=>headings.get(s.slice(1))};
+ const document={querySelector:s=>s==='main'?main:s==='#about-title'?headings.get('about-title'):null,getElementById:id=>headings.get(id),createElement:tag=>({tagName:tag.toUpperCase(),dataset:{},children:[],setAttribute(k,v){this[k]=v},removeAttribute(k){delete this[k]},addEventListener(k,fn){this[k]=fn},replaceChildren(...v){this.children=v},querySelectorAll(){return this.children},getBoundingClientRect:()=>({bottom:150})}),documentElement:{style:{setProperty(){}}}};
+ const window={addEventListener:(k,fn)=>listeners[k]=fn};
+ vm.runInNewContext(fs.readFileSync('dist/navigation.js','utf8'),{window,document,location:{search:'?view=about'},URLSearchParams,getComputedStyle:()=>({display:'block'}),ResizeObserver:class{observe(){}},MutationObserver:class{observe(){}},requestAnimationFrame:f=>f(),matchMedia:()=>({matches:true})});
+ assert.deepEqual(nav.children.map(x=>x.textContent),['Overview','Automation','Maintenance','Sources']);
+ assert.equal(nav.children[0]['aria-current'],'location');
+ headings.get('sources-title').top=120;listeners.scroll();assert.equal(nav.children[3]['aria-current'],'location');
+ nav.click({target:{closest:()=>nav.children[2]}});
+ assert.equal(headings.get('maintenance-title').focused,true);assert.equal(headings.get('maintenance-title').scrolled.block,'start');
+});

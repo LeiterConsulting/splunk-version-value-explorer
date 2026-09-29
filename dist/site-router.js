@@ -20,7 +20,7 @@
     document.body.appendChild(script);
   }
   if(params.get('product')==='forwarders'&&!params.has('view')){load(['content-revision.js','source-register.js','evidence.js','report-tools.js','data.js','product-data.js','comparison.js','forwarders-data.js','forwarders.js','forwarders-ui.js','navigation.js']);return;}
-  if(params.getAll('view').length===1&&params.get('view')==='about'){load(['source-register.js','maintenance-status.js','about.js']);return;}
+  if(params.getAll('view').length===1&&params.get('view')==='about'){load(['source-register.js','maintenance-status.js','about.js','navigation.js']);return;}
   const files = preview ? ['environment-data.js','environment.js','editions-data.js','editions.js'] : normal;
   files.splice(files.indexOf('environment.js') + 1, 0, 'perspectives.js');
   files.push('navigation.js');

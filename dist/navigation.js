@@ -2,8 +2,9 @@
 (function(){
 'use strict';
 const main=document.querySelector('main');if(!main)return;
-const nav=document.createElement('nav');nav.className='report-navigator';nav.setAttribute('aria-label','Report sections');main.before(nav);
+const nav=document.createElement('nav');nav.className='report-navigator';nav.setAttribute('aria-label','Page sections');main.before(nav);
 const edition=!!document.querySelector('#edition-title');
+const about=!!document.querySelector('#about-title');
 // Move the original controls so validation, copy feedback and print handlers stay intact.
 const header=document.querySelector('.site-header');
 const copy=document.getElementById(edition?'edition-copy':'copy-link');
@@ -32,7 +33,7 @@ if(header&&copy&&print){
 
 const scope=document.createElement('p');scope.className='export-scope';scope.textContent='The link keeps your selections. Print / PDF and the dated snapshot include the complete report and sources.';document.querySelector('.hero')?.append(scope);
 const forwarders=new URLSearchParams(location.search).get('product')==='forwarders';
-const specs=edition?[['.edition-hero','Selection'],['#environment-overview','Cloud scope'],['#edition-matrix-title','Comparison'],['#edition-conflicts','Source questions'],['#edition-workflows','Workflows'],['#edition-deployment','Deployment'],['#edition-history-title','History']]:forwarders?[['.hero','Select'],['#route-takeaway','Route'],['#compatibility-title','Compatibility'],['#readiness-title','Before upgrading'],['#technical-title','Technical']]:[['.hero','Selection'],['#route-takeaway','Summary'],['#environment-overview','Cloud scope'],['#path-title','Upgrade path'],['#migration-approaches','Migration'],['#value-title','Benefits'],['#technical-title','Technical'],['#breaking-title','Risks'],['#readiness-title','Readiness'],['#source-title','Sources']];
+const specs=about?[['#about-title','Overview'],['#automation-title','Automation'],['#maintenance-title','Maintenance'],['#sources-title','Sources']]:edition?[['.edition-hero','Selection'],['#environment-overview','Cloud scope'],['#edition-matrix-title','Comparison'],['#edition-conflicts','Source questions'],['#edition-workflows','Workflows'],['#edition-deployment','Deployment'],['#edition-history-title','History']]:forwarders?[['.hero','Select'],['#route-takeaway','Route'],['#compatibility-title','Compatibility'],['#readiness-title','Before upgrading'],['#technical-title','Technical']]:[['.hero','Selection'],['#route-takeaway','Summary'],['#environment-overview','Cloud scope'],['#path-title','Upgrade path'],['#migration-approaches','Migration'],['#value-title','Benefits'],['#technical-title','Technical'],['#breaking-title','Risks'],['#readiness-title','Readiness'],['#source-title','Sources']];
 let targets=[],signature='',queued=false;
 function available(el){return el&&!el.closest('[hidden]')&&getComputedStyle(el).display!=='none';}
 function rebuild(){queued=false;const next=specs.map(([selector,label],i)=>{const el=main.querySelector(selector);if(!available(el))return null;if(!el.id)el.id='report-section-'+i;return {el,label,id:el.id};}).filter(Boolean);const key=next.map(x=>x.id).join('|');targets=next;if(key!==signature){signature=key;nav.replaceChildren(...next.map(x=>{const b=document.createElement('button');b.type='button';b.textContent=x.label;b.dataset.target=x.id;return b;}));}mark();}
