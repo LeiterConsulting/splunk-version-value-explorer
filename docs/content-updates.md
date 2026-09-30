@@ -12,4 +12,6 @@ Hover, keyboard focus or tapping exposes guide-change date, affected version/sco
 
 The initial cycle records the verified September 25 content changes already in the release note. Do not mark every existing item New at rollout. Future relevant capability, technical, environment and edition changes need a scoped entry alongside their actual content update. Titles currently identify release capabilities/components; a rename must update its registry key. New categories require useful maintained content rather than speculative role claims.
 
+When the same maintained record changes again, keep the stable record key for the newest badge and retain the earlier event under a unique history key with `recordKey` pointing back to that stable record. This keeps the screen marker singular while allowing route-specific change history and saved reports to preserve both events.
+
 Verify rollover boundaries, correct targeting, no duplicate badges, both themes, keyboard/touch access, links and readable print context. Maintain the normal source-validation, release-note, review-date synchronization and matching GitHub/Sites publication requirements. Report unsupported browser/PDF checks honestly.

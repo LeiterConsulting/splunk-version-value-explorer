@@ -19,7 +19,7 @@ function model(state,engine,editions){
  if(unverified.length)issues.push({title:'Evidence needs review',impact:unverified.length+' cited sources have no recorded verification date or have unresolved findings. This does not prove their claims are wrong.',question:'Before approving this plan, can the affected version-specific requirements be checked against the current official documents?',source:unverified[0].url,target:'?view=about&source_search='+encodeURIComponent(unverified[0].url)+'#sources-title'});
  const keys=new Set([...features.map(f=>'feature:'+state.product+':'+f.title),...technical.map(t=>'technical:'+state.product+':'+t.component),...environment.records.map(r=>'environment:'+r.id)]);
  if(editions)editions.capabilities.forEach(c=>keys.add('edition:'+c.id));
- const changes=Object.entries(window.VersionCompassUpdates?.entries||{}).filter(([key])=>keys.has(key)).map(([key,e])=>({...e,key})).sort((a,b)=>b.date.localeCompare(a.date)||a.key.localeCompare(b.key));
+ const changes=Object.entries(window.VersionCompassUpdates?.entries||{}).filter(([key,e])=>keys.has(e.recordKey||key)).map(([entryKey,e])=>({...e,key:e.recordKey||entryKey,entryKey})).sort((a,b)=>b.date.localeCompare(a.date)||a.entryKey.localeCompare(b.entryKey));
  const risks=engine?.selectedBreakingChanges()||[];
  const blockers=[...risks,...readiness].filter(i=>i.level==='Blocker');
  const requiredChecks=[...risks,...readiness].filter(i=>i.level==='Required').concat(technical.filter(i=>i.actionLevel==='Required').map(i=>({title:i.component,detail:i.action,source:i.source})));

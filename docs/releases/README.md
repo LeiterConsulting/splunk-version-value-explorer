@@ -4,6 +4,7 @@ This directory contains concise, repository-only release notes for Version Compa
 
 ## Releases
 
+- [September 30, 2026](2026-09-30.md)
 - [September 29, 2026](2026-09-29.md)
 - [September 28, 2026](2026-09-28.md)
 - [September 27, 2026](2026-09-27.md)

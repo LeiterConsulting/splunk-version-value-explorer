@@ -922,11 +922,11 @@ window.VersionCompassSources = {
         "editions: editions.workflows.1"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -958,6 +958,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Needs reconciliation · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Needs reconciliation · 2026-09-30"
         }
       ]
     },
@@ -973,10 +977,10 @@ window.VersionCompassSources = {
         "editions: editions.workflows.1"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -1004,6 +1008,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Reviewed · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Reviewed · 2026-09-30"
         }
       ]
     },
@@ -1034,11 +1042,11 @@ window.VersionCompassSources = {
         "editions: editions.highlights.0"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -1070,6 +1078,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Needs reconciliation · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Needs reconciliation · 2026-09-30"
         }
       ]
     },
@@ -1085,10 +1097,10 @@ window.VersionCompassSources = {
         "editions: editions.notes.2"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -1116,6 +1128,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Reviewed · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Reviewed · 2026-09-30"
         }
       ]
     },
@@ -1131,11 +1147,11 @@ window.VersionCompassSources = {
         "editions: editions.conflicts.1.claims.1"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -1167,6 +1183,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Needs reconciliation · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Needs reconciliation · 2026-09-30"
         }
       ]
     },
@@ -1182,11 +1202,11 @@ window.VersionCompassSources = {
         "editions: editions.conflicts.0.claims.1"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -1218,6 +1238,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Needs reconciliation · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Needs reconciliation · 2026-09-30"
         }
       ]
     },
@@ -1232,10 +1256,10 @@ window.VersionCompassSources = {
         "editions: editions.capabilities.18"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -1263,6 +1287,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Reviewed · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Reviewed · 2026-09-30"
         }
       ]
     },
@@ -1289,10 +1317,10 @@ window.VersionCompassSources = {
         "editions: editions.workflows.3"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -1320,6 +1348,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Reviewed · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Reviewed · 2026-09-30"
         }
       ]
     },
@@ -1577,10 +1609,11 @@ window.VersionCompassSources = {
         "editions: editions.notes.1"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-29",
+        "2026-09-30"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -1612,6 +1645,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Reviewed · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Reviewed · 2026-09-30"
         }
       ]
     },
@@ -1643,11 +1680,11 @@ window.VersionCompassSources = {
         "editions: editions.highlights.1"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -1679,6 +1716,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Needs reconciliation · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Needs reconciliation · 2026-09-30"
         }
       ]
     },
@@ -1700,11 +1741,11 @@ window.VersionCompassSources = {
         "editions: editions.highlights.2"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -1736,6 +1777,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Needs reconciliation · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Needs reconciliation · 2026-09-30"
         }
       ]
     },
@@ -1750,10 +1795,10 @@ window.VersionCompassSources = {
         "editions: editions.notes.3"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -1781,6 +1826,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Reviewed · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Reviewed · 2026-09-30"
         }
       ]
     },
@@ -1798,10 +1847,10 @@ window.VersionCompassSources = {
         "editions: editions.notes.0"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -1829,6 +1878,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Reviewed · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Reviewed · 2026-09-30"
         }
       ]
     },
@@ -2315,15 +2368,12 @@ window.VersionCompassSources = {
     },
     {
       "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues",
-      "title": "splunk enterprise 10.4.3 fixed issues",
+      "title": "10.4.2 acknowledged forwarding blockage; 10.4.3 fix",
       "areas": [
-        "Release guide",
         "Splunk Forwarders",
         "Shared guidance"
       ],
       "references": [
-        "release.enterprise.releasesData.10.4.technicalChanges.0.source",
-        "release.enterprise.releasesData.10.4.requirements.0.3",
         "forwarders.sources.ack.url",
         "content-updates.js"
       ],
@@ -2354,27 +2404,39 @@ window.VersionCompassSources = {
       "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4",
       "title": "welcome to splunk enterprise 10.4",
       "areas": [
-        "Release guide"
+        "Release guide",
+        "Splunk Forwarders",
+        "Shared guidance"
       ],
       "references": [
         "release.enterprise.releasesData.10.4.source",
+        "release.enterprise.releasesData.10.4.technicalChanges.0.source",
         "release.enterprise.releasesData.10.4.technicalChanges.1.source",
-        "release.enterprise.releasesData.10.4.technicalChanges.5.source"
+        "release.enterprise.releasesData.10.4.technicalChanges.5.source",
+        "release.enterprise.releasesData.10.4.requirements.0.3",
+        "forwarders.sources.maintenance.url",
+        "content-updates.js"
       ],
-      "reviews": [],
+      "reviews": [
+        "2026-09-30"
+      ],
       "usage": "In use",
-      "reviewed": null,
-      "status": "Review date unknown",
+      "reviewed": "2026-09-30",
+      "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "The current maintenance target and the documented minimum safe floor are separate facts. This check does not convert a maintenance patch into a new release-line route or apply an Enterprise patch recommendation to Splunk Cloud.",
+      "section": "What's new in 10.4.2, 10.4.3 and 10.4.4",
+      "verificationScope": "Confirmed that Splunk Enterprise 10.4.4 was published September 29, 2026 and is the newest listed 10.4 maintenance release. Reconfirmed the warning not to use 10.4.2 and the acknowledged-forwarding fix in 10.4.3. The 10.4.4 fixed-issues page did not enumerate customer-actionable fixes when checked, so Version Compass does not infer features, security coverage or resolved defects from the new patch number.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Reviewed · 2026-09-30"
         }
       ]
     },
@@ -2519,10 +2581,10 @@ window.VersionCompassSources = {
         "editions: editions.notes.2"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -2550,6 +2612,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Reviewed · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Reviewed · 2026-09-30"
         }
       ]
     },
@@ -3083,10 +3149,10 @@ window.VersionCompassSources = {
         "editions: editions.capabilities.17"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -3114,6 +3180,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Reviewed · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Reviewed · 2026-09-30"
         }
       ]
     },
@@ -3542,10 +3612,10 @@ window.VersionCompassSources = {
         "editions: editions.notes.5"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -3573,6 +3643,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Reviewed · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Reviewed · 2026-09-30"
         }
       ]
     },
@@ -3620,10 +3694,10 @@ window.VersionCompassSources = {
         "editions: editions.workflows.3"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -3651,6 +3725,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Reviewed · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Reviewed · 2026-09-30"
         }
       ]
     },
@@ -3669,11 +3747,11 @@ window.VersionCompassSources = {
         "editions: editions.conflicts.2.claims.0"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -3705,6 +3783,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Needs reconciliation · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Needs reconciliation · 2026-09-30"
         }
       ]
     },
@@ -3720,11 +3802,11 @@ window.VersionCompassSources = {
         "editions: editions.conflicts.2.claims.1"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -3756,6 +3838,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Needs reconciliation · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Needs reconciliation · 2026-09-30"
         }
       ]
     },
@@ -3771,10 +3857,10 @@ window.VersionCompassSources = {
         "editions: editions.workflows.2"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -3802,6 +3888,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Reviewed · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Reviewed · 2026-09-30"
         }
       ]
     }

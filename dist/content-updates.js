@@ -1,16 +1,19 @@
 /* Editorial change provenance. Cycles advance only with material factual updates. */
 (function(){
 'use strict';
-const policy={currentCycle:2,retentionCycles:2};
+const policy={currentCycle:3,retentionCycles:2};
 const note25='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-25.md';
 const note26='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-26.md';
+const note30='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-30.md';
 const enterprise1043='https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues';
+const enterprise104='https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4';
 const rum='https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.2.0';
 const ingest='https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor';
 const entries={
  'feature:observability:Browser RUM 3.2':{kind:'new',cycle:1,date:'2026-09-25',version:'Browser RUM 3.2.0 · September 2026 service milestone',detail:'Added to this guide: manual page-load registration and optional blocking-element spans.',source:rum,sourceDate:'2026-09-24'},
  'technical:observability:Browser RUM navigation configuration':{kind:'deprecated',cycle:1,date:'2026-09-25',version:'Browser RUM 3.2.0',detail:'spaMetrics is deprecated but remains functional as an alias for navigationMetrics. This is not removal of Browser RUM.',source:rum,sourceDate:'2026-09-24'},
- 'technical:enterprise:Enterprise 10.4 maintenance target':{kind:'new',cycle:2,date:'2026-09-26',version:'Splunk Enterprise 10.4 maintenance line',detail:'Added the documented 10.4.3-or-higher target because 10.4.2 can block acknowledged forwarding pipelines.',source:enterprise1043,sourceDate:'2026-09-23',note:note26}
+ 'technical-history:platform:Enterprise 10.4 maintenance target:2026-09-26':{recordKey:'technical:platform:Enterprise 10.4 maintenance target',kind:'new',cycle:2,date:'2026-09-26',version:'Splunk Enterprise 10.4 maintenance line',detail:'Added the documented 10.4.3-or-higher target because 10.4.2 can block acknowledged forwarding pipelines.',source:enterprise1043,sourceDate:'2026-09-23',note:note26},
+ 'technical:platform:Enterprise 10.4 maintenance target':{kind:'updated',cycle:3,date:'2026-09-30',version:'Splunk Enterprise 10.4.4',detail:'Advanced the current maintenance target to 10.4.4 while retaining 10.4.3 as the documented minimum and continuing to exclude 10.4.2.',source:enterprise104,sourceDate:'2026-09-29',note:note30}
 };
 for(const id of ['ingest-aws','ingest-moderate','ingest-classic-commercial','ingest-classic-moderate'])entries['environment:'+id]={kind:id.includes('classic')?'new':'updated',cycle:1,date:'2026-09-25',version:'Current Cloud service guidance · Classic / Victoria',detail:id.includes('classic')?'Added a visible Classic restriction: Ingest Processor requires Victoria. This documents an existing prerequisite, not a new product restriction.':'Corrected scope to require Victoria Experience and a provisioned Ingest Processor tenant.',source:ingest,sourceDate:'2026-06-16'};
 const labels={new:'New',updated:'Updated',deprecated:'Deprecated',removed:'Removed',corrected:'Corrected'};

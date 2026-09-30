@@ -11,6 +11,13 @@ test('decision change history follows actual selected milestones and environment
  const env={product:'platform',platform:'cloud',from:'10.2.2406',to:'10.5.2605',environment:{csp:'aws',experience:'classic'},environmentErrors:[]};
  const scoped=w.VersionCompassDecision.model(env,null);assert(scoped.changes.every(x=>x.key.includes('classic')));assert(scoped.changes.length);
 });
+test('decision history retains successive changes to the same stable record',()=>{
+ const c=context(),w=c.window,state={product:'platform',platform:'enterprise',from:'10.2',to:'10.4',environment:{},environmentErrors:[]};
+ const m=w.VersionCompassDecision.model(state,w.VersionCompassComparison.create(w.SPLUNK_DATA,state));
+ const maintenance=m.changes.filter(x=>x.key==='technical:platform:Enterprise 10.4 maintenance target');
+ assert.equal(maintenance.length,2);
+ assert.deepEqual(Array.from(maintenance,x=>x.date),['2026-09-30','2026-09-26']);
+});
 test('uncertainty questions preserve recorded edition conflicts rather than resolving them',()=>{
  const w=context().window,s={product:'es',platform:'cloud',view:'es-editions',to:'8.7',environment:{},environmentErrors:[]};
  const m=w.VersionCompassDecision.model(s,null,w.VersionCompassEditions);
