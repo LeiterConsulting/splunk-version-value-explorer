@@ -553,12 +553,12 @@ window.VersionCompassSources = {
         "environment: environment.records.53"
       ],
       "reviews": [
-        "2026-09-29",
+        "2026-09-30",
         "2026-09-28"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -598,6 +598,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Needs reconciliation · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Needs reconciliation · 2026-09-30"
         }
       ]
     },
@@ -615,11 +619,11 @@ window.VersionCompassSources = {
         "environment: environment.records.20"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -651,6 +655,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Needs reconciliation · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Needs reconciliation · 2026-09-30"
         }
       ]
     },
@@ -670,10 +678,10 @@ window.VersionCompassSources = {
         "environment: environment.records.15"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -701,6 +709,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Reviewed · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Reviewed · 2026-09-30"
         }
       ]
     },
@@ -1609,7 +1621,6 @@ window.VersionCompassSources = {
         "editions: editions.notes.1"
       ],
       "reviews": [
-        "2026-09-29",
         "2026-09-30"
       ],
       "usage": "In use",
@@ -2844,10 +2855,10 @@ window.VersionCompassSources = {
         "environment: environment.records.50"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -2875,6 +2886,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Reviewed · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Reviewed · 2026-09-30"
         }
       ]
     },
@@ -3384,10 +3399,10 @@ window.VersionCompassSources = {
         "environment: environment.records.6"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -3415,6 +3430,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Reviewed · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Reviewed · 2026-09-30"
         }
       ]
     },
@@ -3429,10 +3448,10 @@ window.VersionCompassSources = {
         "environment: environment.records.7"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -3460,6 +3479,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Reviewed · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Reviewed · 2026-09-30"
         }
       ]
     },
@@ -3476,10 +3499,10 @@ window.VersionCompassSources = {
         "environment: environment.records.53"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -3507,6 +3530,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Reviewed · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Reviewed · 2026-09-30"
         }
       ]
     },
@@ -3521,10 +3548,10 @@ window.VersionCompassSources = {
         "environment: environment.records.40"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -3552,6 +3579,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Reviewed · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Reviewed · 2026-09-30"
         }
       ]
     },
@@ -3566,10 +3597,10 @@ window.VersionCompassSources = {
         "environment: environment.records.5"
       ],
       "reviews": [
-        "2026-09-29"
+        "2026-09-30"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-29",
+      "reviewed": "2026-09-30",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -3597,6 +3628,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-29",
           "event": "Review status updated: Reviewed · 2026-09-29"
+        },
+        {
+          "date": "2026-09-30",
+          "event": "Review status updated: Reviewed · 2026-09-30"
         }
       ]
     },
