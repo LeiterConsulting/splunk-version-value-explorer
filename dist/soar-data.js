@@ -163,6 +163,30 @@ window.VersionCompassSOARData = {
       "checked": "2026-10-01",
       "reviewed": "2026-10-01",
       "outcome": "confirmed"
+    },
+    "requirements86": {
+      "title": "SOAR 8.6 system requirements",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.6.0/system-requirements/general-system-requirements",
+      "section": "Supported operating systems; PostgreSQL 15; Elasticsearch versions; bundled UF 10.4.0; container restriction",
+      "checked": "2026-10-01",
+      "reviewed": "2026-10-01",
+      "outcome": "confirmed"
+    },
+    "sizing86": {
+      "title": "SOAR 8.6 production sizing",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.6.0/system-requirements/system-requirements-for-production-use",
+      "section": "Production CPU, memory, volume sizing, network and system utilities",
+      "checked": "2026-10-01",
+      "reviewed": "2026-10-01",
+      "outcome": "confirmed"
+    },
+    "fixed86": {
+      "title": "SOAR 8.6 fixed issues",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.6.0/splunk-soar-on-premises-release-notes/fixed-issues-for-splunk-soar-on-premises",
+      "section": "Release 8.6.0: retrieved page exposes no fixed-issue rows",
+      "checked": "2026-10-01",
+      "reviewed": null,
+      "outcome": "unavailable"
     }
   },
   "records": [
@@ -215,7 +239,8 @@ window.VersionCompassSOARData = {
         "cloud"
       ],
       "status": "Conditional",
-      "verified": "2026-10-01"
+      "verified": "2026-10-01",
+      "outcome": "Keep response actions running if a Broker fails, and distribute work across a Broker group."
     },
     {
       "id": "agent87",
@@ -230,7 +255,8 @@ window.VersionCompassSOARData = {
         "cloud"
       ],
       "status": "Conditional",
-      "verified": "2026-10-01"
+      "verified": "2026-10-01",
+      "outcome": "Build and explain playbooks with more relevant finding and data-path context."
     },
     {
       "id": "agent86",
@@ -294,7 +320,8 @@ window.VersionCompassSOARData = {
         "cmp"
       ],
       "status": "Conditional",
-      "verified": "2026-10-01"
+      "verified": "2026-10-01",
+      "outcome": "Use the updated cryptographic baseline on the documented supported operating systems."
     },
     {
       "id": "app-defer",
@@ -457,6 +484,39 @@ window.VersionCompassSOARData = {
       ],
       "status": "Required",
       "verified": "2026-10-01",
+      "target": true,
+      "qualification": "For Cloud, confirm service remediation with Splunk; customer-managed upgrade instructions do not establish the status of a tenant. The CyberArk action applies only to existing affected configurations."
+    },
+    {
+      "id": "os86",
+      "title": "Target OS and service dependencies",
+      "detail": "8.6 requires RHEL/Oracle Linux 8.10+ or 9.7+, or Amazon Linux 2023.10.20260330+. PostgreSQL: 15.x. Listed Elasticsearch: 8.3.3, 8.11.4, 8.19.4. Bundled UF: 10.4.0. Installing SOAR inside Docker/Podman is unsupported.",
+      "kind": "technical",
+      "release": "8.6.0",
+      "src": [
+        "requirements86"
+      ],
+      "deployments": [
+        "cmp"
+      ],
+      "status": "Required",
+      "verified": "2026-10-01",
+      "target": true
+    },
+    {
+      "id": "size86",
+      "title": "Production sizing",
+      "detail": "One server-class CPU with 4–8 cores; 16GB RAM minimum, 32GB recommended; 500GiB each for home, data and file-share volumes; 1Gb network. Size further for workload and retained files.",
+      "kind": "technical",
+      "release": "8.6.0",
+      "src": [
+        "sizing86"
+      ],
+      "deployments": [
+        "cmp"
+      ],
+      "status": "Required",
+      "verified": "2026-10-01",
       "target": true
     }
   ],
@@ -558,11 +618,39 @@ window.VersionCompassSOARData = {
       "id": "historical-targets",
       "priority": 2,
       "status": "bounded_coverage",
-      "question": "Expand exact historical target requirements and privileged/Phantom paths beyond this initial curated set.",
+      "question": "Expand historical target requirements beyond 8.6/8.7 and exact privileged/Phantom conversion paths.",
       "src": [
         "prepare",
         "path87"
       ]
     }
-  ]
+  ],
+  "targetRequirements": {
+    "8.6.0": {
+      "runtime": "Python 3.9 retained for the final release; migrate automations to 3.13 before 8.7.",
+      "os": "RHEL / Oracle Linux 8.10+ or 9.7+; Amazon Linux 2023.10.20260330+.",
+      "database": "PostgreSQL 15.x",
+      "search": "Elasticsearch 8.3.3, 8.11.4 or 8.19.4",
+      "forwarder": "10.4.0",
+      "sizing": "4–8 CPU cores; 16GB RAM minimum / 32GB recommended; 500GiB each for home, data and file-share volumes.",
+      "src": [
+        "on86",
+        "requirements86",
+        "sizing86"
+      ]
+    },
+    "8.7.0": {
+      "runtime": "Python 3.13 only. Python 3.9 automations must be migrated and tested.",
+      "os": "RHEL / Oracle Linux 8.10+ or 9.7+; Amazon Linux 2023.10.20260330+.",
+      "database": "PostgreSQL 15.x",
+      "search": "Elasticsearch 8.3.3, 8.11.4 or 8.19.4",
+      "forwarder": "10.4.1",
+      "sizing": "4–8 CPU cores; 16GB RAM minimum / 32GB recommended; 500GiB each for home, data and file-share volumes.",
+      "src": [
+        "on87",
+        "requirements",
+        "sizing"
+      ]
+    }
+  }
 };

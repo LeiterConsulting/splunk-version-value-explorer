@@ -4078,6 +4078,96 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.6.0/system-requirements/general-system-requirements",
+      "title": "SOAR 8.6 system requirements",
+      "areas": [
+        "Splunk SOAR",
+        "Shared guidance"
+      ],
+      "references": [
+        "soar.sources.requirements86.url",
+        "content-updates.js",
+        "soar: soar.records.18",
+        "soar: soar.targetRequirements.8.6.0"
+      ],
+      "reviews": [
+        "2026-10-01"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.18",
+          "section": "Supported operating systems; PostgreSQL 15; Elasticsearch versions; bundled UF 10.4.0; container restriction"
+        },
+        {
+          "path": "soar: soar.targetRequirements.8.6.0",
+          "section": "Supported operating systems; PostgreSQL 15; Elasticsearch versions; bundled UF 10.4.0; container restriction"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Supported operating systems; PostgreSQL 15; Elasticsearch versions; bundled UF 10.4.0; container restriction",
+      "verificationScope": "Verified the selected 8.6 target requirements only; no historical release, upgrade-edge or Cloud applicability inferred.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.6.0/system-requirements/system-requirements-for-production-use",
+      "title": "SOAR 8.6 production sizing",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.sizing86.url",
+        "soar: soar.records.19",
+        "soar: soar.targetRequirements.8.6.0"
+      ],
+      "reviews": [
+        "2026-10-01"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.19",
+          "section": "Production CPU, memory, volume sizing, network and system utilities"
+        },
+        {
+          "path": "soar: soar.targetRequirements.8.6.0",
+          "section": "Production CPU, memory, volume sizing, network and system utilities"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Production CPU, memory, volume sizing, network and system utilities",
+      "verificationScope": "Verified the selected 8.6 target requirements only; no historical release, upgrade-edge or Cloud applicability inferred.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.6.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
       "title": "SOAR 8.6.0 upgrade paths",
       "areas": [
@@ -4121,7 +4211,8 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.requirements.url",
-        "soar: soar.records.11"
+        "soar: soar.records.11",
+        "soar: soar.targetRequirements.8.7.0"
       ],
       "reviews": [
         "2026-10-01"
@@ -4129,6 +4220,10 @@ window.VersionCompassSources = {
       "claimReferences": [
         {
           "path": "soar: soar.records.11",
+          "section": "Supported operating systems, database, Elasticsearch, Universal Forwarder and container restriction"
+        },
+        {
+          "path": "soar: soar.targetRequirements.8.7.0",
           "section": "Supported operating systems, database, Elasticsearch, Universal Forwarder and container restriction"
         }
       ],
@@ -4164,7 +4259,8 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.sizing.url",
-        "soar: soar.records.12"
+        "soar: soar.records.12",
+        "soar: soar.targetRequirements.8.7.0"
       ],
       "reviews": [
         "2026-10-01"
@@ -4172,6 +4268,10 @@ window.VersionCompassSources = {
       "claimReferences": [
         {
           "path": "soar: soar.records.12",
+          "section": "Production system requirements table"
+        },
+        {
+          "path": "soar: soar.targetRequirements.8.7.0",
           "section": "Production system requirements table"
         }
       ],
@@ -4291,6 +4391,36 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.6.0/splunk-soar-on-premises-release-notes/fixed-issues-for-splunk-soar-on-premises",
+      "title": "SOAR 8.6 fixed issues",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.fixed86.url"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "An empty retrieved issue body does not establish zero fixed issues.",
+      "section": "Release 8.6.0: retrieved page exposes no fixed-issue rows",
+      "verificationScope": "Retrieval exposed no fixed-issue rows; coverage remains unresolved.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Needs reconciliation"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.6.0/splunk-soar-on-premises-release-notes/known-issues-for-splunk-soar-on-premises",
       "title": "SOAR 8.6 credential-manager warning",
       "areas": [
@@ -4342,7 +4472,8 @@ window.VersionCompassSources = {
       "references": [
         "soar.sources.on86.url",
         "soar: soar.records.5",
-        "soar: soar.records.7"
+        "soar: soar.records.7",
+        "soar: soar.targetRequirements.8.6.0"
       ],
       "reviews": [
         "2026-10-01"
@@ -4354,6 +4485,10 @@ window.VersionCompassSources = {
         },
         {
           "path": "soar: soar.records.7",
+          "section": "August 4, 2026 release; FIPS 140-3 compliance"
+        },
+        {
+          "path": "soar: soar.targetRequirements.8.6.0",
           "section": "August 4, 2026 release; FIPS 140-3 compliance"
         }
       ],
@@ -4515,7 +4650,8 @@ window.VersionCompassSources = {
         "content-updates.js",
         "soar: soar.records.0",
         "soar: soar.records.1",
-        "soar: soar.records.2"
+        "soar: soar.records.2",
+        "soar: soar.targetRequirements.8.7.0"
       ],
       "reviews": [
         "2026-10-01"
@@ -4531,6 +4667,10 @@ window.VersionCompassSources = {
         },
         {
           "path": "soar: soar.records.2",
+          "section": "September 2 release; September 22 build 243 correction; Python 3.9 end of support; Automation Broker HA"
+        },
+        {
+          "path": "soar: soar.targetRequirements.8.7.0",
           "section": "September 2 release; September 22 build 243 correction; Python 3.9 end of support; Automation Broker HA"
         }
       ],

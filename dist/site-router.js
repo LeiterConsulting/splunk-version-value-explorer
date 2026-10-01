@@ -19,7 +19,7 @@
     };
     document.body.appendChild(script);
   }
-  if(params.get('product')==='soar'&&!params.has('view')){load(['content-revision.js','source-register.js','evidence.js','report-tools.js','environment-data.js','environment.js','data.js','product-data.js','guidance-data.js','comparison.js','guidance.js','soar-data.js','soar.js','soar-ui.js','webmcp.js','navigation.js']);return;}
+  if(params.get('product')==='soar'&&!params.has('view')){document.querySelector('main').innerHTML=document.querySelector('.product-switcher').outerHTML+'<p role="status" class="soar-loading">Loading SOAR comparison…</p>';load(['content-revision.js','source-register.js','evidence.js','report-tools.js','environment-data.js','environment.js','data.js','product-data.js','guidance-data.js','comparison.js','guidance.js','soar-data.js','soar.js','soar-ui.js','webmcp.js','navigation.js']);return;}
   if(params.get('product')==='forwarders'&&!params.has('view')){load(['content-revision.js','source-register.js','evidence.js','report-tools.js','data.js','product-data.js','comparison.js','forwarders-data.js','forwarders.js','forwarders-ui.js','navigation.js']);return;}
   if(params.getAll('view').length===1&&params.get('view')==='about'){load(['source-register.js','maintenance-status.js','about.js','navigation.js']);return;}
   const files = preview ? ['environment-data.js','environment.js','editions-data.js','editions.js'] : normal;
