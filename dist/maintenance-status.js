@@ -270,10 +270,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-guidance-audit",
       "name": "Version Guidance Audit",
-      "lastAttempt": "2026-10-01T20:45:01Z",
-      "lastSuccess": "2026-10-01T20:45:33Z",
-      "outcome": "changed",
-      "summary": "Reconciled concurrent receiver/KV/ITSI/lifecycle corrections; corrected Cloud 10.6 migration availability labels and exact release-scoped technical badges/history. 67 tests passed. Native narrow-screen/PDF/reopened-HTML/WebMCP checks remain unperformed.",
+      "lastAttempt": "2026-10-01T21:08:16Z",
+      "lastSuccess": "2026-10-01T21:08:35Z",
+      "outcome": "no-change",
+      "summary": "Concurrent SOAR source preserved; 20 added official sources retrieved and four consequential claims confirmed. Prior factual version 80 publication and bounded native evidence reconciled. No further factual change.",
       "history": [
         {
           "at": "2026-09-24T12:45:24.855849+00:00",
@@ -327,9 +327,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Reconciled concurrent receiver/KV/ITSI/lifecycle corrections; corrected Cloud 10.6 migration availability labels and exact release-scoped technical badges/history. 67 tests passed. Native narrow-screen/PDF/reopened-HTML/WebMCP checks remain unperformed.",
           "scope": "120 exact URL retrieval attempts; bounded 10.6 receiver, path, OS, KV/ITSI, support, security and Cloud claim checks; attributed cross-watch outcomes; independent declared Forwarder source/section coverage. Publication and native verification are separate. Historical borrowed-HF mapping work remains unverified."
+        },
+        {
+          "at": "2026-10-01T21:08:16Z",
+          "outcome": "running",
+          "summary": "Reconcile retained publication evidence with concurrent SOAR source; independently inspect new inventory and bounded consequential claims.",
+          "scope": "140 exact URL retrieval attempts across retained audit and 20 added SOAR sources; four additional SOAR claim checks. Existing v80 native results retained as bounded evidence; PDF, narrow-screen, reopened HTML and native WebMCP remain unverified."
+        },
+        {
+          "at": "2026-10-01T21:08:35Z",
+          "outcome": "no-change",
+          "summary": "Concurrent SOAR source preserved; 20 added official sources retrieved and four consequential claims confirmed. Prior factual version 80 publication and bounded native evidence reconciled. No further factual change.",
+          "scope": "140 exact URL attempts including 20 added SOAR sources; four new build/Python/pairing/path claim checks. Retrieval is not blanket claim verification. Historical HF coverage and native PDF, narrow-screen, reopened HTML, clipboard and WebMCP remain incomplete; successful review is not deployment."
         }
       ],
-      "scope": "120 exact URL retrieval attempts; bounded 10.6 receiver, path, OS, KV/ITSI, support, security and Cloud claim checks; attributed cross-watch outcomes; independent declared Forwarder source/section coverage. Publication and native verification are separate. Historical borrowed-HF mapping work remains unverified."
+      "scope": "140 exact URL attempts including 20 added SOAR sources; four new build/Python/pairing/path claim checks. Retrieval is not blanket claim verification. Historical HF coverage and native PDF, narrow-screen, reopened HTML, clipboard and WebMCP remain incomplete; successful review is not deployment."
     }
   ]
 };
