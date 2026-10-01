@@ -6,8 +6,8 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-09-30T11:30:29Z",
-      "lastSuccess": "2026-09-30T11:34:12Z",
+      "lastAttempt": "2026-10-01T11:07:22Z",
+      "lastSuccess": "2026-10-01T11:12:47Z",
       "outcome": "no-change",
       "summary": "Reviewed all 10 maintained official environment sources and 54 records; no material factual or scope change was found, and the documented Federated Search for Amazon S3 High conflict remains explicit.",
       "history": [
@@ -72,6 +72,18 @@ window.VersionCompassMaintenance = {
         },
         {
           "at": "2026-09-30T11:34:12Z",
+          "outcome": "no-change",
+          "summary": "Reviewed all 10 maintained official environment sources and 54 records; no material factual or scope change was found, and the documented Federated Search for Amazon S3 High conflict remains explicit.",
+          "scope": "Cloud Platform 10.5 service details and change log; Ingest Processor prerequisites; ES 8.7 and SOAR regional and pairing evidence; ITSI host-context boundary; Observability realms and component scope; visually verified February 2026 US Public Sector compliance symbols; exact FedRAMP Marketplace Moderate and High offerings; Forwarders destination/provider/region/topology restrictions; environment filters, perspectives, reports, shared URLs, print/snapshot and read-only agent parity."
+        },
+        {
+          "at": "2026-10-01T11:07:22Z",
+          "outcome": "running",
+          "summary": "Reviewing current Cloud hosting, regional, FedRAMP, product-scope, forwarder-destination and Observability evidence.",
+          "scope": "Ten maintained official environment sources and all 54 records: Cloud Platform service details and change log; feature and experience guides; ES/SOAR regional evidence; public-sector compliance matrix; exact FedRAMP Moderate and High Marketplace offerings; scoped authorization announcements; Observability realms; Forwarders destination/provider/region/topology restrictions; environment filters, perspectives, reports, shared URLs, print/snapshot and read-only agent parity."
+        },
+        {
+          "at": "2026-10-01T11:12:47Z",
           "outcome": "no-change",
           "summary": "Reviewed all 10 maintained official environment sources and 54 records; no material factual or scope change was found, and the documented Federated Search for Amazon S3 High conflict remains explicit.",
           "scope": "Cloud Platform 10.5 service details and change log; Ingest Processor prerequisites; ES 8.7 and SOAR regional and pairing evidence; ITSI host-context boundary; Observability realms and component scope; visually verified February 2026 US Public Sector compliance symbols; exact FedRAMP Marketplace Moderate and High offerings; Forwarders destination/provider/region/topology restrictions; environment filters, perspectives, reports, shared URLs, print/snapshot and read-only agent parity."
