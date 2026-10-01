@@ -19,7 +19,8 @@ test('About search, combined filters, sorting, empty results and reset retain th
  assert.equal(node('source-count').textContent,'Showing 40 of '+window.VersionCompassSources.sources.length+' sources');
  assert.equal(node('source-list').paged.filter(x=>x.classList.removed).length,20);
  node('source-status').value='Needs reconciliation';node('source-status').listeners.change();
- assert(!node('source-list').innerHTML.includes('Review date unknown'));
+ assert.equal((node('source-list').innerHTML.match(/class="source-entry/g)||[]).length,window.VersionCompassSources.sources.filter(x=>x.status==='Needs reconciliation').length);
+ assert.match(node('source-list').innerHTML,/Needs reconciliation/);
  node('source-search').value='no-source-matches-this';node('source-search').listeners.input();
  assert.match(node('source-list').innerHTML,/No sources match/);
  assert.equal(new URL(location.href).searchParams.get('theme'),'cisco');

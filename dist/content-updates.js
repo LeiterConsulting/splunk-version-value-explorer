@@ -1,7 +1,7 @@
 /* Editorial change provenance. Cycles advance only with material factual updates. */
 (function(){
 'use strict';
-const policy={currentCycle:7,retentionCycles:2};
+const policy={currentCycle:8,retentionCycles:2};
 const note25='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-25.md';
 const note26='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-26.md';
 const note30='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-30.md';
@@ -17,6 +17,7 @@ const enterprise106ReadFirst='https://help.splunk.com/en/splunk-enterprise/get-s
 const cloud106='https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new';
 const ingest='https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor';
 const entries={
+"product:soar:introduction":{kind:"new",cycle:8,date:"2026-10-01",version:"SOAR 8.6 / 8.7",detail:"Added SOAR Cloud and customer-managed comparisons, conditional routes, requirements, scoped features, issues and public-source evidence.",source:"https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.7.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",note:note01},
  'feature:observability:Browser RUM 3.2':{kind:'new',cycle:1,date:'2026-09-25',version:'Browser RUM 3.2.0 · September 2026 service milestone',detail:'Added to this guide: manual page-load registration and optional blocking-element spans.',source:rum,sourceDate:'2026-09-24'},
  'technical:observability:Browser RUM navigation configuration':{kind:'deprecated',cycle:1,date:'2026-09-25',version:'Browser RUM 3.2.0',detail:'spaMetrics is deprecated but remains functional as an alias for navigationMetrics. This is not removal of Browser RUM.',source:rum,sourceDate:'2026-09-24'},
  'technical-history:platform:Enterprise 10.4 maintenance target:2026-09-26':{recordKey:'technical:platform:Enterprise 10.4 maintenance target',kind:'new',cycle:2,date:'2026-09-26',version:'Splunk Enterprise 10.4 maintenance line',detail:'Added the documented 10.4.3-or-higher target because 10.4.2 can block acknowledged forwarding pipelines.',source:enterprise1043,sourceDate:'2026-09-23',note:note26},

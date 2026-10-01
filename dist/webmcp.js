@@ -7,6 +7,7 @@
   const data = window.SPLUNK_DATA;
   const sectionNames = ["features", "technicalChanges", "breakingChanges", "readiness", "migrationApproaches"];
   const productNames = Object.keys(data.products);
+  if(window.VersionCompassSOAR&&!productNames.includes("soar"))productNames.push("soar");
   const clone = function (value) { return JSON.parse(JSON.stringify(value)); };
   const has = function (object, key) { return Object.prototype.hasOwnProperty.call(object, key); };
 
@@ -42,7 +43,16 @@
   }
 
   function validateRoute(input) {
-    objectInput(input, ["product", "platform", "host", "from", "to", "environment"]);
+    objectInput(input, ["product", "platform", "host", "from", "to", "environment", "installation", "os"]);
+    if(input.product==="soar"){
+      if(!["enterprise","cloud"].includes(input.platform)||has(input,"host"))throw new Error("SOAR requires enterprise or cloud and no host.");
+      const env=input.environment||{};objectInput(env,["provider","region","compliance"]);
+      const s=Object.assign({},window.VersionCompassSOAR.defaults,env,{deployment:input.platform==="cloud"?"cloud":"cmp",from:input.from,to:input.to});
+      for(const k of ["installation","os"])if(has(input,k))s[k]=input[k];
+      const errors=window.VersionCompassSOAR.validate(s);if(errors.length)throw new Error(errors.join(" "));
+      return Object.assign({product:"soar"},s);
+    }
+    if(has(input,"installation")||has(input,"os"))throw new Error("SOAR-only fields.");
     if (!productNames.includes(input.product)) throw new Error("Unknown product. Call versioncompass_get_catalog for supported identifiers.");
     const platforms = input.product === "platform" ? ["enterprise", "cloud", "migration"] : ["enterprise", "cloud"];
     if (!platforms.includes(input.platform)) throw new Error("Unsupported platform for " + input.product + ": " + input.platform);
@@ -62,6 +72,7 @@
   }
 
   function report(state, include) {
+    if(state.product==="soar")return Object.assign(window.VersionCompassSOAR.assess(state),{reportUrl:"https://versioncompass.com/"+window.VersionCompassSOAR.url(state),includedSections:include});
     const engine = window.VersionCompassComparison.create(data, state);
     const track = engine.isMigration() ? data.cloud : engine.activeTrack();
     const guidance = window.VersionCompassGuidance;
@@ -113,7 +124,8 @@
   const routeSchema = {
     type: "object", additionalProperties: false, required: ["product", "platform", "from", "to"],
     properties: {
-      environment: {type:"object",additionalProperties:false,description:"Optional current hosting evidence; separate from historical release availability. FR-M and FR-H do not inherit each other.",properties:{csp:{type:"string",enum:Object.keys(window.VersionCompassEnvironment.data.providers)},region:{type:"string",enum:window.VersionCompassEnvironment.data.regions.map(r=>r.id)},compliance:{type:"string",enum:Object.keys(window.VersionCompassEnvironment.data.regimes)},experience:{type:"string",enum:Object.keys(window.VersionCompassEnvironment.data.experiences)}}},
+      installation:{type:"string",enum:["unprivileged","privileged"]},os:{type:"string",enum:["unspecified","supported","rhel7","centos7","al2"]},
+      environment: {type:"object",additionalProperties:false,description:"Optional current hosting evidence; separate from historical release availability. FR-M and FR-H do not inherit each other.",properties:{provider:{type:"string",enum:["unspecified","aws","gcp","azure"]},csp:{type:"string",enum:Object.keys(window.VersionCompassEnvironment.data.providers)},region:{type:"string",description:"Exact product-specific region identifier from its catalog."},compliance:{type:"string",enum:Object.keys(window.VersionCompassEnvironment.data.regimes)},experience:{type:"string",enum:Object.keys(window.VersionCompassEnvironment.data.experiences)}}},
       product: { type: "string", enum: productNames },
       platform: { type: "string", enum: ["enterprise", "cloud", "migration"], description: "migration is supported only for product=platform." },
       host: { type: "string", description: "Required for ES, ITSI, and Observability; omit for Splunk Platform. Exact identifier from hostReleases." },
@@ -139,6 +151,7 @@
         const products = has(input, "products") ? listInput(input.products, productNames, "products", productNames.length) : productNames;
         if (!products.length) throw new Error("products must not be empty.");
         return { metadata: metadata(), environments: {providers:window.VersionCompassEnvironment.data.providers,regions:window.VersionCompassEnvironment.data.regions,compliance:window.VersionCompassEnvironment.data.regimes,experiences:window.VersionCompassEnvironment.data.experiences,scope:"Hosting context; blank selections imply no assurance. Availability and authorization are distinct."}, products: products.map(function (product) {
+          if(product==="soar"){const d=window.VersionCompassSOARData;return {id:product,label:"Splunk SOAR",options:window.VersionCompassSOAR.options,contexts:["cmp","cloud"].map(deployment=>({platform:deployment==="cloud"?"cloud":"enterprise",sourceReleases:d.releases[deployment].map(id=>({id})),targetReleases:d.targets.map(id=>({id})),latest:d.latest,hostReleases:[],sources:d.sources}))};}
           const platforms = product === "platform" ? ["enterprise", "cloud", "migration"] : ["enterprise", "cloud"];
           return { id: product, label: data.products[product].label, contexts: platforms.map(function (platform) {
             const migration = platform === "migration";
@@ -177,6 +190,7 @@
         const selected = window.VersionCompassPage.getSelection();
         if(selected.environmentErrors?.length)throw new Error("The environment link needs review before reading this report.");
         const route = { product: selected.product, platform: selected.platform, from: selected.from, to: selected.to };
+        if(selected.product==="soar")return {metadata:metadata(),linkContext,report:report(validateRoute(selected),include)};
         if (selected.product !== "platform") route.host = selected.host;
         if(window.VersionCompassEnvironment.enabled(selected)&&Object.keys(selected.environment||{}).length)route.environment=selected.environment;
         return { metadata: metadata(), linkContext: linkContext, report: report(validateRoute(route), include) };

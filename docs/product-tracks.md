@@ -67,3 +67,7 @@ Any update must refresh the reviewed date, validate representative routes for al
 ## Enterprise 10.6 and ITSI KV Store scope
 
 The platform matrix lists ITSI 4.21.x and 5.0 with Enterprise 10.6. The separate [cohosted KV Store guide](https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store), checked October 1, requires postponing automatic migration for ITSI 5.0.x and lower. The existing host-warning and readiness surfaces carry this prerequisite for the maintained 4.21/5.0.x releases. Cloud pairing remains independently governed by current Service Details.
+
+## SOAR integration · October 1
+
+SOAR is a peer product with customer-managed and Cloud contexts. See [SOAR maintenance](soar.md) for the exact public source inventory, daily task ownership, initial coverage, report parity, existing WebMCP integration and unresolved verification work.

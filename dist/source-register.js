@@ -118,6 +118,92 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-0804",
+      "title": "SOAR security hardening advisory",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.security.url",
+        "soar: soar.records.17"
+      ],
+      "reviews": [
+        "2026-10-01"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.17",
+          "section": "Solutions; Product Status; CVE-2026-76362 Additional Solution"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Solutions; Product Status; CVE-2026-76362 Additional Solution",
+      "verificationScope": "Bounded review of the cited SOAR section and records; not a complete historical re-verification.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-0805",
+      "title": "SOAR third-party package advisory",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.packages.url",
+        "soar: soar.records.17"
+      ],
+      "reviews": [
+        "2026-10-01"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.17",
+          "section": "Description: third-party fixes in 8.6.0 and higher"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Description: third-party fixes in 8.6.0 and higher",
+      "verificationScope": "Bounded review of the cited SOAR section and records; not a complete historical re-verification.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
       "url": "https://advisory.splunk.com/advisories/SVD-2026-0807",
       "title": "SVD 2026 0807",
       "areas": [
@@ -3745,6 +3831,49 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/administer-soar-cloud/introduction-to-splunk-soar-cloud/splunk-soar-cloud-in-restricted-environments",
+      "title": "SOAR Cloud restricted environments",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.restricted.url",
+        "soar: soar.backlog.2"
+      ],
+      "reviews": [
+        "2026-10-01"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.backlog.2",
+          "section": "FedRAMP Moderate: Hosting, FIPS mode, Playbooks, Automation isolation, Restoring data"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "FedRAMP Moderate: Hosting, FIPS mode, Playbooks, Automation isolation, Restoring data",
+      "verificationScope": "Bounded review of the cited SOAR section and records; not a complete historical re-verification.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/develop-apps/build-playbooks/use-the-automation-builder-agent-to-build-and-understand-playbooks",
       "title": "SOAR Cloud Automation Builder task guide",
       "areas": [
@@ -3790,6 +3919,772 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-30",
           "event": "Review status updated: Reviewed · 2026-09-30"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/known-issues-for-splunk-soar-cloud",
+      "title": "SOAR Cloud known issues",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.cloudKnown.url",
+        "soar: soar.backlog.0"
+      ],
+      "reviews": [],
+      "claimReferences": [
+        {
+          "path": "soar: soar.backlog.0",
+          "section": "September 3 heading for 8.7 differs from September 2 GA notes; fetched current section has no issue rows"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Public issue-page retrieval omitted rows; absence of issues is not established.",
+      "section": "September 3 heading for 8.7 differs from September 2 GA notes; fetched current section has no issue rows",
+      "verificationScope": "Attempted retrieval did not expose issue rows; issue coverage remains unresolved.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Needs reconciliation"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
+      "title": "SOAR Cloud release notes",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.cloud.url",
+        "soar: soar.records.0",
+        "soar: soar.records.2",
+        "soar: soar.records.3",
+        "soar: soar.records.4",
+        "soar: soar.records.5",
+        "soar: soar.records.8",
+        "soar: soar.records.9",
+        "soar: soar.records.10"
+      ],
+      "reviews": [
+        "2026-10-01"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.0",
+          "section": "7.1 Python migration; 7.2 GCP; 8.6 and 8.7 enhancements and prerequisites"
+        },
+        {
+          "path": "soar: soar.records.2",
+          "section": "7.1 Python migration; 7.2 GCP; 8.6 and 8.7 enhancements and prerequisites"
+        },
+        {
+          "path": "soar: soar.records.3",
+          "section": "7.1 Python migration; 7.2 GCP; 8.6 and 8.7 enhancements and prerequisites"
+        },
+        {
+          "path": "soar: soar.records.4",
+          "section": "7.1 Python migration; 7.2 GCP; 8.6 and 8.7 enhancements and prerequisites"
+        },
+        {
+          "path": "soar: soar.records.5",
+          "section": "7.1 Python migration; 7.2 GCP; 8.6 and 8.7 enhancements and prerequisites"
+        },
+        {
+          "path": "soar: soar.records.8",
+          "section": "7.1 Python migration; 7.2 GCP; 8.6 and 8.7 enhancements and prerequisites"
+        },
+        {
+          "path": "soar: soar.records.9",
+          "section": "7.1 Python migration; 7.2 GCP; 8.6 and 8.7 enhancements and prerequisites"
+        },
+        {
+          "path": "soar: soar.records.10",
+          "section": "7.1 Python migration; 7.2 GCP; 8.6 and 8.7 enhancements and prerequisites"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "7.1 Python migration; 7.2 GCP; 8.6 and 8.7 enhancements and prerequisites",
+      "verificationScope": "Bounded review of the cited SOAR section and records; not a complete historical re-verification.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/soar-cloud-service-description/the-splunk-soar-service/splunk-soar-cloud-introduction",
+      "title": "SOAR Cloud service description",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.regions.url"
+      ],
+      "reviews": [
+        "2026-10-01"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Available regions; supported versions. The current-version table retains an inconsistent April date label.",
+      "verificationScope": "Bounded review of the cited SOAR section and records; not a complete historical re-verification.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.6.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+      "title": "SOAR 8.6.0 upgrade paths",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.path86.url"
+      ],
+      "reviews": [
+        "2026-10-01"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Upgrade path table: starting versions 5.0.1–6.1.0, 6.2.1–6.4.1, 7.0.x and higher; OS and PostgreSQL conditions",
+      "verificationScope": "Bounded review of the cited SOAR section and records; not a complete historical re-verification.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.7.0/system-requirements/general-system-requirements",
+      "title": "SOAR 8.7 system requirements",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.requirements.url",
+        "soar: soar.records.11"
+      ],
+      "reviews": [
+        "2026-10-01"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.11",
+          "section": "Supported operating systems, database, Elasticsearch, Universal Forwarder and container restriction"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Supported operating systems, database, Elasticsearch, Universal Forwarder and container restriction",
+      "verificationScope": "Bounded review of the cited SOAR section and records; not a complete historical re-verification.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.7.0/system-requirements/system-requirements-for-production-use",
+      "title": "SOAR 8.7 production sizing",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.sizing.url",
+        "soar: soar.records.12"
+      ],
+      "reviews": [
+        "2026-10-01"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.12",
+          "section": "Production system requirements table"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Production system requirements table",
+      "verificationScope": "Bounded review of the cited SOAR section and records; not a complete historical re-verification.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.7.0/upgrade-splunk-soar-on-premises/splunk-soar-on-premises-upgrade-overview-and-prerequisites",
+      "title": "SOAR upgrade prerequisites",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.prepare.url",
+        "soar: soar.records.13",
+        "soar: soar.backlog.3"
+      ],
+      "reviews": [
+        "2026-10-01"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.13",
+          "section": "Upgrade overview checklist; prerequisites; privileged conversion and important changes"
+        },
+        {
+          "path": "soar: soar.backlog.3",
+          "section": "Upgrade overview checklist; prerequisites; privileged conversion and important changes"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Upgrade overview checklist; prerequisites; privileged conversion and important changes",
+      "verificationScope": "Bounded review of the cited SOAR section and records; not a complete historical re-verification.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.7.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+      "title": "SOAR 8.7.0 upgrade paths",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.path87.url",
+        "soar: soar.backlog.3"
+      ],
+      "reviews": [
+        "2026-10-01"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.backlog.3",
+          "section": "Upgrade path table: starting versions 5.0.1–6.1.0, 6.2.1–6.4.1, 7.0.x and higher; OS and PostgreSQL conditions"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Upgrade path table: starting versions 5.0.1–6.1.0, 6.2.1–6.4.1, 7.0.x and higher; OS and PostgreSQL conditions",
+      "verificationScope": "Bounded review of the cited SOAR section and records; not a complete historical re-verification.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.6.0/splunk-soar-on-premises-release-notes/known-issues-for-splunk-soar-on-premises",
+      "title": "SOAR 8.6 credential-manager warning",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.known86.url",
+        "soar: soar.records.6"
+      ],
+      "reviews": [
+        "2026-10-01"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.6",
+          "section": "Release 8.6.0 CAUTION: external credential managers"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Release 8.6.0 CAUTION: external credential managers",
+      "verificationScope": "Bounded review of the cited SOAR section and records; not a complete historical re-verification.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.6.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+      "title": "SOAR On-premises 8.6 release notes",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.on86.url",
+        "soar: soar.records.5",
+        "soar: soar.records.7"
+      ],
+      "reviews": [
+        "2026-10-01"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.5",
+          "section": "August 4, 2026 release; FIPS 140-3 compliance"
+        },
+        {
+          "path": "soar: soar.records.7",
+          "section": "August 4, 2026 release; FIPS 140-3 compliance"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "August 4, 2026 release; FIPS 140-3 compliance",
+      "verificationScope": "Bounded review of the cited SOAR section and records; not a complete historical re-verification.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.7.0/splunk-soar-on-premises-release-notes/compatibility-with-related-splunk-products",
+      "title": "SOAR related-product compatibility",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.related.url",
+        "soar: soar.records.16",
+        "soar: soar.backlog.1"
+      ],
+      "reviews": [
+        "2026-10-01"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.16",
+          "section": "Separate Splunk App for SOAR and SOAR Export compatibility links"
+        },
+        {
+          "path": "soar: soar.backlog.1",
+          "section": "Separate Splunk App for SOAR and SOAR Export compatibility links"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Separate Splunk App for SOAR and SOAR Export compatibility links",
+      "verificationScope": "Bounded review of the cited SOAR section and records; not a complete historical re-verification.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.7.0/splunk-soar-on-premises-release-notes/fixed-issues-for-splunk-soar-on-premises",
+      "title": "SOAR 8.7 fixed issues",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.fixed.url",
+        "soar: soar.backlog.0"
+      ],
+      "reviews": [],
+      "claimReferences": [
+        {
+          "path": "soar: soar.backlog.0",
+          "section": "Release 8.7.0: fetched body contains no issue rows"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Public issue-page retrieval omitted rows; absence of issues is not established.",
+      "section": "Release 8.7.0: fetched body contains no issue rows",
+      "verificationScope": "Attempted retrieval did not expose issue rows; issue coverage remains unresolved.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Needs reconciliation"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.7.0/splunk-soar-on-premises-release-notes/known-issues-for-splunk-soar-on-premises",
+      "title": "SOAR 8.7 known issues",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.known.url",
+        "soar: soar.backlog.0"
+      ],
+      "reviews": [],
+      "claimReferences": [
+        {
+          "path": "soar: soar.backlog.0",
+          "section": "Release 8.7.0: fetched body contains no issue rows"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Public issue-page retrieval omitted rows; absence of issues is not established.",
+      "section": "Release 8.7.0: fetched body contains no issue rows",
+      "verificationScope": "Attempted retrieval did not expose issue rows; issue coverage remains unresolved.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Needs reconciliation"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.7.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+      "title": "SOAR On-premises 8.7 release notes",
+      "areas": [
+        "Splunk SOAR",
+        "Shared guidance"
+      ],
+      "references": [
+        "soar.sources.on87.url",
+        "content-updates.js",
+        "soar: soar.records.0",
+        "soar: soar.records.1",
+        "soar: soar.records.2"
+      ],
+      "reviews": [
+        "2026-10-01"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.0",
+          "section": "September 2 release; September 22 build 243 correction; Python 3.9 end of support; Automation Broker HA"
+        },
+        {
+          "path": "soar: soar.records.1",
+          "section": "September 2 release; September 22 build 243 correction; Python 3.9 end of support; Automation Broker HA"
+        },
+        {
+          "path": "soar: soar.records.2",
+          "section": "September 2 release; September 22 build 243 correction; Python 3.9 end of support; Automation Broker HA"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "September 2 release; September 22 build 243 correction; Python 3.9 end of support; Automation Broker HA",
+      "verificationScope": "Bounded review of the cited SOAR section and records; not a complete historical re-verification.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
+      "title": "Splunk App for SOAR Export 8.7",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.export.url",
+        "soar: soar.records.16",
+        "soar: soar.backlog.1"
+      ],
+      "reviews": [
+        "2026-10-01"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.16",
+          "section": "Release date; fixed issues PAPP-38389"
+        },
+        {
+          "path": "soar: soar.backlog.1",
+          "section": "Release date; fixed issues PAPP-38389"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Release date; fixed issues PAPP-38389",
+      "verificationScope": "Bounded review of the cited SOAR section and records; not a complete historical re-verification.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.7.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "title": "Splunk App for SOAR prerequisites",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.app.url",
+        "soar: soar.records.15"
+      ],
+      "reviews": [
+        "2026-10-01"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.15",
+          "section": "8.7.0 compatibility table; /rest/audit footnote"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "8.7.0 compatibility table; /rest/audit footnote",
+      "verificationScope": "Bounded review of the cited SOAR section and records; not a complete historical re-verification.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-automation-broker/splunk-soar-automation-broker-release-notes/whats-new-in-splunk-soar-automation-broker",
+      "title": "Automation Broker release notes",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.broker.url",
+        "soar: soar.records.14"
+      ],
+      "reviews": [
+        "2026-10-01"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.14",
+          "section": "September 2 release 8.7; Python 3.13 only; 8.6.0.536 fixes"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "September 2 release 8.7; Python 3.13 only; 8.6.0.536 fixes",
+      "verificationScope": "Bounded review of the cited SOAR section and records; not a complete historical re-verification.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
         },
         {
           "date": "2026-10-01",

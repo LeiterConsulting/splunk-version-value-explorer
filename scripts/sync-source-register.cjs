@@ -1,6 +1,6 @@
 /* Regenerate after evidence changes. Review dates are never inferred from publication dates. */
 const fs=require('node:fs'),vm=require('node:vm');
-const files=['data.js','product-data.js','guidance-data.js','environment-data.js','editions-data.js','forwarders-data.js'];
+const files=['data.js','product-data.js','guidance-data.js','environment-data.js','editions-data.js','forwarders-data.js','soar-data.js'];
 const day=process.env.SOURCE_REGISTER_DATE||new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
 const context={window:{}};vm.createContext(context);
 for(const f of files)vm.runInContext(fs.readFileSync('dist/'+f,'utf8'),context);
@@ -13,7 +13,7 @@ function add(url,obj,area,path){
  const old=rows.get(url)||{url,title:obj.title||obj.t||decodeURIComponent(new URL(url).pathname.split('/').filter(Boolean).pop()||new URL(url).hostname).replace(/[-_]/g,' '),areas:[],references:[],reviews:[]};
  if(!old.areas.includes(area))old.areas.push(area);
  if(!old.references.includes(path))old.references.push(path);
- const reviewed=date(obj.checked)||date(obj.reviewed);if(reviewed&&!old.reviews.includes(reviewed))old.reviews.push(reviewed);
+ const reviewed=obj.outcome==='unavailable'?null:date(obj.checked)||date(obj.reviewed);if(reviewed&&!old.reviews.includes(reviewed))old.reviews.push(reviewed);
  rows.set(url,old);
 }
 function walk(value,area,path,parent={}){
@@ -25,6 +25,7 @@ walk(context.window.SPLUNK_DATA,'Release guide','release');
 walk(context.window.VersionCompassEnvironmentData,'Cloud environment','environment');
 walk(context.window.VersionCompassEditions,'ES editions','editions');
 walk(context.window.VersionCompassForwarderData,'Splunk Forwarders','forwarders');
+walk(context.window.VersionCompassSOARData,'Splunk SOAR','soar');
 // Include directly embedded official citations as well as data-driven citations.
 for(const f of fs.readdirSync('dist').filter(f=>f.endsWith('.js')&&!['source-register.js','about.js',...files].includes(f))){
  const text=fs.readFileSync('dist/'+f,'utf8');
@@ -53,6 +54,7 @@ function resolveReferences(root,area,retainClaimSections=false){
 resolveReferences(context.window.VersionCompassEnvironmentData,'environment');
 resolveReferences(context.window.VersionCompassEditions,'editions');
 resolveReferences(context.window.VersionCompassForwarderData,'forwarders',true);
+resolveReferences(context.window.VersionCompassSOARData,'soar',true);
 const prior=new Map(previous.sources.map(r=>[r.url,r]));
 const sources=[...rows.values()].map(r=>{
  const p=prior.get(r.url),note=notes[r.url]||{},events=p?.events||[];

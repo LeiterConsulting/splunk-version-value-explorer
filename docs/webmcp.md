@@ -81,3 +81,7 @@ Routes may include an optional `environment` object containing `csp`, `region`, 
 Reports always include the environment assessment, including with `include: []`; requested feature rows also carry their matching evidence. `reportUrl` preserves selections. These read-only tools do not change the page. The current-report tool refuses malformed environment links until corrected.
 
 The assessment carries current service scope, uncertainty, separate offering authorization, review and source dates, and citations. An empty match is not an unavailability determination. See [Cloud environments](cloud-environments.md). Existing tool names and release compatibility behavior remain unchanged.
+
+## SOAR integration · October 1
+
+SOAR is a peer product with customer-managed and Cloud contexts. See [SOAR maintenance](soar.md) for the exact public source inventory, daily task ownership, initial coverage, report parity, existing WebMCP integration and unresolved verification work.

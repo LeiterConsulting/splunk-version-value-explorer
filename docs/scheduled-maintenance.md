@@ -120,3 +120,7 @@ The Guidance Audit protects the route-first Forwarders interaction: five primary
 ## Release Watch coordination from October 1 independent audit
 
 The completed catalog-resolution generator repair and declared-claim regression are retained. The audit adds exact HF 10.6 KV Store/TLS mappings without rewriting that generator. Future work remains unverified: traverse actual borrowed historical HF technical/runtime records in a genuine coverage regression, then extend generated source-to-claim sections without inventing unknown headings or historical review dates. Reconcile against the published audit tree and avoid duplicate/conflicting generator edits. The bounded scope and native verification gaps are in docs/audits/2026-10-01-guidance-re-audit.json.
+
+## SOAR integration · October 1
+
+SOAR is a peer product with customer-managed and Cloud contexts. See [SOAR maintenance](soar.md) for the exact public source inventory, daily task ownership, initial coverage, report parity, existing WebMCP integration and unresolved verification work.
