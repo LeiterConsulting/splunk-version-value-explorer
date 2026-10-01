@@ -14,9 +14,9 @@ test('About search, combined filters, sorting, empty results and reset retain th
  assert.equal(node('source-count').textContent,'Showing 20 of '+window.VersionCompassSources.sources.length+' sources');
  assert.equal((node('source-list').innerHTML.match(/class="source-entry/g)||[]).length,window.VersionCompassSources.sources.length);
  assert.match(node('source-list').innerHTML,/<summary>Evidence and usage<\/summary>/);
- assert.equal(node('source-more').textContent,'Show 20 more · 87 remaining');
+ assert.equal(node('source-more').textContent,'Show 20 more · '+(window.VersionCompassSources.sources.length-20)+' remaining');
  node('source-more').listeners.click();
- assert.equal(node('source-count').textContent,'Showing 40 of 107 sources');
+ assert.equal(node('source-count').textContent,'Showing 40 of '+window.VersionCompassSources.sources.length+' sources');
  assert.equal(node('source-list').paged.filter(x=>x.classList.removed).length,20);
  node('source-status').value='Needs reconciliation';node('source-status').listeners.change();
  assert(!node('source-list').innerHTML.includes('Review date unknown'));

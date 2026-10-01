@@ -1,6 +1,6 @@
 # About and source compendium
 
-The About route is `?view=about`. Its source register is generated from all five maintained product/evidence data files and directly embedded official guidance URLs. One row per exact URL preserves version and fragment distinctions. Catalog source identifiers are resolved back to consuming content locations. Conflicting evidence is marked for reconciliation, not silently invalidated.
+The About route is `?view=about`. Its source register is generated from all maintained product/evidence data files and directly embedded official guidance URLs. One row per exact URL preserves version and fragment distinctions. Catalog source identifiers are resolved back to consuming content locations. Forwarder claim mappings also retain the exact supporting section for UF and HF upgrade, receiver, topology, package, feature, issue, maintenance and advisory claims. Conflicting evidence is marked for reconciliation, not silently invalidated.
 
 Run `node scripts/sync-source-register.cjs` after any citation or source-review change, then `node scripts/sync-source-register.cjs --check` before publication. This is a local data synchronization, not a source recheck. Do not advance review dates merely because the script ran or the website was published.
 

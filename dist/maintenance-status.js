@@ -82,10 +82,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-09-30T09:46:09Z",
-      "lastSuccess": "2026-09-30T09:57:34Z",
+      "lastAttempt": "2026-10-01T09:18:22Z",
+      "lastSuccess": "2026-10-01T09:26:21Z",
       "outcome": "changed",
-      "summary": "Review found Splunk Enterprise 10.4.4 as the current customer-managed maintenance target while retaining 10.4.3 as the acknowledged-forwarding minimum and excluding 10.4.2.",
+      "summary": "Published-source review found two Observability Cloud timeline additions, Node.js instrumentation 4.12.0 and Java instrumentation 2.31.3; repaired Forwarder claim-to-section source registration without changing interface or route facts.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -151,9 +151,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Review found Splunk Enterprise 10.4.4 as the current customer-managed maintenance target while retaining 10.4.3 as the acknowledged-forwarding minimum and excluding 10.4.2.",
           "scope": "Splunk Enterprise 10.4 release and fixed-issue guidance; Cloud service pairing; ES, ITSI and SCMA current releases; compatibility matrix; security notice; Forwarder maintenance guidance; September Observability timeline and maintained Collector, chart, instrumentation and RUM release streams; route, export and read-only agent parity."
+        },
+        {
+          "at": "2026-10-01T09:18:22Z",
+          "outcome": "running",
+          "summary": "Reviewing official Platform, migration, premium-app, Forwarder, security and Observability release sources.",
+          "scope": "Complete maintained release inventory plus bounded high-consequence checks for Enterprise 10.4 upgrade/maintenance, ES/ITSI pairings, Cloud service pairings, UF/HF upgrade and receiver compatibility, security notices, SCMA, and current Observability SaaS/component releases."
+        },
+        {
+          "at": "2026-10-01T09:26:21Z",
+          "outcome": "changed",
+          "summary": "Published-source review found two Observability Cloud timeline additions, Node.js instrumentation 4.12.0 and Java instrumentation 2.31.3; repaired Forwarder claim-to-section source registration without changing interface or route facts.",
+          "scope": "Checked the maintained Enterprise, Cloud service pairing, migration/SCMA, ES, ITSI, Observability SaaS and component, Forwarder receiver/topology, and advisory inventories; highest-consequence claim verification covered Enterprise 10.4 upgrade and maintenance, UF/HF receiver compatibility, Cloud receiver pairing, and the four changed Observability records. The unavailable Enterprise 10.4.4 fixed-issues detail remains backlog."
         }
       ],
-      "scope": "Splunk Enterprise 10.4 release and fixed-issue guidance; Cloud service pairing; ES, ITSI and SCMA current releases; compatibility matrix; security notice; Forwarder maintenance guidance; September Observability timeline and maintained Collector, chart, instrumentation and RUM release streams; route, export and read-only agent parity."
+      "scope": "Checked the maintained Enterprise, Cloud service pairing, migration/SCMA, ES, ITSI, Observability SaaS and component, Forwarder receiver/topology, and advisory inventories; highest-consequence claim verification covered Enterprise 10.4 upgrade and maintenance, UF/HF receiver compatibility, Cloud receiver pairing, and the four changed Observability records. The unavailable Enterprise 10.4.4 fixed-issues detail remains backlog."
     },
     {
       "id": "es-editions-watch",

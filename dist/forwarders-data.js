@@ -19,6 +19,23 @@ window.VersionCompassForwarderData = {
  hfSecurity:{title:'Enterprise third-party package security fixes: SVD-2026-0505',url:'https://advisory.splunk.com/advisories/SVD-2026-0505',reviewed:'2026-09-28',section:'Product Status; component-specific footnotes'},
  advisories:{title:'Splunk security advisory index',url:'https://advisory.splunk.com/',reviewed:'2026-09-28',section:'Current index; not a complete applicability audit'}
  },
+ claimSources:{
+  'upgrade.uf.10.0':{title:'Universal Forwarder 9.4 to 10.0 step',src:'upgrade100'},
+  'upgrade.uf.10.2':{title:'Universal Forwarder 10.0 to 10.2 step',src:'upgrade102'},
+  'upgrade.uf.10.4':{title:'Universal Forwarder 10.0 or 10.2 to 10.4 step',src:'upgrade104'},
+  'upgrade.hf':{title:'Heavy Forwarder release-line path',src:'enterprise'},
+  'receiver.enterprise':{title:'Universal and Heavy Forwarder to Enterprise receiver compatibility',src:'receiver'},
+  'receiver.cloud':{title:'Direct Universal and Heavy Forwarder to Cloud stack compatibility',src:'cloud'},
+  'topology.enterprise-intermediate':{title:'Intermediate forwarding tier to Enterprise',src:'receiver'},
+  'topology.cloud-intermediate':{title:'Cloud-facing intermediate forwarding tier',src:'cloud'},
+  'topology.multiple-target-groups':{title:'Hybrid output groups, routing and data cloning',src:'routing'},
+  'package.os-architecture':{title:'Exact 10.4 operating-system and architecture packages',src:'os'},
+  'feature.automatic-certificate-renewal':{title:'Automatic Cloud certificate renewal eligibility',src:'renewal'},
+  'maintenance.10.4':{title:'Current 10.4 target and acknowledged-forwarding floor',sources:['maintenance','ack']},
+  'issues.uf-10.4':{title:'Universal Forwarder 10.4 known and fixed issue directories',sources:['known','fixed']},
+  'security.uf':{title:'Universal Forwarder advisory-specific patch floors',sources:['ufSecurity','advisories']},
+  'security.hf':{title:'Heavy Forwarder advisory-specific patch floors',sources:['hfSecurity','advisories']}
+ },
  ufEdges:{'9.4':['10.0'],'10.0':['10.2','10.4'],'10.2':['10.4']},
  excludedRenewalRegions:['ap-northeast-2','ap-south-1','eu-north-1','eu-south-1','me-central-1','sa-east-1'],
  osRows:[

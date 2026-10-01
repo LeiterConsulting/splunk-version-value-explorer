@@ -27,3 +27,21 @@ test('source register retains removed sources without declaring them inaccurate;
   assert.equal(result.sources.find(r=>r.url===active).outdatedAsOf,'2026-09-25');
  }finally{fs.rmSync(dir,{recursive:true,force:true});}
 });
+test('every declared Forwarder claim retains an exact source and section mapping',()=>{
+ const c={window:{}};vm.createContext(c);
+ for(const f of ['data.js','product-data.js','guidance-data.js','environment-data.js','editions-data.js','forwarders-data.js','source-register.js'])vm.runInContext(fs.readFileSync('dist/'+f,'utf8'),c);
+ const data=c.window.VersionCompassForwarderData,register=c.window.VersionCompassSources;
+ for(const [claimId,claim] of Object.entries(data.claimSources)){
+  const ids=claim.sources||[claim.src];
+  assert(ids.length,claimId+' has no source');
+  for(const id of ids){
+   const source=data.sources[id];
+   assert(source?.url,claimId+' has an unknown source '+id);
+   assert(source.section,claimId+' source '+id+' has no supporting section');
+   const row=register.sources.find(r=>r.url===source.url);
+   assert(row,claimId+' source missing from register');
+   assert(row.claimReferences?.some(ref=>ref.path==='forwarders: forwarders.claimSources.'+claimId&&ref.section===source.section),claimId+' lost its exact source-to-claim section mapping');
+  }
+ }
+ for(const required of ['upgrade.uf.10.0','upgrade.hf','receiver.enterprise','receiver.cloud','topology.enterprise-intermediate','topology.cloud-intermediate'])assert(data.claimSources[required]);
+});

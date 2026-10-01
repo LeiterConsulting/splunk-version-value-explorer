@@ -6,21 +6,21 @@
     "reason": "The lifecycle review date records a scoped policy-table verification; it does not recalculate deadlines, establish Cloud availability or advance unrelated source-review dates."
   },
   "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix": {
-    "reviewed": "2026-09-26",
+    "reviewed": "2026-10-01",
     "section": "Splunk Enterprise version 10.x — 10.6.x, 10.5.x, 10.4.x and 10.2.x rows",
-    "verificationScope": "Checked the published ES and ITSI pairings across the 10.6.x, Cloud-only 10.5.x, 10.4.x and 10.2.x rows. The 10.6.x row is compatibility evidence only, not proof of a released Enterprise or Cloud upgrade destination. Maintenance-release qualifications still apply, and the Enterprise matrix is not used as a Cloud service-pairing rule.",
+    "verificationScope": "Rechecked the published ES and ITSI pairings across the 10.6.x, Cloud-only 10.5.x, 10.4.x and 10.2.x rows. The 10.4.x row still lists ES 8.3.0 through 8.7 with patch-specific entries and ITSI 4.21.x/5.0. The 10.6.x row remains compatibility evidence only, not proof of a released Enterprise or Cloud upgrade destination. The Enterprise matrix is not used as a Cloud service-pairing rule.",
     "reason": "A compatibility listing is not proof of a released upgrade destination; new release lines require separate release-note verification."
   },
   "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise": {
-    "reviewed": "2026-09-28",
+    "reviewed": "2026-10-01",
     "section": "Upgrade paths to version 10.4 — current-version table; Supported upgrade paths",
-    "verificationScope": "Checked intermediate hops from 9.3 and 9.4, plus paths from 10.0 and 10.2 to 10.4. Confirmed the existing route map requires those intermediate steps. Forwarders increment: verified only Supported upgrade paths. No complete patch, authorization or historical applicability audit.",
+    "verificationScope": "Rechecked the 10.4 upgrade-path table: 9.3 requires 9.4 or 10.0 first, 9.4 requires 10.0 or 10.2 first, 10.0 can move through 10.2 or directly to 10.4, and 10.2 can move to 10.4. This verifies the maintained Platform and HF route graph only; it is not a patch, OS, app, authorization or historical applicability audit.",
     "reason": "The introduction references 10.0, while the specific table is headed 10.4. This check relies on the explicitly labeled 10.4 upgrade table; it does not reverify historical pre-9.3 paths."
   },
   "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4": {
-    "reviewed": "2026-09-30",
+    "reviewed": "2026-10-01",
     "section": "What's new in 10.4.2, 10.4.3 and 10.4.4",
-    "verificationScope": "Confirmed that Splunk Enterprise 10.4.4 was published September 29, 2026 and is the newest listed 10.4 maintenance release. Reconfirmed the warning not to use 10.4.2 and the acknowledged-forwarding fix in 10.4.3. The 10.4.4 fixed-issues page did not enumerate customer-actionable fixes when checked, so Version Compass does not infer features, security coverage or resolved defects from the new patch number.",
+    "verificationScope": "Reconfirmed that Splunk Enterprise 10.4.4 was published September 29, 2026 and remains the newest listed 10.4 maintenance release. The page still directs customers away from 10.4.2 and records the acknowledged-forwarding fix in 10.4.3. The inaccessible 10.4.4 fixed-issues page was not treated as evidence of features, security coverage or resolved defects.",
     "reason": "The current maintenance target and the documented minimum safe floor are separate facts. This check does not convert a maintenance patch into a new release-line route or apply an Enterprise patch recommendation to Splunk Cloud."
   },
   "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues": {
@@ -30,21 +30,21 @@
     "reason": "The warning establishes an exact customer-managed maintenance floor without creating a separate major/minor release route or a Cloud rule."
   },
   "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.5.2605/information-about-the-service/splunk-cloud-platform-service-details": {
-    "reviewed": "2026-09-30",
+    "reviewed": "2026-10-01",
     "section": "Subscription version table; available-regions and region-differences table; experience designations; Supported forwarder versions",
-    "verificationScope": "Confirmed the current published service pairing remains Splunk Cloud Platform 10.5, Enterprise Security 8.6 and ITSI 5.0. Checked every maintained provider, region, experience and selected service-component row, including Victoria and Classic hosting, scheduled-maintenance visibility, Edge and Ingest Processor, federated services, ingest actions and Splunk AI Assistant for SPL. The service table still excludes Federated Search for Amazon S3 from FedRAMP High and DoD IL5, while the dated change log states that High availability was added for relevant 10.3 versions; Version Compass retains that conflict. Forwarders increment: verified only Supported forwarder versions. No complete patch, authorization or historical applicability audit.",
+    "verificationScope": "Reconfirmed the current published service pairing remains Splunk Cloud Platform 10.5, Enterprise Security 8.6 and ITSI 5.0. Rechecked the Supported forwarder versions table for UF/HF 9.4 through 10.4, including the documented omission of Cloud 10.4 for forwarder 10.0 and the direct-versus-intermediate scope. Provider, region, entitlement and authorization records were not reverified by this release watch.",
     "reason": "Current service evidence is not retrospective, Cloud-managed pairing remains separate from the Enterprise matrix, and a platform or region listing does not prove component authorization, entitlement or availability on a particular stack."
   },
   "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026": {
-    "reviewed": "2026-09-26",
-    "section": "September 2026 timeline through the September 23 entries",
-    "verificationScope": "Checked the published September timeline and confirmed the latest customer-facing milestone remains September 23. The Cloud 10.6 free-edition reference stays scoped to the documented onboarding flow and is not treated as a generally released Platform destination.",
-    "reason": "Rolling SaaS milestones and customer-managed component versions are maintained as separate evidence."
+    "reviewed": "2026-10-01",
+    "section": "September 2026 timeline through the September 23 entries — Autodetect definitions and Detector Optimization rows",
+    "verificationScope": "Checked the complete current September timeline. The latest dated milestone remains September 23, but the page now includes revised Kubernetes Autodetect definitions and Detector Optimization. The latter is explicitly Controlled Availability, provides reviewable recommendations and does not apply changes automatically. The Cloud 10.6 free-edition entry remains a scoped onboarding flow rather than a generally released Platform route.",
+    "reason": "Rolling SaaS milestones and customer-managed component versions are maintained as separate evidence; Controlled Availability is not generalized to every realm or customer."
   },
   "https://advisory.splunk.com/": {
-    "reviewed": "2026-09-28",
+    "reviewed": "2026-10-01",
     "section": "Advisory archive — September 2026 entries; Current index; not a complete applicability audit",
-    "verificationScope": "Checked the current archive and found only the published notice that the September 16 advisory release moved to October 7; no new customer-actionable advisory was added to Version Compass. Forwarders increment: verified only Current index; not a complete applicability audit. No complete patch, authorization or historical applicability audit.",
+    "verificationScope": "Checked the current archive and confirmed the newest entry remains SVD-2026-0901, which moved the planned Enterprise, Universal Forwarder, AWS add-on and MCP Server advisories to October 7. No October advisory was yet published. This is an index check, not a complete applicability or vulnerability audit.",
     "reason": "A schedule notice is not a vulnerability advisory or a product-version requirement."
   },
   "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security": {
@@ -216,7 +216,7 @@
     "reason": "Rolling SaaS realm hosting and component availability are separate from customer-managed component versions and from Splunk Platform compliance scope."
   },
   "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.0-read-this-first": {
-    "reviewed": "2026-09-28",
+    "reviewed": "2026-10-01",
     "section": "Key points for upgrading to version 10.0",
     "verificationScope": "Forwarders increment: verified only Key points for upgrading to version 10.0. No complete patch, authorization or historical applicability audit."
   },
@@ -233,7 +233,7 @@
   "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers": {
     "reviewed": "2026-09-28",
     "section": "Determine forwarder-indexer compatibility",
-    "verificationScope": "Forwarders increment: verified only Determine forwarder-indexer compatibility. No complete patch, authorization or historical applicability audit."
+    "verificationScope": "Rechecked Determine forwarder-indexer compatibility for Universal and Heavy Forwarders, direct indexer communication and intermediate tiers. The maintained 9.4, 10.0, 10.2 and 10.4 release lines continue to carry event, HTTPS and metrics compatibility across the selected Enterprise receiver lines. The table explicitly separates compatibility from support status and Cloud service compatibility."
   },
   "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/plan-your-splunk-enterprise-installation/system-requirements-for-use-of-splunk-enterprise-on-premises": {
     "reviewed": "2026-09-28",
@@ -264,5 +264,35 @@
     "reviewed": "2026-09-28",
     "section": "Product Status; component-specific footnotes",
     "verificationScope": "Forwarders increment: verified only Product Status; component-specific footnotes. No complete patch, authorization or historical applicability audit."
+  },
+  "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.0": {
+    "reviewed": "2026-10-01",
+    "section": "Changes; dependency version table",
+    "verificationScope": "Verified the 4.12.0 release identifier and publication date, the OpenTelemetry API 1.9.1, core 2.11.0 and instrumentation 0.222.0 dependency versions, the sdk-trace package migration, Couchbase SDK 4.7-or-later instrumentation, vendored MySQL2 support and native-extension install fallback. This check does not establish compatibility with every Node.js runtime, database version or deployment topology.",
+    "reason": "A customer-managed instrumentation release and its package prerequisites are distinct from rolling Observability Cloud SaaS availability."
+  },
+  "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.31.3": {
+    "reviewed": "2026-10-01",
+    "section": "Release summary; linked 2.31.2 patch detail",
+    "verificationScope": "Verified that 2.31.3 is a re-release of 2.31.2 that repairs Docker image publishing, and that the incorporated 2.31.2 patch fixes disabling CPU profiling through remote configuration. This check does not establish applicability to every JVM, container image or deployment.",
+    "reason": "The re-release distinction is retained so a packaging correction is not portrayed as a new SaaS capability."
+  },
+  "https://splunkbase.splunk.com/app/263": {
+    "reviewed": "2026-10-01",
+    "section": "Enterprise Security 8.7.0 release and compatibility listing",
+    "verificationScope": "Confirmed the current listed Enterprise Security release remains 8.7.0 and the listing still names Splunk Cloud Platform 10.2 through 10.5 compatibility. The listing is not used to infer customer-managed Enterprise patch pairing, edition entitlement, region or FedRAMP authorization.",
+    "reason": "Splunkbase compatibility is a release signal and does not replace the product compatibility matrix or Cloud service pairing evidence."
+  },
+  "https://splunkbase.splunk.com/app/1841": {
+    "reviewed": "2026-10-01",
+    "section": "IT Service Intelligence 5.0.2 release and compatibility listing",
+    "verificationScope": "Confirmed the current listed ITSI release remains 5.0.2 and the listing still names Splunk Platform 10.2 through 10.5 compatibility. The listing is not used to infer a Cloud stack schedule, region, entitlement or authorization.",
+    "reason": "Splunkbase compatibility is kept separate from exact customer-managed patch pairing and Splunk-managed Cloud availability."
+  },
+  "https://splunkbase.splunk.com/app/4974": {
+    "reviewed": "2026-10-01",
+    "section": "Splunk Cloud Migration Assessment App 5.4.11 release and compatibility listing",
+    "verificationScope": "Confirmed the current listed release remains 5.4.11, the maintained Enterprise compatibility range remains 9.1 through 10.5 and assessment upload remains an explicit user action. This check does not establish migration readiness for a particular workload or Cloud destination.",
+    "reason": "Assessment-tool compatibility and upload behavior are distinct from a supported migration route or destination authorization."
   }
 }

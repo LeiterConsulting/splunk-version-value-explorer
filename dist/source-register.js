@@ -10,24 +10,40 @@ window.VersionCompassSources = {
         "Splunk Forwarders"
       ],
       "references": [
-        "forwarders.sources.advisories.url"
+        "forwarders.sources.advisories.url",
+        "forwarders: forwarders.claimSources.security.uf",
+        "forwarders: forwarders.claimSources.security.hf"
       ],
       "reviews": [
         "2026-09-28"
       ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.security.uf",
+          "section": "Current index; not a complete applicability audit"
+        },
+        {
+          "path": "forwarders: forwarders.claimSources.security.hf",
+          "section": "Current index; not a complete applicability audit"
+        }
+      ],
       "usage": "In use",
-      "reviewed": "2026-09-28",
+      "reviewed": "2026-10-01",
       "status": "Reviewed",
       "firstRecorded": "2026-09-28",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "A schedule notice is not a vulnerability advisory or a product-version requirement.",
       "section": "Advisory archive — September 2026 entries; Current index; not a complete applicability audit",
-      "verificationScope": "Checked the current archive and found only the published notice that the September 16 advisory release moved to October 7; no new customer-actionable advisory was added to Version Compass. Forwarders increment: verified only Current index; not a complete applicability audit. No complete patch, authorization or historical applicability audit.",
+      "verificationScope": "Checked the current archive and confirmed the newest entry remains SVD-2026-0901, which moved the planned Enterprise, Universal Forwarder, AWS add-on and MCP Server advisories to October 7. No October advisory was yet published. This is an index check, not a complete applicability or vulnerability audit.",
       "events": [
         {
           "date": "2026-09-28",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
         }
       ]
     },
@@ -38,10 +54,17 @@ window.VersionCompassSources = {
         "Splunk Forwarders"
       ],
       "references": [
-        "forwarders.sources.ufSecurity.url"
+        "forwarders.sources.ufSecurity.url",
+        "forwarders: forwarders.claimSources.security.uf"
       ],
       "reviews": [
         "2026-09-28"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.security.uf",
+          "section": "Product Status and Solution"
+        }
       ],
       "usage": "In use",
       "reviewed": "2026-09-28",
@@ -66,10 +89,17 @@ window.VersionCompassSources = {
         "Splunk Forwarders"
       ],
       "references": [
-        "forwarders.sources.hfSecurity.url"
+        "forwarders.sources.hfSecurity.url",
+        "forwarders: forwarders.claimSources.security.hf"
       ],
       "reviews": [
         "2026-09-28"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.security.hf",
+          "section": "Product Status; component-specific footnotes"
+        }
       ],
       "usage": "In use",
       "reviewed": "2026-09-28",
@@ -175,11 +205,11 @@ window.VersionCompassSources = {
       "references": [
         "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.6.source",
         "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.7.source",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.5.3",
         "release.productTracks.observability.releasesData.Sep 2026.requirements.6.3",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.8.3",
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.7.3",
         "release.productTracks.observability.releasesData.Sep 2026.requirements.9.3",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.10.3"
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.10.3",
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.11.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -209,9 +239,9 @@ window.VersionCompassSources = {
         "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.12.source",
         "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.13.source",
         "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.14.source",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.11.3",
         "release.productTracks.observability.releasesData.Sep 2026.requirements.12.3",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.13.3"
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.13.3",
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.14.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -242,7 +272,7 @@ window.VersionCompassSources = {
         "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.8.source",
         "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.9.source",
         "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.10.source",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.7.3"
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.8.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -269,7 +299,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.15.source",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.14.3"
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.15.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -289,14 +319,41 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.31.3",
+      "title": "v2.31.3",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.18.source",
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.18.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "The re-release distinction is retained so a packaging correction is not portrayed as a new SaaS capability.",
+      "section": "Release summary; linked 2.31.2 patch detail",
+      "verificationScope": "Verified that 2.31.3 is a re-release of 2.31.2 that repairs Docker image publishing, and that the incorporated 2.31.2 patch fixes disabling CPU profiling through remote configuration. This check does not establish applicability to every JVM, container image or deployment.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.1.0",
       "title": "v3.1.0",
       "areas": [
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.17.source",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.16.3"
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.19.source",
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.19.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -322,8 +379,8 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.18.source",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.17.3"
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.20.source",
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.20.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -350,7 +407,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.16.source",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.15.3"
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.16.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -365,6 +422,33 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-09-25",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.0",
+      "title": "v4.12.0",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.17.source",
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.17.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "A customer-managed instrumentation release and its package prerequisites are distinct from rolling Observability Cloud SaaS availability.",
+      "section": "Changes; dependency version table",
+      "verificationScope": "Verified the 4.12.0 release identifier and publication date, the OpenTelemetry API 1.9.1, core 2.11.0 and instrumentation 0.222.0 dependency versions, the sdk-trace package migration, Couchbase SDK 4.7-or-later instrumentation, vendored MySQL2 support and native-extension install fallback. This check does not establish compatibility with every Node.js runtime, database version or deployment topology.",
+      "events": [
+        {
+          "date": "2026-10-01",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -402,10 +486,17 @@ window.VersionCompassSources = {
         "Splunk Forwarders"
       ],
       "references": [
-        "forwarders.sources.routing.url"
+        "forwarders.sources.routing.url",
+        "forwarders: forwarders.claimSources.topology.multiple-target-groups"
       ],
       "reviews": [
         "2026-09-29"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.topology.multiple-target-groups",
+          "section": "Default target groups; Data cloning"
+        }
       ],
       "usage": "In use",
       "reviewed": "2026-09-29",
@@ -430,10 +521,17 @@ window.VersionCompassSources = {
         "Splunk Forwarders"
       ],
       "references": [
-        "forwarders.sources.renewal.url"
+        "forwarders.sources.renewal.url",
+        "forwarders: forwarders.claimSources.feature.automatic-certificate-renewal"
       ],
       "reviews": [
         "2026-09-28"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.feature.automatic-certificate-renewal",
+          "section": "Prerequisites for using automatic TLS certificate renewal"
+        }
       ],
       "usage": "In use",
       "reviewed": "2026-09-28",
@@ -458,10 +556,17 @@ window.VersionCompassSources = {
         "Splunk Forwarders"
       ],
       "references": [
-        "forwarders.sources.fixed.url"
+        "forwarders.sources.fixed.url",
+        "forwarders: forwarders.claimSources.issues.uf-10.4"
       ],
       "reviews": [
         "2026-09-28"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.issues.uf-10.4",
+          "section": "Pointer to Universal forwarder issues in Enterprise release notes"
+        }
       ],
       "usage": "In use",
       "reviewed": "2026-09-28",
@@ -486,10 +591,17 @@ window.VersionCompassSources = {
         "Splunk Forwarders"
       ],
       "references": [
-        "forwarders.sources.known.url"
+        "forwarders.sources.known.url",
+        "forwarders: forwarders.claimSources.issues.uf-10.4"
       ],
       "reviews": [
         "2026-09-28"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.issues.uf-10.4",
+          "section": "Pointer to Universal forwarder issues in Enterprise release notes"
+        }
       ],
       "usage": "In use",
       "reviewed": "2026-09-28",
@@ -550,22 +662,34 @@ window.VersionCompassSources = {
         "environment: environment.records.27",
         "environment: environment.records.51",
         "environment: environment.records.52",
-        "environment: environment.records.53"
+        "environment: environment.records.53",
+        "forwarders: forwarders.claimSources.receiver.cloud",
+        "forwarders: forwarders.claimSources.topology.cloud-intermediate"
       ],
       "reviews": [
         "2026-09-30",
         "2026-09-28"
       ],
       "conflict": true,
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.receiver.cloud",
+          "section": "Supported forwarder versions"
+        },
+        {
+          "path": "forwarders: forwarders.claimSources.topology.cloud-intermediate",
+          "section": "Supported forwarder versions"
+        }
+      ],
       "usage": "In use",
-      "reviewed": "2026-09-30",
+      "reviewed": "2026-10-01",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "Current service evidence is not retrospective, Cloud-managed pairing remains separate from the Enterprise matrix, and a platform or region listing does not prove component authorization, entitlement or availability on a particular stack.",
       "section": "Subscription version table; available-regions and region-differences table; experience designations; Supported forwarder versions",
-      "verificationScope": "Confirmed the current published service pairing remains Splunk Cloud Platform 10.5, Enterprise Security 8.6 and ITSI 5.0. Checked every maintained provider, region, experience and selected service-component row, including Victoria and Classic hosting, scheduled-maintenance visibility, Edge and Ingest Processor, federated services, ingest actions and Splunk AI Assistant for SPL. The service table still excludes Federated Search for Amazon S3 from FedRAMP High and DoD IL5, while the dated change log states that High availability was added for relevant 10.3 versions; Version Compass retains that conflict. Forwarders increment: verified only Supported forwarder versions. No complete patch, authorization or historical applicability audit.",
+      "verificationScope": "Reconfirmed the current published service pairing remains Splunk Cloud Platform 10.5, Enterprise Security 8.6 and ITSI 5.0. Rechecked the Supported forwarder versions table for UF/HF 9.4 through 10.4, including the documented omission of Cloud 10.4 for forwarder 10.0 and the direct-versus-intermediate scope. Provider, region, entitlement and authorization records were not reverified by this release watch.",
       "events": [
         {
           "date": "2026-09-25",
@@ -602,6 +726,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-30",
           "event": "Review status updated: Needs reconciliation · 2026-09-30"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Needs reconciliation · 2026-10-01"
         }
       ]
     },
@@ -1943,10 +2071,17 @@ window.VersionCompassSources = {
         "release.enterprise.releasesData.10.2.requirements.0.3",
         "release.enterprise.releasesData.10.2.requirements.1.3",
         "release.enterprise.releasesData.10.2.requirements.2.3",
-        "forwarders.sources.upgrade102.url"
+        "forwarders.sources.upgrade102.url",
+        "forwarders: forwarders.claimSources.upgrade.uf.10.2"
       ],
       "reviews": [
         "2026-09-28"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.upgrade.uf.10.2",
+          "section": "Key points for upgrading to version 10.2"
+        }
       ],
       "usage": "In use",
       "reviewed": "2026-09-28",
@@ -1975,10 +2110,17 @@ window.VersionCompassSources = {
         "Splunk Forwarders"
       ],
       "references": [
-        "forwarders.sources.os.url"
+        "forwarders.sources.os.url",
+        "forwarders: forwarders.claimSources.package.os-architecture"
       ],
       "reviews": [
         "2026-09-28"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.package.os-architecture",
+          "section": "Supported Operating Systems"
+        }
       ],
       "usage": "In use",
       "reviewed": "2026-09-28",
@@ -2015,10 +2157,17 @@ window.VersionCompassSources = {
         "release.enterprise.releasesData.10.4.requirements.3.3",
         "release.enterprise.releasesData.10.4.requirements.4.3",
         "release.enterprise.releasesData.10.4.requirements.5.3",
-        "forwarders.sources.upgrade104.url"
+        "forwarders.sources.upgrade104.url",
+        "forwarders: forwarders.claimSources.upgrade.uf.10.4"
       ],
       "reviews": [
         "2026-09-28"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.upgrade.uf.10.4",
+          "section": "Key points; component-specific changes"
+        }
       ],
       "usage": "In use",
       "reviewed": "2026-09-28",
@@ -2049,20 +2198,27 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.enterprise.upgradeSource",
-        "forwarders.sources.enterprise.url"
+        "forwarders.sources.enterprise.url",
+        "forwarders: forwarders.claimSources.upgrade.hf"
       ],
       "reviews": [
         "2026-09-28"
       ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.upgrade.hf",
+          "section": "Supported upgrade paths"
+        }
+      ],
       "usage": "In use",
-      "reviewed": "2026-09-28",
+      "reviewed": "2026-10-01",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "The introduction references 10.0, while the specific table is headed 10.4. This check relies on the explicitly labeled 10.4 upgrade table; it does not reverify historical pre-9.3 paths.",
       "section": "Upgrade paths to version 10.4 — current-version table; Supported upgrade paths",
-      "verificationScope": "Checked intermediate hops from 9.3 and 9.4, plus paths from 10.0 and 10.2 to 10.4. Confirmed the existing route map requires those intermediate steps. Forwarders increment: verified only Supported upgrade paths. No complete patch, authorization or historical applicability audit.",
+      "verificationScope": "Rechecked the 10.4 upgrade-path table: 9.3 requires 9.4 or 10.0 first, 9.4 requires 10.0 or 10.2 first, 10.0 can move through 10.2 or directly to 10.4, and 10.2 can move to 10.4. This verifies the maintained Platform and HF route graph only; it is not a patch, OS, app, authorization or historical applicability audit.",
       "events": [
         {
           "date": "2026-09-25",
@@ -2083,6 +2239,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-28",
           "event": "Review status updated: Reviewed · 2026-09-28"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
         }
       ]
     },
@@ -2239,13 +2399,20 @@ window.VersionCompassSources = {
         "Splunk Forwarders"
       ],
       "references": [
-        "forwarders.sources.upgrade100.url"
+        "forwarders.sources.upgrade100.url",
+        "forwarders: forwarders.claimSources.upgrade.uf.10.0"
       ],
       "reviews": [
         "2026-09-28"
       ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.upgrade.uf.10.0",
+          "section": "Key points for upgrading to version 10.0"
+        }
+      ],
       "usage": "In use",
-      "reviewed": "2026-09-28",
+      "reviewed": "2026-10-01",
       "status": "Reviewed",
       "firstRecorded": "2026-09-28",
       "firstUsed": null,
@@ -2257,6 +2424,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-28",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
         }
       ]
     },
@@ -2267,10 +2438,22 @@ window.VersionCompassSources = {
         "Splunk Forwarders"
       ],
       "references": [
-        "forwarders.sources.receiver.url"
+        "forwarders.sources.receiver.url",
+        "forwarders: forwarders.claimSources.receiver.enterprise",
+        "forwarders: forwarders.claimSources.topology.enterprise-intermediate"
       ],
       "reviews": [
         "2026-09-28"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.receiver.enterprise",
+          "section": "Determine forwarder-indexer compatibility"
+        },
+        {
+          "path": "forwarders: forwarders.claimSources.topology.enterprise-intermediate",
+          "section": "Determine forwarder-indexer compatibility"
+        }
       ],
       "usage": "In use",
       "reviewed": "2026-09-28",
@@ -2280,11 +2463,15 @@ window.VersionCompassSources = {
       "outdatedAsOf": null,
       "reason": "",
       "section": "Determine forwarder-indexer compatibility",
-      "verificationScope": "Forwarders increment: verified only Determine forwarder-indexer compatibility. No complete patch, authorization or historical applicability audit.",
+      "verificationScope": "Rechecked Determine forwarder-indexer compatibility for Universal and Heavy Forwarders, direct indexer communication and intermediate tiers. The maintained 9.4, 10.0, 10.2 and 10.4 release lines continue to carry event, HTTPS and metrics compatibility across the selected Enterprise receiver lines. The table explicitly separates compatibility from support status and Cloud service compatibility.",
       "events": [
         {
           "date": "2026-09-28",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-09-28"
         }
       ]
     },
@@ -2302,14 +2489,14 @@ window.VersionCompassSources = {
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": "2026-09-26",
+      "reviewed": "2026-10-01",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "A compatibility listing is not proof of a released upgrade destination; new release lines require separate release-note verification.",
       "section": "Splunk Enterprise version 10.x — 10.6.x, 10.5.x, 10.4.x and 10.2.x rows",
-      "verificationScope": "Checked the published ES and ITSI pairings across the 10.6.x, Cloud-only 10.5.x, 10.4.x and 10.2.x rows. The 10.6.x row is compatibility evidence only, not proof of a released Enterprise or Cloud upgrade destination. Maintenance-release qualifications still apply, and the Enterprise matrix is not used as a Cloud service-pairing rule.",
+      "verificationScope": "Rechecked the published ES and ITSI pairings across the 10.6.x, Cloud-only 10.5.x, 10.4.x and 10.2.x rows. The 10.4.x row still lists ES 8.3.0 through 8.7 with patch-specific entries and ITSI 4.21.x/5.0. The 10.6.x row remains compatibility evidence only, not proof of a released Enterprise or Cloud upgrade destination. The Enterprise matrix is not used as a Cloud service-pairing rule.",
       "events": [
         {
           "date": "2026-09-25",
@@ -2322,6 +2509,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-26",
           "event": "Review status updated: Reviewed · 2026-09-26"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
         }
       ]
     },
@@ -2386,10 +2577,17 @@ window.VersionCompassSources = {
       ],
       "references": [
         "forwarders.sources.ack.url",
-        "content-updates.js"
+        "content-updates.js",
+        "forwarders: forwarders.claimSources.maintenance.10.4"
       ],
       "reviews": [
         "2026-09-28"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.maintenance.10.4",
+          "section": "Important upgrade notice"
+        }
       ],
       "usage": "In use",
       "reviewed": "2026-09-28",
@@ -2426,20 +2624,27 @@ window.VersionCompassSources = {
         "release.enterprise.releasesData.10.4.technicalChanges.5.source",
         "release.enterprise.releasesData.10.4.requirements.0.3",
         "forwarders.sources.maintenance.url",
-        "content-updates.js"
+        "content-updates.js",
+        "forwarders: forwarders.claimSources.maintenance.10.4"
       ],
       "reviews": [
         "2026-09-30"
       ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.maintenance.10.4",
+          "section": "What's new in 10.4.2, 10.4.3 and 10.4.4"
+        }
+      ],
       "usage": "In use",
-      "reviewed": "2026-09-30",
+      "reviewed": "2026-10-01",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "The current maintenance target and the documented minimum safe floor are separate facts. This check does not convert a maintenance patch into a new release-line route or apply an Enterprise patch recommendation to Splunk Cloud.",
       "section": "What's new in 10.4.2, 10.4.3 and 10.4.4",
-      "verificationScope": "Confirmed that Splunk Enterprise 10.4.4 was published September 29, 2026 and is the newest listed 10.4 maintenance release. Reconfirmed the warning not to use 10.4.2 and the acknowledged-forwarding fix in 10.4.3. The 10.4.4 fixed-issues page did not enumerate customer-actionable fixes when checked, so Version Compass does not infer features, security coverage or resolved defects from the new patch number.",
+      "verificationScope": "Reconfirmed that Splunk Enterprise 10.4.4 was published September 29, 2026 and remains the newest listed 10.4 maintenance release. The page still directs customers away from 10.4.2 and records the acknowledged-forwarding fix in 10.4.3. The inaccessible 10.4.4 fixed-issues page was not treated as evidence of features, security coverage or resolved defects.",
       "events": [
         {
           "date": "2026-09-25",
@@ -2448,6 +2653,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-30",
           "event": "Review status updated: Reviewed · 2026-09-30"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
         }
       ]
     },
@@ -3118,7 +3327,8 @@ window.VersionCompassSources = {
       "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026",
       "title": "september 2026",
       "areas": [
-        "Release guide"
+        "Release guide",
+        "Shared guidance"
       ],
       "references": [
         "release.productTracks.observability.releasesData.Sep 2026.source",
@@ -3130,18 +3340,20 @@ window.VersionCompassSources = {
         "release.productTracks.observability.releasesData.Sep 2026.requirements.1.3",
         "release.productTracks.observability.releasesData.Sep 2026.requirements.2.3",
         "release.productTracks.observability.releasesData.Sep 2026.requirements.3.3",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.4.3"
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.4.3",
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.5.3",
+        "content-updates.js"
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": "2026-09-26",
+      "reviewed": "2026-10-01",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "Rolling SaaS milestones and customer-managed component versions are maintained as separate evidence.",
-      "section": "September 2026 timeline through the September 23 entries",
-      "verificationScope": "Checked the published September timeline and confirmed the latest customer-facing milestone remains September 23. The Cloud 10.6 free-edition reference stays scoped to the documented onboarding flow and is not treated as a generally released Platform destination.",
+      "reason": "Rolling SaaS milestones and customer-managed component versions are maintained as separate evidence; Controlled Availability is not generalized to every realm or customer.",
+      "section": "September 2026 timeline through the September 23 entries — Autodetect definitions and Detector Optimization rows",
+      "verificationScope": "Checked the complete current September timeline. The latest dated milestone remains September 23, but the page now includes revised Kubernetes Autodetect definitions and Detector Optimization. The latter is explicitly Controlled Availability, provides reviewable recommendations and does not apply changes automatically. The Cloud 10.6 free-edition entry remains a scoped onboarding flow rather than a generally released Platform route.",
       "events": [
         {
           "date": "2026-09-25",
@@ -3150,6 +3362,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-26",
           "event": "Review status updated: Reviewed · 2026-09-26"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
         }
       ]
     },
@@ -3373,18 +3589,22 @@ window.VersionCompassSources = {
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": null,
-      "status": "Review date unknown",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "Assessment-tool compatibility and upload behavior are distinct from a supported migration route or destination authorization.",
+      "section": "Splunk Cloud Migration Assessment App 5.4.11 release and compatibility listing",
+      "verificationScope": "Confirmed the current listed release remains 5.4.11, the maintained Enterprise compatibility range remains 9.1 through 10.5 and assessment upload remains an explicit user action. This check does not establish migration readiness for a particular workload or Cloud destination.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
         }
       ]
     },

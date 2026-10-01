@@ -31,6 +31,8 @@
   const collectorChart161Source = "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.161.0";
   const dotnet116Source = "https://github.com/signalfx/splunk-otel-dotnet/releases/tag/v1.16.0";
   const node411Source = "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.11.0";
+  const node412Source = "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.0";
+  const java2313Source = "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.31.3";
   const rum31Source = "https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.1.0";
   const rum32Source = "https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.2.0";
 
@@ -571,10 +573,14 @@
             ["Synthetics private runner updates", "Digital experience", "Keep private test execution current", "Review the published 1.44.0 runtime with Chrome and Chromium 151 and the 1.39.0 restoration of NTLM authentication for HTTP tests."],
             ["Observability Logs", "Dashboards & experience", "Investigate logs beside metrics and traces", "Use the cloud-only integrated logs experience with a Splunk Cloud stack, Unified Identity, centralized RBAC, data-level access control, and OpenTelemetry or Data Manager onboarding where available."],
             ["Cloud 10.6 free-edition onboarding", "Dashboards & experience", "Start an Observability trial from a documented Cloud stack", "On Splunk Cloud Platform 10.6, eligible admin or sc_admin users can request a trial organization from the Discover app and inspect paired indexes for OpenTelemetry-compliant log sources."],
+            ["Quieter Kubernetes Autodetect", "Infrastructure & Kubernetes", "Reduce noisy infrastructure alerts", "Use the revised Kubernetes readiness, memory, and CPU Autodetect definitions that Splunk documents as reducing false positives and alert noise."],
+            ["Detector Optimization", "Usage & governance", "Review detector improvements before applying them", "In Controlled Availability, review weekly recommendations for noisy, inactive, or muted detectors, preview expected impact, and apply, dismiss, disable, or delete deliberately; recommendations are not applied automatically."],
             ["Collector 0.161 pipeline controls", "Telemetry & OpenTelemetry", "Upgrade with clearer configuration and input lifecycle behavior", "Use hot reload for Splunk outputs and independent TA input reconciliation after validating the release's changed semantic conventions and metric defaults."],
             ["Kubernetes chart 0.161", "Infrastructure & Kubernetes", "Bring the supported chart to Collector 0.161", "Adopt the chart that packages Collector 0.161, Target Allocator 0.159, and Operator 0.123 after migrating Kubernetes attributes and CPU-metric expectations."],
             ["Collector lookup processor", "Telemetry & OpenTelemetry", "Enrich telemetry in the pipeline", "Use the lookup processor added in Splunk OpenTelemetry Collector 0.160.1 where its documented component scope fits the pipeline."],
             [".NET instrumentation 1.16", "Telemetry & OpenTelemetry", "Verify instrumentation packages before install", "Use immutable, attested release assets and inspect snapshot-selection probability in effective configuration after satisfying the installer verification prerequisite."],
+            ["Node.js instrumentation 4.12", "Telemetry & OpenTelemetry", "Extend database tracing on the current agent", "Adopt OpenTelemetry 2.11/0.222 with Couchbase SDK 4.7+ instrumentation, vendored MySQL2 instrumentation, and an installation fallback that skips native-extension compilation when no prebuilt binary is available."],
+            ["Java instrumentation 2.31.3", "Telemetry & OpenTelemetry", "Keep remote profiling control and images aligned", "Use the 2.31.3 re-release of 2.31.2, which preserves the fix for turning off CPU profiling through remote configuration and corrects Docker image publishing."],
             ["Browser RUM 3.2", "Digital experience", "Measure application-defined page readiness", "Use manual page-load registration and optional blocking-element spans for application work that ordinary network and resource monitoring cannot observe; new configuration should use navigationMetrics while the spaMetrics alias remains deprecated but functional."]
           ],
           technicalChanges: [
@@ -698,6 +704,20 @@
               source: node411Source
             },
             {
+              component: "Node.js instrumentation baseline", domain: "Instrumentation runtime", changeType: "Dependencies and coverage updated", actionLevel: "Review",
+              from: "Splunk OpenTelemetry Node.js 4.11.0 with the prior OpenTelemetry SDK and database instrumentation set", to: "Version 4.12.0 with OpenTelemetry 2.11.0 / instrumentation 0.222.0, Couchbase SDK 4.7+ coverage and vendored MySQL2 instrumentation",
+              implication: "Database span coverage and dependency behavior can change, while installation now skips native-extension compilation when the release has no matching prebuilt binary.",
+              action: "Validate representative Couchbase and MySQL2 spans, existing HTTP/database attributes, and installation logs on every supported architecture before broad rollout.",
+              source: node412Source
+            },
+            {
+              component: "Java CPU profiling remote control", domain: "Instrumentation runtime", changeType: "Patch behavior corrected", actionLevel: "Review",
+              from: "Java instrumentation 2.31.0/2.31.1 can fail to turn off CPU profiling through remote configuration", to: "Version 2.31.3 re-releases the 2.31.2 fix and repairs Docker image publishing",
+              implication: "Deployments that rely on remote configuration need the corrected agent and matching image before treating the profiling-off control as effective.",
+              action: "Roll out the 2.31.3 agent or image in a representative service and verify that remote configuration stops CPU profiling without changing unrelated telemetry.",
+              source: java2313Source
+            },
+            {
               component: "Browser RUM 3.1 defaults", domain: "RUM behavior", changeType: "Defaults changed", actionLevel: "Review",
               from: "Rage clicks enabled by default, a five-second page-completion quiet window, and 2 MB localStorage retry persistence", to: "Four frustration signals enabled, a one-second quiet window, and up to 100 MB IndexedDB persistence for failed Session Replay uploads",
               implication: "Interaction volume, Page Completion Time baselines, client storage, privacy review, and replay retry behavior can differ without an application-code change.",
@@ -718,6 +738,7 @@
             ["Confirm Observability Logs pairing and access", "Observability Logs is cloud-only and uses a Splunk Cloud stack, Unified Identity, centralized RBAC, data-level access control, and a supported OpenTelemetry or Data Manager onboarding path. Confirm each boundary before adoption.", "Validate", "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026", false],
             ["Validate the applicable Synthetics private-runner line", "Review private locations individually: runner 1.44.0 updates Chrome and Chromium to 151 and refreshes runtime components, while 1.39.0 restores NTLM authentication for HTTP tests.", "Validate", "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026", false],
             ["Treat Cloud 10.6 trial onboarding as stack-specific", "The documented free-edition flow requires Splunk Cloud Platform 10.6, the Discover Splunk Observability Cloud app, and an admin or sc_admin role. Confirm stack, region, entitlement, schedule, pairing, and trial availability rather than inferring them from the current 10.5 release route.", "Validate", "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026", false],
+            ["Confirm Detector Optimization availability", "Detector Optimization is Controlled Availability. Confirm realm and access with Splunk, review each recommendation and its expected impact, and keep change approval with the customer because recommendations are not applied automatically.", "Validate", "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026", false],
             ["Migrate Kubernetes semantic conventions for Collector and chart 0.161", "Standalone Collector 0.161 and Kubernetes chart 0.161.0 use stable singular label and annotation attributes plus container.image.tags. Migrate dashboards, detectors, MetricSets, routing, and exports before rollout.", "Blocker", collectorChart161Source, true],
             ["Rebaseline kubelet CPU metrics for Collector and chart 0.161", "CPU usage and derived utilization now come from cpu.time rates by default and are absent on the first scrape after startup. Validate series behavior and thresholds before production rollout.", "Blocker", collectorChart161Source, true],
             ["Move SQL Server endpoint lookups to resource attributes", "Collector 0.161 removes server.address and server.port from db.server.top_query log attributes and makes them resource attributes by default.", "Blocker", collector161Source, true],
@@ -729,6 +750,8 @@
             ["Remove the retired Kubernetes processor option", "Any k8sattributes configuration that still includes deployment_name_from_replicaset fails hard at startup in Collector 0.160.", "Blocker", collector160Source, true],
             ["Provide GitHub CLI for .NET 1.16 installer verification", "Splunk OpenTelemetry .NET 1.16 requires GitHub CLI by default when its PowerShell installation/update commands or shell installer verify immutable release attestations. Validate the tool and network path before rollout; skipping verification is an explicit exception, not the default readiness path.", "Blocker", dotnet116Source, true],
             ["Reconcile Node.js semantic conventions", "Splunk OpenTelemetry Node.js 4.11.0 adopts stable OpenTelemetry HTTP and database semantic conventions with renamed attributes.", "Validate", node411Source, true],
+            ["Validate Node.js 4.12 database instrumentation", "Splunk OpenTelemetry Node.js 4.12.0 upgrades the OpenTelemetry SDK and instrumentation packages, adds Couchbase SDK 4.7+ coverage, vendors MySQL2 instrumentation, and skips native compilation when no prebuilt binary is available. Validate span shape and installation behavior before broad rollout.", "Validate", node412Source, false],
+            ["Verify Java 2.31.3 remote profiling control", "Java instrumentation 2.31.3 re-releases the 2.31.2 CPU-profiling remote-configuration fix and corrects Docker image publishing. Validate the profiling-off control against the exact agent or image deployed.", "Validate", java2313Source, false],
             ["Baseline Browser RUM 3.1 defaults", "Browser RUM 3.1 changes frustration-signal collection, Page Completion Time quiet-window behavior, and failed-replay storage defaults. Confirm privacy, storage, and detector assumptions before broad rollout.", "Validate", rum31Source, true],
             ["Adopt the Browser RUM 3.2 navigationMetrics name", "Browser RUM 3.2 keeps spaMetrics working as a deprecated alias, so no mandatory code or configuration change is required for this release. Use navigationMetrics for new configuration and migrate maintained templates before a future removal.", "Plan", rum32Source, false]
           ]

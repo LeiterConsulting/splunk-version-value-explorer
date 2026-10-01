@@ -31,7 +31,7 @@ for(const f of fs.readdirSync('dist').filter(f=>f.endsWith('.js')&&!['source-reg
  for(const m of text.matchAll(/https:\/\/(?:[a-z0-9-]+\.)*(?:splunk\.com|cisco\.com|fedramp\.gov|nist\.gov)\/[^\s"'\x60<>]+/g))add(m[0],{},'Shared guidance',f);
 }
 // Resolve catalog identifiers to the records that consume them and surface disagreements.
-function resolveReferences(root,area){
+function resolveReferences(root,area,retainClaimSections=false){
  const catalog=root.sources||{};
  function visit(value,path,conflict=false){
   if(!value||typeof value!=='object')return;
@@ -39,7 +39,11 @@ function resolveReferences(root,area){
   for(const [key,v] of Object.entries(value)){
    if(['src','sources'].includes(key)&&Array.isArray(v))for(const id of v){
     const source=catalog[id],row=source&&rows.get(source.url||source.u);
-    if(row){const location=area+': '+path;if(!row.references.includes(location))row.references.push(location);if(conflict)row.conflict=true;}
+    if(row){const location=area+': '+path;if(!row.references.includes(location))row.references.push(location);if(retainClaimSections){const claim={path:location,section:source.section||''};row.claimReferences=row.claimReferences||[];if(!row.claimReferences.some(x=>x.path===claim.path&&x.section===claim.section))row.claimReferences.push(claim);}if(conflict)row.conflict=true;}
+   }
+   if(key==='src'&&typeof v==='string'){
+    const source=catalog[v],row=source&&rows.get(source.url||source.u);
+    if(row){const location=area+': '+path;if(!row.references.includes(location))row.references.push(location);if(retainClaimSections){const claim={path:location,section:source.section||''};row.claimReferences=row.claimReferences||[];if(!row.claimReferences.some(x=>x.path===claim.path&&x.section===claim.section))row.claimReferences.push(claim);}if(conflict)row.conflict=true;}
    }
    if(key!=='sources'||Array.isArray(v))visit(v,path+'.'+key,conflict);
   }
@@ -48,6 +52,7 @@ function resolveReferences(root,area){
 }
 resolveReferences(context.window.VersionCompassEnvironmentData,'environment');
 resolveReferences(context.window.VersionCompassEditions,'editions');
+resolveReferences(context.window.VersionCompassForwarderData,'forwarders',true);
 const prior=new Map(previous.sources.map(r=>[r.url,r]));
 const sources=[...rows.values()].map(r=>{
  const p=prior.get(r.url),note=notes[r.url]||{},events=p?.events||[];

@@ -283,7 +283,7 @@ test('September Observability additions preserve SaaS, private-runner, and Cloud
   const rt = await runtime();
   const selection = { product: 'observability', platform: 'cloud', host: '10.5.2605', from: 'Jul 2026', to: 'Sep 2026' };
   const report = rt.run('compare_routes', { routes: [selection] }).reports[0];
-  for (const title of ['Delegated APM rule management', 'RUM Business Journeys', 'Synthetics private runner updates', 'Observability Logs', 'Cloud 10.6 free-edition onboarding', '.NET instrumentation 1.16', 'Browser RUM 3.2']) {
+  for (const title of ['Delegated APM rule management', 'RUM Business Journeys', 'Synthetics private runner updates', 'Observability Logs', 'Cloud 10.6 free-edition onboarding', '.NET instrumentation 1.16', 'Browser RUM 3.2', 'Quieter Kubernetes Autodetect', 'Detector Optimization', 'Node.js instrumentation 4.12', 'Java instrumentation 2.31.3']) {
     assert(report.features.some(item => item.title === title), title);
   }
   assert(report.technicalChanges.some(item => item.component === 'Synthetics private runner' && item.to.includes('1.44.0') && item.to.includes('1.39.0')));
@@ -293,6 +293,10 @@ test('September Observability additions preserve SaaS, private-runner, and Cloud
   assert(report.breakingChanges.some(item => item.title === 'Provide GitHub CLI for .NET 1.16 installer verification' && item.breaking));
   assert(report.readiness.some(item => item.title === 'Treat Cloud 10.6 trial onboarding as stack-specific' && item.detail.includes('current 10.5 release route')));
   assert(report.breakingChanges.some(item => item.title === 'Reconcile Node.js semantic conventions' && item.detail.startsWith('Splunk OpenTelemetry Node.js 4.11.0') && !item.detail.includes('chart')));
+  assert(report.technicalChanges.some(item => item.component === 'Node.js instrumentation baseline' && item.to.includes('4.12.0') && item.to.includes('Couchbase SDK 4.7+')));
+  assert(report.technicalChanges.some(item => item.component === 'Java CPU profiling remote control' && item.to.includes('2.31.3') && item.to.includes('Docker image publishing')));
+  assert(report.readiness.some(item => item.title === 'Confirm Detector Optimization availability' && item.detail.includes('Controlled Availability')));
+  assert(report.readiness.some(item => item.title === 'Validate Node.js 4.12 database instrumentation' && item.detail.includes('vendors MySQL2')));
   assert(report.readiness.some(item => item.title === 'Adopt the Browser RUM 3.2 navigationMetrics name' && !item.breaking));
   const platformCloud = rt.run('get_catalog', {}).products.find(item => item.id === 'platform').contexts.find(item => item.platform === 'cloud');
   assert(!platformCloud.targetReleases.some(item => item.id.startsWith('10.6')));
