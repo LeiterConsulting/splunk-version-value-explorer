@@ -1,7 +1,7 @@
 /* Editorial change provenance. Cycles advance only with material factual updates. */
 (function(){
 'use strict';
-const policy={currentCycle:4,retentionCycles:2};
+const policy={currentCycle:5,retentionCycles:2};
 const note25='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-25.md';
 const note26='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-26.md';
 const note30='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-30.md';
@@ -12,6 +12,9 @@ const rum='https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.2.0';
 const observabilitySep='https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026';
 const node412='https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.0';
 const java2313='https://github.com/signalfx/splunk-otel-java/releases/tag/v2.31.3';
+const enterprise106='https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6';
+const enterprise106ReadFirst='https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first';
+const cloud106='https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new';
 const ingest='https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor';
 const entries={
  'feature:observability:Browser RUM 3.2':{kind:'new',cycle:1,date:'2026-09-25',version:'Browser RUM 3.2.0 · September 2026 service milestone',detail:'Added to this guide: manual page-load registration and optional blocking-element spans.',source:rum,sourceDate:'2026-09-24'},
@@ -24,6 +27,11 @@ const entries={
  'technical:observability:Node.js instrumentation baseline':{kind:'updated',cycle:4,date:'2026-10-01',version:'Splunk OpenTelemetry Node.js 4.12.0',detail:'Recorded the dependency, database-coverage and native-extension installation changes without classifying the patch as a breaking release.',source:node412,sourceDate:'2026-10-01',note:note01},
  'feature:observability:Java instrumentation 2.31.3':{kind:'new',cycle:4,date:'2026-10-01',version:'Splunk OpenTelemetry Java 2.31.3',detail:'Added the re-release that preserves the remote CPU-profiling control fix and corrects Docker image publishing.',source:java2313,sourceDate:'2026-10-01',note:note01},
  'technical:observability:Java CPU profiling remote control':{kind:'corrected',cycle:4,date:'2026-10-01',version:'Splunk OpenTelemetry Java 2.31.3',detail:'Recorded the corrected remote profiling-off behavior and exact re-release boundary.',source:java2313,sourceDate:'2026-10-01',note:note01}
+ ,'feature:platform:Cohosted PostgreSQL KV Store':{kind:'new',cycle:5,date:'2026-10-01',version:'Splunk Enterprise 10.6',detail:'Added the 10.6 KV Store architecture transition with explicit backup, readiness, port and recovery requirements.',source:enterprise106,sourceDate:'2026-09-30',note:note01}
+ ,'technical:platform:KV Store database engine':{kind:'updated',cycle:5,date:'2026-10-01',version:'Splunk Enterprise 10.6',detail:'Extended the maintained transition from MongoDB 8 in 10.4 to the cohosted PostgreSQL migration beginning in 10.6.',source:enterprise106ReadFirst,sourceDate:'2026-09-30',note:note01}
+ ,'feature:platform:Secure Forwarder Bootstrap certificate rotation':{kind:'new',cycle:5,date:'2026-10-01',version:'Splunk Cloud Platform 10.6 release documentation',detail:'Added the published milestone while preserving stack, provider, region, topology and rollout qualification.',source:cloud106,sourceDate:'2026-09-30',note:note01}
+ ,'technical:platform:Cloud 10.6 publication versus stack availability':{kind:'new',cycle:5,date:'2026-10-01',version:'Cloud 10.6 published; current Service Details remain 10.5',detail:'Separated release-note publication from actual stack availability and current subscription pairing.',source:cloud106,sourceDate:'2026-09-30',note:note01}
+ ,'technical:forwarders:Universal Forwarder 10.6 upgrade support':{kind:'new',cycle:5,date:'2026-10-01',version:'Universal Forwarder 10.6',detail:'Added the documented direct UF path from 10.0.x or later without inferring a Heavy Forwarder or receiver pairing.',source:enterprise106ReadFirst,sourceDate:'2026-09-30',note:note01}
 };
 for(const id of ['ingest-aws','ingest-moderate','ingest-classic-commercial','ingest-classic-moderate'])entries['environment:'+id]={kind:id.includes('classic')?'new':'updated',cycle:1,date:'2026-09-25',version:'Current Cloud service guidance · Classic / Victoria',detail:id.includes('classic')?'Added a visible Classic restriction: Ingest Processor requires Victoria. This documents an existing prerequisite, not a new product restriction.':'Corrected scope to require Victoria Experience and a provisioned Ingest Processor tenant.',source:ingest,sourceDate:'2026-06-16'};
 const labels={new:'New',updated:'Updated',deprecated:'Deprecated',removed:'Removed',corrected:'Corrected'};

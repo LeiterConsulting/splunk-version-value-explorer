@@ -628,6 +628,7 @@ window.VersionCompassSources = {
         "Splunk Forwarders"
       ],
       "references": [
+        "release.cloud.releasesData.10.6.requirements.0.3",
         "release.productTracks.es.cloudServiceSource",
         "release.productTracks.itsi.cloudServiceSource",
         "environment.sources.service.url",
@@ -1001,6 +1002,39 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-09-25",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new",
+      "title": "whats new",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.cloud.releasesData.10.6.source",
+        "release.cloud.releasesData.10.6.technicalChanges.0.source",
+        "release.cloud.releasesData.10.6.technicalChanges.1.source",
+        "release.cloud.releasesData.10.6.technicalChanges.2.source",
+        "release.cloud.releasesData.10.6.requirements.1.3",
+        "release.cloud.releasesData.10.6.requirements.2.3",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Published release documentation is distinct from current Service Details and stack-specific availability.",
+      "section": "What's new; compatibility and deprecation notices",
+      "verificationScope": "Confirmed published Cloud 10.6 customer-visible milestones including Secure Forwarder Bootstrap certificate rotation, S3 schema templates, Federated Search verification, four-segment identifiers and the Classic-dashboard custom-visualization deprecation. This does not establish rollout, premium-app pairing, entitlement, region or authorization on a selected stack.",
+      "events": [
+        {
+          "date": "2026-10-01",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -2492,6 +2526,109 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/plan-your-splunk-enterprise-installation/system-requirements-for-use-of-splunk-enterprise-on-premises",
+      "title": "10.6 OS and architecture package matrix",
+      "areas": [
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "forwarders.sources.os106.url",
+        "forwarders: forwarders.claimSources.package.os-architecture-10.6"
+      ],
+      "reviews": [
+        "2026-10-01"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.package.os-architecture-10.6",
+          "section": "Supported Operating Systems"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Package presence is not an upgrade path, receiver pairing, application compatibility or authorization determination.",
+      "section": "Supported Operating Systems",
+      "verificationScope": "Checked selected exact 10.6 Universal Forwarder and Enterprise package cells for maintained RHEL, Ubuntu, Amazon Linux, Windows Server, Windows and macOS architecture rows. Unlisted tuples remain Not established and conditional/PR cells remain conditional.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first",
+      "title": "about upgrading to 10.6 read this first",
+      "areas": [
+        "Release guide",
+        "Splunk Forwarders",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.enterprise.releasesData.10.6.technicalChanges.0.source",
+        "release.enterprise.releasesData.10.6.technicalChanges.1.source",
+        "release.enterprise.releasesData.10.6.requirements.1.3",
+        "release.enterprise.releasesData.10.6.requirements.2.3",
+        "forwarders.sources.upgrade106.url",
+        "content-updates.js",
+        "forwarders: forwarders.claimSources.upgrade.uf.10.6"
+      ],
+      "reviews": [
+        "2026-10-01"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.upgrade.uf.10.6",
+          "section": "Key points for upgrading to version 10.6"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Universal Forwarder upgrade support, Enterprise/Heavy Forwarder paths and receiver compatibility are distinct claims.",
+      "section": "Key points for upgrading to version 10.6",
+      "verificationScope": "Confirmed the 10.6 KV Store backup and cohosted PostgreSQL readiness requirements, 10.4 Federated Search remote-provider floor, app/add-on caution, and direct Universal Forwarder upgrade support from 10.0.x and later. The Universal Forwarder statement is not used as a Heavy Forwarder or receiver-compatibility edge.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise",
+      "title": "how to upgrade splunk enterprise",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.enterprise.releasesData.10.6.requirements.0.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "An ambiguous versioned page cannot support an inferred direct 10.6 upgrade edge.",
+      "section": "Upgrade paths; versioned 10.6 page",
+      "verificationScope": "Checked the canonical 10.6 upgrade page. Its supported-path heading and table currently identify version 10.4 rather than publishing a distinct 10.6 Enterprise path. Version Compass therefore exposes 10.6 target requirements but leaves the Enterprise and Heavy Forwarder route unknown.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers",
       "title": "Forwarder / Enterprise indexer compatibility",
       "areas": [
@@ -2554,9 +2691,9 @@ window.VersionCompassSources = {
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "A compatibility listing is not proof of a released upgrade destination; new release lines require separate release-note verification.",
+      "reason": "Compatibility evidence establishes named customer-managed pairings only; release notes, upgrade paths and Cloud Service Details retain their separate scope.",
       "section": "Splunk Enterprise version 10.x — 10.6.x, 10.5.x, 10.4.x and 10.2.x rows",
-      "verificationScope": "Rechecked the published ES and ITSI pairings across the 10.6.x, Cloud-only 10.5.x, 10.4.x and 10.2.x rows. The 10.4.x row still lists ES 8.3.0 through 8.7 with patch-specific entries and ITSI 4.21.x/5.0. The 10.6.x row remains compatibility evidence only, not proof of a released Enterprise or Cloud upgrade destination. The Enterprise matrix is not used as a Cloud service-pairing rule.",
+      "verificationScope": "Rechecked the published ES and ITSI pairings across the 10.6.x, Cloud-only 10.5.x, 10.4.x and 10.2.x rows. The 10.6.x row lists ES 8.4.1, 8.5.1, 8.6.1 and 8.7 plus ITSI 4.21.x and 5.0. The Enterprise matrix is not used as a Cloud service-pairing, entitlement, region or authorization rule.",
       "events": [
         {
           "date": "2026-09-25",
@@ -2569,6 +2706,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-26",
           "event": "Review status updated: Reviewed · 2026-09-26"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
         },
         {
           "date": "2026-10-01",
@@ -2717,6 +2858,89 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/deprecated-features/deprecated-and-removed-in-version-10.6",
+      "title": "deprecated and removed in version 10.6",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.enterprise.releasesData.10.6.technicalChanges.4.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/known-issues-for-this-release/third-party-certificate-authorities-cease-issuing-certificates-with-serverauth-and-clientauth-eku-extensions",
+      "title": "third party certificate authorities cease issuing certificates with serverauth and clientauth eku extensions",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.enterprise.releasesData.10.6.technicalChanges.2.source",
+        "release.enterprise.releasesData.10.6.requirements.3.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6",
+      "title": "welcome to splunk enterprise 10.6",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.enterprise.releasesData.10.6.source",
+        "release.enterprise.releasesData.10.6.technicalChanges.3.source",
+        "release.enterprise.releasesData.10.6.requirements.4.3",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "The release milestone is kept separate from route, support-policy and compatibility evidence.",
+      "section": "Welcome; What's new in 10.6",
+      "verificationScope": "Confirmed the September 30, 2026 Enterprise 10.6 publication, cohosted PostgreSQL KV Store transition, $8 password-hash support, four-segment version format, Federated Search floor and Universal Forwarder 10.6 certification. Release publication does not establish an upgrade edge, lifecycle deadline, OS tuple, receiver pairing or app entitlement.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },

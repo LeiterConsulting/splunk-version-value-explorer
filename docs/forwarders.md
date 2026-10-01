@@ -1,13 +1,14 @@
-# Splunk Forwarders — September 28 increment
+# Splunk Forwarders — maintained route
 
 The peer product route is `?product=forwarders`. `forwarders-data.js` records scoped evidence and `forwarders.js` uses the shared comparison graph engine. `forwarders-ui.js` renders the same assessment for the screen, print/PDF and self-contained HTML snapshots. Its read-only `compare_forwarder_routes` WebMCP tool returns that assessment and source catalog.
 
 ## Coverage boundaries
 
-- Selected release lines: 9.4, 10.0, 10.2 and 10.4. These are not patch selectors or exhaustive historical coverage.
-- UF edges: 9.4 → 10.0; 10.0 → 10.2 or 10.4; 10.2 → 10.4. HF reuses the Enterprise graph. Preserve the different UF and HF intermediate requirements.
+- Selected release lines: 9.4, 10.0, 10.2, 10.4 and 10.6. These are not patch selectors or exhaustive historical coverage.
+- UF edges: 9.4 → 10.0; 10.0 → 10.2, 10.4 or 10.6; 10.2 → 10.4 or 10.6; 10.4 → 10.6. Splunk's 10.6 READ THIS FIRST page explicitly allows direct UF upgrades from 10.0.x and later. HF reuses the Enterprise graph, and no Enterprise 10.6 edge is recorded while the versioned upgrade table still identifies 10.4 as its target. Preserve the different UF and HF evidence.
 - Receiver compatibility is separate from upgrade support, OS support, feature availability, support lifecycle and authorization. Preserve the service table's omitted Cloud 10.4 pairing for UF/HF 10.0, rather than filling it by inference.
-- OS records are selected exact 10.4 package combinations. Unlisted combinations and earlier target OS requirements remain Not established. Windows 11 ARM UF emulation remains conditional and not certified.
+- OS records are selected exact 10.4 and 10.6 package combinations. Unlisted combinations and other target OS requirements remain Not established. Conditional rows retain Splunk's qualification rather than becoming generally supported combinations.
+- Splunk's current Enterprise receiver matrix and current Cloud Service Details forwarder table do not yet list a 10.6 pairing. UF 10.6 certification and its upgrade evidence do not fill those receiver gaps; a 10.6 receiver selection remains Not established.
 - HF technical records reference the existing Enterprise data and select forwarding-relevant components. Target runtime history is separate from route changes. Bundled-runtime changes never establish app-owned runtime or premium-app patch compatibility.
 - Automatic certificate renewal is a target-eligibility feature, not a newly introduced 10.4 feature. Preserve commercial AWS, excluded regions, direct topology, version floors, opt-in and single-output qualifications.
 - SVD-2026-0404 and SVD-2026-0505 are selected advisory-specific patch floors, not a complete vulnerability assessment. The 10.4.2 useACK defect also concerns receiving HF/indexers.

@@ -270,10 +270,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-guidance-audit",
       "name": "Version Guidance Audit",
-      "lastAttempt": "2026-09-28T12:50:24Z",
-      "lastSuccess": "2026-09-28T12:57:31Z",
-      "outcome": "no-change",
-      "summary": "Completed the cross-product guidance audit with no customer-facing factual correction required; revalidated the maintained Enterprise, ES and ITSI lifecycle tables and all route, export, share and WebMCP contracts.",
+      "lastAttempt": "2026-10-01T12:37:41Z",
+      "lastSuccess": "2026-10-01T12:53:15Z",
+      "outcome": "changed",
+      "summary": "Added source-backed Enterprise and Cloud 10.6 guidance, exact ES/ITSI host pairings and Universal Forwarder 10.6 paths while preserving unknown Enterprise/HF paths, receiver gaps, current Cloud 10.5 pairing and support-date uncertainty.",
       "history": [
         {
           "at": "2026-09-24T12:45:24.855849+00:00",
@@ -291,9 +291,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Completed the cross-product guidance audit with no customer-facing factual correction required; revalidated the maintained Enterprise, ES and ITSI lifecycle tables and all route, export, share and WebMCP contracts.",
           "scope": "Enterprise and Cloud Platform routes; Enterprise-to-Cloud migration; Enterprise Security, ITSI and Observability routes; 72 technical-change records; compatibility and lifecycle evidence; ES Editions; Cloud environments and perspectives; malformed and exact URLs; print/snapshot restoration; WebMCP catalog, batches and current-report behavior; themes, navigation and publication metadata."
+        },
+        {
+          "at": "2026-10-01T12:37:41Z",
+          "outcome": "running",
+          "summary": "Auditing integrated Version Compass route guidance, Forwarder provenance and report parity against current official evidence.",
+          "scope": "Integrated Release Guide, ES Editions, Cloud Environment, About/source register, Enterprise-to-Cloud, Observability, Universal and Heavy Forwarder routes; upgrade and receiver paths, OS/architecture/runtime, premium-app gates, support lifecycle, edition and authorization boundaries, exact URLs, keyboard/narrow-screen, PDF, saved HTML and browser-scoped WebMCP behavior."
+        },
+        {
+          "at": "2026-10-01T12:53:15Z",
+          "outcome": "changed",
+          "summary": "Added source-backed Enterprise and Cloud 10.6 guidance, exact ES/ITSI host pairings and Universal Forwarder 10.6 paths while preserving unknown Enterprise/HF paths, receiver gaps, current Cloud 10.5 pairing and support-date uncertainty.",
+          "scope": "Audited integrated Platform, migration, ES, ITSI, Observability, ES Editions, Cloud Environment, About/source register and UF/HF routes; checked 10.6 release, upgrade, OS, compatibility and current Cloud pairing evidence; validated exact URLs, source mappings, shared reports, snapshots, print expansion and read-only WebMCP structurally. Native local browser/PDF execution was unavailable because the browser daemon and runtime binary could not start."
         }
       ],
-      "scope": "Enterprise and Cloud Platform routes; Enterprise-to-Cloud migration; Enterprise Security, ITSI and Observability routes; 72 technical-change records; compatibility and lifecycle evidence; ES Editions; Cloud environments and perspectives; malformed and exact URLs; print/snapshot restoration; WebMCP catalog, batches and current-report behavior; themes, navigation and publication metadata."
+      "scope": "Audited integrated Platform, migration, ES, ITSI, Observability, ES Editions, Cloud Environment, About/source register and UF/HF routes; checked 10.6 release, upgrade, OS, compatibility and current Cloud pairing evidence; validated exact URLs, source mappings, shared reports, snapshots, print expansion and read-only WebMCP structurally. Native local browser/PDF execution was unavailable because the browser daemon and runtime binary could not start."
     }
   ]
 };

@@ -1,6 +1,6 @@
 # Agent access through WebMCP
 
-[Version Compass](https://versioncompass.com) exposes three read-only tools through the browser's imperative `document.modelContext.registerTool` API. Open the site in a WebMCP-capable browser/agent environment to discover them. The normal interface remains usable in browsers without this API.
+[Version Compass](https://versioncompass.com) exposes four read-only tools through the browser's imperative `document.modelContext.registerTool` API. Open the site in a WebMCP-capable browser/agent environment to discover them. The normal interface remains usable in browsers without this API.
 
 This is **browser-scoped WebMCP**, not a standalone MCP server. There is no `/mcp` HTTP endpoint, API key, server process, or background agent connection to configure. A conventional MCP client needs a browser integration that supports WebMCP; entering the website URL as a remote MCP server is not sufficient. See the [WebMCP specification](https://webmachinelearning.github.io/webmcp/) for the browser API and its evolving support.
 
@@ -11,8 +11,9 @@ This is **browser-scoped WebMCP**, not a standalone MCP server. There is no `/mc
 | `versioncompass_get_catalog` | Discover products, contexts, exact release identifiers, latest curated entries, host versions, and release-note sources | `{}` for all products, or `products` containing selected product IDs |
 | `versioncompass_compare_routes` | Compare one to five routes with paths, compatibility, capabilities, technical changes, breaking risks, readiness, sources, and shareable URLs | `routes`; optional `include` |
 | `versioncompass_get_current_report` | Read the current page selection as a structured report, including every capability category | `{}` or optional `include` |
+| `compare_forwarder_routes` | Compare one or more Universal or Heavy Forwarder routes with upgrade, receiver, topology, OS/package, security and evidence results | `routes`, using the Forwarder route fields documented in [Splunk Forwarders](forwarders.md) |
 
-Product IDs are `platform`, `es`, `itsi`, and `observability`. Deployment contexts are `enterprise` and `cloud`; `migration` is available only for `platform`. ES, ITSI, and Observability require `host`, the selected Enterprise or Cloud platform release. Platform routes must omit `host`.
+The shared catalog and comparison tools use product IDs `platform`, `es`, `itsi`, and `observability`. Deployment contexts are `enterprise` and `cloud`; `migration` is available only for `platform`. ES, ITSI, and Observability require `host`, the selected Enterprise or Cloud platform release. Platform routes must omit `host`. Forwarders use the separate stable `compare_forwarder_routes` schema because receiver, topology, destination, provider, region, OS and architecture are first-class selections.
 
 All tools are read-only. They do not navigate, change form selections, expand panels, print, copy to the clipboard, deploy software, call external services, or collect customer data. Reports include all capability categories even when the page currently filters one category.
 
@@ -51,16 +52,18 @@ Invalid input returns `ok: false` with an explanatory error. Missing hosts, unkn
 ## Implementation and maintenance
 
 - `dist/data.js`, `dist/product-data.js`, and `dist/guidance-data.js` are the shared factual sources. There is no separate agent dataset to refresh.
+- `dist/forwarders-data.js` and `dist/forwarders.js` are the shared Forwarder evidence and route engine used by the Forwarders screen, print/snapshot output and `compare_forwarder_routes`; the tool does not duplicate factual content.
 - `dist/comparison.js` contains the shared, DOM-free selection and compatibility logic used by both `dist/app.js` and `dist/webmcp.js`.
 - `dist/webmcp.js` validates inputs and registers tools once. Registrations use an `AbortSignal` for cleanup on `pagehide` and are restored on `pageshow`, including back/forward cache restoration. Unsupported browsers and failed registration leave the page functional.
 - The agent metadata reads the current reviewed badge's dated release-note link. Advance the badge date, destination, and print date together during content maintenance.
 - Preserve stable tool names and the `schemaVersion` contract. Document incompatible schema or semantic changes before publishing them.
 - The scheduled maintenance reviews must check UI/tool parity, citations, exact identifiers, compatibility boundaries, and privacy behavior after relevant changes. Add new routes to this contract when expanding product coverage.
 
-Run the dependency-free contract and interaction harness from the repository root:
+Run the dependency-free contract and interaction harnesses from the repository root:
 
 ```bash
 node --test tests/webmcp.test.cjs
+node --test tests/forwarders.test.cjs
 ```
 
 It exercises every catalog interval, representative page interactions and URL state, Enterprise platform-first gates, Cloud-managed context, migration readiness, source URLs, unsupported input, result isolation, unsupported browsers, registration failure, and lifecycle cleanup. The harness emulates the DOM and WebMCP registry; it does not claim to certify a particular browser vendor's implementation or PDF rendering. Browser-specific discovery and invocation should also be checked when a compatible browser runtime is available.

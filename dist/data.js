@@ -10,8 +10,8 @@ window.SPLUNK_DATA = {
   enterprise: {
     label: "Splunk Enterprise",
     kind: "customer-managed upgrade",
-    latest: "10.4",
-    releases: ["8.1", "8.2", "9.0", "9.1", "9.2", "9.3", "9.4", "10.0", "10.2", "10.4"],
+    latest: "10.6",
+    releases: ["8.1", "8.2", "9.0", "9.1", "9.2", "9.3", "9.4", "10.0", "10.2", "10.4", "10.6"],
     edges: {
       "8.1": ["8.2", "9.0"], "8.2": ["9.0", "9.1"], "9.0": ["9.1", "9.2"],
       "9.1": ["9.2", "9.3", "9.4"], "9.2": ["9.3", "9.4", "10.0"],
@@ -378,6 +378,59 @@ window.SPLUNK_DATA = {
           ["Validate apps and classic dashboards", "Run AppInspect, remove jQuery 2 dependencies, and plan migration for classic Simple XML dashboards affected by current lifecycle guidance.", "Test", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first", true],
           ["Review dashboard refresh permissions", "The auto_refresh_dashboards capability governs automatic dashboard refresh. Confirm roles retain intended behavior.", "Validate", "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first", true]
         ]
+      },
+      "10.6": {
+        date: "September 30, 2026", source: "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6",
+        features: [
+          ["Cohosted PostgreSQL KV Store", "Platform operations", "Modernize application state", "Begin the documented transition from MongoDB-backed KV Store to a cohosted PostgreSQL architecture."],
+          ["$8 password hash support", "Security & compliance", "Strengthen stored-secret handling", "Use the newer supported password-hash format where the documented component and migration requirements are met."],
+          ["Federated Search verification", "Search & AI", "Reduce remote-provider surprises", "Validate provider versions and connectivity with stronger preflight checks."],
+          ["Four-segment version identifiers", "Platform operations", "Represent maintenance builds precisely", "Accommodate the new four-segment version format in inventory, automation, and policy logic."],
+          ["Universal Forwarder 10.6 certification", "Data management", "Plan current forwarder packages", "Use the newly certified Universal Forwarder line after validating its distinct upgrade, OS, and receiver evidence."]
+        ],
+        technicalChanges: [
+          {
+            component: "KV Store database engine", domain: "Data & storage", changeType: "Architecture transition", actionLevel: "Required",
+            from: "MongoDB-backed KV Store", to: "Cohosted PostgreSQL KV Store begins in 10.6",
+            implication: "The transition changes backup, migration, port, and recovery planning; postponement in 10.6 does not remove the future requirement.",
+            action: "Run readiness checks, take the documented parallel KV Store backup, open required PostgreSQL ports for clustered deployments, and rehearse recovery before enabling the migration.",
+            source: "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first"
+          },
+          {
+            component: "Federated Search provider floor", domain: "Search & federation", changeType: "Minimum version raised", actionLevel: "Required",
+            from: "Remote providers can run older Enterprise release lines", to: "Remote Splunk Enterprise providers must be 10.4 or later",
+            implication: "A 10.6 search head cannot rely on older remote providers for a supported federated-search topology.",
+            action: "Inventory every remote provider and upgrade any provider below 10.4 before moving the federated-search head to 10.6.",
+            source: "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first"
+          },
+          {
+            component: "Public TLS certificate EKU", domain: "Security & cryptography", changeType: "Issuer practice changed", actionLevel: "Required",
+            from: "Some public certificates include both serverAuth and clientAuth EKUs", to: "Public issuers are expected to stop issuing dual-use certificates by March 1, 2027",
+            implication: "Using a server-only public certificate for mutual TLS or KV Store client authentication can cause service disruption after renewal.",
+            action: "Inventory certificates by component. Keep Splunk Web certificates serverAuth-only and use a suitable private PKI or client-auth chain for mutual-TLS and KV Store component certificates.",
+            source: "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/known-issues-for-this-release/third-party-certificate-authorities-cease-issuing-certificates-with-serverauth-and-clientauth-eku-extensions"
+          },
+          {
+            component: "Release version format", domain: "Platform operations", changeType: "Identifier changed", actionLevel: "Review",
+            from: "Three-segment release identifiers", to: "Four-segment release identifiers can be published",
+            implication: "Strict parsers, deployment rules, CMDB fields, and comparison scripts can reject or misorder valid releases.",
+            action: "Test version parsing and ordering in automation, deployment tooling, reports, and asset inventories.",
+            source: "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6"
+          },
+          {
+            component: "Classic dashboard custom visualizations", domain: "Dashboards & experience", changeType: "Deprecated", actionLevel: "Plan",
+            from: "Supported custom visualizations in Classic dashboards", to: "Custom Visualizations support in Classic dashboards is deprecated",
+            implication: "Existing dashboards are not described as removed in 10.6, but new investment increases future migration risk.",
+            action: "Inventory affected Classic dashboards and plan supported replacements without treating deprecation as immediate removal.",
+            source: "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/deprecated-features/deprecated-and-removed-in-version-10.6"
+          }
+        ], requirements: [
+          ["Verify the exact Enterprise 10.6 upgrade path", "The versioned 10.6 upgrade page currently reproduces a table labeled for 10.4 and does not establish a distinct 10.6 release-line edge. Do not schedule an inferred direct path until Splunk publishes or confirms it.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise", true],
+          ["Prepare the KV Store transition", "Run readiness checks, take the documented backup, validate required ports, and rehearse recovery for the cohosted PostgreSQL transition.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first", true],
+          ["Raise Federated Search providers to 10.4+", "Inventory all remote providers and resolve any release below the documented minimum before upgrading the search head.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first", true],
+          ["Audit certificate EKUs by component", "Separate serverAuth-only web certificates from client-auth and mutual-TLS certificate requirements before public-CA renewal practices change.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/known-issues-for-this-release/third-party-certificate-authorities-cease-issuing-certificates-with-serverauth-and-clientauth-eku-extensions", true],
+          ["Validate apps, add-ons, and version parsers", "Confirm exact 10.6 compatibility for every deployed extension and test automation against four-segment release identifiers.", "Test", "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6", true]
+        ]
       }
     }
   },
@@ -385,7 +438,7 @@ window.SPLUNK_DATA = {
     label: "Splunk Cloud Platform",
     kind: "Splunk-managed release",
     latest: "10.5.2605",
-    releases: ["9.2.2406", "9.3.2408", "10.0.2503", "10.1.2507", "10.2.2510", "10.4.2604", "10.5.2605"],
+    releases: ["9.2.2406", "9.3.2408", "10.0.2503", "10.1.2507", "10.2.2510", "10.4.2604", "10.5.2605", "10.6"],
     releasesData: {
       "9.2.2406": {
         date: "2024", source: "https://help.splunk.com/en/splunk-cloud-platform/release-notes/9.2.2406/splunk-cloud-platform-release-notes/whats-new",
@@ -568,6 +621,42 @@ window.SPLUNK_DATA = {
           ["Validate targeted-app prerequisites", "Targeted app installation on Victoria Experience requires sc_admin. The documented minimum is 10.2.2510 on AWS and 10.5.2605.0 on GCP or Azure; confirm the actual cloud provider and stack before relying on the feature.", "Validate", "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-manual/10.5.2605/manage-apps-and-add-ons-in-splunk-cloud-platform/targeted-app-installation-on-victoria-experience", false],
           ["Confirm and plan scheduled-search frequency limits", "This control is published as Controlled Availability. Confirm it is enabled for the stack, then inventory high-volume workloads and validate critical schedules before applying minimum intervals.", "Plan", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.5.2605/splunk-cloud-platform-release-notes/whats-new", false],
           ["Review password ACLs", "Password settings are restrictive by default in the new Credentials page. Review ACLs for app and data-input credentials, and validate intended administrative and operational access.", "Validate", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.5.2605/splunk-cloud-platform-release-notes/whats-new", true]
+        ]
+      },
+      "10.6": {
+        date: "Published September 2026", source: "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new",
+        features: [
+          ["Secure Forwarder Bootstrap certificate rotation", "Security & compliance", "Reduce certificate-renewal toil", "Use automatic certificate rotation where the exact stack, provider, region, topology, and forwarder prerequisites are satisfied."],
+          ["S3 schema templates", "Data management", "Accelerate supported object-store onboarding", "Start supported S3 ingestion workflows from predefined schema templates."],
+          ["Federated Search verification", "Search & AI", "Catch provider mismatches earlier", "Use stronger verification for eligible federated-search configurations."],
+          ["Four-segment version identifiers", "Platform operations", "Track maintenance builds precisely", "Update tooling that assumes Cloud release identifiers always contain three segments."]
+        ],
+        technicalChanges: [
+          {
+            component: "Cloud 10.6 publication versus stack availability", domain: "Cloud operations", changeType: "Publication milestone", actionLevel: "Required",
+            from: "Current Service Details pair subscriptions with Cloud 10.5", to: "Cloud 10.6 release notes are published while rollout remains stack-specific",
+            implication: "Published release notes do not prove that a particular commercial, FR-M, or FR-H stack has received the release or every described feature.",
+            action: "Confirm the exact stack, region, provider, entitlement, and scheduled rollout with Splunk before using 10.6 as an availability claim.",
+            source: "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new"
+          },
+          {
+            component: "Release version format", domain: "Cloud operations", changeType: "Identifier changed", actionLevel: "Review",
+            from: "Three-segment release identifiers", to: "Four-segment release identifiers can be published",
+            implication: "Strict stack-version parsers and policy rules can reject or misorder a valid maintenance build.",
+            action: "Test automation, reports, and inventory integrations against four-segment identifiers.",
+            source: "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new"
+          },
+          {
+            component: "Classic dashboard custom visualizations", domain: "Dashboards & experience", changeType: "Deprecated", actionLevel: "Plan",
+            from: "Supported custom visualizations in Classic dashboards", to: "Custom Visualizations support in Classic dashboards is deprecated",
+            implication: "Deprecation is not removal, but continuing investment increases future migration work.",
+            action: "Inventory affected dashboards and plan supported replacements while retaining current behavior until Splunk documents removal.",
+            source: "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new"
+          }
+        ], requirements: [
+          ["Confirm actual stack rollout", "The current Service Details still pair subscriptions with Cloud 10.5. Treat 10.6 as published release documentation, not proof of availability on a selected stack.", "Blocker", "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.5.2605/information-about-the-service/splunk-cloud-platform-service-details", true],
+          ["Verify Forwarder Bootstrap prerequisites", "Confirm the direct-forwarding topology, eligible commercial provider and region, stack version, forwarder version, and explicit certificate-rotation configuration.", "Validate", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new", false],
+          ["Retest version-aware automation", "Update parsers and policy logic that assume every stack version has three segments.", "Test", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new", true]
         ]
       }
     }

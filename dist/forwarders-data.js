@@ -1,14 +1,16 @@
 /* Bounded forwarder evidence. A release-line selection never certifies every patch. */
 window.VersionCompassForwarderData = {
- reviewed:'2026-09-28', releases:['9.4','10.0','10.2','10.4'],
+ reviewed:'2026-10-01', releases:['9.4','10.0','10.2','10.4','10.6'],
  sources:{
  upgrade100:{title:'Universal Forwarder upgrade to 10.0',url:'https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.0-read-this-first',reviewed:'2026-09-28',section:'Key points for upgrading to version 10.0'},
  upgrade102:{title:'Universal Forwarder upgrade to 10.2',url:'https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.2/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.2-read-this-first',reviewed:'2026-09-28',section:'Key points for upgrading to version 10.2'},
  upgrade104:{title:'Forwarder and Enterprise upgrade considerations 10.4',url:'https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first',reviewed:'2026-09-28',section:'Key points; component-specific changes'},
+ upgrade106:{title:'Universal Forwarder upgrade to 10.6',url:'https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first',reviewed:'2026-10-01',section:'Key points for upgrading to version 10.6'},
  enterprise:{title:'Splunk Enterprise supported upgrade paths (Heavy Forwarder)',url:'https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise',reviewed:'2026-09-28',section:'Supported upgrade paths'},
  receiver:{title:'Forwarder / Enterprise indexer compatibility',url:'https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers',reviewed:'2026-09-28',section:'Determine forwarder-indexer compatibility'},
  cloud:{title:'Cloud service details: supported forwarders',url:'https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.5.2605/information-about-the-service/splunk-cloud-platform-service-details',reviewed:'2026-09-28',section:'Supported forwarder versions'},
  os:{title:'10.4 OS and architecture package matrix',url:'https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/plan-your-splunk-enterprise-installation/system-requirements-for-use-of-splunk-enterprise-on-premises',reviewed:'2026-09-28',section:'Supported Operating Systems'},
+ os106:{title:'10.6 OS and architecture package matrix',url:'https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/plan-your-splunk-enterprise-installation/system-requirements-for-use-of-splunk-enterprise-on-premises',reviewed:'2026-10-01',section:'Supported Operating Systems'},
  renewal:{title:'Cloud forwarder certificate renewal prerequisites',url:'https://help.splunk.com/en/splunk-cloud-platform/forward-and-process-data/universal-forwarder-manual/10.0/configure-the-universal-forwarder/enable-a-receiver-for-the-splunk-cloud-platform',reviewed:'2026-09-28',section:'Prerequisites for using automatic TLS certificate renewal'},
  routing:{title:'Multiple forwarding target groups and data cloning',url:'https://help.splunk.com/en/splunk-cloud-platform/forward-and-process-data/forwarding-and-receiving-data/10.5.2605/configure-forwarders/configure-forwarding-with-outputs.conf',reviewed:'2026-09-29',section:'Default target groups; Data cloning'},
  ack:{title:'10.4.2 acknowledged forwarding blockage; 10.4.3 fix',url:'https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues',reviewed:'2026-09-28',section:'Important upgrade notice'},
@@ -23,6 +25,7 @@ window.VersionCompassForwarderData = {
   'upgrade.uf.10.0':{title:'Universal Forwarder 9.4 to 10.0 step',src:'upgrade100'},
   'upgrade.uf.10.2':{title:'Universal Forwarder 10.0 to 10.2 step',src:'upgrade102'},
   'upgrade.uf.10.4':{title:'Universal Forwarder 10.0 or 10.2 to 10.4 step',src:'upgrade104'},
+  'upgrade.uf.10.6':{title:'Universal Forwarder 10.0 or later to 10.6 step',src:'upgrade106'},
   'upgrade.hf':{title:'Heavy Forwarder release-line path',src:'enterprise'},
   'receiver.enterprise':{title:'Universal and Heavy Forwarder to Enterprise receiver compatibility',src:'receiver'},
   'receiver.cloud':{title:'Direct Universal and Heavy Forwarder to Cloud stack compatibility',src:'cloud'},
@@ -30,13 +33,14 @@ window.VersionCompassForwarderData = {
   'topology.cloud-intermediate':{title:'Cloud-facing intermediate forwarding tier',src:'cloud'},
   'topology.multiple-target-groups':{title:'Hybrid output groups, routing and data cloning',src:'routing'},
   'package.os-architecture':{title:'Exact 10.4 operating-system and architecture packages',src:'os'},
+  'package.os-architecture-10.6':{title:'Exact 10.6 operating-system and architecture packages',src:'os106'},
   'feature.automatic-certificate-renewal':{title:'Automatic Cloud certificate renewal eligibility',src:'renewal'},
   'maintenance.10.4':{title:'Current 10.4 target and acknowledged-forwarding floor',sources:['maintenance','ack']},
   'issues.uf-10.4':{title:'Universal Forwarder 10.4 known and fixed issue directories',sources:['known','fixed']},
   'security.uf':{title:'Universal Forwarder advisory-specific patch floors',sources:['ufSecurity','advisories']},
   'security.hf':{title:'Heavy Forwarder advisory-specific patch floors',sources:['hfSecurity','advisories']}
  },
- ufEdges:{'9.4':['10.0'],'10.0':['10.2','10.4'],'10.2':['10.4']},
+ ufEdges:{'9.4':['10.0'],'10.0':['10.2','10.4','10.6'],'10.2':['10.4','10.6'],'10.4':['10.6']},
  excludedRenewalRegions:['ap-northeast-2','ap-south-1','eu-north-1','eu-south-1','me-central-1','sa-east-1'],
  osRows:[
  ['RHEL 8','x86_64','available','available'],['RHEL 9','x86_64','available','available'],['RHEL 10','x86_64','available','available'],
@@ -44,6 +48,13 @@ window.VersionCompassForwarderData = {
  ['Ubuntu 22.04','x86_64','available','available'],['Ubuntu 24.04','x86_64','available','available'],['Amazon Linux 2023','x86_64','available','available'],
  ['Windows Server 2016','x86_64','available','unavailable'],['Windows Server 2019','x86_64','available','available'],['Windows Server 2022','x86_64','available','available'],['Windows Server 2025','x86_64','available','available'],
  ['Windows 11','arm64','conditional','unavailable'],['macOS 15','arm64','available','unavailable'],['macOS 26','arm64','available','unavailable']
+ ],
+ osRows106:[
+ ['RHEL 8','x86_64','available','available'],['RHEL 9','x86_64','available','available'],['RHEL 10','x86_64','available','available'],
+ ['RHEL 8','arm64','available','unavailable'],['RHEL 9','arm64','available','unavailable'],['RHEL 10','arm64','available','unavailable'],
+ ['Ubuntu 22.04','x86_64','available','available'],['Ubuntu 24.04','x86_64','available','available'],['Ubuntu 26.04','x86_64','available','available'],['Amazon Linux 2023','x86_64','available','available'],
+ ['Windows Server 2016','x86_64','conditional','unavailable'],['Windows Server 2019','x86_64','available','available'],['Windows Server 2022','x86_64','available','available'],['Windows Server 2025','x86_64','available','available'],
+ ['Windows 11','x86_64','available','unavailable'],['macOS 14','arm64','conditional','unavailable'],['macOS 15','arm64','available','unavailable'],['macOS 26','arm64','available','unavailable']
  ],
  hfComponents:['Python application runtime','Python runtimes','Embedded Node.js runtime','Unix service identity','Fishbucket checkpoint store','Legacy TLS protocols','Certificate signatures','KV Store binaries','KV Store database engine','KV Store TLS configuration','Windows service identity','FIPS cryptographic module']
 };

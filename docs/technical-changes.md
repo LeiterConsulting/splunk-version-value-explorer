@@ -37,6 +37,8 @@ Platform technical records live in each release's `technicalChanges` array in `d
 - Keep customer-managed Synthetics private-runner versions and their browser or authentication behavior distinct from rolling SaaS changes.
 - A Cloud Platform version mentioned by an Observability integration announcement is a scoped prerequisite, not a new Platform route. Add the Platform identifier only when the applicable Cloud release notes and service details publish it; continue to preserve stack, role, region, entitlement, pairing, and schedule boundaries.
 - Keep standalone Collector and Kubernetes chart versions explicit when their release cadence diverges. Do not imply that a chart user receives a newer Collector default until the chart packages it or the customer deliberately overrides the image.
+- A newly published release can be represented without inventing an upgrade edge or support deadline. When the versioned source is incomplete or internally mislabeled, keep the target facts and requirements visible while the path and lifecycle remain unknown.
+- Universal Forwarder upgrade support, Heavy Forwarder/Enterprise upgrade support, receiver compatibility, OS packages, Cloud stack pairing, feature availability and authorization are separate claims even when they reference the same release number.
 
 ## Release review checklist
 

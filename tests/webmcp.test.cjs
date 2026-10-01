@@ -79,7 +79,8 @@ test('catalog and batches use current data, exact identifiers, citations, and is
         report[section].forEach(item => assert.match(item.source, /^https:\/\//));
       }
       assert.deepEqual(Object.fromEntries(new URL(report.reportUrl).searchParams), { ...selection, reviewed: rt.window.SPLUNK_DATA.guidance.reviewed });
-      if (report.path.kind === 'enterprise_upgrade') assert.notEqual(report.path.status, 'unknown');
+      if (report.path.kind === 'enterprise_upgrade' && to.id !== '10.6') assert.notEqual(report.path.status, 'unknown');
+      if (report.path.kind === 'enterprise_upgrade' && to.id === '10.6') assert.equal(report.path.status, 'unknown');
       comparisons++;
     }
   }
@@ -178,7 +179,7 @@ test('historical links preserve routes, explain newer guidance, and offer option
   assert.equal(rt.window.VersionCompassPage.getSelection().to, '9.4');
   assert(context.reasons.some(x => x.code === 'newer_guidance'));
   const newer = context.reasons.find(x => x.code === 'newer_target');
-  assert.equal(new URLSearchParams(newer.actionUrl).get('to'), '10.4');
+  assert.equal(new URLSearchParams(newer.actionUrl).get('to'), '10.6');
   assert.equal(new URLSearchParams(newer.actionUrl).get('from'), '8.2');
   assert.match(rt.elements.get('link-notice').innerHTML, /original target is preserved/);
   assert.match(rt.elements.get('print-link-notice').innerHTML, /2026-09-01/);
@@ -299,7 +300,9 @@ test('September Observability additions preserve SaaS, private-runner, and Cloud
   assert(report.readiness.some(item => item.title === 'Validate Node.js 4.12 database instrumentation' && item.detail.includes('vendors MySQL2')));
   assert(report.readiness.some(item => item.title === 'Adopt the Browser RUM 3.2 navigationMetrics name' && !item.breaking));
   const platformCloud = rt.run('get_catalog', {}).products.find(item => item.id === 'platform').contexts.find(item => item.platform === 'cloud');
-  assert(!platformCloud.targetReleases.some(item => item.id.startsWith('10.6')));
+  assert(platformCloud.targetReleases.some(item => item.id === '10.6'));
+  const cloud106 = rt.run('compare_routes', { routes: [{ product: 'platform', platform: 'cloud', from: '10.5.2605', to: '10.6' }] }).reports[0];
+  assert(cloud106.breakingChanges.some(item => item.title === 'Confirm actual stack rollout' && item.detail.includes('current Service Details still pair subscriptions with Cloud 10.5')));
 });
 
 test('Cloud 10.5 guidance preserves release-stage, provider, role, and credential boundaries', async () => {
