@@ -58,7 +58,7 @@
         return { title: feature[0], category: feature[1], outcome: feature[2], detail: feature[3], milestone: feature[4], source: feature[5] };
       });
       const targetHighlights = data.cloud.releasesData[state.to].features.map(function (feature) {
-        return { title: feature[0], category: feature[1], outcome: feature[2], detail: feature[3], milestone: "Available by Cloud " + state.to, source: data.cloud.releasesData[state.to].source };
+        return { title: feature[0], category: feature[1], outcome: feature[2], detail: feature[3], milestone: state.to === "10.6" ? "Cloud 10.6 published planning milestone" : "Available by Cloud " + state.to, source: data.cloud.releasesData[state.to].source };
       });
       return operatingBenefits.concat(targetHighlights);
     }

@@ -15,3 +15,5 @@ The initial cycle records the verified September 25 content changes already in t
 When the same maintained record changes again, keep the stable record key for the newest badge and retain the earlier event under a unique history key with `recordKey` pointing back to that stable record. This keeps the screen marker singular while allowing route-specific change history and saved reports to preserve both events.
 
 Verify rollover boundaries, correct targeting, no duplicate badges, both themes, keyboard/touch access, links and readable print context. Maintain the normal source-validation, release-note, review-date synchronization and matching GitHub/Sites publication requirements. Report unsupported browser/PDF checks honestly.
+
+Entries whose component title recurs across releases can declare exact `milestones`. Technical badges and comparison change history filter those entries against the selected technical record's milestone, so Enterprise 10.6 corrections cannot label Enterprise 10.4 or Cloud records. Preserve older metadata as history with the original release scope.

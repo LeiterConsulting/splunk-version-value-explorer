@@ -270,10 +270,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-guidance-audit",
       "name": "Version Guidance Audit",
-      "lastAttempt": "2026-10-01T20:06:02.643887+00:00",
-      "lastSuccess": "2026-10-01T20:30:19.106406+00:00",
+      "lastAttempt": "2026-10-01T20:45:01Z",
+      "lastSuccess": "2026-10-01T20:45:33Z",
       "outcome": "changed",
-      "summary": "Independent re-audit corrected 10.6 receiver-row inheritance, ITSI cohosted KV Store prerequisites, encrypted-secret/S3 scope, Cloud readiness and the explicit Enterprise support deadline.",
+      "summary": "Reconciled concurrent receiver/KV/ITSI/lifecycle corrections; corrected Cloud 10.6 migration availability labels and exact release-scoped technical badges/history. 67 tests passed. Native narrow-screen/PDF/reopened-HTML/WebMCP checks remain unperformed.",
       "history": [
         {
           "at": "2026-09-24T12:45:24.855849+00:00",
@@ -315,9 +315,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Independent re-audit corrected 10.6 receiver-row inheritance, ITSI cohosted KV Store prerequisites, encrypted-secret/S3 scope, Cloud readiness and the explicit Enterprise support deadline.",
           "scope": "124 source retrieval attempts (116 baseline in-use plus eight owning-doc sources), 25 bounded claim checks, all four published watch outcomes, declared Forwarder source/section mappings, syntax, three synchronization gates and 64 structural/VM tests. Actual browser/keyboard/narrow-screen, PDF pagination, reopened HTML and native WebMCP checks not performed: browser approval timed out twice and local browser binary unavailable. LastSuccess records this bounded evidence/structural review, not publication or native certification."
+        },
+        {
+          "at": "2026-10-01T20:45:01Z",
+          "outcome": "running",
+          "summary": "Resumed independent audit after reconciling concurrent GitHub/Sites version 79; remaining migration availability and exact technical-marker/history scope corrections.",
+          "scope": "120 exact source retrieval attempts (116 original plus KV, fixed-issues and field-filter supporting URLs); bounded claim verification and independent declared Forwarder mapping inspection. Native browser/export checks recorded separately; historical borrowed-HF mapping coverage remains future Release Watch work."
+        },
+        {
+          "at": "2026-10-01T20:45:33Z",
+          "outcome": "changed",
+          "summary": "Reconciled concurrent receiver/KV/ITSI/lifecycle corrections; corrected Cloud 10.6 migration availability labels and exact release-scoped technical badges/history. 67 tests passed. Native narrow-screen/PDF/reopened-HTML/WebMCP checks remain unperformed.",
+          "scope": "120 exact URL retrieval attempts; bounded 10.6 receiver, path, OS, KV/ITSI, support, security and Cloud claim checks; attributed cross-watch outcomes; independent declared Forwarder source/section coverage. Publication and native verification are separate. Historical borrowed-HF mapping work remains unverified."
         }
       ],
-      "scope": "124 source retrieval attempts (116 baseline in-use plus eight owning-doc sources), 25 bounded claim checks, all four published watch outcomes, declared Forwarder source/section mappings, syntax, three synchronization gates and 64 structural/VM tests. Actual browser/keyboard/narrow-screen, PDF pagination, reopened HTML and native WebMCP checks not performed: browser approval timed out twice and local browser binary unavailable. LastSuccess records this bounded evidence/structural review, not publication or native certification."
+      "scope": "120 exact URL retrieval attempts; bounded 10.6 receiver, path, OS, KV/ITSI, support, security and Cloud claim checks; attributed cross-watch outcomes; independent declared Forwarder source/section coverage. Publication and native verification are separate. Historical borrowed-HF mapping work remains unverified."
     }
   ]
 };

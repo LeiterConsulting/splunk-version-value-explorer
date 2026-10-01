@@ -39,3 +39,5 @@ test('compact counts separate blockers, required actions and evidence questions'
  assert.equal(m.requiredChecks.length,3);
  assert(m.requiredChecks.every(x=>x.level!=='Blocker'));
 });
+
+test('repeated technical titles retain only matching release-scoped change history',()=>{const w=context().window;function changes(from,to){const s={product:'platform',platform:'enterprise',from,to,environment:{},environmentErrors:[]};return w.VersionCompassDecision.model(s,w.VersionCompassComparison.create(w.SPLUNK_DATA,s)).changes;}const older=changes('10.2','10.4');assert(!older.some(e=>e.milestones?.includes('Enterprise 10.6')));const newer=changes('10.4','10.6');assert(newer.some(e=>e.key==='technical:platform:KV Store database engine'&&e.cycle===6));assert(!newer.some(e=>e.milestones?.includes('Cloud 10.6')));});

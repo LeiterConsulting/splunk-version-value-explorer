@@ -407,3 +407,13 @@ test('environment selection survives page, read-only report, share URL and print
  assert.equal(rt.run('compare_routes',{routes:[{...routes[1],environment:{csp:'aws',region:'gcp-oregon'}}]}).ok,false);
  const invalid=await runtime({selection:{...routes[1],csp:'invalid'}});assert.equal(invalid.run('get_current_report',{}).ok,false);assert.equal(invalid.elements.get('copy-link').disabled,true);
 });
+
+
+test('migration to published Cloud 10.6 does not assert stack availability', async () => {
+  const rt=await runtime();
+  const report=rt.run('compare_routes',{routes:[{product:'platform',platform:'migration',from:'10.4',to:'10.6'}]}).reports[0];
+  const highlights=report.features.filter(item=>item.source.includes('/release-notes/10.6/'));
+  assert(highlights.length>0);
+  assert(highlights.every(item=>item.milestone==='Cloud 10.6 published planning milestone'));
+  assert(report.breakingChanges.some(item=>/actual stack rollout/.test(item.title)));
+});
