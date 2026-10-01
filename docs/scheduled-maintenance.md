@@ -116,3 +116,7 @@ All four existing watches also follow [Forwarders coverage and maintenance](forw
 ## Concise presentation safeguard
 
 The Guidance Audit protects the route-first Forwarders interaction: five primary selections, one optional environment refinement, separate receiver/package/authorization labels, a source link for each step, and parity across screen, print, saved HTML and the read-only tool. Shared source context opens in one keyboard-accessible dialog; direct official links remain beside claims. Availability badges keep named regional restrictions scoped and must not turn partial negative evidence into a global exclusion. UI updates do not advance factual review dates.
+
+## Release Watch coordination from October 1 independent audit
+
+The completed catalog-resolution generator repair and declared-claim regression are retained. The audit adds exact HF 10.6 KV Store/TLS mappings without rewriting that generator. Future work remains unverified: traverse actual borrowed historical HF technical/runtime records in a genuine coverage regression, then extend generated source-to-claim sections without inventing unknown headings or historical review dates. Reconcile against the published audit tree and avoid duplicate/conflicting generator edits. The bounded scope and native verification gaps are in docs/audits/2026-10-01-guidance-re-audit.json.
