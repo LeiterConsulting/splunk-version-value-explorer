@@ -480,6 +480,32 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/administer/manage-users-and-security/10.6/use-field-filters-to-protect-sensitive-data/plan-for-field-filters-in-your-organization",
+      "title": "plan for field filters in your organization",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.cloud.releasesData.10.6.requirements.1.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "READ THIS FIRST: Restrictions and downstream effects of field filters; Restricted commands",
+      "verificationScope": "Verified production-planning restrictions for accelerated models, ES detections, search-time extractions, mpreview and mstats. No historical rollout or customer entitlement inferred.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-cloud-platform/forward-and-process-data/forwarding-and-receiving-data/10.5.2605/configure-forwarders/configure-forwarding-with-outputs.conf",
       "title": "Multiple forwarding target groups and data cloning",
       "areas": [
@@ -628,7 +654,7 @@ window.VersionCompassSources = {
         "Splunk Forwarders"
       ],
       "references": [
-        "release.cloud.releasesData.10.6.requirements.0.3",
+        "release.cloud.releasesData.10.6.requirements.3.3",
         "release.productTracks.es.cloudServiceSource",
         "release.productTracks.itsi.cloudServiceSource",
         "environment.sources.service.url",
@@ -1018,8 +1044,12 @@ window.VersionCompassSources = {
         "release.cloud.releasesData.10.6.technicalChanges.0.source",
         "release.cloud.releasesData.10.6.technicalChanges.1.source",
         "release.cloud.releasesData.10.6.technicalChanges.2.source",
-        "release.cloud.releasesData.10.6.requirements.1.3",
+        "release.cloud.releasesData.10.6.technicalChanges.3.source",
+        "release.cloud.releasesData.10.6.technicalChanges.4.source",
+        "release.cloud.releasesData.10.6.requirements.0.3",
         "release.cloud.releasesData.10.6.requirements.2.3",
+        "release.cloud.releasesData.10.6.requirements.4.3",
+        "release.cloud.releasesData.10.6.requirements.5.3",
         "content-updates.js"
       ],
       "reviews": [],
@@ -2119,6 +2149,47 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+      "title": "upgrade to a cohosted kv store",
+      "areas": [
+        "Release guide",
+        "Splunk Forwarders",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.enterprise.releasesData.10.6.technicalChanges.0.source",
+        "release.enterprise.releasesData.10.6.requirements.1.3",
+        "release.productTracks.itsi.hostRequirements.enterprise.10.6.source",
+        "forwarders.sources.kv106.url",
+        "content-updates.js",
+        "forwarders: forwarders.claimSources.technical.hf-kv-store-10.6"
+      ],
+      "reviews": [
+        "2026-10-01"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.technical.hf-kv-store-10.6",
+          "section": "Prepare for upgrade; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Prepare for upgrade; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins",
+      "verificationScope": "Verified automatic migration, MongoDB 7+ prerequisite, more than 50% free disk, backups and cluster readiness. ITSI 5.0.x and lower requires postponement before Enterprise 10.6. This does not revoke the separate platform pairing.",
+      "events": [
+        {
+          "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.0-read-this-first",
       "title": "about upgrading to 10.0 read this first",
       "areas": [
@@ -2569,18 +2640,24 @@ window.VersionCompassSources = {
         "Shared guidance"
       ],
       "references": [
-        "release.enterprise.releasesData.10.6.technicalChanges.0.source",
         "release.enterprise.releasesData.10.6.technicalChanges.1.source",
-        "release.enterprise.releasesData.10.6.requirements.1.3",
+        "release.enterprise.releasesData.10.6.technicalChanges.2.source",
         "release.enterprise.releasesData.10.6.requirements.2.3",
+        "release.enterprise.releasesData.10.6.requirements.3.3",
+        "forwarders.sources.tls106.url",
         "forwarders.sources.upgrade106.url",
         "content-updates.js",
+        "forwarders: forwarders.claimSources.technical.hf-tls-10.6",
         "forwarders: forwarders.claimSources.upgrade.uf.10.6"
       ],
       "reviews": [
         "2026-10-01"
       ],
       "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.technical.hf-tls-10.6",
+          "section": "Splunk has removed support for versions 1.0 and 1.1 of the Transport Layer Security (TLS) protocol"
+        },
         {
           "path": "forwarders: forwarders.claimSources.upgrade.uf.10.6",
           "section": "Key points for upgrading to version 10.6"
@@ -2632,10 +2709,12 @@ window.VersionCompassSources = {
       "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers",
       "title": "Forwarder / Enterprise indexer compatibility",
       "areas": [
-        "Splunk Forwarders"
+        "Splunk Forwarders",
+        "Shared guidance"
       ],
       "references": [
         "forwarders.sources.receiver.url",
+        "content-updates.js",
         "forwarders: forwarders.claimSources.receiver.enterprise",
         "forwarders: forwarders.claimSources.topology.enterprise-intermediate"
       ],
@@ -2868,7 +2947,7 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.enterprise.releasesData.10.6.technicalChanges.4.source"
+        "release.enterprise.releasesData.10.6.technicalChanges.5.source"
       ],
       "reviews": [],
       "usage": "In use",
@@ -2894,8 +2973,8 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.enterprise.releasesData.10.6.technicalChanges.2.source",
-        "release.enterprise.releasesData.10.6.requirements.3.3"
+        "release.enterprise.releasesData.10.6.technicalChanges.3.source",
+        "release.enterprise.releasesData.10.6.requirements.4.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -2923,8 +3002,8 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.enterprise.releasesData.10.6.source",
-        "release.enterprise.releasesData.10.6.technicalChanges.3.source",
-        "release.enterprise.releasesData.10.6.requirements.4.3",
+        "release.enterprise.releasesData.10.6.technicalChanges.4.source",
+        "release.enterprise.releasesData.10.6.requirements.5.3",
         "content-updates.js"
       ],
       "reviews": [],
@@ -2936,11 +3015,15 @@ window.VersionCompassSources = {
       "outdatedAsOf": null,
       "reason": "The release milestone is kept separate from route, support-policy and compatibility evidence.",
       "section": "Welcome; What's new in 10.6",
-      "verificationScope": "Confirmed the September 30, 2026 Enterprise 10.6 publication, cohosted PostgreSQL KV Store transition, $8 password-hash support, four-segment version format, Federated Search floor and Universal Forwarder 10.6 certification. Release publication does not establish an upgrade edge, lifecycle deadline, OS tuple, receiver pairing or app entitlement.",
+      "verificationScope": "Confirmed the September 30, 2026 Enterprise 10.6 publication, cohosted PostgreSQL KV Store transition, $8 encrypted-secret format, four-segment version format, Federated Search floor and Universal Forwarder 10.6 certification. Release publication does not establish an upgrade edge, lifecycle deadline, OS tuple, receiver pairing or app entitlement.",
       "events": [
         {
           "date": "2026-10-01",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
         }
       ]
     },
@@ -3892,11 +3975,15 @@ window.VersionCompassSources = {
       "outdatedAsOf": null,
       "reason": "Assessment-tool compatibility and upload behavior are distinct from a supported migration route or destination authorization.",
       "section": "Splunk Cloud Migration Assessment App 5.4.11 release and compatibility listing",
-      "verificationScope": "Confirmed the current listed release remains 5.4.11, the maintained Enterprise compatibility range remains 9.1 through 10.5 and assessment upload remains an explicit user action. This check does not establish migration readiness for a particular workload or Cloud destination.",
+      "verificationScope": "Confirmed the current listed release remains 5.4.11, the maintained Enterprise compatibility range remains 9.1 through 10.6 and assessment upload remains an explicit user action. This check does not establish migration readiness for a particular workload or Cloud destination.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
         },
         {
           "date": "2026-10-01",
@@ -4229,23 +4316,25 @@ window.VersionCompassSources = {
       "url": "https://www.splunk.com/en_us/legal/splunk-software-support-policy.html",
       "title": "splunk software support policy.html",
       "areas": [
-        "Release guide"
+        "Release guide",
+        "Shared guidance"
       ],
       "references": [
-        "release.guidance.lifecycle.source"
+        "release.guidance.lifecycle.source",
+        "content-updates.js"
       ],
       "reviews": [
-        "2026-09-28"
+        "2026-10-01"
       ],
       "usage": "In use",
-      "reviewed": "2026-09-28",
+      "reviewed": "2026-10-01",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "The lifecycle review date records a scoped policy-table verification; it does not recalculate deadlines, establish Cloud availability or advance unrelated source-review dates.",
-      "section": "Splunk Enterprise, Enterprise Security and IT Service Intelligence supported-version tables",
-      "verificationScope": "Checked every maintained Enterprise 8.1 through 10.4, Enterprise Security 7.3 through 8.7 and ITSI 4.15 through 5.0 support deadline against the current published tables, including the explicit Enterprise Security 7.3 support extension. Cloud-managed selections do not inherit these customer-managed lifecycle dates, and the 180-day reminder remains a Version Compass planning threshold rather than a support-policy rule.",
+      "section": "Splunk Enterprise, Universal Forwarder, Enterprise Security and IT Service Intelligence version tables",
+      "verificationScope": "Rechecked maintained Enterprise 8.1–10.6, ES 7.3–8.7 and ITSI 4.15–5.0 deadlines. Enterprise and UF 10.6 full support ends 2028-09-30; UF 10.6 P3 support ends 2031-09-30. No Cloud support date is inferred. The 180-day reminder is a separate planning threshold.",
       "events": [
         {
           "date": "2026-09-25",
@@ -4254,6 +4343,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-28",
           "event": "Review status updated: Reviewed · 2026-09-28"
+        },
+        {
+          "date": "2026-10-01",
+          "event": "Review status updated: Reviewed · 2026-10-01"
         }
       ]
     },

@@ -305,6 +305,19 @@ test('September Observability additions preserve SaaS, private-runner, and Cloud
   assert(cloud106.breakingChanges.some(item => item.title === 'Confirm actual stack rollout' && item.detail.includes('current Service Details still pair subscriptions with Cloud 10.5')));
 });
 
+test('ITSI host pairing preserves the separate cohosted KV Store prerequisite', async () => {
+  const rt = await runtime();
+  for (const to of ['4.21', '5.0', '5.0.1', '5.0.2']) {
+    const r = rt.run('compare_routes', { routes: [{ product: 'itsi', platform: 'enterprise', host: '10.6', from: '4.20', to }] }).reports[0];
+    assert.equal(r.compatibility.status, 'warning');
+    assert(r.breakingChanges.some(x => x.detail.includes('postgresMigrateOnStartup=false') && x.breaking));
+  }
+  const older = rt.run('compare_routes', { routes: [{ product: 'itsi', platform: 'enterprise', host: '10.4', from: '4.20', to: '5.0.2' }] }).reports[0];
+  assert.equal(older.compatibility.status, 'ok');
+  const cloud = rt.run('compare_routes', { routes: [{ product: 'itsi', platform: 'cloud', host: '10.5.2605', from: '4.20', to: '5.0.2' }] }).reports[0];
+  assert(!cloud.breakingChanges.some(x => x.detail.includes('postgresMigrateOnStartup')));
+});
+
 test('Cloud 10.5 guidance preserves release-stage, provider, role, and credential boundaries', async () => {
   const rt = await runtime();
   const selection = { product: 'platform', platform: 'cloud', from: '10.4.2604', to: '10.5.2605' };

@@ -63,3 +63,7 @@ The twice-weekly guidance audit should also check:
 5. Every compatibility callout, technical transition, breaking-change flag, recommended action, and citation affected by revised guidance.
 
 Any update must refresh the reviewed date, validate representative routes for all four products, preserve shareable URL restoration, confirm print expansion, update documentation when the model changes, and publish only after the source-backed review passes.
+
+## Enterprise 10.6 and ITSI KV Store scope
+
+The platform matrix lists ITSI 4.21.x and 5.0 with Enterprise 10.6. The separate [cohosted KV Store guide](https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store), checked October 1, requires postponing automatic migration for ITSI 5.0.x and lower. The existing host-warning and readiness surfaces carry this prerequisite for the maintained 4.21/5.0.x releases. Cloud pairing remains independently governed by current Service Details.

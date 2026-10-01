@@ -383,7 +383,7 @@ window.SPLUNK_DATA = {
         date: "September 30, 2026", source: "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6",
         features: [
           ["Cohosted PostgreSQL KV Store", "Platform operations", "Modernize application state", "Begin the documented transition from MongoDB-backed KV Store to a cohosted PostgreSQL architecture."],
-          ["$8 password hash support", "Security & compliance", "Strengthen stored-secret handling", "Use the newer supported password-hash format where the documented component and migration requirements are met."],
+          ["$8 encrypted-secret format", "Security & compliance", "Modernize stored-secret encryption", "New encryptions use $8$; existing $7$ secrets remain readable and require explicit re-encryption to migrate."],
           ["Federated Search verification", "Search & AI", "Reduce remote-provider surprises", "Validate provider versions and connectivity with stronger preflight checks."],
           ["Four-segment version identifiers", "Platform operations", "Represent maintenance builds precisely", "Accommodate the new four-segment version format in inventory, automation, and policy logic."],
           ["Universal Forwarder 10.6 certification", "Data management", "Plan current forwarder packages", "Use the newly certified Universal Forwarder line after validating its distinct upgrade, OS, and receiver evidence."]
@@ -392,8 +392,15 @@ window.SPLUNK_DATA = {
           {
             component: "KV Store database engine", domain: "Data & storage", changeType: "Architecture transition", actionLevel: "Required",
             from: "MongoDB-backed KV Store", to: "Cohosted PostgreSQL KV Store begins in 10.6",
-            implication: "The transition changes backup, migration, port, and recovery planning; postponement in 10.6 does not remove the future requirement.",
-            action: "Run readiness checks, take the documented parallel KV Store backup, open required PostgreSQL ports for clustered deployments, and rehearse recovery before enabling the migration.",
+            implication: "Migration starts automatically after upgrade unless postponed beforehand. KV Store writes and dependent ES/ITSI functions are impaired during migration; ITSI 5.0.x and lower require postponement.",
+            action: "Verify KV Store 7.0+, more than 50% free disk space, healthy cluster and parallel backup. For ITSI 5.0.x or lower, set postgresMigrateOnStartup=false before upgrade and verify every member.",
+            source: "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store"
+          },
+          {
+            component: "Legacy TLS protocols", domain: "Security & cryptography", changeType: "Removed", actionLevel: "Required",
+            from: "Earlier documentation differs on removal versus temporary enablement", to: "10.6 disallows TLS 1.0/1.1 for inter-Splunk connections; no temporary override",
+            implication: "Connections still requiring legacy TLS cannot be restored with the earlier temporary switch.",
+            action: "Validate TLS 1.2 or 1.3 on each inter-Splunk connection before upgrading. The unresolved 10.4 timing conflict remains separate.",
             source: "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first"
           },
           {
@@ -418,7 +425,7 @@ window.SPLUNK_DATA = {
             source: "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6"
           },
           {
-            component: "Classic dashboard custom visualizations", domain: "Dashboards & experience", changeType: "Deprecated", actionLevel: "Plan",
+            component: "Classic dashboard custom visualizations", domain: "Dashboards & experience", changeType: "Deprecated", actionLevel: "Review",
             from: "Supported custom visualizations in Classic dashboards", to: "Custom Visualizations support in Classic dashboards is deprecated",
             implication: "Existing dashboards are not described as removed in 10.6, but new investment increases future migration risk.",
             action: "Inventory affected Classic dashboards and plan supported replacements without treating deprecation as immediate removal.",
@@ -426,7 +433,8 @@ window.SPLUNK_DATA = {
           }
         ], requirements: [
           ["Verify the exact Enterprise 10.6 upgrade path", "The versioned 10.6 upgrade page currently reproduces a table labeled for 10.4 and does not establish a distinct 10.6 release-line edge. Do not schedule an inferred direct path until Splunk publishes or confirms it.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise", true],
-          ["Prepare the KV Store transition", "Run readiness checks, take the documented backup, validate required ports, and rehearse recovery for the cohosted PostgreSQL transition.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first", true],
+          ["Prepare or postpone the automatic KV Store transition", "Verify KV Store 7.0+, more than 50% free disk space, healthy cluster and parallel backup. ITSI 5.0.x and lower cannot use cohosted KV Store 1.0: postpone migration before upgrading and verify the setting on every cluster member.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store", true],
+          ["Migrate inter-Splunk connections to TLS 1.2+", "10.6 does not support TLS 1.0/1.1 or a temporary re-enable switch. Validate every component connection before upgrading.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first", true],
           ["Raise Federated Search providers to 10.4+", "Inventory all remote providers and resolve any release below the documented minimum before upgrading the search head.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first", true],
           ["Audit certificate EKUs by component", "Separate serverAuth-only web certificates from client-auth and mutual-TLS certificate requirements before public-CA renewal practices change.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/known-issues-for-this-release/third-party-certificate-authorities-cease-issuing-certificates-with-serverauth-and-clientauth-eku-extensions", true],
           ["Validate apps, add-ons, and version parsers", "Confirm exact 10.6 compatibility for every deployed extension and test automation against four-segment release identifiers.", "Test", "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6", true]
@@ -627,11 +635,14 @@ window.SPLUNK_DATA = {
         date: "Published September 2026", source: "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new",
         features: [
           ["Secure Forwarder Bootstrap certificate rotation", "Security & compliance", "Reduce certificate-renewal toil", "Use automatic certificate rotation where the exact stack, provider, region, topology, and forwarder prerequisites are satisfied."],
-          ["S3 schema templates", "Data management", "Accelerate supported object-store onboarding", "Start supported S3 ingestion workflows from predefined schema templates."],
+          ["S3 schema templates", "Data management", "Simplify federated-dataset setup", "Use CloudTrail and VPC Flow Log schema templates for Amazon S3 federated datasets; this is search-in-place setup, not ingestion."],
           ["Federated Search verification", "Search & AI", "Catch provider mismatches earlier", "Use stronger verification for eligible federated-search configurations."],
           ["Four-segment version identifiers", "Platform operations", "Track maintenance builds precisely", "Update tooling that assumes Cloud release identifiers always contain three segments."]
         ],
         technicalChanges: [
+          {"component": "Legacy TLS protocols", "domain": "Security & cryptography", "changeType": "Removed", "actionLevel": "Required", "from": "Cloud 10.4 documentation disables TLS 1.0/1.1 by default", "to": "Cloud 10.6 removes TLS 1.0/1.1 support", "implication": "Older client connections require modern TLS before the applicable stack update.", "action": "Validate TLS 1.2 or 1.3 with every affected client; confirm the actual stack rollout.", "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new"},
+          {"component": "Federated Search remote provider floor", "domain": "Search & federation", "changeType": "Minimum version raised", "actionLevel": "Required", "from": "Remote providers below Enterprise 10.4", "to": "Remote Enterprise search heads must run 10.4 or higher", "implication": "Federated searches fail against older remote providers after the applicable Cloud 10.6 change.", "action": "Upgrade remote providers and validate federated searches before the stack update.", "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new"},
+
           {
             component: "Cloud 10.6 publication versus stack availability", domain: "Cloud operations", changeType: "Publication milestone", actionLevel: "Required",
             from: "Current Service Details pair subscriptions with Cloud 10.5", to: "Cloud 10.6 release notes are published while rollout remains stack-specific",
@@ -647,13 +658,16 @@ window.SPLUNK_DATA = {
             source: "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new"
           },
           {
-            component: "Classic dashboard custom visualizations", domain: "Dashboards & experience", changeType: "Deprecated", actionLevel: "Plan",
+            component: "Classic dashboard custom visualizations", domain: "Dashboards & experience", changeType: "Deprecated", actionLevel: "Review",
             from: "Supported custom visualizations in Classic dashboards", to: "Custom Visualizations support in Classic dashboards is deprecated",
             implication: "Deprecation is not removal, but continuing investment increases future migration work.",
             action: "Inventory affected dashboards and plan supported replacements while retaining current behavior until Splunk documents removal.",
             source: "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new"
           }
         ], requirements: [
+          ["Raise Cloud federated remote providers to 10.4+", "Remote Enterprise search heads below 10.4 cause federated searches to fail after the Cloud 10.6 change. Resolve provider versions before the stack update.", "Blocker", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new", true],
+          ["Plan field filters before production use", "Field-filter restrictions affect accelerated data models, ES detections, search-time extractions, mpreview and mstats. Plan the documented downstream workarounds before production use.", "Blocker", "https://help.splunk.com/en/splunk-cloud-platform/administer/manage-users-and-security/10.6/use-field-filters-to-protect-sensitive-data/plan-for-field-filters-in-your-organization", true],
+          ["Replace legacy TLS connections", "Cloud 10.6 no longer supports TLS 1.0/1.1. Validate TLS 1.2 or 1.3 on affected customer connections.", "Blocker", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new", true],
           ["Confirm actual stack rollout", "The current Service Details still pair subscriptions with Cloud 10.5. Treat 10.6 as published release documentation, not proof of availability on a selected stack.", "Blocker", "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.5.2605/information-about-the-service/splunk-cloud-platform-service-details", true],
           ["Verify Forwarder Bootstrap prerequisites", "Confirm the direct-forwarding topology, eligible commercial provider and region, stack version, forwarder version, and explicit certificate-rotation configuration.", "Validate", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new", false],
           ["Retest version-aware automation", "Update parsers and policy logic that assume every stack version has three segments.", "Test", "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new", true]

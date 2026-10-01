@@ -43,5 +43,5 @@ test('every declared Forwarder claim retains an exact source and section mapping
    assert(row.claimReferences?.some(ref=>ref.path==='forwarders: forwarders.claimSources.'+claimId&&ref.section===source.section),claimId+' lost its exact source-to-claim section mapping');
   }
  }
- for(const required of ['upgrade.uf.10.0','upgrade.uf.10.6','upgrade.hf','receiver.enterprise','receiver.cloud','topology.enterprise-intermediate','topology.cloud-intermediate','package.os-architecture-10.6'])assert(data.claimSources[required]);
+ for(const required of ['upgrade.uf.10.0','upgrade.uf.10.6','upgrade.hf','receiver.enterprise','receiver.cloud','topology.enterprise-intermediate','topology.cloud-intermediate','package.os-architecture-10.6','technical.hf-kv-store-10.6','technical.hf-tls-10.6'])assert(data.claimSources[required]);
 });

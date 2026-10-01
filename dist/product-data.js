@@ -239,6 +239,12 @@
       latest: "5.0.2",
       releases: ["4.15", "4.17", "4.18", "4.19", "4.20", "4.21", "5.0", "5.0.1", "5.0.2"],
       compatibilitySource: compatibilitySource,
+      hostRequirements: { enterprise: { "10.6": {
+        releases: ["4.21", "5.0", "5.0.1", "5.0.2"],
+        title: "Postpone cohosted KV Store migration for ITSI",
+        detail: "The platform matrix lists this pairing, but ITSI 5.0.x and lower cannot use cohosted KV Store 1.0. Before upgrading Enterprise, set postgresMigrateOnStartup=false and verify every cluster member. Platform pairing does not establish database-engine compatibility.",
+        source: "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store"
+      } } },
       relatedAppsSource: "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/install-and-upgrade/5.0/planning/itsi-compatibility-with-related-apps-and-add-ons",
       cloudServiceSource: cloudServiceSource,
       cloudCurrent: { platform: "10.5", product: "5.0" },

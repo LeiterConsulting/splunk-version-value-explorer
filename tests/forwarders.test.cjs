@@ -7,6 +7,16 @@ test('exact OS, missing evidence and app runtime scopes stay distinct',()=>{cons
 test('10.6 OS rows preserve exact package and conditional scope',()=>{const a=api();assert.equal(a.assess({...a.defaults,from:'10.4',to:'10.6',os:'Ubuntu 26.04',arch:'x86_64'}).os.status,'available');assert.equal(a.assess({...a.defaults,type:'hf',from:'10.4',to:'10.6',os:'RHEL 9',arch:'arm64'}).os.status,'unavailable');assert.equal(a.assess({...a.defaults,from:'10.4',to:'10.6',os:'Windows Server 2016',arch:'x86_64'}).os.status,'conditional');});
 test('all selections round-trip, invalid and repeated inputs are explicit',()=>{const a=api(),s={...a.defaults,destination:'cloud',provider:'aws',region:'us-east-1',os:'Ubuntu 24.04',arch:'x86_64'};assert.equal(JSON.stringify(a.read(a.url(s)).state),JSON.stringify(s));assert(a.read('?type=alien&type=uf').errors.length);assert(a.assess({...s,from:'10.4',to:'9.4'}).errors.length);assert(a.assess({...s,to:'10.4.999'}).errors.length);});
 test('Cloud receiver table preserves omitted 10.4 pairing for forwarder 10.0',()=>{const a=api();assert.equal(a.assess({...a.defaults,to:'10.0',destination:'cloud',receiver:'10.4'}).claims[1].status,'not_established');assert.equal(a.assess({...a.defaults,to:'10.0',destination:'cloud',receiver:'10.5'}).claims[1].status,'conditional');});
+test('10.6 forwarders cannot inherit older receiver-table rows on either hybrid leg',()=>{
+ const a=api();
+ for(const type of ['uf','hf'])for(const receiver of ['9.4','10.0','10.2','10.4','10.5','10.6'])for(const destination of ['cmp','cloud','hybrid']){
+  const report=a.assess({...a.defaults,type,from:'10.4',to:'10.6',destination,receiver,cloudReceiver:receiver});
+  assert.equal(report.claims[1].status,'not_established',type+' / '+destination+' / '+receiver);
+  if(destination==='hybrid')assert.equal(report.claims[2].status,'not_established');
+ }
+ assert.equal(a.assess(a.defaults).claims[1].status,'available');
+ assert.equal(a.assess({...a.defaults,destination:'cloud',receiver:'10.5'}).claims[1].status,'conditional');
+});
 test('Enterprise is a first-class deployment and hybrid assesses each receiving leg',()=>{
  const a=api(),enterprise=a.assess(a.defaults);
  assert.equal(enterprise.claims[1].title,'Splunk Enterprise receiver');assert.equal(enterprise.claims[1].status,'available');assert.equal(enterprise.features.length,0);

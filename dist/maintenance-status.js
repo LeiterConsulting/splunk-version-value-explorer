@@ -270,10 +270,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-guidance-audit",
       "name": "Version Guidance Audit",
-      "lastAttempt": "2026-10-01T12:37:41Z",
-      "lastSuccess": "2026-10-01T12:53:15Z",
+      "lastAttempt": "2026-10-01T20:06:02.643887+00:00",
+      "lastSuccess": "2026-10-01T20:30:19.106406+00:00",
       "outcome": "changed",
-      "summary": "Added source-backed Enterprise and Cloud 10.6 guidance, exact ES/ITSI host pairings and Universal Forwarder 10.6 paths while preserving unknown Enterprise/HF paths, receiver gaps, current Cloud 10.5 pairing and support-date uncertainty.",
+      "summary": "Independent re-audit corrected 10.6 receiver-row inheritance, ITSI cohosted KV Store prerequisites, encrypted-secret/S3 scope, Cloud readiness and the explicit Enterprise support deadline.",
       "history": [
         {
           "at": "2026-09-24T12:45:24.855849+00:00",
@@ -303,9 +303,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Added source-backed Enterprise and Cloud 10.6 guidance, exact ES/ITSI host pairings and Universal Forwarder 10.6 paths while preserving unknown Enterprise/HF paths, receiver gaps, current Cloud 10.5 pairing and support-date uncertainty.",
           "scope": "Audited integrated Platform, migration, ES, ITSI, Observability, ES Editions, Cloud Environment, About/source register and UF/HF routes; checked 10.6 release, upgrade, OS, compatibility and current Cloud pairing evidence; validated exact URLs, source mappings, shared reports, snapshots, print expansion and read-only WebMCP structurally. Native local browser/PDF execution was unavailable because the browser daemon and runtime binary could not start."
+        },
+        {
+          "at": "2026-10-01T20:06:02.643887+00:00",
+          "outcome": "running",
+          "summary": "Independently auditing the October 1 published source and official inventory after the morning updates.",
+          "scope": "116 in-use source URLs; bounded consequential 10.6 upgrade/receiver/package, runtime, premium-app, lifecycle, ES conflict, Cloud/FedRAMP and migration claims; Forwarder source mappings; browser, export and publication verification."
+        },
+        {
+          "at": "2026-10-01T20:30:19.106406+00:00",
+          "outcome": "changed",
+          "summary": "Independent re-audit corrected 10.6 receiver-row inheritance, ITSI cohosted KV Store prerequisites, encrypted-secret/S3 scope, Cloud readiness and the explicit Enterprise support deadline.",
+          "scope": "124 source retrieval attempts (116 baseline in-use plus eight owning-doc sources), 25 bounded claim checks, all four published watch outcomes, declared Forwarder source/section mappings, syntax, three synchronization gates and 64 structural/VM tests. Actual browser/keyboard/narrow-screen, PDF pagination, reopened HTML and native WebMCP checks not performed: browser approval timed out twice and local browser binary unavailable. LastSuccess records this bounded evidence/structural review, not publication or native certification."
         }
       ],
-      "scope": "Audited integrated Platform, migration, ES, ITSI, Observability, ES Editions, Cloud Environment, About/source register and UF/HF routes; checked 10.6 release, upgrade, OS, compatibility and current Cloud pairing evidence; validated exact URLs, source mappings, shared reports, snapshots, print expansion and read-only WebMCP structurally. Native local browser/PDF execution was unavailable because the browser daemon and runtime binary could not start."
+      "scope": "124 source retrieval attempts (116 baseline in-use plus eight owning-doc sources), 25 bounded claim checks, all four published watch outcomes, declared Forwarder source/section mappings, syntax, three synchronization gates and 64 structural/VM tests. Actual browser/keyboard/narrow-screen, PDF pagination, reopened HTML and native WebMCP checks not performed: browser approval timed out twice and local browser binary unavailable. LastSuccess records this bounded evidence/structural review, not publication or native certification."
     }
   ]
 };

@@ -2,6 +2,8 @@
 window.VersionCompassForwarderData = {
  reviewed:'2026-10-01', releases:['9.4','10.0','10.2','10.4','10.6'],
  sources:{
+ kv106:{title:"10.6 cohosted KV Store migration",url:"https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",reviewed:"2026-10-01",section:"Prepare for upgrade; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins"},
+ tls106:{title:"10.6 TLS removal",url:"https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first",reviewed:"2026-10-01",section:"Splunk has removed support for versions 1.0 and 1.1 of the Transport Layer Security (TLS) protocol"},
  upgrade100:{title:'Universal Forwarder upgrade to 10.0',url:'https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.0-read-this-first',reviewed:'2026-09-28',section:'Key points for upgrading to version 10.0'},
  upgrade102:{title:'Universal Forwarder upgrade to 10.2',url:'https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.2/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.2-read-this-first',reviewed:'2026-09-28',section:'Key points for upgrading to version 10.2'},
  upgrade104:{title:'Forwarder and Enterprise upgrade considerations 10.4',url:'https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first',reviewed:'2026-09-28',section:'Key points; component-specific changes'},
@@ -22,6 +24,8 @@ window.VersionCompassForwarderData = {
  advisories:{title:'Splunk security advisory index',url:'https://advisory.splunk.com/',reviewed:'2026-09-28',section:'Current index; not a complete applicability audit'}
  },
  claimSources:{
+  "technical.hf-kv-store-10.6":{title:"HF 10.6 KV Store database engine",src:"kv106"},
+  "technical.hf-tls-10.6":{title:"HF 10.6 TLS removal",src:"tls106"},
   'upgrade.uf.10.0':{title:'Universal Forwarder 9.4 to 10.0 step',src:'upgrade100'},
   'upgrade.uf.10.2':{title:'Universal Forwarder 10.0 to 10.2 step',src:'upgrade102'},
   'upgrade.uf.10.4':{title:'Universal Forwarder 10.0 or 10.2 to 10.4 step',src:'upgrade104'},

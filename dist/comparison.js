@@ -133,6 +133,8 @@
 
     const allowed = track.compatibility.enterprise[state.to] || [];
     if (allowed.includes(state.host)) {
+      const hostRequirement = track.hostRequirements?.[state.platform]?.[state.host];
+      if (hostRequirement?.releases.includes(state.to)) return Object.assign({ status: "warning", icon: "!" }, hostRequirement);
       return {
         status: "ok", icon: "✓", title: "Compatible platform pairing is listed",
         detail: track.label + " " + state.to + " is listed with Splunk Enterprise " + state.host + ". The official matrix is patch-specific, so select a supported maintenance release—not only the major/minor line.",
