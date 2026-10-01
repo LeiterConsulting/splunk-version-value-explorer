@@ -3,7 +3,7 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const read=f=>fs.readFileSync(path.join(__dirname,'..',f),'utf8');
 const dataContext={window:{}};vm.runInNewContext(read('dist/editions-data.js'),dataContext);const data=dataContext.window.VersionCompassEditions;
-function router(search){const loaded=[],head=[],main={innerHTML:''};const document={body:{classList:{add(){}},appendChild(el){loaded.push(el.src);el.onload();}},head:{appendChild(el){head.push(el);}},querySelector(){return main;},createElement(){return {};}};vm.runInNewContext(read('dist/site-router.js'),{window:{location:{search}},URLSearchParams,document});return {loaded,head,main};}
+function router(search){const loaded=[],head=[],main={innerHTML:''};const document={body:{classList:{add(){}},appendChild(el){loaded.push(el.src);el.onload();}},head:{appendChild(el){head.push(el);}},querySelector(){return main;},querySelectorAll(){return [];},createElement(){return {};}};vm.runInNewContext(read('dist/site-router.js'),{window:{location:{search}},URLSearchParams,document});return {loaded,head,main};}
 test('public editions and legacy preview routes load editions; release routes stay isolated',()=>{
  for(const q of ['', '?product=es&platform=enterprise&host=10.4&from=8.6&to=8.7','?preview=no','?preview=es-editions&preview=es-editions']){const r=router(q);assert.deepEqual(r.loaded,['content-revision.js','source-register.js','evidence.js','report-tools.js','decision-support.js','environment-data.js','environment.js','perspectives.js','data.js','product-data.js','guidance-data.js','comparison.js','guidance.js','release-print.js','app.js','soar-data.js','soar.js','webmcp.js','navigation.js']);assert.equal(r.head.length,0);}
  const r=router('?preview=es-editions');assert.deepEqual(r.loaded,['content-revision.js','source-register.js','evidence.js','report-tools.js','decision-support.js','environment-data.js','environment.js','perspectives.js','editions-data.js','editions.js','navigation.js']);assert(!r.head.some(x=>x.name==='robots'));
@@ -99,4 +99,11 @@ test('editions environment filters stay independent and survive sharing and prin
 test('fresh ES HTML snapshot contains selected Cloud environment and source questions',()=>{
  const r=runtime('?view=es-editions&csp=aws&region=us-gov-east-1&compliance=fr-h&filter=review');
  const html=r.snapshot();assert.match(html,/Cloud environment/);assert.match(html,/Conflicting guidance/);assert.match(html,/us-gov-east-1|US East/);assert.match(html,/Environment sources/);assert.match(html,/all 20 capabilities/);assert.match(html,/Connector Builder/);
+});
+
+test('SOAR product entry works while the normal comparison scripts are still loading',()=>{
+ const inputs=['soar','forwarders','es'].map(value=>({value,addEventListener(type,fn){this.change=fn;}})),location={search:'?theme=cisco',href:'https://versioncompass.com/?theme=cisco'};
+ const document={querySelectorAll:()=>inputs,createElement:()=>({}),body:{appendChild(){}}};
+ vm.runInNewContext(read('dist/site-router.js'),{document,URLSearchParams,window:{location,VersionCompassTheme:{href:u=>u+'&theme=cisco'}}});
+ let stopped=false;inputs[0].change({stopImmediatePropagation(){stopped=true;}});assert(stopped);assert.equal(location.href,'?product=soar&theme=cisco');assert.equal(inputs[2].change,undefined);
 });

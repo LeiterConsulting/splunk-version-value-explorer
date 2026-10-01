@@ -26,5 +26,12 @@
   files.splice(files.indexOf('environment.js') + 1, 0, 'perspectives.js');
   files.push('navigation.js');
   files.unshift('content-revision.js','source-register.js','evidence.js','report-tools.js','decision-support.js');
+  if (!preview) document.querySelectorAll('input[name="product"]').forEach(input => {
+    if (!['soar','forwarders'].includes(input.value)) return;
+    input.addEventListener('change', event => {
+      event.stopImmediatePropagation();
+      window.location.href = window.VersionCompassTheme?.href('?product='+input.value) || '?product='+input.value;
+    });
+  });
   load(files);
 }());
