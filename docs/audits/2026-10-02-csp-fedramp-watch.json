@@ -2,7 +2,7 @@
   "watch": "csp-fedramp-watch",
   "sourceCheckDate": "2026-10-02",
   "startedAt": "2026-10-02T11:51:48Z",
-  "completedAt": "2026-10-02T12:00:07Z",
+  "completedAt": "2026-10-02T12:17:01Z",
   "outcome": "no-change",
   "scope": "All 10 maintained Cloud environment sources and all 54 environment records, plus the two CSP-owned SOAR regional and restricted-environment sources; bounded highest-consequence availability, entitlement, compatibility and authorization claims; visual symbol-table inspection; filter, export and read-only WebMCP parity.",
   "sourceChecks": [
@@ -212,14 +212,41 @@
     }
   ],
   "validation": {
-    "syntax": {"outcome": "pending"},
-    "metadataGates": {"outcome": "pending"},
-    "tests": {"outcome": "pending"},
-    "browserJourneys": {"outcome": "pending"},
-    "keyboardNarrowScreen": {"outcome": "pending"},
-    "pdfExport": {"outcome": "pending"},
-    "downloadedHtml": {"outcome": "pending"},
-    "screenPdfHtmlWebMcpAgreement": {"outcome": "pending"},
-    "liveDeployment": {"outcome": "pending"}
+    "syntax": {
+      "outcome": "confirmed",
+      "detail": "node --check passed for dist/environment-data.js, dist/soar-data.js, dist/source-register.js and dist/content-revision.js."
+    },
+    "metadataGates": {
+      "outcome": "confirmed",
+      "detail": "sync-release-metadata.cjs --check, sync-source-register.cjs --check and sync-content-revision.cjs --check all passed; the generated source register contains 143 records."
+    },
+    "tests": {
+      "outcome": "confirmed",
+      "detail": "node --test tests/*.test.cjs passed 78 of 78 tests."
+    },
+    "browserJourneys": {
+      "outcome": "confirmed",
+      "detail": "Live Cloud 10.5.2605 to 10.6 GovCloud West FR-H Victoria route displayed the S3 High conflict, scoped unknowns, October 2 evidence dates and source links. Live SOAR 8.6.0 to 8.7.0 routes kept FR-M restrictions and FR-H not established. A mismatched GCP/GovCloud URL dropped the incompatible provider without inventing availability. The direct ES editions route and legacy preview alias both opened; default and Cisco themes retained the fixed actions and selected URL state."
+    },
+    "keyboardNarrowScreen": {
+      "outcome": "partial",
+      "detail": "Keyboard first focus reached the Skip to comparison link after reload. Narrow-screen tap and layout checks were not performed because the available cloud browser exposes a fixed viewport and the repository browser-verification CLI was unavailable."
+    },
+    "pdfExport": {
+      "outcome": "unavailable",
+      "detail": "The live Print / PDF control built the complete 70,020-character print report, including the S3 conflict, sources and October 2 check date. The cloud browser did not expose a print dialog or PDF file, so page-by-page pagination and an actual PDF were not checked. Reload removed the transient printing-report state."
+    },
+    "downloadedHtml": {
+      "outcome": "unavailable",
+      "detail": "The live Save dated snapshot control was invoked, but the cloud browser emitted no download event or synchronized file. Independent reopening was therefore not performed."
+    },
+    "screenPdfHtmlWebMcpAgreement": {
+      "outcome": "partial",
+      "detail": "Screen and the read-only get_current_report WebMCP output agreed on the route, 2026-10-02 snapshot, S3 conflict, current 10.6 documentation URLs and scoped FR-H unknowns. PDF and reopened-HTML agreement were not performed because those files were unavailable."
+    },
+    "liveDeployment": {
+      "outcome": "confirmed",
+      "detail": "Sites version 87, app version appgprj_6aa3ff61bd288191ac95ac6e30707895~appgver_78b20f8ee76081918348cccac28d752a, deployment appgdep_6abf9e1c5df88191bc7a57435255b238 succeeded at 2026-10-02T12:05:55.892543Z. Live routes exposed content revision vc-67efef2f68065d79 and the October 2 release-note URL."
+    }
   }
 }
