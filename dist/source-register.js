@@ -871,7 +871,7 @@ window.VersionCompassSources = {
         "2026-10-01"
       ],
       "conflict": true,
-      "usage": "In use",
+      "usage": "Retired",
       "reviewed": "2026-10-01",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
@@ -912,6 +912,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Needs reconciliation · 2026-10-01"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "No longer cited in the maintained datasets"
         }
       ]
     },
@@ -964,7 +968,6 @@ window.VersionCompassSources = {
         "forwarders: forwarders.claimSources.topology.cloud-intermediate"
       ],
       "reviews": [
-        "2026-10-01",
         "2026-10-02"
       ],
       "conflict": true,
@@ -984,9 +987,46 @@ window.VersionCompassSources = {
       "firstRecorded": "2026-10-02",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "A 10.6 documentation path is not proof that a selected managed stack runs 10.6, and omission of a 10.6 receiver row remains Not established rather than inferred support.",
-      "section": "Current Splunk Cloud Platform and Premium App versions; Supported forwarder versions",
-      "verificationScope": "Confirmed that the 10.6 Service Details page still identifies Splunk Cloud Platform 10.5, Enterprise Security 8.6 and ITSI 5.0 as the current subscription versions. Rechecked the direct-versus-intermediate scope and UF/HF 9.4 through 10.4 receiver rows; no 10.6 forwarder row is published. The page version does not establish selected-stack rollout, entitlement, provider, region or authorization.",
+      "reason": "A documentation path, hosting row, FIPS statement, app-installation path or current-version table establishes only its exact scope; it does not prove universal availability, entitlement, compatibility or authorization.",
+      "section": "Available regions and region differences; experience designations; compliance subscriptions; authorized-app qualification; Current Splunk Cloud Platform and Premium App versions; Supported forwarder versions",
+      "verificationScope": "Confirmed all maintained provider, region, experience and feature rows. The 10.6 page still identifies Cloud 10.5, ES 8.6 and ITSI 5.0 as current. Its current table includes Moderate but excludes High for Federated Search for Amazon S3, preserving the April change-log conflict. Rechecked that app installation is not itself regulated-environment authorization and that no page path or region listing establishes entitlement, selected-stack rollout or customer authorization. Release Watch separately rechecked UF/HF 9.4 through 10.4 direct-versus-intermediate receiver rows.",
+      "events": [
+        {
+          "date": "2026-10-02",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "Review status updated: Needs reconciliation · 2026-10-02"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log",
+      "title": "Cloud service description change log",
+      "areas": [
+        "Cloud environment"
+      ],
+      "references": [
+        "environment.sources.changes.url",
+        "environment: environment.records.9",
+        "environment: environment.records.13",
+        "environment: environment.records.15",
+        "environment: environment.records.20"
+      ],
+      "reviews": [
+        "2026-10-02"
+      ],
+      "conflict": true,
+      "usage": "In use",
+      "reviewed": "2026-10-02",
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-10-02",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "A current documentation path and dated change-log entries do not silently resolve contradictory current table wording or establish entitlement, customer authorization or historical rollout.",
+      "section": "August 25, May 22 and April 8, 2026 entries",
+      "verificationScope": "Confirmed that the current 10.6 documentation path retains August 25 as the latest dated body entry, including Victoria expansion to Google Cloud Frankfurt and AWS FedRAMP High plus Edge and Ingest Processor expansion to AWS Canada West. Rechecked the May 22 Moderate processor entries and the April 8 Federated Search for Amazon S3 High entry. The latter still conflicts with the current Service Details table and remains qualified.",
       "events": [
         {
           "date": "2026-10-02",
@@ -1010,10 +1050,10 @@ window.VersionCompassSources = {
         "environment: environment.records.15"
       ],
       "reviews": [
-        "2026-10-01"
+        "2026-10-02"
       ],
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-02",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -1049,6 +1089,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "Review status updated: Reviewed · 2026-10-02"
         }
       ]
     },
@@ -2026,10 +2070,11 @@ window.VersionCompassSources = {
         "editions: editions.notes.1"
       ],
       "reviews": [
+        "2026-10-02",
         "2026-10-01"
       ],
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-02",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -2069,6 +2114,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "Review status updated: Reviewed · 2026-10-02"
         }
       ]
     },
@@ -3618,17 +3667,17 @@ window.VersionCompassSources = {
         "environment: environment.records.50"
       ],
       "reviews": [
-        "2026-10-01"
+        "2026-10-02"
       ],
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-02",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "Rolling SaaS realm hosting and component availability are separate from customer-managed component versions and from Splunk Platform compliance scope.",
-      "section": "Available regions and realms; available components per region or realm",
-      "verificationScope": "Confirmed the nine maintained Observability realms, their AWS or Google Cloud hosting mappings, and the component table including the absence of Database Monitoring from the Google Cloud us2 row. Realm hosting remains independent of monitored workload location and connected Splunk Platform authorization.",
+      "reason": "Realm hosting, component availability, entitlement and regulated-environment authorization are separate claims.",
+      "section": "Available regions or realms; realm-to-region equivalence; available components per region or realm",
+      "verificationScope": "Confirmed the nine maintained realms and provider mappings. The component table still omits Database Monitoring and Secure Application from the Google Cloud us2 realm while listing APM, Infrastructure Monitoring, Log Observer Connect, RUM and Synthetic Monitoring there. Observability remains an independently scoped service; Platform hosting does not establish its authorization.",
       "events": [
         {
           "date": "2026-09-25",
@@ -3657,6 +3706,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "Review status updated: Reviewed · 2026-10-02"
         }
       ]
     },
@@ -3942,7 +3995,7 @@ window.VersionCompassSources = {
         "soar: soar.backlog.2"
       ],
       "reviews": [
-        "2026-10-01"
+        "2026-10-02"
       ],
       "claimReferences": [
         {
@@ -3951,14 +4004,14 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-02",
       "status": "Reviewed",
       "firstRecorded": "2026-10-01",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
       "section": "FedRAMP Moderate: Hosting, FIPS mode, Playbooks, Automation isolation, Restoring data",
-      "verificationScope": "Bounded review of the cited SOAR section and records; not a complete historical re-verification.",
+      "verificationScope": "Confirmed SOAR Cloud FedRAMP Moderate is hosted in AWS GovCloud, uses FIPS 140-3 mode, requires associated Automation Brokers to use FIPS mode, applies the documented playbook and isolation restrictions, and does not permit native-data migration from SOAR Cloud or On-premises. No FR-H scope is published on this page.",
       "events": [
         {
           "date": "2026-10-01",
@@ -3971,6 +4024,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "Review status updated: Reviewed · 2026-10-02"
         }
       ]
     },
@@ -4156,17 +4213,17 @@ window.VersionCompassSources = {
         "soar.sources.regions.url"
       ],
       "reviews": [
-        "2026-10-01"
+        "2026-10-02"
       ],
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-02",
       "status": "Reviewed",
       "firstRecorded": "2026-10-01",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
       "section": "Available regions; supported versions. The current-version table retains an inconsistent April date label.",
-      "verificationScope": "Bounded review of the cited SOAR section and records; not a complete historical re-verification.",
+      "verificationScope": "Confirmed the exact current AWS, GCP and Azure region lists, SOAR-specific FedRAMP Moderate subscription language and the September 2026 current-version heading. The table still labels 8.7.0 as April 2026, so the service-date discrepancy remains unresolved. No FedRAMP High SOAR offering or feature scope is inferred.",
       "events": [
         {
           "date": "2026-10-01",
@@ -4179,6 +4236,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "Review status updated: Reviewed · 2026-10-02"
         }
       ]
     },
@@ -5166,10 +5227,10 @@ window.VersionCompassSources = {
         "environment: environment.records.6"
       ],
       "reviews": [
-        "2026-10-01"
+        "2026-10-02"
       ],
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-02",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -5205,6 +5266,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "Review status updated: Reviewed · 2026-10-02"
         }
       ]
     },
@@ -5219,10 +5284,10 @@ window.VersionCompassSources = {
         "environment: environment.records.7"
       ],
       "reviews": [
-        "2026-10-01"
+        "2026-10-02"
       ],
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-02",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -5258,6 +5323,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "Review status updated: Reviewed · 2026-10-02"
         }
       ]
     },
@@ -5274,10 +5343,10 @@ window.VersionCompassSources = {
         "environment: environment.records.53"
       ],
       "reviews": [
-        "2026-10-01"
+        "2026-10-02"
       ],
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-02",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -5313,6 +5382,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "Review status updated: Reviewed · 2026-10-02"
         }
       ]
     },
@@ -5327,10 +5400,10 @@ window.VersionCompassSources = {
         "environment: environment.records.40"
       ],
       "reviews": [
-        "2026-10-01"
+        "2026-10-02"
       ],
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-02",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -5366,6 +5439,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "Review status updated: Reviewed · 2026-10-02"
         }
       ]
     },
@@ -5380,10 +5457,10 @@ window.VersionCompassSources = {
         "environment: environment.records.5"
       ],
       "reviews": [
-        "2026-10-01"
+        "2026-10-02"
       ],
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-02",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -5419,6 +5496,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "Review status updated: Reviewed · 2026-10-02"
         }
       ]
     },
