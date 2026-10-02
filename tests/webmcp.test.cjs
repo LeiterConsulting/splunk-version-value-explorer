@@ -280,6 +280,17 @@ test('Enterprise 10.4 exposes the exact maintenance floor without becoming a Clo
   assert(!cloud.breakingChanges.some(item => item.title === 'Target Enterprise 10.4.4'));
 });
 
+test('Enterprise Security 8.7 preserves the line selector while exposing the exact 8.7.1 eligibility change', async () => {
+  const rt = await runtime();
+  const report = rt.run('compare_routes', { routes: [{ product: 'es', platform: 'enterprise', host: '10.6', from: '8.6', to: '8.7' }] }).reports[0];
+  const builders = report.features.find(item => item.title === 'Connector and Automation Builder agents');
+  assert.match(builders.detail, /8\.7\.1/);
+  assert.match(builders.detail, /all eligible users/);
+  assert(report.readiness.some(item => item.title === 'Confirm Enterprise Security 8.7 edition and eligibility'));
+  assert.match(rt.window.SPLUNK_DATA.productTracks.es.cloudServiceSource, /\/10\.6\/information-about-the-service\/splunk-cloud-platform-service-details$/);
+  assert.equal(rt.window.SPLUNK_DATA.productTracks.es.latest, '8.7');
+});
+
 test('September Observability additions preserve SaaS, private-runner, and Cloud-route boundaries', async () => {
   const rt = await runtime();
   const selection = { product: 'observability', platform: 'cloud', host: '10.5.2605', from: 'Jul 2026', to: 'Sep 2026' };
@@ -302,7 +313,7 @@ test('September Observability additions preserve SaaS, private-runner, and Cloud
   const platformCloud = rt.run('get_catalog', {}).products.find(item => item.id === 'platform').contexts.find(item => item.platform === 'cloud');
   assert(platformCloud.targetReleases.some(item => item.id === '10.6'));
   const cloud106 = rt.run('compare_routes', { routes: [{ product: 'platform', platform: 'cloud', from: '10.5.2605', to: '10.6' }] }).reports[0];
-  assert(cloud106.breakingChanges.some(item => item.title === 'Confirm actual stack rollout' && item.detail.includes('current Service Details still pair subscriptions with Cloud 10.5')));
+  assert(cloud106.breakingChanges.some(item => item.title === 'Confirm actual stack rollout' && item.detail.includes('10.6 Service Details still identify Cloud 10.5')));
 });
 
 test('ITSI host pairing preserves the separate cohosted KV Store prerequisite', async () => {

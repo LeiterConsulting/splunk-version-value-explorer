@@ -94,10 +94,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-01T09:18:22Z",
-      "lastSuccess": "2026-10-01T09:26:21Z",
+      "lastAttempt": "2026-10-02T09:56:26Z",
+      "lastSuccess": "2026-10-02T10:05:48Z",
       "outcome": "changed",
-      "summary": "Published-source review found two Observability Cloud timeline additions, Node.js instrumentation 4.12.0 and Java instrumentation 2.31.3; repaired Forwarder claim-to-section source registration without changing interface or route facts.",
+      "summary": "Published-source review added Enterprise Security 8.7.1 and its Connector Builder eligibility change, retained the exact SOAR 8.7.0 compatibility boundary, and moved current Cloud and Forwarder evidence to the 10.6 Service Details page without inferring Cloud 10.6 rollout or receiver support.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -175,9 +175,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Published-source review found two Observability Cloud timeline additions, Node.js instrumentation 4.12.0 and Java instrumentation 2.31.3; repaired Forwarder claim-to-section source registration without changing interface or route facts.",
           "scope": "Checked the maintained Enterprise, Cloud service pairing, migration/SCMA, ES, ITSI, Observability SaaS and component, Forwarder receiver/topology, and advisory inventories; highest-consequence claim verification covered Enterprise 10.4 upgrade and maintenance, UF/HF receiver compatibility, Cloud receiver pairing, and the four changed Observability records. The unavailable Enterprise 10.4.4 fixed-issues detail remains backlog."
+        },
+        {
+          "at": "2026-10-02T09:56:26Z",
+          "outcome": "running",
+          "summary": "Daily official-source review in progress; evaluating Enterprise Security 8.7.1 and current Cloud 10.6 service details while rechecking SOAR, forwarder, migration, ITSI, Observability and security streams.",
+          "scope": "Current Enterprise, Cloud, migration, ES, ITSI, Observability, SOAR, UF/HF, security and maintained instrumentation discovery streams; bounded highest-consequence release, pairing, upgrade, receiver and prerequisite claims."
+        },
+        {
+          "at": "2026-10-02T10:05:48Z",
+          "outcome": "changed",
+          "summary": "Published-source review added Enterprise Security 8.7.1 and its Connector Builder eligibility change, retained the exact SOAR 8.7.0 compatibility boundary, and moved current Cloud and Forwarder evidence to the 10.6 Service Details page without inferring Cloud 10.6 rollout or receiver support.",
+          "scope": "Checked current Enterprise, Cloud, migration/SCMA, ES, ITSI, Observability, SOAR, UF/HF, security and maintained instrumentation discovery streams; bounded claim verification covered ES 8.7.1 release/feature, Cloud current pairing, Cloud direct/intermediate forwarders, SOAR build/Python/path/app compatibility, Enterprise 9.4.16, and source-to-section mappings. ES and Enterprise patch issue rows remain unavailable; authorization and regional ownership remain separate."
         }
       ],
-      "scope": "Checked the maintained Enterprise, Cloud service pairing, migration/SCMA, ES, ITSI, Observability SaaS and component, Forwarder receiver/topology, and advisory inventories; highest-consequence claim verification covered Enterprise 10.4 upgrade and maintenance, UF/HF receiver compatibility, Cloud receiver pairing, and the four changed Observability records. The unavailable Enterprise 10.4.4 fixed-issues detail remains backlog."
+      "scope": "Checked current Enterprise, Cloud, migration/SCMA, ES, ITSI, Observability, SOAR, UF/HF, security and maintained instrumentation discovery streams; bounded claim verification covered ES 8.7.1 release/feature, Cloud current pairing, Cloud direct/intermediate forwarders, SOAR build/Python/path/app compatibility, Enterprise 9.4.16, and source-to-section mappings. ES and Enterprise patch issue rows remain unavailable; authorization and regional ownership remain separate."
     },
     {
       "id": "es-editions-watch",

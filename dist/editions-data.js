@@ -478,17 +478,17 @@ window.VersionCompassEditions = {
       },
       "prem": {
         "v": "part",
-        "n": "Cloud; paired SOAR; confirm enablement"
+        "n": "Cloud; paired SOAR; eligible users"
       },
-      "flag": "Source conflict: the agent compatibility table lists Essentials and Premier; the 8.7 release notes list Premier and representative enablement. Confirm Essentials entitlement with Splunk; this comparison does not resolve this conflict.",
-      "desc": "Generates and refines connectors. The 8.7 task guide requires platform 10.1+, ES 8.7+ paired with SOAR Cloud, and SOAR App: Edit and SOAR Asset: Edit permissions. These prerequisites do not resolve the edition conflict.",
+      "flag": "Source conflict: the agent compatibility table lists Essentials and Premier, while the 8.7.1 release notes list Premier. Version 8.7.1 turns Connector Builder on for all eligible users, but does not define Essentials entitlement. Confirm eligibility with Splunk; this comparison does not resolve the edition conflict.",
+      "desc": "Generates and refines connectors. The 8.7 task guide requires platform 10.1+, ES 8.7+ paired with SOAR Cloud, and SOAR App: Edit and SOAR Asset: Edit permissions. Version 8.7.1 removes the representative-enablement step for eligible users but does not resolve the edition conflict.",
       "src": [
         "agentic",
         "rn87",
         "matrix",
         "connectorTask"
       ],
-      "reviewed": "2026-10-01"
+      "reviewed": "2026-10-02"
     },
     {
       "id": "ai-soc-analyst",
@@ -691,11 +691,11 @@ window.VersionCompassEditions = {
           "src": [
             "rn87"
           ],
-          "text": "The 8.7 release notes assign Connector Builder to Premier and require enablement through a Splunk representative."
+          "text": "The 8.7.1 release notes assign Connector Builder to Premier and say it is turned on for all eligible users."
         }
       ],
-      "meaning": "These pages assign different editions to the same agent in the same release. Essentials availability remains unconfirmed; Premier still has pairing and enablement conditions.",
-      "question": "Ask Splunk to confirm Essentials entitlement and the enablement path for the target deployment."
+      "meaning": "These pages assign different editions to the same agent in the same release line. Essentials availability remains unconfirmed; Premier still has eligibility, pairing and permission conditions, but 8.7.1 no longer requires a separate representative-enablement step for eligible users.",
+      "question": "Ask Splunk to confirm Essentials entitlement and eligibility for the target deployment."
     },
     {
       "id": "guided-response",
@@ -782,7 +782,7 @@ window.VersionCompassEditions = {
   "highlights": [
     {
       "title": "Agent authoring and response",
-      "text": "8.7 introduces AI SOC Analyst and Connector Builder, with representative enablement. Automation Builder improves context handling; Detection Builder improves SPL guidance. Connector Builder’s edition scope remains disputed.",
+      "text": "8.7 introduces AI SOC Analyst and Connector Builder. Version 8.7.1 turns Connector Builder on for eligible users; AI SOC Analyst still requires Splunk enablement. Automation Builder improves context handling; Detection Builder improves SPL guidance. Connector Builder’s edition scope remains disputed.",
       "src": [
         "rn87",
         "agentic"

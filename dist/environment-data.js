@@ -204,7 +204,7 @@ window.VersionCompassEnvironmentData = {
     },
     "service": {
       "title": "Cloud Platform 10.5 service details",
-      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.5.2605/information-about-the-service/splunk-cloud-platform-service-details",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
       "published": "2026-06-26",
       "scope": "10.5.2605; page modification date",
       "checked": "2026-10-01"

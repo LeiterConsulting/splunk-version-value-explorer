@@ -77,6 +77,17 @@ test('print report keeps all evidence and tracks selected history independently 
  assert(r.elements.get('edition-report-history').innerHTML.includes('Security MCP workflow tools'));
 });
 
+test('Connector Builder keeps the edition conflict but drops superseded representative enablement for eligible 8.7.1 users',()=>{
+ const connector=data.capabilities.find(c=>c.id==='connector-builder');
+ assert.match(connector.flag,/8\.7\.1/);
+ assert.match(connector.flag,/all eligible users/);
+ assert.match(connector.desc,/removes the representative-enablement step/);
+ assert(!connector.prem.n.includes('confirm enablement'));
+ const question=data.conflicts.find(q=>q.title==='Can Essentials use Connector Builder?');
+ assert.match(question.meaning,/8\.7\.1 no longer requires/);
+ assert.match(question.question,/eligibility/);
+});
+
 test('editions shares and navigation retain the optional theme',async()=>{
  const r=runtime('?view=es-editions&theme=cisco');
  assert(r.html.includes('href="/?theme=cisco"'));

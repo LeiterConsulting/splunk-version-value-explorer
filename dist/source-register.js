@@ -28,7 +28,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-02",
       "status": "Reviewed",
       "firstRecorded": "2026-09-28",
       "firstUsed": null,
@@ -44,6 +44,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "Review status updated: Reviewed · 2026-10-02"
         }
       ]
     },
@@ -794,7 +798,7 @@ window.VersionCompassSources = {
           "section": "Supported forwarder versions"
         }
       ],
-      "usage": "In use",
+      "usage": "Retired",
       "reviewed": "2026-10-01",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
@@ -843,6 +847,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Needs reconciliation · 2026-10-01"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "No longer cited in the maintained datasets"
         }
       ]
     },
@@ -904,6 +912,85 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Needs reconciliation · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "title": "splunk cloud platform service details",
+      "areas": [
+        "Release guide",
+        "Cloud environment",
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "release.cloud.releasesData.10.6.requirements.3.3",
+        "release.productTracks.es.cloudServiceSource",
+        "release.productTracks.itsi.cloudServiceSource",
+        "environment.sources.service.url",
+        "forwarders.sources.cloud.url",
+        "environment: environment.records.0",
+        "environment: environment.records.1",
+        "environment: environment.records.2",
+        "environment: environment.records.3",
+        "environment: environment.records.4",
+        "environment: environment.records.5",
+        "environment: environment.records.6",
+        "environment: environment.records.7",
+        "environment: environment.records.8",
+        "environment: environment.records.9",
+        "environment: environment.records.10",
+        "environment: environment.records.11",
+        "environment: environment.records.12",
+        "environment: environment.records.13",
+        "environment: environment.records.14",
+        "environment: environment.records.15",
+        "environment: environment.records.16",
+        "environment: environment.records.17",
+        "environment: environment.records.18",
+        "environment: environment.records.19",
+        "environment: environment.records.20",
+        "environment: environment.records.21",
+        "environment: environment.records.22",
+        "environment: environment.records.23",
+        "environment: environment.records.24",
+        "environment: environment.records.25",
+        "environment: environment.records.26",
+        "environment: environment.records.27",
+        "environment: environment.records.51",
+        "environment: environment.records.52",
+        "environment: environment.records.53",
+        "forwarders: forwarders.claimSources.receiver.cloud",
+        "forwarders: forwarders.claimSources.topology.cloud-intermediate"
+      ],
+      "reviews": [
+        "2026-10-01",
+        "2026-10-02"
+      ],
+      "conflict": true,
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.receiver.cloud",
+          "section": "Supported forwarder versions"
+        },
+        {
+          "path": "forwarders: forwarders.claimSources.topology.cloud-intermediate",
+          "section": "Supported forwarder versions"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-02",
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-10-02",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "A 10.6 documentation path is not proof that a selected managed stack runs 10.6, and omission of a 10.6 receiver row remains Not established rather than inferred support.",
+      "section": "Current Splunk Cloud Platform and Premium App versions; Supported forwarder versions",
+      "verificationScope": "Confirmed that the 10.6 Service Details page still identifies Splunk Cloud Platform 10.5, Enterprise Security 8.6 and ITSI 5.0 as the current subscription versions. Rechecked the direct-versus-intermediate scope and UF/HF 9.4 through 10.4 receiver rows; no 10.6 forwarder row is published. The page version does not establish selected-stack rollout, entitlement, provider, region or authorization.",
+      "events": [
+        {
+          "date": "2026-10-02",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },
@@ -1990,12 +2077,14 @@ window.VersionCompassSources = {
       "title": "release notes for splunk enterprise security",
       "areas": [
         "Release guide",
-        "ES editions"
+        "ES editions",
+        "Shared guidance"
       ],
       "references": [
         "release.productTracks.es.releasesData.8.7.source",
         "release.productTracks.es.releasesData.8.7.requirements.1.3",
         "editions.sources.rn87.u",
+        "content-updates.js",
         "editions: editions.capabilities.2",
         "editions: editions.capabilities.5",
         "editions: editions.capabilities.6",
@@ -2017,14 +2106,14 @@ window.VersionCompassSources = {
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-02",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "Release-specific scope does not supersede more specific prerequisite pages or resolve conflicting edition labels.",
-      "section": "Version 8.7 release table; deprecated or removed features and add-ons",
-      "verificationScope": "Checked the September 2 release entries, edition labels, representative-enablement notes, TIM feed deprecations and add-ons removed from the installer. Installer removal remains distinct from support removal.",
+      "reason": "The 8.7.1 availability change does not resolve the conflicting Essentials/Premier edition evidence or supersede product-specific pairing and permission prerequisites.",
+      "section": "What's new in 8.7.1; What's new in 8.7.0; upgrade notice",
+      "verificationScope": "Confirmed the October 1 Enterprise Security 8.7.1 release. Connector Builder remains labeled Premier and is now turned on for all eligible users. The change removes the separate representative-enablement step for eligible users but does not define Essentials entitlement or the meaning of eligible. AI SOC Analyst retains its separate enablement note.",
       "events": [
         {
           "date": "2026-09-25",
@@ -2057,6 +2146,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Needs reconciliation · 2026-10-01"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "Review status updated: Needs reconciliation · 2026-10-02"
         }
       ]
     },
@@ -3228,18 +3321,22 @@ window.VersionCompassSources = {
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": null,
-      "status": "Review date unknown",
+      "reviewed": "2026-10-02",
+      "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "The exact maintenance identifier and publication date are retained without converting a routine patch into a major/minor selector.",
+      "section": "Splunk Enterprise 9.4.16 release entry",
+      "verificationScope": "Confirmed Splunk Enterprise 9.4.16 was released September 30, 2026. This routine maintenance release does not create a new release-line route or establish Cloud availability.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "Review status updated: Reviewed · 2026-10-02"
         }
       ]
     },
@@ -3807,7 +3904,7 @@ window.VersionCompassSources = {
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-02",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -3827,6 +3924,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "Review status updated: Reviewed · 2026-10-02"
         }
       ]
     },
@@ -4018,7 +4119,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-02",
       "status": "Reviewed",
       "firstRecorded": "2026-10-01",
       "firstUsed": null,
@@ -4038,6 +4139,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "Review status updated: Reviewed · 2026-10-02"
         }
       ]
     },
@@ -4228,7 +4333,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-02",
       "status": "Reviewed",
       "firstRecorded": "2026-10-01",
       "firstUsed": null,
@@ -4248,6 +4353,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "Review status updated: Reviewed · 2026-10-02"
         }
       ]
     },
@@ -4367,7 +4476,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-02",
       "status": "Reviewed",
       "firstRecorded": "2026-10-01",
       "firstUsed": null,
@@ -4387,6 +4496,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "Review status updated: Reviewed · 2026-10-02"
         }
       ]
     },
@@ -4541,7 +4654,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-02",
       "status": "Reviewed",
       "firstRecorded": "2026-10-01",
       "firstUsed": null,
@@ -4561,6 +4674,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "Review status updated: Reviewed · 2026-10-02"
         }
       ]
     },
@@ -4675,7 +4792,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-02",
       "status": "Reviewed",
       "firstRecorded": "2026-10-01",
       "firstUsed": null,
@@ -4695,6 +4812,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "Review status updated: Reviewed · 2026-10-02"
         }
       ]
     },
@@ -4766,7 +4887,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-02",
       "status": "Reviewed",
       "firstRecorded": "2026-10-01",
       "firstUsed": null,
@@ -4786,6 +4907,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "Review status updated: Reviewed · 2026-10-02"
         }
       ]
     },
@@ -5003,7 +5128,7 @@ window.VersionCompassSources = {
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-02",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -5023,6 +5148,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-02",
+          "event": "Review status updated: Reviewed · 2026-10-02"
         }
       ]
     },

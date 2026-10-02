@@ -1,0 +1,128 @@
+{
+  "watch": "version-release-watch",
+  "sourceCheckDate": "2026-10-02",
+  "startedAt": "2026-10-02T09:56:26Z",
+  "completedAt": "2026-10-02T10:05:48Z",
+  "outcome": "changed",
+  "scope": "Current official discovery streams for Enterprise, Cloud Platform, migration/SCMA, Enterprise Security, ITSI, Observability, SOAR, UF/HF and security advisories, plus a bounded set of highest-consequence release, pairing, receiver, upgrade-path and prerequisite claims.",
+  "claimChecks": [
+    {
+      "url": "https://splunkbase.splunk.com/app/263",
+      "section": "Default Version; publication date; compatibility",
+      "claimId": "release:es:8.7.1",
+      "productVersionEnvironment": "Enterprise Security 8.7.1; Splunkbase release inventory",
+      "qualification": "The listing is a release signal, not exact customer-managed patch pairing, managed-stack rollout, entitlement, region or authorization evidence.",
+      "sourceCheckDate": "2026-10-02",
+      "claimVerificationDate": "2026-10-02",
+      "outcome": "changed",
+      "followUp": "Retain the 8.7 release-line selector and verify later maintenance releases without pinning discovery to 8.7.1."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "What's new in 8.7.1",
+      "claimId": "feature:es:connector-builder:8.7.1-eligibility",
+      "productVersionEnvironment": "Enterprise Security 8.7.1; Premier; eligible Cloud users",
+      "qualification": "The release note says Connector Builder is turned on for all eligible users. It does not define Essentials entitlement or replace platform, SOAR pairing and permission prerequisites. AI SOC Analyst retains separate enablement requirements.",
+      "sourceCheckDate": "2026-10-02",
+      "claimVerificationDate": "2026-10-02",
+      "outcome": "changed",
+      "followUp": "Keep the Essentials/Premier source conflict and eligibility question explicit; route edition-specific follow-up through ES Editions Watch."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/fixed-issues",
+      "section": "Splunk Enterprise Security 8.7.1 fixed issues",
+      "claimId": "issues:es:8.7.1",
+      "productVersionEnvironment": "Enterprise Security 8.7.1",
+      "qualification": "The page exposes the 8.7.1 heading but no issue rows. No fix or security claim is inferred.",
+      "sourceCheckDate": "2026-10-02",
+      "claimVerificationDate": "2026-10-02",
+      "outcome": "unavailable",
+      "followUp": "Recheck when Splunk publishes enumerated 8.7.1 issue rows."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Current Splunk Cloud Platform and Premium App versions",
+      "claimId": "pairing:cloud-current:10.5-es8.6-itsi5.0",
+      "productVersionEnvironment": "Splunk Cloud Platform subscription service",
+      "qualification": "The 10.6 documentation path still identifies Cloud 10.5, ES 8.6 and ITSI 5.0 as current. Page version does not establish stack rollout or authorization.",
+      "sourceCheckDate": "2026-10-02",
+      "claimVerificationDate": "2026-10-02",
+      "outcome": "confirmed",
+      "followUp": "Continue daily discovery; do not infer Cloud 10.6 availability from release notes or this page path."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Supported forwarder versions",
+      "claimId": "compatibility:forwarders:cloud-direct-current",
+      "productVersionEnvironment": "Universal and Heavy Forwarders communicating directly to Splunk Cloud Platform; intermediate tier when present",
+      "qualification": "The table covers forwarder 9.4.x through 10.4.x and no 10.6.x row. Missing 10.6 evidence remains Not established rather than inferred support.",
+      "sourceCheckDate": "2026-10-02",
+      "claimVerificationDate": "2026-10-02",
+      "outcome": "confirmed",
+      "followUp": "Keep the 10.6 receiver backlog bounded and monitor the current table for an explicit row."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.7.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+      "section": "September 22 updated build 243; Python 3.9 end of support",
+      "claimId": "release:soar-onprem:8.7.0-build243",
+      "productVersionEnvironment": "SOAR On-premises 8.7.0",
+      "qualification": "Build 243 supersedes affected build 232 and the 8.7 runtime requires Python 3.13-compatible automation.",
+      "sourceCheckDate": "2026-10-02",
+      "claimVerificationDate": "2026-10-02",
+      "outcome": "confirmed",
+      "followUp": "Preserve both build identifiers and continue discovery beyond 8.7."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.7.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+      "section": "Upgrade path table: 6.4.1.x; 7.0.x and higher",
+      "claimId": "upgrade:soar:unprivileged:8.7.0",
+      "productVersionEnvironment": "SOAR On-premises 8.7.0; unprivileged installation",
+      "qualification": "6.4.1.x requires 8.5.0 and Python 3.13 migration before 8.7.0; 7.0.x and higher can upgrade directly. OS and PostgreSQL conditions remain scoped to their rows.",
+      "sourceCheckDate": "2026-10-02",
+      "claimVerificationDate": "2026-10-02",
+      "outcome": "confirmed",
+      "followUp": "Do not generalize this route to privileged or Phantom conversion paths."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.7.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "section": "8.7.0 compatibility table; /rest/audit footnote",
+      "claimId": "compatibility:soar-app:8.7.0",
+      "productVersionEnvironment": "Splunk App for SOAR 8.7.0",
+      "qualification": "The exact table still names ES 8.7.0/8.6.1, not ES 8.7.1. The new ES maintenance release is not silently substituted. /rest/audit polling requires SOAR 8.7.0.",
+      "sourceCheckDate": "2026-10-02",
+      "claimVerificationDate": "2026-10-02",
+      "outcome": "confirmed",
+      "followUp": "Monitor for an explicit ES 8.7.1 compatibility row."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/9.4/whats-new/welcome-to-splunk-enterprise-9.4",
+      "section": "Splunk Enterprise 9.4.16 release entry",
+      "claimId": "release:enterprise:9.4.16",
+      "productVersionEnvironment": "Splunk Enterprise 9.4 maintenance line",
+      "qualification": "The exact patch was released September 30, 2026; it does not create a new route selector or establish Cloud availability.",
+      "sourceCheckDate": "2026-10-02",
+      "claimVerificationDate": "2026-10-02",
+      "outcome": "changed",
+      "followUp": "Retain 9.4.16 in source history; the fetched fixed-issues page currently has no enumerated rows."
+    }
+  ],
+  "boundedConfirmedInventories": {
+    "itsi": "5.0.2",
+    "scma": "5.4.11",
+    "observabilityLatestMilestone": "2026-09-23",
+    "collector": "0.161.0",
+    "collectorChart": "0.161.0",
+    "dotnet": "1.16.0",
+    "node": "4.12.0",
+    "java": "2.31.3",
+    "browserRum": "3.2.0",
+    "securityAdvisoryIndex": "SVD-2026-0901; next publication announced for 2026-10-07"
+  },
+  "unverifiedOrDeferred": [
+    "Enterprise 9.4.16 fixed-issue detail because the published page has no enumerated rows",
+    "Enterprise Security 8.7.1 fixed-issue detail because the published page has no enumerated rows",
+    "ES 8.7.1 compatibility with Splunk App for SOAR because the exact table still names ES 8.7.0",
+    "Cloud or Enterprise receiver compatibility for forwarder 10.6 because no current explicit receiver row was found",
+    "Regional, FedRAMP and customer-authorization scope, which remains owned by CSP FedRAMP Watch"
+  ]
+}

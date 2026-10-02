@@ -25,7 +25,7 @@
   };
 
   const compatibilitySource = "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix";
-  const cloudServiceSource = "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.5.2605/information-about-the-service/splunk-cloud-platform-service-details";
+  const cloudServiceSource = "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details";
   const collector160Source = "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.160.0";
   const collector161Source = "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.161.0";
   const collectorChart161Source = "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.161.0";
@@ -207,11 +207,11 @@
           ]
         },
         "8.7": {
-          date: "September 2026",
+          date: "September–October 2026",
           source: "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
           features: [
             ["AI SOC Analyst", "Automation & AI", "Advance investigations with guided analysis", "Use the Premier-edition AI SOC Analyst after Splunk enables access for the entitled deployment."],
-            ["Connector and Automation Builder agents", "Automation & AI", "Create integrations and workflows faster", "Use Connector Builder in Premier after Splunk enables access, or Automation Builder in Essentials and Premier."],
+            ["Connector and Automation Builder agents", "Automation & AI", "Create integrations and workflows faster", "Use Connector Builder in Premier; starting with Enterprise Security 8.7.1 it is turned on for all eligible users. Automation Builder remains listed for Essentials and Premier."],
             ["Enterprise Security on MCP", "Integrations & content", "Expose governed security tools", "Use the Essentials-edition MCP capability—also included in Premier—to connect Enterprise Security context to supported AI clients."],
             ["Detection Builder improvements", "Detection & analytics", "Move from idea to tested logic", "Use the Essentials-edition Detection Builder enhancements, which are also included in Premier, to create and refine detections."]
           ],
@@ -226,7 +226,7 @@
           ],
           requirements: [
             ["Install from the CLI on Splunk Enterprise 10.x", "Splunk documents that Enterprise Security 8 cannot be uploaded through the Splunk Web app manager on Splunk Enterprise 10.x; use the supported CLI installation path.", "Blocker", "https://help.splunk.com/en/splunk-enterprise-security-8/install/8.7/upgrading/upgrade-splunk-enterprise-security", true],
-            ["Confirm Enterprise Security 8.7 edition and enablement", "AI SOC Analyst and Connector Builder Agent are Premier features that require Splunk enablement. Automation Builder is listed for Essentials and Premier; Enterprise Security on MCP and Detection Builder are listed for Essentials and are also included in Premier.", "Validate", "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security", false],
+            ["Confirm Enterprise Security 8.7 edition and eligibility", "Enterprise Security 8.7.1 turns on Connector Builder Agent for all eligible users and continues to list it as Premier. AI SOC Analyst still requires Splunk enablement. Automation Builder is listed for Essentials and Premier; Enterprise Security on MCP and Detection Builder are listed for Essentials and are also included in Premier.", "Validate", "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security", false],
             ["Grant model-listing capability where AITK is used", "Enterprise Security 8.7 with AI Toolkit 6.0.2 requires the list_models capability for users who need to list models.", "Validate", "https://help.splunk.com/en/splunk-enterprise-security-8/install/8.7/upgrading/upgrade-splunk-enterprise-security", false],
             ["Reapply custom secondary navigation", "Back up the existing navigation configuration, restore the 8.7 default, and reapply only the customization that still passes validation.", "Plan", "https://help.splunk.com/en/splunk-enterprise-security-8/install/8.7/upgrading/upgrade-splunk-enterprise-security", true]
           ]

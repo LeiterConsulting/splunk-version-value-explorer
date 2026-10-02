@@ -33,7 +33,7 @@ Ingest Processor's [product guide](https://help.splunk.com/en/splunk-cloud-platf
 
 ## Source discovery
 
-The [10.5.2605 service-details page](https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.5.2605/information-about-the-service/splunk-cloud-platform-service-details) is a useful starting point, not an exclusive source. The evidence model also draws on:
+The [10.6 service-details page](https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details) is a useful starting point, not an exclusive source. Its current subscription table still identifies Cloud 10.5, ES 8.6 and ITSI 5.0; the page version is not proof that a selected stack runs 10.6. The evidence model also draws on:
 
 - [Service-description changes](https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.5.2605/information-about-the-service/splunk-cloud-service-description-change-log), including effective entries whose dates differ from page metadata.
 - [ES compatibility and regional availability](https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/compatibility-and-regional-availability).
