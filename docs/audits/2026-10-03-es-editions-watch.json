@@ -1,0 +1,172 @@
+{
+  "watch": "es-editions-watch",
+  "sourceCheckDate": "2026-10-03",
+  "startedAt": "2026-10-03T09:56:36.991Z",
+  "completedAt": "2026-10-03T10:00:16.000Z",
+  "outcome": "no-change",
+  "scope": "All 20 maintained official ES editions sources, plus the exact Splunk App for SOAR 8.7.0 and SOAR Export 8.7.0 records used to qualify ES pairings.",
+  "sourceInventory": {
+    "uniqueUrls": 20,
+    "method": "Each maintained ES URL was fetched directly and compared with the existing scoped evidence. A fetched source was not treated as a verified claim; the checks below record the bounded claims reviewed on October 3.",
+    "outcome": "unchanged",
+    "unavailable": []
+  },
+  "claimChecks": [
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "8.7.1 Connector Builder release-note entry",
+      "claimId": "edition:connector-builder:release-note",
+      "productVersionEnvironment": "Enterprise Security 8.7.1; Cloud; Connector Builder",
+      "qualification": "The release note names Premier and says the feature is on for eligible users, but it does not define Essentials entitlement or remove pairing and permission prerequisites.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "conflicting",
+      "followUp": "Preserve this side of the conflict with the agent table until Splunk publishes an authoritative edition clarification."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Agent compatibility table; Connector Builder, AI SOC Analyst, Malware Reversing and Phishing rows",
+      "claimId": "edition:agentic-table:8.7",
+      "productVersionEnvironment": "Enterprise Security 8.7 agentic capabilities; Cloud",
+      "qualification": "The table lists Connector Builder for Essentials and Premier, AI SOC Analyst at ES 8.6+, and Malware/Phishing at ES 8.5+. Task-specific pages contain different minimums. Workflow grouping is not entitlement.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "conflicting",
+      "followUp": "Keep all three discrepancies visible and require target-stack confirmation."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/splunk-enterprise-security-editions-cloud-capability-matrix",
+      "section": "8.7 Premier column; Triage and Guided Response enhancements",
+      "claimId": "edition:guided-response:enhancement-scope",
+      "productVersionEnvironment": "Enterprise Security 8.7; Cloud; Premier",
+      "qualification": "The matrix describes enhancements, not the base feature entitlement, and does not supersede the separately versioned 8.6 task guide.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "conflicting",
+      "followUp": "Keep the enhancement scope separate from base availability."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.6/ai-assistant-in-security-and-agentic-capabilities/run-soar-response-actions-using-the-guided-response-agent-in-splunk-enterprise-security",
+      "section": "Guided Response prerequisites and supported editions",
+      "claimId": "edition:guided-response:8.6-task",
+      "productVersionEnvironment": "Enterprise Security 8.6+; Cloud Platform 10.2+; Essentials or Premier; paired SOAR",
+      "qualification": "This is 8.6 task evidence and cannot by itself establish the exact 8.7 enhancement boundary.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Continue to label the source version and preserve the 8.7 ambiguity."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "Splunk SOAR compatibility and regional availability tables",
+      "claimId": "pairing:es-soar:8.7",
+      "productVersionEnvironment": "Enterprise Security 8.7; Cloud and customer-managed pairings",
+      "qualification": "Enterprise 9.4.0 through 9.4.2 remain excluded. Region, edition entitlement and authorization are separate from pairing.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Keep exact Cloud/on-premises rows; do not infer a pairing from independently current releases."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/develop-apps/build-playbooks/use-the-automation-builder-agent-to-build-and-understand-playbooks",
+      "section": "Automation Builder availability, requirements and restricted-environment note",
+      "claimId": "edition:automation-builder:requirements",
+      "productVersionEnvironment": "Cloud Platform 10.1+; ES 8.6+; paired SOAR Cloud",
+      "qualification": "The task is unavailable on FedRAMP SOAR stacks. Platform hosting or FIPS does not establish feature authorization.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Retain deployment, pairing, permission and restricted-environment qualifications."
+    },
+    {
+      "url": "https://www.splunk.com/en_us/products/pricing.html",
+      "section": "Enterprise Security pricing-model table",
+      "claimId": "commercial:es:activity-pricing",
+      "productVersionEnvironment": "Enterprise Security; public pricing overview",
+      "qualification": "The overview lists activity, workload and ingest options, while the model FAQ names Cloud Platform for activity eligibility. A public pricing page is not a quote or entitlement record.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "conflicting",
+      "followUp": "Keep deployment and contract eligibility unresolved."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.6/introduction/licensing-for-splunk-enterprise-security",
+      "section": "Essentials and Premier trial periods and expiry behavior",
+      "claimId": "licensing:es:trials",
+      "productVersionEnvironment": "Enterprise Security 8.6; Essentials and Premier",
+      "qualification": "The guide documents 30-day Essentials and 90-day Premier trials. Trial terms do not establish SOAR pairing or universal commercial eligibility.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Preserve contract and expiry qualifications."
+    },
+    {
+      "url": "https://www.splunk.com/en_us/products/user-and-entity-behavior-analytics.html",
+      "section": "Enterprise Security editions FAQ",
+      "claimId": "edition:ueba:premier",
+      "productVersionEnvironment": "Enterprise Security Premier; native UEBA feature",
+      "qualification": "Native UEBA is Premier-only and is not offered standalone or as an Essentials add-on. This does not establish scope for every related product.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Retain feature-specific wording."
+    },
+    {
+      "url": "https://www.splunk.com/en_us/products/exposure-analytics.html",
+      "section": "Exposure Analytics capabilities and coming-soon labels",
+      "claimId": "stage:exposure-analytics:future-capabilities",
+      "productVersionEnvironment": "Exposure Analytics; continuous posture metrics and Entity Profiling",
+      "qualification": "The two capabilities remain labelled coming soon and are not treated as generally available.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Keep release-stage labels until product documentation changes."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.7.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "section": "8.7.0 compatibility table; Enterprise Security rows",
+      "claimId": "pairing:app-for-soar:8.7.0:es",
+      "productVersionEnvironment": "Splunk App for SOAR 8.7.0 with ES 8.7.0 or 8.6.1",
+      "qualification": "The table names ES 8.7.0, not ES 8.7.1. Independent release numbers do not prove an unlisted pairing.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Keep ES 8.7.1 pairing unconfirmed until an exact row is published."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
+      "section": "8.7.0 release date and fixed issue PAPP-38389",
+      "claimId": "release:soar-export:8.7.0",
+      "productVersionEnvironment": "Splunk App for SOAR Export 8.7.0",
+      "qualification": "Export is a separate app with a separate compatibility matrix; its release does not establish an ES or App for SOAR pairing.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Preserve the separate Export record and compatibility check."
+    }
+  ],
+  "boundedBacklog": [
+    "Connector Builder: Essentials entitlement versus the 8.7.1 Premier release-note label",
+    "Guided Response: base entitlement versus the 8.7 Premier enhancement grouping",
+    "AI SOC Analyst: ES 8.6+ aggregate-table floor versus ES 8.7+ task-guide floor",
+    "Malware Reversing and Phishing: ES 8.5+ aggregate-table floor versus ES 8.6+ task-guide floor",
+    "Activity-based pricing: ES overview label versus Cloud Platform eligibility wording"
+  ],
+  "validationOutcomes": [
+    {
+      "check": "Official source inventory",
+      "outcome": "passed",
+      "detail": "All 20 maintained ES URLs were fetched; no source change requiring an edition-data correction was found."
+    },
+    {
+      "check": "Synchronization gates and automated regression suite",
+      "outcome": "passed",
+      "detail": "All three synchronization checks passed; node --test tests/*.test.cjs passed 79 of 79 tests on the reconciled source."
+    },
+    {
+      "check": "Native browser, keyboard, narrow-screen, PDF, reopened HTML and live deployment",
+      "outcome": "not performed before publication",
+      "detail": "These outcomes are independent of source and structural checks and must not be inferred from the no-change review."
+    }
+  ]
+}

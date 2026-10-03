@@ -96,7 +96,7 @@
         kind: enterprise ? "enterprise_upgrade" : migration ? "migration_program" : engine.isCore() ? "cloud_capability_milestones" : engine.isObservability() ? "observability_service_milestones" : "product_milestones",
         status: enterprise ? (path.length ? "documented_in_curated_graph" : "unknown") : "planning_milestones",
         nodes: path,
-        source: enterprise ? data.enterprise.upgradeSource : migration ? data.migration.sources.overview : track.releaseOverview || track.releasesData[state.to].source,
+        source: enterprise ? (data.enterprise.upgradeSources?.[state.to] || data.enterprise.upgradeSource) : migration ? data.migration.sources.overview : track.releaseOverview || track.releasesData[state.to].source,
         note: enterprise ? "Verify supported maintenance releases and deployment-specific upgrade order in the official guide." : "Milestones describe the comparison; they are not a certified sequence of supported installation hops."
       },
       compatibility: compatibility,

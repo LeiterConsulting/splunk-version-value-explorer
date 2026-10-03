@@ -79,8 +79,7 @@ test('catalog and batches use current data, exact identifiers, citations, and is
         report[section].forEach(item => assert.match(item.source, /^https:\/\//));
       }
       assert.deepEqual(Object.fromEntries(new URL(report.reportUrl).searchParams), { ...selection, reviewed: rt.window.SPLUNK_DATA.guidance.reviewed });
-      if (report.path.kind === 'enterprise_upgrade' && to.id !== '10.6') assert.notEqual(report.path.status, 'unknown');
-      if (report.path.kind === 'enterprise_upgrade' && to.id === '10.6') assert.equal(report.path.status, 'unknown');
+      if (report.path.kind === 'enterprise_upgrade') assert.notEqual(report.path.status, 'unknown');
       comparisons++;
     }
   }
@@ -98,6 +97,15 @@ test('catalog and batches use current data, exact identifiers, citations, and is
   const summary = rt.run('compare_routes', { routes: [routes[0]], include: [] }).reports[0];
   assert(!Object.hasOwn(summary, 'features'));
   assert(summary.counts.features > 0);
+});
+
+test('Enterprise 10.6 routes use the exact versioned upgrade source', async () => {
+  const rt = await runtime();
+  for (const from of ['9.4','10.0','10.2','10.4']) {
+    const report = rt.run('compare_routes', { routes: [{ product:'platform', platform:'enterprise', from, to:'10.6' }] }).reports[0];
+    assert.equal(report.path.status, 'documented_in_curated_graph');
+    assert.match(report.path.source, /\/10\.6\/upgrade-or-migrate-splunk-enterprise\/how-to-upgrade-splunk-enterprise$/);
+  }
 });
 
 test('invalid and ambiguous input is rejected without defaulting to a different route', async () => {

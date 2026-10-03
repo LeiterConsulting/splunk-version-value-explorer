@@ -2385,8 +2385,8 @@ window.VersionCompassSources = {
         "Shared guidance"
       ],
       "references": [
-        "release.enterprise.releasesData.10.6.technicalChanges.0.source",
-        "release.enterprise.releasesData.10.6.requirements.1.3",
+        "release.enterprise.releasesData.10.6.technicalChanges.1.source",
+        "release.enterprise.releasesData.10.6.requirements.0.3",
         "release.productTracks.itsi.hostRequirements.enterprise.10.6.source",
         "forwarders.sources.kv106.url",
         "content-updates.js",
@@ -2591,6 +2591,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.enterprise.upgradeSource",
+        "release.enterprise.upgradeSources.10.4",
         "forwarders.sources.enterprise.url",
         "forwarders: forwarders.claimSources.upgrade.hf"
       ],
@@ -2868,10 +2869,10 @@ window.VersionCompassSources = {
         "Shared guidance"
       ],
       "references": [
-        "release.enterprise.releasesData.10.6.technicalChanges.1.source",
         "release.enterprise.releasesData.10.6.technicalChanges.2.source",
+        "release.enterprise.releasesData.10.6.technicalChanges.3.source",
+        "release.enterprise.releasesData.10.6.requirements.1.3",
         "release.enterprise.releasesData.10.6.requirements.2.3",
-        "release.enterprise.releasesData.10.6.requirements.3.3",
         "forwarders.sources.tls106.url",
         "forwarders.sources.upgrade106.url",
         "content-updates.js",
@@ -2911,25 +2912,32 @@ window.VersionCompassSources = {
       "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise",
       "title": "how to upgrade splunk enterprise",
       "areas": [
-        "Release guide"
+        "Release guide",
+        "Shared guidance"
       ],
       "references": [
-        "release.enterprise.releasesData.10.6.requirements.0.3"
+        "release.enterprise.upgradeSources.10.6",
+        "release.enterprise.releasesData.10.6.technicalChanges.0.source",
+        "content-updates.js"
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-03",
       "status": "Reviewed",
       "firstRecorded": "2026-10-01",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "An ambiguous versioned page cannot support an inferred direct 10.6 upgrade edge.",
-      "section": "Upgrade paths; versioned 10.6 page",
-      "verificationScope": "Checked the canonical 10.6 upgrade page. Its supported-path heading and table currently identify version 10.4 rather than publishing a distinct 10.6 Enterprise path. Version Compass therefore exposes 10.6 target requirements but leaves the Enterprise and Heavy Forwarder route unknown.",
+      "reason": "The explicit 10.6 heading and table resolve the previous route ambiguity without establishing patch, OS, app, receiver, topology, Cloud availability, entitlement or authorization scope.",
+      "section": "Upgrade paths to version 10.6; current-version table",
+      "verificationScope": "Confirmed the canonical 10.6 table now lists 9.4.x through 10.4.x. Version 9.4.x must first move to 10.0.x or 10.2.x; 10.0.x can move to 10.2.x, 10.4.x or 10.6.x; 10.2.x can move to 10.4.x or 10.6.x; and 10.4.x can move to 10.6.x. This verifies the maintained Enterprise and Heavy Forwarder release-line graph only.",
       "events": [
         {
           "date": "2026-10-01",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-03",
+          "event": "Review status updated: Reviewed · 2026-10-03"
         }
       ]
     },
@@ -3175,7 +3183,7 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.enterprise.releasesData.10.6.technicalChanges.5.source"
+        "release.enterprise.releasesData.10.6.technicalChanges.6.source"
       ],
       "reviews": [],
       "usage": "In use",
@@ -3201,8 +3209,8 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.enterprise.releasesData.10.6.technicalChanges.3.source",
-        "release.enterprise.releasesData.10.6.requirements.4.3"
+        "release.enterprise.releasesData.10.6.technicalChanges.4.source",
+        "release.enterprise.releasesData.10.6.requirements.3.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -3230,8 +3238,8 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.enterprise.releasesData.10.6.source",
-        "release.enterprise.releasesData.10.6.technicalChanges.4.source",
-        "release.enterprise.releasesData.10.6.requirements.5.3",
+        "release.enterprise.releasesData.10.6.technicalChanges.5.source",
+        "release.enterprise.releasesData.10.6.requirements.4.3",
         "content-updates.js"
       ],
       "reviews": [],

@@ -1,12 +1,13 @@
 /* Editorial change provenance. Cycles advance only with material factual updates. */
 (function(){
 'use strict';
-const policy={currentCycle:10,retentionCycles:2};
+const policy={currentCycle:11,retentionCycles:2};
 const note25='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-25.md';
 const note26='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-26.md';
 const note30='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-30.md';
 const note01='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-10-01.md';
 const note02='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-10-02.md';
+const note03='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-10-03.md';
 const enterprise1043='https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues';
 const enterprise104='https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4';
 const rum='https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.2.0';
@@ -18,6 +19,7 @@ const enterprise106ReadFirst='https://help.splunk.com/en/splunk-enterprise/get-s
 const cloud106='https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new';
 const ingest='https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor';
 const entries={
+"technical:platform:Enterprise 10.6 upgrade route":{kind:"corrected",cycle:11,date:"2026-10-03",version:"Splunk Enterprise 10.6",detail:"Replaced the prior unknown route with the explicit 10.6 table: 9.4.x first moves through 10.0.x or 10.2.x; 10.0.x, 10.2.x and 10.4.x have listed paths to 10.6.x. Receiver compatibility remains separate.",source:"https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise",note:note03},
 "feature:es:Connector and Automation Builder agents":{kind:"updated",cycle:10,date:"2026-10-02",version:"Enterprise Security 8.7.1",detail:"Connector Builder remains Premier in the release notes and is now turned on for all eligible users; the separate Essentials entitlement conflict and pairing prerequisites remain unresolved.",source:"https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",sourceDate:"2026-10-01",note:note02},
 "product:soar:requirements":{"kind": "corrected", "cycle": 9, "date": "2026-10-01", "version": "SOAR 8.6 / 8.7", "detail": "Added version-specific 8.6 target OS, database, bundled forwarder and production requirements. Issue links now follow the selected target.", "source": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.6.0/system-requirements/general-system-requirements", "sourceDate": null, "note": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-10-01.md"},
 "product:soar:introduction":{kind:"new",cycle:8,date:"2026-10-01",version:"SOAR 8.6 / 8.7",detail:"Added SOAR Cloud and customer-managed comparisons, conditional routes, requirements, scoped features, issues and public-source evidence.",source:"https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.7.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",note:note01},

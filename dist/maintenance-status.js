@@ -106,10 +106,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-02T09:56:26Z",
-      "lastSuccess": "2026-10-02T10:05:48Z",
+      "lastAttempt": "2026-10-03T09:39:51.458Z",
+      "lastSuccess": "2026-10-03T10:01:00Z",
       "outcome": "changed",
-      "summary": "Published-source review added Enterprise Security 8.7.1 and its Connector Builder eligibility change, retained the exact SOAR 8.7.0 compatibility boundary, and moved current Cloud and Forwarder evidence to the 10.6 Service Details page without inferring Cloud 10.6 rollout or receiver support.",
+      "summary": "Published-source review added exact Enterprise and Heavy Forwarder 10.6 release-line routes from the canonical 10.6 upgrade table while keeping 10.6 Enterprise and Cloud receiver compatibility Not established.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -199,17 +199,29 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Published-source review added Enterprise Security 8.7.1 and its Connector Builder eligibility change, retained the exact SOAR 8.7.0 compatibility boundary, and moved current Cloud and Forwarder evidence to the 10.6 Service Details page without inferring Cloud 10.6 rollout or receiver support.",
           "scope": "Checked current Enterprise, Cloud, migration/SCMA, ES, ITSI, Observability, SOAR, UF/HF, security and maintained instrumentation discovery streams; bounded claim verification covered ES 8.7.1 release/feature, Cloud current pairing, Cloud direct/intermediate forwarders, SOAR build/Python/path/app compatibility, Enterprise 9.4.16, and source-to-section mappings. ES and Enterprise patch issue rows remain unavailable; authorization and regional ownership remain separate."
+        },
+        {
+          "at": "2026-10-03T09:39:51.458Z",
+          "outcome": "running",
+          "summary": "Reviewing complete maintained release, migration, Forwarder, Observability and SOAR official-source inventories plus bounded highest-consequence route, compatibility, security and prerequisite claims.",
+          "scope": "All maintained Version Release Watch source records; bounded claims for current Enterprise/Cloud releases, upgrade paths, premium-app pairings, migration floor, UF/HF receiver and topology compatibility, Observability customer-managed components, and SOAR 8.6/8.7 routes and prerequisites."
+        },
+        {
+          "at": "2026-10-03T10:01:00Z",
+          "outcome": "changed",
+          "summary": "Published-source review added exact Enterprise and Heavy Forwarder 10.6 release-line routes from the canonical 10.6 upgrade table while keeping 10.6 Enterprise and Cloud receiver compatibility Not established.",
+          "scope": "All 113 maintained official release, migration, premium-product, Forwarder, Observability and SOAR URLs; bounded current release, upgrade, compatibility, receiver, runtime and security claims."
         }
       ],
-      "scope": "Checked current Enterprise, Cloud, migration/SCMA, ES, ITSI, Observability, SOAR, UF/HF, security and maintained instrumentation discovery streams; bounded claim verification covered ES 8.7.1 release/feature, Cloud current pairing, Cloud direct/intermediate forwarders, SOAR build/Python/path/app compatibility, Enterprise 9.4.16, and source-to-section mappings. ES and Enterprise patch issue rows remain unavailable; authorization and regional ownership remain separate."
+      "scope": "All 113 maintained official release, migration, premium-product, Forwarder, Observability and SOAR URLs; bounded current release, upgrade, compatibility, receiver, runtime and security claims."
     },
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-10-01T09:58:46Z",
-      "lastSuccess": "2026-10-01T10:02:51Z",
+      "lastAttempt": "2026-10-03T10:01:01Z",
+      "lastSuccess": "2026-10-03T10:01:02Z",
       "outcome": "no-change",
-      "summary": "All 20 maintained ES Editions sources still support the published comparison; no factual, entitlement, prerequisite, deployment, history or presentation claim changed, and five source questions remain explicit.",
+      "summary": "All 20 maintained ES Editions sources still support the published scoped evidence; no factual edition, entitlement, prerequisite or pairing correction was required, and five source questions remain explicit.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -287,9 +299,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "All 20 maintained ES Editions sources still support the published comparison; no factual, entitlement, prerequisite, deployment, history or presentation claim changed, and five source questions remain explicit.",
           "scope": "Rechecked every official edition, release, capability-history, agent/task, Cloud Connect, pricing, licensing/trial, regional/SOAR pairing, UEBA, Exposure Analytics and announcement source; reviewed capabilities, highlights, workflows, history, source questions, integrated routes, themes, Cloud Environment context, sharing, print/snapshot and agent-boundary behavior."
+        },
+        {
+          "at": "2026-10-03T10:01:01Z",
+          "outcome": "running",
+          "summary": "Reviewing the complete official ES Essentials and Premier evidence inventory and bounded high-consequence entitlement, prerequisite and pairing claims.",
+          "scope": "All 20 maintained ES editions sources plus exact ES-to-SOAR and App for SOAR/Export pairing evidence."
+        },
+        {
+          "at": "2026-10-03T10:01:02Z",
+          "outcome": "no-change",
+          "summary": "All 20 maintained ES Editions sources still support the published scoped evidence; no factual edition, entitlement, prerequisite or pairing correction was required, and five source questions remain explicit.",
+          "scope": "All 20 maintained ES editions sources plus exact ES-to-SOAR, Automation Builder, App for SOAR and Export qualifications; bounded Connector Builder, Guided Response, agent minimum, pricing, licensing, UEBA and Exposure Analytics claims."
         }
       ],
-      "scope": "Rechecked every official edition, release, capability-history, agent/task, Cloud Connect, pricing, licensing/trial, regional/SOAR pairing, UEBA, Exposure Analytics and announcement source; reviewed capabilities, highlights, workflows, history, source questions, integrated routes, themes, Cloud Environment context, sharing, print/snapshot and agent-boundary behavior."
+      "scope": "All 20 maintained ES editions sources plus exact ES-to-SOAR, Automation Builder, App for SOAR and Export qualifications; bounded Connector Builder, Guided Response, agent minimum, pricing, licensing, UEBA and Exposure Analytics claims."
     },
     {
       "id": "version-guidance-audit",

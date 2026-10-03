@@ -49,7 +49,7 @@
     const prerequisite = readiness.find(function (r) { return r.level === "Blocker"; }) || readiness[0];
     const path = engine.selectedPath();
     let before = compat && compat.status === "warning" ? { text: compat.title + ". " + compat.detail, source: compat.source } : prerequisite ? { text: prerequisite.title, source: prerequisite.source } : null;
-    if (engine.isCore() && state.platform === "enterprise") before = { text: !path.length ? "No supported path is recorded; confirm the official upgrade route." : (path.length > 2 ? "Plan intermediate releases: " + path.slice(1,-1).join(" → ") + "." : "A direct route is recorded; validate apps, topology, and exact maintenance releases."), source: data.enterprise.upgradeSource };
+    if (engine.isCore() && state.platform === "enterprise") before = { text: !path.length ? "No supported path is recorded; confirm the official upgrade route." : (path.length > 2 ? "Plan intermediate releases: " + path.slice(1,-1).join(" → ") + "." : "A direct route is recorded; validate apps, topology, and exact maintenance releases."), source: data.enterprise.upgradeSources?.[state.to] || data.enterprise.upgradeSource };
     return { highlights: rows, prerequisite: before, risk: risk ? { text: risk.title, source: risk.source } : { text: "No specific breaking change is highlighted in this interval; still review the full official guidance.", source: engine.isMigration() ? data.migration.sources.prepare : engine.activeTrack().releasesData[state.to].source }, note: "Selected highlights from this guide; availability and implementation still depend on your environment." };
   }
   function resolveUrl(search, defaults) {

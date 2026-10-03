@@ -233,12 +233,13 @@
 
   function renderPath() {
     const path = selectedPath();
+    const upgradeSource = data.enterprise.upgradeSources?.[state.to] || data.enterprise.upgradeSource;
     const pathEvidence=document.getElementById('path-evidence');
-    if(pathEvidence)pathEvidence.innerHTML=isCore()&&state.platform==='enterprise'?evidence('Upgrade route: '+path.join(' → '),[data.enterprise.upgradeSource],'The 10.4 table was checked for 9.3, 9.4, 10.0 and 10.2 origins. Earlier historical edges have not been reverified in this pass.'):'';
+    if(pathEvidence)pathEvidence.innerHTML=isCore()&&state.platform==='enterprise'?evidence('Upgrade route: '+path.join(' → '),[upgradeSource],state.to==='10.6'?'The 10.6 table was checked for 9.4, 10.0, 10.2 and 10.4 origins. Earlier historical edges remain separately scoped.':'The maintained 10.4 table was checked for 9.3, 9.4, 10.0 and 10.2 origins. Earlier historical edges have not been reverified in this pass.') : '';
     if (isCore() && state.platform === "enterprise") {
       const steps = Math.max(0, path.length - 2);
       pathIntro.textContent = !path.length ? "No supported upgrade path is recorded for this selection. Verify the official upgrade guide before proceeding." : steps ? "This combination needs " + steps + " intermediate release" + (steps > 1 ? "s" : "") + " before the target." : "The selected releases support a direct upgrade route.";
-      pathCaption.innerHTML = "Supported route based on the Enterprise upgrade-path table. Always move to the latest maintenance release in each version line. " + externalLink(data.enterprise.upgradeSource, "Verify the path");
+      pathCaption.innerHTML = "Supported route based on the Enterprise upgrade-path table. Always move to the latest maintenance release in each version line. " + externalLink(upgradeSource, "Verify the path");
     } else if (isCore() && state.platform === "cloud") {
       pathIntro.textContent = "Splunk operates the platform upgrade; these are the capability milestones between your two selections.";
       pathCaption.textContent = "Cloud features can arrive progressively and availability can vary by environment, topology, region, and entitlement. Confirm timing with your Splunk team.";
@@ -453,7 +454,7 @@
     }
     sourceTitle.textContent = "Go deeper in the release notes.";
     let actions = externalLink(target.source, state.to + " release notes", "primary-link");
-    if (state.platform === "enterprise") actions += externalLink(track.upgradeSource, "Upgrade paths", "secondary-link");
+    if (state.platform === "enterprise") actions += externalLink(track.upgradeSources?.[state.to] || track.upgradeSource, "Upgrade paths", "secondary-link");
     sourceActions.innerHTML = actions;
   }
 
@@ -468,7 +469,7 @@
       journey = activeTrack().label + " " + state.from + " → " + state.to + " · " + platformContext + state.host;
     }
     printTitle.textContent = journey;
-    printSubtitle.textContent = "Site updated October 2, 2026 · versioncompass.com";
+    printSubtitle.textContent = "Site updated October 3, 2026 · versioncompass.com";
     document.title = "Version Compass | " + journey;
   }
 

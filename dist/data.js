@@ -15,9 +15,13 @@ window.SPLUNK_DATA = {
     edges: {
       "8.1": ["8.2", "9.0"], "8.2": ["9.0", "9.1"], "9.0": ["9.1", "9.2"],
       "9.1": ["9.2", "9.3", "9.4"], "9.2": ["9.3", "9.4", "10.0"],
-      "9.3": ["9.4", "10.0"], "9.4": ["10.0", "10.2"], "10.0": ["10.2", "10.4"], "10.2": ["10.4"]
+      "9.3": ["9.4", "10.0"], "9.4": ["10.0", "10.2"], "10.0": ["10.2", "10.4", "10.6"], "10.2": ["10.4", "10.6"], "10.4": ["10.6"]
     },
     upgradeSource: "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise",
+    upgradeSources: {
+      "10.4": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise",
+      "10.6": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise"
+    },
     releasesData: {
       "8.1": {
         date: "October 2020", source: "https://docs.splunk.com/Documentation/Splunk/8.1.14/ReleaseNotes/MeetSplunk",
@@ -390,6 +394,13 @@ window.SPLUNK_DATA = {
         ],
         technicalChanges: [
           {
+            component: "Enterprise 10.6 upgrade route", domain: "Platform operations", changeType: "Route evidence published", actionLevel: "Review",
+            from: "The versioned page did not expose an explicit 10.6 upgrade-path table", to: "The published table names supported 10.6 paths from 9.4.x, 10.0.x, 10.2.x and 10.4.x",
+            implication: "Enterprise and Heavy Forwarder planning can use the documented release-line edges, while exact maintenance, app, OS, topology and receiver checks remain separate.",
+            action: "Use 10.0.x or 10.2.x as the first step from 9.4.x; 10.0.x, 10.2.x and 10.4.x can then move to 10.6.x as listed. Validate exact maintenance releases before execution.",
+            source: "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise"
+          },
+          {
             component: "KV Store database engine", domain: "Data & storage", changeType: "Architecture transition", actionLevel: "Required",
             from: "MongoDB-backed KV Store", to: "Cohosted PostgreSQL KV Store begins in 10.6",
             implication: "Migration starts automatically after upgrade unless postponed beforehand. KV Store writes and dependent ES/ITSI functions are impaired during migration; ITSI 5.0.x and lower require postponement.",
@@ -432,7 +443,6 @@ window.SPLUNK_DATA = {
             source: "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/deprecated-features/deprecated-and-removed-in-version-10.6"
           }
         ], requirements: [
-          ["Verify the exact Enterprise 10.6 upgrade path", "The versioned 10.6 upgrade page currently reproduces a table labeled for 10.4 and does not establish a distinct 10.6 release-line edge. Do not schedule an inferred direct path until Splunk publishes or confirms it.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise", true],
           ["Prepare or postpone the automatic KV Store transition", "Verify KV Store 7.0+, more than 50% free disk space, healthy cluster and parallel backup. ITSI 5.0.x and lower cannot use cohosted KV Store 1.0: postpone migration before upgrading and verify the setting on every cluster member.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store", true],
           ["Migrate inter-Splunk connections to TLS 1.2+", "10.6 does not support TLS 1.0/1.1 or a temporary re-enable switch. Validate every component connection before upgrading.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first", true],
           ["Raise Federated Search providers to 10.4+", "Inventory all remote providers and resolve any release below the documented minimum before upgrading the search head.", "Blocker", "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first", true],

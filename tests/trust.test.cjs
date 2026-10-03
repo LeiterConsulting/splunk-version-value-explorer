@@ -6,10 +6,11 @@ test('source verification never masquerades as claim verification; scope and esc
  const h=c.window.VersionCompassEvidence.html({claim:'<img onerror=x>',scope:'Cloud',urls:['https://example.com']});
  assert(h.includes('&lt;img'));assert(!h.includes('<img'));assert(h.includes('Claim last verified:</strong> Not separately recorded'));assert(h.includes('Source last verified:</strong> 2026-09-25'));assert(h.includes('Only ES 8.7'));assert(h.includes('source_search='));
 });
-test('10.4 route table requires intermediate steps from 9.3 and 9.4',()=>{
+test('10.4 and 10.6 route tables preserve required intermediate steps',()=>{
  const c={window:{}};vm.runInNewContext(read('dist/data.js'),c);const edges=c.window.SPLUNK_DATA.enterprise.edges;
  assert(!edges['9.3'].includes('10.2'));assert(!edges['9.4'].includes('10.4'));
  assert(edges['9.3'].includes('10.0'));assert(edges['9.4'].includes('10.2'));assert(edges['10.0'].includes('10.4'));assert(edges['10.2'].includes('10.4'));
+ assert(!edges['9.4'].includes('10.6'));assert(edges['10.0'].includes('10.6'));assert(edges['10.2'].includes('10.6'));assert(edges['10.4'].includes('10.6'));
 });
 test('maintenance requires an attempt, retains failed outcomes, and advances success only after completion',()=>{
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'maintenance-'));
@@ -28,7 +29,7 @@ test('maintenance requires an attempt, retains failed outcomes, and advances suc
  }finally{fs.rmSync(dir,{recursive:true,force:true});}
 });
 test('site publication language is distinct from source verification',()=>{
- assert(read('dist/index.html').includes('Site updated October 2, 2026'));
+ assert(read('dist/index.html').includes('Site updated October 3, 2026'));
  assert(!read('dist/index.html').includes('Source-backed guidance reviewed'));
  assert(read('dist/webmcp.js').includes('siteUpdatedDate'));
 });

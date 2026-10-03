@@ -1,0 +1,184 @@
+{
+  "watch": "version-release-watch",
+  "sourceCheckDate": "2026-10-03",
+  "startedAt": "2026-10-03T09:39:51.458Z",
+  "completedAt": "2026-10-03T10:01:00.000Z",
+  "outcome": "changed",
+  "scope": "All 113 unique maintained official URLs referenced by Platform, premium-product, Forwarder and SOAR data, plus bounded current release, upgrade, compatibility, receiver, runtime and security claims.",
+  "sourceInventory": {
+    "uniqueUrls": 113,
+    "method": "Each maintained URL was fetched directly. Official GitHub latest-release API responses compensated for transient release-page rendering errors. A fetched source was not treated as a verified claim.",
+    "changedSource": "The canonical Enterprise 10.6 upgrade page now exposes an explicit 10.6 supported-path heading and table.",
+    "unavailable": [
+      "Selected historical docs.splunk.com 8.1 and 8.2 pages returned retrieval errors; their historical records were preserved and not reverified.",
+      "Some GitHub HTML release pages returned transient rendering errors; current release identifiers were confirmed through the official GitHub Releases API instead."
+    ]
+  },
+  "claimChecks": [
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise",
+      "section": "Upgrade paths to version 10.6; current-version table",
+      "claimId": "upgrade:enterprise:10.6",
+      "productVersionEnvironment": "Splunk Enterprise 9.4.x, 10.0.x, 10.2.x and 10.4.x to 10.6.x; customer-managed",
+      "qualification": "The table establishes release-line edges only. It does not establish exact maintenance, OS, app, receiver, topology, Cloud rollout, entitlement, region or authorization scope.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "changed",
+      "followUp": "Retain the 10.4 source for older graph segments and monitor the versioned 10.6 table without pinning discovery to this release."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first",
+      "section": "Key points for upgrading to version 10.6; direct Universal Forwarder upgrade; TLS and Federated Search prerequisites",
+      "claimId": "upgrade:uf:10.6",
+      "productVersionEnvironment": "Universal Forwarder 10.0.x and later to 10.6.x",
+      "qualification": "UF-specific upgrade evidence remains separate from Heavy Forwarder, receiver and topology evidence.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Continue using the UF source for UF steps even though the Enterprise/HF release-line edges now coincide."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers",
+      "section": "Forwarder-to-indexer compatibility; direct and intermediate forwarding tiers",
+      "claimId": "compatibility:forwarders:enterprise-receiver:10.6",
+      "productVersionEnvironment": "UF/HF 10.6; Splunk Enterprise receiver",
+      "qualification": "The current matrix has no 10.6 forwarder row. Upgrade support and 10.6 certification do not prove receiver compatibility.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Keep 10.6 Enterprise receiver selections Not established until an explicit row is published."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Supported forwarder versions",
+      "claimId": "compatibility:forwarders:cloud-direct:10.6",
+      "productVersionEnvironment": "UF/HF directly communicating with Splunk Cloud Platform; outgoing intermediate tier when present",
+      "qualification": "The table stops at forwarder 10.4.x. Its direct-tier scope does not certify an indirectly connected forwarder or a hybrid topology.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Keep 10.6 Cloud receiver selections Not established and preserve the omitted Cloud 10.4 pairing for forwarder 10.0."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Current Splunk Cloud Platform and Premium App versions",
+      "claimId": "pairing:cloud-current:10.5-es8.6-itsi5.0",
+      "productVersionEnvironment": "Splunk Cloud Platform subscription service",
+      "qualification": "The 10.6 documentation path still lists Cloud 10.5, ES 8.6 and ITSI 5.0. The page path and release notes do not establish selected-stack rollout or authorization.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Continue discovery for an explicit current-pairing update."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+      "section": "Splunk Enterprise version 10.x; 10.6.x row",
+      "claimId": "compatibility:enterprise:10.6:es-itsi",
+      "productVersionEnvironment": "Enterprise 10.6.x with ES 8.4.1/8.5.1/8.6.1/8.7 and ITSI 4.21.x/5.0",
+      "qualification": "Customer-managed Enterprise compatibility does not establish Cloud managed availability, entitlement, regional authorization or exact patch readiness.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Verify exact maintenance releases and separate KV Store prerequisites during implementation planning."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/release-notes-overview",
+      "section": "Release month table; September 2026",
+      "claimId": "release:observability:latest-service-milestone",
+      "productVersionEnvironment": "Splunk Observability Cloud rolling SaaS",
+      "qualification": "The overview still lists September 23 as the newest milestone. SaaS milestones are not Collector or instrumentation installation paths.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Monitor for an October release-note page and keep component versions independently discovered."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.7.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+      "section": "September 22 updated build 243; Python 3.9 end of support",
+      "claimId": "release:soar-onprem:8.7.0-build243",
+      "productVersionEnvironment": "SOAR On-premises 8.7.0",
+      "qualification": "Build 243 fixes the two build 232 issues. Python 3.13-compatible automation is required; Cloud milestones are not installation paths.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Preserve both build identifiers and continue discovery beyond 8.7."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.7.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+      "section": "Upgrade path table: 6.4.1.x; 7.0.x and higher",
+      "claimId": "upgrade:soar:unprivileged:8.7.0",
+      "productVersionEnvironment": "SOAR On-premises 8.7.0; unprivileged installation",
+      "qualification": "6.4.1.x uses the documented 8.5.0 and Python migration bridge; 7.0.x and higher can move directly. Privileged and Phantom conversion paths are separate.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Expand older target coverage only from exact versioned tables."
+    },
+    {
+      "url": "https://advisory.splunk.com/",
+      "section": "Splunk Security Advisories; first current row",
+      "claimId": "security:advisory-index:current",
+      "productVersionEnvironment": "Enterprise, Universal Forwarder, AWS add-on and MCP Server",
+      "qualification": "SVD-2026-0901 is an advance notice for October 7, not a present vulnerability or fixed-version record.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Recheck the published advisory rows on October 7 and preserve component-specific applicability."
+    }
+  ],
+  "boundedConfirmedInventories": {
+    "enterpriseLatestLine": "10.6; released 2026-09-30",
+    "cloudCurrentSubscription": "10.5",
+    "enterpriseSecurity": "8.7.1",
+    "itsi": "5.0.2",
+    "scma": "5.4.11",
+    "observabilityLatestMilestone": "2026-09-23",
+    "collector": "0.161.0",
+    "collectorChart": "0.161.0",
+    "dotnet": "1.16.0",
+    "node": "4.12.0",
+    "java": "2.31.3",
+    "browserRum": "3.2.0",
+    "soarOnPremises": "8.7.0 build 243",
+    "securityAdvisoryIndex": "SVD-2026-0901; next publication announced for 2026-10-07"
+  },
+  "unverifiedOrDeferred": [
+    "Historical 8.1/8.2 source bodies that were unavailable during this run",
+    "Enterprise 9.4.16 and ES 8.7.1 fixed-issue detail because their current pages expose no enumerated issue rows",
+    "ES 8.7.1 compatibility with Splunk App for SOAR because the exact table still names ES 8.7.0",
+    "Cloud or Enterprise receiver compatibility for forwarder 10.6 because no explicit receiver row was found",
+    "Regional, FedRAMP and customer-authorization scope, which remains owned by CSP FedRAMP Watch"
+  ],
+  "validationOutcomes": [
+    {
+      "check": "Release metadata synchronization gate",
+      "outcome": "passed",
+      "detail": "scripts/sync-release-metadata.cjs --check passed on the reconciled source."
+    },
+    {
+      "check": "Source register synchronization gate",
+      "outcome": "passed",
+      "detail": "scripts/sync-source-register.cjs --check passed with 143 registered sources."
+    },
+    {
+      "check": "Content revision synchronization gate",
+      "outcome": "passed",
+      "detail": "scripts/sync-content-revision.cjs --check passed."
+    },
+    {
+      "check": "Automated syntax and regression suite",
+      "outcome": "passed",
+      "detail": "node --test tests/*.test.cjs passed 79 of 79 tests."
+    },
+    {
+      "check": "Native pre-publication browser journey",
+      "outcome": "not performed",
+      "detail": "The browser runtime blocked file:// and local-loopback pages. Structural journey tests passed, but that is not a native-browser result."
+    },
+    {
+      "check": "Pre-publication keyboard, narrow-screen, actual PDF and independently reopened HTML",
+      "outcome": "not performed",
+      "detail": "No supported pre-publication browser surface was available; these checks are not inferred from automated tests."
+    }
+  ]
+}
