@@ -2913,14 +2913,25 @@ window.VersionCompassSources = {
       "title": "how to upgrade splunk enterprise",
       "areas": [
         "Release guide",
+        "Splunk Forwarders",
         "Shared guidance"
       ],
       "references": [
         "release.enterprise.upgradeSources.10.6",
         "release.enterprise.releasesData.10.6.technicalChanges.0.source",
-        "content-updates.js"
+        "forwarders.sources.enterprise106.url",
+        "content-updates.js",
+        "forwarders: forwarders.claimSources.upgrade.hf.10.6"
       ],
-      "reviews": [],
+      "reviews": [
+        "2026-10-03"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.upgrade.hf.10.6",
+          "section": "Upgrade paths to version 10.6; current-version table"
+        }
+      ],
       "usage": "In use",
       "reviewed": "2026-10-03",
       "status": "Reviewed",
