@@ -164,9 +164,24 @@
       "detail": "All three synchronization checks passed; node --test tests/*.test.cjs passed 79 of 79 tests on the reconciled source."
     },
     {
-      "check": "Native browser, keyboard, narrow-screen, PDF, reopened HTML and live deployment",
-      "outcome": "not performed before publication",
-      "detail": "These outcomes are independent of source and structural checks and must not be inferred from the no-change review."
+      "check": "Live canonical and legacy routes",
+      "outcome": "passed",
+      "detail": "The canonical ?view=es-editions route loaded the comparison. A fresh ?preview=es-editions tab loaded the same content and canonicalized to the public view route after initialization."
+    },
+    {
+      "check": "Live conflicts, themes and fixed actions",
+      "outcome": "passed",
+      "detail": "The live page retained all five evidence questions, including both Connector Builder statements and both Guided Response scopes. Default and theme=cisco routes loaded; Copy comparison link, Print / save PDF and snapshot actions remained present."
+    },
+    {
+      "check": "Live keyboard skip target",
+      "outcome": "partial",
+      "detail": "Keyboard activation changed the URL to #edition-comparison. The browser did not expose a reliable focus-target confirmation, so focus placement was not marked passed."
+    },
+    {
+      "check": "Actual PDF, downloaded HTML reopen and narrow-screen browser",
+      "outcome": "not performed",
+      "detail": "No native PDF/page inspection or viewport-resize surface was available. The snapshot was prepared but the browser download channel timed out, so no independent HTML reopen was claimed."
     }
   ]
 }

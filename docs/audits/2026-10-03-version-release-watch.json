@@ -184,6 +184,36 @@
       "check": "Pre-publication keyboard, narrow-screen, actual PDF and independently reopened HTML",
       "outcome": "not performed",
       "detail": "No supported pre-publication browser surface was available; these checks are not inferred from automated tests."
+    },
+    {
+      "check": "Corrected live Platform and Forwarder journeys",
+      "outcome": "passed",
+      "detail": "After republishing, the Enterprise 9.4→10.6 report used 9.4→10.0→10.6 and the exact 10.6 upgrade source. The Heavy Forwarder 10.4→10.6 screen and WebMCP report both used enterprise106 and the exact 10.6 upgrade-table URL; Enterprise receiver 10.6 remained Not established."
+    },
+    {
+      "check": "Live read-only WebMCP parity",
+      "outcome": "passed",
+      "detail": "Native browser-scoped tools reported content revision vc-070559368b1d8fad and agreed with the final Platform and Heavy Forwarder screen selections, route steps, citations and receiver status."
+    },
+    {
+      "check": "Live publication status",
+      "outcome": "passed",
+      "detail": "Sites version 90 deployment appgdep_6ac0d502522c8191a289ea165fb5bf52 succeeded at 2026-10-03T10:12:25.047706Z. The public site exposed the October 3 release-note link and corrected runtime."
+    },
+    {
+      "check": "Actual PDF export and page-by-page pagination",
+      "outcome": "not performed",
+      "detail": "The cloud browser exposed the site's print action but no supported PDF-output or pagination-inspection surface. Automated print expansion and restored-state tests passed, but they are not an actual PDF result."
+    },
+    {
+      "check": "Downloaded HTML independently reopened",
+      "outcome": "not performed",
+      "detail": "The site prepared a blob-backed dated snapshot and exposed its Download HTML report link, but the browser download channel timed out and returned no file path; no independent reopen was claimed."
+    },
+    {
+      "check": "Native narrow-screen browser pass",
+      "outcome": "not performed",
+      "detail": "The available cloud-browser API did not expose viewport resizing; structural mobile tests were not treated as a native narrow-screen result."
     }
   ]
 }
