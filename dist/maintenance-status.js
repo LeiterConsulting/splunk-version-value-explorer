@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-10-02T11:51:48Z",
-      "lastSuccess": "2026-10-02T12:00:07Z",
+      "lastAttempt": "2026-10-03T11:58:42Z",
+      "lastSuccess": "2026-10-03T12:05:24Z",
       "outcome": "no-change",
-      "summary": "Reviewed all 10 maintained official environment sources, all 54 records and both CSP-owned SOAR regional sources; no material availability or authorization change was found, the S3 High conflict remains explicit, and the current change-log path was repaired.",
+      "summary": "Checked all 10 maintained official environment sources, the 54-record inventory and both CSP-owned SOAR sources; four high-consequence claims were reverified with no material correction, while the S3 High conflict, SOAR service-date discrepancy and SOAR FR-H gap remain explicit.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -99,9 +99,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Reviewed all 10 maintained official environment sources, all 54 records and both CSP-owned SOAR regional sources; no material availability or authorization change was found, the S3 High conflict remains explicit, and the current change-log path was repaired.",
           "scope": "Cloud Platform 10.6 Service Details and change log; Ingest Processor prerequisites; ES 8.7 and SOAR regional and pairing evidence; Observability realms and component scope; visually verified February 2026 US Public Sector symbols; exact FedRAMP Moderate and High Marketplace offerings; SOAR Moderate restrictions and FR-H gap; environment filters, perspectives, reports, shared URLs, print/snapshot and read-only WebMCP parity."
+        },
+        {
+          "at": "2026-10-03T11:58:42Z",
+          "outcome": "running",
+          "summary": "Reviewing the complete maintained CSP, regional, restricted-environment, FedRAMP and Observability evidence inventory, including visual symbol tables and SOAR-specific scope.",
+          "scope": "Ten maintained Cloud environment sources and all environment records; current Cloud Service Details and change log; Ingest Processor prerequisites; ES, ITSI and SOAR regional/pairing evidence; Observability realms; rendered US Public Sector compliance symbols; exact FedRAMP Marketplace Moderate and High offerings; preserved S3 High conflict; environment filters, perspectives, reports, shared URLs, print/snapshot and read-only WebMCP parity."
+        },
+        {
+          "at": "2026-10-03T12:05:24Z",
+          "outcome": "no-change",
+          "summary": "Checked all 10 maintained official environment sources, the 54-record inventory and both CSP-owned SOAR sources; four high-consequence claims were reverified with no material correction, while the S3 High conflict, SOAR service-date discrepancy and SOAR FR-H gap remain explicit.",
+          "scope": "Cloud Platform 10.6 Service Details and change log; Ingest Processor prerequisites; ES 8.7 regional and SOAR pairing evidence; Observability realms; visually inspected February 2026 US Public Sector symbols; exact FedRAMP Moderate and High Marketplace offerings; SOAR commercial regions, Moderate restrictions and FR-H gap; environment filters, perspectives, reports, shared URLs, print/snapshot and read-only WebMCP parity."
         }
       ],
-      "scope": "Cloud Platform 10.6 Service Details and change log; Ingest Processor prerequisites; ES 8.7 and SOAR regional and pairing evidence; Observability realms and component scope; visually verified February 2026 US Public Sector symbols; exact FedRAMP Moderate and High Marketplace offerings; SOAR Moderate restrictions and FR-H gap; environment filters, perspectives, reports, shared URLs, print/snapshot and read-only WebMCP parity."
+      "scope": "Cloud Platform 10.6 Service Details and change log; Ingest Processor prerequisites; ES 8.7 regional and SOAR pairing evidence; Observability realms; visually inspected February 2026 US Public Sector symbols; exact FedRAMP Moderate and High Marketplace offerings; SOAR commercial regions, Moderate restrictions and FR-H gap; environment filters, perspectives, reports, shared URLs, print/snapshot and read-only WebMCP parity."
     },
     {
       "id": "version-release-watch",

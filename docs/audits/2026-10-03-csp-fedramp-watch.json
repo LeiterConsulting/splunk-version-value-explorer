@@ -1,0 +1,213 @@
+{
+  "watch": "csp-fedramp-watch",
+  "maintenanceId": "csp-fedramp-watch",
+  "startedAt": "2026-10-03T11:58:42Z",
+  "completedAt": "2026-10-03T12:05:24Z",
+  "outcome": "no-change",
+  "materialChange": false,
+  "summary": "The complete maintained Cloud-environment source inventory was checked and four high-consequence authorization, availability and SOAR claims were reverified. No material factual change was found.",
+  "scope": {
+    "environmentSources": 10,
+    "environmentRecords": 54,
+    "soarSourcesOwned": 2,
+    "claimChecks": 4,
+    "qualification": "Source retrieval was used for change detection. Claim verification was limited to the four claimChecks below; unchanged historical records keep their prior verification dates."
+  },
+  "sourceChecks": [
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor",
+      "section": "Get started with the Ingest Processor solution; Compliance and certifications for Ingest Processor",
+      "claimIds": ["environment:ingest-victoria-prerequisite", "environment:ingest-regulated-boundary"],
+      "productVersionEnvironment": "Splunk Cloud Platform; current Ingest Processor; Commercial and regulated environments",
+      "qualification": "The product requires a provisioned tenant and Victoria Experience. The page's general compliance text is not feature-level FedRAMP High evidence.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Keep Classic restricted and High not established unless feature-specific evidence is published."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions and region differences; Compliance and certifications; Current Splunk Cloud Platform and Premium App versions",
+      "claimIds": ["environment:service-regions", "environment:s3-high-conflict", "environment:current-stack"],
+      "productVersionEnvironment": "Cloud service-description path 10.6; current table Cloud 10.5, ES 8.6, ITSI 5.0; AWS, Google Cloud, Azure; Commercial, FR-M, FR-H",
+      "qualification": "The page path is 10.6 but its current subscription table still lists Cloud 10.5, ES 8.6 and ITSI 5.0. The current regional row explicitly excludes S3 search in High and IL5.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "conflicting",
+      "followUp": "Preserve the S3 High conflict with the April change-log entry and do not infer a 10.6 managed stack."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "August 25, 2026; April 8, 2026",
+      "claimIds": ["environment:victoria-high", "environment:s3-high-conflict"],
+      "productVersionEnvironment": "Relevant Cloud 10.5 Victoria entries and Cloud 10.3 S3 entries; AWS GovCloud FR-H/IL5",
+      "qualification": "The latest body entry remains August 25. The April 8 entry adds S3 High and IL5 for relevant 10.3 releases but does not resolve the current service-table exclusion.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "conflicting",
+      "followUp": "Seek authoritative current-scope reconciliation; retain both version scopes."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "Regional availability for Enterprise Security Editions; GCP and Azure availability; Splunk SOAR compatibility",
+      "claimIds": ["environment:es87-regions", "environment:es-soar-pairing"],
+      "productVersionEnvironment": "ES 8.7; Cloud and on-premises; AWS, Google Cloud, Azure; Commercial and public-sector contexts",
+      "qualification": "Regional availability and exact pairing tables do not establish entitlement or authorization. Enterprise 9.4.0-9.4.2 remains excluded for ES/SOAR pairing.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Keep edition, deployment, region and SOAR version qualifications separate."
+    },
+    {
+      "url": "https://www.splunk.com/en_us/about-splunk/splunk-data-security-and-privacy/compliance-at-splunk.html",
+      "section": "US Public Sector product-compliance table; symbol legend; February 2026 qualification",
+      "claimIds": ["authorization:matrix-feb-2026", "authorization:soar-fr-h-gap", "environment:s3-high-conflict"],
+      "productVersionEnvironment": "Named Splunk services and features; IL5, FR-M, FR-H, GovRAMP, TX-RAMP",
+      "qualification": "The rendered symbol table was inspected directly. S3 search, Ingest Processor and SOAR have Moderate marks and blank High cells; blanks remain unknown and the matrix is expressly limited to February 2026.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Do not convert blank cells into exclusions or treat the dated matrix as a current universal authorization statement."
+    },
+    {
+      "url": "https://www.fedramp.gov/marketplace/products/FR2314156865/",
+      "section": "Status; Certification Profile; Certified Since",
+      "claimIds": ["authorization:platform-fr-h-offering"],
+      "productVersionEnvironment": "Splunk Cloud Platform for FedRAMP High; Class D High",
+      "qualification": "The exact offering remains FedRAMP Certified, ongoing certification, certified since September 13, 2024. This does not authorize every feature or product.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Continue independent feature- and product-level checks."
+    },
+    {
+      "url": "https://www.fedramp.gov/marketplace/products/F1607197917/",
+      "section": "Status; Certification Profile; Certified Since",
+      "claimIds": ["authorization:platform-fr-m-offering"],
+      "productVersionEnvironment": "Splunk Cloud Platform for FedRAMP Moderate; Class C Moderate",
+      "qualification": "The exact offering remains FedRAMP Certified, ongoing certification, certified since October 11, 2019. Moderate does not imply High.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Keep Moderate and High as separate offerings and evidence boundaries."
+    },
+    {
+      "url": "https://www.splunk.com/en_us/blog/industries/splunk-victoria-experience-is-now-authorized-at-fedramp-high.html",
+      "section": "The Bottom Line; migration qualification",
+      "claimIds": ["authorization:victoria-fr-h"],
+      "productVersionEnvironment": "Cloud Platform Victoria Experience; FR-H",
+      "qualification": "The July 10 announcement supports the named experience authorization and says existing High migrations were planned, not universally complete.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Do not convert the announcement into completed migration or feature-level scope."
+    },
+    {
+      "url": "https://www.splunk.com/en_us/blog/industries/splunk-enterprise-security-premier-achieves-fedramp-moderate-authorization.html",
+      "section": "Empowering the Mission",
+      "claimIds": ["authorization:es-premier-fr-m"],
+      "productVersionEnvironment": "Enterprise Security Premier; FR-M",
+      "qualification": "The June 25 announcement supports the named edition milestone, not universal component, entitlement, region or SOAR-pairing scope.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Keep component-level blanks and edition-specific evidence visible."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
+      "section": "Realm to region equivalence; Available components per region or realm",
+      "claimIds": ["environment:o11y-realms", "environment:o11y-db-us2"],
+      "productVersionEnvironment": "Splunk Observability Cloud; nine realms; AWS and Google Cloud",
+      "qualification": "Realm hosting and component availability are distinct from monitored workload location, Platform hosting and regulated authorization. Database Monitoring still excludes us2.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Keep Observability authorization independent and component-specific."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/soar-cloud-service-description/the-splunk-soar-service/splunk-soar-cloud-introduction",
+      "section": "Available regions; Current Splunk SOAR (Cloud) version",
+      "claimIds": ["soar:regions", "soar:service-date-discrepancy"],
+      "productVersionEnvironment": "SOAR Cloud; Commercial AWS, Google Cloud and Azure; 8.7.0",
+      "qualification": "The current section still says September 2026 while the 8.7.0 table row says April 2026. Current region lists do not establish historical availability or FR-H.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "conflicting",
+      "followUp": "Retain both dates and monitor for an authoritative correction."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/administer-soar-cloud/introduction-to-splunk-soar-cloud/splunk-soar-cloud-in-restricted-environments",
+      "section": "Splunk SOAR (Cloud) FedRAMP Moderate: Hosting, FIPS mode, Playbooks, Automation isolation, Restoring data",
+      "claimIds": ["soar:restricted-fr-m", "authorization:soar-fr-h-gap"],
+      "productVersionEnvironment": "SOAR Cloud; FedRAMP Moderate in AWS GovCloud",
+      "qualification": "The page confirms Moderate-only GovCloud hosting, mandatory FIPS mode, Broker and playbook restrictions, automation isolation, and no native-data migration. It does not establish FR-H.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Keep FR-H not established and do not inherit Cloud Platform authorization."
+    }
+  ],
+  "claimChecks": [
+    {
+      "claimId": "environment:s3-high-conflict",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Federated search for Amazon S3 row; change log April 8, 2026; US Public Sector matrix",
+      "productVersionEnvironment": "Federated Search for Amazon S3; AWS GovCloud; FR-H and IL5",
+      "qualification": "The current table excludes High and IL5, the April entry adds them for relevant 10.3 versions, and the visually inspected February matrix has a Moderate mark with a blank High cell.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "conflicting",
+      "followUp": "Escalate authoritative current-scope clarification; preserve all three dated/versioned statements."
+    },
+    {
+      "claimId": "authorization:platform-offerings-separate",
+      "url": "https://www.fedramp.gov/marketplace/products/FR2314156865/",
+      "section": "High and Moderate Marketplace offering status and certification profiles",
+      "productVersionEnvironment": "Splunk Cloud Platform; FR-M and FR-H",
+      "qualification": "Separate certified offerings remain listed. Moderate never establishes High and neither offering authorizes every feature or adjacent product.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "confirmed",
+      "followUp": "Retain product/feature authorization boundaries."
+    },
+    {
+      "claimId": "soar:service-date-discrepancy",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/soar-cloud-service-description/the-splunk-soar-service/splunk-soar-cloud-introduction",
+      "section": "Current Splunk SOAR (Cloud) version",
+      "productVersionEnvironment": "SOAR Cloud 8.7.0",
+      "qualification": "The section still says As of September 2026 while the row says April 2026 | 8.7.0. No correction is inferred.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "conflicting",
+      "followUp": "Monitor for a published correction and retain both dates."
+    },
+    {
+      "claimId": "authorization:soar-fr-h-gap",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/administer-soar-cloud/introduction-to-splunk-soar-cloud/splunk-soar-cloud-in-restricted-environments",
+      "section": "FedRAMP Moderate scope; US Public Sector SOAR Cloud row",
+      "productVersionEnvironment": "SOAR Cloud; FR-H",
+      "qualification": "SOAR-specific public evidence establishes Moderate only; the rendered High cell is blank. Cloud Platform High cannot be inherited.",
+      "sourceCheckDate": "2026-10-03",
+      "claimVerificationDate": "2026-10-03",
+      "outcome": "unavailable",
+      "followUp": "Keep the priority-one FR-H backlog until an authoritative SOAR-specific offering and feature scope is published."
+    }
+  ],
+  "backlog": [
+    {"priority": 1, "claimId": "environment:s3-high-conflict", "status": "conflicting", "next": "Obtain authoritative reconciliation between the current exclusion, April 8 addition and February matrix blank."},
+    {"priority": 1, "claimId": "authorization:soar-fr-h-gap", "status": "not_established", "next": "Locate explicit SOAR-specific FR-H offering and feature scope; never inherit Platform High."},
+    {"priority": 1, "claimId": "soar:service-date-discrepancy", "status": "conflicting", "next": "Recheck the September heading and April row for a published correction."},
+    {"priority": 2, "claimId": "authorization:matrix-freshness", "status": "bounded", "next": "Continue direct symbol-table review while the public matrix remains expressly dated February 2026."}
+  ],
+  "validation": {
+    "syntax": {"outcome": "confirmed", "detail": "node --check passed for dist/environment-data.js, dist/soar-data.js, dist/source-register.js and dist/content-revision.js; the audit JSON parsed successfully."},
+    "metadataGates": {"outcome": "confirmed", "detail": "sync-release-metadata.cjs --check, sync-source-register.cjs --check and sync-content-revision.cjs --check passed; the generated source register contains 143 records."},
+    "tests": {"outcome": "confirmed", "detail": "node --test tests/*.test.cjs passed 79 of 79 tests."},
+    "browserJourneys": {"outcome": "pending", "detail": "Not yet run."},
+    "keyboardNarrowScreen": {"outcome": "pending", "detail": "Not yet run."},
+    "pdfExport": {"outcome": "pending", "detail": "Not yet run."},
+    "downloadedHtml": {"outcome": "pending", "detail": "Not yet run."},
+    "screenPdfHtmlWebMcpAgreement": {"outcome": "pending", "detail": "Not yet run."},
+    "liveDeployment": {"outcome": "pending", "detail": "Not yet published."}
+  }
+}
