@@ -6,8 +6,8 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-10-03T11:58:42Z",
-      "lastSuccess": "2026-10-03T12:05:24Z",
+      "lastAttempt": "2026-10-04T11:53:39Z",
+      "lastSuccess": "2026-10-04T12:00:21Z",
       "outcome": "no-change",
       "summary": "Checked all 10 maintained official environment sources, the 54-record inventory and both CSP-owned SOAR sources; four high-consequence claims were reverified with no material correction, while the S3 High conflict, SOAR service-date discrepancy and SOAR FR-H gap remain explicit.",
       "history": [
@@ -108,6 +108,18 @@ window.VersionCompassMaintenance = {
         },
         {
           "at": "2026-10-03T12:05:24Z",
+          "outcome": "no-change",
+          "summary": "Checked all 10 maintained official environment sources, the 54-record inventory and both CSP-owned SOAR sources; four high-consequence claims were reverified with no material correction, while the S3 High conflict, SOAR service-date discrepancy and SOAR FR-H gap remain explicit.",
+          "scope": "Cloud Platform 10.6 Service Details and change log; Ingest Processor prerequisites; ES 8.7 regional and SOAR pairing evidence; Observability realms; visually inspected February 2026 US Public Sector symbols; exact FedRAMP Moderate and High Marketplace offerings; SOAR commercial regions, Moderate restrictions and FR-H gap; environment filters, perspectives, reports, shared URLs, print/snapshot and read-only WebMCP parity."
+        },
+        {
+          "at": "2026-10-04T11:53:39Z",
+          "outcome": "running",
+          "summary": "Reviewing the complete maintained Cloud and FedRAMP environment inventory plus bounded high-consequence authorization, availability and SOAR claims.",
+          "scope": "Ten environment sources, 54 environment records, two CSP-owned SOAR sources, exact Marketplace offerings, the visual compliance matrix, Observability realms, ES/ITSI/SOAR compatibility, SOAR restricted environments, the S3 High conflict, current discovery paths and four highest-consequence claims."
+        },
+        {
+          "at": "2026-10-04T12:00:21Z",
           "outcome": "no-change",
           "summary": "Checked all 10 maintained official environment sources, the 54-record inventory and both CSP-owned SOAR sources; four high-consequence claims were reverified with no material correction, while the S3 High conflict, SOAR service-date discrepancy and SOAR FR-H gap remain explicit.",
           "scope": "Cloud Platform 10.6 Service Details and change log; Ingest Processor prerequisites; ES 8.7 regional and SOAR pairing evidence; Observability realms; visually inspected February 2026 US Public Sector symbols; exact FedRAMP Moderate and High Marketplace offerings; SOAR commercial regions, Moderate restrictions and FR-H gap; environment filters, perspectives, reports, shared URLs, print/snapshot and read-only WebMCP parity."
