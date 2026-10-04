@@ -29,7 +29,7 @@ test('maintenance requires an attempt, retains failed outcomes, and advances suc
  }finally{fs.rmSync(dir,{recursive:true,force:true});}
 });
 test('site publication language is distinct from source verification',()=>{
- assert(read('dist/index.html').includes('Site updated October 3, 2026'));
+ assert(read('dist/index.html').includes('Site updated October 4, 2026'));
  assert(!read('dist/index.html').includes('Source-backed guidance reviewed'));
  assert(read('dist/webmcp.js').includes('siteUpdatedDate'));
 });

@@ -230,10 +230,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-10-03T10:01:01Z",
-      "lastSuccess": "2026-10-03T10:01:02Z",
+      "lastAttempt": "2026-10-04T10:02:11.106Z",
+      "lastSuccess": "2026-10-04T10:09:44.067Z",
       "outcome": "no-change",
-      "summary": "All 20 maintained ES Editions sources still support the published scoped evidence; no factual edition, entitlement, prerequisite or pairing correction was required, and five source questions remain explicit.",
+      "summary": "Reviewed all 20 maintained ES Editions sources and four exact SOAR pairing/release records; no factual correction was supported, and all conflicts and qualifications remain open.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -323,9 +323,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "All 20 maintained ES Editions sources still support the published scoped evidence; no factual edition, entitlement, prerequisite or pairing correction was required, and five source questions remain explicit.",
           "scope": "All 20 maintained ES editions sources plus exact ES-to-SOAR, Automation Builder, App for SOAR and Export qualifications; bounded Connector Builder, Guided Response, agent minimum, pricing, licensing, UEBA and Exposure Analytics claims."
+        },
+        {
+          "at": "2026-10-04T10:02:11.106Z",
+          "outcome": "running",
+          "summary": "October 4 ES Editions evidence review started.",
+          "scope": "All maintained ES edition sources and records, including highlights, workflows, capabilities/history, entitlement, prerequisites, Cloud Connect, SOAR pairing, pricing/licensing/trials, UEBA, Exposure Analytics, unresolved conflicts and affected Release Guide parity."
+        },
+        {
+          "at": "2026-10-04T10:09:44.067Z",
+          "outcome": "no-change",
+          "summary": "Reviewed all 20 maintained ES Editions sources and four exact SOAR pairing/release records; no factual correction was supported, and all conflicts and qualifications remain open.",
+          "scope": "ES Essentials/Premier highlights, workflows, capabilities/history, Cloud Connect, agents/tasks, entitlement, prerequisites, regional/SOAR pairing, pricing, licensing/trials, UEBA, Exposure Analytics, announcements and surrounding release/export parity. Native PDF, reopened HTML, narrow-screen and live WebMCP invocation remain unavailable or unperformed and are recorded separately."
         }
       ],
-      "scope": "All 20 maintained ES editions sources plus exact ES-to-SOAR, Automation Builder, App for SOAR and Export qualifications; bounded Connector Builder, Guided Response, agent minimum, pricing, licensing, UEBA and Exposure Analytics claims."
+      "scope": "ES Essentials/Premier highlights, workflows, capabilities/history, Cloud Connect, agents/tasks, entitlement, prerequisites, regional/SOAR pairing, pricing, licensing/trials, UEBA, Exposure Analytics, announcements and surrounding release/export parity. Native PDF, reopened HTML, narrow-screen and live WebMCP invocation remain unavailable or unperformed and are recorded separately."
     },
     {
       "id": "version-guidance-audit",
