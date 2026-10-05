@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VersionCompass scoped content record",
+  "type": "object",
+  "required": ["id", "kind", "dataset"],
+  "properties": {
+    "id": {"type": "string"},
+    "kind": {"type": "string"},
+    "dataset": {"enum": ["platform", "products", "guidance", "environment", "editions", "forwarders", "soar", "sources"]},
+    "scope": {"type": "object"},
+    "evidence": {"type": "array", "items": {"type": "object", "required": ["sourceId", "url", "section", "sourceVerified", "sourceChecked"]}},
+    "verification": {"type": "object", "required": ["date", "outcome"], "properties": {"date": {"type": ["string", "null"]}, "outcome": {"type": "string"}}}
+  }
+}

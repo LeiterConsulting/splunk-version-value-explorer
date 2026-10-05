@@ -88,7 +88,7 @@ This is browser-scoped WebMCP; the site does not expose a standalone remote MCP 
 
 ## Updating for a new release
 
-Platform and Enterprise-to-Cloud content is centralized in [`dist/data.js`](dist/data.js). Premium-product and Observability content lives in [`dist/product-data.js`](dist/product-data.js). To extend the explorer:
+Platform and Enterprise-to-Cloud content is maintained in [`content/datasets/platform.json`](content/datasets/platform.json). Premium-product and Observability content lives in [`content/datasets/products.json`](content/datasets/products.json). JavaScript data files are generated adapters; run `npm run content:sync` after editing canonical JSON. To extend the explorer:
 
 1. Add the release identifier to the platform's `releases` array.
 2. Add its date, official release-note URL, notable capabilities, technical changes, and readiness requirements under `releasesData`. Set the optional fifth requirement value to `true` when the official source identifies a potential breaking or material behavior change.
@@ -124,13 +124,15 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the content model, workflow, and re
 
 ## Run locally
 
-This is a dependency-free static site. Serve the repository root with any local HTTP server and open `/dist/`:
+The existing interface uses revisioned JSON and a read-only database API, with complete bundled fallback. Build and run the development preview:
 
 ```bash
-python -m http.server 8000
+npm ci
+npm run build
+npm run dev
 ```
 
-Then visit `http://localhost:8000/dist/`.
+Then visit `http://localhost:4173/`. Development uses SQLite; production uses Sites-managed D1. See [content publication](docs/architecture/content-publication.md) and [soak policy](docs/soak-policy.md).
 
 ## Source and scope
 

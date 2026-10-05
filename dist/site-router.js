@@ -1,7 +1,17 @@
 /* Public ES editions route; preserve the original preview URL as an alias. */
-(function () {
+(async function () {
   'use strict';
   const params = new URLSearchParams(window.location.search);
+  let pendingProduct = null;
+  const initialControls = window.VersionCompassContent ? [...document.querySelectorAll('input[name="product"]')] : [];
+  const rememberProduct = event => { pendingProduct = event.target.value; };
+  initialControls.forEach(input => input.addEventListener('change', rememberProduct));
+  if (window.VersionCompassContent) await window.VersionCompassContent.load();
+  initialControls.forEach(input => input.removeEventListener?.('change', rememberProduct));
+  if (pendingProduct && pendingProduct !== (params.get('product') || 'platform')) {
+    window.location.href = window.VersionCompassTheme?.href('?product=' + pendingProduct) || '?product=' + pendingProduct;
+    return;
+  }
   const preview = params.getAll('view').length === 1 && params.get('view') === 'es-editions' || !params.has('view') && params.getAll('preview').length === 1 && params.get('preview') === 'es-editions';
   const normal = ['environment-data.js','environment.js','data.js','product-data.js','guidance-data.js','comparison.js','guidance.js','release-print.js','app.js','soar-data.js','soar.js','webmcp.js'];
   if (preview) {
@@ -10,6 +20,7 @@
     const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = 'editions.css'; document.head.appendChild(css);
   }
   function load(files) {
+    if (window.VersionCompassContent?.loaded) files = files.filter(file => !['data.js','product-data.js','guidance-data.js','environment-data.js','editions-data.js','forwarders-data.js','soar-data.js'].includes(file));
     if (!files.length) return;
     const script = document.createElement('script'); script.src = files.shift();
     script.onload = function () { load(files); };

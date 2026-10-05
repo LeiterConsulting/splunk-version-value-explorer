@@ -23,7 +23,12 @@ replace('dist/index.html', /<a class="reviewed"[^>]*>.*?<\/a>/, `<a class="revie
 replace('dist/index.html', /(<span id="print-subtitle">)Site updated [^<]+/, `$1Site updated ${full}`);
 replace('dist/app.js', /Site updated [A-Za-z]+ \d{1,2}, \d{4} · versioncompass\.com/, `Site updated ${full} · versioncompass.com`);
 // Do not advance lifecycle.reviewed: it records a separate policy verification.
-replace('dist/guidance-data.js', /(data\.guidance = \{\s*reviewed: ")[^"]+/, `$1${date}`);
+if (fs.existsSync(path.join(root, 'content/datasets/guidance.json'))) {
+  replace('content/datasets/guidance.json', /("reviewed": ")[^"]+/, `$1${date}`);
+  replace('dist/guidance-data.js', /("reviewed": ")[^"]+/, `$1${date}`);
+} else {
+  replace('dist/guidance-data.js', /(data\.guidance = \{\s*reviewed: ")[^"]+/, `$1${date}`);
+}
 const index = read('docs/releases/README.md');
 const entries = dates.map(value => index.split('\n').find(line => line.startsWith('- [') && line.includes(`](${value}.md)`)) || `- [${label(value)}](${value}.md)`);
 replace('docs/releases/README.md', /## Releases\n[\s\S]*?\n## Recording policy/, `## Releases\n\n${entries.join('\n')}\n\n## Recording policy`);

@@ -38,6 +38,8 @@ Summaries must retain meaningful explanations on the page as well as links for d
 
 ## Automatic changes and human review
 
+The owner's October 5, 2026 [soak policy](soak-policy.md) authorizes bounded, reversible interface and technical improvements supported by evidence and passing material checks. It supersedes blanket approval for every interface feature or Phase 2 increment. The [publication contract](architecture/content-publication.md) owns canonical JSON, generated adapters, database delivery and parity checks.
+
 Clear, authoritative evidence can support automatic factual corrections and publication within the existing site scope. The same maintenance model allows repairs to stale release metadata or mismatches between repository and deployed content. A run that finds no material change does not create an empty release note, advance dates, commit, or deploy.
 
 Ambiguous, conflicting, incomplete, or unsupported findings are held for human review instead of being converted into a confident recommendation. Where the comparison already presents a source question, both cited statements and their applicable versions remain visible until authoritative evidence resolves it. The tasks must not infer an entitlement from a license, invent a release identifier, or silently broaden availability.

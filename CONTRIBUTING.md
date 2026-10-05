@@ -31,7 +31,7 @@ Contributed guidance should be:
 
 ## Adding a release
 
-Platform release content lives in `dist/data.js`. Enterprise Security, ITSI, and Observability content lives in `dist/product-data.js`.
+Platform release content lives in `content/datasets/platform.json`. Enterprise Security, ITSI, and Observability content lives in `content/datasets/products.json`. Edit canonical JSON and run `node scripts/sync-content.cjs`; JavaScript data files are generated adapters. See [content publication](docs/architecture/content-publication.md).
 
 1. Add the release identifier to the appropriate `releases` array.
 2. Add the release date and official release-note URL under `releasesData`.
@@ -53,7 +53,7 @@ Keep `dist/comparison.js` as the common route engine for the page and agent tool
 
 ## Updating Enterprise-to-Cloud guidance
 
-Migration content lives in the top-level `migration` object in `dist/data.js`.
+Migration content lives in the top-level `migration` object in `content/datasets/platform.json`.
 
 1. Confirm the current SCMA release and its supported Splunk Enterprise versions on Splunkbase.
 2. Review Splunk's migration guided path for changes to readiness, preparation, validation, and transition guidance.
@@ -98,13 +98,15 @@ Every material change that reaches the repository or live site must be represent
 
 ## Working locally
 
-The project is a dependency-free static site. From the repository root:
+Build and run the Worker-backed interface and local content API from the repository root:
 
 ```bash
-python -m http.server 8000
+npm ci
+npm run build
+npm run dev -- --port 4173
 ```
 
-Open `http://localhost:8000/dist/`.
+Open `http://localhost:4173/`. Run `npm run content:diagnose -- http://localhost:4173/` to inspect delivery. Local SQLite checks do not certify production D1.
 
 ## Collaboration
 
@@ -112,7 +114,7 @@ Be respectful, specific, and constructive. Assume good intent, explain the evide
 
 ## Report guidance and URL compatibility
 
-Read [report guidance](docs/report-guidance.md) before changing lifecycle dates or URL identities. Preserve historical releases and use only documented equivalent aliases. Maintain explicit dates and sources in `dist/guidance-data.js`; never infer Cloud deadlines. Align `guidance.reviewed`, badge, print date, agent metadata, and release note. Run `node --test tests/webmcp.test.cjs`.
+Read [report guidance](docs/report-guidance.md) before changing lifecycle dates or URL identities. Preserve historical releases and use only documented equivalent aliases. Maintain explicit dates and sources in `content/datasets/guidance.json`; never infer Cloud deadlines. Align `guidance.reviewed`, badge, print date, agent metadata, and release note. Run `node --test tests/webmcp.test.cjs`.
 
 The header keeps the reviewed date visible on mobile. When advancing the review date, update both the full date and compact time element (day, uppercase month, year), its datetime attribute, and the accessible link label. Portrait viewports up to 900px use the compact form; widths up to 480px also use it to prevent crowding in very small landscape windows.
 

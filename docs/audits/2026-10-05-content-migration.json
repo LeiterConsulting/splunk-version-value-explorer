@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "evaluatedAt": "2026-10-05T12:56:03.400413+00:00",
+  "phase": "prepublication-validation",
+  "revision": "content-b5b56cb5e8e3a3e781199a91",
+  "engineRevision": "engine-9f768f7e8eb581137f0c",
+  "contentChanges": "Seven original dataset values preserved; 657 common-envelope records; no new availability or entitlement claims.",
+  "automatedTests": {
+    "outcome": "passed",
+    "count": 88,
+    "evidence": "Complete Node suite plus targeted soak policy and early product entry tests"
+  },
+  "deliveryDiagnostics": {
+    "evaluatedAt": "2026-10-05T12:55:23.253Z",
+    "target": "http://127.0.0.1:4180",
+    "expectedRevision": "content-b5b56cb5e8e3a3e781199a91",
+    "status": "delivery-checks-passed",
+    "checks": {
+      "database-health": {
+        "outcome": "passed",
+        "evidence": {
+          "status": "ready",
+          "storage": "d1",
+          "revision": "content-b5b56cb5e8e3a3e781199a91",
+          "engineRevision": "engine-9f768f7e8eb581137f0c",
+          "recordCount": 657
+        },
+        "checkedAt": "2026-10-05T12:55:23.189Z"
+      },
+      "live-manifest": {
+        "outcome": "passed",
+        "evidence": {
+          "schemaVersion": 1,
+          "revision": "content-b5b56cb5e8e3a3e781199a91",
+          "digest": "5b205e4b7f6cdd3cdc04ac29d9297047fabfd8f19ed72cc791a22844f2e6761b",
+          "engineRevision": "engine-9f768f7e8eb581137f0c",
+          "datasetHashes": {
+            "platform": "aa8b55affba5cd8497b553bcd3a3239d6de13a8f88b167d90902bc32439ef807",
+            "products": "57f6a912b6161fe4abfd53e63c9a77c03372cb0ff53fb98ed243f156b453431e",
+            "guidance": "2695dd38b05bceab6d63d415352661e41c325317fb7511977a04ee4d9621a3d1",
+            "environment": "a58f7c63a55f7bd6b460a76b44dd8dcbc9aa1c355e98e50d7457219f1027eaa6",
+            "editions": "3d71261084a1b730c55f179589478e8f6299389a3029b2311181b1f98847eb06",
+            "forwarders": "3f58f089c04303cc2415e5313d57581e9b4b608a81752b28bca0898af4e5110c",
+            "soar": "c0ad6ac01769b67324409155beef65bf2d242d9af7248db7b9fd0c8869e41d42"
+          },
+          "recordCount": 657,
+          "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+          "verificationPolicy": "Migration and delivery do not create verification dates",
+          "phase": "content-model-and-database-delivery"
+        },
+        "checkedAt": "2026-10-05T12:55:23.196Z"
+      },
+      "bundle-integrity": {
+        "outcome": "passed",
+        "evidence": {
+          "digest": "5b205e4b7f6cdd3cdc04ac29d9297047fabfd8f19ed72cc791a22844f2e6761b",
+          "recordCount": 657
+        },
+        "checkedAt": "2026-10-05T12:55:23.219Z"
+      },
+      "bounded-record-query": {
+        "outcome": "passed",
+        "evidence": "SOAR filter, revision and maximum page size verified",
+        "checkedAt": "2026-10-05T12:55:23.232Z"
+      },
+      "read-only-api": {
+        "outcome": "passed",
+        "evidence": "POST rejected with 405",
+        "checkedAt": "2026-10-05T12:55:23.235Z"
+      },
+      "bundled-fallback-assets": {
+        "outcome": "passed",
+        "evidence": "All seven complete fallback adapters served",
+        "checkedAt": "2026-10-05T12:55:23.253Z"
+      }
+    },
+    "findings": [],
+    "limitations": [
+      "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
+    ]
+  },
+  "browserJourneys": {
+    "outcome": "passed",
+    "evidence": [
+      "Platform 9.4 to 10.0 to 10.4 rendered with database delivery",
+      "SOAR on-premises and Cloud scope controls, product switching and actual copied selected URL",
+      "ES editions loaded all 20 capabilities with source questions",
+      "SOAR Cisco theme and ES default theme at 390px frame; no document overflow; SOAR environment disclosure opened with Enter",
+      "Final rebuilt Forwarders database revision loaded 9.4 to 10.0 to 10.4 with distinct UF/receiver scope"
+    ]
+  },
+  "htmlReopen": {
+    "outcome": "blocked",
+    "reason": "Generated report reached Snapshot prepared and explicit Download HTML report link. Browser download timed out; blob reopening prohibited by browser URL policy. Native reopened-file readability not verified."
+  },
+  "pdfRendering": {
+    "outcome": "not-performed",
+    "reason": "Export markup and print lifecycle have automated coverage; native PDF output not available in current browser capability. No claim of actual PDF rendering."
+  },
+  "feedback": {
+    "status": "not-recorded",
+    "note": "Scripted journeys are not customer feedback."
+  },
+  "soak": "72-hour baseline begins only after exact public GitHub/Sites tree, successful deployment and actual live D1 verification. Open native export gates hold advancement; unrelated validated repairs remain eligible."
+}

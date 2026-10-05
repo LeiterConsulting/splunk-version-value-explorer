@@ -3,6 +3,16 @@
   "private": true,
   "scripts": {
     "dev": "node scripts/preview.cjs",
-    "test": "node --test tests/*.test.cjs"
+    "test": "node --test tests/*.test.cjs",
+    "build": "node scripts/build-worker.cjs",
+    "content:sync": "node scripts/sync-content.cjs",
+    "content:check": "node scripts/sync-content.cjs --check",
+    "content:diagnose": "node scripts/diagnose-content.cjs",
+    "db:generate": "drizzle-kit generate",
+    "soak": "node scripts/check-soak.cjs"
+  },
+  "devDependencies": {
+    "drizzle-kit": "0.31.11",
+    "drizzle-orm": "0.45.3"
   }
 }

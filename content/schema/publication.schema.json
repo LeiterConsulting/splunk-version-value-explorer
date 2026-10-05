@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://versioncompass.com/content/schema/publication.schema.json",
+  "title": "VersionCompass published content manifest",
+  "type": "object",
+  "required": ["schemaVersion", "revision", "digest", "engineRevision", "datasetHashes", "recordCount", "verificationPolicy"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "revision": {"type": "string", "pattern": "^content-[a-f0-9]{24}$"},
+    "digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "engineRevision": {"type": "string", "pattern": "^engine-[a-f0-9]{20}$"},
+    "datasetHashes": {"type": "object", "minProperties": 7, "additionalProperties": {"type": "string", "pattern": "^[a-f0-9]{64}$"}},
+    "recordCount": {"type": "integer", "minimum": 1},
+    "verificationPolicy": {"type": "string"}
+  }
+}

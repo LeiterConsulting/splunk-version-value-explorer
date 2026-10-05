@@ -4,7 +4,9 @@ const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 function decorate(html){
  html=html.replace(/<details class="decision-details"(?: open)?>/g,'<details class="decision-details" open>');
  const relevant=(window.VersionCompassSources?.sources||[]).filter(r=>html.includes(esc(r.url)));
- return '<p class="report-revision"><strong>Content revision '+esc(window.VersionCompassRevision?.id||'Not recorded')+'</strong> · Publication '+esc(window.VersionCompassRevision?.publication||'Not recorded')+'. Live links show evolving guidance; a saved snapshot preserves this report.</p>'+html+'<section class="report-section"><h2>Verification dates for cited sources</h2><p>Dates apply only to recorded verification scope, not every dependent claim.</p><ul>'+relevant.map(r=>'<li><a href="'+esc(r.url)+'">'+esc(r.title)+'</a> · Last verified '+esc(r.reviewed||'not recorded')+' · '+esc(r.status)+(r.verificationScope?' · '+esc(r.verificationScope):'')+'</li>').join('')+'</ul></section>';
+ const dataset=window.VersionCompassContent;
+ const provenance=dataset?.revision?' Dataset '+esc(dataset.revision)+' · Rules '+esc(dataset.engineRevision||'Not recorded')+' · Delivery '+esc(dataset.status)+'.':'';
+ return '<p class="report-revision"><strong>Content revision '+esc(window.VersionCompassRevision?.id||'Not recorded')+'</strong> · Publication '+esc(window.VersionCompassRevision?.publication||'Not recorded')+'.'+provenance+' Live links show evolving guidance; a saved snapshot preserves this report.</p>'+html+'<section class="report-section"><h2>Verification dates for cited sources</h2><p>Dates apply only to recorded verification scope, not every dependent claim.</p><ul>'+relevant.map(r=>'<li><a href="'+esc(r.url)+'">'+esc(r.title)+'</a> · Last verified '+esc(r.reviewed||'not recorded')+' · '+esc(r.status)+(r.verificationScope?' · '+esc(r.verificationScope):'')+'</li>').join('')+'</ul></section>';
 }
 function snapshotDocument(html,url,captured){
  const revision=window.VersionCompassRevision?.id||'unknown';
