@@ -83,6 +83,12 @@
  .theme-cisco .release-report .benefit-card,.theme-cisco .release-report .approach-card,.theme-cisco .release-report .technical-item,.theme-cisco .release-report .breaking-item,.theme-cisco .release-report .readiness-item,.theme-cisco .release-report .route-takeaway{border-color:#34405a;padding:9pt;background:#0e1320;color:#e9edf6}
 }
 @media print {
+ /* Long evidence-bearing cards must flow across pages, not move as a unit.
+    Keep small transitions intact and headings with their following content. */
+ .release-report .benefit-card,.release-report .technical-item,.release-report .route-takeaway{break-inside:auto;page-break-inside:auto}
+ .release-report h4,.release-report summary{break-after:avoid}
+ .release-report .technical-transition{break-inside:avoid}
+ .release-report button,.release-report input,.release-report select,.release-report .snapshot-status,.release-report .decision-details>summary{display:none!important}
  .release-report .technical-items{display:block}
  .release-report .report-references{break-before:auto}
  .release-report .lifecycle-grid{display:table;table-layout:fixed;width:100%;border-collapse:collapse;break-inside:avoid;margin:8pt 0}

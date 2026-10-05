@@ -30,6 +30,24 @@ test('report revision and verification appendix use only citations actually in t
  assert(body.includes('vc-test'));assert(body.includes(source.title));assert(body.includes(source.reviewed||'not recorded'));assert(!body.includes(w.VersionCompassSources.sources[1].url));
 });
 
+test('reports preserve nested history and date selection without screen controls',()=>{
+ const w=context().window;
+ const input='<details class="decision-details"><summary><span class="decision-expand-label">Expand details</span><span class="decision-collapse-label">Hide details</span></summary><p>Required qualifications</p><details id="comparison-changes"><summary>What changed?</summary><label>On or after <input type="date" id="changes-since" value="2026-09-25"></label><p>Recorded history</p></details><button data-save-snapshot>Save dated snapshot (.html)</button><span class="snapshot-status" role="status">Prepared <a href="blob:test">Download</a></span></details>';
+ const report=w.VersionCompassReports.decorate(input);
+ assert.equal((report.match(/<details\b[^>]* open>/g)||[]).length,2);
+ assert(report.includes('Required qualifications'));assert(report.includes('Recorded history'));
+ assert(report.includes('<span class="report-filter-date">2026-09-25</span>'));
+ assert(!/Expand details|Hide details|<button|<input|snapshot-status|blob:test/.test(report));
+ assert.equal(w.VersionCompassReports.decorate(report).match(/<details\b[^>]* open>/g).length,2);
+});
+
+test('print layout allows long evidence cards to paginate without hiding evidence',()=>{
+ const css=fs.readFileSync('dist/release-print.css','utf8');
+ assert(css.includes('.release-report .benefit-card,.release-report .technical-item,.release-report .route-takeaway{break-inside:auto;page-break-inside:auto}'));
+ assert(css.includes('.release-report .technical-transition{break-inside:avoid}'));
+ assert(!/\.evidence-context[^}]*display:none/.test(css));
+});
+
 test('compact counts separate blockers, required actions and evidence questions',()=>{
  const w=context().window,s={product:'platform',platform:'enterprise',from:'9.4',to:'10.4',environment:{},environmentErrors:[]};
  const m=w.VersionCompassDecision.model(s,w.VersionCompassComparison.create(w.SPLUNK_DATA,s));

@@ -2,7 +2,13 @@
 'use strict';
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function decorate(html){
- html=html.replace(/<details class="decision-details"(?: open)?>/g,'<details class="decision-details" open>');
+ // A report is a preserved view, not an interactive copy of the screen.
+ // Open nested history too: closed details otherwise disappear from native PDFs.
+ html=html.replace(/<details\b([^>]*)>/g,(_tag,attrs)=>'<details'+attrs.replace(/\sopen(?:="[^"]*")?/g,'')+' open>')
+  .replace(/<summary><span class="decision-expand-label">[\s\S]*?<\/summary>/g,'')
+  .replace(/<button\b[^>]*>[\s\S]*?<\/button>/g,'')
+  .replace(/<span class="snapshot-status"[^>]*>[\s\S]*?<\/span>/g,'')
+  .replace(/<input\b([^>]*\btype="date"[^>]*)>/g,(_tag,attrs)=>'<span class="report-filter-date">'+esc(attrs.match(/\bvalue="([^"]*)"/)?.[1]||'Not recorded')+'</span>');
  const relevant=(window.VersionCompassSources?.sources||[]).filter(r=>html.includes(esc(r.url)));
  const dataset=window.VersionCompassContent;
  const provenance=dataset?.revision?' Dataset '+esc(dataset.revision)+' · Rules '+esc(dataset.engineRevision||'Not recorded')+' · Delivery '+esc(dataset.status)+'.':'';
