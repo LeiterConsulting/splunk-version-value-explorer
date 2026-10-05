@@ -130,10 +130,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-03T09:39:51.458Z",
-      "lastSuccess": "2026-10-03T10:01:00Z",
-      "outcome": "changed",
-      "summary": "Published-source review added exact Enterprise and Heavy Forwarder 10.6 release-line routes from the canonical 10.6 upgrade table while keeping 10.6 Enterprise and Cloud receiver compatibility Not established.",
+      "lastAttempt": "2026-10-05T09:44:03Z",
+      "lastSuccess": "2026-10-05T09:50:11Z",
+      "outcome": "no-change",
+      "summary": "No material release, route, compatibility, runtime, security or SOAR correction was found. Current identifiers and existing uncertainty boundaries remain supported by the bounded checks.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -235,17 +235,29 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Published-source review added exact Enterprise and Heavy Forwarder 10.6 release-line routes from the canonical 10.6 upgrade table while keeping 10.6 Enterprise and Cloud receiver compatibility Not established.",
           "scope": "All 113 maintained official release, migration, premium-product, Forwarder, Observability and SOAR URLs; bounded current release, upgrade, compatibility, receiver, runtime and security claims."
+        },
+        {
+          "at": "2026-10-05T09:44:03Z",
+          "outcome": "running",
+          "summary": "Checking the complete maintained release-source inventory and bounded high-consequence release, upgrade, receiver, runtime, security and SOAR claims.",
+          "scope": "All 113 unique maintained official URLs referenced by Platform, premium-product, Forwarder and SOAR data; bounded current release, upgrade, compatibility, receiver, runtime, advisory and SOAR checks."
+        },
+        {
+          "at": "2026-10-05T09:50:11Z",
+          "outcome": "no-change",
+          "summary": "No material release, route, compatibility, runtime, security or SOAR correction was found. Current identifiers and existing uncertainty boundaries remain supported by the bounded checks.",
+          "scope": "All 113 maintained official URLs were fetched: 111 succeeded and the same two historical 8.1/8.2 pages remained unavailable. Verified current Enterprise/Cloud, UF/HF receiver and topology, premium-app, migration, Observability component, SOAR and security-advisory claims; regional authorization remained outside this watch."
         }
       ],
-      "scope": "All 113 maintained official release, migration, premium-product, Forwarder, Observability and SOAR URLs; bounded current release, upgrade, compatibility, receiver, runtime and security claims."
+      "scope": "All 113 maintained official URLs were fetched: 111 succeeded and the same two historical 8.1/8.2 pages remained unavailable. Verified current Enterprise/Cloud, UF/HF receiver and topology, premium-app, migration, Observability component, SOAR and security-advisory claims; regional authorization remained outside this watch."
     },
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-10-04T10:02:11.106Z",
-      "lastSuccess": "2026-10-04T10:09:44.067Z",
+      "lastAttempt": "2026-10-05T10:02:00Z",
+      "lastSuccess": "2026-10-05T10:04:08Z",
       "outcome": "no-change",
-      "summary": "Reviewed all 20 maintained ES Editions sources and four exact SOAR pairing/release records; no factual correction was supported, and all conflicts and qualifications remain open.",
+      "summary": "Reviewed all 20 maintained ES Editions sources and four exact SOAR pairing/release records; no factual correction was supported and all conflicts and qualifications remain open.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -347,9 +359,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Reviewed all 20 maintained ES Editions sources and four exact SOAR pairing/release records; no factual correction was supported, and all conflicts and qualifications remain open.",
           "scope": "ES Essentials/Premier highlights, workflows, capabilities/history, Cloud Connect, agents/tasks, entitlement, prerequisites, regional/SOAR pairing, pricing, licensing/trials, UEBA, Exposure Analytics, announcements and surrounding release/export parity. Native PDF, reopened HTML, narrow-screen and live WebMCP invocation remain unavailable or unperformed and are recorded separately."
+        },
+        {
+          "at": "2026-10-05T10:02:00Z",
+          "outcome": "running",
+          "summary": "Checking the complete ES Essentials/Premier source inventory, exact SOAR pairing records and bounded highest-consequence entitlement, prerequisite, compatibility and release-stage claims.",
+          "scope": "All 20 maintained ES Editions URLs plus four exact SOAR/App/Export records; Connector Builder, Guided Response, agent version floors, pricing, Automation Builder, App for SOAR pairing, UEBA, Exposure Analytics, routes, themes and exports."
+        },
+        {
+          "at": "2026-10-05T10:04:08Z",
+          "outcome": "no-change",
+          "summary": "Reviewed all 20 maintained ES Editions sources and four exact SOAR pairing/release records; no factual correction was supported and all conflicts and qualifications remain open.",
+          "scope": "All 20 maintained ES Editions URLs plus exact App for SOAR 8.7.0, SOAR Export 8.7.0, SOAR On-premises 8.7.0 and SOAR Cloud 8.7.0 records; bounded Connector Builder, Guided Response, agent version-floor, pricing, Automation Builder, pairing, UEBA and Exposure Analytics claims."
         }
       ],
-      "scope": "ES Essentials/Premier highlights, workflows, capabilities/history, Cloud Connect, agents/tasks, entitlement, prerequisites, regional/SOAR pairing, pricing, licensing/trials, UEBA, Exposure Analytics, announcements and surrounding release/export parity. Native PDF, reopened HTML, narrow-screen and live WebMCP invocation remain unavailable or unperformed and are recorded separately."
+      "scope": "All 20 maintained ES Editions URLs plus exact App for SOAR 8.7.0, SOAR Export 8.7.0, SOAR On-premises 8.7.0 and SOAR Cloud 8.7.0 records; bounded Connector Builder, Guided Response, agent version-floor, pricing, Automation Builder, pairing, UEBA and Exposure Analytics claims."
     },
     {
       "id": "version-guidance-audit",

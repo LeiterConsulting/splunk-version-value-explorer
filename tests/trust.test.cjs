@@ -29,7 +29,9 @@ test('maintenance requires an attempt, retains failed outcomes, and advances suc
  }finally{fs.rmSync(dir,{recursive:true,force:true});}
 });
 test('site publication language is distinct from source verification',()=>{
- assert(read('dist/index.html').includes('Site updated October 4, 2026'));
+ const newest=fs.readdirSync('docs/releases').filter(name=>/^\d{4}-\d{2}-\d{2}\.md$/.test(name)).sort().at(-1).slice(0,10);
+ const [year,month,day]=newest.split('-').map(Number),months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+ assert(read('dist/index.html').includes(`Site updated ${months[month-1]} ${day}, ${year}`));
  assert(!read('dist/index.html').includes('Source-backed guidance reviewed'));
  assert(read('dist/webmcp.js').includes('siteUpdatedDate'));
 });
