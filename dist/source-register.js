@@ -968,7 +968,7 @@ window.VersionCompassSources = {
         "forwarders: forwarders.claimSources.topology.cloud-intermediate"
       ],
       "reviews": [
-        "2026-10-04",
+        "2026-10-05",
         "2026-10-02"
       ],
       "conflict": true,
@@ -1016,7 +1016,7 @@ window.VersionCompassSources = {
         "environment: environment.records.20"
       ],
       "reviews": [
-        "2026-10-04"
+        "2026-10-05"
       ],
       "conflict": true,
       "usage": "In use",
@@ -1051,7 +1051,7 @@ window.VersionCompassSources = {
         "environment: environment.records.15"
       ],
       "reviews": [
-        "2026-10-04"
+        "2026-10-05"
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",
@@ -2071,7 +2071,7 @@ window.VersionCompassSources = {
         "editions: editions.notes.1"
       ],
       "reviews": [
-        "2026-10-04",
+        "2026-10-05",
         "2026-10-01"
       ],
       "usage": "In use",
@@ -3687,7 +3687,7 @@ window.VersionCompassSources = {
         "environment: environment.records.50"
       ],
       "reviews": [
-        "2026-10-04"
+        "2026-10-05"
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",
@@ -4015,7 +4015,7 @@ window.VersionCompassSources = {
         "soar: soar.backlog.2"
       ],
       "reviews": [
-        "2026-10-04"
+        "2026-10-05"
       ],
       "claimReferences": [
         {
@@ -4233,7 +4233,7 @@ window.VersionCompassSources = {
         "soar.sources.regions.url"
       ],
       "reviews": [
-        "2026-10-04"
+        "2026-10-05"
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",
@@ -5247,7 +5247,7 @@ window.VersionCompassSources = {
         "environment: environment.records.6"
       ],
       "reviews": [
-        "2026-10-04"
+        "2026-10-05"
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",
@@ -5304,7 +5304,7 @@ window.VersionCompassSources = {
         "environment: environment.records.7"
       ],
       "reviews": [
-        "2026-10-04"
+        "2026-10-05"
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",
@@ -5363,7 +5363,7 @@ window.VersionCompassSources = {
         "environment: environment.records.53"
       ],
       "reviews": [
-        "2026-10-04"
+        "2026-10-05"
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",
@@ -5420,7 +5420,7 @@ window.VersionCompassSources = {
         "environment: environment.records.40"
       ],
       "reviews": [
-        "2026-10-04"
+        "2026-10-05"
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",
@@ -5477,7 +5477,7 @@ window.VersionCompassSources = {
         "environment: environment.records.5"
       ],
       "reviews": [
-        "2026-10-04"
+        "2026-10-05"
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",
