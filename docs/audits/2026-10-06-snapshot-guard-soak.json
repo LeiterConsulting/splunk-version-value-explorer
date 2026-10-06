@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 2,
+  "evaluatedAt": "2026-10-06T18:29:33.686Z",
+  "baseline": {
+    "deployedAt": "2026-10-06T18:24:11.862580Z",
+    "datasetRevision": "content-df5d750a2de9eee19933ab27",
+    "engineRevision": "engine-dcc80cb83dc77c4e03af",
+    "websiteRevision": "vc-47dc7ff46151bfc4",
+    "githubCommit": "4c530565595696283c2f33e04f4d9f0ebdb93604",
+    "sitesCommit": "8847f7d7e3d567ee1c6f8416f7c8a31f8f2dcc72",
+    "matchingTree": "27558ffe775f37646f3dac77a2932961532bae5a",
+    "savedVersion": 114,
+    "savedVersionId": "appgprj_6aa3ff61bd288191ac95ac6e30707895~appgver_68aef91f41d08191a746dcb537146889",
+    "deploymentId": "appgdep_6ac53cc4bdd8819180a02f2f79df5422"
+  },
+  "scope": "Serve the validated snapshot availability guard independently while retaining VC_ACTIVE_DELIVERY=0 for the database-backed reader. No factual dataset, route codec, privacy, audience, WebMCP tool name or maintenance schedule changed.",
+  "checks": {
+    "content-parity": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-06T18:26:02.587Z",
+      "evidence": "Live D1 health, manifest, bundle and all seven bundled fallback adapters matched content-df5d750a2de9eee19933ab27 / engine-dcc80cb83dc77c4e03af with 668 records."
+    },
+    "source-mappings": {
+      "outcome": "not-applicable",
+      "checkedAt": "2026-10-06T18:29:24.810Z",
+      "evidence": "The exact published tree changed navigation delivery selection, generated identity, its regression and operational documentation only; canonical datasets and source-register records are unchanged.",
+      "scope": {
+        "unaffected": true,
+        "rationale": "No claim, citation, source section or factual dataset changed.",
+        "evidence": "Four post-deployment synchronization checks passed with seven datasets, 668 records and 148 sources."
+      }
+    },
+    "shared-links": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-06T18:29:33.686Z",
+      "evidence": "Live exact Enterprise 9.4 to 10.4 and mismatched ITSI Cloud provider/region URLs preserved their selections. The invalid link disabled Copy, Print/PDF and snapshot together; the valid link enabled all three."
+    },
+    "automated-tests": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-06T18:29:24.810Z",
+      "evidence": "Post-deployment four synchronization checks and 154/154 Node tests passed; the exact published Worker build had 53 assets."
+    },
+    "browser-journeys": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-06T18:29:33.686Z",
+      "evidence": "Live invalid provider/region mismatch and valid Enterprise report were reloaded after version 114. Controls and report content hydrated correctly; a fresh HTML download completed."
+    },
+    "themes-and-narrow-screens": {
+      "outcome": "not-applicable",
+      "checkedAt": "2026-10-06T18:29:33.686Z",
+      "evidence": "The served change only synchronizes one button's disabled property with the existing Print/PDF button and does not change style, layout, theme, labels or viewport rules.",
+      "scope": {
+        "unaffected": true,
+        "rationale": "No CSS, markup, button position, theme state or responsive rule changed.",
+        "evidence": "The exact runtime diff removes navigation pinning and retains the already-tested dist/navigation.js; tests cover the availability state."
+      }
+    },
+    "keyboard": {
+      "outcome": "not-applicable",
+      "checkedAt": "2026-10-06T18:29:33.686Z",
+      "evidence": "No focus order, handler, role, label or keyboard behavior changed; the repair only mirrors an existing disabled state.",
+      "scope": {
+        "unaffected": true,
+        "rationale": "The button and all existing keyboard behavior are unchanged.",
+        "evidence": "Changed navigation logic observes Print/PDF's disabled attribute and assigns the same boolean to the existing snapshot button."
+      }
+    },
+    "html-reopen": {
+      "outcome": "blocked",
+      "checkedAt": "2026-10-06T18:29:33.686Z",
+      "evidence": "Fresh HTML downloaded successfully: 107856 bytes, SHA256 19857320cdb15406a9891e1279be8302836355f374bbc523b057e026a1d17fdb. File inspection found a self-contained script-free HTML report with the exact route, support dates and 22 unique official source URLs.",
+      "reason": "The managed browser security policy rejects file: URLs, so independent browser-rendered reopening was not performed."
+    },
+    "pdf-rendering": {
+      "outcome": "not-performed",
+      "checkedAt": "2026-10-06T18:29:33.686Z",
+      "evidence": "The live Print/PDF control was enabled and invoked; print preparation exposed the full lifecycle, benefits and technical sections.",
+      "reason": "The managed browser does not expose native print preview, a saved PDF file or page-by-page pagination for inspection."
+    },
+    "live-revision": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-06T18:26:02.587Z",
+      "evidence": "Version 114 deployment appgdep_6ac53cc4bdd8819180a02f2f79df5422 succeeded at 2026-10-06T18:24:11.862580Z. GitHub and Sites source have matching tree 27558ffe775f37646f3dac77a2932961532bae5a; live diagnostics passed on retry after one transient timeout run."
+    },
+    "maintenance-outcomes": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-06T18:29:33.686Z",
+      "evidence": "No automation or watch schedule mutation was made. Existing maintenance records and all four established watch cadences remain outside this operational-only runtime change."
+    }
+  },
+  "webmcpAgreement": {
+    "outcome": "passed",
+    "checkedAt": "2026-10-06T18:29:33.686Z",
+    "evidence": "Live read-only current-report output agreed with the screen and downloaded HTML on Enterprise 9.4 to 10.4, route 9.4 to 10.0 to 10.4, lifecycle dates and counts 18/17/12/2."
+  },
+  "findings": [
+    {
+      "observed": "Independent browser-rendered reopening of the fresh HTML snapshot is unavailable in the managed browser.",
+      "impact": "The file is downloaded and structurally complete, but browser rendering of the saved artifact is not certified.",
+      "recommendedChange": "Add a supported isolated HTML-reopen harness that opens the exact downloaded artifact and compares visible report anchors and citations.",
+      "validation": "Reopen the downloaded file independently and compare screen, snapshot and WebMCP route/count/source evidence.",
+      "severity": "material",
+      "reversible": true,
+      "affectedFunctionWorks": true,
+      "checksPassed": false,
+      "resolved": false
+    },
+    {
+      "observed": "Native PDF output and page-by-page pagination cannot be inspected in the managed browser.",
+      "impact": "Print preparation runs, but a fresh PDF for version 114 is not certified.",
+      "recommendedChange": "Add a supported native PDF capture and pagination inspection harness.",
+      "validation": "Save the PDF, record its digest/page count, and inspect every page for clipping, missing sections and citation completeness.",
+      "severity": "material",
+      "reversible": true,
+      "affectedFunctionWorks": true,
+      "checksPassed": false,
+      "resolved": false
+    },
+    {
+      "observed": "Read-only WebMCP metadata labels the website revision as contentRevision while the D1 dataset revision uses a separate content-* identity.",
+      "impact": "The report facts agree, but the identity label can confuse database-delivery verification.",
+      "recommendedChange": "Expose separate immutable websiteRevision and datasetRevision fields without changing stable tool names.",
+      "validation": "Compare live screen, API manifest, saved HTML and WebMCP identities after the database reader is activated.",
+      "severity": "material",
+      "reversible": true,
+      "affectedFunctionWorks": true,
+      "checksPassed": false,
+      "dataIntegrityRisk": true,
+      "resolved": false
+    }
+  ],
+  "feedback": {
+    "status": "not-recorded",
+    "note": "Recorded checks establish behavior, not user preference."
+  },
+  "advancement": {
+    "snapshotGuard": "published-and-live-verified",
+    "databaseReader": "held",
+    "activeDelivery": false,
+    "reason": "HTML reopening, native PDF pagination and revision-identity clarity remain material gates."
+  }
+}
