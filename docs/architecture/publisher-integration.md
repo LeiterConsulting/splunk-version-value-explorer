@@ -38,6 +38,8 @@ Use `node scripts/diagnose-content.cjs https://versioncompass.com/` for real pub
 
 ## Concurrent draft reconciliation
 
+After the first actual OIDC publication succeeded, a repeated unauthenticated GitHub evidence check returned HTTP 403 without changing D1. CI now supplies its short-lived job token (`actions: read`, `contents: read`) in the bounded authenticated publication body. The Worker verifies exact workflow OIDC first and forwards this token only to this repository's fixed GitHub API paths. Raw artifact reads remain credential-free. The token stays in memory, outside the candidate, D1, provenance, responses and logs. This preserves the publisher trust boundary and avoids relying on shared unauthenticated API capacity. Fresh live retry outcomes are recorded separately in the audit.
+
 ## Verified runtime checkpoint
 
 Version 108 deployed the publisher checkpoint at GitHub commit `936bb5b7c9f69aecc7048341b8024811dfa4d028` and Sites commit `7b112273c058bc4192075deb49215511a153760d`, with matching tree `ca172752aac5b12a4e99a25c1dddea25aeafbed5`. Actual GitHub OIDC publication succeeded; real D1 provenance and generation-one bootstrap history were independently read back. The public diagnostic checks passed for all 668 records. `VC_ACTIVE_DELIVERY=0` preserves the original reader; actual browser/export and D1 activation/rollback remain outstanding gates.

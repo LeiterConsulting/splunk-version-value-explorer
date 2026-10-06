@@ -6,7 +6,6 @@ on:
     branches: [main]
   workflow_dispatch:
 permissions:
-  actions: read
   contents: read
   id-token: write
 concurrency:
@@ -25,8 +24,6 @@ jobs:
         with:
           node-version: '22'
       - name: Publish exact main commit with GitHub OIDC
-        env:
-          VC_GITHUB_EVIDENCE_TOKEN: ${{ github.token }}
         # The service independently verifies main ancestry, completed validation CI,
         # all required steps and exact committed artifacts before writing anything.
         run: node scripts/publish-content.mjs --commit "$GITHUB_SHA"
