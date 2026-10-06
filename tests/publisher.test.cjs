@@ -167,3 +167,16 @@ test('workflow evidence accepts long standard bearer tokens and rejects header i
   for (const bad of [token + '\r\nInjected: header', 'a'.repeat(8193), 'short', token + ' '])
     assert.throws(() => m.publisherEvidenceRequest({ publication: candidate, evidenceCredential: bad }, { type: 'github-oidc' }), /Invalid evidence credential/);
 });
+
+test('validated snapshot controls stay active while the database reader remains isolated', async () => {
+  const m = await modules(), worker = m.createWorker(seed, {
+    '/navigation.js': {type:'text/javascript',body:'validated snapshot guard'},
+    '/content-client.js': {type:'text/javascript',body:'pinned reader'},
+    '/content-client-active.js': {type:'text/javascript',body:'prepared reader'},
+  });
+  for (const [flag, reader] of [['0','pinned reader'],['1','prepared reader']]) {
+    const env={VC_ACTIVE_DELIVERY:flag};
+    assert.equal(await (await worker.fetch(new Request('https://versioncompass.com/navigation.js'),env)).text(),'validated snapshot guard');
+    assert.equal(await (await worker.fetch(new Request('https://versioncompass.com/content-client.js'),env)).text(),reader);
+  }
+});

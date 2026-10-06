@@ -91,7 +91,7 @@ export function createWorker(seed, assets, { rippleFetch = (...args) => globalTh
         }
       }
       const pathname = url.pathname === '/' ? '/index.html' : url.pathname;
-      const activeAssets = { '/content-client.js': '/content-client-active.js', '/navigation.js': '/navigation-active.js' };
+      const activeAssets = { '/content-client.js': '/content-client-active.js' };
       const asset = assets[env.VC_ACTIVE_DELIVERY === '1' ? activeAssets[pathname] || pathname : pathname];
       if (!asset) return new Response('Not found', { status: 404, headers });
       const delivery = pathname === '/content-manifest.json' && env.VC_ACTIVE_DELIVERY === '1' ? { 'X-VersionCompass-Active-Delivery': '1' } : {};

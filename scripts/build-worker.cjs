@@ -16,10 +16,6 @@ for (const file of fs.readdirSync('dist').sort()) {
 // Keep the established public loader byte-identical until actual browser/export
 // verification permits selecting the independently active reader at runtime.
 assets['/content-client-active.js'] = { type: 'text/javascript; charset=utf-8', body: fs.readFileSync('client/content-client-active.js', 'utf8') };
-// Preserve the verified controls while the concurrent snapshot guard awaits
-// its affected browser checks; retain the current main asset for activation.
-assets['/navigation-active.js'] = assets['/navigation.js'];
-assets['/navigation.js'] = { type: 'text/javascript; charset=utf-8', body: fs.readFileSync('client/navigation-deployment-pinned.js', 'utf8') };
 fs.mkdirSync('dist/server', { recursive: true });
 fs.mkdirSync('dist/.openai', { recursive: true });
 const source = 'const seed = ' + JSON.stringify(bundle) + ';\nconst assets = ' + JSON.stringify(assets) + ';\n' + ['publication-core.mjs', 'content-store.mjs', 'publisher.mjs', 'index.mjs'].map(file => fs.readFileSync('worker/' + file, 'utf8').replace(/^import .*publication-core\.mjs';\n/, '')).join('\n') + '\nexport default createWorker(seed, assets);\n';
