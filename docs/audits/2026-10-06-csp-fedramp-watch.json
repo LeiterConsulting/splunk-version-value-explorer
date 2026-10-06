@@ -2,8 +2,8 @@
   "watch": "csp-fedramp-watch",
   "maintenanceId": "csp-fedramp-watch",
   "startedAt": "2026-10-06T11:11:53Z",
-  "completedAt": null,
-  "outcome": "running",
+  "completedAt": "2026-10-06T11:35:27Z",
+  "outcome": "changed",
   "materialChange": true,
   "summary": "The complete twelve-source environment inventory was checked. Exact Marketplace Certified Services lists add offering-level ES and ITSI evidence for Moderate and High, and SOAR evidence for Moderate. High remains not established for SOAR because absence is not an exclusion claim.",
   "scope": {
@@ -142,16 +142,16 @@
   ],
   "discovery": {"checkedOn": "2026-10-06", "outcome": "material-scope-found", "detail": "No 10.7 Service Details path, October change-log entry, SOAR-specific High offering or completed Observability Moderate offering was found. Direct visual inspection of both exact Marketplace records exposed current Certified Services lists."},
   "validation": {
-    "syntax": {"outcome": "pending", "detail": "Not yet performed after final synchronization."},
-    "metadataGates": {"outcome": "pending", "detail": "Not yet performed after final synchronization."},
-    "tests": {"outcome": "pending", "detail": "Not yet performed after final synchronization."},
-    "build": {"outcome": "pending", "detail": "Not yet performed after final synchronization."},
-    "browserJourneys": {"outcome": "partial", "detail": "The official February 2026 table was visually inspected with the US Public Sector tab selected; post-deployment site journeys are pending."},
-    "keyboardNarrowScreen": {"outcome": "pending", "detail": "Not yet performed for this publication."},
+    "syntax": {"outcome": "confirmed", "detail": "Canonical JSON and generated JavaScript parsed successfully after synchronization."},
+    "metadataGates": {"outcome": "confirmed", "detail": "sync-release-metadata, sync-content, sync-source-register and sync-content-revision all passed their --check gates. The generated source register contains 148 sources."},
+    "tests": {"outcome": "confirmed", "detail": "node --test tests/*.test.cjs passed 93 of 93 tests, including exact Marketplace product/regime scope and separate SOAR Moderate/High behavior."},
+    "build": {"outcome": "confirmed", "detail": "npm run build produced 48 Worker assets at content revision content-69fd35dd07090bfa526b29a5 and engine revision engine-33546a965f9b2fc90ad8."},
+    "browserJourneys": {"outcome": "confirmed", "detail": "The official February 2026 matrix was visually inspected with the US Public Sector tab selected. After deployment, exact ITSI Cloud 4.21 to 5.0.2 FR-H and SOAR Cloud 8.6.0 to 8.7.0 FR-M/FR-H routes restored. ITSI showed the qualified High offering record and preserved S3 conflict; SOAR Moderate showed Certified offering with conditions, while High stayed Not established. An AWS/GCP region mismatch kept Copy and Print disabled."},
+    "keyboardNarrowScreen": {"outcome": "partial", "detail": "Default and Cisco themes showed the same ITSI offering and S3 conflict. The first Tab focused Skip to comparison. A fresh narrow-screen viewport and touch-target check were not performed because the browser surface exposes no viewport-resize control."},
     "pdfExport": {"outcome": "unavailable", "detail": "No fresh native PDF artifact or page images are available; actual pagination was not performed."},
-    "downloadedHtml": {"outcome": "pending", "detail": "Fresh download and independent reopen have not yet been performed."},
-    "screenPdfHtmlWebMcpAgreement": {"outcome": "pending", "detail": "Not yet performed for the changed scopes."},
-    "liveDeployment": {"outcome": "pending", "detail": "Publication has not yet been attempted."},
-    "soak": {"outcome": "pending", "detail": "The existing baseline will be checked after validation. This factual-only change does not reset the interface soak."}
+    "downloadedHtml": {"outcome": "partial", "detail": "The live dated-snapshot action downloaded a 115,240-byte UTF-8 HTML artifact containing the ITSI certified-service record, FedRAMP High scope and revision vc-c923922566882141; no script element was found. Independent browser reopening was blocked because this cloud browser prohibits file: URLs, so rendered reopen is not certified."},
+    "screenPdfHtmlWebMcpAgreement": {"outcome": "partial", "detail": "The live ITSI screen and read-only versioncompass_get_current_report agreed on the exact route, nine environment records, ITSI High offering scope, S3 conflict, citations and revision vc-c923922566882141. The downloaded HTML contains the same changed scope and revision. Fresh PDF and browser-rendered HTML reopen agreement were not performed."},
+    "liveDeployment": {"outcome": "confirmed", "detail": "GitHub commit 8dd588d7cb272933b7822401cbf4743f4c02423f and Sites source commit b69bcaf53a2147fccee2e44684d39527edd46180 have identical tree 3cefe0eea9845846e2ddcc54f4169a4e59c0b129. Sites version 103 deployed successfully as appgdep_6ac4dbcfab9c819199db837b2a94ee4a at 2026-10-06T11:30:30.336915Z. The live D1 health, manifest, bundle, bounded SOAR query, read-only API and seven fallback adapters passed against content-69fd35dd07090bfa526b29a5. This completed audit is carried by a subsequent ledger-only source publication verified separately."},
+    "soak": {"outcome": "hold", "detail": "check-soak reported 21.99 elapsed hours and held advancement on six required blocked gates, including source mappings, shared links, fresh browser/theme/keyboard coverage and independent HTML reopen. This factual-only change does not reset the interface soak."}
   }
 }
