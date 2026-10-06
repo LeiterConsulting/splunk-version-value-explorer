@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-10-06T18:27:22.152Z",
+  "evaluatedAt": "2026-10-06T18:46:40.5572662Z",
   "phase": "publisher-live-verified-active-reader-held",
   "baseGitHubCommit": "264bd3f4ff0fa6dac9550c41adad901200ecbdf1",
   "baseSitesCommit": "82b7410c20709b92328d112ac12c8d039ce36ea1",
@@ -640,6 +640,33 @@
       ]
     }
   },
+  "freshEngineRetry": {
+    "outcome": "passed",
+    "workflowRun": 37513528797,
+    "workflowJob": 112441641825,
+    "completedAt": "2026-10-06T18:46:40.5572662Z",
+    "result": "already-current",
+    "activeDelivery": false,
+    "head": [
+      {
+        "channel": "engine:engine-510c4f5b1aceeeddb186",
+        "revision_id": "content-235e479c99e33115176f6aa1"
+      }
+    ],
+    "events": [
+      {
+        "operation_id": "pub-af37d3c3b0ce2c5eeaa120ba348604fc",
+        "channel": "engine:engine-510c4f5b1aceeeddb186",
+        "generation": 1,
+        "from_revision": "content-235e479c99e33115176f6aa1",
+        "to_revision": "content-235e479c99e33115176f6aa1",
+        "provenance_commit": "3b9b42810cbd31678f27a92b4ae83f92ee122721",
+        "intent": "publish",
+        "created_at": "2026-10-06T18:45:39.896Z"
+      }
+    ],
+    "scope": "Second actual OIDC job succeeded; independent native D1 retained the identical single generation-one event and head. No activation, rollback or new event."
+  },
   "freshEngineRepair": {
     "observedAt": "2026-10-06T18:40:53.2097990Z",
     "deploymentVersion": 115,
@@ -654,6 +681,100 @@
       "skipped": 0,
       "checks": "Four ordered synchronization operations, four check gates and build passed. New regressions cover empty real database head without a write, complete CLI initialization without public traffic, and refusal to bootstrap on other errors."
     },
-    "liveRepairVerification": "Pending a new exact-source deployment and actual CI retry; prior checkpoints do not certify this repair."
+    "liveRepairVerification": {
+      "outcome": "passed",
+      "gitHubCommit": "3b9b42810cbd31678f27a92b4ae83f92ee122721",
+      "sitesCommit": "a69415d63df845c1230a29193d0a12b56446663f",
+      "matchingTree": "0b898aecce6ef35364be86d366b5b9a877a2724e",
+      "savedVersion": 116,
+      "savedVersionId": "appgprj_6aa3ff61bd288191ac95ac6e30707895~appgver_176e99eb08848191b586e6430dc2e4d5",
+      "deploymentId": "appgdep_6ac541bcce8881918d7e5c30edd866fa",
+      "deployedAt": "2026-10-06T18:45:24.027719+00:00",
+      "environmentRevision": 4,
+      "workflowRun": 37513528797,
+      "workflowJob": 112441235103,
+      "validationRun": 37513493688,
+      "result": "already-current",
+      "completedAt": "2026-10-06T18:45:40.1933504Z",
+      "revision": "content-235e479c99e33115176f6aa1",
+      "engineRevision": "engine-510c4f5b1aceeeddb186",
+      "recordCount": 668,
+      "nativeProvenanceVerifiedAt": "2026-10-06T18:45:36.974Z",
+      "operationId": "pub-af37d3c3b0ce2c5eeaa120ba348604fc",
+      "generation": 1,
+      "eventCreatedAt": "2026-10-06T18:45:39.896Z",
+      "activeDelivery": false,
+      "scope": "Actual OIDC stage, explicit fresh-engine bootstrap and reread succeeded after exact-source deployment. Independent native D1 confirms provenance and one generation-one event. Browser/export/activation/rollback remain separately blocked; no factual verification dates changed."
+    }
+  },
+  "freshEnginePublicDelivery": {
+    "evaluatedAt": "2026-10-06T18:46:37.215Z",
+    "target": "https://versioncompass.com",
+    "expectedRevision": "content-235e479c99e33115176f6aa1",
+    "status": "delivery-checks-passed",
+    "scope": "Actual public HTTP response-body diagnostics for version 116, separate from browser/export checks",
+    "checks": {
+      "database-health": {
+        "outcome": "passed",
+        "checkedAt": "2026-10-06T18:46:17.903Z",
+        "evidence": {
+          "status": "ready",
+          "storage": "d1",
+          "revision": "content-235e479c99e33115176f6aa1",
+          "engineRevision": "engine-510c4f5b1aceeeddb186",
+          "recordCount": 668
+        }
+      },
+      "live-manifest": {
+        "outcome": "passed",
+        "checkedAt": "2026-10-06T18:46:18.612Z",
+        "evidence": {
+          "schemaVersion": 1,
+          "revision": "content-235e479c99e33115176f6aa1",
+          "digest": "1ebda8a92351e7d854d105eeacfd822df18d3a5ea1912de9174eb9e6d4b8e70a",
+          "engineRevision": "engine-510c4f5b1aceeeddb186",
+          "datasetHashes": {
+            "platform": "72ae19b337ea77ed322c1fb82c900cbecf3d93afaff914d511477b3be60fcbe8",
+            "products": "dfe12de7c0c266f33364c8d86672f73bc50ec8fe65c2e3f704695b6346200855",
+            "guidance": "099af8ae400680391ef402f03bf7301f39cc8f16a980f394e3b54e422c6f683f",
+            "environment": "c1e96751ff89f7976392829100c1f27f0e8f77f8d859a2ebbdc9e92f1c95f867",
+            "editions": "3d71261084a1b730c55f179589478e8f6299389a3029b2311181b1f98847eb06",
+            "forwarders": "3f58f089c04303cc2415e5313d57581e9b4b608a81752b28bca0898af4e5110c",
+            "soar": "55c75eb62e2e02f276a31bb84205a6164e51b240f0742479f09eeac82e3f0150"
+          },
+          "recordCount": 668,
+          "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+          "verificationPolicy": "Migration and delivery do not create verification dates",
+          "phase": "content-model-and-database-delivery"
+        }
+      },
+      "bundle-integrity": {
+        "outcome": "passed",
+        "checkedAt": "2026-10-06T18:46:19.084Z",
+        "evidence": {
+          "digest": "1ebda8a92351e7d854d105eeacfd822df18d3a5ea1912de9174eb9e6d4b8e70a",
+          "recordCount": 668
+        }
+      },
+      "bounded-record-query": {
+        "outcome": "passed",
+        "checkedAt": "2026-10-06T18:46:19.550Z",
+        "evidence": "SOAR filter, revision and maximum page size verified"
+      },
+      "read-only-api": {
+        "outcome": "passed",
+        "checkedAt": "2026-10-06T18:46:25.432Z",
+        "evidence": "POST rejected with 405"
+      },
+      "bundled-fallback-assets": {
+        "outcome": "passed",
+        "checkedAt": "2026-10-06T18:46:37.215Z",
+        "evidence": "All seven complete fallback adapters served"
+      }
+    },
+    "findings": [],
+    "limitations": [
+      "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
+    ]
   }
 }
