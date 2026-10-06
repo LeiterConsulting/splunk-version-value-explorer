@@ -33,7 +33,7 @@ function database() {
 }
 async function modules() {
   const store = await import(pathToFileURL(path.resolve('worker/content-store.mjs')));
-  const source = fs.readFileSync('worker/content-store.mjs', 'utf8') + '\n' + fs.readFileSync('worker/index.mjs', 'utf8');
+  const source = ['content-store.mjs','publication-core.mjs','publisher.mjs','index.mjs'].map(file => fs.readFileSync('worker/' + file, 'utf8')).join('\n');
   const worker = await import('data:text/javascript;base64,' + Buffer.from(source).toString('base64'));
   return { ...store, ...worker };
 }
@@ -106,6 +106,30 @@ test('client only adopts a complete pinned revision and falls back without parti
     assert.equal(bad.loaded, false); assert.equal(bad.c.window.SPLUNK_DATA, undefined); assert.equal(bad.c.window.VersionCompassContent.status, 'bundled-fallback');
   }
   assert.equal((await client(seed, { fail: true })).loaded, false);
+});
+test('active client switches the complete bundle and labels the bundled revision after failure', async () => {
+  const next = clone(seed); next.globals.SPLUNK_DATA.deliveryFixture = 'synthetic active revision';
+  next.manifest.digest = hash({ schemaVersion: 1, globals: next.globals, catalog: next.catalog });
+  next.manifest.revision = 'content-' + hash({ digest: next.manifest.digest, engineRevision: next.manifest.engineRevision }).slice(0,24);
+  async function run(fail) {
+    const urls = [], c = { window: {}, document: { documentElement: { dataset: {} } }, AbortController, TextEncoder, Uint8Array, crypto: crypto.webcrypto, setTimeout, clearTimeout, fetch: async url => {
+      urls.push(url);
+      if (url === 'content-manifest.json') return { ok: true, headers: { get: () => '1' }, json: async () => seed.manifest };
+      if (url.startsWith('/api/content/manifest?engine=')) return { ok: true, json: async () => next.manifest };
+      return { ok: !fail, json: async () => next };
+    } };
+    vm.runInNewContext(fs.readFileSync('client/content-client-active.js', 'utf8'), c);
+    return { c, urls, loaded: await c.window.VersionCompassContent.load() };
+  }
+  const good = await run(false); assert(good.loaded);
+  assert.equal(good.c.window.VersionCompassContent.revision, next.manifest.revision);
+  for (const key of Object.keys(seed.globals)) assert.deepEqual(clone(good.c.window[key]), next.globals[key]);
+  assert.equal(good.urls[2], '/api/content/bundle?revision=' + next.manifest.revision);
+  const bad = await run(true); assert(!bad.loaded);
+  assert.equal(bad.c.window.SPLUNK_DATA, undefined);
+  assert.equal(bad.c.window.VersionCompassContent.revision, seed.manifest.revision);
+  assert.equal(bad.c.window.VersionCompassContent.engineRevision, seed.manifest.engineRevision);
+  assert.equal(bad.c.document.documentElement.dataset.contentRevision, seed.manifest.revision);
 });
 test('database transport preserves representative comparisons and exact scope qualifications', async () => {
   const m = await modules(), db = database();

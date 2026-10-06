@@ -1,5 +1,5 @@
-/* Independent publication core. Not wired to the public Worker or client.
- * Runtime wiring requires a supported authenticated publisher and additive schema.
+/* Independent publication core. HTTP authentication lives in publisher.mjs.
+ * Schema changes use managed migrations; active visitor delivery has a separate gate.
  * The repo/CI is the authority; this code does not verify Splunk product claims.
  */
 export const REPOSITORY = 'LeiterConsulting/splunk-version-value-explorer';

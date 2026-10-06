@@ -1,4 +1,5 @@
-import { sqliteTable, text, integer, primaryKey, index } from 'drizzle-orm/sqlite-core';
+import { sqliteTable, text, integer, primaryKey, index, uniqueIndex, check } from 'drizzle-orm/sqlite-core';
+import { sql } from 'drizzle-orm';
 
 export const revisions = sqliteTable('content_revisions', {
   id: text('id').primaryKey(),
@@ -26,3 +27,26 @@ export const publication = sqliteTable('content_publication', {
   channel: text('channel').primaryKey(),
   revision: text('revision_id').notNull().references(() => revisions.id),
 });
+
+export const provenance = sqliteTable('content_publication_provenance', {
+  revision: text('revision_id').primaryKey().references(() => revisions.id),
+  repository: text('repository').notNull(),
+  commit: text('commit_sha').notNull(),
+  workflowRun: integer('workflow_run').notNull(),
+  verifiedAt: text('verified_at').notNull(),
+});
+
+export const publicationEvents = sqliteTable('content_publication_events', {
+  operationId: text('operation_id').primaryKey(),
+  channel: text('channel').notNull(),
+  generation: integer('generation').notNull(),
+  fromRevision: text('from_revision').notNull().references(() => revisions.id),
+  toRevision: text('to_revision').notNull().references(() => revisions.id),
+  provenanceCommit: text('provenance_commit').notNull(),
+  intent: text('intent').notNull(),
+  createdAt: text('created_at').notNull(),
+}, table => [
+  uniqueIndex('idx_content_publication_channel_generation').on(table.channel, table.generation),
+  check('publication_positive_generation', sql`${table.generation} > 0`),
+  check('publication_valid_intent', sql`${table.intent} IN ('publish', 'rollback')`),
+]);
