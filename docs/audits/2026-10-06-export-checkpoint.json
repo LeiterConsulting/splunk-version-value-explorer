@@ -1,0 +1,264 @@
+{
+  "schemaVersion": 1,
+  "evaluatedAt": "2026-10-06T10:57:19.852894Z",
+  "phase": "manual-export-checkpoint",
+  "baseline": {
+    "deployedAt": "2026-10-05T12:58:07.467354Z",
+    "basis": "Existing one-time soak task initial content migration baseline; this documentation-only checkpoint does not reset it.",
+    "websiteRevision": "vc-2f5e16d935d8d46f",
+    "contentRevision": "content-b5b56cb5e8e3a3e781199a91",
+    "engineRevision": "engine-9f768f7e8eb581137f0c",
+    "githubCommit": "ccd34c5d647f5461c56361648da04f33071e20bb",
+    "sitesCommit": "0ab6f4c56f7b896539c02f6956ceb5ec7d73cd5f",
+    "tree": "5e1001d2440c8c4b55c6f1a596f1bfa3c73d413e",
+    "version": 98,
+    "deployment": "appgdep_6ac39ed65a4881918b055ab9cebe49e6"
+  },
+  "checks": {
+    "content-parity": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-06T10:56:09.454458Z",
+      "evidence": {
+        "canonicalAdapters": "sync-content --check passed; seven datasets, 668 records",
+        "database": {
+          "evaluatedAt": "2026-10-06T10:54:44.851Z",
+          "target": "https://versioncompass.com",
+          "expectedRevision": "content-d2c803f3e5e5119a7ce1c158",
+          "status": "delivery-checks-passed",
+          "checks": {
+            "database-health": {
+              "outcome": "passed",
+              "evidence": {
+                "status": "ready",
+                "storage": "d1",
+                "revision": "content-d2c803f3e5e5119a7ce1c158",
+                "engineRevision": "engine-444c5fbe78c18916e0f6",
+                "recordCount": 668
+              },
+              "checkedAt": "2026-10-06T10:54:25.629Z"
+            },
+            "live-manifest": {
+              "outcome": "passed",
+              "evidence": {
+                "schemaVersion": 1,
+                "revision": "content-d2c803f3e5e5119a7ce1c158",
+                "digest": "fd3fbdd6a0e5da76f3bc0220ba4767deea8005cd8caf6436fdbe0b6f5b6116a1",
+                "engineRevision": "engine-444c5fbe78c18916e0f6",
+                "datasetHashes": {
+                  "platform": "116bba1bdd11246495c3b6b476a21bf556d4580d63f3e04b15380d7a59c8b1d3",
+                  "products": "dfe12de7c0c266f33364c8d86672f73bc50ec8fe65c2e3f704695b6346200855",
+                  "guidance": "099af8ae400680391ef402f03bf7301f39cc8f16a980f394e3b54e422c6f683f",
+                  "environment": "a58f7c63a55f7bd6b460a76b44dd8dcbc9aa1c355e98e50d7457219f1027eaa6",
+                  "editions": "3d71261084a1b730c55f179589478e8f6299389a3029b2311181b1f98847eb06",
+                  "forwarders": "3f58f089c04303cc2415e5313d57581e9b4b608a81752b28bca0898af4e5110c",
+                  "soar": "c0ad6ac01769b67324409155beef65bf2d242d9af7248db7b9fd0c8869e41d42"
+                },
+                "recordCount": 668,
+                "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+                "verificationPolicy": "Migration and delivery do not create verification dates",
+                "phase": "content-model-and-database-delivery"
+              },
+              "checkedAt": "2026-10-06T10:54:25.916Z"
+            },
+            "bundle-integrity": {
+              "outcome": "passed",
+              "evidence": {
+                "digest": "fd3fbdd6a0e5da76f3bc0220ba4767deea8005cd8caf6436fdbe0b6f5b6116a1",
+                "recordCount": 668
+              },
+              "checkedAt": "2026-10-06T10:54:26.244Z"
+            },
+            "bounded-record-query": {
+              "outcome": "passed",
+              "evidence": "SOAR filter, revision and maximum page size verified",
+              "checkedAt": "2026-10-06T10:54:26.592Z"
+            },
+            "read-only-api": {
+              "outcome": "passed",
+              "evidence": "POST rejected with 405",
+              "checkedAt": "2026-10-06T10:54:31.045Z"
+            },
+            "bundled-fallback-assets": {
+              "outcome": "passed",
+              "evidence": "All seven complete fallback adapters served",
+              "checkedAt": "2026-10-06T10:54:44.851Z"
+            }
+          },
+          "findings": [],
+          "limitations": [
+            "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
+          ]
+        }
+      }
+    },
+    "source-mappings": {
+      "outcome": "blocked",
+      "checkedAt": "2026-10-06T10:56:09.454458Z",
+      "evidence": "Source register --check passed with 148 sources; all nine exported official destinations agree between HTML and PDF.",
+      "reason": "This artifact review does not certify the pending historical HF borrowed technical/runtime source-to-claim coverage work."
+    },
+    "shared-links": {
+      "outcome": "blocked",
+      "checkedAt": "2026-10-06T10:56:09.454458Z",
+      "evidence": [
+        "https://versioncompass.com/?product=platform&platform=enterprise&from=9.4&to=10.4&category=All&reviewed=2026-10-06&perspective=overview",
+        "https://versioncompass.com/?product=platform&platform=enterprise&from=9.4&to=10.4&category=All&reviewed=2026-10-06&perspective=overview",
+        "https://versioncompass.com/?product=platform&platform=enterprise&from=9.4&to=10.4&category=All&reviewed=2026-10-06&perspective=overview#breaking-title",
+        "https://versioncompass.com/?product=platform&platform=enterprise&from=9.4&to=10.4&category=All&reviewed=2026-10-06&perspective=overview#required-checks",
+        "https://versioncompass.com/?product=platform&platform=enterprise&from=9.4&to=10.4&category=All&reviewed=2026-10-06&perspective=overview#decision-questions",
+        "https://versioncompass.com/?product=platform&platform=enterprise&from=9.4&to=10.4&category=All&reviewed=2026-10-06&perspective=overview#value-title",
+        "https://versioncompass.com/?product=platform&platform=enterprise&from=9.4&to=10.4&category=All&reviewed=2026-10-06&perspective=overview#readiness-title",
+        "https://versioncompass.com/?product=platform&platform=enterprise&from=9.4&to=10.4&category=All&reviewed=2026-10-06&perspective=overview#readiness-title",
+        "https://versioncompass.com/?product=platform&platform=enterprise&from=9.4&to=10.4&category=All&reviewed=2026-10-06&perspective=overview#decision-questions"
+      ],
+      "reason": "Selected Enterprise 9.4 \u2192 10.4 URL retained in both artifacts. Fresh native selected/legacy/invalid/shared-link journeys were not performed."
+    },
+    "automated-tests": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-06T10:57:19.852894Z",
+      "evidence": "Final exact source: ordered synchronization, four --check gates, 90/90 tests and npm run build passed. Only audit evidence was appended afterward; executable/generated data unchanged."
+    },
+    "browser-journeys": {
+      "outcome": "blocked",
+      "checkedAt": "2026-10-06T10:56:09.454458Z",
+      "evidence": "Existing October 5 browser observations retained in docs/audits/2026-10-05-content-migration.json.",
+      "reason": "No supported control-browser capability in the current managed Sites environment; current native journeys not performed."
+    },
+    "themes-and-narrow-screens": {
+      "outcome": "blocked",
+      "checkedAt": "2026-10-06T10:56:09.454458Z",
+      "evidence": "The supplied default-theme artifacts were inspected.",
+      "reason": "Fresh Cisco-theme and narrow-screen browser checks not performed; default PDF cannot certify them."
+    },
+    "keyboard": {
+      "outcome": "blocked",
+      "checkedAt": "2026-10-06T10:56:09.454458Z",
+      "evidence": "No screen controls remain in the saved report.",
+      "reason": "Fresh keyboard/tap/skip/focus and restored print-state browser checks not performed."
+    },
+    "html-reopen": {
+      "outcome": "blocked",
+      "checkedAt": "2026-10-06T10:56:09.454458Z",
+      "evidence": {
+        "artifactSha256": "5e0b47ebcc00a3ab04388eb08d0ab33eeb4c5dfdbe875fdb46ae9e6a8c17f1b1",
+        "inspection": "Downloaded HTML parsed independently from the site; script-free, inline CSS, no remote assets/controls, all nested details open, selected history date retained, restrictive CSP."
+      },
+      "reason": "File content inspection passed; independent browser-rendered reopening is not performed. Sites managed preview guidance forbids an improvised browser-control path when control-browser is unavailable."
+    },
+    "pdf-rendering": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-06T10:56:09.454458Z",
+      "evidence": {
+        "artifactSha256": "457b316274307131321b9c7f1a13ddcd7e6b92a383b4fd00d9e8532168463106",
+        "pages": 29,
+        "method": "User-generated native PDF rendered to PNG; all 29 pages visually inspected in numbered contact sheets, text bounds and heading/link parity inspected programmatically.",
+        "result": "No blank pages, clipped text, leaked controls, closed history or source-link loss observed. Long evidence cards continue across pages; transition tables remain readable.",
+        "scope": "Enterprise 9.4 \u2192 10.4, default theme only",
+        "parity": {
+          "pdfPages": 29,
+          "pdfSha256": "457b316274307131321b9c7f1a13ddcd7e6b92a383b4fd00d9e8532168463106",
+          "htmlSha256": "5e0b47ebcc00a3ab04388eb08d0ab33eeb4c5dfdbe875fdb46ae9e6a8c17f1b1",
+          "missingPdfHeadings": [],
+          "missingPdfSourceUrls": [],
+          "sourceUrls": [
+            "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.0-read-this-first",
+            "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.2/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.2-read-this-first",
+            "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first",
+            "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise",
+            "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.0/whats-new/welcome-to-splunk-enterprise-10.0",
+            "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.2/whats-new/welcome-to-splunk-enterprise-10.2",
+            "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues",
+            "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4",
+            "https://www.splunk.com/en_us/legal/splunk-software-support-policy.html"
+          ],
+          "pdfLinks": 17,
+          "sharedRouteLinks": [
+            "https://versioncompass.com/?product=platform&platform=enterprise&from=9.4&to=10.4&category=All&reviewed=2026-10-06&perspective=overview",
+            "https://versioncompass.com/?product=platform&platform=enterprise&from=9.4&to=10.4&category=All&reviewed=2026-10-06&perspective=overview",
+            "https://versioncompass.com/?product=platform&platform=enterprise&from=9.4&to=10.4&category=All&reviewed=2026-10-06&perspective=overview#breaking-title",
+            "https://versioncompass.com/?product=platform&platform=enterprise&from=9.4&to=10.4&category=All&reviewed=2026-10-06&perspective=overview#required-checks",
+            "https://versioncompass.com/?product=platform&platform=enterprise&from=9.4&to=10.4&category=All&reviewed=2026-10-06&perspective=overview#decision-questions",
+            "https://versioncompass.com/?product=platform&platform=enterprise&from=9.4&to=10.4&category=All&reviewed=2026-10-06&perspective=overview#value-title",
+            "https://versioncompass.com/?product=platform&platform=enterprise&from=9.4&to=10.4&category=All&reviewed=2026-10-06&perspective=overview#readiness-title",
+            "https://versioncompass.com/?product=platform&platform=enterprise&from=9.4&to=10.4&category=All&reviewed=2026-10-06&perspective=overview#readiness-title",
+            "https://versioncompass.com/?product=platform&platform=enterprise&from=9.4&to=10.4&category=All&reviewed=2026-10-06&perspective=overview#decision-questions"
+          ],
+          "outOfPageText": []
+        }
+      }
+    },
+    "live-revision": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-06T10:56:55.347Z",
+      "evidence": {
+        "website": "vc-f7fe933f97b41e57",
+        "publication": {
+          "schemaVersion": 1,
+          "revision": "content-d2c803f3e5e5119a7ce1c158",
+          "digest": "fd3fbdd6a0e5da76f3bc0220ba4767deea8005cd8caf6436fdbe0b6f5b6116a1",
+          "engineRevision": "engine-444c5fbe78c18916e0f6",
+          "datasetHashes": {
+            "platform": "116bba1bdd11246495c3b6b476a21bf556d4580d63f3e04b15380d7a59c8b1d3",
+            "products": "dfe12de7c0c266f33364c8d86672f73bc50ec8fe65c2e3f704695b6346200855",
+            "guidance": "099af8ae400680391ef402f03bf7301f39cc8f16a980f394e3b54e422c6f683f",
+            "environment": "a58f7c63a55f7bd6b460a76b44dd8dcbc9aa1c355e98e50d7457219f1027eaa6",
+            "editions": "3d71261084a1b730c55f179589478e8f6299389a3029b2311181b1f98847eb06",
+            "forwarders": "3f58f089c04303cc2415e5313d57581e9b4b608a81752b28bca0898af4e5110c",
+            "soar": "c0ad6ac01769b67324409155beef65bf2d242d9af7248db7b9fd0c8869e41d42"
+          },
+          "recordCount": 668,
+          "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+          "verificationPolicy": "Migration and delivery do not create verification dates",
+          "phase": "content-model-and-database-delivery"
+        },
+        "diagnostic": "2026-10-06T10:54:44.851Z",
+        "source": {
+          "github": "2b829bd7a74348b3206bd121110621654a95be1e",
+          "sites": "4cf413c03c778bc9dd4c5c0903df3efb00725123",
+          "tree": "708631451b12c320440b0cefc7c4743bd9ab478d",
+          "version": 101
+        },
+        "liveByteParity": [
+          "index.html",
+          "content-revision.js",
+          "report-tools.js",
+          "release-print.js",
+          "release-print.css"
+        ]
+      }
+    },
+    "maintenance-outcomes": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-06T10:56:09.454458Z",
+      "evidence": "Current published release/ES outcomes inspected; this manual export review does not rewrite a scheduled watch outcome or factual verification date."
+    }
+  },
+  "sourceChecks": {
+    "outcome": "not-performed",
+    "reason": "Manual export review; destinations retained, upstream claims not reverified."
+  },
+  "claimChecks": {
+    "outcome": "not-performed",
+    "reason": "Artifact preservation is not a claim verification."
+  },
+  "feedback": {
+    "status": "owner-supplied-artifacts",
+    "note": "Actual downloaded files supplied for inspection; no inferred preference or customer-satisfaction result."
+  },
+  "findings": [],
+  "nextStage": "Prepared bounded independent-publication implementation contract; not enabled while required material gates remain blocked.",
+  "recommendations": [
+    {
+      "observation": "HTML is complete by file inspection but browser rendering is unverified.",
+      "change": "Independently reopen the downloaded file in a supported browser and inspect details/citations with network unavailable.",
+      "benefit": "Prove saving works independently of the live site.",
+      "validation": "Actual reopened-file evidence, separate from parsing."
+    },
+    {
+      "observation": "Fresh surrounding browser and historical HF source-section coverage remain unverified.",
+      "change": "Complete the bounded route/theme/keyboard/WebMCP checks and owning Forwarder mapping regression.",
+      "benefit": "Prevent a single Enterprise export from certifying unrelated routes.",
+      "validation": "Record each actual result before check-soak advancement."
+    }
+  ]
+}
