@@ -34,7 +34,7 @@
       const bundle = await response.json(), m = bundle.manifest;
       if (!m || JSON.stringify(m) !== JSON.stringify(expected) || m.schemaVersion !== 1 || m.engineRevision !== bundled.engineRevision || !/^content-[a-f0-9]{24}$/.test(m.revision || '') || !/^[a-f0-9]{64}$/.test(m.digest || '') || bundle.catalog?.schemaVersion !== 1 || bundle.catalog?.records.length !== m.recordCount || Object.keys(bundle.globals || {}).length !== globals.length || globals.some(k => !bundle.globals?.[k]) || !safe(bundle.globals) || !safe(bundle.catalog) || new Set(bundle.catalog.records.map(r => r.id)).size !== m.recordCount) throw Error('Published content mismatch');
       if (await digest({ schemaVersion: 1, globals: bundle.globals, catalog: bundle.catalog }) !== m.digest) throw Error('Published content digest mismatch');
-      if ('content-' + (await digest({ digest: m.digest, engineRevision: m.engineRevision })).slice(0, 24) !== m.revision) throw Error('Published revision mismatch');
+      if ('content-' + (await digest({ digest: m.digest, engineRevision: m.engineRevision, datasetHashes: m.datasetHashes })).slice(0, 24) !== m.revision) throw Error('Published revision mismatch');
       // Atomic assignment after complete validation. Never mix API and adapter datasets.
       for (const key of globals) window[key] = bundle.globals[key];
       this.status = 'database'; this.revision = m.revision; this.engineRevision = m.engineRevision;

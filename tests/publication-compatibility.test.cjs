@@ -6,7 +6,8 @@ async function fixture(kind = 'Compatibility rule / historical scope') {
   const globals = { SPLUNK_DATA: {}, VersionCompassEnvironmentData: {}, VersionCompassEditions: {}, VersionCompassForwarderData: {}, VersionCompassSOARData: {} };
   const catalog = { schemaVersion: 1, records: [{ id: 'vc-' + 'c'.repeat(20), kind, dataset: 'platform', scope: {}, evidence: [], verification: { date: null, outcome: 'Claim verification not recorded' }, payload: { title: 'Synthetic schema fixture' } }] };
   const digest = await m.sha256({ schemaVersion: 1, globals, catalog });
-  const bundle = { manifest: { schemaVersion: 1, revision: 'content-' + (await m.sha256({ digest, engineRevision: engine })).slice(0, 24), digest, engineRevision: engine, datasetHashes: Object.fromEntries(m.DATASETS.map(id => [id, 'd'.repeat(64)])), recordCount: 1, provenance: 'Test', verificationPolicy: 'Preserve dates', phase: 'test' }, globals, catalog };
+  const datasetHashes = Object.fromEntries(m.DATASETS.map(id => [id, 'd'.repeat(64)]));
+  const bundle = { manifest: { schemaVersion: 1, revision: 'content-' + (await m.sha256({ digest, engineRevision: engine, datasetHashes })).slice(0, 24), digest, engineRevision: engine, datasetHashes, recordCount: 1, provenance: 'Test', verificationPolicy: 'Preserve dates', phase: 'test' }, globals, catalog };
   return { m, engine, candidate: { repository: m.REPOSITORY, commit, bundle } };
 }
 test('existing schema permits free-form record kind strings without rewriting them', async () => {

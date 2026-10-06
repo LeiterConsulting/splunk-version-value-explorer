@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "evaluatedAt": "2026-10-06T17:09:17.286534Z",
+  "phase": "independent-publication-reader-and-staging",
+  "baseline": {
+    "deployedAt": "2026-10-06T11:37:27.908702Z",
+    "websiteRevision": "vc-c923922566882141",
+    "contentRevision": "content-69fd35dd07090bfa526b29a5",
+    "engineRevision": "engine-33546a965f9b2fc90ad8",
+    "githubCommit": "85ec97ea7e88e2ec7679e270ad4762acdc65c4ed",
+    "sitesCommit": "82b7410c20709b92328d112ac12c8d039ce36ea1",
+    "tree": "dd1da3196c2a06fec65db4f3c74d21d56de938b1",
+    "version": 104,
+    "deployment": "appgdep_6ac4dd72658c81919171080e09434e28"
+  },
+  "implementation": {
+    "scope": "Integrate the repository publication core into bundled-seed validation and the active-revision reader; add fail-closed CI request preparation. No public write route, publisher schema migration or credential.",
+    "contentRevision": "content-f7f0de03ff05e6777901c1a4",
+    "engineRevision": "engine-7fbb7505bf30d1dadf0b",
+    "recordCount": 668,
+    "datasetCount": 7,
+    "factualChanges": false,
+    "contentCycleAdvanced": false,
+    "securityBoundary": {
+      "siteRuntimeSecretConfigured": false,
+      "githubActionsSecretConfigured": false,
+      "writeRouteExposed": false,
+      "reason": "The connected GitHub authoring capability cannot configure Actions secrets. A one-sided or permissive credential path was not created."
+    },
+    "integrityRepair": "Platform dataset hash is now captured before Products and Guidance composition; immutable revision identity includes all seven dataset hashes and engine revision."
+  },
+  "checks": {
+    "ordered-synchronization": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-06T17:08:00Z",
+      "evidence": "sync-release-metadata, sync-content, sync-source-register and sync-content-revision completed in order."
+    },
+    "four-check-gates": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-06T17:08:44Z",
+      "evidence": "All four synchronization --check gates passed; seven datasets, 668 records and 148 registered sources."
+    },
+    "automated-tests": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-06T17:08:44Z",
+      "evidence": "133/133 Node tests passed, including provenance, interrupted staging, stale activation, generation-safe rollback, canonical hashes, active-reader and complete-fallback cases."
+    },
+    "build": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-06T17:08:44Z",
+      "evidence": "Worker build completed with 48 assets and immutable content revision content-f7f0de03ff05e6777901c1a4."
+    },
+    "github-publication": {
+      "outcome": "not-performed",
+      "checkedAt": "2026-10-06T17:09:17.286534Z",
+      "evidence": "Prepublication checkpoint.",
+      "reason": "Pending exact validated commit."
+    },
+    "sites-deployment": {
+      "outcome": "not-performed",
+      "checkedAt": "2026-10-06T17:09:17.286534Z",
+      "evidence": "Prepublication checkpoint.",
+      "reason": "Pending exact validated package."
+    },
+    "live-diagnostics": {
+      "outcome": "not-performed",
+      "checkedAt": "2026-10-06T17:09:17.286534Z",
+      "evidence": "Prepublication checkpoint.",
+      "reason": "Requires successful deployment."
+    },
+    "browser-exports": {
+      "outcome": "not-performed",
+      "checkedAt": "2026-10-06T17:09:17.286534Z",
+      "evidence": "Prepublication checkpoint.",
+      "reason": "Requires successful deployment."
+    }
+  },
+  "findings": [
+    {
+      "observed": "Authenticated CI submission cannot be enabled until the same publication token is installed through supported GitHub Actions and Sites runtime-secret controls.",
+      "impact": "Independent content writes remain unavailable; existing deployment publishing and public read-only APIs continue to work.",
+      "recommendedChange": "Configure the paired secret through supported controls, deploy the exact authenticated route, run a fresh CI publication, verify D1 readback, then exercise rollback.",
+      "securityRisk": true,
+      "resolved": false
+    }
+  ],
+  "publication": null,
+  "soak": null
+}

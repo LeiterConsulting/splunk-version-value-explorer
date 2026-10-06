@@ -17,8 +17,9 @@ async function bundle(number = 1, engineRevision = engine) {
       verification: { date: null, outcome: 'Claim verification not recorded' }, payload: { title: 'Synthetic fixture', number } },
   ] };
   const digest = await m.sha256({ schemaVersion: 1, globals, catalog });
-  return { manifest: { schemaVersion: 1, revision: 'content-' + (await m.sha256({ digest, engineRevision })).slice(0, 24), digest, engineRevision,
-    datasetHashes: Object.fromEntries(m.DATASETS.map(id => [id, 'd'.repeat(64)])), recordCount: catalog.records.length,
+  const datasetHashes = Object.fromEntries(m.DATASETS.map(id => [id, 'd'.repeat(64)]));
+  return { manifest: { schemaVersion: 1, revision: 'content-' + (await m.sha256({ digest, engineRevision, datasetHashes })).slice(0, 24), digest, engineRevision,
+    datasetHashes, recordCount: catalog.records.length,
     provenance: 'Test fixture, not verified product data', verificationPolicy: 'No invented dates', phase: 'test' }, globals, catalog };
 }
 async function candidate(value = null) {
@@ -235,14 +236,13 @@ test('unknown activation fields, wrong engine, no-op and invalid generations are
   await assert.rejects(m.activatePublication(db, action(1, a, b), { engineRevision: 'engine-' + 'f'.repeat(20) }), /Engine mismatch/);
 });
 
-test('actual repository bundle validates and integration keeps the public API read-only', { skip: !fs.existsSync(path.join(__dirname, '../dist/content-bundle.json')) }, async () => {
+test('actual repository bundle validates and public build integrates validation without a write route', { skip: !fs.existsSync(path.join(__dirname, '../dist/content-bundle.json')) }, async () => {
   const m = await core(), root = path.join(__dirname, '..');
   const real = JSON.parse(fs.readFileSync(path.join(root, 'dist/content-bundle.json'), 'utf8'));
   assert.deepEqual(await m.validateBundle(real, real.manifest.engineRevision), real);
   const script = fs.readFileSync(path.join(root, 'scripts/build-worker.cjs'), 'utf8');
   const worker = fs.readFileSync(path.join(root, 'worker/index.mjs'), 'utf8');
-  assert(script.includes('publication-core.mjs')); assert(script.includes('publisher.mjs'));
-  assert(worker.includes('publisherRequest'));
+  assert(script.includes('publication-core.mjs')); assert(!worker.includes('activatePublication'));
   assert.match(worker, /Read-only content service/);
 });
 

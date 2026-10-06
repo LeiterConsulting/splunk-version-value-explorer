@@ -6,7 +6,7 @@ const { DatabaseSync } = require('node:sqlite');
 const seed = JSON.parse(fs.readFileSync('dist/content-bundle.json', 'utf8'));
 const clone = value => JSON.parse(JSON.stringify(value));
 const admin = 'a'.repeat(64); // Isolated fixture credential, never a runtime secret.
-const modules = () => import('data:text/javascript;base64,' + Buffer.from(['content-store.mjs','publication-core.mjs','publisher.mjs','index.mjs'].map(file => fs.readFileSync('worker/' + file, 'utf8')).join('\n')).toString('base64'));
+const modules = () => import('data:text/javascript;base64,' + Buffer.from(['publication-core.mjs','content-store.mjs','publisher.mjs','index.mjs'].map(file => fs.readFileSync('worker/' + file, 'utf8').replace(/^import .*publication-core\.mjs';\n/, '')).join('\n')).toString('base64'));
 function database(t) {
   const sql = new DatabaseSync(':memory:'); sql.exec('PRAGMA foreign_keys = ON');
   for (const file of fs.readdirSync('drizzle').filter(file => file.endsWith('.sql')).sort()) sql.exec(fs.readFileSync('drizzle/' + file, 'utf8'));
@@ -66,7 +66,7 @@ test('bootstrap rejects a different seed and existing publisher heads without ov
   const m = await modules(), db = database(t);
   await m.ensureRevision(db, seed);
   await assert.rejects(m.bootstrapPublication(db, { ...candidate, bundle: { manifest: { revision: 'content-' + '0'.repeat(24) } } }, 'pub-' + '2'.repeat(32), seed, { fetcher: evidence }), /deployment seed/);
-  const other = clone(seed); other.manifest.revision = 'content-' + '3'.repeat(24); other.manifest.digest = '3'.repeat(64);
+  const other = clone(seed); other.globals.SPLUNK_DATA.publisherFixture = 'other'; other.manifest.digest = await m.sha256({schemaVersion:1,globals:other.globals,catalog:other.catalog}); other.manifest.revision = 'content-' + (await m.sha256({digest:other.manifest.digest,engineRevision:other.manifest.engineRevision,datasetHashes:other.manifest.datasetHashes})).slice(0,24);
   await m.ensureRevision(db, other);
   // A deployment seed import cannot replace even a legacy complete pointer.
   assert.equal((await m.readPublicationHead(db, seed.manifest.engineRevision)).revision, seed.manifest.revision);
@@ -78,7 +78,7 @@ test('bootstrap rejects a different seed and existing publisher heads without ov
 test('public active reads stay engine-scoped and deployment-pinned reads stay exact', async t => {
   const m = await modules(), db = database(t), worker = m.createWorker(seed, { '/content-manifest.json': { body: JSON.stringify(seed.manifest), type: 'application/json' } });
   await m.ensureRevision(db, seed);
-  const next = clone(seed); next.manifest.revision = 'content-' + '5'.repeat(24); next.manifest.digest = '5'.repeat(64);
+  const next = clone(seed); next.globals.SPLUNK_DATA.publisherFixture = 'next'; next.manifest.digest = await m.sha256({schemaVersion:1,globals:next.globals,catalog:next.catalog}); next.manifest.revision = 'content-' + (await m.sha256({digest:next.manifest.digest,engineRevision:next.manifest.engineRevision,datasetHashes:next.manifest.datasetHashes})).slice(0,24);
   await m.ensureRevision(db, next); db.sql.prepare('UPDATE content_publication SET revision_id = ?').run(next.manifest.revision);
   db.sql.prepare('INSERT INTO content_publication_provenance VALUES (?, ?, ?, ?, ?)').run(next.manifest.revision, candidate.repository, candidate.commit, 77, new Date().toISOString());
   db.sql.prepare('INSERT INTO content_publication_events VALUES (?, ?, ?, ?, ?, ?, ?, ?)').run('pub-' + '5'.repeat(32), 'engine:' + seed.manifest.engineRevision, 1, seed.manifest.revision, next.manifest.revision, candidate.commit, 'publish', new Date().toISOString());

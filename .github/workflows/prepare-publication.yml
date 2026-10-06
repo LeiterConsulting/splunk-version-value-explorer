@@ -1,0 +1,54 @@
+name: Prepare independent content publication
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: Full main-branch commit that already passed Validate release metadata and reports
+        required: true
+        type: string
+      expected_current_revision:
+        description: Exact active content revision required by compare-and-swap
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.commit }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/sync-release-metadata.cjs --check
+      - run: node scripts/sync-content.cjs --check
+      - run: node scripts/sync-source-register.cjs --check
+      - run: node scripts/sync-content-revision.cjs --check
+      - run: node --test tests/*.test.cjs
+      - run: npm run build
+      - name: Verify exact public main provenance and completed CI
+        run: >-
+          node scripts/verify-publication.mjs
+          --commit "${{ inputs.commit }}"
+          --engine "$(node -p "require('./content/publication.json').engineRevision")"
+      - name: Bind publication request to the verified commit and tree
+        run: >-
+          node scripts/publication-request.cjs
+          --repository "$GITHUB_REPOSITORY"
+          --commit "${{ inputs.commit }}"
+          --tree "$(git rev-parse 'HEAD^{tree}')"
+          --ref "refs/heads/main"
+          --expectedCurrentRevision "${{ inputs.expected_current_revision }}"
+          > publication-request.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: publication-request-${{ inputs.commit }}
+          path: publication-request.json
+          if-no-files-found: error
+          retention-days: 14

@@ -33,7 +33,7 @@ function database() {
 }
 async function modules() {
   const store = await import(pathToFileURL(path.resolve('worker/content-store.mjs')));
-  const source = ['content-store.mjs','publication-core.mjs','publisher.mjs','index.mjs'].map(file => fs.readFileSync('worker/' + file, 'utf8')).join('\n');
+  const source = ['publication-core.mjs','content-store.mjs','publisher.mjs','index.mjs'].map(file => fs.readFileSync('worker/' + file, 'utf8').replace(/^import .*publication-core\.mjs';\n/, '')).join('\n');
   const worker = await import('data:text/javascript;base64,' + Buffer.from(source).toString('base64'));
   return { ...store, ...worker };
 }
@@ -42,8 +42,9 @@ test('canonical datasets and generated compatibility adapters preserve identical
   for (const f of ['data.js','product-data.js','guidance-data.js','environment-data.js','editions-data.js','forwarders-data.js','soar-data.js']) vm.runInNewContext(fs.readFileSync('dist/' + f, 'utf8'), c);
   assert.deepEqual(clone(c.window), seed.globals);
   assert.equal(hash({ schemaVersion: 1, globals: seed.globals, catalog: seed.catalog }), seed.manifest.digest);
-  assert.equal(seed.manifest.revision, 'content-' + hash({ digest: seed.manifest.digest, engineRevision: seed.manifest.engineRevision }).slice(0,24));
+  assert.equal(seed.manifest.revision, 'content-' + hash({ digest: seed.manifest.digest, engineRevision: seed.manifest.engineRevision, datasetHashes: seed.manifest.datasetHashes }).slice(0,24));
   assert.notEqual(hash({ digest: seed.manifest.digest, engineRevision: seed.manifest.engineRevision }), hash({ digest: seed.manifest.digest, engineRevision: 'engine-new-rules' }));
+  for (const [dataset, digest] of Object.entries(seed.manifest.datasetHashes)) assert.equal(hash(JSON.parse(fs.readFileSync('content/datasets/' + dataset + '.json', 'utf8'))), digest, dataset);
   assert.equal(new Set(seed.catalog.records.map(r => r.id)).size, seed.manifest.recordCount);
   for (const r of seed.catalog.records.filter(r => r.evidence)) {
     for (const e of r.evidence) assert(seed.catalog.records.some(s => s.id === e.sourceId && s.url === e.url));
@@ -65,14 +66,45 @@ test('interrupted imports never activate partial content and can resume idempote
   const m = await modules(), db = database();
   try {
     await m.ensureRevision(db, seed);
-    const next = clone(seed); next.manifest.revision = 'content-' + '1'.repeat(24); next.manifest.digest = '1'.repeat(64);
-    db.interruptNextBatch(); await assert.rejects(m.ensureRevision(db, next));
+    const next = clone(seed); { const record = next.catalog.records.find(value => value.kind !== 'source'); record.payload = { original: record.payload, test: 'next' }; }
+    next.manifest.digest = hash({ schemaVersion: 1, globals: next.globals, catalog: next.catalog });
+    next.manifest.revision = 'content-' + hash({ digest: next.manifest.digest, engineRevision: next.manifest.engineRevision, datasetHashes: next.manifest.datasetHashes }).slice(0,24);
+    db.interruptNextBatch(); await assert.rejects(m.stageBundledRevision(db, next));
     assert.equal(await m.readBundle(db, next.manifest.revision), null);
     assert.equal(db.sql.prepare('SELECT revision_id FROM content_publication').get().revision_id, seed.manifest.revision);
-    await m.ensureRevision(db, next); assert.deepEqual(await m.readBundle(db, next.manifest.revision), next);
+    await m.stageBundledRevision(db, next); assert.deepEqual(await m.readBundle(db, next.manifest.revision), next);
+    assert.equal(db.sql.prepare('SELECT revision_id FROM content_publication').get().revision_id, seed.manifest.revision);
     const collision = clone(next); collision.manifest.digest = '2'.repeat(64);
-    await assert.rejects(m.ensureRevision(db, collision), /digest mismatch/);
+    await assert.rejects(m.stageBundledRevision(db, collision), /digest mismatch/);
   } finally { db.sql.close(); }
+});
+test('active reader follows the exact engine pointer while retaining complete prior bundles', async () => {
+  const m = await modules(), db = database();
+  try {
+    await m.ensureRevision(db, seed);
+    const next = clone(seed); { const record = next.catalog.records.find(value => value.kind !== 'source'); record.payload = { original: record.payload, test: 'activated' }; }
+    next.manifest.digest = hash({ schemaVersion: 1, globals: next.globals, catalog: next.catalog });
+    next.manifest.revision = 'content-' + hash({ digest: next.manifest.digest, engineRevision: next.manifest.engineRevision, datasetHashes: next.manifest.datasetHashes }).slice(0,24);
+    await m.stageBundledRevision(db, next);
+    assert.equal((await m.readActiveBundle(db, seed.manifest.engineRevision)).manifest.revision, seed.manifest.revision);
+    db.sql.prepare('UPDATE content_publication SET revision_id = ? WHERE channel = ?').run(next.manifest.revision, 'engine:' + seed.manifest.engineRevision);
+    assert.equal((await m.readActiveBundle(db, seed.manifest.engineRevision)).manifest.revision, next.manifest.revision);
+    await m.ensureRevision(db, seed);
+    assert.equal((await m.readActiveBundle(db, seed.manifest.engineRevision)).manifest.revision, next.manifest.revision);
+    db.sql.prepare('UPDATE content_publication SET revision_id = ? WHERE channel = ?').run(seed.manifest.revision, 'engine:' + seed.manifest.engineRevision);
+    assert.equal((await m.readActiveBundle(db, seed.manifest.engineRevision)).manifest.revision, seed.manifest.revision);
+    assert.deepEqual(await m.readBundle(db, next.manifest.revision), next);
+  } finally { db.sql.close(); }
+});
+test('publication validation rejects partial identities, duplicate records and engine conflicts', async () => {
+  const m = await modules();
+  const missingDataset = clone(seed); delete missingDataset.manifest.datasetHashes.soar;
+  await assert.rejects(m.validateBundle(missingDataset, seed.manifest.engineRevision), /dataset hashes/);
+  const duplicate = clone(seed); duplicate.catalog.records[1].id = duplicate.catalog.records[0].id;
+  duplicate.manifest.digest = hash({ schemaVersion: 1, globals: duplicate.globals, catalog: duplicate.catalog });
+  duplicate.manifest.revision = 'content-' + hash({ digest: duplicate.manifest.digest, engineRevision: duplicate.manifest.engineRevision, datasetHashes: duplicate.manifest.datasetHashes }).slice(0,24);
+  await assert.rejects(m.validateBundle(duplicate, seed.manifest.engineRevision), /duplicate record ID/);
+  await assert.rejects(m.validateBundle(seed, 'engine-' + '0'.repeat(20)), /Engine mismatch/);
 });
 test('content API is read-only, validates filters and reports database failures', async () => {
   const m = await modules(), db = database(), worker = m.createWorker(seed, { '/index.html': { body: '<h1>VersionCompass</h1>', type: 'text/html' } });
@@ -110,7 +142,7 @@ test('client only adopts a complete pinned revision and falls back without parti
 test('active client switches the complete bundle and labels the bundled revision after failure', async () => {
   const next = clone(seed); next.globals.SPLUNK_DATA.deliveryFixture = 'synthetic active revision';
   next.manifest.digest = hash({ schemaVersion: 1, globals: next.globals, catalog: next.catalog });
-  next.manifest.revision = 'content-' + hash({ digest: next.manifest.digest, engineRevision: next.manifest.engineRevision }).slice(0,24);
+  next.manifest.revision = 'content-' + hash({ digest: next.manifest.digest, engineRevision: next.manifest.engineRevision, datasetHashes: next.manifest.datasetHashes }).slice(0,24);
   async function run(fail) {
     const urls = [], c = { window: {}, document: { documentElement: { dataset: {} } }, AbortController, TextEncoder, Uint8Array, crypto: crypto.webcrypto, setTimeout, clearTimeout, fetch: async url => {
       urls.push(url);
