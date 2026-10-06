@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-10-06T18:23:31.532Z",
+  "evaluatedAt": "2026-10-06T18:27:22.152Z",
   "phase": "publisher-live-verified-active-reader-held",
   "baseGitHubCommit": "264bd3f4ff0fa6dac9550c41adad901200ecbdf1",
   "baseSitesCommit": "82b7410c20709b92328d112ac12c8d039ce36ea1",
@@ -8,19 +8,19 @@
   "checks": {
     "automatedTests": {
       "outcome": "passed",
-      "passed": 153,
+      "passed": 154,
       "failed": 0,
       "skipped": 0,
-      "scope": "Complete Node 24 suite, four synchronization checks and build for GitHub c05d81303bf78141a97c3d9ca5a1f10e35acd09f and deployed matching tree 588e224ec9d591ac3627244108ef1ad08a41f6b0; no later source is implied"
+      "scope": "Complete Node 24 suite, four synchronization checks and build for GitHub 4c530565595696283c2f33e04f4d9f0ebdb93604 and deployed matching tree 27558ffe775f37646f3dac77a2932961532bae5a; a later documentation-only reconciliation does not change runtime artifacts"
     },
     "repositoryProvenance": {
       "outcome": "passed",
-      "commit": "c05d81303bf78141a97c3d9ca5a1f10e35acd09f",
-      "workflowRun": 37509669707,
-      "revision": "content-2de596727e13c67cb29672c9",
-      "engineRevision": "engine-18cc8ba6eaf33c65dd42",
+      "commit": "4c530565595696283c2f33e04f4d9f0ebdb93604",
+      "workflowRun": 37510271900,
+      "revision": "content-df5d750a2de9eee19933ab27",
+      "engineRevision": "engine-dcc80cb83dc77c4e03af",
       "recordCount": 668,
-      "scope": "Live Worker independently verified GitHub main ancestry, completed validation gates and exact committed manifest/bundle; native D1 readback confirmed provenance after two successful authenticated jobs"
+      "scope": "Live Worker independently verified GitHub main ancestry, completed validation gates and exact committed manifest/bundle; native D1 readback confirmed this commit and validation run after authenticated CI publication"
     },
     "sourceChecks": {
       "outcome": "not-performed",
@@ -39,42 +39,43 @@
       "reason": "New active-reader branch needs actual browser/native PDF and independently reopened HTML evidence; earlier exports are not asserted to verify it."
     },
     "publicPresentation": {
-      "outcome": "not-applicable",
+      "outcome": "passed",
       "scope": {
-        "unaffected": true
+        "activeReaderEnabled": false,
+        "navigationEvidence": "snapshotNavigation"
       },
-      "reason": "Original public loader, comparison/URL readers, renderer, export code and factual JSON remain byte-identical; generated identity/hash metadata is corrected. Active browser advancement remains disabled."
+      "reason": "Original public loader remains selected. The concurrent PR #16 snapshot navigation guard has separate actual browser/WebMCP evidence below; independent active-reader export checks remain blocked."
     },
     "sitesDeployment": {
       "outcome": "passed",
-      "version": 113,
-      "savedVersionId": "appgprj_6aa3ff61bd288191ac95ac6e30707895~appgver_c31c147208008191b6aa4e9aa52e3dec",
-      "deploymentId": "appgdep_6ac53b848b8c819198ea8cff73c1f96d",
+      "version": 114,
+      "savedVersionId": "appgprj_6aa3ff61bd288191ac95ac6e30707895~appgver_68aef91f41d08191a746dcb537146889",
+      "deploymentId": "appgdep_6ac53cc4bdd8819180a02f2f79df5422",
       "environmentRevision": 4,
-      "gitHubCommit": "c05d81303bf78141a97c3d9ca5a1f10e35acd09f",
-      "sitesCommit": "d47d48baab08cc4d086a786c61c93d0f3f91172e",
-      "matchingTree": "588e224ec9d591ac3627244108ef1ad08a41f6b0",
-      "deployedAt": "2026-10-06T18:18:53.029697+00:00",
-      "scope": "Verified publisher checkpoint; concurrent main snapshot-guard delivery and this later documentation update have separate source/publication evidence"
+      "gitHubCommit": "4c530565595696283c2f33e04f4d9f0ebdb93604",
+      "sitesCommit": "8847f7d7e3d567ee1c6f8416f7c8a31f8f2dcc72",
+      "matchingTree": "27558ffe775f37646f3dac77a2932961532bae5a",
+      "deployedAt": "2026-10-06T18:24:11.862580+00:00",
+      "scope": "Verified runtime checkpoint includes authenticated publisher and PR #16 navigation guard. This subsequent documentation-only reconciliation is not claimed as part of version 114."
     },
     "liveD1": {
       "outcome": "passed",
-      "checkedAt": "2026-10-06T18:23:31.532Z",
-      "revision": "content-2de596727e13c67cb29672c9",
-      "engineRevision": "engine-18cc8ba6eaf33c65dd42",
+      "checkedAt": "2026-10-06T18:27:22.152Z",
+      "revision": "content-df5d750a2de9eee19933ab27",
+      "engineRevision": "engine-dcc80cb83dc77c4e03af",
       "recordCount": 668,
-      "scope": "Real authenticated provenance/staging/bootstrap and independent D1 readback; public health, manifest, bundle digest, bounded records, rejected writes and all seven fallback assets passed. Active activation/conflict/rollback remain outstanding.",
-      "provenanceVerifiedAt": "2026-10-06T18:21:29.811Z",
-      "bootstrapCreatedAt": "2026-10-06T18:21:33.104Z",
-      "operationId": "pub-99ebf5a7529dfab78430b004118948d2"
+      "scope": "Real authenticated provenance/staging/bootstrap and independent native D1 readback of exact commit, validation run and generation-one event; current public GET statuses are recorded separately. Active activation/conflict/rollback remain outstanding.",
+      "provenanceVerifiedAt": "2026-10-06T18:25:23.213Z",
+      "bootstrapCreatedAt": "2026-10-06T18:25:26.356Z",
+      "operationId": "pub-c2d9de42fd055d4f94564fedd25a6b5c"
     },
     "ciPublisherOIDC": {
       "outcome": "passed",
-      "workflowRun": 37509702843,
-      "workflowJob": 112430576866,
-      "validationRun": 37509669707,
-      "commit": "c05d81303bf78141a97c3d9ca5a1f10e35acd09f",
-      "completedAt": "2026-10-06T18:21:33.2682103Z",
+      "workflowRun": 37510307240,
+      "workflowJob": 112432328596,
+      "validationRun": 37510271900,
+      "commit": "4c530565595696283c2f33e04f4d9f0ebdb93604",
+      "completedAt": "2026-10-06T18:25:26.5395792Z",
       "result": "already-current",
       "activeDelivery": false,
       "scope": "Actual GitHub signed workflow identity with short-lived read-only evidence token verified repository provenance and exact artifacts through published Worker"
@@ -150,7 +151,8 @@
       "findings": [],
       "limitations": [
         "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
-      ]
+      ],
+      "scope": "Historical version-113 full response-body diagnostics, not a fresh version-114 response-body inspection"
     },
     "publicBoundaries": {
       "outcome": "passed",
@@ -186,7 +188,7 @@
     },
     "bootstrapIdempotence": {
       "outcome": "passed",
-      "scope": "Two real authenticated CI jobs retained the same initial operation ID, generation one, head and one event; independent native D1 before/after reads matched"
+      "scope": "Historical version-113 before/after evidence: two authenticated CI jobs retained one generation-one event. Version 114 has its own current generation-one readback; no second version-114 retry is asserted here."
     },
     "snapshotNavigation": {
       "outcome": "passed",
@@ -201,8 +203,134 @@
       "checkedAt": "2026-10-06T18:22:02.3605471Z",
       "result": "already-current",
       "activeDelivery": false,
-      "scope": "Second actual authenticated CI job succeeded; native D1 readback retained identical provenance, head and exactly one generation-one event for this engine"
+      "scope": "Historical version-113 second authenticated job; retained as prior evidence, not a version-114 retry claim"
+    },
+    "relatedLiveDelivery": {
+      "outcome": "passed",
+      "evidenceFile": "docs/audits/2026-10-06-snapshot-guard-soak.json",
+      "checkedAt": "2026-10-06T18:29:33.686Z",
+      "scope": "Concurrent owner task records actual version-114 full public diagnostics, shared-link browser journeys, fresh HTML download and WebMCP report agreement. These are separately attributed evidence, not a claim that this publisher session performed those browser checks. Independent HTML reopening and native PDF remain blocked."
     }
+  },
+  "currentPublicRequests": {
+    "outcome": "passed",
+    "scope": "Native Worker logs after version 114 deployment. Public request/status evidence only; no response-body checksum or active-reader/browser/export claim.",
+    "requests": [
+      {
+        "timestamp": "2026-10-06T18:27:22.152Z",
+        "method": "GET",
+        "path": "/api/content/bundle",
+        "status": 200,
+        "revision": "content-df5d750a2de9eee19933ab27",
+        "engine": null
+      },
+      {
+        "timestamp": "2026-10-06T18:27:21.838Z",
+        "method": "GET",
+        "path": "/content-manifest.json",
+        "status": 200,
+        "revision": null,
+        "engine": null
+      },
+      {
+        "timestamp": "2026-10-06T18:27:21.756Z",
+        "method": "GET",
+        "path": "/content-client.js",
+        "status": 200,
+        "revision": null,
+        "engine": null
+      },
+      {
+        "timestamp": "2026-10-06T18:27:09.996Z",
+        "method": "GET",
+        "path": "/api/content/bundle",
+        "status": 200,
+        "revision": "content-df5d750a2de9eee19933ab27",
+        "engine": null
+      },
+      {
+        "timestamp": "2026-10-06T18:27:09.561Z",
+        "method": "GET",
+        "path": "/content-manifest.json",
+        "status": 200,
+        "revision": null,
+        "engine": null
+      },
+      {
+        "timestamp": "2026-10-06T18:27:09.496Z",
+        "method": "GET",
+        "path": "/content-client.js",
+        "status": 200,
+        "revision": null,
+        "engine": null
+      },
+      {
+        "timestamp": "2026-10-06T18:27:02.169Z",
+        "method": "GET",
+        "path": "/api/content/bundle",
+        "status": 200,
+        "revision": "content-df5d750a2de9eee19933ab27",
+        "engine": null
+      },
+      {
+        "timestamp": "2026-10-06T18:27:01.152Z",
+        "method": "GET",
+        "path": "/content-manifest.json",
+        "status": 200,
+        "revision": null,
+        "engine": null
+      },
+      {
+        "timestamp": "2026-10-06T18:27:00.451Z",
+        "method": "GET",
+        "path": "/content-client.js",
+        "status": 200,
+        "revision": null,
+        "engine": null
+      },
+      {
+        "timestamp": "2026-10-06T18:26:52.395Z",
+        "method": "GET",
+        "path": "/api/content/bundle",
+        "status": 200,
+        "revision": "content-df5d750a2de9eee19933ab27",
+        "engine": null
+      },
+      {
+        "timestamp": "2026-10-06T18:26:52.069Z",
+        "method": "GET",
+        "path": "/content-manifest.json",
+        "status": 200,
+        "revision": null,
+        "engine": null
+      }
+    ]
+  },
+  "maintenanceReadback": {
+    "outcome": "passed",
+    "scope": "Read-only before/after schedule, timing mode, enabled and updated_at comparison. No task writes.",
+    "tasks": [
+      {
+        "title": "Version Guidance Audit",
+        "unchanged": true
+      },
+      {
+        "title": "CSP FedRAMP Watch",
+        "unchanged": true
+      },
+      {
+        "title": "ES Editions Watch",
+        "unchanged": true
+      },
+      {
+        "title": "Version Release Watch",
+        "unchanged": true
+      },
+      {
+        "title": "VersionCompass delivery checkpoint",
+        "unchanged": true
+      }
+    ]
   },
   "preservation": {
     "site": "appgprj_6aa3ff61bd288191ac95ac6e30707895",
@@ -214,7 +342,7 @@
     "maintenanceSchedules": "Read-only before/after comparison of all four watches and existing checkpoint confirmed identical schedule, timing mode, enabled state and updated_at; no mutations or duplicate timers",
     "minimumWaitHours": 0
   },
-  "nextGate": "Independent reopened-HTML and native PDF pagination evidence, then real D1 activation/retry/conflict/rollback and independent public readback; no mandatory time delay",
+  "nextGate": "Independent reopened-HTML and native PDF pagination evidence, distinct website/dataset WebMCP identities, then real D1 activation/retry/conflict/rollback and independent public readback; no mandatory time delay",
   "concurrentSource": {
     "commit": "b8d0d57f65f70d90fe942d28b1e00c80cf098fbd",
     "retained": [
@@ -239,7 +367,7 @@
     },
     "laterValidatedNavigation": {
       "commit": "4c530565595696283c2f33e04f4d9f0ebdb93604",
-      "scope": "Concurrent PR #16 browser evidence and prepared delivery remain intact; this publisher audit does not claim that source as its version-113 deployment"
+      "scope": "PR #16 actual browser/WebMCP evidence is preserved; its exact source tree is included in the verified version-114 checkpoint"
     }
   },
   "repair": {
@@ -373,6 +501,140 @@
           "checkedAt": "2026-10-06T17:49:26.991Z"
         }
       },
+      "limitations": [
+        "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
+      ]
+    }
+  },
+  "priorVerifiedCheckpoint113": {
+    "automatedTests": {
+      "outcome": "passed",
+      "passed": 153,
+      "failed": 0,
+      "skipped": 0,
+      "scope": "Complete Node 24 suite, four synchronization checks and build for GitHub c05d81303bf78141a97c3d9ca5a1f10e35acd09f and deployed matching tree 588e224ec9d591ac3627244108ef1ad08a41f6b0; no later source is implied"
+    },
+    "repositoryProvenance": {
+      "outcome": "passed",
+      "commit": "c05d81303bf78141a97c3d9ca5a1f10e35acd09f",
+      "workflowRun": 37509669707,
+      "revision": "content-2de596727e13c67cb29672c9",
+      "engineRevision": "engine-18cc8ba6eaf33c65dd42",
+      "recordCount": 668,
+      "scope": "Live Worker independently verified GitHub main ancestry, completed validation gates and exact committed manifest/bundle; native D1 readback confirmed provenance after two successful authenticated jobs"
+    },
+    "sitesDeployment": {
+      "outcome": "passed",
+      "version": 113,
+      "savedVersionId": "appgprj_6aa3ff61bd288191ac95ac6e30707895~appgver_c31c147208008191b6aa4e9aa52e3dec",
+      "deploymentId": "appgdep_6ac53b848b8c819198ea8cff73c1f96d",
+      "environmentRevision": 4,
+      "gitHubCommit": "c05d81303bf78141a97c3d9ca5a1f10e35acd09f",
+      "sitesCommit": "d47d48baab08cc4d086a786c61c93d0f3f91172e",
+      "matchingTree": "588e224ec9d591ac3627244108ef1ad08a41f6b0",
+      "deployedAt": "2026-10-06T18:18:53.029697+00:00",
+      "scope": "Verified publisher checkpoint; concurrent main snapshot-guard delivery and this later documentation update have separate source/publication evidence"
+    },
+    "liveD1": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-06T18:23:31.532Z",
+      "revision": "content-2de596727e13c67cb29672c9",
+      "engineRevision": "engine-18cc8ba6eaf33c65dd42",
+      "recordCount": 668,
+      "scope": "Real authenticated provenance/staging/bootstrap and independent D1 readback; public health, manifest, bundle digest, bounded records, rejected writes and all seven fallback assets passed. Active activation/conflict/rollback remain outstanding.",
+      "provenanceVerifiedAt": "2026-10-06T18:21:29.811Z",
+      "bootstrapCreatedAt": "2026-10-06T18:21:33.104Z",
+      "operationId": "pub-99ebf5a7529dfab78430b004118948d2"
+    },
+    "ciPublisherOIDC": {
+      "outcome": "passed",
+      "workflowRun": 37509702843,
+      "workflowJob": 112430576866,
+      "validationRun": 37509669707,
+      "commit": "c05d81303bf78141a97c3d9ca5a1f10e35acd09f",
+      "completedAt": "2026-10-06T18:21:33.2682103Z",
+      "result": "already-current",
+      "activeDelivery": false,
+      "scope": "Actual GitHub signed workflow identity with short-lived read-only evidence token verified repository provenance and exact artifacts through published Worker"
+    },
+    "ciPublisherRetry": {
+      "outcome": "passed",
+      "workflowRun": 37509702843,
+      "workflowJob": 112430853541,
+      "checkedAt": "2026-10-06T18:22:02.3605471Z",
+      "result": "already-current",
+      "activeDelivery": false,
+      "scope": "Second actual authenticated CI job succeeded; native D1 readback retained identical provenance, head and exactly one generation-one event for this engine"
+    },
+    "bootstrapIdempotence": {
+      "outcome": "passed",
+      "scope": "Two real authenticated CI jobs retained the same initial operation ID, generation one, head and one event; independent native D1 before/after reads matched"
+    },
+    "publicDelivery": {
+      "evaluatedAt": "2026-10-06T18:19:54.016Z",
+      "target": "https://versioncompass.com",
+      "expectedRevision": "content-2de596727e13c67cb29672c9",
+      "status": "delivery-checks-passed",
+      "checks": {
+        "database-health": {
+          "outcome": "passed",
+          "evidence": {
+            "status": "ready",
+            "storage": "d1",
+            "revision": "content-2de596727e13c67cb29672c9",
+            "engineRevision": "engine-18cc8ba6eaf33c65dd42",
+            "recordCount": 668
+          },
+          "checkedAt": "2026-10-06T18:19:30.491Z"
+        },
+        "live-manifest": {
+          "outcome": "passed",
+          "evidence": {
+            "schemaVersion": 1,
+            "revision": "content-2de596727e13c67cb29672c9",
+            "digest": "1ebda8a92351e7d854d105eeacfd822df18d3a5ea1912de9174eb9e6d4b8e70a",
+            "engineRevision": "engine-18cc8ba6eaf33c65dd42",
+            "datasetHashes": {
+              "platform": "72ae19b337ea77ed322c1fb82c900cbecf3d93afaff914d511477b3be60fcbe8",
+              "products": "dfe12de7c0c266f33364c8d86672f73bc50ec8fe65c2e3f704695b6346200855",
+              "guidance": "099af8ae400680391ef402f03bf7301f39cc8f16a980f394e3b54e422c6f683f",
+              "environment": "c1e96751ff89f7976392829100c1f27f0e8f77f8d859a2ebbdc9e92f1c95f867",
+              "editions": "3d71261084a1b730c55f179589478e8f6299389a3029b2311181b1f98847eb06",
+              "forwarders": "3f58f089c04303cc2415e5313d57581e9b4b608a81752b28bca0898af4e5110c",
+              "soar": "55c75eb62e2e02f276a31bb84205a6164e51b240f0742479f09eeac82e3f0150"
+            },
+            "recordCount": 668,
+            "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+            "verificationPolicy": "Migration and delivery do not create verification dates",
+            "phase": "content-model-and-database-delivery"
+          },
+          "checkedAt": "2026-10-06T18:19:31.018Z"
+        },
+        "bundle-integrity": {
+          "outcome": "passed",
+          "evidence": {
+            "digest": "1ebda8a92351e7d854d105eeacfd822df18d3a5ea1912de9174eb9e6d4b8e70a",
+            "recordCount": 668
+          },
+          "checkedAt": "2026-10-06T18:19:31.480Z"
+        },
+        "bounded-record-query": {
+          "outcome": "passed",
+          "evidence": "SOAR filter, revision and maximum page size verified",
+          "checkedAt": "2026-10-06T18:19:31.969Z"
+        },
+        "read-only-api": {
+          "outcome": "passed",
+          "evidence": "POST rejected with 405",
+          "checkedAt": "2026-10-06T18:19:37.789Z"
+        },
+        "bundled-fallback-assets": {
+          "outcome": "passed",
+          "evidence": "All seven complete fallback adapters served",
+          "checkedAt": "2026-10-06T18:19:54.016Z"
+        }
+      },
+      "findings": [],
       "limitations": [
         "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
       ]
