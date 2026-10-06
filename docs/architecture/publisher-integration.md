@@ -38,4 +38,10 @@ Use `node scripts/diagnose-content.cjs https://versioncompass.com/` for real pub
 
 ## Concurrent draft reconciliation
 
+## Verified runtime checkpoint
+
+Version 108 deployed the publisher checkpoint at GitHub commit `936bb5b7c9f69aecc7048341b8024811dfa4d028` and Sites commit `7b112273c058bc4192075deb49215511a153760d`, with matching tree `ca172752aac5b12a4e99a25c1dddea25aeafbed5`. Actual GitHub OIDC publication succeeded; real D1 provenance and generation-one bootstrap history were independently read back. The public diagnostic checks passed for all 668 records. `VC_ACTIVE_DELIVERY=0` preserves the original reader; actual browser/export and D1 activation/rollback remain outstanding gates.
+
+Worker evidence fetches retain the `globalThis.fetch` receiver and use `redirect: 'manual'`, rejecting non-2xx responses without following redirects. These repairs retain the fixed issuer/repository origins, signature and immutable workflow checks. Node fixtures now cover receiver behavior and redirected key/provenance rejection. Later concurrent repository changes are separate from this exact deployed checkpoint.
+
 The unpublished Site commits 9b1b774f8f90f8c23ed9f0165b32b848c9e93f8c and b8d0d57f65f70d90fe942d28b1e00c80cf098fbd were reconciled after the stale source push was rejected. Their canonical-hash repair, stronger bundled staging, preparation CLI/tests, original checkpoint record and archive summaries are retained. `prepare-publication.yml` prepares read-only requests; the unsafe-to-enable one-sided static-token submission step is superseded by the supported OIDC workflow. The active-reader draft remains isolated from visitors. Canonical hashes are captured before in-memory composition and included in immutable identity; delivery code is included in the engine identity. Old D1 payloads are retained, and explicit revision queries without an engine filter remain available across engines.

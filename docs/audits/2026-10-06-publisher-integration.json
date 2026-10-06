@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "evaluatedAt": "2026-10-06T17:18:49.120030Z",
-  "phase": "supported-publisher-integration-active-reader-held",
+  "evaluatedAt": "2026-10-06T17:51:22.737Z",
+  "phase": "publisher-live-verified-active-reader-held",
   "baseGitHubCommit": "264bd3f4ff0fa6dac9550c41adad901200ecbdf1",
   "baseSitesCommit": "82b7410c20709b92328d112ac12c8d039ce36ea1",
-  "reconciliation": "All public assets, canonical factual datasets and hosting/storage configuration match. GitHub-ahead policy, archive and PR #10 core retained; no Site-only source changes found.",
+  "reconciliation": "Saved Site version 104 matched the public assets and canonical facts on initial GitHub main. Later unpublished Site integrity/hash/request/archive changes were reconciled in PR #12; PR #10 core and the supported publisher are retained on main. Original public loader and hosting/storage identity are preserved.",
   "checks": {
     "automatedTests": {
       "outcome": "passed",
-      "passed": 142,
+      "passed": 143,
       "failed": 0,
       "skipped": 0,
-      "scope": "Node 24, real repository bundle, in-memory SQLite, fixture RSA signatures, and retained concurrent staging/hash/request regression tests"
+      "scope": "Complete Node 24 repository suite; in-memory SQLite, signature/scope, redirect and Worker receiver regressions; four synchronization checks and Worker build passed"
     },
     "repositoryProvenance": {
       "outcome": "passed",
-      "commit": "264bd3f4ff0fa6dac9550c41adad901200ecbdf1",
-      "workflowRun": 37499713052,
-      "revision": "content-69fd35dd07090bfa526b29a5",
-      "engineRevision": "engine-33546a965f9b2fc90ad8",
+      "commit": "936bb5b7c9f69aecc7048341b8024811dfa4d028",
+      "workflowRun": 37506215852,
+      "revision": "content-eece8ff176abef444dc4dcbc",
+      "engineRevision": "engine-376714e1d140d061fc88",
       "recordCount": 668,
-      "scope": "Live unauthenticated GitHub ancestry, main CI and exact artifacts, read-only preflight"
+      "scope": "Live Worker independently verified GitHub main ancestry, successful main CI and exact committed manifest/bundle before staging; native D1 provenance readback confirms the commit and workflow"
     },
     "sourceChecks": {
       "outcome": "not-performed",
@@ -46,16 +46,144 @@
       "reason": "Original public loader, comparison/URL readers, renderer, export code and factual JSON remain byte-identical; generated identity/hash metadata is corrected. Active browser advancement remains disabled."
     },
     "sitesDeployment": {
-      "outcome": "not-performed",
-      "reason": "Implementation checkpoint before publication"
+      "outcome": "passed",
+      "version": 108,
+      "savedVersionId": "appgprj_6aa3ff61bd288191ac95ac6e30707895~appgver_5c5c2be46ce08191aa44086c7d7904c0",
+      "deploymentId": "appgdep_6ac53476e40081919fd632cc5f9430b8",
+      "environmentRevision": 4,
+      "gitHubCommit": "936bb5b7c9f69aecc7048341b8024811dfa4d028",
+      "sitesCommit": "7b112273c058bc4192075deb49215511a153760d",
+      "matchingTree": "ca172752aac5b12a4e99a25c1dddea25aeafbed5",
+      "deployedAt": "2026-10-06T17:48:45.847817+00:00",
+      "scope": "Publisher checkpoint. Later concurrent main changes are not claimed as part of this deployment."
     },
     "liveD1": {
-      "outcome": "not-performed",
-      "reason": "Managed additive migration and authenticated bootstrap not yet deployed"
+      "outcome": "passed",
+      "checkedAt": "2026-10-06T17:49:30.239Z",
+      "revision": "content-eece8ff176abef444dc4dcbc",
+      "engineRevision": "engine-376714e1d140d061fc88",
+      "recordCount": 668,
+      "scope": "Additive migration, authenticated staging/bootstrap, real provenance and generation-one history, public health/manifest/bundle integrity/bounded records/rejected writes/fallback assets. Active activation, conflict and rollback remain blocked while delivery is disabled.",
+      "provenanceVerifiedAt": "2026-10-06T17:49:08.980Z",
+      "bootstrapCreatedAt": "2026-10-06T17:49:10.218Z",
+      "operationId": "pub-0a1866a909a7d8d43a9a0371337ef995"
     },
     "ciPublisherOIDC": {
-      "outcome": "not-performed",
-      "reason": "Real GitHub identity must be exercised after deployment"
+      "outcome": "passed",
+      "workflowRun": 37506250383,
+      "workflowJob": 112416203500,
+      "validationRun": 37506215852,
+      "commit": "936bb5b7c9f69aecc7048341b8024811dfa4d028",
+      "completedAt": "2026-10-06T17:49:11.0237495Z",
+      "result": "already-current",
+      "activeDelivery": false,
+      "scope": "Actual GitHub signed identity, repository provenance checks, stage, read head and initial history through the published Worker"
+    },
+    "activationRollback": {
+      "outcome": "blocked",
+      "reason": "VC_ACTIVE_DELIVERY remains 0 until actual browser/export/WebMCP evidence passes; no activation or rollback claim is made."
+    },
+    "publicDelivery": {
+      "outcome": "passed",
+      "evaluatedAt": "2026-10-06T17:49:26.991Z",
+      "checks": {
+        "database-health": {
+          "outcome": "passed",
+          "evidence": {
+            "status": "ready",
+            "storage": "d1",
+            "revision": "content-eece8ff176abef444dc4dcbc",
+            "engineRevision": "engine-376714e1d140d061fc88",
+            "recordCount": 668
+          },
+          "checkedAt": "2026-10-06T17:49:09.410Z"
+        },
+        "live-manifest": {
+          "outcome": "passed",
+          "evidence": {
+            "schemaVersion": 1,
+            "revision": "content-eece8ff176abef444dc4dcbc",
+            "digest": "1ebda8a92351e7d854d105eeacfd822df18d3a5ea1912de9174eb9e6d4b8e70a",
+            "engineRevision": "engine-376714e1d140d061fc88",
+            "datasetHashes": {
+              "platform": "72ae19b337ea77ed322c1fb82c900cbecf3d93afaff914d511477b3be60fcbe8",
+              "products": "dfe12de7c0c266f33364c8d86672f73bc50ec8fe65c2e3f704695b6346200855",
+              "guidance": "099af8ae400680391ef402f03bf7301f39cc8f16a980f394e3b54e422c6f683f",
+              "environment": "c1e96751ff89f7976392829100c1f27f0e8f77f8d859a2ebbdc9e92f1c95f867",
+              "editions": "3d71261084a1b730c55f179589478e8f6299389a3029b2311181b1f98847eb06",
+              "forwarders": "3f58f089c04303cc2415e5313d57581e9b4b608a81752b28bca0898af4e5110c",
+              "soar": "55c75eb62e2e02f276a31bb84205a6164e51b240f0742479f09eeac82e3f0150"
+            },
+            "recordCount": 668,
+            "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+            "verificationPolicy": "Migration and delivery do not create verification dates",
+            "phase": "content-model-and-database-delivery"
+          },
+          "checkedAt": "2026-10-06T17:49:09.908Z"
+        },
+        "bundle-integrity": {
+          "outcome": "passed",
+          "evidence": {
+            "digest": "1ebda8a92351e7d854d105eeacfd822df18d3a5ea1912de9174eb9e6d4b8e70a",
+            "recordCount": 668
+          },
+          "checkedAt": "2026-10-06T17:49:10.374Z"
+        },
+        "bounded-record-query": {
+          "outcome": "passed",
+          "evidence": "SOAR filter, revision and maximum page size verified",
+          "checkedAt": "2026-10-06T17:49:10.879Z"
+        },
+        "read-only-api": {
+          "outcome": "passed",
+          "evidence": "POST rejected with 405",
+          "checkedAt": "2026-10-06T17:49:15.695Z"
+        },
+        "bundled-fallback-assets": {
+          "outcome": "passed",
+          "evidence": "All seven complete fallback adapters served",
+          "checkedAt": "2026-10-06T17:49:26.991Z"
+        }
+      },
+      "limitations": [
+        "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
+      ]
+    },
+    "publicBoundaries": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-06T17:51:22.737Z",
+      "checks": {
+        "anonymous-publisher": {
+          "passed": true,
+          "status": 401
+        },
+        "public-write": {
+          "passed": true,
+          "status": 405
+        },
+        "bounded-pagination": {
+          "passed": true,
+          "status": 400
+        },
+        "wrong-engine": {
+          "passed": true,
+          "status": 409
+        },
+        "original-loader": {
+          "passed": true
+        },
+        "active-reader-disabled": {
+          "passed": true
+        },
+        "historical-revision": {
+          "passed": true,
+          "status": 200
+        }
+      }
+    },
+    "bootstrapIdempotence": {
+      "outcome": "passed",
+      "scope": "Real authenticated bootstrap retry returned generation one; native D1 readback retained exactly one identical event"
     }
   },
   "preservation": {
@@ -65,10 +193,10 @@
     "d1": "DB",
     "r2": null,
     "visitorData": "No new visitor identity, context or telemetry persistence",
-    "maintenanceSchedules": "No schedule mutations or duplicate timers",
+    "maintenanceSchedules": "Read-only before/after comparison of all four watches and existing checkpoint confirmed identical schedule, timing mode, enabled state and updated_at; no mutations or duplicate timers",
     "minimumWaitHours": 0
   },
-  "nextGate": "Verify deployed migration/auth/bootstrap and real OIDC; retain active-delivery off until actual affected browser/export/WebMCP and D1 activation/rollback evidence is complete.",
+  "nextGate": "Actual affected browser/export/WebMCP validation, then real D1 activation/retry/conflict/rollback and independent public readback; no mandatory time delay.",
   "concurrentSource": {
     "commit": "b8d0d57f65f70d90fe942d28b1e00c80cf098fbd",
     "retained": [
@@ -82,5 +210,13 @@
       "unverified active browser loader"
     ],
     "superseded": "Unprovisioned static-token CI submission replaced with the authenticated OIDC path."
+  },
+  "repair": {
+    "rootCause": "Live identity/evidence fetches failed before an external response. Preserving the Worker global fetch receiver and using manual redirect rejection together resolved the observed failure; their individual contribution was not isolated. Node fixtures had tolerated the previous implementation.",
+    "changes": "Preserve globalThis.fetch receiver; use manual redirect handling and reject non-2xx responses without following; retain enumerated rejection diagnostics and fixed trust scope.",
+    "evidence": [
+      "https://github.com/cloudflare/workerd/blob/main/src/workerd/api/http.h",
+      "https://developers.cloudflare.com/workers/observability/errors/#illegal-invocation-errors"
+    ]
   }
 }
