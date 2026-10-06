@@ -107,7 +107,7 @@ export async function bootstrapPublication(db, candidate, operationId, seed, opt
 export function publisherEvidenceRequest(input, identity, fetcher = (...args) => globalThis.fetch(...args)) {
   if (!input || typeof input !== 'object' || !Object.hasOwn(input, 'evidenceCredential')) return { input, fetcher };
   if (identity.type !== 'github-oidc' || Object.keys(input).length !== 2 || !Object.hasOwn(input, 'publication') ||
-      !/^[A-Za-z0-9_]{20,255}$/.test(input.evidenceCredential || '')) throw Error('Invalid evidence credential');
+      !/^[A-Za-z0-9._~+\/-]{20,8190}={0,2}$/.test(input.evidenceCredential || '')) throw Error('Invalid evidence credential');
   const credential = input.evidenceCredential, repositoryPath = '/repos/' + REPOSITORY + '/';
   return { input: input.publication, fetcher: (url, options) => {
     const target = new URL(url);

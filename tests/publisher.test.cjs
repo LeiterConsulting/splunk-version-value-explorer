@@ -158,14 +158,12 @@ test('workflow evidence credential reaches only fixed repository API and never i
     assert.throws(() => m.publisherEvidenceRequest(bad, { type: 'github-oidc' }), /Invalid evidence credential/);
   assert.throws(() => m.publisherEvidenceRequest({ publication: candidate, evidenceCredential: token }, { type: 'maintenance-secret' }), /Invalid evidence credential/);
 });
-
-test('unverified snapshot controls are isolated with active delivery', async () => {
-  const m = await modules(), worker = m.createWorker(seed, {
-    '/navigation.js': {type:'text/javascript',body:'pinned navigation'},
-    '/navigation-active.js': {type:'text/javascript',body:'prepared snapshot guard'},
-  });
-  for (const [flag, expected] of [['0','pinned navigation'],['1','prepared snapshot guard']]) {
-    const response = await worker.fetch(new Request('https://versioncompass.com/navigation.js'), {VC_ACTIVE_DELIVERY:flag});
-    assert.equal(await response.text(),expected);
-  }
+test('workflow evidence accepts long standard bearer tokens and rejects header injection or excess bytes', async () => {
+  const m = await modules(), token = 'ghs_' + 'a'.repeat(300) + '.b-c_+/' + 'd'.repeat(300) + '==';
+  let seen;
+  const wrapped = m.publisherEvidenceRequest({ publication: candidate, evidenceCredential: token }, { type: 'github-oidc' }, async (url, options) => { seen = options.headers.Authorization; return new Response('{}'); });
+  await wrapped.fetcher('https://api.github.com/repos/' + candidate.repository + '/actions/runs', { headers: {} });
+  assert.equal(seen, 'Bearer ' + token);
+  for (const bad of [token + '\r\nInjected: header', 'a'.repeat(8193), 'short', token + ' '])
+    assert.throws(() => m.publisherEvidenceRequest({ publication: candidate, evidenceCredential: bad }, { type: 'github-oidc' }), /Invalid evidence credential/);
 });

@@ -36,7 +36,7 @@ try {
   const token = await credential();
   if (!token || /\s/.test(token)) throw Error('Invalid credential');
   const evidenceCredential = process.env.GITHUB_ACTIONS === 'true' ? process.env.VC_GITHUB_EVIDENCE_TOKEN : null;
-  if (process.env.GITHUB_ACTIONS === 'true' && !/^[A-Za-z0-9_]{20,255}$/.test(evidenceCredential || '')) throw Error('Workflow evidence credential unavailable');
+  if (process.env.GITHUB_ACTIONS === 'true' && !/^[A-Za-z0-9._~+\/-]{20,8190}={0,2}$/.test(evidenceCredential || '')) throw Error('Workflow evidence credential unavailable');
   const candidate = { repository: 'LeiterConsulting/splunk-version-value-explorer', commit, bundle: JSON.parse(fs.readFileSync('dist/content-bundle.json', 'utf8')) };
   const operation = action => 'pub-' + crypto.createHash('sha256').update(commit + ':' + action).digest('hex').slice(0, 32);
   async function call(route, body) {
