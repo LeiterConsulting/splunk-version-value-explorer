@@ -30,7 +30,7 @@ async function importRevision(db, seed) {
   // The final batch is the activation boundary. A failed import never replaces a complete revision.
   await db.batch([
     db.prepare('UPDATE content_revisions SET completed = 1 WHERE id = ? AND digest = ?').bind(m.revision, m.digest),
-    db.prepare('INSERT INTO content_publication (channel, revision_id) SELECT ?, id FROM content_revisions WHERE id = ? AND completed = 1 ON CONFLICT(channel) DO UPDATE SET revision_id = excluded.revision_id').bind('engine:' + m.engineRevision, m.revision),
+    db.prepare('INSERT INTO content_publication (channel, revision_id) SELECT ?, id FROM content_revisions WHERE id = ? AND completed = 1 ON CONFLICT(channel) DO NOTHING').bind('engine:' + m.engineRevision, m.revision),
   ]);
 }
 export async function readBundle(db, revision) {

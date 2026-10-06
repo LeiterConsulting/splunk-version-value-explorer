@@ -1,6 +1,6 @@
 # Independent publication core — implementation checkpoint
 
-Implemented October 6, 2026 as the first executable part of [independent publication](independent-content-publication.md). This is not an enabled publisher service. No new HTTP route, client delivery mode, live database migration or Sites deployment is included. The production build still embeds only the existing read-only Worker and deployment-pinned client. Existing report links and fallback adapters are unchanged.
+PR #10 implemented this core on October 6, 2026. The checkpoint below describes that PR's original scope. Its supported runtime continuation is documented in [publisher integration](publisher-integration.md), with deployment evidence recorded separately. Independent visitor content advancement remains gated on the applicable actual browser/export checks; there is no mandatory waiting period.
 
 ## Executable components
 

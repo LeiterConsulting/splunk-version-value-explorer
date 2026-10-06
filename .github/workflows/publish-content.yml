@@ -1,0 +1,29 @@
+name: Publish verified content
+on:
+  workflow_run:
+    workflows: [Validate release metadata and reports]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  id-token: write
+concurrency:
+  group: versioncompass-content-publisher
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push' && github.event.workflow_run.head_repository.full_name == github.repository)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Publish exact main commit with GitHub OIDC
+        # The service independently verifies main ancestry, completed validation CI,
+        # all required steps and exact committed artifacts before writing anything.
+        run: node scripts/publish-content.mjs --commit "$GITHUB_SHA"

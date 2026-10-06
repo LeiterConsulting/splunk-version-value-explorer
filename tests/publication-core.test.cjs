@@ -235,13 +235,14 @@ test('unknown activation fields, wrong engine, no-op and invalid generations are
   await assert.rejects(m.activatePublication(db, action(1, a, b), { engineRevision: 'engine-' + 'f'.repeat(20) }), /Engine mismatch/);
 });
 
-test('actual repository bundle validates and new core stays out of the public Worker build', { skip: !fs.existsSync(path.join(__dirname, '../dist/content-bundle.json')) }, async () => {
+test('actual repository bundle validates and integration keeps the public API read-only', { skip: !fs.existsSync(path.join(__dirname, '../dist/content-bundle.json')) }, async () => {
   const m = await core(), root = path.join(__dirname, '..');
   const real = JSON.parse(fs.readFileSync(path.join(root, 'dist/content-bundle.json'), 'utf8'));
   assert.deepEqual(await m.validateBundle(real, real.manifest.engineRevision), real);
   const script = fs.readFileSync(path.join(root, 'scripts/build-worker.cjs'), 'utf8');
   const worker = fs.readFileSync(path.join(root, 'worker/index.mjs'), 'utf8');
-  assert(!script.includes('publication-core.mjs')); assert(!worker.includes('activatePublication'));
+  assert(script.includes('publication-core.mjs')); assert(script.includes('publisher.mjs'));
+  assert(worker.includes('publisherRequest'));
   assert.match(worker, /Read-only content service/);
 });
 
