@@ -66,3 +66,11 @@ test('redirects, HTML, malformed data, mismatched CVEs and oversized responses f
   const app = await worker(async () => Response.json({ id: 'CVE-2023-38545', found: true }));
   assert.equal((await app.fetch(request('/ripple/api/cve?id=CVE-2023-44487'), env)).status, 502);
 });
+
+test('default Ripple research fetch retains the Worker global receiver', async () => {
+  const { createWorker } = await import(pathToFileURL(path.resolve('worker/index.mjs')));
+  const original=globalThis.fetch;
+  globalThis.fetch=async function(url,options){assert.equal(this,globalThis);assert.equal(url,'https://ripple-exposure.majorgeneralrabidzagnut.chatgpt.site/api/snapshot');assert.equal(options.headers['OAI-Sites-Authorization'],'Bearer '+secret);return Response.json(snapshot);};
+  try {const response=await createWorker({},assets).fetch(request('/ripple/api/snapshot'),env);assert.equal(response.status,200);assert.deepEqual(await response.json(),snapshot);}
+  finally {globalThis.fetch=original;}
+});

@@ -8,10 +8,10 @@
   "checks": {
     "automatedTests": {
       "outcome": "passed",
-      "passed": 150,
+      "passed": 153,
       "failed": 0,
       "skipped": 0,
-      "scope": "Complete Node 24 repository suite; in-memory SQLite, signature/scope, redirect and Worker receiver regressions; four synchronization checks and Worker build passed"
+      "scope": "Complete Node 24 suite, four synchronization checks and build; retained current main authenticated evidence credential repair and PR #13 snapshot guard, with isolated navigation selection regression"
     },
     "repositoryProvenance": {
       "outcome": "passed",
@@ -184,6 +184,18 @@
     "bootstrapIdempotence": {
       "outcome": "passed",
       "scope": "Real authenticated bootstrap retry returned generation one; native D1 readback retained exactly one identical event"
+    },
+    "snapshotNavigation": {
+      "outcome": "blocked",
+      "scope": "PR #13 prepared navigation control is retained in source but not selected while VC_ACTIVE_DELIVERY=0",
+      "reason": "Actual affected browser checks unavailable; deployed navigation remains byte-identical to version 108"
+    },
+    "ciPublisherRetry": {
+      "outcome": "failed",
+      "workflowRun": 37506250383,
+      "workflowJob": 112416978053,
+      "checkedAt": "2026-10-06T17:50:50.7724649Z",
+      "reason": "Unauthenticated GitHub evidence returned HTTP 403; no new publication event or head change. Job-scoped read-only evidence credential repair requires deployment and a fresh real CI retry."
     }
   },
   "preservation": {
@@ -196,7 +208,7 @@
     "maintenanceSchedules": "Read-only before/after comparison of all four watches and existing checkpoint confirmed identical schedule, timing mode, enabled state and updated_at; no mutations or duplicate timers",
     "minimumWaitHours": 0
   },
-  "nextGate": "Actual affected browser/export/WebMCP validation, then real D1 activation/retry/conflict/rollback and independent public readback; no mandatory time delay.",
+  "nextGate": "Actual affected browser/export/WebMCP validation of active reader and prepared snapshot navigation, then real D1 activation/retry/conflict/rollback and independent public readback; no mandatory time delay",
   "concurrentSource": {
     "commit": "b8d0d57f65f70d90fe942d28b1e00c80cf098fbd",
     "retained": [
@@ -209,7 +221,16 @@
     "isolated": [
       "unverified active browser loader"
     ],
-    "superseded": "Unprovisioned static-token CI submission replaced with the authenticated OIDC path."
+    "superseded": "Unprovisioned static-token CI submission replaced with the authenticated OIDC path.",
+    "laterMain": {
+      "commit": "0c1c3ae8beeb0a54863440ad13c50a617c78b0a3",
+      "retained": [
+        "PR #13 prepared snapshot control",
+        "job-scoped GitHub API evidence credential repair",
+        "PR #14 isolated Ripple route, assets, credentials and original data/schedule"
+      ],
+      "scope": "Publisher continuation keeps concurrent main changes; Ripple default fetch receiver receives the same compatibility repair as the publisher"
+    }
   },
   "repair": {
     "rootCause": "Live identity/evidence fetches failed before an external response. Preserving the Worker global fetch receiver and using manual redirect rejection together resolved the observed failure; their individual contribution was not isolated. Node fixtures had tolerated the previous implementation.",
@@ -217,6 +238,15 @@
     "evidence": [
       "https://github.com/cloudflare/workerd/blob/main/src/workerd/api/http.h",
       "https://developers.cloudflare.com/workers/observability/errors/#illegal-invocation-errors"
+    ]
+  },
+  "evidenceCredentialRepair": {
+    "status": "prepared-not-yet-live",
+    "credential": "GitHub Actions short-lived job token with contents:read and actions:read, accepted only after valid exact workflow OIDC",
+    "boundary": "Bounded request body; memory-only forwarding to exact public repository API paths; no raw artifact credential, token logging, D1 or response persistence",
+    "sources": [
+      "https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api",
+      "https://docs.github.com/en/actions/tutorials/authenticate-with-github_token"
     ]
   }
 }

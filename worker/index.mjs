@@ -1,5 +1,5 @@
 /* Public content is read-only; publisher requests have a separate secret boundary. */
-export function createWorker(seed, assets, { rippleFetch = fetch } = {}) {
+export function createWorker(seed, assets, { rippleFetch = (...args) => globalThis.fetch(...args) } = {}) {
   const headers = { 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'strict-origin-when-cross-origin' };
   const json = (body, status = 200, extra = {}) => new Response(JSON.stringify(body), { status, headers: { ...headers, 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', ...extra } });
   const rippleHeaders = { 'X-Robots-Tag': 'noindex, nofollow' };
@@ -91,7 +91,8 @@ export function createWorker(seed, assets, { rippleFetch = fetch } = {}) {
         }
       }
       const pathname = url.pathname === '/' ? '/index.html' : url.pathname;
-      const asset = assets[pathname === '/content-client.js' && env.VC_ACTIVE_DELIVERY === '1' ? '/content-client-active.js' : pathname];
+      const activeAssets = { '/content-client.js': '/content-client-active.js', '/navigation.js': '/navigation-active.js' };
+      const asset = assets[env.VC_ACTIVE_DELIVERY === '1' ? activeAssets[pathname] || pathname : pathname];
       if (!asset) return new Response('Not found', { status: 404, headers });
       const delivery = pathname === '/content-manifest.json' && env.VC_ACTIVE_DELIVERY === '1' ? { 'X-VersionCompass-Active-Delivery': '1' } : {};
       return new Response(request.method === 'HEAD' ? null : asset.body, { status: 200, headers: { ...headers, ...delivery, 'Content-Type': asset.type, 'Cache-Control': 'no-store' } });

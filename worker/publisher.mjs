@@ -102,6 +102,22 @@ export async function bootstrapPublication(db, candidate, operationId, seed, opt
   if (head.revision !== revision || head.generation < 1) throw Error('Bootstrap conflicts with the existing publication');
   return { status: 'initialized', ...head, engineRevision: seed.manifest.engineRevision };
 }
+// An already verified workflow may supply its job-scoped read credential.
+// Keep it only in the request body/in-memory fetch closure, never in storage.
+export function publisherEvidenceRequest(input, identity, fetcher = (...args) => globalThis.fetch(...args)) {
+  if (!input || typeof input !== 'object' || !Object.hasOwn(input, 'evidenceCredential')) return { input, fetcher };
+  if (identity.type !== 'github-oidc' || Object.keys(input).length !== 2 || !Object.hasOwn(input, 'publication') ||
+      !/^[A-Za-z0-9_]{20,255}$/.test(input.evidenceCredential || '')) throw Error('Invalid evidence credential');
+  const credential = input.evidenceCredential, repositoryPath = '/repos/' + REPOSITORY + '/';
+  return { input: input.publication, fetcher: (url, options) => {
+    const target = new URL(url);
+    if (target.protocol !== 'https:' || target.username || target.password) throw Error('Untrusted evidence origin');
+    if (target.hostname === 'api.github.com' && target.pathname.startsWith(repositoryPath))
+      return fetcher(url, { ...options, headers: { ...options.headers, Authorization: 'Bearer ' + credential } });
+    if (target.hostname === 'raw.githubusercontent.com' && target.pathname.startsWith('/' + REPOSITORY + '/')) return fetcher(url, options);
+    throw Error('Untrusted evidence origin');
+  } };
+}
 export async function publisherRequest(request, env, seed, json) {
   const url = new URL(request.url), routes = ['/api/publisher/head', '/api/publisher/stage', '/api/publisher/bootstrap', '/api/publisher/activate'];
   const identity = await publisherIdentity(request, env);
@@ -115,12 +131,15 @@ export async function publisherRequest(request, env, seed, json) {
     if (method === 'GET') return json({ ...await readPublicationHead(env.DB, engineRevision), engineRevision, activeDelivery: env.VC_ACTIVE_DELIVERY === '1' });
     let input;
     try { input = await publisherBody(request); } catch { return json({ error: 'Invalid or oversized JSON publication' }, 400); }
+    let evidence;
+    try { evidence = publisherEvidenceRequest(input, identity); input = evidence.input; }
+    catch { return json({ error: 'Invalid workflow evidence credential' }, 400); }
     if (url.pathname.endsWith('/activate')) {
       if (env.VC_ACTIVE_DELIVERY !== '1') return json({ error: 'Active delivery awaits the required browser and export verification' }, 423);
       if (identity.type === 'github-oidc') {
         if (input.intent !== 'publish') return json({ error: 'Rollback requires maintenance authorization' }, 403);
         const bundle = await readBundle(env.DB, input.revision);
-        await verifyRepositoryPublication({ repository: REPOSITORY, commit: identity.commit, bundle }, { engineRevision });
+        await verifyRepositoryPublication({ repository: REPOSITORY, commit: identity.commit, bundle }, { engineRevision, fetcher: evidence.fetcher });
       }
       return json(await activatePublication(env.DB, input, { engineRevision }));
     }
@@ -128,9 +147,9 @@ export async function publisherRequest(request, env, seed, json) {
     if (identity.commit && candidate?.commit !== identity.commit) return json({ error: 'Publisher commit mismatch' }, 403);
     if (url.pathname.endsWith('/bootstrap')) {
       if (Object.keys(input).length !== 2 || !Object.hasOwn(input, 'candidate') || !Object.hasOwn(input, 'operationId')) return json({ error: 'Invalid bootstrap fields' }, 400);
-      return json(await bootstrapPublication(env.DB, candidate, input.operationId, seed));
+      return json(await bootstrapPublication(env.DB, candidate, input.operationId, seed, { fetcher: evidence.fetcher }));
     }
-    return json(await stagePublication(env.DB, candidate, { engineRevision }));
+    return json(await stagePublication(env.DB, candidate, { engineRevision, fetcher: evidence.fetcher }));
   } catch (error) {
     // Never include credentials, submitted payloads, internal SQL or upstream bodies.
     let reason = [

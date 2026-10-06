@@ -36,14 +36,16 @@ Administrative initial history: `node scripts/publish-content.mjs --bootstrap <m
 
 Use `node scripts/diagnose-content.cjs https://versioncompass.com/` for real public database checks. Keep old payloads and the previous saved Site version for rollback. Record exact GitHub/Sites commits/tree, saved version, deployment, environment revision and actual check timestamps; do not infer live success from a local build or CI.
 
-## Concurrent draft reconciliation
-
-After the first actual OIDC publication succeeded, a repeated unauthenticated GitHub evidence check returned HTTP 403 without changing D1. CI now supplies its short-lived job token (`actions: read`, `contents: read`) in the bounded authenticated publication body. The Worker verifies exact workflow OIDC first and forwards this token only to this repository's fixed GitHub API paths. Raw artifact reads remain credential-free. The token stays in memory, outside the candidate, D1, provenance, responses and logs. This preserves the publisher trust boundary and avoids relying on shared unauthenticated API capacity. Fresh live retry outcomes are recorded separately in the audit.
-
 ## Verified runtime checkpoint
 
 Version 108 deployed the publisher checkpoint at GitHub commit `936bb5b7c9f69aecc7048341b8024811dfa4d028` and Sites commit `7b112273c058bc4192075deb49215511a153760d`, with matching tree `ca172752aac5b12a4e99a25c1dddea25aeafbed5`. Actual GitHub OIDC publication succeeded; real D1 provenance and generation-one bootstrap history were independently read back. The public diagnostic checks passed for all 668 records. `VC_ACTIVE_DELIVERY=0` preserves the original reader; actual browser/export and D1 activation/rollback remain outstanding gates.
 
 Worker evidence fetches retain the `globalThis.fetch` receiver and use `redirect: 'manual'`, rejecting non-2xx responses without following redirects. These repairs retain the fixed issuer/repository origins, signature and immutable workflow checks. Node fixtures now cover receiver behavior and redirected key/provenance rejection. Later concurrent repository changes are separate from this exact deployed checkpoint.
 
+## Concurrent draft reconciliation
+
 The unpublished Site commits 9b1b774f8f90f8c23ed9f0165b32b848c9e93f8c and b8d0d57f65f70d90fe942d28b1e00c80cf098fbd were reconciled after the stale source push was rejected. Their canonical-hash repair, stronger bundled staging, preparation CLI/tests, original checkpoint record and archive summaries are retained. `prepare-publication.yml` prepares read-only requests; the unsafe-to-enable one-sided static-token submission step is superseded by the supported OIDC workflow. The active-reader draft remains isolated from visitors. Canonical hashes are captured before in-memory composition and included in immutable identity; delivery code is included in the engine identity. Old D1 payloads are retained, and explicit revision queries without an engine filter remain available across engines.
+
+PR #13 is retained on main with its snapshot availability regression. Its changed navigation control is prepared as `/navigation-active.js`; while `VC_ACTIVE_DELIVERY=0`, `/navigation.js` remains byte-identical to verified version 108. This isolates the affected unverified browser control alongside the active reader until actual browser checks are available, while keeping the current GitHub source and the supported publisher synchronized.
+
+For unattended evidence checks, CI supplies its short-lived job token with `actions: read` and `contents: read` in the bounded authenticated body. The Worker first verifies exact workflow OIDC, forwards this credential only to the fixed repository GitHub API paths, leaves raw artifact reads credential-free, and never retains the token in candidates, D1, responses or logs. This repairs shared anonymous API rate-limit failures without weakening repository provenance or publisher identity.
