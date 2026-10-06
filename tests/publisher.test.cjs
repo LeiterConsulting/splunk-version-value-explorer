@@ -116,6 +116,10 @@ test('GitHub publisher rejects unavailable, oversized and unknown signing-key ev
   await assert.rejects(m.verifyPublisherOIDC(token, { fetcher: async () => new Response('', { status: 503 }) }), /unavailable/);
   await assert.rejects(m.verifyPublisherOIDC(token, { fetcher: async () => new Response(' '.repeat(129 * 1024)) }), /limit/);
   await assert.rejects(m.verifyPublisherOIDC(token, { fetcher: async () => new Response('{"keys":[]}') }), /signing key/);
+  await assert.rejects(m.verifyPublisherOIDC(token, { fetcher: async () => { throw Error('private network diagnostic'); } }), /^Error: Publisher identity unavailable$/);
+  await assert.rejects(m.verifyPublisherOIDC(token, { fetcher: async () => new Response('not-json') }), /^Error: Invalid signing key document$/);
+  const invalid = token.split('.'); invalid[0] = Buffer.from('not-json').toString('base64url');
+  await assert.rejects(m.verifyPublisherOIDC(invalid.join('.'), { fetcher: async () => { throw Error('must not fetch'); } }), /^Error: Invalid token$/);
 });
 test('publisher CLI rejects malformed commits before reading credentials or contacting the Site', () => {
   const result = require('node:child_process').spawnSync(process.execPath, ['scripts/publish-content.mjs','--commit','main'], { encoding: 'utf8' });

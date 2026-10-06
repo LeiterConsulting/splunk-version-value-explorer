@@ -86,7 +86,9 @@ export async function validateBundle(input, engineRevision) {
   return bundle;
 }
 async function fetchJson(url, fetcher) {
-  const response = await fetcher(url, { redirect: 'error', headers: { Accept: 'application/json', 'User-Agent': 'VersionCompass-Publication-Verifier' }, signal: AbortSignal.timeout(15000) });
+  let response;
+  try { response = await fetcher(url, { redirect: 'error', headers: { Accept: 'application/json', 'User-Agent': 'VersionCompass-Publication-Verifier' }, signal: AbortSignal.timeout(15000) }); }
+  catch { throw Error('Repository evidence unavailable'); }
   requireValue(response.ok && response.body, 'Repository evidence unavailable (HTTP ' + response.status + ')');
   const reader = response.body.getReader(), chunks = [];
   let size = 0;
@@ -98,7 +100,10 @@ async function fetchJson(url, fetcher) {
   } finally { await reader.cancel().catch(() => {}); }
   const bytes = new Uint8Array(size); let offset = 0;
   for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.length; }
-  const value = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes)); safeJson(value); return value;
+  let value;
+  try { value = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes)); }
+  catch { throw Error('Repository evidence unavailable'); }
+  safeJson(value); return value;
 }
 export async function verifyRepositoryPublication(input, { engineRevision, fetcher = fetch } = {}) {
   // Snapshot before the first await: callers cannot change a candidate while its provenance is checked.

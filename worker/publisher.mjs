@@ -11,7 +11,8 @@ export async function verifyPublisherOIDC(token, { fetcher = fetch, now = Date.n
   if (typeof token !== 'string' || token.length > 16000) throw Error('Invalid token');
   const parts = token.split('.'); if (parts.length !== 3) throw Error('Invalid token');
   const decode = part => JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(publisherBase64(part)));
-  const header = decode(parts[0]), claims = decode(parts[1]);
+  let header, claims;
+  try { header = decode(parts[0]); claims = decode(parts[1]); } catch { throw Error('Invalid token'); }
   if (header.alg !== 'RS256' || header.typ !== 'JWT' || typeof header.kid !== 'string' || header.jku || header.jwk || header.crit) throw Error('Invalid token');
   const seconds = Math.floor(now / 1000);
   if (claims.iss !== publisherIssuer || claims.aud !== publisherAudience ||
@@ -22,7 +23,9 @@ export async function verifyPublisherOIDC(token, { fetcher = fetch, now = Date.n
       !['workflow_run', 'workflow_dispatch'].includes(claims.event_name) || !/^[a-f0-9]{40}$/.test(claims.sha) ||
       !Number.isSafeInteger(claims.exp) || !Number.isSafeInteger(claims.nbf) || !Number.isSafeInteger(claims.iat) ||
       claims.exp <= seconds || claims.nbf > seconds + 30 || claims.iat > seconds + 30 || claims.iat < seconds - 600 || claims.exp - claims.iat > 600) throw Error('Invalid publisher identity');
-  const response = await fetcher(publisherIssuer + '/.well-known/jwks', { redirect: 'error', signal: AbortSignal.timeout(10000) });
+  let response;
+  try { response = await fetcher(publisherIssuer + '/.well-known/jwks', { redirect: 'error', signal: AbortSignal.timeout(10000) }); }
+  catch { throw Error('Publisher identity unavailable'); }
   if (!response.ok) throw Error('Publisher identity unavailable (HTTP ' + response.status + ')');
   if (!response.body) throw Error('Publisher identity unavailable');
   const reader = response.body.getReader(), chunks = []; let size = 0;
@@ -31,11 +34,18 @@ export async function verifyPublisherOIDC(token, { fetcher = fetch, now = Date.n
   } finally { await reader.cancel().catch(() => {}); }
   const bytes = new Uint8Array(size); let offset = 0;
   for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.length; }
-  const keys = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes)).keys;
+  let keys;
+  try { keys = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes)).keys; }
+  catch { throw Error('Invalid signing key document'); }
   const matches = Array.isArray(keys) ? keys.filter(key => key.kid === header.kid && key.kty === 'RSA' && (!key.use || key.use === 'sig') && (!key.alg || key.alg === 'RS256')) : [];
   if (matches.length !== 1) throw Error('Unknown signing key');
-  const key = await crypto.subtle.importKey('jwk', matches[0], { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' }, false, ['verify']);
-  if (!await crypto.subtle.verify('RSASSA-PKCS1-v1_5', key, publisherBase64(parts[2]), new TextEncoder().encode(parts[0] + '.' + parts[1]))) throw Error('Invalid signature');
+  let key;
+  try { key = await crypto.subtle.importKey('jwk', matches[0], { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' }, false, ['verify']); }
+  catch { throw Error('Signing key import unavailable'); }
+  let verified;
+  try { verified = await crypto.subtle.verify('RSASSA-PKCS1-v1_5', key, publisherBase64(parts[2]), new TextEncoder().encode(parts[0] + '.' + parts[1])); }
+  catch { throw Error('Signature verification unavailable'); }
+  if (!verified) throw Error('Invalid signature');
   return { type: 'github-oidc', commit: claims.sha };
 }
 async function publisherIdentity(request, env) {
@@ -49,7 +59,7 @@ async function publisherIdentity(request, env) {
   }
   if (env.VC_PUBLISHER_OIDC === '1') {
     try { return await verifyPublisherOIDC(token); } catch (error) {
-      const reason = ({ 'Invalid token': 'oidc-invalid-token', 'Invalid publisher identity': 'oidc-claim-mismatch', 'Publisher identity unavailable': 'oidc-keys-unavailable', 'Publisher identity exceeds limit': 'oidc-keys-oversized', 'Unknown signing key': 'oidc-unknown-key', 'Invalid signature': 'oidc-invalid-signature' })[error.message] || (/^Publisher identity unavailable \(HTTP \d{3}\)$/.test(error.message) ? 'oidc-keys-http-' + error.message.match(/\d{3}/)[0] : 'oidc-verification-unavailable');
+      const reason = ({ 'Invalid token': 'oidc-invalid-token', 'Invalid publisher identity': 'oidc-claim-mismatch', 'Publisher identity unavailable': 'oidc-keys-unavailable', 'Publisher identity exceeds limit': 'oidc-keys-oversized', 'Invalid signing key document': 'oidc-keys-invalid-json', 'Signing key import unavailable': 'oidc-key-import-unavailable', 'Signature verification unavailable': 'oidc-signature-unavailable', 'Unknown signing key': 'oidc-unknown-key', 'Invalid signature': 'oidc-invalid-signature' })[error.message] || (/^Publisher identity unavailable \(HTTP \d{3}\)$/.test(error.message) ? 'oidc-keys-http-' + error.message.match(/\d{3}/)[0] : 'oidc-verification-unavailable');
       return { type: 'rejected', reason };
     }
   }
