@@ -41,7 +41,7 @@ export function createWorker(seed, assets, { rippleFetch = (...args) => globalTh
       for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.byteLength; }
       const data = JSON.parse(new TextDecoder().decode(bytes));
       if (snapshot ? data.schemaVersion !== 1 || !Array.isArray(data.records) || !Array.isArray(data.candidates) || !Array.isArray(data.checks) : data.id !== id || typeof data.found !== 'boolean') throw Error('Unsupported Ripple response');
-      const fields = snapshot ? ['schemaVersion', 'records', 'candidates', 'checks', 'lastRun', 'storage', 'updateStatus', 'runs'] : ['id', 'found', 'description', 'severity', 'score', 'modified', 'status', 'url', 'ciscoImpact'];
+      const fields = snapshot ? ['schemaVersion', 'records', 'candidates', 'checks', 'lastRun', 'storage', 'updateStatus', 'runs', 'lastAssessmentAt', 'assessmentRuns'] : ['id', 'found', 'description', 'severity', 'score', 'modified', 'status', 'url', 'ciscoImpact'];
       const publicData = Object.fromEntries(fields.filter(key => Object.hasOwn(data, key)).map(key => [key, data[key]]));
       return rippleJson(request, publicData);
     } catch {

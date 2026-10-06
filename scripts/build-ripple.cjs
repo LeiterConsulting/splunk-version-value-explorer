@@ -22,7 +22,7 @@ esbuild.buildSync({
 fs.writeFileSync(path.join(output, 'app.css'), esbuild.transformSync(fs.readFileSync(path.join(client, 'ripple.css'), 'utf8'), { loader: 'css', minify: true }).code);
 for (const file of ['index.html', 'icon.svg']) fs.copyFileSync(path.join(client, file), path.join(output, file));
 const hash = file => crypto.createHash('sha256').update(fs.readFileSync(path.join(root, file))).digest('hex');
-const sourceFiles = ['scripts/build-ripple.cjs', 'tools/ripple/entry.tsx', 'tools/ripple/Ripple.tsx', 'tools/ripple/ripple.css', 'tools/ripple/index.html', 'tools/ripple/icon.svg', 'tools/ripple/package.json', 'tools/ripple/provenance.json', 'tools/ripple/lib/types.ts', 'tools/ripple/lib/seed.ts', 'tools/ripple/lib/exposure.ts'];
+const sourceFiles = ['scripts/build-ripple.cjs', 'tools/ripple/entry.tsx', 'tools/ripple/Ripple.tsx', 'tools/ripple/components/investigations.tsx', 'tools/ripple/ripple.css', 'tools/ripple/index.html', 'tools/ripple/icon.svg', 'tools/ripple/package.json', 'tools/ripple/provenance.json', 'tools/ripple/lib/types.ts', 'tools/ripple/lib/seed.ts', 'tools/ripple/lib/exposure.ts'];
 const assetFiles = ['dist/ripple/app.js', 'dist/ripple/app.css', 'dist/ripple/index.html', 'dist/ripple/icon.svg'];
 const manifest = { schemaVersion: 1, basePath: '/ripple', sources: Object.fromEntries(sourceFiles.map(file => [file, hash(file)])), assets: Object.fromEntries(assetFiles.map(file => [file, hash(file)])) };
 fs.writeFileSync(path.join(client, 'build-manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
