@@ -1,21 +1,33 @@
-# Evidence-based soak and improvement policy
+# Evidence-based delivery and post-release observation
 
-The owner authorized this policy on October 5, 2026. It supersedes earlier requirements to ask before every interface recommendation or Phase 2 increment. Existing schedules, public-source requirements, privacy and exact GitHub/Sites publication checks remain in force.
+The owner's October 6, 2026 instruction replaces the mandatory 72-hour advancement delay. Deliver useful, bounded improvements as soon as their applicable material checks pass. Minor, reversible issues may remain in a tracked repair backlog. The 72-hour period is an observation window, not a minimum wait or a claim that all behavior was verified.
 
-Confidence means completed checks and recorded evidence, not a model score, customer silence or no recorded errors. Reuse the existing one-time soak task; do not create duplicate or recurring three-day tasks. The four watches inspect the active baseline during their established Eastern schedules.
+This supersedes earlier fixed-wait instructions in architecture documentation and task prompts. The October 5 authorization for bounded autonomous improvements remains. Public sources, privacy, the existing audience, stable read-only WebMCP tools, exact GitHub/Sites publication checks and the four watches' established Eastern schedules do not change.
 
-## Detect, explain and repair
+## Release blockers versus repair backlog
 
-Record observations, affected decisions and the smallest useful adjustment. Distinguish real customer feedback from scripted journeys. Check source/claim scope, selected/historical links, routes and receiver compatibility, themes, keyboard, narrow layouts, HTML reopening, PDF rendering, screen/export/WebMCP agreement, database fallback and live revision. Record attempted, passed, failed, blocked and not-performed outcomes separately with actual dates and evidence.
+Hold broken or silently changed legacy comparisons, inaccurate or unsupported guidance, uncertain compatibility/entitlement/authorization, missing or corrupted content, privacy/security failures, destructive migrations, new commercial commitments, and failed or missing applicable material verification. Never waive a failure simply by calling it minor.
 
-Bounded, reversible fixes or features improving comprehension, accuracy, accessibility, routing, depicted evidence or sharing may proceed automatically when evidence is unambiguous and material validation passes. Record rationale and results. Do not infer customer preference from synthetic tests.
+A nonblocking minor issue must be explicitly recorded with `severity: minor`, `reversible: true`, `affectedFunctionWorks: true`, a tracking issue or repository record, owner, next action, validation and a future `reviewBy` deadline. No protected risk may be present. Unclassified or overdue issues block until triaged; resolved protected risks need recorded resolution evidence. Cosmetic defects do not hold unrelated validated improvements.
 
-Hold uncertain availability, compatibility, authorization or entitlement; privacy/audience expansion; destructive migrations; commercial commitments; failed checks; and missing material verification. Recommend exact evidence to obtain or a smaller safe change. Isolate a blocked enhancement so unrelated validated fixes can proceed. Incomplete publication is never described as live.
+Keep the change small enough to validate and roll back. Isolate a blocked enhancement instead of holding independent work. Confidence is completed checks and recorded evidence, not a model score, customer silence or a synthetic preference.
 
-## Baseline and advancement
+## Impact-scoped checks
 
-After successful deployment and actual live verification, record dataset, engine and website revisions, GitHub/Sites commits, matching tree, saved version, deployment ID and actual timestamp. Reset and verify the SAME one-time task to 72 hours after that timestamp. Factual-only, operational and documentation changes do not restart it. Failed or unverified deployments do not start it.
+Continue recording source checks, claim checks, automated tests, browser journeys, exports and live verification separately, with actual dates and evidence. `failed`, `blocked` and `not-performed` are never success.
 
-Watches may detect and repair regressions throughout the window. At the checkpoint run `node scripts/check-soak.cjs RESULT.json`. Input includes baseline, evaluatedAt, separate checks (outcome, checkedAt, evidence/reason), findings (observation, impact, recommendedChange, validation and risk flags) and feedback. Advancement requires elapsed 72 hours and current evidence for all required material gates. Missing, stale, blocked and not-performed checks hold advancement.
+The full gate inventory remains in `content/soak-policy.json`. Tests, shared-link checks, content parity, live revision and maintenance outcomes cannot be scoped away. Other checks may be `not-applicable` only when an explicit impact analysis establishes they are unaffected: record `scope.unaffected: true`, a rationale and evidence such as the exact changed-file inventory. Unavailable tooling is not evidence of irrelevance. Changes to rendering, comparison meaning or data delivery require the affected actual browser/export checks; file parsing does not certify a rendered export.
 
-Use `npm run content:diagnose -- https://versioncompass.com/` for actual delivery diagnostics. Attach its results to the recorded evidence and resolve each finding with validation before advancing. When eligible, implement the next bounded increment, validate/publish it and schedule its fresh 72-hour baseline. When held, give at most three useful repair/research recommendations and continue existing maintenance. Never create new loops or schedules to disguise blocked checks.
+A repository-only archive or policy change need not repeat native PDF pagination when report code and content are unchanged. Record its repository publication separately; do not claim it deployed website code. Source and claim review dates never advance merely because a file moved, an index changed or delivery succeeded.
+
+## Legacy compatibility
+
+Preserve the visitor's original comparison intent, not necessarily the old architecture. Decode legacy URLs into the current comparison model using explicit, deterministic, reviewed mappings. Preserve exact versions, product, platform/host, environment, perspective, theme, history and meaningful anchors. Never silently substitute latest or relax a compatibility warning. Unknown or ambiguous links get assisted recovery retaining the original input and an explicit explanation, not an unrelated default report. See [legacy-link migration](architecture/legacy-link-migration.md).
+
+## Advancement and observation
+
+Run `node scripts/check-soak.cjs RESULT.json` with the actual verified baseline, evaluation time, separate check records and findings. `minimumHours` is now zero. Once applicable checks pass and remaining findings satisfy the minor-issue rule, the next bounded increment is eligible without waiting for October 8 or restarting a three-day countdown.
+
+Retain the prior complete revision and a verified rollback path for material delivery changes. Record dataset/engine/website revisions, GitHub/Sites commits and matching tree, saved version, deployment ID and actual live-check timestamp. Failed or unverified publication is never described as live.
+
+Use the SAME existing one-time progress task and the four existing watches for follow-through; do not create duplicate or recurring three-day jobs. Preserve their schedules unless explicitly changed. Record the observation window for newly verified material releases, but do not use it to block unrelated work or automatically reschedule the task 72 hours later. Factual-only, operational and documentation changes do not manufacture a new material baseline. At each run, report meaningful shipped work, new consequential findings and the next bounded action; do not repeat unchanged blocker lists.

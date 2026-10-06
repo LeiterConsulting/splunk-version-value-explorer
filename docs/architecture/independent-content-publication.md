@@ -1,6 +1,6 @@
 # Next increment: independent content publication
 
-Status: prepared implementation contract, not an enabled service. The current [publication architecture](content-publication.md) and [soak gates](../soak-policy.md) still apply.
+Status: prepared implementation contract, not an enabled service. The current [publication architecture](content-publication.md) and [evidence-based delivery policy](../soak-policy.md) still apply. The owner's October 6 instruction removes the fixed 72-hour waiting gate; it does not waive applicable material validation, authentication or exact publication checks.
 
 The first bounded increment separates publishing an approved factual bundle from deploying website code. The public repository remains the authority; D1 continues to serve immutable projections. No visitor editor, user accounts, tracking or customer-context storage is added.
 
@@ -14,6 +14,8 @@ Stage content under its immutable revision. Reuse the existing idempotent import
 
 The browser obtains the active manifest for its deployed engine, validates the complete bundle, then switches every dataset together. It must never combine current database records with old adapters. On timeout or invalid/unavailable content, use the entire bundled revision and label that older fallback accurately in the report and exports. A successful fallback does not certify D1 health or the latest publication. Default shared URLs still describe evolving guidance; historical report pinning belongs to a later increment.
 
+Preserve original comparison intent through the [legacy-link migration contract](legacy-link-migration.md). The new architecture may translate old URL syntax, but must not silently replace versions, scope or warnings. An unresolved conversion needs assisted recovery, not an unrelated default report.
+
 ## Required implementation evidence
 
 - Authenticated publication accepts only an exact public-repo generated bundle; absent/wrong credentials, unknown fields, forged provenance, duplicate IDs, bad hashes and engine mismatches are rejected.
@@ -21,6 +23,6 @@ The browser obtains the active manifest for its deployed engine, validates the c
 - Manifest, bundle, records and real D1 health agree after publication without a website deployment. Public writes stay rejected and existing tool names remain stable.
 - The browser loads the newly active bundle atomically; forced failure selects the complete labeled fallback. Existing/legacy/invalid/shared links, citations, both themes, keyboard and narrow layouts remain valid.
 - Actual PDF pages, downloaded HTML independently reopened, and screen/export/read-only WebMCP content agree for affected representative routes. Structural tests are recorded separately.
-- Publish exact GitHub/Sites source, verify live behavior and record a fresh 72-hour baseline in the same existing soak task only after this implementation is eligible and successfully verified.
+- Publish exact GitHub/Sites source, verify live behavior, retain rollback evidence and record post-release observation in the existing progress task. Start the next eligible bounded improvement without a mandatory three-day pause. Track nonblocking minor issues under the current delivery policy.
 
 Credentials and the supported CI-to-Sites secret path must be established before exposing an authenticated publisher. Do not ship a disabled-looking endpoint backed by permissive authentication or use a model confidence score to close any gate.
