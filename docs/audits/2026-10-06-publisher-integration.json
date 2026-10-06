@@ -639,5 +639,21 @@
         "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
       ]
     }
+  },
+  "freshEngineRepair": {
+    "observedAt": "2026-10-06T18:40:53.2097990Z",
+    "deploymentVersion": 115,
+    "gitHubCommit": "28ce8dfa54a85c96a00f4eb0679ef3550511c887",
+    "workflowRun": 37513021662,
+    "failedJob": 112439148386,
+    "observation": "Authenticated staging and exact native D1 provenance succeeded; head read returned 409 because this fresh engine had no initial pointer. No publication event was written.",
+    "repair": "Expose the explicit initial-publication-required category; only that exact authenticated 409 permits seed-bound bootstrap followed by a new head read. Other failures stop publication.",
+    "localVerification": {
+      "testsPassed": 157,
+      "failed": 0,
+      "skipped": 0,
+      "checks": "Four ordered synchronization operations, four check gates and build passed. New regressions cover empty real database head without a write, complete CLI initialization without public traffic, and refusal to bootstrap on other errors."
+    },
+    "liveRepairVerification": "Pending a new exact-source deployment and actual CI retry; prior checkpoints do not certify this repair."
   }
 }

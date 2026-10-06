@@ -34,6 +34,8 @@ Read-only preflight: `node scripts/verify-publication.mjs --commit <main-SHA> --
 
 Administrative initial history: `node scripts/publish-content.mjs --bootstrap <main-SHA>`, then supply the secret through hidden stdin. Routine CI publication: `node scripts/publish-content.mjs --commit <main-SHA>` using GitHub OIDC. When delivery is held, the result explicitly reports staging rather than activation. A same-revision publication is idempotent and initializes history if still at generation zero.
 
+A fresh engine with no publisher head returns the explicit `initial-publication-required` category. After successful authenticated staging, CI handles only that exact 409 by calling the seed-bound bootstrap and rereading the head. Public traffic is not needed to initialize the engine. Authentication failures, other verification errors and existing-head conflicts still stop publication; the bootstrap cannot overwrite a different head.
+
 Use `node scripts/diagnose-content.cjs https://versioncompass.com/` for real public database checks. Keep old payloads and the previous saved Site version for rollback. Record exact GitHub/Sites commits/tree, saved version, deployment, environment revision and actual check timestamps; do not infer live success from a local build or CI.
 
 ## Verified runtime checkpoint

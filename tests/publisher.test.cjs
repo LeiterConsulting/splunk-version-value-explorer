@@ -62,6 +62,13 @@ test('managed migration and verified bootstrap are additive, idempotent and audi
   assert.equal(db.sql.prepare('SELECT bundle_json FROM content_revisions').get().bundle_json, before);
   assert.throws(() => db.sql.exec("UPDATE content_publication_events SET generation = 0"), /CHECK/);
 });
+test('authenticated fresh-engine head reports only the explicit initialization gate', async t => {
+  const db = database(t), worker = (await modules()).createWorker(seed, {});
+  const response = await worker.fetch(new Request('https://versioncompass.com/api/publisher/head', { headers: { Authorization: 'Bearer ' + admin } }), { DB: db, VC_PUBLISHER_TOKEN: admin });
+  assert.equal(response.status, 409);
+  assert.equal((await response.json()).reason, 'initial-publication-required');
+  assert.equal(db.sql.prepare('SELECT COUNT(*) AS count FROM content_publication').get().count, 0);
+});
 test('bootstrap rejects a different seed and existing publisher heads without overwriting', async t => {
   const m = await modules(), db = database(t);
   await m.ensureRevision(db, seed);

@@ -49,14 +49,23 @@ try {
     if (!response.ok) {
       let reason; try { reason = (await response.json()).reason; } catch {}
       // The service returns only an enumerated non-sensitive rejection category.
-      throw Error('Publisher ' + route + ' rejected with HTTP ' + response.status + (/^[a-z0-9-]{1,60}$/.test(reason || '') ? ' (' + reason + ')' : ''));
+      const error = Error('Publisher ' + route + ' rejected with HTTP ' + response.status + (/^[a-z0-9-]{1,60}$/.test(reason || '') ? ' (' + reason + ')' : ''));
+      error.status = response.status; error.reason = reason;
+      throw error;
     }
     return response.json();
   }
   if (args[0] === '--bootstrap') {
     console.log(JSON.stringify(await call('bootstrap', { candidate, operationId: operation('bootstrap') })));
   } else {
-    const staged = await call('stage', candidate), head = await call('head');
+    const staged = await call('stage', candidate);
+    let head;
+    try { head = await call('head'); }
+    catch (error) {
+      if (error.status !== 409 || error.reason !== 'initial-publication-required') throw error;
+      await call('bootstrap', { candidate, operationId: operation('bootstrap') });
+      head = await call('head');
+    }
     if (head.revision === staged.revision) {
       if (head.generation === 0) await call('bootstrap', { candidate, operationId: operation('bootstrap') });
       console.log(JSON.stringify({ status: 'already-current', revision: staged.revision, engineRevision: head.engineRevision, activeDelivery: head.activeDelivery }));

@@ -161,6 +161,7 @@ export async function publisherRequest(request, env, seed, json) {
       ['Immutable revision collision', 'immutable-revision-collision'],
       ['Incomplete or corrupt staged records', 'staged-record-integrity'],
       ['Engine mismatch', 'engine-mismatch'],
+      ['Verified initial publication required', 'initial-publication-required'],
       ['Bootstrap conflicts', 'bootstrap-head-conflict'],
       ['D1_ERROR', 'database-operation-failed'],
     ].find(([message]) => String(error.message).includes(message))?.[1] || 'verification-unavailable';
