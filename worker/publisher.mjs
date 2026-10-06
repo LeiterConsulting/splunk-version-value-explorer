@@ -23,7 +23,7 @@ export async function verifyPublisherOIDC(token, { fetcher = fetch, now = Date.n
       !Number.isSafeInteger(claims.exp) || !Number.isSafeInteger(claims.nbf) || !Number.isSafeInteger(claims.iat) ||
       claims.exp <= seconds || claims.nbf > seconds + 30 || claims.iat > seconds + 30 || claims.iat < seconds - 600 || claims.exp - claims.iat > 600) throw Error('Invalid publisher identity');
   const response = await fetcher(publisherIssuer + '/.well-known/jwks', { redirect: 'error', signal: AbortSignal.timeout(10000) });
-  if (!response.ok) throw Error('Publisher identity unavailable');
+  if (!response.ok) throw Error('Publisher identity unavailable (HTTP ' + response.status + ')');
   if (!response.body) throw Error('Publisher identity unavailable');
   const reader = response.body.getReader(), chunks = []; let size = 0;
   try {
@@ -48,7 +48,10 @@ async function publisherIdentity(request, env) {
     if (difference === 0) return { type: 'maintenance-secret' };
   }
   if (env.VC_PUBLISHER_OIDC === '1') {
-    try { return await verifyPublisherOIDC(token); } catch { return null; }
+    try { return await verifyPublisherOIDC(token); } catch (error) {
+      const reason = ({ 'Invalid token': 'oidc-invalid-token', 'Invalid publisher identity': 'oidc-claim-mismatch', 'Publisher identity unavailable': 'oidc-keys-unavailable', 'Publisher identity exceeds limit': 'oidc-keys-oversized', 'Unknown signing key': 'oidc-unknown-key', 'Invalid signature': 'oidc-invalid-signature' })[error.message] || (/^Publisher identity unavailable \(HTTP \d{3}\)$/.test(error.message) ? 'oidc-keys-http-' + error.message.match(/\d{3}/)[0] : 'oidc-verification-unavailable');
+      return { type: 'rejected', reason };
+    }
   }
   return null;
 }
@@ -85,7 +88,7 @@ export async function bootstrapPublication(db, candidate, operationId, seed, opt
 export async function publisherRequest(request, env, seed, json) {
   const url = new URL(request.url), routes = ['/api/publisher/head', '/api/publisher/stage', '/api/publisher/bootstrap', '/api/publisher/activate'];
   const identity = await publisherIdentity(request, env);
-  if (!identity) return json({ error: 'Publisher authorization required' }, 401);
+  if (!identity || identity.type === 'rejected') return json({ error: 'Publisher authorization required', ...(identity?.reason ? { reason: identity.reason } : {}) }, 401);
   if (!routes.includes(url.pathname)) return json({ error: 'Unknown publisher route' }, 404);
   if (url.search || (request.headers.has('Origin') && request.headers.get('Origin') !== publisherAudience)) return json({ error: 'Invalid publisher request' }, 400);
   const method = url.pathname.endsWith('/head') ? 'GET' : 'POST';
@@ -111,8 +114,21 @@ export async function publisherRequest(request, env, seed, json) {
       return json(await bootstrapPublication(env.DB, candidate, input.operationId, seed));
     }
     return json(await stagePublication(env.DB, candidate, { engineRevision }));
-  } catch {
+  } catch (error) {
     // Never include credentials, submitted payloads, internal SQL or upstream bodies.
-    return json({ error: 'Publication rejected; verify repository CI, immutable data, migration readiness and expected head' }, 409);
+    let reason = [
+      ['Repository evidence unavailable', 'repository-evidence-unavailable'],
+      ['Required main CI has not passed', 'validation-ci-not-ready'],
+      ['Required validation or build evidence missing', 'validation-step-missing'],
+      ['Candidate differs from the committed publication', 'committed-artifact-mismatch'],
+      ['Commit is not on main', 'commit-not-on-main'],
+      ['Immutable revision collision', 'immutable-revision-collision'],
+      ['Incomplete or corrupt staged records', 'staged-record-integrity'],
+      ['Engine mismatch', 'engine-mismatch'],
+      ['Bootstrap conflicts', 'bootstrap-head-conflict'],
+      ['D1_ERROR', 'database-operation-failed'],
+    ].find(([message]) => String(error.message).includes(message))?.[1] || 'verification-unavailable';
+    if (/^Repository evidence unavailable \(HTTP \d{3}\)$/.test(error.message)) reason = 'repository-evidence-http-' + error.message.match(/\d{3}/)[0];
+    return json({ error: 'Publication rejected; verify repository CI, immutable data, migration readiness and expected head', reason }, 409);
   }
 }

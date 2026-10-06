@@ -44,7 +44,11 @@ try {
       ...(body ? { body: JSON.stringify(body) } : {}),
     });
     // Do not print upstream bodies, headers, tokens or submitted content.
-    if (!response.ok) throw Error('Publisher ' + route + ' rejected with HTTP ' + response.status);
+    if (!response.ok) {
+      let reason; try { reason = (await response.json()).reason; } catch {}
+      // The service returns only an enumerated non-sensitive rejection category.
+      throw Error('Publisher ' + route + ' rejected with HTTP ' + response.status + (/^[a-z0-9-]{1,60}$/.test(reason || '') ? ' (' + reason + ')' : ''));
+    }
     return response.json();
   }
   if (args[0] === '--bootstrap') {

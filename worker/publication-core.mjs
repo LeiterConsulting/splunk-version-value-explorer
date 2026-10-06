@@ -87,7 +87,7 @@ export async function validateBundle(input, engineRevision) {
 }
 async function fetchJson(url, fetcher) {
   const response = await fetcher(url, { redirect: 'error', headers: { Accept: 'application/json', 'User-Agent': 'VersionCompass-Publication-Verifier' }, signal: AbortSignal.timeout(15000) });
-  requireValue(response.ok && response.body, 'Repository evidence unavailable');
+  requireValue(response.ok && response.body, 'Repository evidence unavailable (HTTP ' + response.status + ')');
   const reader = response.body.getReader(), chunks = [];
   let size = 0;
   try {
