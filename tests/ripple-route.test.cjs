@@ -7,7 +7,7 @@ const { checkRipple } = require('../scripts/check-ripple.cjs');
 const assets = Object.fromEntries(['index.html', 'app.js', 'app.css', 'icon.svg'].map(file => ['/ripple/' + file, { body: fs.readFileSync('dist/ripple/' + file, 'utf8'), type: ({ html: 'text/html', js: 'text/javascript', css: 'text/css', svg: 'image/svg+xml' })[file.split('.').at(-1)] }]));
 assets['/index.html'] = { body: fs.readFileSync('dist/index.html', 'utf8'), type: 'text/html' };
 const secret = 'fixture-private-service-token';
-const snapshot = { schemaVersion: 1, records: [{ id: 'fixture-assessment' }], candidates: [], checks: [], lastRun: null, storage: 'persistent', updateStatus: 'complete', runs: 1 };
+const snapshot = { schemaVersion: 1, records: [{ id: 'fixture-assessment' }], candidates: [{id:'vendor-lead',investigation:{state:'needs_evidence',gaps:['missing product evidence'],nextAction:'Check vendor scope'}}], checks: [], lastRun: null, storage: 'persistent', updateStatus: 'complete', runs: 1, lastAssessmentAt:'2026-10-06T18:30:09.098Z', assessmentRuns:[{id:'fixture-run',claimChecks:0,needsEvidence:1}] };
 async function worker(fetcher = async () => Response.json(snapshot)) {
   const { createWorker } = await import(pathToFileURL(path.resolve('worker/index.mjs')));
   return createWorker({}, assets, { rippleFetch: fetcher });
@@ -45,8 +45,8 @@ test('CVE query is validated, canonicalized and scoped to upstream public fields
 });
 test('writes, admin paths, unknown routes and injected targets never call the backend', async () => {
   let calls = 0; const app = await worker(async () => { calls++; throw Error('Must not reach upstream'); });
-  for (const route of ['/ripple/api/refresh', '/ripple/api/admin', '/ripple/api/cve/extra', '/ripple/api/snapshot/extra', '/ripple/unknown']) assert.equal((await app.fetch(request(route), env)).status, 404);
-  for (const method of ['POST', 'PUT', 'DELETE', 'OPTIONS']) assert.equal((await app.fetch(request('/ripple/api/snapshot', { method }), env)).status, 405);
+  for (const route of ['/ripple/api/refresh', '/ripple/api/assess', '/ripple/api/admin', '/ripple/api/cve/extra', '/ripple/api/snapshot/extra', '/ripple/unknown']) assert.equal((await app.fetch(request(route), env)).status, 404);
+  for (const method of ['POST', 'PUT', 'DELETE', 'OPTIONS']) for(const route of ['/ripple/api/snapshot','/ripple/api/assess']) assert.equal((await app.fetch(request(route, { method }), env)).status, 405);
   for (const route of ['/ripple/api/snapshot?url=https://example.com', '/ripple/api/cve?id=CVE-2023-44487&url=https://example.com', '/ripple/api/cve?id=CVE-2023-44487&id=CVE-2020-1', '/ripple/api/cve?id=bad', '/ripple/api/cve', '/ripple/api/cve?id=CVE-2023-' + '1'.repeat(100)]) assert.equal((await app.fetch(request(route), env)).status, 400);
   assert.equal(calls, 0);
 });

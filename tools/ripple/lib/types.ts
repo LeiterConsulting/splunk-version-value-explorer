@@ -7,12 +7,25 @@ export type Assessment = {
   scope: string; condition: string; action: string; sourceId: string; section: string;
   verifiedAt: string; rules?: Rule[]; feature?: string; reviewRequired?: boolean;
   kev?: boolean; kevDate?: string; rationale: string;
+  evidence?: Evidence; relatedEvidence?: Evidence[];
 };
+export type Evidence = { id: string; name: string; url: string; section: string; checkedAt: string; hash?: string };
+export type ProductScope = { product: string; branch: string; affected: string; fixed: string; component?: string };
+export type PackageGroup = { component: string; cves: string[]; severity: string; remedy: string; note: string };
+export type Investigation = {
+  state: "mapped" | "needs_evidence" | "related_first_party" | "unavailable";
+  assessedAt: string; evidence: Evidence[]; summary: string; gaps: string[]; nextAction: string;
+  products: ProductScope[]; packages: PackageGroup[]; assessmentIds: string[];
+  priority: "high" | "normal"; previousState?: Investigation["state"];
+};
+export type AssessmentRun = { id: string; at: string; investigationsChecked: number; mapped: number;
+  needsEvidence: number; relatedFirstParty: number; failures: number; claimChecks: number; addedRecords: number };
 export type SourceCheck = { id: string; name: string; url: string; checkedAt: string;
   outcome: "ok" | "changed" | "unavailable"; hash?: string; message: string };
 export type Candidate = { id: string; title: string; url: string; origin: string;
-  cves: string[]; discoveredAt: string; publishedAt?: string; kev?: boolean };
+  cves: string[]; discoveredAt: string; publishedAt?: string; kev?: boolean; investigation?: Investigation };
 export type Snapshot = { schemaVersion: 1; records: Assessment[]; candidates: Candidate[];
   checks: SourceCheck[]; lastRun: string | null; storage: "baseline" | "persistent";
-  updateStatus: "not_run" | "complete" | "partial"; runs: number };
+  updateStatus: "not_run" | "complete" | "partial"; runs: number;
+  lastAssessmentAt?: string; assessmentRuns?: AssessmentRun[] };
 export type Selection = { version?: string; feature?: "unknown" | "enabled" | "disabled" };
