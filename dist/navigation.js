@@ -22,7 +22,13 @@ if(header&&copy&&print){
   button.innerHTML='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'+icons[i]+'</svg><span class="header-action-label">'+label+'</span>';
   actions.append(button);
  });
- const save=document.createElement('button');save.type='button';save.className='header-action';save.dataset.saveSnapshot='';save.setAttribute('aria-label','Save dated snapshot');save.innerHTML='<span aria-hidden="true">↓</span><span class="header-action-label">Save dated snapshot</span>';actions.append(save);
+ const save=document.createElement('button');save.type='button';save.className='header-action';save.dataset.saveSnapshot='';save.setAttribute('aria-label','Save dated snapshot');save.innerHTML='<span aria-hidden="true">↓</span><span class="header-action-label">Save dated snapshot</span>';
+ // Snapshot and print share the same report guard. Keep their visible states in
+ // lockstep so an unresolved or invalid selection never advertises an export.
+ const syncSaveAvailability=()=>{save.disabled=Boolean(print.disabled);};
+ syncSaveAvailability();
+ new MutationObserver(syncSaveAvailability).observe(print,{attributes:true,attributeFilter:['disabled']});
+ actions.append(save);
  const snapshotStatus=document.createElement('span');snapshotStatus.className='snapshot-status header-share-status';snapshotStatus.setAttribute('role','status');actions.append(snapshotStatus);
  if(status){status.classList.add('header-share-status');actions.append(status);}
  const meta=document.createElement('div');meta.className='header-meta';

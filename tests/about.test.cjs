@@ -41,3 +41,23 @@ test('About section tabs scroll to headings and follow the active section',()=>{
  nav.click({target:{closest:()=>nav.children[2]}});
  assert.equal(headings.get('maintenance-title').focused,true);assert.equal(headings.get('maintenance-title').scrolled.block,'start');
 });
+test('Header snapshot availability follows the guarded print export',()=>{
+ const observers=[];
+ const element=tag=>({tagName:tag.toUpperCase(),dataset:{},children:[],classList:{add(){}},style:{},append(...items){this.children.push(...items);},addEventListener(k,fn){this[k]=fn;},setAttribute(k,v){this[k]=v},removeAttribute(k){delete this[k]},replaceChildren(...items){this.children=items;},querySelectorAll(){return []},getBoundingClientRect(){return {top:200,bottom:100,height:40}},closest(){return null}});
+ const main=element('main'),header=element('header'),copy=element('button'),print=element('button'),status=element('span');print.disabled=true;
+ main.before=()=>{};main.querySelector=()=>null;header.querySelector=()=>null;
+ const document={
+  querySelector(selector){return {'main':main,'.site-header':header,'#edition-title':null,'#about-title':null,'.report-actions':null,'.hero':null}[selector]??null;},
+  getElementById(id){return {'copy-link':copy,'print-report':print,'share-status':status}[id]??null;},
+  createElement:element,
+  documentElement:{style:{setProperty(){}}}
+ };
+ class MutationObserver{constructor(callback){this.callback=callback;}observe(target,options){observers.push({target,options,callback:this.callback});}}
+ vm.runInNewContext(fs.readFileSync('dist/navigation.js','utf8'),{window:{addEventListener(){}},document,location:{search:''},URLSearchParams,getComputedStyle:()=>({display:'block'}),ResizeObserver:class{observe(){}},MutationObserver,requestAnimationFrame:f=>f(),matchMedia:()=>({matches:true})});
+ const save=header.children[0].children[0].children.find(child=>child.dataset?.saveSnapshot==='');
+ assert.equal(save.disabled,true);
+ const guardObserver=observers.find(item=>item.target===print);
+ assert.equal(guardObserver.options.attributes,true);assert.equal(String(guardObserver.options.attributeFilter),'disabled');
+ print.disabled=false;guardObserver.callback();assert.equal(save.disabled,false);
+ print.disabled=true;guardObserver.callback();assert.equal(save.disabled,true);
+});
