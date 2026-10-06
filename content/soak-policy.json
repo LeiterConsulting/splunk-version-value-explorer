@@ -1,10 +1,14 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "timezone": "America/New_York",
-  "minimumHours": 72,
+  "minimumHours": 0,
+  "observationHours": 72,
+  "advancement": "evidence-and-impact-not-elapsed-time",
   "requiredGates": ["content-parity", "source-mappings", "shared-links", "automated-tests", "browser-journeys", "themes-and-narrow-screens", "keyboard", "html-reopen", "pdf-rendering", "live-revision", "maintenance-outcomes"],
-  "automaticChanges": ["reversible accessibility fixes", "clearer controls and wording without broader factual scope", "report completeness fixes", "bounded routing and content delivery improvements"],
-  "holdConditions": ["failed required check", "missing material verification", "unsupported or conflicting facts", "privacy or audience changes", "destructive schema changes", "new commercial commitments"],
-  "confidenceRule": "Confidence must be supported by recorded evidence and completed checks, not a model score or absence of feedback.",
+  "scopableGates": ["source-mappings", "browser-journeys", "themes-and-narrow-screens", "keyboard", "html-reopen", "pdf-rendering"],
+  "automaticChanges": ["reversible accessibility fixes", "clearer controls and wording without broader factual scope", "report completeness fixes", "bounded routing and content delivery improvements", "backward-compatible release archive organization"],
+  "holdConditions": ["failed applicable material check", "missing applicable material verification", "broken or silently changed legacy report", "unsupported or conflicting facts", "privacy or audience changes", "destructive schema changes", "new commercial commitments"],
+  "confidenceRule": "Confidence requires recorded evidence and completed applicable checks, never a model score or absence of feedback. An unaffected check may be not-applicable only with recorded impact analysis and evidence, never merely because tooling is unavailable.",
+  "minorIssueRule": "An unresolved minor issue may proceed only when reversible, the affected function still works, no protected risk is present, and tracking, owner, next action, validation and a future review deadline are recorded.",
   "feedbackRule": "Scripted checks, customer feedback and silence are distinct. Synthetic checks cannot establish customer preference."
 }

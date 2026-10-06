@@ -1,36 +1,17 @@
 # Release notes
 
-This directory contains concise, repository-only release notes for Version Compass. Historical records begin September 16, 2026.
+Repository-only release history for Version Compass. Browse by year, then month. Historical records begin September 16, 2026.
 
 ## Releases
 
-- [October 6, 2026](2026-10-06.md)
-- [October 5, 2026](2026-10-05.md)
-- [October 4, 2026](2026-10-04.md)
-- [October 3, 2026](2026-10-03.md)
-- [October 2, 2026](2026-10-02.md)
-- [October 1, 2026](2026-10-01.md)
-- [September 30, 2026](2026-09-30.md)
-- [September 29, 2026](2026-09-29.md)
-- [September 28, 2026](2026-09-28.md)
-- [September 27, 2026](2026-09-27.md)
-- [September 26, 2026](2026-09-26.md)
-- [September 25, 2026](2026-09-25.md)
-- [September 24, 2026](2026-09-24.md)
-- [September 23, 2026](2026-09-23.md)
-- [September 22, 2026](2026-09-22.md) — Kubernetes chart 0.161.0, Collector migration guidance, and release metadata synchronization
-- [September 21, 2026](2026-09-21.md) — Current product-first interface and capability screenshots
-- [September 19, 2026](2026-09-19.md) — Route takeaways, lifecycle guidance, durable links, WebMCP tools, and Collector 0.161 boundaries
-- [September 18, 2026](2026-09-18.md) — ITSI 5.0.2 maintenance release, MCP pagination, and reliability fixes
-- [September 17, 2026](2026-09-17.md) — Platform runtime guidance, Cloud scope corrections, and ES 8.7 edition boundaries
-- [September 16, 2026](2026-09-16.md) — Observability/OpenTelemetry updates and the Enterprise Security 8.6.1 security floor
+- [2026](2026/README.md)
 
 ## Recording policy
 
-- Use one file per `America/New_York` calendar date: `YYYY-MM-DD.md`.
-- Append later changes to the existing note when multiple updates ship on the same date.
+- New notes use `docs/releases/YYYY/MM/YYYY-MM-DD.md`, dated in `America/New_York`.
+- Keep one authoritative note per date; append same-day changes to the note returned by `scripts/release-archive.cjs`, including an existing legacy note.
+- Previously published flat files are retained at their original URLs, with their headings and relative links intact. They are listed in `legacy-dates.json`; do not add new flat dates or create duplicate copies. Year/month indexes include these historical notes.
 - Record material repository or live-site changes and concise published maintenance outcomes. Outcome-only entries must not advance factual review dates, lifecycle dates, or content-change cycles.
-- Summarize customer-visible behavior, compatibility or risk implications, authoritative evidence, validation, and publication state.
-- Write the note as part of the same reviewed change set whenever possible.
-- Keep the website itself focused on comparison and reporting; release history remains in this repository.
-- Before publishing, run `node scripts/sync-release-metadata.cjs` followed by `node scripts/sync-release-metadata.cjs --check`. This derives all publication labels and the direct header link from the newest dated note and maintains this index. CI and report tests reject stale metadata.
+- Summarize user-visible behavior, compatibility or risk implications, authoritative evidence, validation and actual publication state.
+- Keep release history in the repository, not in the comparison interface.
+- Run `node scripts/sync-release-metadata.cjs`, then its `--check` gate. The generator discovers both layouts, keeps the latest-note link accurate, and maintains every year/month index. It fails on duplicate dates, invalid dates, misplaced notes and new flat files.
