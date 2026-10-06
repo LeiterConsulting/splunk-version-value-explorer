@@ -1485,6 +1485,12 @@ Object.assign(window.SPLUNK_DATA, {
               "Use the 2.31.3 re-release of 2.31.2, which preserves the fix for turning off CPU profiling through remote configuration and corrects Docker image publishing."
             ],
             [
+              "Python instrumentation 2.13",
+              "Telemetry & OpenTelemetry",
+              "Use declarative configuration and ARM64 init images",
+              "Adopt Splunk OpenTelemetry Python 2.13.0 after validating OTEL_CONFIG_FILE precedence, the remaining environment-only profiling and callgraph settings, the wrapt 2.5.0 dependency floor, and the exact standard or SecureApp image architecture."
+            ],
+            [
               "Browser RUM 3.2",
               "Digital experience",
               "Measure application-defined page readiness",
@@ -1702,6 +1708,50 @@ Object.assign(window.SPLUNK_DATA, {
               "source": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.31.3"
             },
             {
+              "component": "Python instrumentation declarative configuration",
+              "domain": "Instrumentation configuration",
+              "changeType": "Declarative configuration added",
+              "actionLevel": "Review",
+              "from": "Splunk distribution defaults and customer settings are applied through environment-variable configuration",
+              "to": "Version 2.13.0 accepts standard OpenTelemetry declarative configuration through OTEL_CONFIG_FILE, avoids applying the distribution's environment-variable defaults when that file is set, and applies Splunk resource information and the distribution.splunk trace-response-header option",
+              "implication": "Configuration precedence changes when OTEL_CONFIG_FILE is present. Profiling and callgraphs remain environment-variable-only, so a file-only migration can omit intended Splunk behavior if those boundaries are not retained.",
+              "action": "Test the same service with the intended declarative file and environment variables, verify effective resources and trace-response-header behavior, and keep profiling and callgraph variables explicit until Splunk documents declarative equivalents.",
+              "source": "https://github.com/signalfx/splunk-otel-python/pull/793"
+            },
+            {
+              "component": "Python system metrics configuration",
+              "domain": "Instrumentation configuration",
+              "changeType": "Ineffective setting removed",
+              "actionLevel": "Review",
+              "from": "Generated distribution metadata advertises SPLUNK_OTEL_SYSTEM_METRICS_ENABLED even though the runtime does not read it",
+              "to": "Version 2.13.0 removes the unsupported variable from generated metadata; system metrics remain enabled through auto-instrumentation and can be disabled with OTEL_PYTHON_DISABLED_INSTRUMENTATIONS=system_metrics",
+              "implication": "Deployments that set the obsolete variable never controlled runtime system metrics, so retaining it can create a false belief that collection is disabled.",
+              "action": "Remove the ineffective setting from templates and use the documented disabled-instrumentations value when system metrics must be turned off; no runtime behavior change is implied by the metadata correction itself.",
+              "source": "https://github.com/signalfx/splunk-otel-python/pull/785"
+            },
+            {
+              "component": "Python init image architecture",
+              "domain": "Instrumentation deployment",
+              "changeType": "ARM64 images added",
+              "actionLevel": "Review",
+              "from": "Published Python init images target AMD64",
+              "to": "Version 2.13.0 publishes AMD64 and ARM64 variants for both standard and SecureApp init images",
+              "implication": "ARM64 Kubernetes workloads can use a matching init image instead of relying on an incompatible architecture, while standard and SecureApp images remain distinct deployment choices.",
+              "action": "Select the exact standard or SecureApp image for the workload, pin the intended 2.13.0 tag or digest, and validate injection and startup on representative ARM64 nodes before rollout.",
+              "source": "https://github.com/signalfx/splunk-otel-python/pull/795"
+            },
+            {
+              "component": "Python wrapt dependency floor",
+              "domain": "Instrumentation runtime",
+              "changeType": "Dependency minimum increased",
+              "actionLevel": "Review",
+              "from": "The distribution permits wrapt 2.2.2 or later",
+              "to": "Version 2.13.0 requires wrapt 2.5.0 or later",
+              "implication": "Application lock files, constraints, or base images pinned below wrapt 2.5.0 can conflict with installation or produce a different resolved environment during the agent upgrade.",
+              "action": "Resolve the 2.13.0 agent in the application's locked dependency set, rebuild the deployment artifact, and run instrumentation smoke tests before broad rollout.",
+              "source": "https://github.com/signalfx/splunk-otel-python/pull/799"
+            },
+            {
               "component": "Browser RUM 3.1 defaults",
               "domain": "RUM behavior",
               "changeType": "Defaults changed",
@@ -1856,6 +1906,20 @@ Object.assign(window.SPLUNK_DATA, {
               "Java instrumentation 2.31.3 re-releases the 2.31.2 CPU-profiling remote-configuration fix and corrects Docker image publishing. Validate the profiling-off control against the exact agent or image deployed.",
               "Validate",
               "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.31.3",
+              false
+            ],
+            [
+              "Validate Python 2.13 configuration precedence",
+              "When OTEL_CONFIG_FILE is set, Splunk OpenTelemetry Python 2.13.0 does not apply the distribution's environment-variable defaults. Verify the declarative file, Splunk resource information and trace-response-header setting while retaining explicit environment variables for profiling and callgraphs.",
+              "Validate",
+              "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.0",
+              false
+            ],
+            [
+              "Rebuild Python 2.13 dependency and image baselines",
+              "Python instrumentation 2.13.0 raises the wrapt minimum to 2.5.0 and publishes standard and SecureApp init images for ARM64. Resolve locked dependencies and validate the exact architecture-specific image before rollout.",
+              "Validate",
+              "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.0",
               false
             ],
             [

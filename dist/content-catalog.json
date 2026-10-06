@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "records": [
     {
+      "id": "source-00122a29e8f7376ee21f",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://github.com/signalfx/splunk-otel-python/pull/785"
+    },
+    {
       "id": "source-02c70293a4bbe16d0cd4",
       "kind": "source",
       "dataset": "sources",
@@ -114,6 +120,12 @@
       "kind": "source",
       "dataset": "sources",
       "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.5.2605/splunk-cloud-platform-release-notes/whats-new"
+    },
+    {
+      "id": "source-22eb959accec24cef8be",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.0"
     },
     {
       "id": "source-234153c310b7e56083a0",
@@ -236,6 +248,12 @@
       "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/9.2/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-9.2-read-this-first"
     },
     {
+      "id": "source-36726158f9471003db83",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://github.com/signalfx/splunk-otel-python/pull/799"
+    },
+    {
       "id": "source-36a4744189f50afec741",
       "kind": "source",
       "dataset": "sources",
@@ -288,6 +306,12 @@
       "kind": "source",
       "dataset": "sources",
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/splunk-enterprise-security-editions-cloud-capability-matrix"
+    },
+    {
+      "id": "source-4549345d0b426246e3e7",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://github.com/signalfx/splunk-otel-python/pull/795"
     },
     {
       "id": "source-488f38cb05e231b3fc61",
@@ -480,6 +504,12 @@
       "kind": "source",
       "dataset": "sources",
       "url": "https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor"
+    },
+    {
+      "id": "source-80cc916a8ba5eceb28ba",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://github.com/signalfx/splunk-otel-python/pull/793"
     },
     {
       "id": "source-813d73059717d55b8469",
@@ -1276,6 +1306,35 @@
       ]
     },
     {
+      "id": "vc-076298e16f3dc34cb7be",
+      "kind": "feature",
+      "dataset": "platform",
+      "scope": {
+        "product": "observability",
+        "release": "Sep 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-2ccb9583b83387d59999",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Python instrumentation 2.13",
+        "Telemetry & OpenTelemetry",
+        "Use declarative configuration and ARM64 init images",
+        "Adopt Splunk OpenTelemetry Python 2.13.0 after validating OTEL_CONFIG_FILE precedence, the remaining environment-only profiling and callgraph settings, the wrapt 2.5.0 dependency floor, and the exact standard or SecureApp image architecture."
+      ]
+    },
+    {
       "id": "vc-082189c856bac2689b42",
       "kind": "feature",
       "dataset": "platform",
@@ -1968,6 +2027,36 @@
         ],
         "reviewed": "2026-10-01"
       }
+    },
+    {
+      "id": "vc-1396d6406f84fded7176",
+      "kind": "requirement",
+      "dataset": "products",
+      "scope": {
+        "product": "observability",
+        "release": "Sep 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-22eb959accec24cef8be",
+          "url": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.0",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Validate Python 2.13 configuration precedence",
+        "When OTEL_CONFIG_FILE is set, Splunk OpenTelemetry Python 2.13.0 does not apply the distribution's environment-variable defaults. Verify the declarative file, Splunk resource information and trace-response-header setting while retaining explicit environment variables for profiling and callgraphs.",
+        "Validate",
+        "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.0",
+        false
+      ]
     },
     {
       "id": "vc-14147340db45af1f3682",
@@ -4668,6 +4757,36 @@
         "Blocker",
         "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4",
         true
+      ]
+    },
+    {
+      "id": "vc-47c9cf0c750323f6aef3",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "product": "observability",
+        "release": "Sep 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-22eb959accec24cef8be",
+          "url": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.0",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Rebuild Python 2.13 dependency and image baselines",
+        "Python instrumentation 2.13.0 raises the wrapt minimum to 2.5.0 and publishes standard and SecureApp init images for ARM64. Resolve locked dependencies and validate the exact architecture-specific image before rollout.",
+        "Validate",
+        "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.0",
+        false
       ]
     },
     {
@@ -7421,6 +7540,36 @@
         "Automation & AI",
         "Manage automation closer to analysts",
         "Configure supported SOAR apps from the Enterprise Security experience."
+      ]
+    },
+    {
+      "id": "vc-729d19919b93d6ea01a0",
+      "kind": "requirement",
+      "dataset": "products",
+      "scope": {
+        "product": "observability",
+        "release": "Sep 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-22eb959accec24cef8be",
+          "url": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.0",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Rebuild Python 2.13 dependency and image baselines",
+        "Python instrumentation 2.13.0 raises the wrapt minimum to 2.5.0 and publishes standard and SecureApp init images for ARM64. Resolve locked dependencies and validate the exact architecture-specific image before rollout.",
+        "Validate",
+        "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.0",
+        false
       ]
     },
     {
@@ -10608,6 +10757,35 @@
         "Usage & governance",
         "Review detector improvements before applying them",
         "In Controlled Availability, review weekly recommendations for noisy, inactive, or muted detectors, preview expected impact, and apply, dismiss, disable, or delete deliberately; recommendations are not applied automatically."
+      ]
+    },
+    {
+      "id": "vc-9d6486b0f3e3700547b4",
+      "kind": "feature",
+      "dataset": "products",
+      "scope": {
+        "product": "observability",
+        "release": "Sep 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-2ccb9583b83387d59999",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Python instrumentation 2.13",
+        "Telemetry & OpenTelemetry",
+        "Use declarative configuration and ARM64 init images",
+        "Adopt Splunk OpenTelemetry Python 2.13.0 after validating OTEL_CONFIG_FILE precedence, the remaining environment-only profiling and callgraph settings, the wrapt 2.5.0 dependency floor, and the exact standard or SecureApp image architecture."
       ]
     },
     {
@@ -13926,6 +14104,36 @@
         "Infrastructure & Kubernetes",
         "Bring the supported chart to Collector 0.161",
         "Adopt the chart that packages Collector 0.161, Target Allocator 0.159, and Operator 0.123 after migrating Kubernetes attributes and CPU-metric expectations."
+      ]
+    },
+    {
+      "id": "vc-d0f59fbc5217d299c801",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "product": "observability",
+        "release": "Sep 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-22eb959accec24cef8be",
+          "url": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.0",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Validate Python 2.13 configuration precedence",
+        "When OTEL_CONFIG_FILE is set, Splunk OpenTelemetry Python 2.13.0 does not apply the distribution's environment-variable defaults. Verify the declarative file, Splunk resource information and trace-response-header setting while retaining explicit environment variables for profiling and callgraphs.",
+        "Validate",
+        "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.0",
+        false
       ]
     },
     {

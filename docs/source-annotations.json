@@ -331,6 +331,36 @@
     "verificationScope": "Verified that 2.31.3 is a re-release of 2.31.2 that repairs Docker image publishing, and that the incorporated 2.31.2 patch fixes disabling CPU profiling through remote configuration. This check does not establish applicability to every JVM, container image or deployment.",
     "reason": "The re-release distinction is retained so a packaging correction is not portrayed as a new SaaS capability."
   },
+  "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.0": {
+    "reviewed": "2026-10-06",
+    "section": "What's Changed; Full Changelog from 2.12.1 to 2.13.0",
+    "verificationScope": "Verified the 2.13.0 release identifier and October 5, 2026 publication date, declarative-configuration support, Splunk configuration behavior when OTEL_CONFIG_FILE is set, ARM64 standard and SecureApp init images, the wrapt 2.5.0 minimum and removal of an obsolete system-metrics setting. This check does not establish compatibility with every Python runtime, framework, image or application dependency set.",
+    "reason": "The customer-managed instrumentation release and its deployment prerequisites are distinct from rolling Observability Cloud SaaS availability."
+  },
+  "https://github.com/signalfx/splunk-otel-python/pull/785": {
+    "reviewed": "2026-10-06",
+    "section": "Summary; Why; Impact",
+    "verificationScope": "Confirmed SPLUNK_OTEL_SYSTEM_METRICS_ENABLED was never read by the runtime and is removed from generated metadata without changing runtime behavior. System metrics remain controlled through auto-instrumentation and OTEL_PYTHON_DISABLED_INSTRUMENTATIONS=system_metrics.",
+    "reason": "The source corrects an ineffective documented setting; it does not describe a newly removed runtime capability."
+  },
+  "https://github.com/signalfx/splunk-otel-python/pull/793": {
+    "reviewed": "2026-10-06",
+    "section": "Pull request summary",
+    "verificationScope": "Confirmed OTEL_CONFIG_FILE causes the distribution to avoid applying its environment-variable defaults while retaining Splunk resource information and the distribution.splunk trace-response-header option. Profiling and callgraphs remain environment-variable-only in this release.",
+    "reason": "Declarative configuration is recorded with its explicit precedence and feature boundaries rather than portrayed as complete environment-variable replacement."
+  },
+  "https://github.com/signalfx/splunk-otel-python/pull/795": {
+    "reviewed": "2026-10-06",
+    "section": "Pull request summary",
+    "verificationScope": "Confirmed the release workflow publishes AMD64 and ARM64 variants for both standard and SecureApp Python init images.",
+    "reason": "Image architecture and image type remain deployment selections; this does not establish application compatibility or rollout safety."
+  },
+  "https://github.com/signalfx/splunk-otel-python/pull/799": {
+    "reviewed": "2026-10-06",
+    "section": "Dependency update summary",
+    "verificationScope": "Confirmed the Python distribution requirement moves from wrapt 2.2.2-or-later to 2.5.0-or-later for the 2.13.0 release.",
+    "reason": "The dependency floor is recorded as an application lock-file and build validation concern, not a claim that every application will conflict."
+  },
   "https://splunkbase.splunk.com/app/263": {
     "reviewed": "2026-10-02",
     "section": "Enterprise Security 8.7.1 release and compatibility listing",

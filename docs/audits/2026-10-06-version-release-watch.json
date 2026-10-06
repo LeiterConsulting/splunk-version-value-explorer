@@ -1,0 +1,190 @@
+{
+  "watch": "version-release-watch",
+  "sourceCheckDate": "2026-10-06",
+  "startedAt": "2026-10-06T09:41:23.020Z",
+  "completedAt": "2026-10-06T09:49:03.692Z",
+  "outcome": "changed",
+  "scope": "All 118 unique maintained official URLs referenced by Platform, premium-product, Forwarder and SOAR data or the new Python 2.13 evidence, plus bounded current release, upgrade, compatibility, receiver, runtime, security and SOAR claims.",
+  "sourceInventory": {
+    "uniqueUrls": 118,
+    "method": "Each maintained URL was fetched directly on 2026-10-06. Current product hubs, release-note indexes, Splunkbase listings, the advisory index and official GitHub Releases endpoints were also checked for newer identifiers. Successful retrieval was not treated as claim verification.",
+    "outcome": "116 URLs returned successful responses. The same two retired historical Enterprise 8.1 and 8.2 pages remained unavailable with HTTP 403; their historical records were preserved without a new verification date.",
+    "unavailable": [
+      "https://docs.splunk.com/Documentation/Splunk/8.1.14/ReleaseNotes/MeetSplunk",
+      "https://docs.splunk.com/Documentation/Splunk/8.2.12/ReleaseNotes/MeetSplunk"
+    ]
+  },
+  "claimChecks": [
+    {
+      "url": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.0",
+      "section": "What's Changed; release assets; Full Changelog from 2.12.1 to 2.13.0",
+      "claimId": "release:observability-python:2.13.0",
+      "productVersionEnvironment": "Splunk OpenTelemetry Python instrumentation 2.13.0; customer-managed",
+      "qualification": "The October 5 component release is not an Observability Cloud SaaS milestone and does not establish compatibility with every Python runtime, framework, image or dependency set.",
+      "sourceCheckDate": "2026-10-06",
+      "claimVerificationDate": "2026-10-06",
+      "outcome": "changed",
+      "followUp": "Validate OTEL_CONFIG_FILE precedence, locked dependencies and the selected architecture-specific init image in the customer's application environment."
+    },
+    {
+      "url": "https://github.com/signalfx/splunk-otel-python/pull/793",
+      "section": "Pull request summary",
+      "claimId": "technical:observability-python:declarative-configuration",
+      "productVersionEnvironment": "Splunk OpenTelemetry Python 2.13.0",
+      "qualification": "OTEL_CONFIG_FILE suppresses the distribution's environment-variable defaults, while profiling and callgraphs remain environment-variable-only in this release.",
+      "sourceCheckDate": "2026-10-06",
+      "claimVerificationDate": "2026-10-06",
+      "outcome": "changed",
+      "followUp": "Retain explicit configuration-precedence validation; do not portray declarative configuration as complete environment-variable replacement."
+    },
+    {
+      "url": "https://github.com/signalfx/splunk-otel-python/pull/785",
+      "section": "Summary; Why; Impact",
+      "claimId": "technical:observability-python:system-metrics-setting",
+      "productVersionEnvironment": "Splunk OpenTelemetry Python 2.13.0",
+      "qualification": "SPLUNK_OTEL_SYSTEM_METRICS_ENABLED was never read by the runtime. Removing it from metadata does not change runtime behavior; OTEL_PYTHON_DISABLED_INSTRUMENTATIONS=system_metrics is the effective disable path.",
+      "sourceCheckDate": "2026-10-06",
+      "claimVerificationDate": "2026-10-06",
+      "outcome": "changed",
+      "followUp": "Keep the correction visible without misclassifying it as a removed runtime capability."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise",
+      "section": "Upgrade paths to version 10.6; current-version table",
+      "claimId": "upgrade:enterprise:10.6",
+      "productVersionEnvironment": "Splunk Enterprise and Heavy Forwarder 9.4.x, 10.0.x, 10.2.x and 10.4.x to 10.6.x",
+      "qualification": "The table establishes release-line paths only. Exact maintenance, OS, app, receiver, topology and authorization scope remain separate.",
+      "sourceCheckDate": "2026-10-06",
+      "claimVerificationDate": "2026-10-06",
+      "outcome": "confirmed",
+      "followUp": "Retain 9.4.x to 10.0.x or 10.2.x as the first step."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers",
+      "section": "Compatibility between forwarders and Splunk Enterprise indexers; direct and intermediate forwarding tiers",
+      "claimId": "compatibility:forwarders:enterprise-receiver:10.6",
+      "productVersionEnvironment": "UF/HF 10.6 with a Splunk Enterprise receiver",
+      "qualification": "The current matrix still has no 10.6 forwarder row. Upgrade support and release certification do not establish an exact receiver pairing.",
+      "sourceCheckDate": "2026-10-06",
+      "claimVerificationDate": "2026-10-06",
+      "outcome": "confirmed",
+      "followUp": "Keep 10.6 Enterprise receiver selections Not established until an explicit row is published."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Current Splunk Cloud Platform and Premium App versions; Supported forwarder versions",
+      "claimId": "pairing:cloud-current-and-forwarders",
+      "productVersionEnvironment": "Splunk Cloud Platform subscription; direct UF/HF connection and outgoing intermediate tier",
+      "qualification": "The page still lists Cloud 10.5, ES 8.6 and ITSI 5.0, and its forwarder table stops at 10.4.x. The 10.6 documentation path does not prove rollout, entitlement, region or authorization.",
+      "sourceCheckDate": "2026-10-06",
+      "claimVerificationDate": "2026-10-06",
+      "outcome": "confirmed",
+      "followUp": "Keep Cloud 10.6 as a planning milestone and 10.6 direct-receiver compatibility Not established."
+    },
+    {
+      "url": "https://splunkbase.splunk.com/app/263",
+      "section": "Default Version; compatibility for the default app version",
+      "claimId": "release:es:latest",
+      "productVersionEnvironment": "Splunk Enterprise Security 8.7.1",
+      "qualification": "The listing does not establish exact customer-managed patch pairing, Cloud rollout, edition entitlement, region or authorization.",
+      "sourceCheckDate": "2026-10-06",
+      "claimVerificationDate": "2026-10-06",
+      "outcome": "confirmed",
+      "followUp": "Retain the separate Connector Builder edition conflict and App for SOAR 8.7.0 pairing boundary."
+    },
+    {
+      "url": "https://splunkbase.splunk.com/app/1841",
+      "section": "Default Version; compatibility for the default app version",
+      "claimId": "release:itsi:latest",
+      "productVersionEnvironment": "Splunk IT Service Intelligence 5.0.2",
+      "qualification": "The listing does not replace related-app, Java, Python, CIM, exact host-pairing or cohosted-KV-Store prerequisite evidence.",
+      "sourceCheckDate": "2026-10-06",
+      "claimVerificationDate": "2026-10-06",
+      "outcome": "confirmed",
+      "followUp": "Continue checking release notes, compatibility and Splunkbase separately."
+    },
+    {
+      "url": "https://splunkbase.splunk.com/app/4974",
+      "section": "Default Version; compatibility and explicit-upload description",
+      "claimId": "release:scma:latest",
+      "productVersionEnvironment": "Cloud Migration Assessment App for Splunk 5.4.11; Splunk Enterprise source",
+      "qualification": "The listing establishes app package and compatibility scope, not automatic migration readiness or destination availability.",
+      "sourceCheckDate": "2026-10-06",
+      "claimVerificationDate": "2026-10-06",
+      "outcome": "confirmed",
+      "followUp": "Retain explicit-upload and source-floor qualifications."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/release-notes-overview",
+      "section": "Release month table; September 2026; component changelogs",
+      "claimId": "release:observability:latest-service-milestone",
+      "productVersionEnvironment": "Splunk Observability Cloud rolling SaaS",
+      "qualification": "September 23 remains the newest dated SaaS milestone. Component releases, including Python 2.13.0, remain separate customer-managed streams.",
+      "sourceCheckDate": "2026-10-06",
+      "claimVerificationDate": "2026-10-06",
+      "outcome": "confirmed",
+      "followUp": "Monitor for an October SaaS page while continuing independent component discovery."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.7.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+      "section": "Updated release notes for September 22, 2026 Release 8.7.0 build 243; Python 3.9 end of support",
+      "claimId": "release:soar-onprem:8.7.0-build243",
+      "productVersionEnvironment": "Splunk SOAR On-premises 8.7.0",
+      "qualification": "Build 243 corrects build 232 issues and requires Python 3.13-compatible automation. The record does not apply to SOAR Cloud or establish a newer route.",
+      "sourceCheckDate": "2026-10-06",
+      "claimVerificationDate": "2026-10-06",
+      "outcome": "confirmed",
+      "followUp": "Preserve both build identifiers and continue discovery beyond 8.7."
+    },
+    {
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-0901",
+      "section": "Description; October 7 publication date",
+      "claimId": "security:advisory-index:current",
+      "productVersionEnvironment": "Enterprise, Universal Forwarder, Splunk Add-on for AWS and Splunk MCP Server",
+      "qualification": "This remains an advance notice, not a present vulnerability record or component-specific fixed-version claim.",
+      "sourceCheckDate": "2026-10-06",
+      "claimVerificationDate": "2026-10-06",
+      "outcome": "confirmed",
+      "followUp": "Recheck the component-specific advisories on October 7."
+    }
+  ],
+  "boundedConfirmedInventories": {
+    "enterprise": "10.6; released 2026-09-30",
+    "cloudCurrentSubscription": "10.5",
+    "enterpriseSecurity": "8.7.1",
+    "itsi": "5.0.2",
+    "scma": "5.4.11",
+    "observabilityLatestMilestone": "2026-09-23",
+    "collector": "0.161.0",
+    "collectorChart": "0.161.0",
+    "dotnet": "1.16.0",
+    "node": "4.12.0",
+    "java": "2.31.3",
+    "python": "2.13.0",
+    "browserRum": "3.2.0",
+    "soarOnPremises": "8.7.0 build 243",
+    "securityAdvisoryIndex": "SVD-2026-0901; publication announced for 2026-10-07"
+  },
+  "unverifiedOrDeferred": [
+    "The two unavailable historical Enterprise 8.1/8.2 source bodies",
+    "Enterprise 10.6.0, Enterprise 9.4.16 and ES 8.7.1 issue detail where current rendered pages omit enumerated rows",
+    "ES 8.7.1 compatibility with Splunk App for SOAR because the exact compatibility row names ES 8.7.0",
+    "Cloud or Enterprise receiver compatibility for forwarder 10.6 because neither table publishes an explicit row",
+    "Regional, FedRAMP and customer-authorization scope, owned by CSP FedRAMP Watch",
+    "Tomorrow's announced security advisories; the advance notice does not establish affected or fixed versions today"
+  ],
+  "validationOutcomes": {
+    "sourceRetrieval": {"outcome":"confirmed","detail":"All 118 maintained official URLs were fetched: 116 returned successful responses and the same two retired Enterprise 8.1/8.2 pages returned HTTP 403."},
+    "boundedClaimReview": {"outcome":"confirmed","detail":"Python 2.13.0 and the current Enterprise, Cloud, Forwarder receiver/topology, premium-product, migration, SOAR and advisory claims recorded above were separately verified."},
+    "metadataGates": {"outcome":"confirmed","detail":"sync-release-metadata.cjs --check, sync-content.cjs --check, sync-source-register.cjs --check and sync-content-revision.cjs --check passed; the generated source register contains 148 records and the publication catalog contains 668 records."},
+    "tests": {"outcome":"confirmed","detail":"The full suite passed 90 of 90 tests, including new Python 2.13 screen/read-only WebMCP content, configuration-boundary and material-cycle regressions; npm run build completed from the same source."},
+    "browserJourneys": {"outcome":"not performed","detail":"The managed Sites workflow exposes no approved browser-control capability in this run; structural route tests are recorded separately."},
+    "keyboard": {"outcome":"not performed","detail":"No approved rendered-browser control capability is available in this run; keyboard behavior remains covered structurally but is not called a browser pass."},
+    "narrowScreen": {"outcome":"not performed","detail":"No approved rendered-browser control capability is available in this run."},
+    "pdfExport": {"outcome":"not performed","detail":"No fresh native PDF artifact was generated; the owner-requested export gate remains open."},
+    "downloadedHtml": {"outcome":"not performed","detail":"No fresh downloaded HTML file was independently reopened; the owner-requested export gate remains open."},
+    "screenPdfHtmlWebMcpAgreement": {"outcome":"not performed","detail":"Structural screen/export/read-only WebMCP parity tests do not certify fresh browser, PDF or reopened-HTML agreement."},
+    "databaseDelivery": {"outcome":"pending","detail":"The live D1 diagnostic runs after successful deployment from the matching source."},
+    "liveDeployment": {"outcome":"pending","detail":"Publication and post-deployment verification occur after this audit artifact is finalized; this field is not pre-marked passed."}
+  }
+}

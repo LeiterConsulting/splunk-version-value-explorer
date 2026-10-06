@@ -442,8 +442,8 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.19.source",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.19.3"
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.23.source",
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.21.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -469,8 +469,8 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.20.source",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.20.3"
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.24.source",
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.22.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -539,6 +539,137 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/signalfx/splunk-otel-python/pull/785",
+      "title": "785",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.20.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-06",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-06",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "The source corrects an ineffective documented setting; it does not describe a newly removed runtime capability.",
+      "section": "Summary; Why; Impact",
+      "verificationScope": "Confirmed SPLUNK_OTEL_SYSTEM_METRICS_ENABLED was never read by the runtime and is removed from generated metadata without changing runtime behavior. System metrics remain controlled through auto-instrumentation and OTEL_PYTHON_DISABLED_INSTRUMENTATIONS=system_metrics.",
+      "events": [
+        {
+          "date": "2026-10-06",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/signalfx/splunk-otel-python/pull/793",
+      "title": "793",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.19.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-06",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-06",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Declarative configuration is recorded with its explicit precedence and feature boundaries rather than portrayed as complete environment-variable replacement.",
+      "section": "Pull request summary",
+      "verificationScope": "Confirmed OTEL_CONFIG_FILE causes the distribution to avoid applying its environment-variable defaults while retaining Splunk resource information and the distribution.splunk trace-response-header option. Profiling and callgraphs remain environment-variable-only in this release.",
+      "events": [
+        {
+          "date": "2026-10-06",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/signalfx/splunk-otel-python/pull/795",
+      "title": "795",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.21.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-06",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-06",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Image architecture and image type remain deployment selections; this does not establish application compatibility or rollout safety.",
+      "section": "Pull request summary",
+      "verificationScope": "Confirmed the release workflow publishes AMD64 and ARM64 variants for both standard and SecureApp Python init images.",
+      "events": [
+        {
+          "date": "2026-10-06",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/signalfx/splunk-otel-python/pull/799",
+      "title": "799",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.22.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-06",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-06",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "The dependency floor is recorded as an application lock-file and build validation concern, not a claim that every application will conflict.",
+      "section": "Dependency update summary",
+      "verificationScope": "Confirmed the Python distribution requirement moves from wrapt 2.2.2-or-later to 2.5.0-or-later for the 2.13.0 release.",
+      "events": [
+        {
+          "date": "2026-10-06",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.0",
+      "title": "v2.13.0",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.19.3",
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.20.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-06",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-06",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "The customer-managed instrumentation release and its deployment prerequisites are distinct from rolling Observability Cloud SaaS availability.",
+      "section": "What's Changed; Full Changelog from 2.12.1 to 2.13.0",
+      "verificationScope": "Verified the 2.13.0 release identifier and October 5, 2026 publication date, declarative-configuration support, Splunk configuration behavior when OTEL_CONFIG_FILE is set, ARM64 standard and SecureApp init images, the wrapt 2.5.0 minimum and removal of an obsolete system-metrics setting. This check does not establish compatibility with every Python runtime, framework, image or application dependency set.",
+      "events": [
+        {
+          "date": "2026-10-06",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
