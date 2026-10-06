@@ -266,10 +266,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-10-05T10:02:00Z",
-      "lastSuccess": "2026-10-05T10:04:08Z",
+      "lastAttempt": "2026-10-06T10:01:21.290Z",
+      "lastSuccess": "2026-10-06T10:04:09.527Z",
       "outcome": "no-change",
-      "summary": "Reviewed all 20 maintained ES Editions sources and four exact SOAR pairing/release records; no factual correction was supported and all conflicts and qualifications remain open.",
+      "summary": "Checked all 20 maintained ES Editions sources and four exact SOAR pairing/release records; no factual correction was supported and all five evidence questions remain explicit.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -383,9 +383,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Reviewed all 20 maintained ES Editions sources and four exact SOAR pairing/release records; no factual correction was supported and all conflicts and qualifications remain open.",
           "scope": "All 20 maintained ES Editions URLs plus exact App for SOAR 8.7.0, SOAR Export 8.7.0, SOAR On-premises 8.7.0 and SOAR Cloud 8.7.0 records; bounded Connector Builder, Guided Response, agent version-floor, pricing, Automation Builder, pairing, UEBA and Exposure Analytics claims."
+        },
+        {
+          "at": "2026-10-06T10:01:21.290Z",
+          "outcome": "running",
+          "summary": "Checking the complete maintained ES Editions evidence inventory and exact ES–SOAR pairing records for material entitlement, prerequisite, compatibility, pricing or release-stage changes.",
+          "scope": "All 20 maintained ES Editions official sources plus exact App for SOAR 8.7.0, SOAR Export 8.7.0, SOAR On-premises 8.7.0 and SOAR Cloud 8.7.0 records; five unresolved evidence questions; bounded highest-consequence entitlement, prerequisite, pairing and release-stage claims; canonical/adapter/database parity and available route/export checks."
+        },
+        {
+          "at": "2026-10-06T10:04:09.527Z",
+          "outcome": "no-change",
+          "summary": "Checked all 20 maintained ES Editions sources and four exact SOAR pairing/release records; no factual correction was supported and all five evidence questions remain explicit.",
+          "scope": "All 20 maintained ES Editions official URLs plus exact App for SOAR 8.7.0, SOAR Export 8.7.0, SOAR On-premises 8.7.0 and SOAR Cloud 8.7.0 records; bounded Connector Builder, Guided Response, agent version-floor, pricing, Automation Builder, App pairing, UEBA and Exposure Analytics claims. Browser, export and native WebMCP outcomes are recorded separately."
         }
       ],
-      "scope": "All 20 maintained ES Editions URLs plus exact App for SOAR 8.7.0, SOAR Export 8.7.0, SOAR On-premises 8.7.0 and SOAR Cloud 8.7.0 records; bounded Connector Builder, Guided Response, agent version-floor, pricing, Automation Builder, pairing, UEBA and Exposure Analytics claims."
+      "scope": "All 20 maintained ES Editions official URLs plus exact App for SOAR 8.7.0, SOAR Export 8.7.0, SOAR On-premises 8.7.0 and SOAR Cloud 8.7.0 records; bounded Connector Builder, Guided Response, agent version-floor, pricing, Automation Builder, App pairing, UEBA and Exposure Analytics claims. Browser, export and native WebMCP outcomes are recorded separately."
     },
     {
       "id": "version-guidance-audit",
