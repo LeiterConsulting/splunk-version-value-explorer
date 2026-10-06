@@ -63,7 +63,7 @@ export async function validateBundle(input, engineRevision) {
   for (const row of rows) {
     requireValue(object(row) && typeof row.id === 'string' && /^(?:vc|source)-[a-f0-9]{20}$/.test(row.id) && !ids.has(row.id), 'Invalid or duplicate record ID');
     ids.add(row.id);
-    requireValue(typeof row.kind === 'string' && /^[A-Za-z][A-Za-z-]{0,39}$/.test(row.kind), 'Invalid record kind');
+    requireValue(typeof row.kind === 'string' && row.kind.trim().length > 0 && row.kind.length <= 200, 'Invalid record kind');
     if (row.kind === 'source') {
       exactKeys(row, ['id', 'kind', 'dataset', 'url'], 'source record');
       requireValue(row.dataset === 'sources' && /^https:\/\//.test(row.url), 'Invalid source record');
@@ -114,7 +114,7 @@ export async function verifyRepositoryPublication(input, { engineRevision, fetch
   requireValue(run?.status === 'completed' && run.conclusion === 'success' && Number.isSafeInteger(run.id), 'Required main CI has not passed');
   const jobs = await fetchJson(`${api}/actions/runs/${run.id}/jobs?per_page=100`, fetcher);
   const job = (jobs.jobs || []).find(row => row.name === 'validate' && row.status === 'completed' && row.conclusion === 'success');
-  requireValue(job && REQUIRED_STEPS.every(name => job.steps?.some(step => step.name === name && step.status === 'completed' && step.conclusion === 'success')), 'Required validation or build evidence missing');
+  requireValue(job && REQUIRED_STEPS.every(name => job.steps?.some(step => (step.name === name || step.name === 'Run ' + name) && step.status === 'completed' && step.conclusion === 'success')), 'Required validation or build evidence missing');
   const raw = `https://raw.githubusercontent.com/${REPOSITORY}/${candidate.commit}`;
   const manifest = await fetchJson(`${raw}/content/publication.json`, fetcher);
   const published = await fetchJson(`${raw}/dist/content-bundle.json`, fetcher);
