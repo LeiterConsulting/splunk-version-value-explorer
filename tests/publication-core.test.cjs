@@ -30,7 +30,7 @@ async function evidenceFetch(c, change = () => {}) {
   const run = { id: 7, head_sha: c.commit, head_branch: 'main', event: 'push', path: '.github/workflows/validate.yml', repository: { full_name: m.REPOSITORY }, status: 'completed', conclusion: 'success' };
   const job = { name: 'validate', status: 'completed', conclusion: 'success', steps: m.REQUIRED_STEPS.map(name => ({ name, status: 'completed', conclusion: 'success' })) };
   const fetcher = async (url, options) => {
-    requests.push(url); assert.equal(options.redirect, 'error');
+    requests.push(url); assert.equal(options.redirect, 'manual');
     assert(!options.headers.Authorization, 'No credential sent to public evidence endpoints');
     let value;
     if (url.includes('/compare/')) value = { status: 'ahead', base_commit: { sha: c.commit }, merge_base_commit: { sha: c.commit } };
@@ -137,6 +137,10 @@ test('provenance failures never write a revision or change the active pointer', 
   const { m, db, a } = await prepared(t), b = await bundle(8), c = await candidate(b);
   const options = { engineRevision: engine, fetcher: async () => new Response('unavailable', { status: 503 }) };
   await assert.rejects(m.stagePublication(db, c, options), /evidence unavailable/);
+  await assert.rejects(m.stagePublication(db, c, { engineRevision: engine, fetcher: async (url, options) => {
+    assert.equal(options.redirect, 'manual');
+    return new Response('', { status: 302, headers: { Location: 'https://untrusted.example' } });
+  } }), /evidence unavailable \(HTTP 302\)/);
   assert.equal(db.sql.prepare('SELECT COUNT(*) AS n FROM content_revisions WHERE id=?').get(b.manifest.revision).n, 0);
   assert.equal((await m.readPublicationHead(db, engine)).revision, a.manifest.revision);
 });

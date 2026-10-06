@@ -7,7 +7,7 @@ function publisherBase64(value) {
   if (!/^[A-Za-z0-9_-]+$/.test(value)) throw Error('Invalid token');
   return Uint8Array.from(atob(value.replace(/-/g, '+').replace(/_/g, '/')), c => c.charCodeAt(0));
 }
-export async function verifyPublisherOIDC(token, { fetcher = fetch, now = Date.now() } = {}) {
+export async function verifyPublisherOIDC(token, { fetcher = (...args) => globalThis.fetch(...args), now = Date.now() } = {}) {
   if (typeof token !== 'string' || token.length > 16000) throw Error('Invalid token');
   const parts = token.split('.'); if (parts.length !== 3) throw Error('Invalid token');
   const decode = part => JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(publisherBase64(part)));
@@ -24,8 +24,15 @@ export async function verifyPublisherOIDC(token, { fetcher = fetch, now = Date.n
       !Number.isSafeInteger(claims.exp) || !Number.isSafeInteger(claims.nbf) || !Number.isSafeInteger(claims.iat) ||
       claims.exp <= seconds || claims.nbf > seconds + 30 || claims.iat > seconds + 30 || claims.iat < seconds - 600 || claims.exp - claims.iat > 600) throw Error('Invalid publisher identity');
   let response;
-  try { response = await fetcher(publisherIssuer + '/.well-known/jwks', { redirect: 'error', signal: AbortSignal.timeout(10000) }); }
-  catch { throw Error('Publisher identity unavailable'); }
+  // Workers supports manual redirect handling; reject every non-2xx response
+  // without following it, preserving the fixed issuer boundary.
+  try { response = await fetcher(publisherIssuer + '/.well-known/jwks', { redirect: 'manual', signal: AbortSignal.timeout(10000) }); }
+  catch (error) {
+    if (/illegal invocation/i.test(error.message)) throw Error('Publisher identity fetch receiver invalid');
+    if (/redirect/i.test(error.message)) throw Error('Publisher identity redirect rejected');
+    if (/not implemented|not supported|unsupported|not a function/i.test(error.message)) throw Error('Publisher identity fetch option unsupported');
+    throw Error('Publisher identity unavailable');
+  }
   if (!response.ok) throw Error('Publisher identity unavailable (HTTP ' + response.status + ')');
   if (!response.body) throw Error('Publisher identity unavailable');
   const reader = response.body.getReader(), chunks = []; let size = 0;
@@ -59,7 +66,7 @@ async function publisherIdentity(request, env) {
   }
   if (env.VC_PUBLISHER_OIDC === '1') {
     try { return await verifyPublisherOIDC(token); } catch (error) {
-      const reason = ({ 'Invalid token': 'oidc-invalid-token', 'Invalid publisher identity': 'oidc-claim-mismatch', 'Publisher identity unavailable': 'oidc-keys-unavailable', 'Publisher identity exceeds limit': 'oidc-keys-oversized', 'Invalid signing key document': 'oidc-keys-invalid-json', 'Signing key import unavailable': 'oidc-key-import-unavailable', 'Signature verification unavailable': 'oidc-signature-unavailable', 'Unknown signing key': 'oidc-unknown-key', 'Invalid signature': 'oidc-invalid-signature' })[error.message] || (/^Publisher identity unavailable \(HTTP \d{3}\)$/.test(error.message) ? 'oidc-keys-http-' + error.message.match(/\d{3}/)[0] : 'oidc-verification-unavailable');
+      const reason = ({ 'Invalid token': 'oidc-invalid-token', 'Invalid publisher identity': 'oidc-claim-mismatch', 'Publisher identity unavailable': 'oidc-keys-unavailable', 'Publisher identity fetch receiver invalid': 'oidc-fetch-receiver-invalid', 'Publisher identity redirect rejected': 'oidc-redirect-rejected', 'Publisher identity fetch option unsupported': 'oidc-fetch-option-unsupported', 'Publisher identity exceeds limit': 'oidc-keys-oversized', 'Invalid signing key document': 'oidc-keys-invalid-json', 'Signing key import unavailable': 'oidc-key-import-unavailable', 'Signature verification unavailable': 'oidc-signature-unavailable', 'Unknown signing key': 'oidc-unknown-key', 'Invalid signature': 'oidc-invalid-signature' })[error.message] || (/^Publisher identity unavailable \(HTTP \d{3}\)$/.test(error.message) ? 'oidc-keys-http-' + error.message.match(/\d{3}/)[0] : 'oidc-verification-unavailable');
       return { type: 'rejected', reason };
     }
   }

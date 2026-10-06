@@ -103,7 +103,7 @@ async function signedToken(changes = {}) {
 test('GitHub publisher identity verifies RSA signature and exact immutable workflow scope', async () => {
   const m = await modules(), { token, jwks } = await signedToken();
   let called = 0;
-  const fetcher = async (url, options) => { called++; assert.equal(url, 'https://token.actions.githubusercontent.com/.well-known/jwks'); assert.equal(options.redirect, 'error'); assert.equal(options.headers, undefined); return new Response(JSON.stringify(jwks)); };
+  const fetcher = async (url, options) => { called++; assert.equal(url, 'https://token.actions.githubusercontent.com/.well-known/jwks'); assert.equal(options.redirect, 'manual'); assert.equal(options.headers, undefined); return new Response(JSON.stringify(jwks)); };
   assert.deepEqual(await m.verifyPublisherOIDC(token, { fetcher }), { type: 'github-oidc', commit: candidate.commit }); assert.equal(called, 1);
   for (const changed of [{ repository_id: '1' }, { repository_owner_id: '1' }, { repository: 'other/repo' }, { aud: 'https://other.example' }, { workflow_ref: 'other' }, { ref: 'refs/pull/10/merge' }, { sub: 'repo:any:environment:prod' }, { exp: 1 }, { event_name: 'pull_request' }, { runner_environment: 'self-hosted' }, { repository_visibility: 'private' }, { sha: 'main' }]) {
     const bad = await signedToken(changed); await assert.rejects(m.verifyPublisherOIDC(bad.token, { fetcher }), /identity/);
@@ -118,10 +118,23 @@ test('GitHub publisher rejects unavailable, oversized and unknown signing-key ev
   await assert.rejects(m.verifyPublisherOIDC(token, { fetcher: async () => new Response('{"keys":[]}') }), /signing key/);
   await assert.rejects(m.verifyPublisherOIDC(token, { fetcher: async () => { throw Error('private network diagnostic'); } }), /^Error: Publisher identity unavailable$/);
   await assert.rejects(m.verifyPublisherOIDC(token, { fetcher: async () => new Response('not-json') }), /^Error: Invalid signing key document$/);
+  await assert.rejects(m.verifyPublisherOIDC(token, { fetcher: async (url, options) => { assert.equal(options.redirect, 'manual'); return new Response('', { status: 302, headers: { Location: 'https://untrusted.example' } }); } }), /unavailable \(HTTP 302\)/);
   const invalid = token.split('.'); invalid[0] = Buffer.from('not-json').toString('base64url');
   await assert.rejects(m.verifyPublisherOIDC(invalid.join('.'), { fetcher: async () => { throw Error('must not fetch'); } }), /^Error: Invalid token$/);
 });
 test('publisher CLI rejects malformed commits before reading credentials or contacting the Site', () => {
   const result = require('node:child_process').spawnSync(process.execPath, ['scripts/publish-content.mjs','--commit','main'], { encoding: 'utf8' });
   assert.equal(result.status, 1); assert.match(result.stderr, /Usage:/); assert.equal(result.stdout, '');
+});
+test('default verifier fetch preserves the Worker global receiver', async () => {
+  const m = await modules(), { token, jwks } = await signedToken();
+  const original = globalThis.fetch;
+  globalThis.fetch = async function(url) {
+    assert.equal(this, globalThis);
+    return url.includes('/.well-known/jwks') ? new Response(JSON.stringify(jwks)) : evidence(url);
+  };
+  try {
+    assert.equal((await m.verifyPublisherOIDC(token)).commit, candidate.commit);
+    assert.equal((await m.verifyRepositoryPublication(candidate, { engineRevision: seed.manifest.engineRevision })).provenance.commit, candidate.commit);
+  } finally { globalThis.fetch = original; }
 });
