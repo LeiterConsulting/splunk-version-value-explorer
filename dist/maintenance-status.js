@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-10-05T11:17:41Z",
-      "lastSuccess": "2026-10-05T11:34:45Z",
-      "outcome": "no-change",
-      "summary": "Checked all 10 maintained Cloud-environment sources and both CSP-owned SOAR sources; reverified four high-consequence authorization, availability and service-date claims. No material factual change was found.",
+      "lastAttempt": "2026-10-06T11:11:53Z",
+      "lastSuccess": "2026-10-06T11:26:21Z",
+      "outcome": "changed",
+      "summary": "Exact FedRAMP Marketplace Certified Services scope added for ES and ITSI in Moderate and High, and SOAR in Moderate; SOAR High remains not established and the S3 conflict remains preserved.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -135,9 +135,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Checked all 10 maintained Cloud-environment sources and both CSP-owned SOAR sources; reverified four high-consequence authorization, availability and service-date claims. No material factual change was found.",
           "scope": "10 environment source URLs, 54 environment records, 2 CSP-owned SOAR sources, direct visual review of the February 2026 public-sector symbol table, and four bounded claim checks. Browser, export and native WebMCP outcomes are recorded separately in the audit."
+        },
+        {
+          "at": "2026-10-06T11:11:53Z",
+          "outcome": "running",
+          "summary": "Checking the complete CSP/FedRAMP and CSP-owned SOAR source inventory, priority authorization and availability claims, delivery parity and soak state.",
+          "scope": "10 Cloud-environment sources, 54 environment records, two CSP-owned SOAR sources, four bounded priority claims, matrix symbols, D1 and export/route evidence."
+        },
+        {
+          "at": "2026-10-06T11:26:21Z",
+          "outcome": "changed",
+          "summary": "Exact FedRAMP Marketplace Certified Services scope added for ES and ITSI in Moderate and High, and SOAR in Moderate; SOAR High remains not established and the S3 conflict remains preserved.",
+          "scope": "Twelve official sources checked; six bounded consequential claims verified; 58 environment records and four CSP-owned SOAR sources reconciled."
         }
       ],
-      "scope": "10 environment source URLs, 54 environment records, 2 CSP-owned SOAR sources, direct visual review of the February 2026 public-sector symbol table, and four bounded claim checks. Browser, export and native WebMCP outcomes are recorded separately in the audit."
+      "scope": "Twelve official sources checked; six bounded consequential claims verified; 58 environment records and four CSP-owned SOAR sources reconciled."
     },
     {
       "id": "version-release-watch",

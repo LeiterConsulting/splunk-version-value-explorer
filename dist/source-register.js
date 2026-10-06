@@ -1092,14 +1092,18 @@ window.VersionCompassSources = {
         "environment: environment.records.25",
         "environment: environment.records.26",
         "environment: environment.records.27",
-        "environment: environment.records.51",
-        "environment: environment.records.52",
-        "environment: environment.records.53",
+        "environment: environment.records.28",
+        "environment: environment.records.29",
+        "environment: environment.records.30",
+        "environment: environment.records.31",
+        "environment: environment.records.55",
+        "environment: environment.records.56",
+        "environment: environment.records.57",
         "forwarders: forwarders.claimSources.receiver.cloud",
         "forwarders: forwarders.claimSources.topology.cloud-intermediate"
       ],
       "reviews": [
-        "2026-10-05",
+        "2026-10-06",
         "2026-10-02"
       ],
       "conflict": true,
@@ -1141,13 +1145,13 @@ window.VersionCompassSources = {
       ],
       "references": [
         "environment.sources.changes.url",
-        "environment: environment.records.9",
         "environment: environment.records.13",
-        "environment: environment.records.15",
-        "environment: environment.records.20"
+        "environment: environment.records.17",
+        "environment: environment.records.19",
+        "environment: environment.records.24"
       ],
       "reviews": [
-        "2026-10-05"
+        "2026-10-06"
       ],
       "conflict": true,
       "usage": "In use",
@@ -1176,13 +1180,13 @@ window.VersionCompassSources = {
       "references": [
         "environment.sources.ingest.url",
         "content-updates.js",
-        "environment: environment.records.12",
-        "environment: environment.records.13",
-        "environment: environment.records.14",
-        "environment: environment.records.15"
+        "environment: environment.records.16",
+        "environment: environment.records.17",
+        "environment: environment.records.18",
+        "environment: environment.records.19"
       ],
       "reviews": [
-        "2026-10-05"
+        "2026-10-06"
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",
@@ -2183,10 +2187,6 @@ window.VersionCompassSources = {
       "references": [
         "environment.sources.es.url",
         "editions.sources.regions.u",
-        "environment: environment.records.28",
-        "environment: environment.records.29",
-        "environment: environment.records.30",
-        "environment: environment.records.31",
         "environment: environment.records.32",
         "environment: environment.records.33",
         "environment: environment.records.34",
@@ -2196,13 +2196,17 @@ window.VersionCompassSources = {
         "environment: environment.records.38",
         "environment: environment.records.39",
         "environment: environment.records.40",
+        "environment: environment.records.41",
+        "environment: environment.records.42",
+        "environment: environment.records.43",
+        "environment: environment.records.44",
         "editions: editions.capabilities.11",
         "editions: editions.capabilities.13",
         "editions: editions.capabilities.17",
         "editions: editions.notes.1"
       ],
       "reviews": [
-        "2026-10-05",
+        "2026-10-06",
         "2026-10-01"
       ],
       "usage": "In use",
@@ -3806,19 +3810,19 @@ window.VersionCompassSources = {
       ],
       "references": [
         "environment.sources.o11y.url",
-        "environment: environment.records.41",
-        "environment: environment.records.42",
-        "environment: environment.records.43",
-        "environment: environment.records.44",
         "environment: environment.records.45",
         "environment: environment.records.46",
         "environment: environment.records.47",
         "environment: environment.records.48",
         "environment: environment.records.49",
-        "environment: environment.records.50"
+        "environment: environment.records.50",
+        "environment: environment.records.51",
+        "environment: environment.records.52",
+        "environment: environment.records.53",
+        "environment: environment.records.54"
       ],
       "reviews": [
-        "2026-10-05"
+        "2026-10-06"
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",
@@ -4146,7 +4150,7 @@ window.VersionCompassSources = {
         "soar: soar.backlog.2"
       ],
       "reviews": [
-        "2026-10-05"
+        "2026-10-06"
       ],
       "claimReferences": [
         {
@@ -4364,7 +4368,7 @@ window.VersionCompassSources = {
         "soar.sources.regions.url"
       ],
       "reviews": [
-        "2026-10-05"
+        "2026-10-06"
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",
@@ -5371,14 +5375,20 @@ window.VersionCompassSources = {
       "url": "https://www.fedramp.gov/marketplace/products/F1607197917/",
       "title": "FedRAMP Marketplace: Cloud Platform Moderate",
       "areas": [
-        "Cloud environment"
+        "Cloud environment",
+        "Splunk SOAR",
+        "Shared guidance"
       ],
       "references": [
         "environment.sources.moderate.url",
-        "environment: environment.records.6"
+        "soar.sources.fedrampModerate.url",
+        "content-updates.js",
+        "environment: environment.records.6",
+        "environment: environment.records.8",
+        "environment: environment.records.10"
       ],
       "reviews": [
-        "2026-10-05"
+        "2026-10-06"
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",
@@ -5428,14 +5438,27 @@ window.VersionCompassSources = {
       "url": "https://www.fedramp.gov/marketplace/products/FR2314156865/",
       "title": "FedRAMP Marketplace: Cloud Platform High",
       "areas": [
-        "Cloud environment"
+        "Cloud environment",
+        "Splunk SOAR",
+        "Shared guidance"
       ],
       "references": [
         "environment.sources.high.url",
-        "environment: environment.records.7"
+        "soar.sources.fedrampHigh.url",
+        "content-updates.js",
+        "environment: environment.records.7",
+        "environment: environment.records.9",
+        "environment: environment.records.11",
+        "soar: soar.backlog.2"
       ],
       "reviews": [
-        "2026-10-05"
+        "2026-10-06"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.backlog.2",
+          "section": "Phase, Status, Certification Profile and Certified Services; SOAR is not named in the current list, and absence is not an exclusion claim"
+        }
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",
@@ -5489,12 +5512,12 @@ window.VersionCompassSources = {
       ],
       "references": [
         "environment.sources.compliance.url",
-        "environment: environment.records.51",
-        "environment: environment.records.52",
-        "environment: environment.records.53"
+        "environment: environment.records.55",
+        "environment: environment.records.56",
+        "environment: environment.records.57"
       ],
       "reviews": [
-        "2026-10-05"
+        "2026-10-06"
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",
@@ -5548,10 +5571,10 @@ window.VersionCompassSources = {
       ],
       "references": [
         "environment.sources.esmoderate.url",
-        "environment: environment.records.40"
+        "environment: environment.records.44"
       ],
       "reviews": [
-        "2026-10-05"
+        "2026-10-06"
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",
@@ -5608,7 +5631,7 @@ window.VersionCompassSources = {
         "environment: environment.records.5"
       ],
       "reviews": [
-        "2026-10-05"
+        "2026-10-06"
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",

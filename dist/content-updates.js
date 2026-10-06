@@ -1,7 +1,7 @@
 /* Editorial change provenance. Cycles advance only with material factual updates. */
 (function(){
 'use strict';
-const policy={currentCycle:12,retentionCycles:2};
+const policy={currentCycle:13,retentionCycles:2};
 const note25='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-25.md';
 const note26='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-26.md';
 const note30='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-30.md';
@@ -20,7 +20,14 @@ const enterprise106='https://help.splunk.com/en/splunk-enterprise/release-notes-
 const enterprise106ReadFirst='https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first';
 const cloud106='https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new';
 const ingest='https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor';
+const fedrampModerate='https://www.fedramp.gov/marketplace/products/F1607197917/';
+const fedrampHigh='https://www.fedramp.gov/marketplace/products/FR2314156865/';
 const entries={
+"environment:es-fr-m-offering":{kind:"new",cycle:13,date:"2026-10-06",version:"FedRAMP Moderate CSO",detail:"Added exact offering-level Certified Services scope for Splunk Enterprise Security; edition, feature, entitlement, pairing, rollout and customer authorization remain separate.",source:fedrampModerate,sourceDate:null,note:note06},
+"environment:es-fr-h-offering":{kind:"new",cycle:13,date:"2026-10-06",version:"FedRAMP High CSO",detail:"Added exact offering-level Certified Services scope for Splunk Enterprise Security; edition, feature, entitlement, pairing, rollout and customer authorization remain separate.",source:fedrampHigh,sourceDate:null,note:note06},
+"environment:itsi-fr-m-offering":{kind:"new",cycle:13,date:"2026-10-06",version:"FedRAMP Moderate CSO",detail:"Added exact offering-level Certified Services scope for Splunk IT Service Intelligence; feature, entitlement, pairing, rollout and customer authorization remain separate.",source:fedrampModerate,sourceDate:null,note:note06},
+"environment:itsi-fr-h-offering":{kind:"new",cycle:13,date:"2026-10-06",version:"FedRAMP High CSO",detail:"Added exact offering-level Certified Services scope for Splunk IT Service Intelligence; feature, entitlement, pairing, rollout and customer authorization remain separate.",source:fedrampHigh,sourceDate:null,note:note06},
+"product:soar:fedramp-moderate-offering":{kind:"updated",cycle:13,date:"2026-10-06",version:"SOAR Cloud FedRAMP Moderate",detail:"Added the exact Moderate CSO Certified Services evidence while retaining separate restricted-environment, feature, tenant, entitlement and customer-authorization boundaries. High remains not established.",source:fedrampModerate,sourceDate:null,note:note06},
 "feature:observability:Python instrumentation 2.13":{kind:"new",cycle:12,date:"2026-10-06",version:"Splunk OpenTelemetry Python 2.13.0",detail:"Added declarative configuration, ARM64 standard and SecureApp init images, the wrapt 2.5.0 dependency floor and the corrected system-metrics configuration boundary.",source:python213,sourceDate:"2026-10-05",note:note06},
 "technical:observability:Python instrumentation declarative configuration":{kind:"new",cycle:12,date:"2026-10-06",version:"Splunk OpenTelemetry Python 2.13.0",detail:"Recorded OTEL_CONFIG_FILE precedence and the remaining environment-only profiling and callgraph settings.",source:python213,sourceDate:"2026-10-05",note:note06},
 "technical:observability:Python system metrics configuration":{kind:"corrected",cycle:12,date:"2026-10-06",version:"Splunk OpenTelemetry Python 2.13.0",detail:"Removed the ineffective SPLUNK_OTEL_SYSTEM_METRICS_ENABLED guidance and recorded the actual disabled-instrumentations control without implying a runtime change.",source:"https://github.com/signalfx/splunk-otel-python/pull/785",sourceDate:"2026-08-10",note:note06},

@@ -42,7 +42,7 @@ test('evidence scope, separate authorization, freshness, and source conflicts re
  for(const r of env.data.records){assert(r.sources.length);assert(r.regions.length);for(const region of r.regions)assert(env.data.regions.some(x=>x.id===region&&x.provider===r.provider));for(const source of r.sources){const s=env.data.sources[source];assert(s);assert(/^https:\/\//.test(s.url));assert(s.checked);assert(s.scope);}assert(r.scope);assert(['documented','not_established'].includes(r.authorization));}
  assert.equal(env.data.sources.compliance.published,'2026-02');
  const conflict=env.data.records.find(r=>r.id==='s3-high');assert.equal(conflict.claims.length,2);assert.equal(new Set(conflict.claims.map(c=>c.source)).size,2);
- const itsi=env.assess(route({compliance:'fr-h'},'itsi'));assert.match(itsi.productNote,/host only/);
+ const itsi=env.assess(route({compliance:'fr-h'},'itsi'));assert.match(itsi.productNote,/offering level only/);
  const o=env.assess(route({compliance:'fr-h'},'observability'));assert.equal(o.records.length,0);assert.match(o.productNote,/does not establish/);
  const commercial=env.assess(route({csp:'gcp',region:'gcp-oregon',compliance:'commercial'},'observability'));assert(commercial.records.some(r=>r.realm==='us2'));
 });
@@ -66,4 +66,14 @@ test('regional exclusions do not become global unavailability badges',()=>{
  const scoped={...broad,environment:{region:'ca-west-1'}};
  assert.equal(env.availability(broad,{title:'Agentic SOC'})[0].status,'not_established');
  assert.equal(env.availability(scoped,{title:'Agentic SOC'})[0].status,'unavailable');
+});
+test('exact Marketplace offering scope remains product-specific and qualified',()=>{
+ const esHigh=env.assess(route({csp:'aws',compliance:'fr-h'},'es'));
+ assert(esHigh.records.some(r=>r.id==='es-fr-h-offering'));
+ assert(!esHigh.records.some(r=>r.id==='es-fr-m-offering'));
+ const itsiModerate=env.assess(route({csp:'aws',compliance:'fr-m'},'itsi'));
+ const record=itsiModerate.records.find(r=>r.id==='itsi-fr-m-offering');
+ assert(record);assert.equal(record.authorization,'documented');assert.match(record.detail,/offering-level assessment scope/);
+ const html=env.body(route({csp:'aws',compliance:'fr-m'},'itsi'),true);
+ assert.match(html,/IT Service Intelligence certified service/);assert.match(html,/IT Service Intelligence · AWS/);
 });

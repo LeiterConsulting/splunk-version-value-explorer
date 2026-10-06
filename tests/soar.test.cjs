@@ -19,6 +19,12 @@ test('SOAR restricted environments never inherit commercial features or Platform
  assert.equal(a.assess({...a.defaults,deployment:'cloud',provider:'gcp',region:'Tokyo'}).availability.status,'Not established for this region');
  assert.equal(a.assess({...a.defaults,deployment:'cloud',provider:'gcp',region:'Iowa'}).availability.status,'Region listed; confirm rollout');
 });
+test('SOAR Moderate offering evidence and unresolved High scope stay separate',()=>{const a=core().window.VersionCompassSOAR;
+ const moderate=a.assess({...a.defaults,deployment:'cloud',compliance:'fr-m'}).availability;
+ assert.equal(moderate.status,'Certified offering; conditions apply');assert.deepEqual(Array.from(moderate.src),['fedrampModerate','restricted']);assert.match(moderate.detail,/Feature, tenant, entitlement/);
+ const high=a.assess({...a.defaults,deployment:'cloud',compliance:'fr-h'}).availability;
+ assert.equal(high.status,'Not established');assert.deepEqual(Array.from(high.src),['fedrampHigh','restricted']);assert.match(high.detail,/Absence is not an exclusion claim/);
+});
 test('SOAR exact links round-trip and malformed, repeated, partial and descending routes are rejected',()=>{const c=core(),a=c.window.VersionCompassSOAR;
  for(const deployment of ['cmp','cloud'])for(const from of c.window.VersionCompassSOARData.releases[deployment])for(const to of c.window.VersionCompassSOARData.targets){const s={...a.defaults,deployment,from,to},r=a.assess(s);assert.equal(!!r.errors.length,Number(from.split('.')[0])*100+Number(from.split('.')[1])>=Number(to.split('.')[0])*100+Number(to.split('.')[1]));assert.equal(JSON.stringify(a.read(a.url(s)).state),JSON.stringify(s));}
  for(const q of ['?from=8.6.0','?from=8.6.0&from=8.5.0&to=8.7.0','?to=8.7.999&from=8.6.0','?deployment=alien','?product=soar&product=es'])assert(a.read(q).errors.length,q);
