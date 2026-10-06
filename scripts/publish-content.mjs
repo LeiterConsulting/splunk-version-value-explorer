@@ -35,13 +35,15 @@ async function credential() {
 try {
   const token = await credential();
   if (!token || /\s/.test(token)) throw Error('Invalid credential');
+  const evidenceCredential = process.env.GITHUB_ACTIONS === 'true' ? process.env.VC_GITHUB_EVIDENCE_TOKEN : null;
+  if (process.env.GITHUB_ACTIONS === 'true' && !/^[A-Za-z0-9_]{20,255}$/.test(evidenceCredential || '')) throw Error('Workflow evidence credential unavailable');
   const candidate = { repository: 'LeiterConsulting/splunk-version-value-explorer', commit, bundle: JSON.parse(fs.readFileSync('dist/content-bundle.json', 'utf8')) };
   const operation = action => 'pub-' + crypto.createHash('sha256').update(commit + ':' + action).digest('hex').slice(0, 32);
   async function call(route, body) {
     const response = await fetch(base + '/api/publisher/' + route, {
       method: body ? 'POST' : 'GET', redirect: 'error', signal: AbortSignal.timeout(120000),
       headers: { Authorization: 'Bearer ' + token, ...(body ? { 'Content-Type': 'application/json' } : {}) },
-      ...(body ? { body: JSON.stringify(body) } : {}),
+      ...(body ? { body: JSON.stringify(evidenceCredential ? { publication: body, evidenceCredential } : body) } : {}),
     });
     // Do not print upstream bodies, headers, tokens or submitted content.
     if (!response.ok) {

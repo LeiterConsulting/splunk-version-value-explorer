@@ -138,3 +138,23 @@ test('default verifier fetch preserves the Worker global receiver', async () => 
     assert.equal((await m.verifyRepositoryPublication(candidate, { engineRevision: seed.manifest.engineRevision })).provenance.commit, candidate.commit);
   } finally { globalThis.fetch = original; }
 });
+test('workflow evidence credential reaches only fixed repository API and never immutable data', async t => {
+  const m = await modules(), db = database(t), token = 'ghs_' + 'e'.repeat(36), calls = [];
+  const wrapped = m.publisherEvidenceRequest({ publication: candidate, evidenceCredential: token }, { type: 'github-oidc' }, async (url, options) => {
+    calls.push(url); assert.equal(options.redirect, 'manual');
+    if (new URL(url).hostname === 'api.github.com') assert.equal(options.headers.Authorization, 'Bearer ' + token);
+    else assert.equal(options.headers.Authorization, undefined);
+    return evidence(url);
+  });
+  const result = await m.stagePublication(db, wrapped.input, { engineRevision: seed.manifest.engineRevision, fetcher: wrapped.fetcher });
+  assert.equal(calls.length, 5); assert(!JSON.stringify(result).includes(token));
+  assert(!JSON.stringify(db.sql.prepare('SELECT * FROM content_revisions').all()).includes(token));
+  assert(!JSON.stringify(db.sql.prepare('SELECT * FROM content_publication_provenance').all()).includes(token));
+  for (const url of ['https://untrusted.example/repo', 'https://api.github.com/repos/other/repo/actions/runs', 'https://api.github.com/repos/' + candidate.repository + '/../../other/repo', 'https://raw.githubusercontent.com/other/repo/main/file', 'http://api.github.com/repos/' + candidate.repository + '/actions/runs']) {
+    assert.throws(() => wrapped.fetcher(url, { headers: {}, redirect: 'manual' }), /Untrusted evidence origin/);
+  }
+  assert.equal(calls.length, 5);
+  for (const bad of [{ publication: candidate, evidenceCredential: 'bad' }, { publication: candidate, evidenceCredential: token, extra: true }])
+    assert.throws(() => m.publisherEvidenceRequest(bad, { type: 'github-oidc' }), /Invalid evidence credential/);
+  assert.throws(() => m.publisherEvidenceRequest({ publication: candidate, evidenceCredential: token }, { type: 'maintenance-secret' }), /Invalid evidence credential/);
+});
