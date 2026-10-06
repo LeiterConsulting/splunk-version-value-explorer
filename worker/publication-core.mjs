@@ -82,7 +82,7 @@ export async function validateBundle(input, engineRevision) {
     requireValue(typeof ref.sectionScope === 'string' && ['section', 'sourceVerified', 'sourceChecked'].every(key => ref[key] === null || typeof ref[key] === 'string'), 'Invalid evidence metadata');
   }
   requireValue(await sha256({ schemaVersion: 1, globals: bundle.globals, catalog: bundle.catalog }) === m.digest, 'Bundle digest mismatch');
-  requireValue('content-' + (await sha256({ digest: m.digest, engineRevision: m.engineRevision })).slice(0, 24) === m.revision, 'Revision identity mismatch');
+  requireValue('content-' + (await sha256({ digest: m.digest, engineRevision: m.engineRevision, datasetHashes: m.datasetHashes })).slice(0, 24) === m.revision, 'Revision identity mismatch');
   return bundle;
 }
 async function fetchJson(url, fetcher) {

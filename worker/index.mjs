@@ -32,7 +32,7 @@ export function createWorker(seed, assets) {
           }
           const bundle = await readBundle(env.DB, revision);
           if (!bundle) return json({ error: 'Published revision not available', requestedRevision: revision }, 404);
-          if (bundle.manifest.engineRevision !== engine) return json({ error: 'Revision belongs to another engine' }, 409);
+          if ((params.has('engine') || !params.has('revision')) && bundle.manifest.engineRevision !== engine) return json({ error: 'Revision belongs to another engine' }, 409);
           const extra = { 'X-VersionCompass-Content': revision, 'X-VersionCompass-Engine': bundle.manifest.engineRevision };
           if (request.method === 'HEAD') return new Response(null, { status: 200, headers: { ...headers, ...extra } });
           if (url.pathname.endsWith('/health')) return json({ status: 'ready', storage: 'd1', revision, engineRevision: bundle.manifest.engineRevision, recordCount: bundle.manifest.recordCount }, 200, extra);

@@ -8,10 +8,10 @@
   "checks": {
     "automatedTests": {
       "outcome": "passed",
-      "passed": 137,
+      "passed": 142,
       "failed": 0,
       "skipped": 0,
-      "scope": "Node 24, real repository bundle and in-memory SQLite; OIDC signatures exercised with fixture RSA keys"
+      "scope": "Node 24, real repository bundle, in-memory SQLite, fixture RSA signatures, and retained concurrent staging/hash/request regression tests"
     },
     "repositoryProvenance": {
       "outcome": "passed",
@@ -43,7 +43,7 @@
       "scope": {
         "unaffected": true
       },
-      "reason": "All original dist assets, loader, comparison/URL readers, renderer, export code and factual data remain byte-identical. Active reader is isolated and activation is disabled."
+      "reason": "Original public loader, comparison/URL readers, renderer, export code and factual JSON remain byte-identical; generated identity/hash metadata is corrected. Active browser advancement remains disabled."
     },
     "sitesDeployment": {
       "outcome": "not-performed",
@@ -68,5 +68,19 @@
     "maintenanceSchedules": "No schedule mutations or duplicate timers",
     "minimumWaitHours": 0
   },
-  "nextGate": "Verify deployed migration/auth/bootstrap and real OIDC; retain active-delivery off until actual affected browser/export/WebMCP and D1 activation/rollback evidence is complete."
+  "nextGate": "Verify deployed migration/auth/bootstrap and real OIDC; retain active-delivery off until actual affected browser/export/WebMCP and D1 activation/rollback evidence is complete.",
+  "concurrentSource": {
+    "commit": "b8d0d57f65f70d90fe942d28b1e00c80cf098fbd",
+    "retained": [
+      "canonical dataset hashes before composition",
+      "dataset-hash-bound immutable identity",
+      "strong seed staging/record integrity",
+      "publication request preparation and tests",
+      "release archive summaries and checkpoint history"
+    ],
+    "isolated": [
+      "unverified active browser loader"
+    ],
+    "superseded": "Unprovisioned static-token CI submission replaced with the authenticated OIDC path."
+  }
 }

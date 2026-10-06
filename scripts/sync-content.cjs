@@ -29,10 +29,10 @@ function validate(value, at = 'content') {
     validate(child, at + '.' + key);
   }
 }
-const globals = {}, datasets = {};
+const globals = {}, datasets = {}, datasetHashes = {};
 for (const [id, file, global] of specs) {
   const data = JSON.parse(fs.readFileSync('content/datasets/' + id + '.json', 'utf8'));
-  validate(data); datasets[id] = data;
+  validate(data); datasets[id] = data; datasetHashes[id] = hash(data);
   let adapter;
   if (id === 'products') {
     Object.assign(globals.SPLUNK_DATA.categories, data.categories);
@@ -112,12 +112,11 @@ if (new Set(records.map(r => r.id)).size !== records.length) throw Error('Duplic
 write(identityFile, identities);
 const catalog = { schemaVersion: 1, records };
 write('content/catalog.json', catalog);
-const engineFiles = ['comparison.js', 'forwarders.js', 'soar.js', 'environment.js', 'guidance.js', 'editions.js', 'report-tools.js', 'release-print.js', 'evidence.js', 'decision-support.js', 'perspectives.js', 'webmcp.js', 'app.js', 'soar-ui.js', 'forwarders-ui.js'];
-const engineRevision = 'engine-' + hash(engineFiles.map(f => [f, fs.readFileSync('dist/' + f, 'utf8')])).slice(0, 20);
-const datasetHashes = Object.fromEntries(specs.map(([id]) => [id, hash(datasets[id])]));
+const engineFiles = ['comparison.js', 'forwarders.js', 'soar.js', 'environment.js', 'guidance.js', 'editions.js', 'report-tools.js', 'release-print.js', 'evidence.js', 'decision-support.js', 'perspectives.js', 'webmcp.js', 'app.js', 'soar-ui.js', 'forwarders-ui.js', 'content-client.js'].map(file => 'dist/' + file).concat(['worker/publication-core.mjs', 'worker/content-store.mjs', 'worker/index.mjs', 'worker/publisher.mjs', 'client/content-client-active.js']);
+const engineRevision = 'engine-' + hash(engineFiles.map(file => [file, fs.readFileSync(file, 'utf8')])).slice(0, 20);
 const digest = hash({ schemaVersion: 1, globals, catalog });
 // A rules-only change creates a new publication while preserving dataset hashes.
-const manifest = { schemaVersion: 1, revision: 'content-' + hash({ digest, engineRevision }).slice(0, 24), digest, engineRevision, datasetHashes, recordCount: records.length, provenance: 'Canonical content/datasets JSON in the public VersionCompass repository', verificationPolicy: 'Migration and delivery do not create verification dates', phase: 'content-model-and-database-delivery' };
+const manifest = { schemaVersion: 1, revision: 'content-' + hash({ digest, engineRevision, datasetHashes }).slice(0, 24), digest, engineRevision, datasetHashes, recordCount: records.length, provenance: 'Canonical content/datasets JSON in the public VersionCompass repository', verificationPolicy: 'Migration and delivery do not create verification dates', phase: 'content-model-and-database-delivery' };
 write('content/publication.json', manifest);
 write('dist/content-manifest.json', manifest);
 write('dist/content-bundle.json', { manifest, globals, catalog });
