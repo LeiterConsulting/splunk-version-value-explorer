@@ -9,7 +9,7 @@ test('decision change history follows actual selected milestones and environment
  const previous={...state,to:state.from};
  assert(!w.VersionCompassDecision.model(previous,w.VersionCompassComparison.create(w.SPLUNK_DATA,previous)).changes.some(x=>x.key.includes('Browser RUM')));
  const env={product:'platform',platform:'cloud',from:'10.2.2406',to:'10.5.2605',environment:{csp:'aws',experience:'classic'},environmentErrors:[]};
- const scoped=w.VersionCompassDecision.model(env,null);assert(scoped.changes.every(x=>x.key.includes('classic')));assert(scoped.changes.length);
+ const scoped=w.VersionCompassDecision.model(env,null);assert(scoped.changes.every(x=>x.key.includes('classic')||x.key.includes('machine-data-lake')));assert(scoped.changes.some(x=>x.key==='environment:machine-data-lake-aws'));assert(scoped.changes.some(x=>x.key==='environment:machine-data-lake-gov'));assert(scoped.changes.length);
 });
 test('decision history retains successive changes to the same stable record',()=>{
  const c=context(),w=c.window,state={product:'platform',platform:'enterprise',from:'10.2',to:'10.4',environment:{},environmentErrors:[]};

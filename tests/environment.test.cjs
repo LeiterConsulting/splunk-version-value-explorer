@@ -77,3 +77,22 @@ test('exact Marketplace offering scope remains product-specific and qualified',(
  const html=env.body(route({csp:'aws',compliance:'fr-m'},'itsi'),true);
  assert.match(html,/IT Service Intelligence certified service/);assert.match(html,/IT Service Intelligence · AWS/);
 });
+test('Machine Data Lake keeps provider, GovCloud and authorization scope separate',()=>{
+ const aws=env.assess(route({csp:'aws',region:'us-east-1',compliance:'commercial'}));
+ const available=aws.records.find(r=>r.id==='machine-data-lake-aws');
+ assert(available);assert.equal(available.availability,'conditional');assert.equal(available.authorization,'not_established');
+ assert.match(available.detail,/provider, region, environment configuration and enabled services/);
+ assert.deepEqual(Array.from(available.sources),['service','changes']);
+ for(const compliance of ['fr-m','fr-h']){
+  const gov=env.assess(route({csp:'aws',region:'us-gov-east-1',compliance}));
+  const excluded=gov.records.find(r=>r.id==='machine-data-lake-gov');
+  assert(excluded);assert.equal(excluded.availability,'unavailable');assert.equal(excluded.authorization,'not_established');
+  assert(!gov.records.some(r=>r.id==='machine-data-lake-aws'));
+ }
+ for(const [csp,region,id] of [['gcp','gcp-oregon','machine-data-lake-gcp'],['azure','azure-london','machine-data-lake-azure']]){
+  const result=env.assess(route({csp,region,compliance:'commercial'}));
+  const excluded=result.records.find(r=>r.id===id);assert(excluded);assert.equal(excluded.availability,'unavailable');assert.equal(excluded.authorization,'not_established');
+ }
+ const html=env.body(route({csp:'aws',region:'us-gov-east-1',compliance:'fr-h'}),true);
+ assert.match(html,/Machine Data Lake/);assert(html.includes(env.data.sources.service.url));assert(html.includes(env.data.sources.changes.url));
+});
