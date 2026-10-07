@@ -28,14 +28,14 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-02",
+      "reviewed": "2026-10-07",
       "status": "Reviewed",
       "firstRecorded": "2026-09-28",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "A schedule notice is not a vulnerability advisory or a product-version requirement.",
       "section": "Advisory archive — September 2026 entries; Current index; not a complete applicability audit",
-      "verificationScope": "Checked the current archive and confirmed the newest entry remains SVD-2026-0901, which moved the planned Enterprise, Universal Forwarder, AWS add-on and MCP Server advisories to October 7. No October advisory was yet published. This is an index check, not a complete applicability or vulnerability audit.",
+      "verificationScope": "Checked the current archive on October 7 and confirmed the newest entry still remains SVD-2026-0901, which moved the planned Enterprise, Universal Forwarder, AWS add-on and MCP Server advisories to October 7. No October advisory was published at check time. This is an index check, not a complete applicability or vulnerability audit.",
       "events": [
         {
           "date": "2026-09-28",
@@ -48,6 +48,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-02",
           "event": "Review status updated: Reviewed · 2026-10-02"
+        },
+        {
+          "date": "2026-10-07",
+          "event": "Review status updated: Reviewed · 2026-10-07"
         }
       ]
     },
@@ -1056,14 +1060,17 @@ window.VersionCompassSources = {
       "areas": [
         "Release guide",
         "Cloud environment",
-        "Splunk Forwarders"
+        "Splunk Forwarders",
+        "Shared guidance"
       ],
       "references": [
+        "release.cloud.releasesData.10.6.technicalChanges.2.source",
         "release.cloud.releasesData.10.6.requirements.3.3",
         "release.productTracks.es.cloudServiceSource",
         "release.productTracks.itsi.cloudServiceSource",
         "environment.sources.service.url",
         "forwarders.sources.cloud.url",
+        "content-updates.js",
         "environment: environment.records.0",
         "environment: environment.records.1",
         "environment: environment.records.2",
@@ -1103,29 +1110,28 @@ window.VersionCompassSources = {
         "forwarders: forwarders.claimSources.topology.cloud-intermediate"
       ],
       "reviews": [
-        "2026-10-06",
-        "2026-10-02"
+        "2026-10-07"
       ],
       "conflict": true,
       "claimReferences": [
         {
           "path": "forwarders: forwarders.claimSources.receiver.cloud",
-          "section": "Supported forwarder versions"
+          "section": "Current Splunk Cloud Platform and Premium App versions; Supported forwarder versions"
         },
         {
           "path": "forwarders: forwarders.claimSources.topology.cloud-intermediate",
-          "section": "Supported forwarder versions"
+          "section": "Current Splunk Cloud Platform and Premium App versions; Supported forwarder versions"
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-02",
+      "reviewed": "2026-10-07",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-10-02",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "A documentation path, hosting row, FIPS statement, app-installation path or current-version table establishes only its exact scope; it does not prove universal availability, entitlement, compatibility or authorization.",
       "section": "Available regions and region differences; experience designations; compliance subscriptions; authorized-app qualification; Current Splunk Cloud Platform and Premium App versions; Supported forwarder versions",
-      "verificationScope": "Confirmed all maintained provider, region, experience and feature rows. The 10.6 page still identifies Cloud 10.5, ES 8.6 and ITSI 5.0 as current. Its current table includes Moderate but excludes High for Federated Search for Amazon S3, preserving the April change-log conflict. Rechecked that app installation is not itself regulated-environment authorization and that no page path or region listing establishes entitlement, selected-stack rollout or customer authorization. Release Watch separately rechecked UF/HF 9.4 through 10.4 direct-versus-intermediate receiver rows.",
+      "verificationScope": "Confirmed the current subscription table now identifies Cloud 10.6, ES 8.7 and ITSI 5.0. Rechecked exact UF/HF rows through 10.6 and their direct-versus-intermediate scope. The current availability table includes Moderate but excludes High for Federated Search for Amazon S3, preserving the April change-log conflict. Provider, region, entitlement, selected-stack rollout and customer authorization remain separate and were not inferred from the current pairing.",
       "events": [
         {
           "date": "2026-10-02",
@@ -1134,6 +1140,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-02",
           "event": "Review status updated: Needs reconciliation · 2026-10-02"
+        },
+        {
+          "date": "2026-10-07",
+          "event": "Review status updated: Needs reconciliation · 2026-10-07"
         }
       ]
     },
@@ -1396,7 +1406,6 @@ window.VersionCompassSources = {
         "release.cloud.releasesData.10.6.source",
         "release.cloud.releasesData.10.6.technicalChanges.0.source",
         "release.cloud.releasesData.10.6.technicalChanges.1.source",
-        "release.cloud.releasesData.10.6.technicalChanges.2.source",
         "release.cloud.releasesData.10.6.technicalChanges.3.source",
         "release.cloud.releasesData.10.6.technicalChanges.4.source",
         "release.cloud.releasesData.10.6.requirements.0.3",
@@ -3102,16 +3111,16 @@ window.VersionCompassSources = {
         "forwarders: forwarders.claimSources.topology.enterprise-intermediate"
       ],
       "reviews": [
-        "2026-09-28"
+        "2026-10-07"
       ],
       "claimReferences": [
         {
           "path": "forwarders: forwarders.claimSources.receiver.enterprise",
-          "section": "Determine forwarder-indexer compatibility"
+          "section": "Compatibility between forwarders and Splunk Enterprise indexers; forwarder-version / indexer-version table"
         },
         {
           "path": "forwarders: forwarders.claimSources.topology.enterprise-intermediate",
-          "section": "Determine forwarder-indexer compatibility"
+          "section": "Compatibility between forwarders and Splunk Enterprise indexers; forwarder-version / indexer-version table"
         }
       ],
       "usage": "In use",

@@ -1,6 +1,6 @@
 /* Generated from content/datasets/guidance.json. Edit the JSON source, not this adapter. */
 window.SPLUNK_DATA.guidance = {
-  "reviewed": "2026-10-06",
+  "reviewed": "2026-10-07",
   "lifecycle": {
     "source": "https://www.splunk.com/en_us/legal/splunk-software-support-policy.html",
     "reviewed": "2026-10-01",

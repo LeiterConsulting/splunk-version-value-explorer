@@ -311,7 +311,7 @@ test('September Observability additions preserve SaaS, private-runner, and Cloud
   assert(report.technicalChanges.some(item => item.component === '.NET instrumentation installer verification' && item.to.includes('requires GitHub CLI by default')));
   assert(report.technicalChanges.some(item => item.component === 'Browser RUM navigation configuration' && item.to.includes('deprecated alias')));
   assert(report.breakingChanges.some(item => item.title === 'Provide GitHub CLI for .NET 1.16 installer verification' && item.breaking));
-  assert(report.readiness.some(item => item.title === 'Treat Cloud 10.6 trial onboarding as stack-specific' && item.detail.includes('current 10.5 release route')));
+  assert(report.readiness.some(item => item.title === 'Treat Cloud 10.6 trial onboarding as stack-specific' && item.detail.includes('current service pairing is now 10.6')));
   assert(report.breakingChanges.some(item => item.title === 'Reconcile Node.js semantic conventions' && item.detail.startsWith('Splunk OpenTelemetry Node.js 4.11.0') && !item.detail.includes('chart')));
   assert(report.technicalChanges.some(item => item.component === 'Node.js instrumentation baseline' && item.to.includes('4.12.0') && item.to.includes('Couchbase SDK 4.7+')));
   assert(report.technicalChanges.some(item => item.component === 'Java CPU profiling remote control' && item.to.includes('2.31.3') && item.to.includes('Docker image publishing')));
@@ -326,7 +326,7 @@ test('September Observability additions preserve SaaS, private-runner, and Cloud
   const platformCloud = rt.run('get_catalog', {}).products.find(item => item.id === 'platform').contexts.find(item => item.platform === 'cloud');
   assert(platformCloud.targetReleases.some(item => item.id === '10.6'));
   const cloud106 = rt.run('compare_routes', { routes: [{ product: 'platform', platform: 'cloud', from: '10.5.2605', to: '10.6' }] }).reports[0];
-  assert(cloud106.breakingChanges.some(item => item.title === 'Confirm actual stack rollout' && item.detail.includes('10.6 Service Details still identify Cloud 10.5')));
+  assert(cloud106.breakingChanges.some(item => item.title === 'Confirm selected stack and feature scope' && item.detail.includes('identify Cloud 10.6 as the current subscription version')));
 });
 
 test('ITSI host pairing preserves the separate cohosted KV Store prerequisite', async () => {
@@ -439,5 +439,5 @@ test('migration to published Cloud 10.6 does not assert stack availability', asy
   const highlights=report.features.filter(item=>item.source.includes('/release-notes/10.6/'));
   assert(highlights.length>0);
   assert(highlights.every(item=>item.milestone==='Cloud 10.6 published planning milestone'));
-  assert(report.breakingChanges.some(item=>/actual stack rollout/.test(item.title)));
+  assert(report.breakingChanges.some(item=>/selected stack and feature scope/.test(item.title)));
 });

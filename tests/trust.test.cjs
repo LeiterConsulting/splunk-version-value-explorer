@@ -1,4 +1,5 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),os=require('node:os'),path=require('node:path'),cp=require('node:child_process');
+const {discover}=require('../scripts/release-archive.cjs');
 const read=f=>fs.readFileSync(f,'utf8');
 test('source verification never masquerades as claim verification; scope and escaping are retained',()=>{
  const c={window:{VersionCompassSources:{sources:[{url:'https://example.com',title:'Source',reviewed:'2026-09-25',status:'Reviewed',section:'Compatibility table',verificationScope:'Only ES 8.7 on Enterprise 10.4'}]}},document:{addEventListener(){}}};
@@ -29,7 +30,7 @@ test('maintenance requires an attempt, retains failed outcomes, and advances suc
  }finally{fs.rmSync(dir,{recursive:true,force:true});}
 });
 test('site publication language is distinct from source verification',()=>{
- const newest=fs.readdirSync('docs/releases').filter(name=>/^\d{4}-\d{2}-\d{2}\.md$/.test(name)).sort().at(-1).slice(0,10);
+ const newest=discover(process.cwd())[0].date;
  const [year,month,day]=newest.split('-').map(Number),months=['January','February','March','April','May','June','July','August','September','October','November','December'];
  assert(read('dist/index.html').includes(`Site updated ${months[month-1]} ${day}, ${year}`));
  assert(!read('dist/index.html').includes('Source-backed guidance reviewed'));

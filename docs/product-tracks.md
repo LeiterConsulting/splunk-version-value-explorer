@@ -17,7 +17,7 @@ For Splunk Cloud Platform, Splunk coordinates compatible platform and premium-ap
 
 Observability Cloud is a rolling SaaS service. Its route uses dated release milestones, while customer-managed OpenTelemetry Collectors, Kubernetes charts, language instrumentation, RUM agents, semantic conventions, realms, and entitlements are treated as separate versioned or availability-sensitive dependencies.
 
-Cross-product announcements keep the boundary published by their source. For example, the September 23 Observability milestone describes a free-edition flow from a Splunk Cloud Platform 10.6 environment, with a Discover app and privileged Cloud role. Splunk has now published Cloud 10.6 release notes, so the identifier is available as a planning milestone; current Service Details still pair subscriptions with Cloud 10.5, so the announcement and release notes do not prove rollout or premium-app availability on a selected stack.
+Cross-product announcements keep the boundary published by their source. For example, the September 23 Observability milestone describes a free-edition flow from a Splunk Cloud Platform 10.6 environment, with a Discover app and privileged Cloud role. Current Service Details now pair subscriptions with Cloud 10.6, ES 8.7 and ITSI 5.0. That current pairing still does not prove every selected stack, provider, region, feature, entitlement, trial or regulated-environment authorization.
 
 ## Current source map
 
