@@ -1,7 +1,7 @@
 /* Generated from content/datasets/environment.json. Edit the JSON source, not this adapter. */
 window.VersionCompassEnvironmentData = {
   "schemaVersion": 1,
-  "checked": "2026-10-06",
+  "checked": "2026-10-07",
   "providers": {
     "aws": "AWS",
     "azure": "Microsoft Azure",
@@ -203,11 +203,11 @@ window.VersionCompassEnvironmentData = {
       "checked": "2026-10-06"
     },
     "service": {
-      "title": "Cloud Platform 10.6 service-details page (current version table remains 10.5)",
+      "title": "Cloud Platform 10.6 current subscription and forwarder tables",
       "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
       "published": "2026-09-14",
-      "scope": "10.6 documentation path; current subscription table remains Cloud 10.5, ES 8.6 and ITSI 5.0; page modification date",
-      "checked": "2026-10-06"
+      "scope": "Current subscription table lists Cloud 10.6, ES 8.7 and ITSI 5.0; supported forwarder rows extend through 10.6; page modification date",
+      "checked": "2026-10-07"
     },
     "changes": {
       "title": "Cloud service description change log",
@@ -298,7 +298,7 @@ window.VersionCompassEnvironmentData = {
       "sources": [
         "service"
       ],
-      "checked": "2026-10-06",
+      "checked": "2026-10-07",
       "scope": "Current service guidance; not a historical availability guarantee",
       "experience": "victoria"
     },
@@ -913,7 +913,7 @@ window.VersionCompassEnvironmentData = {
       "effective": "2026-04-08",
       "claims": [
         {
-          "text": "The 10.6 Service Details page's current 10.5 availability table excludes High.",
+          "text": "The 10.6 Service Details page's current availability table excludes High.",
           "source": "service"
         },
         {

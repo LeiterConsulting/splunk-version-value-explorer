@@ -55,20 +55,20 @@
   const defaults = {
     platform: {
       enterprise: { from: "9.4", to: "10.4" },
-      cloud: { from: "9.3.2408", to: "10.5.2605" },
-      migration: { from: "9.4", to: "10.5.2605" }
+      cloud: { from: "9.3.2408", to: "10.6" },
+      migration: { from: "9.4", to: "10.6" }
     },
     es: {
       enterprise: { host: "10.4", from: "7.3", to: "8.7" },
-      cloud: { host: "10.5.2605", from: "8.2", to: "8.6" }
+      cloud: { host: "10.6", from: "8.2", to: "8.7" }
     },
     itsi: {
       enterprise: { host: "10.4", from: "4.20", to: "5.0.2" },
-      cloud: { host: "10.5.2605", from: "4.20", to: "5.0" }
+      cloud: { host: "10.6", from: "4.20", to: "5.0" }
     },
     observability: {
       enterprise: { host: "9.4", from: "Nov 2024", to: "Sep 2026" },
-      cloud: { host: "10.5.2605", from: "Nov 2024", to: "Sep 2026" }
+      cloud: { host: "10.6", from: "Nov 2024", to: "Sep 2026" }
     }
   };
 
@@ -469,7 +469,7 @@
       journey = activeTrack().label + " " + state.from + " → " + state.to + " · " + platformContext + state.host;
     }
     printTitle.textContent = journey;
-    printSubtitle.textContent = "Site updated October 6, 2026 · versioncompass.com";
+    printSubtitle.textContent = "Site updated October 7, 2026 · versioncompass.com";
     document.title = "Version Compass | " + journey;
   }
 

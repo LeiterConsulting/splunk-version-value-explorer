@@ -1,0 +1,121 @@
+{
+  "watch": "version-release-watch",
+  "sourceCheckDate": "2026-10-07",
+  "startedAt": "2026-10-07T09:12:53.000Z",
+  "completedAt": null,
+  "outcome": "changed",
+  "scope": "All 120 unique official URLs referenced by the Platform, premium-product, Forwarder and SOAR canonical datasets, plus bounded current release, service-pairing, upgrade, receiver, runtime, security and SOAR claims.",
+  "sourceInventory": {
+    "uniqueUrls": 120,
+    "method": "Attempted each maintained URL and separately checked current product hubs, release indexes, Splunkbase, the advisory index and official GitHub release inventories. Retrieval alone was not treated as claim verification.",
+    "outcome": "104 non-GitHub and non-retired URLs returned content directly. Fourteen raw GitHub pages were unavailable to the retrieval backend, so current official release inventories were checked through indexed GitHub release results. The same two retired Enterprise 8.1 and 8.2 pages remained unavailable; their historical records retain their prior verification dates.",
+    "unavailable": [
+      "https://docs.splunk.com/Documentation/Splunk/8.1.14/ReleaseNotes/MeetSplunk",
+      "https://docs.splunk.com/Documentation/Splunk/8.2.12/ReleaseNotes/MeetSplunk"
+    ]
+  },
+  "claimChecks": [
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers",
+      "section": "Compatibility between forwarders and Splunk Enterprise indexers; forwarder-version / indexer-version table",
+      "claimId": "compatibility:forwarders:enterprise-receiver:10.6",
+      "productVersionEnvironment": "UF/HF 10.6 with Splunk Enterprise receivers through 10.6",
+      "qualification": "The current matrix now publishes a 10.6 forwarder row and receiver columns through 10.6. Compatibility remains separate from support lifecycle, upgrade path, OS/package scope, Edge Processor and authorization.",
+      "sourceCheckDate": "2026-10-07",
+      "claimVerificationDate": "2026-10-07",
+      "outcome": "changed",
+      "followUp": "Keep unlisted receiver lines and Edge Processor Not established; preserve exact topology scope."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Current Splunk Cloud Platform and Premium App versions",
+      "claimId": "pairing:cloud-current",
+      "productVersionEnvironment": "Splunk Cloud Platform 10.6; ES 8.7; ITSI 5.0",
+      "qualification": "The current subscription table establishes these service pairings only. It does not prove every selected stack, provider, region, feature, edition, entitlement or regulated-environment authorization.",
+      "sourceCheckDate": "2026-10-07",
+      "claimVerificationDate": "2026-10-07",
+      "outcome": "changed",
+      "followUp": "Retain exact selected-stack and environment qualifications in Cloud, premium-product and migration routes."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Supported forwarder versions",
+      "claimId": "compatibility:forwarders:cloud-receiver:10.6",
+      "productVersionEnvironment": "UF/HF 10.6 directly connected to Splunk Cloud Platform 10.6",
+      "qualification": "The exact 10.6-to-10.6 row is now published. The table applies to the directly connected or outgoing intermediate-tier forwarder and does not establish regulated-environment pairing, entitlement or authorization. The 10.0-to-Cloud-10.4 omission remains preserved.",
+      "sourceCheckDate": "2026-10-07",
+      "claimVerificationDate": "2026-10-07",
+      "outcome": "changed",
+      "followUp": "Continue checking the directly connected tier and each hybrid leg separately."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise",
+      "section": "Upgrade paths to version 10.6; current-version table",
+      "claimId": "upgrade:enterprise:10.6",
+      "productVersionEnvironment": "Splunk Enterprise and Heavy Forwarder 9.4.x, 10.0.x, 10.2.x and 10.4.x to 10.6.x",
+      "qualification": "Release-line paths do not establish exact maintenance, OS, app, receiver, topology or authorization scope.",
+      "sourceCheckDate": "2026-10-07",
+      "claimVerificationDate": "2026-10-07",
+      "outcome": "confirmed",
+      "followUp": "Retain 9.4.x to 10.0.x or 10.2.x as the first step."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions and region differences; Federated Search for Amazon S3",
+      "claimId": "environment:platform:s3-high-conflict",
+      "productVersionEnvironment": "Federated Search for Amazon S3; FedRAMP High",
+      "qualification": "The current table still excludes High while the April 8 change-log record adds High for specified 10.3 versions. The conflict remains explicit and unresolved.",
+      "sourceCheckDate": "2026-10-07",
+      "claimVerificationDate": "2026-10-07",
+      "outcome": "conflicting",
+      "followUp": "CSP FedRAMP Watch retains ownership; do not infer High availability or exclusion."
+    },
+    {
+      "url": "https://advisory.splunk.com/",
+      "section": "Current advisory index",
+      "claimId": "security:advisory-index:current",
+      "productVersionEnvironment": "Enterprise, Universal Forwarder, Splunk Add-on for AWS and Splunk MCP Server",
+      "qualification": "The newest visible item remained SVD-2026-0901 at check time. Its October 7 schedule is an advance notice, not a vulnerability or fixed-version record.",
+      "sourceCheckDate": "2026-10-07",
+      "claimVerificationDate": "2026-10-07",
+      "outcome": "confirmed",
+      "followUp": "Recheck when component-specific advisories are actually published."
+    }
+  ],
+  "boundedConfirmedInventories": {
+    "enterprise": "10.6; released 2026-09-30",
+    "cloudCurrentSubscription": "10.6",
+    "enterpriseSecurityCloudPairing": "8.7",
+    "itsiCloudPairing": "5.0",
+    "enterpriseSecurityLatestPackage": "8.7.1",
+    "itsiLatestPackage": "5.0.2",
+    "scma": "5.4.11",
+    "observabilityLatestMilestone": "2026-09-23",
+    "collector": "0.161.0",
+    "collectorChart": "0.161.0",
+    "soarOnPremises": "8.7.0 build 243",
+    "securityAdvisoryIndex": "SVD-2026-0901 at check time"
+  },
+  "unverifiedOrDeferred": [
+    "The two unavailable historical Enterprise 8.1/8.2 source bodies",
+    "Direct raw-page retrieval for fourteen official GitHub release sources; current identifiers were checked through official indexed GitHub release results",
+    "Enterprise 10.6.0, Enterprise 9.4.16 and ES 8.7.1 issue detail where current rendered pages omit enumerated rows",
+    "ES 8.7.1 compatibility with Splunk App for SOAR because the exact compatibility row names ES 8.7.0",
+    "Regional, FedRAMP and customer-authorization scope beyond preserving the existing S3 conflict",
+    "The announced October 7 component advisories until they are actually present on the official index"
+  ],
+  "validationOutcomes": {
+    "sourceRetrieval": {"outcome":"confirmed","detail":"The 120-URL inventory was attempted with the differentiated results recorded above."},
+    "boundedClaimReview": {"outcome":"confirmed","detail":"The changed Cloud/current-premium pairing and exact Enterprise/Cloud 10.6 receiver claims were separately verified; bounded release, migration, premium-product, Observability, SOAR and advisory claims were checked."},
+    "metadataGates": {"outcome":"pending","detail":"Final generator checks run after this dated audit and release note are included."},
+    "tests": {"outcome":"pending","detail":"The full Node suite and production build run after final synchronization."},
+    "browserJourneys": {"outcome":"pending","detail":"Affected live route checks run after publication with rollback retained."},
+    "keyboard": {"outcome":"pending","detail":"Affected keyboard behavior will be checked in the rendered browser."},
+    "narrowScreen": {"outcome":"pending","detail":"Affected narrow-screen route behavior will be checked in the rendered browser."},
+    "pdfExport": {"outcome":"pending","detail":"A fresh actual PDF export and page inspection are required for the changed report."},
+    "downloadedHtml": {"outcome":"pending","detail":"A fresh saved HTML report must be reopened independently."},
+    "screenPdfHtmlWebMcpAgreement": {"outcome":"pending","detail":"Agreement is assessed only after the rendered and export checks complete."},
+    "databaseDelivery": {"outcome":"pending","detail":"The live D1 diagnostic runs from the matching published source."},
+    "liveDeployment": {"outcome":"pending","detail":"No publication is pre-marked live."}
+  }
+}
