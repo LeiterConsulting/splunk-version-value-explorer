@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const { pathToFileURL } = require('node:url');
 const path = require('node:path');
 const { checkRipple } = require('../scripts/check-ripple.cjs');
-const assets = Object.fromEntries(['index.html', 'app.js', 'app.css', 'icon.svg'].map(file => ['/ripple/' + file, { body: fs.readFileSync('dist/ripple/' + file, 'utf8'), type: ({ html: 'text/html', js: 'text/javascript', css: 'text/css', svg: 'image/svg+xml' })[file.split('.').at(-1)] }]));
+const assets = Object.fromEntries(['index.html', 'app.js', 'app.css', 'icon.svg', 'updates.html'].map(file => ['/ripple/' + file, { body: fs.readFileSync('dist/ripple/' + file, 'utf8'), type: ({ html: 'text/html', js: 'text/javascript', css: 'text/css', svg: 'image/svg+xml' })[file.split('.').at(-1)] }]));
 assets['/index.html'] = { body: fs.readFileSync('dist/index.html', 'utf8'), type: 'text/html' };
 const secret = 'fixture-private-service-token';
 const snapshot = { schemaVersion: 1, records: [{ id: 'fixture-assessment' }], candidates: [{id:'vendor-lead',investigation:{state:'needs_evidence',gaps:['missing product evidence'],nextAction:'Check vendor scope'}}], checks: [], lastRun: null, storage: 'persistent', updateStatus: 'complete', runs: 1, lastAssessmentAt:'2026-10-06T18:30:09.098Z', assessmentRuns:[{id:'fixture-run',claimChecks:0,needsEvidence:1}] };
@@ -16,7 +16,7 @@ const request = (route, options) => new Request('https://versioncompass.com' + r
 const env = { RIPPLE_READ_SERVICE_TOKEN: secret };
 test('unlisted tool and trailing slash serve the independent app; main interface has no link', async () => {
   const app = await worker();
-  for (const route of ['/ripple', '/ripple/', '/ripple?assessment=http2-iosxe', '/ripple/app.js', '/ripple/app.css', '/ripple/icon.svg']) {
+  for (const route of ['/ripple', '/ripple/', '/ripple/updates', '/ripple/updates/', '/ripple?assessment=http2-iosxe', '/ripple/app.js', '/ripple/app.css', '/ripple/icon.svg']) {
     const response = await app.fetch(request(route), env);
     assert.equal(response.status, 200); assert.equal(response.headers.get('x-robots-tag'), 'noindex, nofollow');
     assert.equal((await response.text()).includes(secret), false);
@@ -45,7 +45,7 @@ test('CVE query is validated, canonicalized and scoped to upstream public fields
 });
 test('writes, admin paths, unknown routes and injected targets never call the backend', async () => {
   let calls = 0; const app = await worker(async () => { calls++; throw Error('Must not reach upstream'); });
-  for (const route of ['/ripple/api/refresh', '/ripple/api/assess', '/ripple/api/admin', '/ripple/api/cve/extra', '/ripple/api/snapshot/extra', '/ripple/unknown']) assert.equal((await app.fetch(request(route), env)).status, 404);
+  for (const route of ['/ripple/api/refresh', '/ripple/api/assess', '/ripple/api/admin', '/ripple/api/research', '/ripple/api/cve/extra', '/ripple/api/snapshot/extra', '/ripple/unknown']) assert.equal((await app.fetch(request(route), env)).status, 404);
   for (const method of ['POST', 'PUT', 'DELETE', 'OPTIONS']) for(const route of ['/ripple/api/snapshot','/ripple/api/assess']) assert.equal((await app.fetch(request(route, { method }), env)).status, 405);
   for (const route of ['/ripple/api/snapshot?url=https://example.com', '/ripple/api/cve?id=CVE-2023-44487&url=https://example.com', '/ripple/api/cve?id=CVE-2023-44487&id=CVE-2020-1', '/ripple/api/cve?id=bad', '/ripple/api/cve', '/ripple/api/cve?id=CVE-2023-' + '1'.repeat(100)]) assert.equal((await app.fetch(request(route), env)).status, 400);
   assert.equal(calls, 0);
@@ -73,4 +73,15 @@ test('default Ripple research fetch retains the Worker global receiver', async (
   globalThis.fetch=async function(url,options){assert.equal(this,globalThis);assert.equal(url,'https://ripple-exposure.majorgeneralrabidzagnut.chatgpt.site/api/snapshot');assert.equal(options.headers['OAI-Sites-Authorization'],'Bearer '+secret);return Response.json(snapshot);};
   try {const response=await createWorker({},assets).fetch(request('/ripple/api/snapshot'),env);assert.equal(response.status,200);assert.deepEqual(await response.json(),snapshot);}
   finally {globalThis.fetch=original;}
+});
+
+test('transparency page preserves the distinct footer link and public operating data',async()=>{
+  const data={...snapshot,operations:{policy:{dailyRequests:150},contentHistory:[{id:'change',kind:'content',added:1}]}};
+  const app=await worker(async()=>Response.json({...data,secretMetadata:'omitted'}));
+  assert.deepEqual(await (await app.fetch(request('/ripple/api/snapshot'),env)).json(),data);
+  const page=await app.fetch(request('/ripple/updates'),env);
+  assert.match(await page.text(),/Ripple updates and rollout roadmap/);
+  const source=fs.readFileSync('tools/ripple/Ripple.tsx','utf8');
+  assert.match(source,/href="\/ripple\/updates"/);
+  assert.doesNotMatch(source,/\/api\/(research|assess|refresh)/);
 });

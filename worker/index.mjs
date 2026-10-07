@@ -12,7 +12,8 @@ export function createWorker(seed, assets, { rippleFetch = (...args) => globalTh
     // arbitrary hosts, redirected targets, or private mutation/admin endpoints.
     if (!['GET', 'HEAD'].includes(request.method)) return rippleJson(request, { error: 'Read-only Ripple research service' }, 405, { Allow: 'GET, HEAD' });
     const page = url.pathname === '/ripple' || url.pathname === '/ripple/';
-    const asset = assets[page ? '/ripple/index.html' : url.pathname];
+    const updates = url.pathname === '/ripple/updates' || url.pathname === '/ripple/updates/';
+    const asset = assets[updates ? '/ripple/updates.html' : page ? '/ripple/index.html' : url.pathname];
     if (asset && !url.pathname.startsWith('/ripple/api/')) return new Response(request.method === 'HEAD' ? null : asset.body, {
       status: 200, headers: { ...headers, ...rippleHeaders, 'Content-Type': asset.type, 'Cache-Control': 'no-store' },
     });
@@ -41,7 +42,7 @@ export function createWorker(seed, assets, { rippleFetch = (...args) => globalTh
       for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.byteLength; }
       const data = JSON.parse(new TextDecoder().decode(bytes));
       if (snapshot ? data.schemaVersion !== 1 || !Array.isArray(data.records) || !Array.isArray(data.candidates) || !Array.isArray(data.checks) : data.id !== id || typeof data.found !== 'boolean') throw Error('Unsupported Ripple response');
-      const fields = snapshot ? ['schemaVersion', 'records', 'candidates', 'checks', 'lastRun', 'storage', 'updateStatus', 'runs', 'lastAssessmentAt', 'assessmentRuns'] : ['id', 'found', 'description', 'severity', 'score', 'modified', 'status', 'url', 'ciscoImpact'];
+      const fields = snapshot ? ['schemaVersion', 'records', 'candidates', 'checks', 'lastRun', 'storage', 'updateStatus', 'runs', 'lastAssessmentAt', 'assessmentRuns', 'operations'] : ['id', 'found', 'description', 'severity', 'score', 'modified', 'status', 'url', 'ciscoImpact'];
       const publicData = Object.fromEntries(fields.filter(key => Object.hasOwn(data, key)).map(key => [key, data[key]]));
       return rippleJson(request, publicData);
     } catch {
