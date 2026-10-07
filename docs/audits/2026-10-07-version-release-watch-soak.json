@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 2,
+  "evaluatedAt": "2026-10-07T10:04:34.221Z",
+  "baseline": {
+    "deployedAt": "2026-10-07T09:45:51.044975Z",
+    "datasetRevision": "content-6dcf491dfeb864140adc2937",
+    "engineRevision": "engine-c5ff569aec1b2f034270",
+    "websiteRevision": "vc-4cdab5f7fbca9a51",
+    "githubCommit": "659ae18dabbf38c195c177537e9368da2ba2ba71",
+    "sitesCommit": "aa89aa148bdddc91ce3975d881408d918b5f0f56",
+    "matchingTree": "1cdf63b98b56552fe18d4e9d101f39d8cb9472a8",
+    "savedVersion": 118,
+    "savedVersionId": "appgprj_6aa3ff61bd288191ac95ac6e30707895~appgver_22f9679974048191bd5f483418166ba6",
+    "deploymentId": "appgdep_6ac614bf0fd88191bdb14fb4e397e1c7"
+  },
+  "scope": "Cloud 10.6 current service pairings, exact Enterprise/Cloud 10.6 Forwarder receiver rows, affected defaults, source mappings and factual delivery. Active database-backed browser delivery remains off.",
+  "checks": {
+    "content-parity": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-07T10:01:51.682Z",
+      "evidence": "Live D1 health, exact manifest, bundle digest/count, bounded SOAR query, rejected writes and all seven fallback adapters passed for content-6dcf491dfeb864140adc2937 / engine-c5ff569aec1b2f034270 with 668 records."
+    },
+    "source-mappings": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-07T10:04:34.221Z",
+      "evidence": "Source-register generation retained 148 exact records; regression tests cover Enterprise and Cloud 10.6 UF/HF receiver rows, borrowed HF runtime mappings, topology and qualification boundaries."
+    },
+    "shared-links": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-07T10:04:34.221Z",
+      "evidence": "The live current Cloud 10.5.2605 to 10.6 link hydrated exactly; the older 10.4.2604 to 10.5.2605 link retained both identifiers; an invalid source retained “bogus”, proposed recovery and disabled all exports without rendering a substitute report."
+    },
+    "automated-tests": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-07T10:04:34.221Z",
+      "evidence": "Ordered generation, all four synchronization checks, 157/157 Node tests and npm run build passed for the published factual tree; final exact-source validation is repeated before the verification-only publication."
+    },
+    "browser-journeys": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-07T10:04:34.221Z",
+      "evidence": "Live current/older/invalid Cloud routes, UF Cloud and HF hybrid routes rendered exact selections and qualifications. Read-only WebMCP separately returned current Cloud, ES 8.7 on Cloud 10.6, qualified ITSI 5.0.2 on Cloud 10.6, Observability September milestone, and UF/HF assessments."
+    },
+    "themes-and-narrow-screens": {
+      "outcome": "not-performed",
+      "checkedAt": "2026-10-07T10:04:34.221Z",
+      "evidence": "Default and Cisco themes rendered the affected routes; the Cisco document class was theme-cisco and the HF hybrid result remained exact.",
+      "reason": "The managed browser exposes no supported viewport resize or emulation, so narrow-screen behavior was not certified."
+    },
+    "keyboard": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-07T10:04:34.221Z",
+      "evidence": "Shift+Tab traversed the fixed export actions and navigation; activating Skip to comparison moved focus to #results."
+    },
+    "html-reopen": {
+      "outcome": "blocked",
+      "checkedAt": "2026-10-07T10:04:34.221Z",
+      "evidence": "A fresh saved HTML report downloaded from the live UF route.",
+      "reason": "The managed browser blocks file: navigation and its download path is not readable from the execution filesystem, so independent browser-rendered reopening was not performed."
+    },
+    "pdf-rendering": {
+      "outcome": "not-performed",
+      "checkedAt": "2026-10-07T10:04:34.221Z",
+      "evidence": "The live Print/PDF action invoked print preparation.",
+      "reason": "The managed browser exposed neither native print preview nor a saved PDF artifact for page-by-page inspection."
+    },
+    "live-revision": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-07T10:01:51.682Z",
+      "evidence": "GitHub 659ae18dabbf38c195c177537e9368da2ba2ba71 and Sites aa89aa148bdddc91ce3975d881408d918b5f0f56 share tree 1cdf63b98b56552fe18d4e9d101f39d8cb9472a8. Version 118 deployment appgdep_6ac614bf0fd88191bdb14fb4e397e1c7 succeeded; D1 provenance records generation 1 at 2026-10-07T09:59:44.094Z."
+    },
+    "maintenance-outcomes": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-07T10:04:34.221Z",
+      "evidence": "The version-release-watch running attempt and changed outcome were recorded with explicit scope and timestamps; existing schedules were not modified."
+    }
+  },
+  "findings": [
+    {
+      "observed": "Independent browser-rendered reopening of the fresh HTML snapshot is unavailable in the managed browser.",
+      "impact": "Snapshot generation works, but the newly downloaded artifact's independent rendering is not certified.",
+      "recommendedChange": "Add a supported isolated HTML-reopen harness for exact downloaded artifacts.",
+      "validation": "Reopen the exact file and compare route, revisions, citations and visible report anchors with screen and WebMCP.",
+      "severity": "material",
+      "reversible": true,
+      "affectedFunctionWorks": true,
+      "checksPassed": false,
+      "resolved": false
+    },
+    {
+      "observed": "Native PDF output and page-by-page pagination are unavailable in the managed browser.",
+      "impact": "Print preparation runs, but the changed report's PDF completeness and pagination are not certified.",
+      "recommendedChange": "Add a supported native PDF capture and visual pagination inspection path.",
+      "validation": "Record the exact artifact digest and page count and inspect every page for clipping, missing sections and citation completeness.",
+      "severity": "material",
+      "reversible": true,
+      "affectedFunctionWorks": true,
+      "checksPassed": false,
+      "resolved": false
+    },
+    {
+      "observed": "Narrow-screen behavior could not be exercised with the supported browser surface.",
+      "impact": "Default and Cisco desktop themes passed, but responsive behavior for the changed routes is not certified.",
+      "recommendedChange": "Provide supported viewport emulation or a narrow-screen browser surface.",
+      "validation": "Repeat affected current, older and invalid Cloud plus UF/HF routes at a narrow viewport in both themes and check focus, tap targets and fixed actions.",
+      "severity": "material",
+      "reversible": true,
+      "affectedFunctionWorks": true,
+      "checksPassed": false,
+      "resolved": false
+    }
+  ],
+  "feedback": {
+    "status": "not-recorded",
+    "note": "Recorded checks establish behavior, not user preference."
+  },
+  "advancement": {
+    "factualBatch": "published-and-live-verified",
+    "databaseProjection": "published-and-live-verified",
+    "activeDelivery": false,
+    "nextArchitectureIncrement": "held",
+    "reason": "Fresh HTML reopening, native PDF pagination and narrow-screen evidence remain applicable material gates."
+  }
+}

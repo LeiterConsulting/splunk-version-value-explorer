@@ -2,7 +2,7 @@
   "watch": "version-release-watch",
   "sourceCheckDate": "2026-10-07",
   "startedAt": "2026-10-07T09:12:53.000Z",
-  "completedAt": null,
+  "completedAt": "2026-10-07T10:04:34.221Z",
   "outcome": "changed",
   "scope": "All 120 unique official URLs referenced by the Platform, premium-product, Forwarder and SOAR canonical datasets, plus bounded current release, service-pairing, upgrade, receiver, runtime, security and SOAR claims.",
   "sourceInventory": {
@@ -107,15 +107,42 @@
   "validationOutcomes": {
     "sourceRetrieval": {"outcome":"confirmed","detail":"The 120-URL inventory was attempted with the differentiated results recorded above."},
     "boundedClaimReview": {"outcome":"confirmed","detail":"The changed Cloud/current-premium pairing and exact Enterprise/Cloud 10.6 receiver claims were separately verified; bounded release, migration, premium-product, Observability, SOAR and advisory claims were checked."},
-    "metadataGates": {"outcome":"pending","detail":"Final generator checks run after this dated audit and release note are included."},
-    "tests": {"outcome":"pending","detail":"The full Node suite and production build run after final synchronization."},
-    "browserJourneys": {"outcome":"pending","detail":"Affected live route checks run after publication with rollback retained."},
-    "keyboard": {"outcome":"pending","detail":"Affected keyboard behavior will be checked in the rendered browser."},
-    "narrowScreen": {"outcome":"pending","detail":"Affected narrow-screen route behavior will be checked in the rendered browser."},
-    "pdfExport": {"outcome":"pending","detail":"A fresh actual PDF export and page inspection are required for the changed report."},
-    "downloadedHtml": {"outcome":"pending","detail":"A fresh saved HTML report must be reopened independently."},
-    "screenPdfHtmlWebMcpAgreement": {"outcome":"pending","detail":"Agreement is assessed only after the rendered and export checks complete."},
-    "databaseDelivery": {"outcome":"pending","detail":"The live D1 diagnostic runs from the matching published source."},
-    "liveDeployment": {"outcome":"pending","detail":"No publication is pre-marked live."}
+    "metadataGates": {"outcome":"confirmed","detail":"Ordered synchronization and all four --check gates passed with seven datasets, 668 records and 148 source records."},
+    "tests": {"outcome":"confirmed","detail":"The complete Node suite passed 157/157 and npm run build produced a 53-asset Worker. Final exact-source checks are repeated before the verification-only publication."},
+    "browserJourneys": {"outcome":"confirmed","detail":"Live default-theme UF 10.4 to 10.6 Cloud 10.6, Cisco-theme HF 10.4 to 10.6 hybrid, current Cloud 10.5.2605 to 10.6, exact older Cloud 10.4.2604 to 10.5.2605 and invalid Cloud source-version routes were inspected. The invalid route retained “bogus”, proposed but did not render a replacement report, and disabled Copy, Print/PDF and snapshot."},
+    "keyboard": {"outcome":"confirmed","detail":"Shift+Tab traversed Save, Print, Copy, release note, navigation, home and Skip to comparison; activating the skip link focused #results."},
+    "narrowScreen": {"outcome":"not-performed","detail":"The managed browser exposes no supported viewport resizing or emulation. Default and Cisco themes were checked at the available viewport, but narrow-screen behavior was not certified."},
+    "pdfExport": {"outcome":"not-performed","detail":"The live Print/PDF control was invoked and print preparation opened, but the managed browser exposed neither native print preview nor a saved PDF artifact for page-by-page inspection."},
+    "downloadedHtml": {"outcome":"blocked","detail":"A fresh live saved HTML report downloaded successfully. The managed browser blocks file: navigation and the browser-produced path is not readable from the execution filesystem, so independent browser-rendered reopening was not performed."},
+    "screenPdfHtmlWebMcpAgreement": {"outcome":"partial","detail":"Screen and read-only WebMCP agreed on exact Cloud, ES, ITSI, Observability, UF and HF selections, statuses, qualifications, sources and website revision. Fresh PDF and independently reopened HTML agreement remain unverified."},
+    "databaseDelivery": {"outcome":"confirmed","detail":"The first publisher attempt correctly failed closed with engine-mismatch because it ran before the matching Site Worker deployed. After deployment, rerun attempt 2 succeeded; D1 generation 1 records GitHub commit 659ae18dabbf38c195c177537e9368da2ba2ba71. A final diagnostic passed health, exact manifest, bundle digest/count, bounded SOAR query, rejected POST and all seven bundled fallback assets for content-6dcf491dfeb864140adc2937 / engine-c5ff569aec1b2f034270."},
+    "liveDeployment": {"outcome":"confirmed","detail":"GitHub main 659ae18dabbf38c195c177537e9368da2ba2ba71 and Sites commit aa89aa148bdddc91ce3975d881408d918b5f0f56 share tree 1cdf63b98b56552fe18d4e9d101f39d8cb9472a8. Public version 118, deployment appgdep_6ac614bf0fd88191bdb14fb4e397e1c7, succeeded at 2026-10-07T09:45:51.044975Z and the affected live routes were then inspected."}
+  },
+  "publication": {
+    "githubCommit": "659ae18dabbf38c195c177537e9368da2ba2ba71",
+    "sitesCommit": "aa89aa148bdddc91ce3975d881408d918b5f0f56",
+    "matchingTree": "1cdf63b98b56552fe18d4e9d101f39d8cb9472a8",
+    "savedVersion": 118,
+    "savedVersionId": "appgprj_6aa3ff61bd288191ac95ac6e30707895~appgver_22f9679974048191bd5f483418166ba6",
+    "deploymentId": "appgdep_6ac614bf0fd88191bdb14fb4e397e1c7",
+    "deployedAt": "2026-10-07T09:45:51.044975Z",
+    "datasetRevision": "content-6dcf491dfeb864140adc2937",
+    "engineRevision": "engine-c5ff569aec1b2f034270",
+    "websiteRevision": "vc-4cdab5f7fbca9a51",
+    "recordCount": 668,
+    "sourceRecordCount": 148,
+    "publisherWorkflowRun": 37602074378,
+    "publisherWorkflowAttempt": 2,
+    "publisherOutcome": "already-current; authenticated provenance and generation-one activation recorded with active delivery remaining off",
+    "rollback": "Sites version 117 and prior complete D1 revisions remain available."
+  },
+  "soakDisposition": {
+    "status": "hold",
+    "reason": "The factual batch and live D1 publication are verified, but the next active-reader or architecture increment remains held on fresh narrow-screen, independently reopened HTML and native PDF evidence.",
+    "recommendations": [
+      "Add a supported isolated saved-HTML reopen harness that can load the exact downloaded file and compare visible route, citations and revision metadata.",
+      "Add a supported native PDF capture path that records digest and page count and permits page-by-page clipping and completeness inspection.",
+      "Add supported viewport emulation or a narrow-screen browser surface, then repeat the affected default and Cisco route checks."
+    ]
   }
 }
