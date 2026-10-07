@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-07T15:37:16.521Z",
+  "scope": "Maintenance diagnostic classification and browser recovery; no product, report, public delivery or storage implementation change",
+  "baseline": {
+    "githubCommit": "c10be2019cd0cde6c63125b9b45836461140b2fb",
+    "sitesCommit": "e9ba955eb8d591e9810c9fe8a9b879947830af87",
+    "matchingTree": "ea2bc5e1ba728afbfffbec79cbbbb08e488db7e2",
+    "sitesVersion": 122,
+    "contentRevision": "content-6dcf491dfeb864140adc2937",
+    "engineRevision": "engine-c5ff569aec1b2f034270"
+  },
+  "browserRecovery": {
+    "outcome": "passed",
+    "evidence": "Supported cloud browser inventory, current Chrome tab binding, navigation to the previously timed-out Splunk compliance page, and US Public Sector tab interaction returned visible page state and screenshot.",
+    "qualification": "Navigation and tab interaction only. No full fresh compliance-matrix claim review, affected-candidate report journey, native PDF, independent saved HTML rendering or narrow-screen emulation is claimed."
+  },
+  "rootCause": {
+    "outcome": "not-established",
+    "evidence": "Prior audit records browser-service timeouts, including reset. The current browser works. No internal browser-service incident log was available. A timeout alone does not establish bot detection, lost user permission or an application defect."
+  },
+  "liveDeliveryRetry": {
+    "evaluatedAt": "2026-10-07T15:31:52.523Z",
+    "target": "https://versioncompass.com",
+    "expectedRevision": "content-6dcf491dfeb864140adc2937",
+    "status": "issues-detected",
+    "checks": {
+      "database-health": {
+        "outcome": "failed",
+        "evidence": "The operation was aborted due to timeout",
+        "checkedAt": "2026-10-07T15:31:12.265Z"
+      },
+      "live-manifest": {
+        "outcome": "failed",
+        "evidence": "The operation was aborted due to timeout",
+        "checkedAt": "2026-10-07T15:31:22.268Z"
+      },
+      "bundle-integrity": {
+        "outcome": "passed",
+        "evidence": {
+          "digest": "2ac4b475d0e9d1fa3fbb71cacdf98d617e485a2ac56dfa3251da7ee3e33a444d",
+          "recordCount": 668
+        },
+        "checkedAt": "2026-10-07T15:31:27.722Z"
+      },
+      "bounded-record-query": {
+        "outcome": "passed",
+        "evidence": "SOAR filter, revision and maximum page size verified",
+        "checkedAt": "2026-10-07T15:31:35.282Z"
+      },
+      "read-only-api": {
+        "outcome": "passed",
+        "evidence": "POST rejected with 405",
+        "checkedAt": "2026-10-07T15:31:42.222Z"
+      },
+      "bundled-fallback-assets": {
+        "outcome": "passed",
+        "evidence": "All seven complete fallback adapters served",
+        "checkedAt": "2026-10-07T15:31:52.523Z"
+      }
+    },
+    "findings": [
+      {
+        "observed": "database-health: The operation was aborted due to timeout",
+        "impact": "Database delivery cannot be certified",
+        "recommendedChange": "Check D1 binding and applied schema; preserve complete bundled fallback while repairing delivery.",
+        "reversible": true,
+        "checksPassed": false,
+        "resolved": false
+      },
+      {
+        "observed": "live-manifest: The operation was aborted due to timeout",
+        "impact": "Database delivery cannot be certified",
+        "recommendedChange": "Reconcile the published source/build and cache before publishing the exact validated revision.",
+        "reversible": true,
+        "checksPassed": false,
+        "resolved": false
+      }
+    ],
+    "limitations": [
+      "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
+    ]
+  },
+  "workerLogs": {
+    "outcome": "inspected",
+    "evidence": "Recent production log inspection returned expected 400 maximum-limit rejections, 404 icon/robots requests and successful 200 bundle reads; those entries had outcome ok. No crash was found in the inspected entries. Logs are sampled/recent and do not prove absence of all application errors."
+  },
+  "repair": {
+    "unavailableResponse": "blocked with method/path/phase/error name; certification remains nonzero",
+    "returnedInvalidResponse": "failed with the existing concrete repair recommendation",
+    "progress": "running and completed checks on stderr; final JSON on stdout",
+    "automaticRetries": false
+  },
+  "validation": {
+    "generationGates": "all four passed",
+    "tests": {
+      "passed": 161,
+      "failed": 0
+    },
+    "build": {
+      "assets": 53,
+      "revision": "content-6dcf491dfeb864140adc2937",
+      "engineRevision": "engine-c5ff569aec1b2f034270",
+      "workerSha256": "38895fba2ddee9cfc21a674f45b26c561cbc41b9b7d2133563d85dedfd4bd1df",
+      "identicalToDeployedSourceBuild": true
+    },
+    "browserExportScope": {
+      "unaffected": true,
+      "rationale": "Only the maintenance script, its regression tests and operational documentation/audit/release note changed. The rebuilt Worker and embedded visitor assets exactly match the build from deployed Sites source e9ba955. No new PDF/HTML/viewport claim is required to certify this diagnostic-only repair."
+    }
+  },
+  "remaining": {
+    "machineDataLakeCandidate": "PR 24 remains independently held; this repair does not publish its four new rows or certify its missing affected-report checks",
+    "ownerVerification": "Existing owner-reported baseline export/narrow checks remain closed in their original scope",
+    "browserCapabilities": "Current browser still advertises no native PDF or viewport-emulation API",
+    "schedules": "unchanged",
+    "activeDelivery": "unchanged; off"
+  },
+  "publication": {
+    "status": "validated-maintenance-repair",
+    "qualification": "GitHub integration and Sites synchronization are reported separately after their actual outcomes."
+  },
+  "classifiedLiveDeliveryRetry": {
+    "evaluatedAt": "2026-10-07T15:36:38.335Z",
+    "target": "https://versioncompass.com",
+    "expectedRevision": "content-6dcf491dfeb864140adc2937",
+    "status": "issues-detected",
+    "checks": {
+      "database-health": {
+        "outcome": "blocked",
+        "failureType": "transport-unavailable",
+        "evidence": "The operation was aborted due to timeout",
+        "checkedAt": "2026-10-07T15:36:16.110Z",
+        "request": {
+          "path": "/api/content/health",
+          "method": "GET",
+          "phase": "response"
+        },
+        "errorName": "TimeoutError",
+        "elapsedMs": 10015
+      },
+      "live-manifest": {
+        "outcome": "passed",
+        "evidence": {
+          "schemaVersion": 1,
+          "revision": "content-6dcf491dfeb864140adc2937",
+          "digest": "2ac4b475d0e9d1fa3fbb71cacdf98d617e485a2ac56dfa3251da7ee3e33a444d",
+          "engineRevision": "engine-c5ff569aec1b2f034270",
+          "datasetHashes": {
+            "platform": "64bb4fd3e6862400dfc7148d59cc6c327d6031d6101685daaf9dfd3e07899b10",
+            "products": "ad329377961c7471bf61993428fcb68b234ab43178cbbc1668924c4829757cea",
+            "guidance": "8c09fe6020e9f3e31a5b97469408e482232cbbaaa494bd77138e7f84665e273c",
+            "environment": "9f13ac92dedcb8a3f4d5d0de59926f7568ef67e92239c2d095edcde9cf22a0fb",
+            "editions": "3d71261084a1b730c55f179589478e8f6299389a3029b2311181b1f98847eb06",
+            "forwarders": "a33bf7da9957714e2b3e43ef6cadd0da893277ef9e8aed4b7ec9396963e7338a",
+            "soar": "55c75eb62e2e02f276a31bb84205a6164e51b240f0742479f09eeac82e3f0150"
+          },
+          "recordCount": 668,
+          "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+          "verificationPolicy": "Migration and delivery do not create verification dates",
+          "phase": "content-model-and-database-delivery"
+        },
+        "checkedAt": "2026-10-07T15:36:23.154Z",
+        "elapsedMs": 7042
+      },
+      "bundle-integrity": {
+        "outcome": "passed",
+        "evidence": {
+          "digest": "2ac4b475d0e9d1fa3fbb71cacdf98d617e485a2ac56dfa3251da7ee3e33a444d",
+          "recordCount": 668
+        },
+        "checkedAt": "2026-10-07T15:36:32.918Z",
+        "elapsedMs": 9763
+      },
+      "bounded-record-query": {
+        "outcome": "passed",
+        "evidence": "SOAR filter, revision and maximum page size verified",
+        "checkedAt": "2026-10-07T15:36:33.732Z",
+        "elapsedMs": 814
+      },
+      "read-only-api": {
+        "outcome": "passed",
+        "evidence": "POST rejected with 405",
+        "checkedAt": "2026-10-07T15:36:37.664Z",
+        "elapsedMs": 3932
+      },
+      "bundled-fallback-assets": {
+        "outcome": "passed",
+        "evidence": "All seven complete fallback adapters served",
+        "checkedAt": "2026-10-07T15:36:38.334Z",
+        "elapsedMs": 669
+      }
+    },
+    "findings": [
+      {
+        "observed": "database-health: The operation was aborted due to timeout",
+        "impact": "Delivery check incomplete; the cause is not established",
+        "recommendedChange": "Retry this exact check after transport recovery and inspect matching Worker request logs; do not infer an application defect from an unavailable response.",
+        "reversible": true,
+        "checksPassed": false,
+        "resolved": false
+      }
+    ],
+    "limitations": [
+      "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
+    ]
+  }
+}

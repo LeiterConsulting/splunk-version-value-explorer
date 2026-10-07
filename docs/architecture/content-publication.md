@@ -31,6 +31,8 @@ Preserve exact GitHub/Sites source-tree, saved-version, successful-deployment an
 
 Run `npm run content:diagnose -- https://versioncompass.com/` from the matching source checkout. It checks actual database health, manifest parity, bundle integrity, bounded queries, rejected writes and fallback assets. Failures include specific repair recommendations; its success does not substitute for browser/export evidence.
 
+Unavailable responses or interrupted body reads are recorded as `blocked` with the request method, path, phase and error name. A returned bad status, malformed JSON or integrity mismatch is `failed`. Both prevent certification and exit nonzero. Progress goes to stderr; the final JSON remains on stdout. A timeout alone does not establish a defective database, missing adapter or accepted write. Retry the exact check after evidence of recovery and correlate Worker request logs before proposing an application repair. Browser-service availability, browser capabilities and actual report verification are separate observations; see [browser recovery](../browser-verification-recovery.md).
+
 ## Further increments
 
 Use the [evidence-based delivery policy](../soak-policy.md): advance as soon as applicable material checks pass, with no mandatory 72-hour delay. The observation window may run alongside delivery. The [supported publisher integration](publisher-integration.md) separates verified staging from activation and isolates the prepared active reader while its browser/export checks are unavailable. Reuse the Site and established tasks and preserve their schedules. Privacy/audience expansion, destructive schema changes, commercial commitments and uncertain facts remain held for review.
