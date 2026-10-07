@@ -1,7 +1,7 @@
 /* Editorial change provenance. Cycles advance only with material factual updates. */
 (function(){
 'use strict';
-const policy={currentCycle:14,retentionCycles:2};
+const policy={currentCycle:15,retentionCycles:2};
 const note25='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-25.md';
 const note26='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-26.md';
 const note30='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-30.md';
@@ -21,10 +21,15 @@ const enterprise106='https://help.splunk.com/en/splunk-enterprise/release-notes-
 const enterprise106ReadFirst='https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first';
 const cloud106='https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new';
 const cloudServiceDetails='https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details';
+const cloudServiceChanges='https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log';
 const ingest='https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor';
 const fedrampModerate='https://www.fedramp.gov/marketplace/products/F1607197917/';
 const fedrampHigh='https://www.fedramp.gov/marketplace/products/FR2314156865/';
 const entries={
+"environment:machine-data-lake-aws":{kind:"new",cycle:15,date:"2026-10-07",version:"Machine Data Lake · AWS commercial",detail:"Added the current AWS availability record with explicit provider, region, configuration and enabled-service dependencies; GovCloud, entitlement, authorization and historical rollout remain separate.",source:cloudServiceDetails,sourceDate:"2026-10-06",note:note07},
+"environment:machine-data-lake-gov":{kind:"new",cycle:15,date:"2026-10-07",version:"Machine Data Lake · AWS GovCloud",detail:"Added the current exclusion for both GovCloud regions without changing the authorization of the surrounding Platform offering.",source:cloudServiceChanges,sourceDate:"2026-10-06",note:note07},
+"environment:machine-data-lake-gcp":{kind:"new",cycle:15,date:"2026-10-07",version:"Machine Data Lake · Google Cloud",detail:"Added the current provider-specific unavailable record without generalizing it to another product, region or historical release.",source:cloudServiceDetails,sourceDate:"2026-10-06",note:note07},
+"environment:machine-data-lake-azure":{kind:"new",cycle:15,date:"2026-10-07",version:"Machine Data Lake · Microsoft Azure",detail:"Added the current provider-specific unavailable record without generalizing it to another product, region or historical release.",source:cloudServiceDetails,sourceDate:"2026-10-06",note:note07},
 "compatibility:es:cloud-current":{kind:"updated",cycle:14,date:"2026-10-07",version:"Cloud 10.6 · ES 8.7",detail:"Advanced the current Cloud-managed service pairing while preserving separate selected-stack, region, edition, entitlement and authorization checks.",source:cloudServiceDetails,sourceDate:null,note:note07},
 "compatibility:itsi:cloud-current":{kind:"updated",cycle:14,date:"2026-10-07",version:"Cloud 10.6 · ITSI 5.0",detail:"Advanced the current Cloud-managed service pairing while preserving separate selected-stack, region, entitlement and authorization checks.",source:cloudServiceDetails,sourceDate:null,note:note07},
 "technical:forwarders:Cloud 10.6 receiver compatibility":{kind:"updated",cycle:14,date:"2026-10-07",version:"UF / HF 10.6 · Cloud 10.6",detail:"Added the exact commercial Cloud 10.6 direct receiver row; intermediate tiers, regulated environments, entitlement and authorization remain separate checks.",source:cloudServiceDetails,sourceDate:null,note:note07},

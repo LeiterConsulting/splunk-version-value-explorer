@@ -1103,9 +1103,13 @@ window.VersionCompassSources = {
         "environment: environment.records.29",
         "environment: environment.records.30",
         "environment: environment.records.31",
-        "environment: environment.records.55",
-        "environment: environment.records.56",
-        "environment: environment.records.57",
+        "environment: environment.records.32",
+        "environment: environment.records.33",
+        "environment: environment.records.34",
+        "environment: environment.records.35",
+        "environment: environment.records.59",
+        "environment: environment.records.60",
+        "environment: environment.records.61",
         "forwarders: forwarders.claimSources.receiver.cloud",
         "forwarders: forwarders.claimSources.topology.cloud-intermediate"
       ],
@@ -1130,8 +1134,8 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "A documentation path, hosting row, FIPS statement, app-installation path or current-version table establishes only its exact scope; it does not prove universal availability, entitlement, compatibility or authorization.",
-      "section": "Available regions and region differences; experience designations; compliance subscriptions; authorized-app qualification; Current Splunk Cloud Platform and Premium App versions; Supported forwarder versions",
-      "verificationScope": "Confirmed the current subscription table now identifies Cloud 10.6, ES 8.7 and ITSI 5.0. Rechecked exact UF/HF rows through 10.6 and their direct-versus-intermediate scope. The current availability table includes Moderate but excludes High for Federated Search for Amazon S3, preserving the April change-log conflict. Provider, region, entitlement, selected-stack rollout and customer authorization remain separate and were not inferred from the current pairing.",
+      "section": "Available regions and region differences; Machine Data Lake search; experience designations; compliance subscriptions; authorized-app qualification; Current Splunk Cloud Platform and Premium App versions; Supported forwarder versions",
+      "verificationScope": "Confirmed Machine Data Lake is listed as available on AWS except both GovCloud regions and unavailable on Google Cloud and Azure, with workflows still dependent on provider, region, environment configuration and enabled services. The current subscription table remains Cloud 10.6, ES 8.7 and ITSI 5.0. The current table still includes Moderate but excludes High for Federated Search for Amazon S3, preserving the April change-log conflict. Availability, entitlement, authorization and historical rollout remain separate.",
       "events": [
         {
           "date": "2026-10-02",
@@ -1144,6 +1148,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-07",
           "event": "Review status updated: Needs reconciliation · 2026-10-07"
+        },
+        {
+          "date": "2026-10-07",
+          "event": "Review status updated: Needs reconciliation · 2026-10-07"
         }
       ]
     },
@@ -1151,32 +1159,42 @@ window.VersionCompassSources = {
       "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log",
       "title": "Cloud service description change log",
       "areas": [
-        "Cloud environment"
+        "Cloud environment",
+        "Shared guidance"
       ],
       "references": [
         "environment.sources.changes.url",
+        "content-updates.js",
         "environment: environment.records.13",
         "environment: environment.records.17",
         "environment: environment.records.19",
-        "environment: environment.records.24"
+        "environment: environment.records.24",
+        "environment: environment.records.32",
+        "environment: environment.records.33",
+        "environment: environment.records.34",
+        "environment: environment.records.35"
       ],
       "reviews": [
-        "2026-10-06"
+        "2026-10-07"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-10-02",
+      "reviewed": "2026-10-07",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-10-02",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "A current documentation path and dated change-log entries do not silently resolve contradictory current table wording or establish entitlement, customer authorization or historical rollout.",
-      "section": "August 25, May 22 and April 8, 2026 entries",
-      "verificationScope": "Confirmed that the current 10.6 documentation path retains August 25 as the latest dated body entry, including Victoria expansion to Google Cloud Frankfurt and AWS FedRAMP High plus Edge and Ingest Processor expansion to AWS Canada West. Rechecked the May 22 Moderate processor entries and the April 8 Federated Search for Amazon S3 High entry. The latter still conflicts with the current Service Details table and remains qualified.",
+      "section": "October 6, August 25, May 22 and April 8, 2026 entries",
+      "verificationScope": "Confirmed the new October 6 entry adds Machine Data Lake regional availability and expands the Search, Subscription Types and Supported Version sections for relevant 10.6 releases. Rechecked the August Victoria/processor updates, May Moderate processor entries and April Federated Search for Amazon S3 High entry. The S3 statement still conflicts with the current Service Details table and remains qualified.",
       "events": [
         {
           "date": "2026-10-02",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-07",
+          "event": "Review status updated: Needs reconciliation · 2026-10-07"
         }
       ]
     },
@@ -1196,10 +1214,10 @@ window.VersionCompassSources = {
         "environment: environment.records.19"
       ],
       "reviews": [
-        "2026-10-06"
+        "2026-10-07"
       ],
       "usage": "In use",
-      "reviewed": "2026-10-02",
+      "reviewed": "2026-10-07",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -1239,6 +1257,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-02",
           "event": "Review status updated: Reviewed · 2026-10-02"
+        },
+        {
+          "date": "2026-10-07",
+          "event": "Review status updated: Reviewed · 2026-10-07"
         }
       ]
     },
@@ -2196,10 +2218,6 @@ window.VersionCompassSources = {
       "references": [
         "environment.sources.es.url",
         "editions.sources.regions.u",
-        "environment: environment.records.32",
-        "environment: environment.records.33",
-        "environment: environment.records.34",
-        "environment: environment.records.35",
         "environment: environment.records.36",
         "environment: environment.records.37",
         "environment: environment.records.38",
@@ -2209,17 +2227,21 @@ window.VersionCompassSources = {
         "environment: environment.records.42",
         "environment: environment.records.43",
         "environment: environment.records.44",
+        "environment: environment.records.45",
+        "environment: environment.records.46",
+        "environment: environment.records.47",
+        "environment: environment.records.48",
         "editions: editions.capabilities.11",
         "editions: editions.capabilities.13",
         "editions: editions.capabilities.17",
         "editions: editions.notes.1"
       ],
       "reviews": [
-        "2026-10-06",
+        "2026-10-07",
         "2026-10-01"
       ],
       "usage": "In use",
-      "reviewed": "2026-10-02",
+      "reviewed": "2026-10-07",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -2263,6 +2285,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-02",
           "event": "Review status updated: Reviewed · 2026-10-02"
+        },
+        {
+          "date": "2026-10-07",
+          "event": "Review status updated: Reviewed · 2026-10-07"
         }
       ]
     },
@@ -3819,22 +3845,22 @@ window.VersionCompassSources = {
       ],
       "references": [
         "environment.sources.o11y.url",
-        "environment: environment.records.45",
-        "environment: environment.records.46",
-        "environment: environment.records.47",
-        "environment: environment.records.48",
         "environment: environment.records.49",
         "environment: environment.records.50",
         "environment: environment.records.51",
         "environment: environment.records.52",
         "environment: environment.records.53",
-        "environment: environment.records.54"
+        "environment: environment.records.54",
+        "environment: environment.records.55",
+        "environment: environment.records.56",
+        "environment: environment.records.57",
+        "environment: environment.records.58"
       ],
       "reviews": [
-        "2026-10-06"
+        "2026-10-07"
       ],
       "usage": "In use",
-      "reviewed": "2026-10-02",
+      "reviewed": "2026-10-07",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -3874,6 +3900,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-02",
           "event": "Review status updated: Reviewed · 2026-10-02"
+        },
+        {
+          "date": "2026-10-07",
+          "event": "Review status updated: Reviewed · 2026-10-07"
         }
       ]
     },
@@ -4159,7 +4189,7 @@ window.VersionCompassSources = {
         "soar: soar.backlog.2"
       ],
       "reviews": [
-        "2026-10-06"
+        "2026-10-07"
       ],
       "claimReferences": [
         {
@@ -4168,7 +4198,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-02",
+      "reviewed": "2026-10-07",
       "status": "Reviewed",
       "firstRecorded": "2026-10-01",
       "firstUsed": null,
@@ -4192,6 +4222,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-02",
           "event": "Review status updated: Reviewed · 2026-10-02"
+        },
+        {
+          "date": "2026-10-07",
+          "event": "Review status updated: Reviewed · 2026-10-07"
         }
       ]
     },
@@ -4377,10 +4411,10 @@ window.VersionCompassSources = {
         "soar.sources.regions.url"
       ],
       "reviews": [
-        "2026-10-06"
+        "2026-10-07"
       ],
       "usage": "In use",
-      "reviewed": "2026-10-02",
+      "reviewed": "2026-10-07",
       "status": "Reviewed",
       "firstRecorded": "2026-10-01",
       "firstUsed": null,
@@ -4404,6 +4438,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-02",
           "event": "Review status updated: Reviewed · 2026-10-02"
+        },
+        {
+          "date": "2026-10-07",
+          "event": "Review status updated: Reviewed · 2026-10-07"
         }
       ]
     },
@@ -5397,17 +5435,17 @@ window.VersionCompassSources = {
         "environment: environment.records.10"
       ],
       "reviews": [
-        "2026-10-06"
+        "2026-10-07"
       ],
       "usage": "In use",
-      "reviewed": "2026-10-02",
+      "reviewed": "2026-10-07",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "Offering-level status is distinct from feature-specific availability and customer authorization decisions.",
-      "section": "Status and Certification Profile — package F1607197917",
-      "verificationScope": "Confirmed the exact Splunk Cloud Platform for FedRAMP Moderate offering remains Ongoing Certification, FedRAMP Certified, Class C (Moderate), certified since October 11, 2019. This does not establish authorization for every feature, region, premium product or another package.",
+      "section": "Status, Certification Profile and Other Service(s) — package F1607197917",
+      "verificationScope": "Confirmed the exact Splunk Cloud Platform for FedRAMP Moderate offering remains Ongoing Certification, FedRAMP Certified, Class C (Moderate), certified since October 11, 2019. Its embedded current Other Service(s) list names Splunk Enterprise Security, Splunk IT Service Intelligence and Splunk SOAR alongside scoped Platform services. This does not establish authorization for every feature, region, entitlement, pairing, rollout or customer.",
       "events": [
         {
           "date": "2026-09-25",
@@ -5440,6 +5478,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-02",
           "event": "Review status updated: Reviewed · 2026-10-02"
+        },
+        {
+          "date": "2026-10-07",
+          "event": "Review status updated: Reviewed · 2026-10-07"
         }
       ]
     },
@@ -5461,7 +5503,7 @@ window.VersionCompassSources = {
         "soar: soar.backlog.2"
       ],
       "reviews": [
-        "2026-10-06"
+        "2026-10-07"
       ],
       "claimReferences": [
         {
@@ -5470,14 +5512,14 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-02",
+      "reviewed": "2026-10-07",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "Offering-level status is distinct from feature-specific availability, premium-product scope and customer authorization decisions.",
-      "section": "Status and Certification Profile — package FR2314156865",
-      "verificationScope": "Confirmed the exact Splunk Cloud Platform for FedRAMP High offering remains Ongoing Certification, FedRAMP Certified, Class D (High), certified since September 13, 2024.",
+      "section": "Status, Certification Profile and Other Service(s) — package FR2314156865",
+      "verificationScope": "Confirmed the exact Splunk Cloud Platform for FedRAMP High offering remains Ongoing Certification, FedRAMP Certified, Class D (High), certified since September 13, 2024. Its embedded current Other Service(s) list names Private Connectivity, Splunk Cloud Platform, Splunk Enterprise Security and Splunk IT Service Intelligence; it does not name SOAR.",
       "events": [
         {
           "date": "2026-09-25",
@@ -5510,6 +5552,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-02",
           "event": "Review status updated: Reviewed · 2026-10-02"
+        },
+        {
+          "date": "2026-10-07",
+          "event": "Review status updated: Reviewed · 2026-10-07"
         }
       ]
     },
@@ -5521,12 +5567,12 @@ window.VersionCompassSources = {
       ],
       "references": [
         "environment.sources.compliance.url",
-        "environment: environment.records.55",
-        "environment: environment.records.56",
-        "environment: environment.records.57"
+        "environment: environment.records.59",
+        "environment: environment.records.60",
+        "environment: environment.records.61"
       ],
       "reviews": [
-        "2026-10-06"
+        "2026-10-07"
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",
@@ -5580,13 +5626,13 @@ window.VersionCompassSources = {
       ],
       "references": [
         "environment.sources.esmoderate.url",
-        "environment: environment.records.44"
+        "environment: environment.records.48"
       ],
       "reviews": [
-        "2026-10-06"
+        "2026-10-07"
       ],
       "usage": "In use",
-      "reviewed": "2026-10-02",
+      "reviewed": "2026-10-07",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -5626,6 +5672,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-02",
           "event": "Review status updated: Reviewed · 2026-10-02"
+        },
+        {
+          "date": "2026-10-07",
+          "event": "Review status updated: Reviewed · 2026-10-07"
         }
       ]
     },
@@ -5640,10 +5690,10 @@ window.VersionCompassSources = {
         "environment: environment.records.5"
       ],
       "reviews": [
-        "2026-10-06"
+        "2026-10-07"
       ],
       "usage": "In use",
-      "reviewed": "2026-10-02",
+      "reviewed": "2026-10-07",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
@@ -5683,6 +5733,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-02",
           "event": "Review status updated: Reviewed · 2026-10-02"
+        },
+        {
+          "date": "2026-10-07",
+          "event": "Review status updated: Reviewed · 2026-10-07"
         }
       ]
     },

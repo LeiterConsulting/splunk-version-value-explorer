@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-10-06T11:11:53Z",
-      "lastSuccess": "2026-10-06T11:26:21Z",
+      "lastAttempt": "2026-10-07T14:48:01.945Z",
+      "lastSuccess": "2026-10-07T15:19:22.880Z",
       "outcome": "changed",
-      "summary": "Exact FedRAMP Marketplace Certified Services scope added for ES and ITSI in Moderate and High, and SOAR in Moderate; SOAR High remains not established and the S3 conflict remains preserved.",
+      "summary": "October 6 Machine Data Lake regional evidence produced four scoped records; publication is held pending fresh affected-route PDF, HTML-reopen and rendered-browser checks after the supported browser timed out.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -147,9 +147,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Exact FedRAMP Marketplace Certified Services scope added for ES and ITSI in Moderate and High, and SOAR in Moderate; SOAR High remains not established and the S3 conflict remains preserved.",
           "scope": "Twelve official sources checked; six bounded consequential claims verified; 58 environment records and four CSP-owned SOAR sources reconciled."
+        },
+        {
+          "at": "2026-10-07T14:48:01.945Z",
+          "outcome": "running",
+          "summary": "Reviewing the current Cloud environment, FedRAMP, Observability and CSP-owned SOAR evidence inventory.",
+          "scope": "Ten canonical environment sources, 58 environment records, SOAR region/restricted-environment sources, consequential availability/authorization claims, route/report parity and publication diagnostics."
+        },
+        {
+          "at": "2026-10-07T15:19:22.880Z",
+          "outcome": "changed",
+          "summary": "October 6 Machine Data Lake regional evidence produced four scoped records; publication is held pending fresh affected-route PDF, HTML-reopen and rendered-browser checks after the supported browser timed out.",
+          "scope": "Checked 10 environment sources, 62 resulting environment records, four SOAR regional/restricted source records and eight bounded claims; added four Machine Data Lake records with provider, region, regime and authorization boundaries."
         }
       ],
-      "scope": "Twelve official sources checked; six bounded consequential claims verified; 58 environment records and four CSP-owned SOAR sources reconciled."
+      "scope": "Checked 10 environment sources, 62 resulting environment records, four SOAR regional/restricted source records and eight bounded claims; added four Machine Data Lake records with provider, region, regime and authorization boundaries."
     },
     {
       "id": "version-release-watch",

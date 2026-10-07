@@ -423,11 +423,16 @@ test('environment selection survives page, read-only report, share URL and print
  const current=rt.run('get_current_report',{});assert.equal(current.ok,true);
  const report=current.report;assert.equal(report.environment.selection.region,selection.region);
  assert.equal(report.environment.records.find(r=>r.id==='s3-high').availability,'conflicting');
+ const lake=report.environment.records.find(r=>r.id==='machine-data-lake-gov');assert(lake);assert.equal(lake.availability,'unavailable');assert.equal(lake.authorization,'not_established');
+ assert(lake.citations.some(s=>s.key==='service'));assert(lake.citations.some(s=>s.key==='changes'));
  const link=new URL(report.reportUrl);for(const k of ['csp','region','compliance'])assert.equal(link.searchParams.get(k),selection[k]);
  const before=rt.window.location.href;
  const compact=rt.run('compare_routes',{routes:[{...routes[1],environment:{csp:'azure',compliance:'fr-h'}}],include:[]});
  assert.equal(compact.ok,true);assert.equal(compact.reports[0].environment.records.length,0);assert.match(compact.reports[0].environment.coverageNote,/not an unavailability/);assert.equal(rt.window.location.href,before);
- await rt.dispatch('beforeprint');const html=rt.elements.get('release-report').innerHTML;assert.match(html,/Cloud environment/);assert.match(html,/Conflicting guidance/);assert.match(html,/February 2026/);
+ await rt.dispatch('beforeprint');const html=rt.elements.get('release-report').innerHTML;assert.match(html,/Cloud environment/);assert.match(html,/Conflicting guidance/);assert.match(html,/Machine Data Lake/);assert.match(html,/February 2026/);
+ for(const citation of lake.citations)assert(html.includes(citation.url));
+ const commercial=rt.run('compare_routes',{routes:[{...routes[1],environment:{csp:'aws',region:'us-east-1',compliance:'commercial'}}]}).reports[0];
+ const available=commercial.environment.records.find(r=>r.id==='machine-data-lake-aws');assert(available);assert.equal(available.availability,'conditional');assert.equal(available.authorization,'not_established');
  assert.equal(rt.run('compare_routes',{routes:[{...routes[1],environment:{csp:'aws',region:'gcp-oregon'}}]}).ok,false);
  const invalid=await runtime({selection:{...routes[1],csp:'invalid'}});assert.equal(invalid.run('get_current_report',{}).ok,false);assert.equal(invalid.elements.get('copy-link').disabled,true);
 });
