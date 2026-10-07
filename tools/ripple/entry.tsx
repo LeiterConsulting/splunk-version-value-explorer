@@ -2,4 +2,4 @@ import { createRoot } from 'react-dom/client';
 import Ripple from './Ripple';
 
 const root = document.getElementById('ripple-root');
-if (root) createRoot(root).render(<Ripple />);
+if (root) createRoot(root).render(<Ripple initialView={window.location.pathname.replace(/\/$/,"").endsWith("/updates")?"updates":"assessments"} />);

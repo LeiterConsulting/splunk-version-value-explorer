@@ -1,0 +1,14 @@
+// Editorial roadmap. Target dates are estimates; publish actual status and revised dates explicitly.
+export const roadmap = [
+  {id:"foundation",title:"Measured operations and transparency",target:"2026-10-07",status:"available",scope:"Daily collection limits, durable investigation records, bounded research sessions, operating measurements and this update history.",gate:"Deployment, persistence, retry and public read-only checks pass."},
+  {id:"baseline",title:"First operating review",target:"2026-10-14",status:"planned",scope:"Review seven daily runs: requests, elapsed work, useful findings, backlog age and source failures. Set the budget for the next increment.",gate:"Seven measured daily runs; gaps and deferred work remain visible."},
+  {id:"ux",title:"Clearer product and finding journeys",target:"2026-10-16",status:"planned",scope:"Prioritize product scope, what is established, uncertainty and next action. Keep component detail and source evidence expandable.",gate:"Affected shared links, keyboard, mobile and research exports verified."},
+  {id:"sources",title:"First source expansion",target:"2026-10-21",status:"planned",scope:"Add one upstream source at a time and 5–10 named Cisco software families. Use incremental CVE discovery and a bounded historical queue.",gate:"Useful coverage gain within the measured operating budget; vendor scope reviewed."},
+  {id:"cohorts",title:"Repeatable portfolio cohorts",target:"2026-10-28",status:"planned",scope:"Reuse dependency mappings and add the next 5–10 product families when evidence is available.",gate:"Research backlog and maintenance effort remain sustainable."},
+  {id:"integration",title:"VersionCompass integration review",target:"2026-11-04",status:"planned",scope:"Evaluate contextual links from upgrade guidance and eligibility for main-site navigation. Ripple remains unlisted during the pilot.",gate:"Coverage, privacy, shared reports, exports and affected product journeys verified."},
+] as const;
+export const initialHistory = [
+  {id:"initial",at:"2026-10-06",title:"Initial exposure research",summary:"16 scoped assessment records established the initial evidence ledger. Selected historical Cisco and Splunk advisories; partial portfolio coverage."},
+  {id:"assessment-stage",at:"2026-10-06",title:"Investigation assessment added",summary:"27 scoped per-CVE assessment records added, bringing the ledger to 43 records. Product mappings, evidence gaps and first-party context became visible. Repeated checks preserve original claim dates."},
+  {id:"measurement",at:"2026-10-07",title:"Bounded rollout begins",summary:"Content history, rollout targets, collection measurements and persistent investigation scheduling added. This release adds operating controls; it does not establish new Cisco vulnerability conclusions."},
+];
