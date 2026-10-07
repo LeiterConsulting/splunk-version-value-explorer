@@ -5,7 +5,7 @@ const bundle = JSON.parse(fs.readFileSync('dist/content-bundle.json', 'utf8'));
 const types = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml' };
 const assets = {};
 require('./check-ripple.cjs').checkRipple();
-for (const file of ['index.html', 'app.js', 'app.css', 'icon.svg']) {
+for (const file of ['index.html', 'updates.html', 'app.js', 'app.css', 'icon.svg']) {
   assets['/ripple/' + file] = { type: types[path.extname(file)] + '; charset=utf-8', body: fs.readFileSync('dist/ripple/' + file, 'utf8') };
 }
 for (const file of fs.readdirSync('dist').sort()) {

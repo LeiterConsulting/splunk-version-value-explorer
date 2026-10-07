@@ -29,18 +29,69 @@
     },
     "typescript": "passed",
     "publicTests": {
-      "passed": 162,
+      "passed": 163,
       "failed": 0
     },
     "publicGenerationGates": "all four passed",
-    "builds": "pending",
+    "builds": "passed; private Vinext build and public Worker build",
     "renderedBrowser": "not-performed; required managed control-browser capability is not advertised",
     "nativeExport": "not-performed; main report and research export implementation unchanged",
     "publicBuild": "passed; 53 embedded assets",
-    "reactReview": "stable identities, primitive view state, accessible heading/summary/link/table labels, existing abortable data load and local storage boundary retained"
+    "reactReview": "stable identities, primitive view state, accessible heading/summary/link/table labels, existing abortable data load and local storage boundary retained",
+    "livePackagingRegression": {
+      "initialVersion": 124,
+      "observed": "/ripple/updates returned 404 because build-worker omitted updates.html",
+      "repair": "Include updates.html in the production assets; exercise the built Worker in regression coverage",
+      "finalVerification": "pending"
+    }
   },
   "publication": {
-    "status": "prepared; successful Site and live evidence recorded after publication"
+    "status": "initial publication succeeded; transparency-route packaging repair in progress",
+    "private": {
+      "sourceCommit": "133930ac4e06723cba75b94947f7553c2e8fb208",
+      "version": 5,
+      "deployment": "appgdep_6ac69abdba34819196b154de8a75fc21",
+      "deployedAt": "2026-10-07T19:17:42.056776+00:00"
+    },
+    "initialPublic": {
+      "siteSource": "6893e9231773123fe578d5a79e8729901860817f",
+      "githubCommit": "53ee0453a5b5646b94a8d78ecaf174ab7efc6401",
+      "tree": "58b3f45b82879c3a71af02f032a1eaa769f5db46",
+      "version": 124,
+      "deployment": "appgdep_6ac69b5aed04819192fae37f58c36801",
+      "deployedAt": "2026-10-07T19:20:16.746903+00:00"
+    }
   },
-  "qualification": "This increment adds operating controls and transparency. It does not add sources or establish new vulnerability conclusions. Token usage, account capacity and actual monetary charges are unavailable; no dollar figure is inferred."
+  "qualification": "This increment adds operating controls and transparency. It does not add sources or establish new vulnerability conclusions. Token usage, account capacity and actual monetary charges are unavailable; no dollar figure is inferred.",
+  "hostedAssessment": {
+    "verified": true,
+    "lastRun": "2026-10-07T19:18:56.242Z",
+    "lastAssessmentAt": "2026-10-07T19:19:32.480Z",
+    "runId": "ripple-rollout-20261007-verified-01",
+    "investigationsChecked": 42,
+    "mapped": 8,
+    "needsEvidence": 33,
+    "relatedFirstParty": 1,
+    "claimChecks": 27,
+    "addedRecords": 0,
+    "sourceFailures": 0,
+    "records": 43,
+    "originalClaimDates": [
+      "2026-10-06"
+    ]
+  },
+  "hostedResearch": {
+    "sessionId": "f7adcf6d-3868-4ff3-b00c-433a715b7cb5",
+    "completedAt": "2026-10-07T19:23:54.873Z",
+    "dueAt": "2026-10-14T19:23:54.873Z",
+    "candidate": "SVD-2026-0706",
+    "outcome": "needs_evidence; product/binary conflict preserved",
+    "writerReadback": "verified; private durable queue and persisted history",
+    "idempotentFinishRetry": "verified; reused:true"
+  },
+  "automation": {
+    "id": "Automation_9e515257fc608191b6ed1f59aa9d26ef",
+    "prompt": "Updated with bounded research/session/deadline controls and seven-sample source expansion gate",
+    "schedule": "Unchanged daily 06:00 America/Los_Angeles"
+  }
 }

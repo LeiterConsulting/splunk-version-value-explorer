@@ -85,3 +85,14 @@ test('transparency page preserves the distinct footer link and public operating 
   assert.match(source,/href="\/ripple\/updates"/);
   assert.doesNotMatch(source,/\/api\/(research|assess|refresh)/);
 });
+
+test('built production Worker includes the directly linked transparency page', async()=>{
+  require('node:child_process').execFileSync(process.execPath,['scripts/build-worker.cjs'],{cwd:path.resolve(__dirname,'..')});
+  const {default:app}=await import(pathToFileURL(path.resolve('dist/server/index.js')));
+  for(const route of ['/ripple/updates','/ripple/updates/']) {
+    const response=await app.fetch(request(route),{});
+    assert.equal(response.status,200);
+    assert.equal(await response.text(),fs.readFileSync('dist/ripple/updates.html','utf8'));
+    assert.equal(response.headers.get('x-robots-tag'),'noindex, nofollow');
+  }
+});
