@@ -154,10 +154,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-05T09:44:03Z",
-      "lastSuccess": "2026-10-05T09:50:11Z",
-      "outcome": "no-change",
-      "summary": "No material release, route, compatibility, runtime, security or SOAR correction was found. Current identifiers and existing uncertainty boundaries remain supported by the bounded checks.",
+      "lastAttempt": "2026-10-07T10:03:30.000Z",
+      "lastSuccess": "2026-10-07T10:04:00.000Z",
+      "outcome": "changed",
+      "summary": "Published Cloud 10.6 current pairings and exact Enterprise/Cloud 10.6 Forwarder receiver rows while preserving environment, entitlement, topology and support qualifications.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -271,9 +271,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "No material release, route, compatibility, runtime, security or SOAR correction was found. Current identifiers and existing uncertainty boundaries remain supported by the bounded checks.",
           "scope": "All 113 maintained official URLs were fetched: 111 succeeded and the same two historical 8.1/8.2 pages remained unavailable. Verified current Enterprise/Cloud, UF/HF receiver and topology, premium-app, migration, Observability component, SOAR and security-advisory claims; regional authorization remained outside this watch."
+        },
+        {
+          "at": "2026-10-07T10:03:30.000Z",
+          "outcome": "running",
+          "summary": "Reviewing the complete maintained release-source inventory and bounded high-consequence release, upgrade, receiver, runtime, security and SOAR claims.",
+          "scope": "All 120 unique maintained official URLs referenced by Platform, premium-product, Forwarder and SOAR canonical datasets; bounded current release, service-pairing, upgrade, receiver, runtime, advisory and SOAR checks."
+        },
+        {
+          "at": "2026-10-07T10:04:00.000Z",
+          "outcome": "changed",
+          "summary": "Published Cloud 10.6 current pairings and exact Enterprise/Cloud 10.6 Forwarder receiver rows while preserving environment, entitlement, topology and support qualifications.",
+          "scope": "All 120 maintained URLs were attempted with differentiated availability recorded; verified changed 10.6 service and receiver claims plus bounded Enterprise, migration, ES, ITSI, Observability, SOAR and advisory claims. D1 publication and fallback diagnostics passed; PDF rendering, independent saved-HTML reopening and narrow-screen inspection remain separately unperformed."
         }
       ],
-      "scope": "All 113 maintained official URLs were fetched: 111 succeeded and the same two historical 8.1/8.2 pages remained unavailable. Verified current Enterprise/Cloud, UF/HF receiver and topology, premium-app, migration, Observability component, SOAR and security-advisory claims; regional authorization remained outside this watch."
+      "scope": "All 120 maintained URLs were attempted with differentiated availability recorded; verified changed 10.6 service and receiver claims plus bounded Enterprise, migration, ES, ITSI, Observability, SOAR and advisory claims. D1 publication and fallback diagnostics passed; PDF rendering, independent saved-HTML reopening and narrow-screen inspection remain separately unperformed."
     },
     {
       "id": "es-editions-watch",

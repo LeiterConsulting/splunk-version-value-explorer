@@ -1,0 +1,60 @@
+{
+  "evaluatedAt": "2026-10-07T10:06:20.153Z",
+  "input": "docs/audits/2026-10-07-version-release-watch-soak.json",
+  "status": "hold",
+  "elapsedHours": 0.3119936111111111,
+  "minimumHours": 0,
+  "observationHours": 72,
+  "missing": [],
+  "failed": [
+    {
+      "gate": "themes-and-narrow-screens",
+      "outcome": "not-performed",
+      "reason": "The managed browser exposes no supported viewport resize or emulation, so narrow-screen behavior was not certified."
+    },
+    {
+      "gate": "html-reopen",
+      "outcome": "blocked",
+      "reason": "The managed browser blocks file: navigation and its download path is not readable from the execution filesystem, so independent browser-rendered reopening was not performed."
+    },
+    {
+      "gate": "pdf-rendering",
+      "outcome": "not-performed",
+      "reason": "The managed browser exposed neither native print preview nor a saved PDF artifact for page-by-page inspection."
+    }
+  ],
+  "scopedOut": [],
+  "unresolved": [
+    "Independent browser-rendered reopening of the fresh HTML snapshot is unavailable in the managed browser.",
+    "Native PDF output and page-by-page pagination are unavailable in the managed browser.",
+    "Narrow-screen behavior could not be exercised with the supported browser surface."
+  ],
+  "acceptedMinor": [],
+  "recommendations": [
+    {
+      "observed": "Independent browser-rendered reopening of the fresh HTML snapshot is unavailable in the managed browser.",
+      "impact": "Snapshot generation works, but the newly downloaded artifact's independent rendering is not certified.",
+      "change": "Add a supported isolated HTML-reopen harness for exact downloaded artifacts.",
+      "validation": "Reopen the exact file and compare route, revisions, citations and visible report anchors with screen and WebMCP.",
+      "disposition": "investigate"
+    },
+    {
+      "observed": "Native PDF output and page-by-page pagination are unavailable in the managed browser.",
+      "impact": "Print preparation runs, but the changed report's PDF completeness and pagination are not certified.",
+      "change": "Add a supported native PDF capture and visual pagination inspection path.",
+      "validation": "Record the exact artifact digest and page count and inspect every page for clipping, missing sections and citation completeness.",
+      "disposition": "investigate"
+    },
+    {
+      "observed": "Narrow-screen behavior could not be exercised with the supported browser surface.",
+      "impact": "Default and Cisco desktop themes passed, but responsive behavior for the changed routes is not certified.",
+      "change": "Provide supported viewport emulation or a narrow-screen browser surface.",
+      "validation": "Repeat affected current, older and invalid Cloud plus UF/HF routes at a narrow viewport in both themes and check focus, tap targets and fixed actions.",
+      "disposition": "investigate"
+    }
+  ],
+  "feedback": {
+    "status": "not-recorded",
+    "note": "Recorded checks establish behavior, not user preference."
+  }
+}
