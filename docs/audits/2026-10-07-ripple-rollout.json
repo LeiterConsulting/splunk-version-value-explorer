@@ -36,17 +36,17 @@
     "builds": "passed; private Vinext build and public Worker build",
     "renderedBrowser": "not-performed; required managed control-browser capability is not advertised",
     "nativeExport": "not-performed; main report and research export implementation unchanged",
-    "publicBuild": "passed; 53 embedded assets",
+    "publicBuild": "passed; 54 embedded assets",
     "reactReview": "stable identities, primitive view state, accessible heading/summary/link/table labels, existing abortable data load and local storage boundary retained",
     "livePackagingRegression": {
       "initialVersion": 124,
       "observed": "/ripple/updates returned 404 because build-worker omitted updates.html",
       "repair": "Include updates.html in the production assets; exercise the built Worker in regression coverage",
-      "finalVerification": "pending"
+      "finalVerification": "passed; exact updates.html served at /ripple/updates and trailing-slash alias"
     }
   },
   "publication": {
-    "status": "initial publication succeeded; transparency-route packaging repair in progress",
+    "status": "published and live-verified",
     "private": {
       "sourceCommit": "133930ac4e06723cba75b94947f7553c2e8fb208",
       "version": 5,
@@ -60,6 +60,26 @@
       "version": 124,
       "deployment": "appgdep_6ac69b5aed04819192fae37f58c36801",
       "deployedAt": "2026-10-07T19:20:16.746903+00:00"
+    },
+    "public": {
+      "siteSource": "8b6179a75009621fccccb74b3f8b24c883115f3a",
+      "githubCommit": "d66d0e18aee445519ddba8c136353dea0474470d",
+      "matchingTree": "d3776586ca4b341baebc7e7c7ebbe2c88243f0e9",
+      "version": 125,
+      "savedVersion": "appgprj_6aa3ff61bd288191ac95ac6e30707895~appgver_9e5ee9f319b48191b3c1c985bdaec5a1",
+      "deployment": "appgdep_6ac69d44818881918a19e7f1e2459fd7",
+      "deployedAt": "2026-10-07T19:28:23.731011+00:00",
+      "pullRequests": [
+        26,
+        27
+      ],
+      "validationCi": 37674590037,
+      "mainValidationCi": 37674689815,
+      "publisherCi": 37674718636,
+      "contentRevision": "content-01836cb2b94eaea8d33839fa",
+      "engineRevision": "engine-7829b4a079ba03e4aab2",
+      "datasetDigest": "2ac4b475d0e9d1fa3fbb71cacdf98d617e485a2ac56dfa3251da7ee3e33a444d",
+      "url": "https://versioncompass.com/ripple/updates"
     }
   },
   "qualification": "This increment adds operating controls and transparency. It does not add sources or establish new vulnerability conclusions. Token usage, account capacity and actual monetary charges are unavailable; no dollar figure is inferred.",
@@ -78,7 +98,8 @@
     "records": 43,
     "originalClaimDates": [
       "2026-10-06"
-    ]
+    ],
+    "changedEvidence": "No tracked vendor fingerprints changed. Two Cisco RSS leads added; no per-CVE claim promoted."
   },
   "hostedResearch": {
     "sessionId": "f7adcf6d-3868-4ff3-b00c-433a715b7cb5",
@@ -87,11 +108,298 @@
     "candidate": "SVD-2026-0706",
     "outcome": "needs_evidence; product/binary conflict preserved",
     "writerReadback": "verified; private durable queue and persisted history",
-    "idempotentFinishRetry": "verified; reused:true"
+    "idempotentFinishRetry": "verified; reused:true",
+    "primaryRetrieval": "Canonical URL unavailable to web retrieval; alternate official vendor URL inspected. Conflict retained; no fingerprint or claim promoted."
   },
   "automation": {
     "id": "Automation_9e515257fc608191b6ed1f59aa9d26ef",
     "prompt": "Updated with bounded research/session/deadline controls and seven-sample source expansion gate",
-    "schedule": "Unchanged daily 06:00 America/Los_Angeles"
-  }
+    "schedule": "Unchanged daily 06:00 America/Los_Angeles",
+    "readback": "Exact updated prompt confirmed; existing schedule, timezone and enabled status unchanged"
+  },
+  "liveVerification": {
+    "checkedAt": "2026-10-07T19:29:03.032Z",
+    "routes": {
+      "/ripple": {
+        "status": 200,
+        "exactAsset": true,
+        "noindex": true
+      },
+      "/ripple/": {
+        "status": 200,
+        "exactAsset": true,
+        "noindex": true
+      },
+      "/ripple/updates": {
+        "status": 200,
+        "exactAsset": true,
+        "noindex": true
+      },
+      "/ripple/updates/": {
+        "status": 200,
+        "exactAsset": true,
+        "noindex": true
+      },
+      "app.js": {
+        "status": 200,
+        "exactAsset": true
+      },
+      "app.css": {
+        "status": 200,
+        "exactAsset": true
+      },
+      "icon.svg": {
+        "status": 200,
+        "exactAsset": true
+      },
+      "mainInterface": {
+        "rippleLinked": false
+      },
+      "/ripple/api/research:GET": {
+        "status": 404
+      },
+      "/ripple/api/research:POST": {
+        "status": 405
+      },
+      "/ripple/api/assess:POST": {
+        "status": 405
+      }
+    },
+    "persistedSnapshot": {
+      "lastRun": "2026-10-07T19:18:56.242Z",
+      "lastAssessmentAt": "2026-10-07T19:19:32.480Z",
+      "run": {
+        "id": "ripple-rollout-20261007-verified-01",
+        "at": "2026-10-07T19:19:32.480Z",
+        "investigationsChecked": 42,
+        "mapped": 8,
+        "needsEvidence": 33,
+        "relatedFirstParty": 1,
+        "failures": 0,
+        "claimChecks": 27,
+        "addedRecords": 0
+      },
+      "records": 43,
+      "candidates": 42,
+      "checks": [
+        {
+          "id": "log4j",
+          "outcome": "ok"
+        },
+        {
+          "id": "http2",
+          "outcome": "ok"
+        },
+        {
+          "id": "openssl",
+          "outcome": "ok"
+        },
+        {
+          "id": "splunk-july",
+          "outcome": "ok"
+        },
+        {
+          "id": "splunk-curl",
+          "outcome": "ok"
+        },
+        {
+          "id": "splunk-uba",
+          "outcome": "ok"
+        },
+        {
+          "id": "cisco-feed",
+          "outcome": "ok"
+        },
+        {
+          "id": "splunk-feed",
+          "outcome": "ok"
+        },
+        {
+          "id": "cisa-kev",
+          "outcome": "ok"
+        },
+        {
+          "id": "SVD-2026-0805",
+          "outcome": "ok"
+        },
+        {
+          "id": "SVD-2026-0803",
+          "outcome": "ok"
+        },
+        {
+          "id": "SVD-2026-0802",
+          "outcome": "ok"
+        },
+        {
+          "id": "SVD-2026-0706",
+          "outcome": "ok"
+        },
+        {
+          "id": "SVD-2026-0705",
+          "outcome": "ok"
+        },
+        {
+          "id": "SVD-2026-0701",
+          "outcome": "ok"
+        },
+        {
+          "id": "SVD-2026-0612",
+          "outcome": "ok"
+        },
+        {
+          "id": "SVD-2026-0610",
+          "outcome": "ok"
+        },
+        {
+          "id": "SVD-2026-0601",
+          "outcome": "ok"
+        },
+        {
+          "id": "SVD-2026-0516",
+          "outcome": "ok"
+        }
+      ],
+      "claimIds": [
+        "http2-iosxe",
+        "http2-ftd",
+        "http2-expressway",
+        "log4j-ise",
+        "log4j-intersight",
+        "log4j-vmanage",
+        "log4j-meraki",
+        "openssl-fnd",
+        "openssl-appd",
+        "openssl-te",
+        "openssl-duo",
+        "splunk-setuptools",
+        "splunk-openssl-enterprise",
+        "splunk-openssl-uf",
+        "splunk-curl",
+        "splunk-uba-containerd",
+        "svd-2026-0805-cve-2026-34601--xmldom-xmldom",
+        "svd-2026-0805-cve-2025-69873-ajv",
+        "svd-2026-0805-cve-2026-21226-azure-core",
+        "svd-2026-0805-cve-2026-2739-bn-js",
+        "svd-2026-0805-cve-2026-33750-brace-expansion",
+        "svd-2026-0805-cve-2026-26007-cryptography",
+        "svd-2026-0805-cve-2026-24001-diff",
+        "svd-2026-0805-cve-2026-29063-immutable",
+        "svd-2026-0805-cve-2026-27959-koa",
+        "svd-2026-0805-cve-2026-40087-langchain-core",
+        "svd-2026-0805-cve-2026-28277-langgraph",
+        "svd-2026-0805-cve-2026-41066-lxml",
+        "svd-2026-0805-cve-2026-26996-minimatch",
+        "svd-2026-0805-cve-2026-30922-pyasn1",
+        "svd-2026-0805-cve-2026-32597-pyjwt",
+        "svd-2026-0805-cve-2026-28684-python-dotenv",
+        "svd-2026-0805-cve-2026-2391-qs",
+        "svd-2026-0805-cve-2026-22702-virtualenv",
+        "svd-2026-0805-cve-2026-33532-yaml",
+        "svd-2026-0803-cve-2026-31789-openssl-cli",
+        "svd-2026-0803-cve-2026-31790-openssl-cli",
+        "svd-2026-0701-cve-2026-0994-protobuf",
+        "svd-2026-0701-cve-2026-25645-requests",
+        "svd-2026-0612-cve-2026-24049-wheel",
+        "svd-2026-0612-cve-2026-23490-pyasn1",
+        "svd-2026-0516-cve-2025-68161-apache-log4j",
+        "svd-2026-0516-cve-2025-48924-apache-commons-lang"
+      ]
+    },
+    "operations": {
+      "policy": {
+        "dailyRequests": 150,
+        "dailyInvestigations": 5,
+        "researchSessionMinutes": 12,
+        "dailyResearchMinutes": 60
+      },
+      "day": "2026-10-07",
+      "requestsToday": 30,
+      "receivedBytesToday": 4844741,
+      "researchSessionsToday": 1,
+      "researchReservedMinutes": 12,
+      "queue": {
+        "total": 42,
+        "pending": 32,
+        "waiting": 10,
+        "inProgress": 0,
+        "oldestPendingAt": "2026-10-06T17:32:25.429Z"
+      },
+      "recentRuns": [
+        {
+          "kind": "refresh",
+          "at": "2026-10-07T19:18:56.242Z",
+          "durationMs": 1543,
+          "requests": 19,
+          "receivedBytes": 2934962,
+          "retries": 0,
+          "deferred": 0,
+          "candidatesAdded": 2,
+          "queueSize": 42,
+          "oldestPendingAt": "2026-10-06T17:32:25.429Z",
+          "snapshotBytes": 135902
+        },
+        {
+          "kind": "assessment",
+          "at": "2026-10-07T19:19:32.480Z",
+          "durationMs": 913,
+          "requests": 11,
+          "receivedBytes": 1909779,
+          "retries": 0,
+          "deferred": 0,
+          "candidatesAdded": 0,
+          "queueSize": 42,
+          "oldestPendingAt": "2026-10-06T17:32:25.429Z",
+          "snapshotBytes": 138864
+        }
+      ],
+      "contentHistory": [
+        {
+          "id": "research:f7adcf6d-3868-4ff3-b00c-433a715b7cb5",
+          "at": "2026-10-07T19:23:54.873Z",
+          "kind": "research",
+          "summary": "Primary advisory review retains the Universal Forwarder versus Enterprise product conflict. No per-CVE impact or fix claim was promoted.",
+          "payload": "{\"added\":0,\"updated\":0,\"candidateId\":\"https://advisory.splunk.com/advisories/SVD-2026-0706\",\"evidence\":[{\"url\":\"https://advisory.splunk.com/advisories/SVD-2026-0706\",\"section\":\"Description; OpenSSL footnote 1; Solution; Product Status. Alternate official double-slash URL inspected after canonical retrieval failed.\"}],\"gaps\":[\"SVD-2026-0706 names Universal Forwarder in Description, Solution and Product Status, while OpenSSL footnote 1 names Enterprise. The five CVEs remain unresolved for Universal Forwarder.\",\"Footnote 1 distinguishes CVE-2026-28388/28389/28390 in libcrypto/libssl on 9.4.13 from CVE-2026-31789/31790 in the openssl binary on 10.4.1/10.2.5/10.0.8. Those Enterprise paths cannot establish Universal Forwarder binary or platform applicability.\"],\"nextAction\":\"At the next due review, inspect a corrected SVD-2026-0706 or an explicit public vendor clarification of the intended product, binary and platform scope before updating calibration for these five CVEs.\",\"elapsedMs\":50279}",
+          "added": 0,
+          "updated": 0,
+          "candidateId": "https://advisory.splunk.com/advisories/SVD-2026-0706",
+          "evidence": [
+            {
+              "url": "https://advisory.splunk.com/advisories/SVD-2026-0706",
+              "section": "Description; OpenSSL footnote 1; Solution; Product Status. Alternate official double-slash URL inspected after canonical retrieval failed."
+            }
+          ],
+          "gaps": [
+            "SVD-2026-0706 names Universal Forwarder in Description, Solution and Product Status, while OpenSSL footnote 1 names Enterprise. The five CVEs remain unresolved for Universal Forwarder.",
+            "Footnote 1 distinguishes CVE-2026-28388/28389/28390 in libcrypto/libssl on 9.4.13 from CVE-2026-31789/31790 in the openssl binary on 10.4.1/10.2.5/10.0.8. Those Enterprise paths cannot establish Universal Forwarder binary or platform applicability."
+          ],
+          "nextAction": "At the next due review, inspect a corrected SVD-2026-0706 or an explicit public vendor clarification of the intended product, binary and platform scope before updating calibration for these five CVEs.",
+          "elapsedMs": 50279
+        },
+        {
+          "id": "assessment:ripple-calibration-20261006-01",
+          "at": "2026-10-06T18:30:09.098Z",
+          "kind": "content",
+          "summary": "27 scoped assessment records added.",
+          "payload": "{\"added\":27,\"updated\":0}",
+          "added": 27,
+          "updated": 0
+        }
+      ],
+      "cost": {
+        "status": "not_metered",
+        "note": "Request counts, received bytes and elapsed work are measured. Token usage, provider charges and account capacity are not exposed; no dollar cost is inferred."
+      }
+    }
+  },
+  "mainDelivery": {
+    "checkedAt": "2026-10-07T19:24:09.362Z",
+    "databaseHealth": "ready; real D1, exact revision/engine, 668 records",
+    "manifest": "exact repository publication",
+    "bundle": "exact unchanged digest",
+    "boundedQuery": "passed",
+    "publicWrites": "405",
+    "fallbackAdapters": "all seven passed",
+    "activeBrowserDelivery": "remains off"
+  },
+  "verificationLimit": "Actual rendered-browser, keyboard/narrow-screen and native export checks were not performed for this new Ripple increment. HTTP asset integrity, built Worker routing and hosted persistence are distinct evidence; prior owner-reported main-report results remain limited to their existing baseline."
 }
