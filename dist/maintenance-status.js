@@ -290,10 +290,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-10-06T10:01:21.290Z",
-      "lastSuccess": "2026-10-06T10:04:09.527Z",
+      "lastAttempt": "2026-10-07T13:13:35.983Z",
+      "lastSuccess": "2026-10-07T13:23:49.002Z",
       "outcome": "no-change",
-      "summary": "Checked all 20 maintained ES Editions sources and four exact SOAR pairing/release records; no factual correction was supported and all five evidence questions remain explicit.",
+      "summary": "All 20 maintained ES Editions sources and four exact SOAR/App records were checked; no factual correction was supported and all five evidence questions remain explicit.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -419,9 +419,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Checked all 20 maintained ES Editions sources and four exact SOAR pairing/release records; no factual correction was supported and all five evidence questions remain explicit.",
           "scope": "All 20 maintained ES Editions official URLs plus exact App for SOAR 8.7.0, SOAR Export 8.7.0, SOAR On-premises 8.7.0 and SOAR Cloud 8.7.0 records; bounded Connector Builder, Guided Response, agent version-floor, pricing, Automation Builder, App pairing, UEBA and Exposure Analytics claims. Browser, export and native WebMCP outcomes are recorded separately."
+        },
+        {
+          "at": "2026-10-07T13:13:35.983Z",
+          "outcome": "running",
+          "summary": "Reviewing the complete ES Editions source inventory and exact SOAR/App pairings from the October 7 GitHub and Sites baseline.",
+          "scope": "Twenty maintained ES Editions sources plus exact App for SOAR 8.7.0, SOAR Export 8.7.0, SOAR On-premises 8.7.0 and SOAR Cloud 8.7.0 records; canonical/adapter parity, current and legacy ES routes, themes, reports, WebMCP boundary and live content delivery."
+        },
+        {
+          "at": "2026-10-07T13:23:49.002Z",
+          "outcome": "no-change",
+          "summary": "All 20 maintained ES Editions sources and four exact SOAR/App records were checked; no factual correction was supported and all five evidence questions remain explicit.",
+          "scope": "Twenty maintained ES Editions official URLs plus exact App for SOAR 8.7.0, SOAR Export 8.7.0, SOAR On-premises 8.7.0 and SOAR Cloud 8.7.0 records; bounded Connector Builder, Guided Response, agent version-floor, pricing, Automation Builder, App pairing, UEBA and Exposure Analytics claims; rendered canonical/legacy/theme/history routes, surrounding ES report and read-only WebMCP agreement. Owner-reported HTML, PDF and narrow-screen results apply to the unchanged deployed baseline."
         }
       ],
-      "scope": "All 20 maintained ES Editions official URLs plus exact App for SOAR 8.7.0, SOAR Export 8.7.0, SOAR On-premises 8.7.0 and SOAR Cloud 8.7.0 records; bounded Connector Builder, Guided Response, agent version-floor, pricing, Automation Builder, App pairing, UEBA and Exposure Analytics claims. Browser, export and native WebMCP outcomes are recorded separately."
+      "scope": "Twenty maintained ES Editions official URLs plus exact App for SOAR 8.7.0, SOAR Export 8.7.0, SOAR On-premises 8.7.0 and SOAR Cloud 8.7.0 records; bounded Connector Builder, Guided Response, agent version-floor, pricing, Automation Builder, App pairing, UEBA and Exposure Analytics claims; rendered canonical/legacy/theme/history routes, surrounding ES report and read-only WebMCP agreement. Owner-reported HTML, PDF and narrow-screen results apply to the unchanged deployed baseline."
     },
     {
       "id": "version-guidance-audit",
