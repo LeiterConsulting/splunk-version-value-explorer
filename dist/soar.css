@@ -50,29 +50,36 @@
 @media(max-width:400px){.soar-refine .soar-controls{grid-template-columns:1fr}.soar-controls select{font-size:15px}}
 @media print{
  @page soar{size:auto;margin:16mm 14mm 17mm;background:white;@bottom-left{content:"Version Compass · Independent release guide";font:8pt Arial,sans-serif;color:#53645b}@bottom-right{content:counter(page);font:8pt Arial,sans-serif;color:#53645b}}
- html .soar-view,html.theme-cisco .soar-view{page:soar!important;background:white!important;color:#18261f!important}
+ html .soar-view{page:soar!important;--ink:#18261f;--muted:#4c6256;--white:#fff;--line:#cad4ce;--green-dark:#165d3e;--soar-print-paper:#fff;--soar-print-soft:#edf3ef;--soar-print-alert:#fff2e5;--soar-print-risk:#673b15;background:var(--soar-print-paper)!important;color:var(--ink)!important}
+ html.theme-cisco .soar-view{page:cisco!important;--ink:#e9edf6;--muted:#b9c9e0;--white:#0e1320;--line:#34405a;--green-dark:#8bb9ff;--soar-print-paper:#05070e;--soar-print-soft:#14213a;--soar-print-alert:#33251e;--soar-print-risk:#ffe2c5}
  .soar-view .hero,.soar-view #results,.soar-view #soar-warnings{display:none!important}
  .soar-view #release-report{display:block!important;max-width:none;margin:0;padding:0;font:10pt/1.4 Arial,sans-serif;background:#fff;color:#18261f}
  .soar-view #release-report .section{padding:0;margin:0 0 14pt;break-inside:auto}
- .theme-cisco .soar-view #release-report .section{background:white;color:#18261f}
+ .soar-view #release-report .section{background:var(--soar-print-paper);color:var(--ink)}
  .soar-view #release-report h2,.soar-view #release-report h3{break-after:avoid}
  .soar-view #release-report .soar-grid,.soar-view #release-report .soar-summary-grid,.soar-view #release-report .soar-source-list{display:block}
  .soar-view #release-report details{display:block}.soar-view #release-report details>summary{display:none}
  .soar-view #release-report .soar-record,.soar-view #release-report .soar-alert{break-inside:avoid}
- .soar-view #release-report .soar-grid .soar-record{padding:10pt 0;background:none;border:0;border-bottom:.5pt solid #cad4ce;border-radius:0}
+ .soar-view #release-report .soar-grid .soar-record{padding:10pt 0;background:none;border:0;border-bottom:.5pt solid var(--line);border-radius:0}
  .soar-view #release-report .soar-source-scope,.soar-view #release-report .soar-source-list p{display:block;font-size:8pt}
  .soar-view #release-report a{overflow-wrap:anywhere}.soar-view #release-report .soar-technical{padding:0}
  .soar-view #release-report .soar-requirements{font-size:9pt;break-inside:avoid}.soar-view #release-report .soar-requirements th,.soar-view #release-report .soar-requirements td{font-size:9pt;padding:6pt}
  .soar-view #release-report .soar-path{padding:0;display:flex}.soar-view #release-report .soar-path li span{font-size:12pt;padding:4pt 8pt}
  .soar-view #release-report .soar-source-list li{margin-bottom:10pt}
- .soar-view #release-report,.theme-cisco .soar-view #release-report{--ink:#18261f;--muted:#4c6256;--white:#fff;--line:#cad4ce;--green-dark:#165d3e;background:#fff!important;color:#18261f!important}
- .soar-view #release-report a,.theme-cisco .soar-view #release-report a{color:#165d3e!important}
- .soar-view #release-report .soar-meta,.soar-view #release-report .soar-source-scope,.soar-view #release-report .soar-selection,.soar-view #release-report caption{color:#4c6256!important}
- .soar-view #release-report .soar-record,.soar-view #release-report .technical-panel{background:transparent!important;color:#18261f!important;border:0;box-shadow:none}
+ .soar-view #release-report{background:var(--soar-print-paper)!important;color:var(--ink)!important}
+ .soar-view #release-report a{color:var(--green-dark)!important}
+ .soar-view #release-report .soar-meta,.soar-view #release-report .soar-source-scope,.soar-view #release-report .soar-selection,.soar-view #release-report caption{color:var(--muted)!important}
+ .soar-view #release-report .soar-record,.soar-view #release-report .technical-panel{background:transparent!important;color:var(--ink)!important;border:0;box-shadow:none}
  .soar-view #release-report .technical-panel{break-inside:auto!important}
- .soar-view #release-report .soar-alert,.soar-view #release-report .soar-qualification{background:#fff2e5!important;color:#673b15!important}
- .soar-view #release-report .soar-path li span{background:#edf3ef!important;color:#165d3e!important;border-color:#cad4ce!important}
+ .soar-view #release-report .soar-alert,.soar-view #release-report .soar-qualification{background:var(--soar-print-alert)!important;color:var(--soar-print-risk)!important}
+ .soar-view #release-report .soar-path li span{background:var(--soar-print-soft)!important;color:var(--green-dark)!important;border-color:var(--line)!important}
  .soar-view #release-report .soar-summary-grid ul{font-size:9pt;margin-bottom:8pt}
  .soar-view #release-report .soar-summary-grid>div{break-inside:avoid}
  .soar-view #release-report .report-section li{font-size:8pt;line-height:1.35;margin:4pt 0;break-inside:avoid}
+ .theme-cisco .soar-view #release-report .report-title{background:linear-gradient(115deg,#0e1320 45%,#501037 85%,#81352c);border-bottom-color:#f0057c;padding:12pt 14pt}
+ .theme-cisco .soar-view #release-report .report-title>p:first-child{color:#ff81ba}
+ .theme-cisco .soar-view #release-report h1,.theme-cisco .soar-view #release-report h2,.theme-cisco .soar-view #release-report h3{color:#edf2ff}
+ .theme-cisco .soar-view #release-report h2{border-color:var(--line)}
+ .theme-cisco .soar-view #release-report .soar-requirements th{background:var(--soar-print-soft);color:#edf2ff;border-color:var(--line)}
+ .theme-cisco .soar-view #release-report .soar-requirements td{border-color:var(--line)}
 }
