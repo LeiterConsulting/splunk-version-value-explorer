@@ -1,0 +1,501 @@
+{
+  "watch": "csp-fedramp-watch",
+  "target": "https://versioncompass.com",
+  "scope": "Actual baseline delivery; earlier transport-blocked attempts retained; 25-second complete retry changes diagnostic timeout only, not application source.",
+  "attempts": [
+    {
+      "evaluatedAt": "2026-10-08T15:03:41.103Z",
+      "target": "https://versioncompass.com",
+      "expectedRevision": "content-b808d7e116886953bd61b8fe",
+      "status": "issues-detected",
+      "checks": {
+        "database-health": {
+          "outcome": "blocked",
+          "failureType": "transport-unavailable",
+          "evidence": "The operation was aborted due to timeout",
+          "checkedAt": "2026-10-08T15:02:57.243Z",
+          "request": {
+            "path": "/api/content/health",
+            "method": "GET",
+            "phase": "response"
+          },
+          "errorName": "TimeoutError",
+          "elapsedMs": 10007
+        },
+        "live-manifest": {
+          "outcome": "blocked",
+          "failureType": "transport-unavailable",
+          "evidence": "The operation was aborted due to timeout",
+          "checkedAt": "2026-10-08T15:03:07.244Z",
+          "request": {
+            "path": "/api/content/manifest",
+            "method": "GET",
+            "phase": "response"
+          },
+          "errorName": "TimeoutError",
+          "elapsedMs": 10001
+        },
+        "bundle-integrity": {
+          "outcome": "passed",
+          "evidence": {
+            "digest": "38ad020d555d8b08a363ca9146220f668c20e04e4b505437457c3fda580bb4e3",
+            "recordCount": 668
+          },
+          "checkedAt": "2026-10-08T15:03:08.726Z",
+          "elapsedMs": 1482
+        },
+        "bounded-record-query": {
+          "outcome": "blocked",
+          "failureType": "transport-unavailable",
+          "evidence": "The operation was aborted due to timeout",
+          "checkedAt": "2026-10-08T15:03:18.727Z",
+          "request": {
+            "path": "/api/content/records?revision=content-b808d7e116886953bd61b8fe&dataset=soar&limit=2",
+            "method": "GET",
+            "phase": "response"
+          },
+          "errorName": "TimeoutError",
+          "elapsedMs": 10001
+        },
+        "read-only-api": {
+          "outcome": "blocked",
+          "failureType": "transport-unavailable",
+          "evidence": "The operation was aborted due to timeout",
+          "checkedAt": "2026-10-08T15:03:28.728Z",
+          "request": {
+            "path": "/api/content/manifest",
+            "method": "POST",
+            "phase": "response"
+          },
+          "errorName": "TimeoutError",
+          "elapsedMs": 10001
+        },
+        "bundled-fallback-assets": {
+          "outcome": "blocked",
+          "failureType": "transport-unavailable",
+          "evidence": "The operation was aborted due to timeout",
+          "checkedAt": "2026-10-08T15:03:41.103Z",
+          "request": {
+            "path": "/product-data.js",
+            "method": "GET",
+            "phase": "response"
+          },
+          "errorName": "TimeoutError",
+          "elapsedMs": 12374
+        }
+      },
+      "findings": [
+        {
+          "observed": "database-health: The operation was aborted due to timeout",
+          "impact": "Delivery check incomplete; the cause is not established",
+          "recommendedChange": "Retry this exact check after transport recovery and inspect matching Worker request logs; do not infer an application defect from an unavailable response.",
+          "reversible": true,
+          "checksPassed": false,
+          "resolved": false
+        },
+        {
+          "observed": "live-manifest: The operation was aborted due to timeout",
+          "impact": "Delivery check incomplete; the cause is not established",
+          "recommendedChange": "Retry this exact check after transport recovery and inspect matching Worker request logs; do not infer an application defect from an unavailable response.",
+          "reversible": true,
+          "checksPassed": false,
+          "resolved": false
+        },
+        {
+          "observed": "bounded-record-query: The operation was aborted due to timeout",
+          "impact": "Delivery check incomplete; the cause is not established",
+          "recommendedChange": "Retry this exact check after transport recovery and inspect matching Worker request logs; do not infer an application defect from an unavailable response.",
+          "reversible": true,
+          "checksPassed": false,
+          "resolved": false
+        },
+        {
+          "observed": "read-only-api: The operation was aborted due to timeout",
+          "impact": "Delivery check incomplete; the cause is not established",
+          "recommendedChange": "Retry this exact check after transport recovery and inspect matching Worker request logs; do not infer an application defect from an unavailable response.",
+          "reversible": true,
+          "checksPassed": false,
+          "resolved": false
+        },
+        {
+          "observed": "bundled-fallback-assets: The operation was aborted due to timeout",
+          "impact": "Delivery check incomplete; the cause is not established",
+          "recommendedChange": "Retry this exact check after transport recovery and inspect matching Worker request logs; do not infer an application defect from an unavailable response.",
+          "reversible": true,
+          "checksPassed": false,
+          "resolved": false
+        }
+      ],
+      "limitations": [
+        "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
+      ]
+    },
+    {
+      "evaluatedAt": "2026-10-08T15:05:37.786Z",
+      "target": "https://versioncompass.com",
+      "expectedRevision": "content-b808d7e116886953bd61b8fe",
+      "status": "issues-detected",
+      "checks": {
+        "database-health": {
+          "outcome": "blocked",
+          "failureType": "transport-unavailable",
+          "evidence": "The operation was aborted due to timeout",
+          "checkedAt": "2026-10-08T15:04:46.454Z",
+          "request": {
+            "path": "/api/content/health",
+            "method": "GET",
+            "phase": "response"
+          },
+          "errorName": "TimeoutError",
+          "elapsedMs": 10004
+        },
+        "live-manifest": {
+          "outcome": "passed",
+          "evidence": {
+            "schemaVersion": 1,
+            "revision": "content-b808d7e116886953bd61b8fe",
+            "digest": "38ad020d555d8b08a363ca9146220f668c20e04e4b505437457c3fda580bb4e3",
+            "engineRevision": "engine-3d988f73a12fc83d1b09",
+            "datasetHashes": {
+              "platform": "64bb4fd3e6862400dfc7148d59cc6c327d6031d6101685daaf9dfd3e07899b10",
+              "products": "ad329377961c7471bf61993428fcb68b234ab43178cbbc1668924c4829757cea",
+              "guidance": "341039dc4515ee03fe982e5a455933b133b2751dcf7467566a0f986d82b279f0",
+              "environment": "9f13ac92dedcb8a3f4d5d0de59926f7568ef67e92239c2d095edcde9cf22a0fb",
+              "editions": "3d71261084a1b730c55f179589478e8f6299389a3029b2311181b1f98847eb06",
+              "forwarders": "a33bf7da9957714e2b3e43ef6cadd0da893277ef9e8aed4b7ec9396963e7338a",
+              "soar": "55c75eb62e2e02f276a31bb84205a6164e51b240f0742479f09eeac82e3f0150"
+            },
+            "recordCount": 668,
+            "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+            "verificationPolicy": "Migration and delivery do not create verification dates",
+            "phase": "content-model-and-database-delivery"
+          },
+          "checkedAt": "2026-10-08T15:04:55.084Z",
+          "elapsedMs": 8630
+        },
+        "bundle-integrity": {
+          "outcome": "blocked",
+          "failureType": "transport-unavailable",
+          "evidence": "The operation was aborted due to timeout",
+          "checkedAt": "2026-10-08T15:05:05.086Z",
+          "request": {
+            "path": "/api/content/bundle?revision=content-b808d7e116886953bd61b8fe",
+            "method": "GET",
+            "phase": "response"
+          },
+          "errorName": "TimeoutError",
+          "elapsedMs": 10001
+        },
+        "bounded-record-query": {
+          "outcome": "blocked",
+          "failureType": "transport-unavailable",
+          "evidence": "The operation was aborted due to timeout",
+          "checkedAt": "2026-10-08T15:05:15.088Z",
+          "request": {
+            "path": "/api/content/records?revision=content-b808d7e116886953bd61b8fe&dataset=soar&limit=2",
+            "method": "GET",
+            "phase": "response"
+          },
+          "errorName": "TimeoutError",
+          "elapsedMs": 10002
+        },
+        "read-only-api": {
+          "outcome": "passed",
+          "evidence": "POST rejected with 405",
+          "checkedAt": "2026-10-08T15:05:23.585Z",
+          "elapsedMs": 8497
+        },
+        "bundled-fallback-assets": {
+          "outcome": "passed",
+          "evidence": "All seven complete fallback adapters served",
+          "checkedAt": "2026-10-08T15:05:37.786Z",
+          "elapsedMs": 14201
+        }
+      },
+      "findings": [
+        {
+          "observed": "database-health: The operation was aborted due to timeout",
+          "impact": "Delivery check incomplete; the cause is not established",
+          "recommendedChange": "Retry this exact check after transport recovery and inspect matching Worker request logs; do not infer an application defect from an unavailable response.",
+          "reversible": true,
+          "checksPassed": false,
+          "resolved": false
+        },
+        {
+          "observed": "bundle-integrity: The operation was aborted due to timeout",
+          "impact": "Delivery check incomplete; the cause is not established",
+          "recommendedChange": "Retry this exact check after transport recovery and inspect matching Worker request logs; do not infer an application defect from an unavailable response.",
+          "reversible": true,
+          "checksPassed": false,
+          "resolved": false
+        },
+        {
+          "observed": "bounded-record-query: The operation was aborted due to timeout",
+          "impact": "Delivery check incomplete; the cause is not established",
+          "recommendedChange": "Retry this exact check after transport recovery and inspect matching Worker request logs; do not infer an application defect from an unavailable response.",
+          "reversible": true,
+          "checksPassed": false,
+          "resolved": false
+        }
+      ],
+      "limitations": [
+        "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
+      ]
+    }
+  ],
+  "targetedRecovery": [
+    {
+      "name": "database-health",
+      "outcome": "passed",
+      "checkedAt": "2026-10-08T15:07:47.934Z",
+      "path": "/api/content/health",
+      "evidence": {
+        "status": "ready",
+        "storage": "d1",
+        "revision": "content-b808d7e116886953bd61b8fe",
+        "engineRevision": "engine-3d988f73a12fc83d1b09",
+        "recordCount": 668
+      }
+    },
+    {
+      "name": "bounded-record-query",
+      "outcome": "passed",
+      "checkedAt": "2026-10-08T15:07:47.970Z",
+      "path": "/api/content/records?revision=content-b808d7e116886953bd61b8fe&dataset=soar&limit=2",
+      "evidence": {
+        "revision": "content-b808d7e116886953bd61b8fe",
+        "offset": 0,
+        "limit": 2,
+        "records": [
+          {
+            "id": "vc-02444e2d71b8a98e5846",
+            "kind": "feature",
+            "dataset": "soar",
+            "scope": {
+              "regions": {
+                "aws": [
+                  "Oregon",
+                  "Virginia",
+                  "London",
+                  "Dublin",
+                  "Frankfurt",
+                  "Milan",
+                  "Paris",
+                  "Mumbai",
+                  "Seoul",
+                  "Singapore",
+                  "Sydney",
+                  "Tokyo",
+                  "Canada Central",
+                  "Canada West"
+                ],
+                "gcp": [
+                  "Iowa",
+                  "London",
+                  "Dammam",
+                  "Belgium",
+                  "Frankfurt",
+                  "Singapore",
+                  "Sydney",
+                  "Montreal"
+                ],
+                "azure": [
+                  "Phoenix",
+                  "Virginia",
+                  "London",
+                  "Tokyo"
+                ]
+              },
+              "release": "8.5.0",
+              "deployments": [
+                "cloud"
+              ]
+            },
+            "evidence": [
+              {
+                "sourceId": "source-82e4d5d64919b192142d",
+                "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
+                "section": "7.1 Python migration; 7.2 GCP; 8.6 and 8.7 enhancements and prerequisites",
+                "sectionScope": "Recorded source section; claim-specific support is not inferred",
+                "sourceVerified": "2026-10-01",
+                "sourceChecked": "2026-10-01"
+              }
+            ],
+            "verification": {
+              "date": "2026-10-01",
+              "outcome": "Recorded in original claim"
+            },
+            "payload": {
+              "id": "system-insights",
+              "title": "System Insights",
+              "detail": "Cloud 8.5 adds action/playbook health dashboards through Splunk App for SOAR; 8.6 expands activity, certificate and resource views.",
+              "kind": "feature",
+              "release": "8.5.0",
+              "src": [
+                "cloud"
+              ],
+              "deployments": [
+                "cloud"
+              ],
+              "status": "Documented",
+              "verified": "2026-10-01"
+            }
+          },
+          {
+            "id": "vc-03859616e955e385a67d",
+            "kind": "technical",
+            "dataset": "soar",
+            "scope": {
+              "regions": {
+                "aws": [
+                  "Oregon",
+                  "Virginia",
+                  "London",
+                  "Dublin",
+                  "Frankfurt",
+                  "Milan",
+                  "Paris",
+                  "Mumbai",
+                  "Seoul",
+                  "Singapore",
+                  "Sydney",
+                  "Tokyo",
+                  "Canada Central",
+                  "Canada West"
+                ],
+                "gcp": [
+                  "Iowa",
+                  "London",
+                  "Dammam",
+                  "Belgium",
+                  "Frankfurt",
+                  "Singapore",
+                  "Sydney",
+                  "Montreal"
+                ],
+                "azure": [
+                  "Phoenix",
+                  "Virginia",
+                  "London",
+                  "Tokyo"
+                ]
+              },
+              "release": "8.7.0",
+              "deployments": [
+                "cmp"
+              ]
+            },
+            "evidence": [
+              {
+                "sourceId": "source-d03b8722952f9ae8b5fd",
+                "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.7.0/system-requirements/system-requirements-for-production-use",
+                "section": "Production system requirements table",
+                "sectionScope": "Recorded source section; claim-specific support is not inferred",
+                "sourceVerified": "2026-10-01",
+                "sourceChecked": "2026-10-01"
+              }
+            ],
+            "verification": {
+              "date": "2026-10-01",
+              "outcome": "Recorded in original claim"
+            },
+            "payload": {
+              "id": "size87",
+              "title": "Production sizing",
+              "detail": "One server-class CPU with 4\u20138 cores; 16GB RAM minimum, 32GB recommended; 500GiB each for home, data and file-share volumes; 1Gb network. Size further for workload and retained files.",
+              "kind": "technical",
+              "release": "8.7.0",
+              "src": [
+                "sizing"
+              ],
+              "deployments": [
+                "cmp"
+              ],
+              "status": "Required",
+              "verified": "2026-10-01",
+              "target": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "completeRetry": {
+    "evaluatedAt": "2026-10-08T15:13:13.579Z",
+    "target": "https://versioncompass.com",
+    "expectedRevision": "content-b808d7e116886953bd61b8fe",
+    "status": "delivery-checks-passed",
+    "checks": {
+      "database-health": {
+        "outcome": "passed",
+        "evidence": {
+          "status": "ready",
+          "storage": "d1",
+          "revision": "content-b808d7e116886953bd61b8fe",
+          "engineRevision": "engine-3d988f73a12fc83d1b09",
+          "recordCount": 668
+        },
+        "checkedAt": "2026-10-08T15:12:40.596Z",
+        "elapsedMs": 9374
+      },
+      "live-manifest": {
+        "outcome": "passed",
+        "evidence": {
+          "schemaVersion": 1,
+          "revision": "content-b808d7e116886953bd61b8fe",
+          "digest": "38ad020d555d8b08a363ca9146220f668c20e04e4b505437457c3fda580bb4e3",
+          "engineRevision": "engine-3d988f73a12fc83d1b09",
+          "datasetHashes": {
+            "platform": "64bb4fd3e6862400dfc7148d59cc6c327d6031d6101685daaf9dfd3e07899b10",
+            "products": "ad329377961c7471bf61993428fcb68b234ab43178cbbc1668924c4829757cea",
+            "guidance": "341039dc4515ee03fe982e5a455933b133b2751dcf7467566a0f986d82b279f0",
+            "environment": "9f13ac92dedcb8a3f4d5d0de59926f7568ef67e92239c2d095edcde9cf22a0fb",
+            "editions": "3d71261084a1b730c55f179589478e8f6299389a3029b2311181b1f98847eb06",
+            "forwarders": "a33bf7da9957714e2b3e43ef6cadd0da893277ef9e8aed4b7ec9396963e7338a",
+            "soar": "55c75eb62e2e02f276a31bb84205a6164e51b240f0742479f09eeac82e3f0150"
+          },
+          "recordCount": 668,
+          "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+          "verificationPolicy": "Migration and delivery do not create verification dates",
+          "phase": "content-model-and-database-delivery"
+        },
+        "checkedAt": "2026-10-08T15:12:40.987Z",
+        "elapsedMs": 391
+      },
+      "bundle-integrity": {
+        "outcome": "passed",
+        "evidence": {
+          "digest": "38ad020d555d8b08a363ca9146220f668c20e04e4b505437457c3fda580bb4e3",
+          "recordCount": 668
+        },
+        "checkedAt": "2026-10-08T15:12:41.400Z",
+        "elapsedMs": 413
+      },
+      "bounded-record-query": {
+        "outcome": "passed",
+        "evidence": "SOAR filter, revision and maximum page size verified",
+        "checkedAt": "2026-10-08T15:12:41.883Z",
+        "elapsedMs": 482
+      },
+      "read-only-api": {
+        "outcome": "passed",
+        "evidence": "POST rejected with 405",
+        "checkedAt": "2026-10-08T15:12:57.781Z",
+        "elapsedMs": 15898
+      },
+      "bundled-fallback-assets": {
+        "outcome": "passed",
+        "evidence": "All seven complete fallback adapters served",
+        "checkedAt": "2026-10-08T15:13:13.578Z",
+        "elapsedMs": 15797
+      }
+    },
+    "findings": [],
+    "limitations": [
+      "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
+    ]
+  },
+  "publicationVerification": {
+    "outcome": "pending"
+  }
+}

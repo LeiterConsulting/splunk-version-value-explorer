@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-10-06T11:11:53Z",
-      "lastSuccess": "2026-10-06T11:26:21Z",
+      "lastAttempt": "2026-10-08T15:00:51.359Z",
+      "lastSuccess": "2026-10-08T15:13:34.317Z",
       "outcome": "changed",
-      "summary": "Exact FedRAMP Marketplace Certified Services scope added for ES and ITSI in Moderate and High, and SOAR in Moderate; SOAR High remains not established and the S3 conflict remains preserved.",
+      "summary": "Completed bounded scope review; discovered conflicting current S3 Moderate statements and protected a candidate correction. Canonical report facts remain unchanged.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -147,9 +147,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Exact FedRAMP Marketplace Certified Services scope added for ES and ITSI in Moderate and High, and SOAR in Moderate; SOAR High remains not established and the S3 conflict remains preserved.",
           "scope": "Twelve official sources checked; six bounded consequential claims verified; 58 environment records and four CSP-owned SOAR sources reconciled."
+        },
+        {
+          "at": "2026-10-08T15:00:51.359Z",
+          "outcome": "running",
+          "summary": "Reviewing current official CSP, FedRAMP and restricted SOAR evidence.",
+          "scope": "10 maintained environment sources and two owned SOAR sources; bounded consequential claim checks and held regional candidate follow-up."
+        },
+        {
+          "at": "2026-10-08T15:13:34.317Z",
+          "outcome": "changed",
+          "summary": "Completed bounded scope review; discovered conflicting current S3 Moderate statements and protected a candidate correction. Canonical report facts remain unchanged.",
+          "scope": "All 10 maintained environment source URLs and two CSP-owned SOAR source URLs; current/versioned and prerequisite discovery; 58 environment records inventoried, 10 bounded high-consequence claim checks. Not exhaustive historical claim verification. Operational ledger/audit publication only; no canonical factual promotion."
         }
       ],
-      "scope": "Twelve official sources checked; six bounded consequential claims verified; 58 environment records and four CSP-owned SOAR sources reconciled."
+      "scope": "All 10 maintained environment source URLs and two CSP-owned SOAR source URLs; current/versioned and prerequisite discovery; 58 environment records inventoried, 10 bounded high-consequence claim checks. Not exhaustive historical claim verification. Operational ledger/audit publication only; no canonical factual promotion."
     },
     {
       "id": "version-release-watch",
