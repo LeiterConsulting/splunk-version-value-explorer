@@ -1,0 +1,131 @@
+{
+  "firstAttempt": {
+    "evaluatedAt": "2026-10-08T12:46:45.935Z",
+    "target": "https://versioncompass.com",
+    "expectedRevision": "content-b808d7e116886953bd61b8fe",
+    "status": "issues-detected",
+    "checks": {
+      "database-health": {
+        "outcome": "blocked",
+        "failureType": "transport-unavailable",
+        "evidence": "The operation was aborted due to timeout",
+        "checkedAt": "2026-10-08T12:45:54.463Z",
+        "request": {
+          "path": "/api/content/health",
+          "method": "GET",
+          "phase": "response"
+        },
+        "errorName": "TimeoutError",
+        "elapsedMs": 10005
+      },
+      "live-manifest": {
+        "outcome": "blocked",
+        "failureType": "transport-unavailable",
+        "evidence": "The operation was aborted due to timeout",
+        "checkedAt": "2026-10-08T12:46:04.469Z",
+        "request": {
+          "path": "/api/content/manifest",
+          "method": "GET",
+          "phase": "body"
+        },
+        "errorName": "TimeoutError",
+        "elapsedMs": 10006
+      },
+      "bundle-integrity": {
+        "outcome": "passed",
+        "evidence": {
+          "digest": "38ad020d555d8b08a363ca9146220f668c20e04e4b505437457c3fda580bb4e3",
+          "recordCount": 668
+        },
+        "checkedAt": "2026-10-08T12:46:13.631Z",
+        "elapsedMs": 9162
+      },
+      "bounded-record-query": {
+        "outcome": "passed",
+        "evidence": "SOAR filter, revision and maximum page size verified",
+        "checkedAt": "2026-10-08T12:46:22.547Z",
+        "elapsedMs": 8916
+      },
+      "read-only-api": {
+        "outcome": "passed",
+        "evidence": "POST rejected with 405",
+        "checkedAt": "2026-10-08T12:46:31.078Z",
+        "elapsedMs": 8531
+      },
+      "bundled-fallback-assets": {
+        "outcome": "passed",
+        "evidence": "All seven complete fallback adapters served",
+        "checkedAt": "2026-10-08T12:46:45.935Z",
+        "elapsedMs": 14857
+      }
+    },
+    "findings": [
+      {
+        "observed": "database-health: The operation was aborted due to timeout",
+        "impact": "Delivery check incomplete; the cause is not established",
+        "recommendedChange": "Retry this exact check after transport recovery and inspect matching Worker request logs; do not infer an application defect from an unavailable response.",
+        "reversible": true,
+        "checksPassed": false,
+        "resolved": false
+      },
+      {
+        "observed": "live-manifest: The operation was aborted due to timeout",
+        "impact": "Delivery check incomplete; the cause is not established",
+        "recommendedChange": "Retry this exact check after transport recovery and inspect matching Worker request logs; do not infer an application defect from an unavailable response.",
+        "reversible": true,
+        "checksPassed": false,
+        "resolved": false
+      }
+    ],
+    "limitations": [
+      "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
+    ]
+  },
+  "exactRetries": {
+    "evaluatedAt": "2026-10-08T12:47:56.002Z",
+    "requestTimeoutMs": 35000,
+    "scope": "Only two exact timed-out checks retried; earlier blocked attempts retained",
+    "checks": [
+      {
+        "path": "/api/content/health",
+        "outcome": "passed",
+        "startedAt": "2026-10-08T12:47:48.291Z",
+        "checkedAt": "2026-10-08T12:47:56.002Z",
+        "evidence": {
+          "status": "ready",
+          "storage": "d1",
+          "revision": "content-b808d7e116886953bd61b8fe",
+          "engineRevision": "engine-3d988f73a12fc83d1b09",
+          "recordCount": 668
+        }
+      },
+      {
+        "path": "/api/content/manifest",
+        "outcome": "passed",
+        "startedAt": "2026-10-08T12:47:48.301Z",
+        "checkedAt": "2026-10-08T12:47:55.327Z",
+        "evidence": {
+          "schemaVersion": 1,
+          "revision": "content-b808d7e116886953bd61b8fe",
+          "digest": "38ad020d555d8b08a363ca9146220f668c20e04e4b505437457c3fda580bb4e3",
+          "engineRevision": "engine-3d988f73a12fc83d1b09",
+          "datasetHashes": {
+            "platform": "64bb4fd3e6862400dfc7148d59cc6c327d6031d6101685daaf9dfd3e07899b10",
+            "products": "ad329377961c7471bf61993428fcb68b234ab43178cbbc1668924c4829757cea",
+            "guidance": "341039dc4515ee03fe982e5a455933b133b2751dcf7467566a0f986d82b279f0",
+            "environment": "9f13ac92dedcb8a3f4d5d0de59926f7568ef67e92239c2d095edcde9cf22a0fb",
+            "editions": "3d71261084a1b730c55f179589478e8f6299389a3029b2311181b1f98847eb06",
+            "forwarders": "a33bf7da9957714e2b3e43ef6cadd0da893277ef9e8aed4b7ec9396963e7338a",
+            "soar": "55c75eb62e2e02f276a31bb84205a6164e51b240f0742479f09eeac82e3f0150"
+          },
+          "recordCount": 668,
+          "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+          "verificationPolicy": "Migration and delivery do not create verification dates",
+          "phase": "content-model-and-database-delivery"
+        }
+      }
+    ]
+  },
+  "finalOutcome": "delivery-checks-passed",
+  "qualification": "First two requests timed out at10 seconds; exact35-second retries returned real D1 health and repo-identical manifest. Earlier bundle/query/read-only/fallback successes remain separate."
+}
