@@ -1,0 +1,47 @@
+{
+  "status": "eligible-to-advance",
+  "elapsedHours": 14.608655277777778,
+  "minimumHours": 0,
+  "observationHours": 72,
+  "missing": [],
+  "failed": [],
+  "scopedOut": [
+    {
+      "gate": "themes-and-narrow-screens",
+      "rationale": "No CSS, control, layout, renderer or comparison logic changes. Default/Cisco desktop routes were actually checked. Newly added About usage strings are at most 66 characters versus the existing 84-character maximum; the same wrapping/list styles handle them. Native narrow-screen behavior was not newly certified.",
+      "evidence": "Changed-file inventory; existing About controls/stylesheet unchanged; source usage length comparison; report-evidence projection equality."
+    },
+    {
+      "gate": "html-reopen",
+      "rationale": "Only source-register usage/claim-reference metadata, maintenance ledger, documentation/tests and publication metadata change. Canonical facts, report renderers, report source-level context fields, styles, URL readers, snapshots and read-only WebMCP logic are unchanged. New upstream facts are isolated in this repository audit/note.",
+      "evidence": "Canonical product datasets and report bodies/renderers/styles/snapshots/URL readers unchanged; only guidance publication alias and app/index publication stamps regenerated. 148 evidence projections match baseline. Full report/export/shared-link regression suite passes."
+    },
+    {
+      "gate": "pdf-rendering",
+      "rationale": "Only source-register usage/claim-reference metadata, maintenance ledger, documentation/tests and publication metadata change. Canonical facts, report renderers, report source-level context fields, styles, URL readers, snapshots and read-only WebMCP logic are unchanged. New upstream facts are isolated in this repository audit/note.",
+      "evidence": "Canonical product datasets and report bodies/renderers/styles/snapshots/URL readers unchanged; only guidance publication alias and app/index publication stamps regenerated. 148 evidence projections match baseline. Full report/export/shared-link regression suite passes."
+    }
+  ],
+  "unresolved": [],
+  "acceptedMinor": [
+    {
+      "observed": "The secondary newer-guidance warning still constructs a flat release-note URL for October 8; the header and WebMCP metadata have the correct year/month URL.",
+      "trackingIssue": "docs/audits/2026-10-08-version-release-watch.json#legacy-warning-note-citation",
+      "owner": "Version Release Watch",
+      "reviewBy": "2026-10-09T16:00:00Z"
+    }
+  ],
+  "recommendations": [
+    {
+      "observed": "The secondary newer-guidance warning still constructs a flat release-note URL for October 8; the header and WebMCP metadata have the correct year/month URL.",
+      "impact": "One secondary provenance link is broken. The selected comparison, warning, primary note link and export guards work; no version, entitlement or compatibility meaning changes.",
+      "change": "Remove fixed flat-path construction from guidance.resolveUrl.",
+      "validation": "Observed live old-date Cloud link preserves exact 10.4.2604 to 10.5.2605 and warning; current note metadata uses the correct nested path. Repository archive confirms no new flat date exists. Add a regression for both nested and retained flat notes and check generated exports.",
+      "disposition": "tracked-nonblocking-repair"
+    }
+  ],
+  "feedback": {
+    "status": "not-recorded",
+    "note": "No new customer preference or silent success inference."
+  }
+}
