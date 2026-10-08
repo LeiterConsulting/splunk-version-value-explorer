@@ -2535,7 +2535,8 @@ window.VersionCompassSources = {
         "release.productTracks.itsi.hostRequirements.enterprise.10.6.source",
         "forwarders.sources.kv106.url",
         "content-updates.js",
-        "forwarders: forwarders.claimSources.technical.hf-kv-store-10.6"
+        "forwarders: forwarders.claimSources.technical.hf-kv-store-10.6",
+        "forwarders: borrowed.technical.hf.10.6.kv-store-database-engine"
       ],
       "reviews": [
         "2026-10-01"
@@ -2544,6 +2545,16 @@ window.VersionCompassSources = {
         {
           "path": "forwarders: forwarders.claimSources.technical.hf-kv-store-10.6",
           "section": "Prepare for upgrade; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins"
+        },
+        {
+          "path": "forwarders: borrowed.technical.hf.10.6.kv-store-database-engine",
+          "claimId": "technical.hf.10.6.kv-store-database-engine",
+          "release": "10.6",
+          "component": "KV Store database engine",
+          "section": "Prepare for upgrade; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins",
+          "claimVerified": "2026-10-08",
+          "outcome": "supporting-section-confirmed",
+          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval. Applies when KV Store is present; ITSI 5.0.x and lower require postponement. Premium-app pairing remains separately owned."
         }
       ],
       "usage": "In use",
@@ -2566,7 +2577,8 @@ window.VersionCompassSources = {
       "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.0-read-this-first",
       "title": "about upgrading to 10.0 read this first",
       "areas": [
-        "Release guide"
+        "Release guide",
+        "Splunk Forwarders"
       ],
       "references": [
         "release.enterprise.releasesData.10.0.technicalChanges.0.source",
@@ -2574,9 +2586,44 @@ window.VersionCompassSources = {
         "release.enterprise.releasesData.10.0.technicalChanges.2.source",
         "release.enterprise.releasesData.10.0.requirements.0.3",
         "release.enterprise.releasesData.10.0.requirements.1.3",
-        "release.enterprise.releasesData.10.0.requirements.2.3"
+        "release.enterprise.releasesData.10.0.requirements.2.3",
+        "forwarders: borrowed.technical.hf.10.0.python-application-runtime",
+        "forwarders: borrowed.technical.hf.10.0.fips-cryptographic-module",
+        "forwarders: borrowed.technical.hf.10.0.legacy-tls-protocols"
       ],
       "reviews": [],
+      "claimReferences": [
+        {
+          "path": "forwarders: borrowed.technical.hf.10.0.python-application-runtime",
+          "claimId": "technical.hf.10.0.python-application-runtime",
+          "release": "10.0",
+          "component": "Python application runtime",
+          "section": "Key points for upgrading to version 10.0; Support for version 3.7 of the Python runtime environment has been removed",
+          "claimVerified": "2026-10-08",
+          "outcome": "supporting-section-confirmed",
+          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
+        },
+        {
+          "path": "forwarders: borrowed.technical.hf.10.0.fips-cryptographic-module",
+          "claimId": "technical.hf.10.0.fips-cryptographic-module",
+          "release": "10.0",
+          "component": "FIPS cryptographic module",
+          "section": "Key points for upgrading to version 10.0 — FIPS-mode module requirements and dedicated migration link",
+          "claimVerified": "2026-10-08",
+          "outcome": "supporting-section-confirmed",
+          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval. Dedicated FIPS migration prerequisites still apply; no FedRAMP authorization is inferred."
+        },
+        {
+          "path": "forwarders: borrowed.technical.hf.10.0.legacy-tls-protocols",
+          "claimId": "technical.hf.10.0.legacy-tls-protocols",
+          "release": "10.0",
+          "component": "Legacy TLS protocols",
+          "section": "Key points for upgrading to version 10.0 — SSL 3.0 and TLS 1.0/1.1 deprecation",
+          "claimVerified": "2026-10-08",
+          "outcome": "supporting-section-confirmed",
+          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
+        }
+      ],
       "usage": "In use",
       "reviewed": null,
       "status": "Review date unknown",
@@ -2610,7 +2657,11 @@ window.VersionCompassSources = {
         "release.enterprise.releasesData.10.2.requirements.1.3",
         "release.enterprise.releasesData.10.2.requirements.2.3",
         "forwarders.sources.upgrade102.url",
-        "forwarders: forwarders.claimSources.upgrade.uf.10.2"
+        "forwarders: forwarders.claimSources.upgrade.uf.10.2",
+        "forwarders: borrowed.technical.hf.10.2.python-runtimes",
+        "forwarders: borrowed.technical.hf.10.2.embedded-nodejs-runtime",
+        "forwarders: borrowed.technical.hf.10.2.unix-service-identity",
+        "forwarders: borrowed.technical.hf.10.2.fishbucket-checkpoint-store"
       ],
       "reviews": [
         "2026-09-28"
@@ -2619,6 +2670,46 @@ window.VersionCompassSources = {
         {
           "path": "forwarders: forwarders.claimSources.upgrade.uf.10.2",
           "section": "Key points for upgrading to version 10.2"
+        },
+        {
+          "path": "forwarders: borrowed.technical.hf.10.2.python-runtimes",
+          "claimId": "technical.hf.10.2.python-runtimes",
+          "release": "10.2",
+          "component": "Python runtimes",
+          "section": "The Splunk platform uses version 3.13 of the Python runtime environment on Splunk Web; The Splunk daemon and its associated components can now use version 3.13 of the Python interpreter, version 3.9 is still available",
+          "claimVerified": "2026-10-08",
+          "outcome": "supporting-section-confirmed",
+          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
+        },
+        {
+          "path": "forwarders: borrowed.technical.hf.10.2.embedded-nodejs-runtime",
+          "claimId": "technical.hf.10.2.embedded-nodejs-runtime",
+          "release": "10.2",
+          "component": "Embedded Node.js runtime",
+          "section": "The Node.js JavaScript runtime environment has been removed",
+          "claimVerified": "2026-10-08",
+          "outcome": "supporting-section-confirmed",
+          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
+        },
+        {
+          "path": "forwarders: borrowed.technical.hf.10.2.unix-service-identity",
+          "claimId": "technical.hf.10.2.unix-service-identity",
+          "release": "10.2",
+          "component": "Unix service identity",
+          "section": "Splunk Enterprise no longer lets you run it as the root user by default",
+          "claimVerified": "2026-10-08",
+          "outcome": "supporting-section-confirmed",
+          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
+        },
+        {
+          "path": "forwarders: borrowed.technical.hf.10.2.fishbucket-checkpoint-store",
+          "claimId": "technical.hf.10.2.fishbucket-checkpoint-store",
+          "release": "10.2",
+          "component": "Fishbucket checkpoint store",
+          "section": "The Splunk Fishbucket database back end has been replaced",
+          "claimVerified": "2026-10-08",
+          "outcome": "supporting-section-confirmed",
+          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
         }
       ],
       "usage": "In use",
@@ -2696,7 +2787,12 @@ window.VersionCompassSources = {
         "release.enterprise.releasesData.10.4.requirements.4.3",
         "release.enterprise.releasesData.10.4.requirements.5.3",
         "forwarders.sources.upgrade104.url",
-        "forwarders: forwarders.claimSources.upgrade.uf.10.4"
+        "forwarders: forwarders.claimSources.upgrade.uf.10.4",
+        "forwarders: borrowed.technical.hf.10.4.legacy-tls-protocols",
+        "forwarders: borrowed.technical.hf.10.4.certificate-signatures",
+        "forwarders: borrowed.technical.hf.10.4.kv-store-binaries",
+        "forwarders: borrowed.technical.hf.10.4.kv-store-tls-configuration",
+        "forwarders: borrowed.technical.hf.10.4.windows-service-identity"
       ],
       "reviews": [
         "2026-09-28"
@@ -2705,6 +2801,56 @@ window.VersionCompassSources = {
         {
           "path": "forwarders: forwarders.claimSources.upgrade.uf.10.4",
           "section": "Key points; component-specific changes"
+        },
+        {
+          "path": "forwarders: borrowed.technical.hf.10.4.legacy-tls-protocols",
+          "claimId": "technical.hf.10.4.legacy-tls-protocols",
+          "release": "10.4",
+          "component": "Legacy TLS protocols",
+          "section": "Splunk has removed support for versions 1.0 and 1.1 of the Transport Layer Security (TLS) protocol",
+          "claimVerified": "2026-10-08",
+          "outcome": "conflicting-evidence-preserved",
+          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval. READ THIS FIRST says complete removal; the 10.4 Welcome table says disabled by default with temporary migration support. This existing conflict remains unresolved."
+        },
+        {
+          "path": "forwarders: borrowed.technical.hf.10.4.certificate-signatures",
+          "claimId": "technical.hf.10.4.certificate-signatures",
+          "release": "10.4",
+          "component": "Certificate signatures",
+          "section": "Splunk removed support for Secure Hash Algorithm 1 (SHA1) certificate signatures",
+          "claimVerified": "2026-10-08",
+          "outcome": "supporting-section-confirmed",
+          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
+        },
+        {
+          "path": "forwarders: borrowed.technical.hf.10.4.kv-store-binaries",
+          "claimId": "technical.hf.10.4.kv-store-binaries",
+          "release": "10.4",
+          "component": "KV Store binaries",
+          "section": "Splunk removed the binary files that were associated with older versions of the MongoDB database engine",
+          "claimVerified": "2026-10-08",
+          "outcome": "supporting-section-confirmed",
+          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
+        },
+        {
+          "path": "forwarders: borrowed.technical.hf.10.4.kv-store-tls-configuration",
+          "claimId": "technical.hf.10.4.kv-store-tls-configuration",
+          "release": "10.4",
+          "component": "KV Store TLS configuration",
+          "section": "Splunk changed how App Key Value Store (KV Store) uses TLS-related settings in the [kvstore] stanza of the server.conf configuration file",
+          "claimVerified": "2026-10-08",
+          "outcome": "supporting-section-confirmed",
+          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
+        },
+        {
+          "path": "forwarders: borrowed.technical.hf.10.4.windows-service-identity",
+          "claimId": "technical.hf.10.4.windows-service-identity",
+          "release": "10.4",
+          "component": "Windows service identity",
+          "section": "Splunk Enterprise on Windows no longer lets you install, upgrade, or run it as an administrator-level user",
+          "claimVerified": "2026-10-08",
+          "outcome": "supporting-section-confirmed",
+          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
         }
       ],
       "usage": "In use",
@@ -3022,7 +3168,8 @@ window.VersionCompassSources = {
         "forwarders.sources.upgrade106.url",
         "content-updates.js",
         "forwarders: forwarders.claimSources.technical.hf-tls-10.6",
-        "forwarders: forwarders.claimSources.upgrade.uf.10.6"
+        "forwarders: forwarders.claimSources.upgrade.uf.10.6",
+        "forwarders: borrowed.technical.hf.10.6.legacy-tls-protocols"
       ],
       "reviews": [
         "2026-10-01"
@@ -3035,6 +3182,16 @@ window.VersionCompassSources = {
         {
           "path": "forwarders: forwarders.claimSources.upgrade.uf.10.6",
           "section": "Key points for upgrading to version 10.6"
+        },
+        {
+          "path": "forwarders: borrowed.technical.hf.10.6.legacy-tls-protocols",
+          "claimId": "technical.hf.10.6.legacy-tls-protocols",
+          "release": "10.6",
+          "component": "Legacy TLS protocols",
+          "section": "Splunk has removed support for versions 1.0 and 1.1 of the Transport Layer Security (TLS) protocol",
+          "claimVerified": "2026-10-08",
+          "outcome": "supporting-section-confirmed",
+          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
         }
       ],
       "usage": "In use",
@@ -3297,7 +3454,9 @@ window.VersionCompassSources = {
         "release.enterprise.releasesData.10.4.requirements.0.3",
         "forwarders.sources.maintenance.url",
         "content-updates.js",
-        "forwarders: forwarders.claimSources.maintenance.10.4"
+        "forwarders: forwarders.claimSources.maintenance.10.4",
+        "forwarders: borrowed.technical.hf.10.4.python-application-runtime",
+        "forwarders: borrowed.technical.hf.10.4.kv-store-database-engine"
       ],
       "reviews": [
         "2026-09-30"
@@ -3306,6 +3465,26 @@ window.VersionCompassSources = {
         {
           "path": "forwarders: forwarders.claimSources.maintenance.10.4",
           "section": "What's new in 10.4.2, 10.4.3 and 10.4.4"
+        },
+        {
+          "path": "forwarders: borrowed.technical.hf.10.4.python-application-runtime",
+          "claimId": "technical.hf.10.4.python-application-runtime",
+          "release": "10.4",
+          "component": "Python application runtime",
+          "section": "Upgrade Splunk Python version from 3.9 to 3.13",
+          "claimVerified": "2026-10-08",
+          "outcome": "supporting-section-confirmed",
+          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
+        },
+        {
+          "path": "forwarders: borrowed.technical.hf.10.4.kv-store-database-engine",
+          "claimId": "technical.hf.10.4.kv-store-database-engine",
+          "release": "10.4",
+          "component": "KV Store database engine",
+          "section": "Upgrading the backend database for KV Store and KV Service to MongoDB 8.0",
+          "claimVerified": "2026-10-08",
+          "outcome": "supporting-section-confirmed",
+          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
         }
       ],
       "usage": "In use",

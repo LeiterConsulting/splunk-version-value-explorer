@@ -55,6 +55,19 @@ resolveReferences(context.window.VersionCompassEnvironmentData,'environment');
 resolveReferences(context.window.VersionCompassEditions,'editions');
 resolveReferences(context.window.VersionCompassForwarderData,'forwarders',true);
 resolveReferences(context.window.VersionCompassSOARData,'soar',true);
+// HF reports also consume Enterprise technical records outside the Forwarder catalog.
+// Keep their per-record sections separate from source-level review dates.
+const borrowedFile='docs/forwarder-source-mappings.json';
+for(const claim of JSON.parse(fs.readFileSync(borrowedFile,'utf8')).claims){
+ const record=context.window.SPLUNK_DATA.enterprise.releasesData[claim.release]?.technicalChanges?.find(t=>t.component===claim.component);
+ if(!record||record.source!==claim.url||!claim.sections?.length||claim.sections.some(s=>!s.trim()))throw Error('Stale borrowed HF mapping: '+claim.claimId);
+ const row=rows.get(claim.url);if(!row)throw Error('Unregistered borrowed HF source: '+claim.claimId);
+ if(!row.areas.includes('Splunk Forwarders'))row.areas.push('Splunk Forwarders');
+ const path='forwarders: borrowed.'+claim.claimId;
+ row.references.push(path);
+ row.claimReferences=row.claimReferences||[];
+ row.claimReferences.push({path,claimId:claim.claimId,release:claim.release,component:claim.component,section:claim.sections.join('; '),claimVerified:claim.claimVerificationDate,outcome:claim.outcome,qualification:claim.qualification});
+}
 const prior=new Map(previous.sources.map(r=>[r.url,r]));
 const sources=[...rows.values()].map(r=>{
  const p=prior.get(r.url),note=notes[r.url]||{},events=p?.events||[];

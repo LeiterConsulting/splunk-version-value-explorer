@@ -154,10 +154,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-07T10:03:30.000Z",
-      "lastSuccess": "2026-10-07T10:04:00.000Z",
+      "lastAttempt": "2026-10-08T09:44:01.397Z",
+      "lastSuccess": "2026-10-08T09:53:58.883Z",
       "outcome": "changed",
-      "summary": "Published Cloud 10.6 current pairings and exact Enterprise/Cloud 10.6 Forwarder receiver rows while preserving environment, entitlement, topology and support qualifications.",
+      "summary": "Checked 120 official source URLs (118 retrieved); repaired and tested 16 borrowed HF evidence mappings across 900 routes. October security and Collector/Python releases recorded as isolated factual candidates.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -283,9 +283,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Published Cloud 10.6 current pairings and exact Enterprise/Cloud 10.6 Forwarder receiver rows while preserving environment, entitlement, topology and support qualifications.",
           "scope": "All 120 maintained URLs were attempted with differentiated availability recorded; verified changed 10.6 service and receiver claims plus bounded Enterprise, migration, ES, ITSI, Observability, SOAR and advisory claims. D1 publication and fallback diagnostics passed; PDF rendering, independent saved-HTML reopening and narrow-screen inspection remain separately unperformed."
+        },
+        {
+          "at": "2026-10-08T09:44:01.397Z",
+          "outcome": "running",
+          "summary": "Checking release and advisory sources; reconciling current GitHub and Sites trees.",
+          "scope": "120 maintained official source URLs; current release hubs and consequential compatibility, runtime, upgrade and security claims."
+        },
+        {
+          "at": "2026-10-08T09:53:58.883Z",
+          "outcome": "changed",
+          "summary": "Checked 120 official source URLs (118 retrieved); repaired and tested 16 borrowed HF evidence mappings across 900 routes. October security and Collector/Python releases recorded as isolated factual candidates.",
+          "scope": "Full maintained URL inventory plus bounded section/claim review; provenance/operational publication only. New product facts require affected report/export validation."
         }
       ],
-      "scope": "All 120 maintained URLs were attempted with differentiated availability recorded; verified changed 10.6 service and receiver claims plus bounded Enterprise, migration, ES, ITSI, Observability, SOAR and advisory claims. D1 publication and fallback diagnostics passed; PDF rendering, independent saved-HTML reopening and narrow-screen inspection remain separately unperformed."
+      "scope": "Full maintained URL inventory plus bounded section/claim review; provenance/operational publication only. New product facts require affected report/export validation."
     },
     {
       "id": "es-editions-watch",
