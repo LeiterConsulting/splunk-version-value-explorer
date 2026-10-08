@@ -450,10 +450,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-guidance-audit",
       "name": "Version Guidance Audit",
-      "lastAttempt": "2026-10-01T21:08:16Z",
-      "lastSuccess": "2026-10-01T21:08:35Z",
-      "outcome": "no-change",
-      "summary": "Concurrent SOAR source preserved; 20 added official sources retrieved and four consequential claims confirmed. Prior factual version 80 publication and bounded native evidence reconciled. No further factual change.",
+      "lastAttempt": "2026-10-08T12:19:08.883584+00:00",
+      "lastSuccess": "2026-10-08T12:37:36.538139Z",
+      "outcome": "changed",
+      "summary": "Reviewed 146 in-use official URLs, retrieved 144; independently demonstrated 16 HF mappings across 900 routes. SOAR 6.4.1.361 eligibility gap isolated; Export 8.7 matrix recovered; audit and operational docs updated.",
       "history": [
         {
           "at": "2026-09-24T12:45:24.855849+00:00",
@@ -519,9 +519,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Concurrent SOAR source preserved; 20 added official sources retrieved and four consequential claims confirmed. Prior factual version 80 publication and bounded native evidence reconciled. No further factual change.",
           "scope": "140 exact URL attempts including 20 added SOAR sources; four new build/Python/pairing/path claim checks. Retrieval is not blanket claim verification. Historical HF coverage and native PDF, narrow-screen, reopened HTML, clipboard and WebMCP remain incomplete; successful review is not deployment."
+        },
+        {
+          "at": "2026-10-08T12:19:08.883584+00:00",
+          "outcome": "running",
+          "summary": "Independent inventory and bounded consequential guidance audit from matching October 8 GitHub/Sites baseline.",
+          "scope": "Complete maintained official source inventory; bounded Platform, migration, ES/ITSI, Observability, UF/HF borrowed-source regression and SOAR path/runtime/app claims; actual current/legacy/invalid browser routes, read-only WebMCP and independently recorded publication checks."
+        },
+        {
+          "at": "2026-10-08T12:37:36.538139Z",
+          "outcome": "changed",
+          "summary": "Reviewed 146 in-use official URLs, retrieved 144; independently demonstrated 16 HF mappings across 900 routes. SOAR 6.4.1.361 eligibility gap isolated; Export 8.7 matrix recovered; audit and operational docs updated.",
+          "scope": "Complete integrated source inventory attempts and bounded Release Guide/premium/migration/lifecycle/edition/environment/Observability/Forwarder/SOAR claims; actual desktop/keyboard/legacy-invalid/read-only WebMCP and HTML download; native reopen/PDF/narrow limits recorded separately. Documentation and outcome publication only; no canonical factual batch or active delivery change."
         }
       ],
-      "scope": "140 exact URL attempts including 20 added SOAR sources; four new build/Python/pairing/path claim checks. Retrieval is not blanket claim verification. Historical HF coverage and native PDF, narrow-screen, reopened HTML, clipboard and WebMCP remain incomplete; successful review is not deployment."
+      "scope": "Complete integrated source inventory attempts and bounded Release Guide/premium/migration/lifecycle/edition/environment/Observability/Forwarder/SOAR claims; actual desktop/keyboard/legacy-invalid/read-only WebMCP and HTML download; native reopen/PDF/narrow limits recorded separately. Documentation and outcome publication only; no canonical factual batch or active delivery change."
     }
   ]
 };
