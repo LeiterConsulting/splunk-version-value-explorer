@@ -1,6 +1,6 @@
 {
   "id": "soar-export-selected-theme",
-  "checkedAt": "2026-10-08T17:13:38.040941+00:00",
+  "checkedAt": "2026-10-08T17:16:02.614Z",
   "scope": "Bounded SOAR Print / PDF and saved-HTML print palette repair; no factual/route/evidence date changes",
   "sourceAndClaimChecks": {
     "outcome": "not-applicable",
@@ -70,16 +70,127 @@
     }
   },
   "independentDownloadedHTMLReopen": {
-    "outcome": "pending-live-check"
+    "outcome": "blocked",
+    "operation": "Navigate to the exact downloaded file URL in the supported cloud browser",
+    "reason": "Browser URL security policy permits only HTTP/HTTPS and rejects file: protocol. No workaround attempted.",
+    "alternative": "Actual downloaded bytes inspected and rendered with WeasyPrint; this is not claimed as an independent browser reopen"
   },
   "narrowScreen": {
     "outcome": "not-performed",
     "reason": "Current browser surface has no viewport control; changed styles apply to print only, snapshot screen styles are unchanged"
   },
   "publication": {
-    "outcome": "pending",
+    "outcome": "succeeded",
+    "githubCommit": "d257fb5c14ef39afb20bfe45889d111ea9449ea4",
+    "sitesCommit": "604f223f4ea17826a513c36d6932aeab695e7ad6",
+    "matchingTree": "310b1a7b438a329f81a642729890b9c0a8bce5e1",
+    "version": 134,
+    "deploymentId": "appgdep_6ac7cf8c27448191b2812ae762706a29",
+    "deployedAt": "2026-10-08T17:14:59.906171+00:00",
+    "liveRevision": "vc-a4efeee36b21044a",
+    "contentRevision": "content-61469978f91e132847d82a28",
+    "engineRevision": "engine-c98daba6f37b1ff1445f",
     "priorSitesVersion": 133
   },
   "maintenanceSchedules": "unchanged",
-  "privacyAndPublicAudience": "unchanged"
+  "privacyAndPublicAudience": "unchanged",
+  "liveVerification": {
+    "evaluatedAt": "2026-10-08T17:16:02.614Z",
+    "status": "delivery-checks-passed",
+    "checks": {
+      "database-health": {
+        "outcome": "passed",
+        "evidence": {
+          "status": "ready",
+          "storage": "d1",
+          "revision": "content-61469978f91e132847d82a28",
+          "engineRevision": "engine-c98daba6f37b1ff1445f",
+          "recordCount": 668
+        },
+        "checkedAt": "2026-10-08T17:15:40.775Z",
+        "elapsedMs": 8241
+      },
+      "live-manifest": {
+        "outcome": "passed",
+        "evidence": {
+          "schemaVersion": 1,
+          "revision": "content-61469978f91e132847d82a28",
+          "digest": "38ad020d555d8b08a363ca9146220f668c20e04e4b505437457c3fda580bb4e3",
+          "engineRevision": "engine-c98daba6f37b1ff1445f",
+          "datasetHashes": {
+            "platform": "64bb4fd3e6862400dfc7148d59cc6c327d6031d6101685daaf9dfd3e07899b10",
+            "products": "ad329377961c7471bf61993428fcb68b234ab43178cbbc1668924c4829757cea",
+            "guidance": "341039dc4515ee03fe982e5a455933b133b2751dcf7467566a0f986d82b279f0",
+            "environment": "9f13ac92dedcb8a3f4d5d0de59926f7568ef67e92239c2d095edcde9cf22a0fb",
+            "editions": "3d71261084a1b730c55f179589478e8f6299389a3029b2311181b1f98847eb06",
+            "forwarders": "a33bf7da9957714e2b3e43ef6cadd0da893277ef9e8aed4b7ec9396963e7338a",
+            "soar": "55c75eb62e2e02f276a31bb84205a6164e51b240f0742479f09eeac82e3f0150"
+          },
+          "recordCount": 668,
+          "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+          "verificationPolicy": "Migration and delivery do not create verification dates",
+          "phase": "content-model-and-database-delivery"
+        },
+        "checkedAt": "2026-10-08T17:15:41.407Z",
+        "elapsedMs": 632
+      },
+      "bundle-integrity": {
+        "outcome": "passed",
+        "evidence": {
+          "digest": "38ad020d555d8b08a363ca9146220f668c20e04e4b505437457c3fda580bb4e3",
+          "recordCount": 668
+        },
+        "checkedAt": "2026-10-08T17:15:42.178Z",
+        "elapsedMs": 771
+      },
+      "bounded-record-query": {
+        "outcome": "passed",
+        "evidence": "SOAR filter, revision and maximum page size verified",
+        "checkedAt": "2026-10-08T17:15:42.645Z",
+        "elapsedMs": 467
+      },
+      "read-only-api": {
+        "outcome": "passed",
+        "evidence": "POST rejected with 405",
+        "checkedAt": "2026-10-08T17:15:49.651Z",
+        "elapsedMs": 7006
+      },
+      "bundled-fallback-assets": {
+        "outcome": "passed",
+        "evidence": "All seven complete fallback adapters served",
+        "checkedAt": "2026-10-08T17:16:02.614Z",
+        "elapsedMs": 12963
+      }
+    },
+    "assets": [
+      "soar.css",
+      "report-tools.js",
+      "content-revision.js"
+    ],
+    "assetParity": "Exact byte-for-byte live matches",
+    "webmcp": "Actual Cloud current report agrees with selected 8.6.0 to 8.7.0 route, qualifications and current revision; CMP Print / PDF prepares PostgreSQL and expanded evidence"
+  },
+  "downloadedHTML": {
+    "outcome": "passed",
+    "scope": "Actual Save dated snapshot downloads from production: Cisco Cloud and default CMP",
+    "renderedPDFs": [
+      {
+        "theme": "cisco",
+        "pages": 7,
+        "downloadSha256": "eb86141ac8305a372c27e49f9bbbfdb2edc0ba25680b7ecf5108998fcad6455c",
+        "pdfSha256": "d3f6db24176bb8283aa2b836c9c73592eed7b3211f745e2458b49bc3ef922935",
+        "computedPrintPalette": "passed",
+        "textBounds": "passed"
+      },
+      {
+        "theme": "default",
+        "pages": 9,
+        "downloadSha256": "4be020e0be8d5b6ba94272b4e0b1d282d78d7251ec494428c7aa455f7a74856f",
+        "pdfSha256": "7ea5998a91b70979aabb7479248f63474aa346983fbf85324e65de469e7adbc5",
+        "computedPrintPalette": "passed",
+        "textBounds": "passed"
+      }
+    ],
+    "visualInspection": "All pages inspected; selected palettes, requirements, citations and verification appendix retained"
+  }
 }
