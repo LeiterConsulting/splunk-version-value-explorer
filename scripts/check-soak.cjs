@@ -3,14 +3,17 @@ const fs = require('node:fs');
 const text = value => typeof value === 'string' && value.trim().length > 0;
 const evidence = value => text(value) || (value && typeof value === 'object' && !Array.isArray(value) && Object.keys(value).length > 0) || (Array.isArray(value) && value.length > 0);
 const protectedRisk = finding => ['factualUncertainty', 'privacyChange', 'audienceChange', 'destructive', 'commercialCommitment', 'dataIntegrityRisk', 'securityRisk', 'brokenLegacyLink', 'silentRouteChange'].some(key => Boolean(finding[key]));
-function assess(input, policy = JSON.parse(fs.readFileSync('content/soak-policy.json', 'utf8'))) {
+function assess(input, policy = JSON.parse(fs.readFileSync('content/soak-policy.json', 'utf8')), verifiedExports = null) {
   const deployment = Date.parse(input.baseline?.deployedAt), evaluated = Date.parse(input.evaluatedAt);
   const elapsedHours = (evaluated - deployment) / 3600000;
   const missing = [], failed = [], scopedOut = [];
   for (const gate of policy.requiredGates) {
-    const result = input.checks?.[gate];
+    const recorded = input.checks?.[gate];
+    // Current real failures win over inherited successful candidate checks.
+    const result = recorded?.outcome === 'failed' ? recorded : verifiedExports?.checks?.[gate] || recorded;
+    const candidateBound = result === verifiedExports?.checks?.[gate];
     const checked = Date.parse(result?.checkedAt);
-    if (!result || !evidence(result.evidence) || !Number.isFinite(checked) || checked < deployment || checked > evaluated) { missing.push(gate); continue; }
+    if (!result || !evidence(result.evidence) || !Number.isFinite(checked) || (!candidateBound && checked < deployment) || checked > evaluated) { missing.push(gate); continue; }
     if (result.outcome === 'not-applicable' && (policy.scopableGates || []).includes(gate)
       && result.scope?.unaffected === true && text(result.scope.rationale) && evidence(result.scope.evidence)) {
       scopedOut.push({ gate, rationale: result.scope.rationale, evidence: result.scope.evidence });
@@ -34,7 +37,9 @@ function assess(input, policy = JSON.parse(fs.readFileSync('content/soak-policy.
 }
 if (require.main === module) {
   const file = process.argv[2]; if (!file) throw Error('Usage: node scripts/check-soak.cjs SOAK_RESULT.json');
-  const result = assess(JSON.parse(fs.readFileSync(file, 'utf8'))); console.log(JSON.stringify(result, null, 2));
+  const flag = process.argv.indexOf('--exports');
+  const verifiedExports = flag < 0 ? null : require('./export-evidence.cjs').verify(process.argv[flag + 1]);
+  const result = assess(JSON.parse(fs.readFileSync(file, 'utf8')), undefined, verifiedExports); console.log(JSON.stringify(result, null, 2));
   if (result.status !== 'eligible-to-advance') process.exitCode = 2;
 }
 module.exports = { assess };

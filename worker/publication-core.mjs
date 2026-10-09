@@ -11,6 +11,7 @@ export const REQUIRED_STEPS = [
   'node scripts/sync-content.cjs --check',
   'node --test tests/*.test.cjs',
   'node scripts/build-worker.cjs',
+  'node tools/export-verification/verify.mjs',
 ];
 const REVISION = /^content-[a-f0-9]{24}$/;
 const ENGINE = /^engine-[a-f0-9]{20}$/;
