@@ -6,6 +6,7 @@ test('SOAR paths retain Python bridge, OS bridge and privileged unknowns',()=>{c
  assert.deepEqual(Array.from(a.assess({...a.defaults,from:'7.1.0'}).path),['7.1.0','8.7.0']);
  assert.equal(a.assess({...a.defaults,installation:'privileged'}).path.length,0);
  assert(a.assess({...a.defaults,from:'6.2.1'}).conditions.some(x=>x.includes('PostgreSQL')));
+ const floor=a.assess({...a.defaults,from:'6.4.1',to:'8.6.0'});assert.match(floor.routeStatus,/exact-build/);assert(floor.conditions.some(x=>x.includes('6.4.1.361')));
 });
 test('SOAR target requirements and exact issue scope survive comparison filtering',()=>{const a=core().window.VersionCompassSOAR,m=a.assess(a.defaults);
  assert(m.requirements.some(x=>x.id==='python87'));assert(m.issues.some(x=>x.id==='build243'&&x.detail.includes('232')));assert(m.technical.some(x=>x.id==='app87'&&x.detail.includes('/rest/audit')));
