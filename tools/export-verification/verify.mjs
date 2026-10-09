@@ -25,6 +25,12 @@ async function checkLayout(page) {
     return { width, scroll: document.documentElement.scrollWidth,
       overflow: [...document.querySelectorAll('h1,h2,h3,p,button,select')].filter(el => {
         const r = el.getBoundingClientRect(), style = getComputedStyle(el);
+        // An intentional horizontally scrollable tab strip may have offscreen
+        // buttons without overflowing the page. Check its container, not each tab.
+        for (let parent = el.parentElement; parent && parent !== document.body; parent = parent.parentElement) {
+          const css = getComputedStyle(parent);
+          if (['auto','scroll'].includes(css.overflowX) && parent.scrollWidth > parent.clientWidth) return false;
+        }
         return r.width && r.height && style.visibility !== 'hidden' && (r.right > width + 3 || r.left < -3);
       }).slice(0, 10).map(el => ({ tag: el.tagName, text: el.textContent.slice(0, 100) })) };
   });
