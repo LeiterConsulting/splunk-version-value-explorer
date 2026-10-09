@@ -51,6 +51,7 @@ try {
     const id = route.id + '-' + theme, directory = path.join(output, id); fs.mkdirSync(directory);
     const entry = { id, outcome: 'failed' }; receipt.cases.push(entry);
     const context = await browser.newContext({viewport:{width:1440,height:1000},acceptDownloads:true});
+    try {
     const page = await context.newPage(), errors = []; page.on('pageerror', e => errors.push(e.message));
     // Restrict application CI to its own local Worker; no external source or customer requests.
     await context.route('**/*', r => new URL(r.request().url()).hostname === '127.0.0.1' ? r.continue() : r.abort());
@@ -82,7 +83,10 @@ try {
       assert.equal(await download.failure(), null); await download.saveAs(htmlFile);
       // Independent context, real downloaded bytes, no live assets or API available.
       const offline = await browser.newContext({offline:true,viewport:{width:1440,height:1000}}), reopened = await offline.newPage();
-      const requests = []; await offline.route('**/*', r => { requests.push(r.request().url()); return r.abort(); });
+      const requests = []; await offline.route('**/*', r => {
+        if (r.request().url().startsWith('file:')) return r.continue();
+        requests.push(r.request().url()); return r.abort();
+      });
       await reopened.goto(pathToFileURL(htmlFile).href);
       const reopenedText = normalize(await reopened.locator('body').textContent());
       assert(reopenedText.includes(normalize(expected.text)), 'Saved HTML lost report content');
@@ -101,9 +105,11 @@ try {
       assert.deepEqual(restored,baseline,'Print/export changed the selected report or disclosure state');
     }
     assert.equal(errors.length,0,'Browser errors: '+errors.join('; '));
-    entry.outcome='passed'; await context.close(); console.log('Export verification passed: '+id);
+    entry.outcome='passed'; console.log('Export verification passed: '+id);
+    } catch (error) { entry.error=error.stack; console.error(id+': '+error.stack); process.exitCode=1; }
+    finally { await context.close(); }
   }
-  receipt.outcome='passed';
+  receipt.outcome=receipt.cases.every(c=>c.outcome==='passed')?'passed':'failed';
 } catch (error) { receipt.error = error.stack; console.error(error.stack); process.exitCode=1; }
 finally {
   await browser?.close(); server.kill(); fs.writeFileSync(path.join(output,'server.log'),serverLog);
