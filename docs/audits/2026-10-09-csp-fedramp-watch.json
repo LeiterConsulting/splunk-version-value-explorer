@@ -1,7 +1,7 @@
 {
   "watch": "csp-fedramp-watch",
   "startedAt": "2026-10-09T14:52:11.940Z",
-  "completedAt": "2026-10-09T14:56:15.761Z",
+  "completedAt": "2026-10-09T15:25:15.411Z",
   "outcome": "changed",
   "sourceCheckDate": "2026-10-09",
   "scope": "All 10 maintained environment sources and two CSP-owned SOAR sources; 58 existing records plus the held four-record Machine Data Lake candidate; 11 bounded high-consequence claims; visual matrix, current/versioned discovery, filters, reports, exports and publication parity. Not exhaustive historical claim verification.",
@@ -55,16 +55,77 @@
     "checkGates": "All four --check gates passed before candidate commit.",
     "nodeTests": {"passed":169,"failed":0,"skipped":0},
     "build": "54 assets; immutable content revision content-ec6bf45fa666a5787829070c",
-    "candidateExports": "Initial 24-case exact-candidate CI passed but did not directly select the changed environment scopes; route inventory extended with commercial AWS and Moderate GovCloud for a replacement exact-candidate run.",
-    "browserAndLive": "pending candidate publication"
+    "candidateExports": {
+      "outcome": "passed",
+      "commit": "da3bde78c8af7ef87abc84cd1e924384afca168b",
+      "tree": "4d2754b8c3b11c0f8bc8ad75c992669490360862",
+      "workflowRun": 37949869398,
+      "job": 113885548572,
+      "artifact": 11626141149,
+      "archiveSha256": "6df5095c04e990c363bc2eec3ed31343d6465dfb726d70b2cc5d66b55e564900",
+      "reportFingerprint": "53ec61aab5cbf3315c176bb3f12aa56343a5a927af0593b8a592c5d54968b25a",
+      "cases": 28,
+      "nativePdfCases": 26,
+      "renderedPages": 572,
+      "offlineHtmlCases": 26,
+      "phoneThemeCases": 28,
+      "invalidGuards": 2,
+      "completedAt": "2026-10-09T15:17:17.359Z",
+      "binding": "scripts/export-evidence.cjs verified the exact commit, tree, report inputs and every retained artifact hash. scripts/check-soak.cjs --exports returned eligible-to-advance.",
+      "visualReview": "Human inspection covered the affected commercial-AWS and Moderate-GovCloud S3/MDL PDF pages, both themes, both phone screenshots and independently reopened HTML. Automated geometry/page checks are not labeled human review."
+    },
+    "browserAndLive": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-09T15:25:15.411Z",
+      "detail": "Live affected FR-M route, historical 8.2-to-9.4 link, invalid link guard and keyboard skip navigation passed. Read-only WebMCP agreed with screen scope. D1 health, manifest, bundle, bounded query, write rejection and all seven fallbacks matched publication.json."
+    }
   },
-  "readiness": {"status":"pending-exact-candidate-export-evidence","minimumHours":0,"observationHours":72},
-  "publication": {"outcome":"pending"},
+  "readiness": {
+    "status": "eligible-to-advance",
+    "minimumHours": 0,
+    "observationHours": 72,
+    "evaluatedAt": "2026-10-09T15:25:15.411Z",
+    "missing": [],
+    "failed": [],
+    "unresolved": []
+  },
+  "publication": {
+    "outcome": "published-and-live-verified",
+    "githubRuntimeCommit": "da3bde78c8af7ef87abc84cd1e924384afca168b",
+    "sitesCommit": "cdb92c26a72acc260b65332192d0716bfef540af",
+    "matchingTree": "4d2754b8c3b11c0f8bc8ad75c992669490360862",
+    "savedVersion": 140,
+    "savedVersionId": "appgprj_6aa3ff61bd288191ac95ac6e30707895~appgver_6bad91ee932c8191a24a2d086db5e152",
+    "deploymentId": "appgdep_6ac906ac5e648191aa0ee660716e8a76",
+    "deploymentUrl": "https://splunk-version-value-explorer.majorgeneralrabidzagnut.chatgpt.site",
+    "customDomain": "https://versioncompass.com",
+    "contentRevision": "content-ec6bf45fa666a5787829070c",
+    "engineRevision": "engine-ec96c507ab7e52d20cd0",
+    "recordCount": 668,
+    "publishedAt": "2026-10-09T15:22:27.836Z",
+    "attempts": [
+      {
+        "commit": "06188c2",
+        "outcome": "failed-before-tests",
+        "reason": "Connector transport truncated a large generated blob; the sync-content gate caught the mismatch. It was never published."
+      },
+      {
+        "commit": "86c19cb5dd28da4015a9df60f0ab67db47b725e3",
+        "outcome": "validated-not-deployed",
+        "reason": "The 24-case route inventory did not directly select the changed environment scopes."
+      },
+      {
+        "commit": "9be789757b9eba7152a28a0578d6047f409a5e4d",
+        "outcome": "validated-not-deployed",
+        "reason": "Affected routes passed, but exact source-appendix scope was then corrected and the report fingerprint changed."
+      }
+    ]
+  },
   "backlog": [
     {"priority":1,"claimId":"acs-fedramp-high-discovery","owner":"CSP FedRAMP Watch","nextAction":"Model operation-specific High support with version/experience prerequisites and affected report/export checks.","reviewBy":"2026-10-10"},
     {"priority":1,"claimId":"s3-moderate","owner":"CSP FedRAMP Watch","nextAction":"Seek authoritative clarification of legacy versus expanded third-party-search scope while retaining both claims.","reviewBy":"2026-10-16"},
     {"priority":1,"claimId":"s3-high","owner":"CSP FedRAMP Watch","nextAction":"Retain and recheck table/change-log conflict.","reviewBy":"2026-10-16"},
     {"priority":2,"claimId":"soar-service-date-discrepancy","owner":"Release Watch","nextAction":"Reconcile September prose with April 8.7.0 row from authoritative release evidence.","reviewBy":"2026-10-16"}
   ],
-  "summary": "Candidate reconciles Machine Data Lake regional scope and exposes the current S3 Moderate conflict without broadening authorization; exact candidate export evidence and publication remain pending."
+  "summary": "Published and live-verified Machine Data Lake regional scope and the current S3 Moderate conflict without broadening authorization. Exact candidate CI, affected-page visual review, offline HTML, both-theme phone checks, live browser/WebMCP agreement and real D1 delivery all passed."
 }
