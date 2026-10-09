@@ -66,7 +66,7 @@ try {
     const disclosureState = await page.evaluate(() => [...document.querySelectorAll('main details')].filter(d=>!d.closest('#release-report,.edition-report')).map(d=>{const open=d.open;d.open=true;return open;}));
     const narrow = await checkLayout(page);
     if(narrow.scroll > narrow.width + 3 || narrow.overflow.length) {
-      const outside = await page.evaluate(()=>[...document.querySelectorAll('body *')].filter(el=>el.checkVisibility({visibilityProperty:true,opacityProperty:true})).map(el=>({tag:el.tagName,classes:el.className,text:el.textContent.slice(0,120),right:el.getBoundingClientRect().right,width:el.getBoundingClientRect().width,scroll:el.scrollWidth})).filter(el=>el.right>document.documentElement.clientWidth+3).slice(0,80));
+      const outside = await page.evaluate(()=>[...document.querySelectorAll('body *')].map(el=>({tag:el.tagName,classes:el.className,text:el.textContent.slice(0,120),right:el.getBoundingClientRect().right,width:el.getBoundingClientRect().width,scroll:el.scrollWidth,client:el.clientWidth,visible:el.checkVisibility({visibilityProperty:true,opacityProperty:true}),overflow:getComputedStyle(el).overflowX})).filter(el=>el.width&&(el.right>document.documentElement.clientWidth+3||el.scroll>el.client+3)).slice(0,80));
       fs.writeFileSync(path.join(directory,'narrow-overflow.json'),JSON.stringify(outside,null,2));
       await page.screenshot({path:path.join(directory,'narrow-overflow.png'),fullPage:true});
       console.error('Overflow elements '+id+': '+JSON.stringify(outside));
