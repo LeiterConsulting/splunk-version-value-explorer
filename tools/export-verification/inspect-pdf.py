@@ -27,6 +27,8 @@ expected = json.loads(expected_file.read_text())
 for heading in expected['headings']:
     assert normalize(heading) in actual, f'Missing PDF section: {heading}'
 assert normalize(expected['revision']) in actual, 'Missing PDF content identity'
+for control in ['Save dated snapshot (.html)', 'Print / save PDF', 'Copy comparison link']:
+    assert normalize(control) not in actual, f'Interactive control leaked into PDF: {control}'
 result = {'passed': True, 'pageCount': count, 'pages': results,
           'method': 'native Chromium print; Poppler renders every page; text bounds, nonblank pages and section completeness',
           'humanVisualReview': 'not-performed'}

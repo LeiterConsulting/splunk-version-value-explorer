@@ -289,8 +289,8 @@ a { color: inherit; }
 .technical-group-head { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; margin-bottom: 12px; }
 .technical-group-head h3 { margin: 0; font-size: 1.18rem; letter-spacing: -.02em; }
 .technical-group-head span { color: #79857f; font: 700 .75rem/1 ui-monospace, monospace; text-transform: uppercase; letter-spacing: .06em; }
-.technical-items { display: grid; gap: 10px; }
-.technical-item { padding: 20px; border: 1px solid #d8e0db; border-radius: 13px; background: #fbfcfa; break-inside: avoid; }
+.technical-items { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+.technical-item { min-width: 0; overflow-wrap: anywhere; padding: 20px; border: 1px solid #d8e0db; border-radius: 13px; background: #fbfcfa; break-inside: avoid; }
 .technical-item-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; }
 .technical-domain { display: block; margin-bottom: 4px; color: #627168; font: 720 .75rem/1.2 ui-monospace, monospace; text-transform: uppercase; letter-spacing: .055em; }
 .technical-item h4 { margin: 0; font-size: 1.08rem; letter-spacing: -.018em; }
@@ -434,7 +434,7 @@ a { color: inherit; }
   .technical-content { padding: 0 14px 14px; }
   .technical-context { margin: 0 -14px 20px; padding: 16px 14px; }
   .technical-item { padding: 16px; }
-  .technical-item-head { display: grid; }
+  .technical-item-head { display: grid; grid-template-columns: minmax(0, 1fr); }
   .technical-badges { justify-content: flex-start; }
   .technical-transition { grid-template-columns: 1fr; }
   .technical-transition > div { min-height: 0; }

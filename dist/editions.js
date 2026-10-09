@@ -104,7 +104,7 @@
   window.VersionCompassPerspective?.setRenderer(renderEnvironment);
   environment.bind(envState,renderEnvironment);renderEnvironment();
   let beforePrint=null;
-  function expandPrint(){if(beforePrint)return;const decisionPrint=document.getElementById('edition-decision-print');if(decisionPrint)decisionPrint.innerHTML=decisionReport();beforePrint=[...document.querySelectorAll('main details')].map(el=>[el,el.open]);beforePrint.forEach(([el])=>el.open=true);}
+  function expandPrint(){if(beforePrint)return;const printable=document.querySelector('main>.edition-report');if(printable)printable.outerHTML=report();beforePrint=[...document.querySelectorAll('main details')].map(el=>[el,el.open]);beforePrint.forEach(([el])=>el.open=true);}
   function restorePrint(){if(!beforePrint)return;beforePrint.forEach(([el,open])=>el.open=open);beforePrint=null;}
   window.addEventListener('beforeprint',expandPrint);window.addEventListener('afterprint',restorePrint);
   document.getElementById('edition-print').addEventListener('click',()=>{expandPrint();window.print();});
