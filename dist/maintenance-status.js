@@ -314,10 +314,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-10-08T12:56:58.928936+00:00",
-      "lastSuccess": "2026-10-08T13:02:41.331044+00:00",
+      "lastAttempt": "2026-10-09T13:04:11Z",
+      "lastSuccess": "2026-10-09T13:05:00Z",
       "outcome": "no-change",
-      "summary": "20 ES sources and six SOAR records reviewed; exact Export rows recovered; ES 8.7.1 App pairing remains unlisted. No factual change.",
+      "summary": "All 20 maintained ES sources and exact App for SOAR/Export pairing rows were rechecked; no authoritative change justified an edition, prerequisite, pricing, release-stage, or compatibility update.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -467,9 +467,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "20 ES sources and six SOAR records reviewed; exact Export rows recovered; ES 8.7.1 App pairing remains unlisted. No factual change.",
           "scope": "20 maintained ES official sources and six exact SOAR App/Export/related-product/Cloud records; ten bounded high-consequence claims. No exhaustive historical verification."
+        },
+        {
+          "at": "2026-10-09T13:04:11Z",
+          "outcome": "running",
+          "summary": "Reviewing the ES editions evidence inventory, ES-specific SOAR pairings, repository/Site parity, and affected report routes.",
+          "scope": "Full 20-source ES inventory plus exact App for SOAR and Export pairing rows; bounded high-consequence entitlement, prerequisite, pricing, availability, and conflict checks."
+        },
+        {
+          "at": "2026-10-09T13:05:00Z",
+          "outcome": "no-change",
+          "summary": "All 20 maintained ES sources and exact App for SOAR/Export pairing rows were rechecked; no authoritative change justified an edition, prerequisite, pricing, release-stage, or compatibility update.",
+          "scope": "20-source ES inventory; Connector Builder, Guided Response, AI SOC Analyst, Malware/Phishing, activity pricing, Automation Builder, UEBA, Exposure Analytics, App for SOAR 8.7.0, and Export 8.7.0 consequence checks."
         }
       ],
-      "scope": "20 maintained ES official sources and six exact SOAR App/Export/related-product/Cloud records; ten bounded high-consequence claims. No exhaustive historical verification."
+      "scope": "20-source ES inventory; Connector Builder, Guided Response, AI SOC Analyst, Malware/Phishing, activity pricing, Automation Builder, UEBA, Exposure Analytics, App for SOAR 8.7.0, and Export 8.7.0 consequence checks."
     },
     {
       "id": "version-guidance-audit",
