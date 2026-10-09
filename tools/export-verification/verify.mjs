@@ -63,12 +63,12 @@ try {
     entry.screen = relative(path.join(directory, 'desktop.png')); await page.screenshot({path:path.join(output,entry.screen)});
     await page.setViewportSize({width:390,height:844});
     // Check the expanded content too, then restore the user's disclosure state.
-    const disclosureState = await page.evaluate(() => [...document.querySelectorAll('main details')].filter(d=>!d.closest('#release-report,.edition-report')).map(d=>{const open=d.open;d.open=true;return [d.id,open];}));
+    const disclosureState = await page.evaluate(() => [...document.querySelectorAll('main details')].filter(d=>!d.closest('#release-report,.edition-report')).map(d=>{const open=d.open;d.open=true;return open;}));
     const narrow = await checkLayout(page);
     assert(narrow.scroll <= narrow.width + 3 && !narrow.overflow.length, 'Narrow overflow ' + id + ': ' + JSON.stringify(narrow));
     entry.narrow = {passed:true,viewport:{width:390,height:844},file:relative(path.join(directory,'narrow.png'))};
     await page.screenshot({path:path.join(output,entry.narrow.file)});
-    await page.evaluate(states=>states.forEach(([id,open])=>{document.getElementById(id).open=open;}),disclosureState);
+    await page.evaluate(states=>[...document.querySelectorAll('main details')].filter(d=>!d.closest('#release-report,.edition-report')).forEach((d,i)=>{d.open=states[i];}),disclosureState);
     await page.setViewportSize({width:1440,height:1000});
     if (route.invalid) {
       assert(await print.isDisabled(), 'Invalid route must block print');
