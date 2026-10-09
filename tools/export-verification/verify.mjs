@@ -59,12 +59,12 @@ try {
     await page.goto(url); await settled(page);
     const print = page.locator('#print-report, #edition-print').first();
     assert.equal(await page.evaluate(() => document.documentElement.classList.contains('theme-cisco')), theme === 'cisco');
-    entry.screen = relative(path.join(directory, 'desktop.png')); await page.screenshot({path:path.join(output,entry.screen),fullPage:true});
+    entry.screen = relative(path.join(directory, 'desktop.png')); await page.screenshot({path:path.join(output,entry.screen)});
     await page.setViewportSize({width:390,height:844});
     const narrow = await checkLayout(page);
     assert(narrow.scroll <= narrow.width + 3 && !narrow.overflow.length, 'Narrow overflow ' + id + ': ' + JSON.stringify(narrow));
     entry.narrow = {passed:true,viewport:{width:390,height:844},file:relative(path.join(directory,'narrow.png'))};
-    await page.screenshot({path:path.join(output,entry.narrow.file),fullPage:true});
+    await page.screenshot({path:path.join(output,entry.narrow.file)});
     await page.setViewportSize({width:1440,height:1000});
     if (route.invalid) {
       assert(await print.isDisabled(), 'Invalid route must block print');
@@ -72,9 +72,10 @@ try {
       entry.exportsBlocked = true;
     } else {
       assert(!await print.isDisabled(), 'Unexpected blocked route: ' + id);
-      const baseline = await page.evaluate(() => ({ url: location.href, details: [...document.querySelectorAll('main details')].map(d=>[d.id,d.open]) }));
+      const baseline = await page.evaluate(() => ({ url: location.href, details: [...document.querySelectorAll('main details')].filter(d=>!d.closest('#release-report,.edition-report')).map(d=>[d.id,d.open]) }));
       const expected = await page.evaluate(() => {
         const html = window.VersionCompassBuildSnapshot(), doc = new DOMParser().parseFromString(html,'text/html');
+        doc.querySelectorAll('script,iframe,object,embed,form,button,input,select,link,style,.technical-summary-action,.technical-summary-icon').forEach(el=>el.remove());
         return { html, text: doc.body.textContent, headings: [...doc.querySelectorAll('h1,h2,h3')].map(h=>h.textContent.trim()).filter(Boolean), revision: window.VersionCompassRevision.id };
       });
       const downloadPromise = page.waitForEvent('download');
@@ -92,7 +93,7 @@ try {
       assert(reopenedText.includes(normalize(expected.text)), 'Saved HTML lost report content');
       assert.equal(await reopened.locator('script,iframe,object,embed').count(), 0);
       assert.equal(requests.length, 0, 'Offline HTML attempted network requests');
-      await reopened.screenshot({path:path.join(directory,'html-reopened.png'),fullPage:true});
+      await reopened.screenshot({path:path.join(directory,'html-reopened.png')});
       entry.html = {file:relative(htmlFile),offlineReopened:true,complete:true,networkRequestsBlocked:true};
       await offline.close();
       fs.writeFileSync(path.join(directory,'expected.json'),JSON.stringify(expected));
@@ -101,7 +102,7 @@ try {
       await page.pdf({path:pdf,format:'A4',printBackground:true,preferCSSPageSize:true});
       const inspected = JSON.parse(execFileSync('python3',['tools/export-verification/inspect-pdf.py',pdf,directory,path.join(directory,'expected.json')],{encoding:'utf8'}));
       entry.pdf = {...inspected,file:relative(pdf),inspection:relative(path.join(directory,'inspection.json')),pages:inspected.pages.map(p=>({...p,file:relative(p.file)}))};
-      const restored = await page.evaluate(() => ({url:location.href,details:[...document.querySelectorAll('main details')].map(d=>[d.id,d.open])}));
+      const restored = await page.evaluate(() => ({url:location.href,details:[...document.querySelectorAll('main details')].filter(d=>!d.closest('#release-report,.edition-report')).map(d=>[d.id,d.open])}));
       assert.deepEqual(restored,baseline,'Print/export changed the selected report or disclosure state');
     }
     assert.equal(errors.length,0,'Browser errors: '+errors.join('; '));

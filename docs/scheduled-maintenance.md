@@ -126,3 +126,8 @@ The completed catalog-resolution generator repair and declared-claim regression 
 ## SOAR integration · October 1
 
 SOAR is a peer product with customer-managed and Cloud contexts. See [SOAR maintenance](soar.md) for the exact public source inventory, daily task ownership, initial coverage, report parity, existing WebMCP integration and unresolved verification work.
+
+
+## October 9 durable export verification
+
+All four writers and the existing checkpoint follow [PDF and saved-HTML verification](export-verification.md). Consume the exact candidate's retained, successful application-CI export artifact through the GitHub connector and verify report fingerprints and artifact bytes before publication. Native PDFs, every rendered page, downloaded HTML reopened offline, and both-theme phone checks run in dedicated application CI; missing interactive browser capabilities are not recurring owner homework. Preserve successful owner evidence within its stated baseline. Hold unverified new candidates and retain the healthy deployment; unavailable tooling alone does not authorize rollback. Actual applicable failures still block and require repair. Schedules, privacy, source/claim verification semantics and the no-wait policy are unchanged.
