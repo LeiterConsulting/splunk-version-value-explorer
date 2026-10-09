@@ -88,7 +88,14 @@ try {
       const expected = await page.evaluate(() => {
         const html = window.VersionCompassBuildSnapshot(), doc = new DOMParser().parseFromString(html,'text/html');
         doc.querySelectorAll('script,iframe,object,embed,form,button,input,select,link,style,.technical-summary-action,.technical-summary-icon').forEach(el=>el.remove());
-        return { html, text: doc.body.textContent, headings: [...doc.querySelectorAll('h1,h2,h3')].map(h=>h.textContent.trim()).filter(Boolean), revision: window.VersionCompassRevision.id };
+        // Tooltip prose is hidden in print; verify the heading and its explicit
+        // printable annotation separately instead of demanding both copies.
+        const headings = [...doc.querySelectorAll('h1,h2,h3')].map(h => {
+          const title = h.cloneNode(true); title.querySelectorAll('.content-change').forEach(el=>el.remove());
+          return title.textContent.trim();
+        }).filter(Boolean);
+        const printAnnotations = [...doc.querySelectorAll('.content-change-print')].map(el=>el.textContent.trim()).filter(Boolean);
+        return { html, text: doc.body.textContent, headings, printAnnotations, revision: window.VersionCompassRevision.id };
       });
       const downloadPromise = page.waitForEvent('download');
       await page.locator('.site-header [data-save-snapshot]').first().click();

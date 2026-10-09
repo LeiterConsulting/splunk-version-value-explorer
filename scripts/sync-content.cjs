@@ -100,6 +100,7 @@ for (const [dataset, data] of Object.entries(datasets)) {
       const container = parts.slice(0, -1).join('/');
       let refs = references(value, inheritedSource);
       if (isTuple && ['requirements', 'breakingChanges'].includes(parts.at(-2)) && /^https:\/\//.test(value[3] || '')) refs = [{ url: value[3] }];
+      if (isTuple && dataset === 'products' && parts.at(-2) === 'features' && /^https:\/\//.test(value[5] || '')) refs = [{ url: value[5] }];
       add(dataset, kind, container + '/' + title, value, nextScope, refs, value.verified || null);
     }
     for (const [childKey, child] of Object.entries(value)) if (childKey !== 'sources' && childKey !== 'edges') visit(child, [...parts, childKey], nextScope, inheritedSource);

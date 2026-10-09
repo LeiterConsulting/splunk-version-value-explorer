@@ -22,10 +22,17 @@ for index, page in enumerate(pages, 1):
     results.append({'page': index, 'file': str(image), 'passed': True, 'words': len(words)})
     text.extend(word.text or '' for word in words)
 normalize = lambda s: re.sub(r'\s+', '', s).casefold()
-actual = normalize(' '.join(text))
+# Bounding-box reading order can interleave adjacent table columns. The
+# content stream preserves each printed cell's prose; geometry remains checked
+# independently above for every word on every rendered page.
+content = subprocess.check_output(['pdftotext', '-raw', str(pdf), '-'], text=True)
+(directory / 'content.txt').write_text(content)
+actual = normalize(content)
 expected = json.loads(expected_file.read_text())
 for heading in expected['headings']:
     assert normalize(heading) in actual, f'Missing PDF section: {heading}'
+for annotation in expected['printAnnotations']:
+    assert normalize(annotation) in actual, f'Missing printable change context: {annotation}'
 assert normalize(expected['revision']) in actual, 'Missing PDF content identity'
 for control in ['Save dated snapshot (.html)', 'Print / save PDF', 'Copy comparison link']:
     assert normalize(control) not in actual, f'Interactive control leaked into PDF: {control}'

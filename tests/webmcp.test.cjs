@@ -185,13 +185,22 @@ test('historical links preserve routes, explain newer guidance, and offer option
   const context = plain(rt.window.VersionCompassPage.getLinkContext());
   assert.equal(context.needsConfirmation, false);
   assert.equal(rt.window.VersionCompassPage.getSelection().to, '9.4');
-  assert(context.reasons.some(x => x.code === 'newer_guidance'));
+  const currentGuidance = context.reasons.find(x => x.code === 'newer_guidance');
+  assert(currentGuidance);
+  assert.match(currentGuidance.source, /\/docs\/releases\/2026\/10\/2026-10-\d{2}\.md$/);
   const newer = context.reasons.find(x => x.code === 'newer_target');
   assert.equal(new URLSearchParams(newer.actionUrl).get('to'), '10.6');
   assert.equal(new URLSearchParams(newer.actionUrl).get('from'), '8.2');
   assert.match(rt.elements.get('link-notice').innerHTML, /original target is preserved/);
   assert.match(rt.elements.get('print-link-notice').innerHTML, /2026-09-01/);
   assert.equal(rt.run('get_current_report', {}).report.selection.to, '9.4');
+  const activeReview = rt.window.SPLUNK_DATA.guidance.reviewed;
+  rt.window.SPLUNK_DATA.guidance.reviewed = '2026-10-06';
+  rt.window.location.search = '?product=platform&platform=enterprise&from=8.2&to=9.4&reviewed=2026-09-01';
+  await rt.dispatch('popstate');
+  const legacyGuidance = plain(rt.window.VersionCompassPage.getLinkContext()).reasons.find(x => x.code === 'newer_guidance');
+  assert.match(legacyGuidance.source, /\/docs\/releases\/2026-10-06\.md$/);
+  rt.window.SPLUNK_DATA.guidance.reviewed = activeReview;
   rt.window.location.search = '?product=platform&platform=cloud&from=9.3.2408&to=10.4.2604';
   await rt.dispatch('popstate');
   assert.equal(rt.run('get_current_report', {}).report.selection.to, '10.4.2604');
@@ -305,6 +314,10 @@ test('September Observability additions preserve SaaS, private-runner, and Cloud
   const report = rt.run('compare_routes', { routes: [selection] }).reports[0];
   for (const title of ['Delegated APM rule management', 'RUM Business Journeys', 'Synthetics private runner updates', 'Observability Logs', 'Cloud 10.6 free-edition onboarding', '.NET instrumentation 1.16', 'Browser RUM 3.2', 'Quieter Kubernetes Autodetect', 'Detector Optimization', 'Node.js instrumentation 4.12', 'Java instrumentation 2.31.3', 'Python instrumentation 2.13']) {
     assert(report.features.some(item => item.title === title), title);
+  }
+  for (const [title, source] of [['Collector 0.162 migration controls','https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.162.0'],['Kubernetes chart 0.162','https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.0'],['Python instrumentation 2.13','https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.1']]) {
+    const feature = report.features.find(item=>item.title===title);
+    assert.equal(feature.source,source); assert.match(feature.milestone,/Separately versioned.*October/);
   }
   assert(report.technicalChanges.some(item => item.component === 'Synthetics private runner' && item.to.includes('1.44.0') && item.to.includes('1.39.0')));
   assert(report.technicalChanges.some(item => item.component === 'Observability Logs operating boundary' && item.implication.includes('not a customer-managed log service')));
