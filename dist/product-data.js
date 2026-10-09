@@ -1449,18 +1449,6 @@ Object.assign(window.SPLUNK_DATA, {
               "In Controlled Availability, review weekly recommendations for noisy, inactive, or muted detectors, preview expected impact, and apply, dismiss, disable, or delete deliberately; recommendations are not applied automatically."
             ],
             [
-              "Collector 0.162 migration controls",
-              "Telemetry & OpenTelemetry",
-              "Replace retired inputs before the next Collector rollout",
-              "Move off removed Smart Agent and Telegraf monitors, rename queuebatch processors, and review the fresh-install Windows service identity before adopting Collector 0.162."
-            ],
-            [
-              "Kubernetes chart 0.162",
-              "Infrastructure & Kubernetes",
-              "Keep the chart and Collector baseline together",
-              "Use the chart that packages Collector 0.162, Target Allocator 0.160, Operator 0.124.1, current instrumentation agents, and the documented CRD and IPv6 fixes."
-            ],
-            [
               "Collector 0.161 pipeline controls",
               "Telemetry & OpenTelemetry",
               "Upgrade with clearer configuration and input lifecycle behavior",
@@ -1500,7 +1488,7 @@ Object.assign(window.SPLUNK_DATA, {
               "Python instrumentation 2.13",
               "Telemetry & OpenTelemetry",
               "Use declarative configuration and ARM64 init images",
-              "Adopt the 2.13.1 upstream patch after validating the 2.13.0 configuration-precedence, wrapt 2.5.0, and architecture-specific image requirements; the patch does not add a new declared Splunk feature."
+              "Adopt Splunk OpenTelemetry Python 2.13.0 after validating OTEL_CONFIG_FILE precedence, the remaining environment-only profiling and callgraph settings, the wrapt 2.5.0 dependency floor, and the exact standard or SecureApp image architecture."
             ],
             [
               "Browser RUM 3.2",
@@ -1586,39 +1574,6 @@ Object.assign(window.SPLUNK_DATA, {
               "implication": "The supported chart now inherits Collector 0.161's stable Kubernetes attribute names and scrape-rate CPU behavior; chart users no longer remain on the earlier 0.160.1 Collector baseline.",
               "action": "Treat the Helm update as a Collector 0.161 rollout, migrate dependent content, rebaseline CPU signals, and validate the updated allocator and operator in a representative cluster.",
               "source": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.161.0"
-            },
-            {
-              "component": "Collector 0.162 retired receivers and processor names",
-              "domain": "Collector configuration",
-              "changeType": "Components removed and renamed",
-              "actionLevel": "Required",
-              "from": "Deprecated Smart Agent and Telegraf monitors remain available and the queuebatch processor name is accepted",
-              "to": "Collector 0.162 removes the listed deprecated monitors, including telegraf/snmp, and renames queuebatch to queue_batch",
-              "implication": "Configurations that still declare a removed monitor or the old processor name can fail or lose the intended telemetry path after upgrade.",
-              "action": "Inventory active receiver and processor identifiers, migrate each retired monitor to the release-note replacement where one is named, rename queuebatch, and validate configuration loading plus representative telemetry before rollout.",
-              "source": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.162.0"
-            },
-            {
-              "component": "Collector Windows service identity",
-              "domain": "Host & operations",
-              "changeType": "Fresh-install default changed",
-              "actionLevel": "Review",
-              "from": "Fresh MSI installations run the Collector as LocalSystem",
-              "to": "Fresh Collector 0.162 MSI installations use NT SERVICE\\splunk-otel-collector; upgrades preserve the existing account by default and provide an explicit migration command",
-              "implication": "A fresh installation and an upgraded installation can run with different privileges, affecting custom file paths, event logs, checkpoints, performance counters, and locally secured resources.",
-              "action": "Test required receiver access with the virtual service account, grant only documented permissions, and decide separately whether existing LocalSystem installations should use the explicit migration path.",
-              "source": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.162.0"
-            },
-            {
-              "component": "Kubernetes chart 0.162 package baseline",
-              "domain": "Collector & operators",
-              "changeType": "Bundled versions updated",
-              "actionLevel": "Required",
-              "from": "Chart 0.161.0 packages Collector 0.161.0, Target Allocator 0.159.0, and Operator 0.123.0",
-              "to": "Chart 0.162.0 packages Collector 0.162.0, Target Allocator 0.160.0, Operator 0.124.1, refreshed instrumentation agents, and CRD subchart 0.0.8",
-              "implication": "The Helm update inherits Collector 0.162 breaking configuration changes and changes the allocator, operator, agents, and optional CRD installation together.",
-              "action": "Rehearse the Collector migrations, follow the linked CRD upgrade instructions when operatorcrds.install is used, and validate allocation, injection, IPv6 receiver-creator endpoints, and the realm-derived OpAMP Bridge endpoint.",
-              "source": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.0"
             },
             {
               "component": "Light Prometheus Receiver feature gate",
@@ -1797,17 +1752,6 @@ Object.assign(window.SPLUNK_DATA, {
               "source": "https://github.com/signalfx/splunk-otel-python/pull/799"
             },
             {
-              "component": "Python instrumentation 2.13 patch baseline",
-              "domain": "Instrumentation runtime",
-              "changeType": "Upstream patch adopted",
-              "actionLevel": "Review",
-              "from": "Splunk OpenTelemetry Python 2.13.0",
-              "to": "Version 2.13.1 adopts the corresponding upstream OpenTelemetry Python patch release",
-              "implication": "The latest patch changes the upstream runtime baseline without adding a separately declared Splunk capability; the 2.13.0 configuration, dependency, and image qualifications still apply.",
-              "action": "Use 2.13.1 for the 2.13 line, retain the documented 2.13.0 rollout checks, and run representative instrumentation smoke tests against the resolved application dependencies.",
-              "source": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.1"
-            },
-            {
               "component": "Browser RUM 3.1 defaults",
               "domain": "RUM behavior",
               "changeType": "Defaults changed",
@@ -1878,20 +1822,6 @@ Object.assign(window.SPLUNK_DATA, {
               "Standalone Collector 0.161 and Kubernetes chart 0.161.0 use stable singular label and annotation attributes plus container.image.tags. Migrate dashboards, detectors, MetricSets, routing, and exports before rollout.",
               "Blocker",
               "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.161.0",
-              true
-            ],
-            [
-              "Migrate removed Collector 0.162 monitors and queue processor names",
-              "Collector 0.162 removes the listed deprecated Smart Agent and Telegraf monitors and renames queuebatch to queue_batch. Replace each active declaration and validate configuration loading plus representative telemetry before rollout.",
-              "Blocker",
-              "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.162.0",
-              true
-            ],
-            [
-              "Treat chart 0.162.0 as a Collector 0.162 upgrade",
-              "The chart packages Collector 0.162 and also advances Target Allocator, Operator, instrumentation agents, and the optional CRD subchart. Apply the documented CRD instructions when applicable and verify the full cluster control path.",
-              "Blocker",
-              "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.0",
               true
             ],
             [

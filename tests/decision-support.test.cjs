@@ -54,8 +54,7 @@ test('compact counts separate blockers, required actions and evidence questions'
  assert(m.blockers.length>0);assert(m.blockers.every(x=>x.level==='Blocker'));
  assert(m.requiredChecks.some(x=>x.title==='Legacy TLS protocols'));
  assert(m.requiredChecks.some(x=>x.title==='KV Store binaries'));
- assert(m.requiredChecks.some(x=>x.title==='Enterprise 10.4 October security floor'));
- assert.equal(m.requiredChecks.length,6);
+ assert.equal(m.requiredChecks.length,3);
  assert(m.requiredChecks.every(x=>x.level!=='Blocker'));
 });
 

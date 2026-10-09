@@ -239,41 +239,6 @@ window.VersionCompassSources = {
       ]
     },
     {
-      "url": "https://advisory.splunk.com/advisories/SVD-2026-1001",
-      "title": "SVD 2026 1001",
-      "areas": [
-        "Release guide",
-        "Shared guidance"
-      ],
-      "references": [
-        "release.enterprise.releasesData.9.4.technicalChanges.0.source",
-        "release.enterprise.releasesData.9.4.requirements.0.3",
-        "release.enterprise.releasesData.10.0.technicalChanges.0.source",
-        "release.enterprise.releasesData.10.0.requirements.0.3",
-        "release.enterprise.releasesData.10.2.technicalChanges.0.source",
-        "release.enterprise.releasesData.10.2.requirements.0.3",
-        "release.enterprise.releasesData.10.4.technicalChanges.0.source",
-        "release.enterprise.releasesData.10.4.requirements.0.3",
-        "content-updates.js"
-      ],
-      "reviews": [],
-      "usage": "In use",
-      "reviewed": null,
-      "status": "Review date unknown",
-      "firstRecorded": "2026-10-09",
-      "firstUsed": null,
-      "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
-      "events": [
-        {
-          "date": "2026-10-09",
-          "event": "First recorded in source register; earlier usage date not established"
-        }
-      ]
-    },
-    {
       "url": "https://docs.splunk.com/Documentation/Splunk/8.1.14/ReleaseNotes/MeetSplunk",
       "title": "MeetSplunk",
       "areas": [
@@ -333,12 +298,12 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.6.source",
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.10.source",
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.7.source",
         "release.productTracks.observability.releasesData.Sep 2026.requirements.6.3",
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.7.3",
         "release.productTracks.observability.releasesData.Sep 2026.requirements.9.3",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.11.3",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.12.3",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.13.3"
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.10.3",
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.11.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -358,46 +323,19 @@ window.VersionCompassSources = {
       ]
     },
     {
-      "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.0",
-      "title": "splunk otel collector 0.162.0",
-      "areas": [
-        "Release guide"
-      ],
-      "references": [
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.9.source",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.8.3"
-      ],
-      "reviews": [],
-      "usage": "In use",
-      "reviewed": null,
-      "status": "Review date unknown",
-      "firstRecorded": "2026-10-09",
-      "firstUsed": null,
-      "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
-      "events": [
-        {
-          "date": "2026-10-09",
-          "event": "First recorded in source register; earlier usage date not established"
-        }
-      ]
-    },
-    {
       "url": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.160.0",
       "title": "v0.160.0",
       "areas": [
         "Release guide"
       ],
       "references": [
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.11.source",
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.12.source",
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.13.source",
         "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.14.source",
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.15.source",
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.16.source",
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.17.source",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.14.3",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.15.3",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.16.3"
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.12.3",
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.13.3",
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.14.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -425,10 +363,10 @@ window.VersionCompassSources = {
       "references": [
         "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.4.source",
         "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.5.source",
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.11.source",
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.12.source",
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.13.source",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.10.3"
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.8.source",
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.9.source",
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.10.source",
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.8.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -448,42 +386,14 @@ window.VersionCompassSources = {
       ]
     },
     {
-      "url": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.162.0",
-      "title": "v0.162.0",
-      "areas": [
-        "Release guide"
-      ],
-      "references": [
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.7.source",
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.8.source",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.7.3"
-      ],
-      "reviews": [],
-      "usage": "In use",
-      "reviewed": null,
-      "status": "Review date unknown",
-      "firstRecorded": "2026-10-09",
-      "firstUsed": null,
-      "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
-      "events": [
-        {
-          "date": "2026-10-09",
-          "event": "First recorded in source register; earlier usage date not established"
-        }
-      ]
-    },
-    {
       "url": "https://github.com/signalfx/splunk-otel-dotnet/releases/tag/v1.16.0",
       "title": "v1.16.0",
       "areas": [
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.18.source",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.17.3"
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.15.source",
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.15.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -509,8 +419,8 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.21.source",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.20.3"
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.18.source",
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.18.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -536,8 +446,8 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.27.source",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.23.3"
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.23.source",
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.21.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -563,8 +473,8 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.28.source",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.24.3"
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.24.source",
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.22.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -590,8 +500,8 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.19.source",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.18.3"
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.16.source",
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.16.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -617,8 +527,8 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.20.source",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.19.3"
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.17.source",
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.17.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -644,7 +554,7 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.23.source"
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.20.source"
       ],
       "reviews": [],
       "usage": "In use",
@@ -670,7 +580,7 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.22.source"
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.19.source"
       ],
       "reviews": [],
       "usage": "In use",
@@ -696,7 +606,7 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.24.source"
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.21.source"
       ],
       "reviews": [],
       "usage": "In use",
@@ -722,7 +632,7 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.25.source"
+        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.22.source"
       ],
       "reviews": [],
       "usage": "In use",
@@ -748,8 +658,8 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.21.3",
-        "release.productTracks.observability.releasesData.Sep 2026.requirements.22.3"
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.19.3",
+        "release.productTracks.observability.releasesData.Sep 2026.requirements.20.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -764,32 +674,6 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-10-06",
-          "event": "First recorded in source register; earlier usage date not established"
-        }
-      ]
-    },
-    {
-      "url": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.1",
-      "title": "v2.13.1",
-      "areas": [
-        "Release guide"
-      ],
-      "references": [
-        "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.26.source"
-      ],
-      "reviews": [],
-      "usage": "In use",
-      "reviewed": null,
-      "status": "Review date unknown",
-      "firstRecorded": "2026-10-09",
-      "firstUsed": null,
-      "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
-      "events": [
-        {
-          "date": "2026-10-09",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -2697,12 +2581,12 @@ window.VersionCompassSources = {
         "Splunk Forwarders"
       ],
       "references": [
+        "release.enterprise.releasesData.10.0.technicalChanges.0.source",
         "release.enterprise.releasesData.10.0.technicalChanges.1.source",
         "release.enterprise.releasesData.10.0.technicalChanges.2.source",
-        "release.enterprise.releasesData.10.0.technicalChanges.3.source",
+        "release.enterprise.releasesData.10.0.requirements.0.3",
         "release.enterprise.releasesData.10.0.requirements.1.3",
         "release.enterprise.releasesData.10.0.requirements.2.3",
-        "release.enterprise.releasesData.10.0.requirements.3.3",
         "forwarders: borrowed.technical.hf.10.0.python-application-runtime",
         "forwarders: borrowed.technical.hf.10.0.fips-cryptographic-module",
         "forwarders: borrowed.technical.hf.10.0.legacy-tls-protocols"
@@ -2764,14 +2648,14 @@ window.VersionCompassSources = {
         "Splunk Forwarders"
       ],
       "references": [
+        "release.enterprise.releasesData.10.2.technicalChanges.0.source",
         "release.enterprise.releasesData.10.2.technicalChanges.1.source",
         "release.enterprise.releasesData.10.2.technicalChanges.2.source",
         "release.enterprise.releasesData.10.2.technicalChanges.3.source",
         "release.enterprise.releasesData.10.2.technicalChanges.4.source",
-        "release.enterprise.releasesData.10.2.technicalChanges.5.source",
+        "release.enterprise.releasesData.10.2.requirements.0.3",
         "release.enterprise.releasesData.10.2.requirements.1.3",
         "release.enterprise.releasesData.10.2.requirements.2.3",
-        "release.enterprise.releasesData.10.2.requirements.3.3",
         "forwarders.sources.upgrade102.url",
         "forwarders: forwarders.claimSources.upgrade.uf.10.2",
         "forwarders: borrowed.technical.hf.10.2.python-runtimes",
@@ -2891,17 +2775,17 @@ window.VersionCompassSources = {
         "Splunk Forwarders"
       ],
       "references": [
+        "release.enterprise.releasesData.10.4.technicalChanges.2.source",
         "release.enterprise.releasesData.10.4.technicalChanges.3.source",
         "release.enterprise.releasesData.10.4.technicalChanges.4.source",
-        "release.enterprise.releasesData.10.4.technicalChanges.5.source",
+        "release.enterprise.releasesData.10.4.technicalChanges.6.source",
         "release.enterprise.releasesData.10.4.technicalChanges.7.source",
         "release.enterprise.releasesData.10.4.technicalChanges.8.source",
-        "release.enterprise.releasesData.10.4.technicalChanges.9.source",
+        "release.enterprise.releasesData.10.4.requirements.1.3",
         "release.enterprise.releasesData.10.4.requirements.2.3",
         "release.enterprise.releasesData.10.4.requirements.3.3",
         "release.enterprise.releasesData.10.4.requirements.4.3",
         "release.enterprise.releasesData.10.4.requirements.5.3",
-        "release.enterprise.releasesData.10.4.requirements.6.3",
         "forwarders.sources.upgrade104.url",
         "forwarders: forwarders.claimSources.upgrade.uf.10.4",
         "forwarders: borrowed.technical.hf.10.4.legacy-tls-protocols",
@@ -3169,12 +3053,12 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
+        "release.enterprise.releasesData.9.4.technicalChanges.0.source",
         "release.enterprise.releasesData.9.4.technicalChanges.1.source",
         "release.enterprise.releasesData.9.4.technicalChanges.2.source",
         "release.enterprise.releasesData.9.4.technicalChanges.3.source",
-        "release.enterprise.releasesData.9.4.technicalChanges.4.source",
-        "release.enterprise.releasesData.9.4.requirements.1.3",
-        "release.enterprise.releasesData.9.4.requirements.2.3"
+        "release.enterprise.releasesData.9.4.requirements.0.3",
+        "release.enterprise.releasesData.9.4.requirements.1.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -3564,10 +3448,10 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.enterprise.releasesData.10.4.source",
+        "release.enterprise.releasesData.10.4.technicalChanges.0.source",
         "release.enterprise.releasesData.10.4.technicalChanges.1.source",
-        "release.enterprise.releasesData.10.4.technicalChanges.2.source",
-        "release.enterprise.releasesData.10.4.technicalChanges.6.source",
-        "release.enterprise.releasesData.10.4.requirements.1.3",
+        "release.enterprise.releasesData.10.4.technicalChanges.5.source",
+        "release.enterprise.releasesData.10.4.requirements.0.3",
         "forwarders.sources.maintenance.url",
         "content-updates.js",
         "forwarders: forwarders.claimSources.maintenance.10.4",
@@ -4796,15 +4680,13 @@ window.VersionCompassSources = {
       "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.6.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
       "title": "SOAR 8.6.0 upgrade paths",
       "areas": [
-        "Splunk SOAR",
-        "Shared guidance"
+        "Splunk SOAR"
       ],
       "references": [
-        "soar.sources.path86.url",
-        "content-updates.js"
+        "soar.sources.path86.url"
       ],
       "reviews": [
-        "2026-10-09"
+        "2026-10-01"
       ],
       "usage": "In use",
       "reviewed": "2026-10-01",

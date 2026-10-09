@@ -19,7 +19,6 @@ function assess(s){const errors=validate(s);if(errors.length)return {selection:{
   if(cmp(s.from,'6.2.2')<0)conditions.push('For a cluster or external PostgreSQL 11.x database, manually upgrade PostgreSQL to 15.x at the documented bridge.');
   if(cmp(s.from,'6.3.1')<0)conditions.push('If still on RHEL 7 or CentOS 7, migrate the OS at the documented step before continuing.');
   if(cmp(s.from,'6.4.1')<0){conditions.push('Amazon Linux 2 requires SOAR 6.4.0, then OS migration, before continuing.');if(s.os==='al2'&&!path.includes('6.4.0'))path.push('6.4.0');}
-  if(s.to==='8.6.0'&&s.from==='6.4.1'){routeStatus='Documented with exact-build condition';conditions.push('The direct 8.6 branch starts at SOAR 6.4.1.361. Confirm the installed build is 361 or higher; an unspecified or earlier 6.4.1 build is not established as directly eligible.');}
   if(s.to==='8.7.0'&&cmp(s.from,'7.0.0')<0)path.push('8.5.0');
   if(s.to==='8.7.0')conditions.push('Complete Python 3.13 automation migration before the final 8.7 step.');
   path.push(s.to);

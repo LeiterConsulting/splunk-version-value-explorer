@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-a880f911dcc77b51830bdbbf",
-    "digest": "d6a694950f7aa43878f1ed16133770f606d33b452f1731ccd2fdd3296d846761",
-    "engineRevision": "engine-562adf922777dbeebeb4",
+    "revision": "content-61469978f91e132847d82a28",
+    "digest": "38ad020d555d8b08a363ca9146220f668c20e04e4b505437457c3fda580bb4e3",
+    "engineRevision": "engine-c98daba6f37b1ff1445f",
     "datasetHashes": {
-      "platform": "8eeaadda9b02da42916339828a20938ecd374c8231fe70bf4373ae94976c11c3",
-      "products": "d64c913bf59c104985c6ec1da94f180872198ccc1228c3f16ce6ae8ddd2247cb",
-      "guidance": "e0de0582171b1d00e2b7fd62f0c855559f3898919fc5b1bf876c3e0c9c05d640",
+      "platform": "64bb4fd3e6862400dfc7148d59cc6c327d6031d6101685daaf9dfd3e07899b10",
+      "products": "ad329377961c7471bf61993428fcb68b234ab43178cbbc1668924c4829757cea",
+      "guidance": "341039dc4515ee03fe982e5a455933b133b2751dcf7467566a0f986d82b279f0",
       "environment": "9f13ac92dedcb8a3f4d5d0de59926f7568ef67e92239c2d095edcde9cf22a0fb",
       "editions": "3d71261084a1b730c55f179589478e8f6299389a3029b2311181b1f98847eb06",
       "forwarders": "a33bf7da9957714e2b3e43ef6cadd0da893277ef9e8aed4b7ec9396963e7338a",
-      "soar": "71f9e1c6545c597d45618c0c2ff34abfdc715a4e6f046e3cf50650586fb6e60b"
+      "soar": "55c75eb62e2e02f276a31bb84205a6164e51b240f0742479f09eeac82e3f0150"
     },
-    "recordCount": 684,
+    "recordCount": 668,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -550,17 +550,6 @@
             ],
             "technicalChanges": [
               {
-                "component": "Enterprise 9.4 October security floor",
-                "domain": "Security & maintenance",
-                "changeType": "Minimum fixed version established",
-                "actionLevel": "Required",
-                "from": "Splunk Enterprise 9.4.0 through 9.4.14",
-                "to": "9.4.15 is the October advisory floor; 9.4.16 is the newer published maintenance release",
-                "implication": "The October security advisories identify affected 9.4 maintenance releases and include vulnerability-specific additional remediation. Selecting the 9.4 line alone does not establish a safe patch.",
-                "action": "Target 9.4.16 for maintained 9.4 deployments, review every applicable October advisory for its additional steps, and validate the exact maintenance build before rollout.",
-                "source": "https://advisory.splunk.com/advisories/SVD-2026-1001"
-              },
-              {
                 "component": "KV Store",
                 "domain": "Data & storage",
                 "changeType": "Engine upgrade",
@@ -606,13 +595,6 @@
               }
             ],
             "requirements": [
-              [
-                "Reach the October 9.4 security floor",
-                "Splunk identifies 9.4.0 through 9.4.14 as affected and 9.4.15 as the advisory floor. Use the newer 9.4.16 maintenance release where staying on 9.4, and complete any vulnerability-specific remediation in the advisories.",
-                "Blocker",
-                "https://advisory.splunk.com/advisories/SVD-2026-1001",
-                true
-              ],
               [
                 "Confirm CPU instruction support",
                 "Hosts require AVX, SSE4.2, and AES-NI processor support. Verify every target host—not only a representative node.",
@@ -666,17 +648,6 @@
             ],
             "technicalChanges": [
               {
-                "component": "Enterprise 10.0 October security floor",
-                "domain": "Security & maintenance",
-                "changeType": "Minimum fixed version established",
-                "actionLevel": "Required",
-                "from": "Splunk Enterprise 10.0.0 through 10.0.9",
-                "to": "10.0.10 is the October advisory floor and current published maintenance release",
-                "implication": "The October security advisories identify every earlier 10.0 maintenance release as affected and include vulnerability-specific additional remediation.",
-                "action": "Upgrade maintained 10.0 deployments to 10.0.10 or later, review every applicable October advisory, and complete the named configuration or restart steps rather than treating the binary update as universally sufficient.",
-                "source": "https://advisory.splunk.com/advisories/SVD-2026-1001"
-              },
-              {
                 "component": "Python application runtime",
                 "domain": "Runtime & apps",
                 "changeType": "Removed",
@@ -711,13 +682,6 @@
               }
             ],
             "requirements": [
-              [
-                "Reach Enterprise 10.0.10 for the October advisories",
-                "Splunk identifies 10.0.0 through 10.0.9 as affected. Upgrade to 10.0.10 or later and complete the vulnerability-specific remediation published with the applicable advisories.",
-                "Blocker",
-                "https://advisory.splunk.com/advisories/SVD-2026-1001",
-                true
-              ],
               [
                 "Move Python 3.7 dependencies to 3.9",
                 "Python 3.7 support is removed in 10.0. Confirm that apps and add-ons using Python work with the 3.9 interpreter before upgrading.",
@@ -778,17 +742,6 @@
             ],
             "technicalChanges": [
               {
-                "component": "Enterprise 10.2 October security floor",
-                "domain": "Security & maintenance",
-                "changeType": "Minimum fixed version established",
-                "actionLevel": "Required",
-                "from": "Splunk Enterprise 10.2.0 through 10.2.6",
-                "to": "10.2.7 is the October advisory floor and current published maintenance release",
-                "implication": "The October security advisories identify every earlier 10.2 maintenance release as affected and include vulnerability-specific additional remediation.",
-                "action": "Upgrade maintained 10.2 deployments to 10.2.7 or later, review every applicable October advisory, and complete the named configuration or restart steps.",
-                "source": "https://advisory.splunk.com/advisories/SVD-2026-1001"
-              },
-              {
                 "component": "Python runtimes",
                 "domain": "Runtime & apps",
                 "changeType": "Runtime added",
@@ -845,13 +798,6 @@
               }
             ],
             "requirements": [
-              [
-                "Reach Enterprise 10.2.7 for the October advisories",
-                "Splunk identifies 10.2.0 through 10.2.6 as affected. Upgrade to 10.2.7 or later and complete the vulnerability-specific remediation published with the applicable advisories.",
-                "Blocker",
-                "https://advisory.splunk.com/advisories/SVD-2026-1001",
-                true
-              ],
               [
                 "Replace embedded Node.js dependencies",
                 "The embedded Node.js runtime is removed. Apps that require Node.js must ship their own runtime or be redesigned.",
@@ -929,17 +875,6 @@
               ]
             ],
             "technicalChanges": [
-              {
-                "component": "Enterprise 10.4 October security floor",
-                "domain": "Security & maintenance",
-                "changeType": "Minimum fixed version established",
-                "actionLevel": "Required",
-                "from": "Splunk Enterprise 10.4.0 through 10.4.2",
-                "to": "10.4.3 is the October advisory floor; 10.4.4 remains the current published maintenance target",
-                "implication": "The October security advisories independently reinforce the existing 10.4.3 minimum and include vulnerability-specific additional remediation.",
-                "action": "Target 10.4.4 for new work, never use 10.4.2, and review every applicable October advisory for required configuration enforcement, restart, or component-specific action.",
-                "source": "https://advisory.splunk.com/advisories/SVD-2026-1001"
-              },
               {
                 "component": "Enterprise 10.4 maintenance target",
                 "domain": "Platform operations",
@@ -1041,13 +976,6 @@
               }
             ],
             "requirements": [
-              [
-                "Apply the October 10.4 security remediation",
-                "Splunk identifies 10.4.0 through 10.4.2 as affected and 10.4.3 as the advisory floor. Target 10.4.4 for current maintenance and complete the vulnerability-specific remediation in the October advisories.",
-                "Blocker",
-                "https://advisory.splunk.com/advisories/SVD-2026-1001",
-                true
-              ],
               [
                 "Target Enterprise 10.4.4",
                 "Splunk Enterprise 10.4.4 is the current published maintenance release. Do not use 10.4.2 because tcpout with useACK=true can block forwarding pipelines; 10.4.3 remains the documented minimum if 10.4.4 cannot yet be adopted.",
@@ -3565,18 +3493,6 @@
                   "In Controlled Availability, review weekly recommendations for noisy, inactive, or muted detectors, preview expected impact, and apply, dismiss, disable, or delete deliberately; recommendations are not applied automatically."
                 ],
                 [
-                  "Collector 0.162 migration controls",
-                  "Telemetry & OpenTelemetry",
-                  "Replace retired inputs before the next Collector rollout",
-                  "Move off removed Smart Agent and Telegraf monitors, rename queuebatch processors, and review the fresh-install Windows service identity before adopting Collector 0.162."
-                ],
-                [
-                  "Kubernetes chart 0.162",
-                  "Infrastructure & Kubernetes",
-                  "Keep the chart and Collector baseline together",
-                  "Use the chart that packages Collector 0.162, Target Allocator 0.160, Operator 0.124.1, current instrumentation agents, and the documented CRD and IPv6 fixes."
-                ],
-                [
                   "Collector 0.161 pipeline controls",
                   "Telemetry & OpenTelemetry",
                   "Upgrade with clearer configuration and input lifecycle behavior",
@@ -3616,7 +3532,7 @@
                   "Python instrumentation 2.13",
                   "Telemetry & OpenTelemetry",
                   "Use declarative configuration and ARM64 init images",
-                  "Adopt the 2.13.1 upstream patch after validating the 2.13.0 configuration-precedence, wrapt 2.5.0, and architecture-specific image requirements; the patch does not add a new declared Splunk feature."
+                  "Adopt Splunk OpenTelemetry Python 2.13.0 after validating OTEL_CONFIG_FILE precedence, the remaining environment-only profiling and callgraph settings, the wrapt 2.5.0 dependency floor, and the exact standard or SecureApp image architecture."
                 ],
                 [
                   "Browser RUM 3.2",
@@ -3702,39 +3618,6 @@
                   "implication": "The supported chart now inherits Collector 0.161's stable Kubernetes attribute names and scrape-rate CPU behavior; chart users no longer remain on the earlier 0.160.1 Collector baseline.",
                   "action": "Treat the Helm update as a Collector 0.161 rollout, migrate dependent content, rebaseline CPU signals, and validate the updated allocator and operator in a representative cluster.",
                   "source": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.161.0"
-                },
-                {
-                  "component": "Collector 0.162 retired receivers and processor names",
-                  "domain": "Collector configuration",
-                  "changeType": "Components removed and renamed",
-                  "actionLevel": "Required",
-                  "from": "Deprecated Smart Agent and Telegraf monitors remain available and the queuebatch processor name is accepted",
-                  "to": "Collector 0.162 removes the listed deprecated monitors, including telegraf/snmp, and renames queuebatch to queue_batch",
-                  "implication": "Configurations that still declare a removed monitor or the old processor name can fail or lose the intended telemetry path after upgrade.",
-                  "action": "Inventory active receiver and processor identifiers, migrate each retired monitor to the release-note replacement where one is named, rename queuebatch, and validate configuration loading plus representative telemetry before rollout.",
-                  "source": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.162.0"
-                },
-                {
-                  "component": "Collector Windows service identity",
-                  "domain": "Host & operations",
-                  "changeType": "Fresh-install default changed",
-                  "actionLevel": "Review",
-                  "from": "Fresh MSI installations run the Collector as LocalSystem",
-                  "to": "Fresh Collector 0.162 MSI installations use NT SERVICE\\splunk-otel-collector; upgrades preserve the existing account by default and provide an explicit migration command",
-                  "implication": "A fresh installation and an upgraded installation can run with different privileges, affecting custom file paths, event logs, checkpoints, performance counters, and locally secured resources.",
-                  "action": "Test required receiver access with the virtual service account, grant only documented permissions, and decide separately whether existing LocalSystem installations should use the explicit migration path.",
-                  "source": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.162.0"
-                },
-                {
-                  "component": "Kubernetes chart 0.162 package baseline",
-                  "domain": "Collector & operators",
-                  "changeType": "Bundled versions updated",
-                  "actionLevel": "Required",
-                  "from": "Chart 0.161.0 packages Collector 0.161.0, Target Allocator 0.159.0, and Operator 0.123.0",
-                  "to": "Chart 0.162.0 packages Collector 0.162.0, Target Allocator 0.160.0, Operator 0.124.1, refreshed instrumentation agents, and CRD subchart 0.0.8",
-                  "implication": "The Helm update inherits Collector 0.162 breaking configuration changes and changes the allocator, operator, agents, and optional CRD installation together.",
-                  "action": "Rehearse the Collector migrations, follow the linked CRD upgrade instructions when operatorcrds.install is used, and validate allocation, injection, IPv6 receiver-creator endpoints, and the realm-derived OpAMP Bridge endpoint.",
-                  "source": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.0"
                 },
                 {
                   "component": "Light Prometheus Receiver feature gate",
@@ -3913,17 +3796,6 @@
                   "source": "https://github.com/signalfx/splunk-otel-python/pull/799"
                 },
                 {
-                  "component": "Python instrumentation 2.13 patch baseline",
-                  "domain": "Instrumentation runtime",
-                  "changeType": "Upstream patch adopted",
-                  "actionLevel": "Review",
-                  "from": "Splunk OpenTelemetry Python 2.13.0",
-                  "to": "Version 2.13.1 adopts the corresponding upstream OpenTelemetry Python patch release",
-                  "implication": "The latest patch changes the upstream runtime baseline without adding a separately declared Splunk capability; the 2.13.0 configuration, dependency, and image qualifications still apply.",
-                  "action": "Use 2.13.1 for the 2.13 line, retain the documented 2.13.0 rollout checks, and run representative instrumentation smoke tests against the resolved application dependencies.",
-                  "source": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.1"
-                },
-                {
                   "component": "Browser RUM 3.1 defaults",
                   "domain": "RUM behavior",
                   "changeType": "Defaults changed",
@@ -3994,20 +3866,6 @@
                   "Standalone Collector 0.161 and Kubernetes chart 0.161.0 use stable singular label and annotation attributes plus container.image.tags. Migrate dashboards, detectors, MetricSets, routing, and exports before rollout.",
                   "Blocker",
                   "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.161.0",
-                  true
-                ],
-                [
-                  "Migrate removed Collector 0.162 monitors and queue processor names",
-                  "Collector 0.162 removes the listed deprecated Smart Agent and Telegraf monitors and renames queuebatch to queue_batch. Replace each active declaration and validate configuration loading plus representative telemetry before rollout.",
-                  "Blocker",
-                  "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.162.0",
-                  true
-                ],
-                [
-                  "Treat chart 0.162.0 as a Collector 0.162 upgrade",
-                  "The chart packages Collector 0.162 and also advances Target Allocator, Operator, instrumentation agents, and the optional CRD subchart. Apply the documented CRD instructions when applicable and verify the full cluster control path.",
-                  "Blocker",
-                  "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.0",
                   true
                 ],
                 [
@@ -4128,7 +3986,7 @@
         }
       },
       "guidance": {
-        "reviewed": "2026-10-09",
+        "reviewed": "2026-10-08",
         "lifecycle": {
           "source": "https://www.splunk.com/en_us/legal/splunk-software-support-policy.html",
           "reviewed": "2026-10-01",
@@ -7211,9 +7069,9 @@
         "path86": {
           "title": "SOAR 8.6.0 upgrade paths",
           "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.6.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
-          "section": "Upgrade path table: direct 8.6 branch begins at 6.4.1.361; earlier releases retain listed bridge, OS and PostgreSQL conditions",
-          "checked": "2026-10-09",
-          "reviewed": "2026-10-09",
+          "section": "Upgrade path table: starting versions 5.0.1–6.1.0, 6.2.1–6.4.1, 7.0.x and higher; OS and PostgreSQL conditions",
+          "checked": "2026-10-01",
+          "reviewed": "2026-10-01",
           "outcome": "confirmed"
         },
         "path87": {
@@ -7946,12 +7804,6 @@
         "url": "https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.2.0"
       },
       {
-        "id": "source-1bfa1d7d96bf49a6cf3b",
-        "kind": "source",
-        "dataset": "sources",
-        "url": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.1"
-      },
-      {
         "id": "source-1c8bc97de882116f6208",
         "kind": "source",
         "dataset": "sources",
@@ -8222,12 +8074,6 @@
         "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.7.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations"
       },
       {
-        "id": "source-5d0fb6d6d9ec4c9c8b4b",
-        "kind": "source",
-        "dataset": "sources",
-        "url": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.162.0"
-      },
-      {
         "id": "source-5f5209278d68e302d774",
         "kind": "source",
         "dataset": "sources",
@@ -8442,12 +8288,6 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.7/introduction/access-splunk-cloud-connect-in-splunk-enterprise-security-to-access-cloud-extensions"
-      },
-      {
-        "id": "source-a4b36e409776e910f4cb",
-        "kind": "source",
-        "dataset": "sources",
-        "url": "https://advisory.splunk.com/advisories/SVD-2026-1001"
       },
       {
         "id": "source-a5fc592e0297c2019e11",
@@ -8712,12 +8552,6 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.161.0"
-      },
-      {
-        "id": "source-eb5b5d59e4345e993d6b",
-        "kind": "source",
-        "dataset": "sources",
-        "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.0"
       },
       {
         "id": "source-eeedaa850b3060cf12f6",
@@ -9209,7 +9043,7 @@
           "Python instrumentation 2.13",
           "Telemetry & OpenTelemetry",
           "Use declarative configuration and ARM64 init images",
-          "Adopt the 2.13.1 upstream patch after validating the 2.13.0 configuration-precedence, wrapt 2.5.0, and architecture-specific image requirements; the patch does not add a new declared Splunk feature."
+          "Adopt Splunk OpenTelemetry Python 2.13.0 after validating OTEL_CONFIG_FILE precedence, the remaining environment-only profiling and callgraph settings, the wrapt 2.5.0 dependency floor, and the exact standard or SecureApp image architecture."
         ]
       },
       {
@@ -11945,35 +11779,6 @@
         ]
       },
       {
-        "id": "vc-37ada81db9d268a30471",
-        "kind": "feature",
-        "dataset": "platform",
-        "scope": {
-          "product": "observability",
-          "release": "Sep 2026"
-        },
-        "evidence": [
-          {
-            "sourceId": "source-2ccb9583b83387d59999",
-            "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026",
-            "section": null,
-            "sectionScope": "Section not recorded",
-            "sourceVerified": null,
-            "sourceChecked": null
-          }
-        ],
-        "verification": {
-          "date": null,
-          "outcome": "Claim verification not recorded"
-        },
-        "payload": [
-          "Kubernetes chart 0.162",
-          "Infrastructure & Kubernetes",
-          "Keep the chart and Collector baseline together",
-          "Use the chart that packages Collector 0.162, Target Allocator 0.160, Operator 0.124.1, current instrumentation agents, and the documented CRD and IPv6 fixes."
-        ]
-      },
-      {
         "id": "vc-3859585680486381a315",
         "kind": "feature",
         "dataset": "platform",
@@ -14098,36 +13903,6 @@
         ]
       },
       {
-        "id": "vc-58bb8829b94fcdbe2e37",
-        "kind": "requirement",
-        "dataset": "platform",
-        "scope": {
-          "product": "observability",
-          "release": "Sep 2026"
-        },
-        "evidence": [
-          {
-            "sourceId": "source-5d0fb6d6d9ec4c9c8b4b",
-            "url": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.162.0",
-            "section": null,
-            "sectionScope": "Section not recorded",
-            "sourceVerified": null,
-            "sourceChecked": null
-          }
-        ],
-        "verification": {
-          "date": null,
-          "outcome": "Claim verification not recorded"
-        },
-        "payload": [
-          "Migrate removed Collector 0.162 monitors and queue processor names",
-          "Collector 0.162 removes the listed deprecated Smart Agent and Telegraf monitors and renames queuebatch to queue_batch. Replace each active declaration and validate configuration loading plus representative telemetry before rollout.",
-          "Blocker",
-          "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.162.0",
-          true
-        ]
-      },
-      {
         "id": "vc-59485b089bf7c9c47c96",
         "kind": "feature",
         "dataset": "products",
@@ -15266,36 +15041,6 @@
           "Event operations",
           "Normalize third-party alerts faster",
           "Use a guided workflow to ingest and normalize alert data from external monitoring tools."
-        ]
-      },
-      {
-        "id": "vc-6e921b96a023aa93c6d6",
-        "kind": "requirement",
-        "dataset": "products",
-        "scope": {
-          "product": "observability",
-          "release": "Sep 2026"
-        },
-        "evidence": [
-          {
-            "sourceId": "source-eb5b5d59e4345e993d6b",
-            "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.0",
-            "section": null,
-            "sectionScope": "Section not recorded",
-            "sourceVerified": null,
-            "sourceChecked": null
-          }
-        ],
-        "verification": {
-          "date": null,
-          "outcome": "Claim verification not recorded"
-        },
-        "payload": [
-          "Treat chart 0.162.0 as a Collector 0.162 upgrade",
-          "The chart packages Collector 0.162 and also advances Target Allocator, Operator, instrumentation agents, and the optional CRD subchart. Apply the documented CRD instructions when applicable and verify the full cluster control path.",
-          "Blocker",
-          "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.0",
-          true
         ]
       },
       {
@@ -17220,35 +16965,6 @@
         ]
       },
       {
-        "id": "vc-899cf7eb3791138b818b",
-        "kind": "feature",
-        "dataset": "products",
-        "scope": {
-          "product": "observability",
-          "release": "Sep 2026"
-        },
-        "evidence": [
-          {
-            "sourceId": "source-2ccb9583b83387d59999",
-            "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026",
-            "section": null,
-            "sectionScope": "Section not recorded",
-            "sourceVerified": null,
-            "sourceChecked": null
-          }
-        ],
-        "verification": {
-          "date": null,
-          "outcome": "Claim verification not recorded"
-        },
-        "payload": [
-          "Kubernetes chart 0.162",
-          "Infrastructure & Kubernetes",
-          "Keep the chart and Collector baseline together",
-          "Use the chart that packages Collector 0.162, Target Allocator 0.160, Operator 0.124.1, current instrumentation agents, and the documented CRD and IPv6 fixes."
-        ]
-      },
-      {
         "id": "vc-89cc8a4d308155ad7c4f",
         "kind": "feature",
         "dataset": "products",
@@ -18781,7 +18497,7 @@
           "Python instrumentation 2.13",
           "Telemetry & OpenTelemetry",
           "Use declarative configuration and ARM64 init images",
-          "Adopt the 2.13.1 upstream patch after validating the 2.13.0 configuration-precedence, wrapt 2.5.0, and architecture-specific image requirements; the patch does not add a new declared Splunk feature."
+          "Adopt Splunk OpenTelemetry Python 2.13.0 after validating OTEL_CONFIG_FILE precedence, the remaining environment-only profiling and callgraph settings, the wrapt 2.5.0 dependency floor, and the exact standard or SecureApp image architecture."
         ]
       },
       {
@@ -19314,36 +19030,6 @@
           "Update parsers and policy logic that assume every stack version has three segments.",
           "Test",
           "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new",
-          true
-        ]
-      },
-      {
-        "id": "vc-a485326dd165c9ad6eae",
-        "kind": "requirement",
-        "dataset": "platform",
-        "scope": {
-          "product": "observability",
-          "release": "Sep 2026"
-        },
-        "evidence": [
-          {
-            "sourceId": "source-eb5b5d59e4345e993d6b",
-            "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.0",
-            "section": null,
-            "sectionScope": "Section not recorded",
-            "sourceVerified": null,
-            "sourceChecked": null
-          }
-        ],
-        "verification": {
-          "date": null,
-          "outcome": "Claim verification not recorded"
-        },
-        "payload": [
-          "Treat chart 0.162.0 as a Collector 0.162 upgrade",
-          "The chart packages Collector 0.162 and also advances Target Allocator, Operator, instrumentation agents, and the optional CRD subchart. Apply the documented CRD instructions when applicable and verify the full cluster control path.",
-          "Blocker",
-          "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.0",
           true
         ]
       },
@@ -21221,35 +20907,6 @@
         ]
       },
       {
-        "id": "vc-c190fa7398874db512f5",
-        "kind": "feature",
-        "dataset": "products",
-        "scope": {
-          "product": "observability",
-          "release": "Sep 2026"
-        },
-        "evidence": [
-          {
-            "sourceId": "source-2ccb9583b83387d59999",
-            "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026",
-            "section": null,
-            "sectionScope": "Section not recorded",
-            "sourceVerified": null,
-            "sourceChecked": null
-          }
-        ],
-        "verification": {
-          "date": null,
-          "outcome": "Claim verification not recorded"
-        },
-        "payload": [
-          "Collector 0.162 migration controls",
-          "Telemetry & OpenTelemetry",
-          "Replace retired inputs before the next Collector rollout",
-          "Move off removed Smart Agent and Telegraf monitors, rename queuebatch processors, and review the fresh-install Windows service identity before adopting Collector 0.162."
-        ]
-      },
-      {
         "id": "vc-c295870edf60e75c78a8",
         "kind": "claim",
         "dataset": "editions",
@@ -21517,35 +21174,6 @@
         ]
       },
       {
-        "id": "vc-c6188e53a4ee736e7675",
-        "kind": "feature",
-        "dataset": "platform",
-        "scope": {
-          "product": "observability",
-          "release": "Sep 2026"
-        },
-        "evidence": [
-          {
-            "sourceId": "source-2ccb9583b83387d59999",
-            "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026",
-            "section": null,
-            "sectionScope": "Section not recorded",
-            "sourceVerified": null,
-            "sourceChecked": null
-          }
-        ],
-        "verification": {
-          "date": null,
-          "outcome": "Claim verification not recorded"
-        },
-        "payload": [
-          "Collector 0.162 migration controls",
-          "Telemetry & OpenTelemetry",
-          "Replace retired inputs before the next Collector rollout",
-          "Move off removed Smart Agent and Telegraf monitors, rename queuebatch processors, and review the fresh-install Windows service identity before adopting Collector 0.162."
-        ]
-      },
-      {
         "id": "vc-c70e844cc481b5bb71de",
         "kind": "feature",
         "dataset": "platform",
@@ -21660,36 +21288,6 @@
           "Telemetry & OpenTelemetry",
           "Upgrade with clearer configuration and input lifecycle behavior",
           "Use hot reload for Splunk outputs and independent TA input reconciliation after validating the release's changed semantic conventions and metric defaults."
-        ]
-      },
-      {
-        "id": "vc-c8bdf691dbd3ee435b2b",
-        "kind": "requirement",
-        "dataset": "platform",
-        "scope": {
-          "platform": "enterprise",
-          "release": "10.2"
-        },
-        "evidence": [
-          {
-            "sourceId": "source-a4b36e409776e910f4cb",
-            "url": "https://advisory.splunk.com/advisories/SVD-2026-1001",
-            "section": null,
-            "sectionScope": "Section not recorded",
-            "sourceVerified": null,
-            "sourceChecked": null
-          }
-        ],
-        "verification": {
-          "date": null,
-          "outcome": "Claim verification not recorded"
-        },
-        "payload": [
-          "Reach Enterprise 10.2.7 for the October advisories",
-          "Splunk identifies 10.2.0 through 10.2.6 as affected. Upgrade to 10.2.7 or later and complete the vulnerability-specific remediation published with the applicable advisories.",
-          "Blocker",
-          "https://advisory.splunk.com/advisories/SVD-2026-1001",
-          true
         ]
       },
       {
@@ -22557,36 +22155,6 @@
         ]
       },
       {
-        "id": "vc-d3d651709bd90849741f",
-        "kind": "requirement",
-        "dataset": "platform",
-        "scope": {
-          "platform": "enterprise",
-          "release": "10.0"
-        },
-        "evidence": [
-          {
-            "sourceId": "source-a4b36e409776e910f4cb",
-            "url": "https://advisory.splunk.com/advisories/SVD-2026-1001",
-            "section": null,
-            "sectionScope": "Section not recorded",
-            "sourceVerified": null,
-            "sourceChecked": null
-          }
-        ],
-        "verification": {
-          "date": null,
-          "outcome": "Claim verification not recorded"
-        },
-        "payload": [
-          "Reach Enterprise 10.0.10 for the October advisories",
-          "Splunk identifies 10.0.0 through 10.0.9 as affected. Upgrade to 10.0.10 or later and complete the vulnerability-specific remediation published with the applicable advisories.",
-          "Blocker",
-          "https://advisory.splunk.com/advisories/SVD-2026-1001",
-          true
-        ]
-      },
-      {
         "id": "vc-d4799feecbb8e44a6097",
         "kind": "claim",
         "dataset": "editions",
@@ -23248,36 +22816,6 @@
         ]
       },
       {
-        "id": "vc-db0db2ae6b82557cd185",
-        "kind": "requirement",
-        "dataset": "platform",
-        "scope": {
-          "platform": "enterprise",
-          "release": "9.4"
-        },
-        "evidence": [
-          {
-            "sourceId": "source-a4b36e409776e910f4cb",
-            "url": "https://advisory.splunk.com/advisories/SVD-2026-1001",
-            "section": null,
-            "sectionScope": "Section not recorded",
-            "sourceVerified": null,
-            "sourceChecked": null
-          }
-        ],
-        "verification": {
-          "date": null,
-          "outcome": "Claim verification not recorded"
-        },
-        "payload": [
-          "Reach the October 9.4 security floor",
-          "Splunk identifies 9.4.0 through 9.4.14 as affected and 9.4.15 as the advisory floor. Use the newer 9.4.16 maintenance release where staying on 9.4, and complete any vulnerability-specific remediation in the advisories.",
-          "Blocker",
-          "https://advisory.splunk.com/advisories/SVD-2026-1001",
-          true
-        ]
-      },
-      {
         "id": "vc-dc628e7840c95c0ca53d",
         "kind": "feature",
         "dataset": "platform",
@@ -23758,36 +23296,6 @@
           "Platform operations",
           "Automate infrastructure awareness",
           "Query deployment topology to power operations, inventory, and orchestration."
-        ]
-      },
-      {
-        "id": "vc-e09bfc62876e2914438b",
-        "kind": "requirement",
-        "dataset": "platform",
-        "scope": {
-          "platform": "enterprise",
-          "release": "10.4"
-        },
-        "evidence": [
-          {
-            "sourceId": "source-a4b36e409776e910f4cb",
-            "url": "https://advisory.splunk.com/advisories/SVD-2026-1001",
-            "section": null,
-            "sectionScope": "Section not recorded",
-            "sourceVerified": null,
-            "sourceChecked": null
-          }
-        ],
-        "verification": {
-          "date": null,
-          "outcome": "Claim verification not recorded"
-        },
-        "payload": [
-          "Apply the October 10.4 security remediation",
-          "Splunk identifies 10.4.0 through 10.4.2 as affected and 10.4.3 as the advisory floor. Target 10.4.4 for current maintenance and complete the vulnerability-specific remediation in the October advisories.",
-          "Blocker",
-          "https://advisory.splunk.com/advisories/SVD-2026-1001",
-          true
         ]
       },
       {
@@ -24941,36 +24449,6 @@
           "Infrastructure & Kubernetes",
           "Troubleshoot without losing context",
           "Use denser tables, OTel tags, related entities, YAML comparison, HPA entities, and an in-context detail flyout."
-        ]
-      },
-      {
-        "id": "vc-f102acbd2221184c2d50",
-        "kind": "requirement",
-        "dataset": "products",
-        "scope": {
-          "product": "observability",
-          "release": "Sep 2026"
-        },
-        "evidence": [
-          {
-            "sourceId": "source-5d0fb6d6d9ec4c9c8b4b",
-            "url": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.162.0",
-            "section": null,
-            "sectionScope": "Section not recorded",
-            "sourceVerified": null,
-            "sourceChecked": null
-          }
-        ],
-        "verification": {
-          "date": null,
-          "outcome": "Claim verification not recorded"
-        },
-        "payload": [
-          "Migrate removed Collector 0.162 monitors and queue processor names",
-          "Collector 0.162 removes the listed deprecated Smart Agent and Telegraf monitors and renames queuebatch to queue_batch. Replace each active declaration and validate configuration loading plus representative telemetry before rollout.",
-          "Blocker",
-          "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.162.0",
-          true
         ]
       },
       {

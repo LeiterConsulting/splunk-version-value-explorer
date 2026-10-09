@@ -482,17 +482,6 @@ window.SPLUNK_DATA = {
         ],
         "technicalChanges": [
           {
-            "component": "Enterprise 9.4 October security floor",
-            "domain": "Security & maintenance",
-            "changeType": "Minimum fixed version established",
-            "actionLevel": "Required",
-            "from": "Splunk Enterprise 9.4.0 through 9.4.14",
-            "to": "9.4.15 is the October advisory floor; 9.4.16 is the newer published maintenance release",
-            "implication": "The October security advisories identify affected 9.4 maintenance releases and include vulnerability-specific additional remediation. Selecting the 9.4 line alone does not establish a safe patch.",
-            "action": "Target 9.4.16 for maintained 9.4 deployments, review every applicable October advisory for its additional steps, and validate the exact maintenance build before rollout.",
-            "source": "https://advisory.splunk.com/advisories/SVD-2026-1001"
-          },
-          {
             "component": "KV Store",
             "domain": "Data & storage",
             "changeType": "Engine upgrade",
@@ -538,13 +527,6 @@ window.SPLUNK_DATA = {
           }
         ],
         "requirements": [
-          [
-            "Reach the October 9.4 security floor",
-            "Splunk identifies 9.4.0 through 9.4.14 as affected and 9.4.15 as the advisory floor. Use the newer 9.4.16 maintenance release where staying on 9.4, and complete any vulnerability-specific remediation in the advisories.",
-            "Blocker",
-            "https://advisory.splunk.com/advisories/SVD-2026-1001",
-            true
-          ],
           [
             "Confirm CPU instruction support",
             "Hosts require AVX, SSE4.2, and AES-NI processor support. Verify every target host—not only a representative node.",
@@ -598,17 +580,6 @@ window.SPLUNK_DATA = {
         ],
         "technicalChanges": [
           {
-            "component": "Enterprise 10.0 October security floor",
-            "domain": "Security & maintenance",
-            "changeType": "Minimum fixed version established",
-            "actionLevel": "Required",
-            "from": "Splunk Enterprise 10.0.0 through 10.0.9",
-            "to": "10.0.10 is the October advisory floor and current published maintenance release",
-            "implication": "The October security advisories identify every earlier 10.0 maintenance release as affected and include vulnerability-specific additional remediation.",
-            "action": "Upgrade maintained 10.0 deployments to 10.0.10 or later, review every applicable October advisory, and complete the named configuration or restart steps rather than treating the binary update as universally sufficient.",
-            "source": "https://advisory.splunk.com/advisories/SVD-2026-1001"
-          },
-          {
             "component": "Python application runtime",
             "domain": "Runtime & apps",
             "changeType": "Removed",
@@ -643,13 +614,6 @@ window.SPLUNK_DATA = {
           }
         ],
         "requirements": [
-          [
-            "Reach Enterprise 10.0.10 for the October advisories",
-            "Splunk identifies 10.0.0 through 10.0.9 as affected. Upgrade to 10.0.10 or later and complete the vulnerability-specific remediation published with the applicable advisories.",
-            "Blocker",
-            "https://advisory.splunk.com/advisories/SVD-2026-1001",
-            true
-          ],
           [
             "Move Python 3.7 dependencies to 3.9",
             "Python 3.7 support is removed in 10.0. Confirm that apps and add-ons using Python work with the 3.9 interpreter before upgrading.",
@@ -710,17 +674,6 @@ window.SPLUNK_DATA = {
         ],
         "technicalChanges": [
           {
-            "component": "Enterprise 10.2 October security floor",
-            "domain": "Security & maintenance",
-            "changeType": "Minimum fixed version established",
-            "actionLevel": "Required",
-            "from": "Splunk Enterprise 10.2.0 through 10.2.6",
-            "to": "10.2.7 is the October advisory floor and current published maintenance release",
-            "implication": "The October security advisories identify every earlier 10.2 maintenance release as affected and include vulnerability-specific additional remediation.",
-            "action": "Upgrade maintained 10.2 deployments to 10.2.7 or later, review every applicable October advisory, and complete the named configuration or restart steps.",
-            "source": "https://advisory.splunk.com/advisories/SVD-2026-1001"
-          },
-          {
             "component": "Python runtimes",
             "domain": "Runtime & apps",
             "changeType": "Runtime added",
@@ -777,13 +730,6 @@ window.SPLUNK_DATA = {
           }
         ],
         "requirements": [
-          [
-            "Reach Enterprise 10.2.7 for the October advisories",
-            "Splunk identifies 10.2.0 through 10.2.6 as affected. Upgrade to 10.2.7 or later and complete the vulnerability-specific remediation published with the applicable advisories.",
-            "Blocker",
-            "https://advisory.splunk.com/advisories/SVD-2026-1001",
-            true
-          ],
           [
             "Replace embedded Node.js dependencies",
             "The embedded Node.js runtime is removed. Apps that require Node.js must ship their own runtime or be redesigned.",
@@ -861,17 +807,6 @@ window.SPLUNK_DATA = {
           ]
         ],
         "technicalChanges": [
-          {
-            "component": "Enterprise 10.4 October security floor",
-            "domain": "Security & maintenance",
-            "changeType": "Minimum fixed version established",
-            "actionLevel": "Required",
-            "from": "Splunk Enterprise 10.4.0 through 10.4.2",
-            "to": "10.4.3 is the October advisory floor; 10.4.4 remains the current published maintenance target",
-            "implication": "The October security advisories independently reinforce the existing 10.4.3 minimum and include vulnerability-specific additional remediation.",
-            "action": "Target 10.4.4 for new work, never use 10.4.2, and review every applicable October advisory for required configuration enforcement, restart, or component-specific action.",
-            "source": "https://advisory.splunk.com/advisories/SVD-2026-1001"
-          },
           {
             "component": "Enterprise 10.4 maintenance target",
             "domain": "Platform operations",
@@ -973,13 +908,6 @@ window.SPLUNK_DATA = {
           }
         ],
         "requirements": [
-          [
-            "Apply the October 10.4 security remediation",
-            "Splunk identifies 10.4.0 through 10.4.2 as affected and 10.4.3 as the advisory floor. Target 10.4.4 for current maintenance and complete the vulnerability-specific remediation in the October advisories.",
-            "Blocker",
-            "https://advisory.splunk.com/advisories/SVD-2026-1001",
-            true
-          ],
           [
             "Target Enterprise 10.4.4",
             "Splunk Enterprise 10.4.4 is the current published maintenance release. Do not use 10.4.2 because tcpout with useACK=true can block forwarding pipelines; 10.4.3 remains the documented minimum if 10.4.4 cannot yet be adopted.",

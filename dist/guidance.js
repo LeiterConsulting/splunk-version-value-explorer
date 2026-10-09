@@ -3,10 +3,6 @@
   "use strict";
   const data = window.SPLUNK_DATA;
   const own = function (o, key) { return Object.prototype.hasOwnProperty.call(o, key); };
-  function releaseNoteUrl(date) {
-    const nested = date >= "2026-10-07" ? date.slice(0, 4) + "/" + date.slice(5, 7) + "/" : "";
-    return "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/" + nested + date + ".md";
-  }
   function today() {
     const parts = new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(new Date());
     const part = function (type) { return parts.find(function (p) { return p.type === type; }).value; };
@@ -91,7 +87,7 @@
     }
     if (requested.reviewed !== undefined) {
       if (!/^\d{4}-\d{2}-\d{2}$/.test(requested.reviewed) || !Number.isFinite(Date.parse(requested.reviewed)) || new Date(requested.reviewed).toISOString().slice(0,10) !== requested.reviewed) errors.push("The report publication date is not valid.");
-      else if (requested.reviewed < data.guidance.reviewed) reasons.push({ code: "newer_guidance", text: "This link was shared against the " + requested.reviewed + " publication. You are reading the site updated " + data.guidance.reviewed + "; it is not a frozen copy of the original report.", source: releaseNoteUrl(data.guidance.reviewed) });
+      else if (requested.reviewed < data.guidance.reviewed) reasons.push({ code: "newer_guidance", text: "This link was shared against the " + requested.reviewed + " publication. You are reading the site updated " + data.guidance.reviewed + "; it is not a frozen copy of the original report.", source: "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/" + data.guidance.reviewed + ".md" });
       else if (requested.reviewed > data.guidance.reviewed) reasons.push({ code: "newer_link", text: "The link refers to a newer publication than this page has loaded. Refresh or verify the latest release note before relying on the report." });
     }
     if (hasRoute && !errors.length) {

@@ -166,10 +166,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-09T09:12:00.000Z",
-      "lastSuccess": "2026-10-09T09:19:55.187Z",
+      "lastAttempt": "2026-10-08T09:44:01.397Z",
+      "lastSuccess": "2026-10-08T09:53:58.883Z",
       "outcome": "changed",
-      "summary": "Verified and prepared October Enterprise security floors, Collector/chart 0.162, Python 2.13.1, the SOAR 6.4.1.361 route floor and historical-note routing repair.",
+      "summary": "Checked 120 official source URLs (118 retrieved); repaired and tested 16 borrowed HF evidence mappings across 900 routes. October security and Collector/Python releases recorded as isolated factual candidates.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -307,21 +307,9 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Checked 120 official source URLs (118 retrieved); repaired and tested 16 borrowed HF evidence mappings across 900 routes. October security and Collector/Python releases recorded as isolated factual candidates.",
           "scope": "Full maintained URL inventory plus bounded section/claim review; provenance/operational publication only. New product facts require affected report/export validation."
-        },
-        {
-          "at": "2026-10-09T09:12:00.000Z",
-          "outcome": "running",
-          "summary": "Checking the maintained release inventory and current high-consequence release, security, compatibility and delivery evidence.",
-          "scope": "Full maintained official source inventory plus newly discovered October 8 Collector chart release; bounded current Enterprise security floors, Observability components, SOAR discovery, and pending provenance-link repair."
-        },
-        {
-          "at": "2026-10-09T09:19:55.187Z",
-          "outcome": "changed",
-          "summary": "Verified and prepared October Enterprise security floors, Collector/chart 0.162, Python 2.13.1, the SOAR 6.4.1.361 route floor and historical-note routing repair.",
-          "scope": "128 official URLs checked (126 retrieved; two retired historical pages unavailable); affected claims plus bounded current Enterprise, Cloud, ES, ITSI, SOAR, Forwarder and Observability release discovery."
         }
       ],
-      "scope": "128 official URLs checked (126 retrieved; two retired historical pages unavailable); affected claims plus bounded current Enterprise, Cloud, ES, ITSI, SOAR, Forwarder and Observability release discovery."
+      "scope": "Full maintained URL inventory plus bounded section/claim review; provenance/operational publication only. New product facts require affected report/export validation."
     },
     {
       "id": "es-editions-watch",
