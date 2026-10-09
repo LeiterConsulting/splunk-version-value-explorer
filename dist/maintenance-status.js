@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-10-08T15:00:51.359Z",
-      "lastSuccess": "2026-10-08T15:13:34.317Z",
+      "lastAttempt": "2026-10-09T14:52:11.940Z",
+      "lastSuccess": "2026-10-09T14:56:15.761Z",
       "outcome": "changed",
-      "summary": "Completed bounded scope review; discovered conflicting current S3 Moderate statements and protected a candidate correction. Canonical report facts remain unchanged.",
+      "summary": "Reconciled Machine Data Lake regional scope and exposed the current S3 Moderate source conflict without broadening authorization.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -159,9 +159,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Completed bounded scope review; discovered conflicting current S3 Moderate statements and protected a candidate correction. Canonical report facts remain unchanged.",
           "scope": "All 10 maintained environment source URLs and two CSP-owned SOAR source URLs; current/versioned and prerequisite discovery; 58 environment records inventoried, 10 bounded high-consequence claim checks. Not exhaustive historical claim verification. Operational ledger/audit publication only; no canonical factual promotion."
+        },
+        {
+          "at": "2026-10-09T14:52:11.940Z",
+          "outcome": "running",
+          "summary": "Reconciling current official CSP, FedRAMP and restricted-environment evidence into a candidate factual batch.",
+          "scope": "All 10 maintained environment source URLs and two CSP-owned SOAR sources; 58 existing records plus the held four-record Machine Data Lake candidate; bounded high-consequence claims, visual public-sector matrix, exact Marketplace offerings, current ACS discovery, affected filters/reports/exports and publication parity."
+        },
+        {
+          "at": "2026-10-09T14:56:15.761Z",
+          "outcome": "changed",
+          "summary": "Reconciled Machine Data Lake regional scope and exposed the current S3 Moderate source conflict without broadening authorization.",
+          "scope": "All 10 maintained environment sources and two CSP-owned SOAR sources; 62 canonical environment records; 11 bounded claims; visual public-sector matrix; exact Marketplace offerings; ACS High discovery; affected filter/report/export candidate. Four MDL records added and S3 Moderate corrected; exact-candidate CI and publication recorded separately."
         }
       ],
-      "scope": "All 10 maintained environment source URLs and two CSP-owned SOAR source URLs; current/versioned and prerequisite discovery; 58 environment records inventoried, 10 bounded high-consequence claim checks. Not exhaustive historical claim verification. Operational ledger/audit publication only; no canonical factual promotion."
+      "scope": "All 10 maintained environment sources and two CSP-owned SOAR sources; 62 canonical environment records; 11 bounded claims; visual public-sector matrix; exact Marketplace offerings; ACS High discovery; affected filter/report/export candidate. Four MDL records added and S3 Moderate corrected; exact-candidate CI and publication recorded separately."
     },
     {
       "id": "version-release-watch",

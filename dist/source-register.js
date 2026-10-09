@@ -1103,13 +1103,18 @@ window.VersionCompassSources = {
         "environment: environment.records.29",
         "environment: environment.records.30",
         "environment: environment.records.31",
-        "environment: environment.records.55",
-        "environment: environment.records.56",
-        "environment: environment.records.57",
+        "environment: environment.records.32",
+        "environment: environment.records.33",
+        "environment: environment.records.34",
+        "environment: environment.records.35",
+        "environment: environment.records.59",
+        "environment: environment.records.60",
+        "environment: environment.records.61",
         "forwarders: forwarders.claimSources.receiver.cloud",
         "forwarders: forwarders.claimSources.topology.cloud-intermediate"
       ],
       "reviews": [
+        "2026-10-09",
         "2026-10-07"
       ],
       "conflict": true,
@@ -1151,17 +1156,23 @@ window.VersionCompassSources = {
       "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log",
       "title": "Cloud service description change log",
       "areas": [
-        "Cloud environment"
+        "Cloud environment",
+        "Shared guidance"
       ],
       "references": [
         "environment.sources.changes.url",
+        "content-updates.js",
         "environment: environment.records.13",
         "environment: environment.records.17",
         "environment: environment.records.19",
-        "environment: environment.records.24"
+        "environment: environment.records.24",
+        "environment: environment.records.27",
+        "environment: environment.records.28",
+        "environment: environment.records.29",
+        "environment: environment.records.30"
       ],
       "reviews": [
-        "2026-10-06"
+        "2026-10-09"
       ],
       "conflict": true,
       "usage": "In use",
@@ -1196,7 +1207,7 @@ window.VersionCompassSources = {
         "environment: environment.records.19"
       ],
       "reviews": [
-        "2026-10-06"
+        "2026-10-09"
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",
@@ -2196,10 +2207,6 @@ window.VersionCompassSources = {
       "references": [
         "environment.sources.es.url",
         "editions.sources.regions.u",
-        "environment: environment.records.32",
-        "environment: environment.records.33",
-        "environment: environment.records.34",
-        "environment: environment.records.35",
         "environment: environment.records.36",
         "environment: environment.records.37",
         "environment: environment.records.38",
@@ -2209,13 +2216,17 @@ window.VersionCompassSources = {
         "environment: environment.records.42",
         "environment: environment.records.43",
         "environment: environment.records.44",
+        "environment: environment.records.45",
+        "environment: environment.records.46",
+        "environment: environment.records.47",
+        "environment: environment.records.48",
         "editions: editions.capabilities.11",
         "editions: editions.capabilities.13",
         "editions: editions.capabilities.17",
         "editions: editions.notes.1"
       ],
       "reviews": [
-        "2026-10-06",
+        "2026-10-09",
         "2026-10-01"
       ],
       "usage": "In use",
@@ -3998,19 +4009,19 @@ window.VersionCompassSources = {
       ],
       "references": [
         "environment.sources.o11y.url",
-        "environment: environment.records.45",
-        "environment: environment.records.46",
-        "environment: environment.records.47",
-        "environment: environment.records.48",
         "environment: environment.records.49",
         "environment: environment.records.50",
         "environment: environment.records.51",
         "environment: environment.records.52",
         "environment: environment.records.53",
-        "environment: environment.records.54"
+        "environment: environment.records.54",
+        "environment: environment.records.55",
+        "environment: environment.records.56",
+        "environment: environment.records.57",
+        "environment: environment.records.58"
       ],
       "reviews": [
-        "2026-10-06"
+        "2026-10-09"
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",
@@ -5576,6 +5587,7 @@ window.VersionCompassSources = {
         "environment: environment.records.10"
       ],
       "reviews": [
+        "2026-10-09",
         "2026-10-06"
       ],
       "usage": "In use",
@@ -5640,6 +5652,7 @@ window.VersionCompassSources = {
         "soar: soar.backlog.2"
       ],
       "reviews": [
+        "2026-10-09",
         "2026-10-06"
       ],
       "claimReferences": [
@@ -5700,12 +5713,12 @@ window.VersionCompassSources = {
       ],
       "references": [
         "environment.sources.compliance.url",
-        "environment: environment.records.55",
-        "environment: environment.records.56",
-        "environment: environment.records.57"
+        "environment: environment.records.59",
+        "environment: environment.records.60",
+        "environment: environment.records.61"
       ],
       "reviews": [
-        "2026-10-06"
+        "2026-10-09"
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",
@@ -5759,10 +5772,10 @@ window.VersionCompassSources = {
       ],
       "references": [
         "environment.sources.esmoderate.url",
-        "environment: environment.records.44"
+        "environment: environment.records.48"
       ],
       "reviews": [
-        "2026-10-06"
+        "2026-10-09"
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",
@@ -5819,7 +5832,7 @@ window.VersionCompassSources = {
         "environment: environment.records.5"
       ],
       "reviews": [
-        "2026-10-06"
+        "2026-10-09"
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",

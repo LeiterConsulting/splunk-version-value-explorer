@@ -200,70 +200,70 @@ window.VersionCompassEnvironmentData = {
       "url": "https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor",
       "published": "2026-06-16",
       "scope": "Current product guide; page modification date; Victoria-only prerequisite, not regional or authorization evidence",
-      "checked": "2026-10-06"
+      "checked": "2026-10-09"
     },
     "service": {
       "title": "Cloud Platform 10.6 current subscription and forwarder tables",
       "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
       "published": "2026-09-14",
-      "scope": "Current subscription table lists Cloud 10.6, ES 8.7 and ITSI 5.0; supported forwarder rows extend through 10.6; page modification date",
-      "checked": "2026-10-07"
+      "scope": "Available regions and region differences; Machine Data Lake search; third-party federated-search limitations; current subscription table lists Cloud 10.6, ES 8.7 and ITSI 5.0; supported forwarder rows extend through 10.6; page modification date",
+      "checked": "2026-10-09"
     },
     "changes": {
       "title": "Cloud service description change log",
       "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log",
-      "published": "2026-08-25",
-      "scope": "Latest dated entry in body; individual entries have their own effective dates",
-      "checked": "2026-10-06"
+      "published": "2026-10-06",
+      "scope": "October 6, 2026 entry: Available regions and region differences; Search; Subscription Types; Supported Version. Individual entries retain their own effective dates.",
+      "checked": "2026-10-09"
     },
     "es": {
       "title": "ES 8.7 regional availability",
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
       "published": "2026-09-01",
       "scope": "ES 8.7; page modification date",
-      "checked": "2026-10-06"
+      "checked": "2026-10-09"
     },
     "compliance": {
       "title": "Splunk compliance scope matrix",
       "url": "https://www.splunk.com/en_us/about-splunk/splunk-data-security-and-privacy/compliance-at-splunk.html",
       "published": "2026-02",
       "scope": "Matrix explicitly dated February 2026; individual marks require direct visual verification",
-      "checked": "2026-10-06"
+      "checked": "2026-10-09"
     },
     "high": {
       "title": "FedRAMP Marketplace: Cloud Platform High",
       "url": "https://www.fedramp.gov/marketplace/products/FR2314156865/",
       "published": "2024-09-13",
       "scope": "Exact High CSO record and Certified Services list; offering-level assessment scope, not universal feature, entitlement, pairing, rollout or customer authorization evidence",
-      "checked": "2026-10-06"
+      "checked": "2026-10-09"
     },
     "moderate": {
       "title": "FedRAMP Marketplace: Cloud Platform Moderate",
       "url": "https://www.fedramp.gov/marketplace/products/F1607197917/",
       "published": "2019-10-11",
       "scope": "Exact Moderate CSO record and Certified Services list; offering-level assessment scope, not universal feature, entitlement, pairing, rollout or customer authorization evidence",
-      "checked": "2026-10-06"
+      "checked": "2026-10-09"
     },
     "victoria": {
       "title": "Victoria Experience High announcement",
       "url": "https://www.splunk.com/en_us/blog/industries/splunk-victoria-experience-is-now-authorized-at-fedramp-high.html",
       "published": "2026-07-10",
       "scope": "Platform experience authorization announcement",
-      "checked": "2026-10-06"
+      "checked": "2026-10-09"
     },
     "esmoderate": {
       "title": "ES Premier Moderate announcement",
       "url": "https://www.splunk.com/en_us/blog/industries/splunk-enterprise-security-premier-achieves-fedramp-moderate-authorization.html",
       "published": "2026-06-25",
       "scope": "Premier Moderate announcement; not universal component authorization",
-      "checked": "2026-10-06"
+      "checked": "2026-10-09"
     },
     "o11y": {
       "title": "Observability service description and realms",
       "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
       "published": "2026-03-25",
       "scope": "Rolling service; page modification date",
-      "checked": "2026-10-06"
+      "checked": "2026-10-09"
     }
   },
   "records": [
@@ -880,14 +880,24 @@ window.VersionCompassEnvironmentData = {
       "regimes": [
         "fr-m"
       ],
-      "availability": "conditional",
+      "availability": "conflicting",
       "authorization": "not_established",
-      "detail": "Moderate is listed.",
+      "detail": "The regional table includes Moderate in both GovCloud regions, while the third-party federated-search section excludes Moderate. The relationship between legacy S3 federation and the expanded third-party-search scope is not established; confirm before planning.",
       "sources": [
         "service"
       ],
-      "checked": "2026-10-06",
-      "scope": "Current service guidance; not a historical availability guarantee"
+      "checked": "2026-10-09",
+      "scope": "Current 10.6 service guidance; not a historical rollout, entitlement or authorization guarantee",
+      "claims": [
+        {
+          "text": "The current availability table includes FedRAMP Moderate in both GovCloud regions.",
+          "source": "service"
+        },
+        {
+          "text": "The third-party federated-search section names Amazon S3 as a supported store but says that scope is not currently available in FedRAMP Moderate.",
+          "source": "service"
+        }
+      ]
     },
     {
       "id": "s3-high",
@@ -908,7 +918,7 @@ window.VersionCompassEnvironmentData = {
         "service",
         "changes"
       ],
-      "checked": "2026-10-06",
+      "checked": "2026-10-09",
       "scope": "Current service guidance; not a historical availability guarantee",
       "effective": "2026-04-08",
       "claims": [
@@ -972,6 +982,124 @@ window.VersionCompassEnvironmentData = {
       ],
       "checked": "2026-10-06",
       "scope": "Current service guidance; not a historical availability guarantee"
+    },
+    {
+      "id": "machine-data-lake-aws",
+      "product": "platform",
+      "feature": "Machine Data Lake",
+      "provider": "aws",
+      "regions": [
+        "us-east-1",
+        "us-west-2",
+        "eu-west-1",
+        "eu-west-2",
+        "eu-west-3",
+        "eu-central-1",
+        "eu-south-1",
+        "eu-north-1",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-southeast-3",
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-south-1",
+        "ca-central-1",
+        "ca-west-1",
+        "sa-east-1",
+        "me-central-1"
+      ],
+      "regimes": [
+        "commercial"
+      ],
+      "availability": "conditional",
+      "authorization": "not_established",
+      "detail": "Available on AWS outside GovCloud. Supported workflows still depend on provider, region, environment configuration and enabled services.",
+      "sources": [
+        "service",
+        "changes"
+      ],
+      "checked": "2026-10-09",
+      "scope": "Current 10.6 service guidance; not a historical rollout, entitlement or authorization guarantee",
+      "effective": "2026-10-06"
+    },
+    {
+      "id": "machine-data-lake-gov",
+      "product": "platform",
+      "feature": "Machine Data Lake",
+      "provider": "aws",
+      "regions": [
+        "us-gov-east-1",
+        "us-gov-west-1"
+      ],
+      "regimes": [
+        "fr-m",
+        "fr-h"
+      ],
+      "availability": "unavailable",
+      "authorization": "not_established",
+      "detail": "The current service table excludes both GovCloud regions. This feature availability statement does not alter the authorization of the surrounding Platform offering.",
+      "sources": [
+        "service",
+        "changes"
+      ],
+      "checked": "2026-10-09",
+      "scope": "Current 10.6 service guidance; not a historical rollout or offering-authorization claim",
+      "effective": "2026-10-06"
+    },
+    {
+      "id": "machine-data-lake-gcp",
+      "product": "platform",
+      "feature": "Machine Data Lake",
+      "provider": "gcp",
+      "regions": [
+        "gcp-iowa",
+        "gcp-oregon",
+        "gcp-frankfurt",
+        "gcp-dammam",
+        "gcp-london",
+        "gcp-belgium",
+        "gcp-singapore",
+        "gcp-sydney",
+        "gcp-montreal"
+      ],
+      "regimes": [
+        "commercial"
+      ],
+      "availability": "unavailable",
+      "authorization": "not_established",
+      "detail": "Not currently available.",
+      "sources": [
+        "service",
+        "changes"
+      ],
+      "checked": "2026-10-09",
+      "scope": "Current 10.6 service guidance; not a historical rollout, entitlement or authorization guarantee",
+      "effective": "2026-10-06"
+    },
+    {
+      "id": "machine-data-lake-azure",
+      "product": "platform",
+      "feature": "Machine Data Lake",
+      "provider": "azure",
+      "regions": [
+        "azure-phoenix",
+        "azure-virginia",
+        "azure-london",
+        "azure-tokyo"
+      ],
+      "regimes": [
+        "commercial"
+      ],
+      "availability": "unavailable",
+      "authorization": "not_established",
+      "detail": "Not currently available.",
+      "sources": [
+        "service",
+        "changes"
+      ],
+      "checked": "2026-10-09",
+      "scope": "Current 10.6 service guidance; not a historical rollout, entitlement or authorization guarantee",
+      "effective": "2026-10-06"
     },
     {
       "id": "security-lake-gov",

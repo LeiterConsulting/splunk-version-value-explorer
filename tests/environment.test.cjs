@@ -35,6 +35,7 @@ test('provider, region and compliance filters intersect without inferring unavai
  assert.equal(high.records.find(r=>r.id==='s3-high').availability,'conflicting');
  assert.equal(high.records.find(r=>r.id==='edge-high-unknown').availability,'not_established');
  const moderate=env.assess(route({compliance:'fr-m'}));assert(moderate.records.some(r=>r.id==='edge-moderate'));assert(!moderate.records.some(r=>r.id==='s3-high'));
+ const moderateS3=moderate.records.find(r=>r.id==='s3-moderate');assert.equal(moderateS3.availability,'conflicting');assert.equal(moderateS3.claims.length,2);
  const missing=env.assess(route({csp:'azure',compliance:'fr-h'}));assert.equal(missing.records.length,0);assert.match(missing.coverageNote,/not an unavailability/);
  const region=env.assess(route({region:'gcp-oregon'},'es'));assert.equal(region.records.find(r=>r.id==='soar-oregon').availability,'unavailable');assert(!region.records.some(r=>r.id==='es-base-gcp'));
 });
@@ -76,4 +77,23 @@ test('exact Marketplace offering scope remains product-specific and qualified',(
  assert(record);assert.equal(record.authorization,'documented');assert.match(record.detail,/offering-level assessment scope/);
  const html=env.body(route({csp:'aws',compliance:'fr-m'},'itsi'),true);
  assert.match(html,/IT Service Intelligence certified service/);assert.match(html,/IT Service Intelligence · AWS/);
+});
+test('Machine Data Lake keeps provider, GovCloud and authorization scope separate',()=>{
+ const aws=env.assess(route({csp:'aws',region:'us-east-1',compliance:'commercial'}));
+ const available=aws.records.find(r=>r.id==='machine-data-lake-aws');
+ assert(available);assert.equal(available.availability,'conditional');assert.equal(available.authorization,'not_established');
+ assert.match(available.detail,/provider, region, environment configuration and enabled services/);
+ assert.deepEqual(Array.from(available.sources),['service','changes']);
+ for(const compliance of ['fr-m','fr-h']){
+  const gov=env.assess(route({csp:'aws',region:'us-gov-east-1',compliance}));
+  const excluded=gov.records.find(r=>r.id==='machine-data-lake-gov');
+  assert(excluded);assert.equal(excluded.availability,'unavailable');assert.equal(excluded.authorization,'not_established');
+  assert(!gov.records.some(r=>r.id==='machine-data-lake-aws'));
+ }
+ for(const [csp,region,id] of [['gcp','gcp-oregon','machine-data-lake-gcp'],['azure','azure-london','machine-data-lake-azure']]){
+  const result=env.assess(route({csp,region,compliance:'commercial'}));
+  const excluded=result.records.find(r=>r.id===id);assert(excluded);assert.equal(excluded.availability,'unavailable');assert.equal(excluded.authorization,'not_established');
+ }
+ const html=env.body(route({csp:'aws',region:'us-gov-east-1',compliance:'fr-h'}),true);
+ assert.match(html,/Machine Data Lake/);assert(html.includes(env.data.sources.service.url));assert(html.includes(env.data.sources.changes.url));
 });
