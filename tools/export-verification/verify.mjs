@@ -64,6 +64,7 @@ try {
     await page.setViewportSize({width:390,height:844});
     // Check the expanded content too, then restore the user's disclosure state.
     const disclosureState = await page.evaluate(() => [...document.querySelectorAll('main details')].filter(d=>!d.closest('#release-report,.edition-report')).map(d=>{const open=d.open;d.open=true;return open;}));
+    await page.evaluate(async()=>{await document.fonts.ready;await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));});
     const narrow = await checkLayout(page);
     if(narrow.scroll > narrow.width + 3 || narrow.overflow.length) {
       const outside = await page.evaluate(()=>[...document.querySelectorAll('body *')].map(el=>({tag:el.tagName,classes:el.className,text:el.textContent.slice(0,120),right:el.getBoundingClientRect().right,width:el.getBoundingClientRect().width,scroll:el.scrollWidth,client:el.clientWidth,visible:el.checkVisibility({visibilityProperty:true,opacityProperty:true}),overflow:getComputedStyle(el).overflowX})).filter(el=>el.width&&(el.right>document.documentElement.clientWidth+3||el.scroll>el.client+3)).slice(0,80));
