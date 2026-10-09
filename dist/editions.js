@@ -18,7 +18,7 @@
   const reportCell = cell => '<strong>'+({yes:'Included',no:'Not included',part:'Conditional',review:'Confirm scope'}[cell.v])+'</strong><br>'+esc(cell.n || '');
   const reportHistory = () => '<h2>Cloud release history · ES '+esc(state.release)+'</h2><p>Selected Cloud matrix highlights; not a complete entitlement list or an on-premises assessment. '+refs(['matrix'])+'</p>'+[['Essentials (also in Premier)',data.history[state.release].e],['Premier column',data.history[state.release].p]].map(([title,items])=>'<h3>'+title+'</h3><ul>'+items.map(item=>'<li>'+esc(item)+'</li>').join('')+'</ul>').join('')+'<p>The matrix groups security-automation authoring under Premier in 8.7. Agent-specific scope differs; see the source questions in this report. '+refs(['matrix','agentic','rn87'])+'</p>';
   const decisionReport=()=> (document.getElementById('edition-decision-summary')?.innerHTML||'').replace(/ id="[^"]*"/g,'');
-  function report(){const html=rawReport();return window.VersionCompassReports?.decorate(html)||html;}
+  function report(){const html=rawReport();const complete=window.VersionCompassReports?.decorate(html)||html;return '<div class="edition-report">'+complete.replace('class="edition-report"','class="edition-report-body"')+'</div>';}
   function rawReport() { return `<article class="edition-report" aria-label="Printable ES editions report">
     <header class="report-title"><p>VERSION COMPASS / ENTERPRISE SECURITY</p><h1>Essentials &amp; Premier</h1><p class="report-subtitle">Capability comparison and deployment guidance</p><p>ES ${esc(data.release)} · Evidence reviewed ${esc(data.reviewed)} · Public-source edition comparison</p></header>
     <p class="report-disclaimer">Independent public-source comparison. Not an official Cisco or Splunk publication. <a href="${esc(themed('https://versioncompass.com/?view=es-editions'))}">Online comparison ↗</a></p>
@@ -104,7 +104,7 @@
   window.VersionCompassPerspective?.setRenderer(renderEnvironment);
   environment.bind(envState,renderEnvironment);renderEnvironment();
   let beforePrint=null;
-  function expandPrint(){if(beforePrint)return;const decisionPrint=document.getElementById('edition-decision-print');if(decisionPrint)decisionPrint.innerHTML=decisionReport();beforePrint=[...document.querySelectorAll('main details')].map(el=>[el,el.open]);beforePrint.forEach(([el])=>el.open=true);}
+  function expandPrint(){if(beforePrint)return;const printable=document.querySelector('main>.edition-report');if(printable)printable.outerHTML=report();beforePrint=[...document.querySelectorAll('main details')].map(el=>[el,el.open]);beforePrint.forEach(([el])=>el.open=true);}
   function restorePrint(){if(!beforePrint)return;beforePrint.forEach(([el,open])=>el.open=open);beforePrint=null;}
   window.addEventListener('beforeprint',expandPrint);window.addEventListener('afterprint',restorePrint);
   document.getElementById('edition-print').addEventListener('click',()=>{expandPrint();window.print();});

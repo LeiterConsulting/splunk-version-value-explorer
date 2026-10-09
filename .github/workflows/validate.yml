@@ -3,6 +3,7 @@ on: [push, pull_request]
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -14,3 +15,16 @@ jobs:
       - run: node scripts/sync-content.cjs --check
       - run: node --test tests/*.test.cjs
       - run: node scripts/build-worker.cjs
+      - run: npm ci --prefix tools/export-verification
+      - run: tools/export-verification/node_modules/.bin/playwright install --with-deps chromium
+      - name: Install PDF page renderer
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - run: node tools/export-verification/verify.mjs
+      - name: Retain candidate export evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: export-evidence-${{ github.sha }}
+          path: export-artifacts/
+          if-no-files-found: error
+          retention-days: 30

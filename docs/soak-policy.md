@@ -22,6 +22,8 @@ A repository-only archive or policy change need not repeat native PDF pagination
 
 ## Legacy compatibility
 
+The [export verification process](export-verification.md) supplies candidate-bound native PDF, offline HTML and viewport evidence from application CI. Import its verified retained artifact with `--exports`; these checks may precede deployment and remain applicable to identical report inputs. A current actual failure still blocks. Missing capabilities in a later interactive session do not reopen a verified historical baseline or justify rollback on their own.
+
 Preserve the visitor's original comparison intent, not necessarily the old architecture. Decode legacy URLs into the current comparison model using explicit, deterministic, reviewed mappings. Preserve exact versions, product, platform/host, environment, perspective, theme, history and meaningful anchors. Never silently substitute latest or relax a compatibility warning. Unknown or ambiguous links get assisted recovery retaining the original input and an explicit explanation, not an unrelated default report. See [legacy-link migration](architecture/legacy-link-migration.md).
 
 ## Advancement and observation

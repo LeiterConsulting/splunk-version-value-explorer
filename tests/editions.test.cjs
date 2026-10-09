@@ -68,7 +68,8 @@ test('explanations and both sides of source questions remain visible without ope
 });
 test('print report keeps all evidence and tracks selected history independently of filters',()=>{
  const r=runtime('?preview=es-editions&filter=review&release=8.4');
- const report=r.html.slice(r.html.indexOf('<article class="edition-report"'));
+ const report=r.html.slice(r.html.indexOf('<div class="edition-report"'));
+ assert(report.includes('<article class="edition-report-body"'));
  assert.equal((report.match(/<tr>/g)||[]).length,21);
  for(const c of data.capabilities){assert(report.includes(c.name.replaceAll('&','&amp;')));if(c.flag)assert(report.includes(c.flag.replaceAll('&','&amp;')));}
  for(const key of Object.keys(data.sources))assert.equal((report.match(new RegExp('id="report-ref-'+key+'"','g'))||[]).length,1);
