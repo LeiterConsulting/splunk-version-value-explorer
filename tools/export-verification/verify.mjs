@@ -23,8 +23,9 @@ async function checkLayout(page) {
   return page.evaluate(() => {
     const width = document.documentElement.clientWidth;
     return { width, scroll: document.documentElement.scrollWidth,
-      overflow: [...document.querySelectorAll('h1,h2,h3,p,button,select')].filter(el => {
+      overflow: [...document.querySelectorAll('h1,h2,h3,h4,p,button,select')].filter(el => {
         const r = el.getBoundingClientRect(), style = getComputedStyle(el);
+        if (!el.checkVisibility({visibilityProperty:true,opacityProperty:true})) return false;
         // An intentional horizontally scrollable tab strip may have offscreen
         // buttons without overflowing the page. Check its container, not each tab.
         for (let parent = el.parentElement; parent && parent !== document.body; parent = parent.parentElement) {
@@ -61,10 +62,13 @@ try {
     assert.equal(await page.evaluate(() => document.documentElement.classList.contains('theme-cisco')), theme === 'cisco');
     entry.screen = relative(path.join(directory, 'desktop.png')); await page.screenshot({path:path.join(output,entry.screen)});
     await page.setViewportSize({width:390,height:844});
+    // Check the expanded content too, then restore the user's disclosure state.
+    const disclosureState = await page.evaluate(() => [...document.querySelectorAll('main details')].filter(d=>!d.closest('#release-report,.edition-report')).map(d=>{const open=d.open;d.open=true;return [d.id,open];}));
     const narrow = await checkLayout(page);
     assert(narrow.scroll <= narrow.width + 3 && !narrow.overflow.length, 'Narrow overflow ' + id + ': ' + JSON.stringify(narrow));
     entry.narrow = {passed:true,viewport:{width:390,height:844},file:relative(path.join(directory,'narrow.png'))};
     await page.screenshot({path:path.join(output,entry.narrow.file)});
+    await page.evaluate(states=>states.forEach(([id,open])=>{document.getElementById(id).open=open;}),disclosureState);
     await page.setViewportSize({width:1440,height:1000});
     if (route.invalid) {
       assert(await print.isDisabled(), 'Invalid route must block print');
