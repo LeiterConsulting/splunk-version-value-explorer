@@ -71,3 +71,5 @@ The platform matrix lists ITSI 4.21.x and 5.0 with Enterprise 10.6. The separate
 ## SOAR integration · October 1
 
 SOAR is a peer product with customer-managed and Cloud contexts. See [SOAR maintenance](soar.md) for the exact public source inventory, daily task ownership, initial coverage, report parity, existing WebMCP integration and unresolved verification work.
+
+The October 9 restoration keeps Collector/chart 0.162.0 and Python 2.13.1 on the maintained Observability comparison while explicitly labeling their separate October component release dates. Optional feature tuple fields 5 (milestone label) and 6 (exact source URL) override inherited SaaS milestone metadata; the UI, read-only tools and canonical catalog use those exact component citations. These releases do not create an October rolling-service milestone or establish tenant rollout.

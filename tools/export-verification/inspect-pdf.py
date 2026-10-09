@@ -26,6 +26,8 @@ actual = normalize(' '.join(text))
 expected = json.loads(expected_file.read_text())
 for heading in expected['headings']:
     assert normalize(heading) in actual, f'Missing PDF section: {heading}'
+for annotation in expected['printAnnotations']:
+    assert normalize(annotation) in actual, f'Missing printable change context: {annotation}'
 assert normalize(expected['revision']) in actual, 'Missing PDF content identity'
 for control in ['Save dated snapshot (.html)', 'Print / save PDF', 'Copy comparison link']:
     assert normalize(control) not in actual, f'Interactive control leaked into PDF: {control}'

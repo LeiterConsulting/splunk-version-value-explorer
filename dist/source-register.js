@@ -364,23 +364,28 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
+        "release.productTracks.observability.releasesData.Sep 2026.features.12.5",
         "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.9.source",
         "release.productTracks.observability.releasesData.Sep 2026.requirements.8.3"
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": null,
-      "status": "Review date unknown",
+      "reviewed": "2026-10-09",
+      "status": "Reviewed",
       "firstRecorded": "2026-10-09",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "Customer-managed component release and rollout checks are separate from the September rolling-service milestone, tenant availability and application compatibility.",
+      "section": "Release description; Enhancements; Bug fixes",
+      "verificationScope": "Verified October 8, 2026 publication, Collector 0.162.0, Target Allocator 0.160.0, Operator 0.124.1, CRD subchart 0.0.8, listed instrumentation updates, realm-derived OpAMP endpoint and IPv6 endpoint handling.",
       "events": [
         {
           "date": "2026-10-09",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-09",
+          "event": "Review status updated: Reviewed · 2026-10-09"
         }
       ]
     },
@@ -454,24 +459,29 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
+        "release.productTracks.observability.releasesData.Sep 2026.features.11.5",
         "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.7.source",
         "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.8.source",
         "release.productTracks.observability.releasesData.Sep 2026.requirements.7.3"
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": null,
-      "status": "Review date unknown",
+      "reviewed": "2026-10-09",
+      "status": "Reviewed",
       "firstRecorded": "2026-10-09",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "Customer-managed component release and rollout checks are separate from the September rolling-service milestone, tenant availability and application compatibility.",
+      "section": "Breaking changes; installer enhancement",
+      "verificationScope": "Verified October 7, 2026 release publication, retired Smart Agent and Telegraf monitors, queuebatch to queue_batch rename, and the fresh MSI virtual-service-account default versus preserved upgrade identity.",
       "events": [
         {
           "date": "2026-10-09",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-09",
+          "event": "Review status updated: Reviewed · 2026-10-09"
         }
       ]
     },
@@ -775,22 +785,27 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
+        "release.productTracks.observability.releasesData.Sep 2026.features.19.5",
         "release.productTracks.observability.releasesData.Sep 2026.technicalChanges.26.source"
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": null,
-      "status": "Review date unknown",
+      "reviewed": "2026-10-09",
+      "status": "Reviewed",
       "firstRecorded": "2026-10-09",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "Customer-managed component release and rollout checks are separate from the September rolling-service milestone, tenant availability and application compatibility.",
+      "section": "What's Changed; upstream patch adoption",
+      "verificationScope": "Verified October 7, 2026 publication and adoption of the upstream OpenTelemetry Python patch release. No separately declared Splunk capability is inferred; 2.13.0 configuration, dependency and image qualifications remain relevant.",
       "events": [
         {
           "date": "2026-10-09",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-09",
+          "event": "Review status updated: Reviewed · 2026-10-09"
         }
       ]
     },

@@ -1452,13 +1452,17 @@ Object.assign(window.SPLUNK_DATA, {
               "Collector 0.162 migration controls",
               "Telemetry & OpenTelemetry",
               "Replace retired inputs before the next Collector rollout",
-              "Move off removed Smart Agent and Telegraf monitors, rename queuebatch processors, and review the fresh-install Windows service identity before adopting Collector 0.162."
+              "Move off removed Smart Agent and Telegraf monitors, rename queuebatch processors, and review the fresh-install Windows service identity before adopting Collector 0.162.",
+              "Separately versioned Collector · released October 7, 2026",
+              "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.162.0"
             ],
             [
               "Kubernetes chart 0.162",
               "Infrastructure & Kubernetes",
               "Keep the chart and Collector baseline together",
-              "Use the chart that packages Collector 0.162, Target Allocator 0.160, Operator 0.124.1, current instrumentation agents, and the documented CRD and IPv6 fixes."
+              "Use the chart that packages Collector 0.162, Target Allocator 0.160, Operator 0.124.1, current instrumentation agents, and the documented CRD and IPv6 fixes.",
+              "Separately versioned Kubernetes chart · released October 8, 2026",
+              "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.0"
             ],
             [
               "Collector 0.161 pipeline controls",
@@ -1500,7 +1504,9 @@ Object.assign(window.SPLUNK_DATA, {
               "Python instrumentation 2.13",
               "Telemetry & OpenTelemetry",
               "Use declarative configuration and ARM64 init images",
-              "Adopt the 2.13.1 upstream patch after validating the 2.13.0 configuration-precedence, wrapt 2.5.0, and architecture-specific image requirements; the patch does not add a new declared Splunk feature."
+              "Adopt the 2.13.1 upstream patch after validating the 2.13.0 configuration-precedence, wrapt 2.5.0, and architecture-specific image requirements; the patch does not add a new declared Splunk feature.",
+              "Separately versioned Python instrumentation · patch released October 7, 2026",
+              "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.1"
             ],
             [
               "Browser RUM 3.2",

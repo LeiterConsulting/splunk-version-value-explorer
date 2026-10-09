@@ -65,7 +65,7 @@
     const track = activeTrack();
     return releasesBetween().flatMap(function (release) {
       return track.releasesData[release].features.map(function (feature) {
-        return { title: feature[0], category: feature[1], outcome: feature[2], detail: feature[3], release: release, source: track.releasesData[release].source };
+        return { title: feature[0], category: feature[1], outcome: feature[2], detail: feature[3], release: release, milestone: feature[4], source: feature[5] || track.releasesData[release].source };
       });
     });
   }

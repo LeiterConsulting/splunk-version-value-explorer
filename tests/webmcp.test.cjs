@@ -315,6 +315,10 @@ test('September Observability additions preserve SaaS, private-runner, and Cloud
   for (const title of ['Delegated APM rule management', 'RUM Business Journeys', 'Synthetics private runner updates', 'Observability Logs', 'Cloud 10.6 free-edition onboarding', '.NET instrumentation 1.16', 'Browser RUM 3.2', 'Quieter Kubernetes Autodetect', 'Detector Optimization', 'Node.js instrumentation 4.12', 'Java instrumentation 2.31.3', 'Python instrumentation 2.13']) {
     assert(report.features.some(item => item.title === title), title);
   }
+  for (const [title, source] of [['Collector 0.162 migration controls','https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.162.0'],['Kubernetes chart 0.162','https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.0'],['Python instrumentation 2.13','https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.1']]) {
+    const feature = report.features.find(item=>item.title===title);
+    assert.equal(feature.source,source); assert.match(feature.milestone,/Separately versioned.*October/);
+  }
   assert(report.technicalChanges.some(item => item.component === 'Synthetics private runner' && item.to.includes('1.44.0') && item.to.includes('1.39.0')));
   assert(report.technicalChanges.some(item => item.component === 'Observability Logs operating boundary' && item.implication.includes('not a customer-managed log service')));
   assert(report.technicalChanges.some(item => item.component === '.NET instrumentation installer verification' && item.to.includes('requires GitHub CLI by default')));
