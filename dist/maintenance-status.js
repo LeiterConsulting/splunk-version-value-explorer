@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-10-09T14:52:11.940Z",
+      "lastAttempt": "2026-10-10T14:05:19Z",
       "lastSuccess": "2026-10-09T14:56:15.761Z",
-      "outcome": "changed",
-      "summary": "Reconciled Machine Data Lake regional scope and exposed the current S3 Moderate source conflict without broadening authorization.",
+      "outcome": "running",
+      "summary": "Reviewing the complete CSP/FedRAMP source inventory and the due ACS High follow-up.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -171,9 +171,15 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Reconciled Machine Data Lake regional scope and exposed the current S3 Moderate source conflict without broadening authorization.",
           "scope": "All 10 maintained environment sources and two CSP-owned SOAR sources; 62 canonical environment records; 11 bounded claims; visual public-sector matrix; exact Marketplace offerings; ACS High discovery; affected filter/report/export candidate. Four MDL records added and S3 Moderate corrected; exact-candidate CI and publication recorded separately."
+        },
+        {
+          "at": "2026-10-10T14:05:19Z",
+          "outcome": "running",
+          "summary": "Reviewing the complete CSP/FedRAMP source inventory and the due ACS High follow-up.",
+          "scope": "Fresh GitHub main and Site version 143; all 10 maintained environment sources, two CSP-owned SOAR sources, visual US Public Sector matrix, exact Moderate/High Marketplace offerings, ACS High discovery, and bounded high-consequence claims."
         }
       ],
-      "scope": "All 10 maintained environment sources and two CSP-owned SOAR sources; 62 canonical environment records; 11 bounded claims; visual public-sector matrix; exact Marketplace offerings; ACS High discovery; affected filter/report/export candidate. Four MDL records added and S3 Moderate corrected; exact-candidate CI and publication recorded separately."
+      "scope": "Fresh GitHub main and Site version 143; all 10 maintained environment sources, two CSP-owned SOAR sources, visual US Public Sector matrix, exact Moderate/High Marketplace offerings, ACS High discovery, and bounded high-consequence claims."
     },
     {
       "id": "version-release-watch",

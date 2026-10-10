@@ -1,1 +1,1 @@
-window.VersionCompassRevision = {"id":"vc-81e144432ac443b8","publication":"2026-10-10"};
+window.VersionCompassRevision = {"id":"vc-bfbebad9dd00463e","publication":"2026-10-10"};

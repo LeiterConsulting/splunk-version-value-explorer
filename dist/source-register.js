@@ -810,6 +810,67 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.6/administer-splunk-cloud-platform-using-the-admin-config-service-acs-api/manage-maintenance-windows-for-splunk-cloud-platform",
+      "title": "Manage maintenance windows with ACS",
+      "areas": [
+        "Cloud environment"
+      ],
+      "references": [
+        "environment.sources.acsMaintenance.url",
+        "environment: environment.records.9"
+      ],
+      "reviews": [
+        "2026-10-10"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-10",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-10",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-10",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.6/using-the-admin-config-service-acs--api/admin-config-service-acs-requirements-and-compatibility-matrix",
+      "title": "Admin Config Service requirements and compatibility matrix",
+      "areas": [
+        "Cloud environment",
+        "Shared guidance"
+      ],
+      "references": [
+        "environment.sources.acs.url",
+        "content-updates.js",
+        "environment: environment.records.8",
+        "environment: environment.records.9"
+      ],
+      "reviews": [
+        "2026-10-10"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-10",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-10",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-10",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-manual/10.5.2605/manage-apps-and-add-ons-in-splunk-cloud-platform/targeted-app-installation-on-victoria-experience",
       "title": "targeted app installation on victoria experience",
       "areas": [
@@ -1210,8 +1271,6 @@ window.VersionCompassSources = {
         "environment: environment.records.5",
         "environment: environment.records.6",
         "environment: environment.records.7",
-        "environment: environment.records.8",
-        "environment: environment.records.9",
         "environment: environment.records.10",
         "environment: environment.records.11",
         "environment: environment.records.12",
@@ -1238,14 +1297,16 @@ window.VersionCompassSources = {
         "environment: environment.records.33",
         "environment: environment.records.34",
         "environment: environment.records.35",
-        "environment: environment.records.59",
-        "environment: environment.records.60",
+        "environment: environment.records.36",
+        "environment: environment.records.37",
         "environment: environment.records.61",
+        "environment: environment.records.62",
+        "environment: environment.records.63",
         "forwarders: forwarders.claimSources.receiver.cloud",
         "forwarders: forwarders.claimSources.topology.cloud-intermediate"
       ],
       "reviews": [
-        "2026-10-09",
+        "2026-10-10",
         "2026-10-07"
       ],
       "conflict": true,
@@ -1297,17 +1358,17 @@ window.VersionCompassSources = {
       "references": [
         "environment.sources.changes.url",
         "content-updates.js",
-        "environment: environment.records.13",
-        "environment: environment.records.17",
+        "environment: environment.records.15",
         "environment: environment.records.19",
-        "environment: environment.records.24",
-        "environment: environment.records.27",
-        "environment: environment.records.28",
+        "environment: environment.records.21",
+        "environment: environment.records.26",
         "environment: environment.records.29",
-        "environment: environment.records.30"
+        "environment: environment.records.30",
+        "environment: environment.records.31",
+        "environment: environment.records.32"
       ],
       "reviews": [
-        "2026-10-09"
+        "2026-10-10"
       ],
       "conflict": true,
       "usage": "In use",
@@ -1340,13 +1401,13 @@ window.VersionCompassSources = {
       "references": [
         "environment.sources.ingest.url",
         "content-updates.js",
-        "environment: environment.records.16",
-        "environment: environment.records.17",
         "environment: environment.records.18",
-        "environment: environment.records.19"
+        "environment: environment.records.19",
+        "environment: environment.records.20",
+        "environment: environment.records.21"
       ],
       "reviews": [
-        "2026-10-09"
+        "2026-10-10"
       ],
       "usage": "In use",
       "reviewed": "2026-10-09",
@@ -1545,6 +1606,37 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-09-25",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/admin-configuration-service",
+      "title": "Admin Configuration Service release notes",
+      "areas": [
+        "Cloud environment",
+        "Shared guidance"
+      ],
+      "references": [
+        "environment.sources.acsRelease.url",
+        "content-updates.js",
+        "environment: environment.records.9"
+      ],
+      "reviews": [
+        "2026-10-10"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-10",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-10",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-10",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -2379,8 +2471,6 @@ window.VersionCompassSources = {
       "references": [
         "environment.sources.es.url",
         "editions.sources.regions.u",
-        "environment: environment.records.36",
-        "environment: environment.records.37",
         "environment: environment.records.38",
         "environment: environment.records.39",
         "environment: environment.records.40",
@@ -2392,13 +2482,15 @@ window.VersionCompassSources = {
         "environment: environment.records.46",
         "environment: environment.records.47",
         "environment: environment.records.48",
+        "environment: environment.records.49",
+        "environment: environment.records.50",
         "editions: editions.capabilities.11",
         "editions: editions.capabilities.13",
         "editions: editions.capabilities.17",
         "editions: editions.notes.1"
       ],
       "reviews": [
-        "2026-10-09",
+        "2026-10-10",
         "2026-10-01"
       ],
       "usage": "In use",
@@ -4218,8 +4310,6 @@ window.VersionCompassSources = {
       ],
       "references": [
         "environment.sources.o11y.url",
-        "environment: environment.records.49",
-        "environment: environment.records.50",
         "environment: environment.records.51",
         "environment: environment.records.52",
         "environment: environment.records.53",
@@ -4227,10 +4317,12 @@ window.VersionCompassSources = {
         "environment: environment.records.55",
         "environment: environment.records.56",
         "environment: environment.records.57",
-        "environment: environment.records.58"
+        "environment: environment.records.58",
+        "environment: environment.records.59",
+        "environment: environment.records.60"
       ],
       "reviews": [
-        "2026-10-09"
+        "2026-10-10"
       ],
       "usage": "In use",
       "reviewed": "2026-10-09",
@@ -4562,7 +4654,7 @@ window.VersionCompassSources = {
         "soar: soar.backlog.2"
       ],
       "reviews": [
-        "2026-10-06"
+        "2026-10-10"
       ],
       "claimReferences": [
         {
@@ -4780,7 +4872,7 @@ window.VersionCompassSources = {
         "soar.sources.regions.url"
       ],
       "reviews": [
-        "2026-10-06"
+        "2026-10-10"
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",
@@ -5798,11 +5890,11 @@ window.VersionCompassSources = {
         "soar.sources.fedrampModerate.url",
         "content-updates.js",
         "environment: environment.records.6",
-        "environment: environment.records.8",
-        "environment: environment.records.10"
+        "environment: environment.records.10",
+        "environment: environment.records.12"
       ],
       "reviews": [
-        "2026-10-09",
+        "2026-10-10",
         "2026-10-06"
       ],
       "usage": "In use",
@@ -5866,12 +5958,12 @@ window.VersionCompassSources = {
         "soar.sources.fedrampHigh.url",
         "content-updates.js",
         "environment: environment.records.7",
-        "environment: environment.records.9",
         "environment: environment.records.11",
+        "environment: environment.records.13",
         "soar: soar.backlog.2"
       ],
       "reviews": [
-        "2026-10-09",
+        "2026-10-10",
         "2026-10-06"
       ],
       "claimReferences": [
@@ -5936,12 +6028,12 @@ window.VersionCompassSources = {
       ],
       "references": [
         "environment.sources.compliance.url",
-        "environment: environment.records.59",
-        "environment: environment.records.60",
-        "environment: environment.records.61"
+        "environment: environment.records.61",
+        "environment: environment.records.62",
+        "environment: environment.records.63"
       ],
       "reviews": [
-        "2026-10-09"
+        "2026-10-10"
       ],
       "usage": "In use",
       "reviewed": "2026-10-09",
@@ -5999,10 +6091,10 @@ window.VersionCompassSources = {
       ],
       "references": [
         "environment.sources.esmoderate.url",
-        "environment: environment.records.48"
+        "environment: environment.records.50"
       ],
       "reviews": [
-        "2026-10-09"
+        "2026-10-10"
       ],
       "usage": "In use",
       "reviewed": "2026-10-09",
@@ -6063,7 +6155,7 @@ window.VersionCompassSources = {
         "environment: environment.records.5"
       ],
       "reviews": [
-        "2026-10-09"
+        "2026-10-10"
       ],
       "usage": "In use",
       "reviewed": "2026-10-09",

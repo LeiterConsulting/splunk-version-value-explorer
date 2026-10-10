@@ -1,0 +1,73 @@
+{
+  "watch": "csp-fedramp-watch",
+  "startedAt": "2026-10-10T14:05:19Z",
+  "outcome": "candidate",
+  "sourceCheckDate": "2026-10-10",
+  "scope": "All 13 maintained environment sources and two CSP-owned SOAR sources; 64 canonical environment records; 11 bounded high-consequence claims; visual public-sector matrix; exact Marketplace offerings; affected filters, reports, exports and publication parity. Not exhaustive historical claim verification.",
+  "sourceChecks": [
+    {"sourceId":"ingest","url":"https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor","section":"Get started prerequisites","sourceCheckDate":"2026-10-10","outcome":"retrieved","qualifications":"Victoria and provisioned-tenant prerequisite; not regional or authorization evidence."},
+    {"sourceId":"service","url":"https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details","section":"Available regions; Search; current subscriptions; included capacity","sourceCheckDate":"2026-10-10","outcome":"retrieved","qualifications":"Current Cloud 10.6 guidance contains separate S3 Moderate and High conflicts; page metadata is not an effective date."},
+    {"sourceId":"changes","url":"https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log","section":"October 6 and April 8, 2026 entries","sourceCheckDate":"2026-10-10","outcome":"retrieved","qualifications":"Each entry retains its own effective date and version scope."},
+    {"sourceId":"acs","url":"https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.6/using-the-admin-config-service-acs--api/admin-config-service-acs-requirements-and-compatibility-matrix","section":"Common, Moderate and High requirements; compatibility matrix","sourceCheckDate":"2026-10-10","outcome":"retrieved","qualifications":"Service support, endpoints and operation/experience limits; not offering or customer authorization evidence."},
+    {"sourceId":"acsRelease","url":"https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/admin-configuration-service","section":"September 2026: Support for FedRAMP High","sourceCheckDate":"2026-10-10","outcome":"retrieved","qualifications":"Dated ACS API v2 availability signal; individual operations, entitlement and authorization remain separate."},
+    {"sourceId":"acsMaintenance","url":"https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.6/administer-splunk-cloud-platform-using-the-admin-config-service-acs-api/manage-maintenance-windows-for-splunk-cloud-platform","section":"Requirements","sourceCheckDate":"2026-10-10","outcome":"retrieved","qualifications":"Operation-specific High exclusion plus role, version and topology prerequisites."},
+    {"sourceId":"es","url":"https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/compatibility-and-regional-availability","section":"Essentials, Premier, Cloud Connect and SOAR pairing tables","sourceCheckDate":"2026-10-10","outcome":"retrieved","qualifications":"ES 8.7 current table; no adjacent-version inference."},
+    {"sourceId":"compliance","url":"https://www.splunk.com/en_us/about-splunk/splunk-data-security-and-privacy/compliance-at-splunk.html","section":"US Public Sector table, symbols, legend and February 2026 date","sourceCheckDate":"2026-10-10","outcome":"visually-inspected","qualifications":"Column order and legend checked before cells; blank cells remain unknown."},
+    {"sourceId":"high","url":"https://www.fedramp.gov/marketplace/products/FR2314156865/","section":"Phase, Status, Certification Profile and Certified Services","sourceCheckDate":"2026-10-10","outcome":"retrieved","qualifications":"Exact High offering; not universal feature, entitlement, pairing or rollout evidence."},
+    {"sourceId":"moderate","url":"https://www.fedramp.gov/marketplace/products/F1607197917/","section":"Phase, Status, Certification Profile and Certified Services","sourceCheckDate":"2026-10-10","outcome":"retrieved","qualifications":"Exact Moderate offering; not universal feature, entitlement, pairing or rollout evidence."},
+    {"sourceId":"victoria","url":"https://www.splunk.com/en_us/blog/industries/splunk-victoria-experience-is-now-authorized-at-fedramp-high.html","section":"July 10, 2026 announcement and stack conversion","sourceCheckDate":"2026-10-10","outcome":"retrieved","qualifications":"Platform experience announcement; not every product or feature."},
+    {"sourceId":"esmoderate","url":"https://www.splunk.com/en_us/blog/industries/splunk-enterprise-security-premier-achieves-fedramp-moderate-authorization.html","section":"June 25, 2026 Premier announcement","sourceCheckDate":"2026-10-10","outcome":"retrieved","qualifications":"Edition-specific announcement; not universal component authorization."},
+    {"sourceId":"o11y","url":"https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description","section":"Realm mapping, components and compliance","sourceCheckDate":"2026-10-10","outcome":"retrieved","qualifications":"Nine realms; independent authorization remains unestablished."},
+    {"sourceId":"soar:regions","url":"https://help.splunk.com/en/splunk-soar/soar-cloud/soar-cloud-service-description/the-splunk-soar-service/splunk-soar-cloud-introduction","section":"Available regions and current version","sourceCheckDate":"2026-10-10","outcome":"retrieved","qualifications":"September 2026 prose versus April 2026 8.7.0 row remains conflicting."},
+    {"sourceId":"soar:restricted","url":"https://help.splunk.com/en/splunk-soar/soar-cloud/administer-soar-cloud/introduction-to-splunk-soar-cloud/splunk-soar-cloud-in-restricted-environments","section":"Moderate hosting, FIPS, playbooks, automation isolation and restoring data","sourceCheckDate":"2026-10-10","outcome":"retrieved","qualifications":"Moderate-only scope; no High authorization or migration permission inferred."}
+  ],
+  "claimChecks": [
+    {"claimId":"acs-fr-m","productVersionEnvironment":"ACS API v2; Cloud 10.6 guidance; FR-M","sourceCheckDate":"2026-10-10","claimVerificationDate":"2026-10-10","outcome":"confirmed-with-bounded-scope","detail":"Current requirements document Moderate service support and endpoint with common and operation-specific limits; authorization remains not established.","followUp":"Monitor operation matrix changes without broadening offering scope."},
+    {"claimId":"acs-fr-h","productVersionEnvironment":"ACS API v2; September 15, 2026; FR-H","sourceCheckDate":"2026-10-10","claimVerificationDate":"2026-10-10","outcome":"confirmed-with-bounded-scope","detail":"Release notes and current requirements establish High service support for Victoria and Classic with a dedicated endpoint; tokens, CLI setup/login, ACS/CMC maintenance visibility and limits UI remain restricted.","followUp":"Keep individual operations, entitlement and customer authorization separate."},
+    {"claimId":"s3-moderate","productVersionEnvironment":"S3; Cloud 10.6; AWS GovCloud East/West FR-M","sourceCheckDate":"2026-10-10","claimVerificationDate":"2026-10-10","outcome":"conflicting","detail":"Regional table includes Moderate; expanded third-party federated-search section names S3 but excludes Moderate.","followUp":"Retain both statements until authoritative scope resolution."},
+    {"claimId":"s3-high","productVersionEnvironment":"S3; current 10.6 table versus relevant 10.3 change-log entries; FR-H","sourceCheckDate":"2026-10-10","claimVerificationDate":"2026-10-10","outcome":"conflicting","detail":"Current table excludes High/IL5; April 8 change log adds them for relevant 10.3 releases.","followUp":"Retain exact version scopes."},
+    {"claimId":"machine-data-lake-regions","productVersionEnvironment":"Machine Data Lake; Cloud 10.6; AWS commercial, GovCloud, GCP and Azure","sourceCheckDate":"2026-10-10","claimVerificationDate":"2026-10-10","outcome":"confirmed","detail":"Commercial AWS conditional; both GovCloud regions, GCP and Azure unavailable; authorization not established.","followUp":"Monitor provider/region changes without retrospective rollout inference."},
+    {"claimId":"marketplace-scopes","productVersionEnvironment":"Exact Moderate F1607197917 and High FR2314156865 offerings","sourceCheckDate":"2026-10-10","claimVerificationDate":"2026-10-10","outcome":"confirmed","detail":"Moderate and High Certified Services lists remain distinct; High does not name SOAR and absence is not exclusion evidence.","followUp":"Keep feature, edition, entitlement, pairing and customer authorization separate."},
+    {"claimId":"public-sector-matrix","productVersionEnvironment":"February 2026 matrix; IL5, Moderate, High, GovRAMP, TX-RAMP","sourceCheckDate":"2026-10-10","claimVerificationDate":"2026-10-10","outcome":"confirmed","detail":"Column order, checkmark legend, star qualifications and S3/MDL/SOAR/ES/ITSI rows visually inspected.","followUp":"Retain date qualification; blanks are unknown."},
+    {"claimId":"soar-restricted-moderate","productVersionEnvironment":"SOAR Cloud; FR-M AWS GovCloud","sourceCheckDate":"2026-10-10","claimVerificationDate":"2026-10-10","outcome":"confirmed","detail":"GovCloud hosting, FIPS including external Brokers, playbook restrictions, internal Broker isolation and no native data migration remain documented.","followUp":"Do not inherit High or Platform scope."},
+    {"claimId":"soar-service-date-discrepancy","productVersionEnvironment":"SOAR Cloud 8.7.0 current regions","sourceCheckDate":"2026-10-10","claimVerificationDate":"2026-10-10","outcome":"conflicting","detail":"Supported-version prose says September 2026 while row says April 2026.","followUp":"Release Watch owns date reconciliation; do not invent an effective date."},
+    {"claimId":"ingest-moderate","productVersionEnvironment":"Ingest Processor; Victoria versus Classic; commercial and Moderate","sourceCheckDate":"2026-10-10","claimVerificationDate":"2026-10-10","outcome":"confirmed","detail":"Victoria and provisioned tenant remain required; High remains unestablished.","followUp":"Keep experience, availability and authorization separate."},
+    {"claimId":"observability-realms-and-authorization","productVersionEnvironment":"Observability Cloud; nine realms","sourceCheckDate":"2026-10-10","claimVerificationDate":"2026-10-10","outcome":"confirmed","detail":"Nine realms and per-component coverage remain; independent FedRAMP authorization is not established.","followUp":"Do not inherit Platform authorization."}
+  ],
+  "additionalDiscovery": {"outcome":"promoted-bounded-evidence","claimId":"acs-fedramp-high-discovery","reason":"The due follow-up now has current requirements, a dated release entry and operation-specific restrictions sufficient for qualified canonical records."},
+  "coordination": {
+    "editions": "No ES edition claim changed; ES Editions Watch remains authoritative for edition scope.",
+    "releases": "SOAR date discrepancy remains with Release Watch; the dated ACS milestone is preserved without changing that schedule.",
+    "guidanceAudit": "Independent completeness audit remains separate."
+  },
+  "impact": {
+    "canonical": "Two ACS environment records and three ACS sources added; all maintained source-check dates refreshed; generated adapter, source register and shared report integration synchronized.",
+    "unchanged": "SOAR facts, S3 conflicts, Marketplace scopes, matrix qualifications, privacy, audience, schedules, tool names, legacy-link semantics, D1 schema and commercial commitments.",
+    "materialCycle": 18
+  },
+  "validation": {
+    "orderedGenerators": ["sync-release-metadata","sync-content","sync-source-register","sync-content-revision"],
+    "checkGates": "All four --check gates passed.",
+    "nodeTests": {"passed":171,"failed":0,"skipped":0},
+    "build": "54 assets; immutable content revision content-0570d0eac449794a8b367dcd",
+    "candidateExports": {"outcome":"pending-exact-candidate-ci","routes":32,"newRoute":"cloud-fedramp-high in both themes"},
+    "browserAndLive": {"outcome":"pending-publication"}
+  },
+  "readiness": {
+    "status": "pending-exact-candidate-export-evidence",
+    "minimumHours": 0,
+    "observationHours": 72,
+    "evaluatedAt": "2026-10-10T14:30:00Z",
+    "missing": ["Exact-candidate CI artifact, retained-image visual inspection and live publication checks"],
+    "failed": [],
+    "unresolved": []
+  },
+  "publication": {"outcome":"pending"},
+  "backlog": [
+    {"priority":1,"claimId":"s3-moderate","owner":"CSP FedRAMP Watch","nextAction":"Seek authoritative clarification of legacy versus expanded third-party-search scope while retaining both claims.","reviewBy":"2026-10-16"},
+    {"priority":1,"claimId":"s3-high","owner":"CSP FedRAMP Watch","nextAction":"Retain and recheck table/change-log conflict.","reviewBy":"2026-10-16"},
+    {"priority":2,"claimId":"soar-service-date-discrepancy","owner":"Release Watch","nextAction":"Reconcile September prose with April 8.7.0 row from authoritative release evidence.","reviewBy":"2026-10-16"}
+  ],
+  "summary": "Prepared bounded Moderate and High ACS service-support records without inheriting Platform authorization; publication remains gated on exact-candidate export evidence and live verification."
+}
+

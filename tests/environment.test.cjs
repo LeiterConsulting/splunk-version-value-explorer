@@ -97,3 +97,11 @@ test('Machine Data Lake keeps provider, GovCloud and authorization scope separat
  const html=env.body(route({csp:'aws',region:'us-gov-east-1',compliance:'fr-h'}),true);
  assert.match(html,/Machine Data Lake/);assert(html.includes(env.data.sources.service.url));assert(html.includes(env.data.sources.changes.url));
 });
+test('ACS keeps Moderate and High service support operation-specific and separate from authorization',()=>{
+ for(const [compliance,id] of [['fr-m','acs-fr-m'],['fr-h','acs-fr-h']]){
+  const result=env.assess(route({csp:'aws',region:'us-gov-east-1',compliance}));
+  const record=result.records.find(r=>r.id===id);assert(record);assert.equal(record.availability,'conditional');assert.equal(record.authorization,'not_established');assert.match(record.detail,/operation support still varies/);assert(result.sources.some(s=>s.key==='acs'));
+ }
+ const high=env.data.records.find(r=>r.id==='acs-fr-h');assert.equal(high.effective,'2026-09-15');assert(high.sources.includes('acsRelease'));assert(high.sources.includes('acsMaintenance'));assert.match(high.detail,/maintenance-window operations/);
+ const moderate=env.assess(route({csp:'aws',region:'us-gov-east-1',compliance:'fr-m'}));assert(!moderate.records.some(r=>r.id==='acs-fr-h'));
+});

@@ -1,7 +1,7 @@
 /* Editorial change provenance. Cycles advance only with material factual updates. */
 (function(){
 'use strict';
-const policy={currentCycle:17,retentionCycles:2};
+const policy={currentCycle:18,retentionCycles:2};
 const note25='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-25.md';
 const note26='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-26.md';
 const note30='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-30.md';
@@ -11,6 +11,7 @@ const note03='https://github.com/LeiterConsulting/splunk-version-value-explorer/
 const note06='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-10-06.md';
 const note07='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-07.md';
 const note09='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-09.md';
+const note10='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-10.md';
 const enterprise1043='https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues';
 const enterprise104='https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4';
 const rum='https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.2.0';
@@ -28,6 +29,8 @@ const ingest='https://help.splunk.com/en/splunk-cloud-platform/process-data-at-i
 const fedrampModerate='https://www.fedramp.gov/marketplace/products/F1607197917/';
 const fedrampHigh='https://www.fedramp.gov/marketplace/products/FR2314156865/';
 const entries={
+"environment:acs-fr-m":{kind:"new",cycle:18,date:"2026-10-10",version:"ACS API v2 · FedRAMP Moderate",detail:"Added current Moderate service support with its dedicated endpoint, prerequisites and operation exclusions; entitlement and authorization remain separate.",source:"https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.6/using-the-admin-config-service-acs--api/admin-config-service-acs-requirements-and-compatibility-matrix",sourceDate:"2026-09-14",note:note10},
+"environment:acs-fr-h":{kind:"new",cycle:18,date:"2026-10-10",version:"ACS API v2 · FedRAMP High",detail:"Added the September 15 High service-support milestone with separate endpoint, experience coverage, prerequisites and operation exclusions; offering and customer authorization remain separate.",source:"https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/admin-configuration-service",sourceDate:"2026-09-15",note:note10},
 "technical:platform:Enterprise 9.4 October security floor":{kind:"new",cycle:16,date:"2026-10-09",version:"Enterprise 9.4.15 minimum · 9.4.16 current",detail:"Added the October advisory floor and preserved the newer maintenance target plus vulnerability-specific remediation.",source:"https://advisory.splunk.com/advisories/SVD-2026-1001",sourceDate:"2026-10-07",note:note09},
 "technical:platform:Enterprise 10.0 October security floor":{kind:"new",cycle:16,date:"2026-10-09",version:"Enterprise 10.0.10",detail:"Added the October advisory floor and the requirement to complete vulnerability-specific remediation.",source:"https://advisory.splunk.com/advisories/SVD-2026-1001",sourceDate:"2026-10-07",note:note09},
 "technical:platform:Enterprise 10.2 October security floor":{kind:"new",cycle:16,date:"2026-10-09",version:"Enterprise 10.2.7",detail:"Added the October advisory floor and the requirement to complete vulnerability-specific remediation.",source:"https://advisory.splunk.com/advisories/SVD-2026-1001",sourceDate:"2026-10-07",note:note09},
