@@ -20,6 +20,10 @@ jobs:
       - name: Install PDF page renderer
         run: sudo apt-get update && sudo apt-get install -y poppler-utils
       - run: node tools/export-verification/verify.mjs
+      - name: Bind rendered exports to release readiness
+        run: |
+          node -e 'const fs=require("node:fs");const input=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));input.evaluatedAt=new Date().toISOString();fs.writeFileSync(process.argv[2],JSON.stringify(input,null,2)+"\n")' docs/audits/2026-10-10-version-release-watch-soak.json /tmp/version-release-watch-soak.json
+          node scripts/check-soak.cjs /tmp/version-release-watch-soak.json --exports export-artifacts
       - name: Retain candidate export evidence
         if: always()
         uses: actions/upload-artifact@v4
