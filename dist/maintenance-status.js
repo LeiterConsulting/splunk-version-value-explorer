@@ -7,9 +7,9 @@ window.VersionCompassMaintenance = {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
       "lastAttempt": "2026-10-10T14:05:19Z",
-      "lastSuccess": "2026-10-09T14:56:15.761Z",
-      "outcome": "running",
-      "summary": "Reviewing the complete CSP/FedRAMP source inventory and the due ACS High follow-up.",
+      "lastSuccess": "2026-10-10T14:35:05Z",
+      "outcome": "changed",
+      "summary": "Published bounded ACS API v2 FedRAMP Moderate and High service-support evidence with operation restrictions and authorization unestablished; preserved all existing conflicts and unknowns.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -177,9 +177,15 @@ window.VersionCompassMaintenance = {
           "outcome": "running",
           "summary": "Reviewing the complete CSP/FedRAMP source inventory and the due ACS High follow-up.",
           "scope": "Fresh GitHub main and Site version 143; all 10 maintained environment sources, two CSP-owned SOAR sources, visual US Public Sector matrix, exact Moderate/High Marketplace offerings, ACS High discovery, and bounded high-consequence claims."
+        },
+        {
+          "at": "2026-10-10T14:35:05Z",
+          "outcome": "changed",
+          "summary": "Published bounded ACS API v2 FedRAMP Moderate and High service-support evidence with operation restrictions and authorization unestablished; preserved all existing conflicts and unknowns.",
+          "scope": "All 13 maintained CSP environment sources, two SOAR sources, 64 canonical environment records, 11 consequential claims, visual matrix, exact Marketplace offerings, filters, reports, exports, browser links, WebMCP and live publication parity."
         }
       ],
-      "scope": "Fresh GitHub main and Site version 143; all 10 maintained environment sources, two CSP-owned SOAR sources, visual US Public Sector matrix, exact Moderate/High Marketplace offerings, ACS High discovery, and bounded high-consequence claims."
+      "scope": "All 13 maintained CSP environment sources, two SOAR sources, 64 canonical environment records, 11 consequential claims, visual matrix, exact Marketplace offerings, filters, reports, exports, browser links, WebMCP and live publication parity."
     },
     {
       "id": "version-release-watch",
