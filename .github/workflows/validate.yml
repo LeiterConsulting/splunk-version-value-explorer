@@ -32,3 +32,22 @@ jobs:
           path: export-artifacts/
           if-no-files-found: error
           retention-days: 30
+      - name: Retain affected Cloud images for visual review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: export-visual-review-${{ github.sha }}
+          path: |
+            export-artifacts/evidence.json
+            export-artifacts/cloud-default/desktop.png
+            export-artifacts/cloud-default/narrow.png
+            export-artifacts/cloud-default/page-*.png
+            export-artifacts/cloud-default/inspection.json
+            export-artifacts/cloud-default/content.txt
+            export-artifacts/cloud-cisco/desktop.png
+            export-artifacts/cloud-cisco/narrow.png
+            export-artifacts/cloud-cisco/page-*.png
+            export-artifacts/cloud-cisco/inspection.json
+            export-artifacts/cloud-cisco/content.txt
+          if-no-files-found: error
+          retention-days: 30
