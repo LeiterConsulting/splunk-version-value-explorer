@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "watch": "version-release-watch",
   "startedAt": "2026-10-10T09:43:42.091Z",
-  "completedAt": null,
-  "outcome": "running",
+  "completedAt": "2026-10-10T10:14:26.484Z",
+  "outcome": "changed",
   "sourceCheckDate": "2026-10-10",
   "scope": "Full 128-URL maintained public inventory; current discovery streams; bounded Cloud 10.6 maintenance, Enterprise 10.6 route, UF/HF receiver, October security, premium-product, migration, Observability component and SOAR claims. Not an exhaustive historical claim reverification.",
   "sourceInventory": {
@@ -133,15 +133,61 @@
     }
   ],
   "forwarderSourceMappings": {
-    "status": "retained",
-    "detail": "The 16 borrowed Heavy Forwarder technical/runtime mappings remain claim-specific with exact supporting sections. Sync-source-register, route traversal and full tests will verify them on the publication candidate; this inventory check alone is not described as proof."
+    "status": "verified",
+    "detail": "The 16 borrowed Heavy Forwarder technical/runtime mappings remain claim-specific with exact supporting sections. Sync-source-register passed, and the complete test suite traversed actual UF/HF routes and proved that declared technical/runtime, receiver and topology claims retain their exact mapped sources and sections."
   },
   "validation": {
-    "status": "pending-exact-candidate-ci",
-    "required": "Four synchronization gates, complete Node suite, build, candidate-bound export evidence, affected Cloud route visual inspection, browser/WebMCP and live D1 checks."
+    "status": "passed",
+    "candidate": {
+      "githubCommit": "f3cda7ffafea7f9402873af73c3d2a9d82db3b56",
+      "tree": "e70eaaeff5037a0d322baf2a2be6658cf19aa98b",
+      "contentRevision": "content-ee7921bf50b0ed4deccaa8f4",
+      "engineRevision": "engine-5fa6592f377dff39134f",
+      "recordCount": 686,
+      "sourceCount": 153
+    },
+    "automated": {
+      "syncChecks": "sync-release-metadata, sync-content, sync-source-register and sync-content-revision passed in order, and all four --check gates passed",
+      "tests": "170 passed; 0 failed; 0 skipped",
+      "build": "54 production Worker assets",
+      "workflowRun": "https://github.com/LeiterConsulting/splunk-version-value-explorer/actions/runs/38043742873",
+      "workflowJob": "114188979909"
+    },
+    "exports": {
+      "reportFingerprint": "ac71b291b7d5cc330ad22f96b9fdb80b41f235d3d21724b03f6f601e443faacd",
+      "artifactId": "11667285635",
+      "artifactDigest": "sha256:c53e100d2050b42a3df77b5cf286da1bddebdc5400178c8d92b76dfc126f7f71",
+      "cases": 30,
+      "pdfs": 28,
+      "pdfPages": 615,
+      "offlineHtmlReopens": 28,
+      "phoneChecks": 30,
+      "binding": "The dedicated application workflow generated native Chromium PDFs, rendered and checked every page, reopened saved HTML with network requests blocked, exercised both themes at phone width and ran check-soak --exports against this exact report-input fingerprint. The downloaded ZIP digest matched the workflow artifact, export-evidence.cjs passed locally and check-soak reported eligible-to-advance."
+    },
+    "visualInspection": {
+      "artifactId": "11667450441",
+      "artifactDigest": "sha256:df8dfe8fd8a6302446fb92347cc95416d95987e2edde501d2afd83a0034008dd",
+      "scope": "Separately inspected retained default and Cisco Cloud PDF pages 9, 12 and 13 plus both 390x844 phone images.",
+      "outcome": "No novel clipping, overlap, truncation or unreadable contrast was found. This inspection is recorded separately from automated geometry checks."
+    },
+    "browserAndWebMcp": {
+      "checkedAt": "2026-10-10T10:14:26.484Z",
+      "outcome": "passed",
+      "evidence": "A live browser hydrated the Cloud 10.5.2605 to 10.6 route in default and Cisco themes. The page showed the 10.6.1.0 technical record and readiness qualification. The live read-only get_current_report WebMCP result returned the same six technical changes, four readiness actions, exact source and content scope without mutating the page. Selected, legacy, shared and invalid route/export behavior passed in the candidate-bound application workflow and regression suite."
+    }
   },
   "publication": {
-    "status": "pending"
+    "status": "live",
+    "githubCommit": "f3cda7ffafea7f9402873af73c3d2a9d82db3b56",
+    "githubTree": "e70eaaeff5037a0d322baf2a2be6658cf19aa98b",
+    "siteSourceCommit": "ba05d4872d42d1777e31b6d689cc1f57ddee1ae2",
+    "siteSourceTree": "e70eaaeff5037a0d322baf2a2be6658cf19aa98b",
+    "siteVersion": 142,
+    "deploymentId": "appgdep_6aca0fb0fe048191935233df861dfe21",
+    "deployedAt": "2026-10-10T10:13:12.108559Z",
+    "url": "https://versioncompass.com/",
+    "liveVerificationAt": "2026-10-10T10:13:28.683Z",
+    "liveVerification": "Real D1 health is ready at content-ee7921bf50b0ed4deccaa8f4 and engine-5fa6592f377dff39134f with 686 records. The live manifest, independently checked bundle digest, bounded record query, read-only API and all seven fallback adapters agree."
   },
   "policy": {
     "materialCycle": 17,
