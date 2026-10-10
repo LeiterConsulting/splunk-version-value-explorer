@@ -1,7 +1,7 @@
 /* Editorial change provenance. Cycles advance only with material factual updates. */
 (function(){
 'use strict';
-const policy={currentCycle:16,retentionCycles:2};
+const policy={currentCycle:17,retentionCycles:2};
 const note25='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-25.md';
 const note26='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-26.md';
 const note30='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-30.md';
@@ -21,6 +21,7 @@ const python213='https://github.com/signalfx/splunk-otel-python/releases/tag/v2.
 const enterprise106='https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6';
 const enterprise106ReadFirst='https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first';
 const cloud106='https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new';
+const cloud106Maintenance='https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information';
 const cloudServiceDetails='https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details';
 const cloudServiceChanges='https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log';
 const ingest='https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor';
@@ -46,6 +47,7 @@ const entries={
 "compatibility:es:cloud-current":{kind:"updated",cycle:14,date:"2026-10-07",version:"Cloud 10.6 · ES 8.7",detail:"Advanced the current Cloud-managed service pairing while preserving separate selected-stack, region, edition, entitlement and authorization checks.",source:cloudServiceDetails,sourceDate:null,note:note07},
 "compatibility:itsi:cloud-current":{kind:"updated",cycle:14,date:"2026-10-07",version:"Cloud 10.6 · ITSI 5.0",detail:"Advanced the current Cloud-managed service pairing while preserving separate selected-stack, region, entitlement and authorization checks.",source:cloudServiceDetails,sourceDate:null,note:note07},
 "technical:forwarders:Cloud 10.6 receiver compatibility":{kind:"updated",cycle:14,date:"2026-10-07",version:"UF / HF 10.6 · Cloud 10.6",detail:"Added the exact commercial Cloud 10.6 direct receiver row; intermediate tiers, regulated environments, entitlement and authorization remain separate checks.",source:cloudServiceDetails,sourceDate:null,note:note07},
+"technical:platform:Cloud 10.6 maintenance build":{kind:"new",cycle:17,date:"2026-10-10",version:"Splunk Cloud Platform 10.6.1.0",detail:"Added the first maintained four-segment Cloud 10.6 build and its listed fixes while preserving selected-stack rollout, applicability, entitlement, region and authorization as separate checks.",source:cloud106Maintenance,sourceDate:"2026-10-09",note:"https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-10.md"},
 "environment:es-fr-m-offering":{kind:"new",cycle:13,date:"2026-10-06",version:"FedRAMP Moderate CSO",detail:"Added exact offering-level Certified Services scope for Splunk Enterprise Security; edition, feature, entitlement, pairing, rollout and customer authorization remain separate.",source:fedrampModerate,sourceDate:null,note:note06},
 "environment:es-fr-h-offering":{kind:"new",cycle:13,date:"2026-10-06",version:"FedRAMP High CSO",detail:"Added exact offering-level Certified Services scope for Splunk Enterprise Security; edition, feature, entitlement, pairing, rollout and customer authorization remain separate.",source:fedrampHigh,sourceDate:null,note:note06},
 "environment:itsi-fr-m-offering":{kind:"new",cycle:13,date:"2026-10-06",version:"FedRAMP Moderate CSO",detail:"Added exact offering-level Certified Services scope for Splunk IT Service Intelligence; feature, entitlement, pairing, rollout and customer authorization remain separate.",source:fedrampModerate,sourceDate:null,note:note06},

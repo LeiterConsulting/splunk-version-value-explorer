@@ -178,10 +178,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-08T09:44:01.397Z",
-      "lastSuccess": "2026-10-08T09:53:58.883Z",
+      "lastAttempt": "2026-10-10T09:43:42.091Z",
+      "lastSuccess": "2026-10-10T09:48:34.048Z",
       "outcome": "changed",
-      "summary": "Checked 120 official source URLs (118 retrieved); repaired and tested 16 borrowed HF evidence mappings across 900 routes. October security and Collector/Python releases recorded as isolated factual candidates.",
+      "summary": "Verified Splunk Cloud Platform 10.6.1.0 maintenance evidence and added exact stack-version confirmation guidance; held an inaccessible October Observability search signal out of canonical facts.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -319,9 +319,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Checked 120 official source URLs (118 retrieved); repaired and tested 16 borrowed HF evidence mappings across 900 routes. October security and Collector/Python releases recorded as isolated factual candidates.",
           "scope": "Full maintained URL inventory plus bounded section/claim review; provenance/operational publication only. New product facts require affected report/export validation."
+        },
+        {
+          "at": "2026-10-10T09:43:42.091Z",
+          "outcome": "running",
+          "summary": "Reviewing the complete maintained release-source inventory and newer release streams; reconciling GitHub, Site and exact export evidence.",
+          "scope": "All 128 maintained public URLs across Platform, migration, ES, ITSI, Observability, UF/HF and SOAR; bounded current release, upgrade, receiver, security, compatibility and component claims; discovery for newer official releases."
+        },
+        {
+          "at": "2026-10-10T09:48:34.048Z",
+          "outcome": "changed",
+          "summary": "Verified Splunk Cloud Platform 10.6.1.0 maintenance evidence and added exact stack-version confirmation guidance; held an inaccessible October Observability search signal out of canonical facts.",
+          "scope": "Complete 128-URL maintained Release Watch inventory (126 retrieved; two retired historical pages unavailable); seven bounded high-consequence release, upgrade, receiver, security, SOAR and Observability checks; exact Forwarder mapping validation delegated to synchronization/tests; publication and native export/live verification recorded separately."
         }
       ],
-      "scope": "Full maintained URL inventory plus bounded section/claim review; provenance/operational publication only. New product facts require affected report/export validation."
+      "scope": "Complete 128-URL maintained Release Watch inventory (126 retrieved; two retired historical pages unavailable); seven bounded high-consequence release, upgrade, receiver, security, SOAR and Observability checks; exact Forwarder mapping validation delegated to synchronization/tests; publication and native export/live verification recorded separately."
     },
     {
       "id": "es-editions-watch",

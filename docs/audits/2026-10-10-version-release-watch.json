@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "watch": "version-release-watch",
+  "startedAt": "2026-10-10T09:43:42.091Z",
+  "completedAt": null,
+  "outcome": "running",
+  "sourceCheckDate": "2026-10-10",
+  "scope": "Full 128-URL maintained public inventory; current discovery streams; bounded Cloud 10.6 maintenance, Enterprise 10.6 route, UF/HF receiver, October security, premium-product, migration, Observability component and SOAR claims. Not an exhaustive historical claim reverification.",
+  "sourceInventory": {
+    "uniqueUrls": 128,
+    "retrieved": 126,
+    "unavailable": 2,
+    "method": "All 128 URLs selected from the generated source register for Release guide, Shared guidance, Splunk Forwarders and Splunk SOAR were attempted. Public web retrieval covered Splunk, Help, Lantern, Splunkbase and FedRAMP pages; the GitHub connector independently retrieved all 17 maintained GitHub release and pull-request sources. Retrieval remains separate from the claim checks below.",
+    "unavailableSources": [
+      {
+        "url": "https://docs.splunk.com/Documentation/Splunk/8.1.14/ReleaseNotes/MeetSplunk",
+        "outcome": "unavailable",
+        "qualification": "Retired historical page; preserved as unavailable evidence."
+      },
+      {
+        "url": "https://docs.splunk.com/Documentation/Splunk/8.2.12/ReleaseNotes/MeetSplunk",
+        "outcome": "unavailable",
+        "qualification": "Retired historical page; preserved as unavailable evidence."
+      }
+    ]
+  },
+  "verifiedClaims": [
+    {
+      "claimId": "release:cloud:10.6.1.0",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
+      "section": "10.6.1.X Fixed Issues — 10.6.1.0",
+      "productVersionEnvironment": "Splunk Cloud Platform 10.6.1.0; Splunk-managed Cloud maintenance",
+      "qualification": "Published October 9, 2026 with deployment-server, CSV export, Universal Forwarder package-shutdown, upgrade and certificate-request receiver fixes. Publication and preliminary security counts do not establish rollout to a selected stack, CVE scope, entitlement, region or customer-managed installation.",
+      "sourceCheckDate": "2026-10-10",
+      "claimVerificationDate": "2026-10-10",
+      "outcome": "confirmed",
+      "followUp": "Retain exact four-segment build checks and selected-stack confirmation."
+    },
+    {
+      "claimId": "route:enterprise:9.4-to-10.6",
+      "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise",
+      "section": "Upgrade paths to version 10.6",
+      "productVersionEnvironment": "Splunk Enterprise and Heavy Forwarder 9.4.x, 10.0.x, 10.2.x and 10.4.x to 10.6.x",
+      "qualification": "9.4.x first moves through 10.0.x or 10.2.x; exact maintenance, premium-product, OS and receiver checks remain separate.",
+      "sourceCheckDate": "2026-10-10",
+      "claimVerificationDate": "2026-10-10",
+      "outcome": "confirmed",
+      "followUp": "Preserve the existing graph and patch-specific readiness evidence."
+    },
+    {
+      "claimId": "compatibility:forwarders:enterprise-cloud-10.6",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers",
+      "section": "Compatibility between forwarders and Splunk Enterprise indexers — 10.6.x column",
+      "productVersionEnvironment": "Universal and Heavy Forwarders through 10.6; Enterprise receivers through 10.6",
+      "qualification": "Receiver compatibility is separate from upgrade paths, lifecycle, Cloud-direct topology, OS packages, entitlement and authorization.",
+      "sourceCheckDate": "2026-10-10",
+      "claimVerificationDate": "2026-10-10",
+      "outcome": "confirmed",
+      "followUp": "Keep Enterprise and Cloud direct/intermediate tables separate."
+    },
+    {
+      "claimId": "compatibility:forwarders:cloud-10.6",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Supported forwarder versions",
+      "productVersionEnvironment": "Direct Universal and Heavy Forwarders to Splunk Cloud Platform 10.6",
+      "qualification": "The table applies to the forwarder directly connected to Cloud; an intermediate tier, hybrid output, provider, region, entitlement and authorization require separate checks.",
+      "sourceCheckDate": "2026-10-10",
+      "claimVerificationDate": "2026-10-10",
+      "outcome": "confirmed",
+      "followUp": "Preserve exact direct-topology rows and unknown combinations."
+    },
+    {
+      "claimId": "security:october-2026-current-index",
+      "url": "https://advisory.splunk.com/",
+      "section": "Current advisory index — SVD-2026-1001 through SVD-2026-1005",
+      "productVersionEnvironment": "Enterprise, Universal Forwarder, AWS add-on and MCP Server advisories published October 7, 2026",
+      "qualification": "No advisory newer than SVD-2026-1005 was published at check time; each product and vulnerability retains its own solution and additional steps.",
+      "sourceCheckDate": "2026-10-10",
+      "claimVerificationDate": "2026-10-10",
+      "outcome": "confirmed",
+      "followUp": "Continue advisory discovery without transferring Enterprise floors to Cloud."
+    },
+    {
+      "claimId": "release:soar:current-8.7.0",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
+      "section": "September 2, 2026 Release 8.7.0",
+      "productVersionEnvironment": "SOAR Cloud 8.7.0 and Automation Broker 8.7; separately SOAR On-premises 8.7.0 build 243",
+      "qualification": "Cloud GA, on-premises corrected build, Python 3.13, pre-7.0 bridges, external-credential-manager restrictions and app/export compatibility remain separate records.",
+      "sourceCheckDate": "2026-10-10",
+      "claimVerificationDate": "2026-10-10",
+      "outcome": "confirmed",
+      "followUp": "Preserve the Cloud date discrepancy and omitted issue-row backlog."
+    },
+    {
+      "claimId": "release:observability:customer-managed-current",
+      "url": "https://api.github.com/repos/signalfx/splunk-otel-collector/releases/latest",
+      "section": "Latest release API for the seven maintained component repositories",
+      "productVersionEnvironment": "Collector 0.162.0; chart 0.162.0; .NET 1.16.0; Java 2.31.3; Node.js 4.12.0; Python 2.13.1; Browser RUM 3.2.0",
+      "qualification": "Customer-managed components remain separately versioned from rolling Observability Cloud milestones and from one another.",
+      "sourceCheckDate": "2026-10-10",
+      "claimVerificationDate": "2026-10-10",
+      "outcome": "confirmed",
+      "followUp": "Continue independent latest-release discovery and prerequisite checks."
+    }
+  ],
+  "discovery": {
+    "enterpriseLatest": "10.6",
+    "cloudCurrentServicePairing": "10.6",
+    "cloudLatestMaintainedBuild": "10.6.1.0",
+    "esLatest": "8.7.1",
+    "itsiLatest": "5.0.2",
+    "soarLatest": "8.7.0",
+    "scmaLatest": "5.4.11",
+    "collectorLatest": "0.162.0",
+    "collectorChartLatest": "0.162.0",
+    "pythonInstrumentationLatest": "2.13.1",
+    "securityLatest": "SVD-2026-1005; published October 7, 2026"
+  },
+  "findings": [
+    {
+      "claimId": "candidate:observability:apm-not-equal-missing-tags",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+      "section": "Search-indexed October 8, 2026 Splunk APM row",
+      "productVersionEnvironment": "Splunk Observability Cloud rolling APM service",
+      "qualification": "Fresh official search discovery says not-equal tag filters now exclude data when the tag is absent and existing searches may return fewer results. The exact official page currently returns a real 404 in direct retrieval and Chrome, while the release-notes overview still stops at September. The claim is not promoted from search-index evidence alone.",
+      "sourceCheckDate": "2026-10-10",
+      "claimVerificationDate": null,
+      "outcome": "unavailable-conflicting-discovery",
+      "followUp": "Recheck the exact official page and overview; when directly available, verify affected APM search semantics and add an October milestone with route/export coverage.",
+      "owner": "Version Release Watch",
+      "priority": 1,
+      "reviewBy": "2026-10-11"
+    }
+  ],
+  "forwarderSourceMappings": {
+    "status": "retained",
+    "detail": "The 16 borrowed Heavy Forwarder technical/runtime mappings remain claim-specific with exact supporting sections. Sync-source-register, route traversal and full tests will verify them on the publication candidate; this inventory check alone is not described as proof."
+  },
+  "validation": {
+    "status": "pending-exact-candidate-ci",
+    "required": "Four synchronization gates, complete Node suite, build, candidate-bound export evidence, affected Cloud route visual inspection, browser/WebMCP and live D1 checks."
+  },
+  "publication": {
+    "status": "pending"
+  },
+  "policy": {
+    "materialCycle": 17,
+    "mandatoryWait": false,
+    "observationHours": 72,
+    "schedulesChanged": false,
+    "privacyChanged": false,
+    "audienceChanged": false
+  },
+  "backlog": [
+    {
+      "priority": 1,
+      "claimId": "candidate:observability:apm-not-equal-missing-tags",
+      "owner": "Version Release Watch",
+      "nextAction": "Require a directly retrievable official October release page, then verify the APM tag-filter behavior and affected reports.",
+      "reviewBy": "2026-10-11"
+    },
+    {
+      "priority": 2,
+      "claimId": "cloud:10.6.1.0:security-detail",
+      "owner": "Version Release Watch",
+      "nextAction": "Keep preliminary security counts separate and reconcile definitive public advisory detail when published.",
+      "reviewBy": "2026-10-17"
+    },
+    {
+      "priority": 2,
+      "claimId": "soar:cloud-service-date-discrepancy",
+      "owner": "Version Release Watch",
+      "nextAction": "Reconcile the September GA statement, known-issues heading and stale service-table date only from authoritative release evidence.",
+      "reviewBy": "2026-10-17"
+    }
+  ],
+  "summary": "Candidate adds the exact Cloud 10.6.1.0 maintenance build without inferring selected-stack rollout. The new October Observability APM signal remains held because its official page is currently inaccessible."
+}

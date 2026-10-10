@@ -1550,6 +1550,35 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
+      "title": "splunk cloud platform maintenance patch release information",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.cloud.releasesData.10.6.technicalChanges.4.source",
+        "release.cloud.releasesData.10.6.requirements.6.3",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-10",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-10",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "A Cloud maintenance feed establishes the published build and its listed fixes, not deployment to every stack or a customer-managed installation path.",
+      "section": "10.6.1.X Fixed Issues — 10.6.1.0",
+      "verificationScope": "Confirmed the October 9, 2026 publication of Cloud maintenance build 10.6.1.0 and the listed deployment-server, CSV export, Universal Forwarder package-shutdown, upgrade and certificate-request receiver fixes. Security counts are retained only as preliminary context; no CVE scope, tenant rollout, entitlement, region or selected-stack applicability is inferred.",
+      "events": [
+        {
+          "date": "2026-10-10",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new",
       "title": "whats new",
       "areas": [
@@ -1561,7 +1590,7 @@ window.VersionCompassSources = {
         "release.cloud.releasesData.10.6.technicalChanges.0.source",
         "release.cloud.releasesData.10.6.technicalChanges.1.source",
         "release.cloud.releasesData.10.6.technicalChanges.3.source",
-        "release.cloud.releasesData.10.6.technicalChanges.4.source",
+        "release.cloud.releasesData.10.6.technicalChanges.5.source",
         "release.cloud.releasesData.10.6.requirements.0.3",
         "release.cloud.releasesData.10.6.requirements.2.3",
         "release.cloud.releasesData.10.6.requirements.4.3",
