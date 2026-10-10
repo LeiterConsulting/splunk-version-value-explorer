@@ -86,9 +86,9 @@ window.VersionCompassEditions = {
       "reviewed": "2026-10-01"
     },
     "licensing": {
-      "t": "ES licensing and trials (8.6 documentation)",
-      "u": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.6/introduction/licensing-for-splunk-enterprise-security",
-      "reviewed": "2026-10-01"
+      "t": "ES licensing and trials (8.7 documentation)",
+      "u": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.7/introduction/licensing-for-splunk-enterprise-security",
+      "reviewed": "2026-10-10"
     },
     "regions": {
       "t": "ES 8.7 compatibility and regional availability",
@@ -615,7 +615,7 @@ window.VersionCompassEditions = {
     {
       "id": "licensing",
       "title": "Licensing and trial terms",
-      "text": "ES is used with Splunk Enterprise or Cloud Platform and does not add ingestion capacity. The 8.6 licensing guide documents 30-day Essentials and 90-day Premier trials.",
+      "text": "ES is used with Splunk Enterprise or Cloud Platform and does not add ingestion capacity. The 8.7 licensing guide documents 30-day Essentials and 90-day Premier trials.",
       "src": [
         "licensing"
       ],

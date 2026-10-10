@@ -338,10 +338,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-10-09T13:04:11Z",
+      "lastAttempt": "2026-10-10T13:03:10.422Z",
       "lastSuccess": "2026-10-09T13:05:00Z",
-      "outcome": "no-change",
-      "summary": "All 20 maintained ES sources and exact App for SOAR/Export pairing rows were rechecked; no authoritative change justified an edition, prerequisite, pricing, release-stage, or compatibility update.",
+      "outcome": "running",
+      "summary": "Reviewing current ES edition, entitlement and pairing evidence.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -503,9 +503,15 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "All 20 maintained ES sources and exact App for SOAR/Export pairing rows were rechecked; no authoritative change justified an edition, prerequisite, pricing, release-stage, or compatibility update.",
           "scope": "20-source ES inventory; Connector Builder, Guided Response, AI SOC Analyst, Malware/Phishing, activity pricing, Automation Builder, UEBA, Exposure Analytics, App for SOAR 8.7.0, and Export 8.7.0 consequence checks."
+        },
+        {
+          "at": "2026-10-10T13:03:10.422Z",
+          "outcome": "running",
+          "summary": "Reviewing current ES edition, entitlement and pairing evidence.",
+          "scope": "20 maintained ES sources, six exact SOAR App/Export/related-product records, and bounded high-consequence entitlement, prerequisite, pricing, licensing and pairing claims."
         }
       ],
-      "scope": "20-source ES inventory; Connector Builder, Guided Response, AI SOC Analyst, Malware/Phishing, activity pricing, Automation Builder, UEBA, Exposure Analytics, App for SOAR 8.7.0, and Export 8.7.0 consequence checks."
+      "scope": "20 maintained ES sources, six exact SOAR App/Export/related-product records, and bounded high-consequence entitlement, prerequisite, pricing, licensing and pairing claims."
     },
     {
       "id": "version-guidance-audit",

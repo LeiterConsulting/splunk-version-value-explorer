@@ -2612,7 +2612,7 @@ window.VersionCompassSources = {
       "reviews": [
         "2026-10-01"
       ],
-      "usage": "In use",
+      "usage": "Retired",
       "reviewed": "2026-10-01",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
@@ -2649,6 +2649,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-10",
+          "event": "No longer cited in the maintained datasets"
         }
       ]
     },
@@ -2705,6 +2709,35 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.7/introduction/licensing-for-splunk-enterprise-security",
+      "title": "ES licensing and trials (8.7 documentation)",
+      "areas": [
+        "ES editions"
+      ],
+      "references": [
+        "editions.sources.licensing.u",
+        "editions: editions.notes.3"
+      ],
+      "reviews": [
+        "2026-10-10"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-10",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-10",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "The version-current source replaces the maintained 8.6 citation without broadening entitlement, pricing, deployment or SOAR pairing claims.",
+      "section": "Licensing terms, capacity usage and trial-license behavior",
+      "verificationScope": "Checked the current 8.7 premium-app/platform dependency, capacity types, 30-day Essentials and 90-day Premier trials, expiry behavior and the Cloud Connected Premier-trial entitlement-display caveat.",
+      "events": [
+        {
+          "date": "2026-10-10",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },

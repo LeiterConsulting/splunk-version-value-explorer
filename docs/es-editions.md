@@ -52,6 +52,10 @@ For material changes, append the Eastern-date release note and index, run `node 
 
 Automated checks pass. Rendered browser/mobile and PDF pagination review was unavailable in this static-site environment. The preview remains unlisted for colleague review of layout, scanability and substantive qualifications before any normal-navigation launch.
 
+## October 10, 2026 licensing-source maintenance
+
+The maintained licensing and trial citation now uses the version-current 8.7 guide instead of the equivalent 8.6 page. The directly verified 8.7 section retains the same premium-app/platform dependency, capacity measurements, 30-day Essentials trial, 90-day Premier trial, expiry behavior and Cloud Connected Premier-trial entitlement-display caveat. This source correction does not change pricing eligibility, edition entitlement, deployment scope, SOAR pairing or contract terms. The 8.6 source remains retained as historical evidence in the source ledger.
+
 ## Expanded review presentation (22 September)
 
 Capability descriptions and deployment/licensing summaries are visible without expanding controls. The page adds linked workflow explanations and an 8.7 spotlight, with section navigation and wider description columns. Secondary qualifications remain expandable. Source questions show the two statements side by side, source versions, the practical interpretation and the exact unanswered question. Connector Builder is a direct conflict; Guided Response is a version/enhancement-scope ambiguity, not proof of a changed base entitlement.
