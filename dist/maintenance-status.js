@@ -190,10 +190,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-10T09:43:42.091Z",
-      "lastSuccess": "2026-10-10T09:48:34.048Z",
-      "outcome": "changed",
-      "summary": "Verified Splunk Cloud Platform 10.6.1.0 maintenance evidence and added exact stack-version confirmation guidance; held an inaccessible October Observability search signal out of canonical facts.",
+      "lastAttempt": "2026-10-11T09:30:45.883Z",
+      "lastSuccess": "2026-10-11T09:35:09.719Z",
+      "outcome": "no-change",
+      "summary": "No newer maintained release or advisory was found; the indexed October Observability APM signal remains held because its exact official page still returns 404.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -343,9 +343,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Verified Splunk Cloud Platform 10.6.1.0 maintenance evidence and added exact stack-version confirmation guidance; held an inaccessible October Observability search signal out of canonical facts.",
           "scope": "Complete 128-URL maintained Release Watch inventory (126 retrieved; two retired historical pages unavailable); seven bounded high-consequence release, upgrade, receiver, security, SOAR and Observability checks; exact Forwarder mapping validation delegated to synchronization/tests; publication and native export/live verification recorded separately."
+        },
+        {
+          "at": "2026-10-11T09:30:45.883Z",
+          "outcome": "running",
+          "summary": "Checking the complete maintained release inventory and bounded high-consequence compatibility, upgrade, security, premium-product, Observability and SOAR claims against fresh public sources.",
+          "scope": "Fresh GitHub main and Site version 145 reconciled; full Release guide, Shared guidance, Forwarders and SOAR source inventory; current discovery; bounded Cloud maintenance, Enterprise route, UF/HF, security, premium-product, migration, Observability and SOAR checks."
+        },
+        {
+          "at": "2026-10-11T09:35:09.719Z",
+          "outcome": "no-change",
+          "summary": "No newer maintained release or advisory was found; the indexed October Observability APM signal remains held because its exact official page still returns 404.",
+          "scope": "Complete 131-URL owned inventory with 129 retrieved and two retired unavailable; seven bounded release, compatibility, security, Forwarder, Observability and SOAR claim checks; ordered content gates, full tests and build."
         }
       ],
-      "scope": "Complete 128-URL maintained Release Watch inventory (126 retrieved; two retired historical pages unavailable); seven bounded high-consequence release, upgrade, receiver, security, SOAR and Observability checks; exact Forwarder mapping validation delegated to synchronization/tests; publication and native export/live verification recorded separately."
+      "scope": "Complete 131-URL owned inventory with 129 retrieved and two retired unavailable; seven bounded release, compatibility, security, Forwarder, Observability and SOAR claim checks; ordered content gates, full tests and build."
     },
     {
       "id": "es-editions-watch",
