@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-10-10T14:05:19Z",
-      "lastSuccess": "2026-10-10T14:35:05Z",
-      "outcome": "changed",
-      "summary": "Published bounded ACS API v2 FedRAMP Moderate and High service-support evidence with operation restrictions and authorization unestablished; preserved all existing conflicts and unknowns.",
+      "lastAttempt": "2026-10-11T14:11:43.000Z",
+      "lastSuccess": "2026-10-11T14:17:51Z",
+      "outcome": "no-change",
+      "summary": "Reviewed all 13 maintained environment sources, two CSP-owned SOAR sources and 11 consequential claims; no material change found and existing conflicts and unknowns remain explicit.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -183,9 +183,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Published bounded ACS API v2 FedRAMP Moderate and High service-support evidence with operation restrictions and authorization unestablished; preserved all existing conflicts and unknowns.",
           "scope": "All 13 maintained CSP environment sources, two SOAR sources, 64 canonical environment records, 11 consequential claims, visual matrix, exact Marketplace offerings, filters, reports, exports, browser links, WebMCP and live publication parity."
+        },
+        {
+          "at": "2026-10-11T14:11:43.000Z",
+          "outcome": "running",
+          "summary": "Reviewing the complete official CSP/FedRAMP inventory and bounded highest-consequence claims.",
+          "scope": "Cloud environment providers, regions, Commercial/FR-M/FR-H availability, Marketplace scope, S3 conflicts, Machine Data Lake, ACS v2, Observability separation, and SOAR restricted-environment evidence."
+        },
+        {
+          "at": "2026-10-11T14:17:51Z",
+          "outcome": "no-change",
+          "summary": "Reviewed all 13 maintained environment sources, two CSP-owned SOAR sources and 11 consequential claims; no material change found and existing conflicts and unknowns remain explicit.",
+          "scope": "All 13 CSP/FedRAMP environment sources, two SOAR regional/restricted-environment sources, 64 canonical environment records, 11 consequential claims, visual public-sector matrix and exact Marketplace offerings."
         }
       ],
-      "scope": "All 13 maintained CSP environment sources, two SOAR sources, 64 canonical environment records, 11 consequential claims, visual matrix, exact Marketplace offerings, filters, reports, exports, browser links, WebMCP and live publication parity."
+      "scope": "All 13 CSP/FedRAMP environment sources, two SOAR regional/restricted-environment sources, 64 canonical environment records, 11 consequential claims, visual public-sector matrix and exact Marketplace offerings."
     },
     {
       "id": "version-release-watch",
