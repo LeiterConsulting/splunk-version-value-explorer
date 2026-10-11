@@ -362,10 +362,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-10-10T13:03:10.422Z",
-      "lastSuccess": "2026-10-10T13:10:20Z",
-      "outcome": "changed",
-      "summary": "Current-source maintenance updated the canonical ES licensing evidence from the 8.6 guide to the directly verified 8.7 guide without changing entitlement claims; unresolved Connector Builder and Guided Response scope conflicts remain explicit.",
+      "lastAttempt": "2026-10-11T13:05:12.985Z",
+      "lastSuccess": "2026-10-11T13:08:17.291Z",
+      "outcome": "no-change",
+      "summary": "All 20 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, regional, release-stage or historical fact changed.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -539,9 +539,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Current-source maintenance updated the canonical ES licensing evidence from the 8.6 guide to the directly verified 8.7 guide without changing entitlement claims; unresolved Connector Builder and Guided Response scope conflicts remain explicit.",
           "scope": "20 maintained ES sources and 6 exact SOAR pairing or related-product sources; 10 highest-consequence edition, entitlement, trial, regional, agent, and SOAR compatibility claims; generated adapters and affected ES routes."
+        },
+        {
+          "at": "2026-10-11T13:05:12.985Z",
+          "outcome": "running",
+          "summary": "October 11 ES Editions evidence review is running.",
+          "scope": "Complete maintained ES Editions source inventory, related SOAR pairing records, highest-consequence entitlement/prerequisite/compatibility claims, and publication evidence."
+        },
+        {
+          "at": "2026-10-11T13:08:17.291Z",
+          "outcome": "no-change",
+          "summary": "All 20 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, regional, release-stage or historical fact changed.",
+          "scope": "20 ES sources, 6 exact SOAR App/Export/related-product/Cloud records, and 10 highest-consequence claims; canonical editions data, material cycle, routes, exports, privacy and WebMCP contract unchanged."
         }
       ],
-      "scope": "20 maintained ES sources and 6 exact SOAR pairing or related-product sources; 10 highest-consequence edition, entitlement, trial, regional, agent, and SOAR compatibility claims; generated adapters and affected ES routes."
+      "scope": "20 ES sources, 6 exact SOAR App/Export/related-product/Cloud records, and 10 highest-consequence claims; canonical editions data, material cycle, routes, exports, privacy and WebMCP contract unchanged."
     },
     {
       "id": "version-guidance-audit",
