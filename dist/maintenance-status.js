@@ -6,8 +6,8 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-10-11T14:11:43.000Z",
-      "lastSuccess": "2026-10-11T14:17:51Z",
+      "lastAttempt": "2026-10-12T15:04:02Z",
+      "lastSuccess": "2026-10-12T15:09:01Z",
       "outcome": "no-change",
       "summary": "Reviewed all 13 maintained environment sources, two CSP-owned SOAR sources and 11 consequential claims; no material change found and existing conflicts and unknowns remain explicit.",
       "history": [
@@ -192,6 +192,18 @@ window.VersionCompassMaintenance = {
         },
         {
           "at": "2026-10-11T14:17:51Z",
+          "outcome": "no-change",
+          "summary": "Reviewed all 13 maintained environment sources, two CSP-owned SOAR sources and 11 consequential claims; no material change found and existing conflicts and unknowns remain explicit.",
+          "scope": "All 13 CSP/FedRAMP environment sources, two SOAR regional/restricted-environment sources, 64 canonical environment records, 11 consequential claims, visual public-sector matrix and exact Marketplace offerings."
+        },
+        {
+          "at": "2026-10-12T15:04:02Z",
+          "outcome": "running",
+          "summary": "October 12 CSP/FedRAMP inventory review is running.",
+          "scope": "Complete official Cloud environment and SOAR inventory; 11 highest-consequence authorization, availability, entitlement, regional and restriction claims; concurrent-source reconciliation and candidate validation."
+        },
+        {
+          "at": "2026-10-12T15:09:01Z",
           "outcome": "no-change",
           "summary": "Reviewed all 13 maintained environment sources, two CSP-owned SOAR sources and 11 consequential claims; no material change found and existing conflicts and unknowns remain explicit.",
           "scope": "All 13 CSP/FedRAMP environment sources, two SOAR regional/restricted-environment sources, 64 canonical environment records, 11 consequential claims, visual public-sector matrix and exact Marketplace offerings."
