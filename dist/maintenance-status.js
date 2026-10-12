@@ -202,10 +202,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-11T09:30:45.883Z",
-      "lastSuccess": "2026-10-11T09:35:09.719Z",
+      "lastAttempt": "2026-10-12T09:31:37.058Z",
+      "lastSuccess": "2026-10-12T09:40:35.521Z",
       "outcome": "no-change",
-      "summary": "No newer maintained release or advisory was found; the indexed October Observability APM signal remains held because its exact official page still returns 404.",
+      "summary": "No newer maintained release, patch, advisory, migration-app or customer-managed Observability component was found; the directly unavailable October Observability page remains held.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -367,9 +367,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "No newer maintained release or advisory was found; the indexed October Observability APM signal remains held because its exact official page still returns 404.",
           "scope": "Complete 131-URL owned inventory with 129 retrieved and two retired unavailable; seven bounded release, compatibility, security, Forwarder, Observability and SOAR claim checks; ordered content gates, full tests and build."
+        },
+        {
+          "at": "2026-10-12T09:31:37.058Z",
+          "outcome": "running",
+          "summary": "Checking the complete maintained release inventory and bounded highest-consequence release, upgrade, compatibility, security, migration, forwarder, Observability and SOAR claims.",
+          "scope": "Full generated source-register inventory for Release guide, Shared guidance, Splunk Forwarders and Splunk SOAR; current discovery streams; bounded highest-consequence existing claims."
+        },
+        {
+          "at": "2026-10-12T09:40:35.521Z",
+          "outcome": "no-change",
+          "summary": "No newer maintained release, patch, advisory, migration-app or customer-managed Observability component was found; the directly unavailable October Observability page remains held.",
+          "scope": "Complete 131-URL maintained release inventory (129 retrieved; two retired historical pages unavailable), current discovery streams and seven bounded highest-consequence claim groups."
         }
       ],
-      "scope": "Complete 131-URL owned inventory with 129 retrieved and two retired unavailable; seven bounded release, compatibility, security, Forwarder, Observability and SOAR claim checks; ordered content gates, full tests and build."
+      "scope": "Complete 131-URL maintained release inventory (129 retrieved; two retired historical pages unavailable), current discovery streams and seven bounded highest-consequence claim groups."
     },
     {
       "id": "es-editions-watch",
