@@ -386,8 +386,8 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-10-11T13:05:12.985Z",
-      "lastSuccess": "2026-10-11T13:08:17.291Z",
+      "lastAttempt": "2026-10-12T14:30:52Z",
+      "lastSuccess": "2026-10-12T14:36:00Z",
       "outcome": "no-change",
       "summary": "All 20 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, regional, release-stage or historical fact changed.",
       "history": [
@@ -575,9 +575,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "All 20 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, regional, release-stage or historical fact changed.",
           "scope": "20 ES sources, 6 exact SOAR App/Export/related-product/Cloud records, and 10 highest-consequence claims; canonical editions data, material cycle, routes, exports, privacy and WebMCP contract unchanged."
+        },
+        {
+          "at": "2026-10-12T14:30:52Z",
+          "outcome": "running",
+          "summary": "Checking the complete maintained ES Editions and exact SOAR pairing/export inventory, plus bounded highest-consequence entitlement and prerequisite claims.",
+          "scope": "20 maintained ES official sources, six exact SOAR App/Export/related-product/Cloud records, current release discovery, and ten bounded high-consequence edition, prerequisite, pairing, pricing and release-stage claims."
+        },
+        {
+          "at": "2026-10-12T14:36:00Z",
+          "outcome": "no-change",
+          "summary": "All 20 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, regional, release-stage or historical fact changed.",
+          "scope": "20 ES sources, six exact SOAR App/Export/related-product/Cloud records, current release discovery, and ten highest-consequence claims; canonical editions data, material cycle, routes, exports, privacy and WebMCP contract unchanged."
         }
       ],
-      "scope": "20 ES sources, 6 exact SOAR App/Export/related-product/Cloud records, and 10 highest-consequence claims; canonical editions data, material cycle, routes, exports, privacy and WebMCP contract unchanged."
+      "scope": "20 ES sources, six exact SOAR App/Export/related-product/Cloud records, current release discovery, and ten highest-consequence claims; canonical editions data, material cycle, routes, exports, privacy and WebMCP contract unchanged."
     },
     {
       "id": "version-guidance-audit",
