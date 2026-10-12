@@ -355,6 +355,26 @@ test('ITSI host pairing preserves the separate cohosted KV Store prerequisite', 
   assert(!cloud.breakingChanges.some(x => x.detail.includes('postgresMigrateOnStartup')));
 });
 
+test('ES 10.6 host pairing requires postponement without transferring it to Cloud or older hosts', async () => {
+  const rt = await runtime();
+  for (const to of ['8.4', '8.5', '8.6', '8.7']) {
+    const r = rt.run('compare_routes', { routes: [{ product: 'es', platform: 'enterprise', host: '10.6', from: '8.3', to }] }).reports[0];
+    assert.equal(r.compatibility.status, 'warning');
+    assert(r.breakingChanges.some(x => x.detail.includes('ES 8.7 and lower') && x.detail.includes('postgresMigrateOnStartup=false') && x.breaking));
+  }
+  for (const route of [
+    { product: 'es', platform: 'enterprise', host: '10.4', from: '8.6', to: '8.7' },
+    { product: 'es', platform: 'cloud', host: '10.6', from: '8.6', to: '8.7' }
+  ]) {
+    const r = rt.run('compare_routes', { routes: [route] }).reports[0];
+    assert(!r.breakingChanges.some(x => x.detail.includes('postgresMigrateOnStartup')));
+  }
+  const platform = rt.run('compare_routes', { routes: [{ product: 'platform', platform: 'enterprise', from: '10.4', to: '10.6' }] }).reports[0];
+  assert(platform.technicalChanges.some(x => x.component === 'KV Store database engine' && x.actionLevel === 'Required' && x.action.includes('ES 8.7 and lower')));
+  assert(platform.breakingChanges.some(x => x.detail.includes('ES 8.7 and lower') && x.breaking));
+  assert(platform.breakingChanges.some(x => x.title === 'Reconcile the KV Store source-version floor' && x.detail.includes('scope conflict remains unresolved') && x.breaking));
+});
+
 test('Cloud 10.5 guidance preserves release-stage, provider, role, and credential boundaries', async () => {
   const rt = await runtime();
   const selection = { product: 'platform', platform: 'cloud', from: '10.4.2604', to: '10.5.2605' };

@@ -16,18 +16,18 @@ test('badges are explicit, qualified and printable with evidence',()=>{
  const deprecation=b.entries['technical:observability:Browser RUM navigation configuration'];assert.match(deprecation.detail,/remains functional/);assert.match(deprecation.detail,/not removal/);
 });
 
-test('the eighteenth factual cycle adds bounded ACS FedRAMP service support and retains prior change history',()=>{
- assert.equal(b.policy.currentCycle,18);
+test('the nineteenth factual cycle preserves ACS history and scopes the new KV Store correction',()=>{
+ assert.equal(b.policy.currentCycle,19);
  for(const key of ['environment:acs-fr-m','environment:acs-fr-h']){const e=b.entries[key];assert.equal(e.cycle,18);assert(b.active(e));assert.match(e.note,/2026\/10\/2026-10-10\.md/);}
  assert(!b.active(b.entries['feature:observability:Browser RUM 3.2']));
- const cloudMaintenance=b.entries['technical:platform:Cloud 10.6 maintenance build'];assert.equal(cloudMaintenance.cycle,17);assert(b.active(cloudMaintenance));assert.equal(cloudMaintenance.version,'Splunk Cloud Platform 10.6.1.0');assert.match(cloudMaintenance.note,/2026\/10\/2026-10-10\.md/);
+ const cloudMaintenance=b.entries['technical:platform:Cloud 10.6 maintenance build'];assert.equal(cloudMaintenance.cycle,17);assert(!b.active(cloudMaintenance));assert.equal(cloudMaintenance.version,'Splunk Cloud Platform 10.6.1.0');assert.match(cloudMaintenance.note,/2026\/10\/2026-10-10\.md/);
  const maintenance=b.entries['technical:platform:Enterprise 10.4 maintenance target'];assert(!b.active(maintenance));assert.equal(maintenance.kind,'updated');
  const detector=b.entries['feature:observability:Detector Optimization'];assert(!b.active(detector));assert.equal(detector.kind,'new');
  const python=b.entries['feature:observability:Python instrumentation 2.13'];assert(!b.active(python));
  for(const key of ['environment:s3-moderate','environment:machine-data-lake-aws','environment:machine-data-lake-gov','environment:machine-data-lake-gcp','environment:machine-data-lake-azure']){const e=b.entries[key];assert.equal(e.cycle,15);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-09\.md/);}
  for(const key of ['compatibility:es:cloud-current','compatibility:itsi:cloud-current','technical:forwarders:10.6 receiver compatibility','technical:forwarders:Cloud 10.6 receiver compatibility','technical:platform:Cloud 10.6 publication versus stack availability']){const e=b.entries[key];assert.equal(e.cycle,14);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-07\.md/);}
  const offerings=b.entries['environment:es-fr-m-offering'];assert(!b.active(offerings));assert.equal(offerings.cycle,13);
- const kv=b.entries['technical:platform:KV Store database engine'];assert(!b.active(kv));assert.equal(b.entries['technical-history:platform:KV Store database engine:2026-10-01-cycle5'].recordKey,'technical:platform:KV Store database engine');
+ const kv=b.entries['technical:platform:KV Store database engine'];assert(b.active(kv));assert.equal(kv.cycle,19);assert.match(kv.detail,/ES-specific/);assert.equal(b.entries['technical-history:platform:KV Store database engine:2026-10-01-cycle5'].recordKey,'technical:platform:KV Store database engine');assert.equal(b.entries['technical-history:platform:KV Store database engine:2026-10-01-cycle6'].cycle,6);
  const prior=b.entries['technical-history:platform:Enterprise 10.4 maintenance target:2026-09-26'];assert.equal(prior.recordKey,'technical:platform:Enterprise 10.4 maintenance target');assert.match(prior.note,/2026-09-26\.md/);
 });
 

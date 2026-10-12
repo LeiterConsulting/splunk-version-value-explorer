@@ -27,6 +27,14 @@ test('candidate-bound CI verification can precede deployment; current failures s
   assert.equal(assess(input,policy).status,'hold'); assert.equal(assess(input,policy,validated).status,'eligible-to-advance');
   input.checks['pdf-rendering'].outcome='failed'; assert.equal(assess(input,policy,validated).status,'hold');
 });
+test('an invalid SOAR route cannot borrow validation from a shorter valid route ID',t=>{
+  const f=fixture(t);
+  const bad=f.receipt.cases.find(c=>c.id==='soar-invalid-cisco');
+  assert(bad);
+  assert.doesNotThrow(()=>verify(f.dir));
+  bad.exportsBlocked=false;f.save();
+  assert.throws(()=>verify(f.dir),/Invalid route exports were not blocked/);
+});
 test('publisher provenance requires the successful rendered-export CI step',async()=>{
   const {REQUIRED_STEPS}=await import('../worker/publication-core.mjs'); assert(REQUIRED_STEPS.includes('node tools/export-verification/verify.mjs'));
 });

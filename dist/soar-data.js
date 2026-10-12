@@ -203,6 +203,22 @@ window.VersionCompassSOARData = {
       "checked": "2026-10-01",
       "reviewed": null,
       "outcome": "unavailable"
+    },
+    "exportEnterprise": {
+      "title": "SOAR Export 8.7 prerequisites on Splunk Enterprise",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+      "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports",
+      "checked": "2026-10-12",
+      "reviewed": "2026-10-12",
+      "outcome": "confirmed"
+    },
+    "exportCloud": {
+      "title": "SOAR Export 8.7 prerequisites on Splunk Cloud Platform",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+      "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports",
+      "checked": "2026-10-12",
+      "reviewed": "2026-10-12",
+      "outcome": "confirmed"
     }
   },
   "records": [
@@ -469,19 +485,20 @@ window.VersionCompassSOARData = {
     {
       "id": "export87",
       "title": "SOAR Export remains a separate app",
-      "detail": "Export 8.7 is a September 2 maintenance release. PAPP-38389 fixes global mappings overwriting event-forwarding mappings after a 4.5.1 update. Validate Export’s own compatibility matrix rather than borrowing App for SOAR’s.",
+      "detail": "Export 8.7 uses Python 3.13 and requires CIM. Its functionality-tested row lists Enterprise 10.4.2/10.2.2; Cloud 10.6.0/10.5.2605/10.4.2604/10.3.2512/10.2.2510; ES 8.7.0/8.6.1 (ES is optional); and SOAR 8.7.0/8.6.0. The row labels CIM 8.5.0-1681. These are separate Export prerequisites, not App for SOAR compatibility, security-safe patch targets or tenant rollout. PAPP-38389 fixes event-forwarding mappings overwritten by global mappings.",
       "kind": "technical",
       "release": "8.7.0",
       "src": [
         "export",
-        "related"
+        "exportEnterprise",
+        "exportCloud"
       ],
       "deployments": [
         "cmp",
         "cloud"
       ],
       "status": "Validate",
-      "verified": "2026-10-01",
+      "verified": "2026-10-12",
       "target": true
     },
     {
@@ -614,12 +631,14 @@ window.VersionCompassSOARData = {
     {
       "id": "export87-matrix",
       "priority": 1,
-      "status": "unresolved",
-      "question": "Resolve the related-products redirects to Export 8.6 before asserting an 8.7 Export pairing.",
+      "status": "resolved",
+      "question": "Exact Export 8.7 Enterprise and Cloud prerequisite pages recovered and checked; their listed functionality-tested row is preserved separately from App for SOAR, security floors and tenant rollout.",
       "src": [
-        "related",
-        "export"
-      ]
+        "exportEnterprise",
+        "exportCloud"
+      ],
+      "resolvedAt": "2026-10-12",
+      "evidence": "docs/audits/2026-10-12-version-guidance-audit.json"
     },
     {
       "id": "fedramp-high",

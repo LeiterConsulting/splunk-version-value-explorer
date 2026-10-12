@@ -29,7 +29,7 @@ function verify(directory, root = process.cwd()) {
     verifiedArtifacts.add(artifact.file);
   }
   for (const c of receipt.cases) {
-    const invalid = routes.find(r => c.id.startsWith(r.id + '-'))?.invalid;
+    const invalid = routes.find(r => c.id === r.id + '-default' || c.id === r.id + '-cisco')?.invalid;
     if (!c.narrow?.passed || !verifiedArtifacts.has(c.screen) || !verifiedArtifacts.has(c.narrow.file)) throw Error('Missing rendered viewport evidence');
     if (invalid) { if (c.exportsBlocked !== true) throw Error('Invalid route exports were not blocked'); continue; }
     if (!c.html?.offlineReopened || !c.html.complete || !c.html.networkRequestsBlocked || !verifiedArtifacts.has(c.html.file)) throw Error('Saved HTML was not independently verified');

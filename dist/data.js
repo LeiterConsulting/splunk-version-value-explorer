@@ -1078,9 +1078,22 @@ window.SPLUNK_DATA = {
             "actionLevel": "Required",
             "from": "MongoDB-backed KV Store",
             "to": "Cohosted PostgreSQL KV Store begins in 10.6",
-            "implication": "Migration starts automatically after upgrade unless postponed beforehand. KV Store writes and dependent ES/ITSI functions are impaired during migration; ITSI 5.0.x and lower require postponement.",
-            "action": "Verify KV Store 7.0+, more than 50% free disk space, healthy cluster and parallel backup. For ITSI 5.0.x or lower, set postgresMigrateOnStartup=false before upgrade and verify every member.",
-            "source": "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store"
+            "implication": "Migration starts automatically unless postponed. KV Store writes are impaired during migration; ES 8.7 and lower and ITSI 5.0.x and lower are incompatible with cohosted KV Store 1.0.",
+            "action": "Verify KV Store 7.0+, more than 50% free disk space, healthy cluster and parallel backup. For ES 8.7 and lower or ITSI 5.0.x and lower, set postgresMigrateOnStartup=false before upgrading and verify every member.",
+            "source": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+            "verified": "2026-10-12"
+          },
+          {
+            "component": "KV Store source-version prerequisite",
+            "domain": "Data & storage",
+            "changeType": "Conflicting source-version guidance",
+            "actionLevel": "Required",
+            "from": "The general Enterprise 10.6 upgrade table lists a direct path from 10.0.x",
+            "to": "The KV Store guide requires Enterprise 10.2 or higher first when starting at 10.0 or lower",
+            "implication": "General release-line upgrade support does not settle the KV Store prerequisite. The two published instructions differ for a direct 10.0-to-10.6 move with KV Store.",
+            "action": "For KV Store deployments starting at 10.0 or lower, use the documented 10.2-or-higher bridge and verify KV Store 7.0+; retain the general table separately and seek authoritative scope clarification before relying on its direct 10.0 path.",
+            "source": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-the-kv-store-server-version",
+            "verified": "2026-10-12"
           },
           {
             "component": "Legacy TLS protocols",
@@ -1141,9 +1154,16 @@ window.SPLUNK_DATA = {
         "requirements": [
           [
             "Prepare or postpone the automatic KV Store transition",
-            "Verify KV Store 7.0+, more than 50% free disk space, healthy cluster and parallel backup. ITSI 5.0.x and lower cannot use cohosted KV Store 1.0: postpone migration before upgrading and verify the setting on every cluster member.",
+            "Verify KV Store 7.0+, more than 50% free disk space, healthy cluster and parallel backup. ES 8.7 and lower and ITSI 5.0.x and lower cannot use cohosted KV Store 1.0: postpone migration before upgrading and verify every cluster member.",
             "Blocker",
-            "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+            "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+            true
+          ],
+          [
+            "Reconcile the KV Store source-version floor",
+            "The general upgrade table lists 10.0.x to 10.6.x directly, but KV Store guidance requires 10.2 or higher first for 10.0 or lower. For a deployment using KV Store, follow that prerequisite and verify KV Store 7.0+; the scope conflict remains unresolved.",
+            "Blocker",
+            "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-the-kv-store-server-version",
             true
           ],
           [

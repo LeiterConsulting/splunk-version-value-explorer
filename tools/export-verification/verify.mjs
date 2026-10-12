@@ -40,6 +40,14 @@ async function settled(page) {
   await page.waitForFunction(() => window.VersionCompassContent?.status !== 'loading' && typeof window.VersionCompassBuildSnapshot === 'function');
   await page.evaluate(() => document.fonts.ready);
 }
+async function keyboardReach(page, locator) {
+  // Exercise actual browser Tab navigation, rather than DOM focus simulation.
+  for (let tabs = 0; tabs < 180; tabs++) {
+    if (await locator.evaluate(el => el === document.activeElement)) return tabs;
+    await page.keyboard.press('Tab');
+  }
+  throw Error('Report action is unreachable with Tab');
+}
 try {
   await new Promise((resolve, reject) => {
     const timer = setTimeout(() => reject(Error('Export server did not start: ' + serverLog)), 15000);
@@ -97,8 +105,12 @@ try {
         const printAnnotations = [...doc.querySelectorAll('.content-change-print')].map(el=>el.textContent.trim()).filter(Boolean);
         return { html, text: doc.body.textContent, headings, printAnnotations, revision: window.VersionCompassRevision.id };
       });
+      const printTabs = await keyboardReach(page, print);
+      const save = page.locator('.site-header [data-save-snapshot]').first();
+      const saveTabs = await keyboardReach(page, save);
+      entry.keyboard = { passed: true, printTabs, saveTabs, downloadActivation: 'Enter' };
       const downloadPromise = page.waitForEvent('download');
-      await page.locator('.site-header [data-save-snapshot]').first().click();
+      await page.keyboard.press('Enter');
       const download = await downloadPromise, htmlFile = path.join(directory, 'report.html');
       assert.equal(await download.failure(), null); await download.saveAs(htmlFile);
       // Independent context, real downloaded bytes, no live assets or API available.

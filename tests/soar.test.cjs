@@ -13,6 +13,19 @@ test('SOAR target requirements and exact issue scope survive comparison filterin
  const cloud=a.assess({...a.defaults,deployment:'cloud'});assert(!cloud.issues.some(x=>x.id==='build243'));assert.equal(cloud.routeStatus,'Managed service milestones');assert(!cloud.technical.some(x=>x.id==='os87'));
  const old=a.assess({...a.defaults,from:'8.5.0',to:'8.6.0'});assert(old.issues.some(x=>x.id==='credential86'));assert(old.issues.some(x=>x.id==='security86'&&x.detail.includes('Verify server certificate')));
 });
+test('SOAR Export uses its recovered prerequisite sources separately from App for SOAR',()=>{
+ const c=core(),a=c.window.VersionCompassSOAR;
+ for(const deployment of ['cmp','cloud']){
+  const r=a.assess({...a.defaults,deployment}),record=r.technical.find(x=>x.id==='export87');
+  assert(record.src.includes('exportEnterprise'));assert(record.src.includes('exportCloud'));
+  assert(record.detail.includes('Python 3.13'));assert(record.detail.includes('ES is optional'));
+  assert(record.detail.includes('functionality-tested'));assert(!record.src.includes('app'));
+  assert(record.detail.includes('not App for SOAR compatibility, security-safe patch targets or tenant rollout'));
+ }
+ for(const id of ['exportEnterprise','exportCloud'])assert(c.window.VersionCompassSOARData.sources[id].url.includes('/8.7.0/install-or-upgrade-'));
+ assert.equal(c.window.VersionCompassSOARData.backlog.find(x=>x.id==='export87-matrix').status,'resolved');
+});
+
 test('SOAR restricted environments never inherit commercial features or Platform authorization',()=>{const a=core().window.VersionCompassSOAR;
  for(const compliance of ['fr-m','fr-h']){const r=a.assess({...a.defaults,deployment:'cloud',compliance});assert(r.features.every(x=>x.status==='Not established for selected environment'));assert(r.questions.length);}
  assert.equal(a.assess({...a.defaults,deployment:'cloud',compliance:'fr-h'}).availability.status,'Not established');

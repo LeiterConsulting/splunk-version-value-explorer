@@ -73,3 +73,7 @@ The platform matrix lists ITSI 4.21.x and 5.0 with Enterprise 10.6. The separate
 SOAR is a peer product with customer-managed and Cloud contexts. See [SOAR maintenance](soar.md) for the exact public source inventory, daily task ownership, initial coverage, report parity, existing WebMCP integration and unresolved verification work.
 
 The October 9 restoration keeps Collector/chart 0.162.0 and Python 2.13.1 on the maintained Observability comparison while explicitly labeling their separate October component release dates. Optional feature tuple fields 5 (milestone label) and 6 (exact source URL) override inherited SaaS milestone metadata; the UI, read-only tools and canonical catalog use those exact component citations. These releases do not create an October rolling-service milestone or establish tenant rollout.
+
+## October 12 KV Store qualification
+
+The current cohosted KV Store guide explicitly includes ES 8.7 and lower alongside ITSI 5.0.x and lower in the postponement requirement. Maintained ES comparisons on Enterprise 10.6 now carry the separate database-engine warning even when the platform pairing is listed. This customer-managed prerequisite is not transferred to Cloud. The KV-specific source-version guide also requires 10.2 or higher first for sources at 10.0 or lower; the general 10.6 table's direct 10.0 edge is retained with a separate scoped conflict warning.

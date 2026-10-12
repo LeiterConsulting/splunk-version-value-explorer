@@ -51,3 +51,7 @@ The 10.6 receiving-leg guard now prevents UF/HF selections from inheriting older
 ## October 7 receiver-table update
 
 Splunk has since added exact 10.6 rows to both the Enterprise receiver matrix and the Cloud supported-forwarder table. The route now marks listed Enterprise 10.6 pairings Available and the exact commercial Cloud 10.6 direct pairing Conditional. It still does not infer Edge Processor, an unlisted release combination, an intermediate Cloud-facing tier, a regulated-environment pairing, entitlement or authorization. The historical October 1 guard remains preserved as the record of the prior evidence gap.
+
+## October 12 borrowed KV Store evidence
+
+The current Enterprise-package KV Store record and exact source mapping now retain the ES 8.7-and-lower postponement boundary alongside ITSI. A separate mapped HF technical record qualifies the KV-specific 10.2-or-higher source bridge versus the general table's direct 10.0 edge. Both apply only when KV Store is present; neither becomes UF compatibility or a rewrite of the general Enterprise upgrade graph. Existing source-register regression ownership and all schedules are preserved.

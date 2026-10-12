@@ -11,9 +11,10 @@ window.VersionCompassForwarderData = {
   "sources": {
     "kv106": {
       "title": "10.6 cohosted KV Store migration",
-      "url": "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
-      "reviewed": "2026-10-01",
-      "section": "Prepare for upgrade; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins"
+      "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+      "reviewed": "2026-10-12",
+      "section": "Prepare for upgrade: ES 8.7 and lower / ITSI 5.0.x and lower; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins",
+      "checked": "2026-10-12"
     },
     "tls106": {
       "title": "10.6 TLS removal",
@@ -475,6 +476,7 @@ window.VersionCompassForwarderData = {
     "KV Store database engine",
     "KV Store TLS configuration",
     "Windows service identity",
-    "FIPS cryptographic module"
+    "FIPS cryptographic module",
+    "KV Store source-version prerequisite"
   ]
 };

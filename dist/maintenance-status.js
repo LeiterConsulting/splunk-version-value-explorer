@@ -582,10 +582,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-guidance-audit",
       "name": "Version Guidance Audit",
-      "lastAttempt": "2026-10-08T12:19:08.883584+00:00",
-      "lastSuccess": "2026-10-08T12:37:36.538139Z",
+      "lastAttempt": "2026-10-12T12:51:24.045Z",
+      "lastSuccess": "2026-10-12T13:03:17.924Z",
       "outcome": "changed",
-      "summary": "Reviewed 146 in-use official URLs, retrieved 144; independently demonstrated 16 HF mappings across 900 routes. SOAR 6.4.1.361 eligibility gap isolated; Export 8.7 matrix recovered; audit and operational docs updated.",
+      "summary": "Bounded audit corrected ES cohosted KV Store postponement, qualified a KV-specific source-version conflict, recovered SOAR Export prerequisite matrices and extended native export route coverage. Unavailable bodies remain unverified.",
       "history": [
         {
           "at": "2026-09-24T12:45:24.855849+00:00",
@@ -663,9 +663,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Reviewed 146 in-use official URLs, retrieved 144; independently demonstrated 16 HF mappings across 900 routes. SOAR 6.4.1.361 eligibility gap isolated; Export 8.7 matrix recovered; audit and operational docs updated.",
           "scope": "Complete integrated source inventory attempts and bounded Release Guide/premium/migration/lifecycle/edition/environment/Observability/Forwarder/SOAR claims; actual desktop/keyboard/legacy-invalid/read-only WebMCP and HTML download; native reopen/PDF/narrow limits recorded separately. Documentation and outcome publication only; no canonical factual batch or active delivery change."
+        },
+        {
+          "at": "2026-10-12T12:51:24.045Z",
+          "outcome": "running",
+          "summary": "Independent complete source inventory and bounded upgrade, runtime, compatibility, lifecycle and report verification in progress.",
+          "scope": "Integrated Release Guide, ES Editions, Cloud Environment, source compendium, migration, Observability, UF/HF and SOAR."
+        },
+        {
+          "at": "2026-10-12T13:03:17.924Z",
+          "outcome": "changed",
+          "summary": "Bounded audit corrected ES cohosted KV Store postponement, qualified a KV-specific source-version conflict, recovered SOAR Export prerequisite matrices and extended native export route coverage. Unavailable bodies remain unverified.",
+          "scope": "All 157 source URLs attempted; 72 first-pass bodies/API records recovered, 85 first-pass retrieval limits explicitly recorded; independent high-consequence claim checks and protected corrections. Not an exhaustive historical or lifecycle recertification."
         }
       ],
-      "scope": "Complete integrated source inventory attempts and bounded Release Guide/premium/migration/lifecycle/edition/environment/Observability/Forwarder/SOAR claims; actual desktop/keyboard/legacy-invalid/read-only WebMCP and HTML download; native reopen/PDF/narrow limits recorded separately. Documentation and outcome publication only; no canonical factual batch or active delivery change."
+      "scope": "All 157 source URLs attempted; 72 first-pass bodies/API records recovered, 85 first-pass retrieval limits explicitly recorded; independent high-consequence claim checks and protected corrections. Not an exhaustive historical or lifecycle recertification."
     }
   ]
 };

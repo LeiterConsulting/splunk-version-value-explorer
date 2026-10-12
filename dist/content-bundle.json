@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-8f6cf54e3cc755774ff7187e",
-    "digest": "9c6613b2d442bc9a6f8c6f8a1cc31278d52534aa2aae35c7521bc2e7feb16e90",
+    "revision": "content-ebe8c807a5470307e033b5d3",
+    "digest": "521f9b039bb76bcacea7ea22afac15cba7e54e78f906f6b753519fe6ad6df0c3",
     "engineRevision": "engine-7a4a7c870073fdf52fc3",
     "datasetHashes": {
-      "platform": "a00551be5db8debc3fee2688310cb8eb5c5c4cf11b710289179aa583546574ae",
-      "products": "c57dfea98e7e663cbb99659b4d78a8a9847e157b518f0fd75c3aac3d7c809e0b",
+      "platform": "ab3a807a02dbe7276d0564914e8d7ad549b388ed26e04278aa9c1d94de9445ac",
+      "products": "fc2cc5b9f8d2bccbd7a3229cc259c6af5da99b3e3de0f0a43d1bf6904ccbe909",
       "guidance": "0e6c499587bbf4552b0fb0cc181d5f8d8a06f9d3ff7a14e5bda4a4eb419aa02f",
       "environment": "4955a7d5ad785a03cb6b602fddc1afe20dc3438944cb65f0fb09a565eeac2c29",
       "editions": "dfbc07ed76958144f8e5643fdfbcc1525e9b05a3dde2feeb0d58ee61fb99a02f",
-      "forwarders": "a33bf7da9957714e2b3e43ef6cadd0da893277ef9e8aed4b7ec9396963e7338a",
-      "soar": "5fe1999c80067bbec5a672f197c82655aff31d1e3b2c73ca6f8193e56fe90ad9"
+      "forwarders": "57109ff82e8bda2e805757c9cf097927bb5e7b2359f6c4593279d576f559a65a",
+      "soar": "124ec7488211613c418475ab36c4abefa9b892d905c4390d36cafa0eab2c4990"
     },
-    "recordCount": 689,
+    "recordCount": 695,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -1146,9 +1146,22 @@
                 "actionLevel": "Required",
                 "from": "MongoDB-backed KV Store",
                 "to": "Cohosted PostgreSQL KV Store begins in 10.6",
-                "implication": "Migration starts automatically after upgrade unless postponed beforehand. KV Store writes and dependent ES/ITSI functions are impaired during migration; ITSI 5.0.x and lower require postponement.",
-                "action": "Verify KV Store 7.0+, more than 50% free disk space, healthy cluster and parallel backup. For ITSI 5.0.x or lower, set postgresMigrateOnStartup=false before upgrade and verify every member.",
-                "source": "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store"
+                "implication": "Migration starts automatically unless postponed. KV Store writes are impaired during migration; ES 8.7 and lower and ITSI 5.0.x and lower are incompatible with cohosted KV Store 1.0.",
+                "action": "Verify KV Store 7.0+, more than 50% free disk space, healthy cluster and parallel backup. For ES 8.7 and lower or ITSI 5.0.x and lower, set postgresMigrateOnStartup=false before upgrading and verify every member.",
+                "source": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+                "verified": "2026-10-12"
+              },
+              {
+                "component": "KV Store source-version prerequisite",
+                "domain": "Data & storage",
+                "changeType": "Conflicting source-version guidance",
+                "actionLevel": "Required",
+                "from": "The general Enterprise 10.6 upgrade table lists a direct path from 10.0.x",
+                "to": "The KV Store guide requires Enterprise 10.2 or higher first when starting at 10.0 or lower",
+                "implication": "General release-line upgrade support does not settle the KV Store prerequisite. The two published instructions differ for a direct 10.0-to-10.6 move with KV Store.",
+                "action": "For KV Store deployments starting at 10.0 or lower, use the documented 10.2-or-higher bridge and verify KV Store 7.0+; retain the general table separately and seek authoritative scope clarification before relying on its direct 10.0 path.",
+                "source": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-the-kv-store-server-version",
+                "verified": "2026-10-12"
               },
               {
                 "component": "Legacy TLS protocols",
@@ -1209,9 +1222,16 @@
             "requirements": [
               [
                 "Prepare or postpone the automatic KV Store transition",
-                "Verify KV Store 7.0+, more than 50% free disk space, healthy cluster and parallel backup. ITSI 5.0.x and lower cannot use cohosted KV Store 1.0: postpone migration before upgrading and verify the setting on every cluster member.",
+                "Verify KV Store 7.0+, more than 50% free disk space, healthy cluster and parallel backup. ES 8.7 and lower and ITSI 5.0.x and lower cannot use cohosted KV Store 1.0: postpone migration before upgrading and verify every cluster member.",
                 "Blocker",
-                "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+                "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+                true
+              ],
+              [
+                "Reconcile the KV Store source-version floor",
+                "The general upgrade table lists 10.0.x to 10.6.x directly, but KV Store guidance requires 10.2 or higher first for 10.0 or lower. For a deployment using KV Store, follow that prerequisite and verify KV Store 7.0+; the scope conflict remains unresolved.",
+                "Blocker",
+                "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-the-kv-store-server-version",
                 true
               ],
               [
@@ -2702,6 +2722,27 @@
                 ]
               ]
             }
+          },
+          "hostRequirements": {
+            "enterprise": {
+              "10.6": {
+                "releases": [
+                  "7.3",
+                  "8.0",
+                  "8.1",
+                  "8.2",
+                  "8.3",
+                  "8.4",
+                  "8.5",
+                  "8.6",
+                  "8.7"
+                ],
+                "title": "Postpone cohosted KV Store migration for ES",
+                "detail": "The platform matrix lists this pairing, but ES 8.7 and lower cannot use cohosted KV Store 1.0. Before upgrading Enterprise, set postgresMigrateOnStartup=false and verify every cluster member. Platform pairing does not establish database-engine compatibility.",
+                "source": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+                "verified": "2026-10-12"
+              }
+            }
           }
         },
         "itsi": {
@@ -2730,7 +2771,7 @@
                 ],
                 "title": "Postpone cohosted KV Store migration for ITSI",
                 "detail": "The platform matrix lists this pairing, but ITSI 5.0.x and lower cannot use cohosted KV Store 1.0. Before upgrading Enterprise, set postgresMigrateOnStartup=false and verify every cluster member. Platform pairing does not establish database-engine compatibility.",
-                "source": "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store"
+                "source": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store"
               }
             }
           },
@@ -6930,9 +6971,10 @@
       "sources": {
         "kv106": {
           "title": "10.6 cohosted KV Store migration",
-          "url": "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
-          "reviewed": "2026-10-01",
-          "section": "Prepare for upgrade; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins"
+          "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+          "reviewed": "2026-10-12",
+          "section": "Prepare for upgrade: ES 8.7 and lower / ITSI 5.0.x and lower; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins",
+          "checked": "2026-10-12"
         },
         "tls106": {
           "title": "10.6 TLS removal",
@@ -7394,7 +7436,8 @@
         "KV Store database engine",
         "KV Store TLS configuration",
         "Windows service identity",
-        "FIPS cryptographic module"
+        "FIPS cryptographic module",
+        "KV Store source-version prerequisite"
       ]
     },
     "VersionCompassSOARData": {
@@ -7601,6 +7644,22 @@
           "checked": "2026-10-01",
           "reviewed": null,
           "outcome": "unavailable"
+        },
+        "exportEnterprise": {
+          "title": "SOAR Export 8.7 prerequisites on Splunk Enterprise",
+          "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+          "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports",
+          "checked": "2026-10-12",
+          "reviewed": "2026-10-12",
+          "outcome": "confirmed"
+        },
+        "exportCloud": {
+          "title": "SOAR Export 8.7 prerequisites on Splunk Cloud Platform",
+          "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+          "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports",
+          "checked": "2026-10-12",
+          "reviewed": "2026-10-12",
+          "outcome": "confirmed"
         }
       },
       "records": [
@@ -7867,19 +7926,20 @@
         {
           "id": "export87",
           "title": "SOAR Export remains a separate app",
-          "detail": "Export 8.7 is a September 2 maintenance release. PAPP-38389 fixes global mappings overwriting event-forwarding mappings after a 4.5.1 update. Validate Export’s own compatibility matrix rather than borrowing App for SOAR’s.",
+          "detail": "Export 8.7 uses Python 3.13 and requires CIM. Its functionality-tested row lists Enterprise 10.4.2/10.2.2; Cloud 10.6.0/10.5.2605/10.4.2604/10.3.2512/10.2.2510; ES 8.7.0/8.6.1 (ES is optional); and SOAR 8.7.0/8.6.0. The row labels CIM 8.5.0-1681. These are separate Export prerequisites, not App for SOAR compatibility, security-safe patch targets or tenant rollout. PAPP-38389 fixes event-forwarding mappings overwritten by global mappings.",
           "kind": "technical",
           "release": "8.7.0",
           "src": [
             "export",
-            "related"
+            "exportEnterprise",
+            "exportCloud"
           ],
           "deployments": [
             "cmp",
             "cloud"
           ],
           "status": "Validate",
-          "verified": "2026-10-01",
+          "verified": "2026-10-12",
           "target": true
         },
         {
@@ -8012,12 +8072,14 @@
         {
           "id": "export87-matrix",
           "priority": 1,
-          "status": "unresolved",
-          "question": "Resolve the related-products redirects to Export 8.6 before asserting an 8.7 Export pairing.",
+          "status": "resolved",
+          "question": "Exact Export 8.7 Enterprise and Cloud prerequisite pages recovered and checked; their listed functionality-tested row is preserved separately from App for SOAR, security floors and tenant rollout.",
           "src": [
-            "related",
-            "export"
-          ]
+            "exportEnterprise",
+            "exportCloud"
+          ],
+          "resolvedAt": "2026-10-12",
+          "evidence": "docs/audits/2026-10-12-version-guidance-audit.json"
         },
         {
           "id": "fedramp-high",
@@ -8150,6 +8212,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.2.0/release-notes/whats-new-in-splunk-ai-assistant"
+      },
+      {
+        "id": "source-19fa102c205a8d8630c6",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store"
       },
       {
         "id": "source-1a78b322113dc47011b0",
@@ -8494,6 +8562,12 @@
         "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.6/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security"
       },
       {
+        "id": "source-673139da0582f454dad3",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform"
+      },
+      {
         "id": "source-68de058b673d885b123f",
         "kind": "source",
         "dataset": "sources",
@@ -8560,12 +8634,6 @@
         "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.6.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations"
       },
       {
-        "id": "source-78997a99d232cfdeb21a",
-        "kind": "source",
-        "dataset": "sources",
-        "url": "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store"
-      },
-      {
         "id": "source-797a9dd6533cc5abce27",
         "kind": "source",
         "dataset": "sources",
@@ -8588,6 +8656,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first"
+      },
+      {
+        "id": "source-7b1f3ba0bd9b8b803c4f",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-the-kv-store-server-version"
       },
       {
         "id": "source-7e21a9f3b2649191e12a",
@@ -8876,6 +8950,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new"
+      },
+      {
+        "id": "source-d86ca80bacf7d36e9cb7",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise"
       },
       {
         "id": "source-d95d8d162e19767e15fb",
@@ -11957,8 +12037,8 @@
         },
         "evidence": [
           {
-            "sourceId": "source-78997a99d232cfdeb21a",
-            "url": "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+            "sourceId": "source-19fa102c205a8d8630c6",
+            "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
             "section": null,
             "sectionScope": "Section not recorded",
             "sourceVerified": null,
@@ -11978,7 +12058,7 @@
           ],
           "title": "Postpone cohosted KV Store migration for ITSI",
           "detail": "The platform matrix lists this pairing, but ITSI 5.0.x and lower cannot use cohosted KV Store 1.0. Before upgrading Enterprise, set postgresMigrateOnStartup=false and verify every cluster member. Platform pairing does not establish database-engine compatibility.",
-          "source": "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store"
+          "source": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store"
         }
       },
       {
@@ -12375,12 +12455,12 @@
         "scope": {},
         "evidence": [
           {
-            "sourceId": "source-78997a99d232cfdeb21a",
-            "url": "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
-            "section": "Prepare for upgrade; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins",
+            "sourceId": "source-19fa102c205a8d8630c6",
+            "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+            "section": "Prepare for upgrade: ES 8.7 and lower / ITSI 5.0.x and lower; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-10-01",
-            "sourceChecked": null
+            "sourceVerified": "2026-10-12",
+            "sourceChecked": "2026-10-12"
           }
         ],
         "verification": {
@@ -12973,6 +13053,36 @@
         ]
       },
       {
+        "id": "vc-4849d981ac2cec7c45b0",
+        "kind": "requirement",
+        "dataset": "platform",
+        "scope": {
+          "platform": "enterprise",
+          "release": "10.6"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-7b1f3ba0bd9b8b803c4f",
+            "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-the-kv-store-server-version",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Reconcile the KV Store source-version floor",
+          "The general upgrade table lists 10.0.x to 10.6.x directly, but KV Store guidance requires 10.2 or higher first for 10.0 or lower. For a deployment using KV Store, follow that prerequisite and verify KV Store 7.0+; the scope conflict remains unresolved.",
+          "Blocker",
+          "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-the-kv-store-server-version",
+          true
+        ]
+      },
+      {
         "id": "vc-4873db420bd7b20cda15",
         "kind": "requirement",
         "dataset": "products",
@@ -13311,6 +13421,45 @@
           "Explain a degraded health score",
           "See the KPIs and entities contributing to service-health degradation."
         ]
+      },
+      {
+        "id": "vc-4df38732103b35b147fb",
+        "kind": "claim",
+        "dataset": "platform",
+        "scope": {
+          "product": "es"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-19fa102c205a8d8630c6",
+            "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": "2026-10-12",
+          "outcome": "Recorded in original claim"
+        },
+        "payload": {
+          "releases": [
+            "7.3",
+            "8.0",
+            "8.1",
+            "8.2",
+            "8.3",
+            "8.4",
+            "8.5",
+            "8.6",
+            "8.7"
+          ],
+          "title": "Postpone cohosted KV Store migration for ES",
+          "detail": "The platform matrix lists this pairing, but ES 8.7 and lower cannot use cohosted KV Store 1.0. Before upgrading Enterprise, set postgresMigrateOnStartup=false and verify every cluster member. Platform pairing does not establish database-engine compatibility.",
+          "source": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+          "verified": "2026-10-12"
+        }
       },
       {
         "id": "vc-4e23dacdb28cff93a6b2",
@@ -18614,8 +18763,8 @@
         },
         "evidence": [
           {
-            "sourceId": "source-78997a99d232cfdeb21a",
-            "url": "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+            "sourceId": "source-19fa102c205a8d8630c6",
+            "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
             "section": null,
             "sectionScope": "Section not recorded",
             "sourceVerified": null,
@@ -18628,9 +18777,9 @@
         },
         "payload": [
           "Prepare or postpone the automatic KV Store transition",
-          "Verify KV Store 7.0+, more than 50% free disk space, healthy cluster and parallel backup. ITSI 5.0.x and lower cannot use cohosted KV Store 1.0: postpone migration before upgrading and verify the setting on every cluster member.",
+          "Verify KV Store 7.0+, more than 50% free disk space, healthy cluster and parallel backup. ES 8.7 and lower and ITSI 5.0.x and lower cannot use cohosted KV Store 1.0: postpone migration before upgrading and verify every cluster member.",
           "Blocker",
-          "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+          "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
           true
         ]
       },
@@ -20731,8 +20880,8 @@
         },
         "evidence": [
           {
-            "sourceId": "source-78997a99d232cfdeb21a",
-            "url": "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+            "sourceId": "source-19fa102c205a8d8630c6",
+            "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
             "section": null,
             "sectionScope": "Section not recorded",
             "sourceVerified": null,
@@ -20752,7 +20901,7 @@
           ],
           "title": "Postpone cohosted KV Store migration for ITSI",
           "detail": "The platform matrix lists this pairing, but ITSI 5.0.x and lower cannot use cohosted KV Store 1.0. Before upgrading Enterprise, set postgresMigrateOnStartup=false and verify every cluster member. Platform pairing does not establish database-engine compatibility.",
-          "source": "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store"
+          "source": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store"
         }
       },
       {
@@ -25625,6 +25774,45 @@
         ]
       },
       {
+        "id": "vc-f7f3602013f994c61603",
+        "kind": "claim",
+        "dataset": "products",
+        "scope": {
+          "product": "es"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-19fa102c205a8d8630c6",
+            "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": "2026-10-12",
+          "outcome": "Recorded in original claim"
+        },
+        "payload": {
+          "releases": [
+            "7.3",
+            "8.0",
+            "8.1",
+            "8.2",
+            "8.3",
+            "8.4",
+            "8.5",
+            "8.6",
+            "8.7"
+          ],
+          "title": "Postpone cohosted KV Store migration for ES",
+          "detail": "The platform matrix lists this pairing, but ES 8.7 and lower cannot use cohosted KV Store 1.0. Before upgrading Enterprise, set postgresMigrateOnStartup=false and verify every cluster member. Platform pairing does not establish database-engine compatibility.",
+          "source": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+          "verified": "2026-10-12"
+        }
+      },
+      {
         "id": "vc-f8377b813a4f6a2a90ec",
         "kind": "feature",
         "dataset": "products",
@@ -26105,34 +26293,43 @@
             "sourceChecked": "2026-10-01"
           },
           {
-            "sourceId": "source-cb83c648e03104854f09",
-            "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.7.0/splunk-soar-on-premises-release-notes/compatibility-with-related-splunk-products",
-            "section": "Separate Splunk App for SOAR and SOAR Export compatibility links",
+            "sourceId": "source-d86ca80bacf7d36e9cb7",
+            "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+            "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-10-01",
-            "sourceChecked": "2026-10-01"
+            "sourceVerified": "2026-10-12",
+            "sourceChecked": "2026-10-12"
+          },
+          {
+            "sourceId": "source-673139da0582f454dad3",
+            "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+            "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-10-12",
+            "sourceChecked": "2026-10-12"
           }
         ],
         "verification": {
-          "date": "2026-10-01",
+          "date": "2026-10-12",
           "outcome": "Recorded in original claim"
         },
         "payload": {
           "id": "export87",
           "title": "SOAR Export remains a separate app",
-          "detail": "Export 8.7 is a September 2 maintenance release. PAPP-38389 fixes global mappings overwriting event-forwarding mappings after a 4.5.1 update. Validate Export’s own compatibility matrix rather than borrowing App for SOAR’s.",
+          "detail": "Export 8.7 uses Python 3.13 and requires CIM. Its functionality-tested row lists Enterprise 10.4.2/10.2.2; Cloud 10.6.0/10.5.2605/10.4.2604/10.3.2512/10.2.2510; ES 8.7.0/8.6.1 (ES is optional); and SOAR 8.7.0/8.6.0. The row labels CIM 8.5.0-1681. These are separate Export prerequisites, not App for SOAR compatibility, security-safe patch targets or tenant rollout. PAPP-38389 fixes event-forwarding mappings overwritten by global mappings.",
           "kind": "technical",
           "release": "8.7.0",
           "src": [
             "export",
-            "related"
+            "exportEnterprise",
+            "exportCloud"
           ],
           "deployments": [
             "cmp",
             "cloud"
           ],
           "status": "Validate",
-          "verified": "2026-10-01",
+          "verified": "2026-10-12",
           "target": true
         }
       },

@@ -810,6 +810,100 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-the-kv-store-server-version",
+      "title": "upgrade the kv store server version",
+      "areas": [
+        "Release guide",
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "release.enterprise.releasesData.10.6.technicalChanges.2.source",
+        "release.enterprise.releasesData.10.6.requirements.1.3",
+        "forwarders: borrowed.technical.hf.10.6.kv-store-source-version-prerequisite"
+      ],
+      "reviews": [],
+      "claimReferences": [
+        {
+          "path": "forwarders: borrowed.technical.hf.10.6.kv-store-source-version-prerequisite",
+          "claimId": "technical.hf.10.6.kv-store-source-version-prerequisite",
+          "release": "10.6",
+          "component": "KV Store source-version prerequisite",
+          "section": "Upgrade the KV store server version: Splunk Enterprise 10.0 or lower source-version prerequisite",
+          "claimVerified": "2026-10-12",
+          "outcome": "conflicting-evidence-preserved",
+          "qualification": "The KV Store guide requires 10.2 or higher before 10.6 for sources at 10.0 or lower; the general Enterprise 10.6 table lists a direct 10.0 route. Preserve the specific prerequisite without editing the general graph or applying this KV-only condition to UF."
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-12",
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-10-12",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "KV-specific source-version guidance differs from the general Enterprise 10.6 supported-upgrade table; preserve both exact scopes.",
+      "section": "Upgrade the KV store server version: source-version and KV Store server prerequisites",
+      "verificationScope": "Verified Enterprise 10.2-or-higher bridge for sources at 10.0 or lower and KV Store 7.0+ prerequisite. The general upgrade table still permits 10.0 direct; no universal graph rewrite inferred.",
+      "events": [
+        {
+          "date": "2026-10-12",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+      "title": "upgrade to a cohosted kv store",
+      "areas": [
+        "Release guide",
+        "Splunk Forwarders",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.enterprise.releasesData.10.6.technicalChanges.1.source",
+        "release.enterprise.releasesData.10.6.requirements.0.3",
+        "release.productTracks.es.hostRequirements.enterprise.10.6.source",
+        "release.productTracks.itsi.hostRequirements.enterprise.10.6.source",
+        "forwarders.sources.kv106.url",
+        "content-updates.js",
+        "forwarders: forwarders.claimSources.technical.hf-kv-store-10.6",
+        "forwarders: borrowed.technical.hf.10.6.kv-store-database-engine"
+      ],
+      "reviews": [
+        "2026-10-12"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.technical.hf-kv-store-10.6",
+          "section": "Prepare for upgrade: ES 8.7 and lower / ITSI 5.0.x and lower; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins"
+        },
+        {
+          "path": "forwarders: borrowed.technical.hf.10.6.kv-store-database-engine",
+          "claimId": "technical.hf.10.6.kv-store-database-engine",
+          "release": "10.6",
+          "component": "KV Store database engine",
+          "section": "Prepare for upgrade; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins",
+          "claimVerified": "2026-10-12",
+          "outcome": "supporting-section-confirmed",
+          "qualification": "Applies only to an Enterprise-package HF with KV Store. ES 8.7 and lower and ITSI 5.0.x and lower require postponement of cohosted KV Store 1.0. This does not establish UF applicability, premium-app pairing, entitlement, or customer authorization."
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-12",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-12",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Current recovered documentation URL; original citation retained as historical evidence.",
+      "section": "Prepare for upgrade; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins",
+      "verificationScope": "Bounded verification of automatic migration, ES 8.7 and lower and ITSI 5.0.x and lower incompatibility with cohosted KV Store 1.0, readiness and per-member postponement. No Cloud or product pairing inferred.",
+      "events": [
+        {
+          "date": "2026-10-12",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.6/administer-splunk-cloud-platform-using-the-admin-config-service-acs-api/manage-maintenance-windows-for-splunk-cloud-platform",
       "title": "Manage maintenance windows with ACS",
       "areas": [
@@ -2837,38 +2931,12 @@ window.VersionCompassSources = {
       "url": "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
       "title": "upgrade to a cohosted kv store",
       "areas": [
-        "Release guide",
-        "Splunk Forwarders",
         "Shared guidance"
       ],
       "references": [
-        "release.enterprise.releasesData.10.6.technicalChanges.1.source",
-        "release.enterprise.releasesData.10.6.requirements.0.3",
-        "release.productTracks.itsi.hostRequirements.enterprise.10.6.source",
-        "forwarders.sources.kv106.url",
-        "content-updates.js",
-        "forwarders: forwarders.claimSources.technical.hf-kv-store-10.6",
-        "forwarders: borrowed.technical.hf.10.6.kv-store-database-engine"
+        "content-updates.js"
       ],
-      "reviews": [
-        "2026-10-01"
-      ],
-      "claimReferences": [
-        {
-          "path": "forwarders: forwarders.claimSources.technical.hf-kv-store-10.6",
-          "section": "Prepare for upgrade; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins"
-        },
-        {
-          "path": "forwarders: borrowed.technical.hf.10.6.kv-store-database-engine",
-          "claimId": "technical.hf.10.6.kv-store-database-engine",
-          "release": "10.6",
-          "component": "KV Store database engine",
-          "section": "Prepare for upgrade; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins",
-          "claimVerified": "2026-10-08",
-          "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval. Applies when KV Store is present; ITSI 5.0.x and lower require postponement. Premium-app pairing remains separately owned."
-        }
-      ],
+      "reviews": [],
       "usage": "In use",
       "reviewed": "2026-10-01",
       "status": "Reviewed",
@@ -3472,10 +3540,10 @@ window.VersionCompassSources = {
         "Shared guidance"
       ],
       "references": [
-        "release.enterprise.releasesData.10.6.technicalChanges.2.source",
         "release.enterprise.releasesData.10.6.technicalChanges.3.source",
-        "release.enterprise.releasesData.10.6.requirements.1.3",
+        "release.enterprise.releasesData.10.6.technicalChanges.4.source",
         "release.enterprise.releasesData.10.6.requirements.2.3",
+        "release.enterprise.releasesData.10.6.requirements.3.3",
         "forwarders.sources.tls106.url",
         "forwarders.sources.upgrade106.url",
         "content-updates.js",
@@ -3830,7 +3898,7 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.enterprise.releasesData.10.6.technicalChanges.6.source"
+        "release.enterprise.releasesData.10.6.technicalChanges.7.source"
       ],
       "reviews": [],
       "usage": "In use",
@@ -3856,8 +3924,8 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.enterprise.releasesData.10.6.technicalChanges.4.source",
-        "release.enterprise.releasesData.10.6.requirements.3.3"
+        "release.enterprise.releasesData.10.6.technicalChanges.5.source",
+        "release.enterprise.releasesData.10.6.requirements.4.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -3885,8 +3953,8 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.enterprise.releasesData.10.6.source",
-        "release.enterprise.releasesData.10.6.technicalChanges.5.source",
-        "release.enterprise.releasesData.10.6.requirements.4.3",
+        "release.enterprise.releasesData.10.6.technicalChanges.6.source",
+        "release.enterprise.releasesData.10.6.requirements.5.3",
         "content-updates.js"
       ],
       "reviews": [],
@@ -5358,22 +5426,10 @@ window.VersionCompassSources = {
         "Splunk SOAR"
       ],
       "references": [
-        "soar.sources.related.url",
-        "soar: soar.records.16",
-        "soar: soar.backlog.1"
+        "soar.sources.related.url"
       ],
       "reviews": [
         "2026-10-01"
-      ],
-      "claimReferences": [
-        {
-          "path": "soar: soar.records.16",
-          "section": "Separate Splunk App for SOAR and SOAR Export compatibility links"
-        },
-        {
-          "path": "soar: soar.backlog.1",
-          "section": "Separate Splunk App for SOAR and SOAR Export compatibility links"
-        }
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",
@@ -5542,6 +5598,88 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+      "title": "SOAR Export 8.7 prerequisites on Splunk Cloud Platform",
+      "areas": [
+        "Splunk SOAR",
+        "Shared guidance"
+      ],
+      "references": [
+        "soar.sources.exportCloud.url",
+        "content-updates.js",
+        "soar: soar.records.16",
+        "soar: soar.backlog.1"
+      ],
+      "reviews": [
+        "2026-10-12"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.16",
+          "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
+        },
+        {
+          "path": "soar: soar.backlog.1",
+          "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-12",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-12",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports",
+      "verificationScope": "Verified only Export 8.7 functionality-tested matrix, Python 3.13, required CIM and stated network/installation privileges. Distinct from App for SOAR, patch security, entitlement, rollout and authorization.",
+      "events": [
+        {
+          "date": "2026-10-12",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+      "title": "SOAR Export 8.7 prerequisites on Splunk Enterprise",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.exportEnterprise.url",
+        "soar: soar.records.16",
+        "soar: soar.backlog.1"
+      ],
+      "reviews": [
+        "2026-10-12"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.16",
+          "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
+        },
+        {
+          "path": "soar: soar.backlog.1",
+          "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-12",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-12",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports",
+      "verificationScope": "Verified only Export 8.7 functionality-tested matrix, Python 3.13, required CIM and stated network/installation privileges. Distinct from App for SOAR, patch security, entitlement, rollout and authorization.",
+      "events": [
+        {
+          "date": "2026-10-12",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
       "title": "Splunk App for SOAR Export 8.7",
       "areas": [
@@ -5549,8 +5687,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.export.url",
-        "soar: soar.records.16",
-        "soar: soar.backlog.1"
+        "soar: soar.records.16"
       ],
       "reviews": [
         "2026-10-01"
@@ -5558,10 +5695,6 @@ window.VersionCompassSources = {
       "claimReferences": [
         {
           "path": "soar: soar.records.16",
-          "section": "Release date; fixed issues PAPP-38389"
-        },
-        {
-          "path": "soar: soar.backlog.1",
           "section": "Release date; fixed issues PAPP-38389"
         }
       ],
