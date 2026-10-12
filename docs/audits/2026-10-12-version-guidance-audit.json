@@ -994,7 +994,7 @@
     {
       "claimId": "compatibility:es:enterprise10.6:kv-store",
       "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
-      "section": "Prepare for upgrade — ES/ITSI incompatibility note",
+      "section": "Prepare for upgrade \u2014 ES/ITSI incompatibility note",
       "productVersionEnvironment": "ES maintained targets through 8.7 on Enterprise 10.6",
       "qualification": "Platform compatibility remains listed; database-engine compatibility separately requires postponement. Not a Cloud-managed instruction.",
       "sourceCheckDate": "2026-10-12",
@@ -1018,7 +1018,7 @@
     {
       "claimId": "technical.hf.10.6.kv-store-source-version-prerequisite",
       "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-the-kv-store-server-version",
-      "section": "Upgrade the KV store server version — source-version prerequisite",
+      "section": "Upgrade the KV store server version \u2014 source-version prerequisite",
       "productVersionEnvironment": "Enterprise/HF with KV Store, sources at 10.0 or lower to 10.6",
       "qualification": "Specific KV guide requires 10.2+ first; general Enterprise table permits 10.0 direct. Retain the graph and warn of the narrower prerequisite.",
       "sourceCheckDate": "2026-10-12",
@@ -1186,7 +1186,30 @@
   },
   "validation": {
     "automated": "174 tests passed; one ES regression reproduced ok instead of warning before the correction. New invalid SOAR route exposed receipt ID-prefix ambiguity; matching now uses exact route/theme IDs.",
-    "browserExports": "Pending exact candidate application CI and retained artifact import.",
+    "browserExports": {
+      "outcome": "passed",
+      "candidateCommit": "4ce39e99c3420d9da74a03a85bd704846b78d921",
+      "candidateTree": "26a9276ef46c78acd558f99e35bfdecac41f0e5c",
+      "runId": "38258574426",
+      "jobId": 114842909333,
+      "workflow": ".github/workflows/validate.yml",
+      "exportStep": 13,
+      "checkedAt": "2026-10-12T13:53:27.098Z",
+      "artifactId": 11751242021,
+      "artifactDigest": "sha256:1906ae683656430fb7ace575762a9746ddc5c692e92a43796ba198606ac269fe",
+      "reportFingerprint": "56fb7eed0d629efedcd77fececfaeb48d9949b12eb0a8e3c15e2d97a894abc58",
+      "cases": 40,
+      "pdfs": 36,
+      "automaticallyCheckedPages": 730,
+      "offlineHtmlReopens": 36,
+      "phoneChecks": 40,
+      "validReportKeyboardChecks": 36,
+      "visualReview": {
+        "checkedAt": "2026-10-12T13:57:24.149889Z",
+        "scope": "50 retained ES-on-10.6 and customer-managed/Cloud SOAR page thumbnails in both themes; detailed ES warning and SOAR Export pages; four affected phone screenshots",
+        "outcome": "No clipping, overlap or theme loss observed in inspected images; no human review of all 730 pages claimed."
+      }
+    },
     "nativeWebMcp": "No new vendor-native API execution is claimed; existing read-only contract harness covers parity and rejection. Tool names and runtime code are unchanged."
   },
   "backlog": [
@@ -1236,7 +1259,7 @@
     "independentActiveDeliveryChanged": false
   },
   "publication": {
-    "status": "awaiting-exact-candidate-validation",
-    "note": "Exact GitHub/Sites tree, version/deployment and real live D1 evidence will be reported after successful publication; CI is not production D1 proof."
+    "status": "validated-for-deployment",
+    "note": "Exact GitHub/Sites publication identifiers and actual live D1 checks are reported by the publication receipt; successful CI alone is not live D1 proof."
   }
 }
