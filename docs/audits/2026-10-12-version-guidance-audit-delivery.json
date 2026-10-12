@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "watch": "version-guidance-audit",
+  "outcome": "published-and-live-verified",
+  "factualCandidateCommit": "4ce39e99c3420d9da74a03a85bd704846b78d921",
+  "githubCommit": "fdaea0433ef1d9475565a4c3bed7b3ce1c2a8fae",
+  "sitesCommit": "abeb3d668a6a9a65064173971fae89f344504fd1",
+  "matchingTree": "657f78524bc2d13b974fdc6efca14abcae1b8344",
+  "version": 150,
+  "savedVersion": "appgprj_6aa3ff61bd288191ac95ac6e30707895~appgver_e1cad4424f088191a9ffa2cb07ee3bc5",
+  "deployment": "appgdep_6acce8f370588191be589a11e3b94ab9",
+  "deploymentOutcome": "succeeded",
+  "deployedAt": "2026-10-12T14:04:43.350524Z",
+  "url": "https://versioncompass.com",
+  "liveRevision": "vc-cc4691fe170586ae",
+  "ci": {
+    "runId": 38258574426,
+    "jobId": 114842909333,
+    "outcome": "success",
+    "exportArtifactId": 11751242021,
+    "digest": "sha256:1906ae683656430fb7ace575762a9746ddc5c692e92a43796ba198606ac269fe"
+  },
+  "liveDelivery": {
+    "evaluatedAt": "2026-10-12T14:05:31.402Z",
+    "target": "https://versioncompass.com",
+    "expectedRevision": "content-ebe8c807a5470307e033b5d3",
+    "status": "delivery-checks-passed",
+    "checks": {
+      "database-health": {
+        "outcome": "passed",
+        "evidence": {
+          "status": "ready",
+          "storage": "d1",
+          "revision": "content-ebe8c807a5470307e033b5d3",
+          "engineRevision": "engine-7a4a7c870073fdf52fc3",
+          "recordCount": 695
+        },
+        "checkedAt": "2026-10-12T14:05:14.881Z",
+        "elapsedMs": 6262
+      },
+      "live-manifest": {
+        "outcome": "passed",
+        "evidence": {
+          "schemaVersion": 1,
+          "revision": "content-ebe8c807a5470307e033b5d3",
+          "digest": "521f9b039bb76bcacea7ea22afac15cba7e54e78f906f6b753519fe6ad6df0c3",
+          "engineRevision": "engine-7a4a7c870073fdf52fc3",
+          "datasetHashes": {
+            "platform": "ab3a807a02dbe7276d0564914e8d7ad549b388ed26e04278aa9c1d94de9445ac",
+            "products": "fc2cc5b9f8d2bccbd7a3229cc259c6af5da99b3e3de0f0a43d1bf6904ccbe909",
+            "guidance": "0e6c499587bbf4552b0fb0cc181d5f8d8a06f9d3ff7a14e5bda4a4eb419aa02f",
+            "environment": "4955a7d5ad785a03cb6b602fddc1afe20dc3438944cb65f0fb09a565eeac2c29",
+            "editions": "dfbc07ed76958144f8e5643fdfbcc1525e9b05a3dde2feeb0d58ee61fb99a02f",
+            "forwarders": "57109ff82e8bda2e805757c9cf097927bb5e7b2359f6c4593279d576f559a65a",
+            "soar": "124ec7488211613c418475ab36c4abefa9b892d905c4390d36cafa0eab2c4990"
+          },
+          "recordCount": 695,
+          "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+          "verificationPolicy": "Migration and delivery do not create verification dates",
+          "phase": "content-model-and-database-delivery"
+        },
+        "checkedAt": "2026-10-12T14:05:15.319Z",
+        "elapsedMs": 438
+      },
+      "bundle-integrity": {
+        "outcome": "passed",
+        "evidence": {
+          "digest": "521f9b039bb76bcacea7ea22afac15cba7e54e78f906f6b753519fe6ad6df0c3",
+          "recordCount": 695
+        },
+        "checkedAt": "2026-10-12T14:05:15.718Z",
+        "elapsedMs": 399
+      },
+      "bounded-record-query": {
+        "outcome": "passed",
+        "evidence": "SOAR filter, revision and maximum page size verified",
+        "checkedAt": "2026-10-12T14:05:16.098Z",
+        "elapsedMs": 380
+      },
+      "read-only-api": {
+        "outcome": "passed",
+        "evidence": "POST rejected with 405",
+        "checkedAt": "2026-10-12T14:05:21.989Z",
+        "elapsedMs": 5891
+      },
+      "bundled-fallback-assets": {
+        "outcome": "passed",
+        "evidence": "All seven complete fallback adapters served",
+        "checkedAt": "2026-10-12T14:05:31.402Z",
+        "elapsedMs": 9412
+      }
+    },
+    "findings": [],
+    "limitations": [
+      "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
+    ]
+  },
+  "liveAssets": {
+    "checkedAt": "2026-10-12T14:06:08.589Z",
+    "outcome": "passed",
+    "checks": [
+      {
+        "file": "content-revision.js",
+        "exact": true
+      },
+      {
+        "file": "data.js",
+        "exact": true
+      },
+      {
+        "file": "product-data.js",
+        "exact": true
+      },
+      {
+        "file": "forwarders-data.js",
+        "exact": true
+      },
+      {
+        "file": "soar-data.js",
+        "exact": true
+      },
+      {
+        "file": "maintenance-status.js",
+        "exact": true
+      },
+      {
+        "file": "source-register.js",
+        "exact": true
+      }
+    ]
+  },
+  "publicationReconciliation": {
+    "rejectedArchive": "guidance-site.tar.gz",
+    "reason": "Its source tree was inconsistent with the validated canonical input and was never deployed. Corrected helper commands recopy the exact validated source, check all gates and evidence, build, push and package sequentially. Corrected archive tracked deployment files matched GitHub source byte for byte.",
+    "retainedLiveVersionBeforeSuccess": 149
+  },
+  "limitations": [
+    "No vendor-native WebMCP API execution claimed; deterministic read-only parity and rejection pass.",
+    "Official retrieval limits and source conflicts remain explicitly qualified; full historical recertification is not claimed.",
+    "CI automatically checks all PDF pages; separate visual review covers the recorded bounded subset."
+  ],
+  "schedulesChanged": false,
+  "materialCycle": 19,
+  "receiptPublication": "This repository-only evidence follow-up changes no report inputs; the identical-input export receipt remains applicable. Final source commit/tree and saved deployment of this receipt are reported by the maintenance response to avoid recursive self-identification."
+}
