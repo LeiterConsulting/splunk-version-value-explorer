@@ -214,10 +214,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-12T09:31:37.058Z",
-      "lastSuccess": "2026-10-12T09:40:35.521Z",
-      "outcome": "no-change",
-      "summary": "No newer maintained release, patch, advisory, migration-app or customer-managed Observability component was found; the directly unavailable October Observability page remains held.",
+      "lastAttempt": "2026-10-13T09:07:00Z",
+      "lastSuccess": "2026-10-13T09:18:30Z",
+      "outcome": "changed",
+      "summary": "Confirmed the October 12 Observability APM filtering change plus Java 2.32.0 and Node.js 4.12.1 component releases; updated scoped guidance and validation coverage.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -391,9 +391,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "No newer maintained release, patch, advisory, migration-app or customer-managed Observability component was found; the directly unavailable October Observability page remains held.",
           "scope": "Complete 131-URL maintained release inventory (129 retrieved; two retired historical pages unavailable), current discovery streams and seven bounded highest-consequence claim groups."
+        },
+        {
+          "at": "2026-10-13T09:07:00Z",
+          "outcome": "running",
+          "summary": "Release inventory and bounded consequential claim review running.",
+          "scope": "Full maintained public release/source inventory plus current discovery streams; affected claims and bounded high-consequence Enterprise, Cloud, migration, Forwarders, premium-product, Observability, security and SOAR checks."
+        },
+        {
+          "at": "2026-10-13T09:18:30Z",
+          "outcome": "changed",
+          "summary": "Confirmed the October 12 Observability APM filtering change plus Java 2.32.0 and Node.js 4.12.1 component releases; updated scoped guidance and validation coverage.",
+          "scope": "All 135 previously maintained release/source URLs plus three newly confirmed official sources; affected Observability claims and bounded high-consequence Enterprise, Cloud, migration, Forwarders, premium-product, security, SCMA and SOAR checks."
         }
       ],
-      "scope": "Complete 131-URL maintained release inventory (129 retrieved; two retired historical pages unavailable), current discovery streams and seven bounded highest-consequence claim groups."
+      "scope": "All 135 previously maintained release/source URLs plus three newly confirmed official sources; affected Observability claims and bounded high-consequence Enterprise, Cloud, migration, Forwarders, premium-product, security, SCMA and SOAR checks."
     },
     {
       "id": "es-editions-watch",

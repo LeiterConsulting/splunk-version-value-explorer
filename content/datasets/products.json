@@ -1096,7 +1096,7 @@
     },
     "observability": {
       "label": "Splunk Observability Cloud",
-      "latest": "Sep 2026",
+      "latest": "Oct 2026",
       "releases": [
         "Nov 2024",
         "Mar 2025",
@@ -1104,7 +1104,8 @@
         "Jan 2026",
         "Apr 2026",
         "Jul 2026",
-        "Sep 2026"
+        "Sep 2026",
+        "Oct 2026"
       ],
       "releaseOverview": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/release-notes-overview",
       "collectorSource": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector",
@@ -2030,6 +2031,92 @@
               "Browser RUM 3.2 keeps spaMetrics working as a deprecated alias, so no mandatory code or configuration change is required for this release. Use navigationMetrics for new configuration and migrate maintained templates before a future removal.",
               "Plan",
               "https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.2.0",
+              false
+            ]
+          ]
+        },
+        "Oct 2026": {
+          "date": "October 2026",
+          "source": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+          "features": [
+            [
+              "Stricter APM not-equal tag filtering",
+              "APM & troubleshooting",
+              "Make negative filters explicit",
+              "APM filters that use != now exclude data when the tag is absent, so existing searches can return fewer results than before."
+            ],
+            [
+              "Java instrumentation 2.32",
+              "Telemetry & OpenTelemetry",
+              "See virtual-thread work in call graphs",
+              "Adopt the current Java agent baseline with OpenTelemetry Java SDK 1.66.0, instrumentation 2.32.0, and virtual-thread capture in call graphs.",
+              "Separately versioned Java instrumentation · released October 12, 2026",
+              "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0"
+            ],
+            [
+              "Node.js instrumentation 4.12.1",
+              "Telemetry & OpenTelemetry",
+              "Reduce native-profiler memory growth",
+              "Use the patch that reuses native-profiler arena pages across resets and refreshes gRPC, protobuf, YAML, nan, and development dependencies.",
+              "Separately versioned Node.js instrumentation · released October 12, 2026",
+              "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1"
+            ]
+          ],
+          "technicalChanges": [
+            {
+              "component": "APM not-equal tag filters",
+              "domain": "Search semantics",
+              "changeType": "Missing-tag behavior changed",
+              "actionLevel": "Required",
+              "from": "A != filter can retain data that does not contain the selected tag",
+              "to": "A != filter excludes data when the selected tag is absent",
+              "implication": "Saved searches, dashboards, detectors, links, and runbooks that rely on the earlier missing-tag behavior can return fewer results and change operational conclusions.",
+              "action": "Inventory APM searches that use !=, compare representative results, and add explicit missing-tag handling where the intended population includes data without the tag.",
+              "source": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
+            },
+            {
+              "component": "Java instrumentation baseline",
+              "domain": "Customer-managed instrumentation",
+              "changeType": "Versions and call-graph coverage updated",
+              "actionLevel": "Review",
+              "from": "Splunk Java instrumentation 2.31.3 with the preceding OpenTelemetry SDK and instrumentation baseline",
+              "to": "Splunk Java instrumentation 2.32.0 with OpenTelemetry Java SDK 1.66.0, instrumentation 2.32.0, and virtual-thread call-graph capture",
+              "implication": "The agent can expose additional execution context for applications that use virtual threads, while the upstream dependency baseline changes with the agent.",
+              "action": "Validate representative traces, call graphs, profiling controls, and agent/image packaging before broad rollout.",
+              "source": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0"
+            },
+            {
+              "component": "Node.js native profiler memory management",
+              "domain": "Customer-managed instrumentation",
+              "changeType": "Patch and dependencies updated",
+              "actionLevel": "Review",
+              "from": "Node.js instrumentation 4.12.0 can repeatedly allocate profiler arena pages across resets",
+              "to": "Node.js instrumentation 4.12.1 retains and reuses arena pages and refreshes listed runtime dependencies",
+              "implication": "Long-running native-profiling processes can avoid the documented potential memory growth, while the dependency refresh still warrants normal patch validation.",
+              "action": "Monitor representative profiler memory behavior and validate tracing plus dependency compatibility before broad rollout.",
+              "source": "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1"
+            }
+          ],
+          "requirements": [
+            [
+              "Retest APM searches that use !=",
+              "The October 12 APM change excludes data without the filtered tag. Compare representative searches, dashboards, detectors, and deep links before relying on prior result counts or populations.",
+              "Validate",
+              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+              true
+            ],
+            [
+              "Validate Java 2.32 virtual-thread call graphs",
+              "Java instrumentation 2.32 updates the OpenTelemetry SDK and instrumentation baseline and captures virtual threads in call graphs. Confirm representative application traces, call-graph shape, and packaging before rollout.",
+              "Validate",
+              "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0",
+              false
+            ],
+            [
+              "Validate Node.js 4.12.1 profiler memory behavior",
+              "Node.js instrumentation 4.12.1 fixes potential native-profiler memory growth by reusing arena pages and updates runtime dependencies. Monitor a representative long-running process and verify trace behavior before rollout.",
+              "Validate",
+              "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1",
               false
             ]
           ]

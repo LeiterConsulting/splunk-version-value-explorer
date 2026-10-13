@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-ebe8c807a5470307e033b5d3",
-    "digest": "521f9b039bb76bcacea7ea22afac15cba7e54e78f906f6b753519fe6ad6df0c3",
-    "engineRevision": "engine-7a4a7c870073fdf52fc3",
+    "revision": "content-2bcb72d82d3bac75e3691209",
+    "digest": "274a8856f136760682d920b0da65e031342c191a2216bc9d4f2963afb3d13b6f",
+    "engineRevision": "engine-1bdbd965313d7453b80d",
     "datasetHashes": {
       "platform": "ab3a807a02dbe7276d0564914e8d7ad549b388ed26e04278aa9c1d94de9445ac",
-      "products": "fc2cc5b9f8d2bccbd7a3229cc259c6af5da99b3e3de0f0a43d1bf6904ccbe909",
-      "guidance": "0e6c499587bbf4552b0fb0cc181d5f8d8a06f9d3ff7a14e5bda4a4eb419aa02f",
+      "products": "727ce552f2a01796681e6defcd222926bcfc632fc6c79aa44473c8e1e3c9844d",
+      "guidance": "e09e293ef657050d38a96b3b7cf68a7300a8a0ec3e65707b3d6a54dbfbc2c440",
       "environment": "4955a7d5ad785a03cb6b602fddc1afe20dc3438944cb65f0fb09a565eeac2c29",
       "editions": "dfbc07ed76958144f8e5643fdfbcc1525e9b05a3dde2feeb0d58ee61fb99a02f",
       "forwarders": "57109ff82e8bda2e805757c9cf097927bb5e7b2359f6c4593279d576f559a65a",
       "soar": "124ec7488211613c418475ab36c4abefa9b892d905c4390d36cafa0eab2c4990"
     },
-    "recordCount": 695,
+    "recordCount": 710,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -3251,7 +3251,7 @@
         },
         "observability": {
           "label": "Splunk Observability Cloud",
-          "latest": "Sep 2026",
+          "latest": "Oct 2026",
           "releases": [
             "Nov 2024",
             "Mar 2025",
@@ -3259,7 +3259,8 @@
             "Jan 2026",
             "Apr 2026",
             "Jul 2026",
-            "Sep 2026"
+            "Sep 2026",
+            "Oct 2026"
           ],
           "releaseOverview": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/release-notes-overview",
           "collectorSource": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector",
@@ -4188,12 +4189,98 @@
                   false
                 ]
               ]
+            },
+            "Oct 2026": {
+              "date": "October 2026",
+              "source": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+              "features": [
+                [
+                  "Stricter APM not-equal tag filtering",
+                  "APM & troubleshooting",
+                  "Make negative filters explicit",
+                  "APM filters that use != now exclude data when the tag is absent, so existing searches can return fewer results than before."
+                ],
+                [
+                  "Java instrumentation 2.32",
+                  "Telemetry & OpenTelemetry",
+                  "See virtual-thread work in call graphs",
+                  "Adopt the current Java agent baseline with OpenTelemetry Java SDK 1.66.0, instrumentation 2.32.0, and virtual-thread capture in call graphs.",
+                  "Separately versioned Java instrumentation · released October 12, 2026",
+                  "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0"
+                ],
+                [
+                  "Node.js instrumentation 4.12.1",
+                  "Telemetry & OpenTelemetry",
+                  "Reduce native-profiler memory growth",
+                  "Use the patch that reuses native-profiler arena pages across resets and refreshes gRPC, protobuf, YAML, nan, and development dependencies.",
+                  "Separately versioned Node.js instrumentation · released October 12, 2026",
+                  "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1"
+                ]
+              ],
+              "technicalChanges": [
+                {
+                  "component": "APM not-equal tag filters",
+                  "domain": "Search semantics",
+                  "changeType": "Missing-tag behavior changed",
+                  "actionLevel": "Required",
+                  "from": "A != filter can retain data that does not contain the selected tag",
+                  "to": "A != filter excludes data when the selected tag is absent",
+                  "implication": "Saved searches, dashboards, detectors, links, and runbooks that rely on the earlier missing-tag behavior can return fewer results and change operational conclusions.",
+                  "action": "Inventory APM searches that use !=, compare representative results, and add explicit missing-tag handling where the intended population includes data without the tag.",
+                  "source": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
+                },
+                {
+                  "component": "Java instrumentation baseline",
+                  "domain": "Customer-managed instrumentation",
+                  "changeType": "Versions and call-graph coverage updated",
+                  "actionLevel": "Review",
+                  "from": "Splunk Java instrumentation 2.31.3 with the preceding OpenTelemetry SDK and instrumentation baseline",
+                  "to": "Splunk Java instrumentation 2.32.0 with OpenTelemetry Java SDK 1.66.0, instrumentation 2.32.0, and virtual-thread call-graph capture",
+                  "implication": "The agent can expose additional execution context for applications that use virtual threads, while the upstream dependency baseline changes with the agent.",
+                  "action": "Validate representative traces, call graphs, profiling controls, and agent/image packaging before broad rollout.",
+                  "source": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0"
+                },
+                {
+                  "component": "Node.js native profiler memory management",
+                  "domain": "Customer-managed instrumentation",
+                  "changeType": "Patch and dependencies updated",
+                  "actionLevel": "Review",
+                  "from": "Node.js instrumentation 4.12.0 can repeatedly allocate profiler arena pages across resets",
+                  "to": "Node.js instrumentation 4.12.1 retains and reuses arena pages and refreshes listed runtime dependencies",
+                  "implication": "Long-running native-profiling processes can avoid the documented potential memory growth, while the dependency refresh still warrants normal patch validation.",
+                  "action": "Monitor representative profiler memory behavior and validate tracing plus dependency compatibility before broad rollout.",
+                  "source": "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1"
+                }
+              ],
+              "requirements": [
+                [
+                  "Retest APM searches that use !=",
+                  "The October 12 APM change excludes data without the filtered tag. Compare representative searches, dashboards, detectors, and deep links before relying on prior result counts or populations.",
+                  "Validate",
+                  "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+                  true
+                ],
+                [
+                  "Validate Java 2.32 virtual-thread call graphs",
+                  "Java instrumentation 2.32 updates the OpenTelemetry SDK and instrumentation baseline and captures virtual threads in call graphs. Confirm representative application traces, call-graph shape, and packaging before rollout.",
+                  "Validate",
+                  "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0",
+                  false
+                ],
+                [
+                  "Validate Node.js 4.12.1 profiler memory behavior",
+                  "Node.js instrumentation 4.12.1 fixes potential native-profiler memory growth by reusing arena pages and updates runtime dependencies. Monitor a representative long-running process and verify trace behavior before rollout.",
+                  "Validate",
+                  "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1",
+                  false
+                ]
+              ]
             }
           }
         }
       },
       "guidance": {
-        "reviewed": "2026-10-12",
+        "reviewed": "2026-10-13",
         "lifecycle": {
           "source": "https://www.splunk.com/en_us/legal/splunk-software-support-policy.html",
           "reviewed": "2026-10-01",
@@ -8406,6 +8493,12 @@
         "url": "https://github.com/signalfx/splunk-otel-python/pull/799"
       },
       {
+        "id": "source-3695c5a42acd89a3ec01",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
+      },
+      {
         "id": "source-36a4744189f50afec741",
         "kind": "source",
         "dataset": "sources",
@@ -8452,6 +8545,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://advisory.splunk.com/advisories/SVD-2026-0804"
+      },
+      {
+        "id": "source-4333ce8d88f7ee05804e",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1"
       },
       {
         "id": "source-44ca5a212c121b6a9493",
@@ -8842,6 +8941,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.5/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security"
+      },
+      {
+        "id": "source-bdcce246724fcc23699d",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0"
       },
       {
         "id": "source-bf0eee41cf6ae18623bf",
@@ -9315,6 +9420,36 @@
         }
       },
       {
+        "id": "vc-03e077986ea665a0b3b3",
+        "kind": "requirement",
+        "dataset": "products",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-bdcce246724fcc23699d",
+            "url": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Validate Java 2.32 virtual-thread call graphs",
+          "Java instrumentation 2.32 updates the OpenTelemetry SDK and instrumentation baseline and captures virtual threads in call graphs. Confirm representative application traces, call-graph shape, and packaging before rollout.",
+          "Validate",
+          "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0",
+          false
+        ]
+      },
+      {
         "id": "vc-043998b053f5109b1149",
         "kind": "feature",
         "dataset": "products",
@@ -9563,6 +9698,35 @@
           "Event operations",
           "Reduce manual alert correlation",
           "Use machine learning to group alerts and surface actionable episode insights."
+        ]
+      },
+      {
+        "id": "vc-09584880fc4778382fad",
+        "kind": "feature",
+        "dataset": "platform",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-3695c5a42acd89a3ec01",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Stricter APM not-equal tag filtering",
+          "APM & troubleshooting",
+          "Make negative filters explicit",
+          "APM filters that use != now exclude data when the tag is absent, so existing searches can return fewer results than before."
         ]
       },
       {
@@ -12619,6 +12783,36 @@
         ]
       },
       {
+        "id": "vc-41e292e882b35241dd89",
+        "kind": "requirement",
+        "dataset": "platform",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-3695c5a42acd89a3ec01",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Retest APM searches that use !=",
+          "The October 12 APM change excludes data without the filtered tag. Compare representative searches, dashboards, detectors, and deep links before relying on prior result counts or populations.",
+          "Validate",
+          "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+          true
+        ]
+      },
+      {
         "id": "vc-4217fcbbc05747013673",
         "kind": "feature",
         "dataset": "platform",
@@ -12907,6 +13101,37 @@
           "Investigation & response",
           "Standardize common investigations",
           "Apply reusable response plans to guide consistent analyst action."
+        ]
+      },
+      {
+        "id": "vc-45be27b8bb7d8cd6e2d2",
+        "kind": "feature",
+        "dataset": "products",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-4333ce8d88f7ee05804e",
+            "url": "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Node.js instrumentation 4.12.1",
+          "Telemetry & OpenTelemetry",
+          "Reduce native-profiler memory growth",
+          "Use the patch that reuses native-profiler arena pages across resets and refreshes gRPC, protobuf, YAML, nan, and development dependencies.",
+          "Separately versioned Node.js instrumentation · released October 12, 2026",
+          "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1"
         ]
       },
       {
@@ -13423,6 +13648,36 @@
         ]
       },
       {
+        "id": "vc-4ddafb7dbe39ecd608ad",
+        "kind": "requirement",
+        "dataset": "platform",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-bdcce246724fcc23699d",
+            "url": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Validate Java 2.32 virtual-thread call graphs",
+          "Java instrumentation 2.32 updates the OpenTelemetry SDK and instrumentation baseline and captures virtual threads in call graphs. Confirm representative application traces, call-graph shape, and packaging before rollout.",
+          "Validate",
+          "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0",
+          false
+        ]
+      },
+      {
         "id": "vc-4df38732103b35b147fb",
         "kind": "claim",
         "dataset": "platform",
@@ -13892,6 +14147,36 @@
           "Platform operations",
           "Normalize audit visibility",
           "Work with JSON-formatted, CIM-aligned administrative audit events."
+        ]
+      },
+      {
+        "id": "vc-542311bf0c5f679486b1",
+        "kind": "requirement",
+        "dataset": "platform",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-4333ce8d88f7ee05804e",
+            "url": "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Validate Node.js 4.12.1 profiler memory behavior",
+          "Node.js instrumentation 4.12.1 fixes potential native-profiler memory growth by reusing arena pages and updates runtime dependencies. Monitor a representative long-running process and verify trace behavior before rollout.",
+          "Validate",
+          "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1",
+          false
         ]
       },
       {
@@ -14753,6 +15038,37 @@
           "Search & AI",
           "Catch provider mismatches earlier",
           "Use stronger verification for eligible federated-search configurations."
+        ]
+      },
+      {
+        "id": "vc-5d44b3e6218465e802aa",
+        "kind": "feature",
+        "dataset": "products",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-bdcce246724fcc23699d",
+            "url": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Java instrumentation 2.32",
+          "Telemetry & OpenTelemetry",
+          "See virtual-thread work in call graphs",
+          "Adopt the current Java agent baseline with OpenTelemetry Java SDK 1.66.0, instrumentation 2.32.0, and virtual-thread capture in call graphs.",
+          "Separately versioned Java instrumentation · released October 12, 2026",
+          "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0"
         ]
       },
       {
@@ -19658,6 +19974,35 @@
         ]
       },
       {
+        "id": "vc-a33f45d0ed1ba40d09f8",
+        "kind": "feature",
+        "dataset": "products",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-3695c5a42acd89a3ec01",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Stricter APM not-equal tag filtering",
+          "APM & troubleshooting",
+          "Make negative filters explicit",
+          "APM filters that use != now exclude data when the tag is absent, so existing searches can return fewer results than before."
+        ]
+      },
+      {
         "id": "vc-a3a32b21124351690bff",
         "kind": "feature",
         "dataset": "platform",
@@ -24500,6 +24845,36 @@
         ]
       },
       {
+        "id": "vc-e75af51828054c245ebb",
+        "kind": "requirement",
+        "dataset": "products",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-3695c5a42acd89a3ec01",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Retest APM searches that use !=",
+          "The October 12 APM change excludes data without the filtered tag. Compare representative searches, dashboards, detectors, and deep links before relying on prior result counts or populations.",
+          "Validate",
+          "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+          true
+        ]
+      },
+      {
         "id": "vc-e7bcab3e3ec97795f701",
         "kind": "feature",
         "dataset": "platform",
@@ -25348,6 +25723,37 @@
         ]
       },
       {
+        "id": "vc-efae99ec41529245c2fb",
+        "kind": "feature",
+        "dataset": "platform",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-3695c5a42acd89a3ec01",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Node.js instrumentation 4.12.1",
+          "Telemetry & OpenTelemetry",
+          "Reduce native-profiler memory growth",
+          "Use the patch that reuses native-profiler arena pages across resets and refreshes gRPC, protobuf, YAML, nan, and development dependencies.",
+          "Separately versioned Node.js instrumentation · released October 12, 2026",
+          "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1"
+        ]
+      },
+      {
         "id": "vc-f0c5bc80bccaafd7c584",
         "kind": "feature",
         "dataset": "products",
@@ -25462,6 +25868,36 @@
           "Infrastructure & Kubernetes",
           "Reduce noisy infrastructure alerts",
           "Use the revised Kubernetes readiness, memory, and CPU Autodetect definitions that Splunk documents as reducing false positives and alert noise."
+        ]
+      },
+      {
+        "id": "vc-f2b4ec791f41c31a9894",
+        "kind": "requirement",
+        "dataset": "products",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-4333ce8d88f7ee05804e",
+            "url": "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Validate Node.js 4.12.1 profiler memory behavior",
+          "Node.js instrumentation 4.12.1 fixes potential native-profiler memory growth by reusing arena pages and updates runtime dependencies. Monitor a representative long-running process and verify trace behavior before rollout.",
+          "Validate",
+          "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1",
+          false
         ]
       },
       {
@@ -25713,6 +26149,37 @@
           "Plan",
           "https://help.splunk.com/en/splunk-enterprise-security-8/install/8.7/upgrading/upgrade-splunk-enterprise-security",
           true
+        ]
+      },
+      {
+        "id": "vc-f5090d184dee75a03428",
+        "kind": "feature",
+        "dataset": "platform",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-3695c5a42acd89a3ec01",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Java instrumentation 2.32",
+          "Telemetry & OpenTelemetry",
+          "See virtual-thread work in call graphs",
+          "Adopt the current Java agent baseline with OpenTelemetry Java SDK 1.66.0, instrumentation 2.32.0, and virtual-thread capture in call graphs.",
+          "Separately versioned Java instrumentation · released October 12, 2026",
+          "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0"
         ]
       },
       {

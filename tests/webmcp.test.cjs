@@ -13,7 +13,7 @@ const routes = [
   { product: 'platform', platform: 'migration', from: '8.1', to: '10.5.2605' },
   { product: 'es', platform: 'enterprise', host: '9.4', from: '7.3', to: '8.7' },
   { product: 'itsi', platform: 'cloud', host: '10.5.2605', from: '4.20', to: '5.0' },
-  { product: 'observability', platform: 'enterprise', host: '9.4', from: 'Nov 2024', to: 'Sep 2026' }
+  { product: 'observability', platform: 'enterprise', host: '9.4', from: 'Sep 2026', to: 'Oct 2026' }
 ];
 
 async function runtime({ support = true, failure = false, selection = routes[0] } = {}) {
@@ -280,6 +280,7 @@ test('support windows use explicit dates, maintenance lines, and distinct manage
   assert.equal(lifecycle('itsi','enterprise','5.0.2','2026-09-19').endOfSupport,lifecycle('itsi','enterprise','5.0','2026-09-19').endOfSupport);
   assert.equal(lifecycle('platform','cloud','10.5.2605','2026-09-19').endOfSupport,null);
   assert.equal(lifecycle('observability','enterprise','Sep 2026','2026-09-19').status,'service_milestone');
+  assert.equal(lifecycle('observability','enterprise','Oct 2026','2026-10-13').status,'service_milestone');
   assert.equal(lifecycle('platform','enterprise','unknown','2026-09-19').status,'unverified');
 });
 
@@ -340,6 +341,25 @@ test('September Observability additions preserve SaaS, private-runner, and Cloud
   assert(platformCloud.targetReleases.some(item => item.id === '10.6'));
   const cloud106 = rt.run('compare_routes', { routes: [{ product: 'platform', platform: 'cloud', from: '10.5.2605', to: '10.6' }] }).reports[0];
   assert(cloud106.breakingChanges.some(item => item.title === 'Confirm selected stack and feature scope' && item.detail.includes('identify Cloud 10.6 as the current subscription version')));
+});
+
+test('October Observability route preserves SaaS semantics and component release boundaries', async () => {
+  const rt = await runtime();
+  const report = rt.run('compare_routes', { routes: [{ product: 'observability', platform: 'cloud', host: '10.6', from: 'Sep 2026', to: 'Oct 2026' }] }).reports[0];
+  assert.equal(rt.window.SPLUNK_DATA.productTracks.observability.latest, 'Oct 2026');
+  for (const title of ['Stricter APM not-equal tag filtering', 'Java instrumentation 2.32', 'Node.js instrumentation 4.12.1']) {
+    assert(report.features.some(item => item.title === title), title);
+  }
+  const apm = report.technicalChanges.find(item => item.component === 'APM not-equal tag filters');
+  assert.match(apm.to, /excludes data when the selected tag is absent/);
+  assert.match(apm.action, /Inventory APM searches that use !=/);
+  assert(report.breakingChanges.some(item => item.title === 'Retest APM searches that use !=' && item.breaking));
+  const java = report.features.find(item => item.title === 'Java instrumentation 2.32');
+  assert.equal(java.source, 'https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0');
+  assert.match(java.milestone, /Separately versioned Java instrumentation/);
+  const node = report.features.find(item => item.title === 'Node.js instrumentation 4.12.1');
+  assert.equal(node.source, 'https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1');
+  assert(report.technicalChanges.some(item => item.component === 'Node.js native profiler memory management' && item.to.includes('4.12.1')));
 });
 
 test('ITSI host pairing preserves the separate cohosted KV Store prerequisite', async () => {

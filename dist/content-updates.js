@@ -1,7 +1,7 @@
 /* Editorial change provenance. Cycles advance only with material factual updates. */
 (function(){
 'use strict';
-const policy={currentCycle:19,retentionCycles:2};
+const policy={currentCycle:20,retentionCycles:2};
 const note25='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-25.md';
 const note26='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-26.md';
 const note30='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-30.md';
@@ -12,10 +12,12 @@ const note06='https://github.com/LeiterConsulting/splunk-version-value-explorer/
 const note07='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-07.md';
 const note09='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-09.md';
 const note10='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-10.md';
+const note13='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-13.md';
 const enterprise1043='https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues';
 const enterprise104='https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4';
 const rum='https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.2.0';
 const observabilitySep='https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026';
+const observabilityOct='https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026';
 const node412='https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.0';
 const java2313='https://github.com/signalfx/splunk-otel-java/releases/tag/v2.31.3';
 const python213='https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.0';
@@ -29,6 +31,12 @@ const ingest='https://help.splunk.com/en/splunk-cloud-platform/process-data-at-i
 const fedrampModerate='https://www.fedramp.gov/marketplace/products/F1607197917/';
 const fedrampHigh='https://www.fedramp.gov/marketplace/products/FR2314156865/';
 const entries={
+"feature:observability:Stricter APM not-equal tag filtering":{kind:"new",cycle:20,date:"2026-10-13",version:"Observability Cloud · October 12, 2026",detail:"Added the documented APM != behavior that excludes data when the selected tag is absent; existing searches can return fewer results.",source:observabilityOct,sourceDate:"2026-10-12",note:note13},
+"technical:observability:APM not-equal tag filters":{kind:"new",cycle:20,date:"2026-10-13",version:"Observability Cloud · October 12, 2026",detail:"Recorded the missing-tag semantics change and required review of affected searches, dashboards, detectors, links and runbooks.",source:observabilityOct,sourceDate:"2026-10-12",note:note13},
+"feature:observability:Java instrumentation 2.32":{kind:"new",cycle:20,date:"2026-10-13",version:"Splunk OpenTelemetry Java 2.32.0",detail:"Added the current SDK/instrumentation baseline and virtual-thread capture in call graphs as a separately versioned component release.",source:"https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0",sourceDate:"2026-10-12",note:note13},
+"technical:observability:Java instrumentation baseline":{kind:"updated",cycle:20,date:"2026-10-13",version:"Splunk OpenTelemetry Java 2.32.0",detail:"Advanced the Java agent baseline to OpenTelemetry SDK 1.66.0 and instrumentation 2.32.0 with scoped call-graph validation.",source:"https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0",sourceDate:"2026-10-12",note:note13},
+"feature:observability:Node.js instrumentation 4.12.1":{kind:"new",cycle:20,date:"2026-10-13",version:"Splunk OpenTelemetry Node.js 4.12.1",detail:"Added the native-profiler arena reuse fix and dependency refresh as a separately versioned component patch.",source:"https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1",sourceDate:"2026-10-12",note:note13},
+"technical:observability:Node.js instrumentation baseline":{kind:"updated",cycle:20,date:"2026-10-13",version:"Splunk OpenTelemetry Node.js 4.12.1",detail:"Advanced the maintained Node.js baseline with the native-profiler memory-growth fix while preserving semantic-convention migration history.",source:"https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1",sourceDate:"2026-10-12",note:note13},
 "environment:acs-fr-m":{kind:"new",cycle:18,date:"2026-10-10",version:"ACS API v2 · FedRAMP Moderate",detail:"Added current Moderate service support with its dedicated endpoint, prerequisites and operation exclusions; entitlement and authorization remain separate.",source:"https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.6/using-the-admin-config-service-acs--api/admin-config-service-acs-requirements-and-compatibility-matrix",sourceDate:"2026-09-14",note:note10},
 "environment:acs-fr-h":{kind:"new",cycle:18,date:"2026-10-10",version:"ACS API v2 · FedRAMP High",detail:"Added the September 15 High service-support milestone with separate endpoint, experience coverage, prerequisites and operation exclusions; offering and customer authorization remain separate.",source:"https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/admin-configuration-service",sourceDate:"2026-09-15",note:note10},
 "technical:platform:Enterprise 9.4 October security floor":{kind:"new",cycle:16,date:"2026-10-09",version:"Enterprise 9.4.15 minimum · 9.4.16 current",detail:"Added the October advisory floor and preserved the newer maintenance target plus vulnerability-specific remediation.",source:"https://advisory.splunk.com/advisories/SVD-2026-1001",sourceDate:"2026-10-07",note:note09},
@@ -70,7 +78,7 @@ const entries={
  'feature:observability:Quieter Kubernetes Autodetect':{kind:'updated',cycle:4,date:'2026-10-01',version:'September 23, 2026 service milestone',detail:'Added the revised Kubernetes readiness, memory and CPU Autodetect definitions that Splunk documents as reducing false positives and alert noise.',source:observabilitySep,sourceDate:'2026-09-23',note:note01},
  'feature:observability:Detector Optimization':{kind:'new',cycle:4,date:'2026-10-01',version:'Controlled Availability · September 23, 2026',detail:'Added weekly detector recommendations with explicit preview, customer approval and no automatic application.',source:observabilitySep,sourceDate:'2026-09-23',note:note01},
  'feature:observability:Node.js instrumentation 4.12':{kind:'new',cycle:4,date:'2026-10-01',version:'Splunk OpenTelemetry Node.js 4.12.0',detail:'Added the current OpenTelemetry dependency baseline plus Couchbase and vendored MySQL2 instrumentation.',source:node412,sourceDate:'2026-10-01',note:note01},
- 'technical:observability:Node.js instrumentation baseline':{kind:'updated',cycle:4,date:'2026-10-01',version:'Splunk OpenTelemetry Node.js 4.12.0',detail:'Recorded the dependency, database-coverage and native-extension installation changes without classifying the patch as a breaking release.',source:node412,sourceDate:'2026-10-01',note:note01},
+'technical-history:observability:Node.js instrumentation baseline:2026-10-01-cycle4':{recordKey:'technical:observability:Node.js instrumentation baseline',kind:'updated',cycle:4,date:'2026-10-01',version:'Splunk OpenTelemetry Node.js 4.12.0',detail:'Recorded the dependency, database-coverage and native-extension installation changes without classifying the patch as a breaking release.',source:node412,sourceDate:'2026-10-01',note:note01},
  'feature:observability:Java instrumentation 2.31.3':{kind:'new',cycle:4,date:'2026-10-01',version:'Splunk OpenTelemetry Java 2.31.3',detail:'Added the re-release that preserves the remote CPU-profiling control fix and corrects Docker image publishing.',source:java2313,sourceDate:'2026-10-01',note:note01},
  'technical:observability:Java CPU profiling remote control':{kind:'corrected',cycle:4,date:'2026-10-01',version:'Splunk OpenTelemetry Java 2.31.3',detail:'Recorded the corrected remote profiling-off behavior and exact re-release boundary.',source:java2313,sourceDate:'2026-10-01',note:note01}
  ,'feature:platform:Cohosted PostgreSQL KV Store':{kind:'new',cycle:5,date:'2026-10-01',version:'Splunk Enterprise 10.6',detail:'Added the 10.6 KV Store architecture transition with explicit backup, readiness, port and recovery requirements.',source:enterprise106,sourceDate:'2026-09-30',note:note01}

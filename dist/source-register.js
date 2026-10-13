@@ -540,6 +540,34 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0",
+      "title": "v2.32.0",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Oct 2026.features.1.5",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.1.source",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.1.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-13",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-13",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Java instrumentation, upstream SDK dependencies and SaaS availability have separate lifecycles.",
+      "section": "Release v2.32.0 — General",
+      "verificationScope": "Confirmed the October 12, 2026 release, OpenTelemetry Java SDK 1.66.0, instrumentation 2.32.0 and virtual-thread capture in call graphs. This component release is not a new rolling-service milestone or proof of tenant rollout.",
+      "events": [
+        {
+          "date": "2026-10-13",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.1.0",
       "title": "v3.1.0",
       "areas": [
@@ -643,6 +671,34 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1",
+      "title": "v4.12.1",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Oct 2026.features.2.5",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.2.source",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.2.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-13",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-13",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "The patch is a customer-managed instrumentation change, not a universal Observability Cloud backend change.",
+      "section": "Release v4.12.1 — Changes",
+      "verificationScope": "Confirmed the October 12, 2026 patch fixes potential native-profiler memory growth by retaining and reusing arena pages across resets and updates the listed gRPC, nan, protobuf, YAML and development dependencies.",
+      "events": [
+        {
+          "date": "2026-10-13",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -4601,6 +4657,36 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-09-25",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+      "title": "october 2026",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Oct 2026.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.0.source",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.0.3",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-13",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-13",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "A rolling SaaS search-semantics change can alter saved search, dashboard, detector, deep-link and runbook results; customer-managed component releases remain separately versioned.",
+      "section": "October 2026 timeline — Splunk APM not-equal tag filtering",
+      "verificationScope": "Confirmed the directly retrievable official page now dates the change October 12, 2026 and states that != filters exclude data when the tag is absent, so existing searches may return fewer results. The prior search-index-only October 8 signal is retained as discovery history, not used as the effective date.",
+      "events": [
+        {
+          "date": "2026-10-13",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]

@@ -1,13 +1,16 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 function context(){const c={window:{},document:{addEventListener(){}},URL,URLSearchParams};for(const f of ['data.js','product-data.js','guidance-data.js','environment-data.js','environment.js','comparison.js','guidance.js','source-register.js','content-updates.js','editions-data.js','decision-support.js','report-tools.js'])vm.runInNewContext(fs.readFileSync('dist/'+f,'utf8'),c);return c;}
 test('decision change history follows actual selected milestones and environment scopes',()=>{
- const c=context(),w=c.window,state={product:'observability',platform:'cloud',host:'10.5.2605',from:'2026-08',to:'2026-09',environment:{},environmentErrors:[]};
- const track=w.SPLUNK_DATA.productTracks.observability;state.from=track.releases.at(-2);state.to=track.releases.at(-1);
+ const c=context(),w=c.window,state={product:'observability',platform:'cloud',host:'10.5.2605',from:'Jul 2026',to:'Sep 2026',environment:{},environmentErrors:[]};
  const m=w.VersionCompassDecision.model(state,w.VersionCompassComparison.create(w.SPLUNK_DATA,state));
  assert(m.changes.some(x=>x.key.includes('Browser RUM')));
  assert(!m.changes.some(x=>x.key.startsWith('environment:')));
  const previous={...state,to:state.from};
  assert(!w.VersionCompassDecision.model(previous,w.VersionCompassComparison.create(w.SPLUNK_DATA,previous)).changes.some(x=>x.key.includes('Browser RUM')));
+ const current={...state,from:'Sep 2026',to:'Oct 2026'};
+ const currentChanges=w.VersionCompassDecision.model(current,w.VersionCompassComparison.create(w.SPLUNK_DATA,current)).changes;
+ assert(currentChanges.some(x=>x.key.includes('APM not-equal tag filters')));
+ assert(!currentChanges.some(x=>x.key.includes('Browser RUM')));
  const env={product:'platform',platform:'cloud',from:'10.2.2406',to:'10.5.2605',environment:{csp:'aws',experience:'classic'},environmentErrors:[]};
  const scoped=w.VersionCompassDecision.model(env,null);assert(scoped.changes.every(x=>x.key.includes('classic')||x.key.includes('machine-data-lake')||x.key.startsWith('environment:acs-fr-')||x.key==='environment:s3-moderate'));assert(scoped.changes.some(x=>x.key==='environment:machine-data-lake-aws'));assert(scoped.changes.some(x=>x.key==='environment:machine-data-lake-gov'));assert(scoped.changes.some(x=>x.key==='environment:s3-moderate'));assert(scoped.changes.some(x=>x.key==='environment:acs-fr-h'));assert(scoped.changes.length);
 });
