@@ -6,8 +6,8 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-10-12T15:04:02Z",
-      "lastSuccess": "2026-10-12T15:09:01Z",
+      "lastAttempt": "2026-10-13T14:55:32Z",
+      "lastSuccess": "2026-10-13T14:59:21Z",
       "outcome": "no-change",
       "summary": "Reviewed all 13 maintained environment sources, two CSP-owned SOAR sources and 11 consequential claims; no material change found and existing conflicts and unknowns remain explicit.",
       "history": [
@@ -207,9 +207,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Reviewed all 13 maintained environment sources, two CSP-owned SOAR sources and 11 consequential claims; no material change found and existing conflicts and unknowns remain explicit.",
           "scope": "All 13 CSP/FedRAMP environment sources, two SOAR regional/restricted-environment sources, 64 canonical environment records, 11 consequential claims, visual public-sector matrix and exact Marketplace offerings."
+        },
+        {
+          "at": "2026-10-13T14:55:32Z",
+          "outcome": "running",
+          "summary": "October 13 CSP/FedRAMP inventory review is running.",
+          "scope": "Complete official Cloud environment and SOAR inventory; 11 highest-consequence authorization, availability, entitlement, regional and restriction claims; visual public-sector matrix; exact Marketplace offerings; concurrent-source reconciliation and candidate validation."
+        },
+        {
+          "at": "2026-10-13T14:59:21Z",
+          "outcome": "no-change",
+          "summary": "Reviewed all 13 maintained environment sources, two CSP-owned SOAR sources and 11 consequential claims; no material change found and existing conflicts and unknowns remain explicit.",
+          "scope": "All 13 CSP/FedRAMP environment sources, two SOAR regional/restricted-environment sources, 64 canonical environment records, 11 consequential claims, direct visual public-sector matrix inspection and exact Marketplace offerings."
         }
       ],
-      "scope": "All 13 CSP/FedRAMP environment sources, two SOAR regional/restricted-environment sources, 64 canonical environment records, 11 consequential claims, visual public-sector matrix and exact Marketplace offerings."
+      "scope": "All 13 CSP/FedRAMP environment sources, two SOAR regional/restricted-environment sources, 64 canonical environment records, 11 consequential claims, direct visual public-sector matrix inspection and exact Marketplace offerings."
     },
     {
       "id": "version-release-watch",
