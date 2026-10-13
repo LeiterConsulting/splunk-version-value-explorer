@@ -183,8 +183,10 @@
     "authorizationScopeChanged": false
   },
   "validation": {
-    "status": "local-candidate-passed; exact-candidate application CI pending",
+    "status": "passed",
     "candidate": {
+      "githubCommit": "ed3dd831b64c3e56d85de390a901454a5c7b3996",
+      "tree": "9314b0ec187dca1d2a3a0f580b5d247aa378b7b5",
       "contentRevision": "content-2bcb72d82d3bac75e3691209",
       "engineRevision": "engine-1bdbd965313d7453b80d",
       "recordCount": 710,
@@ -192,31 +194,45 @@
     },
     "automated": {
       "syncChecks": "sync-release-metadata, sync-content, sync-source-register and sync-content-revision ran in order and their four --check gates passed before final candidate reconciliation",
-      "tests": "175 total after new route coverage; final exact-candidate result recorded after the audit is added",
-      "build": "54 production Worker assets expected from the established build; final exact-candidate result recorded before publication"
+      "tests": "175 passed; 0 failed; 0 skipped",
+      "build": "54 production Worker assets",
+      "workflowRun": "https://github.com/LeiterConsulting/splunk-version-value-explorer/actions/runs/38376177626",
+      "workflowJob": "115224995520",
+      "workflowStep": "13 — Run node tools/export-verification/verify.mjs; success"
     },
     "exports": {
-      "outcome": "pending exact-candidate application CI",
-      "scope": "New Observability October route added to the retained route matrix; native Chromium PDF pages, offline saved-HTML reopening, both-theme phone checks and report-input binding are required before deployment."
+      "outcome": "passed",
+      "reportFingerprint": "93ad205bd64688f1fc305712a6cab4cb68335bedbe5c2149e2bce9fc8393c035",
+      "artifactId": "11800957743",
+      "artifactDigest": "sha256:4b6bda33404d64ed445a126701cab7a5e9ab33607748f50550063a9fbe3a8865",
+      "cases": 42,
+      "pdfs": 38,
+      "pdfPages": 751,
+      "offlineHtmlReopens": 38,
+      "phoneChecks": 42,
+      "binding": "The dedicated application workflow generated native Chromium PDFs, rendered and checked every page, independently reopened saved HTML with network requests blocked, exercised both themes at phone width and ran check-soak --exports against this exact report-input fingerprint. The downloaded ZIP digest matched the workflow artifact, export-evidence.cjs passed locally and check-soak reported eligible-to-advance with no missing, failed or unresolved gates."
+    },
+    "visualInspection": {
+      "artifactId": "11800957743",
+      "artifactDigest": "sha256:4b6bda33404d64ed445a126701cab7a5e9ab33607748f50550063a9fbe3a8865",
+      "scope": "Separately inspected the retained October Observability PDF page contact sheets and 390x844 phone images in default and Cisco themes.",
+      "outcome": "No novel clipping, overlap, truncation, missing source block or unreadable contrast was found. This bounded human inspection is separate from automated geometry and text checks; it is not a claim that every one of the 751 pages received human visual review."
     },
     "browserAndWebMcp": {
-      "outcome": "pending exact-candidate and live verification",
-      "scope": "New current Observability route plus selected, legacy, shared and invalid links; visible report and existing read-only WebMCP must agree."
+      "outcome": "candidate checks passed; live verification pending",
+      "scope": "Application CI and the 175-test suite cover the new current Observability route plus selected, legacy, shared and invalid links. The visible live report and existing read-only WebMCP are checked after deployment."
     }
   },
   "readiness": {
-    "status": "held-for-exact-candidate-ci",
+    "status": "eligible-to-publish",
     "minimumHours": 0,
     "observationHours": 72,
-    "missing": [
-      "exact-candidate native export evidence",
-      "post-deployment live verification"
-    ],
+    "missing": [],
     "failed": [],
     "unresolved": []
   },
   "publication": {
-    "status": "candidate-prepared",
-    "note": "Publication requires exact-candidate application CI and matching GitHub/Sites source. Exact saved-version, deployment and live identifiers are reported after publication so the validated source is not recursively changed."
+    "status": "github-candidate-validated",
+    "note": "GitHub commit ed3dd831b64c3e56d85de390a901454a5c7b3996 passed exact-candidate application CI. Matching Sites source, saved-version, deployment and live identifiers are reported after publication so the validated source is not recursively changed."
   }
 }
