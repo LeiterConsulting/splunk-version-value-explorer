@@ -410,10 +410,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-10-12T14:30:52Z",
-      "lastSuccess": "2026-10-12T14:36:00Z",
+      "lastAttempt": "2026-10-13T13:24:00Z",
+      "lastSuccess": "2026-10-13T13:31:00Z",
       "outcome": "no-change",
-      "summary": "All 20 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, regional, release-stage or historical fact changed.",
+      "summary": "All 20 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, release-stage or historical fact changed.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -611,9 +611,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "All 20 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, regional, release-stage or historical fact changed.",
           "scope": "20 ES sources, six exact SOAR App/Export/related-product/Cloud records, current release discovery, and ten highest-consequence claims; canonical editions data, material cycle, routes, exports, privacy and WebMCP contract unchanged."
+        },
+        {
+          "at": "2026-10-13T13:24:00Z",
+          "outcome": "running",
+          "summary": "ES editions inventory and bounded consequential claim review running.",
+          "scope": "All 20 maintained ES official sources plus six exact SOAR App/Export/related-product/Cloud pairing sources; current release discovery and ten bounded high-consequence entitlement, prerequisite, pricing, release-stage and compatibility claims."
+        },
+        {
+          "at": "2026-10-13T13:31:00Z",
+          "outcome": "no-change",
+          "summary": "All 20 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, release-stage or historical fact changed.",
+          "scope": "All 20 maintained ES official sources plus six exact SOAR App/Export/related-product/Cloud pairing sources; current release discovery and ten bounded high-consequence entitlement, prerequisite, pricing, release-stage and compatibility claims."
         }
       ],
-      "scope": "20 ES sources, six exact SOAR App/Export/related-product/Cloud records, current release discovery, and ten highest-consequence claims; canonical editions data, material cycle, routes, exports, privacy and WebMCP contract unchanged."
+      "scope": "All 20 maintained ES official sources plus six exact SOAR App/Export/related-product/Cloud pairing sources; current release discovery and ten bounded high-consequence entitlement, prerequisite, pricing, release-stage and compatibility claims."
     },
     {
       "id": "version-guidance-audit",
