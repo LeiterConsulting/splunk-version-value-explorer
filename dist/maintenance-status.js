@@ -434,8 +434,8 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-10-13T13:24:00Z",
-      "lastSuccess": "2026-10-13T13:31:00Z",
+      "lastAttempt": "2026-10-14T13:06:20Z",
+      "lastSuccess": "2026-10-14T13:12:00Z",
       "outcome": "no-change",
       "summary": "All 20 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, release-stage or historical fact changed.",
       "history": [
@@ -644,6 +644,18 @@ window.VersionCompassMaintenance = {
         },
         {
           "at": "2026-10-13T13:31:00Z",
+          "outcome": "no-change",
+          "summary": "All 20 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, release-stage or historical fact changed.",
+          "scope": "All 20 maintained ES official sources plus six exact SOAR App/Export/related-product/Cloud pairing sources; current release discovery and ten bounded high-consequence entitlement, prerequisite, pricing, release-stage and compatibility claims."
+        },
+        {
+          "at": "2026-10-14T13:06:20Z",
+          "outcome": "running",
+          "summary": "ES editions inventory and bounded consequential claim review running.",
+          "scope": "All 20 maintained ES official sources plus six exact SOAR App/Export/related-product/Cloud pairing sources; current release discovery and ten bounded high-consequence entitlement, prerequisite, pricing, release-stage and compatibility claims."
+        },
+        {
+          "at": "2026-10-14T13:12:00Z",
           "outcome": "no-change",
           "summary": "All 20 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, release-stage or historical fact changed.",
           "scope": "All 20 maintained ES official sources plus six exact SOAR App/Export/related-product/Cloud pairing sources; current release discovery and ten bounded high-consequence entitlement, prerequisite, pricing, release-stage and compatibility claims."
