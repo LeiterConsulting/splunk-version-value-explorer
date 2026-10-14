@@ -296,6 +296,9 @@ test('Enterprise 10.4 exposes the exact maintenance floor without becoming a Clo
   const cloud = rt.run('compare_routes', { routes: [{ product: 'platform', platform: 'cloud', from: '10.4.2604', to: '10.5.2605' }] }).reports[0];
   assert(!cloud.technicalChanges.some(item => item.component === 'Enterprise 10.4 maintenance target'));
   assert(!cloud.breakingChanges.some(item => item.title === 'Target Enterprise 10.4.4'));
+  const cloudMaintenance = rt.run('compare_routes', { routes: [{ product: 'platform', platform: 'cloud', from: '10.2.2510', to: '10.4.2604' }] }).reports[0];
+  assert(cloudMaintenance.technicalChanges.some(item => item.component === 'Cloud 10.4 maintenance build' && item.to.includes('10.4.2604.15')));
+  assert(cloudMaintenance.readiness.some(item => item.title === 'Confirm Cloud 10.4.2604.15 before relying on its fixes' && item.detail.includes('stack-specific')));
 });
 
 test('Enterprise Security 8.7 preserves the line selector while exposing the exact 8.7.1 eligibility change', async () => {
@@ -347,7 +350,7 @@ test('October Observability route preserves SaaS semantics and component release
   const rt = await runtime();
   const report = rt.run('compare_routes', { routes: [{ product: 'observability', platform: 'cloud', host: '10.6', from: 'Sep 2026', to: 'Oct 2026' }] }).reports[0];
   assert.equal(rt.window.SPLUNK_DATA.productTracks.observability.latest, 'Oct 2026');
-  for (const title of ['Stricter APM not-equal tag filtering', 'Java instrumentation 2.32', 'Node.js instrumentation 4.12.1']) {
+  for (const title of ['Stricter APM not-equal tag filtering', 'Java instrumentation 2.32', 'Node.js instrumentation 4.12.1', 'Kubernetes chart 0.162.1', 'Python instrumentation 2.13.2']) {
     assert(report.features.some(item => item.title === title), title);
   }
   const apm = report.technicalChanges.find(item => item.component === 'APM not-equal tag filters');
@@ -360,6 +363,15 @@ test('October Observability route preserves SaaS semantics and component release
   const node = report.features.find(item => item.title === 'Node.js instrumentation 4.12.1');
   assert.equal(node.source, 'https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1');
   assert(report.technicalChanges.some(item => item.component === 'Node.js native profiler memory management' && item.to.includes('4.12.1')));
+  const chart = report.features.find(item => item.title === 'Kubernetes chart 0.162.1');
+  assert.equal(chart.source, 'https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1');
+  assert.match(chart.milestone, /Separately versioned Kubernetes chart/);
+  assert(report.technicalChanges.some(item => item.component === 'Light Prometheus Receiver feature gate' && item.changeType === 'Removed' && item.to.includes('standard Prometheus receiver')));
+  assert(report.technicalChanges.some(item => item.component === 'Kubernetes OpAMP Bridge identity' && item.to.includes('0.161.0')));
+  assert(report.breakingChanges.some(item => item.title === 'Migrate off the Light Prometheus Receiver before chart 0.162.1' && item.breaking));
+  const python = report.features.find(item => item.title === 'Python instrumentation 2.13.2');
+  assert.equal(python.source, 'https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2');
+  assert(report.technicalChanges.some(item => item.component === 'Python OpAMP client dependency' && item.to.includes('0.4b0')));
 });
 
 test('ITSI host pairing preserves the separate cohosted KV Store prerequisite', async () => {

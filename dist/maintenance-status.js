@@ -226,10 +226,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-13T09:07:00Z",
-      "lastSuccess": "2026-10-13T09:18:30Z",
+      "lastAttempt": "2026-10-14T10:05:35Z",
+      "lastSuccess": "2026-10-14T10:12:30Z",
       "outcome": "changed",
-      "summary": "Confirmed the October 12 Observability APM filtering change plus Java 2.32.0 and Node.js 4.12.1 component releases; updated scoped guidance and validation coverage.",
+      "summary": "Added Cloud 10.4.2604.15, Kubernetes chart 0.162.1 and Python instrumentation 2.13.2 with exact rollout, receiver, permission and dependency qualifications.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -415,9 +415,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Confirmed the October 12 Observability APM filtering change plus Java 2.32.0 and Node.js 4.12.1 component releases; updated scoped guidance and validation coverage.",
           "scope": "All 135 previously maintained release/source URLs plus three newly confirmed official sources; affected Observability claims and bounded high-consequence Enterprise, Cloud, migration, Forwarders, premium-product, security, SCMA and SOAR checks."
+        },
+        {
+          "at": "2026-10-14T10:05:35Z",
+          "outcome": "running",
+          "summary": "Reviewing the complete maintained release inventory and newly published Cloud maintenance and Observability component evidence.",
+          "scope": "All 138 Release guide, Shared guidance, Splunk Forwarders and Splunk SOAR URLs; current Enterprise, Cloud, ES, ITSI, SOAR, SCMA, security and Observability discovery streams; affected Cloud 10.4, Kubernetes chart and Python instrumentation claims; bounded high-consequence route, compatibility, upgrade and source-mapping checks."
+        },
+        {
+          "at": "2026-10-14T10:12:30Z",
+          "outcome": "changed",
+          "summary": "Added Cloud 10.4.2604.15, Kubernetes chart 0.162.1 and Python instrumentation 2.13.2 with exact rollout, receiver, permission and dependency qualifications.",
+          "scope": "All 138 previously maintained release/source URLs plus two newly confirmed official component sources; affected Cloud 10.4 and Observability claims and bounded high-consequence Enterprise, Cloud, migration, Forwarder, premium-product, security, SCMA and SOAR checks."
         }
       ],
-      "scope": "All 135 previously maintained release/source URLs plus three newly confirmed official sources; affected Observability claims and bounded high-consequence Enterprise, Cloud, migration, Forwarders, premium-product, security, SCMA and SOAR checks."
+      "scope": "All 138 previously maintained release/source URLs plus two newly confirmed official component sources; affected Cloud 10.4 and Observability claims and bounded high-consequence Enterprise, Cloud, migration, Forwarder, premium-product, security, SCMA and SOAR checks."
     },
     {
       "id": "es-editions-watch",

@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "watch": "version-release-watch",
+  "startedAt": "2026-10-14T10:05:35Z",
+  "completedAt": "2026-10-14T10:12:30Z",
+  "outcome": "changed",
+  "sourceCheckDate": "2026-10-14",
+  "scope": "All 138 previously maintained Release guide, Shared guidance, Splunk Forwarders and Splunk SOAR URLs plus two newly confirmed official component sources; current discovery streams; affected Cloud 10.4 and Observability component claims; bounded high-consequence Enterprise, Cloud, migration, Forwarder, security, premium-product, SCMA and SOAR claims. Not an exhaustive historical claim reverification.",
+  "summary": "Official evidence supports Cloud 10.4.2604.15, Kubernetes chart 0.162.1 and Python instrumentation 2.13.2. Local material checks pass; exact-candidate CI, export and publication remain pending.",
+  "sourceInventory": {
+    "previouslyMaintainedUrls": 138,
+    "retrieved": 136,
+    "unavailable": 2,
+    "newOfficialSourcesRetrieved": 2,
+    "postChangeMaintainedUrls": 140,
+    "generatedRegisterSources": 166,
+    "method": "Every maintained URL used by Release guide, Shared guidance, Splunk Forwarders or Splunk SOAR was requested with redirects enabled. The two newly discovered official GitHub releases were retrieved through their public release pages and API records. Retrieval remains separate from the bounded claim checks below.",
+    "unavailableSources": [
+      {
+        "url": "https://docs.splunk.com/Documentation/Splunk/8.1.14/ReleaseNotes/MeetSplunk",
+        "outcome": "unavailable-403",
+        "qualification": "Retired historical page; preserved as unavailable evidence."
+      },
+      {
+        "url": "https://docs.splunk.com/Documentation/Splunk/8.2.12/ReleaseNotes/MeetSplunk",
+        "outcome": "unavailable-403",
+        "qualification": "Retired historical page; preserved as unavailable evidence."
+      }
+    ]
+  },
+  "discovery": {
+    "enterpriseLatest": "10.6",
+    "cloudCurrentServicePairing": "10.6",
+    "cloudLatestMaintainedBuild": "10.6.1.0; separately 10.4.2604.15 for the maintained 10.4 route",
+    "esLatest": "8.7.1",
+    "itsiLatest": "5.0.2",
+    "soarLatest": "8.7.0; On-premises build 243 retained separately",
+    "scmaLatest": "5.4.11",
+    "observabilityLatestMilestone": "October 12, 2026",
+    "collectorLatest": "0.162.0",
+    "collectorChartLatest": "0.162.1",
+    "dotnetInstrumentationLatest": "1.16.0",
+    "javaInstrumentationLatest": "2.32.0",
+    "nodeInstrumentationLatest": "4.12.1",
+    "pythonInstrumentationLatest": "2.13.2",
+    "browserRumLatest": "3.2.0",
+    "securityLatest": "SVD-2026-1005; published October 7, 2026"
+  },
+  "verifiedClaims": [
+    {
+      "claimId": "release:cloud:10.4.2604.15",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
+      "section": "10.4.2604.X Fixed Issues — 10.4.2604.15",
+      "productVersionEnvironment": "Splunk Cloud Platform 10.4.2604.15; Splunk-managed Cloud maintenance",
+      "qualification": "Published October 12, 2026. The feed lists a Universal Forwarder preinstall/package-stop correction plus indexer, SAML, authentication-observability and Google Cloud KMS fixes. Preliminary security counts do not establish CVE scope, and publication does not establish selected-stack rollout, entitlement, region or customer-managed installation.",
+      "sourceCheckDate": "2026-10-14",
+      "claimVerificationDate": "2026-10-14",
+      "outcome": "confirmed-new",
+      "followUp": "Require the selected stack's exact four-segment build and affected-workflow retest before relying on a fix."
+    },
+    {
+      "claimId": "release:observability:chart:0.162.1",
+      "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1",
+      "section": "Release description; Breaking changes; Enhancements",
+      "productVersionEnvironment": "Splunk OpenTelemetry Collector for Kubernetes chart 0.162.1; customer-managed component",
+      "qualification": "Published October 13, 2026. The chart still adopts Collector 0.162.0, removes the Light Prometheus Receiver and feature gate, and updates the OpAMP Bridge. This is not a new standalone Collector or rolling SaaS release.",
+      "sourceCheckDate": "2026-10-14",
+      "claimVerificationDate": "2026-10-14",
+      "outcome": "confirmed-new",
+      "followUp": "Remove the retired gate; validate endpoint discovery, telemetry, resource use, bridge permission and Fleet Management identity continuity."
+    },
+    {
+      "claimId": "release:observability:python:2.13.2",
+      "url": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2",
+      "section": "What's Changed",
+      "productVersionEnvironment": "Splunk OpenTelemetry Python instrumentation 2.13.2; customer-managed component",
+      "qualification": "Published October 13, 2026. The patch updates the OpAMP client to 0.4b0 and removes a direct requests-dependency workaround; it does not declare a new instrumentation or SaaS capability.",
+      "sourceCheckDate": "2026-10-14",
+      "claimVerificationDate": "2026-10-14",
+      "outcome": "confirmed-new",
+      "followUp": "Retain the 2.13.0 configuration and image checks and validate resolved dependencies, startup and representative telemetry."
+    },
+    {
+      "claimId": "release:enterprise-and-forwarders:current",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6",
+      "section": "Welcome to Splunk Enterprise 10.6; READ THIS FIRST, upgrade table and receiver matrix checked separately",
+      "productVersionEnvironment": "Splunk Enterprise 10.6; Universal and Heavy Forwarder routes through 10.6",
+      "qualification": "September 30 release remains current. Upgrade support, receiver compatibility, intermediate topology, OS/runtime packages, security floors and Cloud direct connections remain separate evidence scopes.",
+      "sourceCheckDate": "2026-10-14",
+      "claimVerificationDate": "2026-10-14",
+      "outcome": "confirmed-unchanged",
+      "followUp": "Preserve exact patch, receiver and topology qualifications."
+    },
+    {
+      "claimId": "release:premium-products:current",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "What's new in 8.7.x; ITSI 5.0 release and fixed-issue pages checked separately",
+      "productVersionEnvironment": "Enterprise Security 8.7.1; IT Service Intelligence 5.0.2",
+      "qualification": "Release identities remain unchanged. Edition, Cloud schedule, exact platform pairing, related apps, entitlement and authorization remain separately sourced.",
+      "sourceCheckDate": "2026-10-14",
+      "claimVerificationDate": "2026-10-14",
+      "outcome": "confirmed-unchanged",
+      "followUp": "Coordinate edition facts with ES Editions Watch."
+    },
+    {
+      "claimId": "release:soar:current-8.7.0",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.7.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+      "section": "September 2 release; September 22 build 243 correction; Cloud, Automation Broker, App and Export streams checked separately",
+      "productVersionEnvironment": "SOAR Cloud 8.7.0 and Automation Broker 8.7; separately SOAR On-premises 8.7.0 build 243",
+      "qualification": "No newer SOAR release was found. Build 243, Python 3.13, pre-7.0 bridges, OS/PostgreSQL transitions, external-credential-manager restrictions and App/Export compatibility remain separate records.",
+      "sourceCheckDate": "2026-10-14",
+      "claimVerificationDate": "2026-10-14",
+      "outcome": "confirmed-unchanged",
+      "followUp": "Preserve the Cloud service-date discrepancy and omitted issue-row backlog."
+    },
+    {
+      "claimId": "migration:scma:5.4.11",
+      "url": "https://splunkbase.splunk.com/app/4974",
+      "section": "Default Version and Compatibility",
+      "productVersionEnvironment": "Cloud Migration Assessment App for Splunk 5.4.11; supported Enterprise lines",
+      "qualification": "Version 5.4.11 remains current. Splunkbase compatibility and explicit uploads do not produce a complete migration plan or establish a destination Cloud rollout.",
+      "sourceCheckDate": "2026-10-14",
+      "claimVerificationDate": "2026-10-14",
+      "outcome": "confirmed-unchanged",
+      "followUp": "Keep migration assessment, Cloud pairing and customer-specific discovery separate."
+    },
+    {
+      "claimId": "security:october-2026-current-index",
+      "url": "https://advisory.splunk.com/advisories",
+      "section": "Current advisory archive — SVD-2026-1001 through SVD-2026-1005",
+      "productVersionEnvironment": "Enterprise, Universal Forwarder, AWS add-on and MCP Server advisories published October 7, 2026",
+      "qualification": "SVD-2026-1005 remains newest at check time; each product and vulnerability retains its own solution and additional steps. Enterprise floors are not transferred to Cloud.",
+      "sourceCheckDate": "2026-10-14",
+      "claimVerificationDate": "2026-10-14",
+      "outcome": "confirmed-unchanged",
+      "followUp": "Continue advisory discovery and preserve vulnerability-specific actions."
+    }
+  ],
+  "backlog": [
+    {
+      "priority": 1,
+      "claimId": "cloud:10.6.1.0-and-10.4.2604.15:security-detail",
+      "owner": "Version Release Watch",
+      "nextAction": "Keep preliminary security counts separate and reconcile definitive public advisory detail when published.",
+      "reviewBy": "2026-10-17"
+    },
+    {
+      "priority": 2,
+      "claimId": "soar:cloud-service-date-discrepancy",
+      "owner": "Version Release Watch",
+      "nextAction": "Reconcile the September GA statement, known-issues heading and stale service-table date only from authoritative release evidence.",
+      "reviewBy": "2026-10-17"
+    }
+  ],
+  "forwarderSourceMappings": {
+    "status": "verified",
+    "detail": "The 16 borrowed Heavy Forwarder technical/runtime mappings remain claim-specific with exact supporting sections. The complete suite traversed actual UF/HF routes and required declared technical/runtime, receiver and topology claims to retain their mapped sources and sections."
+  },
+  "policy": {
+    "minimumHours": 0,
+    "observationHours": 72,
+    "materialCycle": 21,
+    "scheduleChanged": false,
+    "privacyOrAudienceChanged": false,
+    "authorizationScopeChanged": false
+  },
+  "validation": {
+    "status": "local-checks-passed-ci-pending",
+    "candidate": null,
+    "automated": {
+      "syncChecks": "sync-release-metadata, sync-content, sync-source-register and sync-content-revision ran in order and all four --check gates passed",
+      "tests": "175 passed; 0 failed; 0 skipped",
+      "build": "54 production Worker assets"
+    },
+    "exports": null,
+    "visualInspection": null,
+    "browserAndWebMcp": null
+  },
+  "readiness": {
+    "status": "pending-exact-candidate-validation",
+    "minimumHours": 0,
+    "observationHours": 72,
+    "missing": [
+      "ordered synchronization and check gates",
+      "complete Node suite and production build",
+      "exact-candidate application CI export evidence",
+      "separate retained-image inspection",
+      "live publication verification"
+    ],
+    "failed": [],
+    "unresolved": []
+  },
+  "publication": {
+    "status": "not-published",
+    "note": "Exact candidate and live publication identifiers are recorded only after their applicable checks pass."
+  }
+}

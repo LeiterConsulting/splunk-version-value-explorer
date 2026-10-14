@@ -1537,6 +1537,17 @@
             "implication": "Private apps and integrations with Python-version assumptions can behave differently even though Splunk manages the platform release.",
             "action": "Confirm Cloud-compatible app versions and test private Python extensions against the 3.13 default for the scheduled stack release.",
             "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.4.2604/splunk-cloud-platform-release-notes/whats-new"
+          },
+          {
+            "component": "Cloud 10.4 maintenance build",
+            "domain": "Cloud operations",
+            "changeType": "Maintenance release published",
+            "actionLevel": "Review",
+            "from": "Cloud 10.4.2604.14",
+            "to": "The Cloud maintenance feed lists 10.4.2604.15, published October 12, 2026",
+            "implication": "The maintenance build fixes Universal Forwarder package shutdown during upgrade and lists additional indexer, SAML, authentication-observability, and Google Cloud KMS corrections. Publication does not prove that a selected stack has received the build or that every listed issue applies to it.",
+            "action": "Confirm the selected stack's exact four-segment version before relying on a 10.4.2604.15 fix, then retest the affected workflow after rollout.",
+            "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information"
           }
         ],
         "requirements": [
@@ -1567,6 +1578,13 @@
             "Validate",
             "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.4.2604/splunk-cloud-platform-release-notes/whats-new",
             true
+          ],
+          [
+            "Confirm Cloud 10.4.2604.15 before relying on its fixes",
+            "The maintenance feed lists 10.4.2604.15 and its fixed issues, but Cloud rollout remains Splunk-managed and stack-specific. Verify the exact four-segment stack version and reproduce the affected Universal Forwarder or platform workflow before closing an issue based on this release.",
+            "Validate",
+            "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
+            false
           ]
         ]
       },

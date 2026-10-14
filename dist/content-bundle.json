@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-2bcb72d82d3bac75e3691209",
-    "digest": "274a8856f136760682d920b0da65e031342c191a2216bc9d4f2963afb3d13b6f",
-    "engineRevision": "engine-1bdbd965313d7453b80d",
+    "revision": "content-0ea28932a092707eff05ed8f",
+    "digest": "ff56839ea308fd2003f8af005f78e56046c798029db10cbb8d512335db1e00c5",
+    "engineRevision": "engine-d8e63284f4ba6e2e4619",
     "datasetHashes": {
-      "platform": "ab3a807a02dbe7276d0564914e8d7ad549b388ed26e04278aa9c1d94de9445ac",
-      "products": "727ce552f2a01796681e6defcd222926bcfc632fc6c79aa44473c8e1e3c9844d",
-      "guidance": "e09e293ef657050d38a96b3b7cf68a7300a8a0ec3e65707b3d6a54dbfbc2c440",
+      "platform": "3b050f161e0e1d82425e4fc5a7d3cbdd6899b7f43e2a5d778de431404b7256da",
+      "products": "8d7ca7dce7d2086be3565552815a9442a79be145a3a4566f826a4c26ccbd66f2",
+      "guidance": "e9416b09dab0a104ba9226ec914468f4caaee8cd19581911f5c8b4311b8f30ce",
       "environment": "4955a7d5ad785a03cb6b602fddc1afe20dc3438944cb65f0fb09a565eeac2c29",
       "editions": "dfbc07ed76958144f8e5643fdfbcc1525e9b05a3dde2feeb0d58ee61fb99a02f",
       "forwarders": "57109ff82e8bda2e805757c9cf097927bb5e7b2359f6c4593279d576f559a65a",
       "soar": "124ec7488211613c418475ab36c4abefa9b892d905c4390d36cafa0eab2c4990"
     },
-    "recordCount": 710,
+    "recordCount": 723,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -1606,6 +1606,17 @@
                 "implication": "Private apps and integrations with Python-version assumptions can behave differently even though Splunk manages the platform release.",
                 "action": "Confirm Cloud-compatible app versions and test private Python extensions against the 3.13 default for the scheduled stack release.",
                 "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.4.2604/splunk-cloud-platform-release-notes/whats-new"
+              },
+              {
+                "component": "Cloud 10.4 maintenance build",
+                "domain": "Cloud operations",
+                "changeType": "Maintenance release published",
+                "actionLevel": "Review",
+                "from": "Cloud 10.4.2604.14",
+                "to": "The Cloud maintenance feed lists 10.4.2604.15, published October 12, 2026",
+                "implication": "The maintenance build fixes Universal Forwarder package shutdown during upgrade and lists additional indexer, SAML, authentication-observability, and Google Cloud KMS corrections. Publication does not prove that a selected stack has received the build or that every listed issue applies to it.",
+                "action": "Confirm the selected stack's exact four-segment version before relying on a 10.4.2604.15 fix, then retest the affected workflow after rollout.",
+                "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information"
               }
             ],
             "requirements": [
@@ -1636,6 +1647,13 @@
                 "Validate",
                 "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.4.2604/splunk-cloud-platform-release-notes/whats-new",
                 true
+              ],
+              [
+                "Confirm Cloud 10.4.2604.15 before relying on its fixes",
+                "The maintenance feed lists 10.4.2604.15 and its fixed issues, but Cloud rollout remains Splunk-managed and stack-specific. Verify the exact four-segment stack version and reproduce the affected Universal Forwarder or platform workflow before closing an issue based on this release.",
+                "Validate",
+                "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
+                false
               ]
             ]
           },
@@ -4215,6 +4233,22 @@
                   "Use the patch that reuses native-profiler arena pages across resets and refreshes gRPC, protobuf, YAML, nan, and development dependencies.",
                   "Separately versioned Node.js instrumentation · released October 12, 2026",
                   "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1"
+                ],
+                [
+                  "Kubernetes chart 0.162.1",
+                  "Infrastructure & Kubernetes",
+                  "Complete the Prometheus receiver transition",
+                  "Adopt the chart patch that packages Collector 0.162.0, removes the Light Prometheus Receiver and its feature gate, and updates the OpAMP Bridge for cluster-unique standalone-agent identities.",
+                  "Separately versioned Kubernetes chart · released October 13, 2026",
+                  "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1"
+                ],
+                [
+                  "Python instrumentation 2.13.2",
+                  "Telemetry & OpenTelemetry",
+                  "Keep remote management dependencies current",
+                  "Use the patch that advances the OpAMP client to 0.4b0 and removes the direct requests-dependency workaround while retaining the 2.13.0 configuration and image qualifications.",
+                  "Separately versioned Python instrumentation · released October 13, 2026",
+                  "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2"
                 ]
               ],
               "technicalChanges": [
@@ -4250,6 +4284,39 @@
                   "implication": "Long-running native-profiling processes can avoid the documented potential memory growth, while the dependency refresh still warrants normal patch validation.",
                   "action": "Monitor representative profiler memory behavior and validate tracing plus dependency compatibility before broad rollout.",
                   "source": "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1"
+                },
+                {
+                  "component": "Light Prometheus Receiver feature gate",
+                  "domain": "Kubernetes chart configuration",
+                  "changeType": "Removed",
+                  "actionLevel": "Required",
+                  "from": "Chart 0.162.0 still accepts featureGates.useLightPrometheusReceiver after its earlier deprecation",
+                  "to": "Chart 0.162.1 removes the Light Prometheus Receiver and its feature gate; autodetected Prometheus endpoints always use the standard Prometheus receiver",
+                  "implication": "A values file that still relies on the removed gate no longer controls receiver selection, and resource use or collection behavior can change with the standard receiver.",
+                  "action": "Remove the obsolete feature gate, compare representative endpoint discovery, collection completeness and resource use, and update operating thresholds before broad rollout.",
+                  "source": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1"
+                },
+                {
+                  "component": "Kubernetes OpAMP Bridge identity",
+                  "domain": "Collector management",
+                  "changeType": "Bridge version and permissions updated",
+                  "actionLevel": "Review",
+                  "from": "The prior chart packages an earlier OpAMP Bridge without the new cluster-ID-based standalone-agent identity path",
+                  "to": "Chart 0.162.1 updates the OpAMP Bridge image to 0.161.0 and grants it read access to the kube-system namespace so the Kubernetes cluster ID can produce unique standalone-agent instance IDs",
+                  "implication": "Restricted clusters can block the new lookup, while management views can identify standalone agents differently after the patch.",
+                  "action": "Review the added namespace permission, validate bridge startup and cluster-ID resolution, and confirm expected standalone-agent identity continuity in Fleet Management.",
+                  "source": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1"
+                },
+                {
+                  "component": "Python OpAMP client dependency",
+                  "domain": "Customer-managed instrumentation",
+                  "changeType": "Patch dependency updated",
+                  "actionLevel": "Review",
+                  "from": "Python instrumentation 2.13.1 uses the preceding OpAMP client and a direct requests-dependency workaround",
+                  "to": "Python instrumentation 2.13.2 uses OpAMP client 0.4b0 and removes the direct requests workaround",
+                  "implication": "Remote-management initialization and resolved dependency behavior can change even though the patch does not declare a new instrumentation capability.",
+                  "action": "Resolve dependencies in the target environment and validate startup, configuration delivery, traces, profiling and call graphs before broad rollout.",
+                  "source": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2"
                 }
               ],
               "requirements": [
@@ -4273,6 +4340,27 @@
                   "Validate",
                   "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1",
                   false
+                ],
+                [
+                  "Migrate off the Light Prometheus Receiver before chart 0.162.1",
+                  "Chart 0.162.1 removes the Light Prometheus Receiver and featureGates.useLightPrometheusReceiver; autodetected endpoints always use the standard receiver. Remove the gate and validate endpoint discovery, telemetry completeness and resource use before rollout.",
+                  "Blocker",
+                  "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1",
+                  true
+                ],
+                [
+                  "Validate chart 0.162.1 OpAMP Bridge permissions and identity",
+                  "The updated bridge reads the kube-system namespace to derive the Kubernetes cluster ID for unique standalone-agent instance IDs. Review the permission and validate bridge startup plus Fleet Management identity continuity.",
+                  "Validate",
+                  "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1",
+                  false
+                ],
+                [
+                  "Validate Python 2.13.2 OpAMP and dependency behavior",
+                  "Python instrumentation 2.13.2 advances the OpAMP client and removes a direct requests-dependency workaround. Validate dependency resolution, startup and representative telemetry while retaining the documented 2.13.0 configuration and image checks.",
+                  "Validate",
+                  "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2",
+                  false
                 ]
               ]
             }
@@ -4280,7 +4368,7 @@
         }
       },
       "guidance": {
-        "reviewed": "2026-10-13",
+        "reviewed": "2026-10-14",
         "lifecycle": {
           "source": "https://www.splunk.com/en_us/legal/splunk-software-support-policy.html",
           "reviewed": "2026-10-01",
@@ -8613,6 +8701,12 @@
         "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.7.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations"
       },
       {
+        "id": "source-5ae897b453475a48d1e3",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2"
+      },
+      {
         "id": "source-5d0fb6d6d9ec4c9c8b4b",
         "kind": "source",
         "dataset": "sources",
@@ -8731,6 +8825,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.6.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations"
+      },
+      {
+        "id": "source-7745c9317a9a4c8dec10",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1"
       },
       {
         "id": "source-797a9dd6533cc5abce27",
@@ -10209,6 +10309,37 @@
         }
       },
       {
+        "id": "vc-10150441beeec01dca3e",
+        "kind": "feature",
+        "dataset": "products",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-5ae897b453475a48d1e3",
+            "url": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Python instrumentation 2.13.2",
+          "Telemetry & OpenTelemetry",
+          "Keep remote management dependencies current",
+          "Use the patch that advances the OpAMP client to 0.4b0 and removes the direct requests-dependency workaround while retaining the 2.13.0 configuration and image qualifications.",
+          "Separately versioned Python instrumentation · released October 13, 2026",
+          "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2"
+        ]
+      },
+      {
         "id": "vc-1167dbfa44ba49bd8a83",
         "kind": "requirement",
         "dataset": "products",
@@ -10627,6 +10758,37 @@
           "Usage & governance",
           "Retain history at lower real-time cost",
           "Archive histogram metrics and restore them on demand through Metrics Pipeline Management."
+        ]
+      },
+      {
+        "id": "vc-197720626c0251790ac8",
+        "kind": "feature",
+        "dataset": "platform",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-3695c5a42acd89a3ec01",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Python instrumentation 2.13.2",
+          "Telemetry & OpenTelemetry",
+          "Keep remote management dependencies current",
+          "Use the patch that advances the OpAMP client to 0.4b0 and removes the direct requests-dependency workaround while retaining the 2.13.0 configuration and image qualifications.",
+          "Separately versioned Python instrumentation · released October 13, 2026",
+          "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2"
         ]
       },
       {
@@ -11377,6 +11539,37 @@
         ]
       },
       {
+        "id": "vc-28285272d3729de8272e",
+        "kind": "feature",
+        "dataset": "platform",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-3695c5a42acd89a3ec01",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Kubernetes chart 0.162.1",
+          "Infrastructure & Kubernetes",
+          "Complete the Prometheus receiver transition",
+          "Adopt the chart patch that packages Collector 0.162.0, removes the Light Prometheus Receiver and its feature gate, and updates the OpAMP Bridge for cluster-unique standalone-agent identities.",
+          "Separately versioned Kubernetes chart · released October 13, 2026",
+          "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1"
+        ]
+      },
+      {
         "id": "vc-2887ffa1d390e521d45a",
         "kind": "requirement",
         "dataset": "platform",
@@ -11433,6 +11626,36 @@
           "Integrations & content",
           "Onboard more operational signals",
           "Use documented integrations for Dynatrace, Zabbix, Oracle Enterprise Manager, and Datadog."
+        ]
+      },
+      {
+        "id": "vc-28ee648a00b1832946bb",
+        "kind": "requirement",
+        "dataset": "products",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-7745c9317a9a4c8dec10",
+            "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Migrate off the Light Prometheus Receiver before chart 0.162.1",
+          "Chart 0.162.1 removes the Light Prometheus Receiver and featureGates.useLightPrometheusReceiver; autodetected endpoints always use the standard receiver. Remove the gate and validate endpoint discovery, telemetry completeness and resource use before rollout.",
+          "Blocker",
+          "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1",
+          true
         ]
       },
       {
@@ -19216,6 +19439,36 @@
         ]
       },
       {
+        "id": "vc-97f620cbb965824ecc99",
+        "kind": "requirement",
+        "dataset": "platform",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-7745c9317a9a4c8dec10",
+            "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Migrate off the Light Prometheus Receiver before chart 0.162.1",
+          "Chart 0.162.1 removes the Light Prometheus Receiver and featureGates.useLightPrometheusReceiver; autodetected endpoints always use the standard receiver. Remove the gate and validate endpoint discovery, telemetry completeness and resource use before rollout.",
+          "Blocker",
+          "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1",
+          true
+        ]
+      },
+      {
         "id": "vc-986f34c104ebb2cb6161",
         "kind": "breakingChange",
         "dataset": "platform",
@@ -19809,6 +20062,36 @@
           "APM & troubleshooting",
           "Move from a symptom to representative traces",
           "Inspect RED metrics plus the six highest-error and six longest traces from enhanced endpoint, application-instance, and service-instance detail panels."
+        ]
+      },
+      {
+        "id": "vc-a1c042e1a855c9281e06",
+        "kind": "requirement",
+        "dataset": "platform",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-5ae897b453475a48d1e3",
+            "url": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Validate Python 2.13.2 OpAMP and dependency behavior",
+          "Python instrumentation 2.13.2 advances the OpAMP client and removes a direct requests-dependency workaround. Validate dependency resolution, startup and representative telemetry while retaining the documented 2.13.0 configuration and image checks.",
+          "Validate",
+          "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2",
+          false
         ]
       },
       {
@@ -21485,6 +21768,36 @@
         ]
       },
       {
+        "id": "vc-bbd767fcec1543a7c89a",
+        "kind": "requirement",
+        "dataset": "platform",
+        "scope": {
+          "platform": "cloud",
+          "release": "10.4.2604"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-62d7e20b9432c30c8d7f",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Confirm Cloud 10.4.2604.15 before relying on its fixes",
+          "The maintenance feed lists 10.4.2604.15 and its fixed issues, but Cloud rollout remains Splunk-managed and stack-specific. Verify the exact four-segment stack version and reproduce the affected Universal Forwarder or platform workflow before closing an issue based on this release.",
+          "Validate",
+          "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
+          false
+        ]
+      },
+      {
         "id": "vc-bc324c6b1ab72e18b0ea",
         "kind": "requirement",
         "dataset": "platform",
@@ -21874,6 +22187,36 @@
           "Detection & analytics",
           "Review change with context",
           "Compare detection revisions before promoting or troubleshooting a change."
+        ]
+      },
+      {
+        "id": "vc-c0d7c9f0ba1766a43296",
+        "kind": "requirement",
+        "dataset": "platform",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-7745c9317a9a4c8dec10",
+            "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Validate chart 0.162.1 OpAMP Bridge permissions and identity",
+          "The updated bridge reads the kube-system namespace to derive the Kubernetes cluster ID for unique standalone-agent instance IDs. Review the permission and validate bridge startup plus Fleet Management identity continuity.",
+          "Validate",
+          "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1",
+          false
         ]
       },
       {
@@ -22383,6 +22726,36 @@
         ]
       },
       {
+        "id": "vc-c797168bf17bcb43e26f",
+        "kind": "requirement",
+        "dataset": "products",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-7745c9317a9a4c8dec10",
+            "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Validate chart 0.162.1 OpAMP Bridge permissions and identity",
+          "The updated bridge reads the kube-system namespace to derive the Kubernetes cluster ID for unique standalone-agent instance IDs. Review the permission and validate bridge startup plus Fleet Management identity continuity.",
+          "Validate",
+          "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1",
+          false
+        ]
+      },
+      {
         "id": "vc-c84185e7a9408feba081",
         "kind": "feature",
         "dataset": "platform",
@@ -22468,6 +22841,37 @@
           "Blocker",
           "https://advisory.splunk.com/advisories/SVD-2026-1001",
           true
+        ]
+      },
+      {
+        "id": "vc-c8fed2ce51a0f0a3cef3",
+        "kind": "feature",
+        "dataset": "products",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-7745c9317a9a4c8dec10",
+            "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Kubernetes chart 0.162.1",
+          "Infrastructure & Kubernetes",
+          "Complete the Prometheus receiver transition",
+          "Adopt the chart patch that packages Collector 0.162.0, removes the Light Prometheus Receiver and its feature gate, and updates the OpAMP Bridge for cluster-unique standalone-agent identities.",
+          "Separately versioned Kubernetes chart · released October 13, 2026",
+          "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1"
         ]
       },
       {
@@ -25810,6 +26214,36 @@
           "Blocker",
           "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.162.0",
           true
+        ]
+      },
+      {
+        "id": "vc-f220ab8ccd0cd1cd809e",
+        "kind": "requirement",
+        "dataset": "products",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-5ae897b453475a48d1e3",
+            "url": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Validate Python 2.13.2 OpAMP and dependency behavior",
+          "Python instrumentation 2.13.2 advances the OpAMP client and removes a direct requests-dependency workaround. Validate dependency resolution, startup and representative telemetry while retaining the documented 2.13.0 configuration and image checks.",
+          "Validate",
+          "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2",
+          false
         ]
       },
       {

@@ -2060,6 +2060,22 @@
               "Use the patch that reuses native-profiler arena pages across resets and refreshes gRPC, protobuf, YAML, nan, and development dependencies.",
               "Separately versioned Node.js instrumentation · released October 12, 2026",
               "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1"
+            ],
+            [
+              "Kubernetes chart 0.162.1",
+              "Infrastructure & Kubernetes",
+              "Complete the Prometheus receiver transition",
+              "Adopt the chart patch that packages Collector 0.162.0, removes the Light Prometheus Receiver and its feature gate, and updates the OpAMP Bridge for cluster-unique standalone-agent identities.",
+              "Separately versioned Kubernetes chart · released October 13, 2026",
+              "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1"
+            ],
+            [
+              "Python instrumentation 2.13.2",
+              "Telemetry & OpenTelemetry",
+              "Keep remote management dependencies current",
+              "Use the patch that advances the OpAMP client to 0.4b0 and removes the direct requests-dependency workaround while retaining the 2.13.0 configuration and image qualifications.",
+              "Separately versioned Python instrumentation · released October 13, 2026",
+              "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2"
             ]
           ],
           "technicalChanges": [
@@ -2095,6 +2111,39 @@
               "implication": "Long-running native-profiling processes can avoid the documented potential memory growth, while the dependency refresh still warrants normal patch validation.",
               "action": "Monitor representative profiler memory behavior and validate tracing plus dependency compatibility before broad rollout.",
               "source": "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1"
+            },
+            {
+              "component": "Light Prometheus Receiver feature gate",
+              "domain": "Kubernetes chart configuration",
+              "changeType": "Removed",
+              "actionLevel": "Required",
+              "from": "Chart 0.162.0 still accepts featureGates.useLightPrometheusReceiver after its earlier deprecation",
+              "to": "Chart 0.162.1 removes the Light Prometheus Receiver and its feature gate; autodetected Prometheus endpoints always use the standard Prometheus receiver",
+              "implication": "A values file that still relies on the removed gate no longer controls receiver selection, and resource use or collection behavior can change with the standard receiver.",
+              "action": "Remove the obsolete feature gate, compare representative endpoint discovery, collection completeness and resource use, and update operating thresholds before broad rollout.",
+              "source": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1"
+            },
+            {
+              "component": "Kubernetes OpAMP Bridge identity",
+              "domain": "Collector management",
+              "changeType": "Bridge version and permissions updated",
+              "actionLevel": "Review",
+              "from": "The prior chart packages an earlier OpAMP Bridge without the new cluster-ID-based standalone-agent identity path",
+              "to": "Chart 0.162.1 updates the OpAMP Bridge image to 0.161.0 and grants it read access to the kube-system namespace so the Kubernetes cluster ID can produce unique standalone-agent instance IDs",
+              "implication": "Restricted clusters can block the new lookup, while management views can identify standalone agents differently after the patch.",
+              "action": "Review the added namespace permission, validate bridge startup and cluster-ID resolution, and confirm expected standalone-agent identity continuity in Fleet Management.",
+              "source": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1"
+            },
+            {
+              "component": "Python OpAMP client dependency",
+              "domain": "Customer-managed instrumentation",
+              "changeType": "Patch dependency updated",
+              "actionLevel": "Review",
+              "from": "Python instrumentation 2.13.1 uses the preceding OpAMP client and a direct requests-dependency workaround",
+              "to": "Python instrumentation 2.13.2 uses OpAMP client 0.4b0 and removes the direct requests workaround",
+              "implication": "Remote-management initialization and resolved dependency behavior can change even though the patch does not declare a new instrumentation capability.",
+              "action": "Resolve dependencies in the target environment and validate startup, configuration delivery, traces, profiling and call graphs before broad rollout.",
+              "source": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2"
             }
           ],
           "requirements": [
@@ -2117,6 +2166,27 @@
               "Node.js instrumentation 4.12.1 fixes potential native-profiler memory growth by reusing arena pages and updates runtime dependencies. Monitor a representative long-running process and verify trace behavior before rollout.",
               "Validate",
               "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1",
+              false
+            ],
+            [
+              "Migrate off the Light Prometheus Receiver before chart 0.162.1",
+              "Chart 0.162.1 removes the Light Prometheus Receiver and featureGates.useLightPrometheusReceiver; autodetected endpoints always use the standard receiver. Remove the gate and validate endpoint discovery, telemetry completeness and resource use before rollout.",
+              "Blocker",
+              "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1",
+              true
+            ],
+            [
+              "Validate chart 0.162.1 OpAMP Bridge permissions and identity",
+              "The updated bridge reads the kube-system namespace to derive the Kubernetes cluster ID for unique standalone-agent instance IDs. Review the permission and validate bridge startup plus Fleet Management identity continuity.",
+              "Validate",
+              "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1",
+              false
+            ],
+            [
+              "Validate Python 2.13.2 OpAMP and dependency behavior",
+              "Python instrumentation 2.13.2 advances the OpAMP client and removes a direct requests-dependency workaround. Validate dependency resolution, startup and representative telemetry while retaining the documented 2.13.0 configuration and image checks.",
+              "Validate",
+              "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2",
               false
             ]
           ]

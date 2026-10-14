@@ -1,7 +1,7 @@
 /* Editorial change provenance. Cycles advance only with material factual updates. */
 (function(){
 'use strict';
-const policy={currentCycle:20,retentionCycles:2};
+const policy={currentCycle:21,retentionCycles:2};
 const note25='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-25.md';
 const note26='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-26.md';
 const note30='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-30.md';
@@ -13,6 +13,7 @@ const note07='https://github.com/LeiterConsulting/splunk-version-value-explorer/
 const note09='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-09.md';
 const note10='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-10.md';
 const note13='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-13.md';
+const note14='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-14.md';
 const enterprise1043='https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues';
 const enterprise104='https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4';
 const rum='https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.2.0';
@@ -31,6 +32,12 @@ const ingest='https://help.splunk.com/en/splunk-cloud-platform/process-data-at-i
 const fedrampModerate='https://www.fedramp.gov/marketplace/products/F1607197917/';
 const fedrampHigh='https://www.fedramp.gov/marketplace/products/FR2314156865/';
 const entries={
+"technical:platform:Cloud 10.4 maintenance build":{milestones:["Cloud 10.4.2604"],kind:"new",cycle:21,date:"2026-10-14",version:"Splunk Cloud Platform 10.4.2604.15",detail:"Added the October 12 Cloud 10.4 maintenance build and its listed Universal Forwarder and platform fixes while preserving selected-stack rollout and applicability as separate checks.",source:cloud106Maintenance,sourceDate:"2026-10-12",note:note14},
+"feature:observability:Kubernetes chart 0.162.1":{kind:"new",cycle:21,date:"2026-10-14",version:"Splunk OpenTelemetry Collector chart 0.162.1",detail:"Added the chart patch that retains Collector 0.162.0, removes the Light Prometheus Receiver and updates OpAMP Bridge identity handling.",source:"https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1",sourceDate:"2026-10-13",note:note14},
+"technical:observability:Light Prometheus Receiver feature gate":{milestones:["Oct 2026"],kind:"removed",cycle:21,date:"2026-10-14",version:"Kubernetes chart 0.162.1",detail:"Recorded removal of the Light Prometheus Receiver and its feature gate; autodetected endpoints now always use the standard receiver.",source:"https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1",sourceDate:"2026-10-13",note:note14},
+"technical:observability:Kubernetes OpAMP Bridge identity":{kind:"updated",cycle:21,date:"2026-10-14",version:"Kubernetes chart 0.162.1",detail:"Recorded OpAMP Bridge 0.161.0, its kube-system read and cluster-ID-based standalone-agent identities with scoped permission and continuity checks.",source:"https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1",sourceDate:"2026-10-13",note:note14},
+"feature:observability:Python instrumentation 2.13.2":{kind:"new",cycle:21,date:"2026-10-14",version:"Splunk OpenTelemetry Python 2.13.2",detail:"Added the OpAMP client patch and removal of the direct requests-dependency workaround without claiming a new SaaS or instrumentation capability.",source:"https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2",sourceDate:"2026-10-13",note:note14},
+"technical:observability:Python OpAMP client dependency":{kind:"updated",cycle:21,date:"2026-10-14",version:"Splunk OpenTelemetry Python 2.13.2",detail:"Advanced the OpAMP client to 0.4b0 and retained separate dependency, startup, configuration and telemetry validation.",source:"https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2",sourceDate:"2026-10-13",note:note14},
 "feature:observability:Stricter APM not-equal tag filtering":{kind:"new",cycle:20,date:"2026-10-13",version:"Observability Cloud · October 12, 2026",detail:"Added the documented APM != behavior that excludes data when the selected tag is absent; existing searches can return fewer results.",source:observabilityOct,sourceDate:"2026-10-12",note:note13},
 "technical:observability:APM not-equal tag filters":{kind:"new",cycle:20,date:"2026-10-13",version:"Observability Cloud · October 12, 2026",detail:"Recorded the missing-tag semantics change and required review of affected searches, dashboards, detectors, links and runbooks.",source:observabilityOct,sourceDate:"2026-10-12",note:note13},
 "feature:observability:Java instrumentation 2.32":{kind:"new",cycle:20,date:"2026-10-13",version:"Splunk OpenTelemetry Java 2.32.0",detail:"Added the current SDK/instrumentation baseline and virtual-thread capture in call graphs as a separately versioned component release.",source:"https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0",sourceDate:"2026-10-12",note:note13},

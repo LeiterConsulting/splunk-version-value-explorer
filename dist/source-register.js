@@ -390,6 +390,36 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1",
+      "title": "splunk otel collector 0.162.1",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Oct 2026.features.3.5",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.3.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.4.source",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.3.3",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.4.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-14",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-14",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "This customer-managed chart patch is separate from the rolling SaaS milestone, the standalone Collector release, tenant availability and application compatibility.",
+      "section": "Release description; Breaking changes; Enhancements",
+      "verificationScope": "Verified October 13, 2026 publication, continued Collector 0.162.0 packaging, removal of the Light Prometheus Receiver and feature gate, standard-receiver handling for autodetected endpoints, OpAMP Bridge 0.161.0 and the new kube-system read used to derive cluster-unique standalone-agent identities.",
+      "events": [
+        {
+          "date": "2026-10-14",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.160.0",
       "title": "v0.160.0",
       "areas": [
@@ -862,6 +892,34 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-09",
           "event": "Review status updated: Reviewed · 2026-10-09"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2",
+      "title": "v2.13.2",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Oct 2026.features.4.5",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.5.source",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.5.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-14",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-14",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "This customer-managed instrumentation patch is separate from the rolling SaaS milestone, tenant availability and application compatibility.",
+      "section": "What's Changed",
+      "verificationScope": "Verified October 13, 2026 publication, the OpAMP client update to 0.4b0 and removal of the direct requests-dependency workaround. No new instrumentation capability is inferred; the 2.13.0 configuration, dependency and image qualifications remain relevant.",
+      "events": [
+        {
+          "date": "2026-10-14",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },
@@ -1799,24 +1857,30 @@ window.VersionCompassSources = {
         "Shared guidance"
       ],
       "references": [
+        "release.cloud.releasesData.10.4.2604.technicalChanges.4.source",
+        "release.cloud.releasesData.10.4.2604.requirements.4.3",
         "release.cloud.releasesData.10.6.technicalChanges.4.source",
         "release.cloud.releasesData.10.6.requirements.6.3",
         "content-updates.js"
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": "2026-10-10",
+      "reviewed": "2026-10-14",
       "status": "Reviewed",
       "firstRecorded": "2026-10-10",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "A Cloud maintenance feed establishes the published build and its listed fixes, not deployment to every stack or a customer-managed installation path.",
-      "section": "10.6.1.X Fixed Issues — 10.6.1.0",
-      "verificationScope": "Confirmed the October 9, 2026 publication of Cloud maintenance build 10.6.1.0 and the listed deployment-server, CSV export, Universal Forwarder package-shutdown, upgrade and certificate-request receiver fixes. Security counts are retained only as preliminary context; no CVE scope, tenant rollout, entitlement, region or selected-stack applicability is inferred.",
+      "section": "10.6.1.X Fixed Issues — 10.6.1.0; 10.4.2604.X Fixed Issues — 10.4.2604.15",
+      "verificationScope": "Reconfirmed the October 9, 2026 publication of Cloud 10.6.1.0 and verified the October 12 publication of 10.4.2604.15, including its Universal Forwarder package-stop correction and listed indexer, SAML, authentication-observability and Google Cloud KMS fixes. Security counts remain preliminary context; no CVE scope, tenant rollout, entitlement, region or selected-stack applicability is inferred.",
       "events": [
         {
           "date": "2026-10-10",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-14",
+          "event": "Review status updated: Reviewed · 2026-10-14"
         }
       ]
     },
