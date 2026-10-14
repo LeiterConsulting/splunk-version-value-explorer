@@ -6,7 +6,7 @@
   "outcome": "changed",
   "sourceCheckDate": "2026-10-14",
   "scope": "All 138 previously maintained Release guide, Shared guidance, Splunk Forwarders and Splunk SOAR URLs plus two newly confirmed official component sources; current discovery streams; affected Cloud 10.4 and Observability component claims; bounded high-consequence Enterprise, Cloud, migration, Forwarder, security, premium-product, SCMA and SOAR claims. Not an exhaustive historical claim reverification.",
-  "summary": "Official evidence supports Cloud 10.4.2604.15, Kubernetes chart 0.162.1 and Python instrumentation 2.13.2. Local material checks pass; exact-candidate CI, export and publication remain pending.",
+  "summary": "Official evidence supports Cloud 10.4.2604.15, Kubernetes chart 0.162.1 and Python instrumentation 2.13.2. The exact report-input candidate passed application CI and downloaded export binding after a narrow-screen overflow was repaired; publication remains pending.",
   "sourceInventory": {
     "previouslyMaintainedUrls": 138,
     "retrieved": 136,
@@ -165,28 +165,51 @@
     "authorizationScopeChanged": false
   },
   "validation": {
-    "status": "local-checks-passed-ci-pending",
-    "candidate": null,
+    "status": "exact-candidate-passed-publication-pending",
+    "candidate": {
+      "commit": "b7930f40f2ffd44e4da72be5b0e17a3b425dacab",
+      "tree": "9a6a4c2ff2458d219e34c53ef46b511e133fceb6",
+      "workflowRun": 38548823599,
+      "workflowJob": 115801479277,
+      "successfulExportStep": "Run node tools/export-verification/verify.mjs",
+      "completedAt": "2026-10-14T10:22:38.283Z",
+      "reportFingerprint": "ce5aeb50589155970eccbd2b2addbc2e89f580836610c765877f511a79b512a8"
+    },
     "automated": {
       "syncChecks": "sync-release-metadata, sync-content, sync-source-register and sync-content-revision ran in order and all four --check gates passed",
       "tests": "175 passed; 0 failed; 0 skipped",
       "build": "54 production Worker assets"
     },
-    "exports": null,
-    "visualInspection": null,
-    "browserAndWebMcp": null
+    "exports": {
+      "artifact": "export-evidence-b7930f40f2ffd44e4da72be5b0e17a3b425dacab",
+      "artifactId": 11885368723,
+      "zipDigest": "sha256:b50051d484a5ccb44cdb6e6dfba8255885854d407fab47137e7d8480daa68ee0",
+      "cases": 44,
+      "validPdfs": 40,
+      "pdfPages": 784,
+      "offlineHtmlReopens": 40,
+      "phoneChecks": 44,
+      "artifactFilesVerified": 1197,
+      "binding": "The workflow, job and export step succeeded on the exact commit and tree. The downloaded ZIP digest matched GitHub's artifact digest; export-evidence.cjs verified the current report-input fingerprint and every retained artifact hash; check-soak.cjs --exports returned eligible-to-advance with no missing, failed or unresolved gates."
+    },
+    "visualInspection": {
+      "outcome": "passed-bounded-affected-layouts",
+      "scope": "Separately inspected both-theme phone images and affected PDF pages for the new Cloud 10.4 patch route and October Observability route, including the Light Prometheus removal and OpAMP records.",
+      "qualification": "No clipping, overlap, missing content or novel visual defect remained. This is bounded human image inspection, not a claim of human review of all 784 pages."
+    },
+    "browserAndWebMcp": "Candidate CI exercised the 44 route/theme cases, native PDF generation, independent offline HTML reopening, both-theme phone geometry, report controls and read-only tool parity as encoded by the verifier. Production D1 and live browser checks remain separate until deployment.",
+    "repairedFinding": {
+      "observed": "The first candidate let a long feature-gate token widen the October Observability action card at 390px in both themes.",
+      "impact": "Applicable phone-layout check failed, so the first candidate was held and never deployed.",
+      "change": "Added min-width: 0 and overflow-wrap: anywhere to the existing breaking-copy grid item.",
+      "validation": "Replacement exact-candidate CI passed the previously failing both-theme route plus the complete 44-case matrix."
+    }
   },
   "readiness": {
-    "status": "pending-exact-candidate-validation",
+    "status": "eligible-to-publish",
     "minimumHours": 0,
     "observationHours": 72,
-    "missing": [
-      "ordered synchronization and check gates",
-      "complete Node suite and production build",
-      "exact-candidate application CI export evidence",
-      "separate retained-image inspection",
-      "live publication verification"
-    ],
+    "missing": ["live publication verification"],
     "failed": [],
     "unresolved": []
   },
