@@ -221,13 +221,38 @@
     },
     "build": "passed: 54 assets; 727 records",
     "newRegression": "Initial shared SOAR text leaked the on-premises build reference into Cloud; repaired before candidate publication and all 178 tests then passed.",
-    "nativeExports": "pending exact-candidate CI",
-    "visualReview": "not-performed for candidate",
-    "browserAndWebMcp": "not-performed for candidate",
-    "liveD1": "not-performed for candidate"
+    "nativeExports": {
+      "outcome": "passed",
+      "workflow": ".github/workflows/validate.yml",
+      "runId": 38712186309,
+      "jobId": 116346015106,
+      "steps": "13 native Chromium/export verification; 14 readiness binding; 15 evidence retention: all successful",
+      "commit": "356052116c4c08fbbc08a786c66053a6c1c7a4dc",
+      "tree": "23e6f3f5901a8df4f7dee2d5f66f4250c8dc8fd0",
+      "artifactId": 11961352159,
+      "archiveSha256": "11506af7e47124f405012633dbbea77837c975598273f15a9acf902162ef2a7b",
+      "reportFingerprint": "90375790ed2ddcb8ca8c0c141c833cb3e475f1892fe92ee7dee44e67ae420127",
+      "completedAt": "2026-10-15T09:23:17.801Z",
+      "verifiedLocallyAt": "2026-10-15T09:25:00Z",
+      "cases": 48,
+      "validOfflineHtmlReports": 44,
+      "renderedPdfPages": 820,
+      "invalidExportsBlocked": 4,
+      "qualification": "Downloaded archive SHA256 matches GitHub artifact digest; export-evidence.cjs verifies all artifact hashes and current report inputs. Every PDF page has automated geometry/text verification, not human visual review. Offline HTML reopening blocks external network requests."
+    },
+    "visualReview": {
+      "outcome": "passed-representative-images",
+      "checkedAt": "2026-10-15T09:26:00Z",
+      "images": ["uf-security-notice-default/page-2.png", "uf-security-notice-default/page-3.png", "uf-security-notice-cisco/narrow.png", "enterprise-102-security-notice-default/narrow.png", "enterprise-102-security-notice-cisco/narrow.png", "enterprise-102-security-notice-cisco/page-07.png", "soar-cloud-default/page-6.png", "soar-cisco/page-5.png", "soar-default/narrow.png", "soar-cisco/narrow.png"],
+      "finding": "Retained representative notice/source pages and both-theme phone layouts are legible without clipped report text. Notice remains separate from existing security floors and SOAR build requirements. Not all 820 page images were manually inspected."
+    },
+    "browserAndWebMcp": "Candidate native Chromium browser/keyboard checks passed in CI; separate public post-deployment browser/WebMCP checks pending.",
+    "liveD1": "Retained baseline diagnostic passed all six checks at 2026-10-15T09:21:15.236Z; candidate post-deployment D1 verification pending."
   },
   "readiness": {
-    "status": "held-for-applicable-candidate-verification"
+    "status": "eligible-to-advance",
+    "evaluatedAt": "2026-10-15T09:27:00Z",
+    "evidence": "2026-10-15-version-release-watch-soak.json with verified exports: no missing, failed or scoped-out gates; zero minimum wait."
   },
   "publication": {
     "status": "not-published"
