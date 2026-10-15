@@ -226,10 +226,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-15T09:08:16Z",
-      "lastSuccess": "2026-10-15T09:17:22Z",
-      "outcome": "changed",
-      "summary": "Reviewed all 140 maintained URLs and new discovery; staged the October 21 advisory advance notice without inferring CVEs, affected ranges or deployment scope.",
+      "lastAttempt": "2026-10-15T09:42:19Z",
+      "lastSuccess": "2026-10-15T09:45:08Z",
+      "outcome": "no-change",
+      "summary": "No additional factual change after the October 15 security-notice publication; current release and consequential claim checks remain qualified.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -439,9 +439,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Reviewed all 140 maintained URLs and new discovery; staged the October 21 advisory advance notice without inferring CVEs, affected ranges or deployment scope.",
           "scope": "138 maintained URLs retrieved; two retired historical pages unavailable; one new official notice and 12 bounded consequential claims. Candidate publication/export/live checks remain separate."
+        },
+        {
+          "at": "2026-10-15T09:42:19Z",
+          "outcome": "running",
+          "summary": "Rechecking current official release inventory after the verified October 15 publication.",
+          "scope": "Complete 141-URL maintained release inventory, newer-release discovery and bounded consequential claims; no duplicate factual batch."
+        },
+        {
+          "at": "2026-10-15T09:45:08Z",
+          "outcome": "no-change",
+          "summary": "No additional factual change after the October 15 security-notice publication; current release and consequential claim checks remain qualified.",
+          "scope": "141 official URLs attempted, 139 retrieved, two retired historical pages unavailable; current-version discovery and eight bounded consequential claims. Source access is not complete claim reverification."
         }
       ],
-      "scope": "138 maintained URLs retrieved; two retired historical pages unavailable; one new official notice and 12 bounded consequential claims. Candidate publication/export/live checks remain separate."
+      "scope": "141 official URLs attempted, 139 retrieved, two retired historical pages unavailable; current-version discovery and eight bounded consequential claims. Source access is not complete claim reverification."
     },
     {
       "id": "es-editions-watch",
