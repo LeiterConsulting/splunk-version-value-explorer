@@ -3627,6 +3627,45 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/manage-workloads/10.6/use-workload-management-on-kubernetes",
+      "title": "Enterprise 10.6 workload management on Kubernetes",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.prep11workload.url",
+        "guidance: guidance.preparation11.baseline.3"
+      ],
+      "reviews": [
+        "2026-10-15"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.preparation11.baseline.3",
+          "section": "Workload management modes"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-15",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-15",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Workload management modes",
+      "verificationScope": "October 15 preparation-page review: Workload management modes. Current-version or adjacent-product evidence does not establish 11.x requirements, compatibility or availability.",
+      "events": [
+        {
+          "date": "2026-10-15",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-15",
+          "event": "Review status updated: Reviewed · 2026-10-15"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.0-read-this-first",
       "title": "Universal Forwarder upgrade to 10.0",
       "areas": [
@@ -4124,18 +4163,21 @@ window.VersionCompassSources = {
         "release.enterprise.releasesData.10.6.source",
         "release.enterprise.releasesData.10.6.technicalChanges.6.source",
         "release.enterprise.releasesData.10.6.requirements.5.3",
+        "release.guidance.sources.prep11enterprise.url",
         "content-updates.js"
       ],
-      "reviews": [],
+      "reviews": [
+        "2026-10-15"
+      ],
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-15",
       "status": "Reviewed",
       "firstRecorded": "2026-10-01",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "The release milestone is kept separate from route, support-policy and compatibility evidence.",
-      "section": "Welcome; What's new in 10.6",
-      "verificationScope": "Confirmed the September 30, 2026 Enterprise 10.6 publication, cohosted PostgreSQL KV Store transition, $8 encrypted-secret format, four-segment version format, Federated Search floor and Universal Forwarder 10.6 certification. Release publication does not establish an upgrade edge, lifecycle deadline, OS tuple, receiver pairing or app entitlement.",
+      "section": "Welcome; What's new in 10.6; Release introduction; upgrade and system-requirement links",
+      "verificationScope": "Confirmed the September 30, 2026 Enterprise 10.6 publication, cohosted PostgreSQL KV Store transition, $8 encrypted-secret format, four-segment version format, Federated Search floor and Universal Forwarder 10.6 certification. Release publication does not establish an upgrade edge, lifecycle deadline, OS tuple, receiver pairing or app entitlement. October 15 preparation-page review: Release introduction; upgrade and system-requirement links. Current-version or adjacent-product evidence does not establish 11.x requirements, compatibility or availability.",
       "events": [
         {
           "date": "2026-10-01",
@@ -4144,6 +4186,14 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-15",
+          "event": "Review status updated: Reviewed · 2026-10-15"
+        },
+        {
+          "date": "2026-10-15",
+          "event": "Review status updated: Reviewed · 2026-10-15"
         }
       ]
     },
@@ -4331,6 +4381,89 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix",
+      "title": "Splunk Operator 3.2 compatibility matrix",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.prep11operator.url",
+        "guidance: guidance.preparation11.baseline.0"
+      ],
+      "reviews": [
+        "2026-10-15"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.preparation11.baseline.0",
+          "section": "SOK to Splunk Enterprise version compatibility; Upgrade path guidance"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-15",
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-10-15",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "The 3.2 help matrix and linked change log retain differing Kubernetes maxima and release dates; both statements remain visible on the preparation page.",
+      "section": "SOK to Splunk Enterprise version compatibility; Upgrade path guidance",
+      "verificationScope": "October 15 preparation-page review: SOK to Splunk Enterprise version compatibility; Upgrade path guidance. Current-version or adjacent-product evidence does not establish 11.x requirements, compatibility or availability.",
+      "events": [
+        {
+          "date": "2026-10-15",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-15",
+          "event": "Review status updated: Needs reconciliation · 2026-10-15"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/splunk-validated-architectures/applied-svas/splunk-operator-for-kubernetes",
+      "title": "Splunk Validated Architecture: Operator for Kubernetes",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.prep11architecture.url",
+        "guidance: guidance.preparation11.baseline.1",
+        "guidance: guidance.preparation11.baseline.2"
+      ],
+      "reviews": [
+        "2026-10-15"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.preparation11.baseline.1",
+          "section": "Deployment Options; Storage Considerations; Application Lifecycle Management / App Framework / Premium Apps; Resilience and Scaling"
+        },
+        {
+          "path": "guidance: guidance.preparation11.baseline.2",
+          "section": "Deployment Options; Storage Considerations; Application Lifecycle Management / App Framework / Premium Apps; Resilience and Scaling"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-15",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-15",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Deployment Options; Storage Considerations; Application Lifecycle Management / App Framework / Premium Apps; Resilience and Scaling",
+      "verificationScope": "October 15 preparation-page review: Deployment Options; Storage Considerations; Application Lifecycle Management / App Framework / Premium Apps; Resilience and Scaling. Current-version or adjacent-product evidence does not establish 11.x requirements, compatibility or availability.",
+      "events": [
+        {
+          "date": "2026-10-15",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-15",
+          "event": "Review status updated: Reviewed · 2026-10-15"
         }
       ]
     },
@@ -6123,22 +6256,40 @@ window.VersionCompassSources = {
       "references": [
         "release.migration.sources.readiness",
         "release.migration.operatingBenefits.7.5",
-        "release.migration.steps.0.4"
+        "release.migration.steps.0.4",
+        "release.guidance.sources.prep11migration.url",
+        "guidance: guidance.preparation11.baseline.4"
       ],
-      "reviews": [],
+      "reviews": [
+        "2026-10-15"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.preparation11.baseline.4",
+          "section": "Organizational readiness guide: staffing plan, communications plan and post-migration staffing transition plan"
+        }
+      ],
       "usage": "In use",
-      "reviewed": null,
-      "status": "Review date unknown",
+      "reviewed": "2026-10-15",
+      "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "section": "Organizational readiness guide: staffing plan, communications plan and post-migration staffing transition plan",
+      "verificationScope": "October 15 preparation-page review: Organizational readiness guide: staffing plan, communications plan and post-migration staffing transition plan. Current-version or adjacent-product evidence does not establish 11.x requirements, compatibility or availability.",
       "events": [
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-15",
+          "event": "Review status updated: Reviewed · 2026-10-15"
+        },
+        {
+          "date": "2026-10-15",
+          "event": "Review status updated: Reviewed · 2026-10-15"
         }
       ]
     },
@@ -6167,6 +6318,84 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m09/cisco-delivers-trusted-ai-at-scale-through-new-splunk-advancements.html",
+      "title": "Cisco announces self-managed Splunk AI",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.prep11ainews.url",
+        "guidance: guidance.preparation11.contextUpdates.1"
+      ],
+      "reviews": [
+        "2026-10-15"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.preparation11.contextUpdates.1",
+          "section": "Self-managed Splunk AI, accelerated by NVIDIA"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-15",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-15",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Self-managed Splunk AI, accelerated by NVIDIA",
+      "verificationScope": "October 15 preparation-page review: Self-managed Splunk AI, accelerated by NVIDIA. Current-version or adjacent-product evidence does not establish 11.x requirements, compatibility or availability.",
+      "events": [
+        {
+          "date": "2026-10-15",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-15",
+          "event": "Review status updated: Reviewed · 2026-10-15"
+        }
+      ]
+    },
+    {
+      "url": "https://splunk.github.io/splunk-operator/reference/ChangeLog.html",
+      "title": "Splunk Operator change log",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.prep11changelog.url",
+        "guidance: guidance.preparation11.baseline.0"
+      ],
+      "reviews": [
+        "2026-10-15"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.preparation11.baseline.0",
+          "section": "3.2.0 (2026-09-08); Breaking Changes; Supported Kubernetes and Splunk versions"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-15",
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-10-15",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "The 3.2 help matrix and linked change log retain differing Kubernetes maxima and release dates; both statements remain visible on the preparation page.",
+      "section": "3.2.0 (2026-09-08); Breaking Changes; Supported Kubernetes and Splunk versions",
+      "verificationScope": "October 15 preparation-page review: 3.2.0 (2026-09-08); Breaking Changes; Supported Kubernetes and Splunk versions. Current-version or adjacent-product evidence does not establish 11.x requirements, compatibility or availability.",
+      "events": [
+        {
+          "date": "2026-10-15",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-15",
+          "event": "Review status updated: Needs reconciliation · 2026-10-15"
         }
       ]
     },
@@ -6534,6 +6763,47 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-09",
           "event": "Review status updated: Reviewed · 2026-10-09"
+        }
+      ]
+    },
+    {
+      "url": "https://www.splunk.com/en_us/blog/platform/announcing-splunk-cloud-platform-10-6-and-splunk-enterprise-10-6.html",
+      "title": "Splunk Platform 10.6 public announcement",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.guidance.sources.prep11platformnews.url",
+        "content-updates.js",
+        "guidance: guidance.preparation11.contextUpdates.0"
+      ],
+      "reviews": [
+        "2026-10-15"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.preparation11.contextUpdates.0",
+          "section": "Keep Apps and Integrations Ready for Updated Versioning"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-15",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-15",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Keep Apps and Integrations Ready for Updated Versioning",
+      "verificationScope": "October 15 preparation-page review: Keep Apps and Integrations Ready for Updated Versioning. Current-version or adjacent-product evidence does not establish 11.x requirements, compatibility or availability.",
+      "events": [
+        {
+          "date": "2026-10-15",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-15",
+          "event": "Review status updated: Reviewed · 2026-10-15"
         }
       ]
     },

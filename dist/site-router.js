@@ -30,6 +30,11 @@
     };
     document.body.appendChild(script);
   }
+  if(params.getAll('view').includes('splunk-11')){
+    document.querySelector('main').innerHTML='<section class="hero"><p role="status">Loading Splunk 11.x preparation…</p></section>';
+    for(const file of ['editions.css','perspectives.css','prep11.css']){const css=document.createElement('link');css.rel='stylesheet';css.href=file;document.head.appendChild(css);}
+    load(['content-revision.js','source-register.js','report-tools.js','data.js','guidance-data.js','prep11.js','prep11-ui.js','navigation.js']);return;
+  }
   if(params.get('product')==='soar'&&!params.has('view')){document.querySelector('main').innerHTML=document.querySelector('.product-switcher').outerHTML+'<p role="status" class="soar-loading">Loading SOAR comparison…</p>';load(['content-revision.js','source-register.js','evidence.js','report-tools.js','environment-data.js','environment.js','data.js','product-data.js','guidance-data.js','comparison.js','guidance.js','soar-data.js','soar.js','soar-ui.js','webmcp.js','navigation.js']);return;}
   if(params.get('product')==='forwarders'&&!params.has('view')){load(['content-revision.js','source-register.js','evidence.js','report-tools.js','data.js','product-data.js','comparison.js','forwarders-data.js','forwarders.js','forwarders-ui.js','navigation.js']);return;}
   if(params.getAll('view').length===1&&params.get('view')==='about'){load(['source-register.js','maintenance-status.js','about.js','navigation.js']);return;}

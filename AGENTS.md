@@ -1,5 +1,9 @@
 # VersionCompass working contract
 
+## October 15 future-release preparation page
+
+The owner authorizes the normal-navigation `?view=splunk-11` preparation page for upcoming Splunk Enterprise 11.x and later. Read docs/prep11.md. Version Release Watch owns public announcement discovery and the canonical `guidance.preparation11` set; Guidance Audit independently checks completeness. Preserve explicit unknowns, the current Operator source conflict and the difference between current-release preparation context, announced plans and released requirements. Existing watches, schedules, source/privacy boundaries and agent tool names stay unchanged.
+
 ## October 9 PDF/HTML process repair
 
 Read docs/export-verification.md before report/content publication. Required validation CI now generates native Chromium PDFs, renders/checks every page, independently reopens downloaded HTML offline, and checks both themes at phone width. Wait for the exact candidate's successful export step, download its retained artifact, and validate it with scripts/export-evidence.cjs. Use check-soak.cjs --exports for identical report inputs; verification may precede deployment. Preserve accepted owner evidence in its original scope. Missing interactive browser capabilities alone must not trigger rollback of a healthy verified deployment. Hold unverified new candidates; roll back for recorded applicable failures or unsafe published guidance. Automated geometry checks are not human visual review. This supersedes wording implying every assistant session must repeat native export checks.

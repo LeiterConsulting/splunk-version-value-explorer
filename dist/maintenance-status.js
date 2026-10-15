@@ -226,10 +226,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-15T09:42:19Z",
-      "lastSuccess": "2026-10-15T09:45:08Z",
-      "outcome": "no-change",
-      "summary": "No additional factual change after the October 15 security-notice publication; current release and consequential claim checks remain qualified.",
+      "lastAttempt": "2026-10-15T16:33:49.207702Z",
+      "lastSuccess": "2026-10-15T16:33:49.277685Z",
+      "outcome": "changed",
+      "summary": "Added a dedicated future-release preparation page with eight cited public sources, two scoped current-context announcements, five preparation areas and six explicit open questions. No 11.x release requirement is inferred.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -451,9 +451,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "No additional factual change after the October 15 security-notice publication; current release and consequential claim checks remain qualified.",
           "scope": "141 official URLs attempted, 139 retrieved, two retired historical pages unavailable; current-version discovery and eight bounded consequential claims. Source access is not complete claim reverification."
+        },
+        {
+          "at": "2026-10-15T16:33:49.207702Z",
+          "outcome": "running",
+          "summary": "Integrating the owner-requested public-source Splunk 11.x preparation page and verifying its bounded content scope.",
+          "scope": "Owner-requested Prep for Splunk 11.x page only: eight public URLs, seven scoped current-context records, unknown future release requirements, route/export behavior and maintenance ownership; this does not repeat the earlier full release inventory."
+        },
+        {
+          "at": "2026-10-15T16:33:49.277685Z",
+          "outcome": "changed",
+          "summary": "Added a dedicated future-release preparation page with eight cited public sources, two scoped current-context announcements, five preparation areas and six explicit open questions. No 11.x release requirement is inferred.",
+          "scope": "Owner-requested Prep for Splunk 11.x page only: eight public URLs, seven scoped current-context records, unknown future release requirements, route/export behavior and maintenance ownership; this does not repeat the earlier full release inventory."
         }
       ],
-      "scope": "141 official URLs attempted, 139 retrieved, two retired historical pages unavailable; current-version discovery and eight bounded consequential claims. Source access is not complete claim reverification."
+      "scope": "Owner-requested Prep for Splunk 11.x page only: eight public URLs, seven scoped current-context records, unknown future release requirements, route/export behavior and maintenance ownership; this does not repeat the earlier full release inventory."
     },
     {
       "id": "es-editions-watch",

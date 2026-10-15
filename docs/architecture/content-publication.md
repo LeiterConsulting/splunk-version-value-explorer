@@ -2,6 +2,8 @@
 
 ## Authority and current increment
 
+The October 15 future-release page uses the bounded `preparation11` content set and prefixed source catalog inside the existing canonical `guidance.json` dataset. It therefore shares the complete atomic bundle and generated guidance adapter without expanding the publication schema or public agent tools. See [preparation scope](../prep11.md).
+
 The October 5, 2026 migration introduces canonical JSON content, stable record identities, a read-only D1 projection and a browser loader. The seven factual datasets were converted without changing their values. Generated adapters allow the existing comparison, print, snapshot and WebMCP engines to consume either delivery path.
 
 Edit `content/datasets/*.json`, not generated `dist/*-data.js` or `dist/data.js`. Platform/migration content lives in `platform.json`; ES/ITSI/Observability in `products.json`; policy metadata in `guidance.json`; environment, editions, Forwarders and SOAR have separate files. `scripts/sync-content.cjs` generates the catalog, publication manifest, public bundles and adapters. Preserve `content/identities.json`; when renaming a record, move its mapping to the new logical key rather than generating a new ID.

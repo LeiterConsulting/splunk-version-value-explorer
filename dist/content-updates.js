@@ -1,7 +1,7 @@
 /* Editorial change provenance. Cycles advance only with material factual updates. */
 (function(){
 'use strict';
-const policy={currentCycle:22,retentionCycles:2};
+const policy={currentCycle:23,retentionCycles:2};
 const note25='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-25.md';
 const note26='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-26.md';
 const note30='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-30.md';
@@ -32,6 +32,7 @@ const ingest='https://help.splunk.com/en/splunk-cloud-platform/process-data-at-i
 const fedrampModerate='https://www.fedramp.gov/marketplace/products/F1607197917/';
 const fedrampHigh='https://www.fedramp.gov/marketplace/products/FR2314156865/';
 const entries={
+"guide:splunk11":{kind:"new",cycle:23,date:"2026-10-15",version:"Upcoming Enterprise 11.x+ preparation; current-release context",detail:"Added a public-source preparation page with a dated announcement feed, current documentation, explicit open questions and complete report exports. Future requirements remain unconfirmed until cited public evidence is available.",source:"https://www.splunk.com/en_us/blog/platform/announcing-splunk-cloud-platform-10-6-and-splunk-enterprise-10-6.html",sourceDate:"2026-09-30",note:"https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-15.md"},
 "technical:platform:October 21 security advisory advance notice":{milestones:["Enterprise 9.4","Enterprise 10.0","Enterprise 10.2","Enterprise 10.4"],kind:"new",cycle:22,date:"2026-10-15",version:"Named Enterprise and Universal Forwarder maintenance versions; SOAR 8.7.0",detail:"Added the October 14 advance notice for planned October 21 security advisories. No CVE, affected range, universal safe patch, Cloud rollout or authorization is inferred.",source:"https://advisory.splunk.com/advisories/SVD-2026-1006",sourceDate:"2026-10-14",note:"https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-15.md"},
 "product:soar:security-notice-20261021":{kind:"new",cycle:22,date:"2026-10-15",version:"SOAR 8.7.0; deployment and exact build unspecified by notice",detail:"Added the planned October 21 disclosure without replacing corrected build 243, Python requirements, existing advisories or deployment-specific upgrade guidance.",source:"https://advisory.splunk.com/advisories/SVD-2026-1006",sourceDate:"2026-10-14",note:"https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-15.md"},
 "technical:platform:Cloud 10.4 maintenance build":{milestones:["Cloud 10.4.2604"],kind:"new",cycle:21,date:"2026-10-14",version:"Splunk Cloud Platform 10.4.2604.15",detail:"Added the October 12 Cloud 10.4 maintenance build and its listed Universal Forwarder and platform fixes while preserving selected-stack rollout and applicability as separate checks.",source:cloud106Maintenance,sourceDate:"2026-10-12",note:note14},

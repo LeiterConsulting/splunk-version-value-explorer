@@ -32,7 +32,7 @@ jobs:
           path: export-artifacts/
           if-no-files-found: error
           retention-days: 30
-      - name: Retain affected Cloud images for visual review
+      - name: Retain affected route images for visual review
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -49,5 +49,9 @@ jobs:
             export-artifacts/cloud-cisco/page-*.png
             export-artifacts/cloud-cisco/inspection.json
             export-artifacts/cloud-cisco/content.txt
+            export-artifacts/prep11-default/
+            export-artifacts/prep11-cisco/
+            export-artifacts/prep11-shared-default/
+            export-artifacts/prep11-shared-cisco/
           if-no-files-found: error
           retention-days: 30

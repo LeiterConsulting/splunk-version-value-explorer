@@ -66,6 +66,24 @@ try {
     await context.route('**/*', r => new URL(r.request().url()).hostname === '127.0.0.1' ? r.continue() : r.abort());
     const url = 'http://127.0.0.1:4173/?' + route.query + (theme === 'cisco' ? '&theme=cisco' : '');
     await page.goto(url); await settled(page);
+    if(route.id.startsWith('prep11')) {
+      assert(await page.locator('#prep11-title').isVisible());
+      assert.equal(await page.locator('.site-nav a[aria-current="page"]').getAttribute('href'),theme==='cisco'?'/?view=splunk-11&theme=cisco':'?view=splunk-11');
+      if(route.invalid) {
+        assert(await page.locator('#prep11-warning').isVisible());
+        assert(await page.locator('#prep11-content').isHidden());
+        assert.equal(await page.locator('main>.prep11-report').count(),0);
+        assert.equal(await page.evaluate(()=>location.search),new URL(url).search);
+      } else {
+        assert((await page.locator('#prep11-title').innerText()).includes('Prep for Splunk 11.x'));
+        assert.equal(await page.locator('.prep11-question-grid .prep11-question').count(),6);
+        const prior=await page.locator('#prep11-update-type').inputValue();
+        await page.locator('#prep11-update-type').selectOption('announcement');
+        assert((await page.locator('#prep11-update-list').innerText()).includes('No version-specific 11.x announcement'));
+        await page.locator('#prep11-update-type').selectOption(prior);
+        if(route.id==='prep11-shared')assert.equal(await page.locator('#prep11-count').innerText(),'1 of 5 preparation areas');
+      }
+    }
     const print = page.locator('#print-report, #edition-print').first();
     assert.equal(await page.evaluate(() => document.documentElement.classList.contains('theme-cisco')), theme === 'cisco');
     entry.screen = relative(path.join(directory, 'desktop.png')); await page.screenshot({path:path.join(output,entry.screen)});

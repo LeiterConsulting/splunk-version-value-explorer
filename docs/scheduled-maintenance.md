@@ -6,6 +6,8 @@ This document describes the maintenance model and its boundaries. It is a concep
 
 ## Review coverage and cadence
 
+The owner-authorized [Splunk 11.x preparation page](prep11.md) is covered by the existing Release Watch and Guidance Audit. Its public announcements, current preparation context and unconfirmed future requirements remain distinct. No additional schedule is created.
+
 The configured schedules below use America/New_York time, including daylight-saving changes. They describe intended cadence, not a guarantee of execution or publication at an exact minute.
 
 | Review | Scheduled cadence | Responsibility |

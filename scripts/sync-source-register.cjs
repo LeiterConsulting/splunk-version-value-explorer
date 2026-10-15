@@ -51,6 +51,7 @@ function resolveReferences(root,area,retainClaimSections=false){
  }
  visit(root,area);
 }
+resolveReferences(context.window.SPLUNK_DATA.guidance,'guidance',true);
 resolveReferences(context.window.VersionCompassEnvironmentData,'environment');
 resolveReferences(context.window.VersionCompassEditions,'editions');
 resolveReferences(context.window.VersionCompassForwarderData,'forwarders',true);
