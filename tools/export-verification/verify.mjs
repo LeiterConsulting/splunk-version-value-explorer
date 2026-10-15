@@ -64,7 +64,9 @@ try {
     const page = await context.newPage(), errors = []; page.on('pageerror', e => errors.push(e.message));
     // Restrict application CI to its own local Worker; no external source or customer requests.
     await context.route('**/*', r => new URL(r.request().url()).hostname === '127.0.0.1' ? r.continue() : r.abort());
-    const url = 'http://127.0.0.1:4173/?' + route.query + (theme === 'cisco' ? '&theme=cisco' : '');
+    const routeUrl = new URL('http://127.0.0.1:4173/?' + route.query);
+    if (theme === 'cisco') routeUrl.searchParams.set('theme','cisco');
+    const url = routeUrl.href;
     await page.goto(url); await settled(page);
     if(route.id.startsWith('prep11')) {
       assert(await page.locator('#prep11-title').isVisible());
