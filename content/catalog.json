@@ -518,6 +518,12 @@
       "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.6.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations"
     },
     {
+      "id": "source-75465dfa1fcd93cce99c",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1006"
+    },
+    {
       "id": "source-7745c9317a9a4c8dec10",
       "kind": "source",
       "dataset": "sources",
@@ -3742,6 +3748,83 @@
       ]
     },
     {
+      "id": "vc-2ea917f587b52912e7e4",
+      "kind": "issue",
+      "dataset": "soar",
+      "scope": {
+        "regions": {
+          "aws": [
+            "Oregon",
+            "Virginia",
+            "London",
+            "Dublin",
+            "Frankfurt",
+            "Milan",
+            "Paris",
+            "Mumbai",
+            "Seoul",
+            "Singapore",
+            "Sydney",
+            "Tokyo",
+            "Canada Central",
+            "Canada West"
+          ],
+          "gcp": [
+            "Iowa",
+            "London",
+            "Dammam",
+            "Belgium",
+            "Frankfurt",
+            "Singapore",
+            "Sydney",
+            "Montreal"
+          ],
+          "azure": [
+            "Phoenix",
+            "Virginia",
+            "London",
+            "Tokyo"
+          ]
+        },
+        "release": "8.7.0",
+        "deployments": [
+          "cmp",
+          "cloud"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "source-75465dfa1fcd93cce99c",
+          "url": "https://advisory.splunk.com/advisories/SVD-2026-1006",
+          "section": "Description; SOAR 8.7.0 entry; preparation recommendation; deployment and exact build not specified",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-15",
+          "sourceChecked": "2026-10-15"
+        }
+      ],
+      "verification": {
+        "date": "2026-10-15",
+        "outcome": "Recorded in original claim"
+      },
+      "payload": {
+        "id": "security-notice-20261021",
+        "title": "October 21 security advisory advance notice",
+        "detail": "The October 14 notice names SOAR 8.7.0 for planned October 21, 2026 advisories and recommends the listed or latest available version. No CVEs, affected-version range, exact build or Cloud/on-premises scope is disclosed. This does not replace deployment-specific build fixes, Python 3.13, existing upgrade and credential-manager actions, or establish tenant rollout. Prepare using deployment-specific release evidence and recheck the definitive advisories.",
+        "kind": "issue",
+        "release": "8.7.0",
+        "src": [
+          "securityNotice"
+        ],
+        "deployments": [
+          "cmp",
+          "cloud"
+        ],
+        "status": "Advance notice; deployment scope unestablished",
+        "verified": "2026-10-15",
+        "target": true
+      }
+    },
+    {
       "id": "vc-2f24ad67a2ba87b41c8b",
       "kind": "requirement",
       "dataset": "platform",
@@ -5099,6 +5182,30 @@
           "agentic",
           "rn87"
         ]
+      }
+    },
+    {
+      "id": "vc-468c124c66deef1c781f",
+      "kind": "claim",
+      "dataset": "forwarders",
+      "scope": {},
+      "evidence": [
+        {
+          "sourceId": "source-75465dfa1fcd93cce99c",
+          "url": "https://advisory.splunk.com/advisories/SVD-2026-1006",
+          "section": "Description; Enterprise and Universal Forwarder version lists; preparation recommendation",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-15",
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": {
+        "title": "October 21 planned security disclosure; not CVE details or a new universal floor",
+        "src": "securityNotice"
       }
     },
     {
@@ -6720,6 +6827,28 @@
         "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.162.0",
         true
       ]
+    },
+    {
+      "id": "vc-5923505173cbee5ac01d",
+      "kind": "claim",
+      "dataset": "forwarders",
+      "scope": {},
+      "evidence": [],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": {
+        "title": "October 21 security advisory advance notice",
+        "source": "securityNotice",
+        "versions": {
+          "9.4": "9.4.16",
+          "10.0": "10.0.11",
+          "10.2": "10.2.8",
+          "10.4": "10.4.4"
+        },
+        "detail": "Published October 14: Splunk plans Enterprise and Universal Forwarder advisories for October 21, 2026 and recommends the listed or latest available software. This advance notice does not disclose CVEs or affected ranges, replace existing advisory-specific remediation, or establish Cloud rollout or a safe 10.6 exemption."
+      }
     },
     {
       "id": "vc-59485b089bf7c9c47c96",

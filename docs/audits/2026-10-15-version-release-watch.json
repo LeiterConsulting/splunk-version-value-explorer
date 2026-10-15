@@ -1,0 +1,235 @@
+{
+  "schemaVersion": 1,
+  "watch": "version-release-watch",
+  "startedAt": "2026-10-15T09:08:16Z",
+  "completedAt": "2026-10-15T09:17:22Z",
+  "outcome": "changed",
+  "sourceCheckDate": "2026-10-15",
+  "scope": "Complete 140-URL maintained release inventory, new official discovery, one new advance-notice source and 12 bounded consequential claim checks. Not exhaustive historical claim reverification.",
+  "baseline": {
+    "githubCommit": "0c59cb6c0246b3b12da696a315c450de2d811353",
+    "githubTree": "d1c445238d727f534ce1e9e6af017f7649788923",
+    "siteSourceCommit": "743a150b7ec74ca3064a13a913539361be3db30f",
+    "siteVersion": 158
+  },
+  "summary": "Staged October 14 advance notice of planned October 21 advisories, separately from disclosed vulnerability details and existing floors. No new release line or component release established.",
+  "sourceInventory": {
+    "previouslyMaintainedUrls": 140,
+    "retrieved": 138,
+    "unavailable": 2,
+    "newOfficialSourcesRetrieved": 1,
+    "sourceLedger": "2026-10-15-version-release-watch-sources.json",
+    "method": "All maintained URLs requested through public web retrieval; GitHub release/PR URLs additionally retrieved through connected GitHub API. Access is not claim verification."
+  },
+  "verifiedClaims": [
+    {
+      "claimId": "security:advance-notice:SVD-2026-1006",
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1006",
+      "section": "Description and exact named-product version lists",
+      "productVersionEnvironment": "Enterprise/UF 9.4.16, 10.0.11, 10.2.8, 10.4.4; SOAR 8.7.0",
+      "outcome": "confirmed-new-advance-notice",
+      "qualification": "Published October 14; planned October 21 disclosure. No CVEs, affected ranges, exact SOAR build/deployment or 10.6 exemption disclosed. Existing advisory-specific remediation remains.",
+      "followUp": "Recheck definitive public advisories on October 21; do not create a new timer.",
+      "sourceCheckDate": "2026-10-15",
+      "claimVerificationDate": "2026-10-15"
+    },
+    {
+      "claimId": "release:enterprise:10.6",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6",
+      "section": "Release statement",
+      "productVersionEnvironment": "Enterprise 10.6",
+      "outcome": "confirmed-unchanged",
+      "qualification": "September 30 release remains current; compatibility and upgrade paths remain independent.",
+      "followUp": "Continue current release discovery.",
+      "sourceCheckDate": "2026-10-15",
+      "claimVerificationDate": "2026-10-15"
+    },
+    {
+      "claimId": "upgrade:enterprise-hf:10.6",
+      "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise",
+      "section": "Upgrade path table",
+      "productVersionEnvironment": "Enterprise/HF 9.4 through 10.6",
+      "outcome": "confirmed-unchanged",
+      "qualification": "9.4 uses 10.0 or 10.2 bridge. The KV-specific source bridge remains separate from the general table.",
+      "followUp": "Preserve exact target instructions and KV caveat.",
+      "sourceCheckDate": "2026-10-15",
+      "claimVerificationDate": "2026-10-15"
+    },
+    {
+      "claimId": "upgrade:uf:10.6",
+      "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first",
+      "section": "Key points for upgrading",
+      "productVersionEnvironment": "UF 10.0.x and higher to 10.6",
+      "outcome": "confirmed-unchanged",
+      "qualification": "Direct UF upgrade support is not receiver, OS, premium-app or Cloud authorization evidence.",
+      "followUp": "Keep UF and HF evidence separate.",
+      "sourceCheckDate": "2026-10-15",
+      "claimVerificationDate": "2026-10-15"
+    },
+    {
+      "claimId": "receiver:forwarders:10.6",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers",
+      "section": "Forwarder/indexer and intermediate-tier tables",
+      "productVersionEnvironment": "UF/HF; Enterprise receiver 9.4 through 10.6",
+      "outcome": "confirmed-unchanged",
+      "qualification": "E/H/M and intermediate-tier compatibility remain separate from Cloud-facing topology and lifecycle.",
+      "followUp": "Preserve exact mode and receiving-leg scope.",
+      "sourceCheckDate": "2026-10-15",
+      "claimVerificationDate": "2026-10-15"
+    },
+    {
+      "claimId": "compatibility:kv-store:premium-apps",
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+      "section": "Prepare for upgrade",
+      "productVersionEnvironment": "Enterprise 10.6; ES 8.7 and lower; ITSI 5.0.x and lower",
+      "outcome": "confirmed-unchanged",
+      "qualification": "Postpone cohosted KV Store v1.0 migration; not a Cloud configuration instruction.",
+      "followUp": "Retain postponement until exact compatibility changes.",
+      "sourceCheckDate": "2026-10-15",
+      "claimVerificationDate": "2026-10-15"
+    },
+    {
+      "claimId": "release:es:8.7.1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "What's new in 8.7.1",
+      "productVersionEnvironment": "ES 8.7.1",
+      "outcome": "confirmed-unchanged",
+      "qualification": "October 1 release remains current; App/Export exact pairing does not inherit the independent release number.",
+      "followUp": "Coordinate edition and pairing scope with ES Editions Watch.",
+      "sourceCheckDate": "2026-10-15",
+      "claimVerificationDate": "2026-10-15"
+    },
+    {
+      "claimId": "release:itsi:5.0.2",
+      "url": "https://splunkbase.splunk.com/app/1841",
+      "section": "Default Version and Compatibility",
+      "productVersionEnvironment": "ITSI 5.0.2",
+      "outcome": "confirmed-unchanged",
+      "qualification": "Current listing remains 5.0.2 dated September 17; Cloud pairing and exact related-app matrix remain separate.",
+      "followUp": "Continue release and matrix discovery.",
+      "sourceCheckDate": "2026-10-15",
+      "claimVerificationDate": "2026-10-15"
+    },
+    {
+      "claimId": "release:soar:build243",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.7.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+      "section": "September 22 build 243 correction",
+      "productVersionEnvironment": "SOAR On-premises 8.7.0",
+      "outcome": "confirmed-unchanged",
+      "qualification": "Corrected build 243 fixes build 232 issues; it is not a Cloud build claim.",
+      "followUp": "Preserve exact build and deployment.",
+      "sourceCheckDate": "2026-10-15",
+      "claimVerificationDate": "2026-10-15"
+    },
+    {
+      "claimId": "upgrade:soar:pre7-8.7",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.7.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+      "section": "Source-version table",
+      "productVersionEnvironment": "Unprivileged pre-7.0 to 8.7.0",
+      "outcome": "confirmed-unchanged",
+      "qualification": "8.5 bridge and Python 3.13 remain; OS and PostgreSQL steps are conditional and privileged conversions remain unknown.",
+      "followUp": "Retain separate path and runtime checks.",
+      "sourceCheckDate": "2026-10-15",
+      "claimVerificationDate": "2026-10-15"
+    },
+    {
+      "claimId": "security:soar:external-credentials",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.6.0/splunk-soar-on-premises-release-notes/known-issues-for-splunk-soar-on-premises",
+      "section": "Release 8.6.0 CAUTION",
+      "productVersionEnvironment": "SOAR On-premises 8.6 with external credential manager",
+      "outcome": "confirmed-unchanged",
+      "qualification": "Do not use 8.6 as the bridge; existing CyberArk action from SVD-2026-0804 remains.",
+      "followUp": "Preserve the separate advisory action.",
+      "sourceCheckDate": "2026-10-15",
+      "claimVerificationDate": "2026-10-15"
+    },
+    {
+      "claimId": "migration:scma:5.4.11",
+      "url": "https://splunkbase.splunk.com/app/4974",
+      "section": "Default Version and Compatibility",
+      "productVersionEnvironment": "SCMA 5.4.11; Enterprise 9.1 and later listed",
+      "outcome": "confirmed-unchanged",
+      "qualification": "Assessment compatibility is not a complete migration plan or Cloud rollout evidence.",
+      "followUp": "Keep explicit-upload and discovery boundaries.",
+      "sourceCheckDate": "2026-10-15",
+      "claimVerificationDate": "2026-10-15"
+    }
+  ],
+  "discovery": {
+    "enterprise": "10.6",
+    "cloud": "10.6.1.0; separately 10.4.2604.15",
+    "es": "8.7.1",
+    "itsi": "5.0.2",
+    "soar": "8.7.0; on-premises build 243 separate",
+    "scma": "5.4.11",
+    "collector": "0.162.0",
+    "chart": "0.162.1",
+    "dotnet": "1.16.0",
+    "java": "2.32.0",
+    "node": "4.12.1",
+    "python": "2.13.2",
+    "browserRum": "3.2.0",
+    "observability": "October 12, 2026 remains newest maintained service entry",
+    "security": "SVD-2026-1006 advance notice; newest disclosed vulnerability advisory remains SVD-2026-1005"
+  },
+  "forwarderSourceMappings": {
+    "status": "regression-verified-not-newly-repaired",
+    "routes": 900,
+    "borrowedMappings": 17,
+    "evidence": "Actual route regression passed for technical/runtime, receiver and topology sections; deliberate removal of an inherited runtime mapping is rejected. Source-level dates and original claim verification dates were not advanced.",
+    "remaining": "No mapping repair claimed beyond actual regression evidence; historical source accuracy is not inferred from tests."
+  },
+  "backlog": [
+    {
+      "priority": 1,
+      "claimId": "security:advance-notice:SVD-2026-1006",
+      "owner": "Version Release Watch",
+      "nextAction": "Recheck definitive advisories on October 21 through the existing watch; do not infer CVEs, affected ranges or unlisted-product exemptions.",
+      "reviewBy": "2026-10-21"
+    },
+    {
+      "priority": 1,
+      "claimId": "cloud:maintenance-security-detail",
+      "owner": "Version Release Watch",
+      "nextAction": "Keep preliminary counts distinct; reconcile definitive public advisory details.",
+      "reviewBy": "2026-10-17"
+    },
+    {
+      "priority": 2,
+      "claimId": "soar:service-date-and-issue-coverage",
+      "owner": "Version Release Watch",
+      "nextAction": "Retain date discrepancies and incomplete issue evidence; recheck authoritative releases.",
+      "reviewBy": "2026-10-17"
+    }
+  ],
+  "policy": {
+    "minimumHours": 0,
+    "observationHours": 72,
+    "candidateMaterialCycle": 22,
+    "liveMaterialCycle": 21,
+    "scheduleChanged": false,
+    "privacyOrAudienceChanged": false,
+    "authorizationScopeChanged": false
+  },
+  "validation": {
+    "orderedGenerators": "passed",
+    "checkGates": "four passed",
+    "tests": {
+      "passed": 178,
+      "failed": 0,
+      "skipped": 0
+    },
+    "build": "passed: 54 assets; 727 records",
+    "newRegression": "Initial shared SOAR text leaked the on-premises build reference into Cloud; repaired before candidate publication and all 178 tests then passed.",
+    "nativeExports": "pending exact-candidate CI",
+    "visualReview": "not-performed for candidate",
+    "browserAndWebMcp": "not-performed for candidate",
+    "liveD1": "not-performed for candidate"
+  },
+  "readiness": {
+    "status": "held-for-applicable-candidate-verification"
+  },
+  "publication": {
+    "status": "not-published"
+  }
+}

@@ -16,8 +16,8 @@ test('badges are explicit, qualified and printable with evidence',()=>{
  const deprecation=b.entries['technical:observability:Browser RUM navigation configuration'];assert.match(deprecation.detail,/remains functional/);assert.match(deprecation.detail,/not removal/);
 });
 
-test('the twenty-first factual cycle preserves prior history and scopes current Cloud and Observability updates',()=>{
- assert.equal(b.policy.currentCycle,21);
+test('the twenty-second factual cycle preserves prior history and scopes current security notice',()=>{
+ assert.equal(b.policy.currentCycle,22);
  for(const key of ['environment:acs-fr-m','environment:acs-fr-h']){const e=b.entries[key];assert.equal(e.cycle,18);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-10\.md/);}
  assert(!b.active(b.entries['feature:observability:Browser RUM 3.2']));
  const cloudMaintenance=b.entries['technical:platform:Cloud 10.6 maintenance build'];assert.equal(cloudMaintenance.cycle,17);assert(!b.active(cloudMaintenance));assert.equal(cloudMaintenance.version,'Splunk Cloud Platform 10.6.1.0');assert.match(cloudMaintenance.note,/2026\/10\/2026-10-10\.md/);
@@ -28,7 +28,7 @@ test('the twenty-first factual cycle preserves prior history and scopes current 
  for(const key of ['compatibility:es:cloud-current','compatibility:itsi:cloud-current','technical:forwarders:10.6 receiver compatibility','technical:forwarders:Cloud 10.6 receiver compatibility','technical:platform:Cloud 10.6 publication versus stack availability']){const e=b.entries[key];assert.equal(e.cycle,14);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-07\.md/);}
  const offerings=b.entries['environment:es-fr-m-offering'];assert(!b.active(offerings));assert.equal(offerings.cycle,13);
  const kv=b.entries['technical:platform:KV Store database engine'];assert(!b.active(kv));assert.equal(kv.cycle,19);assert.match(kv.detail,/ES-specific/);assert.equal(b.entries['technical-history:platform:KV Store database engine:2026-10-01-cycle5'].recordKey,'technical:platform:KV Store database engine');assert.equal(b.entries['technical-history:platform:KV Store database engine:2026-10-01-cycle6'].cycle,6);
- for(const key of ['feature:observability:Stricter APM not-equal tag filtering','technical:observability:APM not-equal tag filters','feature:observability:Java instrumentation 2.32','technical:observability:Java instrumentation baseline','feature:observability:Node.js instrumentation 4.12.1','technical:observability:Node.js instrumentation baseline']){const e=b.entries[key];assert.equal(e.cycle,20);assert(b.active(e));assert.match(e.note,/2026\/10\/2026-10-13\.md/);}
+ for(const key of ['feature:observability:Stricter APM not-equal tag filtering','technical:observability:APM not-equal tag filters','feature:observability:Java instrumentation 2.32','technical:observability:Java instrumentation baseline','feature:observability:Node.js instrumentation 4.12.1','technical:observability:Node.js instrumentation baseline']){const e=b.entries[key];assert.equal(e.cycle,20);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-13\.md/);}
  for(const key of ['technical:platform:Cloud 10.4 maintenance build','feature:observability:Kubernetes chart 0.162.1','technical:observability:Light Prometheus Receiver feature gate','technical:observability:Kubernetes OpAMP Bridge identity','feature:observability:Python instrumentation 2.13.2','technical:observability:Python OpAMP client dependency']){const e=b.entries[key];assert.equal(e.cycle,21);assert(b.active(e));assert.match(e.note,/2026\/10\/2026-10-14\.md/);}
  assert.equal(b.html('technical:observability:Light Prometheus Receiver feature gate',{milestone:'Sep 2026'}),'');
  assert(b.html('technical:observability:Light Prometheus Receiver feature gate',{milestone:'Oct 2026'}));
