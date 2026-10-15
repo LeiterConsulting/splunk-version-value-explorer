@@ -130,6 +130,12 @@ window.VersionCompassForwarderData = {
       "reviewed": "2026-09-28",
       "section": "Product Status; component-specific footnotes"
     },
+    "securityNotice": {
+      "title": "October 21 advisory advance notice",
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1006",
+      "reviewed": "2026-10-15",
+      "section": "Description; Enterprise and Universal Forwarder version lists; preparation recommendation"
+    },
     "advisories": {
       "title": "Splunk security advisory index",
       "url": "https://advisory.splunk.com/",
@@ -215,6 +221,10 @@ window.VersionCompassForwarderData = {
         "known",
         "fixed"
       ]
+    },
+    "security.advance-notice": {
+      "title": "October 21 planned security disclosure; not CVE details or a new universal floor",
+      "src": "securityNotice"
     },
     "security.uf": {
       "title": "Universal Forwarder advisory-specific patch floors",
@@ -464,6 +474,19 @@ window.VersionCompassForwarderData = {
       "unavailable"
     ]
   ],
+  "securityNotices": {
+    "october21": {
+      "title": "October 21 security advisory advance notice",
+      "source": "securityNotice",
+      "versions": {
+        "9.4": "9.4.16",
+        "10.0": "10.0.11",
+        "10.2": "10.2.8",
+        "10.4": "10.4.4"
+      },
+      "detail": "Published October 14: Splunk plans Enterprise and Universal Forwarder advisories for October 21, 2026 and recommends the listed or latest available software. This advance notice does not disclose CVEs or affected ranges, replace existing advisory-specific remediation, or establish Cloud rollout or a safe 10.6 exemption."
+    }
+  },
   "hfComponents": [
     "Python application runtime",
     "Python runtimes",

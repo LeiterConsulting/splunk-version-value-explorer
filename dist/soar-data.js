@@ -4,6 +4,14 @@ window.VersionCompassSOARData = {
   "latest": "8.7.0",
   "trackingSince": "2026-10-01",
   "sources": {
+    "securityNotice": {
+      "title": "October 21 advisory advance notice",
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1006",
+      "section": "Description; SOAR 8.7.0 entry; preparation recommendation; deployment and exact build not specified",
+      "checked": "2026-10-15",
+      "reviewed": "2026-10-15",
+      "outcome": "confirmed-advance-notice"
+    },
     "on87": {
       "title": "SOAR On-premises 8.7 release notes",
       "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.7.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
@@ -222,6 +230,23 @@ window.VersionCompassSOARData = {
     }
   },
   "records": [
+    {
+      "id": "security-notice-20261021",
+      "title": "October 21 security advisory advance notice",
+      "detail": "The October 14 notice names SOAR 8.7.0 for planned October 21, 2026 advisories and recommends the listed or latest available version. No CVEs, affected-version range, exact build or Cloud/on-premises scope is disclosed. This does not replace deployment-specific build fixes, Python 3.13, existing upgrade and credential-manager actions, or establish tenant rollout. Prepare using deployment-specific release evidence and recheck the definitive advisories.",
+      "kind": "issue",
+      "release": "8.7.0",
+      "src": [
+        "securityNotice"
+      ],
+      "deployments": [
+        "cmp",
+        "cloud"
+      ],
+      "status": "Advance notice; deployment scope unestablished",
+      "verified": "2026-10-15",
+      "target": true
+    },
     {
       "id": "python87",
       "title": "Python 3.13 is required",

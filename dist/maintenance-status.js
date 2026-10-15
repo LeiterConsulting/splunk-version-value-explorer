@@ -226,10 +226,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-14T10:05:35Z",
-      "lastSuccess": "2026-10-14T10:12:30Z",
+      "lastAttempt": "2026-10-15T09:08:16Z",
+      "lastSuccess": "2026-10-15T09:17:22Z",
       "outcome": "changed",
-      "summary": "Added Cloud 10.4.2604.15, Kubernetes chart 0.162.1 and Python instrumentation 2.13.2 with exact rollout, receiver, permission and dependency qualifications.",
+      "summary": "Reviewed all 140 maintained URLs and new discovery; staged the October 21 advisory advance notice without inferring CVEs, affected ranges or deployment scope.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -427,9 +427,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Added Cloud 10.4.2604.15, Kubernetes chart 0.162.1 and Python instrumentation 2.13.2 with exact rollout, receiver, permission and dependency qualifications.",
           "scope": "All 138 previously maintained release/source URLs plus two newly confirmed official component sources; affected Cloud 10.4 and Observability claims and bounded high-consequence Enterprise, Cloud, migration, Forwarder, premium-product, security, SCMA and SOAR checks."
+        },
+        {
+          "at": "2026-10-15T09:08:16Z",
+          "outcome": "running",
+          "summary": "Reviewing complete release inventory, current discovery streams and bounded consequential claims.",
+          "scope": "140 maintained Release guide, Shared guidance, Forwarder and SOAR URLs; current release discovery; affected and high-consequence claim verification."
+        },
+        {
+          "at": "2026-10-15T09:17:22Z",
+          "outcome": "changed",
+          "summary": "Reviewed all 140 maintained URLs and new discovery; staged the October 21 advisory advance notice without inferring CVEs, affected ranges or deployment scope.",
+          "scope": "138 maintained URLs retrieved; two retired historical pages unavailable; one new official notice and 12 bounded consequential claims. Candidate publication/export/live checks remain separate."
         }
       ],
-      "scope": "All 138 previously maintained release/source URLs plus two newly confirmed official component sources; affected Cloud 10.4 and Observability claims and bounded high-consequence Enterprise, Cloud, migration, Forwarder, premium-product, security, SCMA and SOAR checks."
+      "scope": "138 maintained URLs retrieved; two retired historical pages unavailable; one new official notice and 12 bounded consequential claims. Candidate publication/export/live checks remain separate."
     },
     {
       "id": "es-editions-watch",
