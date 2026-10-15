@@ -206,7 +206,7 @@
     "minimumHours": 0,
     "observationHours": 72,
     "candidateMaterialCycle": 22,
-    "liveMaterialCycle": 21,
+    "liveMaterialCycle": 22,
     "scheduleChanged": false,
     "privacyOrAudienceChanged": false,
     "authorizationScopeChanged": false
@@ -246,8 +246,21 @@
       "images": ["uf-security-notice-default/page-2.png", "uf-security-notice-default/page-3.png", "uf-security-notice-cisco/narrow.png", "enterprise-102-security-notice-default/narrow.png", "enterprise-102-security-notice-cisco/narrow.png", "enterprise-102-security-notice-cisco/page-07.png", "soar-cloud-default/page-6.png", "soar-cisco/page-5.png", "soar-default/narrow.png", "soar-cisco/narrow.png"],
       "finding": "Retained representative notice/source pages and both-theme phone layouts are legible without clipped report text. Notice remains separate from existing security floors and SOAR build requirements. Not all 820 page images were manually inspected."
     },
-    "browserAndWebMcp": "Candidate native Chromium browser/keyboard checks passed in CI; separate public post-deployment browser/WebMCP checks pending.",
-    "liveD1": "Retained baseline diagnostic passed all six checks at 2026-10-15T09:21:15.236Z; candidate post-deployment D1 verification pending."
+    "browserAndWebMcp": {
+      "outcome": "passed-bounded-production-journeys",
+      "checkedAt": "2026-10-15T09:35:00Z",
+      "evidence": "Live UF 10.0 to 10.4 in Cisco theme retains exact selections and primary acknowledged-forwarding warning; its read-only tool includes the complete new notice and source. Live SOAR Cloud 8.6.0 to 8.7.0 shows the notice, Python 3.13 and deployment limitations. Enterprise 10.0 to 10.2 tool returns the same notice and existing disclosed floor. Historical 8.2 to 9.4 shared link preserves source, target, theme, intermediate 9.1 and historical-review/support warnings. Invalid Cloud source retains original input, hides the report, disables Copy/Print/Save and rejects current-report WebMCP until explicit recovery.",
+      "qualification": "Compact screen summaries intentionally prioritize recorded primary warnings; complete risk inventories remain in exports and read-only tools. SOAR's complete source dictionary contains clearly labeled on-premises sources, not on-premises build requirements assigned to Cloud. Native PDF/offline HTML/phone checks remain separate CI evidence."
+    },
+    "liveD1": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-15T09:31:23.060Z",
+      "revision": "content-e5ad1a5a2870d809819a76ce",
+      "engineRevision": "engine-e1567d3c7fc7ff88801f",
+      "records": 727,
+      "digest": "daf11f98a38f43fe265b785be72b3de491229ca48c02d214179ad09f9b8390ae",
+      "evidence": "All six production diagnostics passed: real ready D1 health, exact manifest, independently hashed immutable bundle, bounded SOAR query, POST 405 and seven complete fallback adapters. Fallback success is not the D1 proof."
+    }
   },
   "readiness": {
     "status": "eligible-to-advance",
@@ -255,6 +268,18 @@
     "evidence": "2026-10-15-version-release-watch-soak.json with verified exports: no missing, failed or scoped-out gates; zero minimum wait."
   },
   "publication": {
-    "status": "not-published"
+    "status": "verified-live",
+    "publishedAt": "2026-10-15T09:30:57.456392Z",
+    "githubCommit": "64aac9a8a0d49ba28900f5b7df7b9021ca025834",
+    "siteSourceCommit": "29e439db95fff03cd7ccb80d8e7fabdb2245943b",
+    "matchingTree": "e069af929a72771b9e4d6b9a0fc3855b29c9d4a5",
+    "siteVersion": 159,
+    "versionId": "appgprj_6aa3ff61bd288191ac95ac6e30707895~appgver_6d900c31760c8191ba1c72ba0a873624",
+    "deploymentId": "appgdep_6ad09d446224819197f61610bb8feaf8",
+    "url": "https://versioncompass.com",
+    "noteUrl": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-15.md",
+    "qualification": "These identities record the verified factual publication. This documentation-only evidence follow-up preserves identical report inputs and does not advance the material cycle or factual dates.",
+    "rollback": "Retained prior complete Site version 158; no applicable failure or unsafe delivery was found.",
+    "incompleteChecks": []
   }
 }
