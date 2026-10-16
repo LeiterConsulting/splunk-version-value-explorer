@@ -85,6 +85,21 @@ test('SOAR screen updates in place, exports include all sections, print restores
  const compare=r.tools.get('versioncompass_compare_routes').execute({routes:[{product:'soar',platform:'enterprise',from:'6.4.1',to:'8.7.0'}]});assert.equal(compare.ok,true);assert.equal(compare.reports[0].path[1],'8.5.0');
  const bad=r.tools.get('versioncompass_compare_routes').execute({routes:[{product:'soar',platform:'enterprise',from:'8.7.0',to:'8.6.0'}]});assert.equal(bad.ok,false);
 });
+test('SOAR Cloud structured requirements do not borrow customer-managed host floors',async()=>{
+ const r=ui('?product=soar&deployment=cloud&from=8.5.0&to=8.6.0');await new Promise(resolve=>setImmediate(resolve));
+ const api=r.c.window.VersionCompassSOAR;
+ for(const to of ['8.6.0','8.7.0']){
+  const cloud=api.assess({...api.defaults,deployment:'cloud',from:'8.5.0',to});
+  assert.deepEqual(Object.keys(cloud.targetRequirements).sort(),['runtime','src']);
+  assert.equal(JSON.stringify(cloud.targetRequirements.src),JSON.stringify(['cloud']));
+  const cmp=api.assess({...api.defaults,deployment:'cmp',from:'8.5.0',to});
+  for(const field of ['os','database','search','forwarder','sizing'])assert(cmp.targetRequirements[field]);
+ }
+ const current=r.tools.get('versioncompass_get_current_report').execute({});
+ assert.equal(current.ok,true);assert.equal(current.report.selection.deployment,'cloud');assert(!('os' in current.report.targetRequirements));
+ const compared=r.tools.get('versioncompass_compare_routes').execute({routes:[{product:'soar',platform:'cloud',from:'8.5.0',to:'8.7.0'}]});
+ assert.equal(compared.ok,true);assert(!('database' in compared.reports[0].targetRequirements));
+});
 test('SOAR unresolved shared links block screen and every export until explicitly reset',async()=>{const r=ui('?product=soar&from=garbage&to=8.7.0');await new Promise(resolve=>setImmediate(resolve));assert.equal(r.el('results').hidden,true);assert.equal(r.el('print-report').disabled,true);assert.throws(()=>r.c.window.VersionCompassBuildSnapshot());assert.equal(r.tools.get('versioncompass_get_current_report').execute({}).ok,false);r.el('soar-reset').onclick();assert.equal(r.el('results').hidden,false);});
 test('SOAR source register preserves claim sections and treats empty issue retrieval as unresolved',()=>{const c=core();vm.runInNewContext(fs.readFileSync('dist/source-register.js','utf8'),c);const data=c.window.VersionCompassSOARData;
  for(const claim of data.records)for(const id of claim.src){const source=data.sources[id];const row=c.window.VersionCompassSources.sources.find(x=>x.url===source.url);assert(row);assert(row.claimReferences.some(x=>x.section===source.section&&x.path.startsWith('soar:')));}
