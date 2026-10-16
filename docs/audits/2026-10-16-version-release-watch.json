@@ -103,17 +103,147 @@
   "validation": {
     "baseline": "183 tests, four check gates and 57-asset build passed before changes.",
     "boundedCandidate": "15 SOAR/source-register tests passed after recovering the pending candidate.",
-    "nativeExports": "pending exact-candidate application CI; accepted previous deployment evidence retained, not reopened.",
-    "live": "unchanged version 163; not newly certified by local tests"
+    "nativeExports": {
+      "outcome": "passed",
+      "workflow": ".github/workflows/validate.yml",
+      "workflowName": "Validate release metadata and reports",
+      "runId": 38881082433,
+      "jobId": 116907696220,
+      "successfulSteps": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "commit": "b6a79f82b19924364f6cc6bef9192e0af5614fcb",
+      "tree": "98ce5b0f9a331c06ae79e0f0f05d795b4f57be1d",
+      "artifactId": 12037093406,
+      "artifactDigest": "sha256:66d5091e1f905956e6fe5ddf22c616842bba6871c17f472d041be982ae4d7c0b",
+      "reportFingerprint": "4cf9cce8766ec84f1700ab8ef48ee5a2191a3486e475f3202ea6d12d6986409d",
+      "completedAt": "2026-10-16T09:35:05.929Z",
+      "cases": 58,
+      "htmlReopenings": 50,
+      "pdfs": 50,
+      "pages": 856,
+      "phoneViewport": "390x844",
+      "keyboard": "Real Tab to print/save and Enter download on all 50 valid cases; 8 invalid cases block exports.",
+      "verification": "Downloaded ZIP digest independently matched; scripts/export-evidence.cjs and check-soak.cjs --exports pass for exact current report inputs.",
+      "qualification": "Automated native Chromium/Poppler geometry, text and completeness checks; not human visual review or production D1 proof."
+    },
+    "live": {
+      "evaluatedAt": "2026-10-16T09:37:25.010Z",
+      "target": "https://versioncompass.com",
+      "expectedRevision": "content-bb18c08ca540705c05f11886",
+      "status": "delivery-checks-passed",
+      "checks": {
+        "database-health": {
+          "outcome": "passed",
+          "evidence": {
+            "status": "ready",
+            "storage": "d1",
+            "revision": "content-bb18c08ca540705c05f11886",
+            "engineRevision": "engine-e6eb039663fbe009cb6f",
+            "recordCount": 763
+          },
+          "checkedAt": "2026-10-16T09:37:10.019Z",
+          "elapsedMs": 6509
+        },
+        "live-manifest": {
+          "outcome": "passed",
+          "evidence": {
+            "schemaVersion": 1,
+            "revision": "content-bb18c08ca540705c05f11886",
+            "digest": "80b09190421f14331fdf6251f3181a703afce27dae60bbce315d4c636e94f6d0",
+            "engineRevision": "engine-e6eb039663fbe009cb6f",
+            "datasetHashes": {
+              "platform": "7ef35b731329eb0d0e4014fd7da929af127fc8bedd17af15431556ce23cfbcf6",
+              "products": "8d7ca7dce7d2086be3565552815a9442a79be145a3a4566f826a4c26ccbd66f2",
+              "guidance": "d308cb91b37289033d43fc753bbb5eaee0b97585a882bc1c58e24cb5e68d9dfd",
+              "environment": "4955a7d5ad785a03cb6b602fddc1afe20dc3438944cb65f0fb09a565eeac2c29",
+              "editions": "dfbc07ed76958144f8e5643fdfbcc1525e9b05a3dde2feeb0d58ee61fb99a02f",
+              "forwarders": "6b8f94921ce618832172c0a5e3561fe13ff0822e77a7c9c36348eb97ac12be78",
+              "soar": "ffc3023efb106dd4c5f9d01f4cbf9fb2e23e54d56d211703885b851e4deb9352"
+            },
+            "recordCount": 763,
+            "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+            "verificationPolicy": "Migration and delivery do not create verification dates",
+            "phase": "content-model-and-database-delivery"
+          },
+          "checkedAt": "2026-10-16T09:37:10.379Z",
+          "elapsedMs": 360
+        },
+        "bundle-integrity": {
+          "outcome": "passed",
+          "evidence": {
+            "digest": "80b09190421f14331fdf6251f3181a703afce27dae60bbce315d4c636e94f6d0",
+            "recordCount": 763
+          },
+          "checkedAt": "2026-10-16T09:37:10.744Z",
+          "elapsedMs": 364
+        },
+        "bounded-record-query": {
+          "outcome": "passed",
+          "evidence": "SOAR filter, revision and maximum page size verified",
+          "checkedAt": "2026-10-16T09:37:11.230Z",
+          "elapsedMs": 486
+        },
+        "read-only-api": {
+          "outcome": "passed",
+          "evidence": "POST rejected with 405",
+          "checkedAt": "2026-10-16T09:37:17.818Z",
+          "elapsedMs": 6589
+        },
+        "bundled-fallback-assets": {
+          "outcome": "passed",
+          "evidence": "All seven complete fallback adapters served",
+          "checkedAt": "2026-10-16T09:37:25.009Z",
+          "elapsedMs": 7190
+        }
+      },
+      "findings": [],
+      "limitations": [
+        "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
+      ]
+    },
+    "firstCandidate": {
+      "tests": 184,
+      "gates": "Four checks and build pass",
+      "ciRun": 38879804620,
+      "ciJob": 116903530940,
+      "commit": "bebe637b11e3e96ed1f2ac8af8bf91f06498aa19",
+      "tree": "17b7a85b72727a8b4f1c9f0a51e33876b626f25e",
+      "artifactId": 12036669110,
+      "artifactDigest": "sha256:30bb7fa86c33ae5912e07427d58a374ed221e05bd59e2fa48c7c7b35c56bf2ce",
+      "fingerprint": "4499ead63beeb2abe5166a89ea8cc9eb783c841acd555132bbe660c622d99064",
+      "cases": 58,
+      "htmlReopenings": 50,
+      "pdfs": 50,
+      "pages": 856
+    },
+    "visualReview": {
+      "scope": "All 10 new Cloud 8.6 pages, four 8.7 matrix/issue pages and both new 390x844 phone images",
+      "qualification": "Assistant inspection only; all 856 pages have automated geometry/text checks, not human visual review",
+      "minorFindings": "2026-10-16-version-release-watch-soak.json",
+      "followUp": "Inspected both final-candidate Cloud 8.6 FIPS/requirements page-3 images; no new layout introduced. Earlier bounded image review and tracked cosmetic findings remain applicable."
+    },
+    "automated": {
+      "tests": 185,
+      "failed": 0,
+      "skipped": 0,
+      "checks": "Four ordered generators, all four --check gates, full Node tests, npm run build",
+      "assets": 57
+    },
+    "actualBrowser": {
+      "checkedAt": "2026-10-16T09:38:02Z",
+      "current": "Cloud 8.5.0 to 8.6.0 exact selection and conditional FIPS warning; production current-report invocation confirms runtime-only targetRequirements.",
+      "legacy": "?product=soar&platform=cloud&from=8.6.0&to=8.7.0&theme=cisco normalized to exact Cloud 8.6.0/8.7.0 with theme=cisco.",
+      "invalid": "Duplicate from inputs retain original URL, no replacement report, disabled copy/print/save. Actual current-report tool returns explicit refusal.",
+      "sharing": "Copy comparison link shows Comparison link copied. Browser clipboard adapter returned empty text, so clipboard-byte parity is not independently claimed; URL round-trip and exact sharing state are covered by Node/CI.",
+      "keyboardAndPhone": "Separate native CI evidence, not a claim of resized interactive cloud browser.",
+      "readOnlyWebMCP": "Current report plus actual batch for Cloud 8.6/8.7 and customer-managed 8.7; runtime-only Cloud fields and complete on-premises floors verified, FIPS warning in all three. Export 8.7.1 matrix only on 8.7 targets. Calls leave URL unchanged."
+    }
   },
   "backlog": [
-    {
-      "priority": 1,
-      "claimId": "soar:export-fips",
-      "owner": "Version Release Watch",
-      "nextAction": "Complete authorized GitHub publication, exact-candidate native export evidence and matching Site delivery; do not deploy an unverified candidate.",
-      "reviewBy": "2026-10-17"
-    },
     {
       "priority": 1,
       "claimId": "soar:issue-table-rows",
@@ -145,7 +275,52 @@
     "audienceChanged": false
   },
   "publication": {
-    "status": "candidate-not-deployed",
-    "priorCompleteSiteVersion": 163
-  }
+    "status": "live-verified",
+    "priorCompleteSiteVersion": 163,
+    "first": {
+      "githubCommit": "bebe637b11e3e96ed1f2ac8af8bf91f06498aa19",
+      "sitesCommit": "b5f2bad04f98e36ab7c4ad6c142fad8eabd71a3b",
+      "matchingTree": "17b7a85b72727a8b4f1c9f0a51e33876b626f25e",
+      "savedVersion": "appgprj_6aa3ff61bd288191ac95ac6e30707895~appgver_0e74b90187308191a9814b87d4de0495",
+      "versionNumber": 164,
+      "deploymentId": "appgdep_6ad1ee4938ec8191b9dd47def73881e3",
+      "deployedAt": "2026-10-16T09:28:48.154389+00:00",
+      "contentRevision": "content-af1a7549e68c81b16f9c597c",
+      "engineRevision": "engine-61a2b1b5e6bbd7ec0600",
+      "liveCheckedAt": "2026-10-16T09:29:07.867Z"
+    },
+    "current": {
+      "githubCommit": "b6a79f82b19924364f6cc6bef9192e0af5614fcb",
+      "sitesCommit": "8dd539f1dcacf147d6ad5a84e63bd1ea87f183cb",
+      "matchingTree": "98ce5b0f9a331c06ae79e0f0f05d795b4f57be1d",
+      "savedVersion": "appgprj_6aa3ff61bd288191ac95ac6e30707895~appgver_8ff5cda6897c8191a04ad29690a6a811",
+      "versionNumber": 165,
+      "archiveHash": "sha256:e6ee3dffdf190d7b5a208e223d9fbcc101511c167e608c8a0aa8670f254a678e",
+      "deploymentId": "appgdep_6ad1f03887b881919d71571d0eaf7535",
+      "deploymentStatus": "succeeded",
+      "deployedAt": "2026-10-16T09:37:03.023189+00:00",
+      "url": "https://versioncompass.com",
+      "contentRevision": "content-bb18c08ca540705c05f11886",
+      "engineRevision": "engine-e6eb039663fbe009cb6f",
+      "recordCount": 763,
+      "liveCheckedAt": "2026-10-16T09:37:25.010Z",
+      "rollbackVersion": 164,
+      "noteUrl": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-16.md",
+      "receiptScope": "Records actual v165 publication. This documentation-only receipt follow-up retains identical report inputs, source/claim dates and material cycle 24; its own commit/version/deployment are reported separately at handoff."
+    }
+  },
+  "followUpRepair": {
+    "claimId": "soar:cloud-structured-target-requirements",
+    "observed": "Live read-only current-report leaked customer-managed OS/database/search/Forwarder/sizing fields into Cloud targetRequirements; screen and PDF/HTML already omitted them.",
+    "origin": "Pre-existing defect, independently observed after first FIPS delivery",
+    "proposedScope": "Cloud runtime plus Cloud source only; preserve complete customer-managed fields",
+    "regression": "New test fails before fix, passes after; 185 full tests and four gates/build pass",
+    "status": "live-verified",
+    "resolutionEvidence": {
+      "regression": "Failed before fix and passed after; current-report and compare-route negative assertions for Cloud fields, positive complete CMP requirements",
+      "nativeRun": 38881082433,
+      "actualToolReplay": "2026-10-16T09:38:02Z"
+    }
+  },
+  "completedAt": "2026-10-16T09:38:02Z"
 }
