@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "watch": "version-release-watch",
+  "startedAt": "2026-10-16T09:14:30Z",
+  "reviewedAt": "2026-10-16T09:17:21Z",
+  "scope": "Complete current 173-source register attempted, seven current GitHub release streams, SOAR hub and ES/ITSI discovery; bounded existing claims, not complete historical reverification.",
+  "baseline": {
+    "githubCommit": "cd51d61186d2b27970dce36bcbd5fc86417c9f9f",
+    "sitesCommit": "422ba99ed6481bb3826c254b1d643a3d7d8c8488",
+    "matchingTree": "9ed29606f54c8e5c795a854e1050a7aa89b7f4bf",
+    "siteVersion": 163
+  },
+  "inventory": {
+    "sources": 173,
+    "retrieved": 170,
+    "unavailable": 3,
+    "ledger": "2026-10-16-version-release-watch-sources.json"
+  },
+  "discovery": {
+    "enterprise": "Current retrieved release line 10.6; no version-specific public Enterprise 11 release established by bounded search.",
+    "cloud": "Current subscription table 10.6 / ES 8.7 / ITSI 5.0; not historical release availability or selected tenant rollout.",
+    "premium": "Splunkbase ES 8.7.1; ITSI 5.0.2.",
+    "components": [
+      "Collector 0.162.0",
+      "Kubernetes chart 0.162.1",
+      "Java 2.32.0",
+      "Node.js 4.12.1",
+      "Python 2.13.2",
+      ".NET 1.16.0",
+      "Browser RUM 3.2.0"
+    ],
+    "soar": "Current hub/release streams remain 8.7.0; retain corrected on-premises build 243, Python 3.13, conditional paths and separate Broker/app requirements.",
+    "export": "October 14 Export FIPS patches and separate 8.7.1 matrix reverified. This remains the prior unpublished correction, not a newly discovered October 16 defect."
+  },
+  "claimChecks": [
+    {
+      "claimId": "soar:export-fips",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
+      "section": "Welcome to release 8.7.1; Known issues in release 8.7.0 / PAPP-38496",
+      "productVersionEnvironment": "FIPS-enabled Export on Enterprise or Cloud Platform",
+      "outcome": "confirmed-unpublished-correction",
+      "qualification": "4.5.1/8.6.0 map to 8.6.1 or 8.7.1; 8.7.0 maps to 8.7.1, subject to distinct prerequisites.",
+      "sourceCheckDate": "2026-10-16",
+      "claimVerificationDate": "2026-10-16",
+      "sourceEffectiveDate": "2026-10-14",
+      "followUp": "Continue owning watch within exact source scope."
+    },
+    {
+      "claimId": "soar:export871:enterprise",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+      "section": "Required Python; exact 8.7.1 and 8.7.0 matrix rows; CIM",
+      "productVersionEnvironment": "Export 8.7.1",
+      "outcome": "confirmed-unpublished-correction",
+      "qualification": "The 8.8.0 on-premises SOAR cell is not release evidence; narrower Cloud row must not inherit 8.7.0 pairings.",
+      "sourceCheckDate": "2026-10-16",
+      "claimVerificationDate": "2026-10-16",
+      "sourceEffectiveDate": null,
+      "followUp": "Continue owning watch within exact source scope."
+    },
+    {
+      "claimId": "soar:export871:cloud",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+      "section": "Required Python; exact 8.7.1 and 8.7.0 matrix rows; CIM",
+      "productVersionEnvironment": "Export 8.7.1",
+      "outcome": "confirmed-unpublished-correction",
+      "qualification": "Functionality-tested rows do not override security floors, tenant rollout or authorization.",
+      "sourceCheckDate": "2026-10-16",
+      "claimVerificationDate": "2026-10-16",
+      "sourceEffectiveDate": null,
+      "followUp": "Continue owning watch within exact source scope."
+    },
+    {
+      "claimId": "soar:broker87",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-automation-broker/splunk-soar-automation-broker-release-notes/whats-new-in-splunk-soar-automation-broker",
+      "section": "September 2 8.7; 8.6.0.536; 7.0 credential-manager prerequisites",
+      "productVersionEnvironment": "Automation Broker",
+      "outcome": "confirmed-unchanged",
+      "qualification": "Python 3.13 only in 8.7; HA remains Controlled Availability. Separate from SOAR server or Export app release.",
+      "sourceCheckDate": "2026-10-16",
+      "claimVerificationDate": "2026-10-16",
+      "sourceEffectiveDate": "2026-09-02",
+      "followUp": "Continue owning watch within exact source scope."
+    },
+    {
+      "claimId": "compatibility:cloud-current",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Current Splunk Cloud Platform and Premium App versions; Supported forwarder versions",
+      "productVersionEnvironment": "Current Cloud subscriptions/direct forwarding tier",
+      "outcome": "confirmed-unchanged",
+      "qualification": "Current service table is not historical rollout, entitlement or regulated feature authorization.",
+      "sourceCheckDate": "2026-10-16",
+      "claimVerificationDate": "2026-10-16",
+      "sourceEffectiveDate": null,
+      "followUp": "Continue owning watch within exact source scope."
+    }
+  ],
+  "sourceMappings": {
+    "outcome": "regression-verified-existing-repair",
+    "routeCount": 900,
+    "borrowedMappings": 17,
+    "qualification": "Actual returned HF technical/target-runtime, receiver/topology/package/source sections and a genuine dropped-inherited-runtime negative fixture pass. No new generator repair or historical date invention claimed."
+  },
+  "validation": {
+    "baseline": "183 tests, four check gates and 57-asset build passed before changes.",
+    "boundedCandidate": "15 SOAR/source-register tests passed after recovering the pending candidate.",
+    "nativeExports": "pending exact-candidate application CI; accepted previous deployment evidence retained, not reopened.",
+    "live": "unchanged version 163; not newly certified by local tests"
+  },
+  "backlog": [
+    {
+      "priority": 1,
+      "claimId": "soar:export-fips",
+      "owner": "Version Release Watch",
+      "nextAction": "Complete authorized GitHub publication, exact-candidate native export evidence and matching Site delivery; do not deploy an unverified candidate.",
+      "reviewBy": "2026-10-17"
+    },
+    {
+      "priority": 1,
+      "claimId": "soar:issue-table-rows",
+      "owner": "Version Release Watch",
+      "nextAction": "Recover current on-premises/Cloud issue rows; the separately recovered Export issue does not close the platform issue gap.",
+      "reviewBy": "2026-10-17"
+    },
+    {
+      "priority": 1,
+      "claimId": "kv-store:source-version-conflict",
+      "owner": "Version Release Watch",
+      "nextAction": "Retain general 10.0 direct edge and narrower KV 10.2+ prerequisite; reconcile only with exact public evidence.",
+      "reviewBy": "2026-10-19"
+    },
+    {
+      "priority": 2,
+      "claimId": "prep11:operator-source-conflict",
+      "owner": "Version Release Watch",
+      "nextAction": "Preserve 3.2 maximum/date discrepancy and public-11.x unknowns; no release/date/mandate inferred.",
+      "reviewBy": "2026-10-19"
+    }
+  ],
+  "policy": {
+    "schedulesChanged": false,
+    "timingModesChanged": false,
+    "enabledStatesChanged": false,
+    "mandatoryWait": false,
+    "privacyChanged": false,
+    "audienceChanged": false
+  },
+  "publication": {
+    "status": "candidate-not-deployed",
+    "priorCompleteSiteVersion": 163
+  }
+}

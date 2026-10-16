@@ -55,3 +55,7 @@ Actual browser checks covered Cisco on-premises and default-theme legacy Cloud c
 ## October 12 Export evidence reconciliation
 
 The canonical Export 8.7 record now cites both exact Enterprise and Cloud prerequisite pages recovered by the October 8 audit and independently rechecked October 12. Their functionality-tested row, Python 3.13 and CIM requirements are separate from App for SOAR and from patch-security or tenant rollout evidence. The stale matrix recovery backlog is resolved; issue-table and privileged/historical coverage gaps remain bounded and open. Native export routes now include SOAR Cloud, its legacy platform syntax and repeated invalid selections in both themes.
+
+## October 16 Export patch reconciliation
+
+The October 14 Export patch guidance for PAPP-38496 applies only when FIPS is enabled on Enterprise or Cloud Platform: affected app versions 4.5.1/8.6.0 map to 8.6.1 or 8.7.1, and 8.7.0 maps to 8.7.1, subject to patch-specific prerequisites. Keep the issue visible for both maintained SOAR targets. The exact Export 8.7.1 row is separate from 8.7.0 and App for SOAR; its SOAR 8.8.0 cell is not independent release evidence. No server selector, Cloud rollout, security-safe platform patch or authorization is inferred. Current platform issue-table gaps remain unresolved.

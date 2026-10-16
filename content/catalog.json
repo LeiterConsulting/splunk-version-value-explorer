@@ -5755,6 +5755,92 @@
       ]
     },
     {
+      "id": "vc-4d39e3311efc66e13b3e",
+      "kind": "technical",
+      "dataset": "soar",
+      "scope": {
+        "regions": {
+          "aws": [
+            "Oregon",
+            "Virginia",
+            "London",
+            "Dublin",
+            "Frankfurt",
+            "Milan",
+            "Paris",
+            "Mumbai",
+            "Seoul",
+            "Singapore",
+            "Sydney",
+            "Tokyo",
+            "Canada Central",
+            "Canada West"
+          ],
+          "gcp": [
+            "Iowa",
+            "London",
+            "Dammam",
+            "Belgium",
+            "Frankfurt",
+            "Singapore",
+            "Sydney",
+            "Montreal"
+          ],
+          "azure": [
+            "Phoenix",
+            "Virginia",
+            "London",
+            "Tokyo"
+          ]
+        },
+        "release": "8.7.0",
+        "deployments": [
+          "cmp",
+          "cloud"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "source-d86ca80bacf7d36e9cb7",
+          "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+          "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-15",
+          "sourceChecked": "2026-10-15"
+        },
+        {
+          "sourceId": "source-673139da0582f454dad3",
+          "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+          "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-15",
+          "sourceChecked": "2026-10-15"
+        }
+      ],
+      "verification": {
+        "date": "2026-10-15",
+        "outcome": "Recorded in original claim"
+      },
+      "payload": {
+        "id": "export871",
+        "title": "SOAR Export 8.7.1 has a distinct tested matrix",
+        "detail": "The Enterprise and Cloud prerequisite pages list Export 8.7.1 with CIM 8.7.0-2335 or 8.5.0-1681; Enterprise 10.4.1, 10.2.8 (FIPS 140-3), or 10.2.5; Cloud 10.4.2604; ES 8.7.0 or 8.6.0 (optional); SOAR On-premises 8.8.0 or 8.7.0; and SOAR Cloud 8.7.0. These are exact functionality-tested combinations, not minimum-safe platform patches or App for SOAR compatibility. The 8.8.0 cell does not establish a SOAR release, upgrade path, support window, tenant rollout, entitlement or authorization. Retain the separate 8.7.0 row; do not carry its broader Cloud list into 8.7.1. The cited 8.7 prerequisite pages specify Python 3.13 and CIM.",
+        "kind": "technical",
+        "release": "8.7.0",
+        "src": [
+          "exportEnterprise",
+          "exportCloud"
+        ],
+        "deployments": [
+          "cmp",
+          "cloud"
+        ],
+        "status": "Validate",
+        "verified": "2026-10-15",
+        "target": true
+      }
+    },
+    {
       "id": "vc-4d8cbbb00e1d22c5c1c5",
       "kind": "requirement",
       "dataset": "products",
@@ -19517,6 +19603,83 @@
       ]
     },
     {
+      "id": "vc-f5dce8582b2244290393",
+      "kind": "issue",
+      "dataset": "soar",
+      "scope": {
+        "regions": {
+          "aws": [
+            "Oregon",
+            "Virginia",
+            "London",
+            "Dublin",
+            "Frankfurt",
+            "Milan",
+            "Paris",
+            "Mumbai",
+            "Seoul",
+            "Singapore",
+            "Sydney",
+            "Tokyo",
+            "Canada Central",
+            "Canada West"
+          ],
+          "gcp": [
+            "Iowa",
+            "London",
+            "Dammam",
+            "Belgium",
+            "Frankfurt",
+            "Singapore",
+            "Sydney",
+            "Montreal"
+          ],
+          "azure": [
+            "Phoenix",
+            "Virginia",
+            "London",
+            "Tokyo"
+          ]
+        },
+        "release": "8.6.0",
+        "deployments": [
+          "cmp",
+          "cloud"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "source-2c0ee9252b0799b570ae",
+          "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
+          "section": "Welcome to release 8.7.1; Known issues in release 8.7.0 (PAPP-38496); Fixed issues in release 8.7.0 (PAPP-38389)",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-15",
+          "sourceChecked": "2026-10-15"
+        }
+      ],
+      "verification": {
+        "date": "2026-10-15",
+        "outcome": "Recorded in original claim"
+      },
+      "payload": {
+        "id": "export-fips",
+        "title": "FIPS-enabled SOAR Export requires its patched app",
+        "detail": "PAPP-38496 affects Export 4.5.1, 8.6.0 and 8.7.0 when FIPS is enabled in Splunk Enterprise or Splunk Cloud Platform. Symptoms include Test Connectivity errors, settings that do not save, or events not forwarded to SOAR. Do not install those affected app versions with FIPS enabled. The October 14, 2026 patch guidance maps 4.5.1 or 8.6.0 to 8.6.1 or 8.7.1, and 8.7.0 to 8.7.1. Verify the chosen patch's own prerequisites before upgrading. This is an Export app repair, not a SOAR server build fix, App for SOAR release, Cloud tenant-status assertion or FedRAMP authorization.",
+        "kind": "issue",
+        "release": "8.6.0",
+        "src": [
+          "export"
+        ],
+        "deployments": [
+          "cmp",
+          "cloud"
+        ],
+        "status": "Required",
+        "verified": "2026-10-15",
+        "target": true
+      }
+    },
+    {
       "id": "vc-f7a7bc96caafc47402c9",
       "kind": "feature",
       "dataset": "platform",
@@ -20059,36 +20222,36 @@
         {
           "sourceId": "source-2c0ee9252b0799b570ae",
           "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
-          "section": "Release date; fixed issues PAPP-38389",
+          "section": "Welcome to release 8.7.1; Known issues in release 8.7.0 (PAPP-38496); Fixed issues in release 8.7.0 (PAPP-38389)",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-01",
-          "sourceChecked": "2026-10-01"
+          "sourceVerified": "2026-10-15",
+          "sourceChecked": "2026-10-15"
         },
         {
           "sourceId": "source-d86ca80bacf7d36e9cb7",
           "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-12",
-          "sourceChecked": "2026-10-12"
+          "sourceVerified": "2026-10-15",
+          "sourceChecked": "2026-10-15"
         },
         {
           "sourceId": "source-673139da0582f454dad3",
           "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-12",
-          "sourceChecked": "2026-10-12"
+          "sourceVerified": "2026-10-15",
+          "sourceChecked": "2026-10-15"
         }
       ],
       "verification": {
-        "date": "2026-10-12",
+        "date": "2026-10-15",
         "outcome": "Recorded in original claim"
       },
       "payload": {
         "id": "export87",
         "title": "SOAR Export remains a separate app",
-        "detail": "Export 8.7 uses Python 3.13 and requires CIM. Its functionality-tested row lists Enterprise 10.4.2/10.2.2; Cloud 10.6.0/10.5.2605/10.4.2604/10.3.2512/10.2.2510; ES 8.7.0/8.6.1 (ES is optional); and SOAR 8.7.0/8.6.0. The row labels CIM 8.5.0-1681. These are separate Export prerequisites, not App for SOAR compatibility, security-safe patch targets or tenant rollout. PAPP-38389 fixes event-forwarding mappings overwritten by global mappings.",
+        "detail": "Export 8.7.0 uses Python 3.13 and requires CIM. Its historical functionality-tested row lists Enterprise 10.4.2/10.2.2; Cloud 10.6.0/10.5.2605/10.4.2604/10.3.2512/10.2.2510; ES 8.7.0/8.6.1 (ES is optional); and SOAR 8.7.0/8.6.0. The row labels CIM 8.5.0-1681. These are separate Export prerequisites, not App for SOAR compatibility, security-safe patch targets or tenant rollout. PAPP-38389 fixes event-forwarding mappings overwritten by global mappings. FIPS-enabled deployments must also follow the separate PAPP-38496 patch warning below; the 8.7.1 row is distinct.",
         "kind": "technical",
         "release": "8.7.0",
         "src": [
@@ -20101,7 +20264,7 @@
           "cloud"
         ],
         "status": "Validate",
-        "verified": "2026-10-12",
+        "verified": "2026-10-15",
         "target": true
       }
     },

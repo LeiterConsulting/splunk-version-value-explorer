@@ -16,8 +16,9 @@ test('badges are explicit, qualified and printable with evidence',()=>{
  const deprecation=b.entries['technical:observability:Browser RUM navigation configuration'];assert.match(deprecation.detail,/remains functional/);assert.match(deprecation.detail,/not removal/);
 });
 
-test('the twenty-third factual cycle adds future preparation while preserving prior history',()=>{
- assert.equal(b.policy.currentCycle,23);
+test('the twenty-fourth factual cycle adds Export FIPS repair while preserving preparation history',()=>{
+ assert.equal(b.policy.currentCycle,24);
+ for(const key of ['product:soar:export-fips','technical:soar:export871']){assert.equal(b.entries[key].cycle,24);assert(b.active(b.entries[key]));}
  assert.equal(b.entries["guide:splunk11"].cycle,23);
  for(const key of ['environment:acs-fr-m','environment:acs-fr-h']){const e=b.entries[key];assert.equal(e.cycle,18);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-10\.md/);}
  assert(!b.active(b.entries['feature:observability:Browser RUM 3.2']));

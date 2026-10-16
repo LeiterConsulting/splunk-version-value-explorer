@@ -29,7 +29,7 @@ function assess(s){const errors=validate(s);if(errors.length)return {selection:{
 
  const applicable=d.records.filter(r=>r.deployments.includes(s.deployment)&&cmp(r.release,s.to)<=0);
  const inRange=r=>cmp(r.release,s.from)>0;
- const target=r=>r.target&&(r.release===s.to||r.id==='security86');
+ const target=r=>r.target&&(r.release===s.to||['security86','export-fips'].includes(r.id));
  const selected=applicable.filter(r=>(!['os86','size86','os87','size87'].includes(r.id)||r.release===s.to)&&(inRange(r)||target(r))).map(r=>({...r,src:r.src.includes('cloud')&&r.src.some(x=>/^on/.test(x))?r.src.filter(x=>cloud?x==='cloud':x!=='cloud'):r.src}));
  const features=selected.filter(r=>r.kind==='feature').map(r=>({...r,status:restricted?'Not established for selected environment':r.status,qualification:restricted?'Commercial release evidence does not establish this feature in '+(high?'FedRAMP High':'FedRAMP Moderate')+'. Confirm exact feature, region, entitlement and tenant release.':''}));
  let availability={status:'Customer-managed',detail:'CMP means customer-managed SOAR, on premises or in your cloud. Hosting it yourself does not establish a FedRAMP authorization.',src:[pathSource]};

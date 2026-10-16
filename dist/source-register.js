@@ -133,14 +133,14 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.security.url",
-        "soar: soar.records.18"
+        "soar: soar.records.20"
       ],
       "reviews": [
         "2026-10-01"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.18",
+          "path": "soar: soar.records.20",
           "section": "Solutions; Product Status; CVE-2026-76362 Additional Solution"
         }
       ],
@@ -176,14 +176,14 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.packages.url",
-        "soar: soar.records.18"
+        "soar: soar.records.20"
       ],
       "reviews": [
         "2026-10-01"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.18",
+          "path": "soar: soar.records.20",
           "section": "Description: third-party fixes in 8.6.0 and higher"
         }
       ],
@@ -5312,7 +5312,7 @@ window.VersionCompassSources = {
       "references": [
         "soar.sources.requirements86.url",
         "content-updates.js",
-        "soar: soar.records.19",
+        "soar: soar.records.21",
         "soar: soar.targetRequirements.8.6.0"
       ],
       "reviews": [
@@ -5320,7 +5320,7 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.19",
+          "path": "soar: soar.records.21",
           "section": "Supported operating systems; PostgreSQL 15; Elasticsearch versions; bundled UF 10.4.0; container restriction"
         },
         {
@@ -5356,7 +5356,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.sizing86.url",
-        "soar: soar.records.20",
+        "soar: soar.records.22",
         "soar: soar.targetRequirements.8.6.0"
       ],
       "reviews": [
@@ -5364,7 +5364,7 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.20",
+          "path": "soar: soar.records.22",
           "section": "Production CPU, memory, volume sizing, network and system utilities"
         },
         {
@@ -5940,14 +5940,19 @@ window.VersionCompassSources = {
         "soar.sources.exportCloud.url",
         "content-updates.js",
         "soar: soar.records.17",
+        "soar: soar.records.18",
         "soar: soar.backlog.1"
       ],
       "reviews": [
-        "2026-10-12"
+        "2026-10-15"
       ],
       "claimReferences": [
         {
           "path": "soar: soar.records.17",
+          "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
+        },
+        {
+          "path": "soar: soar.records.18",
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
         },
         {
@@ -5956,18 +5961,22 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-12",
+      "reviewed": "2026-10-16",
       "status": "Reviewed",
       "firstRecorded": "2026-10-12",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
       "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports",
-      "verificationScope": "Verified only Export 8.7 functionality-tested matrix, Python 3.13, required CIM and stated network/installation privileges. Distinct from App for SOAR, patch security, entitlement, rollout and authorization.",
+      "verificationScope": "Verified separate Export 8.7.1 and 8.7.0 functionality-tested rows, Python 3.13, required CIM and stated privileges. The SOAR 8.8.0 cell is not release evidence. No broader Cloud pairing, security-safe patch, entitlement, rollout or authorization inferred.",
       "events": [
         {
           "date": "2026-10-12",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-16",
+          "event": "Review status updated: Reviewed · 2026-10-16"
         }
       ]
     },
@@ -5975,19 +5984,26 @@ window.VersionCompassSources = {
       "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
       "title": "SOAR Export 8.7 prerequisites on Splunk Enterprise",
       "areas": [
-        "Splunk SOAR"
+        "Splunk SOAR",
+        "Shared guidance"
       ],
       "references": [
         "soar.sources.exportEnterprise.url",
+        "content-updates.js",
         "soar: soar.records.17",
+        "soar: soar.records.18",
         "soar: soar.backlog.1"
       ],
       "reviews": [
-        "2026-10-12"
+        "2026-10-15"
       ],
       "claimReferences": [
         {
           "path": "soar: soar.records.17",
+          "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
+        },
+        {
+          "path": "soar: soar.records.18",
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
         },
         {
@@ -5996,49 +6012,60 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-12",
+      "reviewed": "2026-10-16",
       "status": "Reviewed",
       "firstRecorded": "2026-10-12",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
       "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports",
-      "verificationScope": "Verified only Export 8.7 functionality-tested matrix, Python 3.13, required CIM and stated network/installation privileges. Distinct from App for SOAR, patch security, entitlement, rollout and authorization.",
+      "verificationScope": "Verified separate Export 8.7.1 and 8.7.0 functionality-tested rows, Python 3.13, required CIM and stated privileges. The SOAR 8.8.0 cell is not release evidence. No broader Cloud pairing, security-safe patch, entitlement, rollout or authorization inferred.",
       "events": [
         {
           "date": "2026-10-12",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-16",
+          "event": "Review status updated: Reviewed · 2026-10-16"
         }
       ]
     },
     {
       "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
-      "title": "Splunk App for SOAR Export 8.7",
+      "title": "Splunk App for SOAR Export 8.7 release and FIPS repair",
       "areas": [
-        "Splunk SOAR"
+        "Splunk SOAR",
+        "Shared guidance"
       ],
       "references": [
         "soar.sources.export.url",
-        "soar: soar.records.17"
+        "content-updates.js",
+        "soar: soar.records.17",
+        "soar: soar.records.19"
       ],
       "reviews": [
-        "2026-10-01"
+        "2026-10-15"
       ],
       "claimReferences": [
         {
           "path": "soar: soar.records.17",
-          "section": "Release date; fixed issues PAPP-38389"
+          "section": "Welcome to release 8.7.1; Known issues in release 8.7.0 (PAPP-38496); Fixed issues in release 8.7.0 (PAPP-38389)"
+        },
+        {
+          "path": "soar: soar.records.19",
+          "section": "Welcome to release 8.7.1; Known issues in release 8.7.0 (PAPP-38496); Fixed issues in release 8.7.0 (PAPP-38389)"
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-16",
       "status": "Reviewed",
       "firstRecorded": "2026-10-01",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
-      "section": "Release date; fixed issues PAPP-38389",
-      "verificationScope": "Bounded review of the cited SOAR section and records; not a complete historical re-verification.",
+      "section": "Welcome to release 8.7.1; Known issues in release 8.7.0 (PAPP-38496); Fixed issues in release 8.7.0 (PAPP-38389)",
+      "verificationScope": "Confirmed October 14 Export patch publication, conditional FIPS defect and exact app patch mapping; retained historical PAPP-38389. Not a SOAR server release, tenant remediation or authorization claim.",
       "events": [
         {
           "date": "2026-10-01",
@@ -6051,6 +6078,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-16",
+          "event": "Review status updated: Reviewed · 2026-10-16"
         }
       ]
     },

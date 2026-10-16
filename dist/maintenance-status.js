@@ -226,10 +226,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-15T16:33:49.207702Z",
-      "lastSuccess": "2026-10-15T16:33:49.277685Z",
+      "lastAttempt": "2026-10-16T09:17:21Z",
+      "lastSuccess": "2026-10-16T09:17:21Z",
       "outcome": "changed",
-      "summary": "Added a dedicated future-release preparation page with eight cited public sources, two scoped current-context announcements, five preparation areas and six explicit open questions. No 11.x release requirement is inferred.",
+      "summary": "Recovered and reverified Export FIPS patch guidance and distinct 8.7.1 matrix; other current release discovery unchanged.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -463,9 +463,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Added a dedicated future-release preparation page with eight cited public sources, two scoped current-context announcements, five preparation areas and six explicit open questions. No 11.x release requirement is inferred.",
           "scope": "Owner-requested Prep for Splunk 11.x page only: eight public URLs, seven scoped current-context records, unknown future release requirements, route/export behavior and maintenance ownership; this does not repeat the earlier full release inventory."
+        },
+        {
+          "at": "2026-10-16T09:17:21Z",
+          "outcome": "running",
+          "summary": "Complete current source inventory and bounded release review; pending Export correction recovered.",
+          "scope": "173 maintained sources, seven component release streams, current SOAR/ES/ITSI discovery, five bounded consequential claim checks and actual UF/HF mapping regressions."
+        },
+        {
+          "at": "2026-10-16T09:17:21Z",
+          "outcome": "changed",
+          "summary": "Recovered and reverified Export FIPS patch guidance and distinct 8.7.1 matrix; other current release discovery unchanged.",
+          "scope": "173-source inventory attempt, 170 retrieved bodies/API records, seven current component release streams and bounded claims; production publication is separately verified."
         }
       ],
-      "scope": "Owner-requested Prep for Splunk 11.x page only: eight public URLs, seven scoped current-context records, unknown future release requirements, route/export behavior and maintenance ownership; this does not repeat the earlier full release inventory."
+      "scope": "173-source inventory attempt, 170 retrieved bodies/API records, seven current component release streams and bounded claims; production publication is separately verified."
     },
     {
       "id": "es-editions-watch",

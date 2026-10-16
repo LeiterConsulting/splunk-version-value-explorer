@@ -26,6 +26,24 @@ test('SOAR Export uses its recovered prerequisite sources separately from App fo
  assert.equal(c.window.VersionCompassSOARData.backlog.find(x=>x.id==='export87-matrix').status,'resolved');
 });
 
+test('SOAR Export FIPS repair is target-specific and does not invent SOAR or App releases',()=>{
+ const c=core(),a=c.window.VersionCompassSOAR,d=c.window.VersionCompassSOARData;
+ for(const deployment of ['cmp','cloud'])for(const [from,to,patch] of [['8.5.0','8.6.0','8.6.1'],['8.6.0','8.7.0','8.7.1']]){
+  const r=a.assess({...a.defaults,deployment,from,to}),issue=r.issues.find(x=>x.id==='export-fips');
+  assert(issue,'Missing target-specific FIPS Export warning for '+deployment+' '+to);
+  assert.equal(issue.status,'Required');assert.match(issue.detail,/FIPS enabled/);assert(issue.detail.includes(patch));
+  assert.match(issue.detail,/PAPP-38496/);assert.match(issue.detail,/4\.5\.1.*8\.6\.0.*8\.7\.0/);
+  assert(issue.src.includes('export'));assert(!issue.src.includes('app'));
+  if(to==='8.7.0'){
+   const row=r.technical.find(x=>x.id==='export871');assert(row);assert.match(row.detail,/10\.2\.8 \(FIPS 140-3\)/);
+   assert.match(row.detail,/8\.7\.0-2335/);assert.match(row.detail,/8\.8\.0.*not.*release/i);
+   assert(!r.technical.find(x=>x.id==='app87').detail.includes('Export 8.7.1'));
+  }else assert(!r.technical.some(x=>x.id==='export871'));
+ }
+ assert(!d.targets.includes('8.8.0'));assert.equal(d.latest,'8.7.0');
+ assert(d.records.find(r=>r.id==='export-fips').verified==='2026-10-15');
+});
+
 test('SOAR restricted environments never inherit commercial features or Platform authorization',()=>{const a=core().window.VersionCompassSOAR;
  for(const compliance of ['fr-m','fr-h']){const r=a.assess({...a.defaults,deployment:'cloud',compliance});assert(r.features.every(x=>x.status==='Not established for selected environment'));assert(r.questions.length);}
  assert.equal(a.assess({...a.defaults,deployment:'cloud',compliance:'fr-h'}).availability.status,'Not established');
@@ -57,12 +75,12 @@ function ui(search='?product=soar'){
 }
 test('SOAR screen updates in place, exports include all sections, print restores screen, and tools share evidence',async()=>{
  const r=ui();await new Promise(resolve=>setImmediate(resolve));
- assert.match(r.el('results').innerHTML,/build 243/);assert.equal(r.el('technical-panel').open,false);
+ assert.match(r.el('results').innerHTML,/build 243/);assert.match(r.el('results').innerHTML,/PAPP-38496/);assert.match(r.el('results').innerHTML,/8\.7\.1/);assert.equal(r.el('technical-panel').open,false);
  const before=r.el('results').innerHTML;r.events.beforeprint();assert.match(r.el('release-report').innerHTML,/details open/);assert.match(r.el('release-report').innerHTML,/System requirements|Target OS/);assert.match(r.el('release-report').innerHTML,/SVD-2026-0804/);r.events.afterprint();assert.equal(r.el('results').innerHTML,before);
  r.selects.get('deployment').value='cloud';r.selects.get('deployment').change();r.selects.get('compliance').value='fr-m';r.selects.get('compliance').change();
  assert.match(r.el('results').innerHTML,/native data|Native data/);assert.equal(r.wrappers.get('os').hidden,true);assert.equal(r.wrappers.get('compliance').hidden,false);assert.match(r.url(),/theme=cisco/);
- const html=r.c.window.VersionCompassBuildSnapshot();assert.match(html,/GovCloud/);assert.match(html,/playbook|Playbook/);assert.match(html,/Evidence coverage/);assert(!html.includes('build 243'));
- const current=r.tools.get('versioncompass_get_current_report').execute({});assert.equal(current.ok,true);assert.equal(current.report.selection.compliance,'fr-m');assert(current.report.features.every(x=>x.qualification));
+ const html=r.c.window.VersionCompassBuildSnapshot();assert.match(html,/GovCloud/);assert.match(html,/playbook|Playbook/);assert.match(html,/Evidence coverage/);assert.match(html,/PAPP-38496/);assert(!html.includes('build 243'));
+ const current=r.tools.get('versioncompass_get_current_report').execute({});assert.equal(current.ok,true);assert.equal(current.report.selection.compliance,'fr-m');assert(current.report.features.every(x=>x.qualification));assert(current.report.issues.some(x=>x.id==='export-fips'));
  const catalog=r.tools.get('versioncompass_get_catalog').execute({products:['soar']});assert.equal(catalog.products[0].id,'soar');
  const compare=r.tools.get('versioncompass_compare_routes').execute({routes:[{product:'soar',platform:'enterprise',from:'6.4.1',to:'8.7.0'}]});assert.equal(compare.ok,true);assert.equal(compare.reports[0].path[1],'8.5.0');
  const bad=r.tools.get('versioncompass_compare_routes').execute({routes:[{product:'soar',platform:'enterprise',from:'8.7.0',to:'8.6.0'}]});assert.equal(bad.ok,false);
