@@ -226,10 +226,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-16T09:17:21Z",
-      "lastSuccess": "2026-10-16T09:17:21Z",
+      "lastAttempt": "2026-10-17T09:21:44Z",
+      "lastSuccess": "2026-10-17T09:31:18Z",
       "outcome": "changed",
-      "summary": "Recovered and reverified Export FIPS patch guidance and distinct 8.7.1 matrix; other current release discovery unchanged.",
+      "summary": "Verified Collector 0.163 and scoped Cloud/Fleet updates; retained ES KV source discrepancy.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -475,9 +475,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Recovered and reverified Export FIPS patch guidance and distinct 8.7.1 matrix; other current release discovery unchanged.",
           "scope": "173-source inventory attempt, 170 retrieved bodies/API records, seven current component release streams and bounded claims; production publication is separately verified."
+        },
+        {
+          "at": "2026-10-17T09:21:44Z",
+          "outcome": "running",
+          "summary": "Reviewing complete official inventory and bounded consequential claims.",
+          "scope": "173 registered public URLs; current release discovery; exact patch/security/SOAR and historical Forwarder mapping checks."
+        },
+        {
+          "at": "2026-10-17T09:31:18Z",
+          "outcome": "changed",
+          "summary": "Verified Collector 0.163 and scoped Cloud/Fleet updates; retained ES KV source discrepancy.",
+          "scope": "173 sources attempted, 170 recovered; seven component streams; six bounded claims. Publication remains separate and candidate-gated."
         }
       ],
-      "scope": "173-source inventory attempt, 170 retrieved bodies/API records, seven current component release streams and bounded claims; production publication is separately verified."
+      "scope": "173 sources attempted, 170 recovered; seven component streams; six bounded claims. Publication remains separate and candidate-gated."
     },
     {
       "id": "es-editions-watch",

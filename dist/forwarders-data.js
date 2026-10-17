@@ -12,9 +12,9 @@ window.VersionCompassForwarderData = {
     "kv106": {
       "title": "10.6 cohosted KV Store migration",
       "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
-      "reviewed": "2026-10-12",
-      "section": "Prepare for upgrade: ES 8.7 and lower / ITSI 5.0.x and lower; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins",
-      "checked": "2026-10-12"
+      "reviewed": "2026-10-17",
+      "section": "Prepare for upgrade: ITSI 5.0.x and lower, premium-app migration degradation; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins",
+      "checked": "2026-10-17"
     },
     "tls106": {
       "title": "10.6 TLS removal",
@@ -141,6 +141,13 @@ window.VersionCompassForwarderData = {
       "url": "https://advisory.splunk.com/",
       "reviewed": "2026-09-28",
       "section": "Current index; not a complete applicability audit"
+    },
+    "esKv106": {
+      "title": "10.6 customer-managed ES and KV Store boundary",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+      "section": "Splunk Enterprise version 10.x: 10.6.x ES cohosted KV Store 1.0 footnote",
+      "checked": "2026-10-17",
+      "reviewed": "2026-10-17"
     }
   },
   "claimSources": {
@@ -239,6 +246,10 @@ window.VersionCompassForwarderData = {
         "hfSecurity",
         "advisories"
       ]
+    },
+    "technical.hf-es-kv-store-10.6": {
+      "title": "HF Enterprise-package KV Store with ES dependency",
+      "src": "esKv106"
     }
   },
   "ufEdges": {
@@ -484,7 +495,7 @@ window.VersionCompassForwarderData = {
         "10.2": "10.2.8",
         "10.4": "10.4.4"
       },
-      "detail": "Published October 14: Splunk plans Enterprise and Universal Forwarder advisories for October 21, 2026 and recommends the listed or latest available software. This advance notice does not disclose CVEs or affected ranges, replace existing advisory-specific remediation, or establish Cloud rollout or a safe 10.6 exemption."
+      "detail": "Published October 14: Splunk plans Enterprise and Universal Forwarder advisories for October 21, 2026 and recommends the listed or latest available software. The October 16 revision clarifies that the listed versions are fix versions, not affected versions. This advance notice does not disclose CVEs or affected ranges, replace existing advisory-specific remediation, or establish Cloud rollout or a safe 10.6 exemption."
     }
   },
   "hfComponents": [
@@ -500,6 +511,7 @@ window.VersionCompassForwarderData = {
     "KV Store TLS configuration",
     "Windows service identity",
     "FIPS cryptographic module",
-    "KV Store source-version prerequisite"
+    "KV Store source-version prerequisite",
+    "ES cohosted KV Store boundary"
   ]
 };

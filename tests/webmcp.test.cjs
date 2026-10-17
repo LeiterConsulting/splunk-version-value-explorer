@@ -374,6 +374,31 @@ test('October Observability route preserves SaaS semantics and component release
   assert(report.technicalChanges.some(item => item.component === 'Python OpAMP client dependency' && item.to.includes('0.4b0')));
 });
 
+test('Collector 0.163 stays separate from the Kubernetes chart and retains scoped breaking changes',async()=>{
+ const rt=await runtime(),route={product:'observability',platform:'cloud',host:'10.6',from:'Sep 2026',to:'Oct 2026'};
+ const r=rt.run('compare_routes',{routes:[route]}).reports[0];
+ const f=r.features.find(x=>x.title==='Collector 0.163 migration controls');assert(f);
+ assert.equal(f.source,'https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0');assert.match(f.milestone,/October 16/);
+ assert(r.features.find(x=>x.title==='Kubernetes chart 0.162.1').detail.includes('Collector 0.162.0'));
+ for(const name of ['Collector 0.163 OS and removed components','Collector 0.163 Prometheus TLS configuration','Collector 0.163 metric and database resource identity','Collector 0.163 PostgreSQL scrape timeout','Collector 0.163 chained redaction summaries','Collector 0.163 SQL Server receiver alias'])assert(r.technicalChanges.some(t=>t.component===name),name);
+ const alias=r.technicalChanges.find(t=>t.component==='Collector 0.163 SQL Server receiver alias');assert.equal(alias.actionLevel,'Review');assert.match(alias.to,/remains.*deprecated alias/);
+ assert(r.breakingChanges.some(t=>t.title==='Migrate removed Collector 0.163 configuration'&&t.breaking));
+ const prior=rt.run('compare_routes',{routes:[{...route,from:'Jul 2026',to:'Sep 2026'}]}).reports[0];assert(!prior.features.some(t=>t.title.includes('0.163')));
+});
+test('Fleet configuration and Cloud maintenance remain opt-in and stack scoped',async()=>{
+ const rt=await runtime(),r=rt.run('compare_routes',{routes:[{product:'observability',platform:'cloud',host:'10.6',from:'Sep 2026',to:'Oct 2026'}]}).reports[0];
+ assert(r.features.some(t=>t.title==='Kubernetes Collector remote configuration'));
+ const t=r.technicalChanges.find(t=>t.component==='Fleet Management Kubernetes configuration');assert.match(t.to,/0.162.1/);assert.match(t.action,/remoteManagement.enabled=true/);assert.match(t.implication,/ConfigMaps/);
+ const cloud=rt.run('compare_routes',{routes:[{product:'platform',platform:'cloud',from:'10.4.2604',to:'10.5.2605'}]}).reports[0];assert(cloud.technicalChanges.some(t=>t.component==='Cloud 10.5 maintenance build'&&t.to.includes('10.5.2605.12')));
+ const ent=rt.run('compare_routes',{routes:[{product:'platform',platform:'enterprise',from:'9.4',to:'10.6'}]}).reports[0];assert(!ent.technicalChanges.some(t=>t.component==='Cloud 10.5 maintenance build'));
+});
+test('ES KV warning preserves the matrix restriction when the linked procedure omits ES',async()=>{
+ const rt=await runtime(),r=rt.run('compare_routes',{routes:[{product:'es',platform:'enterprise',host:'10.6',from:'8.6',to:'8.7'}]}).reports[0];
+ assert.match(r.compatibility.source,/splunk-products-version-compatibility-matrix$/);
+ assert.match(r.compatibility.detail,/guide.*ITSI/);
+ const p=rt.run('compare_routes',{routes:[{product:'platform',platform:'enterprise',from:'9.4',to:'10.6'}]}).reports[0];
+ assert(p.technicalChanges.some(t=>t.component==='ES cohosted KV Store boundary'&&t.source.endsWith('splunk-products-version-compatibility-matrix')));
+});
 test('ITSI host pairing preserves the separate cohosted KV Store prerequisite', async () => {
   const rt = await runtime();
   for (const to of ['4.21', '5.0', '5.0.1', '5.0.2']) {
@@ -402,7 +427,7 @@ test('ES 10.6 host pairing requires postponement without transferring it to Clou
     assert(!r.breakingChanges.some(x => x.detail.includes('postgresMigrateOnStartup')));
   }
   const platform = rt.run('compare_routes', { routes: [{ product: 'platform', platform: 'enterprise', from: '10.4', to: '10.6' }] }).reports[0];
-  assert(platform.technicalChanges.some(x => x.component === 'KV Store database engine' && x.actionLevel === 'Required' && x.action.includes('ES 8.7 and lower')));
+  assert(platform.technicalChanges.some(x => x.component === 'ES cohosted KV Store boundary' && x.actionLevel === 'Required' && x.to.includes('ES 8.7-and-lower')));
   assert(platform.breakingChanges.some(x => x.detail.includes('ES 8.7 and lower') && x.breaking));
   assert(platform.breakingChanges.some(x => x.title === 'Reconcile the KV Store source-version floor' && x.detail.includes('scope conflict remains unresolved') && x.breaking));
 });

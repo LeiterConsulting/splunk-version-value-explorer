@@ -16,10 +16,12 @@ test('badges are explicit, qualified and printable with evidence',()=>{
  const deprecation=b.entries['technical:observability:Browser RUM navigation configuration'];assert.match(deprecation.detail,/remains functional/);assert.match(deprecation.detail,/not removal/);
 });
 
-test('the twenty-fourth factual cycle adds Export FIPS repair while preserving preparation history',()=>{
- assert.equal(b.policy.currentCycle,24);
+test('the twenty-fifth factual cycle preserves Export FIPS and scopes new component guidance',()=>{
+ assert.equal(b.policy.currentCycle,25);
+ for(const key of ['feature:observability:Collector 0.163 migration controls','technical:platform:Cloud 10.5 maintenance build','technical:platform:ES cohosted KV Store boundary']){assert.equal(b.entries[key].cycle,25);assert(b.active(b.entries[key]));}
  for(const key of ['product:soar:export-fips','technical:soar:export871']){assert.equal(b.entries[key].cycle,24);assert(b.active(b.entries[key]));}
  assert.equal(b.entries["guide:splunk11"].cycle,23);
+ assert(!b.active(b.entries["guide:splunk11"]));
  for(const key of ['environment:acs-fr-m','environment:acs-fr-h']){const e=b.entries[key];assert.equal(e.cycle,18);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-10\.md/);}
  assert(!b.active(b.entries['feature:observability:Browser RUM 3.2']));
  const cloudMaintenance=b.entries['technical:platform:Cloud 10.6 maintenance build'];assert.equal(cloudMaintenance.cycle,17);assert(!b.active(cloudMaintenance));assert.equal(cloudMaintenance.version,'Splunk Cloud Platform 10.6.1.0');assert.match(cloudMaintenance.note,/2026\/10\/2026-10-10\.md/);

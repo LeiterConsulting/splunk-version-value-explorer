@@ -488,7 +488,7 @@ window.SPLUNK_DATA = {
             "actionLevel": "Review",
             "from": "Published October 7 advisory floors remain separately applicable",
             "to": "October 21, 2026 planned disclosure; Enterprise 9.4.16 named in the October 14 notice",
-            "implication": "This is an advance publication notice, not disclosed CVE detail, an affected-version range, or a universal safe-patch guarantee. It does not establish Cloud rollout or authorization.",
+            "implication": "The October 16 clarification states that the listed versions are fix versions, not affected versions. This is still an advance publication notice, not disclosed CVE detail, an affected-version range, or a universal safe-patch guarantee. It does not establish Cloud rollout or authorization.",
             "action": "Review the installed maintenance build and prepare the listed 9.4.16 or a later available version using its own upgrade and compatibility evidence. Recheck the definitive advisories on October 21; preserve existing vulnerability-specific actions.",
             "source": "https://advisory.splunk.com/advisories/SVD-2026-1006"
           },
@@ -615,7 +615,7 @@ window.SPLUNK_DATA = {
             "actionLevel": "Review",
             "from": "Published October 7 advisory floors remain separately applicable",
             "to": "October 21, 2026 planned disclosure; Enterprise 10.0.11 named in the October 14 notice",
-            "implication": "This is an advance publication notice, not disclosed CVE detail, an affected-version range, or a universal safe-patch guarantee. It does not establish Cloud rollout or authorization.",
+            "implication": "The October 16 clarification states that the listed versions are fix versions, not affected versions. This is still an advance publication notice, not disclosed CVE detail, an affected-version range, or a universal safe-patch guarantee. It does not establish Cloud rollout or authorization.",
             "action": "Review the installed maintenance build and prepare the listed 10.0.11 or a later available version using its own upgrade and compatibility evidence. Recheck the definitive advisories on October 21; preserve existing vulnerability-specific actions.",
             "source": "https://advisory.splunk.com/advisories/SVD-2026-1006"
           },
@@ -738,7 +738,7 @@ window.SPLUNK_DATA = {
             "actionLevel": "Review",
             "from": "Published October 7 advisory floors remain separately applicable",
             "to": "October 21, 2026 planned disclosure; Enterprise 10.2.8 named in the October 14 notice",
-            "implication": "This is an advance publication notice, not disclosed CVE detail, an affected-version range, or a universal safe-patch guarantee. It does not establish Cloud rollout or authorization.",
+            "implication": "The October 16 clarification states that the listed versions are fix versions, not affected versions. This is still an advance publication notice, not disclosed CVE detail, an affected-version range, or a universal safe-patch guarantee. It does not establish Cloud rollout or authorization.",
             "action": "Review the installed maintenance build and prepare the listed 10.2.8 or a later available version using its own upgrade and compatibility evidence. Recheck the definitive advisories on October 21; preserve existing vulnerability-specific actions.",
             "source": "https://advisory.splunk.com/advisories/SVD-2026-1006"
           },
@@ -901,7 +901,7 @@ window.SPLUNK_DATA = {
             "actionLevel": "Review",
             "from": "Published October 7 advisory floors remain separately applicable",
             "to": "October 21, 2026 planned disclosure; Enterprise 10.4.4 named in the October 14 notice",
-            "implication": "This is an advance publication notice, not disclosed CVE detail, an affected-version range, or a universal safe-patch guarantee. It does not establish Cloud rollout or authorization.",
+            "implication": "The October 16 clarification states that the listed versions are fix versions, not affected versions. This is still an advance publication notice, not disclosed CVE detail, an affected-version range, or a universal safe-patch guarantee. It does not establish Cloud rollout or authorization.",
             "action": "Review the installed maintenance build and prepare the listed 10.4.4 or a later available version using its own upgrade and compatibility evidence. Recheck the definitive advisories on October 21; preserve existing vulnerability-specific actions.",
             "source": "https://advisory.splunk.com/advisories/SVD-2026-1006"
           },
@@ -1122,10 +1122,10 @@ window.SPLUNK_DATA = {
             "actionLevel": "Required",
             "from": "MongoDB-backed KV Store",
             "to": "Cohosted PostgreSQL KV Store begins in 10.6",
-            "implication": "Migration starts automatically unless postponed. KV Store writes are impaired during migration; ES 8.7 and lower and ITSI 5.0.x and lower are incompatible with cohosted KV Store 1.0.",
-            "action": "Verify KV Store 7.0+, more than 50% free disk space, healthy cluster and parallel backup. For ES 8.7 and lower or ITSI 5.0.x and lower, set postgresMigrateOnStartup=false before upgrading and verify every member.",
+            "implication": "Migration starts automatically unless postponed. KV Store writes are impaired during migration; the current guide requires ITSI 5.0.x and lower to postpone and separately describes degraded premium-app functionality during migration. ES incompatibility remains a separate matrix warning.",
+            "action": "Verify KV Store 7.0+, more than 50% free disk space, healthy cluster and parallel backup. For ITSI 5.0.x and lower, set postgresMigrateOnStartup=false before upgrading and verify every member; also retain the separate ES matrix warning.",
             "source": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
-            "verified": "2026-10-12"
+            "verified": "2026-10-17"
           },
           {
             "component": "KV Store source-version prerequisite",
@@ -1193,12 +1193,24 @@ window.SPLUNK_DATA = {
             "implication": "Existing dashboards are not described as removed in 10.6, but new investment increases future migration risk.",
             "action": "Inventory affected Classic dashboards and plan supported replacements without treating deprecation as immediate removal.",
             "source": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/deprecated-features/deprecated-and-removed-in-version-10.6"
+          },
+          {
+            "component": "ES cohosted KV Store boundary",
+            "domain": "Data & storage",
+            "changeType": "Conflicting supporting scope",
+            "actionLevel": "Required",
+            "from": "The platform pairing alone does not establish database-engine compatibility",
+            "to": "The 10.6 matrix retains the ES 8.7-and-lower incompatibility warning; the linked KV guide now names only ITSI in that note",
+            "implication": "The source wording diverges. Do not infer ES compatibility from the guide's omission or remove the existing postponement warning. This applies only where the Enterprise-package KV Store and ES dependency are present.",
+            "action": "Keep the ES postponement warning pending exact public reconciliation; review the linked migration procedure and confirm the database-engine plan before executing an upgrade.",
+            "source": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+            "verified": "2026-10-17"
           }
         ],
         "requirements": [
           [
             "Prepare or postpone the automatic KV Store transition",
-            "Verify KV Store 7.0+, more than 50% free disk space, healthy cluster and parallel backup. ES 8.7 and lower and ITSI 5.0.x and lower cannot use cohosted KV Store 1.0: postpone migration before upgrading and verify every cluster member.",
+            "Verify KV Store 7.0+, more than 50% free disk space, healthy cluster and parallel backup. The current KV guide requires ITSI 5.0.x and lower to postpone. Preserve the separate ES matrix warning and source discrepancy; verify every cluster member before migration.",
             "Blocker",
             "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
             true
@@ -1236,6 +1248,13 @@ window.SPLUNK_DATA = {
             "Confirm exact 10.6 compatibility for every deployed extension and test automation against four-segment release identifiers.",
             "Test",
             "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6",
+            true
+          ],
+          [
+            "Retain the ES cohosted KV Store warning",
+            "The 10.6 compatibility matrix still excludes ES 8.7 and lower from cohosted KV Store 1.0. Its linked guide now names ITSI only in the incompatibility note. Do not treat that omission as ES clearance; retain postponement and resolve the exact database-engine plan before upgrading.",
+            "Blocker",
+            "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
             true
           ]
         ]
@@ -1719,6 +1738,18 @@ window.SPLUNK_DATA = {
             "implication": "The control is not universally available. On an enabled stack, aggressive saved-search schedules can be governed, but critical workflows can also be delayed if limits are applied without inventory.",
             "action": "Confirm feature availability with Splunk, inventory high-frequency searches, and validate service-level expectations before enabling or tightening interval limits.",
             "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.5.2605/splunk-cloud-platform-release-notes/whats-new"
+          },
+          {
+            "component": "Cloud 10.5 maintenance build",
+            "domain": "Managed-service maintenance",
+            "changeType": "Patch published",
+            "actionLevel": "Review",
+            "from": "Earlier 10.5.2605 maintenance builds do not establish the fixes in this patch",
+            "to": "Cloud 10.5.2605.12 was published October 15, 2026",
+            "implication": "The feed lists the caller-supplied SID-reuse fix SPL-317318, upgrade-related fixes and GCP SmartBus KMS project/receipt metadata correction. Its three high and three medium security counts are preliminary, not definitive advisory classifications or proof of a selected tenant's remediation.",
+            "action": "Confirm the exact stack build and applicable workflows with the managed service before relying on the listed fixes. This Cloud feed is not independent evidence of an Enterprise or UF package fix, availability, entitlement or authorization.",
+            "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
+            "verified": "2026-10-17"
           }
         ],
         "requirements": [
@@ -1742,6 +1773,13 @@ window.SPLUNK_DATA = {
             "Validate",
             "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.5.2605/splunk-cloud-platform-release-notes/whats-new",
             true
+          ],
+          [
+            "Confirm Cloud 10.5.2605.12 on the selected stack",
+            "Publication of the October 15 maintenance notes is not tenant rollout. Verify the exact stack build and reproduce affected workflows; do not transfer these rows to a customer-managed UF/Enterprise package or infer definitive security classifications.",
+            "Validate",
+            "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
+            false
           ]
         ]
       },

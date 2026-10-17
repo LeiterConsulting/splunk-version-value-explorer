@@ -512,6 +512,12 @@
       "url": "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/4.20/release-notes/new-features-in-splunk-it-service-intelligence"
     },
     {
+      "id": "source-6eae25ea8018bd04f07f",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/manage-otel-agents-and-collectors/remote-configuration-of-opentelemetry-collectors/opamp-bridge-for-collectors-on-kubernetes/enable-the-opamp-bridge-for-kubernetes"
+    },
+    {
       "id": "source-6edccd98562a871c7c27",
       "kind": "source",
       "dataset": "sources",
@@ -564,6 +570,12 @@
       "kind": "source",
       "dataset": "sources",
       "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.0-read-this-first"
+    },
+    {
+      "id": "source-798125e160d8a8c8de00",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0"
     },
     {
       "id": "source-7a86c8b596982be23427",
@@ -1580,6 +1592,36 @@
       ]
     },
     {
+      "id": "vc-0a7ecc3e2c51456bc304",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "platform": "enterprise",
+        "release": "10.6"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-6a7d5336d3254cafe7c5",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Retain the ES cohosted KV Store warning",
+        "The 10.6 compatibility matrix still excludes ES 8.7 and lower from cohosted KV Store 1.0. Its linked guide now names ITSI only in the incompatibility note. Do not treat that omission as ES clearance; retain postponement and resolve the exact database-engine plan before upgrading.",
+        "Blocker",
+        "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+        true
+      ]
+    },
+    {
       "id": "vc-0a965a220c22df1aa324",
       "kind": "feature",
       "dataset": "platform",
@@ -1728,6 +1770,36 @@
         "meaning": "These pages assign different editions to the same agent in the same release line. Essentials availability remains unconfirmed; Premier still has eligibility, pairing and permission conditions, but 8.7.1 no longer requires a separate representative-enablement step for eligible users.",
         "question": "Ask Splunk to confirm Essentials entitlement and eligibility for the target deployment."
       }
+    },
+    {
+      "id": "vc-0ce35a7972f42ce4b79d",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-6eae25ea8018bd04f07f",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/manage-otel-agents-and-collectors/remote-configuration-of-opentelemetry-collectors/opamp-bridge-for-collectors-on-kubernetes/enable-the-opamp-bridge-for-kubernetes",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Enable and validate Kubernetes remote configuration deliberately",
+        "Use chart 0.162.1 or later and the documented OpAMP Bridge enablement, realm and access-token setup. Templates/groups can update ConfigMaps and roll workloads; verify permissions, scope and staged rollout. Chart 0.162.1 does not inherit standalone Collector 0.163.",
+        "Validate",
+        "https://help.splunk.com/en/splunk-observability-cloud/manage-data/manage-otel-agents-and-collectors/remote-configuration-of-opentelemetry-collectors/opamp-bridge-for-collectors-on-kubernetes/enable-the-opamp-bridge-for-kubernetes",
+        false
+      ]
     },
     {
       "id": "vc-0dcde7ef6eb8a4dc9f67",
@@ -2087,6 +2159,36 @@
         "Use the patch that advances the OpAMP client to 0.4b0 and removes the direct requests-dependency workaround while retaining the 2.13.0 configuration and image qualifications.",
         "Separately versioned Python instrumentation · released October 13, 2026",
         "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2"
+      ]
+    },
+    {
+      "id": "vc-111408d450eac6b635ae",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "platform": "cloud",
+        "release": "10.5.2605"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-62d7e20b9432c30c8d7f",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Confirm Cloud 10.5.2605.12 on the selected stack",
+        "Publication of the October 15 maintenance notes is not tenant rollout. Verify the exact stack build and reproduce affected workflows; do not transfer these rows to a customer-managed UF/Enterprise package or infer definitive security classifications.",
+        "Validate",
+        "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
+        false
       ]
     },
     {
@@ -3908,7 +4010,7 @@
       "payload": {
         "id": "security-notice-20261021",
         "title": "October 21 security advisory advance notice",
-        "detail": "The October 14 notice names SOAR 8.7.0 for planned October 21, 2026 advisories and recommends the listed or latest available version. No CVEs, affected-version range, exact build or Cloud/on-premises scope is disclosed. This does not replace deployment-specific build fixes, Python 3.13, existing upgrade and credential-manager actions, or establish tenant rollout. Prepare using deployment-specific release evidence and recheck the definitive advisories.",
+        "detail": "The October 14 notice names SOAR 8.7.0 for planned October 21, 2026 advisories and recommends the listed or latest available version. The October 16 revision clarifies that listed versions are fix versions, not affected versions. No CVEs, affected-version range, exact build or Cloud/on-premises scope is disclosed. This does not replace deployment-specific build fixes, Python 3.13, existing upgrade and credential-manager actions, or establish tenant rollout. Prepare using deployment-specific release evidence and recheck the definitive advisories.",
         "kind": "issue",
         "release": "8.7.0",
         "src": [
@@ -4427,6 +4529,30 @@
       ]
     },
     {
+      "id": "vc-3557a72c9b02fc250b48",
+      "kind": "claim",
+      "dataset": "forwarders",
+      "scope": {},
+      "evidence": [
+        {
+          "sourceId": "source-6a7d5336d3254cafe7c5",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+          "section": "Splunk Enterprise version 10.x: 10.6.x ES cohosted KV Store 1.0 footnote",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-17",
+          "sourceChecked": "2026-10-17"
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": {
+        "title": "HF Enterprise-package KV Store with ES dependency",
+        "src": "esKv106"
+      }
+    },
+    {
       "id": "vc-356cc4924b02a3acd5a0",
       "kind": "requirement",
       "dataset": "platform",
@@ -4734,10 +4860,10 @@
         {
           "sourceId": "source-19fa102c205a8d8630c6",
           "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
-          "section": "Prepare for upgrade: ES 8.7 and lower / ITSI 5.0.x and lower; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins",
+          "section": "Prepare for upgrade: ITSI 5.0.x and lower, premium-app migration degradation; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-12",
-          "sourceChecked": "2026-10-12"
+          "sourceVerified": "2026-10-17",
+          "sourceChecked": "2026-10-17"
         }
       ],
       "verification": {
@@ -5938,8 +6064,8 @@
       },
       "evidence": [
         {
-          "sourceId": "source-19fa102c205a8d8630c6",
-          "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+          "sourceId": "source-6a7d5336d3254cafe7c5",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
           "section": null,
           "sectionScope": "Section not recorded",
           "sourceVerified": null,
@@ -5947,7 +6073,7 @@
         }
       ],
       "verification": {
-        "date": "2026-10-12",
+        "date": "2026-10-17",
         "outcome": "Recorded in original claim"
       },
       "payload": {
@@ -5963,9 +6089,9 @@
           "8.7"
         ],
         "title": "Postpone cohosted KV Store migration for ES",
-        "detail": "The platform matrix lists this pairing, but ES 8.7 and lower cannot use cohosted KV Store 1.0. Before upgrading Enterprise, set postgresMigrateOnStartup=false and verify every cluster member. Platform pairing does not establish database-engine compatibility.",
-        "source": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
-        "verified": "2026-10-12"
+        "detail": "The compatibility matrix still states that ES 8.7 and lower cannot use cohosted KV Store 1.0, but its linked upgrade guide now names only ITSI in the incompatibility note and describes ES degradation during migration. Keep the ES postponement warning and postgresMigrateOnStartup=false pending reconciliation; omission from the guide is not evidence that ES is cleared. Verify the documented postpone procedure and every cluster member before upgrading. Platform pairing is not database-engine compatibility.",
+        "source": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+        "verified": "2026-10-17"
       }
     },
     {
@@ -7269,7 +7395,7 @@
           "10.2": "10.2.8",
           "10.4": "10.4.4"
         },
-        "detail": "Published October 14: Splunk plans Enterprise and Universal Forwarder advisories for October 21, 2026 and recommends the listed or latest available software. This advance notice does not disclose CVEs or affected ranges, replace existing advisory-specific remediation, or establish Cloud rollout or a safe 10.6 exemption."
+        "detail": "Published October 14: Splunk plans Enterprise and Universal Forwarder advisories for October 21, 2026 and recommends the listed or latest available software. The October 16 revision clarifies that the listed versions are fix versions, not affected versions. This advance notice does not disclose CVEs or affected ranges, replace existing advisory-specific remediation, or establish Cloud rollout or a safe 10.6 exemption."
       }
     },
     {
@@ -9304,6 +9430,37 @@
       ]
     },
     {
+      "id": "vc-78c854e48f583c821e71",
+      "kind": "feature",
+      "dataset": "platform",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-3695c5a42acd89a3ec01",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Kubernetes Collector remote configuration",
+        "Infrastructure & Kubernetes",
+        "Apply versioned pipeline templates to groups",
+        "The October 15 Fleet Management milestone adds Kubernetes Collector configuration through templates and groups. Enable the OpAMP Bridge with the documented chart, realm and access-token prerequisites; configuration updates can roll out managed workloads.",
+        "Rolling-service milestone · October 15, 2026",
+        "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
+      ]
+    },
+    {
       "id": "vc-7939f5bc2990ec2209f2",
       "kind": "feature",
       "dataset": "products",
@@ -9730,6 +9887,36 @@
       ]
     },
     {
+      "id": "vc-7e542525b0702a7d4e6f",
+      "kind": "requirement",
+      "dataset": "products",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-6eae25ea8018bd04f07f",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/manage-otel-agents-and-collectors/remote-configuration-of-opentelemetry-collectors/opamp-bridge-for-collectors-on-kubernetes/enable-the-opamp-bridge-for-kubernetes",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Enable and validate Kubernetes remote configuration deliberately",
+        "Use chart 0.162.1 or later and the documented OpAMP Bridge enablement, realm and access-token setup. Templates/groups can update ConfigMaps and roll workloads; verify permissions, scope and staged rollout. Chart 0.162.1 does not inherit standalone Collector 0.163.",
+        "Validate",
+        "https://help.splunk.com/en/splunk-observability-cloud/manage-data/manage-otel-agents-and-collectors/remote-configuration-of-opentelemetry-collectors/opamp-bridge-for-collectors-on-kubernetes/enable-the-opamp-bridge-for-kubernetes",
+        false
+      ]
+    },
+    {
       "id": "vc-7eaf21c97f0f3d66da99",
       "kind": "feature",
       "dataset": "products",
@@ -10092,6 +10279,36 @@
         "Validate",
         "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.0",
         false
+      ]
+    },
+    {
+      "id": "vc-84e6c25f2662d607fc84",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-798125e160d8a8c8de00",
+          "url": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Migrate removed Collector 0.163 configuration",
+        "Debian 11 support, cook, signalfxgatewayprometheusremotewrite and prometheus_simple tls_enabled/tls_config are removed. Migrate affected hosts and declarations, validate TLS and prove telemetry delivery before upgrading.",
+        "Blocker",
+        "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0",
+        true
       ]
     },
     {
@@ -11063,6 +11280,36 @@
       }
     },
     {
+      "id": "vc-8c4fee0f907292871c6f",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-798125e160d8a8c8de00",
+          "url": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Rebaseline Collector 0.163 metrics and redaction",
+        "Check missing container_cpu_utilization, changed database resource labels/aggregates, the PostgreSQL timeout and chained redaction summaries against operational and privacy expectations.",
+        "Validate",
+        "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0",
+        true
+      ]
+    },
+    {
       "id": "vc-8cf517553c112d205562",
       "kind": "operatingBenefit",
       "dataset": "platform",
@@ -11744,7 +11991,7 @@
       },
       "payload": [
         "Prepare or postpone the automatic KV Store transition",
-        "Verify KV Store 7.0+, more than 50% free disk space, healthy cluster and parallel backup. ES 8.7 and lower and ITSI 5.0.x and lower cannot use cohosted KV Store 1.0: postpone migration before upgrading and verify every cluster member.",
+        "Verify KV Store 7.0+, more than 50% free disk space, healthy cluster and parallel backup. The current KV guide requires ITSI 5.0.x and lower to postpone. Preserve the separate ES matrix warning and source discrepancy; verify every cluster member before migration.",
         "Blocker",
         "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
         true
@@ -13551,6 +13798,36 @@
       ]
     },
     {
+      "id": "vc-afbf1d9b8275f8d5a41d",
+      "kind": "requirement",
+      "dataset": "products",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-798125e160d8a8c8de00",
+          "url": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Rebaseline Collector 0.163 metrics and redaction",
+        "Check missing container_cpu_utilization, changed database resource labels/aggregates, the PostgreSQL timeout and chained redaction summaries against operational and privacy expectations.",
+        "Validate",
+        "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0",
+        true
+      ]
+    },
+    {
       "id": "vc-b0b5a5b6add52610f766",
       "kind": "claim",
       "dataset": "platform",
@@ -13825,6 +14102,37 @@
         "Validate",
         "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.4.2604/splunk-cloud-platform-release-notes/whats-new",
         false
+      ]
+    },
+    {
+      "id": "vc-b4407011c3d701a2db49",
+      "kind": "feature",
+      "dataset": "platform",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-3695c5a42acd89a3ec01",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Collector 0.163 migration controls",
+        "Telemetry & OpenTelemetry",
+        "Preserve collection through breaking changes",
+        "Review removed Debian 11 support, receiver and feature-gate removals, TLS settings, metric/resource identity and chained redaction changes before adopting the standalone Collector. Chart 0.162.1 still packages Collector 0.162.0.",
+        "Separately versioned Collector · released October 16, 2026",
+        "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0"
       ]
     },
     {
@@ -14932,6 +15240,37 @@
       ]
     },
     {
+      "id": "vc-c191c10b25dff6b688fe",
+      "kind": "feature",
+      "dataset": "products",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-798125e160d8a8c8de00",
+          "url": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Collector 0.163 migration controls",
+        "Telemetry & OpenTelemetry",
+        "Preserve collection through breaking changes",
+        "Review removed Debian 11 support, receiver and feature-gate removals, TLS settings, metric/resource identity and chained redaction changes before adopting the standalone Collector. Chart 0.162.1 still packages Collector 0.162.0.",
+        "Separately versioned Collector · released October 16, 2026",
+        "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0"
+      ]
+    },
+    {
       "id": "vc-c2282a625444202d1f46",
       "kind": "requirement",
       "dataset": "platform",
@@ -15136,6 +15475,36 @@
         "Security & compliance",
         "Harden cloud metadata access",
         "Use AWS Instance Metadata Service v2 with SmartStore deployments."
+      ]
+    },
+    {
+      "id": "vc-c3bf0080a4498d3a2fbc",
+      "kind": "requirement",
+      "dataset": "products",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-798125e160d8a8c8de00",
+          "url": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Migrate removed Collector 0.163 configuration",
+        "Debian 11 support, cook, signalfxgatewayprometheusremotewrite and prometheus_simple tls_enabled/tls_config are removed. Migrate affected hosts and declarations, validate TLS and prove telemetry delivery before upgrading.",
+        "Blocker",
+        "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0",
+        true
       ]
     },
     {
@@ -16953,6 +17322,37 @@
         "Telemetry & OpenTelemetry",
         "Extend database tracing on the current agent",
         "Adopt OpenTelemetry 2.11/0.222 with Couchbase SDK 4.7+ instrumentation, vendored MySQL2 instrumentation, and an installation fallback that skips native-extension compilation when no prebuilt binary is available."
+      ]
+    },
+    {
+      "id": "vc-d6290f5f335042a10078",
+      "kind": "feature",
+      "dataset": "products",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-3695c5a42acd89a3ec01",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Kubernetes Collector remote configuration",
+        "Infrastructure & Kubernetes",
+        "Apply versioned pipeline templates to groups",
+        "The October 15 Fleet Management milestone adds Kubernetes Collector configuration through templates and groups. Enable the OpAMP Bridge with the documented chart, realm and access-token prerequisites; configuration updates can roll out managed workloads.",
+        "Rolling-service milestone · October 15, 2026",
+        "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
       ]
     },
     {
@@ -19717,8 +20117,8 @@
       },
       "evidence": [
         {
-          "sourceId": "source-19fa102c205a8d8630c6",
-          "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+          "sourceId": "source-6a7d5336d3254cafe7c5",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
           "section": null,
           "sectionScope": "Section not recorded",
           "sourceVerified": null,
@@ -19726,7 +20126,7 @@
         }
       ],
       "verification": {
-        "date": "2026-10-12",
+        "date": "2026-10-17",
         "outcome": "Recorded in original claim"
       },
       "payload": {
@@ -19742,9 +20142,9 @@
           "8.7"
         ],
         "title": "Postpone cohosted KV Store migration for ES",
-        "detail": "The platform matrix lists this pairing, but ES 8.7 and lower cannot use cohosted KV Store 1.0. Before upgrading Enterprise, set postgresMigrateOnStartup=false and verify every cluster member. Platform pairing does not establish database-engine compatibility.",
-        "source": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
-        "verified": "2026-10-12"
+        "detail": "The compatibility matrix still states that ES 8.7 and lower cannot use cohosted KV Store 1.0, but its linked upgrade guide now names only ITSI in the incompatibility note and describes ES degradation during migration. Keep the ES postponement warning and postgresMigrateOnStartup=false pending reconciliation; omission from the guide is not evidence that ES is cleared. Verify the documented postpone procedure and every cluster member before upgrading. Platform pairing is not database-engine compatibility.",
+        "source": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+        "verified": "2026-10-17"
       }
     },
     {

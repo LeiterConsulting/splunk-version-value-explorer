@@ -59,7 +59,7 @@ test('actual UF/HF routes retain sources for steps, receivers, topology and borr
    if(type==='uf'){assert.equal(result.technical.length,0);assert.equal(result.targetRuntime.length,0);}
   }
  }
- assert.equal(routes,900);assert.equal(seen.size,17);assert.equal(seen.size,mappings.length);
+ assert.equal(routes,900);assert.equal(seen.size,18);assert.equal(seen.size,mappings.length);
  // A dropped inherited runtime reference must fail even though all declared catalog claims remain.
  const inherited=api.assess({...api.defaults,type:'hf',from:'10.4',to:'10.6'}).targetRuntime.find(t=>t.release==='10.0');
  const damaged=JSON.parse(JSON.stringify(register.sources));

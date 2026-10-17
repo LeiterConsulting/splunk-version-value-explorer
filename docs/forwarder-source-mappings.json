@@ -26,7 +26,7 @@
       "environment": "customer-managed Enterprise package; component-dependent",
       "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.0-read-this-first",
       "sections": [
-        "Key points for upgrading to version 10.0 \u2014 FIPS-mode module requirements and dedicated migration link"
+        "Key points for upgrading to version 10.0 — FIPS-mode module requirements and dedicated migration link"
       ],
       "sourceCheckDate": "2026-10-08",
       "claimVerificationDate": "2026-10-08",
@@ -41,7 +41,7 @@
       "environment": "customer-managed Enterprise package; component-dependent",
       "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.0-read-this-first",
       "sections": [
-        "Key points for upgrading to version 10.0 \u2014 SSL 3.0 and TLS 1.0/1.1 deprecation"
+        "Key points for upgrading to version 10.0 — SSL 3.0 and TLS 1.0/1.1 deprecation"
       ],
       "sourceCheckDate": "2026-10-08",
       "claimVerificationDate": "2026-10-08",
@@ -225,10 +225,10 @@
         "Prepare for upgrade",
         "Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins"
       ],
-      "sourceCheckDate": "2026-10-12",
-      "claimVerificationDate": "2026-10-12",
+      "sourceCheckDate": "2026-10-17",
+      "claimVerificationDate": "2026-10-17",
       "outcome": "supporting-section-confirmed",
-      "qualification": "Applies only to an Enterprise-package HF with KV Store. ES 8.7 and lower and ITSI 5.0.x and lower require postponement of cohosted KV Store 1.0. This does not establish UF applicability, premium-app pairing, entitlement, or customer authorization."
+      "qualification": "Applies only to an Enterprise-package HF with KV Store. The current guide names ITSI 5.0.x and lower and migration-time premium-app degradation. ES incompatibility remains separately cited to the matrix; omission here is not clearance. No UF applicability, pairing, entitlement or authorization is inferred."
     },
     {
       "claimId": "technical.hf.10.6.legacy-tls-protocols",
@@ -259,6 +259,21 @@
       "claimVerificationDate": "2026-10-12",
       "outcome": "conflicting-evidence-preserved",
       "qualification": "The KV Store guide requires 10.2 or higher before 10.6 for sources at 10.0 or lower; the general Enterprise 10.6 table lists a direct 10.0 route. Preserve the specific prerequisite without editing the general graph or applying this KV-only condition to UF."
+    },
+    {
+      "claimId": "technical.hf.10.6.es-cohosted-kv-store-boundary",
+      "release": "10.6",
+      "component": "ES cohosted KV Store boundary",
+      "product": "Heavy Forwarder",
+      "environment": "customer-managed Enterprise package with applicable KV Store / ES dependency",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+      "sections": [
+        "Splunk Enterprise version 10.x: 10.6.x ES cohosted KV Store 1.0 footnote"
+      ],
+      "sourceCheckDate": "2026-10-17",
+      "claimVerificationDate": "2026-10-17",
+      "outcome": "conflicting-supporting-scope-retained",
+      "qualification": "Matrix retains ES 8.7-and-lower incompatibility; linked migration guide now names only ITSI in its incompatibility note. Retain the warning pending reconciliation. This does not declare ES installed on every HF or establish UF, Cloud, entitlement or authorization scope."
     }
   ]
 }

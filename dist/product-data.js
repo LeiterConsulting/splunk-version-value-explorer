@@ -584,9 +584,9 @@ Object.assign(window.SPLUNK_DATA, {
               "8.7"
             ],
             "title": "Postpone cohosted KV Store migration for ES",
-            "detail": "The platform matrix lists this pairing, but ES 8.7 and lower cannot use cohosted KV Store 1.0. Before upgrading Enterprise, set postgresMigrateOnStartup=false and verify every cluster member. Platform pairing does not establish database-engine compatibility.",
-            "source": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
-            "verified": "2026-10-12"
+            "detail": "The compatibility matrix still states that ES 8.7 and lower cannot use cohosted KV Store 1.0, but its linked upgrade guide now names only ITSI in the incompatibility note and describes ES degradation during migration. Keep the ES postponement warning and postgresMigrateOnStartup=false pending reconciliation; omission from the guide is not evidence that ES is cleared. Verify the documented postpone procedure and every cluster member before upgrading. Platform pairing is not database-engine compatibility.",
+            "source": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+            "verified": "2026-10-17"
           }
         }
       }
@@ -2077,6 +2077,22 @@ Object.assign(window.SPLUNK_DATA, {
               "Use the patch that advances the OpAMP client to 0.4b0 and removes the direct requests-dependency workaround while retaining the 2.13.0 configuration and image qualifications.",
               "Separately versioned Python instrumentation · released October 13, 2026",
               "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2"
+            ],
+            [
+              "Collector 0.163 migration controls",
+              "Telemetry & OpenTelemetry",
+              "Preserve collection through breaking changes",
+              "Review removed Debian 11 support, receiver and feature-gate removals, TLS settings, metric/resource identity and chained redaction changes before adopting the standalone Collector. Chart 0.162.1 still packages Collector 0.162.0.",
+              "Separately versioned Collector · released October 16, 2026",
+              "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0"
+            ],
+            [
+              "Kubernetes Collector remote configuration",
+              "Infrastructure & Kubernetes",
+              "Apply versioned pipeline templates to groups",
+              "The October 15 Fleet Management milestone adds Kubernetes Collector configuration through templates and groups. Enable the OpAMP Bridge with the documented chart, realm and access-token prerequisites; configuration updates can roll out managed workloads.",
+              "Rolling-service milestone · October 15, 2026",
+              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
             ]
           ],
           "technicalChanges": [
@@ -2145,6 +2161,90 @@ Object.assign(window.SPLUNK_DATA, {
               "implication": "Remote-management initialization and resolved dependency behavior can change even though the patch does not declare a new instrumentation capability.",
               "action": "Resolve dependencies in the target environment and validate startup, configuration delivery, traces, profiling and call graphs before broad rollout.",
               "source": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2"
+            },
+            {
+              "component": "Collector 0.163 OS and removed components",
+              "domain": "Collector host & configuration",
+              "changeType": "Removed",
+              "actionLevel": "Required",
+              "from": "Earlier distributions support Debian 11, the cook feature gate and the deprecated SignalFx Gateway Prometheus remote write receiver",
+              "to": "Collector 0.163 drops Debian 11 support, removes cook and removes signalfxgatewayprometheusremotewrite",
+              "implication": "Unsupported hosts and removed component declarations can prevent a working collection deployment. splunk_* receivers always apply props.conf but remain gated by enableTARunner.",
+              "action": "Migrate affected Debian hosts to a separately supported OS, remove +cook and replace the removed receiver with a documented supported pipeline; validate configuration and telemetry before rollout.",
+              "source": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0",
+              "verified": "2026-10-17"
+            },
+            {
+              "component": "Collector 0.163 Prometheus TLS configuration",
+              "domain": "Collector transport security",
+              "changeType": "Removed",
+              "actionLevel": "Required",
+              "from": "prometheus_simple accepts deprecated tls_enabled and tls_config alongside tls",
+              "to": "Collector 0.163 removes tls_enabled and tls_config; use the standard tls block",
+              "implication": "Legacy TLS declarations no longer configure the receiver. Certificate validation and trust must survive the migration.",
+              "action": "Move ca_file, cert_file, key_file and applicable validation settings under tls; validate authenticated collection without weakening TLS.",
+              "source": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0",
+              "verified": "2026-10-17"
+            },
+            {
+              "component": "Collector 0.163 metric and database resource identity",
+              "domain": "Metrics & resource identity",
+              "changeType": "Defaults changed",
+              "actionLevel": "Required",
+              "from": "The SignalFx exporter emits container_cpu_utilization; database receivers use their earlier labels and aggregate series",
+              "to": "Collector 0.163 excludes generated container_cpu_utilization by default in favor of container.cpu.usage; MongoDB loopback server.address/service.instance.id change and server.port becomes enabled; direct SQL Server counters gain sqlserver.database.name and lose the unlabeled total",
+              "implication": "Queries, dashboards, detectors and series cardinality can change. These are Collector receiver/exporter contracts, not a Cloud Platform or tenant version.",
+              "action": "Rebaseline affected metrics and resource identity; explicitly include container_cpu_utilization only when required, aggregate SQL Server counters across the database attribute, and verify alert continuity.",
+              "source": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0",
+              "verified": "2026-10-17"
+            },
+            {
+              "component": "Collector 0.163 PostgreSQL scrape timeout",
+              "domain": "Database collection",
+              "changeType": "Default changed",
+              "actionLevel": "Review",
+              "from": "PostgreSQL receiver scrapes can remain unbounded",
+              "to": "Collector 0.163 defaults PostgreSQL scrape timeout to 60 seconds",
+              "implication": "Slow or blocked queries now terminate at the configured timeout and may alter collection completeness.",
+              "action": "Measure representative scrape durations and increase timeout when justified; timeout: 0 explicitly restores unbounded behavior.",
+              "source": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0",
+              "verified": "2026-10-17"
+            },
+            {
+              "component": "Collector 0.163 chained redaction summaries",
+              "domain": "Telemetry privacy & audit",
+              "changeType": "Behavior changed",
+              "actionLevel": "Required",
+              "from": "Chained redaction processors can delete, mask or double-count summary bookkeeping inconsistently",
+              "to": "Collector 0.163 preserves and accumulates owned summary attributes, but a downstream processor with summary unset or silent applies its ordinary allow list and can strip upstream summaries",
+              "implication": "An existing chained pipeline can lose audit summaries or handle body keys differently. No privacy guarantee follows from a version upgrade.",
+              "action": "Test chained redaction with representative non-sensitive fixtures and explicit summary/allowed_keys policy; verify both protected values and the intended audit trail before rollout.",
+              "source": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0",
+              "verified": "2026-10-17"
+            },
+            {
+              "component": "Collector 0.163 SQL Server receiver alias",
+              "domain": "Collector configuration",
+              "changeType": "Deprecated",
+              "actionLevel": "Review",
+              "from": "The receiver type is sqlserver",
+              "to": "The preferred type is sql_server; sqlserver remains a deprecated alias",
+              "implication": "Existing sqlserver configuration remains functional; deprecation is not removal or a mandatory immediate migration.",
+              "action": "Use sql_server in new configuration and plan maintained-template migration before any separately announced removal.",
+              "source": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0",
+              "verified": "2026-10-17"
+            },
+            {
+              "component": "Fleet Management Kubernetes configuration",
+              "domain": "Collector management",
+              "changeType": "Opt-in capability",
+              "actionLevel": "Review",
+              "from": "Kubernetes Collector pipeline configuration is managed through existing Helm and ConfigMap workflows",
+              "to": "Helm chart 0.162.1 or later supplies the OpAMP Bridge setup for templates and groups",
+              "implication": "The bridge updates ConfigMaps and restarts enabled agent, gateway and cluster-receiver workloads. This is not automatic enrollment, universal entitlement or regulated-environment authorization.",
+              "action": "Confirm realm, access token and permissions; enable remoteManagement.enabled=true deliberately, test group/template assignment and validate controlled workload rollouts.",
+              "source": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/manage-otel-agents-and-collectors/remote-configuration-of-opentelemetry-collectors/opamp-bridge-for-collectors-on-kubernetes/enable-the-opamp-bridge-for-kubernetes",
+              "verified": "2026-10-17"
             }
           ],
           "requirements": [
@@ -2188,6 +2288,27 @@ Object.assign(window.SPLUNK_DATA, {
               "Python instrumentation 2.13.2 advances the OpAMP client and removes a direct requests-dependency workaround. Validate dependency resolution, startup and representative telemetry while retaining the documented 2.13.0 configuration and image checks.",
               "Validate",
               "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2",
+              false
+            ],
+            [
+              "Migrate removed Collector 0.163 configuration",
+              "Debian 11 support, cook, signalfxgatewayprometheusremotewrite and prometheus_simple tls_enabled/tls_config are removed. Migrate affected hosts and declarations, validate TLS and prove telemetry delivery before upgrading.",
+              "Blocker",
+              "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0",
+              true
+            ],
+            [
+              "Rebaseline Collector 0.163 metrics and redaction",
+              "Check missing container_cpu_utilization, changed database resource labels/aggregates, the PostgreSQL timeout and chained redaction summaries against operational and privacy expectations.",
+              "Validate",
+              "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0",
+              true
+            ],
+            [
+              "Enable and validate Kubernetes remote configuration deliberately",
+              "Use chart 0.162.1 or later and the documented OpAMP Bridge enablement, realm and access-token setup. Templates/groups can update ConfigMaps and roll workloads; verify permissions, scope and staged rollout. Chart 0.162.1 does not inherit standalone Collector 0.163.",
+              "Validate",
+              "https://help.splunk.com/en/splunk-observability-cloud/manage-data/manage-otel-agents-and-collectors/remote-configuration-of-opentelemetry-collectors/opamp-bridge-for-collectors-on-kubernetes/enable-the-opamp-bridge-for-kubernetes",
               false
             ]
           ]

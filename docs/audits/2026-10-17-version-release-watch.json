@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "watch": "version-release-watch",
+  "startedAt": "2026-10-17T09:21:44Z",
+  "reviewedAt": "2026-10-17T09:31:01Z",
+  "scope": "All 173 baseline registered sources attempted; 21 official GitHub releases/PRs recovered through API, plus seven latest component streams and bounded consequential claim checks. New discovered/cited sources separately checked. Not complete historical claim reverification.",
+  "baseline": {
+    "githubCommit": "4ea869b18fba75929faca051d6359fafd918ea95",
+    "sitesCommit": "068d5cfd63f196fc8ac8b4d7d51ef7620fb0de83",
+    "matchingTree": "4a058137fea15e93fe1b9fad275a963db239ad96",
+    "siteVersion": 166
+  },
+  "inventory": {
+    "sources": 173,
+    "retrieved": 170,
+    "unavailable": [
+      "https://docs.splunk.com/Documentation/Splunk/8.1.14/ReleaseNotes/MeetSplunk",
+      "https://docs.splunk.com/Documentation/Splunk/8.2.12/ReleaseNotes/MeetSplunk",
+      "https://help.splunk.com/en/splunk-enterprise/administer/manage-workloads/10.6/use-workload-management-on-kubernetes"
+    ],
+    "ledger": "2026-10-17-version-release-watch-sources.json"
+  },
+  "discovery": {
+    "components": [
+      "Collector 0.163.0 published 2026-10-16T23:23:16Z; new",
+      "splunk-otel-collector-chart: splunk-otel-collector-0.162.1 unchanged",
+      "splunk-otel-java: v2.32.0 unchanged",
+      "splunk-otel-js: v4.12.1 unchanged",
+      "splunk-otel-python: v2.13.2 unchanged",
+      "splunk-otel-dotnet: v1.16.0 unchanged",
+      "splunk-otel-js-web: v3.2.0 unchanged"
+    ],
+    "soar": "Current hub and release streams still establish 8.7.0, not a new 8.8 release. Export 8.7.1 matrix's 8.8.0 cell is not release evidence. Separate app/Broker and historical bridge/build boundaries retained.",
+    "prep11": "Bounded official-source discovery establishes no new version-specific 11.x release/date/path/mandate; current preparation context, public unknowns and SOK conflict retained.",
+    "cloud": "Current service and premium pairings remain separate from exact maintenance publication, tenant rollout and historical availability."
+  },
+  "claimChecks": [
+    {
+      "claimId": "observability:collector-0163-migrations",
+      "productVersionEnvironment": "Standalone Splunk OpenTelemetry Collector 0.163.0; applicable customer-managed hosts/configurations",
+      "url": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0",
+      "section": "Breaking changes; Deprecations",
+      "sourceEffectiveDate": "2026-10-16",
+      "qualification": "Selected OS/removal/TLS/metric/resource/timeout/redaction contracts only; sqlserver remains functional; chart 0.162.1 still packages 0.162.0.",
+      "sourceCheckDate": "2026-10-17",
+      "claimVerificationDate": "2026-10-17",
+      "outcome": "confirmed",
+      "followUp": "Continue exact source monitoring; retain stated unknowns."
+    },
+    {
+      "claimId": "observability:fleet-kubernetes-configuration",
+      "productVersionEnvironment": "October 15 service milestone, chart 0.162.1+ and enabled OpAMP Bridge",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/manage-otel-agents-and-collectors/remote-configuration-of-opentelemetry-collectors/opamp-bridge-for-collectors-on-kubernetes/enable-the-opamp-bridge-for-kubernetes",
+      "section": "Enable OpAMP Bridge; chart version; realm/access token command; enabled components",
+      "sourceEffectiveDate": "2026-10-15",
+      "qualification": "Opt-in templates/groups/ConfigMap and workload rollout, not automatic enrollment or universal entitlement/authorization; source typo does not establish default state.",
+      "sourceCheckDate": "2026-10-17",
+      "claimVerificationDate": "2026-10-17",
+      "outcome": "confirmed",
+      "followUp": "Continue exact source monitoring; retain stated unknowns."
+    },
+    {
+      "claimId": "cloud:1052605-patch12",
+      "productVersionEnvironment": "Splunk Cloud Platform 10.5.2605.12",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
+      "section": "10.5.2605.12 — Publication Date, Security Fixes, Search issues, Upgrade issues, Uncategorized issues",
+      "sourceEffectiveDate": "2026-10-15",
+      "qualification": "Exact published Cloud patch and selected fixed rows, preliminary severity counts. Does not establish tenant rollout or independently certify a customer-managed UF/Enterprise fix.",
+      "sourceCheckDate": "2026-10-17",
+      "claimVerificationDate": "2026-10-17",
+      "outcome": "confirmed",
+      "followUp": "Continue exact source monitoring; retain stated unknowns."
+    },
+    {
+      "claimId": "es:cohosted-kv-store-boundary",
+      "productVersionEnvironment": "Customer-managed Enterprise 10.6 with ES <=8.7 and applicable KV dependency",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+      "section": "Splunk Enterprise version 10.x, 10.6.x ES footnote",
+      "sourceEffectiveDate": null,
+      "qualification": "Restriction remains in matrix. Linked KV guide was revised October 16 and names only ITSI in incompatibility note; preserve discrepancy and ES postponement warning, not an inferred clearance.",
+      "sourceCheckDate": "2026-10-17",
+      "claimVerificationDate": "2026-10-17",
+      "outcome": "conflicting-scope-retained",
+      "followUp": "Continue exact source monitoring; retain stated unknowns."
+    },
+    {
+      "claimId": "security:svd-2026-1006-fix-version-clarification",
+      "productVersionEnvironment": "Named Enterprise and UF builds; SOAR 8.7.0 with exact build/deployment unknown",
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1006",
+      "section": "Description; Changelog October 16",
+      "sourceEffectiveDate": "2026-10-16",
+      "qualification": "Original notice October 14; listed versions explicitly fix, not affected versions. Definitive disclosure planned October 21; no CVEs/affected ranges/10.6 exemption/Cloud status inferred.",
+      "sourceCheckDate": "2026-10-17",
+      "claimVerificationDate": "2026-10-17",
+      "outcome": "confirmed",
+      "followUp": "Continue exact source monitoring; retain stated unknowns."
+    },
+    {
+      "claimId": "soar:corrected-build-243",
+      "productVersionEnvironment": "SOAR On-premises 8.7.0 only",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.7.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+      "section": "Updated release notes September 22, build 243; Important update Python 3.9 end of support",
+      "sourceEffectiveDate": "2026-09-22",
+      "qualification": "Build 243 fixes two build-232 defects. Python 3.13 automation compatibility is separate; no Cloud build claim.",
+      "sourceCheckDate": "2026-10-17",
+      "claimVerificationDate": "2026-10-17",
+      "outcome": "confirmed-unchanged",
+      "followUp": "Continue exact source monitoring; retain stated unknowns."
+    }
+  ],
+  "sourceMappings": {
+    "outcome": "existing-regression-retained-and-extended",
+    "routes": 900,
+    "borrowedMappings": 18,
+    "priorMappings": 17,
+    "change": "No generator rewrite. New exact ES matrix mapping and narrowed existing KV procedure mapping; same dropped inherited-runtime negative fixture remains.",
+    "qualification": "Full returned-route source mappings and exact sections are tested, not blanket re-verification of every historical statement."
+  },
+  "validation": {
+    "baseline": "185 Node tests, build and all six real live delivery checks passed before edits.",
+    "candidate": "All four ordered generators/check gates, 188 Node tests and 57-asset build passed. Candidate content-f4c9c958deb8039b925d8bc2, engine-51b047183c8f67188035, 778 records. Exact native export evidence pending."
+  },
+  "backlog": [
+    {
+      "priority": 1,
+      "claimId": "es:cohosted-kv-store-boundary",
+      "owner": "Version Release Watch with ES Editions Watch",
+      "nextAction": "Keep matrix warning and current procedure discrepancy visible; reconcile only with exact public evidence.",
+      "reviewBy": "2026-10-19"
+    },
+    {
+      "priority": 1,
+      "claimId": "soar:issue-table-rows",
+      "owner": "Version Release Watch",
+      "nextAction": "Current platform issue pages still omit issue rows; do not equate retrieval with a zero-issues inventory.",
+      "reviewBy": "2026-10-19"
+    },
+    {
+      "priority": 1,
+      "claimId": "kv-store:source-version-conflict",
+      "owner": "Version Release Watch",
+      "nextAction": "Retain general 10.0 direct edge separately from KV-specific 10.2+ bridge.",
+      "reviewBy": "2026-10-19"
+    },
+    {
+      "priority": 2,
+      "claimId": "prep11:operator-source-conflict",
+      "owner": "Version Release Watch",
+      "nextAction": "Preserve Kubernetes maximum/date discrepancy and explicit future-release unknowns.",
+      "reviewBy": "2026-10-19"
+    }
+  ],
+  "minorRepairs": "October 16 PDF pagination and phone label polish remain functioning, reversible and assigned, with October 19 deadlines in the original readiness record; no relabeling as verified repair.",
+  "publication": {
+    "status": "candidate-not-deployed",
+    "priorCompleteSiteVersion": 166
+  },
+  "materialCycle": 25,
+  "policy": {
+    "schedulesChanged": false,
+    "timingModesChanged": false,
+    "enabledStatesChanged": false,
+    "mandatoryWait": false,
+    "privacyChanged": false,
+    "audienceChanged": false,
+    "activeDeliveryChanged": false
+  }
+}

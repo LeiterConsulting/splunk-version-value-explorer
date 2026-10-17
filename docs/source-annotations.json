@@ -6,10 +6,11 @@
     "reason": "The lifecycle review date records a scoped policy-table verification; it does not recalculate deadlines, establish Cloud availability or advance unrelated source-review dates."
   },
   "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix": {
-    "reviewed": "2026-10-01",
-    "section": "Splunk Enterprise version 10.x — 10.6.x, 10.5.x, 10.4.x and 10.2.x rows",
-    "verificationScope": "Rechecked the published ES and ITSI pairings across the 10.6.x, Cloud-only 10.5.x, 10.4.x and 10.2.x rows. The 10.6.x row lists ES 8.4.1, 8.5.1, 8.6.1 and 8.7 plus ITSI 4.21.x and 5.0. The Enterprise matrix is not used as a Cloud service-pairing, entitlement, region or authorization rule.",
-    "reason": "Compatibility evidence establishes named customer-managed pairings only; release notes, upgrade paths and Cloud Service Details retain their separate scope."
+    "reviewed": "2026-10-17",
+    "section": "Splunk Enterprise version 10.x: 10.6.x ES cohosted KV Store 1.0 footnote",
+    "verificationScope": "The ES 8.7-and-lower incompatibility footnote remains. Its linked guide now names only ITSI in the incompatibility note; retain ES warning pending reconciliation. Other matrix rows are not newly reverified.",
+    "reason": "Separate current matrix and linked procedure wording; omission does not establish ES compatibility or Cloud scope.",
+    "conflict": true
   },
   "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise": {
     "reviewed": "2026-10-01",
@@ -48,10 +49,10 @@
     "reason": "Published release documentation is distinct from current Service Details and stack-specific availability."
   },
   "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information": {
-    "reviewed": "2026-10-14",
-    "section": "10.6.1.X Fixed Issues — 10.6.1.0; 10.4.2604.X Fixed Issues — 10.4.2604.15",
-    "verificationScope": "Reconfirmed the October 9, 2026 publication of Cloud 10.6.1.0 and verified the October 12 publication of 10.4.2604.15, including its Universal Forwarder package-stop correction and listed indexer, SAML, authentication-observability and Google Cloud KMS fixes. Security counts remain preliminary context; no CVE scope, tenant rollout, entitlement, region or selected-stack applicability is inferred.",
-    "reason": "A Cloud maintenance feed establishes the published build and its listed fixes, not deployment to every stack or a customer-managed installation path."
+    "reviewed": "2026-10-17",
+    "section": "10.5.2605.12: Publication Date October 15, 2026; Search issues; Upgrade issues; Uncategorized issues",
+    "verificationScope": "Exact Cloud build publication and selected fixes, preliminary security counts. No selected tenant rollout or customer-managed UF/Enterprise fix is inferred.",
+    "reason": "Bounded Cloud maintenance claim check, not retrospective service availability."
   },
   "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4": {
     "reviewed": "2026-10-01",
@@ -96,10 +97,10 @@
     "reason": "Rolling SaaS milestones and customer-managed component versions are maintained as separate evidence; Controlled Availability is not generalized to every realm or customer."
   },
   "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026": {
-    "reviewed": "2026-10-13",
-    "section": "October 2026 timeline — Splunk APM not-equal tag filtering",
-    "verificationScope": "Confirmed the directly retrievable official page now dates the change October 12, 2026 and states that != filters exclude data when the tag is absent, so existing searches may return fewer results. The prior search-index-only October 8 signal is retained as discovery history, not used as the effective date.",
-    "reason": "A rolling SaaS search-semantics change can alter saved search, dashboard, detector, deep-link and runbook results; customer-managed component releases remain separately versioned."
+    "reviewed": "2026-10-17",
+    "section": "What's new: Fleet Management — October 15, 2026",
+    "verificationScope": "Kubernetes Collector remote configuration with templates/groups; linked Bridge setup independently checked. Existing October 12 APM change retained.",
+    "reason": "Service milestone, not a Platform release or proof of tenant entitlement."
   },
   "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0": {
     "reviewed": "2026-10-13",
@@ -573,10 +574,11 @@
     "reason": "This customer-managed instrumentation patch is separate from the rolling SaaS milestone, tenant availability and application compatibility."
   },
   "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store": {
-    "reviewed": "2026-10-12",
+    "reviewed": "2026-10-17",
     "section": "Prepare for upgrade; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins",
-    "verificationScope": "Bounded verification of automatic migration, ES 8.7 and lower and ITSI 5.0.x and lower incompatibility with cohosted KV Store 1.0, readiness and per-member postponement. No Cloud or product pairing inferred.",
-    "reason": "Current recovered documentation URL; original citation retained as historical evidence."
+    "verificationScope": "ITSI 5.0.x and lower postponement, KV 7.0+, disk/backup/health and migration-time write degradation. ES incident-review degradation is named, but ES incompatibility is now absent here and remains in the matrix.",
+    "reason": "October 16 source revision changes the supporting scope. Keep the independent ES matrix warning and the existing source-version conflict.",
+    "conflict": true
   },
   "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise": {
     "reviewed": "2026-10-16",
@@ -633,5 +635,23 @@
     "reviewed": "2026-10-15",
     "section": "Self-managed Splunk AI, accelerated by NVIDIA",
     "verificationScope": "October 15 preparation-page review: Self-managed Splunk AI, accelerated by NVIDIA. Current-version or adjacent-product evidence does not establish 11.x requirements, compatibility or availability."
+  },
+  "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0": {
+    "reviewed": "2026-10-17",
+    "section": "Breaking changes; Deprecations",
+    "verificationScope": "Bounded Collector 0.163 OS/removals, Prometheus TLS, metric/resource identities, PostgreSQL timeout, chained redaction and functional SQL Server alias; release published October 16. Chart 0.162.1 still packages 0.162.0.",
+    "reason": "Versioned customer-managed component, not a SaaS release or universal compatibility certification."
+  },
+  "https://help.splunk.com/en/splunk-observability-cloud/manage-data/manage-otel-agents-and-collectors/remote-configuration-of-opentelemetry-collectors/opamp-bridge-for-collectors-on-kubernetes/enable-the-opamp-bridge-for-kubernetes": {
+    "reviewed": "2026-10-17",
+    "section": "Enable OpAMP Bridge; Helm command; enabled agent/gateway/cluster receiver components",
+    "verificationScope": "Chart 0.162.1+, remoteManagement.enabled=true, realm/access token and managed workload rollout; linked overview explains ConfigMap changes. Typo in default-state prose is not used to infer a default.",
+    "reason": "Opt-in Kubernetes configuration, separate from Collector version, region, entitlement and authorization."
+  },
+  "https://advisory.splunk.com/advisories/SVD-2026-1006": {
+    "reviewed": "2026-10-17",
+    "section": "Description; Changelog — October 16, 2026",
+    "verificationScope": "Listed Enterprise/UF builds and SOAR 8.7.0 are fix versions, explicitly not affected versions. October 21 definitive disclosures still pending; CVEs, affected ranges, SOAR build/deployment and 10.6 applicability are not inferred.",
+    "reason": "Original publication October 14, clarification October 16, source/claim check October 17 remain separate dates."
   }
 }

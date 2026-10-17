@@ -307,18 +307,22 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-15",
+      "reviewed": "2026-10-17",
       "status": "Reviewed",
       "firstRecorded": "2026-10-15",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "reason": "Original publication October 14, clarification October 16, source/claim check October 17 remain separate dates.",
+      "section": "Description; Changelog — October 16, 2026",
+      "verificationScope": "Listed Enterprise/UF builds and SOAR 8.7.0 are fix versions, explicitly not affected versions. October 21 definitive disclosures still pending; CVEs, affected ranges, SOAR build/deployment and 10.6 applicability are not inferred.",
       "events": [
         {
           "date": "2026-10-15",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-17",
+          "event": "Review status updated: Reviewed · 2026-10-17"
         }
       ]
     },
@@ -561,6 +565,40 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-09",
           "event": "Review status updated: Reviewed · 2026-10-09"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0",
+      "title": "v0.163.0",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Oct 2026.features.5.5",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.6.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.7.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.8.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.9.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.10.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.11.source",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.6.3",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.7.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-17",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-17",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Versioned customer-managed component, not a SaaS release or universal compatibility certification.",
+      "section": "Breaking changes; Deprecations",
+      "verificationScope": "Bounded Collector 0.163 OS/removals, Prometheus TLS, metric/resource identities, PostgreSQL timeout, chained redaction and functional SQL Server alias; release published October 16. Chart 0.162.1 still packages 0.162.0.",
+      "events": [
+        {
+          "date": "2026-10-17",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },
@@ -1024,7 +1062,6 @@ window.VersionCompassSources = {
       "references": [
         "release.enterprise.releasesData.10.6.technicalChanges.1.source",
         "release.enterprise.releasesData.10.6.requirements.0.3",
-        "release.productTracks.es.hostRequirements.enterprise.10.6.source",
         "release.productTracks.itsi.hostRequirements.enterprise.10.6.source",
         "forwarders.sources.kv106.url",
         "content-updates.js",
@@ -1032,12 +1069,12 @@ window.VersionCompassSources = {
         "forwarders: borrowed.technical.hf.10.6.kv-store-database-engine"
       ],
       "reviews": [
-        "2026-10-12"
+        "2026-10-17"
       ],
       "claimReferences": [
         {
           "path": "forwarders: forwarders.claimSources.technical.hf-kv-store-10.6",
-          "section": "Prepare for upgrade: ES 8.7 and lower / ITSI 5.0.x and lower; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins"
+          "section": "Prepare for upgrade: ITSI 5.0.x and lower, premium-app migration degradation; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins"
         },
         {
           "path": "forwarders: borrowed.technical.hf.10.6.kv-store-database-engine",
@@ -1045,24 +1082,28 @@ window.VersionCompassSources = {
           "release": "10.6",
           "component": "KV Store database engine",
           "section": "Prepare for upgrade; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins",
-          "claimVerified": "2026-10-12",
+          "claimVerified": "2026-10-17",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Applies only to an Enterprise-package HF with KV Store. ES 8.7 and lower and ITSI 5.0.x and lower require postponement of cohosted KV Store 1.0. This does not establish UF applicability, premium-app pairing, entitlement, or customer authorization."
+          "qualification": "Applies only to an Enterprise-package HF with KV Store. The current guide names ITSI 5.0.x and lower and migration-time premium-app degradation. ES incompatibility remains separately cited to the matrix; omission here is not clearance. No UF applicability, pairing, entitlement or authorization is inferred."
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-12",
-      "status": "Reviewed",
+      "reviewed": "2026-10-17",
+      "status": "Needs reconciliation",
       "firstRecorded": "2026-10-12",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "Current recovered documentation URL; original citation retained as historical evidence.",
+      "reason": "October 16 source revision changes the supporting scope. Keep the independent ES matrix warning and the existing source-version conflict.",
       "section": "Prepare for upgrade; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins",
-      "verificationScope": "Bounded verification of automatic migration, ES 8.7 and lower and ITSI 5.0.x and lower incompatibility with cohosted KV Store 1.0, readiness and per-member postponement. No Cloud or product pairing inferred.",
+      "verificationScope": "ITSI 5.0.x and lower postponement, KV 7.0+, disk/backup/health and migration-time write degradation. ES incident-review degradation is named, but ES incompatibility is now absent here and remains in the matrix.",
       "events": [
         {
           "date": "2026-10-12",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-17",
+          "event": "Review status updated: Needs reconciliation · 2026-10-17"
         }
       ]
     },
@@ -1908,20 +1949,22 @@ window.VersionCompassSources = {
       "references": [
         "release.cloud.releasesData.10.4.2604.technicalChanges.4.source",
         "release.cloud.releasesData.10.4.2604.requirements.4.3",
+        "release.cloud.releasesData.10.5.2605.technicalChanges.3.source",
+        "release.cloud.releasesData.10.5.2605.requirements.3.3",
         "release.cloud.releasesData.10.6.technicalChanges.4.source",
         "release.cloud.releasesData.10.6.requirements.6.3",
         "content-updates.js"
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": "2026-10-14",
+      "reviewed": "2026-10-17",
       "status": "Reviewed",
       "firstRecorded": "2026-10-10",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "A Cloud maintenance feed establishes the published build and its listed fixes, not deployment to every stack or a customer-managed installation path.",
-      "section": "10.6.1.X Fixed Issues — 10.6.1.0; 10.4.2604.X Fixed Issues — 10.4.2604.15",
-      "verificationScope": "Reconfirmed the October 9, 2026 publication of Cloud 10.6.1.0 and verified the October 12 publication of 10.4.2604.15, including its Universal Forwarder package-stop correction and listed indexer, SAML, authentication-observability and Google Cloud KMS fixes. Security counts remain preliminary context; no CVE scope, tenant rollout, entitlement, region or selected-stack applicability is inferred.",
+      "reason": "Bounded Cloud maintenance claim check, not retrospective service availability.",
+      "section": "10.5.2605.12: Publication Date October 15, 2026; Search issues; Upgrade issues; Uncategorized issues",
+      "verificationScope": "Exact Cloud build publication and selected fixes, preliminary security counts. No selected tenant rollout or customer-managed UF/Enterprise fix is inferred.",
       "events": [
         {
           "date": "2026-10-10",
@@ -1930,6 +1973,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-14",
           "event": "Review status updated: Reviewed · 2026-10-14"
+        },
+        {
+          "date": "2026-10-17",
+          "event": "Review status updated: Reviewed · 2026-10-17"
         }
       ]
     },
@@ -3892,24 +3939,51 @@ window.VersionCompassSources = {
       "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
       "title": "splunk products version compatibility matrix",
       "areas": [
-        "Release guide"
+        "Release guide",
+        "Splunk Forwarders",
+        "Shared guidance"
       ],
       "references": [
+        "release.enterprise.releasesData.10.6.technicalChanges.8.source",
+        "release.enterprise.releasesData.10.6.requirements.6.3",
         "release.productTracks.es.compatibilitySource",
+        "release.productTracks.es.hostRequirements.enterprise.10.6.source",
         "release.productTracks.itsi.compatibilitySource",
         "release.productTracks.itsi.releasesData.4.15.source",
-        "release.productTracks.itsi.releasesData.4.17.source"
+        "release.productTracks.itsi.releasesData.4.17.source",
+        "forwarders.sources.esKv106.url",
+        "content-updates.js",
+        "forwarders: forwarders.claimSources.technical.hf-es-kv-store-10.6",
+        "forwarders: borrowed.technical.hf.10.6.es-cohosted-kv-store-boundary"
       ],
-      "reviews": [],
+      "reviews": [
+        "2026-10-17"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.technical.hf-es-kv-store-10.6",
+          "section": "Splunk Enterprise version 10.x: 10.6.x ES cohosted KV Store 1.0 footnote"
+        },
+        {
+          "path": "forwarders: borrowed.technical.hf.10.6.es-cohosted-kv-store-boundary",
+          "claimId": "technical.hf.10.6.es-cohosted-kv-store-boundary",
+          "release": "10.6",
+          "component": "ES cohosted KV Store boundary",
+          "section": "Splunk Enterprise version 10.x: 10.6.x ES cohosted KV Store 1.0 footnote",
+          "claimVerified": "2026-10-17",
+          "outcome": "conflicting-supporting-scope-retained",
+          "qualification": "Matrix retains ES 8.7-and-lower incompatibility; linked migration guide now names only ITSI in its incompatibility note. Retain the warning pending reconciliation. This does not declare ES installed on every HF or establish UF, Cloud, entitlement or authorization scope."
+        }
+      ],
       "usage": "In use",
-      "reviewed": "2026-10-01",
-      "status": "Reviewed",
+      "reviewed": "2026-10-17",
+      "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "Compatibility evidence establishes named customer-managed pairings only; release notes, upgrade paths and Cloud Service Details retain their separate scope.",
-      "section": "Splunk Enterprise version 10.x — 10.6.x, 10.5.x, 10.4.x and 10.2.x rows",
-      "verificationScope": "Rechecked the published ES and ITSI pairings across the 10.6.x, Cloud-only 10.5.x, 10.4.x and 10.2.x rows. The 10.6.x row lists ES 8.4.1, 8.5.1, 8.6.1 and 8.7 plus ITSI 4.21.x and 5.0. The Enterprise matrix is not used as a Cloud service-pairing, entitlement, region or authorization rule.",
+      "reason": "Separate current matrix and linked procedure wording; omission does not establish ES compatibility or Cloud scope.",
+      "section": "Splunk Enterprise version 10.x: 10.6.x ES cohosted KV Store 1.0 footnote",
+      "verificationScope": "The ES 8.7-and-lower incompatibility footnote remains. Its linked guide now names only ITSI in the incompatibility note; retain ES warning pending reconciliation. Other matrix rows are not newly reverified.",
       "events": [
         {
           "date": "2026-09-25",
@@ -3930,6 +4004,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-17",
+          "event": "Review status updated: Needs reconciliation · 2026-10-17"
         }
       ]
     },
@@ -4743,6 +4821,33 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/manage-otel-agents-and-collectors/remote-configuration-of-opentelemetry-collectors/opamp-bridge-for-collectors-on-kubernetes/enable-the-opamp-bridge-for-kubernetes",
+      "title": "enable the opamp bridge for kubernetes",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.12.source",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.8.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-17",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-17",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Opt-in Kubernetes configuration, separate from Collector version, region, entitlement and authorization.",
+      "section": "Enable OpAMP Bridge; Helm command; enabled agent/gateway/cluster receiver components",
+      "verificationScope": "Chart 0.162.1+, remoteManagement.enabled=true, realm/access token and managed workload rollout; linked overview explains ConfigMap changes. Typo in default-state prose is not used to infer a default.",
+      "events": [
+        {
+          "date": "2026-10-17",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector",
       "title": "get started with the splunk distribution of the opentelemetry collector",
       "areas": [
@@ -4916,24 +5021,29 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.productTracks.observability.releasesData.Oct 2026.source",
+        "release.productTracks.observability.releasesData.Oct 2026.features.6.5",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.0.source",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.0.3",
         "content-updates.js"
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": "2026-10-13",
+      "reviewed": "2026-10-17",
       "status": "Reviewed",
       "firstRecorded": "2026-10-13",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "A rolling SaaS search-semantics change can alter saved search, dashboard, detector, deep-link and runbook results; customer-managed component releases remain separately versioned.",
-      "section": "October 2026 timeline — Splunk APM not-equal tag filtering",
-      "verificationScope": "Confirmed the directly retrievable official page now dates the change October 12, 2026 and states that != filters exclude data when the tag is absent, so existing searches may return fewer results. The prior search-index-only October 8 signal is retained as discovery history, not used as the effective date.",
+      "reason": "Service milestone, not a Platform release or proof of tenant entitlement.",
+      "section": "What's new: Fleet Management — October 15, 2026",
+      "verificationScope": "Kubernetes Collector remote configuration with templates/groups; linked Bridge setup independently checked. Existing October 12 APM change retained.",
       "events": [
         {
           "date": "2026-10-13",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-17",
+          "event": "Review status updated: Reviewed · 2026-10-17"
         }
       ]
     },

@@ -77,3 +77,9 @@ The October 9 restoration keeps Collector/chart 0.162.0 and Python 2.13.1 as his
 ## October 12 KV Store qualification
 
 The current cohosted KV Store guide explicitly includes ES 8.7 and lower alongside ITSI 5.0.x and lower in the postponement requirement. Maintained ES comparisons on Enterprise 10.6 now carry the separate database-engine warning even when the platform pairing is listed. This customer-managed prerequisite is not transferred to Cloud. The KV-specific source-version guide also requires 10.2 or higher first for sources at 10.0 or lower; the general 10.6 table's direct 10.0 edge is retained with a separate scoped conflict warning.
+
+## October 17 source-scope follow-up
+
+Collector 0.163.0 is a standalone October 16 component release; the current chart 0.162.1 still packages 0.162.0. Its selected breaking configuration, metric/resource and redaction changes remain separate from the October 15 Fleet Management service milestone and its opt-in Bridge prerequisites. Cloud 10.5.2605.12 is an exact published maintenance build, not proof of selected-stack rollout or a customer-managed package fix.
+
+The October 12 paragraph above is historical: the KV migration guide was revised October 16 and now names only ITSI in its incompatibility note. The product matrix retains the ES 8.7-and-lower footnote. Preserve that discrepancy and the ES warning, with matrix and procedure citations separated; do not infer clearance from omission. The eighteen actual borrowed HF mappings and 900-route regression cover the new matrix boundary without rewriting the generator or inventing historical dates.
