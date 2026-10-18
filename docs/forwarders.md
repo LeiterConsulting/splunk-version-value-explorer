@@ -55,3 +55,7 @@ Splunk has since added exact 10.6 rows to both the Enterprise receiver matrix an
 ## October 12 borrowed KV Store evidence
 
 The current Enterprise-package KV Store record and exact source mapping now retain the ES 8.7-and-lower postponement boundary alongside ITSI. A separate mapped HF technical record qualifies the KV-specific 10.2-or-higher source bridge versus the general table's direct 10.0 edge. Both apply only when KV Store is present; neither becomes UF compatibility or a rewrite of the general Enterprise upgrade graph. Existing source-register regression ownership and all schedules are preserved.
+
+## October 18 inherited runtime verification
+
+Two exact 10.2 runtime mappings were semantically rechecked: Web Python 3.13 versus historical splunkd 3.9 default/3.13 opt-in, and removal of bundled Node.js versus separately packaged app-owned runtimes. Their actual claim dates advance independently; the sixteen other mapping dates and existing conflicts do not. A new semantic negative fixture rejects a mandatory-all-components Python substitution. Native export coverage now includes HF 10.4-to-10.6 in both themes, preserving the explicit target-runtime-history qualification and later default supersession. The existing 900-route and missing-inherited-reference regression remains; this is not complete historical semantic reverification.
