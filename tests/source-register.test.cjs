@@ -85,3 +85,24 @@ test('every declared Forwarder claim retains an exact source and section mapping
  }
  for(const required of ['upgrade.uf.10.0','upgrade.uf.10.6','upgrade.hf','receiver.enterprise','receiver.cloud','topology.enterprise-intermediate','topology.cloud-intermediate','package.os-architecture-10.6','technical.hf-kv-store-10.6','technical.hf-tls-10.6'])assert(data.claimSources[required]);
 });
+test('borrowed HF 10.2 runtimes preserve historical optional/default and app-owned boundaries',()=>{
+ const c={window:{},URLSearchParams};vm.createContext(c);
+ for(const f of ['data.js','product-data.js','comparison.js','forwarders-data.js','forwarders.js','source-register.js'])vm.runInContext(fs.readFileSync('dist/'+f,'utf8'),c);
+ const api=c.window.VersionCompassForwarders,register=c.window.VersionCompassSources;
+ function check(records){
+  const python=records.find(r=>(r.release||r.milestone?.replace(/^Enterprise /,''))==='10.2'&&r.component==='Python runtimes');
+  const node=records.find(r=>(r.release||r.milestone?.replace(/^Enterprise /,''))==='10.2'&&r.component==='Embedded Node.js runtime');
+  assert(python&&node,'Both original runtime records must be present');
+  assert.match(python.to,/Web uses Python 3\.13; splunkd keeps Python 3\.9 by default with Python 3\.13 opt-in/);
+  assert.match(node.to,/bundled Node\.js runtime is removed/);assert.match(node.action,/application-owned runtime/);
+  for(const [record,id] of [[python,'technical.hf.10.2.python-runtimes'],[node,'technical.hf.10.2.embedded-nodejs-runtime']]){
+   const ref=register.sources.find(s=>s.url===record.source)?.claimReferences?.find(r=>r.claimId===id);
+   assert(ref?.section&&ref.claimVerified==='2026-10-18','Exact bounded runtime mapping and verification date retained');
+  }
+ }
+ check(api.assess({...api.defaults,type:'hf',from:'10.0',to:'10.2'}).technical);
+ const inherited=api.assess({...api.defaults,type:'hf',from:'10.4',to:'10.6'}).targetRuntime;
+ check(inherited);
+ const wrongDefault=JSON.parse(JSON.stringify(inherited));wrongDefault.find(r=>r.component==='Python runtimes').to='Python 3.13 is mandatory for all components';
+ assert.throws(()=>check(wrongDefault),/Web uses Python/,'A silently broadened historical runtime must fail');
+});

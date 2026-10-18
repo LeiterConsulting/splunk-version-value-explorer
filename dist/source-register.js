@@ -3273,9 +3273,9 @@ window.VersionCompassSources = {
           "release": "10.2",
           "component": "Python runtimes",
           "section": "The Splunk platform uses version 3.13 of the Python runtime environment on Splunk Web; The Splunk daemon and its associated components can now use version 3.13 of the Python interpreter, version 3.9 is still available",
-          "claimVerified": "2026-10-08",
+          "claimVerified": "2026-10-18",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
+          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval. October 18 bounded semantic recheck: Splunk Web 3.13 is distinct from splunkd 3.9 default and optional 3.13 in the 10.2 source; later 10.4 default changes remain separate."
         },
         {
           "path": "forwarders: borrowed.technical.hf.10.2.embedded-nodejs-runtime",
@@ -3283,9 +3283,9 @@ window.VersionCompassSources = {
           "release": "10.2",
           "component": "Embedded Node.js runtime",
           "section": "The Node.js JavaScript runtime environment has been removed",
-          "claimVerified": "2026-10-08",
+          "claimVerified": "2026-10-18",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
+          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval. October 18 bounded semantic recheck: removal concerns the bundled Node.js runtime; app-owned builds remain distinct. No UF runtime or Cloud-managed installation requirement is inferred."
         },
         {
           "path": "forwarders: borrowed.technical.hf.10.2.unix-service-identity",

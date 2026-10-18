@@ -226,10 +226,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-17T09:21:44Z",
-      "lastSuccess": "2026-10-17T09:31:18Z",
+      "lastAttempt": "2026-10-18T09:47:35Z",
+      "lastSuccess": "2026-10-18T09:51:34Z",
       "outcome": "changed",
-      "summary": "Verified Collector 0.163 and scoped Cloud/Fleet updates; retained ES KV source discrepancy.",
+      "summary": "Completed 175-source review; bounded HF runtime semantic evidence and product-label repair staged for exact-candidate verification.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -487,9 +487,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Verified Collector 0.163 and scoped Cloud/Fleet updates; retained ES KV source discrepancy.",
           "scope": "173 sources attempted, 170 recovered; seven component streams; six bounded claims. Publication remains separate and candidate-gated."
+        },
+        {
+          "at": "2026-10-18T09:47:35Z",
+          "outcome": "running",
+          "summary": "Official inventory and bounded compatibility review in progress.",
+          "scope": "175 registered official URLs; latest components, SOAR discovery and consequential Forwarder/SOAR/ES claims; exact candidate delivery only after applicable gates."
+        },
+        {
+          "at": "2026-10-18T09:51:34Z",
+          "outcome": "changed",
+          "summary": "Completed 175-source review; bounded HF runtime semantic evidence and product-label repair staged for exact-candidate verification.",
+          "scope": "172 retrieved/3 unavailable; seven latest component streams unchanged; six bounded claims; two actual mapping dates only. Review success is not deployment."
         }
       ],
-      "scope": "173 sources attempted, 170 recovered; seven component streams; six bounded claims. Publication remains separate and candidate-gated."
+      "scope": "172 retrieved/3 unavailable; seven latest component streams unchanged; six bounded claims; two actual mapping dates only. Review success is not deployment."
     },
     {
       "id": "es-editions-watch",

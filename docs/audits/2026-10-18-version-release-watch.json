@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "watch": "version-release-watch",
+  "startedAt": "2026-10-18T09:47:35Z",
+  "reviewedAt": "2026-10-18T09:51:34Z",
+  "scope": "175 registered URLs attempted; latest seven official component streams and current SOAR/future-release discovery; bounded semantic/runtime and topology checks, not blanket historical claim reverification.",
+  "baseline": {
+    "githubCommit": "69d4d0f7138ab7a9b8d7c5466d5d8ff5f42ff66a",
+    "sitesCommit": "93278269040803360a6c2d32ea188de02fdfd167",
+    "matchingTree": "4c9d2284be41061c1e1b2ab581ffc0d52b8ccedf",
+    "siteVersion": 168,
+    "deploymentId": "appgdep_6ad3436e69bc81919fa5b12279ddbc41"
+  },
+  "inventory": {
+    "sources": 175,
+    "retrieved": 172,
+    "officialGitHubApiRecoveries": 22,
+    "transientRecovered": [
+      "ITSI 4.18 New features"
+    ],
+    "unavailable": [
+      "https://docs.splunk.com/Documentation/Splunk/8.1.14/ReleaseNotes/MeetSplunk",
+      "https://docs.splunk.com/Documentation/Splunk/8.2.12/ReleaseNotes/MeetSplunk",
+      "https://help.splunk.com/en/splunk-enterprise/administer/manage-workloads/10.6/use-workload-management-on-kubernetes"
+    ],
+    "ledger": "2026-10-18-version-release-watch-sources.json",
+    "qualification": "Change-discovery retrieval attempts and exposed metadata are not proof every body or dependent claim is unchanged."
+  },
+  "discovery": {
+    "components": [
+      "Collector v0.163.0",
+      "chart 0.162.1",
+      "Java v2.32.0",
+      "Node v4.12.1",
+      "Python v2.13.2",
+      ".NET v1.16.0",
+      "Browser RUM v3.2.0"
+    ],
+    "outcome": "No newer version found in these seven latest-release endpoints.",
+    "soar": "Current public hub, On-premises and Cloud streams still establish 8.7; Export 8.7.1's 8.8.0 cell does not independently establish a SOAR server release. Issue pages remain headings without issue rows.",
+    "prep11": "Bounded current official search and maintained public inventories establish no new version-specific 11.x release date/path/deployment mandate. Retain current context and source conflicts."
+  },
+  "claimChecks": [
+    {
+      "claimId": "technical.hf.10.2.python-runtimes",
+      "release": "10.2",
+      "component": "Python runtimes",
+      "product": "Heavy Forwarder",
+      "environment": "customer-managed Enterprise package; component-dependent",
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.2/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.2-read-this-first",
+      "sections": [
+        "The Splunk platform uses version 3.13 of the Python runtime environment on Splunk Web",
+        "The Splunk daemon and its associated components can now use version 3.13 of the Python interpreter, version 3.9 is still available"
+      ],
+      "sourceCheckDate": "2026-10-18",
+      "claimVerificationDate": "2026-10-18",
+      "outcome": "supporting-section-confirmed",
+      "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval. October 18 bounded semantic recheck: Splunk Web 3.13 is distinct from splunkd 3.9 default and optional 3.13 in the 10.2 source; later 10.4 default changes remain separate."
+    },
+    {
+      "claimId": "technical.hf.10.2.embedded-nodejs-runtime",
+      "release": "10.2",
+      "component": "Embedded Node.js runtime",
+      "product": "Heavy Forwarder",
+      "environment": "customer-managed Enterprise package; component-dependent",
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.2/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.2-read-this-first",
+      "sections": [
+        "The Node.js JavaScript runtime environment has been removed"
+      ],
+      "sourceCheckDate": "2026-10-18",
+      "claimVerificationDate": "2026-10-18",
+      "outcome": "supporting-section-confirmed",
+      "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval. October 18 bounded semantic recheck: removal concerns the bundled Node.js runtime; app-owned builds remain distinct. No UF runtime or Cloud-managed installation requirement is inferred."
+    },
+    {
+      "claimId": "receiver.enterprise.10.6",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers",
+      "sections": [
+        "Forwarder compatibility with Splunk Enterprise indexers — 10.6 forwarder/indexer row and E/H/M legend; intermediate tier qualification"
+      ],
+      "product": "UF/HF",
+      "environment": "Customer-managed receiver and actual forwarding mode; distinct from OS, app and Cloud authorization",
+      "outcome": "confirmed-unchanged",
+      "sourceCheckDate": "2026-10-18",
+      "claimVerificationDate": "2026-10-18",
+      "sourceEffectiveDate": null,
+      "qualification": "Customer-managed receiver and actual forwarding mode; distinct from OS, app and Cloud authorization",
+      "followUp": "Continue exact public-source monitoring within named scope."
+    },
+    {
+      "claimId": "receiver.cloud.direct-10.0-omitted-10.4",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "sections": [
+        "Supported forwarder versions — direct/intermediate scope and 10.0.x row"
+      ],
+      "product": "UF/HF",
+      "environment": "Forwarder directly connected to Cloud; current table, not historical rollout",
+      "outcome": "omission-preserved-not-inferred",
+      "sourceCheckDate": "2026-10-18",
+      "claimVerificationDate": "2026-10-18",
+      "sourceEffectiveDate": null,
+      "qualification": "Forwarder directly connected to Cloud; current table, not historical rollout",
+      "followUp": "Continue exact public-source monitoring within named scope."
+    },
+    {
+      "claimId": "soar:pre7-87-bridge",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.7.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+      "sections": [
+        "Upgrade path for unprivileged installations — pre-7.0 and 6.4.1.x rows"
+      ],
+      "product": "SOAR 8.7.0",
+      "environment": "Unprivileged On-premises only; conditional legacy OS/PostgreSQL/AL2 branches remain conditional; privileged conversion unresolved",
+      "outcome": "confirmed-unchanged",
+      "sourceCheckDate": "2026-10-18",
+      "claimVerificationDate": "2026-10-18",
+      "sourceEffectiveDate": null,
+      "qualification": "Unprivileged On-premises only; conditional legacy OS/PostgreSQL/AL2 branches remain conditional; privileged conversion unresolved",
+      "followUp": "Continue exact public-source monitoring within named scope."
+    },
+    {
+      "claimId": "es:cohosted-kv-store-boundary",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+      "sections": [
+        "10.6.x ES 8.7-and-lower footnote"
+      ],
+      "product": "ES with Enterprise 10.6",
+      "environment": "Customer-managed cohosted KV 1.0; linked guide now names ITSI only; retain disagreement/postponement warning",
+      "outcome": "conflicting-scope-retained",
+      "sourceCheckDate": "2026-10-18",
+      "claimVerificationDate": "2026-10-18",
+      "sourceEffectiveDate": null,
+      "qualification": "Customer-managed cohosted KV 1.0; linked guide now names ITSI only; retain disagreement/postponement warning",
+      "followUp": "Continue exact public-source monitoring within named scope."
+    }
+  ],
+  "changes": {
+    "phoneLabels": "Wrap titles/subtitles within padded tiles; actual Range text geometry and rendered legacy replay added to native CI.",
+    "nativeRoute": "HF 10.4 to 10.6 in both themes, including historical target runtime history.",
+    "sourceMappings": "Only two actual 10.2 runtime semantic rechecks advance their claim dates; 18 mapping IDs remain; 900 routes and genuine dropped inherited mapping negative fixture retained.",
+    "regression": "New Node semantic guard rejects a broadened mandatory Python default; native legacy label replay must demonstrate the before defect before repair is called verified."
+  },
+  "validation": {
+    "baseline": "188 tests, build and six real D1/manifest/bundle/query/write-guard/fallback diagnostics pass.",
+    "candidate": "Pending exact candidate native CI, retained image inspection and post-deployment checks."
+  },
+  "backlog": [
+    {
+      "priority": 1,
+      "claimId": "hf:remaining-historical-semantic-rechecks",
+      "owner": "Version Release Watch with Guidance Audit",
+      "nextAction": "Continue bounded exact supporting-section semantic checks; structural 900-route coverage is not complete historical verification.",
+      "reviewBy": "2026-10-19"
+    },
+    {
+      "priority": 1,
+      "claimId": "es:cohosted-kv-store-boundary",
+      "owner": "Version Release Watch with ES Editions Watch",
+      "nextAction": "Preserve matrix/procedure divergence until exact public evidence reconciles it.",
+      "reviewBy": "2026-10-19"
+    },
+    {
+      "priority": 1,
+      "claimId": "soar:issue-table-rows",
+      "owner": "Version Release Watch",
+      "nextAction": "Recover actual current issue rows; do not equate empty retrieval with zero issues.",
+      "reviewBy": "2026-10-19"
+    }
+  ],
+  "minorRepairs": {
+    "phoneLabel": "Candidate repair pending actual rendered evidence.",
+    "pdfPagination": "Original functioning reversible repair remains assigned with October 19 deadline; no repaired claim."
+  },
+  "publication": {
+    "status": "candidate-not-deployed",
+    "priorCompleteSiteVersion": 168
+  },
+  "materialCycle": 25,
+  "policy": {
+    "schedulesChanged": false,
+    "timingModesChanged": false,
+    "enabledStatesChanged": false,
+    "privacyChanged": false,
+    "audienceChanged": false,
+    "mandatoryWait": false,
+    "activeDeliveryChanged": false
+  }
+}

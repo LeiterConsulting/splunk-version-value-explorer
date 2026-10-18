@@ -40,6 +40,21 @@ async function settled(page) {
   await page.waitForFunction(() => window.VersionCompassContent?.status !== 'loading' && typeof window.VersionCompassBuildSnapshot === 'function');
   await page.evaluate(() => document.fonts.ready);
 }
+async function productLabelFit(page) {
+  return page.evaluate(() => [...document.querySelectorAll('.product-options label > span')]
+    .filter(card => card.checkVisibility({visibilityProperty:true,opacityProperty:true}))
+    .flatMap(card => {
+      const box=card.getBoundingClientRect(), css=getComputedStyle(card);
+      const left=box.left+parseFloat(css.paddingLeft)+parseFloat(css.borderLeftWidth);
+      const right=box.right-parseFloat(css.paddingRight)-parseFloat(css.borderRightWidth);
+      return [...card.querySelectorAll('strong,small')].flatMap(label => {
+        const range=document.createRange();range.selectNodeContents(label);
+        const rects=[...range.getClientRects()];
+        return rects.some(r=>r.left<left-1||r.right>right+1)||label.scrollWidth>label.clientWidth+1
+          ? [{text:label.textContent,left,right,rects:rects.map(r=>({left:r.left,right:r.right}))}] : [];
+      });
+    }));
+}
 async function keyboardReach(page, locator) {
   // Exercise actual browser Tab navigation, rather than DOM focus simulation.
   for (let tabs = 0; tabs < 180; tabs++) {
@@ -93,6 +108,19 @@ try {
     // Check the expanded content too, then restore the user's disclosure state.
     const disclosureState = await page.evaluate(() => [...document.querySelectorAll('main details')].filter(d=>!d.closest('#release-report,.edition-report')).map(d=>{const open=d.open;d.open=true;return open;}));
     await page.evaluate(async()=>{await document.fonts.ready;await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));});
+    const labelFailures=await productLabelFit(page);
+    assert.equal(labelFailures.length,0,'Product label escapes padded tile '+id+': '+JSON.stringify(labelFailures));
+    entry.productLabels={passed:true,check:'All visible product title/subtitle text fits inside its padded tile; no hidden overflow.'};
+    if(route.id==='enterprise-102-security-notice') {
+      // Replay the exact pre-repair sizing/nowrap declarations in real Chromium.
+      // This is a rendered negative fixture, not a source-code string assertion.
+      const legacy=await page.addStyleTag({content:'.product-options strong,.product-options small{min-width:auto!important;max-width:none!important;overflow-wrap:normal!important}.product-options strong{white-space:normal!important}.product-options small{white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}'});
+      const before=await productLabelFit(page);
+      await legacy.evaluate(el=>el.remove());
+      assert(before.length>0,'Legacy label fixture did not reproduce the actual padded-tile defect');
+      assert.equal((await productLabelFit(page)).length,0,'Label layout did not recover after fixture');
+      entry.productLabels.legacyReplay={outcome:'reproduced',violations:before};
+    }
     const narrow = await checkLayout(page);
     if(narrow.scroll > narrow.width + 3 || narrow.overflow.length) {
       const outside = await page.evaluate(()=>[...document.querySelectorAll('body *')].map(el=>({tag:el.tagName,classes:el.className,text:el.textContent.slice(0,120),right:el.getBoundingClientRect().right,width:el.getBoundingClientRect().width,scroll:el.scrollWidth,client:el.clientWidth,visible:el.checkVisibility({visibilityProperty:true,opacityProperty:true}),overflow:getComputedStyle(el).overflowX})).filter(el=>el.width&&(el.right>document.documentElement.clientWidth+3||el.scroll>el.client+3)).slice(0,80));
