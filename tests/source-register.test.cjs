@@ -106,3 +106,23 @@ test('borrowed HF 10.2 runtimes preserve historical optional/default and app-own
  const wrongDefault=JSON.parse(JSON.stringify(inherited));wrongDefault.find(r=>r.component==='Python runtimes').to='Python 3.13 is mandatory for all components';
  assert.throws(()=>check(wrongDefault),/Web uses Python/,'A silently broadened historical runtime must fail');
 });
+test('borrowed HF 10.4 security and Windows identities retain their exact historical scope',()=>{
+ const c={window:{},URLSearchParams};vm.createContext(c);
+ for(const f of ['data.js','product-data.js','comparison.js','forwarders-data.js','forwarders.js','source-register.js'])vm.runInContext(fs.readFileSync('dist/'+f,'utf8'),c);
+ const api=c.window.VersionCompassForwarders;
+ function check(records){
+  const cert=records.find(r=>r.component==='Certificate signatures'&&r.milestone==='Enterprise 10.4');
+  const windows=records.find(r=>r.component==='Windows service identity'&&r.milestone==='Enterprise 10.4');
+  assert(cert&&windows);
+  assert.equal(cert.from,'SHA-1-signed certificates are deprecated');assert.match(cert.to,/SHA-1.*rejected; SHA-256 or stronger/);
+  assert.match(windows.to,/Local service or non-administrator domain accounts/);
+  assert.match(windows.implication,/reconfigure a local-system deployment or halt when a domain service account remains an administrator/);
+  for(const id of ['technical.hf.10.4.certificate-signatures','technical.hf.10.4.windows-service-identity']) {
+   assert(c.window.VersionCompassSources.sources.some(s=>s.claimReferences?.some(r=>r.claimId===id&&r.claimVerified==='2026-10-19')));
+  }
+ }
+ const records=api.assess({...api.defaults,type:'hf',from:'10.2',to:'10.4'}).technical;check(records);
+ const broadened=JSON.parse(JSON.stringify(records));broadened.find(r=>r.component==='Windows service identity').to='Every platform must use a local service account';
+ assert.throws(()=>check(broadened),/Local service or non-administrator domain accounts/);
+ assert.equal(api.assess({...api.defaults,type:'uf',from:'10.4',to:'10.6'}).targetRuntime.length,0);
+});

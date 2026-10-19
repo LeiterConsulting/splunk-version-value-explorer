@@ -226,10 +226,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-18T09:47:35Z",
-      "lastSuccess": "2026-10-18T09:51:34Z",
+      "lastAttempt": "2026-10-19T09:26:55Z",
+      "lastSuccess": "2026-10-19T09:35:31Z",
       "outcome": "changed",
-      "summary": "Completed 175-source review; bounded HF runtime semantic evidence and product-label repair staged for exact-candidate verification.",
+      "summary": "Completed official inventory and two bounded HF semantic rechecks; repaired SOAR/HF PDF pagination with native regression pending exact-candidate CI.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -499,9 +499,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Completed 175-source review; bounded HF runtime semantic evidence and product-label repair staged for exact-candidate verification.",
           "scope": "172 retrieved/3 unavailable; seven latest component streams unchanged; six bounded claims; two actual mapping dates only. Review success is not deployment."
+        },
+        {
+          "at": "2026-10-19T09:26:55Z",
+          "outcome": "running",
+          "summary": "Official source inventory and bounded consequential claim review in progress; tracked PDF pagination repair under evaluation.",
+          "scope": "175 registered public sources; current component/SOAR discovery, HF supporting sections and native report repair. No publication implied."
+        },
+        {
+          "at": "2026-10-19T09:35:31Z",
+          "outcome": "changed",
+          "summary": "Completed official inventory and two bounded HF semantic rechecks; repaired SOAR/HF PDF pagination with native regression pending exact-candidate CI.",
+          "scope": "175 official URLs attempted (172 retrieved, 3 unavailable); seven latest component streams, current SOAR, exact Enterprise download discovery and two exact historical HF sections. Not blanket claim reverification or a deployment claim."
         }
       ],
-      "scope": "172 retrieved/3 unavailable; seven latest component streams unchanged; six bounded claims; two actual mapping dates only. Review success is not deployment."
+      "scope": "175 official URLs attempted (172 retrieved, 3 unavailable); seven latest component streams, current SOAR, exact Enterprise download discovery and two exact historical HF sections. Not blanket claim reverification or a deployment claim."
     },
     {
       "id": "es-editions-watch",

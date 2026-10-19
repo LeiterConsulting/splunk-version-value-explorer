@@ -153,6 +153,8 @@ try {
         const printAnnotations = [...doc.querySelectorAll('.content-change-print')].map(el=>el.textContent.trim()).filter(Boolean);
         return { html, text: doc.body.textContent, headings, printAnnotations, revision: window.VersionCompassRevision.id };
       });
+      if(route.id==='hf-inherited-runtime') expected.paginationPairs=[{heading:'Embedded Node.js runtime · 10.2',following:'Apps that assume Node.js is supplied by the platform will no longer run.'}];
+      if(route.id==='soar-cloud-86-export-fips') expected.paginationPairs=[{heading:'Requirements and integrations',following:'Automation runtime'}];
       const printTabs = await keyboardReach(page, print);
       const save = page.locator('.site-header [data-save-snapshot]').first();
       const saveTabs = await keyboardReach(page, save);
@@ -181,6 +183,19 @@ try {
       await page.pdf({path:pdf,format:'A4',printBackground:true,preferCSSPageSize:true});
       const inspected = JSON.parse(execFileSync('python3',['tools/export-verification/inspect-pdf.py',pdf,directory,path.join(directory,'expected.json')],{encoding:'utf8'}));
       entry.pdf = {...inspected,file:relative(pdf),inspection:relative(path.join(directory,'inspection.json')),pages:inspected.pages.map(p=>({...p,file:relative(p.file)}))};
+      if(expected.paginationPairs) {
+        // Replay the pre-repair fragmentation in native Chromium, not a string fixture.
+        const legacy=await page.addStyleTag({content:'.soar-view #release-report .soar-target-requirements{display:contents!important;break-inside:auto!important}.forwarders-view #release-report .forwarder-technical{break-inside:auto!important}.forwarders-view #release-report .forwarder-technical h4{break-after:auto!important}'});
+        const priorPdf=path.join(directory,'pre-repair.pdf');
+        await page.pdf({path:priorPdf,format:'A4',printBackground:true,preferCSSPageSize:true});
+        await legacy.evaluate(el=>el.remove());
+        const priorText=execFileSync('pdftotext',['-raw',priorPdf,'-'],{encoding:'utf8'});
+        fs.writeFileSync(path.join(directory,'pre-repair.txt'),priorText);
+        const normalize=s=>s.replace(/\s+/g,'').toLowerCase();
+        const failures=expected.paginationPairs.filter(pair=>!priorText.split('\f').some(p=>normalize(p).includes(normalize(pair.heading))&&normalize(p).includes(normalize(pair.following))));
+        assert(failures.length>0,'Pre-repair native PDF did not reproduce the orphan heading: '+id);
+        entry.paginationRegression={passed:true,oldNativePdf:relative(priorPdf),reproduced:failures,corrected:inspected.pagination};
+      }
       const restored = await page.evaluate(() => ({url:location.href,details:[...document.querySelectorAll('main details')].filter(d=>!d.closest('#release-report,.edition-report')).map(d=>[d.id,d.open])}));
       assert.deepEqual(restored,baseline,'Print/export changed the selected report or disclosure state');
     }

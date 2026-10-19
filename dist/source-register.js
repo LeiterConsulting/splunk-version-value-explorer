@@ -3414,9 +3414,9 @@ window.VersionCompassSources = {
           "release": "10.4",
           "component": "Certificate signatures",
           "section": "Splunk removed support for Secure Hash Algorithm 1 (SHA1) certificate signatures",
-          "claimVerified": "2026-10-08",
+          "claimVerified": "2026-10-19",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
+          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval. October 19 bounded semantic recheck: 10.0 deprecation is distinct from 10.4 removal; reissue SHA-256 or stronger certificates. No UF or Cloud-service inference."
         },
         {
           "path": "forwarders: borrowed.technical.hf.10.4.kv-store-binaries",
@@ -3444,9 +3444,9 @@ window.VersionCompassSources = {
           "release": "10.4",
           "component": "Windows service identity",
           "section": "Splunk Enterprise on Windows no longer lets you install, upgrade, or run it as an administrator-level user",
-          "claimVerified": "2026-10-08",
+          "claimVerified": "2026-10-19",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
+          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval. October 19 bounded semantic recheck: Windows-only 10.4 installer branches differ for local-system, domain-administrator and existing local-service accounts; non-administrator domain accounts remain permitted. No Unix or Cloud-managed installation inference."
         }
       ],
       "usage": "In use",

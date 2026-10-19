@@ -1,5 +1,6 @@
 """Inspect every native Chromium PDF page; retain PNGs for separate visual review."""
 import json, pathlib, re, subprocess, sys, xml.etree.ElementTree as ET
+from pagination import inspect as inspect_pagination
 
 pdf, directory, expected_file = map(pathlib.Path, sys.argv[1:])
 info = subprocess.check_output(['pdfinfo', str(pdf)], text=True)
@@ -29,6 +30,7 @@ content = subprocess.check_output(['pdftotext', '-raw', str(pdf), '-'], text=Tru
 (directory / 'content.txt').write_text(content)
 actual = normalize(content)
 expected = json.loads(expected_file.read_text())
+pagination = inspect_pagination(content, expected.get('paginationPairs', []))
 for heading in expected['headings']:
     assert normalize(heading) in actual, f'Missing PDF section: {heading}'
 for annotation in expected['printAnnotations']:
@@ -37,6 +39,7 @@ assert normalize(expected['revision']) in actual, 'Missing PDF content identity'
 for control in ['Save dated snapshot (.html)', 'Print / save PDF', 'Copy comparison link']:
     assert normalize(control) not in actual, f'Interactive control leaked into PDF: {control}'
 result = {'passed': True, 'pageCount': count, 'pages': results,
+          'pagination': pagination,
           'method': 'native Chromium print; Poppler renders every page; text bounds, nonblank pages and section completeness',
           'humanVisualReview': 'not-performed'}
 (directory / 'inspection.json').write_text(json.dumps(result, indent=2))
