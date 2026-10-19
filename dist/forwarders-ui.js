@@ -56,7 +56,7 @@ function render(){
  const refinements=['os','arch',...(enterprise?[]:['provider','region']),'topology'].filter(k=>state[k]!=='unspecified'&&state[k]!=='direct');
  document.getElementById('forwarder-filter-summary').textContent=refinements.length?refinements.map(k=>names[state[k]]||state[k]).join(' · '):enterprise?'OS, architecture & topology':'OS, provider, region & topology';
  document.title='Version Compass | '+names[state.type]+' '+state.from+' → '+state.to;
- history.replaceState(null,'',themed(api.url(state)));
+ history.replaceState(null,'',themed(api.url(state))+(location.hash||''));
 }
 document.querySelectorAll('[data-forwarder]').forEach(el=>{el.value=state[el.dataset.forwarder]==='unspecified'&&el.tagName==='INPUT'?'':state[el.dataset.forwarder];el.addEventListener('change',()=>{state[el.dataset.forwarder]=el.value.trim()||'unspecified';linkErrors=[];render();});});
 window.addEventListener('popstate',()=>{const next=api.read(location.search);Object.assign(state,next.state);linkErrors=next.errors;document.querySelectorAll('[data-forwarder]').forEach(e=>e.value=state[e.dataset.forwarder]==='unspecified'&&e.tagName==='INPUT'?'':state[e.dataset.forwarder]);render();});

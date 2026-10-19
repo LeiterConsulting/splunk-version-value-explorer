@@ -67,7 +67,8 @@ function ui(search='?product=soar'){
  for(const k of Object.keys(c.window.VersionCompassSOAR.defaults)){selects.set(k,{dataset:{soar:k},value:'',addEventListener(type,fn){this[type]=fn;}});wrappers.set(k,{hidden:false});}
  const document={title:'',documentElement:{classList:{add(){},remove(){}},style:{setProperty(){}}},body:{classList:{add(){}}},head:{appendChild(){}},createElement:()=>({}),getElementById:el,
  querySelector(s){if(s==='.product-switcher')return {outerHTML:'<div class="product-switcher"></div>'};if(s==='main')return el('main');if(s==='.site-header')return {getBoundingClientRect:()=>({height:70})};if(s==='.soar-summary')return el('summary');if(s==='a.reviewed')return {href:'https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-10-01.md'};return wrappers.get(s.match(/data-soar-field="(.*?)"/)?.[1])||null;},querySelectorAll:s=>s==='[data-soar]'?[...selects.values()]:[],modelContext:{registerTool(t){tools.set(t.name,t);}}};
- const location={search,href:'https://versioncompass.com/'+search};let href=location.href;
+ const initialURL=new URL('https://versioncompass.com/'+search);
+ const location={search:initialURL.search,href:initialURL.href,hash:initialURL.hash};let href=location.href;
  Object.assign(c,{document,location,history:{replaceState(a,b,u){href=u;}},navigator:{clipboard:{writeText:async()=>{}}},ResizeObserver:class{observe(){}},AbortController,URL,console});
  Object.assign(c.window,{VersionCompassTheme:{href:u=>u+'&theme=cisco'},VersionCompassReports:{decorate:h=>'<p>revision</p>'+h},addEventListener:(n,f)=>events[n]=f,print(){},SPLUNK_DATA:{products:{}},VersionCompassEnvironment:{data:{providers:{aws:'AWS'},regions:[],regimes:{commercial:'Commercial','fr-m':'Moderate','fr-h':'High'},experiences:{}}}});
  vm.runInNewContext(fs.readFileSync('dist/soar-ui.js','utf8'),c);vm.runInNewContext(fs.readFileSync('dist/webmcp.js','utf8'),c);
@@ -84,6 +85,13 @@ test('SOAR screen updates in place, exports include all sections, print restores
  const catalog=r.tools.get('versioncompass_get_catalog').execute({products:['soar']});assert.equal(catalog.products[0].id,'soar');
  const compare=r.tools.get('versioncompass_compare_routes').execute({routes:[{product:'soar',platform:'enterprise',from:'6.4.1',to:'8.7.0'}]});assert.equal(compare.ok,true);assert.equal(compare.reports[0].path[1],'8.5.0');
  const bad=r.tools.get('versioncompass_compare_routes').execute({routes:[{product:'soar',platform:'enterprise',from:'8.7.0',to:'8.6.0'}]});assert.equal(bad.ok,false);
+});
+test('legacy SOAR Cloud conversion and in-place changes retain the meaningful shared anchor',()=>{
+ const r=ui('?product=soar&platform=cloud&from=8.5.0&to=8.6.0#technical-title');
+ assert.match(r.url(),/deployment=cloud/);assert.match(r.url(),/from=8.5.0/);assert.match(r.url(),/to=8.6.0/);
+ assert.match(r.url(),/theme=cisco#technical-title$/);
+ r.selects.get('to').value='8.7.0';r.selects.get('to').change();
+ assert.match(r.url(),/to=8.7.0/);assert.match(r.url(),/#technical-title$/);
 });
 test('SOAR Cloud structured requirements do not borrow customer-managed host floors',async()=>{
  const r=ui('?product=soar&deployment=cloud&from=8.5.0&to=8.6.0');await new Promise(resolve=>setImmediate(resolve));

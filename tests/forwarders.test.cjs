@@ -46,14 +46,16 @@ test('Forwarders screen reveals the right destination controls and carries hybri
   querySelector(s){if(s==='.product-switcher')return {outerHTML:'<div class="product-switcher"></div>'};if(s==='main')return element('main');if(s==='.site-header')return {getBoundingClientRect:()=>({height:50})};if(s==='[data-forwarder-field="receiver"] .forwarder-field-label')return receiverLabel;const k=s.match(/^\[data-forwarder-field="(.*)"\]$/)?.[1];return k?wrappers.get(k):null},
   querySelectorAll(s){if(s==='[data-forwarder]')return [...fields.values()];return []}};
  const window={VersionCompassEvidence:{html:()=>''},VersionCompassTheme:{href:u=>u},VersionCompassReports:{decorate:h=>h},addEventListener:(type,fn)=>events[type]=fn,print(){}};
- const location={search:'?product=forwarders',href:'https://versioncompass.com/?product=forwarders'};
- const context={window,document,location,history:{replaceState(){}},navigator:{clipboard:{writeText:async()=>{}}},URLSearchParams,ResizeObserver:class{observe(){}}};
+ const location={search:'?product=forwarders',href:'https://versioncompass.com/?product=forwarders#technical-title',hash:'#technical-title'};let sharedHref;
+ const context={window,document,location,history:{replaceState(a,b,url){sharedHref=url;}},navigator:{clipboard:{writeText:async()=>{}}},URLSearchParams,ResizeObserver:class{observe(){}}};
  for(const f of ['data.js','product-data.js','comparison.js','forwarders-data.js','forwarders.js','forwarders-ui.js'])vm.runInNewContext(fs.readFileSync('dist/'+f,'utf8'),context);
  assert.match(element('results').innerHTML,/Splunk Enterprise receiver/);
+ assert.match(sharedHref,/#technical-title$/);
  assert(!element('results').innerHTML.includes('Cloud certificate renewal'));
  assert.equal(wrappers.get('cloudReceiver').hidden,true);assert.equal(wrappers.get('provider').hidden,true);
  assert.equal(receiverLabel.textContent,'Enterprise receiver');
  fields.get('destination').value='hybrid';fields.get('destination').change();
+ assert.match(sharedHref,/#technical-title$/);
  assert.equal(wrappers.get('cloudReceiver').hidden,false);assert.equal(wrappers.get('provider').hidden,false);
  assert.match(element('results').innerHTML,/Splunk Enterprise receiver/);assert.match(element('results').innerHTML,/Splunk Cloud stack/);
  assert.match(element('results').innerHTML,/Two destination routing/);assert.equal(receiverLabel.textContent,'Enterprise receiver');

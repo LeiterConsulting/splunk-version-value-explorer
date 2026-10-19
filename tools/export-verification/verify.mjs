@@ -83,6 +83,11 @@ try {
     if (theme === 'cisco') routeUrl.searchParams.set('theme','cisco');
     const url = routeUrl.href;
     await page.goto(url); await settled(page);
+    if(routeUrl.hash) {
+      assert.equal(new URL(page.url()).hash,routeUrl.hash,'Shared section anchor was discarded: '+id);
+      assert(await page.locator(routeUrl.hash).count()>0,'Shared section anchor has no target: '+id);
+      entry.sharedAnchor={passed:true,hash:routeUrl.hash};
+    }
     if(route.id.startsWith('prep11')) {
       assert(await page.locator('#prep11-title').isVisible());
       assert.equal(await page.locator('.site-nav a[aria-current="page"]').getAttribute('href'),theme==='cisco'?'/?view=splunk-11&theme=cisco':'?view=splunk-11');

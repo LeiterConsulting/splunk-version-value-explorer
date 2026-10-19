@@ -50,7 +50,7 @@ function render(updateUrl=true){
  const open=document.getElementById('technical-panel')?.open,summary=document.querySelector('.soar-summary')?.open;
  document.getElementById('results').innerHTML=fullReport(model);document.getElementById('technical-panel').open=!!open;document.querySelector('.soar-summary').open=!!summary;
  document.title='Version Compass | SOAR '+state.from+' → '+state.to;
- if(updateUrl)history.replaceState(null,'',themed(api.url(state)));
+ if(updateUrl)history.replaceState(null,'',themed(api.url(state))+(location.hash||''));
 }
 document.querySelectorAll('[data-soar]').forEach(el=>el.addEventListener('change',()=>{const k=el.dataset.soar;state[k]=el.value;if(['deployment','to'].includes(k)&&!api.selectable('from',state).includes(state.from))state.from=api.selectable('from',state).at(-1);if(k==='provider'||k==='compliance'){state.region='unspecified';if(!api.selectable('provider',state).includes(state.provider))state.provider='unspecified';}linkErrors=[];render();}));
 window.addEventListener('popstate',()=>{const p=api.read(location.search);state=p.state;linkErrors=p.errors;render(false);});
