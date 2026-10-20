@@ -134,7 +134,7 @@
   }
   function writeUrlState() {
     if ((linkResolution && linkResolution.needsConfirmation)||state.environmentErrors?.length) return;
-    window.history.replaceState(null, "", themedUrl(guidance.routeUrl(state)));
+    window.history.replaceState(null, "", themedUrl(guidance.routeUrl(state)+(window.location.hash||'')));
   }
   function clearLinkContext() { linkResolution = null; }
   function renderLinkNotice() {
@@ -469,7 +469,7 @@
       journey = activeTrack().label + " " + state.from + " → " + state.to + " · " + platformContext + state.host;
     }
     printTitle.textContent = journey;
-    printSubtitle.textContent = "Site updated October 19, 2026 · versioncompass.com";
+    printSubtitle.textContent = "Site updated October 20, 2026 · versioncompass.com";
     document.title = "Version Compass | " + journey;
   }
 

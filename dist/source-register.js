@@ -379,6 +379,84 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://github.com/signalfx/splunk-otel-collector-chart/blob/splunk-otel-collector-0.163.0/helm-charts/splunk-otel-collector/Chart.yaml",
+      "title": "Chart.yaml",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.0.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-20",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-20",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "version; appVersion; dependencies with condition fields",
+      "verificationScope": "Exact 0.163.0 tag packages Collector 0.163.0, conditional Operator 0.126.0 and Target Allocator 0.161.1. Does not assert optional dependencies are enabled in every installation.",
+      "events": [
+        {
+          "date": "2026-10-20",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/signalfx/splunk-otel-collector-chart/blob/splunk-otel-collector-0.163.0/helm-charts/splunk-otel-collector/templates/config/_otel-k8s-cluster-receiver-config.tpl",
+      "title": " otel k8s cluster receiver config.tpl",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.1.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-20",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-20",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "receivers.k8s_cluster.metrics under o11yMetricsEnabled; EKS histogram processor/pipeline",
+      "verificationScope": "Five PV/PVC enabled metrics compared with the 0.162.1 tag, which lacks those explicit entries. EKS histogram processor requires EKS distribution, enableEKSApiServerMetrics and Observability metrics. Overrides and actual workload configuration remain separate.",
+      "events": [
+        {
+          "date": "2026-10-20",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/signalfx/splunk-otel-collector-chart/pull/2606",
+      "title": "2606",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.2.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-20",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-20",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Files changed: _otel-agent.tpl and _otel-k8s-cluster-receiver-config.tpl; .chloggen/merge-histogram-buckets.yaml",
+      "verificationScope": "Cross-checked merged change against exact chart 0.163.0 templates and values.yaml. Agent control-plane and EKS API-server histogram pipelines add the 32-bucket merge only under their documented metrics/feature conditions; both gates default true, not all pipelines always enabled.",
+      "events": [
+        {
+          "date": "2026-10-20",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.161.0",
       "title": "splunk otel collector 0.161.0",
       "areas": [
@@ -450,8 +528,8 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.productTracks.observability.releasesData.Oct 2026.features.3.5",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.3.source",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.4.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.6.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.7.source",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.3.3",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.4.3"
       ],
@@ -468,6 +546,32 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-10-14",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.163.0",
+      "title": "splunk otel collector 0.163.0",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Oct 2026.features.4.5"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-20",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-20",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "0.163.0 release; Enhancements and Bug fixes",
+      "verificationScope": "October 19 release timestamp, package adoption and selected PV/PVC and histogram changes cross-checked against tagged Chart.yaml/configuration and PRs 2586/2606. Customer-managed chart only; no SaaS rollout, realm, entitlement or authorization inferred.",
+      "events": [
+        {
+          "date": "2026-10-20",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -575,13 +679,13 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.releasesData.Oct 2026.features.5.5",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.6.source",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.7.source",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.8.source",
+        "release.productTracks.observability.releasesData.Oct 2026.features.6.5",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.9.source",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.10.source",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.11.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.12.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.13.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.14.source",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.6.3",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.7.3"
       ],
@@ -664,7 +768,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.productTracks.observability.releasesData.Oct 2026.features.1.5",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.1.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.4.source",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.1.3"
       ],
       "reviews": [],
@@ -800,7 +904,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.productTracks.observability.releasesData.Oct 2026.features.2.5",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.2.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.5.source",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.2.3"
       ],
       "reviews": [],
@@ -989,8 +1093,8 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.releasesData.Oct 2026.features.4.5",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.5.source",
+        "release.productTracks.observability.releasesData.Oct 2026.features.5.5",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.8.source",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.5.3"
       ],
       "reviews": [],
@@ -3424,9 +3528,9 @@ window.VersionCompassSources = {
           "release": "10.4",
           "component": "KV Store binaries",
           "section": "Splunk removed the binary files that were associated with older versions of the MongoDB database engine",
-          "claimVerified": "2026-10-08",
+          "claimVerified": "2026-10-20",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
+          "qualification": "Heavy Forwarder uses the Enterprise package. October 20 bounded semantic recheck: unsupported MongoDB binaries are removed from 10.4 media; an instance using KV Store must reach engine 7 or higher before the Enterprise-package upgrade. This is not a blanket UF prerequisite or a claim every HF uses KV Store."
         },
         {
           "path": "forwarders: borrowed.technical.hf.10.4.kv-store-tls-configuration",
@@ -3434,9 +3538,9 @@ window.VersionCompassSources = {
           "release": "10.4",
           "component": "KV Store TLS configuration",
           "section": "Splunk changed how App Key Value Store (KV Store) uses TLS-related settings in the [kvstore] stanza of the server.conf configuration file",
-          "claimVerified": "2026-10-08",
+          "claimVerified": "2026-10-20",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
+          "qualification": "Heavy Forwarder uses the Enterprise package. October 20 bounded semantic recheck: overlapping KV Store TLS settings previously ignored in favor of sslConfig now take precedence in kvstore. Review both stanzas and unused/conflicting settings. This does not reverse the precedence, apply to UF, or certify all HF components."
         },
         {
           "path": "forwarders: borrowed.technical.hf.10.4.windows-service-identity",
@@ -4204,6 +4308,32 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/fixed-issues/fixed-issues/splunk-enterprise-10.6.1-fixed-issues",
+      "title": "splunk enterprise 10.6.1 fixed issues",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.enterprise.releasesData.10.6.requirements.8.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-10-20",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Keep exact URL recovery and issue-table retrieval gap visible; factual fix scope remains unknown.",
+      "section": "Splunk Enterprise 10.6.1 fixed issues — heading and introduction; no issue rows retrieved",
+      "verificationScope": "October 20 retrieval gap recorded, not a claim-specific fixed-issue verification. The absence of returned rows does not establish zero fixes or security clearance.",
+      "events": [
+        {
+          "date": "2026-10-20",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/known-issues-for-this-release/third-party-certificate-authorities-cease-issuing-certificates-with-serverauth-and-clientauth-eku-extensions",
       "title": "third party certificate authorities cease issuing certificates with serverauth and clientauth eku extensions",
       "areas": [
@@ -4240,6 +4370,7 @@ window.VersionCompassSources = {
       "references": [
         "release.enterprise.releasesData.10.6.source",
         "release.enterprise.releasesData.10.6.technicalChanges.6.source",
+        "release.enterprise.releasesData.10.6.technicalChanges.9.source",
         "release.enterprise.releasesData.10.6.requirements.5.3",
         "release.guidance.sources.prep11enterprise.url",
         "content-updates.js"
@@ -4827,7 +4958,7 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.12.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.15.source",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.8.3"
       ],
       "reviews": [],
@@ -5021,8 +5152,8 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.productTracks.observability.releasesData.Oct 2026.source",
-        "release.productTracks.observability.releasesData.Oct 2026.features.6.5",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.0.source",
+        "release.productTracks.observability.releasesData.Oct 2026.features.7.5",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.3.source",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.0.3",
         "content-updates.js"
       ],
@@ -6999,6 +7130,32 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://www.splunk.com/en_us/download/splunk-enterprise.html?locale=en_us",
+      "title": "splunk enterprise.html",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.enterprise.releasesData.10.6.requirements.7.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-20",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-20",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Splunk Enterprise 10.6.1.1; installation package commands",
+      "verificationScope": "Exact currently listed version 10.6.1.1 / build b2ae2962645c only. No exact release date, equivalence to 10.6.1, upgrade path, security floor, OS certification or Cloud availability established.",
+      "events": [
+        {
+          "date": "2026-10-20",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },

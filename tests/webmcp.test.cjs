@@ -16,7 +16,7 @@ const routes = [
   { product: 'observability', platform: 'enterprise', host: '9.4', from: 'Sep 2026', to: 'Oct 2026' }
 ];
 
-async function runtime({ support = true, failure = false, selection = routes[0] } = {}) {
+async function runtime({ support = true, failure = false, selection = routes[0], hash = '', appSource = null } = {}) {
   const elements = new Map(), events = {}, registered = new Map();
   let registrations = 0;
   function element(id) {
@@ -48,10 +48,10 @@ async function runtime({ support = true, failure = false, selection = routes[0] 
     registered.set(tool.name, tool);
     options.signal.addEventListener('abort', () => registered.delete(tool.name));
   } };
-  const window = { location: { search: '?' + new URLSearchParams(selection), href: 'https://versioncompass.com/' }, history: { replaceState: (_a, _b, url) => { window.location.search = url; window.location.href = 'https://versioncompass.com/' + url; } },
+  const window = { location: { search: '?' + new URLSearchParams(selection), hash, href: 'https://versioncompass.com/?' + new URLSearchParams(selection) + hash }, history: { replaceState: (_a, _b, url) => { const next=new URL(url,'https://versioncompass.com/'); window.location.search = next.search; window.location.hash=next.hash; window.location.href = next.href; } },
     addEventListener: (type, fn) => { (events[type] ||= []).push(fn); }, setTimeout: fn => fn(), print: () => {} };
   const context = vm.createContext({ window, document, navigator: {}, URL, URLSearchParams, AbortController, console: { warn: () => {} } });
-  for (const file of ['environment-data.js','environment.js','data.js', 'product-data.js', 'guidance-data.js', 'comparison.js', 'guidance.js', 'release-print.js', 'app.js', 'webmcp.js']) vm.runInContext(read('dist/' + file), context, { filename: file });
+  for (const file of ['environment-data.js','environment.js','data.js', 'product-data.js', 'guidance-data.js', 'comparison.js', 'guidance.js', 'release-print.js', 'app.js', 'webmcp.js']) vm.runInContext(file==='app.js'&&appSource!==null?appSource:read('dist/' + file), context, { filename: file });
   await tick();
   return { window, document, elements, registered, context, badge, events, registrations: () => registrations,
     run: (name, input) => plain(registered.get('versioncompass_' + name).execute(input)),
@@ -384,6 +384,37 @@ test('Collector 0.163 stays separate from the Kubernetes chart and retains scope
  const alias=r.technicalChanges.find(t=>t.component==='Collector 0.163 SQL Server receiver alias');assert.equal(alias.actionLevel,'Review');assert.match(alias.to,/remains.*deprecated alias/);
  assert(r.breakingChanges.some(t=>t.title==='Migrate removed Collector 0.163 configuration'&&t.breaking));
  const prior=rt.run('compare_routes',{routes:[{...route,from:'Jul 2026',to:'Sep 2026'}]}).reports[0];assert(!prior.features.some(t=>t.title.includes('0.163')));
+});
+test('chart 0.163 adoption preserves old tuples and conditional metric pipelines across UI and tools',async()=>{
+ const route={product:'observability',platform:'cloud',host:'10.6',from:'Sep 2026',to:'Oct 2026'},rt=await runtime({selection:route});
+ const r=rt.run('compare_routes',{routes:[route]}).reports[0];
+ const chart=r.features.find(x=>x.title==='Kubernetes chart 0.163.0');assert(chart);assert.match(chart.milestone,/October 19, 2026/);assert.match(chart.detail,/not a SaaS rollout/);
+ assert.match(r.features.find(x=>x.title==='Kubernetes chart 0.162.1').detail,/Collector 0.162.0/);
+ const pkg=r.technicalChanges.find(x=>x.component==='Kubernetes chart 0.163 package baseline');assert.match(pkg.from,/0.162.1.*0.162.0/);assert.match(pkg.to,/0.163.0.*0.163.0.*conditional Operator.*0.126.0.*0.161.1/);
+ function checkHistogram(t){assert.match(t.to,/32-bucket/);assert.match(t.to,/useControlPlaneMetricsHistogramData and metrics enabled/);assert.match(t.to,/EKS.*enableEKSApiServerMetrics and Observability metrics enabled/);assert.match(t.implication,/non-EKS/);}
+ const hist=r.technicalChanges.find(x=>x.component==='Kubernetes histogram bucket merging');checkHistogram(hist);
+ assert.throws(()=>checkHistogram({...hist,to:'Every histogram is always merged to 32 buckets'}),/32-bucket/);
+ const pv=r.technicalChanges.find(x=>x.component==='Kubernetes persistent-volume metric defaults');assert.match(pv.implication,/With Observability metrics enabled/);assert.equal((pv.to.match(/k8s\.persistentvolume(?:claim)?\./g)||[]).length,5);
+ await rt.dispatch('DOMContentLoaded');
+ const screen=rt.elements.get('benefit-grid').innerHTML+rt.elements.get('technical-content').innerHTML;for(const title of [chart.title,pkg.component,hist.component,pv.component])assert(screen.includes(title),title);
+ const old=rt.run('compare_routes',{routes:[{...route,from:'Jul 2026',to:'Sep 2026'}]}).reports[0];assert(!old.technicalChanges.some(x=>x.component.includes('histogram bucket merging')));
+});
+test('dated Enterprise 10.6.1 does not substitute the exact 10.6.1.1 package or Cloud release',async()=>{
+ const route={product:'platform',platform:'enterprise',from:'10.4',to:'10.6'},rt=await runtime({selection:route});
+ const r=rt.run('compare_routes',{routes:[route]}).reports[0],t=r.technicalChanges.find(x=>x.component==='Enterprise 10.6 maintenance release');
+ assert(t);assert.equal(t.to,'Enterprise 10.6.1 released October 16, 2026');assert.equal(t.actionLevel,'Review');assert.match(t.implication,/not the distinct four-segment 10.6.1.1/);
+ assert(r.readiness.some(x=>x.title==='Match the exact Enterprise maintenance package'&&x.detail.includes('b2ae2962645c')&&x.detail.includes('86587d4e3b27')));
+ assert(r.readiness.some(x=>x.title==='Resolve the 10.6.1 fixed-issue retrieval gap'&&/no issue rows/.test(x.detail)));
+ const cloud=rt.run('compare_routes',{routes:[{product:'platform',platform:'cloud',from:'10.5.2605',to:'10.6'}]}).reports[0];assert(!cloud.technicalChanges.some(x=>x.component===t.component));
+ const catalog=rt.run('get_catalog',{}).products.find(x=>x.id==='platform').contexts.find(x=>x.platform==='enterprise');assert(!catalog.targetReleases.some(x=>x.id==='10.6.1.1'));
+ await rt.dispatch('DOMContentLoaded');assert(rt.elements.get('technical-content').innerHTML.includes(t.to));
+});
+test('release-guide canonicalization preserves shared section anchors and reproduces the old loss',async()=>{
+ const selections=[{product:'platform',platform:'enterprise',from:'9.4',to:'10.6',theme:'cisco'},{product:'observability',platform:'cloud',host:'10.6',from:'Sep 2026',to:'Oct 2026'}, {product:'platform',platform:'enterprise',from:'8.2',to:'9.4',reviewed:'2026-09-01'}];
+ for(const selection of selections){const rt=await runtime({selection,hash:'#technical-title'});assert.equal(rt.window.location.hash,'#technical-title');assert.equal(new URL(rt.window.location.href).searchParams.get('from'),selection.from);assert.equal(new URL(rt.window.location.href).searchParams.get('to'),selection.to);assert.equal(rt.elements.get('technical-panel').open,false);rt.elements.get('from-release').listeners.change();assert.equal(rt.window.location.hash,'#technical-title');}
+ const repaired=read('dist/app.js'),prior=repaired.replace("+(window.location.hash||'')",'');assert.notEqual(prior,repaired,'Replay must actually remove the repair');
+ const old=await runtime({selection:selections[0],hash:'#technical-title',appSource:prior});assert.equal(old.window.location.hash,'','Actual pre-repair canonicalization must reproduce anchor loss');
+ const invalid=await runtime({selection:{product:'platform',platform:'enterprise',from:'10.4',to:'10.6.1.1'},hash:'#technical-title'});assert.equal(invalid.elements.get('results').hidden,true);assert.equal(invalid.window.location.hash,'#technical-title');assert.equal(invalid.elements.get('print-report').disabled,true);
 });
 test('Fleet configuration and Cloud maintenance remain opt-in and stack scoped',async()=>{
  const rt=await runtime(),r=rt.run('compare_routes',{routes:[{product:'observability',platform:'cloud',host:'10.6',from:'Sep 2026',to:'Oct 2026'}]}).reports[0];

@@ -226,10 +226,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-19T09:26:55Z",
-      "lastSuccess": "2026-10-19T09:35:31Z",
+      "lastAttempt": "2026-10-20T09:21:51Z",
+      "lastSuccess": "2026-10-20T09:32:59Z",
       "outcome": "changed",
-      "summary": "Completed official inventory and two bounded HF semantic rechecks; repaired SOAR/HF PDF pagination with native regression pending exact-candidate CI.",
+      "summary": "Reviewed 181 exact official sources; added chart 0.163 adoption and qualified Enterprise 10.6.1 maintenance identity; rechecked two HF KV Store mappings.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -511,9 +511,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Completed official inventory and two bounded HF semantic rechecks; repaired SOAR/HF PDF pagination with native regression pending exact-candidate CI.",
           "scope": "175 official URLs attempted (172 retrieved, 3 unavailable); seven latest component streams, current SOAR, exact Enterprise download discovery and two exact historical HF sections. Not blanket claim reverification or a deployment claim."
+        },
+        {
+          "at": "2026-10-20T09:21:51Z",
+          "outcome": "running",
+          "summary": "Checking full official inventory, exact 10.6 maintenance release discovery and bounded historical HF/security scope.",
+          "scope": "175 registered public URLs, current product/component streams, Enterprise download identity follow-up and finite consequential claim checks. Publication/native checks recorded separately."
+        },
+        {
+          "at": "2026-10-20T09:32:59Z",
+          "outcome": "changed",
+          "summary": "Reviewed 181 exact official sources; added chart 0.163 adoption and qualified Enterprise 10.6.1 maintenance identity; rechecked two HF KV Store mappings.",
+          "scope": "175 baseline URLs plus six new citations; seven component streams/current SOAR; four new technical records and two existing historical HF semantic checks. Retrieval is not blanket claim verification; publication tracked separately."
         }
       ],
-      "scope": "175 official URLs attempted (172 retrieved, 3 unavailable); seven latest component streams, current SOAR, exact Enterprise download discovery and two exact historical HF sections. Not blanket claim reverification or a deployment claim."
+      "scope": "175 baseline URLs plus six new citations; seven component streams/current SOAR; four new technical records and two existing historical HF semantic checks. Retrieval is not blanket claim verification; publication tracked separately."
     },
     {
       "id": "es-editions-watch",

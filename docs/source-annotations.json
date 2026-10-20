@@ -1,4 +1,34 @@
 {
+  "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.163.0": {
+    "reviewed": "2026-10-20",
+    "section": "0.163.0 release; Enhancements and Bug fixes",
+    "verificationScope": "October 19 release timestamp, package adoption and selected PV/PVC and histogram changes cross-checked against tagged Chart.yaml/configuration and PRs 2586/2606. Customer-managed chart only; no SaaS rollout, realm, entitlement or authorization inferred."
+  },
+  "https://github.com/signalfx/splunk-otel-collector-chart/blob/splunk-otel-collector-0.163.0/helm-charts/splunk-otel-collector/Chart.yaml": {
+    "reviewed": "2026-10-20",
+    "section": "version; appVersion; dependencies with condition fields",
+    "verificationScope": "Exact 0.163.0 tag packages Collector 0.163.0, conditional Operator 0.126.0 and Target Allocator 0.161.1. Does not assert optional dependencies are enabled in every installation."
+  },
+  "https://github.com/signalfx/splunk-otel-collector-chart/blob/splunk-otel-collector-0.163.0/helm-charts/splunk-otel-collector/templates/config/_otel-k8s-cluster-receiver-config.tpl": {
+    "reviewed": "2026-10-20",
+    "section": "receivers.k8s_cluster.metrics under o11yMetricsEnabled; EKS histogram processor/pipeline",
+    "verificationScope": "Five PV/PVC enabled metrics compared with the 0.162.1 tag, which lacks those explicit entries. EKS histogram processor requires EKS distribution, enableEKSApiServerMetrics and Observability metrics. Overrides and actual workload configuration remain separate."
+  },
+  "https://github.com/signalfx/splunk-otel-collector-chart/pull/2606": {
+    "reviewed": "2026-10-20",
+    "section": "Files changed: _otel-agent.tpl and _otel-k8s-cluster-receiver-config.tpl; .chloggen/merge-histogram-buckets.yaml",
+    "verificationScope": "Cross-checked merged change against exact chart 0.163.0 templates and values.yaml. Agent control-plane and EKS API-server histogram pipelines add the 32-bucket merge only under their documented metrics/feature conditions; both gates default true, not all pipelines always enabled."
+  },
+  "https://www.splunk.com/en_us/download/splunk-enterprise.html?locale=en_us": {
+    "reviewed": "2026-10-20",
+    "section": "Splunk Enterprise 10.6.1.1; installation package commands",
+    "verificationScope": "Exact currently listed version 10.6.1.1 / build b2ae2962645c only. No exact release date, equivalence to 10.6.1, upgrade path, security floor, OS certification or Cloud availability established."
+  },
+  "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/fixed-issues/fixed-issues/splunk-enterprise-10.6.1-fixed-issues": {
+    "section": "Splunk Enterprise 10.6.1 fixed issues — heading and introduction; no issue rows retrieved",
+    "verificationScope": "October 20 retrieval gap recorded, not a claim-specific fixed-issue verification. The absence of returned rows does not establish zero fixes or security clearance.",
+    "reason": "Keep exact URL recovery and issue-table retrieval gap visible; factual fix scope remains unknown."
+  },
   "https://www.splunk.com/en_us/legal/splunk-software-support-policy.html": {
     "reviewed": "2026-10-01",
     "section": "Splunk Enterprise, Universal Forwarder, Enterprise Security and IT Service Intelligence version tables",

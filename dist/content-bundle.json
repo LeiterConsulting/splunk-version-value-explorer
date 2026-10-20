@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-b8659ccaea9f626029dae64a",
-    "digest": "f92f95c7accd32e21387c14fefe8d8f214139b6771781d2b108cc743231de0d6",
-    "engineRevision": "engine-65fb29cfe32a11842e85",
+    "revision": "content-eb0146ad2704dfe5f092f330",
+    "digest": "624e96cac2a38432e97ee591d9b49fe35a9320e8a3af837d6489e6719cd8a1d3",
+    "engineRevision": "engine-7f8bca3097fd03a4b6bb",
     "datasetHashes": {
-      "platform": "a8e37315f2a1d1f7fe486ff70268a398673bb57ea7d92a299062d224d9406973",
-      "products": "181d84e82a69cd4345bf3b1546440b312ee4ada4e8abcf4e0f4fae4ea8386440",
-      "guidance": "1c5ef024ebe96757b7388abc99d4a8cb1c9e74aa1172557463e9f0bab00e69cf",
+      "platform": "a835e0f22bf2103a276428417d2eb79cd122e9f9e3278527df231c964709516d",
+      "products": "ef56408cd29790b24360a47c036e6bc6ec50a03718c922355f78d7b6be335fbc",
+      "guidance": "2bf39e353897930303f58efe0ef3df865a13cdcde9b06b74295de5a63948c047",
       "environment": "4955a7d5ad785a03cb6b602fddc1afe20dc3438944cb65f0fb09a565eeac2c29",
       "editions": "dfbc07ed76958144f8e5643fdfbcc1525e9b05a3dde2feeb0d58ee61fb99a02f",
       "forwarders": "aed3325f88c39c8b2ec892836ff06f3fb5e3a5ed7d39dfc4232bd8ee6875d7f1",
       "soar": "b3e0721f3c10ec6cbaabdb096cba46217cae0ab9c1276e326dbd9fa2a01fdeac"
     },
-    "recordCount": 778,
+    "recordCount": 788,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -1273,6 +1273,18 @@
                 "action": "Keep the ES postponement warning pending exact public reconciliation; review the linked migration procedure and confirm the database-engine plan before executing an upgrade.",
                 "source": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
                 "verified": "2026-10-17"
+              },
+              {
+                "component": "Enterprise 10.6 maintenance release",
+                "domain": "Platform operations",
+                "changeType": "Maintenance release published",
+                "actionLevel": "Review",
+                "from": "Enterprise 10.6 initial release on September 30, 2026",
+                "to": "Enterprise 10.6.1 released October 16, 2026",
+                "implication": "The dated release-note statement identifies 10.6.1, not the distinct four-segment 10.6.1.1 download. It does not establish a universal security floor, Cloud rollout or a new upgrade edge.",
+                "action": "Match the exact package identifier to its release, fixed and known-issue evidence before deployment; retain the existing 10.6 line-level prerequisites.",
+                "source": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6",
+                "verified": "2026-10-20"
               }
             ],
             "requirements": [
@@ -1324,6 +1336,20 @@
                 "Blocker",
                 "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
                 true
+              ],
+              [
+                "Match the exact Enterprise maintenance package",
+                "The current download lists Enterprise 10.6.1.1 build b2ae2962645c. Keep that identity distinct from the dated 10.6.1 statement and previous-release 10.6.0.5 build 86587d4e3b27; neither equivalence nor an exact four-segment release date is established.",
+                "Review",
+                "https://www.splunk.com/en_us/download/splunk-enterprise.html?locale=en_us",
+                false
+              ],
+              [
+                "Resolve the 10.6.1 fixed-issue retrieval gap",
+                "The exact 10.6.1 fixed-issues page was retrieved on October 20, but no issue rows were available in the retrieved body. Do not interpret the gap as zero issues, a complete fix list or security clearance.",
+                "Review",
+                "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/fixed-issues/fixed-issues/splunk-enterprise-10.6.1-fixed-issues",
+                false
               ]
             ]
           }
@@ -4325,6 +4351,14 @@
                   "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1"
                 ],
                 [
+                  "Kubernetes chart 0.163.0",
+                  "Infrastructure & Kubernetes",
+                  "Adopt the Collector 0.163 baseline deliberately",
+                  "Chart 0.163.0 packages Collector 0.163.0, enables persistent-volume metrics and adds conditional histogram bucket merging. Review the separate Collector migration controls and rendered chart configuration; this customer-managed component release is not a SaaS rollout.",
+                  "Separately versioned Kubernetes chart · released October 19, 2026",
+                  "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.163.0"
+                ],
+                [
                   "Python instrumentation 2.13.2",
                   "Telemetry & OpenTelemetry",
                   "Keep remote management dependencies current",
@@ -4336,7 +4370,7 @@
                   "Collector 0.163 migration controls",
                   "Telemetry & OpenTelemetry",
                   "Preserve collection through breaking changes",
-                  "Review removed Debian 11 support, receiver and feature-gate removals, TLS settings, metric/resource identity and chained redaction changes before adopting the standalone Collector. Chart 0.162.1 still packages Collector 0.162.0.",
+                  "Review removed Debian 11 support, receiver and feature-gate removals, TLS settings, metric/resource identity and chained redaction changes before adopting Collector 0.163.0. The older chart 0.162.1 packages Collector 0.162.0; chart 0.163.0 now adopts 0.163.0.",
                   "Separately versioned Collector · released October 16, 2026",
                   "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0"
                 ],
@@ -4350,6 +4384,39 @@
                 ]
               ],
               "technicalChanges": [
+                {
+                  "component": "Kubernetes chart 0.163 package baseline",
+                  "domain": "Customer-managed collection",
+                  "changeType": "Packaged versions updated",
+                  "actionLevel": "Review",
+                  "from": "Chart 0.162.1 packages Collector 0.162.0",
+                  "to": "Chart 0.163.0 packages Collector 0.163.0; conditional Operator dependency 0.126.0 and Target Allocator 0.161.1",
+                  "implication": "Chart adoption now includes the separate Collector 0.163 breaking-change checks. Optional dependencies remain controlled by their enablement values.",
+                  "action": "Review the rendered values, installed dependency versions and Collector migration controls before rolling workloads.",
+                  "source": "https://github.com/signalfx/splunk-otel-collector-chart/blob/splunk-otel-collector-0.163.0/helm-charts/splunk-otel-collector/Chart.yaml"
+                },
+                {
+                  "component": "Kubernetes persistent-volume metric defaults",
+                  "domain": "Telemetry semantics",
+                  "changeType": "Default collection expanded",
+                  "actionLevel": "Review",
+                  "from": "Chart 0.162.1 does not explicitly enable these five metrics in its default cluster receiver",
+                  "to": "Chart 0.163.0 enables k8s.persistentvolume.status.phase, k8s.persistentvolume.storage.capacity, k8s.persistentvolumeclaim.status.phase, k8s.persistentvolumeclaim.storage.capacity and k8s.persistentvolumeclaim.storage.request",
+                  "implication": "With Observability metrics enabled, default cluster-metric collection can add storage telemetry; custom metrics and receiver overrides still require review.",
+                  "action": "Compare the rendered cluster-receiver configuration and expected metric volume before rollout.",
+                  "source": "https://github.com/signalfx/splunk-otel-collector-chart/blob/splunk-otel-collector-0.163.0/helm-charts/splunk-otel-collector/templates/config/_otel-k8s-cluster-receiver-config.tpl"
+                },
+                {
+                  "component": "Kubernetes histogram bucket merging",
+                  "domain": "Telemetry semantics",
+                  "changeType": "Conditional bucket aggregation added",
+                  "actionLevel": "Review",
+                  "from": "Earlier chart pipelines do not add transform/limit_histogram_buckets",
+                  "to": "Chart 0.163.0 merges histogram buckets as needed to the 32-bucket ingest limit: agent control-plane pipeline with useControlPlaneMetricsHistogramData and metrics enabled; EKS API-server pipeline with enableEKSApiServerMetrics and Observability metrics enabled",
+                  "implication": "Affected histogram bucket boundaries can change. Both gates default to true in this tag, but a disabled gate, pipeline or non-EKS distribution does not acquire the corresponding pipeline behavior.",
+                  "action": "Inspect the rendered pipeline and bucket-dependent queries; do not apply this rule to every histogram or distribution.",
+                  "source": "https://github.com/signalfx/splunk-otel-collector-chart/pull/2606"
+                },
                 {
                   "component": "APM not-equal tag filters",
                   "domain": "Search semantics",
@@ -4560,7 +4627,7 @@
                 ],
                 [
                   "Enable and validate Kubernetes remote configuration deliberately",
-                  "Use chart 0.162.1 or later and the documented OpAMP Bridge enablement, realm and access-token setup. Templates/groups can update ConfigMaps and roll workloads; verify permissions, scope and staged rollout. Chart 0.162.1 does not inherit standalone Collector 0.163.",
+                  "Use chart 0.162.1 or later and the documented OpAMP Bridge enablement, realm and access-token setup. Templates/groups can update ConfigMaps and roll workloads; verify permissions, scope and staged rollout. The older chart 0.162.1 packages Collector 0.162.0; use the separate chart 0.163.0 package evidence for adoption of Collector 0.163.",
                   "Validate",
                   "https://help.splunk.com/en/splunk-observability-cloud/manage-data/manage-otel-agents-and-collectors/remote-configuration-of-opentelemetry-collectors/opamp-bridge-for-collectors-on-kubernetes/enable-the-opamp-bridge-for-kubernetes",
                   false
@@ -4571,7 +4638,7 @@
         }
       },
       "guidance": {
-        "reviewed": "2026-10-19",
+        "reviewed": "2026-10-20",
         "lifecycle": {
           "source": "https://www.splunk.com/en_us/legal/splunk-software-support-policy.html",
           "reviewed": "2026-10-01",
@@ -8903,6 +8970,12 @@
         "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2025"
       },
       {
+        "id": "source-10ce69ae00cc5a1bbfc0",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://github.com/signalfx/splunk-otel-collector-chart/pull/2606"
+      },
+      {
         "id": "source-11ef3203b7851ba33e3f",
         "kind": "source",
         "dataset": "sources",
@@ -9185,6 +9258,12 @@
         "url": "https://lantern.splunk.com/Manage_Performance_and_Health/Selecting_the_best_cloud_migration_approach"
       },
       {
+        "id": "source-420fc0d7f63e87fd374e",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/fixed-issues/fixed-issues/splunk-enterprise-10.6.1-fixed-issues"
+      },
+      {
         "id": "source-425a611144588de3fd85",
         "kind": "source",
         "dataset": "sources",
@@ -9195,6 +9274,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1"
+      },
+      {
+        "id": "source-4339c18da5a002bbdc03",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://github.com/signalfx/splunk-otel-collector-chart/blob/splunk-otel-collector-0.163.0/helm-charts/splunk-otel-collector/Chart.yaml"
       },
       {
         "id": "source-44ca5a212c121b6a9493",
@@ -9285,6 +9370,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/known-issues-for-this-release/third-party-certificate-authorities-cease-issuing-certificates-with-serverauth-and-clientauth-eku-extensions"
+      },
+      {
+        "id": "source-60b0e15bd4c01a2568d8",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://www.splunk.com/en_us/download/splunk-enterprise.html?locale=en_us"
       },
       {
         "id": "source-617c72730ee0b4f2b380",
@@ -9593,6 +9684,12 @@
         "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.7.0/system-requirements/general-system-requirements"
       },
       {
+        "id": "source-ae6a7695ddd2605c47ed",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://github.com/signalfx/splunk-otel-collector-chart/blob/splunk-otel-collector-0.163.0/helm-charts/splunk-otel-collector/templates/config/_otel-k8s-cluster-receiver-config.tpl"
+      },
+      {
         "id": "source-b38fee5af3f5e6c85261",
         "kind": "source",
         "dataset": "sources",
@@ -9861,6 +9958,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.0-read-this-first"
+      },
+      {
+        "id": "source-fa52ec0c78e8f639a26b",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.163.0"
       },
       {
         "id": "source-fb7f047b0d1cd500f7cb",
@@ -10642,7 +10745,7 @@
         },
         "payload": [
           "Enable and validate Kubernetes remote configuration deliberately",
-          "Use chart 0.162.1 or later and the documented OpAMP Bridge enablement, realm and access-token setup. Templates/groups can update ConfigMaps and roll workloads; verify permissions, scope and staged rollout. Chart 0.162.1 does not inherit standalone Collector 0.163.",
+          "Use chart 0.162.1 or later and the documented OpAMP Bridge enablement, realm and access-token setup. Templates/groups can update ConfigMaps and roll workloads; verify permissions, scope and staged rollout. The older chart 0.162.1 packages Collector 0.162.0; use the separate chart 0.163.0 package evidence for adoption of Collector 0.163.",
           "Validate",
           "https://help.splunk.com/en/splunk-observability-cloud/manage-data/manage-otel-agents-and-collectors/remote-configuration-of-opentelemetry-collectors/opamp-bridge-for-collectors-on-kubernetes/enable-the-opamp-bridge-for-kubernetes",
           false
@@ -12793,6 +12896,37 @@
           "Digital experience",
           "Protect SLAs from planned work",
           "Align synthetic monitoring downtime with recurring maintenance windows."
+        ]
+      },
+      {
+        "id": "vc-2e776f0fbd46b0e62020",
+        "kind": "feature",
+        "dataset": "platform",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-3695c5a42acd89a3ec01",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Kubernetes chart 0.163.0",
+          "Infrastructure & Kubernetes",
+          "Adopt the Collector 0.163 baseline deliberately",
+          "Chart 0.163.0 packages Collector 0.163.0, enables persistent-volume metrics and adds conditional histogram bucket merging. Review the separate Collector migration controls and rendered chart configuration; this customer-managed component release is not a SaaS rollout.",
+          "Separately versioned Kubernetes chart · released October 19, 2026",
+          "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.163.0"
         ]
       },
       {
@@ -17490,6 +17624,37 @@
         ]
       },
       {
+        "id": "vc-6da1cb59432327e0da1c",
+        "kind": "feature",
+        "dataset": "products",
+        "scope": {
+          "product": "observability",
+          "release": "Oct 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-fa52ec0c78e8f639a26b",
+            "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.163.0",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Kubernetes chart 0.163.0",
+          "Infrastructure & Kubernetes",
+          "Adopt the Collector 0.163 baseline deliberately",
+          "Chart 0.163.0 packages Collector 0.163.0, enables persistent-volume metrics and adds conditional histogram bucket merging. Review the separate Collector migration controls and rendered chart configuration; this customer-managed component release is not a SaaS rollout.",
+          "Separately versioned Kubernetes chart · released October 19, 2026",
+          "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.163.0"
+        ]
+      },
+      {
         "id": "vc-6e04f934e12ca61f1ffe",
         "kind": "feature",
         "dataset": "products",
@@ -18757,7 +18922,7 @@
         },
         "payload": [
           "Enable and validate Kubernetes remote configuration deliberately",
-          "Use chart 0.162.1 or later and the documented OpAMP Bridge enablement, realm and access-token setup. Templates/groups can update ConfigMaps and roll workloads; verify permissions, scope and staged rollout. Chart 0.162.1 does not inherit standalone Collector 0.163.",
+          "Use chart 0.162.1 or later and the documented OpAMP Bridge enablement, realm and access-token setup. Templates/groups can update ConfigMaps and roll workloads; verify permissions, scope and staged rollout. The older chart 0.162.1 packages Collector 0.162.0; use the separate chart 0.163.0 package evidence for adoption of Collector 0.163.",
           "Validate",
           "https://help.splunk.com/en/splunk-observability-cloud/manage-data/manage-otel-agents-and-collectors/remote-configuration-of-opentelemetry-collectors/opamp-bridge-for-collectors-on-kubernetes/enable-the-opamp-bridge-for-kubernetes",
           false
@@ -22675,6 +22840,36 @@
         ]
       },
       {
+        "id": "vc-afe534d5c5951b4f8dc3",
+        "kind": "requirement",
+        "dataset": "platform",
+        "scope": {
+          "platform": "enterprise",
+          "release": "10.6"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-420fc0d7f63e87fd374e",
+            "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/fixed-issues/fixed-issues/splunk-enterprise-10.6.1-fixed-issues",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Resolve the 10.6.1 fixed-issue retrieval gap",
+          "The exact 10.6.1 fixed-issues page was retrieved on October 20, but no issue rows were available in the retrieved body. Do not interpret the gap as zero issues, a complete fix list or security clearance.",
+          "Review",
+          "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/fixed-issues/fixed-issues/splunk-enterprise-10.6.1-fixed-issues",
+          false
+        ]
+      },
+      {
         "id": "vc-b0b5a5b6add52610f766",
         "kind": "claim",
         "dataset": "platform",
@@ -22977,7 +23172,7 @@
           "Collector 0.163 migration controls",
           "Telemetry & OpenTelemetry",
           "Preserve collection through breaking changes",
-          "Review removed Debian 11 support, receiver and feature-gate removals, TLS settings, metric/resource identity and chained redaction changes before adopting the standalone Collector. Chart 0.162.1 still packages Collector 0.162.0.",
+          "Review removed Debian 11 support, receiver and feature-gate removals, TLS settings, metric/resource identity and chained redaction changes before adopting Collector 0.163.0. The older chart 0.162.1 packages Collector 0.162.0; chart 0.163.0 now adopts 0.163.0.",
           "Separately versioned Collector · released October 16, 2026",
           "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0"
         ]
@@ -24112,7 +24307,7 @@
           "Collector 0.163 migration controls",
           "Telemetry & OpenTelemetry",
           "Preserve collection through breaking changes",
-          "Review removed Debian 11 support, receiver and feature-gate removals, TLS settings, metric/resource identity and chained redaction changes before adopting the standalone Collector. Chart 0.162.1 still packages Collector 0.162.0.",
+          "Review removed Debian 11 support, receiver and feature-gate removals, TLS settings, metric/resource identity and chained redaction changes before adopting Collector 0.163.0. The older chart 0.162.1 packages Collector 0.162.0; chart 0.163.0 now adopts 0.163.0.",
           "Separately versioned Collector · released October 16, 2026",
           "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0"
         ]
@@ -25285,6 +25480,36 @@
           "Platform operations",
           "Keep data flowing through change",
           "Automate rolling upgrades for indexer clusters while preserving service continuity."
+        ]
+      },
+      {
+        "id": "vc-ccc9ab7e758286e1d1ac",
+        "kind": "requirement",
+        "dataset": "platform",
+        "scope": {
+          "platform": "enterprise",
+          "release": "10.6"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-60b0e15bd4c01a2568d8",
+            "url": "https://www.splunk.com/en_us/download/splunk-enterprise.html?locale=en_us",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Match the exact Enterprise maintenance package",
+          "The current download lists Enterprise 10.6.1.1 build b2ae2962645c. Keep that identity distinct from the dated 10.6.1 statement and previous-release 10.6.0.5 build 86587d4e3b27; neither equivalence nor an exact four-segment release date is established.",
+          "Review",
+          "https://www.splunk.com/en_us/download/splunk-enterprise.html?locale=en_us",
+          false
         ]
       },
       {

@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 1,
+  "watch": "version-release-watch",
+  "startedAt": "2026-10-20T09:21:51Z",
+  "reviewedAt": "2026-10-20T09:32:59Z",
+  "scope": "Full 175-source baseline change discovery plus six new citations, seven latest component streams/current SOAR, bounded new chart/Enterprise claims and two historical HF semantic rechecks. Not blanket historical claim verification.",
+  "baseline": {
+    "githubCommit": "7118fa6a4fb17510fd8fa813699b28ad6a9896d6",
+    "sitesCommit": "cbaa36ae756b75fb2d624674a4ee25669565efb1",
+    "matchingTree": "a6101795b3683606aceb2093b52b38044a65aab9",
+    "siteVersion": 173,
+    "deploymentId": "appgdep_6ad5e965d64881918ab6d73bfd8b7b67"
+  },
+  "inventory": {
+    "baseline": 175,
+    "expanded": 181,
+    "retrieved": 178,
+    "standingUnavailable": [
+      "https://docs.splunk.com/Documentation/Splunk/8.1.14/ReleaseNotes/MeetSplunk",
+      "https://docs.splunk.com/Documentation/Splunk/8.2.12/ReleaseNotes/MeetSplunk",
+      "https://help.splunk.com/en/splunk-enterprise/administer/manage-workloads/10.6/use-workload-management-on-kubernetes"
+    ],
+    "ledger": "2026-10-20-version-release-watch-sources.json",
+    "qualification": "Retrieval/change discovery does not establish complete body equality or blanket claim verification."
+  },
+  "claimChecks": [
+    {
+      "product": "Splunk Observability customer-managed collection",
+      "version": "chart 0.163.0",
+      "environment": "customer-managed Kubernetes; not SaaS rollout",
+      "sourceCheckDate": "2026-10-20",
+      "claimVerificationDate": "2026-10-20",
+      "sourceDate": "2026-10-19",
+      "effectiveDate": null,
+      "outcome": "supporting-sections-confirmed",
+      "claimId": "feature.observability.kubernetes-chart-0.163.0",
+      "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.163.0",
+      "sections": [
+        "Release introduction; Enhancements; Bug fixes"
+      ],
+      "sourcePublishedAt": "2026-10-19T22:02:31Z",
+      "qualification": "Exact official release, tagged package metadata/configuration and merged diffs cross-checked. Component release is not a SaaS availability, entitlement or authorization claim."
+    },
+    {
+      "product": "Splunk Observability customer-managed collection",
+      "version": "chart 0.163.0",
+      "environment": "customer-managed Kubernetes; not SaaS rollout",
+      "sourceCheckDate": "2026-10-20",
+      "claimVerificationDate": "2026-10-20",
+      "sourceDate": "2026-10-19",
+      "effectiveDate": null,
+      "outcome": "supporting-sections-confirmed",
+      "claimId": "technical.observability.kubernetes-chart-0.163-package-baseline",
+      "url": "https://github.com/signalfx/splunk-otel-collector-chart/blob/splunk-otel-collector-0.163.0/helm-charts/splunk-otel-collector/Chart.yaml",
+      "sections": [
+        "version 0.163.0; appVersion 0.163.0; dependencies and condition fields"
+      ],
+      "qualification": "Operator 0.126.0 / Target Allocator 0.161.1 remain optional dependencies under their enablement conditions. Older chart 0.162.1 still packages Collector 0.162.0."
+    },
+    {
+      "product": "Splunk Observability customer-managed collection",
+      "version": "chart 0.163.0",
+      "environment": "customer-managed Kubernetes; not SaaS rollout",
+      "sourceCheckDate": "2026-10-20",
+      "claimVerificationDate": "2026-10-20",
+      "sourceDate": "2026-10-19",
+      "effectiveDate": null,
+      "outcome": "supporting-sections-confirmed",
+      "claimId": "technical.observability.kubernetes-persistent-volume-metric-defaults",
+      "url": "https://github.com/signalfx/splunk-otel-collector-chart/blob/splunk-otel-collector-0.163.0/helm-charts/splunk-otel-collector/templates/config/_otel-k8s-cluster-receiver-config.tpl",
+      "sections": [
+        "receivers.k8s_cluster.metrics within o11yMetricsEnabled"
+      ],
+      "qualification": "Five PV/PVC enabled entries compared with the exact 0.162.1 template and PR 2586. Observability-metrics condition and custom receiver overrides retained."
+    },
+    {
+      "product": "Splunk Observability customer-managed collection",
+      "version": "chart 0.163.0",
+      "environment": "customer-managed Kubernetes; not SaaS rollout",
+      "sourceCheckDate": "2026-10-20",
+      "claimVerificationDate": "2026-10-20",
+      "sourceDate": "2026-10-19",
+      "effectiveDate": null,
+      "outcome": "supporting-sections-confirmed",
+      "claimId": "technical.observability.kubernetes-histogram-bucket-merging",
+      "url": "https://github.com/signalfx/splunk-otel-collector-chart/pull/2606",
+      "sections": [
+        "Files changed: agent and cluster-receiver transform/limit_histogram_buckets plus histogram pipeline insertion"
+      ],
+      "qualification": "Cross-checked exact 0.163.0 templates and values.yaml: agent requires Observability-enabled pipeline, metrics and useControlPlaneMetricsHistogramData; EKS requires EKS distribution, Observability metrics and enableEKSApiServerMetrics. Both gates default true. No blanket every-histogram behavior."
+    },
+    {
+      "claimId": "technical.platform.enterprise-10.6-maintenance-release",
+      "product": "Splunk Enterprise",
+      "version": "10.6.1",
+      "environment": "Customer-managed Enterprise only",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6",
+      "sections": [
+        "What's new in 10.6.1"
+      ],
+      "sourceDate": null,
+      "effectiveDate": "2026-10-16",
+      "sourceCheckDate": "2026-10-20",
+      "claimVerificationDate": "2026-10-20",
+      "outcome": "dated-release-statement-confirmed",
+      "qualification": "Source body explicitly states October 16. Its page metadata is not that maintenance date; the statement does not date/equate 10.6.1.1, establish security clearance or change Cloud paths."
+    },
+    {
+      "claimId": "readiness.platform.enterprise-10.6-exact-package",
+      "product": "Splunk Enterprise",
+      "version": "10.6.1.1 / b2ae2962645c",
+      "environment": "Current customer-managed package listing",
+      "url": "https://www.splunk.com/en_us/download/splunk-enterprise.html?locale=en_us",
+      "sections": [
+        "Splunk Enterprise 10.6.1.1 heading; package commands"
+      ],
+      "sourceDate": null,
+      "effectiveDate": null,
+      "sourceCheckDate": "2026-10-20",
+      "claimVerificationDate": "2026-10-20",
+      "outcome": "exact-listing-identity-confirmed",
+      "qualification": "Previous-release 10.6.0.5 / 86587d4e3b27 independently retained. Neither exact date nor equivalence to 10.6.1 is established; selectors and upgrade graph unchanged."
+    },
+    {
+      "claimId": "retrieval.enterprise-10.6.1-fixed-issues",
+      "product": "Splunk Enterprise",
+      "version": "10.6.1",
+      "environment": "Public documentation retrieval only",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/fixed-issues/fixed-issues/splunk-enterprise-10.6.1-fixed-issues",
+      "sections": [
+        "Heading and introduction only; no issue rows returned"
+      ],
+      "sourceModified": "2026-10-15T21:47:48.171Z",
+      "sourceCheckDate": "2026-10-20",
+      "claimVerificationDate": null,
+      "outcome": "issue-table-retrieval-gap-preserved",
+      "qualification": "Fetched exact URL is not verification of a fix list; no zero-issues, no security clearance inferred."
+    }
+  ],
+  "existingClaimChecks": {
+    "historicalForwarders": {
+      "claimIds": [
+        "technical.hf.10.4.kv-store-binaries",
+        "technical.hf.10.4.kv-store-tls-configuration"
+      ],
+      "mappingFile": "docs/forwarder-source-mappings.json",
+      "sourceCheckDate": "2026-10-20",
+      "claimVerificationDate": "2026-10-20",
+      "outcome": "two-exact-sections-confirmed; sixteen other borrowed dates unchanged",
+      "negativeRegressions": [
+        "Reverse kvstore/sslConfig precedence and require actual failure",
+        "Weaken pre-upgrade engine prerequisite and require actual failure"
+      ],
+      "qualification": "18 mappings and 900 actual routes retained; not complete historical reverification."
+    },
+    "cloudServiceMetadata": {
+      "urls": [
+        {
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.5.2605/information-about-the-service/splunk-cloud-platform-service-details",
+          "sourceModified": "2026-10-19T21:57:22.465Z"
+        },
+        {
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+          "sourceModified": "2026-10-19T21:57:41.837Z"
+        },
+        {
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
+          "sourceModified": "2026-10-19T23:36:23.632Z"
+        }
+      ],
+      "sections": [
+        "Current premium-app table (10.6 / ES 8.7 / ITSI 5.0 / PCI 8.7)",
+        "Supported forwarder versions and direct/intermediate scope",
+        "Observability shared responsibility: application lifecycle and data collection"
+      ],
+      "outcome": "bounded existing scope confirmed; no new compatibility or availability inferred",
+      "qualification": "Historical 10.5 URL currently repeats current 10.6 service evidence; do not backdate 10.6 availability. Service-table support dates differ from separately cited product policy; no lifecycle dates silently replaced. Region/FedRAMP/edition facts remain with their owners; metadata-only handoff, not unverified edits."
+    },
+    "soarDiscovery": {
+      "sources": [
+        "https://help.splunk.com/en/splunk-soar",
+        "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.7.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+        "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud"
+      ],
+      "outcome": "Current hub, streams and bounded 8.8 search do not establish a newer server release. Build 243 versus 232, Python 3.13, historical bridge conditions, separate App/Export/Broker matrices and Cloud milestone semantics retained.",
+      "qualification": "Known-issues September 3 heading versus September 2 GA and service-description April row discrepancies remain qualified; no dates advanced for unchanged claims."
+    },
+    "security": {
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1006",
+      "section": "Description; October 16 changelog",
+      "outcome": "Existing advance notice confirmed unchanged; definitive disclosure still October 21",
+      "qualification": "Listed releases are fix versions, not affected ranges. No 10.6 exemption inferred."
+    },
+    "prep11": {
+      "outcome": "Bounded fresh official inventory/search establishes no version-specific 11.x requirement, date or Kubernetes installation mandate; unknowns and current Operator conflict retained."
+    }
+  },
+  "materialCycle": {
+    "from": 25,
+    "to": 26,
+    "batches": 1,
+    "qualification": "Only this factual batch advances; operational records/docs do not create extra cycles."
+  },
+  "validation": {
+    "automated": {
+      "outcome": "passed",
+      "tests": 196,
+      "failures": 0,
+      "skips": 0,
+      "assets": 57,
+      "contentRevision": "content-eb0146ad2704dfe5f092f330",
+      "engineRevision": "engine-7f8bca3097fd03a4b6bb",
+      "checkedAt": "2026-10-20T09:37:53Z",
+      "evidence": "Four ordered generators and --check gates; full Node tests and build.42 targeted tests pass; initial two new UI assertions used the wrong test-harness element, corrected to actual render containers; not a product regression. New anchor regression is the 196th test."
+    },
+    "nativeExports": {
+      "outcome": "pending-exact-candidate"
+    },
+    "live": {
+      "outcome": "not-deployed; complete v173 retained"
+    },
+    "attempts": [
+      {
+        "sitesCommit": "0aa264e45ab56447de442bac89848138f0ddafac",
+        "tree": "c81094f265b29418960a8673aa45789ff96679e9",
+        "savedVersion": 174,
+        "outcome": "held-not-deployed",
+        "reason": "Actual browser exposed Release Guide shared-fragment loss before candidate CI; new repaired candidate requires fresh exact-input evidence."
+      }
+    ]
+  },
+  "backlog": [
+    {
+      "id": "enterprise-exact-maintenance-evidence",
+      "priority": "compatibility/security",
+      "owner": "Version Release Watch",
+      "nextAction": "Retrieve exact 10.6.1 issue rows and exact 10.6.1.1 publication/fix evidence; do not infer equivalence or security floor.",
+      "reviewBy": "2026-10-22"
+    },
+    {
+      "id": "historical-forwarder-semantic-audit",
+      "priority": "compatibility/upgrade-paths",
+      "owner": "Version Release Watch with Guidance Audit",
+      "nextAction": "Continue bounded historical runtime/receiver/topology semantic verification, exact mappings and genuine negative regressions; retain 18-mapping/900-route tests. This batch verifies two only.",
+      "reviewBy": "2026-10-22"
+    },
+    {
+      "id": "october-security-disclosure",
+      "priority": "security",
+      "owner": "Version Release Watch",
+      "nextAction": "Check October 21 definitive advisories against exact product/version/component/build scope.",
+      "reviewBy": "2026-10-21"
+    },
+    {
+      "id": "service-metadata-owner-handoff",
+      "priority": "entitlement/authorization",
+      "owner": "CSP FedRAMP Watch and ES Editions Watch",
+      "nextAction": "Reconcile October 19 current-service metadata in the existing owner runs; do not rewrite historical availability or authorization from current tables.",
+      "reviewBy": "2026-10-22"
+    },
+    {
+      "id": "standing-source-gaps",
+      "priority": "historical-applicability",
+      "owner": "Version Release Watch / Guidance Audit",
+      "nextAction": "Preserve exact unavailable legacy 8.1/8.2 and workload-management URLs; recover public equivalent sections without silent substitution.",
+      "reviewBy": "2026-10-22"
+    }
+  ],
+  "publication": {
+    "outcome": "held-for-exact-candidate-verification",
+    "priorCompleteVersion": 173
+  },
+  "settings": "No schedule, timing mode, enabled state, progress-task, audience, privacy, authentication, active-delivery flag or tool-name changes.",
+  "changes": {
+    "sharedAnchors": {
+      "observedAt": "2026-10-20T09:36:53Z",
+      "outcome": "current Enterprise browser journey reproduced loss of #technical-title",
+      "repair": "Release Guide canonicalization preserves the existing location.hash, matching Forwarders/SOAR behavior; no selection substitution or tool changes.",
+      "regression": "Executable original canonicalization replay reproduces anchor loss; current Enterprise, Observability and historical links retain it. Native existing Enterprise/Observability/legacy route cases now carry #technical-title."
+    }
+  }
+}

@@ -2071,6 +2071,14 @@ Object.assign(window.SPLUNK_DATA, {
               "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1"
             ],
             [
+              "Kubernetes chart 0.163.0",
+              "Infrastructure & Kubernetes",
+              "Adopt the Collector 0.163 baseline deliberately",
+              "Chart 0.163.0 packages Collector 0.163.0, enables persistent-volume metrics and adds conditional histogram bucket merging. Review the separate Collector migration controls and rendered chart configuration; this customer-managed component release is not a SaaS rollout.",
+              "Separately versioned Kubernetes chart · released October 19, 2026",
+              "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.163.0"
+            ],
+            [
               "Python instrumentation 2.13.2",
               "Telemetry & OpenTelemetry",
               "Keep remote management dependencies current",
@@ -2082,7 +2090,7 @@ Object.assign(window.SPLUNK_DATA, {
               "Collector 0.163 migration controls",
               "Telemetry & OpenTelemetry",
               "Preserve collection through breaking changes",
-              "Review removed Debian 11 support, receiver and feature-gate removals, TLS settings, metric/resource identity and chained redaction changes before adopting the standalone Collector. Chart 0.162.1 still packages Collector 0.162.0.",
+              "Review removed Debian 11 support, receiver and feature-gate removals, TLS settings, metric/resource identity and chained redaction changes before adopting Collector 0.163.0. The older chart 0.162.1 packages Collector 0.162.0; chart 0.163.0 now adopts 0.163.0.",
               "Separately versioned Collector · released October 16, 2026",
               "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0"
             ],
@@ -2096,6 +2104,39 @@ Object.assign(window.SPLUNK_DATA, {
             ]
           ],
           "technicalChanges": [
+            {
+              "component": "Kubernetes chart 0.163 package baseline",
+              "domain": "Customer-managed collection",
+              "changeType": "Packaged versions updated",
+              "actionLevel": "Review",
+              "from": "Chart 0.162.1 packages Collector 0.162.0",
+              "to": "Chart 0.163.0 packages Collector 0.163.0; conditional Operator dependency 0.126.0 and Target Allocator 0.161.1",
+              "implication": "Chart adoption now includes the separate Collector 0.163 breaking-change checks. Optional dependencies remain controlled by their enablement values.",
+              "action": "Review the rendered values, installed dependency versions and Collector migration controls before rolling workloads.",
+              "source": "https://github.com/signalfx/splunk-otel-collector-chart/blob/splunk-otel-collector-0.163.0/helm-charts/splunk-otel-collector/Chart.yaml"
+            },
+            {
+              "component": "Kubernetes persistent-volume metric defaults",
+              "domain": "Telemetry semantics",
+              "changeType": "Default collection expanded",
+              "actionLevel": "Review",
+              "from": "Chart 0.162.1 does not explicitly enable these five metrics in its default cluster receiver",
+              "to": "Chart 0.163.0 enables k8s.persistentvolume.status.phase, k8s.persistentvolume.storage.capacity, k8s.persistentvolumeclaim.status.phase, k8s.persistentvolumeclaim.storage.capacity and k8s.persistentvolumeclaim.storage.request",
+              "implication": "With Observability metrics enabled, default cluster-metric collection can add storage telemetry; custom metrics and receiver overrides still require review.",
+              "action": "Compare the rendered cluster-receiver configuration and expected metric volume before rollout.",
+              "source": "https://github.com/signalfx/splunk-otel-collector-chart/blob/splunk-otel-collector-0.163.0/helm-charts/splunk-otel-collector/templates/config/_otel-k8s-cluster-receiver-config.tpl"
+            },
+            {
+              "component": "Kubernetes histogram bucket merging",
+              "domain": "Telemetry semantics",
+              "changeType": "Conditional bucket aggregation added",
+              "actionLevel": "Review",
+              "from": "Earlier chart pipelines do not add transform/limit_histogram_buckets",
+              "to": "Chart 0.163.0 merges histogram buckets as needed to the 32-bucket ingest limit: agent control-plane pipeline with useControlPlaneMetricsHistogramData and metrics enabled; EKS API-server pipeline with enableEKSApiServerMetrics and Observability metrics enabled",
+              "implication": "Affected histogram bucket boundaries can change. Both gates default to true in this tag, but a disabled gate, pipeline or non-EKS distribution does not acquire the corresponding pipeline behavior.",
+              "action": "Inspect the rendered pipeline and bucket-dependent queries; do not apply this rule to every histogram or distribution.",
+              "source": "https://github.com/signalfx/splunk-otel-collector-chart/pull/2606"
+            },
             {
               "component": "APM not-equal tag filters",
               "domain": "Search semantics",
@@ -2306,7 +2347,7 @@ Object.assign(window.SPLUNK_DATA, {
             ],
             [
               "Enable and validate Kubernetes remote configuration deliberately",
-              "Use chart 0.162.1 or later and the documented OpAMP Bridge enablement, realm and access-token setup. Templates/groups can update ConfigMaps and roll workloads; verify permissions, scope and staged rollout. Chart 0.162.1 does not inherit standalone Collector 0.163.",
+              "Use chart 0.162.1 or later and the documented OpAMP Bridge enablement, realm and access-token setup. Templates/groups can update ConfigMaps and roll workloads; verify permissions, scope and staged rollout. The older chart 0.162.1 packages Collector 0.162.0; use the separate chart 0.163.0 package evidence for adoption of Collector 0.163.",
               "Validate",
               "https://help.splunk.com/en/splunk-observability-cloud/manage-data/manage-otel-agents-and-collectors/remote-configuration-of-opentelemetry-collectors/opamp-bridge-for-collectors-on-kubernetes/enable-the-opamp-bridge-for-kubernetes",
               false

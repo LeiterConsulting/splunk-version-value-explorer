@@ -126,3 +126,20 @@ test('borrowed HF 10.4 security and Windows identities retain their exact histor
  assert.throws(()=>check(broadened),/Local service or non-administrator domain accounts/);
  assert.equal(api.assess({...api.defaults,type:'uf',from:'10.4',to:'10.6'}).targetRuntime.length,0);
 });
+test('borrowed HF KV Store prerequisites and TLS precedence reject reversed or weakened history',()=>{
+ const c={window:{},URLSearchParams};vm.createContext(c);
+ for(const f of ['data.js','product-data.js','comparison.js','forwarders-data.js','forwarders.js','source-register.js'])vm.runInContext(fs.readFileSync('dist/'+f,'utf8'),c);
+ const api=c.window.VersionCompassForwarders;
+ function check(records){
+  const media=records.find(r=>r.component==='KV Store binaries'&&r.milestone==='Enterprise 10.4');
+  const tls=records.find(r=>r.component==='KV Store TLS configuration'&&r.milestone==='Enterprise 10.4');
+  assert(media&&tls);
+  assert.match(media.to,/engine 7 or later is required/);assert.match(media.action,/before starting the 10.4 upgrade/);
+  assert.match(tls.from,/ignored in favor of sslConfig/);assert.equal(tls.to,'TLS settings in the kvstore stanza take precedence');
+  for(const id of ['technical.hf.10.4.kv-store-binaries','technical.hf.10.4.kv-store-tls-configuration'])assert(c.window.VersionCompassSources.sources.some(s=>s.claimReferences?.some(r=>r.claimId===id&&r.claimVerified==='2026-10-20'&&r.section)));
+ }
+ const records=api.assess({...api.defaults,type:'hf',from:'10.2',to:'10.4'}).technical;check(records);
+ const reversed=JSON.parse(JSON.stringify(records));reversed.find(r=>r.component==='KV Store TLS configuration').to='sslConfig always takes precedence';assert.throws(()=>check(reversed),/kvstore stanza take precedence/);
+ const weakened=JSON.parse(JSON.stringify(records));weakened.find(r=>r.component==='KV Store binaries').action='Upgrade the engine after starting the 10.4 upgrade';assert.throws(()=>check(weakened),/before starting/);
+ assert.equal(api.assess({...api.defaults,type:'uf',from:'10.2',to:'10.4'}).technical.length,0);
+});

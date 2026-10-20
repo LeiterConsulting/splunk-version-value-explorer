@@ -16,10 +16,11 @@ test('badges are explicit, qualified and printable with evidence',()=>{
  const deprecation=b.entries['technical:observability:Browser RUM navigation configuration'];assert.match(deprecation.detail,/remains functional/);assert.match(deprecation.detail,/not removal/);
 });
 
-test('the twenty-fifth factual cycle preserves Export FIPS and scopes new component guidance',()=>{
- assert.equal(b.policy.currentCycle,25);
+test('the twenty-sixth factual cycle preserves history and scopes new component guidance',()=>{
+ assert.equal(b.policy.currentCycle,26);
+ for(const key of ['technical:platform:Enterprise 10.6 maintenance release','feature:observability:Kubernetes chart 0.163.0','technical:observability:Kubernetes chart 0.163 package baseline','technical:observability:Kubernetes persistent-volume metric defaults','technical:observability:Kubernetes histogram bucket merging']){assert.equal(b.entries[key].cycle,26);assert(b.active(b.entries[key]));assert.match(b.entries[key].note,/2026\/10\/2026-10-20\.md/);}
  for(const key of ['feature:observability:Collector 0.163 migration controls','technical:platform:Cloud 10.5 maintenance build','technical:platform:ES cohosted KV Store boundary']){assert.equal(b.entries[key].cycle,25);assert(b.active(b.entries[key]));}
- for(const key of ['product:soar:export-fips','technical:soar:export871']){assert.equal(b.entries[key].cycle,24);assert(b.active(b.entries[key]));}
+ for(const key of ['product:soar:export-fips','technical:soar:export871']){assert.equal(b.entries[key].cycle,24);assert(!b.active(b.entries[key]));assert.match(b.entries[key].note,/2026\/10\/2026-10-16\.md/);}
  assert.equal(b.entries["guide:splunk11"].cycle,23);
  assert(!b.active(b.entries["guide:splunk11"]));
  for(const key of ['environment:acs-fr-m','environment:acs-fr-h']){const e=b.entries[key];assert.equal(e.cycle,18);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-10\.md/);}
