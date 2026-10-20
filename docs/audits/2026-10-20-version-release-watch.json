@@ -79,15 +79,17 @@
       "environment": "customer-managed Kubernetes; not SaaS rollout",
       "sourceCheckDate": "2026-10-20",
       "claimVerificationDate": "2026-10-20",
-      "sourceDate": "2026-10-19",
-      "effectiveDate": null,
+      "sourceDate": "2026-10-15",
+      "effectiveDate": "2026-10-19",
       "outcome": "supporting-sections-confirmed",
       "claimId": "technical.observability.kubernetes-histogram-bucket-merging",
       "url": "https://github.com/signalfx/splunk-otel-collector-chart/pull/2606",
       "sections": [
         "Files changed: agent and cluster-receiver transform/limit_histogram_buckets plus histogram pipeline insertion"
       ],
-      "qualification": "Cross-checked exact 0.163.0 templates and values.yaml: agent requires Observability-enabled pipeline, metrics and useControlPlaneMetricsHistogramData; EKS requires EKS distribution, Observability metrics and enableEKSApiServerMetrics. Both gates default true. No blanket every-histogram behavior."
+      "qualification": "Cross-checked exact 0.163.0 templates and values.yaml: agent requires Observability-enabled pipeline, metrics and useControlPlaneMetricsHistogramData; EKS requires EKS distribution, Observability metrics and enableEKSApiServerMetrics. Both gates default true. No blanket every-histogram behavior. PR updated/merged October 15 is separate from chart release October 19 and actual October 20 verification.",
+      "sourceUpdatedAt": "2026-10-15T17:59:50Z",
+      "sourceMergedAt": "2026-10-15T17:59:41Z"
     },
     {
       "claimId": "technical.platform.enterprise-10.6-maintenance-release",
@@ -210,7 +212,7 @@
       "assets": 57,
       "contentRevision": "content-eb0146ad2704dfe5f092f330",
       "engineRevision": "engine-7f8bca3097fd03a4b6bb",
-      "checkedAt": "2026-10-20T09:37:53Z",
+      "checkedAt": "2026-10-20T09:41:37Z",
       "evidence": "Four ordered generators and --check gates; full Node tests and build.42 targeted tests pass; initial two new UI assertions used the wrong test-harness element, corrected to actual render containers; not a product regression. New anchor regression is the 196th test."
     },
     "nativeExports": {
@@ -226,8 +228,27 @@
         "savedVersion": 174,
         "outcome": "held-not-deployed",
         "reason": "Actual browser exposed Release Guide shared-fragment loss before candidate CI; new repaired candidate requires fresh exact-input evidence."
+      },
+      {
+        "githubCommit": "eafa4f389bbc935345014f299adb371e9fa9e772",
+        "sitesCommit": "19fc513810a7be19c8f3198b1f6c16e7976aef4d",
+        "tree": "8ce2bacfb27c02d628657899ff78d0706dedd893",
+        "savedVersion": 175,
+        "outcome": "superseded-held-not-deployed",
+        "reason": "Provenance refinement: histogram PR merged/updated October 15, distinct from chart release October 19. Correct badge source date before final candidate."
       }
-    ]
+    ],
+    "browserJourneys": {
+      "outcome": "passed-bounded-preview",
+      "checkedAt": "2026-10-20T09:40:22Z",
+      "scope": "Actual current Enterprise/October Observability, legacy Enterprise 8.2→9.4 and unmodeled 10.6.1.1 journeys; both themes; Enter disclosure; in-place baseline change; anchored exact versions/context/theme; invalid results and all exports disabled.",
+      "historicalDate": "Current canonical publication parameter advances to October 20, while the original September 1 shared-publication date remains explicitly explained in screen and print shared-link context. Not a frozen saved HTML.",
+      "limitation": "Phone viewport/native exports supplied separately by exact application CI; no production-browser UI pass claimed."
+    },
+    "nativeWebMCP": {
+      "outcome": "not-advertised-in-current-browser",
+      "qualification": "Current ready document fetchTools reports none; nothing injected. Existing read-only names/schema/registration/comparison implementations unchanged; 196-test actual registration/execution harness verifies new data/UI parity. Prior accepted native baseline preserved in original scope; no new vendor pass claimed."
+    }
   },
   "backlog": [
     {
