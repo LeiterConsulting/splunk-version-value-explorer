@@ -229,8 +229,13 @@ try {
             const report=document.querySelector('#release-report');
             const clean=s=>(s||'').replace(/\s+/g,' ').trim();
             const pair=pairs[0], following=clean(pair.following), heading=clean(pair.heading);
-            const candidates=[...report.querySelectorAll('*')].filter(el=>clean(el.textContent).includes(following)).sort((a,b)=>clean(a.textContent).length-clean(b.textContent).length);
-            const target=candidates[0];
+            const headingCandidates=[...report.querySelectorAll('*')].filter(el=>clean(el.textContent).includes(heading)).sort((a,b)=>clean(a.textContent).length-clean(b.textContent).length);
+            let target;
+            for(const headingElement of headingCandidates) {
+              const scope=headingElement.closest('.technical-item,.technical-transition,.report-block,.route-takeaway,.soar-target-requirements')||headingElement.parentElement;
+              const candidates=[...scope.querySelectorAll('*')].filter(el=>clean(el.textContent).includes(following)).sort((a,b)=>clean(a.textContent).length-clean(b.textContent).length);
+              if(candidates.length) { target=candidates[0]; break; }
+            }
             if(!target) return false;
             if(!clean(target.textContent).includes(heading)) {
               const boundary=document.createElement('div');
@@ -254,7 +259,7 @@ try {
             return false;
           },expected.paginationPairs);
           assert(forced,'Unable to construct exact native page-boundary replay: '+id);
-          const boundary=await page.addStyleTag({content:'@media print{.pagination-regression-break{display:block!important;min-height:1px!important;break-before:page!important;page-break-before:always!important}}'});
+          const boundary=await page.addStyleTag({content:'@media print{.release-report .report-block:has(.pagination-regression-break),.release-report .technical-transition:has(.pagination-regression-break),.release-report .technical-item:has(.pagination-regression-break){break-inside:auto!important;page-break-inside:auto!important}.pagination-regression-break{display:block!important;min-height:1px!important;break-before:page!important;page-break-before:always!important}}'});
           await page.pdf({path:priorPdf,format:'A4',printBackground:true,preferCSSPageSize:true});
           await boundary.evaluate(el=>el.remove());
           await page.evaluate(()=>{
