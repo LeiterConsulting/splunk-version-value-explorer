@@ -1,0 +1,43 @@
+{
+  "status": "eligible-to-advance",
+  "elapsedHours": 0.5217983333333334,
+  "minimumHours": 0,
+  "observationHours": 72,
+  "missing": [],
+  "failed": [],
+  "scopedOut": [],
+  "unresolved": [],
+  "acceptedMinor": [
+    {
+      "observed": "White blank table-fragment area below the first GCP section in the Cisco PDF",
+      "trackingIssue": "docs/audits/2026-10-21-csp-fedramp-watch.json#csp-cisco-pdf-table-fragment-background",
+      "owner": "CSP FedRAMP Watch",
+      "reviewBy": "2026-10-23T20:00:00Z"
+    },
+    {
+      "observed": "Existing Cisco Observability PDF eyebrow can remain at a prior page boundary",
+      "trackingIssue": "docs/audits/2026-10-21-version-release-watch.json#visualReview",
+      "owner": "Version Release Watch",
+      "reviewBy": "2026-10-26T20:00:00Z"
+    }
+  ],
+  "recommendations": [
+    {
+      "observed": "White blank table-fragment area below the first GCP section in the Cisco PDF",
+      "impact": "Presentation only; the next page retains the complete Agent row, source text and citations. The comparison and export work.",
+      "change": "Keep the unused table-fragment area consistent with the selected PDF theme without changing pagination or report content.",
+      "validation": "Exact-candidate 72-case native export geometry/text checks passed; separate pages 8-9 inspection confirms complete uninterrupted rows. Repair requires both-theme PDFs and retained page review.",
+      "disposition": "tracked-nonblocking-repair"
+    },
+    {
+      "observed": "Existing Cisco Observability PDF eyebrow can remain at a prior page boundary",
+      "impact": "Presentation only; full heading and prose remain together and exports function.",
+      "validation": "Existing exact-candidate native PDFs and bounded page review; repair requires both-theme boundary replay.",
+      "disposition": "tracked-nonblocking-repair"
+    }
+  ],
+  "feedback": {
+    "status": "not-recorded",
+    "note": "No customer feedback inferred; confidence is completed evidence."
+  }
+}

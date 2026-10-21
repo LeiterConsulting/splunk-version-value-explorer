@@ -340,7 +340,7 @@
     "exportRoutes": "Tokyo, explicit GCP restriction, provider-only and mismatched provider/region added in both themes."
   },
   "validation": {
-    "status": "candidate-verified",
+    "status": "completed",
     "environmentRegressions": "11 passed including cross-product, unlisted realm, GCP, Tokyo component and Moderate/High negative cases.",
     "publication": "not-yet-deployed",
     "checkGates": "passed (all four)",
@@ -383,13 +383,127 @@
       "outcome": "reviewed-with-tracked-minor-finding",
       "scope": "Retained exact-candidate Tokyo default/Cisco page 8, GCP Cisco pages 8-9, Moderate default page 3 and both selected 390x844 phone images. Separate from automated geometry, not all-page human review.",
       "detail": "Tokyo Luna-3 restriction, GCP Agent exclusion and IL2 uncertainty text/citations are complete. GCP Cisco page 8 has a white blank table-fragment area; page 9 preserves the complete next row and citations without overlap or lost text."
-    }
+    },
+    "browserAndLive": {
+      "outcome": "passed-for-applicable-scope",
+      "delivery": {
+        "evaluatedAt": "2026-10-21T13:51:31.701Z",
+        "target": "https://versioncompass.com",
+        "expectedRevision": "content-5896b61d2321cd127b2c900c",
+        "status": "delivery-checks-passed",
+        "checks": {
+          "database-health": {
+            "outcome": "passed",
+            "evidence": {
+              "status": "ready",
+              "storage": "d1",
+              "revision": "content-5896b61d2321cd127b2c900c",
+              "engineRevision": "engine-60047d2708b123c52e7e",
+              "recordCount": 790
+            },
+            "checkedAt": "2026-10-21T13:51:17.823Z",
+            "elapsedMs": 7182
+          },
+          "live-manifest": {
+            "outcome": "passed",
+            "evidence": {
+              "schemaVersion": 1,
+              "revision": "content-5896b61d2321cd127b2c900c",
+              "digest": "087a05127c21c0a241c3c7e5c28b9f284d77c5ecc7be65181700d5f9246c366f",
+              "engineRevision": "engine-60047d2708b123c52e7e",
+              "datasetHashes": {
+                "platform": "a835e0f22bf2103a276428417d2eb79cd122e9f9e3278527df231c964709516d",
+                "products": "ef56408cd29790b24360a47c036e6bc6ec50a03718c922355f78d7b6be335fbc",
+                "guidance": "ad7ac72a8f0b1729331066dc87582186ad4ad28299f87e641ca0e9e38524b350",
+                "environment": "a4908537873030e9e9e82240779d683f9e19efd63beee15af34e8559a80881c7",
+                "editions": "dfbc07ed76958144f8e5643fdfbcc1525e9b05a3dde2feeb0d58ee61fb99a02f",
+                "forwarders": "aed3325f88c39c8b2ec892836ff06f3fb5e3a5ed7d39dfc4232bd8ee6875d7f1",
+                "soar": "b3e0721f3c10ec6cbaabdb096cba46217cae0ab9c1276e326dbd9fa2a01fdeac"
+              },
+              "recordCount": 790,
+              "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+              "verificationPolicy": "Migration and delivery do not create verification dates",
+              "phase": "content-model-and-database-delivery"
+            },
+            "checkedAt": "2026-10-21T13:51:18.040Z",
+            "elapsedMs": 217
+          },
+          "bundle-integrity": {
+            "outcome": "passed",
+            "evidence": {
+              "digest": "087a05127c21c0a241c3c7e5c28b9f284d77c5ecc7be65181700d5f9246c366f",
+              "recordCount": 790
+            },
+            "checkedAt": "2026-10-21T13:51:18.327Z",
+            "elapsedMs": 287
+          },
+          "bounded-record-query": {
+            "outcome": "passed",
+            "evidence": "SOAR filter, revision and maximum page size verified",
+            "checkedAt": "2026-10-21T13:51:18.659Z",
+            "elapsedMs": 332
+          },
+          "read-only-api": {
+            "outcome": "passed",
+            "evidence": "POST rejected with 405",
+            "checkedAt": "2026-10-21T13:51:22.918Z",
+            "elapsedMs": 4258
+          },
+          "bundled-fallback-assets": {
+            "outcome": "passed",
+            "evidence": "All seven complete fallback adapters served",
+            "checkedAt": "2026-10-21T13:51:31.701Z",
+            "elapsedMs": 8783
+          }
+        },
+        "findings": [],
+        "limitations": [
+          "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
+        ]
+      },
+      "readOnlyWebMcpAgreement": {
+        "outcome": "passed",
+        "checkedAt": "2026-10-21T13:51:19.423Z",
+        "scope": "Independent replay of exact live, byte-verified public WebMCP assets and real D1 bundle through its read-only registrations; native browser discovery is separately transport-blocked.",
+        "content": "content-5896b61d2321cd127b2c900c",
+        "engine": "engine-60047d2708b123c52e7e",
+        "website": "vc-9fe12ccb5bb4e9af",
+        "tools": [
+          "versioncompass_get_catalog",
+          "versioncompass_compare_routes",
+          "versioncompass_get_current_report"
+        ],
+        "routes": 3,
+        "invalidRejected": true,
+        "qualifications": {
+          "tokyo": "Agent Observability SaaS is listed in realm jp0. Access must be confirmed with the Splunk team; region hosting does not establish subscription entitlement, enabled features or FedRAMP authorization. Luna-3 is explicitly unavailable in jp0; this does not exclude Agent Observability itself.",
+          "gcp": "Explicit unavailable Agent row",
+          "ai": "The AI Assistant 2.2 installation guide documents limited IL2 FedRAMP support for version 2.0.0 and higher: no Agent Mode, training/fine-tuning off by default and Splunk-hosted model runtime only. Its supported-region table lists both GovCloud regions with May 11, 2026 dates, while its introductory installation scope says commercial stacks. These statements do not establish universal Moderate/High feature coverage or authorization. The dated compliance matrix and current service table do not resolve the complete regulated scope."
+        }
+      },
+      "nativeBrowserTransport": "Blocked after source and initial preview checks; dedicated exact-candidate native CI remains applicable. No native production browser-tool invocation claimed."
+    },
+    "predeploymentDiagnostics": "Candidate-targeted live requests before deployment saw the prior manifest and unavailable candidate bundle, as expected; one health transport timeout was blocked. These do not certify or describe defects in the prior revision. All post-deployment candidate delivery checks passed."
   },
   "publication": {
-    "outcome": "candidate-verified-ready-for-native-deploy",
-    "priorCompleteVersion": 181,
+    "outcome": "published-and-live-verified",
+    "githubRuntimeCommit": "ca8fadb2f8f51e002344a21117a70341111df66d",
+    "siteSourceCommit": "13fa9fe2237978194f1b7d3166c2c9da9d791ea2",
+    "matchingRuntimeTree": "0b0dd8457954e426334c8dc0d43dbae092ab76c1",
     "siteVersion": 182,
-    "siteSourceCommit": "13fa9fe2237978194f1b7d3166c2c9da9d791ea2"
+    "versionId": "appgprj_6aa3ff61bd288191ac95ac6e30707895~appgver_117d0e97dd9081919adf64c22710c5f7",
+    "deploymentId": "appgdep_6ad8c3406b288191bc97c35e92a0da3e",
+    "deployedAt": "2026-10-21T13:51:02.968665+00:00",
+    "url": "https://versioncompass.com",
+    "liveRevision": "vc-9fe12ccb5bb4e9af",
+    "contentRevision": "content-5896b61d2321cd127b2c900c",
+    "engineRevision": "engine-60047d2708b123c52e7e",
+    "recordCount": 790,
+    "priorCompleteVersion": 181,
+    "publisherRun": 39611148013,
+    "publisherJob": 119261762108,
+    "publisherOutcome": "already-current",
+    "publisherQualification": "Initial guarded stage rejected engine-mismatch before the matching Worker; the authenticated rerun after deployment succeeded. Active delivery remains off."
   },
   "findings": [
     {
@@ -407,5 +521,60 @@
       "reviewBy": "2026-10-23T20:00:00Z",
       "resolved": false
     }
-  ]
+  ],
+  "completedAt": "2026-10-21T13:52:18Z",
+  "recovery": {
+    "expiredApproval": "Not replayed; current native GitHub/Sites actions completed under existing authorization.",
+    "concurrency": "The first Site push rejected a newer remote receipt. Reopened fresh Sites source 1085c39783685f83824bdc9140fbf7f5306792d8 with tree 77507d9788fff802deea466360a21dd658ca3474, equal to fresh pre-candidate GitHub main. Applied only the validated candidate to that base. No force push.",
+    "schedule": "Existing csp-fedramp-watch enabled, America/New_York 07:00 daily, flexible_schedule; no settings changed. Existing disabled/completed progress checkpoint retained."
+  },
+  "observation": {
+    "minimumHours": 0,
+    "hours": 72,
+    "startedAt": "2026-10-21T13:51:02.968665+00:00",
+    "meaning": "Post-release observation only; no rollout delay or timer created."
+  },
+  "readiness": {
+    "status": "eligible-to-advance",
+    "elapsedHours": 0.5217983333333334,
+    "minimumHours": 0,
+    "observationHours": 72,
+    "missing": [],
+    "failed": [],
+    "scopedOut": [],
+    "unresolved": [],
+    "acceptedMinor": [
+      {
+        "observed": "White blank table-fragment area below the first GCP section in the Cisco PDF",
+        "trackingIssue": "docs/audits/2026-10-21-csp-fedramp-watch.json#csp-cisco-pdf-table-fragment-background",
+        "owner": "CSP FedRAMP Watch",
+        "reviewBy": "2026-10-23T20:00:00Z"
+      },
+      {
+        "observed": "Existing Cisco Observability PDF eyebrow can remain at a prior page boundary",
+        "trackingIssue": "docs/audits/2026-10-21-version-release-watch.json#visualReview",
+        "owner": "Version Release Watch",
+        "reviewBy": "2026-10-26T20:00:00Z"
+      }
+    ],
+    "recommendations": [
+      {
+        "observed": "White blank table-fragment area below the first GCP section in the Cisco PDF",
+        "impact": "Presentation only; the next page retains the complete Agent row, source text and citations. The comparison and export work.",
+        "change": "Keep the unused table-fragment area consistent with the selected PDF theme without changing pagination or report content.",
+        "validation": "Exact-candidate 72-case native export geometry/text checks passed; separate pages 8-9 inspection confirms complete uninterrupted rows. Repair requires both-theme PDFs and retained page review.",
+        "disposition": "tracked-nonblocking-repair"
+      },
+      {
+        "observed": "Existing Cisco Observability PDF eyebrow can remain at a prior page boundary",
+        "impact": "Presentation only; full heading and prose remain together and exports function.",
+        "validation": "Existing exact-candidate native PDFs and bounded page review; repair requires both-theme boundary replay.",
+        "disposition": "tracked-nonblocking-repair"
+      }
+    ],
+    "feedback": {
+      "status": "not-recorded",
+      "note": "No customer feedback inferred; confidence is completed evidence."
+    }
+  }
 }
