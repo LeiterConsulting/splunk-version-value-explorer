@@ -1,3 +1,6 @@
+Warning: truncated output (original token count: 20827)
+Total output lines: 887
+
 window.VersionCompassMaintenance = {
   "schemaVersion": 1,
   "trackingSince": "2026-09-25",
@@ -401,44 +404,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-10-12T09:40:35.521Z",
           "outcome": "no-change",
-          "summary": "No newer maintained release, patch, advisory, migration-app or customer-managed Observability component was found; the directly unavailable October Observability page remains held.",
-          "scope": "Complete 131-URL maintained release inventory (129 retrieved; two retired historical pages unavailable), current discovery streams and seven bounded highest-consequence claim groups."
-        },
-        {
-          "at": "2026-10-13T09:07:00Z",
-          "outcome": "running",
-          "summary": "Release inventory and bounded consequential claim review running.",
-          "scope": "Full maintained public release/source inventory plus current discovery streams; affected claims and bounded high-consequence Enterprise, Cloud, migration, Forwarders, premium-product, Observability, security and SOAR checks."
-        },
-        {
-          "at": "2026-10-13T09:18:30Z",
-          "outcome": "changed",
-          "summary": "Confirmed the October 12 Observability APM filtering change plus Java 2.32.0 and Node.js 4.12.1 component releases; updated scoped guidance and validation coverage.",
-          "scope": "All 135 previously maintained release/source URLs plus three newly confirmed official sources; affected Observability claims and bounded high-consequence Enterprise, Cloud, migration, Forwarders, premium-product, security, SCMA and SOAR checks."
-        },
-        {
-          "at": "2026-10-14T10:05:35Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete maintained release inventory and newly published Cloud maintenance and Observability component evidence.",
-          "scope": "All 138 Release guide, Shared guidance, Splunk Forwarders and Splunk SOAR URLs; current Enterprise, Cloud, ES, ITSI, SOAR, SCMA, security and Observability discovery streams; affected Cloud 10.4, Kubernetes chart and Python instrumentation claims; bounded high-consequence route, compatibility, upgrade and source-mapping checks."
-        },
-        {
-          "at": "2026-10-14T10:12:30Z",
-          "outcome": "changed",
-          "summary": "Added Cloud 10.4.2604.15, Kubernetes chart 0.162.1 and Python instrumentation 2.13.2 with exact rollout, receiver, permission and dependency qualifications.",
-          "scope": "All 138 previously maintained release/source URLs plus two newly confirmed official component sources; affected Cloud 10.4 and Observability claims and bounded high-consequence Enterprise, Cloud, migration, Forwarder, premium-product, security, SCMA and SOAR checks."
-        },
-        {
-          "at": "2026-10-15T09:08:16Z",
-          "outcome": "running",
-          "summary": "Reviewing complete release inventory, current discovery streams and bounded consequential claims.",
-          "scope": "140 maintained Release guide, Shared guidance, Forwarder and SOAR URLs; current release discovery; affected and high-consequence claim verification."
-        },
-        {
-          "at": "2026-10-15T09:17:22Z",
-          "outcome": "changed",
-          "summary": "Reviewed all 140 maintained URLs and new discovery; staged the October 21 advisory advance notice without inferring CVEs, affected ranges or deployment scope.",
-          "scope": "138 maintained URLs retrieved; two retired historical pages unavailable; one new official notice and 12 bounded consequential claims. Candidate publication/export/live checks remain separate."
+          "summary": "No newer maintained release, patch, advisory, migr…827 tokens truncated…/export/live checks remain separate."
         },
         {
           "at": "2026-10-15T09:42:19Z",
@@ -542,8 +508,8 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-10-14T13:06:20Z",
-      "lastSuccess": "2026-10-14T13:12:00Z",
+      "lastAttempt": "2026-10-21T13:00:53Z",
+      "lastSuccess": "2026-10-21T13:04:32Z",
       "outcome": "no-change",
       "summary": "All 20 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, release-stage or historical fact changed.",
       "history": [
@@ -767,9 +733,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "All 20 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, release-stage or historical fact changed.",
           "scope": "All 20 maintained ES official sources plus six exact SOAR App/Export/related-product/Cloud pairing sources; current release discovery and ten bounded high-consequence entitlement, prerequisite, pricing, release-stage and compatibility claims."
+        },
+        {
+          "at": "2026-10-21T13:00:53Z",
+          "outcome": "running",
+          "summary": "Reviewing the complete official ES Editions inventory and bounded high-consequence entitlement, prerequisite, compatibility, and SOAR pairing claims.",
+          "scope": "All maintained ES edition sources and exact related SOAR App/Export pairing records; current/legacy route, report, export, WebMCP, publication and live-delivery checks scoped to any resulting change."
+        },
+        {
+          "at": "2026-10-21T13:04:32Z",
+          "outcome": "no-change",
+          "summary": "All 20 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, release-stage or historical fact changed.",
+          "scope": "All 20 maintained ES official sources plus six exact SOAR App/Export/related-product/Cloud records; current release discovery and eleven bounded high-consequence entitlement, prerequisite, pricing, release-stage and compatibility claims."
         }
       ],
-      "scope": "All 20 maintained ES official sources plus six exact SOAR App/Export/related-product/Cloud pairing sources; current release discovery and ten bounded high-consequence entitlement, prerequisite, pricing, release-stage and compatibility claims."
+      "scope": "All 20 maintained ES official sources plus six exact SOAR App/Export/related-product/Cloud records; current release discovery and eleven bounded high-consequence entitlement, prerequisite, pricing, release-stage and compatibility claims."
     },
     {
       "id": "version-guidance-audit",
