@@ -340,7 +340,7 @@
     "exportRoutes": "Tokyo, explicit GCP restriction, provider-only and mismatched provider/region added in both themes."
   },
   "validation": {
-    "status": "in-progress",
+    "status": "candidate-verified",
     "environmentRegressions": "11 passed including cross-product, unlisted realm, GCP, Tokyo component and Moderate/High negative cases.",
     "publication": "not-yet-deployed",
     "checkGates": "passed (all four)",
@@ -358,10 +358,54 @@
       "pdfs": 60,
       "pages": 1247,
       "digest": "sha256:6e8c39bd829a4c24dc123dd937583e2688845f00066bc963c4ec73efd75a8604"
+    },
+    "candidateExports": {
+      "outcome": "passed",
+      "workflowRun": 39610457010,
+      "job": 119257649535,
+      "commit": "ca8fadb2f8f51e002344a21117a70341111df66d",
+      "tree": "0b0dd8457954e426334c8dc0d43dbae092ab76c1",
+      "artifact": 12349624243,
+      "artifactDigest": "sha256:43b29fbfb0d89772ff0dedc98d42210490219cf1257cc2ec26d2dcb5d0765d14",
+      "fingerprint": "515beb546262009fa4f987f92c1b1e5715da68e827e490b1b6b53f5e211c39b2",
+      "cases": 72,
+      "nativePdfs": 60,
+      "renderedPages": 1247,
+      "offlineHtmlReopens": 60,
+      "phoneChecks": 72,
+      "keyboardChecks": 60
+    },
+    "interactiveBrowser": {
+      "outcome": "partially-performed-then-transport-blocked",
+      "detail": "Actual public-sector matrix and exact Marketplace lists inspected. Candidate preview restored Tokyo/current historical selection and showed both scoped records. Later native WebMCP discovery and follow-on navigation timed out at the browser service. These are not application failures; dedicated exact-candidate CI clears actual affected browser/export/theme/phone/keyboard checks. Native interactive WebMCP invocation is not claimed."
+    },
+    "visualReview": {
+      "outcome": "reviewed-with-tracked-minor-finding",
+      "scope": "Retained exact-candidate Tokyo default/Cisco page 8, GCP Cisco pages 8-9, Moderate default page 3 and both selected 390x844 phone images. Separate from automated geometry, not all-page human review.",
+      "detail": "Tokyo Luna-3 restriction, GCP Agent exclusion and IL2 uncertainty text/citations are complete. GCP Cisco page 8 has a white blank table-fragment area; page 9 preserves the complete next row and citations without overlap or lost text."
     }
   },
   "publication": {
-    "outcome": "pending-validation",
-    "priorCompleteVersion": 180
-  }
+    "outcome": "candidate-verified-ready-for-native-deploy",
+    "priorCompleteVersion": 181,
+    "siteVersion": 182,
+    "siteSourceCommit": "13fa9fe2237978194f1b7d3166c2c9da9d791ea2"
+  },
+  "findings": [
+    {
+      "id": "csp-cisco-pdf-table-fragment-background",
+      "observed": "White blank table-fragment area below the first GCP section in the Cisco PDF",
+      "impact": "Presentation only; the next page retains the complete Agent row, source text and citations. The comparison and export work.",
+      "severity": "minor",
+      "reversible": true,
+      "affectedFunctionWorks": true,
+      "trackingIssue": "docs/audits/2026-10-21-csp-fedramp-watch.json#csp-cisco-pdf-table-fragment-background",
+      "owner": "CSP FedRAMP Watch",
+      "nextAction": "Apply a narrowly scoped print background/fragmentation repair after reproducing the GCP Cisco page boundary.",
+      "recommendedChange": "Keep the unused table-fragment area consistent with the selected PDF theme without changing pagination or report content.",
+      "validation": "Exact-candidate 72-case native export geometry/text checks passed; separate pages 8-9 inspection confirms complete uninterrupted rows. Repair requires both-theme PDFs and retained page review.",
+      "reviewBy": "2026-10-23T20:00:00Z",
+      "resolved": false
+    }
+  ]
 }
