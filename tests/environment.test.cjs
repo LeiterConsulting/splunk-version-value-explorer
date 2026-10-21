@@ -105,3 +105,24 @@ test('ACS keeps Moderate and High service support operation-specific and separat
  const high=env.data.records.find(r=>r.id==='acs-fr-h');assert.equal(high.effective,'2026-09-15');assert(high.sources.includes('acsRelease'));assert(high.sources.includes('acsMaintenance'));assert.match(high.detail,/maintenance-window operations/);
  const moderate=env.assess(route({csp:'aws',region:'us-gov-east-1',compliance:'fr-m'}));assert(!moderate.records.some(r=>r.id==='acs-fr-h'));
 });
+test('Agent Observability uses its own realms, access limits and Tokyo component exception',()=>{
+ const agent=e=>env.featureRecords(route(e,'observability'),{title:'Agent Observability'});
+ const tokyo=agent({region:'ap-northeast-1',compliance:'commercial'});
+ assert.equal(tokyo.length,1);assert.equal(tokyo[0].availability,'conditional');assert.match(tokyo[0].detail,/Luna-3.*unavailable.*jp0/);
+ assert.equal(tokyo[0].authorization,'not_established');
+ const gcp=agent({region:'gcp-oregon',compliance:'commercial'});assert.equal(gcp.length,1);assert.equal(gcp[0].availability,'unavailable');
+ assert.equal(agent({region:'eu-central-1',compliance:'commercial'}).length,0);
+ assert.equal(agent({compliance:'fr-m'}).length,0);assert.equal(agent({compliance:'fr-h'}).length,0);
+ assert.equal(agent({csp:'aws',compliance:'commercial'}).length,5);
+ assert(!agent({csp:'gcp',compliance:'commercial'}).some(r=>r.availability==='conditional'));
+ const html=env.body(route({region:'ap-northeast-1',compliance:'commercial'},'observability'),true);
+ assert.match(html,/Luna-3/);assert(html.includes(env.data.sources.agentSaas.url));
+});
+test('limited AI Assistant IL2 evidence does not become universal Moderate or High coverage',()=>{
+ for(const compliance of ['fr-m','fr-h']){
+  const row=env.assess(route({csp:'aws',region:'us-gov-east-1',compliance})).records.find(r=>r.id==='platform-ai-high-unknown');
+  assert.equal(row.availability,'not_established');assert.equal(row.authorization,'not_established');
+  assert.match(row.detail,/2\.0\.0/);assert.match(row.detail,/no Agent Mode/);assert.match(row.detail,/off by default/);assert.match(row.detail,/commercial stacks/);
+  assert(row.sources.includes('assistantInstall'));
+ }
+});

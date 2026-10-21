@@ -327,6 +327,42 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://agent-observability-docs.splunk.com/saas/overview",
+      "title": "Agent Observability SaaS regional and feature considerations",
+      "areas": [
+        "Cloud environment",
+        "Shared guidance"
+      ],
+      "references": [
+        "environment.sources.agentSaas.url",
+        "content-updates.js",
+        "environment: environment.records.64",
+        "environment: environment.records.65",
+        "environment: environment.records.66",
+        "environment: environment.records.67",
+        "environment: environment.records.68",
+        "environment: environment.records.69"
+      ],
+      "reviews": [
+        "2026-10-21"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://docs.splunk.com/Documentation/Splunk/8.1.14/ReleaseNotes/MeetSplunk",
       "title": "MeetSplunk",
       "areas": [
@@ -4541,6 +4577,37 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.2.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "title": "AI Assistant 2.2 Cloud installation and limited FedRAMP support",
+      "areas": [
+        "Cloud environment",
+        "Shared guidance"
+      ],
+      "references": [
+        "environment.sources.assistantInstall.url",
+        "content-updates.js",
+        "environment: environment.records.63"
+      ],
+      "reviews": [
+        "2026-10-21"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.2.0/release-notes/whats-new-in-splunk-ai-assistant",
       "title": "Splunk AI Assistant 2.2.0 release notes",
       "areas": [
@@ -4898,7 +4965,13 @@ window.VersionCompassSources = {
         "environment: environment.records.57",
         "environment: environment.records.58",
         "environment: environment.records.59",
-        "environment: environment.records.60"
+        "environment: environment.records.60",
+        "environment: environment.records.64",
+        "environment: environment.records.65",
+        "environment: environment.records.66",
+        "environment: environment.records.67",
+        "environment: environment.records.68",
+        "environment: environment.records.69"
       ],
       "reviews": [
         "2026-10-10"

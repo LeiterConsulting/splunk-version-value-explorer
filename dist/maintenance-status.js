@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-10-13T14:55:32Z",
-      "lastSuccess": "2026-10-13T14:59:21Z",
-      "outcome": "no-change",
-      "summary": "Reviewed all 13 maintained environment sources, two CSP-owned SOAR sources and 11 consequential claims; no material change found and existing conflicts and unknowns remain explicit.",
+      "lastAttempt": "2026-10-21T13:16:18Z",
+      "lastSuccess": "2026-10-21T13:23:13Z",
+      "outcome": "changed",
+      "summary": "Reviewed current CSP/FedRAMP sources; added scoped Agent Observability realms and qualified limited AI Assistant IL2 evidence. Candidate publication pending validation.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -219,9 +219,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Reviewed all 13 maintained environment sources, two CSP-owned SOAR sources and 11 consequential claims; no material change found and existing conflicts and unknowns remain explicit.",
           "scope": "All 13 CSP/FedRAMP environment sources, two SOAR regional/restricted-environment sources, 64 canonical environment records, 11 consequential claims, direct visual public-sector matrix inspection and exact Marketplace offerings."
+        },
+        {
+          "at": "2026-10-21T13:16:18Z",
+          "outcome": "running",
+          "summary": "Resumed current CSP/FedRAMP review after expired approval interruption.",
+          "scope": "Current 13 environment sources, shared SOAR regions/restricted guidance, newer evidence discovery and bounded consequential claims."
+        },
+        {
+          "at": "2026-10-21T13:23:13Z",
+          "outcome": "changed",
+          "summary": "Reviewed current CSP/FedRAMP sources; added scoped Agent Observability realms and qualified limited AI Assistant IL2 evidence. Candidate publication pending validation.",
+          "scope": "13 environment sources, two SOAR sources, two discovered guides; 11 existing consequential claims plus regional AI qualifications. LastSuccess is review scope, not deployment."
         }
       ],
-      "scope": "All 13 CSP/FedRAMP environment sources, two SOAR regional/restricted-environment sources, 64 canonical environment records, 11 consequential claims, direct visual public-sector matrix inspection and exact Marketplace offerings."
+      "scope": "13 environment sources, two SOAR sources, two discovered guides; 11 existing consequential claims plus regional AI qualifications. LastSuccess is review scope, not deployment."
     },
     {
       "id": "version-release-watch",

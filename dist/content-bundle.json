@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-4aeb25e2cd33128aadb86813",
-    "digest": "f6dac43777a6b43419fc7b044e9979fad6a552f712e6e4738e109293d7f0bc27",
-    "engineRevision": "engine-2a1412ab1487ebf82a61",
+    "revision": "content-18424d41a3931a63ab5fbb00",
+    "digest": "99e169754980745f13cf2d8abd432a19679d4f8767432755b287e8eafbcad75c",
+    "engineRevision": "engine-60047d2708b123c52e7e",
     "datasetHashes": {
       "platform": "a835e0f22bf2103a276428417d2eb79cd122e9f9e3278527df231c964709516d",
       "products": "ef56408cd29790b24360a47c036e6bc6ec50a03718c922355f78d7b6be335fbc",
       "guidance": "ad7ac72a8f0b1729331066dc87582186ad4ad28299f87e641ca0e9e38524b350",
-      "environment": "4955a7d5ad785a03cb6b602fddc1afe20dc3438944cb65f0fb09a565eeac2c29",
+      "environment": "50929277fc68977f9f6d7a8ad9ef09b72ce924908098384fb7f4c818c38bb3ad",
       "editions": "dfbc07ed76958144f8e5643fdfbcc1525e9b05a3dde2feeb0d58ee61fb99a02f",
       "forwarders": "aed3325f88c39c8b2ec892836ff06f3fb5e3a5ed7d39dfc4232bd8ee6875d7f1",
       "soar": "b3e0721f3c10ec6cbaabdb096cba46217cae0ab9c1276e326dbd9fa2a01fdeac"
     },
-    "recordCount": 788,
+    "recordCount": 790,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -5216,6 +5216,19 @@
           "published": "2026-03-25",
           "scope": "Rolling service; page modification date",
           "checked": "2026-10-10"
+        },
+        "agentSaas": {
+          "title": "Agent Observability SaaS regional and feature considerations",
+          "url": "https://agent-observability-docs.splunk.com/saas/overview",
+          "scope": "Current SaaS region and realm availability, access prerequisite and Luna-3 exception; no historical rollout or FedRAMP authorization established",
+          "checked": "2026-10-21"
+        },
+        "assistantInstall": {
+          "title": "AI Assistant 2.2 Cloud installation and limited FedRAMP support",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.2.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+          "published": "2026-08-07",
+          "scope": "Splunk AI Assistant for FedRAMP deployments and Supported regions; limited IL2 support for 2.0.0+, GovCloud rows and commercial-stack lead-in retained separately; no High or offering authorization inferred",
+          "checked": "2026-10-21"
         }
       },
       "records": [
@@ -6799,13 +6812,146 @@
           ],
           "availability": "not_established",
           "authorization": "not_established",
-          "detail": "The reviewed region table does not establish this feature for the selected regulated scope. Absence is not an exclusion.",
+          "detail": "The AI Assistant 2.2 installation guide documents limited IL2 FedRAMP support for version 2.0.0 and higher: no Agent Mode, training/fine-tuning off by default and Splunk-hosted model runtime only. Its supported-region table lists both GovCloud regions with May 11, 2026 dates, while its introductory installation scope says commercial stacks. These statements do not establish universal Moderate/High feature coverage or authorization. The dated compliance matrix and current service table do not resolve the complete regulated scope.",
           "sources": [
             "service",
-            "compliance"
+            "compliance",
+            "assistantInstall"
           ],
-          "checked": "2026-10-06",
-          "scope": "Current evidence gap; not a denial of availability"
+          "checked": "2026-10-21",
+          "scope": "Current limited IL2 support and source-scope qualification; broader Moderate/High coverage and authorization remain unestablished"
+        },
+        {
+          "id": "o11y-agent-us0",
+          "product": "observability",
+          "feature": "Agent Observability",
+          "provider": "aws",
+          "regions": [
+            "us-east-1"
+          ],
+          "regimes": [
+            "commercial"
+          ],
+          "availability": "conditional",
+          "authorization": "not_established",
+          "detail": "Agent Observability SaaS is listed in realm us0. Access must be confirmed with the Splunk team; region hosting does not establish subscription entitlement, enabled features or FedRAMP authorization.",
+          "sources": [
+            "o11y",
+            "agentSaas"
+          ],
+          "checked": "2026-10-21",
+          "scope": "Current service and SaaS guide; not historical rollout or universal component availability",
+          "realm": "us0"
+        },
+        {
+          "id": "o11y-agent-us1",
+          "product": "observability",
+          "feature": "Agent Observability",
+          "provider": "aws",
+          "regions": [
+            "us-west-2"
+          ],
+          "regimes": [
+            "commercial"
+          ],
+          "availability": "conditional",
+          "authorization": "not_established",
+          "detail": "Agent Observability SaaS is listed in realm us1. Access must be confirmed with the Splunk team; region hosting does not establish subscription entitlement, enabled features or FedRAMP authorization.",
+          "sources": [
+            "o11y",
+            "agentSaas"
+          ],
+          "checked": "2026-10-21",
+          "scope": "Current service and SaaS guide; not historical rollout or universal component availability",
+          "realm": "us1"
+        },
+        {
+          "id": "o11y-agent-eu0",
+          "product": "observability",
+          "feature": "Agent Observability",
+          "provider": "aws",
+          "regions": [
+            "eu-west-1"
+          ],
+          "regimes": [
+            "commercial"
+          ],
+          "availability": "conditional",
+          "authorization": "not_established",
+          "detail": "Agent Observability SaaS is listed in realm eu0. Access must be confirmed with the Splunk team; region hosting does not establish subscription entitlement, enabled features or FedRAMP authorization.",
+          "sources": [
+            "o11y",
+            "agentSaas"
+          ],
+          "checked": "2026-10-21",
+          "scope": "Current service and SaaS guide; not historical rollout or universal component availability",
+          "realm": "eu0"
+        },
+        {
+          "id": "o11y-agent-au0",
+          "product": "observability",
+          "feature": "Agent Observability",
+          "provider": "aws",
+          "regions": [
+            "ap-southeast-2"
+          ],
+          "regimes": [
+            "commercial"
+          ],
+          "availability": "conditional",
+          "authorization": "not_established",
+          "detail": "Agent Observability SaaS is listed in realm au0. Access must be confirmed with the Splunk team; region hosting does not establish subscription entitlement, enabled features or FedRAMP authorization.",
+          "sources": [
+            "o11y",
+            "agentSaas"
+          ],
+          "checked": "2026-10-21",
+          "scope": "Current service and SaaS guide; not historical rollout or universal component availability",
+          "realm": "au0"
+        },
+        {
+          "id": "o11y-agent-jp0",
+          "product": "observability",
+          "feature": "Agent Observability",
+          "provider": "aws",
+          "regions": [
+            "ap-northeast-1"
+          ],
+          "regimes": [
+            "commercial"
+          ],
+          "availability": "conditional",
+          "authorization": "not_established",
+          "detail": "Agent Observability SaaS is listed in realm jp0. Access must be confirmed with the Splunk team; region hosting does not establish subscription entitlement, enabled features or FedRAMP authorization. Luna-3 is explicitly unavailable in jp0; this does not exclude Agent Observability itself.",
+          "sources": [
+            "o11y",
+            "agentSaas"
+          ],
+          "checked": "2026-10-21",
+          "scope": "Current service and SaaS guide; not historical rollout or universal component availability",
+          "realm": "jp0"
+        },
+        {
+          "id": "o11y-agent-us2",
+          "product": "observability",
+          "feature": "Agent Observability",
+          "provider": "gcp",
+          "regions": [
+            "gcp-oregon"
+          ],
+          "regimes": [
+            "commercial"
+          ],
+          "availability": "unavailable",
+          "authorization": "not_established",
+          "detail": "The Agent Observability SaaS region table explicitly lists no Google Cloud region. APM availability in us2 does not establish Agent Observability availability there. Unlisted AWS realms remain unestablished rather than inferred exclusions.",
+          "sources": [
+            "o11y",
+            "agentSaas"
+          ],
+          "checked": "2026-10-21",
+          "scope": "Current Agent Observability SaaS table, independently of APM, monitored workloads and authorization",
+          "realm": "us2"
         }
       ]
     },
@@ -9894,6 +10040,12 @@
         "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2024"
       },
       {
+        "id": "source-e508e49fabe949dc6e6b",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.2.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers"
+      },
+      {
         "id": "source-e52138cbb097c24d0579",
         "kind": "source",
         "dataset": "sources",
@@ -9922,6 +10074,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.161.0"
+      },
+      {
+        "id": "source-e9d6dfb5bb271e501cfc",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://agent-observability-docs.splunk.com/saas/overview"
       },
       {
         "id": "source-eb5b5d59e4345e993d6b",

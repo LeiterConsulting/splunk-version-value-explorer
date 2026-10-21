@@ -285,6 +285,19 @@ window.VersionCompassEnvironmentData = {
       "published": "2026-03-25",
       "scope": "Rolling service; page modification date",
       "checked": "2026-10-10"
+    },
+    "agentSaas": {
+      "title": "Agent Observability SaaS regional and feature considerations",
+      "url": "https://agent-observability-docs.splunk.com/saas/overview",
+      "scope": "Current SaaS region and realm availability, access prerequisite and Luna-3 exception; no historical rollout or FedRAMP authorization established",
+      "checked": "2026-10-21"
+    },
+    "assistantInstall": {
+      "title": "AI Assistant 2.2 Cloud installation and limited FedRAMP support",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.2.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "published": "2026-08-07",
+      "scope": "Splunk AI Assistant for FedRAMP deployments and Supported regions; limited IL2 support for 2.0.0+, GovCloud rows and commercial-stack lead-in retained separately; no High or offering authorization inferred",
+      "checked": "2026-10-21"
     }
   },
   "records": [
@@ -1868,13 +1881,146 @@ window.VersionCompassEnvironmentData = {
       ],
       "availability": "not_established",
       "authorization": "not_established",
-      "detail": "The reviewed region table does not establish this feature for the selected regulated scope. Absence is not an exclusion.",
+      "detail": "The AI Assistant 2.2 installation guide documents limited IL2 FedRAMP support for version 2.0.0 and higher: no Agent Mode, training/fine-tuning off by default and Splunk-hosted model runtime only. Its supported-region table lists both GovCloud regions with May 11, 2026 dates, while its introductory installation scope says commercial stacks. These statements do not establish universal Moderate/High feature coverage or authorization. The dated compliance matrix and current service table do not resolve the complete regulated scope.",
       "sources": [
         "service",
-        "compliance"
+        "compliance",
+        "assistantInstall"
       ],
-      "checked": "2026-10-06",
-      "scope": "Current evidence gap; not a denial of availability"
+      "checked": "2026-10-21",
+      "scope": "Current limited IL2 support and source-scope qualification; broader Moderate/High coverage and authorization remain unestablished"
+    },
+    {
+      "id": "o11y-agent-us0",
+      "product": "observability",
+      "feature": "Agent Observability",
+      "provider": "aws",
+      "regions": [
+        "us-east-1"
+      ],
+      "regimes": [
+        "commercial"
+      ],
+      "availability": "conditional",
+      "authorization": "not_established",
+      "detail": "Agent Observability SaaS is listed in realm us0. Access must be confirmed with the Splunk team; region hosting does not establish subscription entitlement, enabled features or FedRAMP authorization.",
+      "sources": [
+        "o11y",
+        "agentSaas"
+      ],
+      "checked": "2026-10-21",
+      "scope": "Current service and SaaS guide; not historical rollout or universal component availability",
+      "realm": "us0"
+    },
+    {
+      "id": "o11y-agent-us1",
+      "product": "observability",
+      "feature": "Agent Observability",
+      "provider": "aws",
+      "regions": [
+        "us-west-2"
+      ],
+      "regimes": [
+        "commercial"
+      ],
+      "availability": "conditional",
+      "authorization": "not_established",
+      "detail": "Agent Observability SaaS is listed in realm us1. Access must be confirmed with the Splunk team; region hosting does not establish subscription entitlement, enabled features or FedRAMP authorization.",
+      "sources": [
+        "o11y",
+        "agentSaas"
+      ],
+      "checked": "2026-10-21",
+      "scope": "Current service and SaaS guide; not historical rollout or universal component availability",
+      "realm": "us1"
+    },
+    {
+      "id": "o11y-agent-eu0",
+      "product": "observability",
+      "feature": "Agent Observability",
+      "provider": "aws",
+      "regions": [
+        "eu-west-1"
+      ],
+      "regimes": [
+        "commercial"
+      ],
+      "availability": "conditional",
+      "authorization": "not_established",
+      "detail": "Agent Observability SaaS is listed in realm eu0. Access must be confirmed with the Splunk team; region hosting does not establish subscription entitlement, enabled features or FedRAMP authorization.",
+      "sources": [
+        "o11y",
+        "agentSaas"
+      ],
+      "checked": "2026-10-21",
+      "scope": "Current service and SaaS guide; not historical rollout or universal component availability",
+      "realm": "eu0"
+    },
+    {
+      "id": "o11y-agent-au0",
+      "product": "observability",
+      "feature": "Agent Observability",
+      "provider": "aws",
+      "regions": [
+        "ap-southeast-2"
+      ],
+      "regimes": [
+        "commercial"
+      ],
+      "availability": "conditional",
+      "authorization": "not_established",
+      "detail": "Agent Observability SaaS is listed in realm au0. Access must be confirmed with the Splunk team; region hosting does not establish subscription entitlement, enabled features or FedRAMP authorization.",
+      "sources": [
+        "o11y",
+        "agentSaas"
+      ],
+      "checked": "2026-10-21",
+      "scope": "Current service and SaaS guide; not historical rollout or universal component availability",
+      "realm": "au0"
+    },
+    {
+      "id": "o11y-agent-jp0",
+      "product": "observability",
+      "feature": "Agent Observability",
+      "provider": "aws",
+      "regions": [
+        "ap-northeast-1"
+      ],
+      "regimes": [
+        "commercial"
+      ],
+      "availability": "conditional",
+      "authorization": "not_established",
+      "detail": "Agent Observability SaaS is listed in realm jp0. Access must be confirmed with the Splunk team; region hosting does not establish subscription entitlement, enabled features or FedRAMP authorization. Luna-3 is explicitly unavailable in jp0; this does not exclude Agent Observability itself.",
+      "sources": [
+        "o11y",
+        "agentSaas"
+      ],
+      "checked": "2026-10-21",
+      "scope": "Current service and SaaS guide; not historical rollout or universal component availability",
+      "realm": "jp0"
+    },
+    {
+      "id": "o11y-agent-us2",
+      "product": "observability",
+      "feature": "Agent Observability",
+      "provider": "gcp",
+      "regions": [
+        "gcp-oregon"
+      ],
+      "regimes": [
+        "commercial"
+      ],
+      "availability": "unavailable",
+      "authorization": "not_established",
+      "detail": "The Agent Observability SaaS region table explicitly lists no Google Cloud region. APM availability in us2 does not establish Agent Observability availability there. Unlisted AWS realms remain unestablished rather than inferred exclusions.",
+      "sources": [
+        "o11y",
+        "agentSaas"
+      ],
+      "checked": "2026-10-21",
+      "scope": "Current Agent Observability SaaS table, independently of APM, monitored workloads and authorization",
+      "realm": "us2"
     }
   ]
 };

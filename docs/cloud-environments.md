@@ -53,3 +53,9 @@ The dedicated CSP FedRAMP Watch runs in Codex daily, around 7 AM Eastern. It mon
 For a similar site, the transferable principle is to model independent dimensions and retain the qualifications behind each claim. A small set of explicit, sourced records is more useful than a complete-looking matrix assembled through inference. Separate source dates from review dates, retain conflicts, and ensure screen, print, links, and agent access share one interpretation. A repository fork does not copy the external Codex schedules or publishing permissions.
 
 Automated tests exercise filter intersections, source references, uncertainty, malformed links, shared report behavior, and input contracts. They do not certify upstream accuracy, browser layout, or PDF pagination. Rendered and native-browser checks should be identified separately when performed.
+
+## October 21 bounded regional additions
+
+Agent Observability uses its own current SaaS table: us0, us1, eu0, au0 and jp0, with access confirmed separately. The table explicitly lists no Google Cloud region; general APM coverage must not be inherited. Luna-3 is unavailable in jp0 even though the Agent Observability service is listed there. Unlisted AWS realms remain unknown. Neither the table nor Platform authorization establishes Agent Observability FedRAMP authorization or a historical rollout date.
+
+The AI Assistant 2.2 installation guide adds limited IL2 support evidence for 2.0.0 and higher, with Agent Mode excluded, training/fine-tuning off by default and Splunk-hosted runtime only. Its commercial-stack introduction and GovCloud table rows require scope reconciliation; the stable regulated unknown record retains that question and does not assert universal Moderate or High coverage.

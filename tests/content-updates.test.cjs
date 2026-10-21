@@ -16,10 +16,11 @@ test('badges are explicit, qualified and printable with evidence',()=>{
  const deprecation=b.entries['technical:observability:Browser RUM navigation configuration'];assert.match(deprecation.detail,/remains functional/);assert.match(deprecation.detail,/not removal/);
 });
 
-test('the twenty-sixth factual cycle preserves history and scopes new component guidance',()=>{
- assert.equal(b.policy.currentCycle,26);
+test('the twenty-seventh factual cycle retains prior components and scopes regional guidance',()=>{
+ assert.equal(b.policy.currentCycle,27);
+ for(const key of ['environment:o11y-agent-us0','environment:o11y-agent-jp0','environment:o11y-agent-us2','environment:platform-ai-high-unknown']){assert.equal(b.entries[key].cycle,27);assert(b.active(b.entries[key]));}
  for(const key of ['technical:platform:Enterprise 10.6 maintenance release','feature:observability:Kubernetes chart 0.163.0','technical:observability:Kubernetes chart 0.163 package baseline','technical:observability:Kubernetes persistent-volume metric defaults','technical:observability:Kubernetes histogram bucket merging']){assert.equal(b.entries[key].cycle,26);assert(b.active(b.entries[key]));assert.match(b.entries[key].note,/2026\/10\/2026-10-20\.md/);}
- for(const key of ['feature:observability:Collector 0.163 migration controls','technical:platform:Cloud 10.5 maintenance build','technical:platform:ES cohosted KV Store boundary']){assert.equal(b.entries[key].cycle,25);assert(b.active(b.entries[key]));}
+ for(const key of ['feature:observability:Collector 0.163 migration controls','technical:platform:Cloud 10.5 maintenance build','technical:platform:ES cohosted KV Store boundary']){assert.equal(b.entries[key].cycle,25);assert(!b.active(b.entries[key]));}
  for(const key of ['product:soar:export-fips','technical:soar:export871']){assert.equal(b.entries[key].cycle,24);assert(!b.active(b.entries[key]));assert.match(b.entries[key].note,/2026\/10\/2026-10-16\.md/);}
  assert.equal(b.entries["guide:splunk11"].cycle,23);
  assert(!b.active(b.entries["guide:splunk11"]));
