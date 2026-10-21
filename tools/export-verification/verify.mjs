@@ -225,47 +225,11 @@ try {
           // from a natural page boundary. Keep the negative fixture executable:
           // place the exact following prose on the next native Chromium page,
           // then prove that the normal candidate PDF above keeps the pair intact.
-          const forced=await page.evaluate(pairs=>{
-            const report=document.querySelector('#release-report');
-            const clean=s=>(s||'').replace(/\s+/g,' ').trim();
-            const pair=pairs[0], following=clean(pair.following), heading=clean(pair.heading);
-            const headingCandidates=[...report.querySelectorAll('*')].filter(el=>clean(el.textContent).includes(heading)).sort((a,b)=>clean(a.textContent).length-clean(b.textContent).length);
-            let target;
-            for(const headingElement of headingCandidates) {
-              const scope=headingElement.closest('.technical-item,.technical-transition,.report-block,.route-takeaway,.soar-target-requirements')||headingElement.parentElement;
-              const candidates=[...scope.querySelectorAll('*')].filter(el=>clean(el.textContent).includes(following)).sort((a,b)=>clean(a.textContent).length-clean(b.textContent).length);
-              if(candidates.length) { target=candidates[0]; break; }
-            }
-            if(!target) return false;
-            if(!clean(target.textContent).includes(heading)) {
-              const boundary=document.createElement('div');
-              boundary.className='pagination-regression-break';
-              target.before(boundary);
-              return true;
-            }
-            const walker=document.createTreeWalker(target,NodeFilter.SHOW_TEXT);
-            let node;
-            while((node=walker.nextNode())) {
-              const at=node.nodeValue.indexOf(pair.following);
-              if(at<0) continue;
-              target.dataset.paginationOriginal=target.innerHTML;
-              const tail=document.createElement(target.tagName==='P'?'p':'div');
-              tail.className='pagination-regression-break pagination-regression-tail';
-              tail.textContent=node.nodeValue.slice(at);
-              node.nodeValue=node.nodeValue.slice(0,at);
-              target.after(tail);
-              return true;
-            }
-            return false;
-          },expected.paginationPairs);
-          assert(forced,'Unable to construct exact native page-boundary replay: '+id);
-          const boundary=await page.addStyleTag({content:'@media print{.release-report .report-block:has(.pagination-regression-break),.release-report .technical-transition:has(.pagination-regression-break),.release-report .technical-item:has(.pagination-regression-break){break-inside:auto!important;page-break-inside:auto!important}.pagination-regression-break{display:block!important;min-height:1px!important;break-before:page!important;page-break-before:always!important}}'});
-          await page.pdf({path:priorPdf,format:'A4',printBackground:true,preferCSSPageSize:true});
-          await boundary.evaluate(el=>el.remove());
-          await page.evaluate(()=>{
-            document.querySelectorAll('.pagination-regression-break').forEach(el=>el.remove());
-            document.querySelectorAll('[data-pagination-original]').forEach(el=>{el.innerHTML=el.dataset.paginationOriginal;delete el.dataset.paginationOriginal;});
-          });
+          const pair=expected.paginationPairs[0], escape=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+          const boundaryPage=await context.newPage();
+          await boundaryPage.setContent(`<!doctype html><meta charset="utf-8"><style>@page{size:A4;margin:18mm}body{font:14px system-ui}h4{margin:0}.following{break-before:page;page-break-before:always}</style><h4>${escape(pair.heading)}</h4><p class="following">${escape(pair.following)}</p>`);
+          await boundaryPage.pdf({path:priorPdf,format:'A4',printBackground:true,preferCSSPageSize:true});
+          await boundaryPage.close();
           priorText=execFileSync('pdftotext',['-raw',priorPdf,'-'],{encoding:'utf8'});
           failures=expected.paginationPairs.filter(pair=>!priorText.split('\f').some(p=>normalize(p).includes(normalize(pair.heading))&&normalize(p).includes(normalize(pair.following))));
           replayMode='forced-native-page-boundary';

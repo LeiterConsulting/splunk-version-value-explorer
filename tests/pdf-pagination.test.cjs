@@ -8,6 +8,6 @@ test('native pagination replay labels deterministic page-boundary fallback separ
  const source=require('node:fs').readFileSync('tools/export-verification/verify.mjs','utf8');
  assert.match(source,/replayMode='prior-css-native-layout'/);
  assert.match(source,/replayMode='forced-native-page-boundary'/);
- assert.match(source,/pagination-regression-break/);
- assert.match(source,/Unable to construct exact native page-boundary replay/);
+ assert.match(source,/boundaryPage\.setContent/);
+ assert.match(source,/page-break-before:always/);
 });
