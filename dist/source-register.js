@@ -353,12 +353,16 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "section": "SaaS region and realm availability; Feature differences by deployment option; Access Agent Observability",
+      "verificationScope": "Current five SaaS realms, Google Cloud None and jp0 Luna-3 restriction; access confirmed separately. No historical rollout, entitlement or FedRAMP authorization established.",
       "events": [
         {
           "date": "2026-10-21",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-21",
+          "event": "Review status updated: Reviewed · 2026-10-21"
         }
       ]
     },
@@ -1744,7 +1748,7 @@ window.VersionCompassSources = {
         "forwarders: forwarders.claimSources.topology.cloud-intermediate"
       ],
       "reviews": [
-        "2026-10-10",
+        "2026-10-21",
         "2026-10-07"
       ],
       "conflict": true,
@@ -4598,12 +4602,16 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "section": "Splunk AI Assistant for FedRAMP deployments; Supported regions",
+      "verificationScope": "Limited IL2 support for 2.0.0+, Agent Mode excluded, training off by default and Splunk-hosted models only. Commercial-stack lead-in and May 11 GovCloud region rows retained as unresolved scope; no universal Moderate/High availability or authorization.",
       "events": [
         {
           "date": "2026-10-21",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-21",
+          "event": "Review status updated: Reviewed · 2026-10-21"
         }
       ]
     },
@@ -4974,7 +4982,7 @@ window.VersionCompassSources = {
         "environment: environment.records.69"
       ],
       "reviews": [
-        "2026-10-10"
+        "2026-10-21"
       ],
       "usage": "In use",
       "reviewed": "2026-10-09",
