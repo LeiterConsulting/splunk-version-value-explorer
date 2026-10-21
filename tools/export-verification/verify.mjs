@@ -233,7 +233,9 @@ try {
             const target=candidates[0];
             if(!target) return false;
             if(!clean(target.textContent).includes(heading)) {
-              target.classList.add('pagination-regression-break');
+              const boundary=document.createElement('div');
+              boundary.className='pagination-regression-break';
+              target.before(boundary);
               return true;
             }
             const walker=document.createTreeWalker(target,NodeFilter.SHOW_TEXT);
@@ -241,21 +243,24 @@ try {
             while((node=walker.nextNode())) {
               const at=node.nodeValue.indexOf(pair.following);
               if(at<0) continue;
-              const match=node.splitText(at), remainder=match.splitText(pair.following.length);
-              const span=document.createElement('span');
-              span.className='pagination-regression-break';
-              span.textContent=match.nodeValue;
-              match.replaceWith(span);
-              remainder.parentNode?.normalize();
+              target.dataset.paginationOriginal=target.innerHTML;
+              const tail=document.createElement(target.tagName==='P'?'p':'div');
+              tail.className='pagination-regression-break pagination-regression-tail';
+              tail.textContent=node.nodeValue.slice(at);
+              node.nodeValue=node.nodeValue.slice(0,at);
+              target.after(tail);
               return true;
             }
             return false;
           },expected.paginationPairs);
           assert(forced,'Unable to construct exact native page-boundary replay: '+id);
-          const boundary=await page.addStyleTag({content:'@media print{.pagination-regression-break{display:block!important;break-before:page!important;page-break-before:always!important}}'});
+          const boundary=await page.addStyleTag({content:'@media print{.pagination-regression-break{display:block!important;min-height:1px!important;break-before:page!important;page-break-before:always!important}}'});
           await page.pdf({path:priorPdf,format:'A4',printBackground:true,preferCSSPageSize:true});
           await boundary.evaluate(el=>el.remove());
-          await page.evaluate(()=>document.querySelectorAll('.pagination-regression-break').forEach(el=>{el.classList.remove('pagination-regression-break');if(el.tagName==='SPAN')el.replaceWith(document.createTextNode(el.textContent));}));
+          await page.evaluate(()=>{
+            document.querySelectorAll('.pagination-regression-break').forEach(el=>el.remove());
+            document.querySelectorAll('[data-pagination-original]').forEach(el=>{el.innerHTML=el.dataset.paginationOriginal;delete el.dataset.paginationOriginal;});
+          });
           priorText=execFileSync('pdftotext',['-raw',priorPdf,'-'],{encoding:'utf8'});
           failures=expected.paginationPairs.filter(pair=>!priorText.split('\f').some(p=>normalize(p).includes(normalize(pair.heading))&&normalize(p).includes(normalize(pair.following))));
           replayMode='forced-native-page-boundary';
