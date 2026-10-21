@@ -1,0 +1,79 @@
+{
+  "watch": "version-release-watch",
+  "checkedAt": "2026-10-21T09:47:05Z",
+  "inventory": {
+    "exactUrlAndSectionBaseline": "docs/audits/2026-10-20-version-release-watch-sources.json",
+    "attempted": 181,
+    "retrieved": 178,
+    "officialGitHubApiRecords": 26,
+    "metadataChanges": 0,
+    "qualification": "Every exact URL in the referenced 181-row inventory was attempted again. The baseline file retains each exact URL and supporting section; this record reports the new retrieval outcome without duplicating or advancing unchanged claim dates. A fetch is not a claim verification."
+  },
+  "unavailable": [
+    {
+      "url": "https://docs.splunk.com/Documentation/Splunk/8.1.14/ReleaseNotes/MeetSplunk",
+      "outcome": "unavailable",
+      "handling": "Retain historical evidence; no replacement or release-date inference."
+    },
+    {
+      "url": "https://docs.splunk.com/Documentation/Splunk/8.2.12/ReleaseNotes/MeetSplunk",
+      "outcome": "unavailable",
+      "handling": "Retain historical evidence; no replacement or release-date inference."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/manage-workloads/10.6/use-workload-management-on-kubernetes",
+      "outcome": "unavailable",
+      "handling": "Keep the future-release preparation requirement unknown; no Kubernetes-only mandate inferred."
+    }
+  ],
+  "discovery": {
+    "security": {
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1006",
+      "section": "Description; Changelog; advisory index",
+      "outcome": "advance-notice-still-current",
+      "sourceState": "Published 2026-10-14; last updated 2026-10-16. At this check the official index did not publish the promised October 21 vulnerability disclosures or affected-version/CVE tables.",
+      "qualification": "The named Enterprise, Universal Forwarder and SOAR versions remain fix versions. No affected range, CVE, Cloud scope or exception is inferred."
+    },
+    "latestComponentStreams": [
+      {"product":"Splunk OpenTelemetry Collector","version":"0.163.0","published":"2026-10-16T23:23:16Z","url":"https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0"},
+      {"product":"Splunk OpenTelemetry Collector chart","version":"0.163.0","published":"2026-10-19T22:02:31Z","url":"https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.163.0"},
+      {"product":"Splunk OpenTelemetry .NET","version":"1.16.0","published":"2026-09-23T09:41:46Z","url":"https://github.com/signalfx/splunk-otel-dotnet/releases/tag/v1.16.0"},
+      {"product":"Splunk OpenTelemetry Java","version":"2.32.0","published":"2026-10-12T15:52:25Z","url":"https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0"},
+      {"product":"Splunk OpenTelemetry Node.js","version":"4.12.1","published":"2026-10-12T15:48:27Z","url":"https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1"},
+      {"product":"Splunk RUM browser agent","version":"3.2.0","published":"2026-09-24T21:14:45Z","url":"https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.2.0"},
+      {"product":"Splunk OpenTelemetry Python","version":"2.13.2","published":"2026-10-13T17:57:45Z","url":"https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2"}
+    ],
+    "productStreams": {
+      "enterprise": "Current download still exposes 10.6.1.1 while the dated release note states 10.6.1; exact identities remain distinct.",
+      "cloud": "10.6 maintenance feed and current Service Details metadata are unchanged; current evidence is not retrospective rollout.",
+      "es": "8.7.1 remains the current exact release; its edition qualification and exact App for SOAR pairing gap remain separate.",
+      "itsi": "5.0.2 remains current in the maintained source set.",
+      "migration": "SCMA 5.4.11 still lists Enterprise 9.1 through 10.6; explicit upload remains user-initiated.",
+      "observability": "October 12 remains the newest rolling-service milestone; all seven customer-managed component streams above are unchanged.",
+      "soar": "No newer SOAR server release was established. On-premises, Cloud, Automation Broker, App for SOAR and Export streams remain separate; the Export 8.7.1 matrix cell for SOAR 8.8.0 is not treated as release evidence."
+    }
+  },
+  "claimChecks": [
+    {
+      "claimId": "technical.hf.10.0.fips-cryptographic-module",
+      "productVersionEnvironment": "Heavy Forwarder 9.4 to 10.0; Enterprise package; FIPS-mode instances only",
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.0-read-this-first",
+      "section": "Key points for upgrading to version 10.0 — FIPS-mode module requirements and dedicated migration link",
+      "sourceCheckDate": "2026-10-21",
+      "claimVerificationDate": "2026-10-21",
+      "outcome": "supporting-section-confirmed",
+      "qualification": "FIPS 140-3 module availability is conditional on FIPS mode and a dedicated migration procedure; it is not a universal HF action, UF rule or authorization record."
+    },
+    {
+      "claimId": "technical.hf.10.0.legacy-tls-protocols",
+      "productVersionEnvironment": "Heavy Forwarder 9.4 to 10.0; Enterprise package",
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.0-read-this-first",
+      "section": "Key points for upgrading to version 10.0 — SSL 3.0 and TLS 1.0/1.1 deprecation",
+      "sourceCheckDate": "2026-10-21",
+      "claimVerificationDate": "2026-10-21",
+      "outcome": "supporting-section-confirmed",
+      "qualification": "The protocols remain supported with warnings in 10.0 and are deprecated; this does not move the later 10.4 removal backward or create a UF requirement."
+    }
+  ],
+  "boundedHighestConsequenceOutcome": "No new release, compatibility, entitlement, authorization or migration claim was established. Existing unknowns and conflicts remain explicit."
+}

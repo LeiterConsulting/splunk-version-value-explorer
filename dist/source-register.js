@@ -3309,9 +3309,9 @@ window.VersionCompassSources = {
           "release": "10.0",
           "component": "FIPS cryptographic module",
           "section": "Key points for upgrading to version 10.0 — FIPS-mode module requirements and dedicated migration link",
-          "claimVerified": "2026-10-08",
+          "claimVerified": "2026-10-21",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval. Dedicated FIPS migration prerequisites still apply; no FedRAMP authorization is inferred."
+          "qualification": "Heavy Forwarder uses the Enterprise package. October 21 bounded semantic recheck: the 10.0 source introduces a FIPS 140-3-compliant module only for FIPS-mode instances and sends those deployments to a dedicated prerequisite and migration procedure. This is not a transparent switch, a UF rule, FedRAMP authorization or a claim that every HF runs in FIPS mode."
         },
         {
           "path": "forwarders: borrowed.technical.hf.10.0.legacy-tls-protocols",
@@ -3319,9 +3319,9 @@ window.VersionCompassSources = {
           "release": "10.0",
           "component": "Legacy TLS protocols",
           "section": "Key points for upgrading to version 10.0 — SSL 3.0 and TLS 1.0/1.1 deprecation",
-          "claimVerified": "2026-10-08",
+          "claimVerified": "2026-10-21",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
+          "qualification": "Heavy Forwarder uses the Enterprise package. October 21 bounded semantic recheck: SSL 3.0 and TLS 1.0/1.1 remain supported in 10.0 with warnings while deprecated; the source recommends TLS 1.2 or higher and anticipates certificate work. This is not 10.4 removal, a UF requirement or a deployment approval."
         }
       ],
       "usage": "In use",

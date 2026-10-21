@@ -48,7 +48,16 @@ test('print layout allows long evidence cards to paginate without hiding evidenc
  const css=fs.readFileSync('dist/release-print.css','utf8');
  assert(css.includes('.release-report .benefit-card,.release-report .technical-item,.release-report .route-takeaway{break-inside:auto;page-break-inside:auto}'));
  assert(css.includes('.release-report .technical-transition{break-inside:avoid}'));
+ assert(css.includes('.release-report .technical-item-head{break-after:avoid-page;page-break-after:avoid}'));
+ assert(css.includes('.release-report .technical-explanation p{break-inside:avoid-page;page-break-inside:avoid}'));
  assert(!/\.evidence-context[^}]*display:none/.test(css));
+});
+
+test('decision disclosure exposes only the label for its current state',()=>{
+ const css=fs.readFileSync('dist/styles.css','utf8');
+ assert(css.includes('.decision-details > summary .decision-collapse-label { display: none; }'));
+ assert(css.includes('.decision-details[open] > summary .decision-expand-label { display: none; }'));
+ assert(css.includes('.decision-details[open] > summary .decision-collapse-label { display: inline; }'));
 });
 
 test('compact counts separate blockers, required actions and evidence questions',()=>{

@@ -63,6 +63,11 @@ async function keyboardReach(page, locator) {
   }
   throw Error('Report action is unreachable with Tab');
 }
+async function visibleDecisionLabels(page) {
+  return page.evaluate(() => [...document.querySelectorAll('.decision-details>summary .decision-expand-label,.decision-details>summary .decision-collapse-label')]
+    .filter(el => el.checkVisibility({visibilityProperty:true,opacityProperty:true}))
+    .map(el => el.textContent.trim()));
+}
 try {
   await new Promise((resolve, reject) => {
     const timer = setTimeout(() => reject(Error('Export server did not start: ' + serverLog)), 15000);
@@ -116,6 +121,19 @@ try {
     const labelFailures=await productLabelFit(page);
     assert.equal(labelFailures.length,0,'Product label escapes padded tile '+id+': '+JSON.stringify(labelFailures));
     entry.productLabels={passed:true,check:'All visible product title/subtitle text fits inside its padded tile; no hidden overflow.'};
+    const decisionLabels=await visibleDecisionLabels(page);
+    if(decisionLabels.length) {
+      assert.deepEqual(decisionLabels,['Hide details'],'Expanded decision summary must expose exactly one state label: '+id);
+      entry.decisionSummaryLabel={passed:true,visible:decisionLabels};
+      if(route.id==='enterprise') {
+        const legacyDecision=await page.addStyleTag({content:'.decision-details>summary .decision-expand-label,.decision-details>summary .decision-collapse-label{display:inline!important}'});
+        const before=await visibleDecisionLabels(page);
+        await legacyDecision.evaluate(el=>el.remove());
+        assert.deepEqual(before,['Expand details','Hide details'],'Legacy decision-label fixture did not reproduce the adjacent-label defect');
+        assert.deepEqual(await visibleDecisionLabels(page),['Hide details'],'Decision labels did not recover after legacy fixture');
+        entry.decisionSummaryLabel.legacyReplay={outcome:'reproduced',visible:before};
+      }
+    }
     if(route.id==='enterprise-102-security-notice') {
       // Replay the exact pre-repair sizing/nowrap declarations in real Chromium.
       // This is a rendered negative fixture, not a source-code string assertion.
@@ -158,6 +176,11 @@ try {
         const printAnnotations = [...doc.querySelectorAll('.content-change-print')].map(el=>el.textContent.trim()).filter(Boolean);
         return { html, text: doc.body.textContent, headings, printAnnotations, revision: window.VersionCompassRevision.id };
       });
+      if(route.id==='enterprise') expected.paginationPairs=[{heading:'Recommended action',following:'Match the exact package identifier to its release'}];
+      if(route.id==='observability-october') expected.paginationPairs=[
+        {heading:'Kubernetes persistent-volume metric defaults',following:'Chart 0.162.1 does not explicitly enable these five metrics'},
+        {heading:'Kubernetes histogram bucket merging',following:'Earlier chart pipelines do not add transform/limit_histogram_buckets'}
+      ];
       if(route.id==='hf-inherited-runtime') expected.paginationPairs=[{heading:'Embedded Node.js runtime · 10.2',following:'Apps that assume Node.js is supplied by the platform will no longer run.'}];
       if(route.id==='soar-cloud-86-export-fips') expected.paginationPairs=[{heading:'Requirements and integrations',following:'Automation runtime'}];
       const printTabs = await keyboardReach(page, print);
@@ -190,7 +213,7 @@ try {
       entry.pdf = {...inspected,file:relative(pdf),inspection:relative(path.join(directory,'inspection.json')),pages:inspected.pages.map(p=>({...p,file:relative(p.file)}))};
       if(expected.paginationPairs) {
         // Replay the pre-repair fragmentation in native Chromium, not a string fixture.
-        const legacy=await page.addStyleTag({content:'.soar-view #release-report .soar-target-requirements{display:contents!important;break-inside:auto!important}.forwarders-view #release-report .forwarder-technical{break-inside:auto!important}.forwarders-view #release-report .forwarder-technical h4{break-after:auto!important}'});
+        const legacy=await page.addStyleTag({content:'.soar-view #release-report .soar-target-requirements{display:contents!important;break-inside:auto!important}.forwarders-view #release-report .forwarder-technical{break-inside:auto!important}.forwarders-view #release-report .forwarder-technical h4{break-after:auto!important}.release-report .technical-item-head,.release-report .technical-item h4,.release-report .technical-explanation strong{break-after:auto!important;page-break-after:auto!important}.release-report .technical-explanation p{break-inside:auto!important;page-break-inside:auto!important}'});
         const priorPdf=path.join(directory,'pre-repair.pdf');
         await page.pdf({path:priorPdf,format:'A4',printBackground:true,preferCSSPageSize:true});
         await legacy.evaluate(el=>el.remove());

@@ -106,6 +106,23 @@ test('borrowed HF 10.2 runtimes preserve historical optional/default and app-own
  const wrongDefault=JSON.parse(JSON.stringify(inherited));wrongDefault.find(r=>r.component==='Python runtimes').to='Python 3.13 is mandatory for all components';
  assert.throws(()=>check(wrongDefault),/Web uses Python/,'A silently broadened historical runtime must fail');
 });
+test('borrowed HF 10.0 FIPS and TLS records preserve conditional migration and deprecation boundaries',()=>{
+ const c={window:{},URLSearchParams};vm.createContext(c);
+ for(const f of ['data.js','product-data.js','comparison.js','forwarders-data.js','forwarders.js','source-register.js'])vm.runInContext(fs.readFileSync('dist/'+f,'utf8'),c);
+ const api=c.window.VersionCompassForwarders;
+ function check(records){
+  const fips=records.find(r=>r.component==='FIPS cryptographic module'&&r.milestone==='Enterprise 10.0');
+  const tls=records.find(r=>r.component==='Legacy TLS protocols'&&r.milestone==='Enterprise 10.0');
+  assert(fips&&tls);
+  assert.match(fips.from,/FIPS 140-2 deployment baseline/);assert.match(fips.to,/FIPS 140-3-compliant module is available/);assert.match(fips.implication,/FIPS-mode deployments/);
+  assert.equal(tls.from,'SSLv3 and TLS 1.0/1.1 remain supported');assert.match(tls.to,/remain available but are deprecated/);assert.match(tls.action,/before 10.4/);
+  for(const id of ['technical.hf.10.0.fips-cryptographic-module','technical.hf.10.0.legacy-tls-protocols'])assert(c.window.VersionCompassSources.sources.some(s=>s.claimReferences?.some(r=>r.claimId===id&&r.claimVerified==='2026-10-21'&&r.section)));
+ }
+ const records=api.assess({...api.defaults,type:'hf',from:'9.4',to:'10.0'}).technical;check(records);
+ const broadened=JSON.parse(JSON.stringify(records));broadened.find(r=>r.component==='FIPS cryptographic module').implication='Every Heavy Forwarder must migrate its cryptographic module';assert.throws(()=>check(broadened),/FIPS-mode deployments/);
+ const removed=JSON.parse(JSON.stringify(records));removed.find(r=>r.component==='Legacy TLS protocols').to='Legacy protocols are removed';assert.throws(()=>check(removed),/remain available but are deprecated/);
+ assert.equal(api.assess({...api.defaults,type:'uf',from:'9.4',to:'10.0'}).technical.length,0);
+});
 test('borrowed HF 10.4 security and Windows identities retain their exact historical scope',()=>{
  const c={window:{},URLSearchParams};vm.createContext(c);
  for(const f of ['data.js','product-data.js','comparison.js','forwarders-data.js','forwarders.js','source-register.js'])vm.runInContext(fs.readFileSync('dist/'+f,'utf8'),c);

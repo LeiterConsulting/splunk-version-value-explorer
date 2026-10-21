@@ -226,10 +226,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-20T09:21:51Z",
-      "lastSuccess": "2026-10-20T09:32:59Z",
+      "lastAttempt": "2026-10-21T09:47:05Z",
+      "lastSuccess": "2026-10-21T09:58:15Z",
       "outcome": "changed",
-      "summary": "Reviewed 181 exact official sources; added chart 0.163 adoption and qualified Enterprise 10.6.1 maintenance identity; rechecked two HF KV Store mappings.",
+      "summary": "Reviewed the complete 181-URL release inventory and current release, compatibility and security streams; repaired two bounded presentation defects and reverified two historical Heavy Forwarder mappings without changing factual guidance.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -523,9 +523,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Reviewed 181 exact official sources; added chart 0.163 adoption and qualified Enterprise 10.6.1 maintenance identity; rechecked two HF KV Store mappings.",
           "scope": "175 baseline URLs plus six new citations; seven component streams/current SOAR; four new technical records and two existing historical HF semantic checks. Retrieval is not blanket claim verification; publication tracked separately."
+        },
+        {
+          "at": "2026-10-21T09:47:05Z",
+          "outcome": "running",
+          "summary": "Reviewing the complete maintained release, compatibility, migration, security, Forwarder, SOAR and customer-managed Observability source inventory.",
+          "scope": "Splunk Enterprise and Cloud Platform releases and maintenance; ES and ITSI pairings; Enterprise-to-Cloud prerequisites; Observability service and component streams; UF/HF upgrade, receiver, topology, runtime, issue and advisory evidence; SOAR On-premises, Cloud, Broker, App and Export streams; October 21 security follow-up; affected claims plus bounded highest-consequence existing mappings; routes, shared links, reports, exports, read-only WebMCP and delivery parity."
+        },
+        {
+          "at": "2026-10-21T09:58:15Z",
+          "outcome": "changed",
+          "summary": "Reviewed the complete 181-URL release inventory and current release, compatibility and security streams; repaired two bounded presentation defects and reverified two historical Heavy Forwarder mappings without changing factual guidance.",
+          "scope": "181 exact official source URLs (178 retrieved, including 26 GitHub records); Enterprise, Cloud, ES, ITSI, migration, Observability, UF/HF and SOAR discovery; SVD-2026-1006 follow-up; two HF 10.0 source-to-claim checks; full 198-test, synchronization and production-build gates; exact native export and live publication evidence pending for this candidate."
         }
       ],
-      "scope": "175 baseline URLs plus six new citations; seven component streams/current SOAR; four new technical records and two existing historical HF semantic checks. Retrieval is not blanket claim verification; publication tracked separately."
+      "scope": "181 exact official source URLs (178 retrieved, including 26 GitHub records); Enterprise, Cloud, ES, ITSI, migration, Observability, UF/HF and SOAR discovery; SVD-2026-1006 follow-up; two HF 10.0 source-to-claim checks; full 198-test, synchronization and production-build gates; exact native export and live publication evidence pending for this candidate."
     },
     {
       "id": "es-editions-watch",
