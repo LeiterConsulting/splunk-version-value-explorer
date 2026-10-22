@@ -3191,13 +3191,17 @@ window.VersionCompassSources = {
       "firstRecorded": "2026-10-22",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "The version-specific page broadly states ES 8.x supports Enterprise 9.2+, while the patch-specific matrix lists ES 8.8 only for 10.2.x and 10.4.x. Preserve unlisted release lines as unsupported by the exact matrix.",
+      "reason": "Keep Enterprise row and exact-patch scope separate from ES-SOAR pairing, Cloud rollout, Controlled Availability, entitlement and authorization. No implicit patch alias or universal 9.2+ certification.",
       "section": "Compatibility lead-in; Splunk SOAR compatibility; SSL certificates supported for hybrid pairing",
-      "verificationScope": "Verified the 8.8 private/public CA boundary for the documented Cloud ES to on-premises SOAR hybrid pairing. The page's broad Enterprise 9.2+ statement is not extended beyond the patch-specific matrix, which lists ES 8.8 only for Enterprise 10.2.x and 10.4.x.",
+      "verificationScope": "Verified the 8.8 private/public CA boundary for documented Cloud ES to on-premises SOAR hybrid pairing. Broad Enterprise 9.2+ prose is not extended beyond the exact matrix rows and separate 10.6.1.1+ footnote; generic 10.6 is not an exact-patch alias.",
       "events": [
         {
           "date": "2026-10-22",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-22",
+          "event": "Review status updated: Needs reconciliation · 2026-10-22"
         },
         {
           "date": "2026-10-22",
@@ -4257,9 +4261,9 @@ window.VersionCompassSources = {
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "Exact matrix rows establish bounded Enterprise release-line pairings. The version-specific page's broader 9.2+ prose and the linked KV Store guide remain conflicting evidence outside those rows.",
+      "reason": "Preserve exact row and patch-footnote scope without inventing a 10.6 alias or extending broad 9.2+ prose. The linked KV Store procedure and matrix retain separate qualifications.",
       "section": "Splunk Enterprise version 10.x: exact ES 8.8 rows for 10.2.x and 10.4.x; 10.6.x ES cohosted KV Store 1.0 footnote",
-      "verificationScope": "Verified that the patch-specific matrix lists ES 8.8 for Enterprise 10.2.x and 10.4.x, but not 10.0.x or 10.6.x. The ES 8.7-and-lower cohosted-KV-Store incompatibility footnote remains; its linked guide still names only ITSI in that note. No Cloud pairing, exact patch, entitlement, authorization or broader 9.2+ support is inferred.",
+      "verificationScope": "The matrix explicitly lists ES 8.8 in the Enterprise 10.2.x and 10.4.x rows. The separate 10.6.1 footnote states ES 8.4.x and higher are compatible with Enterprise 10.6.1.1 and higher. This does not certify generic 10.6, 10.6.0 or 10.6.1. The 10.6.0 cohosted-KV-Store warning for ES 8.7 and lower remains. Cloud pairing, rollout, entitlement and authorization are independent.",
       "events": [
         {
           "date": "2026-09-25",
@@ -4284,6 +4288,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-17",
           "event": "Review status updated: Needs reconciliation · 2026-10-17"
+        },
+        {
+          "date": "2026-10-22",
+          "event": "Review status updated: Needs reconciliation · 2026-10-22"
         },
         {
           "date": "2026-10-22",
