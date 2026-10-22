@@ -36,10 +36,10 @@
     "reason": "The lifecycle review date records a scoped policy-table verification; it does not recalculate deadlines, establish Cloud availability or advance unrelated source-review dates."
   },
   "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix": {
-    "reviewed": "2026-10-17",
-    "section": "Splunk Enterprise version 10.x: 10.6.x ES cohosted KV Store 1.0 footnote",
-    "verificationScope": "The ES 8.7-and-lower incompatibility footnote remains. Its linked guide now names only ITSI in the incompatibility note; retain ES warning pending reconciliation. Other matrix rows are not newly reverified.",
-    "reason": "Separate current matrix and linked procedure wording; omission does not establish ES compatibility or Cloud scope.",
+    "reviewed": "2026-10-22",
+    "section": "Splunk Enterprise version 10.x: exact ES 8.8 rows for 10.2.x and 10.4.x; 10.6.x ES cohosted KV Store 1.0 footnote",
+    "verificationScope": "Verified that the patch-specific matrix lists ES 8.8 for Enterprise 10.2.x and 10.4.x, but not 10.0.x or 10.6.x. The ES 8.7-and-lower cohosted-KV-Store incompatibility footnote remains; its linked guide still names only ITSI in that note. No Cloud pairing, exact patch, entitlement, authorization or broader 9.2+ support is inferred.",
+    "reason": "Exact matrix rows establish bounded Enterprise release-line pairings. The version-specific page's broader 9.2+ prose and the linked KV Store guide remain conflicting evidence outside those rows.",
     "conflict": true
   },
   "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise": {
@@ -127,10 +127,10 @@
     "reason": "Rolling SaaS milestones and customer-managed component versions are maintained as separate evidence; Controlled Availability is not generalized to every realm or customer."
   },
   "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026": {
-    "reviewed": "2026-10-17",
-    "section": "What's new: Fleet Management — October 15, 2026",
-    "verificationScope": "Kubernetes Collector remote configuration with templates/groups; linked Bridge setup independently checked. Existing October 12 APM change retained.",
-    "reason": "Service milestone, not a Platform release or proof of tenant entitlement."
+    "reviewed": "2026-10-22",
+    "section": "What's new: October 12, October 15 and October 21, 2026 entries",
+    "verificationScope": "Verified the APM not-equal change; Fleet Management templates/groups; application-specific call-graph exclusions; Controlled Availability expansion of parentless-span Monitoring MetricSets and metric-chart baselines; and IBM MQ built-in dashboards. Linked Bridge setup remains independently checked. Controlled Availability, realm, entitlement, rollout and customer-managed component versions remain separate.",
+    "reason": "Rolling-service milestones are not Platform releases or proof of tenant access. Conditional MetricSet expansion can change values, charts, detectors and cardinality only when enabled."
   },
   "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0": {
     "reviewed": "2026-10-13",
@@ -702,9 +702,9 @@
   "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability": {
     "reviewed": "2026-10-22",
     "section": "Compatibility lead-in; Splunk SOAR compatibility; SSL certificates supported for hybrid pairing",
-    "verificationScope": "Verified the 8.8 private/public CA boundary for the documented Cloud ES to on-premises SOAR hybrid pairing. The page's broad Enterprise 9.2+ statement is not used as an exact 8.8 pairing because the patch-specific product matrix does not list 8.8.",
+    "verificationScope": "Verified the 8.8 private/public CA boundary for the documented Cloud ES to on-premises SOAR hybrid pairing. The page's broad Enterprise 9.2+ statement is not extended beyond the patch-specific matrix, which lists ES 8.8 only for Enterprise 10.2.x and 10.4.x.",
     "conflict": true,
-    "reason": "The version-specific page broadly states ES 8.x supports Enterprise 9.2+, while the current patch-specific matrix has no ES 8.8 row. Preserve the exact pairing as unestablished."
+    "reason": "The version-specific page broadly states ES 8.x supports Enterprise 9.2+, while the patch-specific matrix lists ES 8.8 only for 10.2.x and 10.4.x. Preserve unlisted release lines as unsupported by the exact matrix."
   },
   "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/fixed-issues": {
     "reviewed": null,

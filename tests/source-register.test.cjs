@@ -142,6 +142,24 @@ test('borrowed HF Python 3.9 and Fishbucket records preserve app and downgrade b
  const migrated=JSON.parse(JSON.stringify(records));migrated.find(r=>r.component==='Fishbucket checkpoint store').action='Migrate checkpoints during the supported upgrade';assert.throws(()=>check(migrated),/No migration is required/);
  assert.equal(api.assess({...api.defaults,type:'uf',from:'9.4',to:'10.2'}).technical.length,0);
 });
+test('borrowed HF Unix identity and Python 3.13 records preserve default, override and fallback boundaries',()=>{
+ const c={window:{},URLSearchParams};vm.createContext(c);
+ for(const f of ['data.js','product-data.js','comparison.js','forwarders-data.js','forwarders.js','source-register.js'])vm.runInContext(fs.readFileSync('dist/'+f,'utf8'),c);
+ const api=c.window.VersionCompassForwarders;
+ function check(records){
+  const unix=records.find(r=>r.component==='Unix service identity'&&r.milestone==='Enterprise 10.2');
+  const python=records.find(r=>r.component==='Python application runtime'&&r.milestone==='Enterprise 10.4');
+  assert(unix&&python);
+  assert.match(unix.to,/blocked by default/);assert.match(unix.action,/least-privileged service account/);
+  assert.match(python.to,/Python 3\.13 becomes the default interpreter with Python 3\.9 available as a fallback/);
+  assert.match(python.action,/test representative workflows with the 3\.13 default/);
+  for(const id of ['technical.hf.10.2.unix-service-identity','technical.hf.10.4.python-application-runtime'])assert(c.window.VersionCompassSources.sources.some(s=>s.claimReferences?.some(r=>r.claimId===id&&r.claimVerified==='2026-10-22'&&r.section)));
+ }
+ const records=api.assess({...api.defaults,type:'hf',from:'10.0',to:'10.4'}).technical;check(records);
+ const rootAllowed=JSON.parse(JSON.stringify(records));rootAllowed.find(r=>r.component==='Unix service identity').to='Running as root remains enabled by default';assert.throws(()=>check(rootAllowed),/blocked by default/);
+ const noFallback=JSON.parse(JSON.stringify(records));noFallback.find(r=>r.component==='Python application runtime'&&r.milestone==='Enterprise 10.4').to='Python 3.13 is mandatory and Python 3.9 is removed';assert.throws(()=>check(noFallback),/available as a fallback/);
+ assert.equal(api.assess({...api.defaults,type:'uf',from:'10.0',to:'10.4'}).technical.length,0);
+});
 test('borrowed HF 10.4 security and Windows identities retain their exact historical scope',()=>{
  const c={window:{},URLSearchParams};vm.createContext(c);
  for(const f of ['data.js','product-data.js','comparison.js','forwarders-data.js','forwarders.js','source-register.js'])vm.runInContext(fs.readFileSync('dist/'+f,'utf8'),c);

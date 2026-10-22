@@ -568,10 +568,10 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.productTracks.observability.releasesData.Oct 2026.features.3.5",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.6.source",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.7.source",
-        "release.productTracks.observability.releasesData.Oct 2026.requirements.3.3",
-        "release.productTracks.observability.releasesData.Oct 2026.requirements.4.3"
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.8.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.9.source",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.5.3",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.6.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -720,14 +720,14 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.productTracks.observability.releasesData.Oct 2026.features.6.5",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.9.source",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.10.source",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.11.source",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.12.source",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.13.source",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.14.source",
-        "release.productTracks.observability.releasesData.Oct 2026.requirements.6.3",
-        "release.productTracks.observability.releasesData.Oct 2026.requirements.7.3"
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.15.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.16.source",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.8.3",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.9.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -754,10 +754,10 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.productTracks.observability.releasesData.Oct 2026.features.7.5",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.15.source",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.16.source",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.17.source",
-        "release.productTracks.observability.releasesData.Oct 2026.requirements.8.3"
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.18.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.19.source",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.10.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -838,8 +838,8 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.productTracks.observability.releasesData.Oct 2026.features.1.5",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.4.source",
-        "release.productTracks.observability.releasesData.Oct 2026.requirements.1.3"
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.6.source",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.3.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -974,8 +974,8 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.productTracks.observability.releasesData.Oct 2026.features.2.5",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.5.source",
-        "release.productTracks.observability.releasesData.Oct 2026.requirements.2.3"
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.7.source",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.4.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -1164,8 +1164,8 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.productTracks.observability.releasesData.Oct 2026.features.5.5",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.8.source",
-        "release.productTracks.observability.releasesData.Oct 2026.requirements.5.3"
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.10.source",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.7.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -3191,13 +3191,17 @@ window.VersionCompassSources = {
       "firstRecorded": "2026-10-22",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "The version-specific page broadly states ES 8.x supports Enterprise 9.2+, while the current patch-specific matrix has no ES 8.8 row. Preserve the exact pairing as unestablished.",
+      "reason": "The version-specific page broadly states ES 8.x supports Enterprise 9.2+, while the patch-specific matrix lists ES 8.8 only for 10.2.x and 10.4.x. Preserve unlisted release lines as unsupported by the exact matrix.",
       "section": "Compatibility lead-in; Splunk SOAR compatibility; SSL certificates supported for hybrid pairing",
-      "verificationScope": "Verified the 8.8 private/public CA boundary for the documented Cloud ES to on-premises SOAR hybrid pairing. The page's broad Enterprise 9.2+ statement is not used as an exact 8.8 pairing because the patch-specific product matrix does not list 8.8.",
+      "verificationScope": "Verified the 8.8 private/public CA boundary for the documented Cloud ES to on-premises SOAR hybrid pairing. The page's broad Enterprise 9.2+ statement is not extended beyond the patch-specific matrix, which lists ES 8.8 only for Enterprise 10.2.x and 10.4.x.",
       "events": [
         {
           "date": "2026-10-22",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-22",
+          "event": "Review status updated: Needs reconciliation · 2026-10-22"
         }
       ]
     },
@@ -3564,9 +3568,9 @@ window.VersionCompassSources = {
           "release": "10.2",
           "component": "Unix service identity",
           "section": "Splunk Enterprise no longer lets you run it as the root user by default",
-          "claimVerified": "2026-10-08",
+          "claimVerified": "2026-10-22",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
+          "qualification": "Heavy Forwarder uses the Enterprise package. October 22 bounded semantic recheck: Splunk Enterprise 10.2 blocks root execution by default on Unix-like systems, permits the temporary --run-as-root override, and recommends a least-privileged non-root account. This does not establish UF applicability, every installed app's identity requirements, or deployment approval."
         },
         {
           "path": "forwarders: borrowed.technical.hf.10.2.fishbucket-checkpoint-store",
@@ -4248,14 +4252,14 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-17",
+      "reviewed": "2026-10-22",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "Separate current matrix and linked procedure wording; omission does not establish ES compatibility or Cloud scope.",
-      "section": "Splunk Enterprise version 10.x: 10.6.x ES cohosted KV Store 1.0 footnote",
-      "verificationScope": "The ES 8.7-and-lower incompatibility footnote remains. Its linked guide now names only ITSI in the incompatibility note; retain ES warning pending reconciliation. Other matrix rows are not newly reverified.",
+      "reason": "Exact matrix rows establish bounded Enterprise release-line pairings. The version-specific page's broader 9.2+ prose and the linked KV Store guide remain conflicting evidence outside those rows.",
+      "section": "Splunk Enterprise version 10.x: exact ES 8.8 rows for 10.2.x and 10.4.x; 10.6.x ES cohosted KV Store 1.0 footnote",
+      "verificationScope": "Verified that the patch-specific matrix lists ES 8.8 for Enterprise 10.2.x and 10.4.x, but not 10.0.x or 10.6.x. The ES 8.7-and-lower cohosted-KV-Store incompatibility footnote remains; its linked guide still names only ITSI in that note. No Cloud pairing, exact patch, entitlement, authorization or broader 9.2+ support is inferred.",
       "events": [
         {
           "date": "2026-09-25",
@@ -4280,6 +4284,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-17",
           "event": "Review status updated: Needs reconciliation · 2026-10-17"
+        },
+        {
+          "date": "2026-10-22",
+          "event": "Review status updated: Needs reconciliation · 2026-10-22"
         }
       ]
     },
@@ -4410,9 +4418,9 @@ window.VersionCompassSources = {
           "release": "10.4",
           "component": "Python application runtime",
           "section": "Upgrade Splunk Python version from 3.9 to 3.13",
-          "claimVerified": "2026-10-08",
+          "claimVerified": "2026-10-22",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
+          "qualification": "Heavy Forwarder uses the Enterprise package. October 22 bounded semantic recheck: Enterprise 10.4 uses Python 3.13 by default and keeps Python 3.9 as a fallback for applications that are not yet compatible. This does not establish UF applicability, compatibility for every installed or app-owned runtime, or deployment approval."
         },
         {
           "path": "forwarders: borrowed.technical.hf.10.4.kv-store-database-engine",
@@ -5167,8 +5175,8 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.18.source",
-        "release.productTracks.observability.releasesData.Oct 2026.requirements.9.3"
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.20.source",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.11.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -5362,20 +5370,28 @@ window.VersionCompassSources = {
       "references": [
         "release.productTracks.observability.releasesData.Oct 2026.source",
         "release.productTracks.observability.releasesData.Oct 2026.features.8.5",
+        "release.productTracks.observability.releasesData.Oct 2026.features.9.5",
+        "release.productTracks.observability.releasesData.Oct 2026.features.10.5",
+        "release.productTracks.observability.releasesData.Oct 2026.features.11.5",
+        "release.productTracks.observability.releasesData.Oct 2026.features.12.5",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.3.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.4.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.5.source",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.0.3",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.1.3",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.2.3",
         "content-updates.js"
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": "2026-10-17",
+      "reviewed": "2026-10-22",
       "status": "Reviewed",
       "firstRecorded": "2026-10-13",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "Service milestone, not a Platform release or proof of tenant entitlement.",
-      "section": "What's new: Fleet Management — October 15, 2026",
-      "verificationScope": "Kubernetes Collector remote configuration with templates/groups; linked Bridge setup independently checked. Existing October 12 APM change retained.",
+      "reason": "Rolling-service milestones are not Platform releases or proof of tenant access. Conditional MetricSet expansion can change values, charts, detectors and cardinality only when enabled.",
+      "section": "What's new: October 12, October 15 and October 21, 2026 entries",
+      "verificationScope": "Verified the APM not-equal change; Fleet Management templates/groups; application-specific call-graph exclusions; Controlled Availability expansion of parentless-span Monitoring MetricSets and metric-chart baselines; and IBM MQ built-in dashboards. Linked Bridge setup remains independently checked. Controlled Availability, realm, entitlement, rollout and customer-managed component versions remain separate.",
       "events": [
         {
           "date": "2026-10-13",
@@ -5384,6 +5400,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-17",
           "event": "Review status updated: Reviewed · 2026-10-17"
+        },
+        {
+          "date": "2026-10-22",
+          "event": "Review status updated: Reviewed · 2026-10-22"
         }
       ]
     },

@@ -5316,8 +5316,8 @@
         "outcome": "Claim verification not recorded"
       },
       "payload": [
-        "Resolve the exact Splunk Enterprise pairing",
-        "The 8.8 compatibility page broadly says Enterprise Security 8.x supports Splunk Enterprise 9.2.0 and higher, while the patch-specific product matrix does not yet list Enterprise Security 8.8. Preserve the pairing as unestablished until the exact matrix row or equivalent authoritative evidence is published.",
+        "Match an exact supported Splunk Enterprise host",
+        "The patch-specific product matrix lists Enterprise Security 8.8 with Splunk Enterprise 10.2.x and 10.4.x only. It does not list 8.8 with Enterprise 10.0.x or 10.6.x. Confirm the exact Enterprise patch and Controlled Availability prerequisites; the version-specific page's broader 9.2.0-and-higher statement does not override the exact matrix rows.",
         "Blocker",
         "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
         true
@@ -5707,6 +5707,36 @@
       ]
     },
     {
+      "id": "vc-45c3995fa4d52a56be21",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-3695c5a42acd89a3ec01",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Confirm and validate broader parentless-span MetricSets",
+        "The broader Monitoring MetricSet coverage is Controlled Availability. Confirm access, then baseline metric values and cardinality and retest affected charts and detectors before relying on it.",
+        "Validate",
+        "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+        true
+      ]
+    },
+    {
       "id": "vc-46202c640ea0b934086f",
       "kind": "claim",
       "dataset": "editions",
@@ -5782,6 +5812,37 @@
         "title": "October 21 planned security disclosure; not CVE details or a new universal floor",
         "src": "securityNotice"
       }
+    },
+    {
+      "id": "vc-472070afd504925ad666",
+      "kind": "feature",
+      "dataset": "platform",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-3695c5a42acd89a3ec01",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Metric chart baselines",
+        "APM & troubleshooting",
+        "Compare current service behavior with a baseline",
+        "Controlled Availability adds baselines to metric charts in service, business-transaction and application-instance views.",
+        "Controlled Availability · October 21, 2026",
+        "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
+      ]
     },
     {
       "id": "vc-476fea32557c2c808ae5",
@@ -6084,6 +6145,37 @@
         "Security & compliance",
         "Delegate access more precisely",
         "Apply more granular control to shared knowledge objects."
+      ]
+    },
+    {
+      "id": "vc-4af48b972a91a1573f83",
+      "kind": "feature",
+      "dataset": "products",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-3695c5a42acd89a3ec01",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "IBM MQ built-in dashboards",
+        "Infrastructure & Kubernetes",
+        "Start IBM MQ monitoring from maintained views",
+        "Infrastructure Monitoring adds built-in dashboards for IBM MQ. Validate the selected integration and emitted data before relying on the dashboards.",
+        "Rolling-service milestone · October 21, 2026",
+        "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
       ]
     },
     {
@@ -6848,6 +6940,37 @@
       }
     },
     {
+      "id": "vc-51766149cad509be7f60",
+      "kind": "feature",
+      "dataset": "products",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-3695c5a42acd89a3ec01",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Broader parentless-span MetricSets",
+        "APM & troubleshooting",
+        "Include every parentless span kind when enabled",
+        "Controlled Availability expands Monitoring MetricSet creation from parentless SERVER or CONSUMER spans to parentless spans of any span.kind. Metric values, charts, detectors and cardinality can change.",
+        "Controlled Availability · October 21, 2026",
+        "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
+      ]
+    },
+    {
       "id": "vc-518600441f08c506f456",
       "kind": "feature",
       "dataset": "platform",
@@ -6874,6 +6997,37 @@
         "Platform operations",
         "Improve continuity",
         "Benefit from platform enhancements for search head cluster resilience."
+      ]
+    },
+    {
+      "id": "vc-51de3ec9e5e62060ec44",
+      "kind": "feature",
+      "dataset": "platform",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-3695c5a42acd89a3ec01",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Broader parentless-span MetricSets",
+        "APM & troubleshooting",
+        "Include every parentless span kind when enabled",
+        "Controlled Availability expands Monitoring MetricSet creation from parentless SERVER or CONSUMER spans to parentless spans of any span.kind. Metric values, charts, detectors and cardinality can change.",
+        "Controlled Availability · October 21, 2026",
+        "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
       ]
     },
     {
@@ -8687,6 +8841,36 @@
         "Digital experience",
         "Measure application-defined page readiness",
         "Use manual page-load registration and optional blocking-element spans for application work that ordinary network and resource monitoring cannot observe; new configuration should use navigationMetrics while the spaMetrics alias remains deprecated but functional."
+      ]
+    },
+    {
+      "id": "vc-6a73cd197beeae5364c0",
+      "kind": "requirement",
+      "dataset": "products",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-3695c5a42acd89a3ec01",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Review application-specific call graph exclusions",
+        "The October 21 change permits per-application exclusions instead of only global exclusions. Compare representative call graphs and retain intentional global behavior before introducing application-specific rules.",
+        "Validate",
+        "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+        false
       ]
     },
     {
@@ -10550,6 +10734,37 @@
       ]
     },
     {
+      "id": "vc-828300043ba23ebc41fa",
+      "kind": "feature",
+      "dataset": "platform",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-3695c5a42acd89a3ec01",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "IBM MQ built-in dashboards",
+        "Infrastructure & Kubernetes",
+        "Start IBM MQ monitoring from maintained views",
+        "Infrastructure Monitoring adds built-in dashboards for IBM MQ. Validate the selected integration and emitted data before relying on the dashboards.",
+        "Rolling-service milestone · October 21, 2026",
+        "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
+      ]
+    },
+    {
       "id": "vc-82de9b406ece484dfdd2",
       "kind": "requirement",
       "dataset": "platform",
@@ -11174,6 +11389,37 @@
         "Plan",
         "https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.2.0",
         false
+      ]
+    },
+    {
+      "id": "vc-88829ad761716a074f31",
+      "kind": "feature",
+      "dataset": "platform",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-3695c5a42acd89a3ec01",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Application-scoped call graph exclusions",
+        "APM & troubleshooting",
+        "Tune call graphs per application",
+        "Configure package exclusions for individual applications instead of applying one global exclusion list.",
+        "Rolling-service milestone · October 21, 2026",
+        "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
       ]
     },
     {
@@ -18109,8 +18355,8 @@
         "outcome": "Claim verification not recorded"
       },
       "payload": [
-        "Resolve the exact Splunk Enterprise pairing",
-        "The 8.8 compatibility page broadly says Enterprise Security 8.x supports Splunk Enterprise 9.2.0 and higher, while the patch-specific product matrix does not yet list Enterprise Security 8.8. Preserve the pairing as unestablished until the exact matrix row or equivalent authoritative evidence is published.",
+        "Match an exact supported Splunk Enterprise host",
+        "The patch-specific product matrix lists Enterprise Security 8.8 with Splunk Enterprise 10.2.x and 10.4.x only. It does not list 8.8 with Enterprise 10.0.x or 10.6.x. Confirm the exact Enterprise patch and Controlled Availability prerequisites; the version-specific page's broader 9.2.0-and-higher statement does not override the exact matrix rows.",
         "Blocker",
         "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
         true
@@ -19214,6 +19460,36 @@
       ]
     },
     {
+      "id": "vc-e3ad0e2b0c9e2f22ac0a",
+      "kind": "requirement",
+      "dataset": "products",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-3695c5a42acd89a3ec01",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Confirm and validate broader parentless-span MetricSets",
+        "The broader Monitoring MetricSet coverage is Controlled Availability. Confirm access, then baseline metric values and cardinality and retest affected charts and detectors before relying on it.",
+        "Validate",
+        "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+        true
+      ]
+    },
+    {
       "id": "vc-e3bf9f1dcdeb69727256",
       "kind": "claim",
       "dataset": "editions",
@@ -19688,6 +19964,37 @@
         "Security & compliance",
         "Prepare protected traffic for the future",
         "Use supported algorithms aligned to FIPS 203, 204, and 205 alongside TLS 1.3."
+      ]
+    },
+    {
+      "id": "vc-e9b22184cd6fb1400fca",
+      "kind": "feature",
+      "dataset": "products",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-3695c5a42acd89a3ec01",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Metric chart baselines",
+        "APM & troubleshooting",
+        "Compare current service behavior with a baseline",
+        "Controlled Availability adds baselines to metric charts in service, business-transaction and application-instance views.",
+        "Controlled Availability · October 21, 2026",
+        "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
       ]
     },
     {
@@ -21084,6 +21391,36 @@
       ]
     },
     {
+      "id": "vc-f8c70eec9bab84fb3e43",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-3695c5a42acd89a3ec01",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Review application-specific call graph exclusions",
+        "The October 21 change permits per-application exclusions instead of only global exclusions. Compare representative call graphs and retain intentional global behavior before introducing application-specific rules.",
+        "Validate",
+        "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+        false
+      ]
+    },
+    {
       "id": "vc-f96949226a604638e66f",
       "kind": "requirement",
       "dataset": "platform",
@@ -21400,6 +21737,37 @@
         "Blocker",
         "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
         true
+      ]
+    },
+    {
+      "id": "vc-fdbb26cb7bc62ee2f8d1",
+      "kind": "feature",
+      "dataset": "products",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-3695c5a42acd89a3ec01",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Application-scoped call graph exclusions",
+        "APM & troubleshooting",
+        "Tune call graphs per application",
+        "Configure package exclusions for individual applications instead of applying one global exclusion list.",
+        "Rolling-service milestone · October 21, 2026",
+        "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
       ]
     },
     {

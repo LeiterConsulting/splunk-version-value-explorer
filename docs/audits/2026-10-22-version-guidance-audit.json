@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "watch": "version-guidance-audit",
+  "startedAt": "2026-10-22T12:09:32Z",
+  "reviewCompletedAt": "2026-10-22T12:20:40Z",
+  "outcome": "changed",
+  "scope": "Fresh GitHub/Sites reconciliation; complete maintained official-source inventory reconciliation; bounded highest-consequence Release Guide, ES Editions, Cloud, source compendium, migration, Observability, Forwarder and SOAR claim checks; route, export, saved-HTML, WebMCP and live parity. Retrieval is not claim verification and historical records were not blanket-recertified.",
+  "baseline": {
+    "githubCommit": "cb42a05a17bfce62c9dd15d98255cd6bec95ea8c",
+    "sitesCommit": "6e72a45893703189aadb1939a90526aeead18276",
+    "reconciledCommit": "ea6ef855c28ebbe3fc9b84c9ec0801b0afcaf14a",
+    "sitesVersion": 187
+  },
+  "sourceInventory": {
+    "registeredUrls": 187,
+    "attemptedByCurrentDayInventory": 186,
+    "retrieved": 184,
+    "officialGitHubApiRecords": 27,
+    "unavailable": 2,
+    "inventoryRecord": "docs/audits/2026-10-22-version-release-watch-sources.json",
+    "qualification": "The current-day complete inventory attempted the 181-row baseline plus five newly discovered sources. Two retired 8.1.14 and 8.2.12 documentation URLs returned 403 and retain historical evidence. This audit independently verified only the exact high-consequence sections recorded below."
+  },
+  "claimChecks": [
+    {
+      "claimId": "compatibility.es.8.8.enterprise",
+      "product": "Enterprise Security 8.8",
+      "version": "8.8",
+      "environment": "customer-managed Splunk Enterprise",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+      "section": "Splunk Enterprise version 10.x — 10.0.x, 10.2.x, 10.4.x and 10.6.x rows",
+      "sourceCheckDate": "2026-10-22",
+      "claimVerificationDate": "2026-10-22",
+      "outcome": "corrected",
+      "qualification": "The exact matrix lists ES 8.8 for Enterprise 10.2.x and 10.4.x only. It does not list 10.0.x or 10.6.x. Controlled Availability, exact patch, entitlement and authorization remain separate; broad 9.2+ prose is retained as conflicting evidence."
+    },
+    {
+      "claimId": "observability.october-2026.october-21",
+      "product": "Splunk Observability Cloud",
+      "version": "October 2026",
+      "environment": "rolling service; feature-specific Controlled Availability",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+      "section": "October 15 and October 21, 2026 entries",
+      "sourceCheckDate": "2026-10-22",
+      "claimVerificationDate": "2026-10-22",
+      "outcome": "expanded",
+      "qualification": "Added application-specific call-graph exclusions, conditional parentless-span MetricSet expansion, metric-chart baselines and IBM MQ dashboards. Fleet templates/groups were already present. Service publication is not tenant entitlement, universal rollout or a customer-managed component release."
+    },
+    {
+      "claimId": "technical.hf.10.2.unix-service-identity",
+      "product": "Heavy Forwarder",
+      "version": "10.2",
+      "environment": "customer-managed Enterprise package; component-dependent",
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.2/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.2-read-this-first",
+      "section": "Splunk Enterprise no longer lets you run it as the root user by default",
+      "sourceCheckDate": "2026-10-22",
+      "claimVerificationDate": "2026-10-22",
+      "outcome": "supporting-section-confirmed",
+      "qualification": "Root is blocked by default on Unix-like systems; --run-as-root is a temporary override and least privilege is the recommended path. No UF or app-owned identity rule is inferred."
+    },
+    {
+      "claimId": "technical.hf.10.4.python-application-runtime",
+      "product": "Heavy Forwarder",
+      "version": "10.4",
+      "environment": "customer-managed Enterprise package; component-dependent",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4",
+      "section": "Upgrade Splunk Python version from 3.9 to 3.13",
+      "sourceCheckDate": "2026-10-22",
+      "claimVerificationDate": "2026-10-22",
+      "outcome": "supporting-section-confirmed",
+      "qualification": "Python 3.13 is the default and Python 3.9 remains a fallback for incompatible applications. No UF or universal app-runtime compatibility is inferred."
+    }
+  ],
+  "unchangedHighConsequenceScope": {
+    "cloud": "Current Service Details continues to establish current Cloud 10.6, ES 8.7 and ITSI 5.0 pairings and supported forwarder rows only; it is not retrospective release evidence.",
+    "migration": "Maintained Enterprise and HF route graphs and SCMA prerequisites remain unchanged; no new route edge was inferred.",
+    "soar": "Exact server, App for SOAR, Export and Automation Broker records remain separate. Current 8.7 issue pages expose headings without usable issue rows, so issue coverage remains unresolved.",
+    "support": "Cited product deadlines remain distinct from the 180-day planning reminder; no Enterprise support date was derived for Cloud."
+  },
+  "finiteBacklog": [
+    "Eight older borrowed HF mappings remain for later section-level semantic recheck after the two mappings advanced here.",
+    "SOAR 8.7 and ES 8.8 issue-table retrieval gaps remain unresolved; empty retrieval is not zero issues.",
+    "The ES 8.8 page's broad Enterprise 9.2+ prose remains in conflict with the exact matrix rows.",
+    "The Enterprise 10.4 TLS removal/default-disable evidence conflict remains explicit.",
+    "The functional Observability PDF section-label pagination defect remains owned by Version Release Watch with a next review deadline of 2026-10-26."
+  ],
+  "validation": {
+    "generatedChecks": "passed: sync-release-metadata, sync-content, sync-source-register and sync-content-revision --check",
+    "nodeTests": "passed: 206 of 206",
+    "build": "passed: 57 assets; content-9c89121dbedd97a065b2c4ba; engine-c592759053b5ed0f660f; 826 records",
+    "candidateCommit": null,
+    "candidateTree": null,
+    "workflowRun": null,
+    "workflowJob": null,
+    "artifact": null,
+    "artifactDigest": null,
+    "exportReceipt": null,
+    "retainedImageReview": null,
+    "liveChecks": null
+  },
+  "publication": {
+    "githubCommit": null,
+    "githubTree": null,
+    "sitesCommit": null,
+    "sitesVersion": null,
+    "deployment": null,
+    "liveRevision": null
+  },
+  "governance": "No schedule, timing-mode, enabled-state, audience, privacy, telemetry, persistent customer context, customer-data collection or agent-tool change. No fixed observation wait was used."
+}

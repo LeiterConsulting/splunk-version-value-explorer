@@ -153,7 +153,10 @@
             "10.4",
             "10.6"
           ],
-          "8.8": []
+          "8.8": [
+            "10.2",
+            "10.4"
+          ]
         }
       },
       "releasesData": {
@@ -615,8 +618,8 @@
               true
             ],
             [
-              "Resolve the exact Splunk Enterprise pairing",
-              "The 8.8 compatibility page broadly says Enterprise Security 8.x supports Splunk Enterprise 9.2.0 and higher, while the patch-specific product matrix does not yet list Enterprise Security 8.8. Preserve the pairing as unestablished until the exact matrix row or equivalent authoritative evidence is published.",
+              "Match an exact supported Splunk Enterprise host",
+              "The patch-specific product matrix lists Enterprise Security 8.8 with Splunk Enterprise 10.2.x and 10.4.x only. It does not list 8.8 with Enterprise 10.0.x or 10.6.x. Confirm the exact Enterprise patch and Controlled Availability prerequisites; the version-specific page's broader 9.2.0-and-higher statement does not override the exact matrix rows.",
               "Blocker",
               "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
               true
@@ -2185,6 +2188,38 @@
               "The October 15 Fleet Management milestone adds Kubernetes Collector configuration through templates and groups. Enable the OpAMP Bridge with the documented chart, realm and access-token prerequisites; configuration updates can roll out managed workloads.",
               "Rolling-service milestone · October 15, 2026",
               "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
+            ],
+            [
+              "Application-scoped call graph exclusions",
+              "APM & troubleshooting",
+              "Tune call graphs per application",
+              "Configure package exclusions for individual applications instead of applying one global exclusion list.",
+              "Rolling-service milestone · October 21, 2026",
+              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
+            ],
+            [
+              "Broader parentless-span MetricSets",
+              "APM & troubleshooting",
+              "Include every parentless span kind when enabled",
+              "Controlled Availability expands Monitoring MetricSet creation from parentless SERVER or CONSUMER spans to parentless spans of any span.kind. Metric values, charts, detectors and cardinality can change.",
+              "Controlled Availability · October 21, 2026",
+              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
+            ],
+            [
+              "Metric chart baselines",
+              "APM & troubleshooting",
+              "Compare current service behavior with a baseline",
+              "Controlled Availability adds baselines to metric charts in service, business-transaction and application-instance views.",
+              "Controlled Availability · October 21, 2026",
+              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
+            ],
+            [
+              "IBM MQ built-in dashboards",
+              "Infrastructure & Kubernetes",
+              "Start IBM MQ monitoring from maintained views",
+              "Infrastructure Monitoring adds built-in dashboards for IBM MQ. Validate the selected integration and emitted data before relying on the dashboards.",
+              "Rolling-service milestone · October 21, 2026",
+              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
             ]
           ],
           "technicalChanges": [
@@ -2231,6 +2266,30 @@
               "implication": "Saved searches, dashboards, detectors, links, and runbooks that rely on the earlier missing-tag behavior can return fewer results and change operational conclusions.",
               "action": "Inventory APM searches that use !=, compare representative results, and add explicit missing-tag handling where the intended population includes data without the tag.",
               "source": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
+            },
+            {
+              "component": "APM call graph package exclusions",
+              "domain": "Call graph configuration",
+              "changeType": "Scope expanded",
+              "actionLevel": "Review",
+              "from": "Package exclusions apply globally across call graphs",
+              "to": "Package exclusions can be configured for individual applications",
+              "implication": "An application-specific exclusion can change call-graph shape without changing another application's graph. Existing global exclusions do not establish the intended per-application result.",
+              "action": "Review global exclusions, define application-specific exceptions deliberately and compare representative call graphs before broad use.",
+              "source": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+              "verified": "2026-10-22"
+            },
+            {
+              "component": "APM parentless-span Monitoring MetricSets",
+              "domain": "Metric semantics & cardinality",
+              "changeType": "Conditional coverage expanded",
+              "actionLevel": "Validate",
+              "from": "When the Controlled Availability feature is enabled, Monitoring MetricSets are created for parentless spans with span.kind SERVER or CONSUMER",
+              "to": "When enabled, Monitoring MetricSets are created for parentless spans of any span.kind",
+              "implication": "Metric values, charts and detectors can change, and the additional time series can increase cardinality. The behavior remains Controlled Availability and is not inferred for every realm or tenant.",
+              "action": "Confirm feature access, baseline MetricSet values and cardinality, and validate affected charts and detectors before relying on the expanded coverage.",
+              "source": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+              "verified": "2026-10-22"
             },
             {
               "component": "Java instrumentation baseline",
@@ -2412,6 +2471,20 @@
             [
               "Retest APM searches that use !=",
               "The October 12 APM change excludes data without the filtered tag. Compare representative searches, dashboards, detectors, and deep links before relying on prior result counts or populations.",
+              "Validate",
+              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+              true
+            ],
+            [
+              "Review application-specific call graph exclusions",
+              "The October 21 change permits per-application exclusions instead of only global exclusions. Compare representative call graphs and retain intentional global behavior before introducing application-specific rules.",
+              "Validate",
+              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+              false
+            ],
+            [
+              "Confirm and validate broader parentless-span MetricSets",
+              "The broader Monitoring MetricSet coverage is Controlled Availability. Confirm access, then baseline metric values and cardinality and retest affected charts and detectors before relying on it.",
               "Validate",
               "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
               true

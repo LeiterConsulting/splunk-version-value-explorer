@@ -834,10 +834,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-guidance-audit",
       "name": "Version Guidance Audit",
-      "lastAttempt": "2026-10-12T12:51:24.045Z",
-      "lastSuccess": "2026-10-12T13:03:17.924Z",
+      "lastAttempt": "2026-10-22T12:09:32Z",
+      "lastSuccess": "2026-10-22T12:20:40Z",
       "outcome": "changed",
-      "summary": "Bounded audit corrected ES cohosted KV Store postponement, qualified a KV-specific source-version conflict, recovered SOAR Export prerequisite matrices and extended native export route coverage. Unavailable bodies remain unverified.",
+      "summary": "Corrected ES 8.8 Enterprise pairings, added October 21 Observability guidance, and advanced two verified HF source mappings.",
       "history": [
         {
           "at": "2026-09-24T12:45:24.855849+00:00",
@@ -927,9 +927,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Bounded audit corrected ES cohosted KV Store postponement, qualified a KV-specific source-version conflict, recovered SOAR Export prerequisite matrices and extended native export route coverage. Unavailable bodies remain unverified.",
           "scope": "All 157 source URLs attempted; 72 first-pass bodies/API records recovered, 85 first-pass retrieval limits explicitly recorded; independent high-consequence claim checks and protected corrections. Not an exhaustive historical or lifecycle recertification."
+        },
+        {
+          "at": "2026-10-22T12:09:32Z",
+          "outcome": "running",
+          "summary": "Auditing current VersionCompass guidance, Forwarder mappings, SOAR evidence and report behavior.",
+          "scope": "Fresh GitHub/Sites reconciliation; complete official source inventory reconciliation; bounded highest-consequence Forwarder and SOAR claim checks; route, export, WebMCP and live parity."
+        },
+        {
+          "at": "2026-10-22T12:20:40Z",
+          "outcome": "changed",
+          "summary": "Corrected ES 8.8 Enterprise pairings, added October 21 Observability guidance, and advanced two verified HF source mappings.",
+          "scope": "Reconciled fresh GitHub/Sites histories; complete 187-source register/current-day 186-URL retrieval record; bounded Release Guide, ES, Cloud, migration, Observability, Forwarder and SOAR claim checks; regression, export, WebMCP and live verification."
         }
       ],
-      "scope": "All 157 source URLs attempted; 72 first-pass bodies/API records recovered, 85 first-pass retrieval limits explicitly recorded; independent high-consequence claim checks and protected corrections. Not an exhaustive historical or lifecycle recertification."
+      "scope": "Reconciled fresh GitHub/Sites histories; complete 187-source register/current-day 186-URL retrieval record; bounded Release Guide, ES, Cloud, migration, Observability, Forwarder and SOAR claim checks; regression, export, WebMCP and live verification."
     }
   ]
 };
