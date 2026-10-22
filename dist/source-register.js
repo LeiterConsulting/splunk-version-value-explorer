@@ -747,6 +747,36 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.1",
+      "title": "v0.163.1",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Oct 2026.features.7.5",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.15.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.16.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.17.source",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.8.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-22",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-22",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Versioned customer-managed component patch, not a chart release, SaaS release, platform pairing or universal availability claim.",
+      "section": "Breaking changes; Enhancements; Bug fixes",
+      "verificationScope": "Verified October 22 standalone Collector publication, lightprometheus removal, splunk_modinput authorization qualification, Splunk OTLP input metadata/index authorization fixes, Go 1.26.10 and CA refresh for CVE-2026-111943. Chart 0.163.0 continues to package Collector 0.163.0.",
+      "events": [
+        {
+          "date": "2026-10-22",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://github.com/signalfx/splunk-otel-dotnet/releases/tag/v1.16.0",
       "title": "v1.16.0",
       "areas": [
@@ -3146,6 +3176,91 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "title": "compatibility and regional availability",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.productTracks.es.releasesData.8.8.technicalChanges.0.source",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-22",
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-10-22",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "The version-specific page broadly states ES 8.x supports Enterprise 9.2+, while the current patch-specific matrix has no ES 8.8 row. Preserve the exact pairing as unestablished.",
+      "section": "Compatibility lead-in; Splunk SOAR compatibility; SSL certificates supported for hybrid pairing",
+      "verificationScope": "Verified the 8.8 private/public CA boundary for the documented Cloud ES to on-premises SOAR hybrid pairing. The page's broad Enterprise 9.2+ statement is not used as an exact 8.8 pairing because the patch-specific product matrix does not list 8.8.",
+      "events": [
+        {
+          "date": "2026-10-22",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/known-issues",
+      "title": "known issues",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.es.releasesData.8.8.requirements.4.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-10-22",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Malformed or incomplete retrieved rows cannot support a claim of zero known issues or a specific workaround.",
+      "section": "Splunk Enterprise Security 8.8.0 known issues",
+      "verificationScope": "Retrieved table exposes incomplete UEBA placeholders without usable issue rows; issue coverage remains unresolved.",
+      "events": [
+        {
+          "date": "2026-10-22",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "title": "release notes for splunk enterprise security",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.productTracks.es.releasesData.8.8.source",
+        "release.productTracks.es.releasesData.8.8.requirements.0.3",
+        "release.productTracks.es.releasesData.8.8.requirements.2.3",
+        "release.productTracks.es.releasesData.8.8.requirements.3.3",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-22",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-22",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "What's new in 8.8.0; Upgrade notice for 8.x; Compatibility and support; Add-ons",
+      "verificationScope": "Verified October 21 Controlled Availability release, selected investigation/detection/search capabilities, one-way backup/restore guidance, Enterprise 10.x CLI installation and the per-release Splunk_TA_ForIndexers qualification. Edition, region, entitlement, authorization, exact platform pairing and broad rollout remain separate.",
+      "events": [
+        {
+          "date": "2026-10-22",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.6/introduction/licensing-for-splunk-enterprise-security",
       "title": "ES licensing and trials (8.6 documentation)",
       "areas": [
@@ -3339,9 +3454,9 @@ window.VersionCompassSources = {
           "release": "10.0",
           "component": "Python application runtime",
           "section": "Key points for upgrading to version 10.0; Support for version 3.7 of the Python runtime environment has been removed",
-          "claimVerified": "2026-10-08",
+          "claimVerified": "2026-10-22",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
+          "qualification": "Heavy Forwarder uses the Enterprise package. October 22 bounded semantic recheck: Python 3.9 is the 10.0 default, Python 3.7 support is removed, and apps and add-ons must be compatible with 3.9. This does not establish UF applicability, compatibility for every installed or app-owned runtime, or a deployment approval."
         },
         {
           "path": "forwarders: borrowed.technical.hf.10.0.fips-cryptographic-module",
@@ -3447,9 +3562,9 @@ window.VersionCompassSources = {
           "release": "10.2",
           "component": "Fishbucket checkpoint store",
           "section": "The Splunk Fishbucket database back end has been replaced",
-          "claimVerified": "2026-10-08",
+          "claimVerified": "2026-10-22",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
+          "qualification": "Heavy Forwarder uses the Enterprise package. October 22 bounded semantic recheck: the replacement backend reads legacy checkpoints and writes new checkpoints without an explicit or implicit migration. An unsupported downgrade can miss newer checkpoints and cause reingestion or duplicate data. This does not establish UF applicability, checkpoint loss during a supported upgrade, or a supported rollback path."
         }
       ],
       "usage": "In use",
@@ -4091,6 +4206,7 @@ window.VersionCompassSources = {
         "release.enterprise.releasesData.10.6.technicalChanges.8.source",
         "release.enterprise.releasesData.10.6.requirements.6.3",
         "release.productTracks.es.compatibilitySource",
+        "release.productTracks.es.releasesData.8.8.requirements.1.3",
         "release.productTracks.es.hostRequirements.enterprise.10.6.source",
         "release.productTracks.itsi.compatibilitySource",
         "release.productTracks.itsi.releasesData.4.15.source",
@@ -5039,8 +5155,8 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.15.source",
-        "release.productTracks.observability.releasesData.Oct 2026.requirements.8.3"
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.18.source",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.9.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -5233,7 +5349,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.productTracks.observability.releasesData.Oct 2026.source",
-        "release.productTracks.observability.releasesData.Oct 2026.features.7.5",
+        "release.productTracks.observability.releasesData.Oct 2026.features.8.5",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.3.source",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.0.3",
         "content-updates.js"

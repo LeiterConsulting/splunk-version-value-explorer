@@ -123,6 +123,25 @@ test('borrowed HF 10.0 FIPS and TLS records preserve conditional migration and d
  const removed=JSON.parse(JSON.stringify(records));removed.find(r=>r.component==='Legacy TLS protocols').to='Legacy protocols are removed';assert.throws(()=>check(removed),/remain available but are deprecated/);
  assert.equal(api.assess({...api.defaults,type:'uf',from:'9.4',to:'10.0'}).technical.length,0);
 });
+test('borrowed HF Python 3.9 and Fishbucket records preserve app and downgrade boundaries',()=>{
+ const c={window:{},URLSearchParams};vm.createContext(c);
+ for(const f of ['data.js','product-data.js','comparison.js','forwarders-data.js','forwarders.js','source-register.js'])vm.runInContext(fs.readFileSync('dist/'+f,'utf8'),c);
+ const api=c.window.VersionCompassForwarders;
+ function check(records){
+  const python=records.find(r=>r.component==='Python application runtime'&&r.milestone==='Enterprise 10.0');
+  const fishbucket=records.find(r=>r.component==='Fishbucket checkpoint store'&&r.milestone==='Enterprise 10.2');
+  assert(python&&fishbucket);
+  assert.match(python.to,/Python 3\.7 support is removed; Python 3\.9 is the default/);
+  assert.match(python.action,/Confirm every Python-dependent app and integration supports Python 3\.9/);
+  assert.match(fishbucket.action,/No migration is required/);
+  assert.match(fishbucket.implication,/unsupported downgrade can lose newer checkpoints and re-ingest data/);
+  for(const id of ['technical.hf.10.0.python-application-runtime','technical.hf.10.2.fishbucket-checkpoint-store'])assert(c.window.VersionCompassSources.sources.some(s=>s.claimReferences?.some(r=>r.claimId===id&&r.claimVerified==='2026-10-22')));
+ }
+ const records=api.assess({...api.defaults,type:'hf',from:'9.4',to:'10.2'}).technical;check(records);
+ const universal=JSON.parse(JSON.stringify(records));universal.find(r=>r.component==='Python application runtime').action='Every app and runtime is compatible with Python 3.9';assert.throws(()=>check(universal),/Confirm every Python-dependent app/);
+ const migrated=JSON.parse(JSON.stringify(records));migrated.find(r=>r.component==='Fishbucket checkpoint store').action='Migrate checkpoints during the supported upgrade';assert.throws(()=>check(migrated),/No migration is required/);
+ assert.equal(api.assess({...api.defaults,type:'uf',from:'9.4',to:'10.2'}).technical.length,0);
+});
 test('borrowed HF 10.4 security and Windows identities retain their exact historical scope',()=>{
  const c={window:{},URLSearchParams};vm.createContext(c);
  for(const f of ['data.js','product-data.js','comparison.js','forwarders-data.js','forwarders.js','source-register.js'])vm.runInContext(fs.readFileSync('dist/'+f,'utf8'),c);

@@ -32,6 +32,12 @@
       "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.6.0/splunk-soar-on-premises-release-notes/known-issues-for-splunk-soar-on-premises"
     },
     {
+      "id": "source-0bb7f3ba2cd826ed05bb",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/known-issues"
+    },
+    {
       "id": "source-0c190788741b43ef17bd",
       "kind": "source",
       "dataset": "sources",
@@ -284,6 +290,12 @@
       "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/9.2/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-9.2-read-this-first"
     },
     {
+      "id": "source-348a24aafee18c00a09b",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability"
+    },
+    {
       "id": "source-36726158f9471003db83",
       "kind": "source",
       "dataset": "sources",
@@ -384,6 +396,12 @@
       "kind": "source",
       "dataset": "sources",
       "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/develop-apps/build-playbooks/use-the-automation-builder-agent-to-build-and-understand-playbooks"
+    },
+    {
+      "id": "source-4a5acf415e538958fc0a",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.1"
     },
     {
       "id": "source-4c6bbac47c9b8edca05f",
@@ -912,6 +930,12 @@
       "kind": "source",
       "dataset": "sources",
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.3/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security"
+    },
+    {
+      "id": "source-d10f9ac6604ba17d7875",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security"
     },
     {
       "id": "source-d26002abc38b3ba0d37d",
@@ -1640,6 +1664,35 @@
       ]
     },
     {
+      "id": "vc-09ae5cd0e655ad416fff",
+      "kind": "feature",
+      "dataset": "products",
+      "scope": {
+        "product": "es",
+        "release": "8.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-d10f9ac6604ba17d7875",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Detection rerun",
+        "Detection & analytics",
+        "Recover missed detection windows",
+        "Rerun detections that were skipped or failed during an outage or error so historical search windows can be recovered."
+      ]
+    },
+    {
       "id": "vc-0a7ecc3e2c51456bc304",
       "kind": "requirement",
       "dataset": "platform",
@@ -2270,6 +2323,36 @@
       ]
     },
     {
+      "id": "vc-11ac410a9d711b90ca6a",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "product": "es",
+        "release": "8.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-0bb7f3ba2cd826ed05bb",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/known-issues",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Keep the incomplete issue tables unresolved",
+        "The current 8.8 fixed-issues page exposes no rows and the known-issues page exposes incomplete UEBA placeholders. Do not treat either retrieval as evidence of zero issues.",
+        "Validate",
+        "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/known-issues",
+        true
+      ]
+    },
+    {
       "id": "vc-11e4028ff68ea6799625",
       "kind": "claim",
       "dataset": "editions",
@@ -2658,6 +2741,35 @@
         "Usage & governance",
         "Retain history at lower real-time cost",
         "Archive histogram metrics and restore them on demand through Metrics Pipeline Management."
+      ]
+    },
+    {
+      "id": "vc-17d65048fc8bcc2f7ed6",
+      "kind": "feature",
+      "dataset": "platform",
+      "scope": {
+        "product": "es",
+        "release": "8.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-d10f9ac6604ba17d7875",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Investigation aggregation",
+        "Investigation & response",
+        "Connect related security work",
+        "Route related findings and finding groups into configurable cross-domain investigations. Confirm Controlled Availability access and the applicable edition before planning adoption."
       ]
     },
     {
@@ -5042,6 +5154,36 @@
       ]
     },
     {
+      "id": "vc-3d866bfc1e6fb1e15a81",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "product": "es",
+        "release": "8.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-d10f9ac6604ba17d7875",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Back up the search tier and KV Store",
+        "The Enterprise Security 8.x upgrade is one-way and does not automatically back up app content or data. Retain the documented full backup and restoration path before proceeding.",
+        "Blocker",
+        "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+        true
+      ]
+    },
+    {
       "id": "vc-3e5aa37ea452b7fe20c7",
       "kind": "feature",
       "dataset": "platform",
@@ -5126,6 +5268,66 @@
         "The Kubernetes chart published September 21, 2026 packages Collector 0.161.0 and its breaking Kubernetes semantic-convention and CPU-calculation defaults. Rehearse the Collector changes instead of treating the Helm update as an isolated chart change.",
         "Blocker",
         "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.161.0",
+        true
+      ]
+    },
+    {
+      "id": "vc-408cff74f996497b9069",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-4a5acf415e538958fc0a",
+          "url": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.1",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Patch and validate Collector 0.163.1",
+        "Collector 0.163.1 removes lightprometheus, refreshes Go and CA certificates for CVE-2026-111943, and repairs Splunk input metadata and index-authorization behavior. Replace removed configuration and test allowed/denied index paths, trust chains and telemetry delivery. Chart 0.163.0 remains on Collector 0.163.0.",
+        "Blocker",
+        "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.1",
+        true
+      ]
+    },
+    {
+      "id": "vc-4116c35e0323d9fa7ea3",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "product": "es",
+        "release": "8.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-6a7d5336d3254cafe7c5",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Resolve the exact Splunk Enterprise pairing",
+        "The 8.8 compatibility page broadly says Enterprise Security 8.x supports Splunk Enterprise 9.2.0 and higher, while the patch-specific product matrix does not yet list Enterprise Security 8.8. Preserve the pairing as unestablished until the exact matrix row or equivalent authoritative evidence is published.",
+        "Blocker",
+        "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
         true
       ]
     },
@@ -5250,6 +5452,37 @@
         "meaning": "An enhancement grouping does not establish that the underlying feature became Premier-only. The sources cover different versions and scopes; 8.7 Essentials applicability remains unresolved.",
         "question": "Ask which 8.7 Guided Response capabilities are available in Essentials, and which enhancements require Premier."
       }
+    },
+    {
+      "id": "vc-43bc95aea8a7c73a1168",
+      "kind": "feature",
+      "dataset": "platform",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-3695c5a42acd89a3ec01",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Collector 0.163.1 security and input patch",
+        "Telemetry & OpenTelemetry",
+        "Close the current Collector patch gap",
+        "Adopt the October 22 patch after validating removal of lightprometheus, the Splunk modular-input output path and index-authorization behavior. Chart 0.163.0 still packages Collector 0.163.0; this standalone patch is not a chart or SaaS rollout.",
+        "Separately versioned Collector · released October 22, 2026",
+        "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.1"
+      ]
     },
     {
       "id": "vc-43c6d1c9591f72735491",
@@ -8494,6 +8727,36 @@
       ]
     },
     {
+      "id": "vc-6b5ec9b4a2248a1d23de",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "product": "es",
+        "release": "8.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-d10f9ac6604ba17d7875",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Confirm Controlled Availability access",
+        "Splunk published Enterprise Security 8.8.0 for Controlled Availability on October 21, 2026. Publication does not establish universal availability, tenant rollout, entitlement or regional authorization.",
+        "Blocker",
+        "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+        true
+      ]
+    },
+    {
       "id": "vc-6b7ba3ca6132e4d8feec",
       "kind": "requirement",
       "dataset": "platform",
@@ -9422,6 +9685,37 @@
       ]
     },
     {
+      "id": "vc-75f24a6982cff524340f",
+      "kind": "feature",
+      "dataset": "products",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-4a5acf415e538958fc0a",
+          "url": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.1",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Collector 0.163.1 security and input patch",
+        "Telemetry & OpenTelemetry",
+        "Close the current Collector patch gap",
+        "Adopt the October 22 patch after validating removal of lightprometheus, the Splunk modular-input output path and index-authorization behavior. Chart 0.163.0 still packages Collector 0.163.0; this standalone patch is not a chart or SaaS rollout.",
+        "Separately versioned Collector · released October 22, 2026",
+        "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.1"
+      ]
+    },
+    {
       "id": "vc-7660934ac852447bd1ae",
       "kind": "requirement",
       "dataset": "products",
@@ -9994,6 +10288,36 @@
         "Validate",
         "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026",
         false
+      ]
+    },
+    {
+      "id": "vc-7e4d188e226da808efb2",
+      "kind": "requirement",
+      "dataset": "products",
+      "scope": {
+        "product": "es",
+        "release": "8.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-d10f9ac6604ba17d7875",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Install from the CLI on Splunk Enterprise 10.x",
+        "Splunk documents that Enterprise Security 8.x cannot be uploaded through Splunk Web on an on-premises Splunk Enterprise 10.x deployment; use the supported command-line path.",
+        "Blocker",
+        "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+        true
       ]
     },
     {
@@ -13723,6 +14047,36 @@
       }
     },
     {
+      "id": "vc-abf02e169d7d823c7c71",
+      "kind": "requirement",
+      "dataset": "products",
+      "scope": {
+        "product": "observability",
+        "release": "Oct 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-4a5acf415e538958fc0a",
+          "url": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.1",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Patch and validate Collector 0.163.1",
+        "Collector 0.163.1 removes lightprometheus, refreshes Go and CA certificates for CVE-2026-111943, and repairs Splunk input metadata and index-authorization behavior. Replace removed configuration and test allowed/denied index paths, trust chains and telemetry delivery. Chart 0.163.0 remains on Collector 0.163.0.",
+        "Blocker",
+        "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.1",
+        true
+      ]
+    },
+    {
       "id": "vc-ac0a2e40d30a4d8d217a",
       "kind": "claim",
       "dataset": "guidance",
@@ -13965,6 +14319,35 @@
         "Review",
         "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/fixed-issues/fixed-issues/splunk-enterprise-10.6.1-fixed-issues",
         false
+      ]
+    },
+    {
+      "id": "vc-b025a15c52d88f855e52",
+      "kind": "feature",
+      "dataset": "products",
+      "scope": {
+        "product": "es",
+        "release": "8.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-d10f9ac6604ba17d7875",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Investigation aggregation",
+        "Investigation & response",
+        "Connect related security work",
+        "Route related findings and finding groups into configurable cross-domain investigations. Confirm Controlled Availability access and the applicable edition before planning adoption."
       ]
     },
     {
@@ -15202,6 +15585,36 @@
       }
     },
     {
+      "id": "vc-c04c9ec15ebb9e336a41",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "product": "es",
+        "release": "8.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-d10f9ac6604ba17d7875",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Install from the CLI on Splunk Enterprise 10.x",
+        "Splunk documents that Enterprise Security 8.x cannot be uploaded through Splunk Web on an on-premises Splunk Enterprise 10.x deployment; use the supported command-line path.",
+        "Blocker",
+        "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+        true
+      ]
+    },
+    {
       "id": "vc-c0919c60bc091466225b",
       "kind": "feature",
       "dataset": "products",
@@ -16223,6 +16636,36 @@
       ]
     },
     {
+      "id": "vc-c9ee41136784c4079acc",
+      "kind": "requirement",
+      "dataset": "products",
+      "scope": {
+        "product": "es",
+        "release": "8.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-d10f9ac6604ba17d7875",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Confirm Controlled Availability access",
+        "Splunk published Enterprise Security 8.8.0 for Controlled Availability on October 21, 2026. Publication does not establish universal availability, tenant rollout, entitlement or regional authorization.",
+        "Blocker",
+        "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+        true
+      ]
+    },
+    {
       "id": "vc-ca76fa105269ca6db0a5",
       "kind": "operatingBenefit",
       "dataset": "platform",
@@ -16799,6 +17242,36 @@
       ]
     },
     {
+      "id": "vc-cf971bb32f296476e5d2",
+      "kind": "requirement",
+      "dataset": "products",
+      "scope": {
+        "product": "es",
+        "release": "8.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-0bb7f3ba2cd826ed05bb",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/known-issues",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Keep the incomplete issue tables unresolved",
+        "The current 8.8 fixed-issues page exposes no rows and the known-issues page exposes incomplete UEBA placeholders. Do not treat either retrieval as evidence of zero issues.",
+        "Validate",
+        "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/known-issues",
+        true
+      ]
+    },
+    {
       "id": "vc-cf9ba4ab901b96b3e72b",
       "kind": "feature",
       "dataset": "products",
@@ -16825,6 +17298,35 @@
         "Infrastructure & Kubernetes",
         "Bring the supported chart to Collector 0.161",
         "Adopt the chart that packages Collector 0.161, Target Allocator 0.159, and Operator 0.123 after migrating Kubernetes attributes and CPU-metric expectations."
+      ]
+    },
+    {
+      "id": "vc-cfeeee0ae9b389493b07",
+      "kind": "feature",
+      "dataset": "products",
+      "scope": {
+        "product": "es",
+        "release": "8.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-d10f9ac6604ba17d7875",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Quick search and advanced filtering",
+        "Investigation & response",
+        "Narrow analyst work faster",
+        "Use the 8.8 queue search and filter changes to find relevant work while preserving role and access checks."
       ]
     },
     {
@@ -17552,6 +18054,36 @@
         "Detection & analytics",
         "Make changes auditable",
         "Use version controls while accounting for the maintenance-release status documented by Splunk."
+      ]
+    },
+    {
+      "id": "vc-d70e2e2be8c9568e1cf9",
+      "kind": "requirement",
+      "dataset": "products",
+      "scope": {
+        "product": "es",
+        "release": "8.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-6a7d5336d3254cafe7c5",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Resolve the exact Splunk Enterprise pairing",
+        "The 8.8 compatibility page broadly says Enterprise Security 8.x supports Splunk Enterprise 9.2.0 and higher, while the patch-specific product matrix does not yet list Enterprise Security 8.8. Preserve the pairing as unestablished until the exact matrix row or equivalent authoritative evidence is published.",
+        "Blocker",
+        "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+        true
       ]
     },
     {
@@ -18356,6 +18888,35 @@
         "status": "Documented",
         "verified": "2026-10-01"
       }
+    },
+    {
+      "id": "vc-dfefefa2da6e9c232d91",
+      "kind": "feature",
+      "dataset": "platform",
+      "scope": {
+        "product": "es",
+        "release": "8.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-d10f9ac6604ba17d7875",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Detection rerun",
+        "Detection & analytics",
+        "Recover missed detection windows",
+        "Rerun detections that were skipped or failed during an outage or error so historical search windows can be recovered."
+      ]
     },
     {
       "id": "vc-e000ca9bfad759a31cf9",
@@ -20250,6 +20811,35 @@
       }
     },
     {
+      "id": "vc-f61118621538f81847e4",
+      "kind": "feature",
+      "dataset": "platform",
+      "scope": {
+        "product": "es",
+        "release": "8.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-d10f9ac6604ba17d7875",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Quick search and advanced filtering",
+        "Investigation & response",
+        "Narrow analyst work faster",
+        "Use the 8.8 queue search and filter changes to find relevant work while preserving role and access checks."
+      ]
+    },
+    {
       "id": "vc-f7a7bc96caafc47402c9",
       "kind": "feature",
       "dataset": "platform",
@@ -20741,6 +21331,36 @@
         "Validate",
         "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.4/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
         false
+      ]
+    },
+    {
+      "id": "vc-fd111ab0ac8e0d51d350",
+      "kind": "requirement",
+      "dataset": "products",
+      "scope": {
+        "product": "es",
+        "release": "8.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-d10f9ac6604ba17d7875",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Back up the search tier and KV Store",
+        "The Enterprise Security 8.x upgrade is one-way and does not automatically back up app content or data. Retain the documented full backup and restoration path before proceeding.",
+        "Blocker",
+        "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+        true
       ]
     },
     {

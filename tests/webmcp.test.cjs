@@ -309,7 +309,24 @@ test('Enterprise Security 8.7 preserves the line selector while exposing the exa
   assert.match(builders.detail, /all eligible users/);
   assert(report.readiness.some(item => item.title === 'Confirm Enterprise Security 8.7 edition and eligibility'));
   assert.match(rt.window.SPLUNK_DATA.productTracks.es.cloudServiceSource, /\/10\.6\/information-about-the-service\/splunk-cloud-platform-service-details$/);
-  assert.equal(rt.window.SPLUNK_DATA.productTracks.es.latest, '8.7');
+  assert.equal(rt.window.SPLUNK_DATA.productTracks.es.latest, '8.8');
+});
+
+test('Enterprise Security 8.8 preserves Controlled Availability and unresolved pairing scope', async () => {
+  const rt = await runtime();
+  const enterprise = rt.run('compare_routes', { routes: [{ product: 'es', platform: 'enterprise', host: '10.6', from: '8.7', to: '8.8' }] }).reports[0];
+  assert.equal(enterprise.compatibility.status, 'warning');
+  assert.match(enterprise.compatibility.title, /No supported pairing is listed/);
+  for (const title of ['Investigation aggregation', 'Detection rerun', 'Quick search and advanced filtering']) assert(enterprise.features.some(item => item.title === title), title);
+  assert(enterprise.breakingChanges.some(item => item.title === 'Confirm Controlled Availability access' && item.breaking));
+  assert(enterprise.breakingChanges.some(item => item.title === 'Resolve the exact Splunk Enterprise pairing' && item.detail.includes('patch-specific product matrix')));
+  assert(enterprise.breakingChanges.some(item => item.title === 'Keep the incomplete issue tables unresolved'));
+  const trust = enterprise.technicalChanges.find(item => item.component === 'ES-SOAR hybrid certificate trust');
+  assert.match(trust.from, /public certificate authority/);
+  assert.match(trust.to, /private or public certificate authority/);
+  const cloud = rt.run('compare_routes', { routes: [{ product: 'es', platform: 'cloud', host: '10.6', from: '8.7', to: '8.8' }] }).reports[0];
+  assert.equal(cloud.compatibility.status, 'warning');
+  assert.match(cloud.compatibility.detail, /published but not yet the managed Cloud pairing/);
 });
 
 test('September Observability additions preserve SaaS, private-runner, and Cloud-route boundaries', async () => {
@@ -350,7 +367,7 @@ test('October Observability route preserves SaaS semantics and component release
   const rt = await runtime();
   const report = rt.run('compare_routes', { routes: [{ product: 'observability', platform: 'cloud', host: '10.6', from: 'Sep 2026', to: 'Oct 2026' }] }).reports[0];
   assert.equal(rt.window.SPLUNK_DATA.productTracks.observability.latest, 'Oct 2026');
-  for (const title of ['Stricter APM not-equal tag filtering', 'Java instrumentation 2.32', 'Node.js instrumentation 4.12.1', 'Kubernetes chart 0.162.1', 'Python instrumentation 2.13.2']) {
+  for (const title of ['Stricter APM not-equal tag filtering', 'Java instrumentation 2.32', 'Node.js instrumentation 4.12.1', 'Kubernetes chart 0.162.1', 'Python instrumentation 2.13.2', 'Collector 0.163.1 security and input patch']) {
     assert(report.features.some(item => item.title === title), title);
   }
   const apm = report.technicalChanges.find(item => item.component === 'APM not-equal tag filters');
@@ -372,6 +389,8 @@ test('October Observability route preserves SaaS semantics and component release
   const python = report.features.find(item => item.title === 'Python instrumentation 2.13.2');
   assert.equal(python.source, 'https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2');
   assert(report.technicalChanges.some(item => item.component === 'Python OpAMP client dependency' && item.to.includes('0.4b0')));
+  for (const component of ['Collector 0.163.1 Light Prometheus Receiver removal', 'Collector 0.163.1 Splunk input authorization boundary', 'Collector 0.163.1 Go and CA security refresh']) assert(report.technicalChanges.some(item => item.component === component), component);
+  assert(report.breakingChanges.some(item => item.title === 'Patch and validate Collector 0.163.1' && item.detail.includes('Chart 0.163.0 remains on Collector 0.163.0')));
 });
 
 test('Collector 0.163 stays separate from the Kubernetes chart and retains scoped breaking changes',async()=>{

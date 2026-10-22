@@ -1,0 +1,115 @@
+{
+  "watch": "version-release-watch",
+  "checkedAt": "2026-10-22T09:30:14.436Z",
+  "inventory": {
+    "exactUrlAndSectionBaseline": "docs/audits/2026-10-20-version-release-watch-sources.json",
+    "attempted": 186,
+    "retrieved": 184,
+    "officialGitHubApiRecords": 27,
+    "newExactSources": 5,
+    "qualification": "Every exact URL in the referenced 181-row baseline was attempted, then five newly discovered official URLs were checked. The baseline retains the original URL-to-section inventory and this record adds exact sections for the new sources. Retrieval is not claim verification."
+  },
+  "newSources": [
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-updates/release-notes/8.8/whats-new/what-s-new-in-splunk-enterprise-security-8.8.0",
+      "section": "Release availability; Investigation aggregation; Detection rerun; Quick search and advanced filtering; Upgrade prerequisites",
+      "outcome": "reviewed"
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-updates/release-notes/8.8/compatibility-and-regional-availability",
+      "section": "Splunk Enterprise compatibility matrix; Splunk Cloud Platform compatibility; SOAR integration certificate authority qualifications",
+      "outcome": "reviewed-with-conflict"
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-updates/release-notes/8.8/fixed-issues",
+      "section": "Fixed issues",
+      "outcome": "reviewed-incomplete-table"
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-updates/release-notes/8.8/known-issues",
+      "section": "Known issues; UEBA issue placeholders",
+      "outcome": "reviewed-incomplete-table"
+    },
+    {
+      "url": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.1",
+      "section": "Breaking changes; New features; Security; splunk-connect-for-otlp fixes",
+      "outcome": "reviewed"
+    }
+  ],
+  "unavailable": [
+    {
+      "url": "https://docs.splunk.com/Documentation/Splunk/8.1.14/ReleaseNotes/MeetSplunk",
+      "outcome": "http-403",
+      "handling": "Retain historical evidence; no replacement or release-date inference."
+    },
+    {
+      "url": "https://docs.splunk.com/Documentation/Splunk/8.2.12/ReleaseNotes/MeetSplunk",
+      "outcome": "http-403",
+      "handling": "Retain historical evidence; no replacement or release-date inference."
+    }
+  ],
+  "discovery": {
+    "security": {
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1006",
+      "section": "Description; Changelog; advisory index",
+      "outcome": "advance-notice-still-current",
+      "qualification": "The October 14 notice and October 16 clarification still identify fix versions. No October 21 CVE or affected-version table was established, and no Cloud scope or 10.6 exception is inferred."
+    },
+    "latestComponentStreams": [
+      {"product":"Splunk OpenTelemetry Collector","version":"0.163.1","published":"2026-10-22T05:33:48Z","url":"https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.1"},
+      {"product":"Splunk OpenTelemetry Collector chart","version":"0.163.0","published":"2026-10-19T22:02:31Z","url":"https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.163.0"},
+      {"product":"Splunk OpenTelemetry .NET","version":"1.16.0","published":"2026-09-23T09:41:46Z","url":"https://github.com/signalfx/splunk-otel-dotnet/releases/tag/v1.16.0"},
+      {"product":"Splunk OpenTelemetry Java","version":"2.32.0","published":"2026-10-12T15:52:25Z","url":"https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0"},
+      {"product":"Splunk OpenTelemetry Node.js","version":"4.12.1","published":"2026-10-12T15:48:27Z","url":"https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1"},
+      {"product":"Splunk RUM browser agent","version":"3.2.0","published":"2026-09-24T21:14:45Z","url":"https://github.com/signalfx/splunk-otel-js-web/releases/tag/v3.2.0"},
+      {"product":"Splunk OpenTelemetry Python","version":"2.13.2","published":"2026-10-13T17:57:45Z","url":"https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2"}
+    ],
+    "productStreams": {
+      "enterprise": "No newer exact Enterprise release was established; download and release-note identities remain separate.",
+      "cloud": "No new exact Cloud release or rollout scope was established.",
+      "es": "8.8.0 entered Controlled Availability on 2026-10-21. The patch-specific Enterprise matrix still stops at 8.7, so the exact 8.8 pairing remains unestablished.",
+      "itsi": "No newer exact ITSI release was established.",
+      "migration": "No newer exact SCMA compatibility release was established.",
+      "observability": "Collector 0.163.1 is newer than the 0.163.0 chart package; the patch does not retroactively change the chart payload.",
+      "soar": "No newer SOAR server release was established. Server, App for SOAR, Export, Automation Broker and connector compatibility remain separate."
+    }
+  },
+  "claimChecks": [
+    {
+      "claimId": "release.es.8.8.0.controlled-availability",
+      "productVersionEnvironment": "Enterprise Security 8.8.0; Controlled Availability; Enterprise and Cloud scopes remain distinct",
+      "sourceCheckDate": "2026-10-22",
+      "claimVerificationDate": "2026-10-22",
+      "outcome": "confirmed-with-qualification"
+    },
+    {
+      "claimId": "compatibility.es.8.8.enterprise-pairing",
+      "productVersionEnvironment": "Enterprise Security 8.8.0 on Splunk Enterprise",
+      "sourceCheckDate": "2026-10-22",
+      "claimVerificationDate": "2026-10-22",
+      "outcome": "conflict-unresolved",
+      "qualification": "Broad prose says ES 8.x supports Enterprise 9.2.0 and later, but the patch-specific matrix has no ES 8.8 row."
+    },
+    {
+      "claimId": "release.observability.collector.0.163.1",
+      "productVersionEnvironment": "Customer-managed Splunk OpenTelemetry Collector 0.163.1",
+      "sourceCheckDate": "2026-10-22",
+      "claimVerificationDate": "2026-10-22",
+      "outcome": "confirmed"
+    },
+    {
+      "claimId": "technical.hf.10.0.python-application-runtime",
+      "productVersionEnvironment": "Heavy Forwarder Enterprise package 10.0; component-dependent",
+      "sourceCheckDate": "2026-10-22",
+      "claimVerificationDate": "2026-10-22",
+      "outcome": "supporting-section-confirmed"
+    },
+    {
+      "claimId": "technical.hf.10.2.fishbucket-checkpoint-store",
+      "productVersionEnvironment": "Heavy Forwarder Enterprise package 10.2; monitored-file checkpoints",
+      "sourceCheckDate": "2026-10-22",
+      "claimVerificationDate": "2026-10-22",
+      "outcome": "supporting-section-confirmed"
+    }
+  ]
+}

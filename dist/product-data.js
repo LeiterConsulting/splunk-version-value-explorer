@@ -75,7 +75,7 @@ Object.assign(window.SPLUNK_DATA, {
   "productTracks": {
     "es": {
       "label": "Splunk Enterprise Security",
-      "latest": "8.7",
+      "latest": "8.8",
       "releases": [
         "7.3",
         "8.0",
@@ -85,7 +85,8 @@ Object.assign(window.SPLUNK_DATA, {
         "8.4",
         "8.5",
         "8.6",
-        "8.7"
+        "8.7",
+        "8.8"
       ],
       "compatibilitySource": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
       "cloudServiceSource": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
@@ -152,7 +153,8 @@ Object.assign(window.SPLUNK_DATA, {
             "10.2",
             "10.4",
             "10.6"
-          ]
+          ],
+          "8.8": []
         }
       },
       "releasesData": {
@@ -564,6 +566,81 @@ Object.assign(window.SPLUNK_DATA, {
               "Back up the existing navigation configuration, restore the 8.7 default, and reapply only the customization that still passes validation.",
               "Plan",
               "https://help.splunk.com/en/splunk-enterprise-security-8/install/8.7/upgrading/upgrade-splunk-enterprise-security",
+              true
+            ]
+          ]
+        },
+        "8.8": {
+          "date": "October 21, 2026 · Controlled Availability",
+          "source": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "features": [
+            [
+              "Investigation aggregation",
+              "Investigation & response",
+              "Connect related security work",
+              "Route related findings and finding groups into configurable cross-domain investigations. Confirm Controlled Availability access and the applicable edition before planning adoption."
+            ],
+            [
+              "Detection rerun",
+              "Detection & analytics",
+              "Recover missed detection windows",
+              "Rerun detections that were skipped or failed during an outage or error so historical search windows can be recovered."
+            ],
+            [
+              "Quick search and advanced filtering",
+              "Investigation & response",
+              "Narrow analyst work faster",
+              "Use the 8.8 queue search and filter changes to find relevant work while preserving role and access checks."
+            ]
+          ],
+          "technicalChanges": [
+            {
+              "component": "ES-SOAR hybrid certificate trust",
+              "domain": "SOAR pairing & certificates",
+              "changeType": "Trust option expanded",
+              "actionLevel": "Review",
+              "from": "Cloud ES 8.2.x through 8.7.x paired with on-premises SOAR uses certificates signed by a public certificate authority",
+              "to": "Cloud ES 8.8.0 and higher can use certificates signed by a private or public certificate authority for the documented hybrid pairing",
+              "implication": "The new private-CA path is scoped to the listed ES-SOAR hybrid pairing. It does not establish a platform pairing, SOAR release, region, entitlement or authorization.",
+              "action": "Validate the exact ES and SOAR deployment pair, certificate chain, trust distribution, bidirectional HTTPS and rotation procedure before changing the hybrid connection.",
+              "source": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+              "verified": "2026-10-22"
+            }
+          ],
+          "requirements": [
+            [
+              "Confirm Controlled Availability access",
+              "Splunk published Enterprise Security 8.8.0 for Controlled Availability on October 21, 2026. Publication does not establish universal availability, tenant rollout, entitlement or regional authorization.",
+              "Blocker",
+              "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+              true
+            ],
+            [
+              "Resolve the exact Splunk Enterprise pairing",
+              "The 8.8 compatibility page broadly says Enterprise Security 8.x supports Splunk Enterprise 9.2.0 and higher, while the patch-specific product matrix does not yet list Enterprise Security 8.8. Preserve the pairing as unestablished until the exact matrix row or equivalent authoritative evidence is published.",
+              "Blocker",
+              "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+              true
+            ],
+            [
+              "Install from the CLI on Splunk Enterprise 10.x",
+              "Splunk documents that Enterprise Security 8.x cannot be uploaded through Splunk Web on an on-premises Splunk Enterprise 10.x deployment; use the supported command-line path.",
+              "Blocker",
+              "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+              true
+            ],
+            [
+              "Back up the search tier and KV Store",
+              "The Enterprise Security 8.x upgrade is one-way and does not automatically back up app content or data. Retain the documented full backup and restoration path before proceeding.",
+              "Blocker",
+              "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+              true
+            ],
+            [
+              "Keep the incomplete issue tables unresolved",
+              "The current 8.8 fixed-issues page exposes no rows and the known-issues page exposes incomplete UEBA placeholders. Do not treat either retrieval as evidence of zero issues.",
+              "Validate",
+              "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/known-issues",
               true
             ]
           ]
@@ -2095,6 +2172,14 @@ Object.assign(window.SPLUNK_DATA, {
               "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0"
             ],
             [
+              "Collector 0.163.1 security and input patch",
+              "Telemetry & OpenTelemetry",
+              "Close the current Collector patch gap",
+              "Adopt the October 22 patch after validating removal of lightprometheus, the Splunk modular-input output path and index-authorization behavior. Chart 0.163.0 still packages Collector 0.163.0; this standalone patch is not a chart or SaaS rollout.",
+              "Separately versioned Collector · released October 22, 2026",
+              "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.1"
+            ],
+            [
               "Kubernetes Collector remote configuration",
               "Infrastructure & Kubernetes",
               "Apply versioned pipeline templates to groups",
@@ -2276,6 +2361,42 @@ Object.assign(window.SPLUNK_DATA, {
               "verified": "2026-10-17"
             },
             {
+              "component": "Collector 0.163.1 Light Prometheus Receiver removal",
+              "domain": "Collector configuration",
+              "changeType": "Removed",
+              "actionLevel": "Required",
+              "from": "The deprecated lightprometheus receiver remains available in standalone Collector 0.163.0",
+              "to": "Collector 0.163.1 removes lightprometheus; use prometheus or prometheus_simple",
+              "implication": "A configuration that still declares lightprometheus no longer has a valid receiver after the patch. The earlier chart-level removal and this standalone Collector removal are distinct package boundaries.",
+              "action": "Replace the receiver, compare discovery, scrape completeness and resource use, then validate the exact standalone or chart package actually deployed.",
+              "source": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.1",
+              "verified": "2026-10-22"
+            },
+            {
+              "component": "Collector 0.163.1 Splunk input authorization boundary",
+              "domain": "Splunk ingestion & authorization",
+              "changeType": "Security and behavior fixes",
+              "actionLevel": "Required",
+              "from": "The Splunk Connect for OpenTelemetry path can ignore configured source/sourcetype or token default index, reject every explicit index for unrestricted tokens, retry permanent authorization failures and permit a span index to bypass a denied resource index",
+              "to": "Collector 0.163.1 applies HEC metadata/default-index behavior, treats denied indexes as permanent errors and prevents the span-index bypass; the new splunk_modinput exporter writes newline-delimited HEC JSON to stdout but does not perform index authorization",
+              "implication": "Output identity, retry behavior and accepted indexes can change. Using splunk_modinput does not inherit the Splunk OTLP input's token-index authorization checks.",
+              "action": "Patch the affected Collector path, test allowed and denied resource/span indexes, confirm default-index and metadata behavior, and enforce authorization at the correct input boundary when using splunk_modinput.",
+              "source": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.1",
+              "verified": "2026-10-22"
+            },
+            {
+              "component": "Collector 0.163.1 Go and CA security refresh",
+              "domain": "Collector runtime security",
+              "changeType": "Security fix",
+              "actionLevel": "Required",
+              "from": "Collector 0.163.0 uses the preceding Go runtime and container CA bundle",
+              "to": "Collector 0.163.1 uses Go 1.26.10 and refreshed container CA certificates to mitigate CVE-2026-111943 and block trust in affected CA certificates",
+              "implication": "The runtime and trust bundle change is security-relevant and can also alter certificate-chain acceptance. It does not establish a platform, chart or SaaS release.",
+              "action": "Prioritize the patch for affected standalone deployments and validate required private/public trust chains plus telemetry delivery before broad rollout.",
+              "source": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.1",
+              "verified": "2026-10-22"
+            },
+            {
               "component": "Fleet Management Kubernetes configuration",
               "domain": "Collector management",
               "changeType": "Opt-in capability",
@@ -2343,6 +2464,13 @@ Object.assign(window.SPLUNK_DATA, {
               "Check missing container_cpu_utilization, changed database resource labels/aggregates, the PostgreSQL timeout and chained redaction summaries against operational and privacy expectations.",
               "Validate",
               "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0",
+              true
+            ],
+            [
+              "Patch and validate Collector 0.163.1",
+              "Collector 0.163.1 removes lightprometheus, refreshes Go and CA certificates for CVE-2026-111943, and repairs Splunk input metadata and index-authorization behavior. Replace removed configuration and test allowed/denied index paths, trust chains and telemetry delivery. Chart 0.163.0 remains on Collector 0.163.0.",
+              "Blocker",
+              "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.1",
               true
             ],
             [

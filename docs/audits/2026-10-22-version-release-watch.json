@@ -1,0 +1,47 @@
+{
+  "watch": "version-release-watch",
+  "maintenanceId": "version-release-watch",
+  "date": "2026-10-22",
+  "sourceOutcome": "docs/audits/2026-10-22-version-release-watch-sources.json",
+  "scope": [
+    "Complete official release-source inventory",
+    "Enterprise Security 8.8.0 Controlled Availability and exact pairing boundary",
+    "Collector 0.163.1 customer-managed prerequisites and security/input changes",
+    "Two borrowed Heavy Forwarder mappings",
+    "Current, legacy, shared, invalid, export and read-only WebMCP parity"
+  ],
+  "changes": [
+    "Added ES 8.8.0 as Controlled Availability with explicit access, backup and CLI-install prerequisites.",
+    "Preserved an empty exact Enterprise compatibility set for ES 8.8 because the patch matrix has not published a row.",
+    "Added the Collector 0.163.1 receiver removal, input-authorization boundary and Go/CA security refresh without changing the separately versioned Helm chart.",
+    "Advanced the shared material cycle once from 27 to 28.",
+    "Reverified Python 3.9 and Fishbucket Heavy Forwarder mappings; ten mapping dates remain earlier."
+  ],
+  "preservedUnknowns": [
+    "ES 8.8.0 exact Splunk Enterprise patch pairing",
+    "ES 8.8.0 support deadline",
+    "Incomplete ES 8.8.0 fixed- and known-issue tables",
+    "October 21 security-advisory CVEs and affected ranges",
+    "Any newer SOAR server release",
+    "Historical Cloud rollout, entitlement and authorization"
+  ],
+  "validation": {
+    "candidate": "pending exact commit",
+    "generatedChecks": "pending",
+    "nodeTests": "pending",
+    "build": "pending",
+    "nativeExportEvidence": "pending",
+    "live": "pending"
+  },
+  "publication": {
+    "github": "pending",
+    "site": "pending",
+    "liveRevision": "pending"
+  },
+  "backlog": [
+    {"priority":1,"item":"Resolve the ES 8.8 exact Enterprise and Cloud pairings when patch-specific matrices publish them."},
+    {"priority":2,"item":"Replace the October security advance notice with advisory-specific CVE and affected-version records when official tables appear."},
+    {"priority":3,"item":"Continue semantic verification of the ten older borrowed Heavy Forwarder mappings."},
+    {"priority":4,"item":"Resolve incomplete ES 8.8 fixed/known issue rows and support lifecycle evidence."}
+  ]
+}

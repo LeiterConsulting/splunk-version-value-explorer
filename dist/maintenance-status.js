@@ -238,10 +238,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-21T09:47:05Z",
-      "lastSuccess": "2026-10-21T09:58:15Z",
+      "lastAttempt": "2026-10-22T09:27:35Z",
+      "lastSuccess": "2026-10-22T09:40:32.205Z",
       "outcome": "changed",
-      "summary": "Reviewed the complete 181-URL release inventory and current release, compatibility and security streams; repaired two bounded presentation defects and reverified two historical Heavy Forwarder mappings without changing factual guidance.",
+      "summary": "Published-source candidate adds ES 8.8.0 Controlled Availability and Collector 0.163.1 with unresolved pairings preserved.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -547,9 +547,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Reviewed the complete 181-URL release inventory and current release, compatibility and security streams; repaired two bounded presentation defects and reverified two historical Heavy Forwarder mappings without changing factual guidance.",
           "scope": "181 exact official source URLs (178 retrieved, including 26 GitHub records); Enterprise, Cloud, ES, ITSI, migration, Observability, UF/HF and SOAR discovery; SVD-2026-1006 follow-up; two HF 10.0 source-to-claim checks; full 198-test, synchronization and production-build gates; exact native export and live publication evidence pending for this candidate."
+        },
+        {
+          "at": "2026-10-22T09:27:35Z",
+          "outcome": "running",
+          "summary": "Release source inventory and bounded high-consequence verification are running.",
+          "scope": "Fresh 181-URL release inventory; Enterprise, Cloud, migration, ES, ITSI, Observability, UF/HF and SOAR discovery; security-disclosure follow-up; selected historical HF evidence; exact-candidate validation and publication checks."
+        },
+        {
+          "at": "2026-10-22T09:40:32.205Z",
+          "outcome": "changed",
+          "summary": "Published-source candidate adds ES 8.8.0 Controlled Availability and Collector 0.163.1 with unresolved pairings preserved.",
+          "scope": "186 official URLs attempted (184 retrieved), five new exact sources, affected ES and Observability claims, two HF mappings, security and SOAR discovery, exact-candidate validation."
         }
       ],
-      "scope": "181 exact official source URLs (178 retrieved, including 26 GitHub records); Enterprise, Cloud, ES, ITSI, migration, Observability, UF/HF and SOAR discovery; SVD-2026-1006 follow-up; two HF 10.0 source-to-claim checks; full 198-test, synchronization and production-build gates; exact native export and live publication evidence pending for this candidate."
+      "scope": "186 official URLs attempted (184 retrieved), five new exact sources, affected ES and Observability claims, two HF mappings, security and SOAR discovery, exact-candidate validation."
     },
     {
       "id": "es-editions-watch",
