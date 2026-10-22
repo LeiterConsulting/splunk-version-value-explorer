@@ -55,7 +55,14 @@ test('search, filters, history URLs, copy links and print restoration work witho
  assert.equal(r.elements.get('.agent-note').hidden,true);
 });
 test('malformed preview fields fall back safely and query text is escaped',()=>{
- const r=runtime('?preview=es-editions&release=unknown&filter=unknown&q=%22%3E%3Cimg%20src%3Dx%20onerror%3Dalert(1)%3E');assert.equal(r.elements.get('edition-history').value,'8.7');assert.equal(r.elements.get('edition-filter').value,'all');assert(!r.html.includes('<img'));assert(r.html.includes('&lt;img'));
+ const r=runtime('?preview=es-editions&release=unknown&filter=unknown&q=%22%3E%3Cimg%20src%3Dx%20onerror%3Dalert(1)%3E');assert.equal(r.elements.get('edition-history').value,'8.8');assert.equal(r.elements.get('edition-filter').value,'all');assert(!r.html.includes('<img'));assert(r.html.includes('&lt;img'));
+});
+
+test('ES 8.8 remains Controlled Availability with edition-specific release history',()=>{
+ assert.equal(data.release,'8.8');assert.equal(data.releaseStage,'Controlled Availability');assert.equal(data.sources.rn88.reviewed,'2026-10-22');
+ assert(data.history['8.8'].e.includes('Detection Rerun'));assert(data.history['8.8'].p.includes('Automation Broker High Availability'));
+ assert.match(data.history['8.8'].qualification,/Controlled Availability/);assert.match(data.history['8.8'].qualification,/pairing/);
+ const r=runtime('?view=es-editions&release=8.8');assert(r.html.includes('Controlled Availability'));assert(r.elements.get('edition-timeline').innerHTML.includes('Detection Rerun'));assert(r.elements.get('edition-timeline').innerHTML.includes('Automation Broker High Availability'));
 });
 
 test('explanations and both sides of source questions remain visible without opening disclosures',()=>{

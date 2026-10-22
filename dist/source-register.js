@@ -2379,8 +2379,7 @@ window.VersionCompassSources = {
         "editions: editions.workflows.0",
         "editions: editions.workflows.1",
         "editions: editions.workflows.2",
-        "editions: editions.workflows.3",
-        "editions: editions.highlights.0"
+        "editions: editions.workflows.3"
       ],
       "reviews": [
         "2026-10-01"
@@ -3051,12 +3050,9 @@ window.VersionCompassSources = {
         "editions: editions.capabilities.17",
         "editions: editions.capabilities.18",
         "editions: editions.capabilities.19",
-        "editions: editions.notes.5",
         "editions: editions.conflicts.3.claims.1",
         "editions: editions.workflows.0",
-        "editions: editions.workflows.1",
-        "editions: editions.highlights.0",
-        "editions: editions.highlights.1"
+        "editions: editions.workflows.1"
       ],
       "reviews": [
         "2026-10-01"
@@ -3124,8 +3120,8 @@ window.VersionCompassSources = {
         "editions: editions.capabilities.14",
         "editions: editions.capabilities.15",
         "editions: editions.capabilities.18",
-        "editions: editions.conflicts.4.claims.1",
-        "editions: editions.highlights.2"
+        "editions: editions.history.8.7",
+        "editions: editions.conflicts.4.claims.1"
       ],
       "reviews": [
         "2026-10-01"
@@ -3234,6 +3230,7 @@ window.VersionCompassSources = {
       "title": "release notes for splunk enterprise security",
       "areas": [
         "Release guide",
+        "ES editions",
         "Shared guidance"
       ],
       "references": [
@@ -3241,9 +3238,22 @@ window.VersionCompassSources = {
         "release.productTracks.es.releasesData.8.8.requirements.0.3",
         "release.productTracks.es.releasesData.8.8.requirements.2.3",
         "release.productTracks.es.releasesData.8.8.requirements.3.3",
-        "content-updates.js"
+        "editions.sources.rn88.u",
+        "content-updates.js",
+        "editions: editions.capabilities.0",
+        "editions: editions.capabilities.1",
+        "editions: editions.capabilities.2",
+        "editions: editions.capabilities.11",
+        "editions: editions.capabilities.12",
+        "editions: editions.history.8.8",
+        "editions: editions.notes.5",
+        "editions: editions.highlights.0",
+        "editions: editions.highlights.1",
+        "editions: editions.highlights.2"
       ],
-      "reviews": [],
+      "reviews": [
+        "2026-10-22"
+      ],
       "usage": "In use",
       "reviewed": "2026-10-22",
       "status": "Reviewed",

@@ -566,10 +566,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-10-21T13:00:53Z",
-      "lastSuccess": "2026-10-21T13:04:32Z",
-      "outcome": "no-change",
-      "summary": "All 20 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, release-stage or historical fact changed.",
+      "lastAttempt": "2026-10-22T10:09:51.087Z",
+      "lastSuccess": "2026-10-22T10:31:00Z",
+      "outcome": "changed",
+      "summary": "Added source-backed ES 8.8 Controlled Availability edition guidance while preserving entitlement, region, pairing, deployment and unresolved source boundaries.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -803,9 +803,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "All 20 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, release-stage or historical fact changed.",
           "scope": "All 20 maintained ES official sources plus six exact SOAR App/Export/related-product/Cloud records; current release discovery and eleven bounded high-consequence entitlement, prerequisite, pricing, release-stage and compatibility claims."
+        },
+        {
+          "at": "2026-10-22T10:09:51.087Z",
+          "outcome": "running",
+          "summary": "Reviewing 20 maintained ES sources, six SOAR pairing records, and the newly published ES 8.8 Controlled Availability edition evidence.",
+          "scope": "Full maintained ES source inventory; exact SOAR App/Export pairing records; affected 8.8 edition/history/highlight claims; bounded high-consequence entitlement and prerequisite claims."
+        },
+        {
+          "at": "2026-10-22T10:31:00Z",
+          "outcome": "changed",
+          "summary": "Added source-backed ES 8.8 Controlled Availability edition guidance while preserving entitlement, region, pairing, deployment and unresolved source boundaries.",
+          "scope": "21 maintained ES official sources, six exact SOAR App/Export/related-product/Cloud records and twelve bounded high-consequence claims; canonical editions data, generated adapter, history, highlights, reports, current/legacy routes, themes and affected release/export behavior."
         }
       ],
-      "scope": "All 20 maintained ES official sources plus six exact SOAR App/Export/related-product/Cloud records; current release discovery and eleven bounded high-consequence entitlement, prerequisite, pricing, release-stage and compatibility claims."
+      "scope": "21 maintained ES official sources, six exact SOAR App/Export/related-product/Cloud records and twelve bounded high-consequence claims; canonical editions data, generated adapter, history, highlights, reports, current/legacy routes, themes and affected release/export behavior."
     },
     {
       "id": "version-guidance-audit",

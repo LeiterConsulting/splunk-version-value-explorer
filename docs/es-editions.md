@@ -80,6 +80,12 @@ Theme refinement: `theme=cisco` now uses the original reference's full dark scre
 
 Print-theme correction (supersedes the screen-only refinement above): the active `theme=cisco` presentation now carries into print/PDF in full, using a named dark page, navy surfaces, gradient heading and edition accents. The unmodified default theme remains white. Preserve `print-color-adjust: exact`; browser print settings can still override background printing. The selected theme must not change factual content or omit source qualifications.
 
+## October 22, 2026 ES 8.8 Controlled Availability update
+
+The editions snapshot now uses the October 21 ES 8.8.0 Controlled Availability release table for current release highlights while retaining the 8.7 Cloud capability matrix and 8.7 agent/task sources for their exact historical and conflict scopes. The 8.8 table says Essentials features are also included in Premier and assigns the release capabilities by edition; it does not establish general availability, managed Cloud rollout, customer entitlement, region, authorization or an ES–SOAR pairing.
+
+The 8.8 history entry separates Essentials/shared investigation, detection, RBAC, queue-search, TAXII2 and dashboard changes from Premier UEBA, System Insights, pairing-certificate and Automation Broker HA changes. The current capability rows summarize those affected areas without adding unsupported standalone entitlements. The Connector Builder conflict, Guided Response ambiguity, agent minimum-version discrepancies, activity-pricing question and exact App for SOAR / SOAR Export rows remain unchanged. This is the same underlying October 22 factual content cycle as the Release Watch batch; the shared cycle is not advanced twice.
+
 ## Cloud environment evidence
 
 See [Cloud environments](cloud-environments.md) for independent CSP, region, FR-M/FR-H, and experience filters, shared report behavior, uncertainty boundaries, and dedicated maintenance ownership. Current hosting evidence does not establish historical release availability or authorize every product component.
