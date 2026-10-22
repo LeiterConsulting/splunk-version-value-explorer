@@ -78,6 +78,18 @@ test('exact Marketplace offering scope remains product-specific and qualified',(
  const html=env.body(route({csp:'aws',compliance:'fr-m'},'itsi'),true);
  assert.match(html,/IT Service Intelligence certified service/);assert.match(html,/IT Service Intelligence · AWS/);
 });
+test('ES regional corrections preserve Premier scope and do not inherit IL5 into Moderate or High',()=>{
+ const brazil=route({region:'sa-east-1',compliance:'commercial'},'es');
+ const attack=env.featureRecords(brazil,{title:'Attack Analyzer'}).find(r=>r.id==='es-attack-commercial');
+ assert(attack);assert.equal(attack.availability,'unavailable');assert.equal(attack.release,'8.7');assert.match(attack.detail,/Premier/);assert.match(attack.detail,/São Paulo/);
+ assert(!env.featureRecords(route({region:'us-east-1',compliance:'commercial'},'es'),{title:'Attack Analyzer'}).some(r=>r.id==='es-attack-commercial'));
+ for(const compliance of ['fr-m','fr-h']){
+  const state=route({csp:'aws',region:'us-gov-east-1',compliance},'es');
+  const pairing=env.assess(state).records.find(r=>r.id==='es-hybrid-gov');
+  assert.equal(pairing.availability,'not_established');assert.equal(pairing.authorization,'not_established');assert.match(pairing.detail,/explicitly excludes.*IL5/);assert.match(pairing.detail,/does not establish a blanket/);
+  const html=env.body(state,true);assert.match(html,/IL5/);assert.match(html,/pairing remains unestablished/);assert(html.includes(env.data.sources.es.url));
+ }
+});
 test('Machine Data Lake keeps provider, GovCloud and authorization scope separate',()=>{
  const aws=env.assess(route({csp:'aws',region:'us-east-1',compliance:'commercial'}));
  const available=aws.records.find(r=>r.id==='machine-data-lake-aws');

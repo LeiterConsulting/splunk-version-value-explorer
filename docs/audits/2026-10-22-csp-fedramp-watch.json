@@ -1,0 +1,526 @@
+{
+  "watch": "csp-fedramp-watch",
+  "startedAt": "2026-10-22T11:51:50Z",
+  "sourceReviewCompletedAt": "2026-10-22T12:00:29Z",
+  "completedAt": null,
+  "outcome": "changed",
+  "sourceCheckDate": "2026-10-22",
+  "scope": "All 15 maintained environment URLs and two CSP-owned SOAR URLs, plus current ES 8.8 regional, product compatibility and ITSI compatibility discovery (20 exact URLs). Thirteen bounded consequential claim groups; not exhaustive historical verification.",
+  "baseline": {
+    "githubCommit": "521c07bdd4f869c9a10e9c2fdab9b2da027bdcff",
+    "sitesCommit": "6e72a45893703189aadb1939a90526aeead18276",
+    "tree": "1d40f28c3708967e09dac978afdb01b1054561c7",
+    "sitesVersion": 187,
+    "contentRevision": "content-399b70f8466bcf6e891acb8b",
+    "engineRevision": "engine-c592759053b5ed0f660f",
+    "reconciliation": "Fresh GitHub main and current Sites source share the exact tree; today's Release and ES changes retained."
+  },
+  "sourceChecks": [
+    {
+      "id": "ingest",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor",
+      "section": "Get started with the Ingest Processor solution",
+      "checkedAt": "2026-10-22",
+      "outcome": "retrieved",
+      "pageModified": "2026-06-16"
+    },
+    {
+      "id": "service",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions; Search; Supported Versions; subscription types",
+      "checkedAt": "2026-10-22",
+      "outcome": "retrieved-current",
+      "pageModified": "2026-10-19"
+    },
+    {
+      "id": "changes",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "October 21 and October 6, 2026; April 8, 2026",
+      "checkedAt": "2026-10-22",
+      "outcome": "retrieved-new-entry-discovered",
+      "newestEffectiveEntry": "2026-10-21",
+      "pageModified": "2026-09-14",
+      "qualification": "Visible page metadata predates effective entries; do not substitute either date for the other."
+    },
+    {
+      "id": "acs",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.6/using-the-admin-config-service-acs--api/admin-config-service-acs-requirements-and-compatibility-matrix",
+      "section": "FedRAMP IL2 requirements; FedRAMP High requirements; ACS compatibility matrix",
+      "checkedAt": "2026-10-22",
+      "outcome": "retrieved-current",
+      "pageModified": "2026-09-14"
+    },
+    {
+      "id": "acsRelease",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/admin-configuration-service",
+      "section": "September 2026 Support for FedRAMP High API v2 row",
+      "checkedAt": "2026-10-22",
+      "outcome": "retrieved-current",
+      "pageModified": "2026-09-16"
+    },
+    {
+      "id": "acsMaintenance",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.6/administer-splunk-cloud-platform-using-the-admin-config-service-acs-api/manage-maintenance-windows-for-splunk-cloud-platform",
+      "section": "Requirements",
+      "checkedAt": "2026-10-22",
+      "outcome": "retrieved-current",
+      "pageModified": "2026-09-14"
+    },
+    {
+      "id": "es",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "Essentials/Premier regional tables; Cloud Connect; GCP/Azure; SOAR compatibility",
+      "checkedAt": "2026-10-22",
+      "outcome": "retrieved-canonical-completeness-gap-found",
+      "pageModified": "2026-09-01"
+    },
+    {
+      "id": "victoria",
+      "url": "https://www.splunk.com/en_us/blog/industries/splunk-victoria-experience-is-now-authorized-at-fedramp-high.html",
+      "section": "Key takeaways; Victoria Experience authorization announcement",
+      "checkedAt": "2026-10-22",
+      "outcome": "retrieved-current",
+      "published": "2026-07-10"
+    },
+    {
+      "id": "esmoderate",
+      "url": "https://www.splunk.com/en_us/blog/industries/splunk-enterprise-security-premier-achieves-fedramp-moderate-authorization.html",
+      "section": "Premier Moderate authorization announcement",
+      "checkedAt": "2026-10-22",
+      "outcome": "retrieved-current",
+      "published": "2026-06-25"
+    },
+    {
+      "id": "o11y",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
+      "section": "Realm to region equivalence; Available components per region or realm",
+      "checkedAt": "2026-10-22",
+      "outcome": "retrieved-current",
+      "pageModified": "2026-10-19"
+    },
+    {
+      "id": "agentSaas",
+      "url": "https://agent-observability-docs.splunk.com/saas/overview",
+      "section": "Access prerequisite; SaaS region and realm availability",
+      "checkedAt": "2026-10-22",
+      "outcome": "retrieved-current",
+      "published": null
+    },
+    {
+      "id": "assistantInstall",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.2.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "section": "FedRAMP deployments; Supported regions; Version compatibility",
+      "checkedAt": "2026-10-22",
+      "outcome": "retrieved-current",
+      "pageModified": "2026-08-07"
+    },
+    {
+      "id": "productCompatibility",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+      "section": "Enterprise 10.x matrix, 10.2.x/10.4.x/10.6 rows; Cloud compatibility pointer",
+      "checkedAt": "2026-10-22",
+      "outcome": "retrieved-new-exact-es88-rows",
+      "pageModified": "2025-11-20",
+      "qualification": "Page metadata is older than current table facts; no table effective date inferred."
+    },
+    {
+      "id": "itsiRelatedApps",
+      "url": "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/install-and-upgrade/5.0/planning/itsi-compatibility-with-related-apps-and-add-ons",
+      "section": "ITSI 5.0.x Python/runtime/Cloud KV Store/KV Service row; conditional integration prerequisites",
+      "checkedAt": "2026-10-22",
+      "outcome": "retrieved-current",
+      "pageModified": "2026-10-09"
+    },
+    {
+      "id": "compliance",
+      "url": "https://www.splunk.com/en_us/about-splunk/splunk-data-security-and-privacy/compliance-at-splunk.html",
+      "section": "US Public Sector; column order, checkmark/star legend and February 2026 limitation",
+      "outcome": "visually-inspected",
+      "qualification": "DoD IL5, Moderate, High, GovRAMP and TX-RAMP inspected in that order. Blank cells remain unknown; dated matrix does not supersede newer operation-specific ACS evidence.",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "high",
+      "url": "https://www.fedramp.gov/marketplace/products/FR2314156865/",
+      "section": "Phase, status, Class D, Certified Since and Certified Services",
+      "outcome": "rendered-verified",
+      "qualification": "High CSO names Private Connectivity, Cloud Platform, ES and ITSI; SOAR absent from list is not exclusion.",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "moderate",
+      "url": "https://www.fedramp.gov/marketplace/products/F1607197917/",
+      "section": "Phase, status, Class C, Certified Since and Certified Services",
+      "outcome": "rendered-verified",
+      "qualification": "Moderate CSO names SOAR, ES and ITSI among services; offering scope not feature, entitlement, pairing or individual authorization.",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "soar:regions",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/soar-cloud-service-description/the-splunk-soar-service/splunk-soar-cloud-introduction",
+      "section": "Available regions; Current SOAR Cloud version; Supported Python",
+      "outcome": "retrieved-and-rendered-new-resolution",
+      "qualification": "Current prose and table both September 2026 / 8.7.0. Former April label retained historically; no correction or tenant rollout date inferred.",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "soar:restricted",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/administer-soar-cloud/introduction-to-splunk-soar-cloud/splunk-soar-cloud-in-restricted-environments",
+      "section": "Moderate: hosting, FIPS, playbooks, isolation, restoring native data",
+      "outcome": "retrieved-verified",
+      "qualification": "Moderate-only GovCloud/FIPS/broker/playbook and native-data migration restrictions. No High or ES hybrid pairing permission inferred.",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "es88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "Premier regional table; distinct Cloud Connect table; exact hybrid certificate rows",
+      "outcome": "rendered-verified-after-web-unavailable",
+      "qualification": "Newer 8.8 guide read in browser after web retrieval failed. São Paulo Premier Attack Analyzer exception corroborated, IL5 exclusion retained, 8.8+ private/public CA versus 8.2–8.7 public only. Cloud Connect table differs and is not retroactively applied to 8.7 records.",
+      "checkedAt": "2026-10-22"
+    }
+  ],
+  "claimChecks": [
+    {
+      "claimId": "s3-moderate-and-high-conflicts",
+      "sourceIds": [
+        "service",
+        "changes"
+      ],
+      "section": "Available regions table; third-party data-store limitations; April 8 change-log row",
+      "productVersionEnvironment": "Cloud 10.6 current service table; historical relevant 10.3 change entry; AWS GovCloud Moderate/High",
+      "verifiedAt": "2026-10-22",
+      "outcome": "conflicts-preserved",
+      "qualification": "Current table includes Moderate but excludes High/IL5; third-party scope excludes both. April 8 entry announces High/IL5 for relevant 10.3 versions. No resolution or retrospective rollout inferred.",
+      "urls": [
+        "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+        "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log"
+      ]
+    },
+    {
+      "claimId": "machine-data-lake-regional",
+      "sourceIds": [
+        "service",
+        "changes"
+      ],
+      "section": "Available regions table; Machine Data Lake search; October 6 change entry",
+      "productVersionEnvironment": "Cloud 10.6, AWS commercial/GovCloud, GCP, Azure",
+      "verifiedAt": "2026-10-22",
+      "outcome": "verified-unchanged",
+      "qualification": "AWS outside GovCloud conditional; GovCloud/GCP/Azure unavailable. Workflow configuration and enabled services remain prerequisites, independent of authorization.",
+      "urls": [
+        "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+        "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log"
+      ]
+    },
+    {
+      "claimId": "ingest-victoria-prerequisite",
+      "sourceIds": [
+        "ingest"
+      ],
+      "section": "Get started",
+      "productVersionEnvironment": "Cloud Ingest Processor, Victoria versus Classic",
+      "verifiedAt": "2026-10-22",
+      "outcome": "verified-unchanged",
+      "qualification": "Victoria and a provisioned cloud tenant required; regional availability and authorization are separate.",
+      "urls": [
+        "https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor"
+      ]
+    },
+    {
+      "claimId": "acs-regulated-support",
+      "sourceIds": [
+        "acs",
+        "acsRelease",
+        "acsMaintenance"
+      ],
+      "section": "Separate IL2/High requirements, compatibility matrix and September 15 v2 release row",
+      "productVersionEnvironment": "ACS API v2; Cloud 10.6; regulated endpoints; Classic/Victoria",
+      "verifiedAt": "2026-10-22",
+      "outcome": "verified-unchanged",
+      "qualification": "Separate endpoints remain; both exclude token/setup/login and limits UI. High excludes CMC maintenance visibility and maintenance operations. Service support is not authorization.",
+      "urls": [
+        "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.6/using-the-admin-config-service-acs--api/admin-config-service-acs-requirements-and-compatibility-matrix",
+        "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/admin-configuration-service",
+        "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.6/administer-splunk-cloud-platform-using-the-admin-config-service-acs-api/manage-maintenance-windows-for-splunk-cloud-platform"
+      ]
+    },
+    {
+      "claimId": "es-attack-commercial",
+      "sourceIds": [
+        "es"
+      ],
+      "section": "Premier regional table, sa-east-1 row",
+      "productVersionEnvironment": "ES 8.7 Premier; AWS São Paulo commercial",
+      "verifiedAt": "2026-10-22",
+      "outcome": "corrected-canonical-omission",
+      "qualification": "Source lists Attack Analyzer among exceptions for sa-east-1; canonical es-attack-commercial omitted this region. Add only exact 8.7/edition/region scope; no launch date inferred.",
+      "urls": [
+        "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/compatibility-and-regional-availability"
+      ]
+    },
+    {
+      "claimId": "es-hybrid-gov",
+      "sourceIds": [
+        "es"
+      ],
+      "section": "Splunk Enterprise Security paired with SOAR matrix, Cloud 8.5+ row",
+      "productVersionEnvironment": "ES 8.7 guide; Cloud ES to customer-managed SOAR; IL5 vs Moderate/High",
+      "verifiedAt": "2026-10-22",
+      "outcome": "corrected-to-qualified-unknown",
+      "qualification": "No blanket Moderate/High exclusion is established by the ES 8.7 or 8.8 hybrid tables or SOAR Moderate restricted guide. Explicit IL5 prohibition retained; pairing, certificates, entitlement and authorization remain independent.",
+      "urls": [
+        "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/compatibility-and-regional-availability"
+      ]
+    },
+    {
+      "claimId": "agent-observability-regions",
+      "sourceIds": [
+        "o11y",
+        "agentSaas"
+      ],
+      "section": "Available components; SaaS region table; jp0 exception",
+      "productVersionEnvironment": "Agent Observability SaaS, AWS us0/us1/eu0/au0/jp0; Google Cloud us2",
+      "verifiedAt": "2026-10-22",
+      "outcome": "verified-unchanged",
+      "qualification": "Five AWS realms remain listed; Google Cloud none; Luna-3 excluded in jp0. Access is separately confirmed. Other AWS realms remain unknown, with no inherited FedRAMP authorization.",
+      "urls": [
+        "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
+        "https://agent-observability-docs.splunk.com/saas/overview"
+      ]
+    },
+    {
+      "claimId": "platform-ai-high-unknown",
+      "sourceIds": [
+        "assistantInstall"
+      ],
+      "section": "FedRAMP deployments and supported regions",
+      "productVersionEnvironment": "AI Assistant 2.2 guide, version 2.0.0+, IL2 and GovCloud region rows",
+      "verifiedAt": "2026-10-22",
+      "outcome": "qualified-unknown-preserved",
+      "qualification": "Limited IL2 support excludes Agent Mode, defaults training off and fixes Splunk-hosted runtime. Commercial lead-in conflicts with GovCloud rows. Broader Moderate/High availability and authorization remain unestablished.",
+      "urls": [
+        "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.2.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers"
+      ]
+    },
+    {
+      "claimId": "marketplace-scopes",
+      "productVersionEnvironment": "Exact F1607197917 Moderate and FR2314156865 High offerings",
+      "url": "https://www.fedramp.gov/marketplace/products/F1607197917/",
+      "section": "Certified Services and certification profile",
+      "verifiedAt": "2026-10-22",
+      "outcome": "verified-unchanged",
+      "qualification": "The exact service lists remain distinct. High does not name SOAR; absence is not an exclusion. No edition, feature, entitlement or customer authorization inferred."
+    },
+    {
+      "claimId": "public-sector-matrix",
+      "productVersionEnvironment": "February 2026 US Public Sector matrix",
+      "url": "https://www.splunk.com/en_us/about-splunk/splunk-data-security-and-privacy/compliance-at-splunk.html",
+      "section": "Header, symbols, legend and priority product rows",
+      "verifiedAt": "2026-10-22",
+      "outcome": "visually-verified-unchanged",
+      "qualification": "Column order and legends read before interpreting cells. Matrix remains dated February; blanks unknown; product audit scope is independent from operation support."
+    },
+    {
+      "claimId": "soar-restricted-moderate",
+      "productVersionEnvironment": "SOAR Cloud FR-M AWS GovCloud",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/administer-soar-cloud/introduction-to-splunk-soar-cloud/splunk-soar-cloud-in-restricted-environments",
+      "section": "Hosting, FIPS, Playbooks, Automation isolation, Restoring data",
+      "verifiedAt": "2026-10-22",
+      "outcome": "verified-unchanged",
+      "qualification": "GovCloud hosting, required FIPS for service and brokers, playbook restrictions and no migration of native Cloud/on-prem data remain; no High inheritance."
+    },
+    {
+      "claimId": "soar-service-date-discrepancy",
+      "productVersionEnvironment": "SOAR Cloud 8.7.0 current service description",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/soar-cloud-service-description/the-splunk-soar-service/splunk-soar-cloud-introduction",
+      "section": "Current SOAR Cloud version",
+      "verifiedAt": "2026-10-22",
+      "outcome": "resolved-in-current-source",
+      "qualification": "Both supported-version prose and table now state September 2026. Historical April label preserved in prior audits. No correction date or exact customer rollout inferred."
+    },
+    {
+      "claimId": "es88-current-regional-discovery",
+      "productVersionEnvironment": "ES 8.8 Controlled Availability guide",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "Premier and Cloud Connect regional tables; SOAR compatibility",
+      "verifiedAt": "2026-10-22",
+      "outcome": "verified-bounded-current-scope",
+      "qualification": "8.8 corroborates São Paulo Premier exception and explicit IL5-only exclusion. Its Cloud Connect component list and exception table are distinct; those claims need separate version/deployment qualification before broad integration."
+    }
+  ],
+  "discovery": [
+    {
+      "claimId": "cloud-service-changelog-abp",
+      "sourceIds": [
+        "changes",
+        "service"
+      ],
+      "section": "October 21, 2026 entry; Activity-based pricing sections",
+      "effectiveAt": "2026-10-21",
+      "checkedAt": "2026-10-22",
+      "outcome": "new-source-signal",
+      "qualification": "New change-log entry describes Cloud Activity Based Pricing for relevant 10.6 versions. No regional/authorization change established. Coordinate shared commercial fact with Release/ES watches; avoid commercial commitment.",
+      "urls": [
+        "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log",
+        "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details"
+      ]
+    },
+    {
+      "claimId": "es-regional-8.8",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "checkedAt": "2026-10-22",
+      "outcome": "web-unavailable-browser-rendered",
+      "qualification": "Web retrieval failed; root independently rendered the exact 8.8 guide and verified its scoped regional/Cloud Connect and pairing tables. Both access observations retained; current-version findings are recorded separately."
+    },
+    {
+      "claimId": "es-premier-uae-disruption",
+      "sourceIds": [
+        "es"
+      ],
+      "section": "Premier regional table, me-central-1 row",
+      "productVersionEnvironment": "ES 8.7 Premier; AWS UAE commercial",
+      "checkedAt": "2026-10-22",
+      "outcome": "scoped-source-note",
+      "qualification": "Source notes AWS services disrupted. Not a global region unavailability claim; no start/end dates established. Keep bounded follow-up if adding UI context.",
+      "urls": [
+        "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/compatibility-and-regional-availability"
+      ]
+    },
+    {
+      "claimId": "compatibility:es:8.8:enterprise",
+      "sourceIds": [
+        "productCompatibility"
+      ],
+      "section": "Enterprise 10.x table, 10.2.x and 10.4.x rows; separate 10.6.1 footnote",
+      "productVersionEnvironment": "Customer-deployed ES 8.8 on Enterprise; Cloud scope independent",
+      "verifiedAt": "2026-10-22",
+      "outcome": "new-exact-matrix-evidence-for-release-watch",
+      "qualification": "The table now explicitly lists ES 8.8 with Enterprise 10.2.x and 10.4.x. The 10.6.1 row separately states all ES 8.4.x+ compatible with Enterprise 10.6.1.1+. This does not establish ES–SOAR pairing, Cloud rollout or authorization. Coordinate Release Watch; today's earlier 'no 8.8 row' note is stale against this fresh body.",
+      "urls": [
+        "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix"
+      ]
+    },
+    {
+      "claimId": "compatibility:itsi:5.0:cloud",
+      "sourceIds": [
+        "itsiRelatedApps",
+        "service"
+      ],
+      "section": "ITSI 5.0.x KV Store/KV Service support; current Cloud premium-app versions",
+      "productVersionEnvironment": "ITSI 5.0.x; Cloud KV Store 10.2–10.6 versus KV Service 10.5–10.6",
+      "verifiedAt": "2026-10-22",
+      "outcome": "verified-unchanged",
+      "qualification": "Cloud KV Store and KV Service rows remain distinct; cohosted KV1 migration caution is Enterprise-specific. Related integration prerequisites do not confer entitlement, regional coverage or authorization.",
+      "urls": [
+        "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/install-and-upgrade/5.0/planning/itsi-compatibility-with-related-apps-and-add-ons",
+        "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details"
+      ]
+    }
+  ],
+  "backlog": [
+    {
+      "priority": 1,
+      "claimId": "s3-moderate-and-high-conflicts",
+      "owner": "CSP FedRAMP Watch",
+      "status": "open-rechecked",
+      "nextAction": "Seek authoritative scope reconciliation across regional table, third-party section and versioned April 8 log; retain both sources.",
+      "reviewBy": "2026-10-23"
+    },
+    {
+      "priority": 1,
+      "claimId": "soar-high-scope",
+      "owner": "CSP FedRAMP Watch",
+      "status": "not_established",
+      "nextAction": "Require affirmative exact SOAR High offering/feature evidence; absence is not exclusion.",
+      "reviewBy": "2026-10-23"
+    },
+    {
+      "priority": 1,
+      "claimId": "platform-ai-high-unknown",
+      "owner": "CSP FedRAMP Watch",
+      "status": "qualified-unknown",
+      "nextAction": "Reconcile limited IL2 and GovCloud rows with commercial lead-in and exact authorization.",
+      "reviewBy": "2026-10-23"
+    },
+    {
+      "priority": 1,
+      "claimId": "compatibility:es:8.8:enterprise",
+      "owner": "Release Watch and ES Editions Watch",
+      "status": "new-source-signal",
+      "nextAction": "Reconcile current exact ES 8.8 host rows and separate 10.6.1.1+ footnote with today's earlier no-row snapshot; no Cloud/SOAR inference.",
+      "reviewBy": "2026-10-23"
+    },
+    {
+      "priority": 2,
+      "claimId": "es88-cloud-connect-regions",
+      "owner": "CSP FedRAMP Watch with ES Editions Watch",
+      "status": "bounded-follow-up",
+      "nextAction": "Map 8.8 Cloud Connect component-specific table separately from Premier native table, preserving 8.7 history and CA scope.",
+      "reviewBy": "2026-10-23"
+    },
+    {
+      "priority": 2,
+      "claimId": "cloud-service-changelog-abp",
+      "owner": "Release Watch and ES Editions Watch",
+      "status": "new-source-signal",
+      "nextAction": "Review October 21 Cloud ABP entry without inferring universal eligibility or regulated rollout.",
+      "reviewBy": "2026-10-23"
+    },
+    {
+      "priority": 2,
+      "claimId": "soar-service-date-discrepancy",
+      "owner": "CSP FedRAMP Watch",
+      "status": "resolved",
+      "nextAction": "Keep historical observation and current September table separate; no further date inference.",
+      "resolvedAt": "2026-10-22"
+    }
+  ],
+  "impact": {
+    "canonical": "Two corrected ES 8.7 environment rows, exact changed-source annotations and resolved SOAR service-date source/backlog. Other record claim dates retained.",
+    "environmentRecords": 70,
+    "cycleBefore": 28,
+    "cycleAfter": 29,
+    "newAgentTools": false,
+    "privacyOrAudienceChange": false,
+    "routeContractChanged": false,
+    "exportInventory": "Added São Paulo edition and FR-M/FR-H hybrid routes in both themes; existing current/legacy/shared/invalid routes retained."
+  },
+  "validation": {
+    "automated": {
+      "outcome": "passed",
+      "checks": 4,
+      "nodeTests": 205,
+      "failed": 0,
+      "skipped": 0,
+      "buildAssets": 57,
+      "checkedAt": "2026-10-22",
+      "qualification": "Ordered syncs and all four --check gates, full Node suite and production build passed; exact CI/export/live outcomes remain separate."
+    },
+    "browser": {
+      "outcome": "passed-bounded-preview",
+      "checkedAt": "2026-10-22",
+      "detail": "Actual default-theme São Paulo edition page, Premier Attack Analyzer source dialog and keyboard search (1 of 20), Cisco High ES route and complete evidence table preserved IL5 exclusion and not-established Moderate/High pairing. Full native route/theme/export checks pending exact CI."
+    },
+    "exports": "pending",
+    "visualReview": "pending",
+    "live": "pending"
+  },
+  "publication": null,
+  "findings": [
+    {
+      "id": "csp-cisco-pdf-table-fragment-background",
+      "observed": "Previously recorded white blank table-fragment area in Cisco GCP PDF",
+      "impact": "Presentation only; complete report content and exports remain functional.",
+      "severity": "minor",
+      "reversible": true,
+      "affectedFunctionWorks": true,
+      "trackingIssue": "docs/audits/2026-10-21-csp-fedramp-watch.json#csp-cisco-pdf-table-fragment-background",
+      "owner": "CSP FedRAMP Watch",
+      "nextAction": "Reproduce and repair the scoped print fragment background, then check both themes.",
+      "validation": "Existing exact native export/text and bounded page evidence; current candidate artifact inspection is recorded separately.",
+      "reviewBy": "2026-10-23T20:00:00Z",
+      "resolved": false
+    }
+  ]
+}

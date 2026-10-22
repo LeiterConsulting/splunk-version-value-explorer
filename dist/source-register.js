@@ -1840,7 +1840,7 @@ window.VersionCompassSources = {
         "environment: environment.records.32"
       ],
       "reviews": [
-        "2026-10-10"
+        "2026-10-22"
       ],
       "conflict": true,
       "usage": "In use",
@@ -2949,11 +2949,13 @@ window.VersionCompassSources = {
       "title": "ES 8.7 regional availability",
       "areas": [
         "Cloud environment",
-        "ES editions"
+        "ES editions",
+        "Shared guidance"
       ],
       "references": [
         "environment.sources.es.url",
         "editions.sources.regions.u",
+        "content-updates.js",
         "environment: environment.records.38",
         "environment: environment.records.39",
         "environment: environment.records.40",
@@ -2973,7 +2975,7 @@ window.VersionCompassSources = {
         "editions: editions.notes.1"
       ],
       "reviews": [
-        "2026-10-10",
+        "2026-10-22",
         "2026-10-01"
       ],
       "usage": "In use",
@@ -5499,14 +5501,14 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.restricted.url",
-        "soar: soar.backlog.2"
+        "soar: soar.backlog.3"
       ],
       "reviews": [
         "2026-10-10"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.backlog.2",
+          "path": "soar: soar.backlog.3",
           "section": "FedRAMP Moderate: Hosting, FIPS mode, Playbooks, Automation isolation, Restoring data"
         }
       ],
@@ -5599,12 +5601,12 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.cloudKnown.url",
-        "soar: soar.backlog.0"
+        "soar: soar.backlog.1"
       ],
       "reviews": [],
       "claimReferences": [
         {
-          "path": "soar: soar.backlog.0",
+          "path": "soar: soar.backlog.1",
           "section": "September 3 heading for 8.7 differs from September 2 GA notes; fetched current section has no issue rows"
         }
       ],
@@ -5714,13 +5716,22 @@ window.VersionCompassSources = {
       "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/soar-cloud-service-description/the-splunk-soar-service/splunk-soar-cloud-introduction",
       "title": "SOAR Cloud service description",
       "areas": [
-        "Splunk SOAR"
+        "Splunk SOAR",
+        "Shared guidance"
       ],
       "references": [
-        "soar.sources.regions.url"
+        "soar.sources.regions.url",
+        "content-updates.js",
+        "soar: soar.backlog.0"
       ],
       "reviews": [
-        "2026-10-10"
+        "2026-10-22"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.backlog.0",
+          "section": "Available regions; supported versions. The current-version prose and table both state September 2026 for 8.7.0; the previously observed April label is retained in historical audits."
+        }
       ],
       "usage": "In use",
       "reviewed": "2026-10-02",
@@ -5987,7 +5998,7 @@ window.VersionCompassSources = {
       "references": [
         "soar.sources.prepare.url",
         "soar: soar.records.14",
-        "soar: soar.backlog.3"
+        "soar: soar.backlog.4"
       ],
       "reviews": [
         "2026-10-01"
@@ -5998,7 +6009,7 @@ window.VersionCompassSources = {
           "section": "Upgrade overview checklist; prerequisites; privileged conversion and important changes"
         },
         {
-          "path": "soar: soar.backlog.3",
+          "path": "soar: soar.backlog.4",
           "section": "Upgrade overview checklist; prerequisites; privileged conversion and important changes"
         }
       ],
@@ -6034,14 +6045,14 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.path87.url",
-        "soar: soar.backlog.3"
+        "soar: soar.backlog.4"
       ],
       "reviews": [
         "2026-10-01"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.backlog.3",
+          "path": "soar: soar.backlog.4",
           "section": "Upgrade path table: starting versions 5.0.1–6.1.0, 6.2.1–6.4.1, 7.0.x and higher; OS and PostgreSQL conditions"
         }
       ],
@@ -6247,12 +6258,12 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.fixed.url",
-        "soar: soar.backlog.0"
+        "soar: soar.backlog.1"
       ],
       "reviews": [],
       "claimReferences": [
         {
-          "path": "soar: soar.backlog.0",
+          "path": "soar: soar.backlog.1",
           "section": "Release 8.7.0: fetched body contains no issue rows"
         }
       ],
@@ -6284,12 +6295,12 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.known.url",
-        "soar: soar.backlog.0"
+        "soar: soar.backlog.1"
       ],
       "reviews": [],
       "claimReferences": [
         {
-          "path": "soar: soar.backlog.0",
+          "path": "soar: soar.backlog.1",
           "section": "Release 8.7.0: fetched body contains no issue rows"
         }
       ],
@@ -6389,7 +6400,7 @@ window.VersionCompassSources = {
         "content-updates.js",
         "soar: soar.records.17",
         "soar: soar.records.18",
-        "soar: soar.backlog.1"
+        "soar: soar.backlog.2"
       ],
       "reviews": [
         "2026-10-15"
@@ -6404,7 +6415,7 @@ window.VersionCompassSources = {
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
         },
         {
-          "path": "soar: soar.backlog.1",
+          "path": "soar: soar.backlog.2",
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
         }
       ],
@@ -6440,7 +6451,7 @@ window.VersionCompassSources = {
         "content-updates.js",
         "soar: soar.records.17",
         "soar: soar.records.18",
-        "soar: soar.backlog.1"
+        "soar: soar.backlog.2"
       ],
       "reviews": [
         "2026-10-15"
@@ -6455,7 +6466,7 @@ window.VersionCompassSources = {
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
         },
         {
-          "path": "soar: soar.backlog.1",
+          "path": "soar: soar.backlog.2",
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
         }
       ],
@@ -7000,7 +7011,7 @@ window.VersionCompassSources = {
         "environment: environment.records.7",
         "environment: environment.records.11",
         "environment: environment.records.13",
-        "soar: soar.backlog.2"
+        "soar: soar.backlog.3"
       ],
       "reviews": [
         "2026-10-10",
@@ -7008,7 +7019,7 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.backlog.2",
+          "path": "soar: soar.backlog.3",
           "section": "Phase, Status, Certification Profile and Certified Services; SOAR is not named in the current list, and absence is not an exclusion claim"
         }
       ],

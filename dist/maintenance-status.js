@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-10-21T13:16:18Z",
-      "lastSuccess": "2026-10-21T13:23:13Z",
+      "lastAttempt": "2026-10-22T11:51:50Z",
+      "lastSuccess": "2026-10-22T12:01:34.045497Z",
       "outcome": "changed",
-      "summary": "Reviewed current CSP/FedRAMP sources; added scoped Agent Observability realms and qualified limited AI Assistant IL2 evidence. Candidate publication pending validation.",
+      "summary": "Corrected São Paulo Premier Attack Analyzer scope and unsupported regulated hybrid exclusion; resolved current SOAR service-date discrepancy.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -231,9 +231,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Reviewed current CSP/FedRAMP sources; added scoped Agent Observability realms and qualified limited AI Assistant IL2 evidence. Candidate publication pending validation.",
           "scope": "13 environment sources, two SOAR sources, two discovered guides; 11 existing consequential claims plus regional AI qualifications. LastSuccess is review scope, not deployment."
+        },
+        {
+          "at": "2026-10-22T11:51:50Z",
+          "outcome": "running",
+          "summary": "Reviewing current regional, restricted-environment and offering evidence from synchronized GitHub/Sites source.",
+          "scope": "15 environment sources, two CSP-owned SOAR sources, current compatibility discovery and bounded consequential claims."
+        },
+        {
+          "at": "2026-10-22T12:01:34.045497Z",
+          "outcome": "changed",
+          "summary": "Corrected São Paulo Premier Attack Analyzer scope and unsupported regulated hybrid exclusion; resolved current SOAR service-date discrepancy.",
+          "scope": "20 exact official URLs, 13 bounded consequential claim groups; historical verification not exhaustive. Scope review complete; candidate validation and publication recorded separately."
         }
       ],
-      "scope": "13 environment sources, two SOAR sources, two discovered guides; 11 existing consequential claims plus regional AI qualifications. LastSuccess is review scope, not deployment."
+      "scope": "20 exact official URLs, 13 bounded consequential claim groups; historical verification not exhaustive. Scope review complete; candidate validation and publication recorded separately."
     },
     {
       "id": "version-release-watch",

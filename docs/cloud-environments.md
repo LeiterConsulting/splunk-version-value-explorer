@@ -59,3 +59,9 @@ Automated tests exercise filter intersections, source references, uncertainty, m
 Agent Observability uses its own current SaaS table: us0, us1, eu0, au0 and jp0, with access confirmed separately. The table explicitly lists no Google Cloud region; general APM coverage must not be inherited. Luna-3 is unavailable in jp0 even though the Agent Observability service is listed there. Unlisted AWS realms remain unknown. Neither the table nor Platform authorization establishes Agent Observability FedRAMP authorization or a historical rollout date.
 
 The AI Assistant 2.2 installation guide adds limited IL2 support evidence for 2.0.0 and higher, with Agent Mode excluded, training/fine-tuning off by default and Splunk-hosted runtime only. Its commercial-stack introduction and GovCloud table rows require scope reconciliation; the stable regulated unknown record retains that question and does not assert universal Moderate or High coverage.
+
+## October 22 regional correction
+
+The ES 8.7 Premier regional table's Attack Analyzer exceptions include São Paulo (`sa-east-1`). The maintained record now includes that omitted region and names the Premier table scope explicitly. The newer 8.8 Controlled Availability guide corroborates that row, but its distinct Cloud Connect component table is not retroactively applied to the 8.7 record.
+
+The ES hybrid pairing table prohibits Splunk Cloud IL5 pairing. It does not establish a blanket Moderate/High exclusion. The existing regulated record therefore reports **not established**, retaining the IL5 restriction, exact-version pairing, certificate, entitlement and authorization qualifications. This correction grants no regulated pairing permission.

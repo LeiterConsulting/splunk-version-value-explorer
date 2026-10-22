@@ -1,7 +1,7 @@
 /* Generated from content/datasets/environment.json. Edit the JSON source, not this adapter. */
 window.VersionCompassEnvironmentData = {
   "schemaVersion": 1,
-  "checked": "2026-10-10",
+  "checked": "2026-10-22",
   "providers": {
     "aws": "AWS",
     "azure": "Microsoft Azure",
@@ -213,8 +213,8 @@ window.VersionCompassEnvironmentData = {
       "title": "Cloud service description change log",
       "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log",
       "published": "2026-10-06",
-      "scope": "October 6, 2026 entry: Available regions and region differences; Search; Subscription Types; Supported Version. Individual entries retain their own effective dates.",
-      "checked": "2026-10-10"
+      "scope": "October 21, 2026 entry adds Cloud Activity Based Pricing across service-description sections for relevant Cloud 10.6 versions; October 6 regional/search/subscription history and April 8 version-scoped S3 guidance remain separate. Individual effective dates do not establish regional rollout, entitlement or authorization.",
+      "checked": "2026-10-22"
     },
     "acs": {
       "title": "Admin Config Service requirements and compatibility matrix",
@@ -242,7 +242,7 @@ window.VersionCompassEnvironmentData = {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
       "published": "2026-09-01",
       "scope": "ES 8.7; page modification date",
-      "checked": "2026-10-10"
+      "checked": "2026-10-22"
     },
     "compliance": {
       "title": "Splunk compliance scope matrix",
@@ -1425,18 +1425,19 @@ window.VersionCompassEnvironmentData = {
         "ap-southeast-3",
         "eu-south-1",
         "eu-west-1",
-        "eu-west-3"
+        "eu-west-3",
+        "sa-east-1"
       ],
       "regimes": [
         "commercial"
       ],
       "availability": "unavailable",
       "authorization": "not_established",
-      "detail": "ES 8.7 regional exception; edition scope also applies.",
+      "detail": "The ES 8.7 Premier regional table lists Attack Analyzer exceptions in these regions, including São Paulo (sa-east-1). This is the Premier table's component scope; it does not establish another edition, Cloud Connect component scope or historical rollout.",
       "sources": [
         "es"
       ],
-      "checked": "2026-10-06",
+      "checked": "2026-10-22",
       "scope": "Current service guidance; not a historical availability guarantee",
       "release": "8.7"
     },
@@ -1579,14 +1580,14 @@ window.VersionCompassEnvironmentData = {
         "fr-m",
         "fr-h"
       ],
-      "availability": "unavailable",
+      "availability": "not_established",
       "authorization": "not_established",
-      "detail": "Cloud ES to on-premises SOAR pairing is excluded.",
+      "detail": "The ES 8.7 pairing table explicitly excludes hybrid pairing for Splunk Cloud IL5 environments. That IL5 restriction does not establish a blanket FedRAMP Moderate or High prohibition or permission. The selected regulated pairing remains unestablished; exact ES/SOAR versions, deployment, certificates, entitlement and customer authorization require separate evidence.",
       "sources": [
         "es"
       ],
-      "checked": "2026-10-06",
-      "scope": "Current service guidance; not a historical availability guarantee",
+      "checked": "2026-10-22",
+      "scope": "ES 8.7 hybrid pairing: explicit IL5 exclusion; Moderate and High pairing scope not established by this source",
       "release": "8.7"
     },
     {

@@ -1,17 +1,17 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-399b70f8466bcf6e891acb8b",
-    "digest": "7ef547097b5be7012d09aa116235a0c6ba14bc62c414e55c66c0e925bc45ed80",
+    "revision": "content-25af631fca2b345756c3e064",
+    "digest": "920bfa58bd7a6f6cd1fe813e83490dc4de6fe15cfb0af55cdc9843203ec4aa7f",
     "engineRevision": "engine-c592759053b5ed0f660f",
     "datasetHashes": {
       "platform": "a835e0f22bf2103a276428417d2eb79cd122e9f9e3278527df231c964709516d",
       "products": "38f05b6c9e12d085aa8f8adb6786672f3b6c856c64d7c0c48ee7762b7a0ae10b",
       "guidance": "be06c342badd972803db834a8a076733052762475cac82b060187911d9c7a19b",
-      "environment": "a4908537873030e9e9e82240779d683f9e19efd63beee15af34e8559a80881c7",
+      "environment": "a13eaf16bdda683bf736834638c3f119dc262deb193b9d18d4dbd511ca9e0e33",
       "editions": "c27283bb3676c7bc2435a93016988db0a7f809a8611761c5d038cdd57996710d",
       "forwarders": "aed3325f88c39c8b2ec892836ff06f3fb5e3a5ed7d39dfc4232bd8ee6875d7f1",
-      "soar": "b3e0721f3c10ec6cbaabdb096cba46217cae0ab9c1276e326dbd9fa2a01fdeac"
+      "soar": "ef42fa66bde1e762a794a2414ddcb91f80bde3fd34ed32260329009c5fa03109"
     },
     "recordCount": 814,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
@@ -5060,7 +5060,7 @@
     },
     "VersionCompassEnvironmentData": {
       "schemaVersion": 1,
-      "checked": "2026-10-10",
+      "checked": "2026-10-22",
       "providers": {
         "aws": "AWS",
         "azure": "Microsoft Azure",
@@ -5272,8 +5272,8 @@
           "title": "Cloud service description change log",
           "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log",
           "published": "2026-10-06",
-          "scope": "October 6, 2026 entry: Available regions and region differences; Search; Subscription Types; Supported Version. Individual entries retain their own effective dates.",
-          "checked": "2026-10-10"
+          "scope": "October 21, 2026 entry adds Cloud Activity Based Pricing across service-description sections for relevant Cloud 10.6 versions; October 6 regional/search/subscription history and April 8 version-scoped S3 guidance remain separate. Individual effective dates do not establish regional rollout, entitlement or authorization.",
+          "checked": "2026-10-22"
         },
         "acs": {
           "title": "Admin Config Service requirements and compatibility matrix",
@@ -5301,7 +5301,7 @@
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
           "published": "2026-09-01",
           "scope": "ES 8.7; page modification date",
-          "checked": "2026-10-10"
+          "checked": "2026-10-22"
         },
         "compliance": {
           "title": "Splunk compliance scope matrix",
@@ -6484,18 +6484,19 @@
             "ap-southeast-3",
             "eu-south-1",
             "eu-west-1",
-            "eu-west-3"
+            "eu-west-3",
+            "sa-east-1"
           ],
           "regimes": [
             "commercial"
           ],
           "availability": "unavailable",
           "authorization": "not_established",
-          "detail": "ES 8.7 regional exception; edition scope also applies.",
+          "detail": "The ES 8.7 Premier regional table lists Attack Analyzer exceptions in these regions, including São Paulo (sa-east-1). This is the Premier table's component scope; it does not establish another edition, Cloud Connect component scope or historical rollout.",
           "sources": [
             "es"
           ],
-          "checked": "2026-10-06",
+          "checked": "2026-10-22",
           "scope": "Current service guidance; not a historical availability guarantee",
           "release": "8.7"
         },
@@ -6638,14 +6639,14 @@
             "fr-m",
             "fr-h"
           ],
-          "availability": "unavailable",
+          "availability": "not_established",
           "authorization": "not_established",
-          "detail": "Cloud ES to on-premises SOAR pairing is excluded.",
+          "detail": "The ES 8.7 pairing table explicitly excludes hybrid pairing for Splunk Cloud IL5 environments. That IL5 restriction does not establish a blanket FedRAMP Moderate or High prohibition or permission. The selected regulated pairing remains unestablished; exact ES/SOAR versions, deployment, certificates, entitlement and customer authorization require separate evidence.",
           "sources": [
             "es"
           ],
-          "checked": "2026-10-06",
-          "scope": "Current service guidance; not a historical availability guarantee",
+          "checked": "2026-10-22",
+          "scope": "ES 8.7 hybrid pairing: explicit IL5 exclusion; Moderate and High pairing scope not established by this source",
           "release": "8.7"
         },
         {
@@ -8552,10 +8553,10 @@
         "regions": {
           "title": "SOAR Cloud service description",
           "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/soar-cloud-service-description/the-splunk-soar-service/splunk-soar-cloud-introduction",
-          "section": "Available regions; supported versions. The current-version table retains an inconsistent April date label.",
-          "checked": "2026-10-10",
-          "reviewed": "2026-10-10",
-          "outcome": "conflicting"
+          "section": "Available regions; supported versions. The current-version prose and table both state September 2026 for 8.7.0; the previously observed April label is retained in historical audits.",
+          "checked": "2026-10-22",
+          "reviewed": "2026-10-22",
+          "outcome": "confirmed"
         },
         "restricted": {
           "title": "SOAR Cloud restricted environments",
@@ -9150,6 +9151,17 @@
         "8.7.0"
       ],
       "backlog": [
+        {
+          "id": "service-date-discrepancy",
+          "priority": 2,
+          "status": "resolved",
+          "question": "Current SOAR Cloud 8.7.0 service prose and table now both state September 2026. The former April table label remains historical evidence, without an inferred correction date or tenant rollout date.",
+          "src": [
+            "regions"
+          ],
+          "resolvedAt": "2026-10-22",
+          "evidence": "docs/audits/2026-10-22-csp-fedramp-watch.json"
+        },
         {
           "id": "issue-table-rows",
           "priority": 1,
