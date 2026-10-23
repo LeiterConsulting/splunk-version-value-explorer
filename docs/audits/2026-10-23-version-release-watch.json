@@ -1,0 +1,56 @@
+{
+  "watch": "version-release-watch",
+  "maintenanceId": "version-release-watch",
+  "date": "2026-10-23",
+  "sourceOutcome": "docs/audits/2026-10-23-version-release-watch-sources.json",
+  "scope": [
+    "Complete maintained official source inventory and current release discovery",
+    "October 21 Enterprise and SOAR advisory-specific affected ranges, fixed floors and conditional actions",
+    "Cloud 10.6.2.0 and customer-managed Observability chart 0.163.1 scope boundaries",
+    "Forwarder security inheritance and two historical Heavy Forwarder mappings",
+    "Current, legacy, shared and invalid links; keyboard, both themes, native PDF, saved HTML and read-only WebMCP parity"
+  ],
+  "changes": [
+    "Replaced the Enterprise advance notice with SVD-2026-1007, -1008 and -1009 and exact fixed floors 9.4.16, 10.0.11, 10.2.8 and 10.4.4.",
+    "Kept Edge Processor package-download authentication and restart remediation conditional on the documented 10.0, 10.2 and 10.4 component path.",
+    "Scoped the Enterprise advisory to Heavy Forwarders using the Enterprise package without transferring it to Universal Forwarders or Cloud service state.",
+    "Replaced the SOAR advance notice with SVD-2026-1010, -1011 and -1012: versions below 8.7.0 are affected and 8.7.0 is fixed for the on-premises advisory scope.",
+    "Advanced the published Cloud maintenance record to 10.6.2.0 without claiming selected-stack rollout, customer-managed package status, entitlement or authorization.",
+    "Advanced the customer-managed Kubernetes chart to 0.163.1 with its exact tagged Collector, Operator, Target Allocator and OBI package versions.",
+    "Reverified the 10.2 Unix service-identity and 10.4 KV Store TLS-precedence Heavy Forwarder mappings; eight older mapping dates remain unchanged.",
+    "Advanced the shared material cycle once from 30 to 31 and retained the prior cycle's badges."
+  ],
+  "preservedUnknowns": [
+    "Selected-stack rollout of Splunk Cloud Platform 10.6.2.0",
+    "Whether Cloud service maintenance establishes any customer-managed package fix",
+    "SOAR Cloud tenant remediation status or an exact corrected tenant build",
+    "Any newer SOAR server release beyond the maintained 8.7 evidence",
+    "Cloud entitlement, region and FedRAMP authorization",
+    "Facts behind the seven source bodies unavailable during this run"
+  ],
+  "validation": {
+    "candidate": "GitHub commit df73c9750bf96c9e3694dafc37a61f0671f69ae7; tree 0878535d87f5de38b2a1f35b96687a65c84e106b.",
+    "generatedChecks": "sync-release-metadata, sync-content, sync-source-register and sync-content-revision ran in the required order; all four --check gates passed.",
+    "nodeTests": "206 passed; 0 failed.",
+    "build": "57 assets; content-f1e232dacbf13815d9b0bea3; engine-070af73d0f8574fe1518; 831 records; 195 sources.",
+    "nativeExportEvidence": "GitHub Actions run 39933627544, job 120347706734 succeeded for the exact candidate. Artifact 12493306240 has GitHub and independently downloaded SHA-256 5ba24c2fc192bfa7ee341cbaab006c951dc2bda3972c6debb15607fc46f325f3 and report-input fingerprint 940befbb73cf6537b789e260cc6b1f1b0b337c2fcc9cc1d845e565df71c120d8. scripts/export-evidence.cjs and check-soak.cjs --exports passed: 86 route/theme cases, 72 native PDFs, 1,567 automatically rendered and checked pages, 72 independently reopened offline HTML reports, and both-theme phone checks.",
+    "visualReview": "Separate retained-image inspection covered affected Enterprise, Cloud, SOAR, Forwarder and Observability routes. No new clipping or content loss was found. The pre-existing Cisco-theme Observability PDF can leave the CUSTOMER-MANAGED COLLECTION label at the bottom of page 15 while its record starts on page 16. Content and export remain complete. Owner: Version Release Watch. Next action: add a scoped keep-with-content rule and recheck both native PDF themes. Review deadline: 2026-10-26.",
+    "liveBrowser": "The exact Enterprise 10.0 to 10.2 route, dated Enterprise 8.2 to 9.4 route, anchored shared Prep for 11.x route, exact SOAR 6.4.1 to 8.7.0 route, legacy SOAR Cloud 8.6.0 to 8.7.0 route and duplicate-from invalid SOAR route passed on production. Tab navigation reached Copy and Print in order. The invalid route retained the original URL, displayed 'Repeated from selection', hid the report and disabled both exports.",
+    "webmcp": "The live current-report tool returned the selected Enterprise route with the 10.2.8 fixed floor and all three advisory sources. The same read-only tool rejected the invalid SOAR link without exposing a substitute report.",
+    "liveDelivery": "At 2026-10-23T09:57:14.588Z all six checks passed against real D1, the exact manifest, independently hashed bundle, bounded SOAR query, 405 public-write guard and seven complete fallback adapters. Eight checked live application assets matched the source byte for byte."
+  },
+  "publication": {
+    "github": "df73c9750bf96c9e3694dafc37a61f0671f69ae7",
+    "site": "source 4861970884f3b13f1eba82274c7cce4a7851f21a; version 193; deployment appgdep_6adb2f35b9c4819191b064a416f67a50",
+    "liveRevision": "content-f1e232dacbf13815d9b0bea3; engine-070af73d0f8574fe1518; 831 records",
+    "publisher": "GitHub Actions run 39934869808 attempt 1 was rejected before activation because the prior Site engine was still live. After version 193 deployed, attempt 2 job 120354766137 succeeded. The later audit-receipt publication is documentation-only and uses identical report inputs and the same verified archive."
+  },
+  "backlog": [
+    {"priority":1,"item":"Continue semantic verification of the eight older borrowed Heavy Forwarder mappings."},
+    {"priority":2,"item":"Recheck the seven unavailable source bodies without changing historical claim dates from retrieval alone."},
+    {"priority":3,"item":"Monitor SOAR current-version discovery and Cloud tenant remediation separately from the on-premises 8.7.0 fixed floor."},
+    {"priority":4,"item":"Keep the Cisco-theme Observability CUSTOMER-MANAGED COLLECTION label with its following PDF record; recheck by 2026-10-26."},
+    {"priority":5,"item":"Coordinate ES 8.8 pairing, issue-table and regional evidence with the owning watches without inferring missing rows."}
+  ],
+  "recordsReceiptQualification": "This audit is a documentation-only follow-up to the exact verified report candidate. Publishing it does not change report code, canonical data, the content revision, source or claim dates, or the material cycle."
+}
