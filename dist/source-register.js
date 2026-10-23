@@ -242,18 +242,9 @@ window.VersionCompassSources = {
       "url": "https://advisory.splunk.com/advisories/SVD-2026-1001",
       "title": "SVD 2026 1001",
       "areas": [
-        "Release guide",
         "Shared guidance"
       ],
       "references": [
-        "release.enterprise.releasesData.9.4.technicalChanges.1.source",
-        "release.enterprise.releasesData.9.4.requirements.0.3",
-        "release.enterprise.releasesData.10.0.technicalChanges.1.source",
-        "release.enterprise.releasesData.10.0.requirements.0.3",
-        "release.enterprise.releasesData.10.2.technicalChanges.1.source",
-        "release.enterprise.releasesData.10.2.requirements.0.3",
-        "release.enterprise.releasesData.10.4.technicalChanges.1.source",
-        "release.enterprise.releasesData.10.4.requirements.0.3",
         "content-updates.js"
       ],
       "reviews": [],
@@ -275,36 +266,17 @@ window.VersionCompassSources = {
     },
     {
       "url": "https://advisory.splunk.com/advisories/SVD-2026-1006",
-      "title": "SVD 2026 1006",
+      "title": "October 21 advisory advance notice",
       "areas": [
-        "Release guide",
-        "Splunk Forwarders",
         "Splunk SOAR",
         "Shared guidance"
       ],
       "references": [
-        "release.enterprise.releasesData.9.4.technicalChanges.0.source",
-        "release.enterprise.releasesData.10.0.technicalChanges.0.source",
-        "release.enterprise.releasesData.10.2.technicalChanges.0.source",
-        "release.enterprise.releasesData.10.4.technicalChanges.0.source",
-        "forwarders.sources.securityNotice.url",
         "soar.sources.securityNotice.url",
-        "content-updates.js",
-        "forwarders: forwarders.claimSources.security.advance-notice",
-        "soar: soar.records.0"
+        "content-updates.js"
       ],
       "reviews": [
-        "2026-10-15"
-      ],
-      "claimReferences": [
-        {
-          "path": "forwarders: forwarders.claimSources.security.advance-notice",
-          "section": "Description; Enterprise and Universal Forwarder version lists; preparation recommendation"
-        },
-        {
-          "path": "soar: soar.records.0",
-          "section": "Description; SOAR 8.7.0 entry; preparation recommendation; deployment and exact build not specified"
-        }
+        "2026-10-23"
       ],
       "usage": "In use",
       "reviewed": "2026-10-17",
@@ -323,6 +295,227 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-17",
           "event": "Review status updated: Reviewed · 2026-10-17"
+        }
+      ]
+    },
+    {
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1007",
+      "title": "SVD 2026 1007",
+      "areas": [
+        "Release guide",
+        "Splunk Forwarders",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.enterprise.releasesData.9.4.technicalChanges.0.source",
+        "release.enterprise.releasesData.9.4.technicalChanges.3.source",
+        "release.enterprise.releasesData.9.4.requirements.0.3",
+        "release.enterprise.releasesData.10.0.technicalChanges.0.source",
+        "release.enterprise.releasesData.10.0.technicalChanges.3.source",
+        "release.enterprise.releasesData.10.0.requirements.0.3",
+        "release.enterprise.releasesData.10.2.technicalChanges.0.source",
+        "release.enterprise.releasesData.10.2.technicalChanges.3.source",
+        "release.enterprise.releasesData.10.2.requirements.0.3",
+        "release.enterprise.releasesData.10.4.technicalChanges.0.source",
+        "release.enterprise.releasesData.10.4.technicalChanges.3.source",
+        "release.enterprise.releasesData.10.4.technicalChanges.4.source",
+        "release.enterprise.releasesData.10.4.requirements.0.3",
+        "release.enterprise.releasesData.10.4.requirements.1.3",
+        "forwarders.sources.securityOctober.url",
+        "content-updates.js",
+        "forwarders: forwarders.claimSources.security.enterprise-october"
+      ],
+      "reviews": [
+        "2026-10-23"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.security.enterprise-october",
+          "section": "Solutions; Product Status; CVE-2026-76290 additional post-upgrade action"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-23",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-23",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-23",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1008",
+      "title": "SVD 2026 1008",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.enterprise.releasesData.9.4.technicalChanges.1.source",
+        "release.enterprise.releasesData.10.0.technicalChanges.1.source",
+        "release.enterprise.releasesData.10.2.technicalChanges.1.source",
+        "release.enterprise.releasesData.10.4.technicalChanges.1.source",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-10-23",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-23",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1009",
+      "title": "SVD 2026 1009",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.enterprise.releasesData.9.4.technicalChanges.2.source",
+        "release.enterprise.releasesData.10.0.technicalChanges.2.source",
+        "release.enterprise.releasesData.10.2.technicalChanges.2.source",
+        "release.enterprise.releasesData.10.4.technicalChanges.2.source",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-10-23",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-23",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1010",
+      "title": "SOAR October 2026 security vulnerabilities",
+      "areas": [
+        "Splunk SOAR",
+        "Shared guidance"
+      ],
+      "references": [
+        "soar.sources.securityOctober.url",
+        "content-updates.js",
+        "soar: soar.records.0"
+      ],
+      "reviews": [
+        "2026-10-23"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.0",
+          "section": "Description; Solutions; Product Status; CVE details"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-23",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-23",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-23",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1011",
+      "title": "SOAR October 2026 security hardening",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.securityHardeningOctober.url",
+        "soar: soar.records.0"
+      ],
+      "reviews": [
+        "2026-10-23"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.0",
+          "section": "Description; Solutions; Product Status"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-23",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-23",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-23",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1012",
+      "title": "SOAR October 2026 third-party package fixes",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.packagesOctober.url",
+        "soar: soar.records.0"
+      ],
+      "reviews": [
+        "2026-10-23"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.0",
+          "section": "Description; Solutions; Product Status; package table and Python-version qualifications"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-23",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-23",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-23",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },
@@ -428,7 +621,7 @@ window.VersionCompassSources = {
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.0.source"
       ],
       "reviews": [],
-      "usage": "In use",
+      "usage": "Retired",
       "reviewed": "2026-10-20",
       "status": "Reviewed",
       "firstRecorded": "2026-10-20",
@@ -441,6 +634,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-20",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-23",
+          "event": "No longer cited in the maintained datasets"
         }
       ]
     },
@@ -466,6 +663,32 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-10-20",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/signalfx/splunk-otel-collector-chart/blob/splunk-otel-collector-0.163.1/helm-charts/splunk-otel-collector/Chart.yaml",
+      "title": "Chart.yaml",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.0.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-10-23",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-23",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -600,7 +823,7 @@ window.VersionCompassSources = {
         "release.productTracks.observability.releasesData.Oct 2026.features.4.5"
       ],
       "reviews": [],
-      "usage": "In use",
+      "usage": "Retired",
       "reviewed": "2026-10-20",
       "status": "Reviewed",
       "firstRecorded": "2026-10-20",
@@ -612,6 +835,36 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-10-20",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-23",
+          "event": "No longer cited in the maintained datasets"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.163.1",
+      "title": "splunk otel collector 0.163.1",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Oct 2026.features.4.5"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-10-23",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-23",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -3456,9 +3709,9 @@ window.VersionCompassSources = {
         "Splunk Forwarders"
       ],
       "references": [
-        "release.enterprise.releasesData.10.0.technicalChanges.2.source",
-        "release.enterprise.releasesData.10.0.technicalChanges.3.source",
         "release.enterprise.releasesData.10.0.technicalChanges.4.source",
+        "release.enterprise.releasesData.10.0.technicalChanges.5.source",
+        "release.enterprise.releasesData.10.0.technicalChanges.6.source",
         "release.enterprise.releasesData.10.0.requirements.1.3",
         "release.enterprise.releasesData.10.0.requirements.2.3",
         "release.enterprise.releasesData.10.0.requirements.3.3",
@@ -3523,11 +3776,11 @@ window.VersionCompassSources = {
         "Splunk Forwarders"
       ],
       "references": [
-        "release.enterprise.releasesData.10.2.technicalChanges.2.source",
-        "release.enterprise.releasesData.10.2.technicalChanges.3.source",
         "release.enterprise.releasesData.10.2.technicalChanges.4.source",
         "release.enterprise.releasesData.10.2.technicalChanges.5.source",
         "release.enterprise.releasesData.10.2.technicalChanges.6.source",
+        "release.enterprise.releasesData.10.2.technicalChanges.7.source",
+        "release.enterprise.releasesData.10.2.technicalChanges.8.source",
         "release.enterprise.releasesData.10.2.requirements.1.3",
         "release.enterprise.releasesData.10.2.requirements.2.3",
         "release.enterprise.releasesData.10.2.requirements.3.3",
@@ -3650,12 +3903,12 @@ window.VersionCompassSources = {
         "Splunk Forwarders"
       ],
       "references": [
-        "release.enterprise.releasesData.10.4.technicalChanges.4.source",
-        "release.enterprise.releasesData.10.4.technicalChanges.5.source",
         "release.enterprise.releasesData.10.4.technicalChanges.6.source",
+        "release.enterprise.releasesData.10.4.technicalChanges.7.source",
         "release.enterprise.releasesData.10.4.technicalChanges.8.source",
-        "release.enterprise.releasesData.10.4.technicalChanges.9.source",
         "release.enterprise.releasesData.10.4.technicalChanges.10.source",
+        "release.enterprise.releasesData.10.4.technicalChanges.11.source",
+        "release.enterprise.releasesData.10.4.technicalChanges.12.source",
         "release.enterprise.releasesData.10.4.requirements.2.3",
         "release.enterprise.releasesData.10.4.requirements.3.3",
         "release.enterprise.releasesData.10.4.requirements.4.3",
@@ -3928,10 +4181,10 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.enterprise.releasesData.9.4.technicalChanges.2.source",
-        "release.enterprise.releasesData.9.4.technicalChanges.3.source",
         "release.enterprise.releasesData.9.4.technicalChanges.4.source",
         "release.enterprise.releasesData.9.4.technicalChanges.5.source",
+        "release.enterprise.releasesData.9.4.technicalChanges.6.source",
+        "release.enterprise.releasesData.9.4.technicalChanges.7.source",
         "release.enterprise.releasesData.9.4.requirements.1.3",
         "release.enterprise.releasesData.9.4.requirements.2.3"
       ],
@@ -4402,10 +4655,8 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.enterprise.releasesData.10.4.source",
-        "release.enterprise.releasesData.10.4.technicalChanges.2.source",
-        "release.enterprise.releasesData.10.4.technicalChanges.3.source",
-        "release.enterprise.releasesData.10.4.technicalChanges.7.source",
-        "release.enterprise.releasesData.10.4.requirements.1.3",
+        "release.enterprise.releasesData.10.4.technicalChanges.5.source",
+        "release.enterprise.releasesData.10.4.technicalChanges.9.source",
         "forwarders.sources.maintenance.url",
         "content-updates.js",
         "forwarders: forwarders.claimSources.maintenance.10.4",

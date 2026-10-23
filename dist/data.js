@@ -482,26 +482,48 @@ window.SPLUNK_DATA = {
         ],
         "technicalChanges": [
           {
-            "component": "October 21 security advisory advance notice",
+            "component": "October 21 Enterprise security advisories",
             "domain": "Security & maintenance",
-            "changeType": "Advance notice",
+            "changeType": "Definitive advisories published",
             "actionLevel": "Review",
-            "from": "Published October 7 advisory floors remain separately applicable",
-            "to": "October 21, 2026 planned disclosure; Enterprise 9.4.16 named in the October 14 notice",
-            "implication": "The October 16 clarification states that the listed versions are fix versions, not affected versions. This is still an advance publication notice, not disclosed CVE detail, an affected-version range, or a universal safe-patch guarantee. It does not establish Cloud rollout or authorization.",
-            "action": "Review the installed maintenance build and prepare the listed 9.4.16 or a later available version using its own upgrade and compatibility evidence. Recheck the definitive advisories on October 21; preserve existing vulnerability-specific actions.",
-            "source": "https://advisory.splunk.com/advisories/SVD-2026-1006"
+            "from": "The October 14 advance notice named 9.4.16 without CVE or affected-version detail",
+            "to": "SVD-2026-1007, -1008 and -1009 publish the October 21 vulnerability, hardening and third-party package fixes; 9.4.16 is the fixed 9.4 version",
+            "implication": "The definitive advisories establish affected versions and a Critical 9.9 hardening issue. They apply to customer-managed Splunk Enterprise and do not establish Splunk Cloud rollout, entitlement, region or authorization.",
+            "action": "Upgrade maintained 9.4 deployments to 9.4.16 or later and review all three October 21 advisories for applicable component and package remediation.",
+            "source": "https://advisory.splunk.com/advisories/SVD-2026-1007"
+          },
+          {
+            "component": "October 21 Enterprise security hardening",
+            "domain": "Security & maintenance",
+            "changeType": "Hardening fix published",
+            "actionLevel": "Review",
+            "from": "Splunk Enterprise 9.4.0 through 9.4.15",
+            "to": "9.4.16 or later",
+            "implication": "SVD-2026-1008 rates the disclosed hardening issue Critical, CVSS 9.9. This customer-managed Enterprise floor does not establish Cloud service remediation.",
+            "action": "Upgrade maintained 9.4 deployments to 9.4.16 or later and retain the advisory in the security review record.",
+            "source": "https://advisory.splunk.com/advisories/SVD-2026-1008"
+          },
+          {
+            "component": "October 21 Enterprise third-party package fixes",
+            "domain": "Security & maintenance",
+            "changeType": "Packages updated",
+            "actionLevel": "Review",
+            "from": "Splunk Enterprise 9.4.0 through 9.4.15",
+            "to": "9.4.16 or later with the SVD-2026-1009 package updates",
+            "implication": "The package advisory has component-specific applicability; it is not evidence for Cloud rollout or an independently installed package outside the listed Enterprise distribution.",
+            "action": "Upgrade the affected Enterprise package and verify the advisory's applicable dependency rows in the deployment inventory.",
+            "source": "https://advisory.splunk.com/advisories/SVD-2026-1009"
           },
           {
             "component": "Enterprise 9.4 October security floor",
             "domain": "Security & maintenance",
             "changeType": "Minimum fixed version established",
             "actionLevel": "Required",
-            "from": "Splunk Enterprise 9.4.0 through 9.4.14",
-            "to": "9.4.15 is the October advisory floor; 9.4.16 is the newer published maintenance release",
-            "implication": "The October security advisories identify affected 9.4 maintenance releases and include vulnerability-specific additional remediation. Selecting the 9.4 line alone does not establish a safe patch.",
-            "action": "Target 9.4.16 for maintained 9.4 deployments, review every applicable October advisory for its additional steps, and validate the exact maintenance build before rollout.",
-            "source": "https://advisory.splunk.com/advisories/SVD-2026-1001"
+            "from": "Splunk Enterprise 9.4.0 through 9.4.15",
+            "to": "9.4.16 is the October 21 fixed version",
+            "implication": "The October 21 Enterprise advisories supersede the earlier 9.4.15 floor and include vulnerability-, hardening- and package-specific remediation. Selecting the 9.4 line alone does not establish a safe patch.",
+            "action": "Upgrade maintained 9.4 deployments to 9.4.16 or later, review SVD-2026-1007, -1008 and -1009, and validate the exact maintenance build before rollout.",
+            "source": "https://advisory.splunk.com/advisories/SVD-2026-1007"
           },
           {
             "component": "KV Store",
@@ -550,10 +572,10 @@ window.SPLUNK_DATA = {
         ],
         "requirements": [
           [
-            "Reach the October 9.4 security floor",
-            "Splunk identifies 9.4.0 through 9.4.14 as affected and 9.4.15 as the advisory floor. Use the newer 9.4.16 maintenance release where staying on 9.4, and complete any vulnerability-specific remediation in the advisories.",
+            "Reach the October 21 9.4 security floor",
+            "Splunk identifies 9.4.0 through 9.4.15 as affected and 9.4.16 as the fixed version. Upgrade to 9.4.16 or later and complete the applicable vulnerability, hardening and third-party package remediation in SVD-2026-1007, -1008 and -1009.",
             "Blocker",
-            "https://advisory.splunk.com/advisories/SVD-2026-1001",
+            "https://advisory.splunk.com/advisories/SVD-2026-1007",
             true
           ],
           [
@@ -609,26 +631,48 @@ window.SPLUNK_DATA = {
         ],
         "technicalChanges": [
           {
-            "component": "October 21 security advisory advance notice",
+            "component": "October 21 Enterprise security advisories",
             "domain": "Security & maintenance",
-            "changeType": "Advance notice",
+            "changeType": "Definitive advisories published",
             "actionLevel": "Review",
-            "from": "Published October 7 advisory floors remain separately applicable",
-            "to": "October 21, 2026 planned disclosure; Enterprise 10.0.11 named in the October 14 notice",
-            "implication": "The October 16 clarification states that the listed versions are fix versions, not affected versions. This is still an advance publication notice, not disclosed CVE detail, an affected-version range, or a universal safe-patch guarantee. It does not establish Cloud rollout or authorization.",
-            "action": "Review the installed maintenance build and prepare the listed 10.0.11 or a later available version using its own upgrade and compatibility evidence. Recheck the definitive advisories on October 21; preserve existing vulnerability-specific actions.",
-            "source": "https://advisory.splunk.com/advisories/SVD-2026-1006"
+            "from": "The October 14 advance notice named 10.0.11 without CVE or affected-version detail",
+            "to": "SVD-2026-1007, -1008 and -1009 publish the October 21 vulnerability, hardening and third-party package fixes; 10.0.11 is the fixed 10.0 version",
+            "implication": "The definitive advisories establish affected versions and a Critical 9.9 hardening issue. They apply to customer-managed Splunk Enterprise and do not establish Splunk Cloud rollout, entitlement, region or authorization.",
+            "action": "Upgrade maintained 10.0 deployments to 10.0.11 or later; if Edge Processor package downloads are used, prepare existing instances, enable package-download authentication and restart Splunk Enterprise after upgrade. Review all three advisories for other applicable remediation.",
+            "source": "https://advisory.splunk.com/advisories/SVD-2026-1007"
+          },
+          {
+            "component": "October 21 Enterprise security hardening",
+            "domain": "Security & maintenance",
+            "changeType": "Hardening fix published",
+            "actionLevel": "Review",
+            "from": "Splunk Enterprise 10.0.0 through 10.0.10",
+            "to": "10.0.11 or later",
+            "implication": "SVD-2026-1008 rates the disclosed hardening issue Critical, CVSS 9.9. This customer-managed Enterprise floor does not establish Cloud service remediation.",
+            "action": "Upgrade maintained 10.0 deployments to 10.0.11 or later and retain the advisory in the security review record.",
+            "source": "https://advisory.splunk.com/advisories/SVD-2026-1008"
+          },
+          {
+            "component": "October 21 Enterprise third-party package fixes",
+            "domain": "Security & maintenance",
+            "changeType": "Packages updated",
+            "actionLevel": "Review",
+            "from": "Splunk Enterprise 10.0.0 through 10.0.10",
+            "to": "10.0.11 or later with the SVD-2026-1009 package updates",
+            "implication": "The package advisory has component-specific applicability; it is not evidence for Cloud rollout or an independently installed package outside the listed Enterprise distribution.",
+            "action": "Upgrade the affected Enterprise package and verify the advisory's applicable dependency rows in the deployment inventory.",
+            "source": "https://advisory.splunk.com/advisories/SVD-2026-1009"
           },
           {
             "component": "Enterprise 10.0 October security floor",
             "domain": "Security & maintenance",
             "changeType": "Minimum fixed version established",
             "actionLevel": "Required",
-            "from": "Splunk Enterprise 10.0.0 through 10.0.9",
-            "to": "10.0.10 is the October advisory floor and current published maintenance release",
-            "implication": "The October security advisories identify every earlier 10.0 maintenance release as affected and include vulnerability-specific additional remediation.",
-            "action": "Upgrade maintained 10.0 deployments to 10.0.10 or later, review every applicable October advisory, and complete the named configuration or restart steps rather than treating the binary update as universally sufficient.",
-            "source": "https://advisory.splunk.com/advisories/SVD-2026-1001"
+            "from": "Splunk Enterprise 10.0.0 through 10.0.10",
+            "to": "10.0.11 is the October 21 fixed version",
+            "implication": "The October 21 Enterprise advisories supersede the earlier 10.0.10 floor and include vulnerability-, hardening- and package-specific remediation.",
+            "action": "Upgrade maintained 10.0 deployments to 10.0.11 or later, review SVD-2026-1007, -1008 and -1009, and complete the named component configuration and restart steps.",
+            "source": "https://advisory.splunk.com/advisories/SVD-2026-1007"
           },
           {
             "component": "Python application runtime",
@@ -666,10 +710,10 @@ window.SPLUNK_DATA = {
         ],
         "requirements": [
           [
-            "Reach Enterprise 10.0.10 for the October advisories",
-            "Splunk identifies 10.0.0 through 10.0.9 as affected. Upgrade to 10.0.10 or later and complete the vulnerability-specific remediation published with the applicable advisories.",
+            "Reach Enterprise 10.0.11 for the October 21 advisories",
+            "Splunk identifies 10.0.0 through 10.0.10 as affected. Upgrade to 10.0.11 or later and complete applicable component-specific remediation, including the documented Edge Processor package-download authentication and restart sequence when that path is used.",
             "Blocker",
-            "https://advisory.splunk.com/advisories/SVD-2026-1001",
+            "https://advisory.splunk.com/advisories/SVD-2026-1007",
             true
           ],
           [
@@ -732,26 +776,48 @@ window.SPLUNK_DATA = {
         ],
         "technicalChanges": [
           {
-            "component": "October 21 security advisory advance notice",
+            "component": "October 21 Enterprise security advisories",
             "domain": "Security & maintenance",
-            "changeType": "Advance notice",
+            "changeType": "Definitive advisories published",
             "actionLevel": "Review",
-            "from": "Published October 7 advisory floors remain separately applicable",
-            "to": "October 21, 2026 planned disclosure; Enterprise 10.2.8 named in the October 14 notice",
-            "implication": "The October 16 clarification states that the listed versions are fix versions, not affected versions. This is still an advance publication notice, not disclosed CVE detail, an affected-version range, or a universal safe-patch guarantee. It does not establish Cloud rollout or authorization.",
-            "action": "Review the installed maintenance build and prepare the listed 10.2.8 or a later available version using its own upgrade and compatibility evidence. Recheck the definitive advisories on October 21; preserve existing vulnerability-specific actions.",
-            "source": "https://advisory.splunk.com/advisories/SVD-2026-1006"
+            "from": "The October 14 advance notice named 10.2.8 without CVE or affected-version detail",
+            "to": "SVD-2026-1007, -1008 and -1009 publish the October 21 vulnerability, hardening and third-party package fixes; 10.2.8 is the fixed 10.2 version",
+            "implication": "The definitive advisories establish affected versions and a Critical 9.9 hardening issue. They apply to customer-managed Splunk Enterprise and do not establish Splunk Cloud rollout, entitlement, region or authorization.",
+            "action": "Upgrade maintained 10.2 deployments to 10.2.8 or later; if Edge Processor package downloads are used, prepare existing instances, enable package-download authentication and restart Splunk Enterprise after upgrade. Review all three advisories for other applicable remediation.",
+            "source": "https://advisory.splunk.com/advisories/SVD-2026-1007"
+          },
+          {
+            "component": "October 21 Enterprise security hardening",
+            "domain": "Security & maintenance",
+            "changeType": "Hardening fix published",
+            "actionLevel": "Review",
+            "from": "Splunk Enterprise 10.2.0 through 10.2.7",
+            "to": "10.2.8 or later",
+            "implication": "SVD-2026-1008 rates the disclosed hardening issue Critical, CVSS 9.9. This customer-managed Enterprise floor does not establish Cloud service remediation.",
+            "action": "Upgrade maintained 10.2 deployments to 10.2.8 or later and retain the advisory in the security review record.",
+            "source": "https://advisory.splunk.com/advisories/SVD-2026-1008"
+          },
+          {
+            "component": "October 21 Enterprise third-party package fixes",
+            "domain": "Security & maintenance",
+            "changeType": "Packages updated",
+            "actionLevel": "Review",
+            "from": "Splunk Enterprise 10.2.0 through 10.2.7",
+            "to": "10.2.8 or later with the SVD-2026-1009 package updates",
+            "implication": "The package advisory has component-specific applicability; it is not evidence for Cloud rollout or an independently installed package outside the listed Enterprise distribution.",
+            "action": "Upgrade the affected Enterprise package and verify the advisory's applicable dependency rows in the deployment inventory.",
+            "source": "https://advisory.splunk.com/advisories/SVD-2026-1009"
           },
           {
             "component": "Enterprise 10.2 October security floor",
             "domain": "Security & maintenance",
             "changeType": "Minimum fixed version established",
             "actionLevel": "Required",
-            "from": "Splunk Enterprise 10.2.0 through 10.2.6",
-            "to": "10.2.7 is the October advisory floor and current published maintenance release",
-            "implication": "The October security advisories identify every earlier 10.2 maintenance release as affected and include vulnerability-specific additional remediation.",
-            "action": "Upgrade maintained 10.2 deployments to 10.2.7 or later, review every applicable October advisory, and complete the named configuration or restart steps.",
-            "source": "https://advisory.splunk.com/advisories/SVD-2026-1001"
+            "from": "Splunk Enterprise 10.2.0 through 10.2.7",
+            "to": "10.2.8 is the October 21 fixed version",
+            "implication": "The October 21 Enterprise advisories supersede the earlier 10.2.7 floor and include vulnerability-, hardening- and package-specific remediation.",
+            "action": "Upgrade maintained 10.2 deployments to 10.2.8 or later, review SVD-2026-1007, -1008 and -1009, and complete the named component configuration and restart steps.",
+            "source": "https://advisory.splunk.com/advisories/SVD-2026-1007"
           },
           {
             "component": "Python runtimes",
@@ -811,10 +877,10 @@ window.SPLUNK_DATA = {
         ],
         "requirements": [
           [
-            "Reach Enterprise 10.2.7 for the October advisories",
-            "Splunk identifies 10.2.0 through 10.2.6 as affected. Upgrade to 10.2.7 or later and complete the vulnerability-specific remediation published with the applicable advisories.",
+            "Reach Enterprise 10.2.8 for the October 21 advisories",
+            "Splunk identifies 10.2.0 through 10.2.7 as affected. Upgrade to 10.2.8 or later and complete applicable component-specific remediation, including the documented Edge Processor package-download authentication and restart sequence when that path is used.",
             "Blocker",
-            "https://advisory.splunk.com/advisories/SVD-2026-1001",
+            "https://advisory.splunk.com/advisories/SVD-2026-1007",
             true
           ],
           [
@@ -895,26 +961,48 @@ window.SPLUNK_DATA = {
         ],
         "technicalChanges": [
           {
-            "component": "October 21 security advisory advance notice",
+            "component": "October 21 Enterprise security advisories",
             "domain": "Security & maintenance",
-            "changeType": "Advance notice",
+            "changeType": "Definitive advisories published",
             "actionLevel": "Review",
-            "from": "Published October 7 advisory floors remain separately applicable",
-            "to": "October 21, 2026 planned disclosure; Enterprise 10.4.4 named in the October 14 notice",
-            "implication": "The October 16 clarification states that the listed versions are fix versions, not affected versions. This is still an advance publication notice, not disclosed CVE detail, an affected-version range, or a universal safe-patch guarantee. It does not establish Cloud rollout or authorization.",
-            "action": "Review the installed maintenance build and prepare the listed 10.4.4 or a later available version using its own upgrade and compatibility evidence. Recheck the definitive advisories on October 21; preserve existing vulnerability-specific actions.",
-            "source": "https://advisory.splunk.com/advisories/SVD-2026-1006"
+            "from": "The October 14 advance notice named 10.4.4 without CVE or affected-version detail",
+            "to": "SVD-2026-1007, -1008 and -1009 publish the October 21 vulnerability, hardening and third-party package fixes; 10.4.4 is the fixed 10.4 version",
+            "implication": "The definitive advisories establish affected versions and a Critical 9.9 hardening issue. They apply to customer-managed Splunk Enterprise and do not establish Splunk Cloud rollout, entitlement, region or authorization.",
+            "action": "Upgrade maintained 10.4 deployments to 10.4.4 or later; if Edge Processor package downloads are used, prepare existing instances, enable package-download authentication and restart Splunk Enterprise after upgrade. Review all three advisories for other applicable remediation.",
+            "source": "https://advisory.splunk.com/advisories/SVD-2026-1007"
+          },
+          {
+            "component": "October 21 Enterprise security hardening",
+            "domain": "Security & maintenance",
+            "changeType": "Hardening fix published",
+            "actionLevel": "Review",
+            "from": "Splunk Enterprise 10.4.0 through 10.4.3",
+            "to": "10.4.4 or later",
+            "implication": "SVD-2026-1008 rates the disclosed hardening issue Critical, CVSS 9.9. This customer-managed Enterprise floor does not establish Cloud service remediation.",
+            "action": "Upgrade maintained 10.4 deployments to 10.4.4 or later and retain the advisory in the security review record.",
+            "source": "https://advisory.splunk.com/advisories/SVD-2026-1008"
+          },
+          {
+            "component": "October 21 Enterprise third-party package fixes",
+            "domain": "Security & maintenance",
+            "changeType": "Packages updated",
+            "actionLevel": "Review",
+            "from": "Splunk Enterprise 10.4.0 through 10.4.3",
+            "to": "10.4.4 or later with the SVD-2026-1009 package updates",
+            "implication": "The package advisory has component-specific applicability; it is not evidence for Cloud rollout or an independently installed package outside the listed Enterprise distribution.",
+            "action": "Upgrade the affected Enterprise package and verify the advisory's applicable dependency rows in the deployment inventory.",
+            "source": "https://advisory.splunk.com/advisories/SVD-2026-1009"
           },
           {
             "component": "Enterprise 10.4 October security floor",
             "domain": "Security & maintenance",
             "changeType": "Minimum fixed version established",
             "actionLevel": "Required",
-            "from": "Splunk Enterprise 10.4.0 through 10.4.2",
-            "to": "10.4.3 is the October advisory floor; 10.4.4 remains the current published maintenance target",
-            "implication": "The October security advisories independently reinforce the existing 10.4.3 minimum and include vulnerability-specific additional remediation.",
-            "action": "Target 10.4.4 for new work, never use 10.4.2, and review every applicable October advisory for required configuration enforcement, restart, or component-specific action.",
-            "source": "https://advisory.splunk.com/advisories/SVD-2026-1001"
+            "from": "Splunk Enterprise 10.4.0 through 10.4.3",
+            "to": "10.4.4 is the October 21 fixed version and current published maintenance target",
+            "implication": "The October 21 Enterprise advisories supersede the earlier 10.4.3 floor and include vulnerability-, hardening- and package-specific remediation.",
+            "action": "Target 10.4.4 or later, never use 10.4.2, review SVD-2026-1007, -1008 and -1009, and complete required component configuration and restart steps.",
+            "source": "https://advisory.splunk.com/advisories/SVD-2026-1007"
           },
           {
             "component": "Enterprise 10.4 maintenance target",
@@ -922,10 +1010,10 @@ window.SPLUNK_DATA = {
             "changeType": "Maintenance target updated",
             "actionLevel": "Required",
             "from": "Splunk Enterprise 10.4.2",
-            "to": "Splunk Enterprise 10.4.4 current maintenance release; 10.4.3 remains the documented minimum",
-            "implication": "Splunk published 10.4.4 on September 29, 2026. Version 10.4.2 can block tcpout forwarding pipelines when acknowledgements are enabled on a receiving heavy forwarder or indexer; the 10.4.3-or-higher floor remains in effect.",
-            "action": "Target 10.4.4 for new upgrade work. Do not use 10.4.2; if rollout timing constrains the target, treat 10.4.3 as the minimum and validate acknowledged forwarding before production rollout.",
-            "source": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4"
+            "to": "Splunk Enterprise 10.4.4 is the current maintenance release and October 21 fixed version",
+            "implication": "Version 10.4.2 can block tcpout forwarding pipelines when acknowledgements are enabled, and the October 21 advisories now identify 10.4.0 through 10.4.3 as affected. The earlier 10.4.3 operational floor is no longer a security-safe fallback.",
+            "action": "Target 10.4.4 or later for new upgrade work, do not use 10.4.2, and validate acknowledged forwarding plus the applicable October advisory actions before production rollout.",
+            "source": "https://advisory.splunk.com/advisories/SVD-2026-1007"
           },
           {
             "component": "Python application runtime",
@@ -1018,17 +1106,17 @@ window.SPLUNK_DATA = {
         ],
         "requirements": [
           [
-            "Apply the October 10.4 security remediation",
-            "Splunk identifies 10.4.0 through 10.4.2 as affected and 10.4.3 as the advisory floor. Target 10.4.4 for current maintenance and complete the vulnerability-specific remediation in the October advisories.",
+            "Apply the October 21 10.4 security remediation",
+            "Splunk identifies 10.4.0 through 10.4.3 as affected and 10.4.4 as the fixed version. Upgrade to 10.4.4 or later and complete applicable component-specific remediation, including the documented Edge Processor package-download authentication and restart sequence when that path is used.",
             "Blocker",
-            "https://advisory.splunk.com/advisories/SVD-2026-1001",
+            "https://advisory.splunk.com/advisories/SVD-2026-1007",
             true
           ],
           [
             "Target Enterprise 10.4.4",
-            "Splunk Enterprise 10.4.4 is the current published maintenance release. Do not use 10.4.2 because tcpout with useACK=true can block forwarding pipelines; 10.4.3 remains the documented minimum if 10.4.4 cannot yet be adopted.",
+            "Splunk Enterprise 10.4.4 is the current published maintenance release and the October 21 fixed version. Do not use 10.4.2 because tcpout with useACK=true can block forwarding pipelines, and do not treat 10.4.3 as a security-safe fallback because SVD-2026-1007 identifies it as affected.",
             "Blocker",
-            "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4",
+            "https://advisory.splunk.com/advisories/SVD-2026-1007",
             true
           ],
           [
@@ -1889,9 +1977,9 @@ window.SPLUNK_DATA = {
             "changeType": "Maintenance release published",
             "actionLevel": "Review",
             "from": "Cloud 10.6 release-line guidance without a maintained exact patch record",
-            "to": "The Cloud maintenance feed lists 10.6.1.0, published October 9, 2026",
-            "implication": "The maintenance build includes stack-specific fixes for deployment reloads, CSV export, Universal Forwarder package shutdown, and certificate-request receiver crashes. Publication does not prove that a selected stack has received the build or that every listed issue applies to that stack.",
-            "action": "Confirm the selected stack's exact four-segment version before relying on a 10.6.1.0 fix, then retest the affected workflow after rollout.",
+            "to": "The Cloud maintenance feed lists 10.6.2.0, published October 20, 2026",
+            "implication": "The maintenance build lists 2 Critical, 21 High and 23 Medium security fixes plus stack-specific fixes, including SPL-312665 for tcpout with useACK=true pipeline blockage. Publication does not prove that a selected stack has received the build, that every listed issue applies, or that a customer-managed Enterprise or Forwarder package has the same fix.",
+            "action": "Confirm the selected stack's exact four-segment version before relying on a 10.6.2.0 fix, then retest the affected workflow after rollout.",
             "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information"
           },
           {
@@ -1950,8 +2038,8 @@ window.SPLUNK_DATA = {
             true
           ],
           [
-            "Confirm Cloud 10.6.1.0 before relying on its fixes",
-            "The maintenance feed lists 10.6.1.0 and its fixed issues, but Cloud rollout remains Splunk-managed and stack-specific. Verify the exact four-segment stack version and reproduce the affected workflow before closing an issue based on this release.",
+            "Confirm Cloud 10.6.2.0 before relying on its fixes",
+            "The maintenance feed lists 10.6.2.0 and its security/fixed-issue counts, including SPL-312665, but Cloud rollout remains Splunk-managed and stack-specific. Verify the exact four-segment stack version and reproduce the affected workflow before closing an issue based on this release; do not transfer the fix to customer-managed Enterprise or Forwarder packages.",
             "Validate",
             "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
             false

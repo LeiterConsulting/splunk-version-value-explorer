@@ -289,9 +289,9 @@ test('Enterprise 10.4 exposes the exact maintenance floor without becoming a Clo
   const enterprise = rt.run('compare_routes', { routes: [{ product: 'platform', platform: 'enterprise', from: '10.2', to: '10.4' }] }).reports[0];
   const maintenance = enterprise.technicalChanges.find(item => item.component === 'Enterprise 10.4 maintenance target');
   assert.equal(maintenance.from, 'Splunk Enterprise 10.4.2');
-  assert.match(maintenance.to, /10\.4\.4 current maintenance release/);
-  assert.match(maintenance.to, /10\.4\.3 remains the documented minimum/);
-  assert.match(maintenance.source, /welcome-to-splunk-enterprise-10\.4$/);
+  assert.match(maintenance.to, /10\.4\.4 is the current maintenance release and October 21 fixed version/);
+  assert.match(maintenance.implication, /10\.4\.3.*no longer a security-safe fallback/);
+  assert.match(maintenance.source, /SVD-2026-1007$/);
   assert(enterprise.breakingChanges.some(item => item.title === 'Target Enterprise 10.4.4' && item.breaking));
   const cloud = rt.run('compare_routes', { routes: [{ product: 'platform', platform: 'cloud', from: '10.4.2604', to: '10.5.2605' }] }).reports[0];
   assert(!cloud.technicalChanges.some(item => item.component === 'Enterprise 10.4 maintenance target'));
@@ -394,7 +394,7 @@ test('October Observability route preserves SaaS semantics and component release
   assert.equal(python.source, 'https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2');
   assert(report.technicalChanges.some(item => item.component === 'Python OpAMP client dependency' && item.to.includes('0.4b0')));
   for (const component of ['Collector 0.163.1 Light Prometheus Receiver removal', 'Collector 0.163.1 Splunk input authorization boundary', 'Collector 0.163.1 Go and CA security refresh']) assert(report.technicalChanges.some(item => item.component === component), component);
-  assert(report.breakingChanges.some(item => item.title === 'Patch and validate Collector 0.163.1' && item.detail.includes('Chart 0.163.0 remains on Collector 0.163.0')));
+  assert(report.breakingChanges.some(item => item.title === 'Patch and validate Collector 0.163.1' && item.detail.includes('Chart 0.163.1 now packages this patch')));
   const exclusions = report.technicalChanges.find(item => item.component === 'APM call graph package exclusions');
   assert.match(exclusions.from, /globally/);
   assert.match(exclusions.to, /individual applications/);
@@ -416,12 +416,12 @@ test('Collector 0.163 stays separate from the Kubernetes chart and retains scope
  assert(r.breakingChanges.some(t=>t.title==='Migrate removed Collector 0.163 configuration'&&t.breaking));
  const prior=rt.run('compare_routes',{routes:[{...route,from:'Jul 2026',to:'Sep 2026'}]}).reports[0];assert(!prior.features.some(t=>t.title.includes('0.163')));
 });
-test('chart 0.163 adoption preserves old tuples and conditional metric pipelines across UI and tools',async()=>{
+test('chart 0.163.1 adopts the Collector patch and preserves conditional metric pipelines across UI and tools',async()=>{
  const route={product:'observability',platform:'cloud',host:'10.6',from:'Sep 2026',to:'Oct 2026'},rt=await runtime({selection:route});
  const r=rt.run('compare_routes',{routes:[route]}).reports[0];
- const chart=r.features.find(x=>x.title==='Kubernetes chart 0.163.0');assert(chart);assert.match(chart.milestone,/October 19, 2026/);assert.match(chart.detail,/not a SaaS rollout/);
+ const chart=r.features.find(x=>x.title==='Kubernetes chart 0.163.1');assert(chart);assert.match(chart.milestone,/October 22, 2026/);assert.match(chart.detail,/Collector 0.163.1/);assert.match(chart.detail,/not a SaaS rollout/);
  assert.match(r.features.find(x=>x.title==='Kubernetes chart 0.162.1').detail,/Collector 0.162.0/);
- const pkg=r.technicalChanges.find(x=>x.component==='Kubernetes chart 0.163 package baseline');assert.match(pkg.from,/0.162.1.*0.162.0/);assert.match(pkg.to,/0.163.0.*0.163.0.*conditional Operator.*0.126.0.*0.161.1/);
+ const pkg=r.technicalChanges.find(x=>x.component==='Kubernetes chart 0.163 package baseline');assert.match(pkg.from,/0.163.0.*0.163.0.*0.126.0.*0.161.1/);assert.match(pkg.to,/0.163.1.*0.163.1.*0.126.1.*0.161.2.*0.15.2/);
  function checkHistogram(t){assert.match(t.to,/32-bucket/);assert.match(t.to,/useControlPlaneMetricsHistogramData and metrics enabled/);assert.match(t.to,/EKS.*enableEKSApiServerMetrics and Observability metrics enabled/);assert.match(t.implication,/non-EKS/);}
  const hist=r.technicalChanges.find(x=>x.component==='Kubernetes histogram bucket merging');checkHistogram(hist);
  assert.throws(()=>checkHistogram({...hist,to:'Every histogram is always merged to 32 buckets'}),/32-bucket/);

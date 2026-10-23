@@ -2150,12 +2150,12 @@
               "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1"
             ],
             [
-              "Kubernetes chart 0.163.0",
+              "Kubernetes chart 0.163.1",
               "Infrastructure & Kubernetes",
               "Adopt the Collector 0.163 baseline deliberately",
-              "Chart 0.163.0 packages Collector 0.163.0, enables persistent-volume metrics and adds conditional histogram bucket merging. Review the separate Collector migration controls and rendered chart configuration; this customer-managed component release is not a SaaS rollout.",
-              "Separately versioned Kubernetes chart · released October 19, 2026",
-              "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.163.0"
+              "Chart 0.163.1 packages Collector 0.163.1, Operator 0.126.1, Target Allocator 0.161.2 and OBI 0.15.2. Review the Collector security/input patch, the existing 0.163 migration controls and rendered chart configuration; this customer-managed component release is not a SaaS rollout.",
+              "Separately versioned Kubernetes chart · released October 22, 2026",
+              "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.163.1"
             ],
             [
               "Python instrumentation 2.13.2",
@@ -2169,7 +2169,7 @@
               "Collector 0.163 migration controls",
               "Telemetry & OpenTelemetry",
               "Preserve collection through breaking changes",
-              "Review removed Debian 11 support, receiver and feature-gate removals, TLS settings, metric/resource identity and chained redaction changes before adopting Collector 0.163.0. The older chart 0.162.1 packages Collector 0.162.0; chart 0.163.0 now adopts 0.163.0.",
+              "Review removed Debian 11 support, receiver and feature-gate removals, TLS settings, metric/resource identity and chained redaction changes before adopting Collector 0.163. Chart 0.163.1 now packages the 0.163.1 security/input patch; chart 0.162.1 remains on Collector 0.162.0.",
               "Separately versioned Collector · released October 16, 2026",
               "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0"
             ],
@@ -2177,7 +2177,7 @@
               "Collector 0.163.1 security and input patch",
               "Telemetry & OpenTelemetry",
               "Close the current Collector patch gap",
-              "Adopt the October 22 patch after validating removal of lightprometheus, the Splunk modular-input output path and index-authorization behavior. Chart 0.163.0 still packages Collector 0.163.0; this standalone patch is not a chart or SaaS rollout.",
+              "Adopt the October 22 patch after validating removal of lightprometheus, the Splunk modular-input output path and index-authorization behavior. Chart 0.163.1 packages this Collector patch; standalone and chart rollouts remain separately validated and neither establishes a SaaS rollout.",
               "Separately versioned Collector · released October 22, 2026",
               "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.1"
             ],
@@ -2228,11 +2228,11 @@
               "domain": "Customer-managed collection",
               "changeType": "Packaged versions updated",
               "actionLevel": "Review",
-              "from": "Chart 0.162.1 packages Collector 0.162.0",
-              "to": "Chart 0.163.0 packages Collector 0.163.0; conditional Operator dependency 0.126.0 and Target Allocator 0.161.1",
-              "implication": "Chart adoption now includes the separate Collector 0.163 breaking-change checks. Optional dependencies remain controlled by their enablement values.",
-              "action": "Review the rendered values, installed dependency versions and Collector migration controls before rolling workloads.",
-              "source": "https://github.com/signalfx/splunk-otel-collector-chart/blob/splunk-otel-collector-0.163.0/helm-charts/splunk-otel-collector/Chart.yaml"
+              "from": "Chart 0.163.0 packages Collector 0.163.0, Operator 0.126.0 and Target Allocator 0.161.1",
+              "to": "Chart 0.163.1 packages Collector 0.163.1, Operator 0.126.1, Target Allocator 0.161.2 and OBI 0.15.2",
+              "implication": "Chart adoption now includes both the Collector 0.163 migration controls and the 0.163.1 security/input patch. Optional dependencies remain controlled by their enablement values.",
+              "action": "Review the rendered values, installed dependency versions, Collector migration controls, trust chains and allowed/denied index behavior before rolling workloads.",
+              "source": "https://github.com/signalfx/splunk-otel-collector-chart/blob/splunk-otel-collector-0.163.1/helm-charts/splunk-otel-collector/Chart.yaml"
             },
             {
               "component": "Kubernetes persistent-volume metric defaults",
@@ -2540,14 +2540,14 @@
             ],
             [
               "Patch and validate Collector 0.163.1",
-              "Collector 0.163.1 removes lightprometheus, refreshes Go and CA certificates for CVE-2026-111943, and repairs Splunk input metadata and index-authorization behavior. Replace removed configuration and test allowed/denied index paths, trust chains and telemetry delivery. Chart 0.163.0 remains on Collector 0.163.0.",
+              "Collector 0.163.1 removes lightprometheus, refreshes Go and CA certificates for CVE-2026-111943, and repairs Splunk input metadata and index-authorization behavior. Replace removed configuration and test allowed/denied index paths, trust chains and telemetry delivery. Chart 0.163.1 now packages this patch; validate the exact standalone or chart rollout independently.",
               "Blocker",
               "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.1",
               true
             ],
             [
               "Enable and validate Kubernetes remote configuration deliberately",
-              "Use chart 0.162.1 or later and the documented OpAMP Bridge enablement, realm and access-token setup. Templates/groups can update ConfigMaps and roll workloads; verify permissions, scope and staged rollout. The older chart 0.162.1 packages Collector 0.162.0; use the separate chart 0.163.0 package evidence for adoption of Collector 0.163.",
+              "Use chart 0.162.1 or later and the documented OpAMP Bridge enablement, realm and access-token setup. Templates/groups can update ConfigMaps and roll workloads; verify permissions, scope and staged rollout. Chart 0.163.1 packages Collector 0.163.1; validate its separate migration and security/input changes before adopting that package.",
               "Validate",
               "https://help.splunk.com/en/splunk-observability-cloud/manage-data/manage-otel-agents-and-collectors/remote-configuration-of-opentelemetry-collectors/opamp-bridge-for-collectors-on-kubernetes/enable-the-opamp-bridge-for-kubernetes",
               false

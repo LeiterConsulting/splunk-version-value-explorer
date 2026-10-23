@@ -59,6 +59,11 @@ The canonical Export 8.7 record now cites both exact Enterprise and Cloud prereq
 ## October 16 Export patch reconciliation
 
 The October 14 Export patch guidance for PAPP-38496 applies only when FIPS is enabled on Enterprise or Cloud Platform: affected app versions 4.5.1/8.6.0 map to 8.6.1 or 8.7.1, and 8.7.0 maps to 8.7.1, subject to patch-specific prerequisites. Keep the issue visible for both maintained SOAR targets. The exact Export 8.7.1 row is separate from 8.7.0 and App for SOAR; its SOAR 8.8.0 cell is not independent release evidence. No server selector, Cloud rollout, security-safe platform patch or authorization is inferred. Current platform issue-table gaps remain unresolved.
+
+## October 23 definitive security advisories
+
+SVD-2026-1010, SVD-2026-1011 and SVD-2026-1012 replace the October 14 advance notice for Splunk SOAR. They identify versions below 8.7.0 as affected and 8.7.0 as the fixed version for vulnerability, Critical hardening and third-party package updates. The record is scoped to on-premises SOAR because the advisories' product, roles, paths and components do not establish SOAR Cloud tenant remediation. Exact corrected build 243, Python 3.13, conditional OS/PostgreSQL bridges, Automation Broker, App for SOAR, Export and credential-manager actions remain separate requirements.
+
 ### October 16 structured Cloud scope repair
 
 Live WebMCP replay found that the shared Cloud assessment returned customer-managed host floors despite the screen/exports filtering them. Cloud `targetRequirements` now contains only its automation runtime and `cloud` citation; customer-managed OS, database, Elasticsearch, bundled UF and sizing remain complete on on-premises routes. A regression failed before and passes after the fix, with 185 full tests and a new exact-input 58-case export CI receipt. Stable tool names, release/source dates and current-service-versus-history boundaries are unchanged. See the October 16 audit and release note for actual delivery evidence and bounded cosmetic follow-up.

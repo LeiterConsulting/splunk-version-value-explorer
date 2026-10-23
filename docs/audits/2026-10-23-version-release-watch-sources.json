@@ -1,0 +1,49 @@
+{
+  "watch": "version-release-watch",
+  "checkedAt": "2026-10-23T09:28:54Z",
+  "inventory": {
+    "exactUrlAndSectionBaseline": "docs/audits/2026-10-20-version-release-watch-sources.json",
+    "incrementalBaseline": "docs/audits/2026-10-22-version-release-watch-sources.json",
+    "attempted": 195,
+    "retrieved": 188,
+    "officialGitHubApiRecords": 29,
+    "newExactSources": 9,
+    "qualification": "Every exact URL in the 181-row baseline and the five October 22 additions was attempted, then nine newly discovered official URLs were checked. Retrieval is not claim verification. Five previously reviewed help.splunk.com pages were temporarily inaccessible through the retrieval service and two retired historical pages remained HTTP 403; their prior evidence is retained without advancing claim dates."
+  },
+  "newSources": [
+    {"url":"https://advisory.splunk.com/advisories/SVD-2026-1007","section":"Description; Solutions; Product Status; CVE-2026-76290 additional post-upgrade action","outcome":"reviewed"},
+    {"url":"https://advisory.splunk.com/advisories/SVD-2026-1008","section":"Description; Solutions; Product Status","outcome":"reviewed"},
+    {"url":"https://advisory.splunk.com/advisories/SVD-2026-1009","section":"Description; Solutions; Product Status; package table","outcome":"reviewed"},
+    {"url":"https://advisory.splunk.com/advisories/SVD-2026-1010","section":"Description; Solutions; Product Status; CVE details","outcome":"reviewed"},
+    {"url":"https://advisory.splunk.com/advisories/SVD-2026-1011","section":"Description; Solutions; Product Status","outcome":"reviewed"},
+    {"url":"https://advisory.splunk.com/advisories/SVD-2026-1012","section":"Description; Solutions; Product Status; package table and Python-version qualifications","outcome":"reviewed"},
+    {"url":"https://advisory.splunk.com/advisories/SVD-2026-1013","section":"Description; Product Status","outcome":"reviewed-unaffected-portfolio"},
+    {"url":"https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.163.1","section":"Release introduction; enhancements","outcome":"reviewed"},
+    {"url":"https://github.com/signalfx/splunk-otel-collector-chart/blob/splunk-otel-collector-0.163.1/helm-charts/splunk-otel-collector/Chart.yaml","section":"version; appVersion; conditional dependency versions","outcome":"reviewed"}
+  ],
+  "unavailable": [
+    {"url":"https://docs.splunk.com/Documentation/Splunk/8.1.14/ReleaseNotes/MeetSplunk","outcome":"http-403","handling":"Retain historical evidence; no replacement or release-date inference."},
+    {"url":"https://docs.splunk.com/Documentation/Splunk/8.2.12/ReleaseNotes/MeetSplunk","outcome":"http-403","handling":"Retain historical evidence; no replacement or release-date inference."},
+    {"url":"https://help.splunk.com/en/splunk-enterprise/administer/manage-workloads/10.6/use-workload-management-on-kubernetes","outcome":"retrieval-service-inaccessible","handling":"Unaffected historical claim retained; no current claim date advanced."},
+    {"url":"https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-updates/release-notes/8.8/whats-new/what-s-new-in-splunk-enterprise-security-8.8.0","outcome":"retrieval-service-inaccessible","handling":"October 22 reviewed evidence retained; no ES claim changed in this batch."},
+    {"url":"https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-updates/release-notes/8.8/compatibility-and-regional-availability","outcome":"retrieval-service-inaccessible","handling":"Prior conflict remains unresolved; no pairing inferred."},
+    {"url":"https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-updates/release-notes/8.8/fixed-issues","outcome":"retrieval-service-inaccessible","handling":"Issue-table backlog remains open; no zero-issue claim."},
+    {"url":"https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-updates/release-notes/8.8/known-issues","outcome":"retrieval-service-inaccessible","handling":"Issue-table backlog remains open; no zero-issue claim."}
+  ],
+  "discovery": {
+    "enterpriseSecurity": "SVD-2026-1007, -1008 and -1009 publish exact affected ranges and fixed versions 9.4.16, 10.0.11, 10.2.8 and 10.4.4. Conditional Edge Processor package-download follow-up applies only where that component path is used.",
+    "soarSecurity": "SVD-2026-1010, -1011 and -1012 identify SOAR versions below 8.7.0 as affected and 8.7.0 as fixed. The evidence is on-premises-scoped and does not establish SOAR Cloud tenant remediation or an exact corrected build.",
+    "cloud": "The maintenance feed now lists 10.6.2.0, published October 20, with 2 Critical, 21 High and 23 Medium security fixes and SPL-312665. Publication does not establish selected-stack rollout or a customer-managed package fix.",
+    "observability": "Kubernetes chart 0.163.1 was published October 22 and packages Collector 0.163.1, Operator 0.126.1, Target Allocator 0.161.2 and OBI 0.15.2.",
+    "otherStreams": "No newer exact Enterprise line, SOAR server, ITSI, SCMA, .NET, Java, Node.js, Python or Browser RUM release was established. SVD-2026-1013 lists the owned product portfolio as unaffected or, for non-owned services, under investigation; no route claim was added."
+  },
+  "claimChecks": [
+    {"claimId":"security.enterprise.october21.fixed-floors","productVersionEnvironment":"Splunk Enterprise 9.4/10.0/10.2/10.4; customer-managed","sourceCheckDate":"2026-10-23","claimVerificationDate":"2026-10-23","outcome":"confirmed-with-component-qualification"},
+    {"claimId":"security.forwarders.october21.scope","productVersionEnvironment":"Heavy Forwarder Enterprise package versus Universal Forwarder and Cloud","sourceCheckDate":"2026-10-23","claimVerificationDate":"2026-10-23","outcome":"hf-confirmed-uf-cloud-not-inherited"},
+    {"claimId":"security.soar.october21.fixed-floor","productVersionEnvironment":"SOAR On-premises below 8.7.0 to 8.7.0","sourceCheckDate":"2026-10-23","claimVerificationDate":"2026-10-23","outcome":"confirmed-on-premises-only"},
+    {"claimId":"technical.platform.cloud-10.6-maintenance-build","productVersionEnvironment":"Splunk Cloud Platform 10.6.2.0; selected stack","sourceCheckDate":"2026-10-23","claimVerificationDate":"2026-10-23","outcome":"published-build-confirmed-rollout-unestablished"},
+    {"claimId":"technical.observability.kubernetes-chart-0.163-package-baseline","productVersionEnvironment":"Customer-managed Kubernetes chart 0.163.1","sourceCheckDate":"2026-10-23","claimVerificationDate":"2026-10-23","outcome":"tag-and-chart-yaml-confirmed"},
+    {"claimId":"technical.hf.10.2.unix-service-identity","productVersionEnvironment":"Heavy Forwarder Enterprise package 10.2; *nix","sourceCheckDate":"2026-10-23","claimVerificationDate":"2026-10-23","outcome":"supporting-section-confirmed","qualification":"Default root execution is blocked; temporary --run-as-root override remains documented. This is not a UF or Cloud-managed host requirement."},
+    {"claimId":"technical.hf.10.4.kv-store-tls-configuration","productVersionEnvironment":"Heavy Forwarder Enterprise package 10.4 with KV Store","sourceCheckDate":"2026-10-23","claimVerificationDate":"2026-10-23","outcome":"supporting-section-confirmed","qualification":"The kvstore stanza takes precedence over overlapping sslConfig settings beginning in 10.4; applicability requires KV Store and does not become a UF claim."}
+  ]
+}

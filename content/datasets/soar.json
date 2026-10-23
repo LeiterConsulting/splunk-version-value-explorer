@@ -6,10 +6,34 @@
     "securityNotice": {
       "title": "October 21 advisory advance notice",
       "url": "https://advisory.splunk.com/advisories/SVD-2026-1006",
-      "section": "Description; SOAR 8.7.0 entry; preparation recommendation; deployment and exact build not specified",
-      "checked": "2026-10-15",
+      "section": "Description; October 21 changelog linking the definitive SOAR advisories",
+      "checked": "2026-10-23",
       "reviewed": "2026-10-15",
-      "outcome": "confirmed-advance-notice"
+      "outcome": "superseded-by-definitive-advisories"
+    },
+    "securityOctober": {
+      "title": "SOAR October 2026 security vulnerabilities",
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1010",
+      "section": "Description; Solutions; Product Status; CVE details",
+      "checked": "2026-10-23",
+      "reviewed": "2026-10-23",
+      "outcome": "confirmed"
+    },
+    "securityHardeningOctober": {
+      "title": "SOAR October 2026 security hardening",
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1011",
+      "section": "Description; Solutions; Product Status",
+      "checked": "2026-10-23",
+      "reviewed": "2026-10-23",
+      "outcome": "confirmed"
+    },
+    "packagesOctober": {
+      "title": "SOAR October 2026 third-party package fixes",
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1012",
+      "section": "Description; Solutions; Product Status; package table and Python-version qualifications",
+      "checked": "2026-10-23",
+      "reviewed": "2026-10-23",
+      "outcome": "confirmed"
     },
     "on87": {
       "title": "SOAR On-premises 8.7 release notes",
@@ -231,15 +255,16 @@
   "records": [
     {
       "id": "security-notice-20261021",
-      "title": "October 21 security advisory advance notice",
-      "detail": "The October 14 notice names SOAR 8.7.0 for planned October 21, 2026 advisories and recommends the listed or latest available version. The October 16 revision clarifies that listed versions are fix versions, not affected versions. No CVEs, affected-version range, exact build or Cloud/on-premises scope is disclosed. This does not replace deployment-specific build fixes, Python 3.13, existing upgrade and credential-manager actions, or establish tenant rollout. Prepare using deployment-specific release evidence and recheck the definitive advisories.",
+      "title": "October 21 SOAR security advisories",
+      "detail": "SVD-2026-1010, -1011 and -1012 identify SOAR versions below 8.7.0 as affected and 8.7.0 as the fixed version for vulnerability, Critical hardening and third-party package updates. The advisories establish the on-premises version floor but do not replace the corrected 8.7.0 build 243, Python 3.13, upgrade-path, operating-system/PostgreSQL transition, Automation Broker or credential-manager actions.",
       "kind": "issue",
       "release": "8.7.0",
-      "src": ["securityNotice"],
-      "deployments": ["cmp", "cloud"],
-      "status": "Advance notice; deployment scope unestablished",
-      "verified": "2026-10-15",
-      "target": true
+      "src": ["securityOctober", "securityHardeningOctober", "packagesOctober"],
+      "deployments": ["cmp"],
+      "status": "Required",
+      "verified": "2026-10-23",
+      "target": true,
+      "qualification": "The advisories name Splunk SOAR and document on-premises roles, paths and components. They do not establish SOAR Cloud tenant rollout or remediation; confirm managed-service status separately. They also do not publish an exact corrected build, so retain build 243 from the release notes."
     },
     {
       "id": "python87",

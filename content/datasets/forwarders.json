@@ -129,11 +129,11 @@
       "reviewed": "2026-09-28",
       "section": "Product Status; component-specific footnotes"
     },
-    "securityNotice": {
-      "title": "October 21 advisory advance notice",
-      "url": "https://advisory.splunk.com/advisories/SVD-2026-1006",
-      "reviewed": "2026-10-15",
-      "section": "Description; Enterprise and Universal Forwarder version lists; preparation recommendation"
+    "securityOctober": {
+      "title": "October 21 Enterprise vulnerability advisory",
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1007",
+      "reviewed": "2026-10-23",
+      "section": "Solutions; Product Status; CVE-2026-76290 additional post-upgrade action"
     },
     "advisories": {
       "title": "Splunk security advisory index",
@@ -228,9 +228,9 @@
         "fixed"
       ]
     },
-    "security.advance-notice": {
-      "title": "October 21 planned security disclosure; not CVE details or a new universal floor",
-      "src": "securityNotice"
+    "security.enterprise-october": {
+      "title": "October 21 Enterprise fixed versions and component follow-up",
+      "src": "securityOctober"
     },
     "security.uf": {
       "title": "Universal Forwarder advisory-specific patch floors",
@@ -486,15 +486,16 @@
   ],
   "securityNotices": {
     "october21": {
-      "title": "October 21 security advisory advance notice",
-      "source": "securityNotice",
+      "title": "October 21 Enterprise security advisory",
+      "source": "securityOctober",
+      "types": ["hf"],
       "versions": {
         "9.4": "9.4.16",
         "10.0": "10.0.11",
         "10.2": "10.2.8",
         "10.4": "10.4.4"
       },
-      "detail": "Published October 14: Splunk plans Enterprise and Universal Forwarder advisories for October 21, 2026 and recommends the listed or latest available software. The October 16 revision clarifies that the listed versions are fix versions, not affected versions. This advance notice does not disclose CVEs or affected ranges, replace existing advisory-specific remediation, or establish Cloud rollout or a safe 10.6 exemption."
+      "detail": "SVD-2026-1007 identifies the listed Enterprise versions as fixed and all earlier maintenance versions on those lines as affected. For 10.0, 10.2 and 10.4 instances using Edge Processor package downloads, prepare existing instances, enable package-download authentication and restart after upgrade. This Enterprise-package evidence applies to Heavy Forwarders only where the component exists; it does not establish a Universal Forwarder fix, Cloud rollout, receiver pairing, entitlement or authorization."
     }
   },
   "hfComponents": [
