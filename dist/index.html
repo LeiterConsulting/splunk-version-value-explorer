@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Compare source-backed release journeys across Splunk Platform, Enterprise Security, IT Service Intelligence, Splunk SOAR, Splunk Forwarders, and Observability Cloud—including compatibility gates, technical changes, and readiness guidance." />
+    <meta name="theme-color" content="#07130f" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307130f'/%3E%3Cpath d='m18 20 18 12-18 12' fill='none' stroke='%236ce5a5' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M39 43h8' stroke='%23fff' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="release-print.css" />
+    <link rel="stylesheet" href="environment.css" />
+    <link rel="stylesheet" href="content-updates.css" />
+    <link rel="stylesheet" href="navigation.css" />
+    <link rel="stylesheet" href="evidence.css" />
+    <title>Version Compass | Splunk product release guide</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#results">Skip to comparison</a>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Version Compass home"><span aria-hidden="true">&gt;_</span> Version Compass</a>
+      <nav class="site-nav" aria-label="Main navigation"><a href="./" data-site-link>Release guide</a><a href="?view=es-editions" data-site-link>ES editions</a><a href="?view=splunk-11" data-site-link>Prep for 11.x</a><a href="?view=about" data-site-link>About</a></nav>
+      <a class="reviewed" href="https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-23.md" aria-label="View the latest Version Compass release notes, site updated October 23, 2026"><span class="reviewed-full">Site updated October 23, 2026</span><time class="reviewed-compact" datetime="2026-10-23" aria-hidden="true">23 OCT 2026</time></a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="eyebrow"><span></span> SPLUNK PRODUCT READ-AHEAD</div>
+        <h1 id="page-title">Compare releases. Plan your next move.</h1>
+        <p class="dek">Compare platform and premium-product releases with clear value, compatibility gates, technical changes, readiness guidance, and official sources.</p>
+
+        <aside id="link-notice" class="link-notice" aria-live="polite" hidden></aside>
+        <div class="selector-card" aria-label="Release comparison controls">
+          <fieldset class="product-switcher">
+            <legend>Product</legend>
+            <div class="product-options">
+              <label><input type="radio" name="product" value="platform" checked /><span><strong>Splunk</strong><small>Platform</small></span></label>
+              <label><input type="radio" name="product" value="es" /><span><strong>ES</strong><small>Enterprise Security</small></span></label>
+              <label><input type="radio" name="product" value="itsi" /><span><strong>ITSI</strong><small>Service Intelligence</small></span></label>
+              <label><input type="radio" name="product" value="soar" /><span><strong>Splunk SOAR</strong><small>On-premises / Cloud</small></span></label>
+              <label><input type="radio" name="product" value="forwarders" /><span><strong>Splunk Forwarders</strong><small>Universal / Heavy</small></span></label>
+              <label><input type="radio" name="product" value="observability" /><span><strong>O11y</strong><small>Observability Cloud</small></span></label>
+            </div>
+          </fieldset>
+          <p id="es-editions-promo" class="es-editions-promo" hidden><a id="es-editions-promo-link" href="?view=es-editions">Explore ES Editions <span aria-hidden="true">→</span></a><span>Compare Essentials and Premier capabilities, prerequisites, and deployment differences.</span></p>
+          <fieldset class="platform-toggle">
+            <legend id="journey-legend">Journey</legend>
+            <div class="toggle-options">
+              <label data-platform-option="enterprise"><input type="radio" name="platform" value="enterprise" checked /><span>Enterprise upgrades</span></label>
+              <label data-platform-option="cloud"><input type="radio" name="platform" value="cloud" /><span>Cloud releases</span></label>
+              <label data-platform-option="migration"><input type="radio" name="platform" value="migration" /><span>Enterprise → Cloud</span></label>
+            </div>
+          </fieldset>
+          <div class="release-selectors" id="release-selectors">
+            <label for="host-release" id="host-release-field" hidden><span id="host-label">Splunk release in place</span><select id="host-release"></select></label>
+            <label for="from-release"><span id="from-label">Release in place</span><select id="from-release"></select></label>
+            <div class="arrow" aria-hidden="true">→</div>
+            <label for="to-release"><span id="to-label">Release under consideration</span><select id="to-release"></select></label>
+          </div>
+          <div id="environment-controls-mount"></div>
+          <p class="selection-note" id="selection-note" aria-live="polite"></p>
+          <div class="compatibility-gate" id="compatibility-gate" aria-live="polite" hidden></div>
+          <div class="report-actions" aria-label="Share or export this report">
+            <button type="button" id="copy-link"><span aria-hidden="true">↗</span> Copy report link</button>
+            <button type="button" id="print-report"><span aria-hidden="true">↓</span> Print / save PDF</button>
+            <span class="share-status" id="share-status" aria-live="polite"></span>
+          </div>
+        </div>
+        <div class="scroll-cue" aria-hidden="true">EXPLORE THE CHANGE <span>↓</span></div>
+      </section>
+
+      <div id="results">
+        <header class="print-summary" aria-hidden="true">
+          <div class="print-independence">Independent Version Compass report. Not an official Cisco or Splunk publication.</div>
+          <p>VERSION COMPASS · CUSTOMER READ-AHEAD</p>
+          <h1 id="print-title">Selected product journey</h1>
+          <span id="print-subtitle">Site updated October 23, 2026</span>
+          <div class="print-compatibility" id="print-compatibility"></div>
+          <div id="print-link-notice"></div>
+        </header>
+
+        <section class="section route-overview" aria-labelledby="takeaway-title">
+          <section id="environment-overview" class="env-overview" aria-label="Cloud environment guidance" hidden></section>
+          <div class="route-takeaway" id="route-takeaway"></div>
+          <details class="lifecycle-panel" id="lifecycle-panel">
+            <summary id="lifecycle-summary">Support lifecycle</summary>
+            <div id="lifecycle-content"></div>
+          </details>
+        </section>
+        <section class="section path-section" aria-labelledby="path-title">
+          <div class="section-head">
+            <div><p class="kicker" id="path-kicker">01 / THE ROUTE</p><h2 id="path-title">Your path forward</h2></div>
+            <p id="path-intro"></p>
+          </div>
+          <div class="path-card">
+            <div class="path-line" id="path-line"></div>
+            <p class="path-caption" id="path-caption"></p><div id="path-evidence"></div>
+          </div>
+        </section>
+
+        <section class="section approach-section" id="migration-approaches" aria-labelledby="approach-title" hidden>
+          <div class="section-head">
+            <div><p class="kicker">02 / MIGRATION MOTION</p><h2 id="approach-title">Choose the shape of the move</h2></div>
+            <p>Splunk documents three common approaches. The right one depends on historical-data requirements, outage tolerance, parallel-run cost, and the amount of production-load validation needed.</p>
+          </div>
+          <div class="approach-grid" id="approach-grid"></div>
+          <p class="approach-note">Make this decision with your Splunk account team or delivery partner after discovery; the explorer does not collect enough environment detail to prescribe one.</p>
+        </section>
+
+        <section class="section value-section" aria-labelledby="value-title">
+          <div class="section-head">
+            <div><p class="kicker" id="value-kicker">02 / THE RETURN</p><h2 id="value-title">What becomes available</h2></div>
+            <p id="value-intro">Benefits are organized around the outcomes teams can use—not a wall of release-note changes.</p>
+          </div>
+          <div class="value-band" id="value-band"></div>
+          <div class="filter-row" id="category-filters" aria-label="Filter benefits"></div>
+          <div class="benefit-grid" id="benefit-grid"></div>
+        </section>
+
+        <section class="section technical-section" aria-labelledby="technical-title">
+          <div class="section-head technical-heading">
+            <div><p class="kicker" id="technical-kicker">03 / TECHNICAL CHANGES</p><h2 id="technical-title">What changes underneath</h2></div>
+            <p id="technical-intro">A route-specific technical inventory of runtimes, storage engines, protocols, security baselines, and operating behavior. Open it when implementation detail is useful.</p>
+          </div>
+          <details class="technical-panel" id="technical-panel">
+            <summary>
+              <span class="technical-summary-icon" aria-hidden="true">&lt;/&gt;</span>
+              <span class="technical-summary-copy"><strong id="technical-summary-title">Technical detail for this route</strong><span id="technical-summary-meta"></span></span>
+              <span class="technical-summary-action" aria-hidden="true"><span class="show-label">Show details</span><span class="hide-label">Hide details</span><span class="technical-chevron">⌄</span></span>
+            </summary>
+            <div class="technical-content" id="technical-content"></div>
+          </details>
+        </section>
+
+        <section class="section breaking-section" aria-labelledby="breaking-title">
+          <div class="section-head">
+            <div><p class="kicker" id="breaking-kicker">03 / POTENTIAL BREAKING CHANGES</p><h2 id="breaking-title">Know what could change</h2></div>
+            <p id="breaking-intro">High-priority changes Splunk flags that could affect compatibility, behavior, access, or integrations across this route.</p>
+          </div>
+          <div class="breaking-list" id="breaking-list"></div>
+        </section>
+
+        <section class="section readiness-section" aria-labelledby="readiness-title">
+          <div class="section-head">
+            <div><p class="kicker" id="readiness-kicker">03 / READINESS</p><h2 id="readiness-title">Prepare with confidence</h2></div>
+            <p id="readiness-intro"></p>
+          </div>
+          <div class="readiness-list" id="readiness-list"></div>
+        </section>
+
+        <section class="section source-section" aria-labelledby="source-title">
+          <div class="source-card">
+            <div><p class="kicker">THE OFFICIAL WORD</p><h2 id="source-title">Go deeper in the release notes.</h2></div>
+            <div class="source-actions" id="source-actions"></div>
+          </div>
+        </section>
+        <article id="release-report" class="edition-report release-report" aria-label="Printable release guide"></article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-copy">
+        <p><strong>About this guide</strong> This independent read-ahead summarizes official Splunk product documentation, compatibility matrices, release notes, and Splunk Lantern migration guidance. It does not replace release notes, entitlement checks, compatibility guidance, a Statement of Work, or an environment-specific plan.</p>
+        <p><strong>Independent project</strong> Version Compass is independently developed. It is not affiliated with, sponsored by, endorsed by, or an official product of Cisco or Splunk.</p>
+        <p class="agent-note"><strong>For AI agents</strong> Read-only WebMCP tools let compatible browser-based agents explore releases, compare routes, and retrieve the same cited guidance. <a class="agent-docs-link" href="https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/webmcp.md" target="_blank" rel="noopener noreferrer">Explore agent access <span aria-hidden="true">↗</span></a></p>
+      </div>
+      <div class="footer-meta">
+        <a class="github-link" href="https://github.com/LeiterConsulting/splunk-version-value-explorer" target="_blank" rel="noopener noreferrer" aria-label="View Version Compass source on GitHub">
+          <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M12 .7a11.3 11.3 0 0 0-3.6 22c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.5-1.4-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.9 1.3 3.6 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.7 4.1 19 4.4 19 4.4c.6 1.6.2 2.9.1 3.2.8.9 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.3 11.3 0 0 0 12 .7Z"/></svg>
+          <span>View source on GitHub</span><span aria-hidden="true">↗</span>
+        </a>
+        <p>Splunk is a Cisco company. Splunk and related marks are the property of Cisco and/or its affiliates. This experience does not collect or transmit visitor information.</p>
+      </div>
+    </footer>
+
+    <script src="content-updates.js"></script>
+    <script src="theme.js"></script>
+    <script src="content-hash.js"></script>
+    <script src="content-client.js"></script>
+    <script src="site-router.js"></script>
+  </body>
+</html>
