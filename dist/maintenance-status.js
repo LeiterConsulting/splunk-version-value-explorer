@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-10-22T11:51:50Z",
-      "lastSuccess": "2026-10-22T12:01:34.045497Z",
+      "lastAttempt": "2026-10-23T11:29:37.290Z",
+      "lastSuccess": "2026-10-23T11:30:42.633Z",
       "outcome": "changed",
-      "summary": "Corrected São Paulo Premier Attack Analyzer scope and unsupported regulated hybrid exclusion; resolved current SOAR service-date discrepancy.",
+      "summary": "Rechecked 20 official sources and thirteen consequential claim groups; factual scope unchanged. Documented Moderate public-status authority and staged the tracked Cisco print-fragment background repair.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -243,9 +243,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Corrected São Paulo Premier Attack Analyzer scope and unsupported regulated hybrid exclusion; resolved current SOAR service-date discrepancy.",
           "scope": "20 exact official URLs, 13 bounded consequential claim groups; historical verification not exhaustive. Scope review complete; candidate validation and publication recorded separately."
+        },
+        {
+          "at": "2026-10-23T11:29:37.290Z",
+          "outcome": "running",
+          "summary": "Checking the complete maintained environment inventory and bounded consequential scopes, including the owner-supplied Moderate status source and tracked Cisco print-fragment repair.",
+          "scope": "15 environment sources, two shared SOAR sources, current ES 8.8 regional discovery, product/ITSI compatibility sources; visual matrix and exact Marketplace offerings. No exhaustive historical recertification."
+        },
+        {
+          "at": "2026-10-23T11:30:42.633Z",
+          "outcome": "changed",
+          "summary": "Rechecked 20 official sources and thirteen consequential claim groups; factual scope unchanged. Documented Moderate public-status authority and staged the tracked Cisco print-fragment background repair.",
+          "scope": "Complete maintained environment/SOAR source inventory; bounded authorization, provider, region, experience, ES/SOAR pairing and Observability claims. Review completed; validation and publication recorded separately."
         }
       ],
-      "scope": "20 exact official URLs, 13 bounded consequential claim groups; historical verification not exhaustive. Scope review complete; candidate validation and publication recorded separately."
+      "scope": "Complete maintained environment/SOAR source inventory; bounded authorization, provider, region, experience, ES/SOAR pairing and Observability claims. Review completed; validation and publication recorded separately."
     },
     {
       "id": "version-release-watch",

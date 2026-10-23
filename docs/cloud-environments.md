@@ -65,3 +65,7 @@ The AI Assistant 2.2 installation guide adds limited IL2 support evidence for 2.
 The ES 8.7 Premier regional table's Attack Analyzer exceptions include São Paulo (`sa-east-1`). The maintained record now includes that omitted region and names the Premier table scope explicitly. The newer 8.8 Controlled Availability guide corroborates that row, but its distinct Cloud Connect component table is not retroactively applied to the 8.7 record.
 
 The ES hybrid pairing table prohibits Splunk Cloud IL5 pairing. It does not establish a blanket Moderate/High exclusion. The existing regulated record therefore reports **not established**, retaining the IL5 restriction, exact-version pairing, certificate, entitlement and authorization qualifications. This correction grants no regulated pairing permission.
+
+## October 23 public status authority
+
+The exact [FedRAMP Moderate Marketplace record F1607197917](https://www.fedramp.gov/marketplace/products/F1607197917/) is the authoritative public source for Splunk Cloud Platform Moderate status. The owner supplied this public link with provenance that it was supplied by Splunk. This provenance does not replace independent retrieval or turn the February compliance matrix, vendor-submitted service descriptions, or an individual feature into a universal authorization statement. Keep the separate High offering FR2314156865, exact Certified Services lists, feature availability, edition, pairing and customer authorization boundaries.
