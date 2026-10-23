@@ -1,7 +1,7 @@
 /* Editorial change provenance. Cycles advance only with material factual updates. */
 (function(){
 'use strict';
-const policy={currentCycle:31,retentionCycles:2};
+const policy={currentCycle:32,retentionCycles:2};
 const note25='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-25.md';
 const note26='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-26.md';
 const note30='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-30.md';
@@ -34,6 +34,7 @@ const ingest='https://help.splunk.com/en/splunk-cloud-platform/process-data-at-i
 const fedrampModerate='https://www.fedramp.gov/marketplace/products/F1607197917/';
 const fedrampHigh='https://www.fedramp.gov/marketplace/products/FR2314156865/';
 const entries={
+"ai:catalog":{kind:"new",cycle:32,date:"2026-10-23",version:"SAIA 2.3.6 · ITSI 5.0+ · ES 8.8 evidence",detail:"Added the AI Availability tab with seven named capabilities, documented prerequisites, scoped regional evidence and explicit unknowns. New to this guide; this is not an upstream launch announcement.",source:"https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",sourceDate:null,note:note23},
 "technical:platform:October 21 Enterprise security advisories":{kind:"corrected",milestones:["Enterprise 9.4","Enterprise 10.0","Enterprise 10.2","Enterprise 10.4"],cycle:31,date:"2026-10-23",version:"9.4.16 · 10.0.11 · 10.2.8 · 10.4.4 fixed versions",detail:"Replaced the advance notice with definitive vulnerability, Critical hardening and package advisories, exact affected ranges and conditional Edge Processor post-upgrade action. Cloud rollout and authorization remain separate.",source:"https://advisory.splunk.com/advisories/SVD-2026-1007",sourceDate:"2026-10-21",note:note23},
 "technical:platform:October 21 Enterprise security hardening":{kind:"new",milestones:["Enterprise 9.4","Enterprise 10.0","Enterprise 10.2","Enterprise 10.4"],cycle:31,date:"2026-10-23",version:"October 21 fixed versions · Critical 9.9",detail:"Added the exact SVD-2026-1008 hardening record for each maintained Enterprise line without transferring it to Cloud.",source:"https://advisory.splunk.com/advisories/SVD-2026-1008",sourceDate:"2026-10-21",note:note23},
 "technical:platform:October 21 Enterprise third-party package fixes":{kind:"new",milestones:["Enterprise 9.4","Enterprise 10.0","Enterprise 10.2","Enterprise 10.4"],cycle:31,date:"2026-10-23",version:"October 21 fixed versions · package-specific scope",detail:"Added the exact SVD-2026-1009 package record with component-specific applicability and no Cloud or independently installed package inference.",source:"https://advisory.splunk.com/advisories/SVD-2026-1009",sourceDate:"2026-10-21",note:note23},

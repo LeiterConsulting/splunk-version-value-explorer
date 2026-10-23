@@ -17,6 +17,6 @@
   }
   document.querySelectorAll('[data-site-link], .brand').forEach(link => { link.setAttribute('href',href(link.getAttribute('href'))); });
   const editions = params.get('view') === 'es-editions' || !params.has('view') && params.get('preview') === 'es-editions';
-  const selectedView=params.get('view')==='splunk-11'?'splunk-11':params.get('view')==='about'?'about':editions?'es-editions':'';
+  const selectedView=params.get('view')==='ai-availability'?'ai-availability':params.get('view')==='splunk-11'?'splunk-11':params.get('view')==='about'?'about':editions?'es-editions':'';
   document.querySelectorAll('.site-nav a').forEach(link => { const view=new URL(link.getAttribute('href'),window.location.href).searchParams.get('view')||'';if(view===selectedView)link.setAttribute('aria-current','page'); });
 }());

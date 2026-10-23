@@ -22,6 +22,7 @@ function walk(value,area,path,parent={}){
  for(const [key,v] of Object.entries(value))walk(v,area,path+'.'+key,value);
 }
 walk(context.window.SPLUNK_DATA,'Release guide','release');
+if(context.window.SPLUNK_DATA.guidance.aiAvailability)walk(context.window.SPLUNK_DATA.guidance.aiAvailability,'AI Availability','ai-availability');
 walk(context.window.VersionCompassEnvironmentData,'Cloud environment','environment');
 walk(context.window.VersionCompassEditions,'ES editions','editions');
 walk(context.window.VersionCompassForwarderData,'Splunk Forwarders','forwarders');

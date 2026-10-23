@@ -2908,13 +2908,67 @@ window.VersionCompassSources = {
       ]
     },
     {
-      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
-      "title": "Overview of ES Editions",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "title": "ES 8.8 agent compatibility",
       "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.aiEsAgents88.url",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.4",
+        "guidance: guidance.aiAvailability.capabilities.5",
+        "guidance: guidance.aiAvailability.capabilities.6"
+      ],
+      "reviews": [
+        "2026-10-23"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Compatibility table: Detection Builder, AI SOC Analyst and SOP agent"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.4",
+          "section": "Compatibility table: Detection Builder, AI SOC Analyst and SOP agent"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.5",
+          "section": "Compatibility table: Detection Builder, AI SOC Analyst and SOP agent"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.6",
+          "section": "Compatibility table: Detection Builder, AI SOC Analyst and SOP agent"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-23",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-23",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-23",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
+      "title": "ES editions: existing qualified assistant entitlement",
+      "areas": [
+        "Release guide",
         "ES editions"
       ],
       "references": [
+        "release.guidance.sources.aiEsEditions.url",
         "editions.sources.editions.u",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.3",
         "editions: editions.capabilities.0",
         "editions: editions.capabilities.1",
         "editions: editions.capabilities.2",
@@ -2931,6 +2985,16 @@ window.VersionCompassSources = {
       ],
       "reviews": [
         "2026-10-01"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Dated existing edition qualification; generic compatibility does not broaden Essentials CMP entitlement"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.3",
+          "section": "Dated existing edition qualification; generic compatibility does not broaden Essentials CMP entitlement"
+        }
       ],
       "usage": "In use",
       "reviewed": "2026-10-01",
@@ -3435,9 +3499,24 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.productTracks.es.releasesData.8.8.technicalChanges.0.source",
-        "content-updates.js"
+        "release.guidance.sources.aiEsRegions88.url",
+        "content-updates.js",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.3"
       ],
-      "reviews": [],
+      "reviews": [
+        "2026-10-23"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Premier regional table; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.3",
+          "section": "Premier regional table; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility"
+        }
+      ],
       "usage": "In use",
       "reviewed": "2026-10-22",
       "status": "Needs reconciliation",
@@ -3501,8 +3580,14 @@ window.VersionCompassSources = {
         "release.productTracks.es.releasesData.8.8.requirements.0.3",
         "release.productTracks.es.releasesData.8.8.requirements.2.3",
         "release.productTracks.es.releasesData.8.8.requirements.3.3",
+        "release.guidance.sources.aiEsRelease88.url",
         "editions.sources.rn88.u",
         "content-updates.js",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.3",
+        "guidance: guidance.aiAvailability.capabilities.4",
+        "guidance: guidance.aiAvailability.capabilities.5",
+        "guidance: guidance.aiAvailability.capabilities.6",
         "editions: editions.capabilities.0",
         "editions: editions.capabilities.1",
         "editions: editions.capabilities.2",
@@ -3516,6 +3601,28 @@ window.VersionCompassSources = {
       ],
       "reviews": [
         "2026-10-22"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "ES 8.8 Controlled Availability"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.3",
+          "section": "ES 8.8 Controlled Availability"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.4",
+          "section": "ES 8.8 Controlled Availability"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.5",
+          "section": "ES 8.8 Controlled Availability"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.6",
+          "section": "ES 8.8 Controlled Availability"
+        }
       ],
       "usage": "In use",
       "reviewed": "2026-10-22",
@@ -5060,6 +5167,108 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+      "title": "SAIA 2.3.6 overview and ITSI subagent",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.guidance.sources.aiSaiaAbout.url",
+        "content-updates.js",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.0",
+        "guidance: guidance.aiAvailability.capabilities.1",
+        "guidance: guidance.aiAvailability.capabilities.2"
+      ],
+      "reviews": [
+        "2026-10-23"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Requirements; features; ITSI subagent; where the assistant runs"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.0",
+          "section": "Requirements; features; ITSI subagent; where the assistant runs"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.1",
+          "section": "Requirements; features; ITSI subagent; where the assistant runs"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.2",
+          "section": "Requirements; features; ITSI subagent; where the assistant runs"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-23",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-23",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-23",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "title": "SAIA 2.3.6 installation and service regions",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.aiSaiaInstall.url",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.0",
+        "guidance: guidance.aiAvailability.capabilities.1",
+        "guidance: guidance.aiAvailability.capabilities.2"
+      ],
+      "reviews": [
+        "2026-10-23"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "FedRAMP deployments; supported regions; version compatibility"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.0",
+          "section": "FedRAMP deployments; supported regions; version compatibility"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.1",
+          "section": "FedRAMP deployments; supported regions; version compatibility"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.2",
+          "section": "FedRAMP deployments; supported regions; version compatibility"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-23",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-23",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-23",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },

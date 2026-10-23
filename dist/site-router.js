@@ -30,6 +30,11 @@
     };
     document.body.appendChild(script);
   }
+  if(params.getAll('view').includes('ai-availability')){
+    document.querySelector('main').innerHTML='<section class="hero"><p role="status">Loading AI Availability…</p></section>';
+    for(const file of ['editions.css','perspectives.css','ai-availability.css']){const css=document.createElement('link');css.rel='stylesheet';css.href=file;document.head.appendChild(css);}
+    load(['content-revision.js','source-register.js','report-tools.js','environment-data.js','data.js','guidance-data.js','ai-availability.js','ai-availability-ui.js','navigation.js']);return;
+  }
   if(params.getAll('view').includes('splunk-11')){
     document.querySelector('main').innerHTML='<section class="hero"><p role="status">Loading Splunk 11.x preparation…</p></section>';
     for(const file of ['editions.css','perspectives.css','prep11.css']){const css=document.createElement('link');css.rel='stylesheet';css.href=file;document.head.appendChild(css);}

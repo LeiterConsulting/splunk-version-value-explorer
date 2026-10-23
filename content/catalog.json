@@ -734,6 +734,12 @@
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.4/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security"
     },
     {
+      "id": "source-933d52078c21646b9f1b",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers"
+    },
+    {
       "id": "source-95dd4e296e7389510110",
       "kind": "source",
       "dataset": "sources",
@@ -762,6 +768,12 @@
       "kind": "source",
       "dataset": "sources",
       "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.7.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises"
+    },
+    {
+      "id": "source-a7af3e985cbd086d3974",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant"
     },
     {
       "id": "source-a8bdc431157f1a59da0a",
@@ -978,6 +990,12 @@
       "kind": "source",
       "dataset": "sources",
       "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new"
+    },
+    {
+      "id": "source-d6c87ecad818dd756db9",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security"
     },
     {
       "id": "source-d86ca80bacf7d36e9cb7",
@@ -3590,6 +3608,74 @@
       ]
     },
     {
+      "id": "vc-27867ac4da75bdf3f8df",
+      "kind": "ai-capability",
+      "dataset": "guidance",
+      "scope": {
+        "product": "es",
+        "evidenceVersion": "8.8",
+        "version": "ES 8.8 agent guide",
+        "deployments": [
+          "cloud"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "source-d6c87ecad818dd756db9",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+          "section": "Compatibility table: Detection Builder, AI SOC Analyst and SOP agent",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-23",
+          "sourceChecked": "2026-10-23"
+        },
+        {
+          "sourceId": "source-d10f9ac6604ba17d7875",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": "ES 8.8 Controlled Availability",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-22",
+          "sourceChecked": "2026-10-22"
+        }
+      ],
+      "verification": {
+        "date": "2026-10-23",
+        "outcome": "Recorded in original claim"
+      },
+      "payload": {
+        "kind": "ai-capability",
+        "verified": "2026-10-23",
+        "id": "ai-es-sop",
+        "title": "ES · SOP agent",
+        "product": "es",
+        "evidenceVersion": "8.8",
+        "scope": {
+          "product": "es",
+          "evidenceVersion": "8.8"
+        },
+        "version": "ES 8.8 agent guide",
+        "stage": "8.8 release · Controlled Availability",
+        "description": "Turn an SOP into a response plan.",
+        "editions": [
+          "essentials",
+          "premier"
+        ],
+        "deployments": [
+          "cloud"
+        ],
+        "requirements": [
+          "Cloud deployment with Security AI Assistant enabled.",
+          "Response-template view and edit permissions."
+        ],
+        "runtime": "ES Cloud AI services.",
+        "qualification": "The reviewed agent row is Cloud only.",
+        "condition": "Enable Security AI Assistant and required response-template permissions.",
+        "src": [
+          "aiEsAgents88",
+          "aiEsRelease88"
+        ]
+      }
+    },
+    {
       "id": "vc-28285272d3729de8272e",
       "kind": "feature",
       "dataset": "platform",
@@ -4253,6 +4339,60 @@
         "verified": "2026-10-23",
         "target": true,
         "qualification": "The advisories name Splunk SOAR and document on-premises roles, paths and components. They do not establish SOAR Cloud tenant rollout or remediation; confirm managed-service status separately. They also do not publish an exact corrected build, so retain build 243 from the release notes."
+      }
+    },
+    {
+      "id": "vc-2f00a388accab572bb26",
+      "kind": "ai-capability",
+      "dataset": "platform",
+      "scope": {
+        "product": "es",
+        "evidenceVersion": "8.8",
+        "version": "ES 8.8 documentation · Cloud 8.2+; CMP 8.8+",
+        "deployments": [
+          "cloud",
+          "enterprise"
+        ]
+      },
+      "evidence": [],
+      "verification": {
+        "date": "2026-10-23",
+        "outcome": "Recorded in original claim"
+      },
+      "payload": {
+        "kind": "ai-capability",
+        "verified": "2026-10-23",
+        "id": "ai-es-assistant",
+        "title": "ES · Security AI Assistant",
+        "product": "es",
+        "evidenceVersion": "8.8",
+        "scope": {
+          "product": "es",
+          "evidenceVersion": "8.8"
+        },
+        "version": "ES 8.8 documentation · Cloud 8.2+; CMP 8.8+",
+        "stage": "8.8 release · Controlled Availability",
+        "description": "Summarize investigations and assist with SPL.",
+        "editions": [
+          "essentials",
+          "premier"
+        ],
+        "deployments": [
+          "cloud",
+          "enterprise"
+        ],
+        "requirements": [
+          "Compatible licensed ES and supported region.",
+          "Account-team enablement; edition-specific access."
+        ],
+        "runtime": "Security AI service; review configured model and data policies.",
+        "qualification": "The ES assistant is separate from the SAIA platform app. CMP edition qualification is retained.",
+        "condition": "Confirm exact edition and account-team enablement.",
+        "src": [
+          "aiEsRegions88",
+          "aiEsEditions",
+          "aiEsRelease88"
+        ]
       }
     },
     {
@@ -5311,6 +5451,47 @@
       ]
     },
     {
+      "id": "vc-40348593b3a783f550f8",
+      "kind": "ai-capability",
+      "dataset": "platform",
+      "scope": {
+        "product": "itsi",
+        "evidenceVersion": "5.0",
+        "version": "ITSI 5.0+ · SAIA 2.2+ · MCP Server 1.2.1+"
+      },
+      "evidence": [],
+      "verification": {
+        "date": "2026-10-23",
+        "outcome": "Recorded in original claim"
+      },
+      "payload": {
+        "kind": "ai-capability",
+        "verified": "2026-10-23",
+        "id": "ai-itsi-subagent",
+        "title": "ITSI · SAIA subagent",
+        "product": "itsi",
+        "evidenceVersion": "5.0",
+        "scope": {
+          "product": "itsi",
+          "evidenceVersion": "5.0"
+        },
+        "version": "ITSI 5.0+ · SAIA 2.2+ · MCP Server 1.2.1+",
+        "stage": "Documented integration · stage not separately established",
+        "description": "Investigate episodes, impacted services and related evidence through SAIA.",
+        "requirements": [
+          "ITSI 5.0.0+, SAIA 2.2.0+, Splunk MCP Server 1.2.1+.",
+          "Required apps, tools and user permissions must be enabled."
+        ],
+        "runtime": "ITSI integration inside SAIA.",
+        "qualification": "Base assistant regional coverage does not establish subagent-specific rollout.",
+        "condition": "The integration and version floors are documented; confirm subagent enablement and regional scope.",
+        "src": [
+          "aiSaiaAbout",
+          "aiSaiaInstall"
+        ]
+      }
+    },
+    {
       "id": "vc-408cff74f996497b9069",
       "kind": "requirement",
       "dataset": "platform",
@@ -6322,6 +6503,380 @@
         "Simplify cross-environment access",
         "Use a more consistent foundation for supported federated data sources."
       ]
+    },
+    {
+      "id": "vc-4cddefe9adfbad389e69",
+      "kind": "ai-catalog",
+      "dataset": "platform",
+      "scope": {},
+      "evidence": [],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": {
+        "id": "ai-availability-catalog",
+        "title": "AI Availability",
+        "kind": "ai-catalog",
+        "schemaVersion": 1,
+        "checked": "2026-10-23",
+        "boundary": "Feature availability, edition entitlement, compatible versions, release stage and offering authorization are independent. A published capability or a supported hosting region does not establish that every tenant can enable it. Missing evidence remains explicit.",
+        "regulatedQualification": "SAIA documents limited IL2 support, excludes Agent Mode there, and fixes the runtime to Splunk-hosted models. Its commercial-stack introduction and GovCloud rows require scope reconciliation. Mapping that limited statement to every Moderate or High offering is not established.",
+        "sourceIds": [
+          "aiSaiaAbout",
+          "aiSaiaInstall",
+          "aiEsRegions88",
+          "aiEsAgents88",
+          "aiEsEditions",
+          "aiEsRelease88"
+        ],
+        "src": [
+          "aiSaiaAbout",
+          "aiSaiaInstall",
+          "aiEsRegions88",
+          "aiEsAgents88",
+          "aiEsEditions",
+          "aiEsRelease88"
+        ],
+        "serviceRegions": [
+          {
+            "id": "azure-ai-japan",
+            "provider": "azure",
+            "label": "Japan · SAIA service"
+          },
+          {
+            "id": "azure-ai-uk-south",
+            "provider": "azure",
+            "label": "UK South · SAIA service"
+          },
+          {
+            "id": "azure-ai-us-east",
+            "provider": "azure",
+            "label": "US East · SAIA service"
+          },
+          {
+            "id": "azure-ai-us-west",
+            "provider": "azure",
+            "label": "US West · SAIA service"
+          }
+        ],
+        "saiaRegions": [
+          "ap-south-1",
+          "me-central-1",
+          "ap-northeast-2",
+          "ap-southeast-1",
+          "ap-southeast-2",
+          "ap-northeast-1",
+          "ca-central-1",
+          "eu-central-1",
+          "eu-west-2",
+          "eu-west-3",
+          "us-east-1",
+          "us-west-2",
+          "eu-south-1",
+          "sa-east-1",
+          "ap-southeast-3",
+          "azure-ai-japan",
+          "azure-ai-uk-south",
+          "azure-ai-us-east",
+          "azure-ai-us-west"
+        ],
+        "esPremier": {
+          "regions": [
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-south-1",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-southeast-3",
+            "ca-central-1",
+            "ca-west-1",
+            "eu-central-1",
+            "eu-south-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "sa-east-1",
+            "us-east-1",
+            "us-west-2"
+          ],
+          "assistantExcluded": [
+            "ca-west-1",
+            "eu-south-1",
+            "sa-east-1",
+            "us-gov-east-1",
+            "us-gov-west-1"
+          ],
+          "agenticExcluded": [
+            "ca-west-1",
+            "us-gov-east-1",
+            "us-gov-west-1"
+          ]
+        },
+        "esCloudConnect": {
+          "regions": [
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-south-1",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-southeast-3",
+            "ca-central-1",
+            "ca-west-1",
+            "eu-central-1",
+            "eu-south-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "sa-east-1",
+            "us-east-1",
+            "us-west-2"
+          ],
+          "assistantExcluded": [
+            "ca-central-1",
+            "eu-south-1",
+            "sa-east-1"
+          ],
+          "agenticExcluded": []
+        },
+        "capabilities": [
+          {
+            "kind": "ai-capability",
+            "verified": "2026-10-23",
+            "id": "ai-saia-spl",
+            "title": "SAIA · SPL assistance",
+            "product": "platform",
+            "evidenceVersion": "2.3.6",
+            "scope": {
+              "product": "platform",
+              "evidenceVersion": "2.3.6"
+            },
+            "version": "SAIA 2.3.6",
+            "stage": "GA app",
+            "description": "Create, explain and improve SPL through conversational assistance.",
+            "requirements": [
+              "Supported Platform version; SAIA installation and permissions.",
+              "Enterprise uses Cloud Connected AI services."
+            ],
+            "runtime": "Splunk-hosted AI service or documented model-runtime choice.",
+            "qualification": "Formerly named AI Assistant for SPL. Model choice can change processing location.",
+            "condition": "Confirm the supported app/Platform pairing and activation.",
+            "src": [
+              "aiSaiaAbout",
+              "aiSaiaInstall"
+            ]
+          },
+          {
+            "kind": "ai-capability",
+            "verified": "2026-10-23",
+            "id": "ai-saia-agent",
+            "title": "SAIA · Agent Mode",
+            "product": "platform",
+            "evidenceVersion": "2.3.6",
+            "scope": {
+              "product": "platform",
+              "evidenceVersion": "2.3.6"
+            },
+            "version": "SAIA 2.3.6 documentation",
+            "stage": "GA app · feature-specific limits",
+            "description": "Use the assistant’s agentic workflow, subject to its separate requirements.",
+            "requirements": [
+              "For Enterprise, Platform 10.1.x+ is required.",
+              "The documented IL2 FedRAMP assistant excludes Agent Mode."
+            ],
+            "runtime": "AI service and model-runtime policy apply.",
+            "qualification": "An installed assistant does not establish Agent Mode availability.",
+            "condition": "Check Agent Mode prerequisites independently from the base assistant.",
+            "src": [
+              "aiSaiaInstall",
+              "aiSaiaAbout"
+            ]
+          },
+          {
+            "kind": "ai-capability",
+            "verified": "2026-10-23",
+            "id": "ai-itsi-subagent",
+            "title": "ITSI · SAIA subagent",
+            "product": "itsi",
+            "evidenceVersion": "5.0",
+            "scope": {
+              "product": "itsi",
+              "evidenceVersion": "5.0"
+            },
+            "version": "ITSI 5.0+ · SAIA 2.2+ · MCP Server 1.2.1+",
+            "stage": "Documented integration · stage not separately established",
+            "description": "Investigate episodes, impacted services and related evidence through SAIA.",
+            "requirements": [
+              "ITSI 5.0.0+, SAIA 2.2.0+, Splunk MCP Server 1.2.1+.",
+              "Required apps, tools and user permissions must be enabled."
+            ],
+            "runtime": "ITSI integration inside SAIA.",
+            "qualification": "Base assistant regional coverage does not establish subagent-specific rollout.",
+            "condition": "The integration and version floors are documented; confirm subagent enablement and regional scope.",
+            "src": [
+              "aiSaiaAbout",
+              "aiSaiaInstall"
+            ]
+          },
+          {
+            "kind": "ai-capability",
+            "verified": "2026-10-23",
+            "id": "ai-es-assistant",
+            "title": "ES · Security AI Assistant",
+            "product": "es",
+            "evidenceVersion": "8.8",
+            "scope": {
+              "product": "es",
+              "evidenceVersion": "8.8"
+            },
+            "version": "ES 8.8 documentation · Cloud 8.2+; CMP 8.8+",
+            "stage": "8.8 release · Controlled Availability",
+            "description": "Summarize investigations and assist with SPL.",
+            "editions": [
+              "essentials",
+              "premier"
+            ],
+            "deployments": [
+              "cloud",
+              "enterprise"
+            ],
+            "requirements": [
+              "Compatible licensed ES and supported region.",
+              "Account-team enablement; edition-specific access."
+            ],
+            "runtime": "Security AI service; review configured model and data policies.",
+            "qualification": "The ES assistant is separate from the SAIA platform app. CMP edition qualification is retained.",
+            "condition": "Confirm exact edition and account-team enablement.",
+            "src": [
+              "aiEsRegions88",
+              "aiEsEditions",
+              "aiEsRelease88"
+            ]
+          },
+          {
+            "kind": "ai-capability",
+            "verified": "2026-10-23",
+            "id": "ai-es-detection",
+            "title": "ES · Detection Builder agent",
+            "product": "es",
+            "evidenceVersion": "8.8",
+            "scope": {
+              "product": "es",
+              "evidenceVersion": "8.8"
+            },
+            "version": "ES 8.8 agent guide",
+            "stage": "8.8 release · Controlled Availability",
+            "description": "Assist detection authoring and tuning.",
+            "editions": [
+              "essentials",
+              "premier"
+            ],
+            "deployments": [
+              "cloud",
+              "enterprise"
+            ],
+            "requirements": [
+              "Cloud: Platform 10.1.x+.",
+              "CMP: Platform 10.4.x+, ES 8.8+, Cloud Connect 2.0."
+            ],
+            "runtime": "ES agentic services through Cloud or Cloud Connect.",
+            "qualification": "Feature prerequisites and regional component scope remain separate.",
+            "condition": "Meet the deployment-specific Platform and Cloud Connect floors.",
+            "src": [
+              "aiEsAgents88",
+              "aiEsRelease88"
+            ]
+          },
+          {
+            "kind": "ai-capability",
+            "verified": "2026-10-23",
+            "id": "ai-es-sop",
+            "title": "ES · SOP agent",
+            "product": "es",
+            "evidenceVersion": "8.8",
+            "scope": {
+              "product": "es",
+              "evidenceVersion": "8.8"
+            },
+            "version": "ES 8.8 agent guide",
+            "stage": "8.8 release · Controlled Availability",
+            "description": "Turn an SOP into a response plan.",
+            "editions": [
+              "essentials",
+              "premier"
+            ],
+            "deployments": [
+              "cloud"
+            ],
+            "requirements": [
+              "Cloud deployment with Security AI Assistant enabled.",
+              "Response-template view and edit permissions."
+            ],
+            "runtime": "ES Cloud AI services.",
+            "qualification": "The reviewed agent row is Cloud only.",
+            "condition": "Enable Security AI Assistant and required response-template permissions.",
+            "src": [
+              "aiEsAgents88",
+              "aiEsRelease88"
+            ]
+          },
+          {
+            "kind": "ai-capability",
+            "verified": "2026-10-23",
+            "id": "ai-es-soc",
+            "title": "ES · AI SOC analyst agent",
+            "product": "es",
+            "evidenceVersion": "8.8",
+            "scope": {
+              "product": "es",
+              "evidenceVersion": "8.8"
+            },
+            "version": "ES 8.8 agent guide",
+            "stage": "8.8 release · Controlled Availability",
+            "description": "Assist security investigation and response.",
+            "editions": [
+              "premier"
+            ],
+            "deployments": [
+              "cloud",
+              "enterprise"
+            ],
+            "requirements": [
+              "Premier, paired SOAR and representative enablement.",
+              "Cloud: Platform 10.2.x+, ES 8.6+; CMP: Platform 10.4.x+, ES 8.8+, Cloud Connect 2.0."
+            ],
+            "runtime": "Agentic SOC services; paired SOAR has independent compatibility.",
+            "qualification": "This row does not assign the entitlement of each SOC subagent.",
+            "condition": "Confirm Premier access, paired SOAR and enablement.",
+            "src": [
+              "aiEsAgents88",
+              "aiEsRelease88"
+            ]
+          }
+        ],
+        "backlog": [
+          {
+            "id": "ai-backlog-essentials-regions",
+            "owner": "CSP FedRAMP Watch",
+            "topic": "Verify complete ES 8.8 Essentials regional rows independently; retain unknowns until mapped."
+          },
+          {
+            "id": "ai-backlog-itsi-regions",
+            "owner": "CSP FedRAMP Watch",
+            "topic": "Establish ITSI subagent-specific regional and regulated rollout rather than inheriting SAIA."
+          },
+          {
+            "id": "ai-backlog-es-queue",
+            "owner": "ES Editions Watch",
+            "topic": "Reconcile 8.8 agent-specific entitlement, detailed task prerequisites and existing 8.7 records without rewriting historical scope."
+          },
+          {
+            "id": "ai-backlog-expansion",
+            "owner": "Version Release Watch",
+            "topic": "Discover other documented assistants and agents, including Observability, with bounded source-backed additions."
+          }
+        ]
+      }
     },
     {
       "id": "vc-4d39e3311efc66e13b3e",
@@ -8080,6 +8635,64 @@
         "Process bursts more predictably",
         "Use the default queue-processing system to reduce notable-event processing latency."
       ]
+    },
+    {
+      "id": "vc-5cce68cd925ac184914c",
+      "kind": "ai-capability",
+      "dataset": "guidance",
+      "scope": {
+        "product": "platform",
+        "evidenceVersion": "2.3.6",
+        "version": "SAIA 2.3.6"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-a7af3e985cbd086d3974",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+          "section": "Requirements; features; ITSI subagent; where the assistant runs",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-23",
+          "sourceChecked": "2026-10-23"
+        },
+        {
+          "sourceId": "source-933d52078c21646b9f1b",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+          "section": "FedRAMP deployments; supported regions; version compatibility",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-23",
+          "sourceChecked": "2026-10-23"
+        }
+      ],
+      "verification": {
+        "date": "2026-10-23",
+        "outcome": "Recorded in original claim"
+      },
+      "payload": {
+        "kind": "ai-capability",
+        "verified": "2026-10-23",
+        "id": "ai-saia-spl",
+        "title": "SAIA · SPL assistance",
+        "product": "platform",
+        "evidenceVersion": "2.3.6",
+        "scope": {
+          "product": "platform",
+          "evidenceVersion": "2.3.6"
+        },
+        "version": "SAIA 2.3.6",
+        "stage": "GA app",
+        "description": "Create, explain and improve SPL through conversational assistance.",
+        "requirements": [
+          "Supported Platform version; SAIA installation and permissions.",
+          "Enterprise uses Cloud Connected AI services."
+        ],
+        "runtime": "Splunk-hosted AI service or documented model-runtime choice.",
+        "qualification": "Formerly named AI Assistant for SPL. Model choice can change processing location.",
+        "condition": "Confirm the supported app/Platform pairing and activation.",
+        "src": [
+          "aiSaiaAbout",
+          "aiSaiaInstall"
+        ]
+      }
     },
     {
       "id": "vc-5cfb3d97d561ec9bfb0a",
@@ -10400,6 +11013,57 @@
       ]
     },
     {
+      "id": "vc-7cc703b2ec15177d3d29",
+      "kind": "ai-capability",
+      "dataset": "platform",
+      "scope": {
+        "product": "es",
+        "evidenceVersion": "8.8",
+        "version": "ES 8.8 agent guide",
+        "deployments": [
+          "cloud"
+        ]
+      },
+      "evidence": [],
+      "verification": {
+        "date": "2026-10-23",
+        "outcome": "Recorded in original claim"
+      },
+      "payload": {
+        "kind": "ai-capability",
+        "verified": "2026-10-23",
+        "id": "ai-es-sop",
+        "title": "ES · SOP agent",
+        "product": "es",
+        "evidenceVersion": "8.8",
+        "scope": {
+          "product": "es",
+          "evidenceVersion": "8.8"
+        },
+        "version": "ES 8.8 agent guide",
+        "stage": "8.8 release · Controlled Availability",
+        "description": "Turn an SOP into a response plan.",
+        "editions": [
+          "essentials",
+          "premier"
+        ],
+        "deployments": [
+          "cloud"
+        ],
+        "requirements": [
+          "Cloud deployment with Security AI Assistant enabled.",
+          "Response-template view and edit permissions."
+        ],
+        "runtime": "ES Cloud AI services.",
+        "qualification": "The reviewed agent row is Cloud only.",
+        "condition": "Enable Security AI Assistant and required response-template permissions.",
+        "src": [
+          "aiEsAgents88",
+          "aiEsRelease88"
+        ]
+      }
+    },
+    {
       "id": "vc-7d1af5649c820f99817a",
       "kind": "feature",
       "dataset": "products",
@@ -10515,6 +11179,64 @@
         "https://help.splunk.com/en/splunk-observability-cloud/release-notes/september-2026",
         false
       ]
+    },
+    {
+      "id": "vc-7e4b419f1f509e22208c",
+      "kind": "ai-capability",
+      "dataset": "guidance",
+      "scope": {
+        "product": "itsi",
+        "evidenceVersion": "5.0",
+        "version": "ITSI 5.0+ · SAIA 2.2+ · MCP Server 1.2.1+"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-a7af3e985cbd086d3974",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+          "section": "Requirements; features; ITSI subagent; where the assistant runs",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-23",
+          "sourceChecked": "2026-10-23"
+        },
+        {
+          "sourceId": "source-933d52078c21646b9f1b",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+          "section": "FedRAMP deployments; supported regions; version compatibility",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-23",
+          "sourceChecked": "2026-10-23"
+        }
+      ],
+      "verification": {
+        "date": "2026-10-23",
+        "outcome": "Recorded in original claim"
+      },
+      "payload": {
+        "kind": "ai-capability",
+        "verified": "2026-10-23",
+        "id": "ai-itsi-subagent",
+        "title": "ITSI · SAIA subagent",
+        "product": "itsi",
+        "evidenceVersion": "5.0",
+        "scope": {
+          "product": "itsi",
+          "evidenceVersion": "5.0"
+        },
+        "version": "ITSI 5.0+ · SAIA 2.2+ · MCP Server 1.2.1+",
+        "stage": "Documented integration · stage not separately established",
+        "description": "Investigate episodes, impacted services and related evidence through SAIA.",
+        "requirements": [
+          "ITSI 5.0.0+, SAIA 2.2.0+, Splunk MCP Server 1.2.1+.",
+          "Required apps, tools and user permissions must be enabled."
+        ],
+        "runtime": "ITSI integration inside SAIA.",
+        "qualification": "Base assistant regional coverage does not establish subagent-specific rollout.",
+        "condition": "The integration and version floors are documented; confirm subagent enablement and regional scope.",
+        "src": [
+          "aiSaiaAbout",
+          "aiSaiaInstall"
+        ]
+      }
     },
     {
       "id": "vc-7e4d188e226da808efb2",
@@ -12504,6 +13226,47 @@
         "Extend response choice",
         "Pair an on-premises Splunk SOAR deployment with the unified Enterprise Security workflow."
       ]
+    },
+    {
+      "id": "vc-927fb1007d5d71796021",
+      "kind": "ai-capability",
+      "dataset": "platform",
+      "scope": {
+        "product": "platform",
+        "evidenceVersion": "2.3.6",
+        "version": "SAIA 2.3.6 documentation"
+      },
+      "evidence": [],
+      "verification": {
+        "date": "2026-10-23",
+        "outcome": "Recorded in original claim"
+      },
+      "payload": {
+        "kind": "ai-capability",
+        "verified": "2026-10-23",
+        "id": "ai-saia-agent",
+        "title": "SAIA · Agent Mode",
+        "product": "platform",
+        "evidenceVersion": "2.3.6",
+        "scope": {
+          "product": "platform",
+          "evidenceVersion": "2.3.6"
+        },
+        "version": "SAIA 2.3.6 documentation",
+        "stage": "GA app · feature-specific limits",
+        "description": "Use the assistant’s agentic workflow, subject to its separate requirements.",
+        "requirements": [
+          "For Enterprise, Platform 10.1.x+ is required.",
+          "The documented IL2 FedRAMP assistant excludes Agent Mode."
+        ],
+        "runtime": "AI service and model-runtime policy apply.",
+        "qualification": "An installed assistant does not establish Agent Mode availability.",
+        "condition": "Check Agent Mode prerequisites independently from the base assistant.",
+        "src": [
+          "aiSaiaInstall",
+          "aiSaiaAbout"
+        ]
+      }
     },
     {
       "id": "vc-92c8ac111c957e2b6d4b",
@@ -14741,6 +15504,47 @@
       ]
     },
     {
+      "id": "vc-b1f6fe54e6593fc1971e",
+      "kind": "ai-capability",
+      "dataset": "platform",
+      "scope": {
+        "product": "platform",
+        "evidenceVersion": "2.3.6",
+        "version": "SAIA 2.3.6"
+      },
+      "evidence": [],
+      "verification": {
+        "date": "2026-10-23",
+        "outcome": "Recorded in original claim"
+      },
+      "payload": {
+        "kind": "ai-capability",
+        "verified": "2026-10-23",
+        "id": "ai-saia-spl",
+        "title": "SAIA · SPL assistance",
+        "product": "platform",
+        "evidenceVersion": "2.3.6",
+        "scope": {
+          "product": "platform",
+          "evidenceVersion": "2.3.6"
+        },
+        "version": "SAIA 2.3.6",
+        "stage": "GA app",
+        "description": "Create, explain and improve SPL through conversational assistance.",
+        "requirements": [
+          "Supported Platform version; SAIA installation and permissions.",
+          "Enterprise uses Cloud Connected AI services."
+        ],
+        "runtime": "Splunk-hosted AI service or documented model-runtime choice.",
+        "qualification": "Formerly named AI Assistant for SPL. Model choice can change processing location.",
+        "condition": "Confirm the supported app/Platform pairing and activation.",
+        "src": [
+          "aiSaiaAbout",
+          "aiSaiaInstall"
+        ]
+      }
+    },
+    {
       "id": "vc-b23b6c1bc4cdc8da6f55",
       "kind": "technical",
       "dataset": "soar",
@@ -15961,6 +16765,128 @@
       ]
     },
     {
+      "id": "vc-c0c79bf84fe4bb60bde4",
+      "kind": "ai-capability",
+      "dataset": "platform",
+      "scope": {
+        "product": "es",
+        "evidenceVersion": "8.8",
+        "version": "ES 8.8 agent guide",
+        "deployments": [
+          "cloud",
+          "enterprise"
+        ]
+      },
+      "evidence": [],
+      "verification": {
+        "date": "2026-10-23",
+        "outcome": "Recorded in original claim"
+      },
+      "payload": {
+        "kind": "ai-capability",
+        "verified": "2026-10-23",
+        "id": "ai-es-detection",
+        "title": "ES · Detection Builder agent",
+        "product": "es",
+        "evidenceVersion": "8.8",
+        "scope": {
+          "product": "es",
+          "evidenceVersion": "8.8"
+        },
+        "version": "ES 8.8 agent guide",
+        "stage": "8.8 release · Controlled Availability",
+        "description": "Assist detection authoring and tuning.",
+        "editions": [
+          "essentials",
+          "premier"
+        ],
+        "deployments": [
+          "cloud",
+          "enterprise"
+        ],
+        "requirements": [
+          "Cloud: Platform 10.1.x+.",
+          "CMP: Platform 10.4.x+, ES 8.8+, Cloud Connect 2.0."
+        ],
+        "runtime": "ES agentic services through Cloud or Cloud Connect.",
+        "qualification": "Feature prerequisites and regional component scope remain separate.",
+        "condition": "Meet the deployment-specific Platform and Cloud Connect floors.",
+        "src": [
+          "aiEsAgents88",
+          "aiEsRelease88"
+        ]
+      }
+    },
+    {
+      "id": "vc-c0cbf0b60f0d2dd3ab0d",
+      "kind": "ai-capability",
+      "dataset": "guidance",
+      "scope": {
+        "product": "es",
+        "evidenceVersion": "8.8",
+        "version": "ES 8.8 agent guide",
+        "deployments": [
+          "cloud",
+          "enterprise"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "source-d6c87ecad818dd756db9",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+          "section": "Compatibility table: Detection Builder, AI SOC Analyst and SOP agent",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-23",
+          "sourceChecked": "2026-10-23"
+        },
+        {
+          "sourceId": "source-d10f9ac6604ba17d7875",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": "ES 8.8 Controlled Availability",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-22",
+          "sourceChecked": "2026-10-22"
+        }
+      ],
+      "verification": {
+        "date": "2026-10-23",
+        "outcome": "Recorded in original claim"
+      },
+      "payload": {
+        "kind": "ai-capability",
+        "verified": "2026-10-23",
+        "id": "ai-es-soc",
+        "title": "ES · AI SOC analyst agent",
+        "product": "es",
+        "evidenceVersion": "8.8",
+        "scope": {
+          "product": "es",
+          "evidenceVersion": "8.8"
+        },
+        "version": "ES 8.8 agent guide",
+        "stage": "8.8 release · Controlled Availability",
+        "description": "Assist security investigation and response.",
+        "editions": [
+          "premier"
+        ],
+        "deployments": [
+          "cloud",
+          "enterprise"
+        ],
+        "requirements": [
+          "Premier, paired SOAR and representative enablement.",
+          "Cloud: Platform 10.2.x+, ES 8.6+; CMP: Platform 10.4.x+, ES 8.8+, Cloud Connect 2.0."
+        ],
+        "runtime": "Agentic SOC services; paired SOAR has independent compatibility.",
+        "qualification": "This row does not assign the entitlement of each SOC subagent.",
+        "condition": "Confirm Premier access, paired SOAR and enablement.",
+        "src": [
+          "aiEsAgents88",
+          "aiEsRelease88"
+        ]
+      }
+    },
+    {
       "id": "vc-c0d7c9f0ba1766a43296",
       "kind": "requirement",
       "dataset": "platform",
@@ -17119,6 +18045,64 @@
       }
     },
     {
+      "id": "vc-cb9e9b15175ae2285879",
+      "kind": "ai-capability",
+      "dataset": "guidance",
+      "scope": {
+        "product": "platform",
+        "evidenceVersion": "2.3.6",
+        "version": "SAIA 2.3.6 documentation"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-933d52078c21646b9f1b",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+          "section": "FedRAMP deployments; supported regions; version compatibility",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-23",
+          "sourceChecked": "2026-10-23"
+        },
+        {
+          "sourceId": "source-a7af3e985cbd086d3974",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+          "section": "Requirements; features; ITSI subagent; where the assistant runs",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-23",
+          "sourceChecked": "2026-10-23"
+        }
+      ],
+      "verification": {
+        "date": "2026-10-23",
+        "outcome": "Recorded in original claim"
+      },
+      "payload": {
+        "kind": "ai-capability",
+        "verified": "2026-10-23",
+        "id": "ai-saia-agent",
+        "title": "SAIA · Agent Mode",
+        "product": "platform",
+        "evidenceVersion": "2.3.6",
+        "scope": {
+          "product": "platform",
+          "evidenceVersion": "2.3.6"
+        },
+        "version": "SAIA 2.3.6 documentation",
+        "stage": "GA app · feature-specific limits",
+        "description": "Use the assistant’s agentic workflow, subject to its separate requirements.",
+        "requirements": [
+          "For Enterprise, Platform 10.1.x+ is required.",
+          "The documented IL2 FedRAMP assistant excludes Agent Mode."
+        ],
+        "runtime": "AI service and model-runtime policy apply.",
+        "qualification": "An installed assistant does not establish Agent Mode availability.",
+        "condition": "Check Agent Mode prerequisites independently from the base assistant.",
+        "src": [
+          "aiSaiaInstall",
+          "aiSaiaAbout"
+        ]
+      }
+    },
+    {
       "id": "vc-cbc0da69d155d28ce802",
       "kind": "feature",
       "dataset": "platform",
@@ -18176,6 +19160,429 @@
         "Ship safer detections",
         "Test, validate, and audit detection changes with a clearer version history."
       ]
+    },
+    {
+      "id": "vc-d4a0466fc701e42bd09d",
+      "kind": "ai-catalog",
+      "dataset": "guidance",
+      "scope": {},
+      "evidence": [
+        {
+          "sourceId": "source-a7af3e985cbd086d3974",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+          "section": "Requirements; features; ITSI subagent; where the assistant runs",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-23",
+          "sourceChecked": "2026-10-23"
+        },
+        {
+          "sourceId": "source-933d52078c21646b9f1b",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+          "section": "FedRAMP deployments; supported regions; version compatibility",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-23",
+          "sourceChecked": "2026-10-23"
+        },
+        {
+          "sourceId": "source-348a24aafee18c00a09b",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+          "section": "Premier regional table; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-23",
+          "sourceChecked": "2026-10-23"
+        },
+        {
+          "sourceId": "source-d6c87ecad818dd756db9",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+          "section": "Compatibility table: Detection Builder, AI SOC Analyst and SOP agent",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-23",
+          "sourceChecked": "2026-10-23"
+        },
+        {
+          "sourceId": "source-2dc2d849c6eabc9e505e",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
+          "section": "Dated existing edition qualification; generic compatibility does not broaden Essentials CMP entitlement",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-01",
+          "sourceChecked": "2026-10-01"
+        },
+        {
+          "sourceId": "source-d10f9ac6604ba17d7875",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": "ES 8.8 Controlled Availability",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-22",
+          "sourceChecked": "2026-10-22"
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": {
+        "id": "ai-availability-catalog",
+        "title": "AI Availability",
+        "kind": "ai-catalog",
+        "schemaVersion": 1,
+        "checked": "2026-10-23",
+        "boundary": "Feature availability, edition entitlement, compatible versions, release stage and offering authorization are independent. A published capability or a supported hosting region does not establish that every tenant can enable it. Missing evidence remains explicit.",
+        "regulatedQualification": "SAIA documents limited IL2 support, excludes Agent Mode there, and fixes the runtime to Splunk-hosted models. Its commercial-stack introduction and GovCloud rows require scope reconciliation. Mapping that limited statement to every Moderate or High offering is not established.",
+        "sourceIds": [
+          "aiSaiaAbout",
+          "aiSaiaInstall",
+          "aiEsRegions88",
+          "aiEsAgents88",
+          "aiEsEditions",
+          "aiEsRelease88"
+        ],
+        "src": [
+          "aiSaiaAbout",
+          "aiSaiaInstall",
+          "aiEsRegions88",
+          "aiEsAgents88",
+          "aiEsEditions",
+          "aiEsRelease88"
+        ],
+        "serviceRegions": [
+          {
+            "id": "azure-ai-japan",
+            "provider": "azure",
+            "label": "Japan · SAIA service"
+          },
+          {
+            "id": "azure-ai-uk-south",
+            "provider": "azure",
+            "label": "UK South · SAIA service"
+          },
+          {
+            "id": "azure-ai-us-east",
+            "provider": "azure",
+            "label": "US East · SAIA service"
+          },
+          {
+            "id": "azure-ai-us-west",
+            "provider": "azure",
+            "label": "US West · SAIA service"
+          }
+        ],
+        "saiaRegions": [
+          "ap-south-1",
+          "me-central-1",
+          "ap-northeast-2",
+          "ap-southeast-1",
+          "ap-southeast-2",
+          "ap-northeast-1",
+          "ca-central-1",
+          "eu-central-1",
+          "eu-west-2",
+          "eu-west-3",
+          "us-east-1",
+          "us-west-2",
+          "eu-south-1",
+          "sa-east-1",
+          "ap-southeast-3",
+          "azure-ai-japan",
+          "azure-ai-uk-south",
+          "azure-ai-us-east",
+          "azure-ai-us-west"
+        ],
+        "esPremier": {
+          "regions": [
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-south-1",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-southeast-3",
+            "ca-central-1",
+            "ca-west-1",
+            "eu-central-1",
+            "eu-south-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "sa-east-1",
+            "us-east-1",
+            "us-west-2"
+          ],
+          "assistantExcluded": [
+            "ca-west-1",
+            "eu-south-1",
+            "sa-east-1",
+            "us-gov-east-1",
+            "us-gov-west-1"
+          ],
+          "agenticExcluded": [
+            "ca-west-1",
+            "us-gov-east-1",
+            "us-gov-west-1"
+          ]
+        },
+        "esCloudConnect": {
+          "regions": [
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-south-1",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-southeast-3",
+            "ca-central-1",
+            "ca-west-1",
+            "eu-central-1",
+            "eu-south-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "sa-east-1",
+            "us-east-1",
+            "us-west-2"
+          ],
+          "assistantExcluded": [
+            "ca-central-1",
+            "eu-south-1",
+            "sa-east-1"
+          ],
+          "agenticExcluded": []
+        },
+        "capabilities": [
+          {
+            "kind": "ai-capability",
+            "verified": "2026-10-23",
+            "id": "ai-saia-spl",
+            "title": "SAIA · SPL assistance",
+            "product": "platform",
+            "evidenceVersion": "2.3.6",
+            "scope": {
+              "product": "platform",
+              "evidenceVersion": "2.3.6"
+            },
+            "version": "SAIA 2.3.6",
+            "stage": "GA app",
+            "description": "Create, explain and improve SPL through conversational assistance.",
+            "requirements": [
+              "Supported Platform version; SAIA installation and permissions.",
+              "Enterprise uses Cloud Connected AI services."
+            ],
+            "runtime": "Splunk-hosted AI service or documented model-runtime choice.",
+            "qualification": "Formerly named AI Assistant for SPL. Model choice can change processing location.",
+            "condition": "Confirm the supported app/Platform pairing and activation.",
+            "src": [
+              "aiSaiaAbout",
+              "aiSaiaInstall"
+            ]
+          },
+          {
+            "kind": "ai-capability",
+            "verified": "2026-10-23",
+            "id": "ai-saia-agent",
+            "title": "SAIA · Agent Mode",
+            "product": "platform",
+            "evidenceVersion": "2.3.6",
+            "scope": {
+              "product": "platform",
+              "evidenceVersion": "2.3.6"
+            },
+            "version": "SAIA 2.3.6 documentation",
+            "stage": "GA app · feature-specific limits",
+            "description": "Use the assistant’s agentic workflow, subject to its separate requirements.",
+            "requirements": [
+              "For Enterprise, Platform 10.1.x+ is required.",
+              "The documented IL2 FedRAMP assistant excludes Agent Mode."
+            ],
+            "runtime": "AI service and model-runtime policy apply.",
+            "qualification": "An installed assistant does not establish Agent Mode availability.",
+            "condition": "Check Agent Mode prerequisites independently from the base assistant.",
+            "src": [
+              "aiSaiaInstall",
+              "aiSaiaAbout"
+            ]
+          },
+          {
+            "kind": "ai-capability",
+            "verified": "2026-10-23",
+            "id": "ai-itsi-subagent",
+            "title": "ITSI · SAIA subagent",
+            "product": "itsi",
+            "evidenceVersion": "5.0",
+            "scope": {
+              "product": "itsi",
+              "evidenceVersion": "5.0"
+            },
+            "version": "ITSI 5.0+ · SAIA 2.2+ · MCP Server 1.2.1+",
+            "stage": "Documented integration · stage not separately established",
+            "description": "Investigate episodes, impacted services and related evidence through SAIA.",
+            "requirements": [
+              "ITSI 5.0.0+, SAIA 2.2.0+, Splunk MCP Server 1.2.1+.",
+              "Required apps, tools and user permissions must be enabled."
+            ],
+            "runtime": "ITSI integration inside SAIA.",
+            "qualification": "Base assistant regional coverage does not establish subagent-specific rollout.",
+            "condition": "The integration and version floors are documented; confirm subagent enablement and regional scope.",
+            "src": [
+              "aiSaiaAbout",
+              "aiSaiaInstall"
+            ]
+          },
+          {
+            "kind": "ai-capability",
+            "verified": "2026-10-23",
+            "id": "ai-es-assistant",
+            "title": "ES · Security AI Assistant",
+            "product": "es",
+            "evidenceVersion": "8.8",
+            "scope": {
+              "product": "es",
+              "evidenceVersion": "8.8"
+            },
+            "version": "ES 8.8 documentation · Cloud 8.2+; CMP 8.8+",
+            "stage": "8.8 release · Controlled Availability",
+            "description": "Summarize investigations and assist with SPL.",
+            "editions": [
+              "essentials",
+              "premier"
+            ],
+            "deployments": [
+              "cloud",
+              "enterprise"
+            ],
+            "requirements": [
+              "Compatible licensed ES and supported region.",
+              "Account-team enablement; edition-specific access."
+            ],
+            "runtime": "Security AI service; review configured model and data policies.",
+            "qualification": "The ES assistant is separate from the SAIA platform app. CMP edition qualification is retained.",
+            "condition": "Confirm exact edition and account-team enablement.",
+            "src": [
+              "aiEsRegions88",
+              "aiEsEditions",
+              "aiEsRelease88"
+            ]
+          },
+          {
+            "kind": "ai-capability",
+            "verified": "2026-10-23",
+            "id": "ai-es-detection",
+            "title": "ES · Detection Builder agent",
+            "product": "es",
+            "evidenceVersion": "8.8",
+            "scope": {
+              "product": "es",
+              "evidenceVersion": "8.8"
+            },
+            "version": "ES 8.8 agent guide",
+            "stage": "8.8 release · Controlled Availability",
+            "description": "Assist detection authoring and tuning.",
+            "editions": [
+              "essentials",
+              "premier"
+            ],
+            "deployments": [
+              "cloud",
+              "enterprise"
+            ],
+            "requirements": [
+              "Cloud: Platform 10.1.x+.",
+              "CMP: Platform 10.4.x+, ES 8.8+, Cloud Connect 2.0."
+            ],
+            "runtime": "ES agentic services through Cloud or Cloud Connect.",
+            "qualification": "Feature prerequisites and regional component scope remain separate.",
+            "condition": "Meet the deployment-specific Platform and Cloud Connect floors.",
+            "src": [
+              "aiEsAgents88",
+              "aiEsRelease88"
+            ]
+          },
+          {
+            "kind": "ai-capability",
+            "verified": "2026-10-23",
+            "id": "ai-es-sop",
+            "title": "ES · SOP agent",
+            "product": "es",
+            "evidenceVersion": "8.8",
+            "scope": {
+              "product": "es",
+              "evidenceVersion": "8.8"
+            },
+            "version": "ES 8.8 agent guide",
+            "stage": "8.8 release · Controlled Availability",
+            "description": "Turn an SOP into a response plan.",
+            "editions": [
+              "essentials",
+              "premier"
+            ],
+            "deployments": [
+              "cloud"
+            ],
+            "requirements": [
+              "Cloud deployment with Security AI Assistant enabled.",
+              "Response-template view and edit permissions."
+            ],
+            "runtime": "ES Cloud AI services.",
+            "qualification": "The reviewed agent row is Cloud only.",
+            "condition": "Enable Security AI Assistant and required response-template permissions.",
+            "src": [
+              "aiEsAgents88",
+              "aiEsRelease88"
+            ]
+          },
+          {
+            "kind": "ai-capability",
+            "verified": "2026-10-23",
+            "id": "ai-es-soc",
+            "title": "ES · AI SOC analyst agent",
+            "product": "es",
+            "evidenceVersion": "8.8",
+            "scope": {
+              "product": "es",
+              "evidenceVersion": "8.8"
+            },
+            "version": "ES 8.8 agent guide",
+            "stage": "8.8 release · Controlled Availability",
+            "description": "Assist security investigation and response.",
+            "editions": [
+              "premier"
+            ],
+            "deployments": [
+              "cloud",
+              "enterprise"
+            ],
+            "requirements": [
+              "Premier, paired SOAR and representative enablement.",
+              "Cloud: Platform 10.2.x+, ES 8.6+; CMP: Platform 10.4.x+, ES 8.8+, Cloud Connect 2.0."
+            ],
+            "runtime": "Agentic SOC services; paired SOAR has independent compatibility.",
+            "qualification": "This row does not assign the entitlement of each SOC subagent.",
+            "condition": "Confirm Premier access, paired SOAR and enablement.",
+            "src": [
+              "aiEsAgents88",
+              "aiEsRelease88"
+            ]
+          }
+        ],
+        "backlog": [
+          {
+            "id": "ai-backlog-essentials-regions",
+            "owner": "CSP FedRAMP Watch",
+            "topic": "Verify complete ES 8.8 Essentials regional rows independently; retain unknowns until mapped."
+          },
+          {
+            "id": "ai-backlog-itsi-regions",
+            "owner": "CSP FedRAMP Watch",
+            "topic": "Establish ITSI subagent-specific regional and regulated rollout rather than inheriting SAIA."
+          },
+          {
+            "id": "ai-backlog-es-queue",
+            "owner": "ES Editions Watch",
+            "topic": "Reconcile 8.8 agent-specific entitlement, detailed task prerequisites and existing 8.7 records without rewriting historical scope."
+          },
+          {
+            "id": "ai-backlog-expansion",
+            "owner": "Version Release Watch",
+            "topic": "Discover other documented assistants and agents, including Observability, with bounded source-backed additions."
+          }
+        ]
+      }
     },
     {
       "id": "vc-d4cac590b0891b9d18ef",
@@ -19362,6 +20769,58 @@
       ]
     },
     {
+      "id": "vc-e0ca7817db8f54b2b12d",
+      "kind": "ai-capability",
+      "dataset": "platform",
+      "scope": {
+        "product": "es",
+        "evidenceVersion": "8.8",
+        "version": "ES 8.8 agent guide",
+        "deployments": [
+          "cloud",
+          "enterprise"
+        ]
+      },
+      "evidence": [],
+      "verification": {
+        "date": "2026-10-23",
+        "outcome": "Recorded in original claim"
+      },
+      "payload": {
+        "kind": "ai-capability",
+        "verified": "2026-10-23",
+        "id": "ai-es-soc",
+        "title": "ES · AI SOC analyst agent",
+        "product": "es",
+        "evidenceVersion": "8.8",
+        "scope": {
+          "product": "es",
+          "evidenceVersion": "8.8"
+        },
+        "version": "ES 8.8 agent guide",
+        "stage": "8.8 release · Controlled Availability",
+        "description": "Assist security investigation and response.",
+        "editions": [
+          "premier"
+        ],
+        "deployments": [
+          "cloud",
+          "enterprise"
+        ],
+        "requirements": [
+          "Premier, paired SOAR and representative enablement.",
+          "Cloud: Platform 10.2.x+, ES 8.6+; CMP: Platform 10.4.x+, ES 8.8+, Cloud Connect 2.0."
+        ],
+        "runtime": "Agentic SOC services; paired SOAR has independent compatibility.",
+        "qualification": "This row does not assign the entitlement of each SOC subagent.",
+        "condition": "Confirm Premier access, paired SOAR and enablement.",
+        "src": [
+          "aiEsAgents88",
+          "aiEsRelease88"
+        ]
+      }
+    },
+    {
       "id": "vc-e0cb13bb3fe6411391d6",
       "kind": "requirement",
       "dataset": "platform",
@@ -20318,6 +21777,85 @@
       }
     },
     {
+      "id": "vc-eaf130cd9fbaf569e1e4",
+      "kind": "ai-capability",
+      "dataset": "guidance",
+      "scope": {
+        "product": "es",
+        "evidenceVersion": "8.8",
+        "version": "ES 8.8 documentation · Cloud 8.2+; CMP 8.8+",
+        "deployments": [
+          "cloud",
+          "enterprise"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "source-348a24aafee18c00a09b",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+          "section": "Premier regional table; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-23",
+          "sourceChecked": "2026-10-23"
+        },
+        {
+          "sourceId": "source-2dc2d849c6eabc9e505e",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
+          "section": "Dated existing edition qualification; generic compatibility does not broaden Essentials CMP entitlement",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-01",
+          "sourceChecked": "2026-10-01"
+        },
+        {
+          "sourceId": "source-d10f9ac6604ba17d7875",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": "ES 8.8 Controlled Availability",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-22",
+          "sourceChecked": "2026-10-22"
+        }
+      ],
+      "verification": {
+        "date": "2026-10-23",
+        "outcome": "Recorded in original claim"
+      },
+      "payload": {
+        "kind": "ai-capability",
+        "verified": "2026-10-23",
+        "id": "ai-es-assistant",
+        "title": "ES · Security AI Assistant",
+        "product": "es",
+        "evidenceVersion": "8.8",
+        "scope": {
+          "product": "es",
+          "evidenceVersion": "8.8"
+        },
+        "version": "ES 8.8 documentation · Cloud 8.2+; CMP 8.8+",
+        "stage": "8.8 release · Controlled Availability",
+        "description": "Summarize investigations and assist with SPL.",
+        "editions": [
+          "essentials",
+          "premier"
+        ],
+        "deployments": [
+          "cloud",
+          "enterprise"
+        ],
+        "requirements": [
+          "Compatible licensed ES and supported region.",
+          "Account-team enablement; edition-specific access."
+        ],
+        "runtime": "Security AI service; review configured model and data policies.",
+        "qualification": "The ES assistant is separate from the SAIA platform app. CMP edition qualification is retained.",
+        "condition": "Confirm exact edition and account-team enablement.",
+        "src": [
+          "aiEsRegions88",
+          "aiEsEditions",
+          "aiEsRelease88"
+        ]
+      }
+    },
+    {
       "id": "vc-eb2fb59fec69e522b48f",
       "kind": "breakingChange",
       "dataset": "platform",
@@ -20600,6 +22138,76 @@
         "Open new downstream analytics paths",
         "Route supported data from edge pipelines into Parquet-based destinations."
       ]
+    },
+    {
+      "id": "vc-efa953de4cae77bfdc51",
+      "kind": "ai-capability",
+      "dataset": "guidance",
+      "scope": {
+        "product": "es",
+        "evidenceVersion": "8.8",
+        "version": "ES 8.8 agent guide",
+        "deployments": [
+          "cloud",
+          "enterprise"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "source-d6c87ecad818dd756db9",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+          "section": "Compatibility table: Detection Builder, AI SOC Analyst and SOP agent",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-23",
+          "sourceChecked": "2026-10-23"
+        },
+        {
+          "sourceId": "source-d10f9ac6604ba17d7875",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": "ES 8.8 Controlled Availability",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-10-22",
+          "sourceChecked": "2026-10-22"
+        }
+      ],
+      "verification": {
+        "date": "2026-10-23",
+        "outcome": "Recorded in original claim"
+      },
+      "payload": {
+        "kind": "ai-capability",
+        "verified": "2026-10-23",
+        "id": "ai-es-detection",
+        "title": "ES · Detection Builder agent",
+        "product": "es",
+        "evidenceVersion": "8.8",
+        "scope": {
+          "product": "es",
+          "evidenceVersion": "8.8"
+        },
+        "version": "ES 8.8 agent guide",
+        "stage": "8.8 release · Controlled Availability",
+        "description": "Assist detection authoring and tuning.",
+        "editions": [
+          "essentials",
+          "premier"
+        ],
+        "deployments": [
+          "cloud",
+          "enterprise"
+        ],
+        "requirements": [
+          "Cloud: Platform 10.1.x+.",
+          "CMP: Platform 10.4.x+, ES 8.8+, Cloud Connect 2.0."
+        ],
+        "runtime": "ES agentic services through Cloud or Cloud Connect.",
+        "qualification": "Feature prerequisites and regional component scope remain separate.",
+        "condition": "Meet the deployment-specific Platform and Cloud Connect floors.",
+        "src": [
+          "aiEsAgents88",
+          "aiEsRelease88"
+        ]
+      }
     },
     {
       "id": "vc-efae99ec41529245c2fb",

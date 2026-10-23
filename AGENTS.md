@@ -1,5 +1,20 @@
 # VersionCompass working contract
 
+## October 23 AI Availability tab
+
+The owner authorizes normal navigation for ?view=ai-availability and its integration
+with the existing watches. Read docs/ai-availability.md. Canonical capability and
+scoped regional rules live in guidance.aiAvailability and guidance.sources, within
+content/datasets/guidance.json; do not create an unsynchronized parallel dataset.
+Release Watch owns SAIA/ITSI and discovery, ES Editions Watch owns ES-specific
+capability/edition/deployment prerequisites, CSP FedRAMP Watch owns regional and
+regulated evidence, and Guidance Audit independently checks coverage and exports.
+Preserve source-specific versions, release stage, entitlement and authorization
+as separate facts. Base-assistant availability does not establish a subagent's
+regional scope. No internal sources, new browser agent tools, privacy changes or
+new maintenance timers are authorized. Existing schedules and enabled states stay
+unchanged. Extend exact-candidate CI routes for this view before deployment.
+
 ## October 15 future-release preparation page
 
 The owner authorizes the normal-navigation `?view=splunk-11` preparation page for upcoming Splunk Enterprise 11.x and later. Read docs/prep11.md. Version Release Watch owns public announcement discovery and the canonical `guidance.preparation11` set; Guidance Audit independently checks completeness. Preserve explicit unknowns, the current Operator source conflict and the difference between current-release preparation context, announced plans and released requirements. Existing watches, schedules, source/privacy boundaries and agent tool names stay unchanged.

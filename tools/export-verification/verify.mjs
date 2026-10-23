@@ -87,11 +87,42 @@ try {
     const routeUrl = new URL('http://127.0.0.1:4173/?' + route.query);
     if (theme === 'cisco') routeUrl.searchParams.set('theme','cisco');
     const url = routeUrl.href;
+    if(route.id==='ai-overview') {
+      await page.goto('http://127.0.0.1:4173/'+(theme==='cisco'?'?theme=cisco':'')); await settled(page);
+      await page.locator('.site-nav a').filter({hasText:'AI Availability'}).click(); await settled(page);
+      assert.equal(new URL(page.url()).searchParams.has('perspective'),false,'Release perspective leaked into AI navigation');
+      assert(await page.locator('#ai-selection').isVisible(),'Main-page AI navigation did not load a usable view');
+      entry.mainNavigation={passed:true};
+    }
     await page.goto(url); await settled(page);
     if(routeUrl.hash) {
       assert.equal(new URL(page.url()).hash,routeUrl.hash,'Shared section anchor was discarded: '+id);
       assert(await page.locator(routeUrl.hash).count()>0,'Shared section anchor has no target: '+id);
       entry.sharedAnchor={passed:true,hash:routeUrl.hash};
+    }
+    if(route.id.startsWith('ai-')) {
+      assert(await page.locator('#ai-title').isVisible());
+      assert.equal(await page.locator('.site-nav a[aria-current="page"]').getAttribute('href'),theme==='cisco'?'/?view=ai-availability&theme=cisco':'?view=ai-availability');
+      if(route.invalid){
+        assert(await page.locator('#ai-warning').isVisible());assert(await page.locator('#ai-content').isHidden());
+        assert.equal(await page.locator('main>.ai-report').count(),0);
+        assert.equal(await page.evaluate(()=>location.search),new URL(url).search);
+      }else{
+        const prior=await page.locator('#ai-search').inputValue();
+        await page.locator('#ai-search').fill('NO_MATCH_SYNTHETIC_CI_QUERY');
+        assert.equal(await page.locator('#ai-cards .ai-card').count(),0);
+        await page.locator('#ai-search').fill(prior);
+        assert(await page.locator('#ai-cards .ai-card').count()>0);
+        if(route.id==='ai-compare')assert(await page.locator('#ai-comparison .ai-matrix').isVisible());
+        if(route.id==='ai-itsi')assert((await page.locator('#ai-cards').innerText()).includes('MCP Server 1.2.1+'));
+        const provider=await page.locator('#ai-provider').inputValue(),region=await page.locator('#ai-region').inputValue();
+        if(region==='all'){
+          await page.locator('#ai-provider').selectOption('aws');await page.locator('#ai-region').selectOption('us-east-1');
+          await page.locator('#ai-provider').selectOption('azure');
+          assert.equal(await page.locator('#ai-region').inputValue(),'all');assert((await page.locator('#ai-context-feedback').innerText()).includes('cleared'));
+          await page.locator('#ai-provider').selectOption(provider);
+        }
+      }
     }
     if(route.id.startsWith('prep11')) {
       assert(await page.locator('#prep11-title').isVisible());
