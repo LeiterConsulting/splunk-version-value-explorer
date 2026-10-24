@@ -614,10 +614,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-10-23T09:55:03Z",
-      "lastSuccess": "2026-10-23T10:08:00Z",
-      "outcome": "no-change",
-      "summary": "All 21 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, release-stage or historical fact changed.",
+      "lastAttempt": "2026-10-24T10:35:38Z",
+      "lastSuccess": "2026-10-24T10:54:00Z",
+      "outcome": "changed",
+      "summary": "Reconciled current ES 8.8 agent compatibility into the canonical editions and AI guidance: Connector Builder is both editions in 8.8 while the 8.7 conflict remains historical; a separate 8.8 Triage edition conflict is now explicit; Cloud and CMP prerequisite chains remain separate. Exact candidate CI, exports, live delivery and read-only WebMCP checks passed.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -875,9 +875,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "All 21 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, release-stage or historical fact changed.",
           "scope": "All 21 maintained ES official sources plus six exact SOAR App/Export/related-product/Cloud records; current release discovery and twelve bounded high-consequence edition, prerequisite, pricing, release-stage and compatibility claims. Canonical edition facts, review dates, lifecycle dates and material cycle remain unchanged."
+        },
+        {
+          "at": "2026-10-24T10:35:38Z",
+          "outcome": "running",
+          "summary": "Reviewing fresh ES 8.8 agent compatibility evidence against the current editions and AI guidance.",
+          "scope": "Full official ES source inventory plus bounded high-consequence edition, prerequisite, pairing and AI-availability claims"
+        },
+        {
+          "at": "2026-10-24T10:54:00Z",
+          "outcome": "changed",
+          "summary": "Reconciled current ES 8.8 agent compatibility into the canonical editions and AI guidance: Connector Builder is both editions in 8.8 while the 8.7 conflict remains historical; a separate 8.8 Triage edition conflict is now explicit; Cloud and CMP prerequisite chains remain separate. Exact candidate CI, exports, live delivery and read-only WebMCP checks passed.",
+          "scope": "Twenty-nine official ES/SOAR source records and thirteen bounded high-consequence edition, prerequisite, pairing and AI-availability claims"
         }
       ],
-      "scope": "All 21 maintained ES official sources plus six exact SOAR App/Export/related-product/Cloud records; current release discovery and twelve bounded high-consequence edition, prerequisite, pricing, release-stage and compatibility claims. Canonical edition facts, review dates, lifecycle dates and material cycle remain unchanged."
+      "scope": "Twenty-nine official ES/SOAR source records and thirteen bounded high-consequence edition, prerequisite, pairing and AI-availability claims"
     },
     {
       "id": "version-guidance-audit",
