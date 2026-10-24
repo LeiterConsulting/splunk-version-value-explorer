@@ -263,9 +263,9 @@ window.VersionCompassMaintenance = {
       "id": "version-release-watch",
       "name": "Version Release Watch",
       "lastAttempt": "2026-10-24T09:55:38Z",
-      "lastSuccess": "2026-10-23T09:35:05Z",
-      "outcome": "running",
-      "summary": "Reviewing fresh release, AI capability and forwarder evidence.",
+      "lastSuccess": "2026-10-24T10:16:30Z",
+      "outcome": "changed",
+      "summary": "Added SOAR Cloud 8.8, Observability AI and phased log alerting; reverified bounded Heavy Forwarder TLS evidence and repaired affected exact-candidate export routes.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -601,9 +601,15 @@ window.VersionCompassMaintenance = {
           "outcome": "running",
           "summary": "Reviewing fresh release, AI capability and forwarder evidence.",
           "scope": "Complete 198-source inventory; SOAR Cloud 8.8; Observability AI and phased log alerting; bounded HF TLS mappings; affected routes and reports."
+        },
+        {
+          "at": "2026-10-24T10:16:30Z",
+          "outcome": "changed",
+          "summary": "Added SOAR Cloud 8.8, Observability AI and phased log alerting; reverified bounded Heavy Forwarder TLS evidence and repaired affected exact-candidate export routes.",
+          "scope": "All 198 baseline official URLs attempted plus two new Observability AI sources; SOAR Cloud 8.8 stage, Broker HA, System Insights and bundled UF; Observability AI Assistant, troubleshooting agent and log alerting; two exact HF TLS mappings; affected current, shared, invalid, PDF, HTML, phone-theme and read-only report parity."
         }
       ],
-      "scope": "Complete 198-source inventory; SOAR Cloud 8.8; Observability AI and phased log alerting; bounded HF TLS mappings; affected routes and reports."
+      "scope": "All 198 baseline official URLs attempted plus two new Observability AI sources; SOAR Cloud 8.8 stage, Broker HA, System Insights and bundled UF; Observability AI Assistant, troubleshooting agent and log alerting; two exact HF TLS mappings; affected current, shared, invalid, PDF, HTML, phone-theme and read-only report parity."
     },
     {
       "id": "es-editions-watch",
