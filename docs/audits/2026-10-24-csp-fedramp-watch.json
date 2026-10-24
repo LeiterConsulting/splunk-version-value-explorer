@@ -2,8 +2,8 @@
   "watch": "csp-fedramp-watch",
   "startedAt": "2026-10-24T11:48:52Z",
   "sourceCheckDate": "2026-10-24",
-  "outcome": "running",
-  "scope": "24 maintained environment, shared SOAR and AI regional URLs; complete ES 8.8 Essentials table and bounded high-consequence regional/authorization review.",
+  "outcome": "changed",
+  "scope": "22 maintained environment, shared SOAR and AI regional URLs; complete ES 8.8 Essentials table and bounded high-consequence regional/authorization review.",
   "baseline": {
     "githubCommit": "58fff26c282a1b9cbd8a31e82ac06d0ccb1fbe45",
     "sitesCommit": "a054c356be9170e21d9b8291762ca5502f6b8377",
@@ -192,6 +192,78 @@
       "verifiedAt": "2026-10-24",
       "outcome": "visual-header-legend-inspected",
       "qualification": "Column order IL5, Moderate, High, GovRAMP, TX-RAMP; check is audit scope, starred mark limited IL5; February 2026 date; blanks unknown. No new feature authorization inferred."
+    },
+    {
+      "claimId": "availability:s3:high-conflict",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions row; April 8 change log",
+      "verifiedAt": "2026-10-24",
+      "outcome": "verified-unchanged-with-qualifications",
+      "qualification": "Current High/IL5 exclusion and 10.3 change-log support remain conflicting; no resolution inferred."
+    },
+    {
+      "claimId": "availability:s3:moderate-conflict",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "S3 regional row and Search third-party limitations",
+      "verifiedAt": "2026-10-24",
+      "outcome": "verified-unchanged-with-qualifications",
+      "qualification": "Moderate regional availability remains distinct from expanded third-party federation exclusion."
+    },
+    {
+      "claimId": "availability:machine-data-lake",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions row",
+      "verifiedAt": "2026-10-24",
+      "outcome": "verified-unchanged-with-qualifications",
+      "qualification": "AWS except GovCloud; GCP and Azure unavailable; configuration, entitlement and authorization remain separate."
+    },
+    {
+      "claimId": "availability:soar:restricted",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/administer-soar-cloud/introduction-to-splunk-soar-cloud/splunk-soar-cloud-in-restricted-environments",
+      "section": "FedRAMP Moderate differences",
+      "verifiedAt": "2026-10-24",
+      "outcome": "verified-unchanged-with-qualifications",
+      "qualification": "GovCloud hosting; FIPS including Brokers; playbook isolation/filesystem/database restrictions and no native-data migration retained."
+    },
+    {
+      "claimId": "availability:observability:realms",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
+      "section": "Realm-to-region and component tables",
+      "verifiedAt": "2026-10-24",
+      "outcome": "verified-unchanged-with-qualifications",
+      "qualification": "Exact mapping retained; no us3 geography inferred; product-specific authorization unknown."
+    },
+    {
+      "claimId": "availability:agent-observability",
+      "url": "https://agent-observability-docs.splunk.com/saas/overview",
+      "section": "SaaS region and realm availability",
+      "verifiedAt": "2026-10-24",
+      "outcome": "verified-unchanged-with-qualifications",
+      "qualification": "Five AWS realms and Luna-3 Tokyo exclusion remain exact; access is separate."
+    },
+    {
+      "claimId": "availability:saia:regulated-runtime",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "section": "Supported regions; FedRAMP deployments",
+      "verifiedAt": "2026-10-24",
+      "outcome": "verified-unchanged-with-qualifications",
+      "qualification": "Limited IL2; Agent Mode excluded, training off by default, Splunk-hosted model fixed. No Moderate/High universal authorization."
+    },
+    {
+      "claimId": "availability:itsi:subagent-region",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+      "section": "ITSI subagent prerequisites",
+      "verifiedAt": "2026-10-24",
+      "outcome": "verified-unchanged-with-qualifications",
+      "qualification": "Version floors documented; base SAIA region rows do not independently establish subagent rollout."
+    },
+    {
+      "claimId": "availability:es:cloud-connect-regions",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "Premier and Cloud Connect tables; GCP/Azure",
+      "verifiedAt": "2026-10-24",
+      "outcome": "verified-unchanged-with-qualifications",
+      "qualification": "Montreal/Calgary exceptions remain distinct; no implicit CMP GovCloud scope; Cloud component exclusions retained."
     }
   ],
   "backlog": [
@@ -228,11 +300,30 @@
     "lifecycleDatesAdvanced": false
   },
   "validation": {
-    "automated": "pending",
-    "exports": "pending",
-    "live": "pending"
+    "automated": {
+      "outcome": "passed-local",
+      "tests": 221,
+      "assets": 60,
+      "detail": "Four ordered synchronizations and checks passed; exact-candidate CI required before merge and deployment."
+    },
+    "exports": {
+      "outcome": "pending",
+      "pullRequest": 32
+    },
+    "live": {
+      "outcome": "passed-prior-baseline",
+      "at": "2026-10-24T11:50:27.935Z",
+      "revision": "content-afd02dbe97b0480ea6bb2e52",
+      "engine": "engine-e6c46958575262f0b771",
+      "records": 863,
+      "detail": "Real D1 health/manifest/bundle, bounded query, write rejection and all seven fallback assets passed before candidate deployment."
+    }
   },
   "publication": {
-    "status": "pending"
-  }
+    "status": "candidate-branch-awaiting-ci",
+    "pullRequest": "https://github.com/LeiterConsulting/splunk-version-value-explorer/pull/32",
+    "approvalReview": "Direct main push held until native exact-candidate export verification; candidate branch and PR used for CI."
+  },
+  "sourceReviewCompletedAt": "2026-10-24T11:58:05.374Z",
+  "completedAt": "2026-10-24T11:58:05.374Z"
 }
