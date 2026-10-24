@@ -7,6 +7,28 @@ export function createWorker(seed, assets, { rippleFetch = (...args) => globalTh
     const response = json(body, status, { ...rippleHeaders, ...extra });
     return request.method === 'HEAD' ? new Response(null, response) : response;
   };
+  async function readRipple(env, snapshot, id) {
+    const upstream = new URL(snapshot ? '/api/snapshot' : '/api/cve', 'https://ripple-exposure.majorgeneralrabidzagnut.chatgpt.site');
+    if (!snapshot) upstream.searchParams.set('id', id);
+    const response = await rippleFetch(upstream.href, {
+      method: 'GET', redirect: 'manual', signal: AbortSignal.timeout(25000),
+      headers: { Accept: 'application/json', 'OAI-Sites-Authorization': 'Bearer ' + env.RIPPLE_READ_SERVICE_TOKEN },
+    });
+    if (!response.ok || !response.headers.get('content-type')?.includes('application/json') || !response.body || Number(response.headers.get('content-length')) > 2_000_000) throw Error('Ripple upstream unavailable');
+    const reader = response.body.getReader(), chunks = []; let total = 0;
+    while (true) {
+      const { done, value } = await reader.read(); if (done) break;
+      total += value.byteLength;
+      if (total > 2_000_000) { await reader.cancel(); throw Error('Ripple response exceeds limit'); }
+      chunks.push(value);
+    }
+    const bytes = new Uint8Array(total); let offset = 0;
+    for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.byteLength; }
+    const data = JSON.parse(new TextDecoder().decode(bytes));
+    if (snapshot ? data.schemaVersion !== 1 || !Array.isArray(data.records) || !Array.isArray(data.candidates) || !Array.isArray(data.checks) : data.id !== id || typeof data.found !== 'boolean') throw Error('Unsupported Ripple response');
+    const fields = snapshot ? ['schemaVersion', 'records', 'candidates', 'checks', 'lastRun', 'storage', 'updateStatus', 'runs', 'lastAssessmentAt', 'assessmentRuns', 'operations'] : ['id', 'found', 'description', 'severity', 'score', 'modified', 'status', 'url', 'ciscoImpact'];
+    return Object.fromEntries(fields.filter(key => Object.hasOwn(data, key)).map(key => [key, data[key]]));
+  }
   async function rippleRequest(request, env, url) {
     // Public research reads only. The credential never reaches browser assets,
     // arbitrary hosts, redirected targets, or private mutation/admin endpoints.
@@ -14,37 +36,27 @@ export function createWorker(seed, assets, { rippleFetch = (...args) => globalTh
     const page = url.pathname === '/ripple' || url.pathname === '/ripple/';
     const updates = url.pathname === '/ripple/updates' || url.pathname === '/ripple/updates/';
     const asset = assets[updates ? '/ripple/updates.html' : page ? '/ripple/index.html' : url.pathname];
-    if (asset && !url.pathname.startsWith('/ripple/api/')) return new Response(request.method === 'HEAD' ? null : asset.body, {
-      status: 200, headers: { ...headers, ...rippleHeaders, 'Content-Type': asset.type, 'Cache-Control': 'no-store' },
-    });
+    if (asset && !url.pathname.startsWith('/ripple/api/')) {
+      let body = asset.body;
+      if ((page || updates) && request.method === 'GET' && env.RIPPLE_READ_SERVICE_TOKEN) {
+        try {
+          const data = await readRipple(env, true);
+          const bootstrap = JSON.stringify(data).replaceAll('<', '\\u003c');
+          body = body.replace('<script id="ripple-bootstrap" type="application/json"></script>', `<script id="ripple-bootstrap" type="application/json">${bootstrap}</script>`);
+        } catch { /* The verified baseline remains available and visibly labelled. */ }
+      }
+      return new Response(request.method === 'HEAD' ? null : body, {
+        status: 200, headers: { ...headers, ...rippleHeaders, 'Content-Type': asset.type, 'Cache-Control': 'no-store' },
+      });
+    }
     const snapshot = url.pathname === '/ripple/api/snapshot', cve = url.pathname === '/ripple/api/cve';
     if (!snapshot && !cve) return rippleJson(request, { error: 'Unknown Ripple route' }, 404);
     const params = url.searchParams;
     const id = params.get('id')?.toUpperCase();
     if ((snapshot && url.search) || (cve && ([...params.keys()].some(key => key !== 'id') || params.getAll('id').length !== 1 || !/^CVE-\d{4}-\d{4,19}$/.test(id || '')))) return rippleJson(request, { error: 'Invalid Ripple research selection' }, 400);
     if (!env.RIPPLE_READ_SERVICE_TOKEN) return rippleJson(request, { error: 'Ripple research service unavailable; baseline remains available' }, 503);
-    const upstream = new URL(snapshot ? '/api/snapshot' : '/api/cve', 'https://ripple-exposure.majorgeneralrabidzagnut.chatgpt.site');
-    if (cve) upstream.searchParams.set('id', id);
     try {
-      const response = await rippleFetch(upstream.href, {
-        method: 'GET', redirect: 'manual', signal: AbortSignal.timeout(25000),
-        headers: { Accept: 'application/json', 'OAI-Sites-Authorization': 'Bearer ' + env.RIPPLE_READ_SERVICE_TOKEN },
-      });
-      if (!response.ok || !response.headers.get('content-type')?.includes('application/json') || !response.body || Number(response.headers.get('content-length')) > 2_000_000) throw Error('Ripple upstream unavailable');
-      const reader = response.body.getReader(), chunks = []; let total = 0;
-      while (true) {
-        const { done, value } = await reader.read(); if (done) break;
-        total += value.byteLength;
-        if (total > 2_000_000) { await reader.cancel(); throw Error('Ripple response exceeds limit'); }
-        chunks.push(value);
-      }
-      const bytes = new Uint8Array(total); let offset = 0;
-      for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.byteLength; }
-      const data = JSON.parse(new TextDecoder().decode(bytes));
-      if (snapshot ? data.schemaVersion !== 1 || !Array.isArray(data.records) || !Array.isArray(data.candidates) || !Array.isArray(data.checks) : data.id !== id || typeof data.found !== 'boolean') throw Error('Unsupported Ripple response');
-      const fields = snapshot ? ['schemaVersion', 'records', 'candidates', 'checks', 'lastRun', 'storage', 'updateStatus', 'runs', 'lastAssessmentAt', 'assessmentRuns', 'operations'] : ['id', 'found', 'description', 'severity', 'score', 'modified', 'status', 'url', 'ciscoImpact'];
-      const publicData = Object.fromEntries(fields.filter(key => Object.hasOwn(data, key)).map(key => [key, data[key]]));
-      return rippleJson(request, publicData);
+      return rippleJson(request, await readRipple(env, snapshot, id));
     } catch {
       return rippleJson(request, { error: 'Ripple research service unavailable; try again shortly' }, 502);
     }

@@ -36,6 +36,17 @@ test('only the two allowlisted read endpoints reach the fixed private service', 
   assert.deepEqual(calls[0].options.headers, { Accept: 'application/json', 'OAI-Sites-Authorization': 'Bearer ' + secret });
   assert.equal(calls[0].options.method, 'GET'); assert.equal(calls[0].options.redirect, 'manual');
 });
+test('HTML bootstraps the current public snapshot without exposing service credentials', async () => {
+  const escaped = { ...snapshot, records: [{ id: 'fixture-assessment', title: '</script><script>unsafe</script>' }] };
+  const app = await worker(async () => Response.json({ ...escaped, privateExtra: secret }));
+  const response = await app.fetch(request('/ripple'), env);
+  const html = await response.text();
+  assert.match(html, /id="ripple-bootstrap" type="application\/json">/);
+  assert.match(html, /fixture-assessment/);
+  assert.doesNotMatch(html, /<script>unsafe<\/script>/);
+  assert.doesNotMatch(html, new RegExp(secret));
+  assert.doesNotMatch(html, /privateExtra/);
+});
 test('CVE query is validated, canonicalized and scoped to upstream public fields', async () => {
   let called;
   const app = await worker(async url => { called = url; return Response.json({ id: 'CVE-2023-44487', found: true, ciscoImpact: 'Unknown until assessed', privateExtra: secret }); });

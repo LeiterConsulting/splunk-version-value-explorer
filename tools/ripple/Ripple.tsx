@@ -12,9 +12,15 @@ type Lookup = { id:string; found:boolean; description?:string; severity?:string;
 const date = (value?:string|null) => value ? new Date(value.length===10?value+"T12:00:00Z":value).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}) : "Not run";
 const familyName=(id:string)=>families.find(f=>f.id===id)?.name ?? id;
 function download(name:string,content:string,type:string) { const url=URL.createObjectURL(new Blob([content],{type})); const a=document.createElement("a"); a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000); }
+function bootstrapSnapshot(): Snapshot | null {
+  const value=document.getElementById("ripple-bootstrap")?.textContent?.trim();
+  if(!value)return null;
+  try { const data=JSON.parse(value); return data?.schemaVersion===1&&Array.isArray(data.records)&&Array.isArray(data.candidates)&&Array.isArray(data.checks)?data:null; }
+  catch { return null; }
+}
 
 export default function Ripple({initialView="assessments"}:{initialView?:View}={}) {
-  const [snapshot,setSnapshot]=useState<Snapshot>(baseline);
+  const [snapshot,setSnapshot]=useState<Snapshot>(()=>bootstrapSnapshot()??baseline());
   const [view,setView]=useState<View>(initialView), [family,setFamily]=useState("all"), [filter,setFilter]=useState("all"), [query,setQuery]=useState("");
   const [selected,setSelected]=useState("http2-iosxe"), [watch,setWatch]=useState<string[]>([]), [onlyWatch,setOnlyWatch]=useState(false);
   const [selections,setSelections]=useState<Record<string,Selection>>({});
@@ -25,6 +31,7 @@ export default function Ripple({initialView="assessments"}:{initialView?:View}={
     if(window.location.pathname.replace(/\/$/,"").endsWith("/updates")||new URLSearchParams(window.location.search).get("view")==="updates")setView("updates");
     const params=new URLSearchParams(window.location.search); if(["investigations","portfolio","sources","updates"].includes(params.get("view")??""))setView(params.get("view") as View); const id=params.get("assessment"); if(id) setSelected(id);
     try { const saved=JSON.parse(localStorage.getItem("ripple.preferences.v1") ?? "{}"); if(Array.isArray(saved.watch)) setWatch(saved.watch.filter((v:unknown)=>typeof v==="string")); if(saved.selections && typeof saved.selections==="object") setSelections(saved.selections); } catch { /* unavailable browser storage is optional */ }
+    if(bootstrapSnapshot())return;
     const controller=new AbortController();
     fetch("/ripple/api/snapshot",{signal:controller.signal}).then(async r=>{if(!r.ok) throw new Error("Persistent data unavailable; showing verified baseline.");setSnapshot(await r.json());}).catch(e=>{if(e.name!=="AbortError")setMessage(e.message);});
     return ()=>controller.abort();
