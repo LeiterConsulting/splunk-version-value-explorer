@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-10-24T11:48:52Z",
-      "lastSuccess": "2026-10-24T11:58:07.334Z",
-      "outcome": "changed",
-      "summary": "Mapped the complete ES 8.8 Essentials AI regional table independently; preserved scoped exclusions, SOP prerequisites and separate offering authorization. Publication waits for native export CI.",
+      "lastAttempt": "2026-10-24T12:21:48Z",
+      "lastSuccess": "2026-10-24T12:25:29Z",
+      "outcome": "no-change",
+      "summary": "Fresh same-day inventory and bounded regional/authorization review found no further factual change.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -267,9 +267,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Mapped the complete ES 8.8 Essentials AI regional table independently; preserved scoped exclusions, SOP prerequisites and separate offering authorization. Publication waits for native export CI.",
           "scope": "22 maintained official source URLs; twelve bounded consequential claim groups; complete Essentials table and visual matrix header/legend"
+        },
+        {
+          "at": "2026-10-24T12:21:48Z",
+          "outcome": "running",
+          "summary": "Checking for changes after today's verified CSP publication.",
+          "scope": "Same-day fresh GitHub/Sites reconciliation, complete 24-URL inventory access and bounded regional/authorization delta review."
+        },
+        {
+          "at": "2026-10-24T12:25:29Z",
+          "outcome": "no-change",
+          "summary": "Fresh same-day inventory and bounded regional/authorization review found no further factual change.",
+          "scope": "24 official URLs reopened; six scoped claim groups rechecked; fresh GitHub/Sites version 206 reconciliation and real D1/manifest/bundle/fallback diagnostics passed. Source access is not universal claim verification; factual dates and cycle 35 unchanged."
         }
       ],
-      "scope": "22 maintained official source URLs; twelve bounded consequential claim groups; complete Essentials table and visual matrix header/legend"
+      "scope": "24 official URLs reopened; six scoped claim groups rechecked; fresh GitHub/Sites version 206 reconciliation and real D1/manifest/bundle/fallback diagnostics passed. Source access is not universal claim verification; factual dates and cycle 35 unchanged."
     },
     {
       "id": "version-release-watch",
