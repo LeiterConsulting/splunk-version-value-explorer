@@ -1913,7 +1913,7 @@
       "payload": {
         "id": "connector-builder",
         "kind": "Direct edition conflict",
-        "title": "Can Essentials use Connector Builder?",
+        "title": "Can Essentials use Connector Builder in 8.7?",
         "claims": [
           {
             "src": [
@@ -1928,8 +1928,8 @@
             "text": "The 8.7.1 release notes assign Connector Builder to Premier and say it is turned on for all eligible users."
           }
         ],
-        "meaning": "These pages assign different editions to the same agent in the same release line. Essentials availability remains unconfirmed; Premier still has eligibility, pairing and permission conditions, but 8.7.1 no longer requires a separate representative-enablement step for eligible users.",
-        "question": "Ask Splunk to confirm Essentials entitlement and eligibility for the target deployment."
+        "meaning": "These 8.7 pages assign different editions to the same agent. The 8.8 agent table now documents both editions on Cloud, but that later statement does not silently rewrite 8.7 history or remove pairing and permission conditions.",
+        "question": "Confirm the target ES version, edition, pairing and eligibility rather than applying the 8.8 row to 8.7."
       }
     },
     {
@@ -2425,7 +2425,7 @@
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
           "section": null,
           "sectionScope": "Section not recorded",
-          "sourceVerified": "2026-10-22",
+          "sourceVerified": "2026-10-24",
           "sourceChecked": null
         }
       ],
@@ -3635,27 +3635,27 @@
         {
           "sourceId": "source-d6c87ecad818dd756db9",
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
-          "section": "Compatibility table: Detection Builder, AI SOC Analyst and SOP agent",
+          "section": "Agent and component edition notes; compatibility table for Detection Builder, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-23",
-          "sourceChecked": "2026-10-23"
+          "sourceVerified": "2026-10-24",
+          "sourceChecked": "2026-10-24"
         },
         {
           "sourceId": "source-d10f9ac6604ba17d7875",
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
           "section": "ES 8.8 Controlled Availability",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-22",
-          "sourceChecked": "2026-10-22"
+          "sourceVerified": "2026-10-24",
+          "sourceChecked": "2026-10-24"
         }
       ],
       "verification": {
-        "date": "2026-10-23",
+        "date": "2026-10-24",
         "outcome": "Recorded in original claim"
       },
       "payload": {
         "kind": "ai-capability",
-        "verified": "2026-10-23",
+        "verified": "2026-10-24",
         "id": "ai-es-sop",
         "title": "ES · SOP agent",
         "product": "es",
@@ -4469,12 +4469,12 @@
           "enterprise"
         ],
         "requirements": [
-          "Compatible licensed ES and supported region.",
-          "Account-team enablement; edition-specific access."
+          "Essentials: Cloud only where available; Premier: Cloud or Cloud Connected CMP through Cloud Connect.",
+          "Compatible licensed ES, supported region and account-team enablement."
         ],
         "runtime": "Security AI service; review configured model and data policies.",
-        "qualification": "The ES assistant is separate from the SAIA platform app. CMP edition qualification is retained.",
-        "condition": "Confirm exact edition and account-team enablement.",
+        "qualification": "The ES assistant is separate from the SAIA platform app. Generic compatibility does not broaden the edition-specific CMP qualification.",
+        "condition": "Confirm exact edition, deployment path, supported region and account-team enablement.",
         "src": [
           "aiEsRegions88",
           "aiEsEditions",
@@ -6218,6 +6218,14 @@
           "sourceChecked": null
         },
         {
+          "sourceId": "source-d6c87ecad818dd756db9",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": "2026-10-24",
+          "sourceChecked": null
+        },
+        {
           "sourceId": "source-dc0e2c38de6297132b39",
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
           "section": null,
@@ -6240,7 +6248,7 @@
       },
       "payload": {
         "title": "Build and maintain detections",
-        "text": "Detection Studio manages detection content; Detection Builder assists authoring and troubleshooting. Automation Builder works with playbooks, while Connector Builder generates and refines integrations. The latter has an unresolved edition conflict.",
+        "text": "Detection Studio manages detection content; Detection Builder assists authoring and troubleshooting. Automation Builder works with playbooks, while Connector Builder generates and refines integrations. Connector Builder is documented for both editions in 8.8, while its 8.7 edition conflict remains historical and explicit.",
         "ids": [
           "detection-studio",
           "detection-builder",
@@ -6249,6 +6257,7 @@
         ],
         "src": [
           "editions",
+          "agentic88",
           "agentic",
           "rn87"
         ]
@@ -6887,7 +6896,7 @@
         "capabilities": [
           {
             "kind": "ai-capability",
-            "verified": "2026-10-23",
+            "verified": "2026-10-24",
             "id": "ai-saia-spl",
             "title": "SAIA · SPL assistance",
             "product": "platform",
@@ -6986,12 +6995,12 @@
               "enterprise"
             ],
             "requirements": [
-              "Compatible licensed ES and supported region.",
-              "Account-team enablement; edition-specific access."
+              "Essentials: Cloud only where available; Premier: Cloud or Cloud Connected CMP through Cloud Connect.",
+              "Compatible licensed ES, supported region and account-team enablement."
             ],
             "runtime": "Security AI service; review configured model and data policies.",
-            "qualification": "The ES assistant is separate from the SAIA platform app. CMP edition qualification is retained.",
-            "condition": "Confirm exact edition and account-team enablement.",
+            "qualification": "The ES assistant is separate from the SAIA platform app. Generic compatibility does not broaden the edition-specific CMP qualification.",
+            "condition": "Confirm exact edition, deployment path, supported region and account-team enablement.",
             "src": [
               "aiEsRegions88",
               "aiEsEditions",
@@ -7000,7 +7009,7 @@
           },
           {
             "kind": "ai-capability",
-            "verified": "2026-10-23",
+            "verified": "2026-10-24",
             "id": "ai-es-detection",
             "title": "ES · Detection Builder agent",
             "product": "es",
@@ -7034,7 +7043,7 @@
           },
           {
             "kind": "ai-capability",
-            "verified": "2026-10-23",
+            "verified": "2026-10-24",
             "id": "ai-es-sop",
             "title": "ES · SOP agent",
             "product": "es",
@@ -7067,7 +7076,7 @@
           },
           {
             "kind": "ai-capability",
-            "verified": "2026-10-23",
+            "verified": "2026-10-24",
             "id": "ai-es-soc",
             "title": "ES · AI SOC analyst agent",
             "product": "es",
@@ -7091,7 +7100,7 @@
               "Cloud: Platform 10.2.x+, ES 8.6+; CMP: Platform 10.4.x+, ES 8.8+, Cloud Connect 2.0."
             ],
             "runtime": "Agentic SOC services; paired SOAR has independent compatibility.",
-            "qualification": "This row does not assign the entitlement of each SOC subagent.",
+            "qualification": "The aggregate row is Premier. A separate 8.8 note assigns the Triage component to Essentials and the Response component to Premier, while the editions overview lists Triage under Premier; do not infer the whole workflow from a subcomponent.",
             "condition": "Confirm Premier access, paired SOAR and enablement.",
             "src": [
               "aiEsAgents88",
@@ -8975,12 +8984,12 @@
         }
       ],
       "verification": {
-        "date": "2026-10-23",
+        "date": "2026-10-24",
         "outcome": "Recorded in original claim"
       },
       "payload": {
         "kind": "ai-capability",
-        "verified": "2026-10-23",
+        "verified": "2026-10-24",
         "id": "ai-saia-spl",
         "title": "SAIA · SPL assistance",
         "product": "platform",
@@ -11501,12 +11510,12 @@
       },
       "evidence": [],
       "verification": {
-        "date": "2026-10-23",
+        "date": "2026-10-24",
         "outcome": "Recorded in original claim"
       },
       "payload": {
         "kind": "ai-capability",
-        "verified": "2026-10-23",
+        "verified": "2026-10-24",
         "id": "ai-es-sop",
         "title": "ES · SOP agent",
         "product": "es",
@@ -11844,7 +11853,7 @@
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
           "section": null,
           "sectionScope": "Section not recorded",
-          "sourceVerified": "2026-10-22",
+          "sourceVerified": "2026-10-24",
           "sourceChecked": null
         }
       ],
@@ -12409,7 +12418,7 @@
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
           "section": null,
           "sectionScope": "Section not recorded",
-          "sourceVerified": "2026-10-22",
+          "sourceVerified": "2026-10-24",
           "sourceChecked": null
         }
       ],
@@ -13909,6 +13918,14 @@
       },
       "evidence": [
         {
+          "sourceId": "source-2dc2d849c6eabc9e505e",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": "2026-10-01",
+          "sourceChecked": null
+        },
+        {
           "sourceId": "source-44ca5a212c121b6a9493",
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/splunk-enterprise-security-editions-cloud-capability-matrix",
           "section": null,
@@ -13944,10 +13961,11 @@
         "flag": "Source discrepancy: the 8.7 Cloud matrix places Guided Response enhancements under Premier, but the 8.6 task guide allows both editions. Do not equate an enhancement label with base-feature entitlement; confirm the 8.7 scope.",
         "desc": "Helps run SOAR response actions. The 8.6 task guide documents Cloud, both editions, platform 10.2+, ES 8.6+ and paired SOAR.",
         "src": [
+          "editions",
           "matrix",
           "guided"
         ],
-        "reviewed": "2026-10-01"
+        "reviewed": "2026-10-24"
       }
     },
     {
@@ -14498,7 +14516,7 @@
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
           "section": null,
           "sectionScope": "Section not recorded",
-          "sourceVerified": "2026-10-22",
+          "sourceVerified": "2026-10-24",
           "sourceChecked": null
         }
       ],
@@ -15434,6 +15452,14 @@
       },
       "evidence": [
         {
+          "sourceId": "source-d6c87ecad818dd756db9",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": "2026-10-24",
+          "sourceChecked": null
+        },
+        {
           "sourceId": "source-dc0e2c38de6297132b39",
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
           "section": null,
@@ -15486,12 +15512,13 @@
         "flag": "Premier includes SOAR, but still requires a supported, configured pairing. Buying a standalone SOAR license alone does not establish that this prerequisite is met.",
         "desc": "Builds and explains playbooks. Both editions, Cloud only; ES 8.6+ and paired SOAR Cloud. The task guide additionally requires Cloud Platform 10.1+ and a Splunk user account, and excludes FedRAMP SOAR stacks. ES 8.7 improves context handling.",
         "src": [
+          "agentic88",
           "agentic",
           "rn87",
           "regions",
           "automationTask"
         ],
-        "reviewed": "2026-10-01"
+        "reviewed": "2026-10-24"
       }
     },
     {
@@ -16032,12 +16059,12 @@
       },
       "evidence": [],
       "verification": {
-        "date": "2026-10-23",
+        "date": "2026-10-24",
         "outcome": "Recorded in original claim"
       },
       "payload": {
         "kind": "ai-capability",
-        "verified": "2026-10-23",
+        "verified": "2026-10-24",
         "id": "ai-saia-spl",
         "title": "SAIA · SPL assistance",
         "product": "platform",
@@ -16400,7 +16427,7 @@
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
           "section": null,
           "sectionScope": "Section not recorded",
-          "sourceVerified": "2026-10-22",
+          "sourceVerified": "2026-10-24",
           "sourceChecked": null
         }
       ],
@@ -17169,7 +17196,7 @@
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
           "section": null,
           "sectionScope": "Section not recorded",
-          "sourceVerified": "2026-10-22",
+          "sourceVerified": "2026-10-24",
           "sourceChecked": null
         }
       ],
@@ -17297,12 +17324,12 @@
       },
       "evidence": [],
       "verification": {
-        "date": "2026-10-23",
+        "date": "2026-10-24",
         "outcome": "Recorded in original claim"
       },
       "payload": {
         "kind": "ai-capability",
-        "verified": "2026-10-23",
+        "verified": "2026-10-24",
         "id": "ai-es-detection",
         "title": "ES · Detection Builder agent",
         "product": "es",
@@ -17352,27 +17379,27 @@
         {
           "sourceId": "source-d6c87ecad818dd756db9",
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
-          "section": "Compatibility table: Detection Builder, AI SOC Analyst and SOP agent",
+          "section": "Agent and component edition notes; compatibility table for Detection Builder, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-23",
-          "sourceChecked": "2026-10-23"
+          "sourceVerified": "2026-10-24",
+          "sourceChecked": "2026-10-24"
         },
         {
           "sourceId": "source-d10f9ac6604ba17d7875",
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
           "section": "ES 8.8 Controlled Availability",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-22",
-          "sourceChecked": "2026-10-22"
+          "sourceVerified": "2026-10-24",
+          "sourceChecked": "2026-10-24"
         }
       ],
       "verification": {
-        "date": "2026-10-23",
+        "date": "2026-10-24",
         "outcome": "Recorded in original claim"
       },
       "payload": {
         "kind": "ai-capability",
-        "verified": "2026-10-23",
+        "verified": "2026-10-24",
         "id": "ai-es-soc",
         "title": "ES · AI SOC analyst agent",
         "product": "es",
@@ -17396,7 +17423,7 @@
           "Cloud: Platform 10.2.x+, ES 8.6+; CMP: Platform 10.4.x+, ES 8.8+, Cloud Connect 2.0."
         ],
         "runtime": "Agentic SOC services; paired SOAR has independent compatibility.",
-        "qualification": "This row does not assign the entitlement of each SOC subagent.",
+        "qualification": "The aggregate row is Premier. A separate 8.8 note assigns the Triage component to Essentials and the Response component to Premier, while the editions overview lists Triage under Premier; do not infer the whole workflow from a subcomponent.",
         "condition": "Confirm Premier access, paired SOAR and enablement.",
         "src": [
           "aiEsAgents88",
@@ -17741,7 +17768,7 @@
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
           "section": null,
           "sectionScope": "Section not recorded",
-          "sourceVerified": "2026-10-22",
+          "sourceVerified": "2026-10-24",
           "sourceChecked": null
         }
       ],
@@ -19238,7 +19265,7 @@
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
           "section": null,
           "sectionScope": "Section not recorded",
-          "sourceVerified": "2026-10-22",
+          "sourceVerified": "2026-10-24",
           "sourceChecked": null
         }
       ],
@@ -19369,6 +19396,14 @@
           "sourceChecked": null
         },
         {
+          "sourceId": "source-d6c87ecad818dd756db9",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": "2026-10-24",
+          "sourceChecked": null
+        },
+        {
           "sourceId": "source-dc0e2c38de6297132b39",
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
           "section": null,
@@ -19391,7 +19426,7 @@
       },
       "payload": {
         "title": "Investigate and respond",
-        "text": "Triage helps assess incoming findings; Guided Response helps run SOAR actions. AI SOC Analyst uses investigation and response-plan context. Check each agent’s edition and pairing requirements before treating this as an available end-to-end workflow.",
+        "text": "Triage helps assess incoming findings; Guided Response helps run SOAR actions. AI SOC Analyst uses investigation and response-plan context. Current 8.8 sources disagree on Triage edition scope, so check each agent’s edition, deployment, enablement and pairing requirements before treating this as an available end-to-end workflow.",
         "ids": [
           "triage-agent",
           "guided-response",
@@ -19400,6 +19435,7 @@
         "src": [
           "triage",
           "guided",
+          "agentic88",
           "agentic",
           "rn87"
         ]
@@ -19561,6 +19597,14 @@
       },
       "evidence": [
         {
+          "sourceId": "source-d6c87ecad818dd756db9",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": "2026-10-24",
+          "sourceChecked": null
+        },
+        {
           "sourceId": "source-dc0e2c38de6297132b39",
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
           "section": null,
@@ -19595,10 +19639,11 @@
         "desc": "Summarizes suspicious scripts. Premier, Cloud only, with paired SOAR. The 8.7 agent table lists ES 8.5+, but the 8.7 task guide specifies platform 10.2+ and ES 8.6+.",
         "flag": "Minimum-version discrepancy: confirm the target deployment against both sources; ES 8.5 alone is not established as sufficient by the task guide.",
         "src": [
+          "agentic88",
           "agentic",
           "malwareTask"
         ],
-        "reviewed": "2026-10-01"
+        "reviewed": "2026-10-24"
       }
     },
     {
@@ -19712,26 +19757,26 @@
         {
           "sourceId": "source-d6c87ecad818dd756db9",
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
-          "section": "Compatibility table: Detection Builder, AI SOC Analyst and SOP agent",
+          "section": "Agent and component edition notes; compatibility table for Detection Builder, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-23",
-          "sourceChecked": "2026-10-23"
+          "sourceVerified": "2026-10-24",
+          "sourceChecked": "2026-10-24"
         },
         {
           "sourceId": "source-2dc2d849c6eabc9e505e",
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
-          "section": "Dated existing edition qualification; generic compatibility does not broaden Essentials CMP entitlement",
+          "section": "Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-01",
-          "sourceChecked": "2026-10-01"
+          "sourceVerified": "2026-10-24",
+          "sourceChecked": "2026-10-24"
         },
         {
           "sourceId": "source-d10f9ac6604ba17d7875",
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
           "section": "ES 8.8 Controlled Availability",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-22",
-          "sourceChecked": "2026-10-22"
+          "sourceVerified": "2026-10-24",
+          "sourceChecked": "2026-10-24"
         },
         {
           "sourceId": "source-befd90e7f10de13b3883",
@@ -19906,7 +19951,7 @@
         "capabilities": [
           {
             "kind": "ai-capability",
-            "verified": "2026-10-23",
+            "verified": "2026-10-24",
             "id": "ai-saia-spl",
             "title": "SAIA · SPL assistance",
             "product": "platform",
@@ -20005,12 +20050,12 @@
               "enterprise"
             ],
             "requirements": [
-              "Compatible licensed ES and supported region.",
-              "Account-team enablement; edition-specific access."
+              "Essentials: Cloud only where available; Premier: Cloud or Cloud Connected CMP through Cloud Connect.",
+              "Compatible licensed ES, supported region and account-team enablement."
             ],
             "runtime": "Security AI service; review configured model and data policies.",
-            "qualification": "The ES assistant is separate from the SAIA platform app. CMP edition qualification is retained.",
-            "condition": "Confirm exact edition and account-team enablement.",
+            "qualification": "The ES assistant is separate from the SAIA platform app. Generic compatibility does not broaden the edition-specific CMP qualification.",
+            "condition": "Confirm exact edition, deployment path, supported region and account-team enablement.",
             "src": [
               "aiEsRegions88",
               "aiEsEditions",
@@ -20019,7 +20064,7 @@
           },
           {
             "kind": "ai-capability",
-            "verified": "2026-10-23",
+            "verified": "2026-10-24",
             "id": "ai-es-detection",
             "title": "ES · Detection Builder agent",
             "product": "es",
@@ -20053,7 +20098,7 @@
           },
           {
             "kind": "ai-capability",
-            "verified": "2026-10-23",
+            "verified": "2026-10-24",
             "id": "ai-es-sop",
             "title": "ES · SOP agent",
             "product": "es",
@@ -20086,7 +20131,7 @@
           },
           {
             "kind": "ai-capability",
-            "verified": "2026-10-23",
+            "verified": "2026-10-24",
             "id": "ai-es-soc",
             "title": "ES · AI SOC analyst agent",
             "product": "es",
@@ -20110,7 +20155,7 @@
               "Cloud: Platform 10.2.x+, ES 8.6+; CMP: Platform 10.4.x+, ES 8.8+, Cloud Connect 2.0."
             ],
             "runtime": "Agentic SOC services; paired SOAR has independent compatibility.",
-            "qualification": "This row does not assign the entitlement of each SOC subagent.",
+            "qualification": "The aggregate row is Premier. A separate 8.8 note assigns the Triage component to Essentials and the Response component to Premier, while the editions overview lists Triage under Premier; do not infer the whole workflow from a subcomponent.",
             "condition": "Confirm Premier access, paired SOAR and enablement.",
             "src": [
               "aiEsAgents88",
@@ -20618,6 +20663,22 @@
       },
       "evidence": [
         {
+          "sourceId": "source-d6c87ecad818dd756db9",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": "2026-10-24",
+          "sourceChecked": null
+        },
+        {
+          "sourceId": "source-2dc2d849c6eabc9e505e",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": "2026-10-01",
+          "sourceChecked": null
+        },
+        {
           "sourceId": "source-44ca5a212c121b6a9493",
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/splunk-enterprise-security-editions-cloud-capability-matrix",
           "section": null,
@@ -20628,14 +20689,6 @@
         {
           "sourceId": "source-d62bca63b4f45a3264a6",
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.6/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-triage-agent-in-splunk-enterprise-security",
-          "section": null,
-          "sectionScope": "Section not recorded",
-          "sourceVerified": "2026-10-01",
-          "sourceChecked": null
-        },
-        {
-          "sourceId": "source-dc0e2c38de6297132b39",
-          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
           "section": null,
           "sectionScope": "Section not recorded",
           "sourceVerified": "2026-10-01",
@@ -20651,20 +20704,22 @@
         "name": "Triage Agent",
         "lane": "Agentic SOC Workforce",
         "ess": {
-          "v": "no"
+          "v": "review",
+          "n": "8.8 sources disagree"
         },
         "prem": {
-          "v": "yes",
-          "n": "8.7 Cloud matrix; verify setup scope"
+          "v": "part",
+          "n": "Cloud; verify 8.8 component scope"
         },
-        "flag": "Do not infer missing deployment or version prerequisites from that omission. The linked setup page belongs to the 8.6 documentation set; confirm applicability to the target release.",
-        "desc": "Investigates queued findings and presents a disposition, rationale and suggested next steps. The 8.6 setup guide describes response plans, actions and SPL searches as investigation guidance; the 8.7 Cloud matrix lists enhancements under Premier.",
+        "flag": "Current 8.8 sources conflict: the agent guide says the SOC analyst agent includes a Triage component available in Essentials, while the editions overview lists Triage under Premier. The 8.7 Cloud matrix also groups Triage enhancements under Premier. Confirm the component and target-version entitlement.",
+        "desc": "Investigates queued findings and presents a disposition, rationale and suggested next steps. The linked setup guide remains 8.6 documentation and does not resolve the 8.8 edition conflict or establish deployment prerequisites for every current workflow.",
         "src": [
+          "agentic88",
+          "editions",
           "matrix",
-          "triage",
-          "agentic"
+          "triage"
         ],
-        "reviewed": "2026-10-01"
+        "reviewed": "2026-10-24"
       }
     },
     {
@@ -20946,6 +21001,14 @@
       },
       "evidence": [
         {
+          "sourceId": "source-d6c87ecad818dd756db9",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": "2026-10-24",
+          "sourceChecked": null
+        },
+        {
           "sourceId": "source-dc0e2c38de6297132b39",
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
           "section": null,
@@ -20984,16 +21047,17 @@
         },
         "prem": {
           "v": "yes",
-          "n": "Cloud only; rep-enabled"
+          "n": "Cloud and Cloud Connected CMP; rep-enabled"
         },
-        "desc": "Assists investigation and response. Premier, Cloud only; platform 10.2+, paired SOAR and representative enablement. The 8.7 agent table lists ES 8.6+, while the 8.7 workflow guide requires ES 8.7+, connector and investigation permissions, and a finding with AI triage results.",
-        "flag": "Minimum-version discrepancy: the table and workflow guide disagree. Do not promise this workflow on ES 8.6; confirm the supported scope with Splunk.",
+        "desc": "Assists investigation and response. The 8.8 agent table documents Premier on Cloud and Cloud Connected CMP, paired SOAR and representative enablement. Cloud requires platform 10.2+ and ES 8.6+; CMP requires platform 10.4+, ES 8.8+ and Cloud Connect 2.0. The 8.7 task guide separately requires ES 8.7+, connector and investigation permissions, and a finding with AI triage results.",
+        "flag": "The 8.7 aggregate table and task guide retain different Cloud ES minimums. The 8.8 CMP path has its own higher platform, ES and Cloud Connect floors; neither path establishes a compatible SOAR pairing from release numbers alone.",
         "src": [
+          "agentic88",
           "agentic",
           "rn87",
           "socTask"
         ],
-        "reviewed": "2026-10-01"
+        "reviewed": "2026-10-24"
       }
     },
     {
@@ -21438,12 +21502,12 @@
       },
       "evidence": [],
       "verification": {
-        "date": "2026-10-23",
+        "date": "2026-10-24",
         "outcome": "Recorded in original claim"
       },
       "payload": {
         "kind": "ai-capability",
-        "verified": "2026-10-23",
+        "verified": "2026-10-24",
         "id": "ai-es-soc",
         "title": "ES · AI SOC analyst agent",
         "product": "es",
@@ -21467,7 +21531,7 @@
           "Cloud: Platform 10.2.x+, ES 8.6+; CMP: Platform 10.4.x+, ES 8.8+, Cloud Connect 2.0."
         ],
         "runtime": "Agentic SOC services; paired SOAR has independent compatibility.",
-        "qualification": "This row does not assign the entitlement of each SOC subagent.",
+        "qualification": "The aggregate row is Premier. A separate 8.8 note assigns the Triage component to Essentials and the Response component to Premier, while the editions overview lists Triage under Premier; do not infer the whole workflow from a subcomponent.",
         "condition": "Confirm Premier access, paired SOAR and enablement.",
         "src": [
           "aiEsAgents88",
@@ -21703,6 +21767,14 @@
       },
       "evidence": [
         {
+          "sourceId": "source-d6c87ecad818dd756db9",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": "2026-10-24",
+          "sourceChecked": null
+        },
+        {
           "sourceId": "source-dc0e2c38de6297132b39",
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
           "section": null,
@@ -21745,22 +21817,23 @@
         "lane": "Agentic SOC Workforce",
         "tag": "new",
         "ess": {
-          "v": "review",
-          "n": "Sources disagree"
+          "v": "yes",
+          "n": "8.8 Cloud only; paired SOAR"
         },
         "prem": {
-          "v": "part",
-          "n": "Cloud; paired SOAR; eligible users"
+          "v": "yes",
+          "n": "8.8 Cloud only; paired SOAR"
         },
-        "flag": "Source conflict: the agent compatibility table lists Essentials and Premier, while the 8.7.1 release notes list Premier. Version 8.7.1 turns Connector Builder on for all eligible users, but does not define Essentials entitlement. Confirm eligibility with Splunk; this comparison does not resolve the edition conflict.",
-        "desc": "Generates and refines connectors. The 8.7 task guide requires platform 10.1+, ES 8.7+ paired with SOAR Cloud, and SOAR App: Edit and SOAR Asset: Edit permissions. Version 8.7.1 removes the representative-enablement step for eligible users but does not resolve the edition conflict.",
+        "flag": "The 8.8 agent table documents Essentials and Premier on Cloud with ES 8.7+ and paired SOAR. This current statement does not retroactively resolve the 8.7 conflict: the 8.7 agent table lists both editions while the 8.7.1 release notes assign Connector Builder to Premier.",
+        "desc": "Generates and refines connectors. The 8.8 agent table documents both editions on Cloud, ES 8.7+ and paired SOAR. The 8.7 task guide additionally requires platform 10.1+, SOAR Cloud pairing, and SOAR App: Edit and SOAR Asset: Edit permissions; exact pairing and permissions remain separate from edition inclusion.",
         "src": [
+          "agentic88",
           "agentic",
           "rn87",
           "matrix",
           "connectorTask"
         ],
-        "reviewed": "2026-10-02"
+        "reviewed": "2026-10-24"
       }
     },
     {
@@ -22497,18 +22570,18 @@
         {
           "sourceId": "source-2dc2d849c6eabc9e505e",
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
-          "section": "Dated existing edition qualification; generic compatibility does not broaden Essentials CMP entitlement",
+          "section": "Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-01",
-          "sourceChecked": "2026-10-01"
+          "sourceVerified": "2026-10-24",
+          "sourceChecked": "2026-10-24"
         },
         {
           "sourceId": "source-d10f9ac6604ba17d7875",
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
           "section": "ES 8.8 Controlled Availability",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-22",
-          "sourceChecked": "2026-10-22"
+          "sourceVerified": "2026-10-24",
+          "sourceChecked": "2026-10-24"
         }
       ],
       "verification": {
@@ -22538,12 +22611,12 @@
           "enterprise"
         ],
         "requirements": [
-          "Compatible licensed ES and supported region.",
-          "Account-team enablement; edition-specific access."
+          "Essentials: Cloud only where available; Premier: Cloud or Cloud Connected CMP through Cloud Connect.",
+          "Compatible licensed ES, supported region and account-team enablement."
         ],
         "runtime": "Security AI service; review configured model and data policies.",
-        "qualification": "The ES assistant is separate from the SAIA platform app. CMP edition qualification is retained.",
-        "condition": "Confirm exact edition and account-team enablement.",
+        "qualification": "The ES assistant is separate from the SAIA platform app. Generic compatibility does not broaden the edition-specific CMP qualification.",
+        "condition": "Confirm exact edition, deployment path, supported region and account-team enablement.",
         "src": [
           "aiEsRegions88",
           "aiEsEditions",
@@ -22852,27 +22925,27 @@
         {
           "sourceId": "source-d6c87ecad818dd756db9",
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
-          "section": "Compatibility table: Detection Builder, AI SOC Analyst and SOP agent",
+          "section": "Agent and component edition notes; compatibility table for Detection Builder, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-23",
-          "sourceChecked": "2026-10-23"
+          "sourceVerified": "2026-10-24",
+          "sourceChecked": "2026-10-24"
         },
         {
           "sourceId": "source-d10f9ac6604ba17d7875",
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
           "section": "ES 8.8 Controlled Availability",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-22",
-          "sourceChecked": "2026-10-22"
+          "sourceVerified": "2026-10-24",
+          "sourceChecked": "2026-10-24"
         }
       ],
       "verification": {
-        "date": "2026-10-23",
+        "date": "2026-10-24",
         "outcome": "Recorded in original claim"
       },
       "payload": {
         "kind": "ai-capability",
-        "verified": "2026-10-23",
+        "verified": "2026-10-24",
         "id": "ai-es-detection",
         "title": "ES · Detection Builder agent",
         "product": "es",
@@ -23531,6 +23604,40 @@
       ]
     },
     {
+      "id": "vc-f78fd50498074ddd491c",
+      "kind": "Direct edition conflict",
+      "dataset": "editions",
+      "scope": {
+        "release": "8.8"
+      },
+      "evidence": [],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": {
+        "id": "triage-edition-88",
+        "kind": "Direct edition conflict",
+        "title": "Which edition includes the Triage component in 8.8?",
+        "claims": [
+          {
+            "src": [
+              "agentic88"
+            ],
+            "text": "The 8.8 agent guide says the SOC analyst agent includes a Triage component available in Essentials and a Response component available in Premier."
+          },
+          {
+            "src": [
+              "editions"
+            ],
+            "text": "The current editions overview lists Triage Agent in the Premier agent group."
+          }
+        ],
+        "meaning": "The sources assign different edition scope to Triage. The aggregate AI SOC Analyst row is Premier and does not by itself resolve the subcomponent entitlement.",
+        "question": "Confirm the exact 8.8 Triage experience, edition and enablement scope for the target deployment."
+      }
+    },
+    {
       "id": "vc-f7a7bc96caafc47402c9",
       "kind": "feature",
       "dataset": "platform",
@@ -23753,7 +23860,7 @@
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
           "section": null,
           "sectionScope": "Section not recorded",
-          "sourceVerified": "2026-10-22",
+          "sourceVerified": "2026-10-24",
           "sourceChecked": null
         }
       ],

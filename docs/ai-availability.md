@@ -78,6 +78,18 @@ direct opening failed in this session. Record that retrieval limitation.
 Existing October 1 edition qualifications and October 22 release-stage evidence
 retain their actual dates; today's publication does not reverify those scopes.
 
+The October 24 ES reconciliation directly reverified the current editions
+overview, 8.8 agent table and 8.8 release stage. Connector Builder is documented
+for both editions in the 8.8 table, while its 8.7 edition conflict remains
+historical. Triage now carries its own 8.8 conflict: the detailed guide assigns
+the Triage component to Essentials, the editions overview groups Triage under
+Premier, and the aggregate AI SOC Analyst row is Premier. Detection Builder and
+AI SOC Analyst retain separate Cloud and CMP chains; CMP requires Platform 10.4+,
+ES 8.8+ and Cloud Connect 2.0. Paired SOAR, representative enablement and
+permissions remain independent prerequisites. The catalog remains nine named
+capabilities; this reconciliation does not promote another capability or infer
+subagent rollout from family-level evidence.
+
 ## Maintenance ownership
 
 | Existing task | AI responsibility |

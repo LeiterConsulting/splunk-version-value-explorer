@@ -15,7 +15,8 @@ test('all evidence records have dated, official HTTPS citations and known editio
  assert.equal(data.capabilities.length,20);assert.equal(new Set(data.capabilities.map(x=>x.id)).size,20);
  for(const r of [...data.capabilities,...data.notes,...data.workflows,...data.highlights,...data.conflicts.flatMap(c=>c.claims)]){assert(r.src.length);for(const key of r.src){const s=data.sources[key];assert(s,key);const u=new URL(s.u);assert.equal(u.protocol,'https:');assert(['www.splunk.com','help.splunk.com'].includes(u.hostname));assert.match(s.reviewed,/^\d{4}-\d{2}-\d{2}$/);} }
  for(const c of data.capabilities)for(const cell of [c.ess,c.prem])assert(['yes','no','part','review'].includes(cell.v));
- for(const id of ['connector-builder','guided-response']){const c=data.capabilities.find(x=>x.id===id);assert.equal(c.ess.v,'review');assert(c.flag);assert(c.src.length>=2);}
+ for(const id of ['triage-agent','guided-response']){const c=data.capabilities.find(x=>x.id===id);assert.equal(c.ess.v,'review');assert(c.flag);assert(c.src.length>=2);}
+ const connector=data.capabilities.find(x=>x.id==='connector-builder');assert.equal(connector.ess.v,'yes');assert.equal(connector.prem.v,'yes');assert.match(connector.flag,/8\.7 conflict/);
  assert(data.capabilities.find(x=>x.id==='automation-builder').flag.includes('still requires'));
  assert(data.notes.find(x=>x.id==='assistants').text.includes('Cloud Connected'));
 });
@@ -25,8 +26,8 @@ test('task-level prerequisites and pricing uncertainty remain explicit without c
  assert.match(cap('connector-builder').desc,/SOAR App: Edit and SOAR Asset: Edit/);
  assert.match(cap('ai-soc-analyst').desc,/8\.6\+.*8\.7\+/);
  assert.match(cap('malware-reversing').desc,/8\.5\+.*10\.2\+.*8\.6\+/);
- for(const id of ['ai-soc-analyst','malware-reversing']){assert.equal(cap(id).ess.v,'no');assert.match(cap(id).flag,/discrepancy/);}
- assert.equal(data.conflicts.length,5);
+ for(const id of ['ai-soc-analyst','malware-reversing']){assert.equal(cap(id).ess.v,'no');assert.match(cap(id).flag,/discrepancy|different Cloud ES minimums/);}
+ assert.equal(data.conflicts.length,6);
  for(const id of ['soc-version','malware-version','activity-pricing'])assert.equal(data.conflicts.find(c=>c.id===id).claims.length,2);
  assert.match(data.notes.find(n=>n.id==='pricing').text,/eligibility unclear/);
  assert(!cap('soar').desc.includes('offered with user-seat pricing'));
@@ -46,7 +47,7 @@ function runtime(search='?preview=es-editions'){
 test('search, filters, history URLs, copy links and print restoration work without leaking preview tools',async()=>{
  const r=runtime();assert.equal(r.elements.get('edition-count').textContent,'20 of 20 capabilities');assert(r.details.every(x=>!x.open));
  const filter=r.elements.get('edition-filter');filter.value='review';filter.listeners.change();assert.equal([...r.rows.values()].filter(x=>!x.hidden).length,2);
- const q=r.elements.get('edition-search');q.value='Connector';q.listeners.input();assert.equal([...r.rows.values()].filter(x=>!x.hidden).length,1);
+ const q=r.elements.get('edition-search');q.value='Triage';q.listeners.input();assert.equal([...r.rows.values()].filter(x=>!x.hidden).length,1);
  q.value='zzzzz';q.listeners.input();assert.equal(r.elements.get('edition-empty').hidden,false);
  q.value='';q.listeners.input();const release=r.elements.get('edition-history');release.value='8.4';release.listeners.change();assert(r.elements.get('edition-timeline').innerHTML.includes('Cisco Talos'));
  await r.elements.get('edition-copy').listeners.click();assert.match(r.copied,/view=es-editions&filter=review&release=8.4/);
@@ -59,7 +60,7 @@ test('malformed preview fields fall back safely and query text is escaped',()=>{
 });
 
 test('ES 8.8 remains Controlled Availability with edition-specific release history',()=>{
- assert.equal(data.release,'8.8');assert.equal(data.releaseStage,'Controlled Availability');assert.equal(data.sources.rn88.reviewed,'2026-10-22');
+ assert.equal(data.release,'8.8');assert.equal(data.releaseStage,'Controlled Availability');assert.equal(data.sources.rn88.reviewed,'2026-10-24');
  assert(data.history['8.8'].e.includes('Detection Rerun'));assert(data.history['8.8'].p.includes('Automation Broker High Availability'));
  assert.match(data.history['8.8'].qualification,/Controlled Availability/);assert.match(data.history['8.8'].qualification,/pairing/);
  const r=runtime('?view=es-editions&release=8.8');assert(r.html.includes('Controlled Availability'));assert(r.elements.get('edition-timeline').innerHTML.includes('Detection Rerun'));assert(r.elements.get('edition-timeline').innerHTML.includes('Automation Broker High Availability'));
@@ -85,15 +86,13 @@ test('print report keeps all evidence and tracks selected history independently 
  assert(r.elements.get('edition-report-history').innerHTML.includes('Security MCP workflow tools'));
 });
 
-test('Connector Builder keeps the edition conflict but drops superseded representative enablement for eligible 8.7.1 users',()=>{
+test('Connector Builder applies the 8.8 both-edition row while preserving the 8.7 conflict',()=>{
  const connector=data.capabilities.find(c=>c.id==='connector-builder');
- assert.match(connector.flag,/8\.7\.1/);
- assert.match(connector.flag,/all eligible users/);
- assert.match(connector.desc,/removes the representative-enablement step/);
- assert(!connector.prem.n.includes('confirm enablement'));
- const question=data.conflicts.find(q=>q.title==='Can Essentials use Connector Builder?');
- assert.match(question.meaning,/8\.7\.1 no longer requires/);
- assert.match(question.question,/eligibility/);
+ assert.equal(connector.ess.v,'yes');assert.equal(connector.prem.v,'yes');
+ assert.match(connector.flag,/8\.8 agent table documents Essentials and Premier/);
+ assert.match(connector.desc,/paired SOAR/);assert.match(connector.desc,/SOAR App: Edit and SOAR Asset: Edit/);
+ const question=data.conflicts.find(q=>q.id==='connector-builder');
+ assert.match(question.title,/in 8\.7/);assert.match(question.meaning,/8\.8 agent table/);assert.match(question.question,/target ES version/);
 });
 
 test('editions shares and navigation retain the optional theme',async()=>{
@@ -117,7 +116,7 @@ test('editions environment filters stay independent and survive sharing and prin
 
 test('fresh ES HTML snapshot contains selected Cloud environment and source questions',()=>{
  const r=runtime('?view=es-editions&csp=aws&region=us-gov-east-1&compliance=fr-h&filter=review');
- const html=r.snapshot();assert.match(html,/Cloud environment/);assert.match(html,/Conflicting guidance/);assert.match(html,/us-gov-east-1|US East/);assert.match(html,/Environment sources/);assert.match(html,/all 20 capabilities/);assert.match(html,/Connector Builder/);
+ const html=r.snapshot();assert.match(html,/Cloud environment/);assert.match(html,/Conflicting guidance/);assert.match(html,/us-gov-east-1|US East/);assert.match(html,/Environment sources/);assert.match(html,/all 20 capabilities/);assert.match(html,/Triage Agent/);
 });
 
 test('SOAR product entry works while the normal comparison scripts are still loading',()=>{

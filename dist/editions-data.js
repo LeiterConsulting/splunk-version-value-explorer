@@ -1,7 +1,7 @@
 /* Generated from content/datasets/editions.json. Edit the JSON source, not this adapter. */
 window.VersionCompassEditions = {
   "schemaVersion": 2,
-  "reviewed": "2026-10-22",
+  "reviewed": "2026-10-24",
   "release": "8.8",
   "releaseDate": "2026-10-21",
   "releaseStage": "Controlled Availability",
@@ -9,7 +9,7 @@ window.VersionCompassEditions = {
     "rn88": {
       "t": "ES 8.8 release notes",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
-      "reviewed": "2026-10-22"
+      "reviewed": "2026-10-24"
     },
     "rn87": {
       "t": "ES 8.7 release notes",
@@ -35,6 +35,11 @@ window.VersionCompassEditions = {
       "t": "Agentic AI offerings in ES",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
       "reviewed": "2026-10-01"
+    },
+    "agentic88": {
+      "t": "Agentic AI offerings in ES 8.8",
+      "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "reviewed": "2026-10-24"
     },
     "cloudcx": {
       "t": "Access Splunk Cloud Connect in ES",
@@ -401,20 +406,22 @@ window.VersionCompassEditions = {
       "name": "Triage Agent",
       "lane": "Agentic SOC Workforce",
       "ess": {
-        "v": "no"
+        "v": "review",
+        "n": "8.8 sources disagree"
       },
       "prem": {
-        "v": "yes",
-        "n": "8.7 Cloud matrix; verify setup scope"
+        "v": "part",
+        "n": "Cloud; verify 8.8 component scope"
       },
-      "flag": "Do not infer missing deployment or version prerequisites from that omission. The linked setup page belongs to the 8.6 documentation set; confirm applicability to the target release.",
-      "desc": "Investigates queued findings and presents a disposition, rationale and suggested next steps. The 8.6 setup guide describes response plans, actions and SPL searches as investigation guidance; the 8.7 Cloud matrix lists enhancements under Premier.",
+      "flag": "Current 8.8 sources conflict: the agent guide says the SOC analyst agent includes a Triage component available in Essentials, while the editions overview lists Triage under Premier. The 8.7 Cloud matrix also groups Triage enhancements under Premier. Confirm the component and target-version entitlement.",
+      "desc": "Investigates queued findings and presents a disposition, rationale and suggested next steps. The linked setup guide remains 8.6 documentation and does not resolve the 8.8 edition conflict or establish deployment prerequisites for every current workflow.",
       "src": [
+        "agentic88",
+        "editions",
         "matrix",
-        "triage",
-        "agentic"
+        "triage"
       ],
-      "reviewed": "2026-10-01"
+      "reviewed": "2026-10-24"
     },
     {
       "id": "guided-response",
@@ -431,10 +438,11 @@ window.VersionCompassEditions = {
       "flag": "Source discrepancy: the 8.7 Cloud matrix places Guided Response enhancements under Premier, but the 8.6 task guide allows both editions. Do not equate an enhancement label with base-feature entitlement; confirm the 8.7 scope.",
       "desc": "Helps run SOAR response actions. The 8.6 task guide documents Cloud, both editions, platform 10.2+, ES 8.6+ and paired SOAR.",
       "src": [
+        "editions",
         "matrix",
         "guided"
       ],
-      "reviewed": "2026-10-01"
+      "reviewed": "2026-10-24"
     },
     {
       "id": "malware-reversing",
@@ -450,10 +458,11 @@ window.VersionCompassEditions = {
       "desc": "Summarizes suspicious scripts. Premier, Cloud only, with paired SOAR. The 8.7 agent table lists ES 8.5+, but the 8.7 task guide specifies platform 10.2+ and ES 8.6+.",
       "flag": "Minimum-version discrepancy: confirm the target deployment against both sources; ES 8.5 alone is not established as sufficient by the task guide.",
       "src": [
+        "agentic88",
         "agentic",
         "malwareTask"
       ],
-      "reviewed": "2026-10-01"
+      "reviewed": "2026-10-24"
     },
     {
       "id": "automation-builder",
@@ -471,12 +480,13 @@ window.VersionCompassEditions = {
       "flag": "Premier includes SOAR, but still requires a supported, configured pairing. Buying a standalone SOAR license alone does not establish that this prerequisite is met.",
       "desc": "Builds and explains playbooks. Both editions, Cloud only; ES 8.6+ and paired SOAR Cloud. The task guide additionally requires Cloud Platform 10.1+ and a Splunk user account, and excludes FedRAMP SOAR stacks. ES 8.7 improves context handling.",
       "src": [
+        "agentic88",
         "agentic",
         "rn87",
         "regions",
         "automationTask"
       ],
-      "reviewed": "2026-10-01"
+      "reviewed": "2026-10-24"
     },
     {
       "id": "connector-builder",
@@ -484,22 +494,23 @@ window.VersionCompassEditions = {
       "lane": "Agentic SOC Workforce",
       "tag": "new",
       "ess": {
-        "v": "review",
-        "n": "Sources disagree"
+        "v": "yes",
+        "n": "8.8 Cloud only; paired SOAR"
       },
       "prem": {
-        "v": "part",
-        "n": "Cloud; paired SOAR; eligible users"
+        "v": "yes",
+        "n": "8.8 Cloud only; paired SOAR"
       },
-      "flag": "Source conflict: the agent compatibility table lists Essentials and Premier, while the 8.7.1 release notes list Premier. Version 8.7.1 turns Connector Builder on for all eligible users, but does not define Essentials entitlement. Confirm eligibility with Splunk; this comparison does not resolve the edition conflict.",
-      "desc": "Generates and refines connectors. The 8.7 task guide requires platform 10.1+, ES 8.7+ paired with SOAR Cloud, and SOAR App: Edit and SOAR Asset: Edit permissions. Version 8.7.1 removes the representative-enablement step for eligible users but does not resolve the edition conflict.",
+      "flag": "The 8.8 agent table documents Essentials and Premier on Cloud with ES 8.7+ and paired SOAR. This current statement does not retroactively resolve the 8.7 conflict: the 8.7 agent table lists both editions while the 8.7.1 release notes assign Connector Builder to Premier.",
+      "desc": "Generates and refines connectors. The 8.8 agent table documents both editions on Cloud, ES 8.7+ and paired SOAR. The 8.7 task guide additionally requires platform 10.1+, SOAR Cloud pairing, and SOAR App: Edit and SOAR Asset: Edit permissions; exact pairing and permissions remain separate from edition inclusion.",
       "src": [
+        "agentic88",
         "agentic",
         "rn87",
         "matrix",
         "connectorTask"
       ],
-      "reviewed": "2026-10-02"
+      "reviewed": "2026-10-24"
     },
     {
       "id": "ai-soc-analyst",
@@ -511,16 +522,17 @@ window.VersionCompassEditions = {
       },
       "prem": {
         "v": "yes",
-        "n": "Cloud only; rep-enabled"
+        "n": "Cloud and Cloud Connected CMP; rep-enabled"
       },
-      "desc": "Assists investigation and response. Premier, Cloud only; platform 10.2+, paired SOAR and representative enablement. The 8.7 agent table lists ES 8.6+, while the 8.7 workflow guide requires ES 8.7+, connector and investigation permissions, and a finding with AI triage results.",
-      "flag": "Minimum-version discrepancy: the table and workflow guide disagree. Do not promise this workflow on ES 8.6; confirm the supported scope with Splunk.",
+      "desc": "Assists investigation and response. The 8.8 agent table documents Premier on Cloud and Cloud Connected CMP, paired SOAR and representative enablement. Cloud requires platform 10.2+ and ES 8.6+; CMP requires platform 10.4+, ES 8.8+ and Cloud Connect 2.0. The 8.7 task guide separately requires ES 8.7+, connector and investigation permissions, and a finding with AI triage results.",
+      "flag": "The 8.7 aggregate table and task guide retain different Cloud ES minimums. The 8.8 CMP path has its own higher platform, ES and Cloud Connect floors; neither path establishes a compatible SOAR pairing from release numbers alone.",
       "src": [
+        "agentic88",
         "agentic",
         "rn87",
         "socTask"
       ],
-      "reviewed": "2026-10-01"
+      "reviewed": "2026-10-24"
     }
   ],
   "history": {
@@ -680,6 +692,27 @@ window.VersionCompassEditions = {
   ],
   "conflicts": [
     {
+      "id": "triage-edition-88",
+      "kind": "Direct edition conflict",
+      "title": "Which edition includes the Triage component in 8.8?",
+      "claims": [
+        {
+          "src": [
+            "agentic88"
+          ],
+          "text": "The 8.8 agent guide says the SOC analyst agent includes a Triage component available in Essentials and a Response component available in Premier."
+        },
+        {
+          "src": [
+            "editions"
+          ],
+          "text": "The current editions overview lists Triage Agent in the Premier agent group."
+        }
+      ],
+      "meaning": "The sources assign different edition scope to Triage. The aggregate AI SOC Analyst row is Premier and does not by itself resolve the subcomponent entitlement.",
+      "question": "Confirm the exact 8.8 Triage experience, edition and enablement scope for the target deployment."
+    },
+    {
       "id": "soc-version",
       "kind": "Minimum-version discrepancy",
       "title": "Which ES version supports the AI SOC Analyst workflow?",
@@ -745,7 +778,7 @@ window.VersionCompassEditions = {
     {
       "id": "connector-builder",
       "kind": "Direct edition conflict",
-      "title": "Can Essentials use Connector Builder?",
+      "title": "Can Essentials use Connector Builder in 8.7?",
       "claims": [
         {
           "src": [
@@ -760,8 +793,8 @@ window.VersionCompassEditions = {
           "text": "The 8.7.1 release notes assign Connector Builder to Premier and say it is turned on for all eligible users."
         }
       ],
-      "meaning": "These pages assign different editions to the same agent in the same release line. Essentials availability remains unconfirmed; Premier still has eligibility, pairing and permission conditions, but 8.7.1 no longer requires a separate representative-enablement step for eligible users.",
-      "question": "Ask Splunk to confirm Essentials entitlement and eligibility for the target deployment."
+      "meaning": "These 8.7 pages assign different editions to the same agent. The 8.8 agent table now documents both editions on Cloud, but that later statement does not silently rewrite 8.7 history or remove pairing and permission conditions.",
+      "question": "Confirm the target ES version, edition, pairing and eligibility rather than applying the 8.8 row to 8.7."
     },
     {
       "id": "guided-response",
@@ -788,7 +821,7 @@ window.VersionCompassEditions = {
   "workflows": [
     {
       "title": "Build and maintain detections",
-      "text": "Detection Studio manages detection content; Detection Builder assists authoring and troubleshooting. Automation Builder works with playbooks, while Connector Builder generates and refines integrations. The latter has an unresolved edition conflict.",
+      "text": "Detection Studio manages detection content; Detection Builder assists authoring and troubleshooting. Automation Builder works with playbooks, while Connector Builder generates and refines integrations. Connector Builder is documented for both editions in 8.8, while its 8.7 edition conflict remains historical and explicit.",
       "ids": [
         "detection-studio",
         "detection-builder",
@@ -797,13 +830,14 @@ window.VersionCompassEditions = {
       ],
       "src": [
         "editions",
+        "agentic88",
         "agentic",
         "rn87"
       ]
     },
     {
       "title": "Investigate and respond",
-      "text": "Triage helps assess incoming findings; Guided Response helps run SOAR actions. AI SOC Analyst uses investigation and response-plan context. Check each agent’s edition and pairing requirements before treating this as an available end-to-end workflow.",
+      "text": "Triage helps assess incoming findings; Guided Response helps run SOAR actions. AI SOC Analyst uses investigation and response-plan context. Current 8.8 sources disagree on Triage edition scope, so check each agent’s edition, deployment, enablement and pairing requirements before treating this as an available end-to-end workflow.",
       "ids": [
         "triage-agent",
         "guided-response",
@@ -812,6 +846,7 @@ window.VersionCompassEditions = {
       "src": [
         "triage",
         "guided",
+        "agentic88",
         "agentic",
         "rn87"
       ]

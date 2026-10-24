@@ -2504,7 +2504,7 @@ window.VersionCompassSources = {
       "references": [
         "editions.sources.guided.u",
         "editions: editions.capabilities.15",
-        "editions: editions.conflicts.4.claims.0",
+        "editions: editions.conflicts.5.claims.0",
         "editions: editions.workflows.1"
       ],
       "reviews": [
@@ -2620,15 +2620,14 @@ window.VersionCompassSources = {
         "editions: editions.capabilities.1",
         "editions: editions.capabilities.9",
         "editions: editions.capabilities.10",
-        "editions: editions.capabilities.14",
         "editions: editions.capabilities.16",
         "editions: editions.capabilities.17",
         "editions: editions.capabilities.18",
         "editions: editions.capabilities.19",
         "editions: editions.notes.0",
-        "editions: editions.conflicts.0.claims.0",
         "editions: editions.conflicts.1.claims.0",
-        "editions: editions.conflicts.3.claims.0",
+        "editions: editions.conflicts.2.claims.0",
+        "editions: editions.conflicts.4.claims.0",
         "editions: editions.workflows.0",
         "editions: editions.workflows.1",
         "editions: editions.workflows.2",
@@ -2745,7 +2744,7 @@ window.VersionCompassSources = {
       "references": [
         "editions.sources.malwareTask.u",
         "editions: editions.capabilities.16",
-        "editions: editions.conflicts.1.claims.1"
+        "editions: editions.conflicts.2.claims.1"
       ],
       "reviews": [
         "2026-10-01"
@@ -2804,7 +2803,7 @@ window.VersionCompassSources = {
       "references": [
         "editions.sources.socTask.u",
         "editions: editions.capabilities.19",
-        "editions: editions.conflicts.0.claims.1"
+        "editions: editions.conflicts.1.claims.1"
       ],
       "reviews": [
         "2026-10-01"
@@ -2911,39 +2910,52 @@ window.VersionCompassSources = {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
       "title": "ES 8.8 agent compatibility",
       "areas": [
-        "Release guide"
+        "Release guide",
+        "ES editions",
+        "Shared guidance"
       ],
       "references": [
         "release.guidance.sources.aiEsAgents88.url",
+        "editions.sources.agentic88.u",
+        "content-updates.js",
         "guidance: guidance.aiAvailability",
         "guidance: guidance.aiAvailability.capabilities.4",
         "guidance: guidance.aiAvailability.capabilities.5",
-        "guidance: guidance.aiAvailability.capabilities.6"
+        "guidance: guidance.aiAvailability.capabilities.6",
+        "editions: editions.capabilities.14",
+        "editions: editions.capabilities.16",
+        "editions: editions.capabilities.17",
+        "editions: editions.capabilities.18",
+        "editions: editions.capabilities.19",
+        "editions: editions.conflicts.0.claims.0",
+        "editions: editions.workflows.0",
+        "editions: editions.workflows.1"
       ],
       "reviews": [
-        "2026-10-23"
+        "2026-10-24"
       ],
       "claimReferences": [
         {
           "path": "guidance: guidance.aiAvailability",
-          "section": "Compatibility table: Detection Builder, AI SOC Analyst and SOP agent"
+          "section": "Agent and component edition notes; compatibility table for Detection Builder, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.4",
-          "section": "Compatibility table: Detection Builder, AI SOC Analyst and SOP agent"
+          "section": "Agent and component edition notes; compatibility table for Detection Builder, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.5",
-          "section": "Compatibility table: Detection Builder, AI SOC Analyst and SOP agent"
+          "section": "Agent and component edition notes; compatibility table for Detection Builder, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.6",
-          "section": "Compatibility table: Detection Builder, AI SOC Analyst and SOP agent"
+          "section": "Agent and component edition notes; compatibility table for Detection Builder, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
         }
       ],
+      "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-10-23",
-      "status": "Reviewed",
+      "reviewed": "2026-10-24",
+      "status": "Needs reconciliation",
       "firstRecorded": "2026-10-23",
       "firstUsed": null,
       "outdatedAsOf": null,
@@ -2954,12 +2966,16 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-23",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-24",
+          "event": "Review status updated: Needs reconciliation · 2026-10-24"
         }
       ]
     },
     {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
-      "title": "ES editions: existing qualified assistant entitlement",
+      "title": "ES editions overview",
       "areas": [
         "Release guide",
         "ES editions"
@@ -2978,27 +2994,32 @@ window.VersionCompassSources = {
         "editions: editions.capabilities.11",
         "editions: editions.capabilities.12",
         "editions: editions.capabilities.13",
+        "editions: editions.capabilities.14",
+        "editions: editions.capabilities.15",
         "editions: editions.notes.0",
+        "editions: editions.conflicts.0.claims.1",
         "editions: editions.workflows.0",
         "editions: editions.workflows.2",
         "editions: editions.workflows.3"
       ],
       "reviews": [
+        "2026-10-24",
         "2026-10-01"
       ],
       "claimReferences": [
         {
           "path": "guidance: guidance.aiAvailability",
-          "section": "Dated existing edition qualification; generic compatibility does not broaden Essentials CMP entitlement"
+          "section": "Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.3",
-          "section": "Dated existing edition qualification; generic compatibility does not broaden Essentials CMP entitlement"
+          "section": "Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings"
         }
       ],
+      "conflict": true,
       "usage": "In use",
       "reviewed": "2026-10-01",
-      "status": "Reviewed",
+      "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
@@ -3033,6 +3054,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-10-24",
+          "event": "Review status updated: Needs reconciliation · 2026-10-01"
         }
       ]
     },
@@ -3369,7 +3394,7 @@ window.VersionCompassSources = {
         "editions: editions.capabilities.17",
         "editions: editions.capabilities.18",
         "editions: editions.capabilities.19",
-        "editions: editions.conflicts.3.claims.1",
+        "editions: editions.conflicts.4.claims.1",
         "editions: editions.workflows.0",
         "editions: editions.workflows.1"
       ],
@@ -3440,7 +3465,7 @@ window.VersionCompassSources = {
         "editions: editions.capabilities.15",
         "editions: editions.capabilities.18",
         "editions: editions.history.8.7",
-        "editions: editions.conflicts.4.claims.1"
+        "editions: editions.conflicts.5.claims.1"
       ],
       "reviews": [
         "2026-10-01"
@@ -3600,7 +3625,7 @@ window.VersionCompassSources = {
         "editions: editions.highlights.2"
       ],
       "reviews": [
-        "2026-10-22"
+        "2026-10-24"
       ],
       "claimReferences": [
         {
@@ -8119,7 +8144,7 @@ window.VersionCompassSources = {
         "editions: editions.capabilities.3",
         "editions: editions.capabilities.11",
         "editions: editions.notes.4",
-        "editions: editions.conflicts.2.claims.0"
+        "editions: editions.conflicts.3.claims.0"
       ],
       "reviews": [
         "2026-10-01"
@@ -8178,7 +8203,7 @@ window.VersionCompassSources = {
       "references": [
         "editions.sources.pricingModels.u",
         "editions: editions.notes.4",
-        "editions: editions.conflicts.2.claims.1"
+        "editions: editions.conflicts.3.claims.1"
       ],
       "reviews": [
         "2026-10-01"

@@ -12,7 +12,7 @@ test('AI catalog preserves named products, exact dependency floors and scoped da
  const itsi=d.capabilities.find(r=>r.product==='itsi');assert.match(itsi.version,/ITSI 5\.0\+.*SAIA 2\.2\+.*MCP Server 1\.2\.1\+/);
  assert(d.capabilities.filter(r=>r.product==='es').every(r=>r.stage.includes('Controlled Availability')));
  for(const r of d.capabilities){assert(r.requirements.length);assert(r.qualification);assert(r.verified);assert(r.scope.product===r.product);for(const id of r.src){const s=a.source(id);assert(s.section);assert(s.checked);assert(s.reviewed);assert.equal(new URL(s.url).hostname,'help.splunk.com');}}
- assert.equal(a.source('aiEsEditions').reviewed,'2026-10-01');assert.equal(a.source('aiEsRelease88').reviewed,'2026-10-22');
+ for(const id of ['aiEsAgents88','aiEsEditions','aiEsRelease88'])assert.equal(a.source(id).reviewed,'2026-10-24');
 });
 test('Observability AI capabilities keep realm, rollout and metric limits scoped',()=>{
  const a=model(),d=a.data();assert(a.products.observability);assert.match(d.observabilityRealmConflict,/us3/);

@@ -86,6 +86,14 @@ The editions snapshot now uses the October 21 ES 8.8.0 Controlled Availability r
 
 The 8.8 history entry separates Essentials/shared investigation, detection, RBAC, queue-search, TAXII2 and dashboard changes from Premier UEBA, System Insights, pairing-certificate and Automation Broker HA changes. The current capability rows summarize those affected areas without adding unsupported standalone entitlements. The Connector Builder conflict, Guided Response ambiguity, agent minimum-version discrepancies, activity-pricing question and exact App for SOAR / SOAR Export rows remain unchanged. This is the same underlying October 22 factual content cycle as the Release Watch batch; the shared cycle is not advanced twice.
 
+## October 24, 2026 ES 8.8 agent reconciliation
+
+The current 8.8 agent compatibility table is now the primary current-snapshot evidence for named agents. It lists Connector Builder for both Essentials and Premier on Cloud, with ES 8.7+ and paired SOAR. That statement does not rewrite the historical 8.7 conflict between the 8.7 agent table and 8.7.1 release notes, and it does not make licensing equivalent to a configured compatible SOAR pairing.
+
+The same 8.8 guide introduces a separate Triage conflict: its SOC analyst description assigns the Triage component to Essentials and the Response component to Premier, while the current editions overview lists Triage in the Premier agent group. The aggregate AI SOC Analyst row remains Premier. VersionCompass therefore marks Triage for confirmation instead of inheriting entitlement from either grouping. Guided Response's existing enhancement-scope ambiguity also remains unresolved.
+
+Detection Builder and AI SOC Analyst now preserve separate Cloud and Cloud Connected CMP prerequisite chains. CMP requires Platform 10.4+, ES 8.8+ and Cloud Connect 2.0; the Cloud floors remain capability-specific. Automation Builder, Connector Builder, Malware/Phishing and SOP retain their exact deployment, edition, paired-SOAR, enablement or permission qualifications. No independent App for SOAR or SOAR Export release number is used to infer an ES–SOAR pairing.
+
 ## Cloud environment evidence
 
 See [Cloud environments](cloud-environments.md) for independent CSP, region, FR-M/FR-H, and experience filters, shared report behavior, uncertainty boundaries, and dedicated maintenance ownership. Current hosting evidence does not establish historical release availability or authorize every product component.
