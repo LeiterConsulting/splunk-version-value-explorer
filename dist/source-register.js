@@ -133,14 +133,14 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.security.url",
-        "soar: soar.records.20"
+        "soar: soar.records.24"
       ],
       "reviews": [
         "2026-10-01"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.20",
+          "path": "soar: soar.records.24",
           "section": "Solutions; Product Status; CVE-2026-76362 Additional Solution"
         }
       ],
@@ -176,14 +176,14 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.packages.url",
-        "soar: soar.records.20"
+        "soar: soar.records.24"
       ],
       "reviews": [
         "2026-10-01"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.20",
+          "path": "soar: soar.records.24",
           "section": "Description: third-party fixes in 8.6.0 and higher"
         }
       ],
@@ -4043,9 +4043,9 @@ window.VersionCompassSources = {
           "release": "10.4",
           "component": "Legacy TLS protocols",
           "section": "Splunk has removed support for versions 1.0 and 1.1 of the Transport Layer Security (TLS) protocol",
-          "claimVerified": "2026-10-08",
+          "claimVerified": "2026-10-24",
           "outcome": "conflicting-evidence-preserved",
-          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval. READ THIS FIRST says complete removal; the 10.4 Welcome table says disabled by default with temporary migration support. This existing conflict remains unresolved."
+          "qualification": "Heavy Forwarder uses the Enterprise package. October 24 semantic recheck: READ THIS FIRST says TLS 1.0/1.1 support was completely removed in 10.4, while the current TLS guide says both are off by default and can be temporarily re-enabled with deprecatedTlsVersionSupport. Preserve the conflict. This is not a UF rule, Cloud-managed installation requirement, or deployment approval."
         },
         {
           "path": "forwarders: borrowed.technical.hf.10.4.certificate-signatures",
@@ -4463,9 +4463,9 @@ window.VersionCompassSources = {
           "release": "10.6",
           "component": "Legacy TLS protocols",
           "section": "Splunk has removed support for versions 1.0 and 1.1 of the Transport Layer Security (TLS) protocol",
-          "claimVerified": "2026-10-08",
+          "claimVerified": "2026-10-24",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
+          "qualification": "Heavy Forwarder uses the Enterprise package. October 24 semantic recheck: the 10.6 READ THIS FIRST section says TLS 1.0/1.1 support was removed in 10.4 and that 10.6 removes the temporary re-enable option; migrate inter-Splunk connections to TLS 1.2 or higher. This does not establish UF applicability, Cloud-managed scope, every app-owned connection, or deployment approval."
         }
       ],
       "usage": "In use",
@@ -5561,13 +5561,58 @@ window.VersionCompassSources = {
       ]
     },
     {
-      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
-      "title": "Observability service description and realms",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan",
+      "title": "AI troubleshooting agent and remediation plan",
       "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.aiObsRca.url",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.8"
+      ],
+      "reviews": [
+        "2026-10-24"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Availability; supported alerts and metrics; opt-in behavior; Kubernetes remediation plans"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.8",
+          "section": "Availability; supported alerts and metrics; opt-in behavior; Kubernetes remediation plans"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-24",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-24",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-24",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
+      "title": "Observability Cloud service description",
+      "areas": [
+        "Release guide",
         "Cloud environment"
       ],
       "references": [
+        "release.guidance.sources.aiObsServiceDetails.url",
         "environment.sources.o11y.url",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.7",
+        "guidance: guidance.aiAvailability.capabilities.8",
         "environment: environment.records.51",
         "environment: environment.records.52",
         "environment: environment.records.53",
@@ -5586,7 +5631,22 @@ window.VersionCompassSources = {
         "environment: environment.records.69"
       ],
       "reviews": [
+        "2026-10-24",
         "2026-10-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Available regions or realms; realm-to-region equivalence; available components per realm"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.7",
+          "section": "Available regions or realms; realm-to-region equivalence; available components per realm"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.8",
+          "section": "Available regions or realms; realm-to-region equivalence; available components per realm"
+        }
       ],
       "usage": "In use",
       "reviewed": "2026-10-09",
@@ -5756,12 +5816,27 @@ window.VersionCompassSources = {
       "references": [
         "release.productTracks.observability.releasesData.Jul 2026.source",
         "release.productTracks.observability.releasesData.Jul 2026.requirements.0.3",
-        "release.productTracks.observability.releasesData.Jul 2026.requirements.1.3"
+        "release.productTracks.observability.releasesData.Jul 2026.requirements.1.3",
+        "release.guidance.sources.aiObsJulyRelease.url",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.8"
       ],
-      "reviews": [],
+      "reviews": [
+        "2026-10-24"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "July 8 AI troubleshooting agent and remediation plan milestone"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.8",
+          "section": "July 8 AI troubleshooting agent and remediation plan milestone"
+        }
+      ],
       "usage": "In use",
-      "reviewed": null,
-      "status": "Review date unknown",
+      "reviewed": "2026-10-24",
+      "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
@@ -5772,6 +5847,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-24",
+          "event": "Review status updated: Reviewed · 2026-10-24"
         }
       ]
     },
@@ -5842,9 +5921,11 @@ window.VersionCompassSources = {
         "release.productTracks.observability.releasesData.Oct 2026.features.10.5",
         "release.productTracks.observability.releasesData.Oct 2026.features.11.5",
         "release.productTracks.observability.releasesData.Oct 2026.features.12.5",
+        "release.productTracks.observability.releasesData.Oct 2026.features.13.5",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.3.source",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.4.source",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.5.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.21.source",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.0.3",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.1.3",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.2.3",
@@ -5978,6 +6059,48 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-02",
           "event": "Review status updated: Reviewed · 2026-10-02"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/ai-assistant-in-observability-cloud",
+      "title": "AI Assistant in Observability Cloud",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.guidance.sources.aiObsAssistant.url",
+        "content-updates.js",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.7"
+      ],
+      "reviews": [
+        "2026-10-24"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Availability; supported realms and product areas; access; context limitations; data sharing and use"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.7",
+          "section": "Availability; supported realms and product areas; access; context limitations; data sharing and use"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-24",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-24",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-24",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },
@@ -6122,54 +6245,81 @@ window.VersionCompassSources = {
       "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
       "title": "SOAR Cloud release notes",
       "areas": [
-        "Splunk SOAR"
+        "Splunk SOAR",
+        "Shared guidance"
       ],
       "references": [
         "soar.sources.cloud.url",
+        "content-updates.js",
         "soar: soar.records.1",
+        "soar: soar.records.2",
         "soar: soar.records.3",
         "soar: soar.records.4",
         "soar: soar.records.5",
-        "soar: soar.records.6",
+        "soar: soar.records.7",
+        "soar: soar.records.8",
         "soar: soar.records.9",
         "soar: soar.records.10",
-        "soar: soar.records.11"
+        "soar: soar.records.13",
+        "soar: soar.records.14",
+        "soar: soar.records.15",
+        "soar: soar.targetRequirements.8.8.0"
       ],
       "reviews": [
-        "2026-10-01"
+        "2026-10-24"
       ],
       "claimReferences": [
         {
           "path": "soar: soar.records.1",
-          "section": "7.1 Python migration; 7.2 GCP; 8.6 and 8.7 enhancements and prerequisites"
+          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
+        },
+        {
+          "path": "soar: soar.records.2",
+          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
         },
         {
           "path": "soar: soar.records.3",
-          "section": "7.1 Python migration; 7.2 GCP; 8.6 and 8.7 enhancements and prerequisites"
+          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
         },
         {
           "path": "soar: soar.records.4",
-          "section": "7.1 Python migration; 7.2 GCP; 8.6 and 8.7 enhancements and prerequisites"
+          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
         },
         {
           "path": "soar: soar.records.5",
-          "section": "7.1 Python migration; 7.2 GCP; 8.6 and 8.7 enhancements and prerequisites"
+          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
         },
         {
-          "path": "soar: soar.records.6",
-          "section": "7.1 Python migration; 7.2 GCP; 8.6 and 8.7 enhancements and prerequisites"
+          "path": "soar: soar.records.7",
+          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
+        },
+        {
+          "path": "soar: soar.records.8",
+          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
         },
         {
           "path": "soar: soar.records.9",
-          "section": "7.1 Python migration; 7.2 GCP; 8.6 and 8.7 enhancements and prerequisites"
+          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
         },
         {
           "path": "soar: soar.records.10",
-          "section": "7.1 Python migration; 7.2 GCP; 8.6 and 8.7 enhancements and prerequisites"
+          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
         },
         {
-          "path": "soar: soar.records.11",
-          "section": "7.1 Python migration; 7.2 GCP; 8.6 and 8.7 enhancements and prerequisites"
+          "path": "soar: soar.records.13",
+          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
+        },
+        {
+          "path": "soar: soar.records.14",
+          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
+        },
+        {
+          "path": "soar: soar.records.15",
+          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
+        },
+        {
+          "path": "soar: soar.targetRequirements.8.8.0",
+          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
         }
       ],
       "usage": "In use",
@@ -6259,7 +6409,7 @@ window.VersionCompassSources = {
       "references": [
         "soar.sources.requirements86.url",
         "content-updates.js",
-        "soar: soar.records.21",
+        "soar: soar.records.25",
         "soar: soar.targetRequirements.8.6.0"
       ],
       "reviews": [
@@ -6267,7 +6417,7 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.21",
+          "path": "soar: soar.records.25",
           "section": "Supported operating systems; PostgreSQL 15; Elasticsearch versions; bundled UF 10.4.0; container restriction"
         },
         {
@@ -6303,7 +6453,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.sizing86.url",
-        "soar: soar.records.22",
+        "soar: soar.records.26",
         "soar: soar.targetRequirements.8.6.0"
       ],
       "reviews": [
@@ -6311,7 +6461,7 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.22",
+          "path": "soar: soar.records.26",
           "section": "Production CPU, memory, volume sizing, network and system utilities"
         },
         {
@@ -6385,7 +6535,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.requirements.url",
-        "soar: soar.records.12",
+        "soar: soar.records.16",
         "soar: soar.targetRequirements.8.7.0"
       ],
       "reviews": [
@@ -6393,7 +6543,7 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.12",
+          "path": "soar: soar.records.16",
           "section": "Supported operating systems, database, Elasticsearch, Universal Forwarder and container restriction"
         },
         {
@@ -6437,7 +6587,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.sizing.url",
-        "soar: soar.records.13",
+        "soar: soar.records.17",
         "soar: soar.targetRequirements.8.7.0"
       ],
       "reviews": [
@@ -6445,7 +6595,7 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.13",
+          "path": "soar: soar.records.17",
           "section": "Production system requirements table"
         },
         {
@@ -6485,7 +6635,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.prepare.url",
-        "soar: soar.records.14",
+        "soar: soar.records.18",
         "soar: soar.backlog.4"
       ],
       "reviews": [
@@ -6493,7 +6643,7 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.14",
+          "path": "soar: soar.records.18",
           "section": "Upgrade overview checklist; prerequisites; privileged conversion and important changes"
         },
         {
@@ -6610,14 +6760,14 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.known86.url",
-        "soar: soar.records.7"
+        "soar: soar.records.11"
       ],
       "reviews": [
         "2026-10-01"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.7",
+          "path": "soar: soar.records.11",
           "section": "Release 8.6.0 CAUTION: external credential managers"
         }
       ],
@@ -6653,8 +6803,8 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.on86.url",
-        "soar: soar.records.6",
-        "soar: soar.records.8",
+        "soar: soar.records.10",
+        "soar: soar.records.12",
         "soar: soar.targetRequirements.8.6.0"
       ],
       "reviews": [
@@ -6662,11 +6812,11 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.6",
+          "path": "soar: soar.records.10",
           "section": "August 4, 2026 release; FIPS 140-3 compliance"
         },
         {
-          "path": "soar: soar.records.8",
+          "path": "soar: soar.records.12",
           "section": "August 4, 2026 release; FIPS 140-3 compliance"
         },
         {
@@ -6822,9 +6972,9 @@ window.VersionCompassSources = {
       "references": [
         "soar.sources.on87.url",
         "content-updates.js",
-        "soar: soar.records.1",
-        "soar: soar.records.2",
-        "soar: soar.records.3",
+        "soar: soar.records.5",
+        "soar: soar.records.6",
+        "soar: soar.records.7",
         "soar: soar.targetRequirements.8.7.0"
       ],
       "reviews": [
@@ -6832,15 +6982,15 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.1",
+          "path": "soar: soar.records.5",
           "section": "September 2 release; September 22 build 243 correction; Python 3.9 end of support; Automation Broker HA"
         },
         {
-          "path": "soar: soar.records.2",
+          "path": "soar: soar.records.6",
           "section": "September 2 release; September 22 build 243 correction; Python 3.9 end of support; Automation Broker HA"
         },
         {
-          "path": "soar: soar.records.3",
+          "path": "soar: soar.records.7",
           "section": "September 2 release; September 22 build 243 correction; Python 3.9 end of support; Automation Broker HA"
         },
         {
@@ -6886,8 +7036,8 @@ window.VersionCompassSources = {
       "references": [
         "soar.sources.exportCloud.url",
         "content-updates.js",
-        "soar: soar.records.17",
-        "soar: soar.records.18",
+        "soar: soar.records.21",
+        "soar: soar.records.22",
         "soar: soar.backlog.2"
       ],
       "reviews": [
@@ -6895,11 +7045,11 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.17",
+          "path": "soar: soar.records.21",
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
         },
         {
-          "path": "soar: soar.records.18",
+          "path": "soar: soar.records.22",
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
         },
         {
@@ -6937,8 +7087,8 @@ window.VersionCompassSources = {
       "references": [
         "soar.sources.exportEnterprise.url",
         "content-updates.js",
-        "soar: soar.records.17",
-        "soar: soar.records.18",
+        "soar: soar.records.21",
+        "soar: soar.records.22",
         "soar: soar.backlog.2"
       ],
       "reviews": [
@@ -6946,11 +7096,11 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.17",
+          "path": "soar: soar.records.21",
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
         },
         {
-          "path": "soar: soar.records.18",
+          "path": "soar: soar.records.22",
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
         },
         {
@@ -6988,19 +7138,19 @@ window.VersionCompassSources = {
       "references": [
         "soar.sources.export.url",
         "content-updates.js",
-        "soar: soar.records.17",
-        "soar: soar.records.19"
+        "soar: soar.records.21",
+        "soar: soar.records.23"
       ],
       "reviews": [
         "2026-10-15"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.17",
+          "path": "soar: soar.records.21",
           "section": "Welcome to release 8.7.1; Known issues in release 8.7.0 (PAPP-38496); Fixed issues in release 8.7.0 (PAPP-38389)"
         },
         {
-          "path": "soar: soar.records.19",
+          "path": "soar: soar.records.23",
           "section": "Welcome to release 8.7.1; Known issues in release 8.7.0 (PAPP-38496); Fixed issues in release 8.7.0 (PAPP-38389)"
         }
       ],
@@ -7040,14 +7190,14 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.app.url",
-        "soar: soar.records.16"
+        "soar: soar.records.20"
       ],
       "reviews": [
         "2026-10-01"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.16",
+          "path": "soar: soar.records.20",
           "section": "8.7.0 compatibility table; /rest/audit footnote"
         }
       ],
@@ -7087,14 +7237,14 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.broker.url",
-        "soar: soar.records.15"
+        "soar: soar.records.19"
       ],
       "reviews": [
         "2026-10-01"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.15",
+          "path": "soar: soar.records.19",
           "section": "September 2 release 8.7; Python 3.13 only; 8.6.0.536 fixes"
         }
       ],

@@ -1,7 +1,7 @@
 /* Generated from content/datasets/soar.json. Edit the JSON source, not this adapter. */
 window.VersionCompassSOARData = {
   "schemaVersion": 1,
-  "latest": "8.7.0",
+  "latest": "8.8.0",
   "trackingSince": "2026-10-01",
   "sources": {
     "securityNotice": {
@@ -55,10 +55,10 @@ window.VersionCompassSOARData = {
     "cloud": {
       "title": "SOAR Cloud release notes",
       "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
-      "section": "7.1 Python migration; 7.2 GCP; 8.6 and 8.7 enhancements and prerequisites",
-      "checked": "2026-10-01",
-      "reviewed": "2026-10-01",
-      "outcome": "confirmed"
+      "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
+      "checked": "2026-10-24",
+      "reviewed": "2026-10-24",
+      "outcome": "confirmed-with-stage-wording-conflict"
     },
     "path86": {
       "title": "SOAR 8.6.0 upgrade paths",
@@ -272,6 +272,70 @@ window.VersionCompassSOARData = {
       "verified": "2026-10-23",
       "target": true,
       "qualification": "The advisories name Splunk SOAR and document on-premises roles, paths and components. They do not establish SOAR Cloud tenant rollout or remediation; confirm managed-service status separately. They also do not publish an exact corrected build, so retain build 243 from the release notes."
+    },
+    {
+      "id": "cloud88-stage",
+      "title": "Cloud 8.8 is Controlled Availability",
+      "detail": "SOAR Cloud 8.8.0 was released for Controlled Availability on October 21, 2026. The same section then calls its enhancements a General Availability release; retain the explicit release-stage statement and the internal wording conflict until Splunk reconciles it. Tenant rollout, entitlement, region and authorization remain separate.",
+      "kind": "requirement",
+      "release": "8.8.0",
+      "src": [
+        "cloud"
+      ],
+      "deployments": [
+        "cloud"
+      ],
+      "status": "Conditional",
+      "verified": "2026-10-24",
+      "target": true
+    },
+    {
+      "id": "broker-ha88",
+      "title": "Automation Broker high availability reaches GA",
+      "detail": "The Cloud 8.8 enhancement table marks Automation Broker high availability General Availability. This supersedes the Cloud 8.7 Controlled Availability stage for that feature only; it does not make the full 8.8 release generally available or establish regional, entitlement or pairing scope.",
+      "kind": "feature",
+      "release": "8.8.0",
+      "src": [
+        "cloud"
+      ],
+      "deployments": [
+        "cloud"
+      ],
+      "status": "Documented",
+      "verified": "2026-10-24",
+      "outcome": "Keep response actions running if a Broker fails and distribute work across a Broker group."
+    },
+    {
+      "id": "system-insights88",
+      "title": "System Insights adds custom functions and Brokers",
+      "detail": "Cloud 8.8 System Insights adds information about SOAR custom functions and Automation Brokers. Splunk App for SOAR availability and compatibility remain separate.",
+      "kind": "feature",
+      "release": "8.8.0",
+      "src": [
+        "cloud"
+      ],
+      "deployments": [
+        "cloud"
+      ],
+      "status": "Documented",
+      "verified": "2026-10-24",
+      "outcome": "Extend operational visibility to custom functions and Automation Brokers."
+    },
+    {
+      "id": "cloud88-forwarder",
+      "title": "Bundled Universal Forwarder 10.4.4",
+      "detail": "SOAR Cloud 8.8 uses bundled Universal Forwarder 10.4.4. This is an embedded SOAR dependency, not a receiver or indexer compatibility rule, customer installation path, or general Forwarder topology recommendation.",
+      "kind": "technical",
+      "release": "8.8.0",
+      "src": [
+        "cloud"
+      ],
+      "deployments": [
+        "cloud"
+      ],
+      "status": "Documented",
+      "verified": "2026-10-24",
+      "target": true
     },
     {
       "id": "python87",
@@ -695,12 +759,14 @@ window.VersionCompassSOARData = {
       "8.4.0",
       "8.5.0",
       "8.6.0",
-      "8.7.0"
+      "8.7.0",
+      "8.8.0"
     ]
   },
   "targets": [
     "8.6.0",
-    "8.7.0"
+    "8.7.0",
+    "8.8.0"
   ],
   "backlog": [
     {
@@ -756,6 +822,13 @@ window.VersionCompassSOARData = {
         "prepare",
         "path87"
       ]
+    },
+    {
+      "id": "cloud88-stage-wording",
+      "owner": "Version Release Watch",
+      "status": "open",
+      "priority": "release stage",
+      "topic": "Reconcile the Cloud 8.8 section’s explicit Controlled Availability release statement with its following General Availability enhancement sentence; preserve both until authoritative clarification."
     }
   ],
   "targetRequirements": {
@@ -784,6 +857,27 @@ window.VersionCompassSOARData = {
         "requirements",
         "sizing"
       ]
+    },
+    "8.8.0": {
+      "runtime": "Python 3.13 remains the current Cloud automation runtime boundary established by 8.7; the 8.8 entry does not publish a new runtime transition.",
+      "src": [
+        "cloud"
+      ]
     }
+  },
+  "latestByDeployment": {
+    "cmp": "8.7.0",
+    "cloud": "8.8.0"
+  },
+  "targetsByDeployment": {
+    "cmp": [
+      "8.6.0",
+      "8.7.0"
+    ],
+    "cloud": [
+      "8.6.0",
+      "8.7.0",
+      "8.8.0"
+    ]
   }
 };

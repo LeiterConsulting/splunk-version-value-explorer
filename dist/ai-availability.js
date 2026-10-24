@@ -3,7 +3,7 @@
   'use strict';
   const data = () => window.SPLUNK_DATA.guidance.aiAvailability;
   const esc = value => String(value ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const products = {all:'All products',platform:'Splunk Platform · SAIA',es:'Enterprise Security',itsi:'IT Service Intelligence'};
+  const products = {all:'All products',platform:'Splunk Platform · SAIA',es:'Enterprise Security',itsi:'IT Service Intelligence',observability:'Observability Cloud'};
   const deployments = {cloud:'Splunk Cloud',enterprise:'Enterprise · cloud-connected AI'};
   const regimes = {commercial:'Commercial','fr-m':'FedRAMP Moderate','fr-h':'FedRAMP High'};
   const editions = {all:'Any ES edition',essentials:'ES Essentials',premier:'ES Premier'};
@@ -68,6 +68,14 @@
         if(!policy.regions.includes(region.id))return result('not_established','The selected service region is not established by this capability’s scoped regional table.',['aiEsRegions88']);
       }else if(provider&&provider!=='aws')return result('not_established','A supported AI service region for this deployment has not been established.');
       return result('conditional',(region?'Regional evidence matches. ':'Select an exact service region to narrow the evidence. ')+record.condition+' ES 8.8 Controlled Availability access, entitlement and enablement still need confirmation.',['aiEsRegions88']);
+    }
+    if(record.product==='observability'){
+      if(state.deployment!=='cloud')return result('unavailable','The cited capability is an Observability Cloud service and does not establish an Enterprise-hosted deployment.');
+      if(state.compliance!=='commercial'||region?.id.startsWith('us-gov-'))return result('unavailable','The capability documentation limits this feature to non-Governmental realms. Offering and customer authorization remain separate.');
+      if(provider&&provider==='azure')return result('not_established','The reviewed Observability capability evidence lists AWS excluding GovCloud and GCP realms; Azure availability is not established.');
+      if(region&&!d.observabilityRegions.includes(region.id))return result('not_established','The selected platform region is not mapped to a realm in the current Observability service description. The AI page also lists us3, whose provider and region remain unresolved.',['aiObsServiceDetails']);
+      if(!region&&provider&&!['aws','gcp'].includes(provider))return result('not_established','This provider is not established by the reviewed Observability capability evidence.');
+      return result('conditional',(region?'The selected region maps to a documented commercial Observability realm. ':'Select an exact AWS or GCP service region. ')+record.condition+' Entitlement, organization enablement and customer authorization remain separate.');
     }
     if(state.compliance!=='commercial'||region?.id.startsWith('us-gov-')){
       return result('not_established',d.regulatedQualification+(record.id==='ai-saia-agent'?' The documented IL2 assistant excludes Agent Mode.':''),['aiSaiaInstall']);

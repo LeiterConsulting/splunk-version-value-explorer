@@ -1,0 +1,116 @@
+{
+  "watch": "version-release-watch",
+  "checkedAt": "2026-10-24T09:45:00Z",
+  "inventory": {
+    "exactUrlAndSectionBaseline": "dist/source-register.js at GitHub main ee59789d4b7d90a5d248ed6e9237ff2ca9613f9d",
+    "attempted": 200,
+    "retrieved": 196,
+    "officialGitHubApiRecoveries": 12,
+    "newUniqueSources": 2,
+    "qualification": "All 198 exact URLs in the fresh source register were attempted. Twelve GitHub URLs that the general retriever did not return were recovered through the official GitHub API. Four exact documentation URLs remained unavailable. Two newly discovered Observability AI pages were then checked, producing a 200-URL post-change register. Retrieval is not claim verification."
+  },
+  "newSources": [
+    {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/ai-assistant-in-observability-cloud",
+      "section": "Availability; supported realms and product areas; access; context limitations; data sharing and use",
+      "outcome": "reviewed"
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan",
+      "section": "Availability; supported alerts and metrics; opt-in behavior; Kubernetes remediation plans",
+      "outcome": "reviewed"
+    }
+  ],
+  "unavailable": [
+    {
+      "url": "https://docs.splunk.com/Documentation/Splunk/8.1.14/ReleaseNotes/MeetSplunk",
+      "outcome": "unavailable",
+      "handling": "Retain historical evidence; no replacement or release-date inference."
+    },
+    {
+      "url": "https://docs.splunk.com/Documentation/Splunk/8.2.12/ReleaseNotes/MeetSplunk",
+      "outcome": "unavailable",
+      "handling": "Retain historical evidence; no replacement or release-date inference."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/manage-workloads/10.6/use-workload-management-on-kubernetes",
+      "outcome": "retrieval-service-inaccessible",
+      "handling": "Retain prior scoped evidence; alternate nearby pages do not replace the exact claim source."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6",
+      "outcome": "retrieval-service-inaccessible",
+      "handling": "Retain prior evidence; the unavailable body does not advance its claim-verification date."
+    }
+  ],
+  "discovery": {
+    "soarCloud": "The release page now contains an October 21, 2026 SOAR Cloud 8.8.0 entry. It explicitly calls the release Controlled Availability, then calls the enhancement list General Availability. Automation Broker HA is marked GA, System Insights adds custom functions and Brokers, and the bundled Universal Forwarder is 10.4.4.",
+    "observabilityAI": "The current AI Assistant page documents AWS realms excluding GovCloud and GCP realms, product-area coverage, SVC impact for log queries, 30-day recent-chat access and data-use controls. It lists us3, while the current service description does not map us3 to a provider region.",
+    "observabilityRca": "The AI troubleshooting agent is limited to non-Governmental realms, standard default metrics and supported alerts; custom metrics are unsupported, automatic organization enablement requires support, and remediation plans are currently Kubernetes-specific.",
+    "observabilityRelease": "The October 21 release page adds scheduled SPL-based log detectors through a phased rollout limited to select accounts in specific realms.",
+    "componentStreams": "Collector 0.163.1, chart 0.163.1, .NET 1.16.0, Java 2.32.0, Node.js 4.12.1, Python 2.13.2 and Browser RUM 3.2.0 remain the latest verified component releases."
+  },
+  "claimChecks": [
+    {
+      "claimId": "release.soar.cloud-8.8-stage",
+      "productVersionEnvironment": "SOAR Cloud 8.8.0; managed service",
+      "sourceCheckDate": "2026-10-24",
+      "claimVerificationDate": "2026-10-24",
+      "outcome": "confirmed-with-source-wording-conflict",
+      "qualification": "Explicit Controlled Availability release statement retained alongside the following General Availability enhancement sentence; tenant rollout, entitlement, region and authorization remain separate."
+    },
+    {
+      "claimId": "feature.soar.cloud-8.8-broker-ha",
+      "productVersionEnvironment": "SOAR Cloud 8.8.0; Automation Broker HA",
+      "sourceCheckDate": "2026-10-24",
+      "claimVerificationDate": "2026-10-24",
+      "outcome": "feature-ga-confirmed",
+      "qualification": "Feature stage does not change the 8.8 release stage or establish pairing and entitlement."
+    },
+    {
+      "claimId": "technical.soar.cloud-8.8-bundled-uf",
+      "productVersionEnvironment": "SOAR Cloud 8.8.0; embedded Universal Forwarder 10.4.4",
+      "sourceCheckDate": "2026-10-24",
+      "claimVerificationDate": "2026-10-24",
+      "outcome": "embedded-dependency-confirmed",
+      "qualification": "Not a receiver/indexer compatibility row, customer upgrade path or general Forwarder topology rule."
+    },
+    {
+      "claimId": "ai.observability.assistant-current",
+      "productVersionEnvironment": "Observability Cloud; commercial AWS excluding GovCloud and GCP realms",
+      "sourceCheckDate": "2026-10-24",
+      "claimVerificationDate": "2026-10-24",
+      "outcome": "confirmed-with-us3-mapping-gap"
+    },
+    {
+      "claimId": "ai.observability.troubleshooting-agent",
+      "productVersionEnvironment": "Observability Cloud; non-Governmental realms; supported default-metric alerts",
+      "sourceCheckDate": "2026-10-24",
+      "claimVerificationDate": "2026-10-24",
+      "outcome": "confirmed-with-metric-and-enablement-qualifications"
+    },
+    {
+      "claimId": "feature.observability.log-alerting-phased-rollout",
+      "productVersionEnvironment": "Observability Cloud; select accounts and specific realms",
+      "sourceCheckDate": "2026-10-24",
+      "claimVerificationDate": "2026-10-24",
+      "outcome": "phased-rollout-confirmed"
+    },
+    {
+      "claimId": "technical.hf.10.4.legacy-tls-protocols",
+      "productVersionEnvironment": "Heavy Forwarder using Enterprise 10.4 package",
+      "sourceCheckDate": "2026-10-24",
+      "claimVerificationDate": "2026-10-24",
+      "outcome": "conflicting-evidence-preserved",
+      "qualification": "READ THIS FIRST says removed; the current TLS guide says disabled by default with temporary re-enable. No UF or Cloud scope inferred."
+    },
+    {
+      "claimId": "technical.hf.10.6.legacy-tls-protocols",
+      "productVersionEnvironment": "Heavy Forwarder using Enterprise 10.6 package",
+      "sourceCheckDate": "2026-10-24",
+      "claimVerificationDate": "2026-10-24",
+      "outcome": "supporting-section-confirmed",
+      "qualification": "The 10.6 source removes the temporary legacy-protocol option; no UF, Cloud or app-owned connection scope inferred."
+    }
+  ]
+}

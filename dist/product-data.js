@@ -2221,6 +2221,14 @@ Object.assign(window.SPLUNK_DATA, {
               "Infrastructure Monitoring adds built-in dashboards for IBM MQ. Validate the selected integration and emitted data before relying on the dashboards.",
               "Rolling-service milestone · October 21, 2026",
               "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
+            ],
+            [
+              "Log-based alerting phased rollout",
+              "Alerting & logs",
+              "Create count-based detectors from scheduled SPL searches",
+              "Run periodic SPL searches against connected log data, preview events, configure count-based firing and clearing, and use existing notification destinations. Access is limited to select accounts in specific realms during a phased rollout; do not infer universal availability.",
+              "Phased rollout · October 21, 2026",
+              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
             ]
           ],
           "technicalChanges": [
@@ -2466,6 +2474,18 @@ Object.assign(window.SPLUNK_DATA, {
               "action": "Confirm realm, access token and permissions; enable remoteManagement.enabled=true deliberately, test group/template assignment and validate controlled workload rollouts.",
               "source": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/manage-otel-agents-and-collectors/remote-configuration-of-opentelemetry-collectors/opamp-bridge-for-collectors-on-kubernetes/enable-the-opamp-bridge-for-kubernetes",
               "verified": "2026-10-17"
+            },
+            {
+              "component": "Log-based alerting",
+              "domain": "Alerting and connected logs",
+              "changeType": "Phased service rollout",
+              "actionLevel": "Confirm",
+              "from": "No universal availability established for scheduled SPL-based log detectors",
+              "to": "Select accounts in specific realms can create count-based detectors from periodic SPL searches; expansion is gradual",
+              "implication": "A documented feature announcement does not establish access for a particular account or realm. Search execution also depends on connected log data and notification configuration.",
+              "action": "Confirm account and realm access, validate the scheduled SPL search and event preview, then test firing, clearing and notifications before operational reliance.",
+              "source": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+              "verified": "2026-10-24"
             }
           ],
           "requirements": [

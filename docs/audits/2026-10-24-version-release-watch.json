@@ -1,0 +1,53 @@
+{
+  "watch": "version-release-watch",
+  "maintenanceId": "version-release-watch",
+  "date": "2026-10-24",
+  "sourceOutcome": "docs/audits/2026-10-24-version-release-watch-sources.json",
+  "scope": [
+    "Complete 198-URL fresh official inventory plus two newly discovered Observability AI sources",
+    "SOAR Cloud 8.8 release stage, features and embedded Forwarder dependency",
+    "Observability AI Assistant, troubleshooting agent and phased log alerting",
+    "Two highest-priority Heavy Forwarder TLS source mappings",
+    "Affected current, deployment-specific, shared and invalid links and report/export parity"
+  ],
+  "changes": [
+    "Added SOAR Cloud 8.8 as a Cloud-only target while retaining customer-managed targets through 8.7.",
+    "Preserved the release page's Controlled Availability versus General Availability wording conflict; scoped Broker HA GA to that feature.",
+    "Added System Insights custom-function/Broker coverage and embedded Universal Forwarder 10.4.4 without inferring topology, installation or pairing.",
+    "Expanded AI Availability from seven to nine capabilities with Observability AI Assistant and AI troubleshooting agent.",
+    "Mapped only provider regions present in the current Observability service description and retained the unresolved us3 realm conflict.",
+    "Added log-based alerting as a phased rollout limited to select accounts in specific realms.",
+    "Reverified the 10.4 and 10.6 Heavy Forwarder legacy-TLS mappings, retaining the 10.4 source conflict.",
+    "Advanced the shared material cycle once from 32 to 33 and retained the prior AI catalog event as history."
+  ],
+  "preservedUnknowns": [
+    "SOAR Cloud 8.8 tenant rollout, entitlement, region, authorization and any on-premises 8.8 release or upgrade route",
+    "Resolution of the SOAR 8.8 release-stage wording conflict",
+    "A provider-region mapping for Observability realm us3",
+    "Account and realm expansion timing for log-based alerting",
+    "Facts behind four source bodies unavailable during this run"
+  ],
+  "validation": {
+    "candidate": "Pending exact GitHub candidate commit and tree.",
+    "generatedChecks": "Required generators and check gates will be rerun after the dated note is added.",
+    "nodeTests": "Pending final exact-candidate run.",
+    "build": "Pending final exact-candidate run.",
+    "nativeExportEvidence": "Pending exact-candidate GitHub Actions artifact.",
+    "visualReview": "Pending retained-image inspection for the affected routes.",
+    "browser": "Pending actual preview and live journeys.",
+    "webmcp": "Pending read-only parity checks.",
+    "liveDelivery": "Pending publication and production verification."
+  },
+  "publication": {
+    "github": "pending",
+    "site": "pending",
+    "liveRevision": "pending"
+  },
+  "backlog": [
+    {"priority":1,"item":"Monitor authoritative clarification of the SOAR Cloud 8.8 Controlled Availability / General Availability wording conflict."},
+    {"priority":2,"item":"Resolve the Observability us3 provider-region mapping only from an authoritative service description update."},
+    {"priority":3,"item":"Continue semantic verification of remaining older borrowed Heavy Forwarder mappings."},
+    {"priority":4,"item":"Recheck four unavailable exact source bodies without changing claims from retrieval alone."},
+    {"priority":5,"item":"Continue bounded discovery of named AI assistants and agents with product-specific prerequisites and regional scope."}
+  ]
+}

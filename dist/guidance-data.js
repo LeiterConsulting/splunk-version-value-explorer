@@ -1,6 +1,6 @@
 /* Generated from content/datasets/guidance.json. Edit the JSON source, not this adapter. */
 window.SPLUNK_DATA.guidance = {
-  "reviewed": "2026-10-23",
+  "reviewed": "2026-10-24",
   "lifecycle": {
     "source": "https://www.splunk.com/en_us/legal/splunk-software-support-policy.html",
     "reviewed": "2026-10-01",
@@ -159,6 +159,38 @@ window.SPLUNK_DATA.guidance = {
       "reviewed": "2026-10-22",
       "scope": "ES 8.8 Controlled Availability",
       "retrieval": "Existing verified release-stage evidence retained"
+    },
+    "aiObsAssistant": {
+      "title": "AI Assistant in Observability Cloud",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/ai-assistant-in-observability-cloud",
+      "section": "Availability; supported realms and product areas; access; context limitations; data sharing and use",
+      "checked": "2026-10-24",
+      "reviewed": "2026-10-24",
+      "scope": "Current assistant availability, realms, capabilities, quota, history and data handling"
+    },
+    "aiObsRca": {
+      "title": "AI troubleshooting agent and remediation plan",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan",
+      "section": "Availability; supported alerts and metrics; opt-in behavior; Kubernetes remediation plans",
+      "checked": "2026-10-24",
+      "reviewed": "2026-10-24",
+      "scope": "Current RCA agent and remediation-plan availability and limitations"
+    },
+    "aiObsServiceDetails": {
+      "title": "Observability Cloud service description",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
+      "section": "Available regions or realms; realm-to-region equivalence; available components per realm",
+      "checked": "2026-10-24",
+      "reviewed": "2026-10-24",
+      "scope": "Current provider-region-to-realm mapping; us3 is not mapped"
+    },
+    "aiObsJulyRelease": {
+      "title": "Observability Cloud July 2026 release notes",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/july-2026",
+      "section": "July 8 AI troubleshooting agent and remediation plan milestone",
+      "checked": "2026-10-24",
+      "reviewed": "2026-10-24",
+      "scope": "Release milestone only; current behavior remains in feature documentation"
     }
   },
   "preparation11": {
@@ -346,7 +378,7 @@ window.SPLUNK_DATA.guidance = {
     "title": "AI Availability",
     "kind": "ai-catalog",
     "schemaVersion": 1,
-    "checked": "2026-10-23",
+    "checked": "2026-10-24",
     "boundary": "Feature availability, edition entitlement, compatible versions, release stage and offering authorization are independent. A published capability or a supported hosting region does not establish that every tenant can enable it. Missing evidence remains explicit.",
     "regulatedQualification": "SAIA documents limited IL2 support, excludes Agent Mode there, and fixes the runtime to Splunk-hosted models. Its commercial-stack introduction and GovCloud rows require scope reconciliation. Mapping that limited statement to every Moderate or High offering is not established.",
     "sourceIds": [
@@ -355,7 +387,11 @@ window.SPLUNK_DATA.guidance = {
       "aiEsRegions88",
       "aiEsAgents88",
       "aiEsEditions",
-      "aiEsRelease88"
+      "aiEsRelease88",
+      "aiObsAssistant",
+      "aiObsRca",
+      "aiObsServiceDetails",
+      "aiObsJulyRelease"
     ],
     "src": [
       "aiSaiaAbout",
@@ -363,7 +399,11 @@ window.SPLUNK_DATA.guidance = {
       "aiEsRegions88",
       "aiEsAgents88",
       "aiEsEditions",
-      "aiEsRelease88"
+      "aiEsRelease88",
+      "aiObsAssistant",
+      "aiObsRca",
+      "aiObsServiceDetails",
+      "aiObsJulyRelease"
     ],
     "serviceRegions": [
       {
@@ -679,6 +719,60 @@ window.SPLUNK_DATA.guidance = {
           "aiEsAgents88",
           "aiEsRelease88"
         ]
+      },
+      {
+        "kind": "ai-capability",
+        "verified": "2026-10-24",
+        "id": "ai-observability-assistant",
+        "title": "Observability · AI Assistant",
+        "product": "observability",
+        "evidenceVersion": "2026-08-27",
+        "scope": {
+          "product": "observability",
+          "evidenceVersion": "2026-08-27"
+        },
+        "version": "Current Observability Cloud service documentation",
+        "stage": "Rolling service · current documentation",
+        "description": "Investigate, diagnose and understand system behavior with natural language across documented Observability product areas.",
+        "requirements": [
+          "An Observability Cloud organization in a documented AWS (excluding GovCloud) or GCP realm.",
+          "Access to the underlying product data and permissions; log questions consume SVC quota."
+        ],
+        "runtime": "Splunk AI Assistant service subject to Azure OpenAI acceptable-use and content requirements.",
+        "qualification": "The page lists us3, but the current service description does not map that realm. Only the mapped realms are applied here. Chat access is limited to the most recent interaction within 30 days; essential-purpose data use applies and optional research sharing is off by default.",
+        "condition": "Confirm organization access, exact realm, permissions and data-use settings.",
+        "src": [
+          "aiObsAssistant",
+          "aiObsServiceDetails"
+        ]
+      },
+      {
+        "kind": "ai-capability",
+        "verified": "2026-10-24",
+        "id": "ai-observability-rca",
+        "title": "Observability · AI troubleshooting agent",
+        "product": "observability",
+        "evidenceVersion": "2026-07-08",
+        "scope": {
+          "product": "observability",
+          "evidenceVersion": "2026-07-08"
+        },
+        "version": "July 8, 2026 service milestone · current feature guide",
+        "stage": "Rolling service · organization opt-in",
+        "description": "Analyze potential root causes for supported APM and Kubernetes alerts and produce scoped remediation guidance.",
+        "requirements": [
+          "An Observability Cloud organization in a non-Governmental realm.",
+          "Supported detectors and alerts using standard default metrics; custom metrics are not supported.",
+          "Users can run RCA manually; automatic organization enablement requires support."
+        ],
+        "runtime": "Splunk AI troubleshooting service integrated with the Assistant chat experience.",
+        "qualification": "AI remediation plans are currently limited to Kubernetes-related alerts. Availability does not establish entitlement, regional authorization or support for every detector.",
+        "condition": "Confirm organization opt-in, supported alert type, default-metric inputs and remediation scope.",
+        "src": [
+          "aiObsRca",
+          "aiObsJulyRelease",
+          "aiObsServiceDetails"
+        ]
       }
     ],
     "backlog": [
@@ -700,8 +794,20 @@ window.SPLUNK_DATA.guidance = {
       {
         "id": "ai-backlog-expansion",
         "owner": "Version Release Watch",
-        "topic": "Discover other documented assistants and agents, including Observability, with bounded source-backed additions."
+        "topic": "Continue bounded discovery beyond the two documented Observability capabilities added October 24; preserve exact product, realm, dependency and release-stage scope."
       }
-    ]
+    ],
+    "observabilityRegions": [
+      "us-east-1",
+      "us-west-2",
+      "gcp-oregon",
+      "eu-west-1",
+      "eu-central-1",
+      "eu-west-2",
+      "ap-southeast-2",
+      "ap-northeast-1",
+      "ap-southeast-1"
+    ],
+    "observabilityRealmConflict": "The AI Assistant page lists us3, while the current service description maps us0, us1, us2, eu0, eu1, eu2, au0, jp0 and sg0 and does not map us3 to a provider region. Keep us3 unresolved rather than assigning it to an adjacent region."
   }
 };

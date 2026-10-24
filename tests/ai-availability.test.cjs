@@ -8,11 +8,22 @@ function model(){
 function state(a,extra={}){return {...a.read('?view=ai-availability').state,...extra};}
 function assess(a,id,extra={}){return a.assess(a.data().capabilities.find(r=>r.id===id),state(a,extra));}
 test('AI catalog preserves named products, exact dependency floors and scoped dates',()=>{
- const a=model(),d=a.data();assert.equal(d.capabilities.length,7);
+ const a=model(),d=a.data();assert.equal(d.capabilities.length,9);
  const itsi=d.capabilities.find(r=>r.product==='itsi');assert.match(itsi.version,/ITSI 5\.0\+.*SAIA 2\.2\+.*MCP Server 1\.2\.1\+/);
  assert(d.capabilities.filter(r=>r.product==='es').every(r=>r.stage.includes('Controlled Availability')));
  for(const r of d.capabilities){assert(r.requirements.length);assert(r.qualification);assert(r.verified);assert(r.scope.product===r.product);for(const id of r.src){const s=a.source(id);assert(s.section);assert(s.checked);assert(s.reviewed);assert.equal(new URL(s.url).hostname,'help.splunk.com');}}
  assert.equal(a.source('aiEsEditions').reviewed,'2026-10-01');assert.equal(a.source('aiEsRelease88').reviewed,'2026-10-22');
+});
+test('Observability AI capabilities keep realm, rollout and metric limits scoped',()=>{
+ const a=model(),d=a.data();assert(a.products.observability);assert.match(d.observabilityRealmConflict,/us3/);
+ assert.equal(assess(a,'ai-observability-assistant',{region:'us-east-1'}).availability,'conditional');
+ assert.equal(assess(a,'ai-observability-assistant',{region:'gcp-oregon'}).availability,'conditional');
+ assert.equal(assess(a,'ai-observability-assistant',{region:'eu-south-1'}).availability,'not_established');
+ assert.equal(assess(a,'ai-observability-assistant',{csp:'azure'}).availability,'not_established');
+ assert.equal(assess(a,'ai-observability-assistant',{deployment:'enterprise'}).availability,'unavailable');
+ assert.equal(assess(a,'ai-observability-rca',{compliance:'fr-m',region:'us-gov-east-1'}).availability,'unavailable');
+ const r=d.capabilities.find(x=>x.id==='ai-observability-rca');assert(r.requirements.some(x=>/Custom metrics are not supported/i.test(x)));assert.match(r.qualification,/Kubernetes-related/);
+ for(const id of ['aiObsAssistant','aiObsRca','aiObsServiceDetails','aiObsJulyRelease'])assert.equal(a.source(id).reviewed,'2026-10-24');
 });
 test('AI links preserve full context, comparison mode, version, theme, search and anchor',()=>{
  const a=model(),s=state(a,{aiProduct:'es',deployment:'enterprise',compliance:'fr-m',csp:'aws',region:'us-gov-east-1',edition:'premier',mode:'compare',aiVersion:'8.8',q:'SPL & detection',theme:'cisco'});

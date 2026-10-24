@@ -5,12 +5,13 @@ const d=window.VersionCompassSOARData;
 const defaults={deployment:'cmp',from:'8.6.0',to:'8.7.0',installation:'unprivileged',os:'unspecified',compliance:'commercial',provider:'unspecified',region:'unspecified'};
 const options={deployment:['cmp','cloud'],installation:['unprivileged','privileged'],os:['unspecified','supported','rhel7','centos7','al2'],compliance:['commercial','fr-m','fr-h'],provider:['unspecified','aws','gcp','azure'],region:['unspecified',...new Set(Object.values(d.regions).flat())]};
 const cmp=(a,b)=>{const x=a.split('.').map(Number),y=b.split('.').map(Number);for(let i=0;i<3;i++)if(x[i]!==y[i])return x[i]-y[i];return 0;};
-function selectable(k,s){if(k==='from')return (d.releases[s.deployment]||[]).filter(v=>cmp(v,s.to)<0);if(k==='region')return s.compliance==='commercial'&&s.provider!=='unspecified'?['unspecified',...(d.regions[s.provider]||[])]:['unspecified'];if(k==='provider'&&s.compliance==='fr-m')return ['unspecified','aws'];return k==='to'?d.targets:options[k];}
-function validate(s){const errors=[];for(const k of Object.keys(defaults)){const allowed=k==='from'?d.releases[s.deployment]||[]:k==='to'?d.targets:options[k];if(!allowed.includes(s[k]))errors.push('Unrecognized '+k+': '+s[k]);}if(!errors.length&&cmp(s.from,s.to)>=0)errors.push('Choose a target newer than the current release.');return errors;}
+function targets(deployment){return d.targetsByDeployment?.[deployment]||d.targets;}
+function selectable(k,s){if(k==='from')return (d.releases[s.deployment]||[]).filter(v=>cmp(v,s.to)<0);if(k==='region')return s.compliance==='commercial'&&s.provider!=='unspecified'?['unspecified',...(d.regions[s.provider]||[])]:['unspecified'];if(k==='provider'&&s.compliance==='fr-m')return ['unspecified','aws'];return k==='to'?targets(s.deployment):options[k];}
+function validate(s){const errors=[];for(const k of Object.keys(defaults)){const allowed=k==='from'?d.releases[s.deployment]||[]:k==='to'?targets(s.deployment):options[k];if(!allowed.includes(s[k]))errors.push('Unrecognized '+k+': '+s[k]);}if(!errors.length&&cmp(s.from,s.to)>=0)errors.push('Choose a target newer than the current release.');return errors;}
 function read(search){const p=new URLSearchParams(search),state={...defaults},errors=[];if(p.has('platform')){if(p.getAll('platform').length>1||!['enterprise','cloud'].includes(p.get('platform')))errors.push('Unrecognized or repeated platform selection.');else if(!p.has('deployment'))state.deployment=p.get('platform')==='cloud'?'cloud':'cmp';else if((p.get('platform')==='cloud'?'cloud':'cmp')!==p.get('deployment'))errors.push('Conflicting deployment and platform selections.');}for(const k of Object.keys(defaults)){if(p.getAll(k).length>1)errors.push('Repeated '+k+' selection.');if(p.has(k))state[k]=p.get(k);}if(p.getAll('product').length>1)errors.push('Repeated product selection.');if(p.has('from')!==p.has('to'))errors.push('The shared link must include both current and target releases.');return {state,errors:[...errors,...validate(state)]};}
 function url(s){const p=new URLSearchParams({product:'soar'});for(const k of Object.keys(defaults))p.set(k,s[k]);return '?'+p;}
 function assess(s){const errors=validate(s);if(errors.length)return {selection:{...s},errors,path:[],features:[],requirements:[],technical:[],issues:[]};
- const cloud=s.deployment==='cloud',high=s.compliance==='fr-h',moderate=s.compliance==='fr-m',restricted=cloud&&(high||moderate),pathSource=s.to==='8.7.0'?'path87':'path86';
+ const cloud=s.deployment==='cloud',high=s.compliance==='fr-h',moderate=s.compliance==='fr-m',restricted=cloud&&(high||moderate),pathSource=s.to==='8.7.0'?'path87':s.to==='8.6.0'?'path86':'cloud';
  const path=[s.from],conditions=[],questions=[];
  let routeStatus=cloud?'Managed service milestones':'Documented with conditions';
  if(!cloud&&s.installation==='privileged'){routeStatus='Path not established';questions.push('Which conversion path applies to this exact privileged build? Use the privileged-installation guide before selecting an unprivileged route.');}
@@ -29,7 +30,7 @@ function assess(s){const errors=validate(s);if(errors.length)return {selection:{
 
  const applicable=d.records.filter(r=>r.deployments.includes(s.deployment)&&cmp(r.release,s.to)<=0);
  const inRange=r=>cmp(r.release,s.from)>0;
- const target=r=>r.target&&(r.release===s.to||['security86','export-fips'].includes(r.id));
+ const target=r=>r.target&&(r.release===s.to||r.id==='security86'||(r.id==='export-fips'&&['8.6.0','8.7.0'].includes(s.to)));
  const selected=applicable.filter(r=>(!['os86','size86','os87','size87'].includes(r.id)||r.release===s.to)&&(inRange(r)||target(r))).map(r=>({...r,src:r.src.includes('cloud')&&r.src.some(x=>/^on/.test(x))?r.src.filter(x=>cloud?x==='cloud':x!=='cloud'):r.src}));
  const features=selected.filter(r=>r.kind==='feature').map(r=>({...r,status:restricted?'Not established for selected environment':r.status,qualification:restricted?'Commercial release evidence does not establish this feature in '+(high?'FedRAMP High':'FedRAMP Moderate')+'. Confirm exact feature, region, entitlement and tenant release.':''}));
  let availability={status:'Customer-managed',detail:'CMP means customer-managed SOAR, on premises or in your cloud. Hosting it yourself does not establish a FedRAMP authorization.',src:[pathSource]};
@@ -46,7 +47,7 @@ function assess(s){const errors=validate(s);if(errors.length)return {selection:{
  // Cloud exposes only its documented automation runtime; server OS/database,
  // bundled Forwarder and sizing floors are customer-managed requirements.
  const targetRequirements=cloud?{runtime:d.targetRequirements[s.to].runtime,src:['cloud']}:d.targetRequirements[s.to];
- return {selection:{...s},errors,path:s.installation==='privileged'&&!cloud?[]:path,routeStatus,pathSource:cloud?'cloud':s.installation==='privileged'?'prepare':pathSource,conditions,questions,availability,features,requirements:selected.filter(r=>r.kind==='requirement'),technical:selected.filter(r=>r.kind==='technical'),targetRequirements,issues,coverage:'Initial coverage: selected source releases to 8.6/8.7; bounded claim checks on October 1, 2026. Exact builds, legacy conversions and complete issue inventories require the cited guidance.',sources:d.sources};
+ return {selection:{...s},errors,path:s.installation==='privileged'&&!cloud?[]:path,routeStatus,pathSource:cloud?'cloud':s.installation==='privileged'?'prepare':pathSource,conditions,questions,availability,features,requirements:selected.filter(r=>r.kind==='requirement'),technical:selected.filter(r=>r.kind==='technical'),targetRequirements,issues,coverage:'Selected on-premises targets remain 8.6/8.7; Cloud release evidence extends through 8.8 Controlled Availability. Exact builds, tenant rollout, legacy conversions and complete issue inventories require the cited guidance.',sources:d.sources};
 }
-window.VersionCompassSOAR={defaults,options,selectable,validate,read,url,assess};
+window.VersionCompassSOAR={defaults,options,targets,selectable,validate,read,url,assess};
 }());

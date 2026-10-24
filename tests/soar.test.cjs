@@ -40,7 +40,7 @@ test('SOAR Export FIPS repair is target-specific and does not invent SOAR or App
    assert(!r.technical.find(x=>x.id==='app87').detail.includes('Export 8.7.1'));
   }else assert(!r.technical.some(x=>x.id==='export871'));
  }
- assert(!d.targets.includes('8.8.0'));assert.equal(d.latest,'8.7.0');
+ assert(d.targets.includes('8.8.0'));assert.equal(d.latest,'8.8.0');assert.equal(d.latestByDeployment.cmp,'8.7.0');
  assert(d.records.find(r=>r.id==='export-fips').verified==='2026-10-15');
 });
 
@@ -58,8 +58,20 @@ test('SOAR Moderate offering evidence and unresolved High scope stay separate',(
  assert.equal(high.status,'Not established');assert.deepEqual(Array.from(high.src),['fedrampHigh','restricted']);assert.match(high.detail,/Absence is not an exclusion claim/);
 });
 test('SOAR exact links round-trip and malformed, repeated, partial and descending routes are rejected',()=>{const c=core(),a=c.window.VersionCompassSOAR;
- for(const deployment of ['cmp','cloud'])for(const from of c.window.VersionCompassSOARData.releases[deployment])for(const to of c.window.VersionCompassSOARData.targets){const s={...a.defaults,deployment,from,to},r=a.assess(s);assert.equal(!!r.errors.length,Number(from.split('.')[0])*100+Number(from.split('.')[1])>=Number(to.split('.')[0])*100+Number(to.split('.')[1]));assert.equal(JSON.stringify(a.read(a.url(s)).state),JSON.stringify(s));}
+ for(const deployment of ['cmp','cloud'])for(const from of c.window.VersionCompassSOARData.releases[deployment])for(const to of a.targets(deployment)){const s={...a.defaults,deployment,from,to},r=a.assess(s);assert.equal(!!r.errors.length,Number(from.split('.')[0])*100+Number(from.split('.')[1])>=Number(to.split('.')[0])*100+Number(to.split('.')[1]));assert.equal(JSON.stringify(a.read(a.url(s)).state),JSON.stringify(s));}
  for(const q of ['?from=8.6.0','?from=8.6.0&from=8.5.0&to=8.7.0','?to=8.7.999&from=8.6.0','?deployment=alien','?product=soar&product=es'])assert(a.read(q).errors.length,q);
+});
+test('SOAR Cloud 8.8 remains deployment-scoped and preserves release-stage ambiguity',()=>{const c=core(),a=c.window.VersionCompassSOAR,d=c.window.VersionCompassSOARData;
+ assert.deepEqual(Array.from(a.targets('cmp')),['8.6.0','8.7.0']);assert(a.targets('cloud').includes('8.8.0'));
+ assert(a.read('?product=soar&deployment=cmp&from=8.6.0&to=8.8.0').errors.length);
+ const r=a.assess({...a.defaults,deployment:'cloud',from:'8.7.0',to:'8.8.0'});
+ assert.equal(r.errors.length,0);assert.equal(r.routeStatus,'Managed service milestones');
+ assert(r.requirements.some(x=>x.id==='cloud88-stage'&&/Controlled Availability/.test(x.detail)&&/wording conflict/.test(x.detail)));
+ assert(r.features.some(x=>x.id==='broker-ha88'&&/General Availability/.test(x.detail)));
+ assert(r.features.some(x=>x.id==='system-insights88'));
+ assert(r.technical.some(x=>x.id==='cloud88-forwarder'&&/10\.4\.4/.test(x.detail)&&/not a receiver/.test(x.detail)));
+ assert.deepEqual(Object.keys(r.targetRequirements).sort(),['runtime','src']);assert(!r.issues.some(x=>x.id==='export-fips'));
+ assert(!d.releases.cmp.includes('8.8.0'));assert(d.backlog.some(x=>x.id==='cloud88-stage-wording'&&x.status==='open'));
 });
 function ui(search='?product=soar'){
  const c=core(),elements=new Map(),selects=new Map(),wrappers=new Map(),events={},tools=new Map();

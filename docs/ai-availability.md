@@ -13,10 +13,10 @@ The seven-dataset publication contract is unchanged. Generated adapters/catalogs
 source register, immutable manifest and engine revisions use the established
 sync pipeline. AI catalog records retain explicit product/evidence-version scope.
 
-Initial coverage is seven capabilities: SAIA SPL assistance, SAIA Agent Mode,
-the ITSI SAIA subagent, ES Security AI Assistant, Detection Builder, SOP agent
-and AI SOC Analyst. This is a curated initial inventory, not all Splunk AI.
-SAIA, ITSI and ES assistant identity remain distinct.
+Current coverage is nine capabilities: SAIA SPL assistance, SAIA Agent Mode,
+the ITSI SAIA subagent, four ES capabilities, the Observability AI Assistant
+and the Observability AI troubleshooting agent. This is a curated inventory,
+not all Splunk AI. Their product identities remain distinct.
 
 The initial SAIA documentation scope is 2.3.6. ITSI's subagent requirements are
 ITSI 5.0+, SAIA 2.2+ and MCP Server 1.2.1+. ES agent and regional evidence is
@@ -61,6 +61,17 @@ silently applied to CMP connectivity. GCP/Azure's explicit non-ES/SOAR component
 exclusion is a Cloud rule. SOP retains its Security AI Assistant prerequisite.
 Essentials-specific 8.8 regional mapping and new CMP agent-region scope are
 explicit backlog items rather than inferred from Premier or 8.7.
+
+The Observability AI Assistant is documented for AWS realms excluding GovCloud
+and for GCP realms. Version Compass applies only the provider-region mappings
+in the current service description. The assistant page also lists `us3`, while
+that service description does not map `us3`; the realm stays unresolved rather
+than being assigned to an adjacent region. Log queries affect SVC quota, recent
+chat access is limited to 30 days, essential-purpose data use applies, and
+optional research sharing is off by default. The troubleshooting agent remains
+limited to non-Governmental realms, supported default metrics and supported
+alerts; custom metrics are unsupported, automatic organization enablement
+requires support, and remediation plans are currently Kubernetes-specific.
 
 The ES 8.8 regional body was retrieved through an official indexed source;
 direct opening failed in this session. Record that retrieval limitation.

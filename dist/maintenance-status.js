@@ -262,10 +262,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-23T09:18:45Z",
+      "lastAttempt": "2026-10-24T09:55:38Z",
       "lastSuccess": "2026-10-23T09:35:05Z",
-      "outcome": "changed",
-      "summary": "Published-source review found definitive Enterprise and SOAR security advisories, Cloud 10.6.2 maintenance, and Observability chart 0.163.1; bounded guidance and regressions were updated.",
+      "outcome": "running",
+      "summary": "Reviewing fresh release, AI capability and forwarder evidence.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -595,9 +595,15 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Published-source review found definitive Enterprise and SOAR security advisories, Cloud 10.6.2 maintenance, and Observability chart 0.163.1; bounded guidance and regressions were updated.",
           "scope": "Checked 195 official source records (188 retrieved, including 29 official GitHub records); verified Enterprise 9.4.16/10.0.11/10.2.8/10.4.4 floors, scoped HF and SOAR on-prem guidance, Cloud 10.6.2 qualifications, chart 0.163.1 dependencies, and two historical HF source mappings."
+        },
+        {
+          "at": "2026-10-24T09:55:38Z",
+          "outcome": "running",
+          "summary": "Reviewing fresh release, AI capability and forwarder evidence.",
+          "scope": "Complete 198-source inventory; SOAR Cloud 8.8; Observability AI and phased log alerting; bounded HF TLS mappings; affected routes and reports."
         }
       ],
-      "scope": "Checked 195 official source records (188 retrieved, including 29 official GitHub records); verified Enterprise 9.4.16/10.0.11/10.2.8/10.4.4 floors, scoped HF and SOAR on-prem guidance, Cloud 10.6.2 qualifications, chart 0.163.1 dependencies, and two historical HF source mappings."
+      "scope": "Complete 198-source inventory; SOAR Cloud 8.8; Observability AI and phased log alerting; bounded HF TLS mappings; affected routes and reports."
     },
     {
       "id": "es-editions-watch",
