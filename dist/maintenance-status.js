@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-10-23T11:29:37.290Z",
-      "lastSuccess": "2026-10-23T11:30:42.633Z",
+      "lastAttempt": "2026-10-24T11:48:52Z",
+      "lastSuccess": "2026-10-24T11:58:07.334Z",
       "outcome": "changed",
-      "summary": "Rechecked 20 official sources and thirteen consequential claim groups; factual scope unchanged. Documented Moderate public-status authority and staged the tracked Cisco print-fragment background repair.",
+      "summary": "Mapped the complete ES 8.8 Essentials AI regional table independently; preserved scoped exclusions, SOP prerequisites and separate offering authorization. Publication waits for native export CI.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -255,9 +255,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Rechecked 20 official sources and thirteen consequential claim groups; factual scope unchanged. Documented Moderate public-status authority and staged the tracked Cisco print-fragment background repair.",
           "scope": "Complete maintained environment/SOAR source inventory; bounded authorization, provider, region, experience, ES/SOAR pairing and Observability claims. Review completed; validation and publication recorded separately."
+        },
+        {
+          "at": "2026-10-24T11:48:52Z",
+          "outcome": "running",
+          "summary": "Reviewing official regional and authorization inventory and ES 8.8 Essentials AI mapping.",
+          "scope": "24 maintained environment, shared SOAR and AI sources; bounded consequential claims"
+        },
+        {
+          "at": "2026-10-24T11:58:07.334Z",
+          "outcome": "changed",
+          "summary": "Mapped the complete ES 8.8 Essentials AI regional table independently; preserved scoped exclusions, SOP prerequisites and separate offering authorization. Publication waits for native export CI.",
+          "scope": "22 maintained official source URLs; twelve bounded consequential claim groups; complete Essentials table and visual matrix header/legend"
         }
       ],
-      "scope": "Complete maintained environment/SOAR source inventory; bounded authorization, provider, region, experience, ES/SOAR pairing and Observability claims. Review completed; validation and publication recorded separately."
+      "scope": "22 maintained official source URLs; twelve bounded consequential claim groups; complete Essentials table and visual matrix header/legend"
     },
     {
       "id": "version-release-watch",

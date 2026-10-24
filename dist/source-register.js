@@ -3530,16 +3530,16 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.3"
       ],
       "reviews": [
-        "2026-10-23"
+        "2026-10-24"
       ],
       "claimReferences": [
         {
           "path": "guidance: guidance.aiAvailability",
-          "section": "Premier regional table; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility"
+          "section": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.3",
-          "section": "Premier regional table; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility"
+          "section": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility"
         }
       ],
       "usage": "In use",

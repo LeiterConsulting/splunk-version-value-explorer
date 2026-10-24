@@ -59,8 +59,12 @@ ES 8.8 Premier and Cloud Connect tables are distinct. Their differing Montréal/
 Calgary exceptions remain scoped. Cloud GovCloud component exclusions are not
 silently applied to CMP connectivity. GCP/Azure's explicit non-ES/SOAR component
 exclusion is a Cloud rule. SOP retains its Security AI Assistant prerequisite.
-Essentials-specific 8.8 regional mapping and new CMP agent-region scope are
-explicit backlog items rather than inferred from Premier or 8.7.
+The October 24 review independently maps the complete Essentials 8.8 regional
+table, including Stockholm's Security AI Assistant and Agentic SOC exclusions.
+Milan and São Paulo exclude Security AI Assistant but do not exclude Agentic SOC
+in that table; SOP still requires the assistant. New CMP agent-region scope and
+ITSI subagent rollout remain explicit backlog items. An unspecified ES edition
+does not borrow a specific edition's regional policy.
 
 The Observability AI Assistant is documented for AWS realms excluding GovCloud
 and for GCP realms. Version Compass applies only the provider-region mappings

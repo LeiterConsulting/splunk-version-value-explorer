@@ -75,11 +75,16 @@ test('ES GovCloud Cloud exclusion does not become CMP or universal offering auth
  assert.equal(cmp.availability,'not_established');assert.equal(cmp.authorization,'not_established');
  assert.equal(assess(a,'ai-es-assistant',{region:'us-east-1',compliance:'fr-h'}).availability,'not_established');
 });
-test('ES provider exclusion remains a Cloud rule and regional Essentials unknowns remain visible',()=>{
+test('ES provider exclusion remains a Cloud rule and Essentials uses its own regional evidence',()=>{
  const a=model();
  assert.equal(assess(a,'ai-es-assistant',{csp:'azure'}).availability,'unavailable');
  assert.equal(assess(a,'ai-es-assistant',{csp:'azure',deployment:'enterprise',edition:'premier'}).availability,'not_established');
- assert.equal(assess(a,'ai-es-assistant',{region:'us-east-1',edition:'essentials'}).availability,'not_established');
+ assert.equal(assess(a,'ai-es-assistant',{region:'us-east-1',edition:'essentials'}).availability,'conditional');
+ assert.equal(assess(a,'ai-es-assistant',{region:'eu-north-1',edition:'essentials'}).availability,'unavailable');
+ assert.equal(assess(a,'ai-es-assistant',{region:'eu-north-1',edition:'premier'}).availability,'not_established');
+ assert.equal(assess(a,'ai-es-detection',{region:'eu-south-1',edition:'essentials'}).availability,'conditional');
+ assert.equal(assess(a,'ai-es-sop',{region:'eu-south-1',edition:'essentials'}).availability,'unavailable');
+ assert.equal(assess(a,'ai-es-assistant',{region:'ca-west-1',edition:'essentials'}).availability,'unavailable');
 });
 test('filtering, comparison and complete selected report share the same evidence and escape search',()=>{
  const a=model(),s=state(a,{aiProduct:'platform',mode:'compare',q:'<script>bad()</script>'});
