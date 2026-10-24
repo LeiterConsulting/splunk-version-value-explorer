@@ -1,7 +1,7 @@
 /* Editorial change provenance. Cycles advance only with material factual updates. */
 (function(){
 'use strict';
-const policy={currentCycle:34,retentionCycles:2};
+const policy={currentCycle:35,retentionCycles:2};
 const note25='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-25.md';
 const note26='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-26.md';
 const note30='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-30.md';
@@ -35,6 +35,7 @@ const ingest='https://help.splunk.com/en/splunk-cloud-platform/process-data-at-i
 const fedrampModerate='https://www.fedramp.gov/marketplace/products/F1607197917/';
 const fedrampHigh='https://www.fedramp.gov/marketplace/products/FR2314156865/';
 const entries={
+"ai:es-essentials-regions":{kind:"updated",cycle:35,date:"2026-10-24",version:"ES 8.8 Essentials regional evidence",detail:"Mapped the complete Essentials table independently, including Stockholm's Security AI Assistant and Agentic SOC exclusions. Entitlement, task prerequisites, Controlled Availability and offering authorization remain separate.",source:"https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",sourceDate:null,note:"https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-24.md"},
 "ai:catalog":{kind:"updated",cycle:33,date:"2026-10-24",version:"Nine named capabilities · Observability AI added",detail:"Added the Observability AI Assistant and AI troubleshooting agent with exact realm mappings, rollout, default-metric, enablement, data-use and remediation-plan limits. The unresolved us3 realm mapping remains explicit.",source:"https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/ai-assistant-in-observability-cloud",sourceDate:null,note:note24},
 "ai-history:catalog:cycle32":{recordKey:"ai:catalog",kind:"new",cycle:32,date:"2026-10-23",version:"SAIA 2.3.6 · ITSI 5.0+ · ES 8.8 evidence",detail:"Added the AI Availability tab with seven named capabilities, documented prerequisites, scoped regional evidence and explicit unknowns. New to this guide; this is not an upstream launch announcement.",source:"https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",sourceDate:null,note:note23},
 "product:soar:cloud-8.8":{kind:"new",cycle:33,date:"2026-10-24",version:"SOAR Cloud 8.8.0 · Controlled Availability",detail:"Added the October 21 Cloud-only milestone, preserving its release-stage wording conflict, Automation Broker HA GA scope, System Insights enhancements and bundled UF 10.4.4 dependency without creating an on-premises route or inferred pairing.",source:"https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",sourceDate:"2026-10-21",note:note24},

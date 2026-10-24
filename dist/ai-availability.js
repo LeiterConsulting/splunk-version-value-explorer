@@ -60,8 +60,8 @@
         if(['unavailable','not_established','conflicting'].includes(prerequisite.availability))return result(prerequisite.availability,'Required Security AI Assistant: '+prerequisite.detail,prerequisite.src);
       }
       if(region){
-        if(state.edition!=='premier')return result('not_established','This initial regional mapping is verified for the ES 8.8 Premier and Cloud Connect tables. Select Premier to apply it; Essentials-specific regional mapping remains in the review backlog.',['aiEsRegions88']);
-        const policy=state.deployment==='enterprise'?d.esCloudConnect:d.esPremier;
+        if(state.edition==='all')return result('not_established','Select an ES edition to apply its specific 8.8 regional table. Essentials, Premier and Cloud Connect have distinct component exceptions.',['aiEsRegions88']);
+        const policy=state.deployment==='enterprise'?d.esCloudConnect:state.edition==='essentials'?d.esEssentials:d.esPremier;
         if(state.deployment==='enterprise'&&record.id!=='ai-es-assistant')return result('not_established','The Cloud Connect regional component table does not independently establish this 8.8 agent’s regional rollout.',['aiEsRegions88','aiEsAgents88']);
         const exclusions=record.id==='ai-es-assistant'?policy.assistantExcluded:policy.agenticExcluded;
         if(exclusions.includes(region.id))return result('unavailable','The selected ES 8.8 table explicitly excludes this component in '+region.label+'.',['aiEsRegions88']);

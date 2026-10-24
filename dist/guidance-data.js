@@ -128,11 +128,11 @@ window.SPLUNK_DATA.guidance = {
     "aiEsRegions88": {
       "title": "ES 8.8 component regions and AI compatibility",
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
-      "section": "Premier regional table; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility",
-      "checked": "2026-10-23",
-      "reviewed": "2026-10-23",
-      "scope": "Premier regional table; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility",
-      "retrieval": "Official indexed page body retrieved; direct page opening unavailable"
+      "section": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility",
+      "checked": "2026-10-24",
+      "reviewed": "2026-10-24",
+      "scope": "ES 8.8 Essentials component regions independently mapped; Premier and Cloud Connect exceptions, GCP/Azure scope and Security AI Assistant compatibility retained",
+      "retrieval": "Direct official page body retrieved October 24; October 23 indexed-only limitation remains historical"
     },
     "aiEsAgents88": {
       "title": "ES 8.8 agent compatibility",
@@ -446,6 +446,45 @@ window.SPLUNK_DATA.guidance = {
       "azure-ai-us-east",
       "azure-ai-us-west"
     ],
+    "esEssentials": {
+      "verified": "2026-10-24",
+      "sourceId": "aiEsRegions88",
+      "regions": [
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-south-1",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-southeast-3",
+        "ca-central-1",
+        "ca-west-1",
+        "eu-central-1",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-west-1",
+        "eu-west-2",
+        "eu-west-3",
+        "sa-east-1",
+        "us-east-1",
+        "us-west-2",
+        "us-gov-east-1",
+        "us-gov-west-1"
+      ],
+      "assistantExcluded": [
+        "ca-west-1",
+        "eu-north-1",
+        "eu-south-1",
+        "sa-east-1",
+        "us-gov-east-1",
+        "us-gov-west-1"
+      ],
+      "agenticExcluded": [
+        "ca-west-1",
+        "eu-north-1",
+        "us-gov-east-1",
+        "us-gov-west-1"
+      ]
+    },
     "esPremier": {
       "regions": [
         "ap-northeast-1",
@@ -777,7 +816,9 @@ window.SPLUNK_DATA.guidance = {
       {
         "id": "ai-backlog-essentials-regions",
         "owner": "CSP FedRAMP Watch",
-        "topic": "Verify complete ES 8.8 Essentials regional rows independently; retain unknowns until mapped."
+        "topic": "Resolved October 24: complete ES 8.8 Essentials regional table mapped independently, including Stockholm and component-specific exceptions. Edition entitlement, task prerequisites and offering authorization remain separate.",
+        "status": "resolved",
+        "resolvedAt": "2026-10-24"
       },
       {
         "id": "ai-backlog-itsi-regions",
