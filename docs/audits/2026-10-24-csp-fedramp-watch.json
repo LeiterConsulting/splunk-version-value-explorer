@@ -3,7 +3,7 @@
   "startedAt": "2026-10-24T11:48:52Z",
   "sourceCheckDate": "2026-10-24",
   "outcome": "changed",
-  "scope": "22 maintained environment, shared SOAR and AI regional URLs; complete ES 8.8 Essentials table and bounded high-consequence regional/authorization review.",
+  "scope": "24 maintained environment, shared SOAR and AI regional URLs; complete ES 8.8 Essentials table and bounded high-consequence regional/authorization review.",
   "baseline": {
     "githubCommit": "58fff26c282a1b9cbd8a31e82ac06d0ccb1fbe45",
     "sitesCommit": "a054c356be9170e21d9b8291762ca5502f6b8377",
@@ -164,6 +164,22 @@
       "section": "Availability; supported alerts and metrics; opt-in behavior; Kubernetes remediation plans",
       "checkedAt": "2026-10-24",
       "outcome": "retrieved-current"
+    },
+    {
+      "id": "productCompatibility",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+      "section": "Customer-deployed Enterprise 10.x rows and Cloud service pointer",
+      "checkedAt": "2026-10-24",
+      "outcome": "retrieved-current",
+      "qualification": "Source inventory review; no regional rollout or authorization inferred from compatibility."
+    },
+    {
+      "id": "itsiRelatedApps",
+      "url": "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/install-and-upgrade/5.0/planning/itsi-compatibility-with-related-apps-and-add-ons",
+      "section": "Conditional integrations; runtime and app/version compatibility",
+      "checkedAt": "2026-10-24",
+      "outcome": "retrieved-current",
+      "qualification": "Source inventory review; no regional rollout or authorization inferred from compatibility."
     }
   ],
   "claimChecks": [
@@ -301,29 +317,138 @@
   },
   "validation": {
     "automated": {
-      "outcome": "passed-local",
+      "outcome": "passed",
       "tests": 221,
       "assets": 60,
-      "detail": "Four ordered synchronizations and checks passed; exact-candidate CI required before merge and deployment."
+      "detail": "Four ordered synchronizations/checks, full tests and build passed locally and in exact-candidate application CI."
     },
     "exports": {
-      "outcome": "pending",
-      "pullRequest": 32
+      "outcome": "passed",
+      "run": 40092109333,
+      "job": 120866739274,
+      "workflow": ".github/workflows/validate.yml",
+      "commit": "2595abbe71fa6ccbfd96ecb3719facf81edd39aa",
+      "tree": "7e8c9d7ef95ff33586fd019538918b1fc7f23296",
+      "artifact": 12558389965,
+      "digest": "sha256:faa15c8e0e2c5457d6cffa03606007c20d99e52443e5eacad9cc3e0885baa7ff",
+      "fingerprint": "e2373af711639c6881c0ca4cf093432b4c8c35536642d369ff646f606c0015d4",
+      "cases": 120,
+      "pdfs": 100,
+      "pages": 1688,
+      "offlineHtml": 100,
+      "detail": "Artifact ZIP digest independently matched; every retained artifact verified by scripts/export-evidence.cjs and check-soak.cjs --exports; no missing, failed or unresolved checks."
     },
     "live": {
-      "outcome": "passed-prior-baseline",
-      "at": "2026-10-24T11:50:27.935Z",
-      "revision": "content-afd02dbe97b0480ea6bb2e52",
-      "engine": "engine-e6c46958575262f0b771",
-      "records": 863,
-      "detail": "Real D1 health/manifest/bundle, bounded query, write rejection and all seven fallback assets passed before candidate deployment."
+      "evaluatedAt": "2026-10-24T12:08:24.635Z",
+      "target": "https://versioncompass.com",
+      "expectedRevision": "content-a5fe30ae40cf1951cc0121c9",
+      "status": "delivery-checks-passed",
+      "checks": {
+        "database-health": {
+          "outcome": "passed",
+          "evidence": {
+            "status": "ready",
+            "storage": "d1",
+            "revision": "content-a5fe30ae40cf1951cc0121c9",
+            "engineRevision": "engine-1c8f16ac557eb6a24931",
+            "recordCount": 863
+          },
+          "checkedAt": "2026-10-24T12:08:19.289Z",
+          "elapsedMs": 8574
+        },
+        "live-manifest": {
+          "outcome": "passed",
+          "evidence": {
+            "schemaVersion": 1,
+            "revision": "content-a5fe30ae40cf1951cc0121c9",
+            "digest": "c4eb4289b93e2b89d52e24f97ee23ff803ac148a95f5c605a4788241abf38b49",
+            "engineRevision": "engine-1c8f16ac557eb6a24931",
+            "datasetHashes": {
+              "platform": "a440e3149b117a3a07fb68e731331710e9c9b74b847c01882671cec7521d1f74",
+              "products": "1124da545438a96b28b4ebe1574b3f0c5bc09022c8f0094c1caf2f98632d70aa",
+              "guidance": "1125e5b9836de357611cf6b25f9453d8f9cd6b2fe42899cc31c5ca29b0902dd1",
+              "environment": "a13eaf16bdda683bf736834638c3f119dc262deb193b9d18d4dbd511ca9e0e33",
+              "editions": "487ccca1ac05f5faa6cab4d31aa4cafc09cd4fc656b4db91056a2f9f9a0190a3",
+              "forwarders": "0ccf4dd9fb010ab5e072382a4791b3db812f0509eb19972b52776ad64fbcbb33",
+              "soar": "78ee40698345f3da3d159ec879fe75c259679b328751259940825cf7e33df762"
+            },
+            "recordCount": 863,
+            "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+            "verificationPolicy": "Migration and delivery do not create verification dates",
+            "phase": "content-model-and-database-delivery"
+          },
+          "checkedAt": "2026-10-24T12:08:19.804Z",
+          "elapsedMs": 515
+        },
+        "bundle-integrity": {
+          "outcome": "passed",
+          "evidence": {
+            "digest": "c4eb4289b93e2b89d52e24f97ee23ff803ac148a95f5c605a4788241abf38b49",
+            "recordCount": 863
+          },
+          "checkedAt": "2026-10-24T12:08:20.515Z",
+          "elapsedMs": 711
+        },
+        "bounded-record-query": {
+          "outcome": "passed",
+          "evidence": "SOAR filter, revision and maximum page size verified",
+          "checkedAt": "2026-10-24T12:08:21.372Z",
+          "elapsedMs": 857
+        },
+        "read-only-api": {
+          "outcome": "passed",
+          "evidence": "POST rejected with 405",
+          "checkedAt": "2026-10-24T12:08:24.113Z",
+          "elapsedMs": 2742
+        },
+        "bundled-fallback-assets": {
+          "outcome": "passed",
+          "evidence": "All seven complete fallback adapters served",
+          "checkedAt": "2026-10-24T12:08:24.634Z",
+          "elapsedMs": 520
+        }
+      },
+      "findings": [],
+      "limitations": [
+        "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
+      ]
+    },
+    "visual": {
+      "outcome": "passed-bounded",
+      "files": [
+        "ai-es-essentials-stockholm-default/narrow.png",
+        "ai-es-essentials-milan-cisco/narrow.png",
+        "ai-es-essentials-stockholm-default/page-1.png",
+        "ai-es-essentials-milan-cisco/page-1.png",
+        "ai-es-essentials-virginia-cisco/page-2.png"
+      ],
+      "detail": "Separate image inspection found no novel clipping/overlap/contrast defect. Automated checks are not human visual review."
+    },
+    "browser": {
+      "outcome": "passed",
+      "detail": "Live Essentials Stockholm displayed exact assistant/Agentic SOC/SOP exclusions after deployment. Remaining both-theme current, legacy, shared and invalid route checks, keyboard and phone checks passed in candidate CI."
+    },
+    "webmcp": {
+      "outcome": "passed-native-live",
+      "revision": "vc-76e8354d8f72127d",
+      "scope": "Current and explicit Platform Cloud 10.5.2605 to 10.6 AWS GovCloud East FR-H reports; identical ten-record environment arrays. Existing tool names and contract retained."
     }
   },
   "publication": {
-    "status": "candidate-branch-awaiting-ci",
-    "pullRequest": "https://github.com/LeiterConsulting/splunk-version-value-explorer/pull/32",
-    "approvalReview": "Direct main push held until native exact-candidate export verification; candidate branch and PR used for CI."
+    "status": "published-verified",
+    "githubCommit": "88bc9c0ad5540248a77791ab359e125ab67a7719",
+    "sitesCommit": "29b890b64cfa019c45af4ac8b16775d798e8eba3",
+    "tree": "7e8c9d7ef95ff33586fd019538918b1fc7f23296",
+    "sitesVersion": 205,
+    "deployment": "appgdep_6adc9f9de90081919604c309d5514c6d",
+    "deploymentStatus": "succeeded",
+    "deployedAt": "2026-10-24T12:08:04.985073+00:00",
+    "contentRevision": "content-a5fe30ae40cf1951cc0121c9",
+    "engineRevision": "engine-1c8f16ac557eb6a24931",
+    "recordCount": 863,
+    "noteUrl": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-24.md",
+    "qualification": "Documentation-only final receipt retains identical report inputs; recorded version 205 is the verified runtime batch."
   },
   "sourceReviewCompletedAt": "2026-10-24T11:58:05.374Z",
-  "completedAt": "2026-10-24T11:58:05.374Z"
+  "completedAt": "2026-10-24T12:10:05.190Z"
 }
