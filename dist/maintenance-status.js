@@ -287,9 +287,9 @@ window.VersionCompassMaintenance = {
       "id": "version-release-watch",
       "name": "Version Release Watch",
       "lastAttempt": "2026-10-25T09:24:00Z",
-      "lastSuccess": "2026-10-24T10:16:30Z",
-      "outcome": "running",
-      "summary": "Checking the complete current release inventory and bounded high-consequence release, compatibility, forwarder and AI claims.",
+      "lastSuccess": "2026-10-25T09:40:41Z",
+      "outcome": "changed",
+      "summary": "Reverified two Enterprise 10.6 Heavy Forwarder KV Store mappings and added bounded semantic regressions; the full official release inventory disclosed no newer product release.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -637,9 +637,15 @@ window.VersionCompassMaintenance = {
           "outcome": "running",
           "summary": "Checking the complete current release inventory and bounded high-consequence release, compatibility, forwarder and AI claims.",
           "scope": "Fresh 200-source register; Enterprise, Cloud, migration, ES, ITSI, Observability, UF/HF, SOAR and maintained component discovery; remaining historical HF mappings; publication tracked separately."
+        },
+        {
+          "at": "2026-10-25T09:40:41Z",
+          "outcome": "changed",
+          "summary": "Reverified two Enterprise 10.6 Heavy Forwarder KV Store mappings and added bounded semantic regressions; the full official release inventory disclosed no newer product release.",
+          "scope": "All 200 registered official URLs attempted; current Enterprise, Cloud, migration, ES, ITSI, Observability, UF/HF, SOAR, security and seven maintained component streams; two HF KV Store mappings; 120 exact-candidate export cases, retained affected-route images, live current/legacy/shared/invalid browser journeys, read-only WebMCP and D1 delivery."
         }
       ],
-      "scope": "Fresh 200-source register; Enterprise, Cloud, migration, ES, ITSI, Observability, UF/HF, SOAR and maintained component discovery; remaining historical HF mappings; publication tracked separately."
+      "scope": "All 200 registered official URLs attempted; current Enterprise, Cloud, migration, ES, ITSI, Observability, UF/HF, SOAR, security and seven maintained component streams; two HF KV Store mappings; 120 exact-candidate export cases, retained affected-route images, live current/legacy/shared/invalid browser journeys, read-only WebMCP and D1 delivery."
     },
     {
       "id": "es-editions-watch",
