@@ -286,10 +286,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-24T09:55:38Z",
+      "lastAttempt": "2026-10-25T09:24:00Z",
       "lastSuccess": "2026-10-24T10:16:30Z",
-      "outcome": "changed",
-      "summary": "Added SOAR Cloud 8.8, Observability AI and phased log alerting; reverified bounded Heavy Forwarder TLS evidence and repaired affected exact-candidate export routes.",
+      "outcome": "running",
+      "summary": "Checking the complete current release inventory and bounded high-consequence release, compatibility, forwarder and AI claims.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -631,9 +631,15 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Added SOAR Cloud 8.8, Observability AI and phased log alerting; reverified bounded Heavy Forwarder TLS evidence and repaired affected exact-candidate export routes.",
           "scope": "All 198 baseline official URLs attempted plus two new Observability AI sources; SOAR Cloud 8.8 stage, Broker HA, System Insights and bundled UF; Observability AI Assistant, troubleshooting agent and log alerting; two exact HF TLS mappings; affected current, shared, invalid, PDF, HTML, phone-theme and read-only report parity."
+        },
+        {
+          "at": "2026-10-25T09:24:00Z",
+          "outcome": "running",
+          "summary": "Checking the complete current release inventory and bounded high-consequence release, compatibility, forwarder and AI claims.",
+          "scope": "Fresh 200-source register; Enterprise, Cloud, migration, ES, ITSI, Observability, UF/HF, SOAR and maintained component discovery; remaining historical HF mappings; publication tracked separately."
         }
       ],
-      "scope": "All 198 baseline official URLs attempted plus two new Observability AI sources; SOAR Cloud 8.8 stage, Broker HA, System Insights and bundled UF; Observability AI Assistant, troubleshooting agent and log alerting; two exact HF TLS mappings; affected current, shared, invalid, PDF, HTML, phone-theme and read-only report parity."
+      "scope": "Fresh 200-source register; Enterprise, Cloud, migration, ES, ITSI, Observability, UF/HF, SOAR and maintained component discovery; remaining historical HF mappings; publication tracked separately."
     },
     {
       "id": "es-editions-watch",
