@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-10-24T12:21:48Z",
-      "lastSuccess": "2026-10-24T12:25:29Z",
+      "lastAttempt": "2026-10-25T11:18:14Z",
+      "lastSuccess": "2026-10-25T11:21:15.214Z",
       "outcome": "no-change",
-      "summary": "Fresh same-day inventory and bounded regional/authorization review found no further factual change.",
+      "summary": "No material regional or authorization change found; known conflicts and scoped unknowns retained.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -279,9 +279,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Fresh same-day inventory and bounded regional/authorization review found no further factual change.",
           "scope": "24 official URLs reopened; six scoped claim groups rechecked; fresh GitHub/Sites version 206 reconciliation and real D1/manifest/bundle/fallback diagnostics passed. Source access is not universal claim verification; factual dates and cycle 35 unchanged."
+        },
+        {
+          "at": "2026-10-25T11:18:14Z",
+          "outcome": "running",
+          "summary": "Review current regional, regulated and named AI evidence.",
+          "scope": "Complete maintained 24-source inventory and bounded high-consequence claims."
+        },
+        {
+          "at": "2026-10-25T11:21:15.214Z",
+          "outcome": "no-change",
+          "summary": "No material regional or authorization change found; known conflicts and scoped unknowns retained.",
+          "scope": "24 official URLs accessed; 8 bounded claim groups rechecked. Marketplace status retrieved; service tabs not reverified."
         }
       ],
-      "scope": "24 official URLs reopened; six scoped claim groups rechecked; fresh GitHub/Sites version 206 reconciliation and real D1/manifest/bundle/fallback diagnostics passed. Source access is not universal claim verification; factual dates and cycle 35 unchanged."
+      "scope": "24 official URLs accessed; 8 bounded claim groups rechecked. Marketplace status retrieved; service tabs not reverified."
     },
     {
       "id": "version-release-watch",
