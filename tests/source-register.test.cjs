@@ -197,3 +197,25 @@ test('borrowed HF KV Store prerequisites and TLS precedence reject reversed or w
  const weakened=JSON.parse(JSON.stringify(records));weakened.find(r=>r.component==='KV Store binaries').action='Upgrade the engine after starting the 10.4 upgrade';assert.throws(()=>check(weakened),/before starting/);
  assert.equal(api.assess({...api.defaults,type:'uf',from:'10.2',to:'10.4'}).technical.length,0);
 });
+test('borrowed HF 10.6 KV Store migration and source-version conflict retain exact boundaries',()=>{
+ const c={window:{},URLSearchParams};vm.createContext(c);
+ for(const f of ['data.js','product-data.js','comparison.js','forwarders-data.js','forwarders.js','source-register.js'])vm.runInContext(fs.readFileSync('dist/'+f,'utf8'),c);
+ const api=c.window.VersionCompassForwarders;
+ function check(records){
+  const migration=records.find(r=>r.component==='KV Store database engine'&&r.milestone==='Enterprise 10.6');
+  const sourceVersion=records.find(r=>r.component==='KV Store source-version prerequisite'&&r.milestone==='Enterprise 10.6');
+  assert(migration&&sourceVersion);
+  assert.match(migration.to,/Cohosted PostgreSQL KV Store begins in 10\.6/);
+  assert.match(migration.implication,/starts automatically unless postponed/);
+  assert.match(migration.action,/KV Store 7\.0\+, more than 50% free disk space, healthy cluster and parallel backup/);
+  assert.match(migration.action,/ITSI 5\.0\.x and lower, set postgresMigrateOnStartup=false/);
+  assert.match(sourceVersion.from,/general Enterprise 10\.6 upgrade table lists a direct path from 10\.0\.x/);
+  assert.match(sourceVersion.to,/KV Store guide requires Enterprise 10\.2 or higher first/);
+  assert.match(sourceVersion.implication,/instructions differ for a direct 10\.0-to-10\.6 move with KV Store/);
+  for(const id of ['technical.hf.10.6.kv-store-database-engine','technical.hf.10.6.kv-store-source-version-prerequisite'])assert(c.window.VersionCompassSources.sources.some(s=>s.claimReferences?.some(r=>r.claimId===id&&r.claimVerified==='2026-10-25'&&r.section)));
+ }
+ const records=api.assess({...api.defaults,type:'hf',from:'10.0',to:'10.6'}).technical;check(records);
+ const automatic=JSON.parse(JSON.stringify(records));automatic.find(r=>r.component==='KV Store database engine'&&r.milestone==='Enterprise 10.6').implication='Migration cannot be postponed and remains fully writable';assert.throws(()=>check(automatic),/starts automatically unless postponed/);
+ const universal=JSON.parse(JSON.stringify(records));universal.find(r=>r.component==='KV Store source-version prerequisite').to='Every 10.0 deployment can upgrade directly to 10.6';assert.throws(()=>check(universal),/Every 10\.0 deployment can upgrade directly to 10\.6/);
+ assert.equal(api.assess({...api.defaults,type:'uf',from:'10.0',to:'10.6'}).technical.length,0);
+});

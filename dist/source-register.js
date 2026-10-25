@@ -1457,9 +1457,9 @@ window.VersionCompassSources = {
           "release": "10.6",
           "component": "KV Store source-version prerequisite",
           "section": "Upgrade the KV store server version: Splunk Enterprise 10.0 or lower source-version prerequisite",
-          "claimVerified": "2026-10-12",
+          "claimVerified": "2026-10-25",
           "outcome": "conflicting-evidence-preserved",
-          "qualification": "The KV Store guide requires 10.2 or higher before 10.6 for sources at 10.0 or lower; the general Enterprise 10.6 table lists a direct 10.0 route. Preserve the specific prerequisite without editing the general graph or applying this KV-only condition to UF."
+          "qualification": "October 25 bounded semantic recheck: the KV Store guide requires 10.2 or higher before 10.6 for sources at 10.0 or lower and KV Store 7.0+ before the 10.6 transition; the general Enterprise 10.6 table still lists a direct 10.0 route. Preserve both exact scopes without editing the general graph or applying this KV-specific prerequisite to UF."
         }
       ],
       "usage": "In use",
@@ -1509,9 +1509,9 @@ window.VersionCompassSources = {
           "release": "10.6",
           "component": "KV Store database engine",
           "section": "Prepare for upgrade; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins",
-          "claimVerified": "2026-10-17",
+          "claimVerified": "2026-10-25",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Applies only to an Enterprise-package HF with KV Store. The current guide names ITSI 5.0.x and lower and migration-time premium-app degradation. ES incompatibility remains separately cited to the matrix; omission here is not clearance. No UF applicability, pairing, entitlement or authorization is inferred."
+          "qualification": "Applies only to an Enterprise-package HF with KV Store. October 25 bounded semantic recheck: the current guide requires KV Store 7.0+, more than 50% free disk space, health checks and a parallel backup; migration starts automatically unless postponed, impairs writes, and requires ITSI 5.0.x and lower to postpone with postgresMigrateOnStartup=false verified on every member. ES incompatibility remains separately cited to the matrix; omission here is not clearance. No UF applicability, pairing, entitlement or authorization is inferred."
         }
       ],
       "usage": "In use",

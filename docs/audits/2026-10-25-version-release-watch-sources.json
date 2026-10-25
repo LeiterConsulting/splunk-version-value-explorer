@@ -1,0 +1,83 @@
+{
+  "watch": "version-release-watch",
+  "checkedAt": "2026-10-25T09:31:00Z",
+  "inventory": {
+    "exactUrlAndSectionBaseline": "dist/source-register.js at GitHub main 3c39abef945aac6f2e55433ea7ef60b836c834cf",
+    "attempted": 200,
+    "retrievedDirectly": 167,
+    "officialGitHubApiRecoveries": 29,
+    "unavailable": 4,
+    "newUniqueSources": 0,
+    "qualification": "All 200 exact URLs in the fresh register were attempted. Twenty-nine GitHub records unavailable to the general retriever were recovered through the official GitHub API. The same four exact documentation bodies remained unavailable. Retrieval is not claim verification."
+  },
+  "unavailable": [
+    {
+      "url": "https://docs.splunk.com/Documentation/Splunk/8.1.14/ReleaseNotes/MeetSplunk",
+      "outcome": "unavailable",
+      "handling": "Retain historical evidence; do not infer a replacement release date."
+    },
+    {
+      "url": "https://docs.splunk.com/Documentation/Splunk/8.2.12/ReleaseNotes/MeetSplunk",
+      "outcome": "unavailable",
+      "handling": "Retain historical evidence; do not infer a replacement release date."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/manage-workloads/10.6/use-workload-management-on-kubernetes",
+      "outcome": "retrieval-service-inaccessible",
+      "handling": "Retain prior scoped evidence; nearby pages do not replace the exact claim source."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6",
+      "outcome": "not-found-in-retriever",
+      "handling": "Retain prior evidence; the unavailable body does not advance its source or claim date."
+    }
+  ],
+  "discovery": {
+    "security": "The official advisory index remains current through the October 21 Enterprise and SOAR advisory batch; no October 25 advisory was present.",
+    "cloud": "Cloud 10.6.2.0 dated October 20 and 10.5.2605.13 dated October 22 remain the newest maintained patch entries.",
+    "soar": "SOAR Cloud 8.8.0 remains the October 21 Controlled Availability release; the release-versus-enhancement stage wording conflict remains unresolved.",
+    "ai": "No newer named SAIA, ITSI or Observability assistant/agent release with sufficient product-specific prerequisites was found.",
+    "componentStreams": "Collector 0.163.1, chart 0.163.1, .NET 1.16.0, Java 2.32.0, Node.js 4.12.1, Python 2.13.2 and Browser RUM 3.2.0 remain the latest official releases."
+  },
+  "claimChecks": [
+    {
+      "claimId": "technical.hf.10.6.kv-store-database-engine",
+      "productVersionEnvironment": "Heavy Forwarder using Enterprise 10.6 package with KV Store",
+      "sourceUrl": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+      "section": "Prepare for upgrade; Optional: Postpone the automatic database upgrade to a cohosted KV store before it begins",
+      "sourceCheckDate": "2026-10-25",
+      "claimVerificationDate": "2026-10-25",
+      "outcome": "supporting-section-confirmed",
+      "qualification": "KV Store 7.0+, more than 50% free disk space, health and parallel-backup prerequisites remain. Migration starts automatically unless postponed, impairs writes and requires ITSI 5.0.x and lower to postpone. ES scope remains separately cited; no UF, pairing, entitlement or authorization inheritance."
+    },
+    {
+      "claimId": "technical.hf.10.6.kv-store-source-version-prerequisite",
+      "productVersionEnvironment": "Heavy Forwarder using Enterprise 10.6 package with KV Store; source at 10.0 or lower",
+      "sourceUrl": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-the-kv-store-server-version",
+      "section": "Upgrade the KV store server version: Splunk Enterprise 10.0 or lower source-version prerequisite",
+      "sourceCheckDate": "2026-10-25",
+      "claimVerificationDate": "2026-10-25",
+      "outcome": "conflicting-evidence-preserved",
+      "qualification": "The KV Store guide still requires a 10.2-or-higher bridge while the general 10.6 table still lists a direct 10.0 route. Preserve both exact scopes and do not apply the KV-specific rule to UF."
+    },
+    {
+      "claimId": "release.security.current-index",
+      "productVersionEnvironment": "Enterprise and SOAR customer-managed advisory inventory",
+      "sourceUrl": "https://advisory.splunk.com/",
+      "section": "Current advisory table",
+      "sourceCheckDate": "2026-10-25",
+      "claimVerificationDate": "2026-10-25",
+      "outcome": "no-newer-advisory"
+    },
+    {
+      "claimId": "release.cloud.current-maintenance",
+      "productVersionEnvironment": "Splunk Cloud Platform 10.6 and 10.5 stacks",
+      "sourceUrl": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
+      "section": "10.6.2.0; 10.5.2605.13",
+      "sourceCheckDate": "2026-10-25",
+      "claimVerificationDate": "2026-10-25",
+      "outcome": "current-identifiers-confirmed",
+      "qualification": "Stack maintenance evidence does not establish tenant rollout, Enterprise package availability, Forwarder receiver compatibility or authorization."
+    }
+  ]
+}
