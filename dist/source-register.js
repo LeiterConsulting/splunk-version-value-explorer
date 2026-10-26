@@ -4622,22 +4622,22 @@ window.VersionCompassSources = {
         "forwarders: borrowed.technical.hf.10.6.es-cohosted-kv-store-boundary"
       ],
       "reviews": [
-        "2026-10-17"
+        "2026-10-26"
       ],
       "claimReferences": [
         {
           "path": "forwarders: forwarders.claimSources.technical.hf-es-kv-store-10.6",
-          "section": "Splunk Enterprise version 10.x: 10.6.x ES cohosted KV Store 1.0 footnote"
+          "section": "Splunk Enterprise version 10.x: 10.6.0 cohosted KV Store 1.0 footnote; 10.6.1 / exact 10.6.1.1-and-higher qualification"
         },
         {
           "path": "forwarders: borrowed.technical.hf.10.6.es-cohosted-kv-store-boundary",
           "claimId": "technical.hf.10.6.es-cohosted-kv-store-boundary",
           "release": "10.6",
           "component": "ES cohosted KV Store boundary",
-          "section": "Splunk Enterprise version 10.x: 10.6.x ES cohosted KV Store 1.0 footnote",
-          "claimVerified": "2026-10-17",
-          "outcome": "conflicting-supporting-scope-retained",
-          "qualification": "Matrix retains ES 8.7-and-lower incompatibility; linked migration guide now names only ITSI in its incompatibility note. Retain the warning pending reconciliation. This does not declare ES installed on every HF or establish UF, Cloud, entitlement or authorization scope."
+          "section": "Splunk Enterprise version 10.x: 10.6.0 ES cohosted KV Store 1.0 footnote; Splunk Enterprise version 10.x: 10.6.1 row and exact 10.6.1.1-and-higher qualification",
+          "claimVerified": "2026-10-26",
+          "outcome": "maintenance-qualified-scope-confirmed",
+          "qualification": "October 26 bounded semantic recheck: the matrix marks ES 8.7 and lower incompatible with cohosted KV Store 1.0 on Enterprise 10.6.0, then says ES 8.4.x and higher are compatible with Enterprise 10.6.1.1 and higher. The displayed 10.6.1 row enumerates only through ES 8.7.x, so retain exact-package and exact-pairing qualification. This does not declare ES installed on every HF, equate 10.6.1 with 10.6.1.1, or establish UF, Cloud, entitlement or authorization scope."
         }
       ],
       "usage": "In use",
@@ -4819,9 +4819,9 @@ window.VersionCompassSources = {
           "release": "10.4",
           "component": "KV Store database engine",
           "section": "Upgrading the backend database for KV Store and KV Service to MongoDB 8.0",
-          "claimVerified": "2026-10-08",
+          "claimVerified": "2026-10-26",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
+          "qualification": "Heavy Forwarder uses the Enterprise package. October 26 bounded semantic recheck: the 10.4 release page says older MongoDB 4.x-6.x binaries are absent, 9.x-and-earlier deployments must bridge through Enterprise 10.0 or 10.2, and an already-10.x deployment upgrades the database automatically. This verifies the cited component scope, not UF applicability, every installed app, rollback safety or deployment approval."
         }
       ],
       "usage": "In use",

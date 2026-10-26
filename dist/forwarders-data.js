@@ -145,9 +145,9 @@ window.VersionCompassForwarderData = {
     "esKv106": {
       "title": "10.6 customer-managed ES and KV Store boundary",
       "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
-      "section": "Splunk Enterprise version 10.x: 10.6.x ES cohosted KV Store 1.0 footnote",
-      "checked": "2026-10-17",
-      "reviewed": "2026-10-17"
+      "section": "Splunk Enterprise version 10.x: 10.6.0 cohosted KV Store 1.0 footnote; 10.6.1 / exact 10.6.1.1-and-higher qualification",
+      "checked": "2026-10-26",
+      "reviewed": "2026-10-26"
     }
   },
   "claimSources": {
