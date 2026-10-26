@@ -70,14 +70,16 @@
       "url": "https://www.fedramp.gov/marketplace/products/FR2314156865/",
       "section": "Exact High CSO record and Certified Services list; offering-level assessment scope, not universal feature, entitlement, pairing, rollout or customer authorization evidence",
       "checkedAt": "2026-10-26T11:50:52Z",
-      "outcome": "status retrieved; service tabs require independent browser retrieval"
+      "outcome": "native browser recovered exact Certified Services list; Moderate includes ES/ITSI/SOAR, High includes ES/ITSI; missing names are not exclusions",
+      "browserCheckedAt": "2026-10-26T12:08:00Z"
     },
     {
       "id": "moderate",
       "url": "https://www.fedramp.gov/marketplace/products/F1607197917/",
       "section": "Exact Moderate CSO record and Certified Services list; offering-level assessment scope, not universal feature, entitlement, pairing, rollout or customer authorization evidence",
       "checkedAt": "2026-10-26T11:50:52Z",
-      "outcome": "status retrieved; service tabs require independent browser retrieval"
+      "outcome": "native browser recovered exact Certified Services list; Moderate includes ES/ITSI/SOAR, High includes ES/ITSI; missing names are not exclusions",
+      "browserCheckedAt": "2026-10-26T12:08:00Z"
     },
     {
       "id": "victoria",
@@ -197,7 +199,7 @@
       ],
       "section": "Exact CSO status/profile",
       "scope": "F1607197917 Moderate; FR2314156865 High",
-      "qualification": "Both listings report Certified. Service tabs not reverified in this run; prior product-scope dates retained.",
+      "qualification": "Exact offering Certified status and native Certified Services lists reverified. Moderate names ES/ITSI/SOAR; High names ES/ITSI; no feature-wide entitlement or SOAR High inference.",
       "verifiedAt": "2026-10-26T11:53:11Z",
       "outcome": "verified-with-qualifications"
     },
@@ -319,12 +321,46 @@
     }
   ],
   "validation": {
-    "automated": "224 Node tests and 60-asset build pass; four ordered sync/check gates passed; novel-rendered verification pending.",
-    "nativeExports": "pending",
-    "live": "pending"
+    "automated": "224 tests, four ordered sync/check gates and60asset build passed locally and exact CI.",
+    "nativeExports": {
+      "run": 40318691379,
+      "job": 121557719622,
+      "testMerge": "0ddd9d0f5d1c45f049bd07ba9a506d7cf7a4e5ea",
+      "candidate": "c1392c08f7d018148c16576cee6b3be348d17b7a",
+      "tree": "9c3e40ca36bd13bde493a76fbade76037fc58c5f",
+      "artifact": 12647867853,
+      "digest": "sha256:41652d5fab3df2f0834c938b582306fd608c698387fcf032029ccf3c4fef42df",
+      "fingerprint": "a889777b3d811e422e6e64f501becb58e161f9e338cd47528865f54efd2485a1",
+      "cases": 120,
+      "pdfs": 100,
+      "pages": 1717,
+      "offlineHtml": 100,
+      "phoneChecks": 120,
+      "keyboardChecks": 100,
+      "artifactVerifier": "passed against current source"
+    },
+    "visual": "Separate assistant inspection of default/Cisco AI High pages1/2, both phone images and Cloud High pages18/20/22. Complete guidance and citations; minor source-link contrast finding tracked. Automated all-page geometry is not human review.",
+    "browser": "Candidate and live Cisco Cloud High/AI routes; keyboard Skip focus; live read-only current-report returned all three exact scoped announcement records; mismatched AWS/GCP input retained original URL, disabled Copy/Print/Save and rejected current-report WebMCP. Exact CI covers selected/legacy/shared/invalid/provider-only/region/unknown/unmatched routes in both themes.",
+    "live": {
+      "evaluatedAt": "2026-10-26T12:06:04.273Z",
+      "status": "delivery-checks-passed",
+      "revision": "content-67670b7b8e8cbce35ab28938",
+      "engine": "engine-6d7c862a8053b1c431bd",
+      "records": 868,
+      "digest": "9e197504452a1099622ecd784437fd94d86f364d8b189e64f99cad9ea210608e",
+      "checks": "Real D1 ready, manifest, checked bundle, bounded query, POST405 and all7 fallbacks passed."
+    }
   },
   "publication": {
-    "status": "candidate-held-until-verification"
+    "status": "live",
+    "githubCandidate": "c1392c08f7d018148c16576cee6b3be348d17b7a",
+    "sitesCandidate": "1b4686ee2b3c11f0dbf99a16e90c1ab4091f67e6",
+    "matchingTree": "9c3e40ca36bd13bde493a76fbade76037fc58c5f",
+    "version": 218,
+    "deployment": "appgdep_6adf42167fd481918c668f6189ec46cc",
+    "liveUrl": "https://versioncompass.com",
+    "noteUrl": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-26.md",
+    "qualification": "Final documentation-only receipt preserves identical verified runtime inputs; its exact final source commits/tree/version are also recorded on PR44."
   },
   "sourceReviewCompletedAt": "2026-10-26T11:53:11Z",
   "changes": {
@@ -334,6 +370,20 @@
     "exactAppOrRegionInferred": false,
     "sourceDate": "2026-10-19",
     "claimVerificationDate": "2026-10-26",
-    "publicationDate": null
-  }
+    "publicationDate": "2026-10-26"
+  },
+  "completedAt": "2026-10-26T12:08:00Z",
+  "minorFindings": [
+    {
+      "observed": "Cisco Cloud High PDF source links and muted source labels have low contrast against the dark table background; body guidance and source text remain complete and links work.",
+      "severity": "minor",
+      "reversible": true,
+      "affectedFunctionWorks": true,
+      "trackingIssue": "docs/audits/2026-10-26-csp-fedramp-watch-readiness.json#findings",
+      "owner": "Version Guidance Audit",
+      "nextAction": "Adjust scoped Cisco table link/muted colors and verify both-theme PDF image and accessible contrast without changing evidence.",
+      "validation": "Inspected Cloud High Cisco PDF pages18,20,22 against default page18. No text loss or geometry failure; same environment table styles as baseline tree f5edc356.",
+      "reviewBy": "2026-10-27T16:00:00Z"
+    }
+  ]
 }
