@@ -109,3 +109,10 @@ test('AI route loads bounded assets and no new browser agent tools',()=>{
  const loaded=[],main={},head=[],c={window:{location:{search:'?view=ai-availability'}},URLSearchParams,document:{querySelector:()=>main,querySelectorAll:()=>[],createElement:()=>({}),head:{appendChild:e=>head.push(e)},body:{appendChild:e=>{loaded.push(e.src);e.onload();}}}};
  vm.runInNewContext(fs.readFileSync('dist/site-router.js','utf8'),c);assert(loaded.includes('ai-availability-ui.js'));assert(loaded.includes('environment-data.js'));assert(!loaded.includes('app.js'));assert(!loaded.includes('webmcp.js'));assert(head.some(e=>e.href==='ai-availability.css'));
 });
+test('shared print footer and Cisco environment evidence use route-neutral readable styling',()=>{
+ const editions=fs.readFileSync('dist/editions.css','utf8'),cisco=fs.readFileSync('dist/theme-cisco.css','utf8');
+ assert(editions.includes('Version Compass · Independent public-source report'));
+ assert(!editions.includes('Version Compass · Independent ES editions review'));
+ assert.match(cisco,/\.theme-cisco \.edition-report \.env-record a[^}]*color:#8bb9ff!important/);
+ assert.match(cisco,/\.theme-cisco \.edition-report \.env-evidence[^}]*color:#bac7df!important/);
+});

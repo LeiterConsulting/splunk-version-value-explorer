@@ -1,0 +1,127 @@
+{
+  "date": "2026-10-26",
+  "maintenanceId": "version-guidance-audit",
+  "startedAt": "2026-10-26T12:28:48Z",
+  "baseline": {
+    "githubCommit": "9f4d49a95d4d9e540d0e7a13fb1ed80730faac20",
+    "githubTree": "e5eb551bdb31732cdcba5ddba6081c75d33935f8",
+    "sitesCommit": "78b93080b099cb8ad65fd11aca20a5337f772362",
+    "sitesTree": "e5eb551bdb31732cdcba5ddba6081c75d33935f8",
+    "sitesVersion": 219,
+    "sitesDeployment": "appgdep_6adf42f46d348191a3e9bd624be3766c"
+  },
+  "scope": "Independent integrated Release Guide, migration, ES Editions, Cloud environment, About/source compendium, Observability, Universal and Heavy Forwarders, SOAR and AI Availability audit; exact source mappings, legacy/current/invalid routes, reports, WebMCP and publication parity.",
+  "inventory": {
+    "sourceRegisterAttempted": 200,
+    "retrievedDirectly": 167,
+    "officialGitHubApiRecoveries": 29,
+    "unavailable": 4,
+    "evidence": "The complete current-day exact-URL inventory record in docs/audits/2026-10-26-version-release-watch-sources.json was reconciled against the matching GitHub/Sites tree. Retrieval is not blanket claim verification. The four unavailable exact bodies retain their prior scoped evidence and were not replaced by adjacent pages.",
+    "independentReviewAt": "2026-10-26T12:31:00Z"
+  },
+  "claimChecks": [
+    {
+      "claimId": "cloud.current-managed-pairing-and-forwarders",
+      "sourceUrl": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Current Splunk Cloud Platform and premium app versions; Supported forwarder versions",
+      "outcome": "confirmed-with-scope",
+      "qualification": "Current Cloud 10.6 pairs with ES 8.7 and ITSI 5.0. Forwarder rows apply to the tier directly connected to Cloud and do not establish historical availability, tenant rollout, entitlement or authorization."
+    },
+    {
+      "claimId": "enterprise.es-cohosted-kv-boundary",
+      "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+      "section": "Splunk Enterprise 10.6.0 and 10.6.1 rows",
+      "outcome": "confirmed-with-conflict-retained",
+      "qualification": "10.6.0 marks ES 8.7 and lower incompatible with cohosted KV Store 1.0; the separate 10.6.1.1-and-higher footnote is not generalized to the displayed 10.6.1 row or an unlisted ES version."
+    },
+    {
+      "claimId": "lifecycle.enterprise-and-uf",
+      "sourceUrl": "https://www.splunk.com/en_us/legal/splunk-software-support-policy.html",
+      "section": "Splunk Core Products; Universal Forwarder; current version tables",
+      "outcome": "confirmed",
+      "qualification": "Explicit Enterprise deadlines remain separate from Cloud support and the guide's 180-day planning reminder. Universal Forwarder full and P3 windows remain distinct."
+    },
+    {
+      "claimId": "soar.cloud-8.8-stage-conflict",
+      "sourceUrl": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
+      "section": "October 21, 2026 Release 8.8",
+      "outcome": "conflict-confirmed",
+      "qualification": "The section states Controlled Availability and then describes the enhancement list as a General Availability release. Both remain visible; Automation Broker HA enablement and embedded UF 10.4.4 do not establish tenant rollout, entitlement, region or authorization."
+    },
+    {
+      "claimId": "soar.onprem-8.7-build-and-python",
+      "sourceUrl": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.7.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+      "section": "September 22 build 243 correction; Python 3.9 end of support",
+      "outcome": "confirmed",
+      "qualification": "Build 243 repairs the documented build 232 defects; Python 3.13 compatibility is required. Conditional upgrade bridges and privileged/Phantom paths remain separate."
+    },
+    {
+      "claimId": "soar.export-8.7.1-fips-patch",
+      "sourceUrl": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
+      "section": "Welcome to release 8.7.1; PAPP-38496",
+      "outcome": "confirmed",
+      "qualification": "The repair applies when FIPS is enabled and remains distinct from App for SOAR, SOAR server releases and platform security floors."
+    },
+    {
+      "claimId": "observability.october-service-milestones",
+      "sourceUrl": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+      "section": "October 12 and October 21 milestones",
+      "outcome": "confirmed",
+      "qualification": "The October APM filter behavior and October 21 call-graph, MetricSet, chart-baseline and IBM MQ records remain rolling-service milestones; Controlled Availability and customer-managed component versions stay separate."
+    },
+    {
+      "claimId": "ai.saia-2.3.6-scope",
+      "sourceUrl": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/whats-new-in-splunk-ai-assistant",
+      "section": "Version 2.3.6",
+      "outcome": "confirmed-with-scope",
+      "qualification": "Cloud Connected certificate setup, Agent Mode memory and model-runtime choices do not establish every provider, region, subagent rollout or customer authorization."
+    },
+    {
+      "claimId": "forwarders.borrowed-source-mappings",
+      "sourceUrl": "docs/forwarder-source-mappings.json",
+      "section": "All 18 stable claim mappings",
+      "outcome": "complete-bounded-mapping-demonstrated",
+      "qualification": "Each mapping retains an exact official URL, supporting sections, claim-specific verification date and anti-broadening qualification. Dates remain distributed across October 18-26; this audit does not advance unchanged borrowed dates."
+    },
+    {
+      "claimId": "ai.complete-curated-inventory",
+      "sourceUrl": "content/datasets/guidance.json",
+      "section": "guidance.aiAvailability and guidance.sources",
+      "outcome": "complete-current-catalog-confirmed",
+      "qualification": "Ten named capabilities retain product/evidence-version scope, separate stage, edition, dependency, provider/region, entitlement, enablement and authorization fields. Evidence-version filtering is not installed-stack validation."
+    }
+  ],
+  "changes": [
+    {
+      "id": "ai-pdf-footer-label",
+      "type": "bounded-presentation-repair",
+      "detail": "Changed the shared default print footer from an ES-specific label to the route-neutral 'Independent public-source report' wording already used by the Cisco print page.",
+      "factualScopeChanged": false
+    },
+    {
+      "id": "cisco-environment-print-contrast",
+      "type": "bounded-accessibility-repair",
+      "detail": "Added explicit Cisco print colors for environment evidence links and muted scope/evidence labels on dark report backgrounds.",
+      "factualScopeChanged": false
+    }
+  ],
+  "preservedUnknowns": [
+    "Four exact source bodies remain unavailable without inferred replacements.",
+    "SOAR known/fixed issue-table retrieval gaps remain unavailable, not empty.",
+    "SOAR Cloud 8.8 Controlled Availability versus General Availability wording remains a documented conflict.",
+    "FR-H SOAR scope, ITSI subagent regional rollout and CMP agent regional rollout remain not established.",
+    "Current Cloud service evidence is not retrospective release availability or customer authorization."
+  ],
+  "validation": {
+    "targetedTests": "83 targeted AI, ES Editions, Forwarder, SOAR and shared WebMCP tests passed.",
+    "orderedSyncAndChecks": "pending candidate finalization",
+    "fullNodeTests": "pending candidate finalization",
+    "build": "pending candidate finalization",
+    "exactCandidateExports": "pending required CI",
+    "visualInspection": "pending retained exact-candidate AI and Cloud High pages",
+    "live": "pending publication"
+  },
+  "publication": {
+    "status": "candidate-in-progress"
+  }
+}
