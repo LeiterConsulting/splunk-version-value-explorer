@@ -2129,7 +2129,8 @@ window.VersionCompassSources = {
         "environment: environment.records.18",
         "environment: environment.records.19",
         "environment: environment.records.20",
-        "environment: environment.records.21"
+        "environment: environment.records.21",
+        "environment: environment.records.62"
       ],
       "reviews": [
         "2026-10-10"
@@ -7852,6 +7853,48 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-09",
           "event": "Review status updated: Reviewed · 2026-10-09"
+        }
+      ]
+    },
+    {
+      "url": "https://www.splunk.com/en_us/blog/industries/edge-and-ingest-processors-with-spl2-and-splunk-ai-assistant-achieve-fedramp-high.html",
+      "title": "October 19 Splunk AI Assistant FedRAMP High announcement",
+      "areas": [
+        "Release guide",
+        "Cloud environment",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.guidance.sources.aiHighAnnouncement20261019.url",
+        "environment.sources.highAnnouncement20261019.url",
+        "content-updates.js",
+        "guidance: guidance.aiAvailability",
+        "environment: environment.records.61",
+        "environment: environment.records.62",
+        "environment: environment.records.63"
+      ],
+      "reviews": [
+        "2026-10-26"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Expanding Capabilities in AWS GovCloud with FedRAMP High; SPL authoring and explanation"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-26",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-26",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-26",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },

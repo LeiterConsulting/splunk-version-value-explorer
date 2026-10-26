@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-6d28328bcdbd8c9914716121",
-    "digest": "855d50aaf21f6ca3cc3ec67b0384fb68ba53fbe77f8434493808f1ada5cfc48b",
+    "revision": "content-c8191ac320887a1211aca091",
+    "digest": "1d8d0ab828b6e8c733364712799e6dbc532c12968aad0ee4f5e05e55c5495f5a",
     "engineRevision": "engine-c43d11677831bf105e34",
     "datasetHashes": {
       "platform": "70b62a293de0c48b9ba8709d83f6c04ec3024451e6560012497bf9ff85b5b626",
       "products": "1124da545438a96b28b4ebe1574b3f0c5bc09022c8f0094c1caf2f98632d70aa",
-      "guidance": "a19da0224702ea8a283ecdbf37b130a43b88d6b64f33d64b96d2826efa2f55d2",
-      "environment": "a13eaf16bdda683bf736834638c3f119dc262deb193b9d18d4dbd511ca9e0e33",
+      "guidance": "f19e37d4ffa4a4c6f3e292d7ffbc98cbaf3b3390495d96681f19fbd3a40297b2",
+      "environment": "aa4d761f225e5f84509924c2d9818a775aab906f0f1a059d626299402397fd16",
       "editions": "5f065d702c026c7f50718692f9fe5eed98b34af066782197dd8478dde7407870",
       "forwarders": "c3f74a6f8be0651698e00ada59d29bb627eb106857e3791368637f4adf408064",
       "soar": "78ee40698345f3da3d159ec879fe75c259679b328751259940825cf7e33df762"
     },
-    "recordCount": 867,
+    "recordCount": 868,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -4998,6 +4998,14 @@
           "releases": {}
         },
         "sources": {
+          "aiHighAnnouncement20261019": {
+            "title": "October 19 Splunk AI Assistant FedRAMP High announcement",
+            "url": "https://www.splunk.com/en_us/blog/industries/edge-and-ingest-processors-with-spl2-and-splunk-ai-assistant-achieve-fedramp-high.html",
+            "published": "2026-10-19",
+            "checked": "2026-10-26",
+            "section": "Expanding Capabilities in AWS GovCloud with FedRAMP High; SPL authoring and explanation",
+            "scope": "Vendor announcement; exact app/version, mode, runtime, tenant rollout, entitlement and customer authorization remain separate"
+          },
           "prep11operator": {
             "title": "Splunk Operator 3.2 compatibility matrix",
             "url": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix",
@@ -5333,8 +5341,9 @@
           "schemaVersion": 1,
           "checked": "2026-10-24",
           "boundary": "Feature availability, edition entitlement, compatible versions, release stage and offering authorization are independent. A published capability or a supported hosting region does not establish that every tenant can enable it. Missing evidence remains explicit.",
-          "regulatedQualification": "SAIA documents limited IL2 support, excludes Agent Mode there, and fixes the runtime to Splunk-hosted models. Its commercial-stack introduction and GovCloud rows require scope reconciliation. Mapping that limited statement to every Moderate or High offering is not established.",
+          "regulatedQualification": "Splunk's October 19, 2026 announcement claims FedRAMP High authorization for AI Assistant SPL authoring and explanation. Versioned SAIA installation guidance still describes limited IL2 support, excludes Agent Mode there and fixes runtime to Splunk-hosted models. Exact High app/version, mode, runtime and rollout remain unreconciled. This does not establish ES assistant, ITSI subagent, universal Moderate/High coverage or customer authorization.",
           "sourceIds": [
+            "aiHighAnnouncement20261019",
             "aiSaiaAbout",
             "aiSaiaInstall",
             "aiEsRegions88",
@@ -5347,6 +5356,7 @@
             "aiObsJulyRelease"
           ],
           "src": [
+            "aiHighAnnouncement20261019",
             "aiSaiaAbout",
             "aiSaiaInstall",
             "aiEsRegions88",
@@ -6131,6 +6141,13 @@
           "url": "https://agent-observability-docs.splunk.com/saas/overview",
           "scope": "Current SaaS region and realm availability, access prerequisite and Luna-3 exception; no historical rollout or FedRAMP authorization established",
           "checked": "2026-10-21"
+        },
+        "highAnnouncement20261019": {
+          "title": "October 19 processor and AI Assistant FedRAMP High announcement",
+          "url": "https://www.splunk.com/en_us/blog/industries/edge-and-ingest-processors-with-spl2-and-splunk-ai-assistant-achieve-fedramp-high.html",
+          "published": "2026-10-19",
+          "checked": "2026-10-26",
+          "scope": "Expanding Capabilities in AWS GovCloud with FedRAMP High; vendor announcement, eligible stacks and Ingest Essentials tier; exact tenant, feature-mode and customer authorization require separate evidence"
         },
         "assistantInstall": {
           "title": "AI Assistant 2.2 Cloud installation and limited FedRAMP support",
@@ -7677,13 +7694,14 @@
           ],
           "availability": "not_established",
           "authorization": "not_established",
-          "detail": "The reviewed region table does not establish this feature for the selected regulated scope. Absence is not an exclusion.",
+          "detail": "Splunk's October 19, 2026 announcement states that Edge Processor achieved FedRAMP High authorization for Cloud Platform customers in AWS GovCloud (US), with automatic onboarding for eligible stacks. The current service table does not independently establish every eligible stack or rollout. Confirm exact service eligibility, enablement and customer authorization; the announcement is not universal availability evidence.",
           "sources": [
             "service",
-            "compliance"
+            "compliance",
+            "highAnnouncement20261019"
           ],
-          "checked": "2026-10-06",
-          "scope": "Current evidence gap; not a denial of availability"
+          "checked": "2026-10-26",
+          "scope": "October 19 announcement claim; exact service eligibility and rollout remain unestablished"
         },
         {
           "id": "ingest-high-unknown",
@@ -7699,13 +7717,15 @@
           ],
           "availability": "not_established",
           "authorization": "not_established",
-          "detail": "The reviewed region table does not establish this feature for the selected regulated scope. Absence is not an exclusion.",
+          "detail": "Splunk's October 19, 2026 announcement states that Ingest Processor achieved FedRAMP High authorization for Cloud Platform customers in AWS GovCloud (US), with automatic onboarding to the Essentials tier for eligible stacks. Preserve the Victoria and provisioned-tenant prerequisites. Exact stack eligibility, tier entitlement, enablement and customer authorization still require confirmation; the announcement is not universal availability evidence.",
           "sources": [
             "service",
-            "compliance"
+            "compliance",
+            "ingest",
+            "highAnnouncement20261019"
           ],
-          "checked": "2026-10-06",
-          "scope": "Current evidence gap; not a denial of availability"
+          "checked": "2026-10-26",
+          "scope": "October 19 announcement claim; Essentials tier and eligible AWS GovCloud stacks only; actual rollout remains unestablished"
         },
         {
           "id": "platform-ai-high-unknown",
@@ -7722,14 +7742,15 @@
           ],
           "availability": "not_established",
           "authorization": "not_established",
-          "detail": "The AI Assistant 2.2 installation guide documents limited IL2 FedRAMP support for version 2.0.0 and higher: no Agent Mode, training/fine-tuning off by default and Splunk-hosted model runtime only. Its supported-region table lists both GovCloud regions with May 11, 2026 dates, while its introductory installation scope says commercial stacks. These statements do not establish universal Moderate/High feature coverage or authorization. The dated compliance matrix and current service table do not resolve the complete regulated scope.",
+          "detail": "Splunk's October 19, 2026 announcement claims FedRAMP High authorization for Splunk AI Assistant's SPL authoring and explanation. The 2.2 and current 2.3.6 installation guidance separately describes limited IL2 support for 2.0.0+, excludes Agent Mode there, turns training/fine-tuning off by default and fixes runtime to Splunk-hosted models. The commercial-stack lead-in and GovCloud rows remain unreconciled. The announcement does not resolve exact High app/version, mode, runtime, rollout or customer authorization and does not establish ES assistant or ITSI subagent coverage.",
           "sources": [
             "service",
             "compliance",
-            "assistantInstall"
+            "assistantInstall",
+            "highAnnouncement20261019"
           ],
-          "checked": "2026-10-21",
-          "scope": "Current limited IL2 support and source-scope qualification; broader Moderate/High coverage and authorization remain unestablished"
+          "checked": "2026-10-26",
+          "scope": "High announcement versus versioned limited-IL2 guidance; exact feature and offering scope remains a reconciliation question"
         },
         {
           "id": "o11y-agent-us0",
@@ -10511,6 +10532,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability"
+      },
+      {
+        "id": "source-34916216f1f9405c4fa3",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://www.splunk.com/en_us/blog/industries/edge-and-ingest-processors-with-spl2-and-splunk-ai-assistant-achieve-fedramp-high.html"
       },
       {
         "id": "source-36726158f9471003db83",
@@ -17088,8 +17115,9 @@
           "schemaVersion": 1,
           "checked": "2026-10-24",
           "boundary": "Feature availability, edition entitlement, compatible versions, release stage and offering authorization are independent. A published capability or a supported hosting region does not establish that every tenant can enable it. Missing evidence remains explicit.",
-          "regulatedQualification": "SAIA documents limited IL2 support, excludes Agent Mode there, and fixes the runtime to Splunk-hosted models. Its commercial-stack introduction and GovCloud rows require scope reconciliation. Mapping that limited statement to every Moderate or High offering is not established.",
+          "regulatedQualification": "Splunk's October 19, 2026 announcement claims FedRAMP High authorization for AI Assistant SPL authoring and explanation. Versioned SAIA installation guidance still describes limited IL2 support, excludes Agent Mode there and fixes runtime to Splunk-hosted models. Exact High app/version, mode, runtime and rollout remain unreconciled. This does not establish ES assistant, ITSI subagent, universal Moderate/High coverage or customer authorization.",
           "sourceIds": [
+            "aiHighAnnouncement20261019",
             "aiSaiaAbout",
             "aiSaiaInstall",
             "aiEsRegions88",
@@ -17102,6 +17130,7 @@
             "aiObsJulyRelease"
           ],
           "src": [
+            "aiHighAnnouncement20261019",
             "aiSaiaAbout",
             "aiSaiaInstall",
             "aiEsRegions88",
@@ -30202,6 +30231,14 @@
         "scope": {},
         "evidence": [
           {
+            "sourceId": "source-34916216f1f9405c4fa3",
+            "url": "https://www.splunk.com/en_us/blog/industries/edge-and-ingest-processors-with-spl2-and-splunk-ai-assistant-achieve-fedramp-high.html",
+            "section": "Expanding Capabilities in AWS GovCloud with FedRAMP High; SPL authoring and explanation",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": null,
+            "sourceChecked": "2026-10-26"
+          },
+          {
             "sourceId": "source-a7af3e985cbd086d3974",
             "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
             "section": "Requirements; features; ITSI subagent; where the assistant runs",
@@ -30293,8 +30330,9 @@
           "schemaVersion": 1,
           "checked": "2026-10-24",
           "boundary": "Feature availability, edition entitlement, compatible versions, release stage and offering authorization are independent. A published capability or a supported hosting region does not establish that every tenant can enable it. Missing evidence remains explicit.",
-          "regulatedQualification": "SAIA documents limited IL2 support, excludes Agent Mode there, and fixes the runtime to Splunk-hosted models. Its commercial-stack introduction and GovCloud rows require scope reconciliation. Mapping that limited statement to every Moderate or High offering is not established.",
+          "regulatedQualification": "Splunk's October 19, 2026 announcement claims FedRAMP High authorization for AI Assistant SPL authoring and explanation. Versioned SAIA installation guidance still describes limited IL2 support, excludes Agent Mode there and fixes runtime to Splunk-hosted models. Exact High app/version, mode, runtime and rollout remain unreconciled. This does not establish ES assistant, ITSI subagent, universal Moderate/High coverage or customer authorization.",
           "sourceIds": [
+            "aiHighAnnouncement20261019",
             "aiSaiaAbout",
             "aiSaiaInstall",
             "aiEsRegions88",
@@ -30307,6 +30345,7 @@
             "aiObsJulyRelease"
           ],
           "src": [
+            "aiHighAnnouncement20261019",
             "aiSaiaAbout",
             "aiSaiaInstall",
             "aiEsRegions88",

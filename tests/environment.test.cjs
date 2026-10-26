@@ -134,7 +134,7 @@ test('limited AI Assistant IL2 evidence does not become universal Moderate or Hi
  for(const compliance of ['fr-m','fr-h']){
   const row=env.assess(route({csp:'aws',region:'us-gov-east-1',compliance})).records.find(r=>r.id==='platform-ai-high-unknown');
   assert.equal(row.availability,'not_established');assert.equal(row.authorization,'not_established');
-  assert.match(row.detail,/2\.0\.0/);assert.match(row.detail,/no Agent Mode/);assert.match(row.detail,/off by default/);assert.match(row.detail,/commercial stacks/);
+  assert.match(row.detail,/2\.0\.0/);assert.match(row.detail,/excludes Agent Mode/);assert.match(row.detail,/off by default/);assert.match(row.detail,/commercial-stack/);
   assert(row.sources.includes('assistantInstall'));
  }
 });

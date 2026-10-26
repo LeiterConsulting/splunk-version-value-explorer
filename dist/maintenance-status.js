@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-10-25T11:18:14Z",
-      "lastSuccess": "2026-10-25T11:21:15.214Z",
-      "outcome": "no-change",
-      "summary": "No material regional or authorization change found; known conflicts and scoped unknowns retained.",
+      "lastAttempt": "2026-10-26T11:50:52Z",
+      "lastSuccess": "2026-10-26T11:53:11Z",
+      "outcome": "changed",
+      "summary": "Retained October19 High processor/SPL-assistant announcement beside unresolved exact service, mode and rollout scope.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -291,9 +291,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "No material regional or authorization change found; known conflicts and scoped unknowns retained.",
           "scope": "24 official URLs accessed; 8 bounded claim groups rechecked. Marketplace status retrieved; service tabs not reverified."
+        },
+        {
+          "at": "2026-10-26T11:50:52Z",
+          "outcome": "running",
+          "summary": "Reviewing complete regional inventory and a newly discovered High announcement.",
+          "scope": "24 maintained official sources plus October 19 High announcement; bounded authorization and regional claims."
+        },
+        {
+          "at": "2026-10-26T11:53:11Z",
+          "outcome": "changed",
+          "summary": "Retained October19 High processor/SPL-assistant announcement beside unresolved exact service, mode and rollout scope.",
+          "scope": "25 official sources; nine bounded claim groups; full ES8.8 regional tables and separate offering boundaries."
         }
       ],
-      "scope": "24 official URLs accessed; 8 bounded claim groups rechecked. Marketplace status retrieved; service tabs not reverified."
+      "scope": "25 official sources; nine bounded claim groups; full ES8.8 regional tables and separate offering boundaries."
     },
     {
       "id": "version-release-watch",
