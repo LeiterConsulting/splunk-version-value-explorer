@@ -78,7 +78,7 @@
       return result('conditional',(region?'The selected region maps to a documented commercial Observability realm. ':'Select an exact AWS or GCP service region. ')+record.condition+' Entitlement, organization enablement and customer authorization remain separate.');
     }
     if(state.compliance!=='commercial'||region?.id.startsWith('us-gov-')){
-      return result('not_established',d.regulatedQualification+(record.id==='ai-saia-agent'?' The documented IL2 assistant excludes Agent Mode.':''),['aiSaiaInstall']);
+      return result('not_established',d.regulatedQualification+(record.id==='ai-saia-agent'?' The documented IL2 assistant excludes Agent Mode.':''),['aiSaiaInstall','aiHighAnnouncement20261019']);
     }
     if(region&&!d.saiaRegions.includes(region.id))return result('not_established','The selected region is not listed in the reviewed SAIA service table. Absence is not an unavailability claim.',['aiSaiaInstall']);
     if(!region&&provider&&!['aws','azure'].includes(provider))return result('not_established','This provider is not established by the reviewed SAIA region table.',['aiSaiaInstall']);
