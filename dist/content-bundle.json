@@ -1,16 +1,16 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-ee9d65917b28d332cb734597",
-    "digest": "a0766873f43d5870d8cb8f29446179b3d1811a30946ffa694438001288b26b6f",
-    "engineRevision": "engine-9b2ab268ae68377489fc",
+    "revision": "content-d658cd3fd369501edf55f970",
+    "digest": "5b87896ba0ab918becd488f7056e3a9cb01253aa9618e8b5559eb7b677f2ea7c",
+    "engineRevision": "engine-c43d11677831bf105e34",
     "datasetHashes": {
-      "platform": "a440e3149b117a3a07fb68e731331710e9c9b74b847c01882671cec7521d1f74",
+      "platform": "70b62a293de0c48b9ba8709d83f6c04ec3024451e6560012497bf9ff85b5b626",
       "products": "1124da545438a96b28b4ebe1574b3f0c5bc09022c8f0094c1caf2f98632d70aa",
-      "guidance": "32b6436818b9492b1a0defcf29f5cccfdd028d7c66f637591aa1f6d572860fed",
+      "guidance": "6a0f044394a6984ffebd2368fda4dc3a8a62dc8595439b5f20596b08b62441d9",
       "environment": "a13eaf16bdda683bf736834638c3f119dc262deb193b9d18d4dbd511ca9e0e33",
       "editions": "487ccca1ac05f5faa6cab4d31aa4cafc09cd4fc656b4db91056a2f9f9a0190a3",
-      "forwarders": "0ccf4dd9fb010ab5e072382a4791b3db812f0509eb19972b52776ad64fbcbb33",
+      "forwarders": "c3f74a6f8be0651698e00ada59d29bb627eb106857e3791368637f4adf408064",
       "soar": "78ee40698345f3da3d159ec879fe75c259679b328751259940825cf7e33df762"
     },
     "recordCount": 863,
@@ -1353,14 +1353,14 @@
               {
                 "component": "ES cohosted KV Store boundary",
                 "domain": "Data & storage",
-                "changeType": "Conflicting supporting scope",
+                "changeType": "Patch-qualified compatibility",
                 "actionLevel": "Required",
                 "from": "The platform pairing alone does not establish database-engine compatibility",
-                "to": "The 10.6 matrix retains the ES 8.7-and-lower incompatibility warning; the linked KV guide now names only ITSI in that note",
-                "implication": "The source wording diverges. Do not infer ES compatibility from the guide's omission or remove the existing postponement warning. This applies only where the Enterprise-package KV Store and ES dependency are present.",
-                "action": "Keep the ES postponement warning pending exact public reconciliation; review the linked migration procedure and confirm the database-engine plan before executing an upgrade.",
+                "to": "The matrix marks ES 8.7 and lower incompatible with cohosted KV Store 1.0 on Enterprise 10.6.0, then says ES 8.4.x and higher are compatible with Enterprise 10.6.1.1 and higher",
+                "implication": "The 10.6 line selector spans materially different maintenance scope. The 10.6.1 row enumerates ES through 8.7.x while its footnote says 8.4.x and higher, so do not invent an unlisted exact pairing or equate the three-segment 10.6.1 release statement with a 10.6.1.1 package.",
+                "action": "Identify the exact Enterprise maintenance package and ES version. Retain postponement for 10.6.0; use the 10.6.1.1-and-higher matrix qualification only for its stated customer-managed scope and still validate the linked migration procedure.",
                 "source": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
-                "verified": "2026-10-17"
+                "verified": "2026-10-26"
               },
               {
                 "component": "Enterprise 10.6 maintenance release",
@@ -1420,7 +1420,7 @@
               ],
               [
                 "Retain the ES cohosted KV Store warning",
-                "The 10.6 compatibility matrix still excludes ES 8.7 and lower from cohosted KV Store 1.0. Its linked guide now names ITSI only in the incompatibility note. Do not treat that omission as ES clearance; retain postponement and resolve the exact database-engine plan before upgrading.",
+                "Enterprise 10.6.0 retains the ES 8.7-and-lower cohosted-KV incompatibility. The matrix separately says ES 8.4.x and higher are compatible with Enterprise 10.6.1.1 and higher, while the displayed 10.6.1 row enumerates only through ES 8.7.x. Because the selector is line-level, verify the exact Enterprise package and ES pairing; do not infer an unlisted pairing or silently treat 10.6.1 as 10.6.1.1.",
                 "Blocker",
                 "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
                 true
@@ -4947,7 +4947,7 @@
         }
       },
       "guidance": {
-        "reviewed": "2026-10-25",
+        "reviewed": "2026-10-26",
         "lifecycle": {
           "source": "https://www.splunk.com/en_us/legal/splunk-software-support-policy.html",
           "reviewed": "2026-10-01",
@@ -8878,9 +8878,9 @@
         "esKv106": {
           "title": "10.6 customer-managed ES and KV Store boundary",
           "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
-          "section": "Splunk Enterprise version 10.x: 10.6.x ES cohosted KV Store 1.0 footnote",
-          "checked": "2026-10-17",
-          "reviewed": "2026-10-17"
+          "section": "Splunk Enterprise version 10.x: 10.6.0 cohosted KV Store 1.0 footnote; 10.6.1 / exact 10.6.1.1-and-higher qualification",
+          "checked": "2026-10-26",
+          "reviewed": "2026-10-26"
         }
       },
       "claimSources": {
@@ -11912,7 +11912,7 @@
         },
         "payload": [
           "Retain the ES cohosted KV Store warning",
-          "The 10.6 compatibility matrix still excludes ES 8.7 and lower from cohosted KV Store 1.0. Its linked guide now names ITSI only in the incompatibility note. Do not treat that omission as ES clearance; retain postponement and resolve the exact database-engine plan before upgrading.",
+          "Enterprise 10.6.0 retains the ES 8.7-and-lower cohosted-KV incompatibility. The matrix separately says ES 8.4.x and higher are compatible with Enterprise 10.6.1.1 and higher, while the displayed 10.6.1 row enumerates only through ES 8.7.x. Because the selector is line-level, verify the exact Enterprise package and ES pairing; do not infer an unlisted pairing or silently treat 10.6.1 as 10.6.1.1.",
           "Blocker",
           "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
           true
@@ -15130,10 +15130,10 @@
           {
             "sourceId": "source-6a7d5336d3254cafe7c5",
             "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
-            "section": "Splunk Enterprise version 10.x: 10.6.x ES cohosted KV Store 1.0 footnote",
+            "section": "Splunk Enterprise version 10.x: 10.6.0 cohosted KV Store 1.0 footnote; 10.6.1 / exact 10.6.1.1-and-higher qualification",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-10-17",
-            "sourceChecked": "2026-10-17"
+            "sourceVerified": "2026-10-26",
+            "sourceChecked": "2026-10-26"
           }
         ],
         "verification": {

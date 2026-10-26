@@ -1,0 +1,96 @@
+{
+  "watch": "version-release-watch",
+  "checkedAt": "2026-10-26T09:51:06Z",
+  "inventory": {
+    "exactUrlAndSectionBaseline": "dist/source-register.js at GitHub main b47a39b1cd5fd6836c1340302062b04804a22513",
+    "attempted": 200,
+    "retrievedDirectly": 167,
+    "officialGitHubApiRecoveries": 29,
+    "unavailable": 4,
+    "newUniqueSources": 0,
+    "qualification": "All 200 exact URLs in the fresh register were attempted. Twenty-nine GitHub records unavailable to the general retriever were recovered through the official GitHub API. The same four exact documentation bodies remained unavailable. Retrieval is not claim verification."
+  },
+  "unavailable": [
+    {
+      "url": "https://docs.splunk.com/Documentation/Splunk/8.1.14/ReleaseNotes/MeetSplunk",
+      "outcome": "unavailable",
+      "handling": "Retain historical evidence; do not infer a replacement release date."
+    },
+    {
+      "url": "https://docs.splunk.com/Documentation/Splunk/8.2.12/ReleaseNotes/MeetSplunk",
+      "outcome": "unavailable",
+      "handling": "Retain historical evidence; do not infer a replacement release date."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/manage-workloads/10.6/use-workload-management-on-kubernetes",
+      "outcome": "retrieval-service-inaccessible",
+      "handling": "Retain prior scoped evidence; nearby pages do not replace the exact claim source."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6",
+      "outcome": "not-found-in-retriever",
+      "handling": "Retain prior evidence; the unavailable body does not advance its source or claim date."
+    }
+  ],
+  "discovery": {
+    "security": "The official advisory index still ends with the October 21 Enterprise and SOAR advisory batch; no October 26 advisory was present.",
+    "cloud": "Cloud 10.6.2.0 dated October 20 and 10.5.2605.13 dated October 22 remain the newest maintained patch entries.",
+    "enterprise": "The download remains Enterprise 10.6.1.1; the release-note statement remains 10.6.1 and does not establish an equivalent alias or exact four-segment release date.",
+    "soar": "SOAR Cloud 8.8.0 remains the October 21 Controlled Availability release; the release-versus-enhancement stage wording conflict remains unresolved.",
+    "observability": "The October page still ends with the October 21 entries; no October 23-26 service milestone was present.",
+    "ai": "No newer named SAIA, ITSI or Observability assistant or agent release with sufficient product-specific prerequisites was established.",
+    "componentStreams": "Collector 0.163.1, chart 0.163.1, .NET 1.16.0, Java 2.32.0, Node.js 4.12.1, Python 2.13.2, Browser RUM 3.2.0 and Splunk Operator 3.2.0 remain the latest official releases."
+  },
+  "claimChecks": [
+    {
+      "claimId": "technical.hf.10.4.kv-store-database-engine",
+      "productVersionEnvironment": "Heavy Forwarder using the Enterprise 10.4 package with KV Store",
+      "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4",
+      "section": "Upgrading the backend database for KV Store and KV Service to MongoDB 8.0",
+      "sourceCheckDate": "2026-10-26",
+      "claimVerificationDate": "2026-10-26",
+      "outcome": "supporting-section-confirmed",
+      "qualification": "Older MongoDB 4.x-6.x binaries are absent from 10.4; 9.x-and-earlier deployments must bridge through Enterprise 10.0 or 10.2, while already-10.x deployments upgrade the database automatically. No UF, rollback or deployment-approval scope is inferred."
+    },
+    {
+      "claimId": "technical.hf.10.6.es-cohosted-kv-store-boundary",
+      "productVersionEnvironment": "Heavy Forwarder using the Enterprise 10.6 package with an applicable customer-managed ES and KV Store dependency",
+      "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+      "section": "Splunk Enterprise version 10.x: 10.6.0 and 10.6.1 rows",
+      "sourceCheckDate": "2026-10-26",
+      "claimVerificationDate": "2026-10-26",
+      "outcome": "maintenance-qualified-scope-confirmed",
+      "qualification": "Enterprise 10.6.0 marks ES 8.7 and lower incompatible with cohosted KV Store 1.0. The matrix separately says ES 8.4.x and higher are compatible with Enterprise 10.6.1.1 and higher, while the displayed 10.6.1 row enumerates through ES 8.7.x. Preserve exact package and pairing scope; do not infer Cloud, entitlement or authorization."
+    },
+    {
+      "claimId": "release.security.current-index",
+      "productVersionEnvironment": "Enterprise, Forwarder and SOAR advisory inventory",
+      "sourceUrl": "https://advisory.splunk.com/",
+      "section": "Current advisory table",
+      "sourceCheckDate": "2026-10-26",
+      "claimVerificationDate": "2026-10-26",
+      "outcome": "no-newer-advisory",
+      "qualification": "The newest listed entries remain dated October 21; index status does not establish applicability to every deployment."
+    },
+    {
+      "claimId": "release.cloud.current-maintenance",
+      "productVersionEnvironment": "Splunk Cloud Platform 10.6 and 10.5 stacks",
+      "sourceUrl": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
+      "section": "10.6.2.0; 10.5.2605.13",
+      "sourceCheckDate": "2026-10-26",
+      "claimVerificationDate": "2026-10-26",
+      "outcome": "current-identifiers-confirmed",
+      "qualification": "Stack maintenance evidence does not establish tenant rollout, Enterprise package availability, Forwarder receiver compatibility or authorization."
+    },
+    {
+      "claimId": "release.components.current-streams",
+      "productVersionEnvironment": "Customer-managed Observability components and Splunk Operator",
+      "sourceUrl": "https://api.github.com/repos/signalfx/splunk-otel-collector/releases?per_page=5",
+      "section": "Latest official release collections for eight maintained repositories",
+      "sourceCheckDate": "2026-10-26",
+      "claimVerificationDate": "2026-10-26",
+      "outcome": "current-identifiers-confirmed",
+      "qualification": "Repository releases remain independent from Observability SaaS milestones, chart packaging, instrumentation compatibility and customer rollout."
+    }
+  ]
+}

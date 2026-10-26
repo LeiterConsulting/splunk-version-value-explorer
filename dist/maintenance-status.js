@@ -298,10 +298,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-25T09:24:00Z",
-      "lastSuccess": "2026-10-25T09:40:41Z",
+      "lastAttempt": "2026-10-26T09:47:15Z",
+      "lastSuccess": "2026-10-26T09:51:46Z",
       "outcome": "changed",
-      "summary": "Reverified two Enterprise 10.6 Heavy Forwarder KV Store mappings and added bounded semantic regressions; the full official release inventory disclosed no newer product release.",
+      "summary": "Qualified the Enterprise 10.6.0 versus exact 10.6.1.1+ ES/cohosted-KV scope and completed re-verification of all 18 borrowed Heavy Forwarder mappings.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -655,9 +655,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Reverified two Enterprise 10.6 Heavy Forwarder KV Store mappings and added bounded semantic regressions; the full official release inventory disclosed no newer product release.",
           "scope": "All 200 registered official URLs attempted; current Enterprise, Cloud, migration, ES, ITSI, Observability, UF/HF, SOAR, security and seven maintained component streams; two HF KV Store mappings; 120 exact-candidate export cases, retained affected-route images, live current/legacy/shared/invalid browser journeys, read-only WebMCP and D1 delivery."
+        },
+        {
+          "at": "2026-10-26T09:47:15Z",
+          "outcome": "running",
+          "summary": "Reviewing the October 26 official release inventory and bounded highest-consequence Forwarder mappings.",
+          "scope": "Full 200-source official inventory plus current Enterprise, Cloud, migration, ES, ITSI, Observability, UF/HF, SOAR, security and AI discovery; priority HF KV Store mappings; generated-content, browser, export and delivery gates as applicable."
+        },
+        {
+          "at": "2026-10-26T09:51:46Z",
+          "outcome": "changed",
+          "summary": "Qualified the Enterprise 10.6.0 versus exact 10.6.1.1+ ES/cohosted-KV scope and completed re-verification of all 18 borrowed Heavy Forwarder mappings.",
+          "scope": "All 200 registered official URLs; current release, security, SOAR, Observability, component and named-AI discovery; final two historical HF mappings; exact selected/shared/legacy/invalid report scope."
         }
       ],
-      "scope": "All 200 registered official URLs attempted; current Enterprise, Cloud, migration, ES, ITSI, Observability, UF/HF, SOAR, security and seven maintained component streams; two HF KV Store mappings; 120 exact-candidate export cases, retained affected-route images, live current/legacy/shared/invalid browser journeys, read-only WebMCP and D1 delivery."
+      "scope": "All 200 registered official URLs; current release, security, SOAR, Observability, component and named-AI discovery; final two historical HF mappings; exact selected/shared/legacy/invalid report scope."
     },
     {
       "id": "es-editions-watch",

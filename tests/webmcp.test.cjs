@@ -454,12 +454,12 @@ test('Fleet configuration and Cloud maintenance remain opt-in and stack scoped',
  const cloud=rt.run('compare_routes',{routes:[{product:'platform',platform:'cloud',from:'10.4.2604',to:'10.5.2605'}]}).reports[0];assert(cloud.technicalChanges.some(t=>t.component==='Cloud 10.5 maintenance build'&&t.to.includes('10.5.2605.12')));
  const ent=rt.run('compare_routes',{routes:[{product:'platform',platform:'enterprise',from:'9.4',to:'10.6'}]}).reports[0];assert(!ent.technicalChanges.some(t=>t.component==='Cloud 10.5 maintenance build'));
 });
-test('ES KV warning preserves the matrix restriction when the linked procedure omits ES',async()=>{
+test('ES KV warning preserves exact 10.6.0 and 10.6.1.1 maintenance scope',async()=>{
  const rt=await runtime(),r=rt.run('compare_routes',{routes:[{product:'es',platform:'enterprise',host:'10.6',from:'8.6',to:'8.7'}]}).reports[0];
  assert.match(r.compatibility.source,/splunk-products-version-compatibility-matrix$/);
  assert.match(r.compatibility.detail,/guide.*ITSI/);
  const p=rt.run('compare_routes',{routes:[{product:'platform',platform:'enterprise',from:'9.4',to:'10.6'}]}).reports[0];
- assert(p.technicalChanges.some(t=>t.component==='ES cohosted KV Store boundary'&&t.source.endsWith('splunk-products-version-compatibility-matrix')));
+ const kv=p.technicalChanges.find(t=>t.component==='ES cohosted KV Store boundary');assert(kv.source.endsWith('splunk-products-version-compatibility-matrix'));assert.match(kv.to,/10\.6\.0/);assert.match(kv.to,/10\.6\.1\.1/);assert.match(kv.implication,/three-segment 10\.6\.1/);
 });
 test('ITSI host pairing preserves the separate cohosted KV Store prerequisite', async () => {
   const rt = await runtime();
@@ -489,8 +489,8 @@ test('ES 10.6 host pairing requires postponement without transferring it to Clou
     assert(!r.breakingChanges.some(x => x.detail.includes('postgresMigrateOnStartup')));
   }
   const platform = rt.run('compare_routes', { routes: [{ product: 'platform', platform: 'enterprise', from: '10.4', to: '10.6' }] }).reports[0];
-  assert(platform.technicalChanges.some(x => x.component === 'ES cohosted KV Store boundary' && x.actionLevel === 'Required' && x.to.includes('ES 8.7-and-lower')));
-  assert(platform.breakingChanges.some(x => x.detail.includes('ES 8.7 and lower') && x.breaking));
+  assert(platform.technicalChanges.some(x => x.component === 'ES cohosted KV Store boundary' && x.actionLevel === 'Required' && x.to.includes('ES 8.7 and lower') && x.to.includes('10.6.1.1')));
+  assert(platform.breakingChanges.some(x => x.detail.includes('Enterprise 10.6.0') && x.detail.includes('10.6.1.1') && x.breaking));
   assert(platform.breakingChanges.some(x => x.title === 'Reconcile the KV Store source-version floor' && x.detail.includes('scope conflict remains unresolved') && x.breaking));
 });
 

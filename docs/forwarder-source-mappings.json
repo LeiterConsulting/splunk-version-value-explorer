@@ -179,10 +179,10 @@
       "sections": [
         "Upgrading the backend database for KV Store and KV Service to MongoDB 8.0"
       ],
-      "sourceCheckDate": "2026-10-08",
-      "claimVerificationDate": "2026-10-08",
+      "sourceCheckDate": "2026-10-26",
+      "claimVerificationDate": "2026-10-26",
       "outcome": "supporting-section-confirmed",
-      "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval."
+      "qualification": "Heavy Forwarder uses the Enterprise package. October 26 bounded semantic recheck: the 10.4 release page says older MongoDB 4.x-6.x binaries are absent, 9.x-and-earlier deployments must bridge through Enterprise 10.0 or 10.2, and an already-10.x deployment upgrades the database automatically. This verifies the cited component scope, not UF applicability, every installed app, rollback safety or deployment approval."
     },
     {
       "claimId": "technical.hf.10.4.kv-store-tls-configuration",
@@ -268,12 +268,13 @@
       "environment": "customer-managed Enterprise package with applicable KV Store / ES dependency",
       "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
       "sections": [
-        "Splunk Enterprise version 10.x: 10.6.x ES cohosted KV Store 1.0 footnote"
+        "Splunk Enterprise version 10.x: 10.6.0 ES cohosted KV Store 1.0 footnote",
+        "Splunk Enterprise version 10.x: 10.6.1 row and exact 10.6.1.1-and-higher qualification"
       ],
-      "sourceCheckDate": "2026-10-17",
-      "claimVerificationDate": "2026-10-17",
-      "outcome": "conflicting-supporting-scope-retained",
-      "qualification": "Matrix retains ES 8.7-and-lower incompatibility; linked migration guide now names only ITSI in its incompatibility note. Retain the warning pending reconciliation. This does not declare ES installed on every HF or establish UF, Cloud, entitlement or authorization scope."
+      "sourceCheckDate": "2026-10-26",
+      "claimVerificationDate": "2026-10-26",
+      "outcome": "maintenance-qualified-scope-confirmed",
+      "qualification": "October 26 bounded semantic recheck: the matrix marks ES 8.7 and lower incompatible with cohosted KV Store 1.0 on Enterprise 10.6.0, then says ES 8.4.x and higher are compatible with Enterprise 10.6.1.1 and higher. The displayed 10.6.1 row enumerates only through ES 8.7.x, so retain exact-package and exact-pairing qualification. This does not declare ES installed on every HF, equate 10.6.1 with 10.6.1.1, or establish UF, Cloud, entitlement or authorization scope."
     }
   ]
 }
