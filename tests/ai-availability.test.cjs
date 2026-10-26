@@ -8,11 +8,12 @@ function model(){
 function state(a,extra={}){return {...a.read('?view=ai-availability').state,...extra};}
 function assess(a,id,extra={}){return a.assess(a.data().capabilities.find(r=>r.id===id),state(a,extra));}
 test('AI catalog preserves named products, exact dependency floors and scoped dates',()=>{
- const a=model(),d=a.data();assert.equal(d.capabilities.length,9);
+ const a=model(),d=a.data();assert.equal(d.capabilities.length,10);
  const itsi=d.capabilities.find(r=>r.product==='itsi');assert.match(itsi.version,/ITSI 5\.0\+.*SAIA 2\.2\+.*MCP Server 1\.2\.1\+/);
  assert(d.capabilities.filter(r=>r.product==='es').every(r=>r.stage.includes('Controlled Availability')));
  for(const r of d.capabilities){assert(r.requirements.length);assert(r.qualification);assert(r.verified);assert(r.scope.product===r.product);for(const id of r.src){const s=a.source(id);assert(s.section);assert(s.checked);assert(s.reviewed);assert.equal(new URL(s.url).hostname,'help.splunk.com');}}
- for(const id of ['aiEsAgents88','aiEsEditions','aiEsRelease88'])assert.equal(a.source(id).reviewed,'2026-10-24');
+ for(const id of ['aiEsAgents88','aiEsThreatGraph88'])assert.equal(a.source(id).reviewed,'2026-10-26');
+ for(const id of ['aiEsEditions','aiEsRelease88'])assert.equal(a.source(id).reviewed,'2026-10-24');
 });
 test('Observability AI capabilities keep realm, rollout and metric limits scoped',()=>{
  const a=model(),d=a.data();assert(a.products.observability);assert.match(d.observabilityRealmConflict,/us3/);
@@ -68,6 +69,9 @@ test('ES component and prerequisite differences prevent broad AI availability cl
  assert.equal(assess(a,'ai-es-sop',s).availability,'unavailable');
  assert.equal(assess(a,'ai-es-sop',{deployment:'enterprise'}).availability,'unavailable');
  assert.equal(assess(a,'ai-es-soc',{edition:'essentials'}).availability,'unavailable');
+ assert.equal(assess(a,'ai-es-threat-graph',{edition:'essentials'}).availability,'unavailable');
+ assert.equal(assess(a,'ai-es-threat-graph',{deployment:'enterprise',edition:'premier'}).availability,'unavailable');
+ const threat=assess(a,'ai-es-threat-graph',{edition:'premier'});assert.equal(threat.availability,'conditional');assert.match(threat.detail,/representative enablement/);
 });
 test('ES GovCloud Cloud exclusion does not become CMP or universal offering authorization',()=>{
  const a=model();assert.equal(assess(a,'ai-es-assistant',{region:'us-gov-east-1',compliance:'fr-m'}).availability,'unavailable');

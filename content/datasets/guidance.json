@@ -136,10 +136,18 @@
     "aiEsAgents88": {
       "title": "ES 8.8 agent compatibility",
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
-      "section": "Agent and component edition notes; compatibility table for Detection Builder, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
-      "checked": "2026-10-24",
-      "reviewed": "2026-10-24",
-      "scope": "Exact 8.8 edition, deployment, version, Cloud Connect, paired-SOAR, enablement, permissions and model notes"
+      "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
+      "checked": "2026-10-26",
+      "reviewed": "2026-10-26",
+      "scope": "Exact 8.8 edition, deployment, version, Cloud Connect, paired-SOAR, feature-stage, enablement, permissions and model notes"
+    },
+    "aiEsThreatGraph88": {
+      "title": "ES 8.8 AI Threat Graph Detection agent",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
+      "section": "Alpha stage; risk-based detection and event-volume prerequisites; enablement and test mode",
+      "checked": "2026-10-26",
+      "reviewed": "2026-10-26",
+      "scope": "Exact feature stage and task-level prerequisites; no region, offering authorization or general-availability inference"
     },
     "aiEsEditions": {
       "title": "ES editions overview",
@@ -688,6 +696,39 @@
         "condition": "Enable Security AI Assistant and required response-template permissions.",
         "src": [
           "aiEsAgents88",
+          "aiEsRelease88"
+        ]
+      },
+      {
+        "kind": "ai-capability",
+        "verified": "2026-10-26",
+        "id": "ai-es-threat-graph",
+        "title": "ES · AI Threat Graph Detection agent",
+        "product": "es",
+        "evidenceVersion": "8.8",
+        "scope": {
+          "product": "es",
+          "evidenceVersion": "8.8"
+        },
+        "version": "ES 8.8 agent and task guides",
+        "stage": "Alpha feature · ES 8.8 release Controlled Availability",
+        "description": "Surface hidden malicious activity by stitching intermediate findings into evidence chains.",
+        "editions": [
+          "premier"
+        ],
+        "deployments": [
+          "cloud"
+        ],
+        "requirements": [
+          "ES 8.8+ on Cloud; contact a Splunk representative to enable the alpha agent.",
+          "Turn on at least one risk-based detection; the guide says approximately one million events are needed to surface quality findings."
+        ],
+        "runtime": "ES Cloud agentic service; test mode routes generated findings to a detection test queue.",
+        "qualification": "Alpha status, ES 8.8 Controlled Availability, Premier entitlement, regional availability and offering/customer authorization are separate facts.",
+        "condition": "Confirm Premier entitlement, representative enablement, exact service region, risk-based detection coverage and adequate event volume.",
+        "src": [
+          "aiEsAgents88",
+          "aiEsThreatGraph88",
           "aiEsRelease88"
         ]
       },

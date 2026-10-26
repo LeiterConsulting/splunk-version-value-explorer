@@ -674,10 +674,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-10-25T09:58:05Z",
-      "lastSuccess": "2026-10-25T10:00:11Z",
-      "outcome": "no-change",
-      "summary": "Rechecked all 29 maintained ES, AI and exact SOAR-related sources plus thirteen high-consequence claims; no authoritative factual change was found and every documented conflict and scope qualification remains explicit.",
+      "lastAttempt": "2026-10-26T09:57:37Z",
+      "lastSuccess": "2026-10-26T10:07:55Z",
+      "outcome": "changed",
+      "summary": "Added the ES 8.8 AI Threat Graph Detection agent with alpha, Premier, Cloud-only and task-level prerequisites; corrected Detection Builder to retain its Cloud Connected CMP path.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -959,9 +959,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Rechecked all 29 maintained ES, AI and exact SOAR-related sources plus thirteen high-consequence claims; no authoritative factual change was found and every documented conflict and scope qualification remains explicit.",
           "scope": "Twenty-two canonical ES sources, the current 8.8 regional page, six exact SOAR App/Export/related-product records, thirteen entitlement/prerequisite/compatibility claims, and unchanged ES Editions/AI Availability report inputs; operational outcome publication tracked separately."
+        },
+        {
+          "at": "2026-10-26T09:57:37Z",
+          "outcome": "running",
+          "summary": "Reviewing the full maintained ES, AI and SOAR source inventory and reconciling current ES 8.8 agent evidence.",
+          "scope": "Twenty-two maintained ES sources, the ES 8.8 regional page, six exact SOAR/App/Export records and the newly documented ES 8.8 Threat Graph Detection task guide; bounded highest-consequence entitlement, prerequisite and pairing claims."
+        },
+        {
+          "at": "2026-10-26T10:07:55Z",
+          "outcome": "changed",
+          "summary": "Added the ES 8.8 AI Threat Graph Detection agent with alpha, Premier, Cloud-only and task-level prerequisites; corrected Detection Builder to retain its Cloud Connected CMP path.",
+          "scope": "All 29 previously maintained ES/AI/pricing/regional/SOAR sources plus the new Threat Graph task guide; fourteen high-consequence entitlement, prerequisite, release-stage and pairing claims. Existing conflicts and exact App/Export pairings remain qualified."
         }
       ],
-      "scope": "Twenty-two canonical ES sources, the current 8.8 regional page, six exact SOAR App/Export/related-product records, thirteen entitlement/prerequisite/compatibility claims, and unchanged ES Editions/AI Availability report inputs; operational outcome publication tracked separately."
+      "scope": "All 29 previously maintained ES/AI/pricing/regional/SOAR sources plus the new Threat Graph task guide; fourteen high-consequence entitlement, prerequisite, release-stage and pairing claims. Existing conflicts and exact App/Export pairings remain qualified."
     },
     {
       "id": "version-guidance-audit",

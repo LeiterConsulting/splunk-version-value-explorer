@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-d658cd3fd369501edf55f970",
-    "digest": "5b87896ba0ab918becd488f7056e3a9cb01253aa9618e8b5559eb7b677f2ea7c",
+    "revision": "content-6d28328bcdbd8c9914716121",
+    "digest": "855d50aaf21f6ca3cc3ec67b0384fb68ba53fbe77f8434493808f1ada5cfc48b",
     "engineRevision": "engine-c43d11677831bf105e34",
     "datasetHashes": {
       "platform": "70b62a293de0c48b9ba8709d83f6c04ec3024451e6560012497bf9ff85b5b626",
       "products": "1124da545438a96b28b4ebe1574b3f0c5bc09022c8f0094c1caf2f98632d70aa",
-      "guidance": "6a0f044394a6984ffebd2368fda4dc3a8a62dc8595439b5f20596b08b62441d9",
+      "guidance": "a19da0224702ea8a283ecdbf37b130a43b88d6b64f33d64b96d2826efa2f55d2",
       "environment": "a13eaf16bdda683bf736834638c3f119dc262deb193b9d18d4dbd511ca9e0e33",
-      "editions": "487ccca1ac05f5faa6cab4d31aa4cafc09cd4fc656b4db91056a2f9f9a0190a3",
+      "editions": "5f065d702c026c7f50718692f9fe5eed98b34af066782197dd8478dde7407870",
       "forwarders": "c3f74a6f8be0651698e00ada59d29bb627eb106857e3791368637f4adf408064",
       "soar": "78ee40698345f3da3d159ec879fe75c259679b328751259940825cf7e33df762"
     },
-    "recordCount": 863,
+    "recordCount": 867,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -5084,10 +5084,18 @@
           "aiEsAgents88": {
             "title": "ES 8.8 agent compatibility",
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
-            "section": "Agent and component edition notes; compatibility table for Detection Builder, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
-            "checked": "2026-10-24",
-            "reviewed": "2026-10-24",
-            "scope": "Exact 8.8 edition, deployment, version, Cloud Connect, paired-SOAR, enablement, permissions and model notes"
+            "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
+            "checked": "2026-10-26",
+            "reviewed": "2026-10-26",
+            "scope": "Exact 8.8 edition, deployment, version, Cloud Connect, paired-SOAR, feature-stage, enablement, permissions and model notes"
+          },
+          "aiEsThreatGraph88": {
+            "title": "ES 8.8 AI Threat Graph Detection agent",
+            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
+            "section": "Alpha stage; risk-based detection and event-volume prerequisites; enablement and test mode",
+            "checked": "2026-10-26",
+            "reviewed": "2026-10-26",
+            "scope": "Exact feature stage and task-level prerequisites; no region, offering authorization or general-availability inference"
           },
           "aiEsEditions": {
             "title": "ES editions overview",
@@ -5668,6 +5676,39 @@
               "condition": "Enable Security AI Assistant and required response-template permissions.",
               "src": [
                 "aiEsAgents88",
+                "aiEsRelease88"
+              ]
+            },
+            {
+              "kind": "ai-capability",
+              "verified": "2026-10-26",
+              "id": "ai-es-threat-graph",
+              "title": "ES · AI Threat Graph Detection agent",
+              "product": "es",
+              "evidenceVersion": "8.8",
+              "scope": {
+                "product": "es",
+                "evidenceVersion": "8.8"
+              },
+              "version": "ES 8.8 agent and task guides",
+              "stage": "Alpha feature · ES 8.8 release Controlled Availability",
+              "description": "Surface hidden malicious activity by stitching intermediate findings into evidence chains.",
+              "editions": [
+                "premier"
+              ],
+              "deployments": [
+                "cloud"
+              ],
+              "requirements": [
+                "ES 8.8+ on Cloud; contact a Splunk representative to enable the alpha agent.",
+                "Turn on at least one risk-based detection; the guide says approximately one million events are needed to surface quality findings."
+              ],
+              "runtime": "ES Cloud agentic service; test mode routes generated findings to a detection test queue.",
+              "qualification": "Alpha status, ES 8.8 Controlled Availability, Premier entitlement, regional availability and offering/customer authorization are separate facts.",
+              "condition": "Confirm Premier entitlement, representative enablement, exact service region, risk-based detection coverage and adequate event volume.",
+              "src": [
+                "aiEsAgents88",
+                "aiEsThreatGraph88",
                 "aiEsRelease88"
               ]
             },
@@ -7826,7 +7867,7 @@
     },
     "VersionCompassEditions": {
       "schemaVersion": 2,
-      "reviewed": "2026-10-24",
+      "reviewed": "2026-10-26",
       "release": "8.8",
       "releaseDate": "2026-10-21",
       "releaseStage": "Controlled Availability",
@@ -7864,7 +7905,12 @@
         "agentic88": {
           "t": "Agentic AI offerings in ES 8.8",
           "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
-          "reviewed": "2026-10-24"
+          "reviewed": "2026-10-26"
+        },
+        "threatGraph88": {
+          "t": "AI Threat Graph Detection agent prerequisites (ES 8.8)",
+          "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
+          "reviewed": "2026-10-26"
         },
         "cloudcx": {
           "t": "Access Splunk Cloud Connect in ES",
@@ -8132,19 +8178,42 @@
           "lane": "Agentic SOC Workforce",
           "ess": {
             "v": "yes",
-            "n": "Cloud only"
+            "n": "Cloud and Cloud Connected CMP"
           },
           "prem": {
             "v": "yes",
-            "n": "Cloud only"
+            "n": "Cloud and Cloud Connected CMP"
           },
-          "desc": "Assists detection authoring and troubleshooting. Cloud only; Splunk platform 10.1.x+ and ES 8.6+. ES 8.7 improves SPL guidance and validation.",
+          "desc": "Assists detection authoring and troubleshooting. Cloud requires Splunk Platform 10.1.x+; Cloud Connected CMP requires Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0. Edition inclusion and deployment prerequisites remain separate from regional rollout and customer enablement.",
           "src": [
+            "agentic88",
             "agentic",
-            "rn87"
+            "rn87",
+            "rn88"
           ],
-          "reviewed": "2026-10-01",
+          "reviewed": "2026-10-26",
           "tag": "updated"
+        },
+        {
+          "id": "threat-graph-detection",
+          "name": "AI Threat Graph Detection Agent",
+          "lane": "Agentic SOC Workforce",
+          "tag": "new",
+          "ess": {
+            "v": "no"
+          },
+          "prem": {
+            "v": "part",
+            "n": "Alpha; Cloud only; representative-enabled"
+          },
+          "flag": "The agent is an alpha feature in ES 8.8 and requires Splunk representative enablement. Alpha status, ES 8.8 Controlled Availability, edition entitlement, regional availability and customer authorization remain separate.",
+          "desc": "Surfaces hidden malicious activity by stitching intermediate findings into evidence chains. The exact 8.8 guide requires at least one risk-based detection and approximately one million processed events for quality findings; the aggregate table lists Premier, Cloud only and ES 8.8+.",
+          "src": [
+            "agentic88",
+            "threatGraph88",
+            "rn88"
+          ],
+          "reviewed": "2026-10-26"
         },
         {
           "id": "sop-agent",
@@ -10708,6 +10777,12 @@
         "url": "https://docs.splunk.com/Documentation/Splunk/8.2.12/ReleaseNotes/MeetSplunk"
       },
       {
+        "id": "source-6c537ef195ec41f39b65",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent"
+      },
+      {
         "id": "source-6dcc8be66edda48016f6",
         "kind": "source",
         "dataset": "sources",
@@ -12609,6 +12684,65 @@
         ]
       },
       {
+        "id": "vc-1207dc705842596c2483",
+        "kind": "claim",
+        "dataset": "editions",
+        "scope": {
+          "release": "8.8"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-d6c87ecad818dd756db9",
+            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": "2026-10-26",
+            "sourceChecked": null
+          },
+          {
+            "sourceId": "source-6c537ef195ec41f39b65",
+            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": "2026-10-26",
+            "sourceChecked": null
+          },
+          {
+            "sourceId": "source-d10f9ac6604ba17d7875",
+            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": "2026-10-24",
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": {
+          "id": "threat-graph-detection",
+          "name": "AI Threat Graph Detection Agent",
+          "lane": "Agentic SOC Workforce",
+          "tag": "new",
+          "ess": {
+            "v": "no"
+          },
+          "prem": {
+            "v": "part",
+            "n": "Alpha; Cloud only; representative-enabled"
+          },
+          "flag": "The agent is an alpha feature in ES 8.8 and requires Splunk representative enablement. Alpha status, ES 8.8 Controlled Availability, edition entitlement, regional availability and customer authorization remain separate.",
+          "desc": "Surfaces hidden malicious activity by stitching intermediate findings into evidence chains. The exact 8.8 guide requires at least one risk-based detection and approximately one million processed events for quality findings; the aggregate table lists Premier, Cloud only and ES 8.8+.",
+          "src": [
+            "agentic88",
+            "threatGraph88",
+            "rn88"
+          ],
+          "reviewed": "2026-10-26"
+        }
+      },
+      {
         "id": "vc-12721e1f8e220d2897a8",
         "kind": "feature",
         "dataset": "products",
@@ -13020,6 +13154,57 @@
           "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/new-features-in-splunk-it-service-intelligence",
           true
         ]
+      },
+      {
+        "id": "vc-1ac6f92255a8fdf8f988",
+        "kind": "ai-capability",
+        "dataset": "platform",
+        "scope": {
+          "product": "es",
+          "evidenceVersion": "8.8",
+          "version": "ES 8.8 agent and task guides",
+          "deployments": [
+            "cloud"
+          ]
+        },
+        "evidence": [],
+        "verification": {
+          "date": "2026-10-26",
+          "outcome": "Recorded in original claim"
+        },
+        "payload": {
+          "kind": "ai-capability",
+          "verified": "2026-10-26",
+          "id": "ai-es-threat-graph",
+          "title": "ES · AI Threat Graph Detection agent",
+          "product": "es",
+          "evidenceVersion": "8.8",
+          "scope": {
+            "product": "es",
+            "evidenceVersion": "8.8"
+          },
+          "version": "ES 8.8 agent and task guides",
+          "stage": "Alpha feature · ES 8.8 release Controlled Availability",
+          "description": "Surface hidden malicious activity by stitching intermediate findings into evidence chains.",
+          "editions": [
+            "premier"
+          ],
+          "deployments": [
+            "cloud"
+          ],
+          "requirements": [
+            "ES 8.8+ on Cloud; contact a Splunk representative to enable the alpha agent.",
+            "Turn on at least one risk-based detection; the guide says approximately one million events are needed to surface quality findings."
+          ],
+          "runtime": "ES Cloud agentic service; test mode routes generated findings to a detection test queue.",
+          "qualification": "Alpha status, ES 8.8 Controlled Availability, Premier entitlement, regional availability and offering/customer authorization are separate facts.",
+          "condition": "Confirm Premier entitlement, representative enablement, exact service region, risk-based detection coverage and adequate event volume.",
+          "src": [
+            "aiEsAgents88",
+            "aiEsThreatGraph88",
+            "aiEsRelease88"
+          ]
+        }
       },
       {
         "id": "vc-1b799e5eab369a017be3",
@@ -13771,10 +13956,10 @@
           {
             "sourceId": "source-d6c87ecad818dd756db9",
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
-            "section": "Agent and component edition notes; compatibility table for Detection Builder, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
+            "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-10-24",
-            "sourceChecked": "2026-10-24"
+            "sourceVerified": "2026-10-26",
+            "sourceChecked": "2026-10-26"
           },
           {
             "sourceId": "source-d10f9ac6604ba17d7875",
@@ -16358,7 +16543,7 @@
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
             "section": null,
             "sectionScope": "Section not recorded",
-            "sourceVerified": "2026-10-24",
+            "sourceVerified": "2026-10-26",
             "sourceChecked": null
           },
           {
@@ -17246,6 +17431,39 @@
               "condition": "Enable Security AI Assistant and required response-template permissions.",
               "src": [
                 "aiEsAgents88",
+                "aiEsRelease88"
+              ]
+            },
+            {
+              "kind": "ai-capability",
+              "verified": "2026-10-26",
+              "id": "ai-es-threat-graph",
+              "title": "ES · AI Threat Graph Detection agent",
+              "product": "es",
+              "evidenceVersion": "8.8",
+              "scope": {
+                "product": "es",
+                "evidenceVersion": "8.8"
+              },
+              "version": "ES 8.8 agent and task guides",
+              "stage": "Alpha feature · ES 8.8 release Controlled Availability",
+              "description": "Surface hidden malicious activity by stitching intermediate findings into evidence chains.",
+              "editions": [
+                "premier"
+              ],
+              "deployments": [
+                "cloud"
+              ],
+              "requirements": [
+                "ES 8.8+ on Cloud; contact a Splunk representative to enable the alpha agent.",
+                "Turn on at least one risk-based detection; the guide says approximately one million events are needed to surface quality findings."
+              ],
+              "runtime": "ES Cloud agentic service; test mode routes generated findings to a detection test queue.",
+              "qualification": "Alpha status, ES 8.8 Controlled Availability, Premier entitlement, regional availability and offering/customer authorization are separate facts.",
+              "condition": "Confirm Premier entitlement, representative enablement, exact service region, risk-based detection coverage and adequate event volume.",
+              "src": [
+                "aiEsAgents88",
+                "aiEsThreatGraph88",
                 "aiEsRelease88"
               ]
             },
@@ -25633,7 +25851,7 @@
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
             "section": null,
             "sectionScope": "Section not recorded",
-            "sourceVerified": "2026-10-24",
+            "sourceVerified": "2026-10-26",
             "sourceChecked": null
           },
           {
@@ -27556,10 +27774,10 @@
           {
             "sourceId": "source-d6c87ecad818dd756db9",
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
-            "section": "Agent and component edition notes; compatibility table for Detection Builder, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
+            "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-10-24",
-            "sourceChecked": "2026-10-24"
+            "sourceVerified": "2026-10-26",
+            "sourceChecked": "2026-10-26"
           },
           {
             "sourceId": "source-d10f9ac6604ba17d7875",
@@ -29462,6 +29680,82 @@
         }
       },
       {
+        "id": "vc-d18059216e706f9fd6fb",
+        "kind": "ai-capability",
+        "dataset": "guidance",
+        "scope": {
+          "product": "es",
+          "evidenceVersion": "8.8",
+          "version": "ES 8.8 agent and task guides",
+          "deployments": [
+            "cloud"
+          ]
+        },
+        "evidence": [
+          {
+            "sourceId": "source-d6c87ecad818dd756db9",
+            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+            "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-10-26",
+            "sourceChecked": "2026-10-26"
+          },
+          {
+            "sourceId": "source-6c537ef195ec41f39b65",
+            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
+            "section": "Alpha stage; risk-based detection and event-volume prerequisites; enablement and test mode",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-10-26",
+            "sourceChecked": "2026-10-26"
+          },
+          {
+            "sourceId": "source-d10f9ac6604ba17d7875",
+            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+            "section": "ES 8.8 Controlled Availability",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-10-24",
+            "sourceChecked": "2026-10-24"
+          }
+        ],
+        "verification": {
+          "date": "2026-10-26",
+          "outcome": "Recorded in original claim"
+        },
+        "payload": {
+          "kind": "ai-capability",
+          "verified": "2026-10-26",
+          "id": "ai-es-threat-graph",
+          "title": "ES · AI Threat Graph Detection agent",
+          "product": "es",
+          "evidenceVersion": "8.8",
+          "scope": {
+            "product": "es",
+            "evidenceVersion": "8.8"
+          },
+          "version": "ES 8.8 agent and task guides",
+          "stage": "Alpha feature · ES 8.8 release Controlled Availability",
+          "description": "Surface hidden malicious activity by stitching intermediate findings into evidence chains.",
+          "editions": [
+            "premier"
+          ],
+          "deployments": [
+            "cloud"
+          ],
+          "requirements": [
+            "ES 8.8+ on Cloud; contact a Splunk representative to enable the alpha agent.",
+            "Turn on at least one risk-based detection; the guide says approximately one million events are needed to surface quality findings."
+          ],
+          "runtime": "ES Cloud agentic service; test mode routes generated findings to a detection test queue.",
+          "qualification": "Alpha status, ES 8.8 Controlled Availability, Premier entitlement, regional availability and offering/customer authorization are separate facts.",
+          "condition": "Confirm Premier entitlement, representative enablement, exact service region, risk-based detection coverage and adequate event volume.",
+          "src": [
+            "aiEsAgents88",
+            "aiEsThreatGraph88",
+            "aiEsRelease88"
+          ]
+        }
+      },
+      {
         "id": "vc-d220a6961b8668fc89ff",
         "kind": "feature",
         "dataset": "platform",
@@ -29577,7 +29871,7 @@
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
             "section": null,
             "sectionScope": "Section not recorded",
-            "sourceVerified": "2026-10-24",
+            "sourceVerified": "2026-10-26",
             "sourceChecked": null
           },
           {
@@ -29778,7 +30072,7 @@
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
             "section": null,
             "sectionScope": "Section not recorded",
-            "sourceVerified": "2026-10-24",
+            "sourceVerified": "2026-10-26",
             "sourceChecked": null
           },
           {
@@ -29934,10 +30228,10 @@
           {
             "sourceId": "source-d6c87ecad818dd756db9",
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
-            "section": "Agent and component edition notes; compatibility table for Detection Builder, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
+            "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-10-24",
-            "sourceChecked": "2026-10-24"
+            "sourceVerified": "2026-10-26",
+            "sourceChecked": "2026-10-26"
           },
           {
             "sourceId": "source-2dc2d849c6eabc9e505e",
@@ -30342,6 +30636,39 @@
               "condition": "Enable Security AI Assistant and required response-template permissions.",
               "src": [
                 "aiEsAgents88",
+                "aiEsRelease88"
+              ]
+            },
+            {
+              "kind": "ai-capability",
+              "verified": "2026-10-26",
+              "id": "ai-es-threat-graph",
+              "title": "ES · AI Threat Graph Detection agent",
+              "product": "es",
+              "evidenceVersion": "8.8",
+              "scope": {
+                "product": "es",
+                "evidenceVersion": "8.8"
+              },
+              "version": "ES 8.8 agent and task guides",
+              "stage": "Alpha feature · ES 8.8 release Controlled Availability",
+              "description": "Surface hidden malicious activity by stitching intermediate findings into evidence chains.",
+              "editions": [
+                "premier"
+              ],
+              "deployments": [
+                "cloud"
+              ],
+              "requirements": [
+                "ES 8.8+ on Cloud; contact a Splunk representative to enable the alpha agent.",
+                "Turn on at least one risk-based detection; the guide says approximately one million events are needed to surface quality findings."
+              ],
+              "runtime": "ES Cloud agentic service; test mode routes generated findings to a detection test queue.",
+              "qualification": "Alpha status, ES 8.8 Controlled Availability, Premier entitlement, regional availability and offering/customer authorization are separate facts.",
+              "condition": "Confirm Premier entitlement, representative enablement, exact service region, risk-based detection coverage and adequate event volume.",
+              "src": [
+                "aiEsAgents88",
+                "aiEsThreatGraph88",
                 "aiEsRelease88"
               ]
             },
@@ -30885,7 +31212,7 @@
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
             "section": null,
             "sectionScope": "Section not recorded",
-            "sourceVerified": "2026-10-24",
+            "sourceVerified": "2026-10-26",
             "sourceChecked": null
           },
           {
@@ -31223,7 +31550,7 @@
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
             "section": null,
             "sectionScope": "Section not recorded",
-            "sourceVerified": "2026-10-24",
+            "sourceVerified": "2026-10-26",
             "sourceChecked": null
           },
           {
@@ -31989,7 +32316,7 @@
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
             "section": null,
             "sectionScope": "Section not recorded",
-            "sourceVerified": "2026-10-24",
+            "sourceVerified": "2026-10-26",
             "sourceChecked": null
           },
           {
@@ -32722,6 +33049,14 @@
         },
         "evidence": [
           {
+            "sourceId": "source-d6c87ecad818dd756db9",
+            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": "2026-10-26",
+            "sourceChecked": null
+          },
+          {
             "sourceId": "source-dc0e2c38de6297132b39",
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
             "section": null,
@@ -32736,6 +33071,14 @@
             "sectionScope": "Section not recorded",
             "sourceVerified": "2026-10-01",
             "sourceChecked": null
+          },
+          {
+            "sourceId": "source-d10f9ac6604ba17d7875",
+            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": "2026-10-24",
+            "sourceChecked": null
           }
         ],
         "verification": {
@@ -32748,18 +33091,20 @@
           "lane": "Agentic SOC Workforce",
           "ess": {
             "v": "yes",
-            "n": "Cloud only"
+            "n": "Cloud and Cloud Connected CMP"
           },
           "prem": {
             "v": "yes",
-            "n": "Cloud only"
+            "n": "Cloud and Cloud Connected CMP"
           },
-          "desc": "Assists detection authoring and troubleshooting. Cloud only; Splunk platform 10.1.x+ and ES 8.6+. ES 8.7 improves SPL guidance and validation.",
+          "desc": "Assists detection authoring and troubleshooting. Cloud requires Splunk Platform 10.1.x+; Cloud Connected CMP requires Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0. Edition inclusion and deployment prerequisites remain separate from regional rollout and customer enablement.",
           "src": [
+            "agentic88",
             "agentic",
-            "rn87"
+            "rn87",
+            "rn88"
           ],
-          "reviewed": "2026-10-01",
+          "reviewed": "2026-10-26",
           "tag": "updated"
         }
       },
@@ -33143,10 +33488,10 @@
           {
             "sourceId": "source-d6c87ecad818dd756db9",
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
-            "section": "Agent and component edition notes; compatibility table for Detection Builder, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
+            "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-10-24",
-            "sourceChecked": "2026-10-24"
+            "sourceVerified": "2026-10-26",
+            "sourceChecked": "2026-10-26"
           },
           {
             "sourceId": "source-d10f9ac6604ba17d7875",

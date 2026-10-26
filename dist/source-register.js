@@ -2503,7 +2503,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "editions.sources.guided.u",
-        "editions: editions.capabilities.15",
+        "editions: editions.capabilities.16",
         "editions: editions.conflicts.5.claims.0",
         "editions: editions.workflows.1"
       ],
@@ -2563,7 +2563,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "editions.sources.triage.u",
-        "editions: editions.capabilities.14",
+        "editions: editions.capabilities.15",
         "editions: editions.workflows.1"
       ],
       "reviews": [
@@ -2619,11 +2619,11 @@ window.VersionCompassSources = {
         "editions.sources.agentic.u",
         "editions: editions.capabilities.1",
         "editions: editions.capabilities.9",
-        "editions: editions.capabilities.10",
-        "editions: editions.capabilities.16",
+        "editions: editions.capabilities.11",
         "editions: editions.capabilities.17",
         "editions: editions.capabilities.18",
         "editions: editions.capabilities.19",
+        "editions: editions.capabilities.20",
         "editions: editions.notes.0",
         "editions: editions.conflicts.1.claims.0",
         "editions: editions.conflicts.2.claims.0",
@@ -2743,7 +2743,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "editions.sources.malwareTask.u",
-        "editions: editions.capabilities.16",
+        "editions: editions.capabilities.17",
         "editions: editions.conflicts.2.claims.1"
       ],
       "reviews": [
@@ -2802,7 +2802,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "editions.sources.socTask.u",
-        "editions: editions.capabilities.19",
+        "editions: editions.capabilities.20",
         "editions: editions.conflicts.1.claims.1"
       ],
       "reviews": [
@@ -2861,7 +2861,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "editions.sources.connectorTask.u",
-        "editions: editions.capabilities.18"
+        "editions: editions.capabilities.19"
       ],
       "reviews": [
         "2026-10-01"
@@ -2922,39 +2922,46 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.4",
         "guidance: guidance.aiAvailability.capabilities.5",
         "guidance: guidance.aiAvailability.capabilities.6",
-        "editions: editions.capabilities.14",
-        "editions: editions.capabilities.16",
+        "guidance: guidance.aiAvailability.capabilities.7",
+        "editions: editions.capabilities.9",
+        "editions: editions.capabilities.10",
+        "editions: editions.capabilities.15",
         "editions: editions.capabilities.17",
         "editions: editions.capabilities.18",
         "editions: editions.capabilities.19",
+        "editions: editions.capabilities.20",
         "editions: editions.conflicts.0.claims.0",
         "editions: editions.workflows.0",
         "editions: editions.workflows.1"
       ],
       "reviews": [
-        "2026-10-24"
+        "2026-10-26"
       ],
       "claimReferences": [
         {
           "path": "guidance: guidance.aiAvailability",
-          "section": "Agent and component edition notes; compatibility table for Detection Builder, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
+          "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.4",
-          "section": "Agent and component edition notes; compatibility table for Detection Builder, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
+          "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.5",
-          "section": "Agent and component edition notes; compatibility table for Detection Builder, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
+          "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.6",
-          "section": "Agent and component edition notes; compatibility table for Detection Builder, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
+          "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.7",
+          "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
         }
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-10-24",
+      "reviewed": "2026-10-26",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-10-23",
       "firstUsed": null,
@@ -2970,6 +2977,50 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-24",
           "event": "Review status updated: Needs reconciliation · 2026-10-24"
+        },
+        {
+          "date": "2026-10-26",
+          "event": "Review status updated: Needs reconciliation · 2026-10-26"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
+      "title": "ES 8.8 AI Threat Graph Detection agent",
+      "areas": [
+        "Release guide",
+        "ES editions",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.guidance.sources.aiEsThreatGraph88.url",
+        "editions.sources.threatGraph88.u",
+        "content-updates.js",
+        "guidance: guidance.aiAvailability.capabilities.6",
+        "editions: editions.capabilities.10"
+      ],
+      "reviews": [
+        "2026-10-26"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.6",
+          "section": "Alpha stage; risk-based detection and event-volume prerequisites; enablement and test mode"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-26",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-26",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-26",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },
@@ -2991,11 +3042,11 @@ window.VersionCompassSources = {
         "editions: editions.capabilities.3",
         "editions: editions.capabilities.4",
         "editions: editions.capabilities.5",
-        "editions: editions.capabilities.11",
         "editions: editions.capabilities.12",
         "editions: editions.capabilities.13",
         "editions: editions.capabilities.14",
         "editions: editions.capabilities.15",
+        "editions: editions.capabilities.16",
         "editions: editions.notes.0",
         "editions: editions.conflicts.0.claims.1",
         "editions: editions.workflows.0",
@@ -3311,9 +3362,9 @@ window.VersionCompassSources = {
         "environment: environment.records.48",
         "environment: environment.records.49",
         "environment: environment.records.50",
-        "editions: editions.capabilities.11",
-        "editions: editions.capabilities.13",
-        "editions: editions.capabilities.17",
+        "editions: editions.capabilities.12",
+        "editions: editions.capabilities.14",
+        "editions: editions.capabilities.18",
         "editions: editions.notes.1"
       ],
       "reviews": [
@@ -3391,9 +3442,9 @@ window.VersionCompassSources = {
         "editions: editions.capabilities.7",
         "editions: editions.capabilities.8",
         "editions: editions.capabilities.9",
-        "editions: editions.capabilities.17",
         "editions: editions.capabilities.18",
         "editions: editions.capabilities.19",
+        "editions: editions.capabilities.20",
         "editions: editions.conflicts.4.claims.1",
         "editions: editions.workflows.0",
         "editions: editions.workflows.1"
@@ -3460,10 +3511,10 @@ window.VersionCompassSources = {
         "editions.sources.matrix.u",
         "editions: editions.capabilities.3",
         "editions: editions.capabilities.6",
-        "editions: editions.capabilities.13",
         "editions: editions.capabilities.14",
         "editions: editions.capabilities.15",
-        "editions: editions.capabilities.18",
+        "editions: editions.capabilities.16",
+        "editions: editions.capabilities.19",
         "editions: editions.history.8.7",
         "editions: editions.conflicts.5.claims.1"
       ],
@@ -3613,11 +3664,14 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.4",
         "guidance: guidance.aiAvailability.capabilities.5",
         "guidance: guidance.aiAvailability.capabilities.6",
+        "guidance: guidance.aiAvailability.capabilities.7",
         "editions: editions.capabilities.0",
         "editions: editions.capabilities.1",
         "editions: editions.capabilities.2",
-        "editions: editions.capabilities.11",
+        "editions: editions.capabilities.9",
+        "editions: editions.capabilities.10",
         "editions: editions.capabilities.12",
+        "editions: editions.capabilities.13",
         "editions: editions.history.8.8",
         "editions: editions.notes.5",
         "editions: editions.highlights.0",
@@ -3646,6 +3700,10 @@ window.VersionCompassSources = {
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.6",
+          "section": "ES 8.8 Controlled Availability"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.7",
           "section": "ES 8.8 Controlled Availability"
         }
       ],
@@ -5594,7 +5652,7 @@ window.VersionCompassSources = {
       "references": [
         "release.guidance.sources.aiObsRca.url",
         "guidance: guidance.aiAvailability",
-        "guidance: guidance.aiAvailability.capabilities.8"
+        "guidance: guidance.aiAvailability.capabilities.9"
       ],
       "reviews": [
         "2026-10-24"
@@ -5605,7 +5663,7 @@ window.VersionCompassSources = {
           "section": "Availability; supported alerts and metrics; opt-in behavior; Kubernetes remediation plans"
         },
         {
-          "path": "guidance: guidance.aiAvailability.capabilities.8",
+          "path": "guidance: guidance.aiAvailability.capabilities.9",
           "section": "Availability; supported alerts and metrics; opt-in behavior; Kubernetes remediation plans"
         }
       ],
@@ -5636,8 +5694,8 @@ window.VersionCompassSources = {
         "release.guidance.sources.aiObsServiceDetails.url",
         "environment.sources.o11y.url",
         "guidance: guidance.aiAvailability",
-        "guidance: guidance.aiAvailability.capabilities.7",
         "guidance: guidance.aiAvailability.capabilities.8",
+        "guidance: guidance.aiAvailability.capabilities.9",
         "environment: environment.records.51",
         "environment: environment.records.52",
         "environment: environment.records.53",
@@ -5665,11 +5723,11 @@ window.VersionCompassSources = {
           "section": "Available regions or realms; realm-to-region equivalence; available components per realm"
         },
         {
-          "path": "guidance: guidance.aiAvailability.capabilities.7",
+          "path": "guidance: guidance.aiAvailability.capabilities.8",
           "section": "Available regions or realms; realm-to-region equivalence; available components per realm"
         },
         {
-          "path": "guidance: guidance.aiAvailability.capabilities.8",
+          "path": "guidance: guidance.aiAvailability.capabilities.9",
           "section": "Available regions or realms; realm-to-region equivalence; available components per realm"
         }
       ],
@@ -5844,7 +5902,7 @@ window.VersionCompassSources = {
         "release.productTracks.observability.releasesData.Jul 2026.requirements.1.3",
         "release.guidance.sources.aiObsJulyRelease.url",
         "guidance: guidance.aiAvailability",
-        "guidance: guidance.aiAvailability.capabilities.8"
+        "guidance: guidance.aiAvailability.capabilities.9"
       ],
       "reviews": [
         "2026-10-24"
@@ -5855,7 +5913,7 @@ window.VersionCompassSources = {
           "section": "July 8 AI troubleshooting agent and remediation plan milestone"
         },
         {
-          "path": "guidance: guidance.aiAvailability.capabilities.8",
+          "path": "guidance: guidance.aiAvailability.capabilities.9",
           "section": "July 8 AI troubleshooting agent and remediation plan milestone"
         }
       ],
@@ -6098,7 +6156,7 @@ window.VersionCompassSources = {
         "release.guidance.sources.aiObsAssistant.url",
         "content-updates.js",
         "guidance: guidance.aiAvailability",
-        "guidance: guidance.aiAvailability.capabilities.7"
+        "guidance: guidance.aiAvailability.capabilities.8"
       ],
       "reviews": [
         "2026-10-24"
@@ -6109,7 +6167,7 @@ window.VersionCompassSources = {
           "section": "Availability; supported realms and product areas; access; context limitations; data sharing and use"
         },
         {
-          "path": "guidance: guidance.aiAvailability.capabilities.7",
+          "path": "guidance: guidance.aiAvailability.capabilities.8",
           "section": "Availability; supported realms and product areas; access; context limitations; data sharing and use"
         }
       ],
@@ -6184,7 +6242,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "editions.sources.automationTask.u",
-        "editions: editions.capabilities.17"
+        "editions: editions.capabilities.18"
       ],
       "reviews": [
         "2026-10-01"
@@ -8142,7 +8200,7 @@ window.VersionCompassSources = {
         "editions.sources.pricing.u",
         "editions: editions.capabilities.0",
         "editions: editions.capabilities.3",
-        "editions: editions.capabilities.11",
+        "editions: editions.capabilities.12",
         "editions: editions.notes.4",
         "editions: editions.conflicts.3.claims.0"
       ],
@@ -8261,7 +8319,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "editions.sources.ueba.u",
-        "editions: editions.capabilities.12",
+        "editions: editions.capabilities.13",
         "editions: editions.workflows.2"
       ],
       "reviews": [

@@ -16,13 +16,16 @@ test('badges are explicit, qualified and printable with evidence',()=>{
  const deprecation=b.entries['technical:observability:Browser RUM navigation configuration'];assert.match(deprecation.detail,/remains functional/);assert.match(deprecation.detail,/not removal/);
 });
 
-test('the thirty-sixth factual cycle qualifies the ES cohosted KV Store maintenance boundary and retains two-cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,36);
- assert(b.active(b.entries['ai:es-essentials-regions']));
- const ai=b.entries["ai:catalog"];assert.equal(ai.cycle,33);assert(!b.active(ai));assert.equal(ai.sourceDate,null);assert.match(ai.detail,/us3/);
+test('the thirty-seventh factual cycle adds scoped ES agent evidence while retaining the preceding ES/KV correction',()=>{
+ assert.equal(b.policy.currentCycle,37);
+ assert(!b.active(b.entries['ai:es-essentials-regions']));
+ const ai=b.entries["ai:catalog"];assert.equal(ai.cycle,37);assert(b.active(ai));assert.equal(ai.sourceDate,null);assert.match(ai.detail,/Threat Graph Detection/);
+ const aiCycle33=b.entries['ai-history:catalog:cycle33'];assert.equal(aiCycle33.recordKey,'ai:catalog');assert(!b.active(aiCycle33));assert.match(aiCycle33.detail,/us3/);
  const aiPrior=b.entries['ai-history:catalog:cycle32'];assert.equal(aiPrior.recordKey,'ai:catalog');assert(!b.active(aiPrior));assert.match(aiPrior.detail,/not an upstream launch/);
  for(const key of ['product:soar:cloud-8.8','feature:observability:Log-based alerting phased rollout']){const e=b.entries[key];assert.equal(e.cycle,33);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-24\.md/);}
  const edition=b.entries['edition:ai'];assert.equal(edition.cycle,34);assert(!b.active(edition));assert.equal(edition.kind,'corrected');assert.match(edition.detail,/Triage edition conflict/);
+  for(const key of ['edition:threat-graph-detection','edition:detection-builder']){const e=b.entries[key];assert.equal(e.cycle,37);assert(b.active(e));assert.match(e.note,/2026\/10\/2026-10-26\.md/);}
+  const kvBoundary=b.entries['technical:platform:ES cohosted KV Store boundary'];assert.equal(kvBoundary.cycle,36);assert(b.active(kvBoundary));
  const editionPrior=b.entries['edition-history:ai:cycle28'];assert.equal(editionPrior.recordKey,'edition:ai');assert(!b.active(editionPrior));
  for(const key of ['technical:platform:October 21 Enterprise security advisories','technical:platform:October 21 Enterprise security hardening','technical:platform:October 21 Enterprise third-party package fixes','feature:observability:Kubernetes chart 0.163.1','feature:observability:Collector 0.163.1 security and input patch','technical:observability:Kubernetes chart 0.163 package baseline','product:soar:security-notice-20261021','technical:platform:Enterprise 9.4 October security floor','technical:platform:Enterprise 10.0 October security floor','technical:platform:Enterprise 10.2 October security floor','technical:platform:Enterprise 10.4 October security floor','technical:platform:Cloud 10.6 maintenance build']){assert.equal(b.entries[key].cycle,31);assert(!b.active(b.entries[key]));assert.match(b.entries[key].note,/2026\/10\/2026-10-23\.md/);}
  for(const key of ['compatibility:es:8.8-enterprise','feature:observability:Application-scoped call graph exclusions','feature:observability:Broader parentless-span MetricSets','feature:observability:Metric chart baselines','feature:observability:IBM MQ built-in dashboards','technical:observability:APM call graph package exclusions','technical:observability:APM parentless-span Monitoring MetricSets']){assert.equal(b.entries[key].cycle,30);assert(!b.active(b.entries[key]));assert.match(b.entries[key].note,/2026\/10\/2026-10-22\.md/);}

@@ -13,8 +13,8 @@ The seven-dataset publication contract is unchanged. Generated adapters/catalogs
 source register, immutable manifest and engine revisions use the established
 sync pipeline. AI catalog records retain explicit product/evidence-version scope.
 
-Current coverage is nine capabilities: SAIA SPL assistance, SAIA Agent Mode,
-the ITSI SAIA subagent, four ES capabilities, the Observability AI Assistant
+Current coverage is ten capabilities: SAIA SPL assistance, SAIA Agent Mode,
+the ITSI SAIA subagent, five ES capabilities, the Observability AI Assistant
 and the Observability AI troubleshooting agent. This is a curated inventory,
 not all Splunk AI. Their product identities remain distinct.
 
@@ -90,9 +90,17 @@ the Triage component to Essentials, the editions overview groups Triage under
 Premier, and the aggregate AI SOC Analyst row is Premier. Detection Builder and
 AI SOC Analyst retain separate Cloud and CMP chains; CMP requires Platform 10.4+,
 ES 8.8+ and Cloud Connect 2.0. Paired SOAR, representative enablement and
-permissions remain independent prerequisites. The catalog remains nine named
-capabilities; this reconciliation does not promote another capability or infer
+permissions remain independent prerequisites. That reconciliation did not infer
 subagent rollout from family-level evidence.
+
+The October 26 review adds the separately documented AI Threat Graph Detection
+agent as the tenth named capability: alpha, Premier, Cloud only and ES 8.8+,
+with representative enablement, a risk-based detection and the guide's
+approximate one-million-event quality threshold kept explicit. Those task-level
+facts do not establish general availability, a service region or customer
+authorization. The same review corrects the ES Editions Detection Builder row
+to retain its documented Cloud Connected CMP path and exact Platform 10.4+,
+ES 8.8+ and Cloud Connect 2.0 prerequisites.
 
 ## Maintenance ownership
 

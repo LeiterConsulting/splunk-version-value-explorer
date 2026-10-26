@@ -12,11 +12,13 @@ test('public editions and legacy preview routes load editions; release routes st
  assert.deepEqual(router('?view=about').loaded,['source-register.js','maintenance-status.js','about.js','navigation.js']);
 });
 test('all evidence records have dated, official HTTPS citations and known edition statuses',()=>{
- assert.equal(data.capabilities.length,20);assert.equal(new Set(data.capabilities.map(x=>x.id)).size,20);
+ assert.equal(data.capabilities.length,21);assert.equal(new Set(data.capabilities.map(x=>x.id)).size,21);
  for(const r of [...data.capabilities,...data.notes,...data.workflows,...data.highlights,...data.conflicts.flatMap(c=>c.claims)]){assert(r.src.length);for(const key of r.src){const s=data.sources[key];assert(s,key);const u=new URL(s.u);assert.equal(u.protocol,'https:');assert(['www.splunk.com','help.splunk.com'].includes(u.hostname));assert.match(s.reviewed,/^\d{4}-\d{2}-\d{2}$/);} }
  for(const c of data.capabilities)for(const cell of [c.ess,c.prem])assert(['yes','no','part','review'].includes(cell.v));
  for(const id of ['triage-agent','guided-response']){const c=data.capabilities.find(x=>x.id===id);assert.equal(c.ess.v,'review');assert(c.flag);assert(c.src.length>=2);}
  const connector=data.capabilities.find(x=>x.id==='connector-builder');assert.equal(connector.ess.v,'yes');assert.equal(connector.prem.v,'yes');assert.match(connector.flag,/8\.7 conflict/);
+ const threat=data.capabilities.find(x=>x.id==='threat-graph-detection');assert.equal(threat.ess.v,'no');assert.equal(threat.prem.v,'part');assert.match(threat.flag,/alpha feature/);assert.match(threat.desc,/one million/);
+ const detection=data.capabilities.find(x=>x.id==='detection-builder');assert.match(detection.ess.n,/Cloud Connected CMP/);assert.match(detection.desc,/Cloud Connect 2\.0/);
  assert(data.capabilities.find(x=>x.id==='automation-builder').flag.includes('still requires'));
  assert(data.notes.find(x=>x.id==='assistants').text.includes('Cloud Connected'));
 });
@@ -45,7 +47,7 @@ function runtime(search='?preview=es-editions'){
  return {elements,details,events,rows,location,html,snapshot(){return window.VersionCompassBuildSnapshot();},get copied(){return copied;}};
 }
 test('search, filters, history URLs, copy links and print restoration work without leaking preview tools',async()=>{
- const r=runtime();assert.equal(r.elements.get('edition-count').textContent,'20 of 20 capabilities');assert(r.details.every(x=>!x.open));
+ const r=runtime();assert.equal(r.elements.get('edition-count').textContent,'21 of 21 capabilities');assert(r.details.every(x=>!x.open));
  const filter=r.elements.get('edition-filter');filter.value='review';filter.listeners.change();assert.equal([...r.rows.values()].filter(x=>!x.hidden).length,2);
  const q=r.elements.get('edition-search');q.value='Triage';q.listeners.input();assert.equal([...r.rows.values()].filter(x=>!x.hidden).length,1);
  q.value='zzzzz';q.listeners.input();assert.equal(r.elements.get('edition-empty').hidden,false);
@@ -78,7 +80,7 @@ test('print report keeps all evidence and tracks selected history independently 
  const r=runtime('?preview=es-editions&filter=review&release=8.4');
  const report=r.html.slice(r.html.indexOf('<div class="edition-report"'));
  assert(report.includes('<article class="edition-report-body"'));
- assert.equal((report.match(/<tr>/g)||[]).length,21);
+ assert.equal((report.match(/<tr>/g)||[]).length,22);
  for(const c of data.capabilities){assert(report.includes(c.name.replaceAll('&','&amp;')));if(c.flag)assert(report.includes(c.flag.replaceAll('&','&amp;')));}
  for(const key of Object.keys(data.sources))assert.equal((report.match(new RegExp('id="report-ref-'+key+'"','g'))||[]).length,1);
  assert(report.includes('<thead>'));assert(report.includes('Cisco Talos'));
@@ -116,7 +118,7 @@ test('editions environment filters stay independent and survive sharing and prin
 
 test('fresh ES HTML snapshot contains selected Cloud environment and source questions',()=>{
  const r=runtime('?view=es-editions&csp=aws&region=us-gov-east-1&compliance=fr-h&filter=review');
- const html=r.snapshot();assert.match(html,/Cloud environment/);assert.match(html,/Conflicting guidance/);assert.match(html,/us-gov-east-1|US East/);assert.match(html,/Environment sources/);assert.match(html,/all 20 capabilities/);assert.match(html,/Triage Agent/);
+ const html=r.snapshot();assert.match(html,/Cloud environment/);assert.match(html,/Conflicting guidance/);assert.match(html,/us-gov-east-1|US East/);assert.match(html,/Environment sources/);assert.match(html,/all 21 capabilities/);assert.match(html,/Triage Agent/);assert.match(html,/AI Threat Graph Detection Agent/);
 });
 
 test('SOAR product entry works while the normal comparison scripts are still loading',()=>{

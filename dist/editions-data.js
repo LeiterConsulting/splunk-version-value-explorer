@@ -1,7 +1,7 @@
 /* Generated from content/datasets/editions.json. Edit the JSON source, not this adapter. */
 window.VersionCompassEditions = {
   "schemaVersion": 2,
-  "reviewed": "2026-10-24",
+  "reviewed": "2026-10-26",
   "release": "8.8",
   "releaseDate": "2026-10-21",
   "releaseStage": "Controlled Availability",
@@ -39,7 +39,12 @@ window.VersionCompassEditions = {
     "agentic88": {
       "t": "Agentic AI offerings in ES 8.8",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
-      "reviewed": "2026-10-24"
+      "reviewed": "2026-10-26"
+    },
+    "threatGraph88": {
+      "t": "AI Threat Graph Detection agent prerequisites (ES 8.8)",
+      "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
+      "reviewed": "2026-10-26"
     },
     "cloudcx": {
       "t": "Access Splunk Cloud Connect in ES",
@@ -307,19 +312,42 @@ window.VersionCompassEditions = {
       "lane": "Agentic SOC Workforce",
       "ess": {
         "v": "yes",
-        "n": "Cloud only"
+        "n": "Cloud and Cloud Connected CMP"
       },
       "prem": {
         "v": "yes",
-        "n": "Cloud only"
+        "n": "Cloud and Cloud Connected CMP"
       },
-      "desc": "Assists detection authoring and troubleshooting. Cloud only; Splunk platform 10.1.x+ and ES 8.6+. ES 8.7 improves SPL guidance and validation.",
+      "desc": "Assists detection authoring and troubleshooting. Cloud requires Splunk Platform 10.1.x+; Cloud Connected CMP requires Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0. Edition inclusion and deployment prerequisites remain separate from regional rollout and customer enablement.",
       "src": [
+        "agentic88",
         "agentic",
-        "rn87"
+        "rn87",
+        "rn88"
       ],
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-10-26",
       "tag": "updated"
+    },
+    {
+      "id": "threat-graph-detection",
+      "name": "AI Threat Graph Detection Agent",
+      "lane": "Agentic SOC Workforce",
+      "tag": "new",
+      "ess": {
+        "v": "no"
+      },
+      "prem": {
+        "v": "part",
+        "n": "Alpha; Cloud only; representative-enabled"
+      },
+      "flag": "The agent is an alpha feature in ES 8.8 and requires Splunk representative enablement. Alpha status, ES 8.8 Controlled Availability, edition entitlement, regional availability and customer authorization remain separate.",
+      "desc": "Surfaces hidden malicious activity by stitching intermediate findings into evidence chains. The exact 8.8 guide requires at least one risk-based detection and approximately one million processed events for quality findings; the aggregate table lists Premier, Cloud only and ES 8.8+.",
+      "src": [
+        "agentic88",
+        "threatGraph88",
+        "rn88"
+      ],
+      "reviewed": "2026-10-26"
     },
     {
       "id": "sop-agent",

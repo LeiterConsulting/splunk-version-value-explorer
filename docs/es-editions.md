@@ -94,6 +94,21 @@ The same 8.8 guide introduces a separate Triage conflict: its SOC analyst descri
 
 Detection Builder and AI SOC Analyst now preserve separate Cloud and Cloud Connected CMP prerequisite chains. CMP requires Platform 10.4+, ES 8.8+ and Cloud Connect 2.0; the Cloud floors remain capability-specific. Automation Builder, Connector Builder, Malware/Phishing and SOP retain their exact deployment, edition, paired-SOAR, enablement or permission qualifications. No independent App for SOAR or SOAR Export release number is used to infer an ES–SOAR pairing.
 
+## October 26, 2026 Threat Graph and Detection Builder reconciliation
+
+The 8.8 agent compatibility table and the separate task guide identify the AI
+Threat Graph Detection agent as an alpha, Premier, Cloud-only capability for ES
+8.8+. Representative enablement, at least one risk-based detection and the
+guide's approximate one-million-event quality threshold remain explicit. Alpha
+stage, the ES 8.8 Controlled Availability release stage, entitlement, region and
+customer authorization are not interchangeable.
+
+The Detection Builder row now preserves the documented Cloud Connected CMP path
+instead of describing the agent as Cloud only. Cloud requires Platform 10.1.x+;
+CMP requires Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0. This correction
+does not broaden other agents to CMP or resolve the Triage, Connector Builder,
+Guided Response or exact SOAR-pairing questions.
+
 ## Cloud environment evidence
 
 See [Cloud environments](cloud-environments.md) for independent CSP, region, FR-M/FR-H, and experience filters, shared report behavior, uncertainty boundaries, and dedicated maintenance ownership. Current hosting evidence does not establish historical release availability or authorize every product component.
