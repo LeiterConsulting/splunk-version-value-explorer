@@ -990,10 +990,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-guidance-audit",
       "name": "Version Guidance Audit",
-      "lastAttempt": "2026-10-22T12:09:32Z",
-      "lastSuccess": "2026-10-22T12:20:40Z",
+      "lastAttempt": "2026-10-26T12:28:48Z",
+      "lastSuccess": "2026-10-26T12:42:17Z",
       "outcome": "changed",
-      "summary": "Corrected ES 8.8 Enterprise pairings, added October 21 Observability guidance, and advanced two verified HF source mappings.",
+      "summary": "Completed the integrated guidance audit with no new factual correction; repaired the AI report footer label and Cisco Cloud print evidence contrast while retaining documented conflicts and unknowns.",
       "history": [
         {
           "at": "2026-09-24T12:45:24.855849+00:00",
@@ -1095,9 +1095,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Corrected ES 8.8 Enterprise pairings, added October 21 Observability guidance, and advanced two verified HF source mappings.",
           "scope": "Reconciled fresh GitHub/Sites histories; complete 187-source register/current-day 186-URL retrieval record; bounded Release Guide, ES, Cloud, migration, Observability, Forwarder and SOAR claim checks; regression, export, WebMCP and live verification."
+        },
+        {
+          "at": "2026-10-26T12:28:48Z",
+          "outcome": "running",
+          "summary": "Auditing the complete maintained Version Compass source inventory, high-consequence guidance, source mappings and exact report behavior.",
+          "scope": "Integrated Release Guide, migration, ES Editions, Cloud environment, About/source compendium, Observability, Universal and Heavy Forwarders, SOAR and AI Availability; 200 official source attempts, bounded compatibility, upgrade, security, entitlement and authorization claims, legacy/current/invalid routes, reports, WebMCP and publication parity."
+        },
+        {
+          "at": "2026-10-26T12:42:17Z",
+          "outcome": "changed",
+          "summary": "Completed the integrated guidance audit with no new factual correction; repaired the AI report footer label and Cisco Cloud print evidence contrast while retaining documented conflicts and unknowns.",
+          "scope": "All 200 maintained official source attempts, ten bounded high-consequence claim checks, all 18 Forwarder source mappings, ten AI capabilities, exact/legacy/invalid SOAR and report routes, both themes, phone, keyboard, native PDF, offline HTML and read-only WebMCP evidence."
         }
       ],
-      "scope": "Reconciled fresh GitHub/Sites histories; complete 187-source register/current-day 186-URL retrieval record; bounded Release Guide, ES, Cloud, migration, Observability, Forwarder and SOAR claim checks; regression, export, WebMCP and live verification."
+      "scope": "All 200 maintained official source attempts, ten bounded high-consequence claim checks, all 18 Forwarder source mappings, ten AI capabilities, exact/legacy/invalid SOAR and report routes, both themes, phone, keyboard, native PDF, offline HTML and read-only WebMCP evidence."
     }
   ]
 };

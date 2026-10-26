@@ -12,11 +12,12 @@
   },
   "scope": "Independent integrated Release Guide, migration, ES Editions, Cloud environment, About/source compendium, Observability, Universal and Heavy Forwarders, SOAR and AI Availability audit; exact source mappings, legacy/current/invalid routes, reports, WebMCP and publication parity.",
   "inventory": {
+    "currentRegisteredSources": 202,
     "sourceRegisterAttempted": 200,
     "retrievedDirectly": 167,
     "officialGitHubApiRecoveries": 29,
     "unavailable": 4,
-    "evidence": "The complete current-day exact-URL inventory record in docs/audits/2026-10-26-version-release-watch-sources.json was reconciled against the matching GitHub/Sites tree. Retrieval is not blanket claim verification. The four unavailable exact bodies retain their prior scoped evidence and were not replaced by adjacent pages.",
+    "evidence": "The current-day exact-URL inventory record in docs/audits/2026-10-26-version-release-watch-sources.json attempted all 200 URLs then registered. The two sources added concurrently afterward—the ES 8.8 AI Threat Graph Detection task guide and October 19 Splunk AI Assistant FedRAMP High announcement—were each retrieved and claim-checked by their owning same-day ES and CSP/FedRAMP watches and reconciled into this audit, giving 202 current registered sources. Retrieval is not blanket claim verification. The four unavailable exact bodies retain their prior scoped evidence and were not replaced by adjacent pages.",
     "independentReviewAt": "2026-10-26T12:31:00Z"
   },
   "claimChecks": [
@@ -114,14 +115,33 @@
   ],
   "validation": {
     "targetedTests": "83 targeted AI, ES Editions, Forwarder, SOAR and shared WebMCP tests passed.",
-    "orderedSyncAndChecks": "pending candidate finalization",
-    "fullNodeTests": "pending candidate finalization",
-    "build": "pending candidate finalization",
-    "exactCandidateExports": "pending required CI",
-    "visualInspection": "pending retained exact-candidate AI and Cloud High pages",
+    "orderedSyncAndChecks": "The release-metadata, content, source-register and content-revision generators ran in required order; all four --check gates passed.",
+    "fullNodeTests": "225 Node tests passed with zero failures before exact-candidate CI.",
+    "build": "The Worker build completed with 60 assets, content revision content-67670b7b8e8cbce35ab28938, engine revision engine-6d7c862a8053b1c431bd and 868 records.",
+    "exactCandidateExports": {
+      "outcome": "passed-prepublication-candidate",
+      "workflowRun": 40323341251,
+      "job": 121573602042,
+      "commit": "a3ba74f1bedabbbf4eaea1e3ace4bba39cba86ab",
+      "tree": "d34df0231ac2f50c5c4ec394f11b78b8219286fc",
+      "artifact": 12649434955,
+      "artifactDigest": "sha256:5db514057134697d0b24beb2a9d534340564257913fe949e96788f67281b9f8d",
+      "visualArtifact": 12649854199,
+      "visualArtifactDigest": "sha256:f0cd298c02cb963fd8a5e1a3060156acdbac8b7633587d7ce1fb55aa2d19467a",
+      "reportFingerprint": "f538ed518b1e8282abc0fa00e83d3c268041057a6b542c94d85b6e0806ef7c3f",
+      "completedAt": "2026-10-26T12:38:56.861Z",
+      "cases": 120,
+      "pdfs": 100,
+      "pages": 1717,
+      "offlineHtmlReopenings": 100,
+      "qualification": "Connector-downloaded ZIP hashes match the GitHub artifact digests. scripts/export-evidence.cjs verified every artifact byte and the current report-input fingerprint. A final exact candidate will repeat this matrix after operational maintenance-state recording."
+    },
+    "visualInspection": "Separately inspected retained AI overview final pages in both themes, AI phone captures in both themes, Cisco Cloud pages 10 and 12, default Cloud page 12 and the Cisco Cloud phone capture. The generic AI footer and repaired Cisco evidence contrast are readable and complete. This is bounded assistant inspection, not an all-page human visual-review claim.",
     "live": "pending publication"
   },
   "publication": {
-    "status": "candidate-in-progress"
-  }
+    "status": "final-candidate-in-progress",
+    "prepublicationCommit": "a3ba74f1bedabbbf4eaea1e3ace4bba39cba86ab"
+  },
+  "completedAt": "2026-10-26T12:42:17Z"
 }
