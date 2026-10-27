@@ -84,7 +84,7 @@ window.VersionCompassEditions = {
     "socTask": {
       "t": "AI SOC Analyst workflow prerequisites (ES 8.7)",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
-      "reviewed": "2026-10-01"
+      "reviewed": "2026-10-27"
     },
     "malwareTask": {
       "t": "Malware Reversing and Phishing task guide (ES 8.7)",
@@ -552,15 +552,15 @@ window.VersionCompassEditions = {
         "v": "yes",
         "n": "Cloud and Cloud Connected CMP; rep-enabled"
       },
-      "desc": "Assists investigation and response. The 8.8 agent table documents Premier on Cloud and Cloud Connected CMP, paired SOAR and representative enablement. Cloud requires platform 10.2+ and ES 8.6+; CMP requires platform 10.4+, ES 8.8+ and Cloud Connect 2.0. The 8.7 task guide separately requires ES 8.7+, connector and investigation permissions, and a finding with AI triage results.",
-      "flag": "The 8.7 aggregate table and task guide retain different Cloud ES minimums. The 8.8 CMP path has its own higher platform, ES and Cloud Connect floors; neither path establishes a compatible SOAR pairing from release numbers alone.",
+      "desc": "Assists investigation and response. The 8.8 agent table documents Premier on Cloud and Cloud Connected CMP, paired SOAR and representative enablement. Cloud requires platform 10.2+ and ES 8.6+; CMP requires platform 10.4+, ES 8.8+ and Cloud Connect 2.0. The 8.7 task guide separately requires ES 8.7+, connector and investigation permissions, and a finding with AI triage results. It limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported.",
+      "flag": "The 8.7 aggregate table and task guide retain different Cloud ES minimums. The task guide also requires inherited SOAR connector permissions and the es_soar_integration_user_role for granular asset access; these permission boundaries do not establish compatible SOAR pairing. The 8.8 CMP path has its own higher platform, ES and Cloud Connect floors.",
       "src": [
         "agentic88",
         "agentic",
         "rn87",
         "socTask"
       ],
-      "reviewed": "2026-10-24"
+      "reviewed": "2026-10-27"
     }
   ],
   "history": {

@@ -102,6 +102,13 @@ authorization. The same review corrects the ES Editions Detection Builder row
 to retain its documented Cloud Connected CMP path and exact Platform 10.4+,
 ES 8.8+ and Cloud Connect 2.0 prerequisites.
 
+The October 27 review adds the updated ES 8.7 AI SOC Analyst task-guide limits
+to the ES capability record: existing findings only, the first 10 findings
+produced together, approximately 200 findings per tenant per day, frontier-model
+support, inherited connector/action permissions and the granular asset-role
+requirement. Those task-specific 8.7 boundaries are kept separate from the 8.8
+aggregate Cloud/CMP prerequisites, exact SOAR pairing, region and authorization.
+
 ## Maintenance ownership
 
 | Existing task | AI responsibility |

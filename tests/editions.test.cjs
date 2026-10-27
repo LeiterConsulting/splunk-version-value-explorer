@@ -27,6 +27,9 @@ test('task-level prerequisites and pricing uncertainty remain explicit without c
  assert.match(cap('automation-builder').desc,/10\.1\+.*FedRAMP/);
  assert.match(cap('connector-builder').desc,/SOAR App: Edit and SOAR Asset: Edit/);
  assert.match(cap('ai-soc-analyst').desc,/8\.6\+.*8\.7\+/);
+ assert.match(cap('ai-soc-analyst').desc,/first 10.*approximately 200.*frontier models/);
+ assert.match(cap('ai-soc-analyst').flag,/es_soar_integration_user_role/);
+ assert.equal(data.sources.socTask.reviewed,'2026-10-27');
  assert.match(cap('malware-reversing').desc,/8\.5\+.*10\.2\+.*8\.6\+/);
  for(const id of ['ai-soc-analyst','malware-reversing']){assert.equal(cap(id).ess.v,'no');assert.match(cap(id).flag,/discrepancy|different Cloud ES minimums/);}
  assert.equal(data.conflicts.length,6);

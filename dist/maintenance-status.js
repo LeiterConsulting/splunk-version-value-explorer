@@ -698,10 +698,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-10-26T09:57:37Z",
+      "lastAttempt": "2026-10-27T10:02:43Z",
       "lastSuccess": "2026-10-26T10:07:55Z",
-      "outcome": "changed",
-      "summary": "Added the ES 8.8 AI Threat Graph Detection agent with alpha, Premier, Cloud-only and task-level prerequisites; corrected Detection Builder to retain its Cloud Connected CMP path.",
+      "outcome": "running",
+      "summary": "Reviewing the full ES Editions and ES-specific AI Availability evidence inventory against fresh GitHub and Sites source.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -995,9 +995,15 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Added the ES 8.8 AI Threat Graph Detection agent with alpha, Premier, Cloud-only and task-level prerequisites; corrected Detection Builder to retain its Cloud Connected CMP path.",
           "scope": "All 29 previously maintained ES/AI/pricing/regional/SOAR sources plus the new Threat Graph task guide; fourteen high-consequence entitlement, prerequisite, release-stage and pairing claims. Existing conflicts and exact App/Export pairings remain qualified."
+        },
+        {
+          "at": "2026-10-27T10:02:43Z",
+          "outcome": "running",
+          "summary": "Reviewing the full ES Editions and ES-specific AI Availability evidence inventory against fresh GitHub and Sites source.",
+          "scope": "Thirty maintained official ES, AI, pricing, regional and SOAR sources plus fourteen bounded highest-consequence claims; no exhaustive historical verification."
         }
       ],
-      "scope": "All 29 previously maintained ES/AI/pricing/regional/SOAR sources plus the new Threat Graph task guide; fourteen high-consequence entitlement, prerequisite, release-stage and pairing claims. Existing conflicts and exact App/Export pairings remain qualified."
+      "scope": "Thirty maintained official ES, AI, pricing, regional and SOAR sources plus fourteen bounded highest-consequence claims; no exhaustive historical verification."
     },
     {
       "id": "version-guidance-audit",

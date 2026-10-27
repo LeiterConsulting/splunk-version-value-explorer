@@ -16,10 +16,12 @@ test('badges are explicit, qualified and printable with evidence',()=>{
  const deprecation=b.entries['technical:observability:Browser RUM navigation configuration'];assert.match(deprecation.detail,/remains functional/);assert.match(deprecation.detail,/not removal/);
 });
 
-test('cycle 39 adds current Observability changes and expires cycle 37 markers',()=>{
- assert.equal(b.policy.currentCycle,39);
+test('cycle 40 adds ES AI SOC Analyst qualifications while retaining cycle 39 Observability changes',()=>{
+ assert.equal(b.policy.currentCycle,40);
  assert(!b.active(b.entries['ai:es-essentials-regions']));
- const ai=b.entries["ai:catalog"];assert.equal(ai.cycle,37);assert(!b.active(ai));assert.equal(ai.sourceDate,null);assert.match(ai.detail,/Threat Graph Detection/);
+ const ai=b.entries["ai:catalog"];assert.equal(ai.cycle,40);assert(b.active(ai));assert.equal(ai.sourceDate,null);assert.match(ai.detail,/first 10 findings/);
+ const aiCycle37=b.entries['ai-history:catalog:cycle37'];assert.equal(aiCycle37.recordKey,'ai:catalog');assert.equal(aiCycle37.cycle,37);assert(!b.active(aiCycle37));assert.match(aiCycle37.detail,/Threat Graph Detection/);
+ const soc=b.entries['edition:ai-soc-analyst'];assert.equal(soc.cycle,40);assert(b.active(soc));assert.match(soc.detail,/throughput.*model.*permission/);
  const aiCycle33=b.entries['ai-history:catalog:cycle33'];assert.equal(aiCycle33.recordKey,'ai:catalog');assert(!b.active(aiCycle33));assert.match(aiCycle33.detail,/us3/);
  const aiPrior=b.entries['ai-history:catalog:cycle32'];assert.equal(aiPrior.recordKey,'ai:catalog');assert(!b.active(aiPrior));assert.match(aiPrior.detail,/not an upstream launch/);
  for(const key of ['product:soar:cloud-8.8','feature:observability:Log-based alerting phased rollout']){const e=b.entries[key];assert.equal(e.cycle,33);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-24\.md/);}

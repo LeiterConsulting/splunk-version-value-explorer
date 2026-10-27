@@ -2833,17 +2833,33 @@ window.VersionCompassSources = {
     },
     {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
-      "title": "AI SOC Analyst workflow prerequisites (ES 8.7)",
+      "title": "ES 8.7 AI SOC analyst workflow",
       "areas": [
-        "ES editions"
+        "Release guide",
+        "ES editions",
+        "Shared guidance"
       ],
       "references": [
+        "release.guidance.sources.aiEsSocTask87.url",
         "editions.sources.socTask.u",
+        "content-updates.js",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.7",
         "editions: editions.capabilities.20",
         "editions: editions.conflicts.1.claims.1"
       ],
       "reviews": [
-        "2026-10-01"
+        "2026-10-27"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.7",
+          "section": "Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions"
+        }
       ],
       "conflict": true,
       "usage": "In use",

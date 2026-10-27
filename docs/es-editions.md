@@ -109,6 +109,21 @@ CMP requires Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0. This correction
 does not broaden other agents to CMP or resolve the Triage, Connector Builder,
 Guided Response or exact SOAR-pairing questions.
 
+## October 27, 2026 AI SOC Analyst task constraints
+
+The ES 8.7 AI SOC Analyst task guide was updated after the October 26 watch.
+VersionCompass now records its task-specific operating boundaries: only existing
+findings inside an investigation are analyzed; the agent handles the first 10
+findings produced together; the documented tenant limit is approximately 200
+findings per day; and only frontier models are supported. The guide also makes
+SOAR connector/action inheritance and the `es_soar_integration_user_role`
+requirement for granular asset access explicit.
+
+These 8.7 task details do not establish the separate 8.8 Cloud Connected CMP
+path, a compatible SOAR version pairing, region, entitlement or customer
+authorization. The aggregate-table versus task-guide Cloud ES minimum remains
+visible, as do the Triage, Connector Builder and Guided Response source questions.
+
 ## Cloud environment evidence
 
 See [Cloud environments](cloud-environments.md) for independent CSP, region, FR-M/FR-H, and experience filters, shared report behavior, uncertainty boundaries, and dedicated maintenance ownership. Current hosting evidence does not establish historical release availability or authorize every product component.
