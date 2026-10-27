@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-10-26T11:50:52Z",
-      "lastSuccess": "2026-10-26T11:53:11Z",
-      "outcome": "changed",
-      "summary": "Retained October19 High processor/SPL-assistant announcement beside unresolved exact service, mode and rollout scope.",
+      "lastAttempt": "2026-10-27T11:11:25Z",
+      "lastSuccess": "2026-10-27T11:11:41.014Z",
+      "outcome": "no-change",
+      "summary": "Reviewed 25 official sources and seven consequential claim groups; no material regional or authorization change established.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -303,9 +303,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Retained October19 High processor/SPL-assistant announcement beside unresolved exact service, mode and rollout scope.",
           "scope": "25 official sources; nine bounded claim groups; full ES8.8 regional tables and separate offering boundaries."
+        },
+        {
+          "at": "2026-10-27T11:11:25Z",
+          "outcome": "running",
+          "summary": "Reviewing maintained regional, authorization and named-AI evidence.",
+          "scope": "25 official URLs; complete ES 8.8 regional tables, exact Marketplace offerings, dated visual matrix, SAIA/ITSI rollout and SOAR restricted scope."
+        },
+        {
+          "at": "2026-10-27T11:11:41.014Z",
+          "outcome": "no-change",
+          "summary": "Reviewed 25 official sources and seven consequential claim groups; no material regional or authorization change established.",
+          "scope": "25 official URLs; complete ES 8.8 regional tables, exact Marketplace offerings, dated visual matrix, SAIA/ITSI rollout and SOAR restricted scope."
         }
       ],
-      "scope": "25 official sources; nine bounded claim groups; full ES8.8 regional tables and separate offering boundaries."
+      "scope": "25 official URLs; complete ES 8.8 regional tables, exact Marketplace offerings, dated visual matrix, SAIA/ITSI rollout and SOAR restricted scope."
     },
     {
       "id": "version-release-watch",
