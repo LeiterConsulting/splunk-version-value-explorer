@@ -371,16 +371,21 @@ test('October Observability route preserves SaaS semantics and component release
   const rt = await runtime();
   const report = rt.run('compare_routes', { routes: [{ product: 'observability', platform: 'cloud', host: '10.6', from: 'Sep 2026', to: 'Oct 2026' }] }).reports[0];
   assert.equal(rt.window.SPLUNK_DATA.productTracks.observability.latest, 'Oct 2026');
-  for (const title of ['Stricter APM not-equal tag filtering', 'Java instrumentation 2.32', 'Node.js instrumentation 4.12.1', 'Kubernetes chart 0.162.1', 'Python instrumentation 2.13.2', 'Collector 0.163.1 security and input patch', 'Application-scoped call graph exclusions', 'Broader parentless-span MetricSets', 'Metric chart baselines', 'IBM MQ built-in dashboards']) {
+  for (const title of ['Stricter APM not-equal tag filtering', 'Java instrumentation 2.33', 'Node.js instrumentation 4.12.1', 'Kubernetes chart 0.162.1', 'Python instrumentation 2.13.2', 'Collector 0.163.1 security and input patch', 'Application-scoped call graph exclusions', 'Broader parentless-span MetricSets', 'Metric chart baselines', 'IBM MQ built-in dashboards', 'Multi-trace AI comparisons']) {
     assert(report.features.some(item => item.title === title), title);
   }
   const apm = report.technicalChanges.find(item => item.component === 'APM not-equal tag filters');
   assert.match(apm.to, /excludes data when the selected tag is absent/);
   assert.match(apm.action, /Inventory APM searches that use !=/);
   assert(report.breakingChanges.some(item => item.title === 'Retest APM searches that use !=' && item.breaking));
-  const java = report.features.find(item => item.title === 'Java instrumentation 2.32');
-  assert.equal(java.source, 'https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0');
+  const java = report.features.find(item => item.title === 'Java instrumentation 2.33');
+  assert.equal(java.source, 'https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.0');
   assert.match(java.milestone, /Separately versioned Java instrumentation/);
+  assert(report.technicalChanges.some(item => item.component === 'Java instrumentation baseline' && item.to.includes('SDK 1.67.0') && item.to.includes('2.33.0')));
+  assert(report.readiness.some(item => item.title === 'Validate the Java 2.33 dependency baseline'));
+  const multiTrace = report.features.find(item => item.title === 'Multi-trace AI comparisons');
+  assert.match(multiTrace.detail, /two to five traces/);
+  assert.match(multiTrace.detail, /does not establish tenant access/);
   const node = report.features.find(item => item.title === 'Node.js instrumentation 4.12.1');
   assert.equal(node.source, 'https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1');
   assert(report.technicalChanges.some(item => item.component === 'Node.js native profiler memory management' && item.to.includes('4.12.1')));

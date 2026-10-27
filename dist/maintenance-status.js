@@ -310,10 +310,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-26T09:47:15Z",
+      "lastAttempt": "2026-10-27T09:26:27Z",
       "lastSuccess": "2026-10-26T09:51:46Z",
-      "outcome": "changed",
-      "summary": "Qualified the Enterprise 10.6.0 versus exact 10.6.1.1+ ES/cohosted-KV scope and completed re-verification of all 18 borrowed Heavy Forwarder mappings.",
+      "outcome": "running",
+      "summary": "Checking the complete official release/source inventory and bounded highest-consequence claims.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -679,9 +679,15 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Qualified the Enterprise 10.6.0 versus exact 10.6.1.1+ ES/cohosted-KV scope and completed re-verification of all 18 borrowed Heavy Forwarder mappings.",
           "scope": "All 200 registered official URLs; current release, security, SOAR, Observability, component and named-AI discovery; final two historical HF mappings; exact selected/shared/legacy/invalid report scope."
+        },
+        {
+          "at": "2026-10-27T09:26:27Z",
+          "outcome": "running",
+          "summary": "Checking the complete official release/source inventory and bounded highest-consequence claims.",
+          "scope": "Splunk Enterprise, Cloud, migration, ES, ITSI, Observability, Forwarders, SOAR and named AI capability releases; exact source/section changes and coordinated ownership boundaries."
         }
       ],
-      "scope": "All 200 registered official URLs; current release, security, SOAR, Observability, component and named-AI discovery; final two historical HF mappings; exact selected/shared/legacy/invalid report scope."
+      "scope": "Splunk Enterprise, Cloud, migration, ES, ITSI, Observability, Forwarders, SOAR and named AI capability releases; exact source/section changes and coordinated ownership boundaries."
     },
     {
       "id": "es-editions-watch",

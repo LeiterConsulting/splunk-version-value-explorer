@@ -2127,12 +2127,12 @@ Object.assign(window.SPLUNK_DATA, {
               "APM filters that use != now exclude data when the tag is absent, so existing searches can return fewer results than before."
             ],
             [
-              "Java instrumentation 2.32",
+              "Java instrumentation 2.33",
               "Telemetry & OpenTelemetry",
-              "See virtual-thread work in call graphs",
-              "Adopt the current Java agent baseline with OpenTelemetry Java SDK 1.66.0, instrumentation 2.32.0, and virtual-thread capture in call graphs.",
-              "Separately versioned Java instrumentation · released October 12, 2026",
-              "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0"
+              "Keep the Java agent dependency baseline current",
+              "Adopt the current Java agent baseline with OpenTelemetry Java SDK 1.67.0 and instrumentation 2.33.0. The separately versioned component release does not establish a new Observability Cloud rollout.",
+              "Separately versioned Java instrumentation · released October 26, 2026",
+              "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.0"
             ],
             [
               "Node.js instrumentation 4.12.1",
@@ -2229,6 +2229,14 @@ Object.assign(window.SPLUNK_DATA, {
               "Run periodic SPL searches against connected log data, preview events, configure count-based firing and clearing, and use existing notification destinations. Access is limited to select accounts in specific realms during a phased rollout; do not infer universal availability.",
               "Phased rollout · October 21, 2026",
               "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
+            ],
+            [
+              "Multi-trace AI comparisons",
+              "APM & troubleshooting",
+              "Compare two to five traces with generated context",
+              "Investigate two to five traces in the multi-trace view and trigger AI-generated comparisons for performance, errors, and differences. The release milestone does not establish tenant access, entitlement, regional scope, or customer authorization.",
+              "Rolling-service milestone · October 26, 2026",
+              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026"
             ]
           ],
           "technicalChanges": [
@@ -2303,13 +2311,13 @@ Object.assign(window.SPLUNK_DATA, {
             {
               "component": "Java instrumentation baseline",
               "domain": "Customer-managed instrumentation",
-              "changeType": "Versions and call-graph coverage updated",
+              "changeType": "Dependency versions updated",
               "actionLevel": "Review",
-              "from": "Splunk Java instrumentation 2.31.3 with the preceding OpenTelemetry SDK and instrumentation baseline",
-              "to": "Splunk Java instrumentation 2.32.0 with OpenTelemetry Java SDK 1.66.0, instrumentation 2.32.0, and virtual-thread call-graph capture",
-              "implication": "The agent can expose additional execution context for applications that use virtual threads, while the upstream dependency baseline changes with the agent.",
+              "from": "Splunk Java instrumentation 2.32.0 with OpenTelemetry Java SDK 1.66.0 and instrumentation 2.32.0",
+              "to": "Splunk Java instrumentation 2.33.0 with OpenTelemetry Java SDK 1.67.0 and instrumentation 2.33.0",
+              "implication": "The customer-managed agent and both upstream dependency baselines change; the release does not claim a new SaaS capability.",
               "action": "Validate representative traces, call graphs, profiling controls, and agent/image packaging before broad rollout.",
-              "source": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0"
+              "source": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.0"
             },
             {
               "component": "Node.js native profiler memory management",
@@ -2511,10 +2519,10 @@ Object.assign(window.SPLUNK_DATA, {
               true
             ],
             [
-              "Validate Java 2.32 virtual-thread call graphs",
-              "Java instrumentation 2.32 updates the OpenTelemetry SDK and instrumentation baseline and captures virtual threads in call graphs. Confirm representative application traces, call-graph shape, and packaging before rollout.",
+              "Validate the Java 2.33 dependency baseline",
+              "Java instrumentation 2.33 updates the OpenTelemetry SDK and instrumentation baselines. Confirm representative application traces, call graphs, profiling controls, and packaging before rollout.",
               "Validate",
-              "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0",
+              "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.0",
               false
             ],
             [

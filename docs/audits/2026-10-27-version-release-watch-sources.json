@@ -1,0 +1,68 @@
+{
+  "watch": "version-release-watch",
+  "checkedAt": "2026-10-27T09:31:45Z",
+  "inventory": {
+    "exactUrlAndSectionBaseline": "dist/source-register.js at GitHub main 16507b91e5edd6ce0662fa4d3636bc6f92a189d8",
+    "attempted": 203,
+    "retrieved": 203,
+    "unavailable": 0,
+    "newUniqueSources": 1,
+    "qualification": "All 202 URLs in the fresh register were attempted, then the newly discovered Java v2.33.0 release was checked through the official GitHub record. Retrieval is not claim verification; claim checks below are separately scoped."
+  },
+  "discovery": {
+    "security": "SVD-2026-1013 was published October 22 and updated October 26. Its Product Status table marks every VersionCompass in-scope product unaffected; no patch floor or route action was created.",
+    "cloud": "Cloud 10.6.2.0 dated October 20 and 10.5.2605.13 dated October 22 remain the newest maintained patch entries. Current Cloud evidence is not applied retrospectively.",
+    "enterprise": "The download remains Enterprise 10.6.1.1; no new Enterprise release or route was established.",
+    "soar": "SOAR Cloud 8.8.0 remains the newest documented milestone and its release-stage wording conflict remains unresolved. On-premises 8.7.0 build 243, pre-7.0 bridge and conditional runtime transitions remain unchanged.",
+    "observability": "The October release page added an October 26 APM milestone for comparing two to five traces and optionally generating a performance, error and difference comparison.",
+    "ai": "The APM comparison is a release-note capability, not a separately documented named assistant or agent with enough prerequisite and regional evidence for the AI Availability directory.",
+    "componentStreams": "Java instrumentation advanced to v2.33.0 on October 26. Collector 0.163.1, chart 0.163.1, .NET 1.16.0, Node.js 4.12.1, Python 2.13.2, Browser RUM 3.2.0 and Splunk Operator 3.2.0 remain current."
+  },
+  "claimChecks": [
+    {
+      "claimId": "release.observability.multi-trace-ai-comparison",
+      "productVersionEnvironment": "Splunk Observability Cloud APM; rolling service milestone",
+      "sourceUrl": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+      "section": "October 26, 2026 — Splunk APM",
+      "sourceCheckDate": "2026-10-27",
+      "claimVerificationDate": "2026-10-27",
+      "outcome": "new-milestone-confirmed",
+      "qualification": "The page supports comparing two to five traces and triggering an AI-generated comparison. Tenant access, entitlement, regional scope, customer authorization and historical availability remain separate."
+    },
+    {
+      "claimId": "release.components.java-2.33",
+      "productVersionEnvironment": "Customer-managed Splunk OpenTelemetry Java instrumentation 2.33.0",
+      "sourceUrl": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.0",
+      "section": "Release v2.33.0 — General",
+      "sourceCheckDate": "2026-10-27",
+      "claimVerificationDate": "2026-10-27",
+      "outcome": "current-baseline-confirmed",
+      "qualification": "The October 26 release advances OpenTelemetry Java SDK to 1.67.0 and instrumentation to 2.33.0. No additional functional capability or SaaS rollout is inferred."
+    },
+    {
+      "claimId": "release.security.svd-2026-1013",
+      "productVersionEnvironment": "Enterprise, Cloud, UF, ES, ITSI, SOAR and Observability product applicability",
+      "sourceUrl": "https://advisory.splunk.com/advisories/SVD-2026-1013",
+      "section": "Product Status",
+      "sourceCheckDate": "2026-10-27",
+      "claimVerificationDate": "2026-10-27",
+      "outcome": "in-scope-products-unaffected",
+      "qualification": "The advisory-specific unaffected status does not establish a general security clearance, patch floor, compatibility, rollout, entitlement or authorization."
+    },
+    {
+      "claimId": "release.forwarders.borrowed-hf-mappings",
+      "productVersionEnvironment": "Historical Heavy Forwarder technical/runtime, receiver and topology mappings",
+      "sourceUrl": "docs/forwarder-source-mappings.json",
+      "section": "All 18 maintained borrowed claims",
+      "sourceCheckDate": "2026-10-27",
+      "claimVerificationDate": "2026-10-26",
+      "outcome": "no-source-change-after-completed-semantic-verification",
+      "qualification": "The generated register still resolves all 18 exact mappings. This run did not invent a new verification date or broaden Enterprise-package evidence to Universal Forwarders."
+    }
+  ],
+  "finiteBacklog": [
+    "Reconcile the KV-specific 10.2 bridge versus the general direct 10.0-to-10.6 route only from authoritative clarification.",
+    "Monitor authoritative clarification of the SOAR Cloud 8.8 Controlled Availability / General Availability wording conflict.",
+    "Continue bounded discovery of named AI assistants and agents with exact product prerequisites and regional scope."
+  ]
+}

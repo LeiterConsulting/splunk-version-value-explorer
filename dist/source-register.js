@@ -28,14 +28,14 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-07",
+      "reviewed": "2026-10-27",
       "status": "Reviewed",
       "firstRecorded": "2026-09-28",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "A schedule notice is not a vulnerability advisory or a product-version requirement.",
-      "section": "Advisory archive — September 2026 entries; Current index; not a complete applicability audit",
-      "verificationScope": "Checked the current archive on October 7 and confirmed the newest entry still remains SVD-2026-0901, which moved the planned Enterprise, Universal Forwarder, AWS add-on and MCP Server advisories to October 7. No October advisory was published at check time. This is an index check, not a complete applicability or vulnerability audit.",
+      "reason": "An unaffected advisory does not create a patch floor, upgrade action, Cloud rollout, entitlement or authorization claim.",
+      "section": "Current advisory index — SVD-2026-1013",
+      "verificationScope": "Checked the current index and the exact SVD-2026-1013 Product Status table. The October 22 advisory, updated October 26, lists Splunk Enterprise, Splunk Cloud Platform, Universal Forwarder, Enterprise Security, ITSI, SOAR Cloud, SOAR, SOAR Connectors and Observability products as unaffected by CVE-2026-109618 and CVE-2026-109619. This is an advisory-specific applicability check, not a general security clearance.",
       "events": [
         {
           "date": "2026-09-28",
@@ -52,6 +52,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-07",
           "event": "Review status updated: Reviewed · 2026-10-07"
+        },
+        {
+          "date": "2026-10-27",
+          "event": "Review status updated: Reviewed · 2026-10-27"
         }
       ]
     },
@@ -1095,7 +1099,7 @@ window.VersionCompassSources = {
         "release.productTracks.observability.releasesData.Oct 2026.requirements.3.3"
       ],
       "reviews": [],
-      "usage": "In use",
+      "usage": "Retired",
       "reviewed": "2026-10-13",
       "status": "Reviewed",
       "firstRecorded": "2026-10-13",
@@ -1107,6 +1111,38 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-10-13",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-27",
+          "event": "No longer cited in the maintained datasets"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.0",
+      "title": "v2.33.0",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Oct 2026.features.1.5",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.6.source",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.3.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-27",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-27",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Java instrumentation, upstream SDK dependencies and SaaS availability have separate lifecycles.",
+      "section": "Release v2.33.0 — General",
+      "verificationScope": "Confirmed the October 26, 2026 release and the OpenTelemetry Java SDK 1.67.0 and instrumentation 2.33.0 dependency updates. No additional functional change or SaaS rollout is inferred.",
+      "events": [
+        {
+          "date": "2026-10-27",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -6006,6 +6042,7 @@ window.VersionCompassSources = {
         "release.productTracks.observability.releasesData.Oct 2026.features.11.5",
         "release.productTracks.observability.releasesData.Oct 2026.features.12.5",
         "release.productTracks.observability.releasesData.Oct 2026.features.13.5",
+        "release.productTracks.observability.releasesData.Oct 2026.features.14.5",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.3.source",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.4.source",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.5.source",
@@ -6017,14 +6054,14 @@ window.VersionCompassSources = {
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": "2026-10-22",
+      "reviewed": "2026-10-27",
       "status": "Reviewed",
       "firstRecorded": "2026-10-13",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "Rolling-service milestones are not Platform releases or proof of tenant access. Conditional MetricSet expansion can change values, charts, detectors and cardinality only when enabled.",
-      "section": "What's new: October 12, October 15 and October 21, 2026 entries",
-      "verificationScope": "Verified the APM not-equal change; Fleet Management templates/groups; application-specific call-graph exclusions; Controlled Availability expansion of parentless-span Monitoring MetricSets and metric-chart baselines; and IBM MQ built-in dashboards. Linked Bridge setup remains independently checked. Controlled Availability, realm, entitlement, rollout and customer-managed component versions remain separate.",
+      "section": "What's new: October 12, October 15, October 21 and October 26, 2026 entries",
+      "verificationScope": "Reverified the maintained October milestones and added the October 26 multi-trace view for comparing two to five traces with optional AI-generated comparisons. Linked Bridge setup remains independently checked. Controlled Availability, realm, entitlement, rollout, customer authorization and customer-managed component versions remain separate.",
       "events": [
         {
           "date": "2026-10-13",
@@ -6037,6 +6074,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-22",
           "event": "Review status updated: Reviewed · 2026-10-22"
+        },
+        {
+          "date": "2026-10-27",
+          "event": "Review status updated: Reviewed · 2026-10-27"
         }
       ]
     },
