@@ -699,9 +699,9 @@ window.VersionCompassMaintenance = {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
       "lastAttempt": "2026-10-27T10:02:43Z",
-      "lastSuccess": "2026-10-26T10:07:55Z",
-      "outcome": "running",
-      "summary": "Reviewing the full ES Editions and ES-specific AI Availability evidence inventory against fresh GitHub and Sites source.",
+      "lastSuccess": "2026-10-27T10:56:06Z",
+      "outcome": "changed",
+      "summary": "Published the ES 8.7 AI SOC Analyst task limits and permission prerequisites while preserving 8.8 CMP, entitlement, regional, pairing and unresolved edition-scope boundaries.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1001,9 +1001,15 @@ window.VersionCompassMaintenance = {
           "outcome": "running",
           "summary": "Reviewing the full ES Editions and ES-specific AI Availability evidence inventory against fresh GitHub and Sites source.",
           "scope": "Thirty maintained official ES, AI, pricing, regional and SOAR sources plus fourteen bounded highest-consequence claims; no exhaustive historical verification."
+        },
+        {
+          "at": "2026-10-27T10:56:06Z",
+          "outcome": "changed",
+          "summary": "Published the ES 8.7 AI SOC Analyst task limits and permission prerequisites while preserving 8.8 CMP, entitlement, regional, pairing and unresolved edition-scope boundaries.",
+          "scope": "Thirty maintained official ES, AI, pricing, regional and SOAR records; fourteen bounded high-consequence claims; exact-candidate CI/export evidence; bounded live current, legacy, shared and invalid routes; D1/fallback delivery and read-only WebMCP parity."
         }
       ],
-      "scope": "Thirty maintained official ES, AI, pricing, regional and SOAR sources plus fourteen bounded highest-consequence claims; no exhaustive historical verification."
+      "scope": "Thirty maintained official ES, AI, pricing, regional and SOAR records; fourteen bounded high-consequence claims; exact-candidate CI/export evidence; bounded live current, legacy, shared and invalid routes; D1/fallback delivery and read-only WebMCP parity."
     },
     {
       "id": "version-guidance-audit",
