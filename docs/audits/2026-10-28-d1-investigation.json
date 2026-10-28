@@ -1,0 +1,286 @@
+{
+  "scope": "Owner-requested D1 investigation and bounded correction of stale operational status. No upstream factual re-review or new material cycle.",
+  "startedAt": "2026-10-28T11:13:43.806832+00:00",
+  "checkedAt": "2026-10-28T11:13:44.338459+00:00",
+  "outcome": "current-production-recovered; original-failure-preserved",
+  "baseline": {
+    "githubCommit": "61c0e5e4f1d52437cbdd9379bbfef59dd8251a27",
+    "sitesCommit": "293fb22528963eb817e158dba26002818378af92",
+    "matchingTree": "5e226e035ce63068b2295c140fbb24d6bd466a53",
+    "siteVersion": 232,
+    "deployment": "appgdep_6ae1d162a8e48191bd73bdcb926d2d8c",
+    "deployedAt": "2026-10-28T10:41:45.160554+00:00"
+  },
+  "findings": [
+    {
+      "id": "d1-current-integrity",
+      "outcome": "confirmed",
+      "evidence": "Both origins pass real D1 health, exact manifest, independently hashed complete bundle, bounded records, rejected public writes and all fallback adapters. Current revision contains the same complete platform dataset as held factual commit 92d1d0d6e193bf80a5aaf26adc1d386edcf586bb; platform SHA-256 bec0148ec8f556a9886d871825b204798213ff77dff44cac2abfa178ec40a589. Newer ES Cloud Connect guidance is also retained."
+    },
+    {
+      "id": "d1-prior-revision",
+      "outcome": "historical failure remains",
+      "evidence": "Explicit health and bundle requests for content-7a01978a81760ed080bcd4d6 return 404 Published revision not available. This proves it is not currently a completed readable publication; it does not distinguish absent from incomplete rows or establish the original failure cause."
+    },
+    {
+      "id": "d1-runtime-diff",
+      "outcome": "no D1 runtime change found",
+      "evidence": "git diff from held factual commit to current main is empty for worker/, drizzle/, .openai/hosting.json and scripts/diagnose-content.cjs. The current D1 code succeeds with the newer complete seed. No database schema, data, binding, timeout, authentication or runtime variable was changed during this investigation."
+    },
+    {
+      "id": "d1-worker-evidence",
+      "outcome": "bounded current evidence",
+      "evidence": "Recent native request logs show content manifest/health/records responses at HTTP 200 and bundle responses at HTTP 200, with examples at 10:45 and 11:03 UTC. The initial error-only query returned expected 400/405 and missing-asset 404 records, not a D1 SQL exception. The available bounded log window is not asserted to cover every earlier request. Raw request headers, addresses and credentials are not retained in this public record."
+    },
+    {
+      "id": "d1-root-cause",
+      "outcome": "not established",
+      "evidence": "The historical record reports timeouts/cancellations before certification. Current success and lack of a retained SQL exception do not prove whether the original cause was request transport, deployment initialization, interrupted import or another transient dependency. No speculative database repair was applied."
+    },
+    {
+      "id": "d1-stale-status",
+      "outcome": "corrected in candidate",
+      "evidence": "The latest Release Watch ledger still described version 230 as held although subsequent Site versions 231/232 were healthy and included its Cloud dataset. Appended actual running/changed outcomes for this narrow recovery scope, retaining historical failures and distinguishing LastSuccess from deployment."
+    }
+  ],
+  "nativeDatabase": {
+    "binding": "DB",
+    "tables": [
+      "content_publication",
+      "content_publication_events",
+      "content_publication_provenance",
+      "content_records",
+      "content_revisions"
+    ],
+    "head": {
+      "channel": "engine:engine-be3f85c0e2e5092c351c",
+      "revision_id": "content-64f889cdfe3b6d24781530f1"
+    },
+    "provenance": {
+      "revision_id": "content-64f889cdfe3b6d24781530f1",
+      "repository": "LeiterConsulting/splunk-version-value-explorer",
+      "commit_sha": "61c0e5e4f1d52437cbdd9379bbfef59dd8251a27",
+      "workflow_run": 40674009206,
+      "verified_at": "2026-10-28T10:45:34.894Z"
+    },
+    "activeDelivery": "0",
+    "publisherOidc": "1",
+    "qualification": "Read-only native head/provenance inspection; full content-revision row exceeds the admin table viewer display bound, so completeness is separately established by the checked public D1 bundle."
+  },
+  "delivery": {
+    "customDomain": {
+      "evaluatedAt": "2026-10-28T11:06:27.751Z",
+      "target": "https://versioncompass.com",
+      "expectedRevision": "content-64f889cdfe3b6d24781530f1",
+      "status": "delivery-checks-passed",
+      "checks": {
+        "database-health": {
+          "outcome": "passed",
+          "evidence": {
+            "status": "ready",
+            "storage": "d1",
+            "revision": "content-64f889cdfe3b6d24781530f1",
+            "engineRevision": "engine-be3f85c0e2e5092c351c",
+            "recordCount": 870
+          },
+          "checkedAt": "2026-10-28T11:06:20.873Z",
+          "elapsedMs": 4786
+        },
+        "live-manifest": {
+          "outcome": "passed",
+          "evidence": {
+            "schemaVersion": 1,
+            "revision": "content-64f889cdfe3b6d24781530f1",
+            "digest": "f167cd3edd10f083992edc7eb923ccfd3dab96dac0ff8c5a25a7b9bb33b5e10e",
+            "engineRevision": "engine-be3f85c0e2e5092c351c",
+            "datasetHashes": {
+              "platform": "bec0148ec8f556a9886d871825b204798213ff77dff44cac2abfa178ec40a589",
+              "products": "f6212d6365c0fc3fdb051bc1a4860e4912dbf0b47527c053aefff41347e841f3",
+              "guidance": "1c97b0bfef83c4776cf34a45b83b62e0f55ddd073c459a4f85d5f2ae016dbddc",
+              "environment": "aa4d761f225e5f84509924c2d9818a775aab906f0f1a059d626299402397fd16",
+              "editions": "31ae2eade7984edf813617b79abf7926d1aff65642b2f3fa49a3af0bf49c70ae",
+              "forwarders": "c3f74a6f8be0651698e00ada59d29bb627eb106857e3791368637f4adf408064",
+              "soar": "78ee40698345f3da3d159ec879fe75c259679b328751259940825cf7e33df762"
+            },
+            "recordCount": 870,
+            "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+            "verificationPolicy": "Migration and delivery do not create verification dates",
+            "phase": "content-model-and-database-delivery"
+          },
+          "checkedAt": "2026-10-28T11:06:21.904Z",
+          "elapsedMs": 1031
+        },
+        "bundle-integrity": {
+          "outcome": "passed",
+          "evidence": {
+            "digest": "f167cd3edd10f083992edc7eb923ccfd3dab96dac0ff8c5a25a7b9bb33b5e10e",
+            "recordCount": 870
+          },
+          "checkedAt": "2026-10-28T11:06:23.344Z",
+          "elapsedMs": 1440
+        },
+        "bounded-record-query": {
+          "outcome": "passed",
+          "evidence": "SOAR filter, revision and maximum page size verified",
+          "checkedAt": "2026-10-28T11:06:23.878Z",
+          "elapsedMs": 534
+        },
+        "read-only-api": {
+          "outcome": "passed",
+          "evidence": "POST rejected with 405",
+          "checkedAt": "2026-10-28T11:06:26.826Z",
+          "elapsedMs": 2948
+        },
+        "bundled-fallback-assets": {
+          "outcome": "passed",
+          "evidence": "All seven complete fallback adapters served",
+          "checkedAt": "2026-10-28T11:06:27.751Z",
+          "elapsedMs": 925
+        }
+      },
+      "findings": [],
+      "limitations": [
+        "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
+      ]
+    },
+    "nativeOrigin": {
+      "evaluatedAt": "2026-10-28T11:06:39.725Z",
+      "target": "https://splunk-version-value-explorer.majorgeneralrabidzagnut.chatgpt.site",
+      "expectedRevision": "content-64f889cdfe3b6d24781530f1",
+      "status": "delivery-checks-passed",
+      "checks": {
+        "database-health": {
+          "outcome": "passed",
+          "evidence": {
+            "status": "ready",
+            "storage": "d1",
+            "revision": "content-64f889cdfe3b6d24781530f1",
+            "engineRevision": "engine-be3f85c0e2e5092c351c",
+            "recordCount": 870
+          },
+          "checkedAt": "2026-10-28T11:06:23.177Z",
+          "elapsedMs": 5570
+        },
+        "live-manifest": {
+          "outcome": "passed",
+          "evidence": {
+            "schemaVersion": 1,
+            "revision": "content-64f889cdfe3b6d24781530f1",
+            "digest": "f167cd3edd10f083992edc7eb923ccfd3dab96dac0ff8c5a25a7b9bb33b5e10e",
+            "engineRevision": "engine-be3f85c0e2e5092c351c",
+            "datasetHashes": {
+              "platform": "bec0148ec8f556a9886d871825b204798213ff77dff44cac2abfa178ec40a589",
+              "products": "f6212d6365c0fc3fdb051bc1a4860e4912dbf0b47527c053aefff41347e841f3",
+              "guidance": "1c97b0bfef83c4776cf34a45b83b62e0f55ddd073c459a4f85d5f2ae016dbddc",
+              "environment": "aa4d761f225e5f84509924c2d9818a775aab906f0f1a059d626299402397fd16",
+              "editions": "31ae2eade7984edf813617b79abf7926d1aff65642b2f3fa49a3af0bf49c70ae",
+              "forwarders": "c3f74a6f8be0651698e00ada59d29bb627eb106857e3791368637f4adf408064",
+              "soar": "78ee40698345f3da3d159ec879fe75c259679b328751259940825cf7e33df762"
+            },
+            "recordCount": 870,
+            "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+            "verificationPolicy": "Migration and delivery do not create verification dates",
+            "phase": "content-model-and-database-delivery"
+          },
+          "checkedAt": "2026-10-28T11:06:23.644Z",
+          "elapsedMs": 467
+        },
+        "bundle-integrity": {
+          "outcome": "passed",
+          "evidence": {
+            "digest": "f167cd3edd10f083992edc7eb923ccfd3dab96dac0ff8c5a25a7b9bb33b5e10e",
+            "recordCount": 870
+          },
+          "checkedAt": "2026-10-28T11:06:24.495Z",
+          "elapsedMs": 850
+        },
+        "bounded-record-query": {
+          "outcome": "passed",
+          "evidence": "SOAR filter, revision and maximum page size verified",
+          "checkedAt": "2026-10-28T11:06:25.211Z",
+          "elapsedMs": 716
+        },
+        "read-only-api": {
+          "outcome": "passed",
+          "evidence": "POST rejected with 405",
+          "checkedAt": "2026-10-28T11:06:31.940Z",
+          "elapsedMs": 6728
+        },
+        "bundled-fallback-assets": {
+          "outcome": "passed",
+          "evidence": "All seven complete fallback adapters served",
+          "checkedAt": "2026-10-28T11:06:39.724Z",
+          "elapsedMs": 7785
+        }
+      },
+      "findings": [],
+      "limitations": [
+        "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
+      ]
+    },
+    "heldRevision": {
+      "checkedAt": "2026-10-28T11:09:16.112Z",
+      "expected": {
+        "schemaVersion": 1,
+        "revision": "content-7a01978a81760ed080bcd4d6",
+        "digest": "9a37845ada5904540bd460b91f080c256d6f28eea05c0e03d068dc5e743a5e10",
+        "engineRevision": "engine-be3f85c0e2e5092c351c",
+        "datasetHashes": {
+          "platform": "bec0148ec8f556a9886d871825b204798213ff77dff44cac2abfa178ec40a589",
+          "products": "f6212d6365c0fc3fdb051bc1a4860e4912dbf0b47527c053aefff41347e841f3",
+          "guidance": "72b33da4bfc700c180b4a6bb085c7c5d066c18d28288f0a78d8ad3eb731f4721",
+          "environment": "aa4d761f225e5f84509924c2d9818a775aab906f0f1a059d626299402397fd16",
+          "editions": "14a4676e6753eb9b37da63accab6ec689253c045dbdc6f37b5436ea2b8603468",
+          "forwarders": "c3f74a6f8be0651698e00ada59d29bb627eb106857e3791368637f4adf408064",
+          "soar": "78ee40698345f3da3d159ec879fe75c259679b328751259940825cf7e33df762"
+        },
+        "recordCount": 870,
+        "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+        "verificationPolicy": "Migration and delivery do not create verification dates",
+        "phase": "content-model-and-database-delivery"
+      },
+      "results": [
+        {
+          "path": "/api/content/health?revision=content-7a01978a81760ed080bcd4d6",
+          "status": 404,
+          "elapsedMs": 5791,
+          "requestId": null,
+          "ray": "a5197cb74f85a970-SEA",
+          "body": {
+            "error": "Published revision not available",
+            "requestedRevision": "content-7a01978a81760ed080bcd4d6"
+          }
+        },
+        {
+          "path": "/api/content/bundle?revision=content-7a01978a81760ed080bcd4d6",
+          "status": 404,
+          "elapsedMs": 440,
+          "requestId": null,
+          "ray": "a5197cbd0dd0a970-SEA",
+          "body": {
+            "error": "Published revision not available",
+            "requestedRevision": "content-7a01978a81760ed080bcd4d6"
+          }
+        }
+      ]
+    }
+  },
+  "validation": {
+    "fourGates": "pending on recovery record",
+    "nodeTests": "pending on recovery record",
+    "build": "pending on recovery record",
+    "nativeExports": "pending exact-candidate CI after the operational ledger changed",
+    "live": "pre-candidate current-production checks passed; candidate publication pending"
+  },
+  "publication": {
+    "status": "pending bounded operational recovery publication"
+  },
+  "preserved": {
+    "canonicalDatasets": true,
+    "sourceAndClaimDates": true,
+    "materialCycle": 42,
+    "allWatchSchedulesAndEnabledStates": true,
+    "privacyAudienceAndAuthBoundaries": true,
+    "previousCompleteRevision": true
+  }
+}

@@ -322,10 +322,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-28T09:54:55Z",
-      "lastSuccess": "2026-10-28T09:32:50.451Z",
-      "outcome": "failed",
-      "summary": "Site version 230 was rolled back because real D1 health, manifest, bundle and bounded-query requests did not complete; prior complete version 229 is restored and healthy.",
+      "lastAttempt": "2026-10-28T11:13:43.806832+00:00",
+      "lastSuccess": "2026-10-28T11:13:44.338459+00:00",
+      "outcome": "changed",
+      "summary": "D1 recovery verified on the current revision; corrected the stale held-publication status.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -727,9 +727,21 @@ window.VersionCompassMaintenance = {
           "outcome": "failed",
           "summary": "Site version 230 was rolled back because real D1 health, manifest, bundle and bounded-query requests did not complete; prior complete version 229 is restored and healthy.",
           "scope": "Candidate publication and custom-domain D1 verification only. GitHub factual review remains successful; the candidate is held and not claimed live. Rollback version 229 passed all six delivery checks."
+        },
+        {
+          "at": "2026-10-28T11:13:43.806832+00:00",
+          "outcome": "running",
+          "summary": "Investigating the held D1 publication against fresh GitHub/Sites source and live storage.",
+          "scope": "Owner-requested D1 follow-up only; current/held revision readback, production logs, native DB publication metadata and exact Cloud dataset identity. No fresh upstream source or claim review."
+        },
+        {
+          "at": "2026-10-28T11:13:44.338459+00:00",
+          "outcome": "changed",
+          "summary": "D1 recovery verified on the current revision; corrected the stale held-publication status.",
+          "scope": "Both custom-domain and native-origin full delivery checks passed; native DB head/provenance matches current GitHub main, and the held Cloud dataset is included. Earlier version 230 remains historical and unavailable; no SQL/schema defect or runtime repair is claimed. Operational recovery only; source/claim dates and material cycle unchanged."
         }
       ],
-      "scope": "Candidate publication and custom-domain D1 verification only. GitHub factual review remains successful; the candidate is held and not claimed live. Rollback version 229 passed all six delivery checks."
+      "scope": "Both custom-domain and native-origin full delivery checks passed; native DB head/provenance matches current GitHub main, and the held Cloud dataset is included. Earlier version 230 remains historical and unavailable; no SQL/schema defect or runtime repair is claimed. Operational recovery only; source/claim dates and material cycle unchanged."
     },
     {
       "id": "es-editions-watch",
