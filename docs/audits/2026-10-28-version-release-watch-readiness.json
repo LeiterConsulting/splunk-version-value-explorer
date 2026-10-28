@@ -1,0 +1,86 @@
+{
+  "baseline": {
+    "deployedAt": "2026-10-28T09:56:07.793Z",
+    "version": 230,
+    "qualification": "Exact-candidate Site version 230 was deployed only after application CI passed. Complete version 229 remained the rollback target and was restored after the applicable D1 failure."
+  },
+  "evaluatedAt": "2026-10-28T10:03:54.320Z",
+  "scope": "October 28 exact Cloud 10.6.2.1 and 10.5.2605.14 factual candidate, all 203 registered source attempts, bounded highest-consequence release claims, all 18 borrowed Heavy Forwarder mappings, exact-candidate exports and production delivery.",
+  "checks": {
+    "content-parity": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-28T09:57:00Z",
+      "evidence": "Four ordered generators and all four --check gates passed for seven canonical datasets, 870 records, content-7a01978a81760ed080bcd4d6 and engine-be3f85c0e2e5092c351c."
+    },
+    "source-mappings": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-28T09:57:00Z",
+      "evidence": "All 203 registered URLs were attempted; 200 direct retrievals, one current-page indexed recovery and two preserved unavailable historical bodies were recorded. Affected Cloud claims and all 18 exact HF mapping traversals passed without advancing unchanged claim dates."
+    },
+    "shared-links": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-28T09:57:00Z",
+      "evidence": "The 225-test suite and exact-candidate route matrix preserved current, shared, historical, legacy and invalid exact-input behavior without silent latest substitution."
+    },
+    "automated-tests": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-28T09:57:00Z",
+      "evidence": "225 Node tests, the 60-asset build and application CI run 40665527240/job 122738913821 succeeded for merge-test commit 7b396434b5ceca92c27bcb145ef99c65e23c2743 and tree 1cb2c3733da5f7b6a4e10b09e77ec8c80c8cfdfe."
+    },
+    "browser-journeys": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-28T10:00:10Z",
+      "evidence": "The live candidate hydrated the exact Cloud 10.5.2605 to 10.6 route, retained normal navigation and selected-stack qualifications, and exposed the established read-only report contract. Exact-candidate CI separately covered selected, shared, legacy and invalid routes."
+    },
+    "themes-and-narrow-screens": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-28T09:57:00Z",
+      "evidence": "CI passed all 120 default/Cisco desktop and 390x844 phone cases. Separate retained-image inspection covered both Cloud desktops, both phones and Cloud report pages 8-10 in both themes; no novel clipping, overlap, truncation or pagination loss was found."
+    },
+    "keyboard": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-28T09:57:00Z",
+      "evidence": "The exact-candidate artifact recorded 100 valid-route keyboard export journeys; invalid cases retained disabled exports."
+    },
+    "html-reopen": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-28T09:42:24.950Z",
+      "evidence": "The exact-candidate artifact independently reopened 100 downloaded HTML reports with network requests blocked and complete content retained."
+    },
+    "pdf-rendering": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-28T09:42:24.950Z",
+      "evidence": "CI produced 100 native Chromium PDFs and rendered/checked all 1,726 pages. Automated geometry/text checks remain separate from the bounded retained-image inspection."
+    },
+    "live-revision": {
+      "outcome": "failed",
+      "checkedAt": "2026-10-28T10:01:05Z",
+      "evidence": "Site version 230 served the candidate UI and fallback adapters, but repeated real /api/content/health, manifest, bundle and bounded-record requests timed out or were canceled in Worker logs. The candidate was rolled back; version 229 subsequently passed D1 health, manifest, independently checked bundle, bounded query, POST 405 and all seven fallback adapters."
+    },
+    "maintenance-outcomes": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-28T10:03:54.320Z",
+      "evidence": "The ledger separately records the successful bounded factual review and the failed publication attempt. LastSuccess remains the successful scope review rather than deployment; material cycle 41 advanced exactly once."
+    }
+  },
+  "findings": [
+    {
+      "observed": "Exact-candidate production D1 requests did not complete for Site version 230.",
+      "impact": "The October 28 candidate cannot be certified as live even though its UI, fallback adapters and read-only WebMCP report were correct.",
+      "recommendedChange": "Keep version 230 held, inspect the D1 publication/import boundary and rerun all six delivery checks before a new deployment.",
+      "reversible": true,
+      "checksPassed": false,
+      "resolved": false,
+      "dataIntegrityRisk": true
+    }
+  ],
+  "feedback": {
+    "status": "not-recorded",
+    "note": "Automated checks and bounded assistant image inspection are not customer feedback or an all-page human visual review."
+  },
+  "nativeWebMCP": {
+    "outcome": "passed-candidate-held",
+    "checkedAt": "2026-10-28T10:00:10Z",
+    "evidence": "get_current_report returned the visible Cloud 10.5.2605 to 10.6 route, exact 10.6.2.1 maintenance row, preceding 10.6.2.0 useACK scope, citations and selected-stack warning without changing page state."
+  }
+}

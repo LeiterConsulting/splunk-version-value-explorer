@@ -2,7 +2,7 @@
   "watch": "Version Release Watch",
   "maintenanceId": "version-release-watch",
   "date": "2026-10-28",
-  "outcome": "bounded-factual-update-candidate",
+  "outcome": "bounded-factual-update-held-after-production-d1-failure",
   "scope": [
     "Complete 203-URL registered official inventory and current release-stream discovery",
     "Cloud 10.6.2.1 and 10.5.2605.14 exact maintenance records",
@@ -29,22 +29,29 @@
     "checkGates": "All four generated-file --check gates passed for seven datasets, 870 records and 203 sources.",
     "nodeTests": "225 passed, 0 failed or skipped, including exact Cloud patch semantics, stable identities, all 18 Forwarder mapping traversals and current/legacy/shared/invalid route behavior.",
     "build": "The 60-asset production Worker build passed for content-7a01978a81760ed080bcd4d6 and engine-be3f85c0e2e5092c351c.",
-    "nativeExportEvidence": "Pending exact-candidate application CI.",
-    "browser": "Pending exact-candidate and production browser checks.",
-    "webmcp": "Pending exact-candidate and live read-only parity checks.",
-    "liveDelivery": "Pending publication; Site version 229 remains the complete live rollback baseline."
+    "nativeExportEvidence": "Application CI run 40665527240/job 122738913821 passed for merge-test commit 7b396434b5ceca92c27bcb145ef99c65e23c2743 and tree 1cb2c3733da5f7b6a4e10b09e77ec8c80c8cfdfe. Artifact 12805588659 (sha256:15f6eaf009cef8f849f20372697ca50a9fc5da2a019895eef6e494da7f62b74a) passed scripts/export-evidence.cjs: 120 cases, 100 PDFs, 1,726 pages, 100 offline HTML reopenings, 120 phone checks and 100 keyboard journeys. Visual artifact 12805608503 (sha256:6266ebfee1d6c4887b7cf46c3a19e6951ade624932cf4e41c14378b578eb2c95) was separately inspected for the affected Cloud route in both themes.",
+    "browser": "The deployed candidate hydrated the Cloud 10.5.2605 to 10.6 route with the exact October 28 history, 10.6.2.1 readiness action and normal navigation. The candidate was subsequently rolled back for failed D1 delivery and is not claimed live.",
+    "webmcp": "The candidate exposed only the established three read-only tools. get_current_report matched the visible selection, exact maintenance scope, prior-build boundary, citations and source dates without changing page state.",
+    "liveDelivery": "Failed for candidate Site version 230: real D1 health, manifest, bundle and bounded-query requests did not complete, although fallback assets, UI and WebMCP worked. Version 229 was restored; its D1 health, manifest, bundle, bounded query, POST guard and seven fallback adapters pass for content-13062841ac10d65d0aea3b8c, engine-ddd5e142c392c910dacf and 870 records."
   },
   "publication": {
-    "status": "candidate-not-yet-published",
+    "status": "github-merged-site-candidate-held-and-rolled-back",
     "baselineGithub": "27a3a1cf96928e583f3e1de344eb3f89e67ec562",
     "baselineTree": "85ceb97f721dc35c596a563e40d90a695408b4a5",
     "baselineSiteVersion": 229,
     "baselineSiteSource": "f32198a0a0c852e7fc0609bc81210bf0edb15638",
-    "candidateGithub": null,
-    "candidateTree": null,
-    "siteVersion": null,
-    "siteDeployment": null,
-    "liveCheckedAt": null
+    "candidateGithub": "92d1d0d6e193bf80a5aaf26adc1d386edcf586bb",
+    "candidateTree": "1cb2c3733da5f7b6a4e10b09e77ec8c80c8cfdfe",
+    "siteCandidateSource": "d4c481b55246c896e1db5a317b9a22b4b9180757",
+    "siteVersion": 230,
+    "siteDeployment": "appgdep_6ae1c6a4d77081919043aaf075b9dfd0",
+    "candidateLiveAccepted": false,
+    "rollbackVersion": 229,
+    "rollbackSource": "f32198a0a0c852e7fc0609bc81210bf0edb15638",
+    "rollbackTree": "85ceb97f721dc35c596a563e40d90a695408b4a5",
+    "rollbackDeployment": "appgdep_6ae1c7d5b9e48191ba3cf2d87765a5cf",
+    "liveCheckedAt": "2026-10-28T10:03:54.320Z",
+    "noteUrl": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-28.md"
   },
   "backlog": [
     {"priority": 1, "item": "Reconcile the KV-specific 10.2 bridge versus the general direct 10.0-to-10.6 route only from authoritative clarification."},

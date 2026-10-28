@@ -322,10 +322,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-28T09:28:59.195Z",
+      "lastAttempt": "2026-10-28T09:54:55Z",
       "lastSuccess": "2026-10-28T09:32:50.451Z",
-      "outcome": "changed",
-      "summary": "Verified Cloud 10.6.2.1 and 10.5.2605.14 maintenance rows with exact-build and selected-stack qualifications.",
+      "outcome": "failed",
+      "summary": "Site version 230 was rolled back because real D1 health, manifest, bundle and bounded-query requests did not complete; prior complete version 229 is restored and healthy.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -715,9 +715,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Verified Cloud 10.6.2.1 and 10.5.2605.14 maintenance rows with exact-build and selected-stack qualifications.",
           "scope": "203-source registered inventory attempted; 200 direct retrievals, one current-source indexed recovery and two historical bodies unavailable; affected Cloud claims; current Enterprise, SOAR, Observability, component and AI discovery; all 18 borrowed HF mappings traversed by regression."
+        },
+        {
+          "at": "2026-10-28T09:54:55Z",
+          "outcome": "running",
+          "summary": "Publishing the exact CI-verified Cloud maintenance candidate and verifying production D1 delivery.",
+          "scope": "GitHub candidate tree 1cb2c3733da5f7b6a4e10b09e77ec8c80c8cfdfe; Site version 230; custom-domain UI, read-only WebMCP, real D1 health, manifest, bundle, bounded query and fallback adapters."
+        },
+        {
+          "at": "2026-10-28T10:03:54.320Z",
+          "outcome": "failed",
+          "summary": "Site version 230 was rolled back because real D1 health, manifest, bundle and bounded-query requests did not complete; prior complete version 229 is restored and healthy.",
+          "scope": "Candidate publication and custom-domain D1 verification only. GitHub factual review remains successful; the candidate is held and not claimed live. Rollback version 229 passed all six delivery checks."
         }
       ],
-      "scope": "203-source registered inventory attempted; 200 direct retrievals, one current-source indexed recovery and two historical bodies unavailable; affected Cloud claims; current Enterprise, SOAR, Observability, component and AI discovery; all 18 borrowed HF mappings traversed by regression."
+      "scope": "Candidate publication and custom-domain D1 verification only. GitHub factual review remains successful; the candidate is held and not claimed live. Rollback version 229 passed all six delivery checks."
     },
     {
       "id": "es-editions-watch",
