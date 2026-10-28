@@ -20,7 +20,8 @@
   .cve-cell strong,.product-cell strong { font-size:13px; }.cve-cell small,.product-cell small { font-size:11px; }
   .trace-step strong,.context-result,.next-action p,.context-form input,.context-form select { font-size:13px; }
   .trace-step small,.evidence-source>p,.evidence-source dl,.evidence-source>a,.context-form label { font-size:12px; line-height:1.6; }
-  .evidence-panel { top:calc(var(--compass-header-height) + 70px); scroll-margin-top:calc(var(--compass-header-height) + 70px); }
+  .evidence-panel { --evidence-top:calc(var(--compass-header-height) + var(--ripple-tools-height,55px) + 16px); top:var(--evidence-top); scroll-margin-top:var(--evidence-top); max-height:calc(100vh - var(--evidence-top) - 16px); max-height:calc(100dvh - var(--evidence-top) - 16px); overflow-y:auto; overflow-x:hidden; overscroll-behavior-y:contain; scrollbar-gutter:stable; touch-action:pan-y; }
+  .evidence-panel:focus-visible { outline:3px solid #45a18d; outline-offset:3px; }
   .report-toolbar .feed-status { margin-right:8px; color:#526b70; }
   .theme-cisco body.ripple-workspace { --paper:#0e1c28; --ink:#e5eff5; --line:#3e596b; --muted:#b0c4ce; background:var(--paper); color:var(--ink); }
   .theme-cisco .ripple-tools { background:#182e3c; border-color:#3e596b; }.theme-cisco .ripple-tools button { color:#e5eff5; }.theme-cisco .ripple-tools button:hover { background:#254454; }.theme-cisco .ripple-tools button[aria-current] { background:#a4dfd6; color:#102b31; }
@@ -34,7 +35,7 @@
   .theme-cisco .filter-tabs button.selected { color:#a4dfd6; border-color:#a4dfd6; }
   .theme-cisco :is(.ledger-header,.coverage-header) { background:#203c48; color:#b5c9d3; }
   .theme-cisco .panel-header { color:#b5c9d3; }.theme-cisco .panel-tools .icon-button { color:#a4dfd6; }
-  @media(max-width:1099px) { .evidence-panel { position:static; }.cve-cell strong,.product-cell strong { font-size:12px; } }
+  @media(max-width:1099px) { .evidence-panel { position:static; max-height:none; overflow:visible; overscroll-behavior:auto; scrollbar-gutter:auto; touch-action:auto; }.cve-cell strong,.product-cell strong { font-size:12px; } }
   @media(max-width:760px) { main { padding:22px 18px 0; }.topbar.report-toolbar { padding:12px 18px; }.report-toolbar .feed-status { width:100%; margin:0 0 3px; }.workspace-scope { font-size:12px; }.ripple-tools { padding:6px 12px; }.ripple-tools button { font-size:12px; padding:8px 10px; }.ripple-tools button svg { display:none; }.hero { padding:28px 25px; }.hero p { font-size:13px; }.hero-tags span { font-size:10px; }.cve-cell strong,.product-cell strong { font-size:12px; }.filter-tabs { font-size:11px; gap:13px; }.evidence-panel { padding:22px; } }
 }
 @media print { .ripple-tools { display:none!important; } }

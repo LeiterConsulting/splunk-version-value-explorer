@@ -7,6 +7,7 @@ import { createRequire } from 'node:module';
 import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
 import { verifyNavigation } from './navigation.mjs';
+import { verifyRippleScroll } from './ripple-scroll.mjs';
 const require = createRequire(import.meta.url), { target, hash, verify } = require('../../scripts/export-evidence.cjs');
 if (process.env.SITES_MANAGED_LINUX_CONTAINER === '1') throw Error('Run export verification in dedicated application CI, not managed Sites preview.');
 const root = process.cwd(), output = path.resolve('export-artifacts');
@@ -77,6 +78,7 @@ try {
   });
   browser = await chromium.launch();
   receipt.navigation = await verifyNavigation(browser,path.join(output,'navigation'));
+  receipt.rippleScroll = await verifyRippleScroll(browser,path.join(output,'ripple-scroll'));
   const routes = JSON.parse(fs.readFileSync('tools/export-verification/routes.json'));
   for (const route of routes) for (const theme of ['default', 'cisco']) {
     const id = route.id + '-' + theme, directory = path.join(output, id); fs.mkdirSync(directory);
