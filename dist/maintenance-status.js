@@ -322,10 +322,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-27T09:26:27Z",
-      "lastSuccess": "2026-10-27T10:08:15.465Z",
+      "lastAttempt": "2026-10-28T09:28:59.195Z",
+      "lastSuccess": "2026-10-28T09:32:50.451Z",
       "outcome": "changed",
-      "summary": "Published October 26 Observability multi-trace AI guidance and Java instrumentation 2.33 dependency baseline; recorded SVD-2026-1013 as unaffected for the maintained product scope.",
+      "summary": "Verified Cloud 10.6.2.1 and 10.5.2605.14 maintenance rows with exact-build and selected-stack qualifications.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -703,9 +703,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Published October 26 Observability multi-trace AI guidance and Java instrumentation 2.33 dependency baseline; recorded SVD-2026-1013 as unaffected for the maintained product scope.",
           "scope": "All 202 previously registered official URLs plus the newly registered Java 2.33 release source retrieved; bounded high-consequence release, compatibility, upgrade, security, entitlement and authorization claims; all 18 Forwarder mappings; current SOAR discovery; exact-candidate CI PDF/HTML/phone/keyboard evidence; live current, legacy, shared and invalid routes; live read-only WebMCP parity and D1 delivery health."
+        },
+        {
+          "at": "2026-10-28T09:28:59.195Z",
+          "outcome": "running",
+          "summary": "Running the October 28 release inventory and bounded high-consequence verification.",
+          "scope": "Full registered official source inventory; current release and component streams; Cloud maintenance changes; bounded UF/HF, SOAR and AI checks."
+        },
+        {
+          "at": "2026-10-28T09:32:50.451Z",
+          "outcome": "changed",
+          "summary": "Verified Cloud 10.6.2.1 and 10.5.2605.14 maintenance rows with exact-build and selected-stack qualifications.",
+          "scope": "203-source registered inventory attempted; 200 direct retrievals, one current-source indexed recovery and two historical bodies unavailable; affected Cloud claims; current Enterprise, SOAR, Observability, component and AI discovery; all 18 borrowed HF mappings traversed by regression."
         }
       ],
-      "scope": "All 202 previously registered official URLs plus the newly registered Java 2.33 release source retrieved; bounded high-consequence release, compatibility, upgrade, security, entitlement and authorization claims; all 18 Forwarder mappings; current SOAR discovery; exact-candidate CI PDF/HTML/phone/keyboard evidence; live current, legacy, shared and invalid routes; live read-only WebMCP parity and D1 delivery health."
+      "scope": "203-source registered inventory attempted; 200 direct retrievals, one current-source indexed recovery and two historical bodies unavailable; affected Cloud claims; current Enterprise, SOAR, Observability, component and AI discovery; all 18 borrowed HF mappings traversed by regression."
     },
     {
       "id": "es-editions-watch",

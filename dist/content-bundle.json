@@ -1,13 +1,13 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-13062841ac10d65d0aea3b8c",
-    "digest": "93652d80d4fc4381138d2d1fd1cf035293738aadaf4dcf116d40d54393e23286",
-    "engineRevision": "engine-ddd5e142c392c910dacf",
+    "revision": "content-7a01978a81760ed080bcd4d6",
+    "digest": "9a37845ada5904540bd460b91f080c256d6f28eea05c0e03d068dc5e743a5e10",
+    "engineRevision": "engine-be3f85c0e2e5092c351c",
     "datasetHashes": {
-      "platform": "70b62a293de0c48b9ba8709d83f6c04ec3024451e6560012497bf9ff85b5b626",
+      "platform": "bec0148ec8f556a9886d871825b204798213ff77dff44cac2abfa178ec40a589",
       "products": "f6212d6365c0fc3fdb051bc1a4860e4912dbf0b47527c053aefff41347e841f3",
-      "guidance": "3f5160cff34efe04519ff25ed141db661dc4acdbbf79b20233d7f7c6a69662a6",
+      "guidance": "72b33da4bfc700c180b4a6bb085c7c5d066c18d28288f0a78d8ad3eb731f4721",
       "environment": "aa4d761f225e5f84509924c2d9818a775aab906f0f1a059d626299402397fd16",
       "editions": "14a4676e6753eb9b37da63accab6ec689253c045dbdc6f37b5436ea2b8603468",
       "forwarders": "c3f74a6f8be0651698e00ada59d29bb627eb106857e3791368637f4adf408064",
@@ -1926,12 +1926,12 @@
                 "domain": "Managed-service maintenance",
                 "changeType": "Patch published",
                 "actionLevel": "Review",
-                "from": "Earlier 10.5.2605 maintenance builds do not establish the fixes in this patch",
-                "to": "Cloud 10.5.2605.12 was published October 15, 2026",
-                "implication": "The feed lists the caller-supplied SID-reuse fix SPL-317318, upgrade-related fixes and GCP SmartBus KMS project/receipt metadata correction. Its three high and three medium security counts are preliminary, not definitive advisory classifications or proof of a selected tenant's remediation.",
-                "action": "Confirm the exact stack build and applicable workflows with the managed service before relying on the listed fixes. This Cloud feed is not independent evidence of an Enterprise or UF package fix, availability, entitlement or authorization.",
+                "from": "Cloud 10.5.2605.13 and earlier maintenance builds do not establish the fixes in this patch",
+                "to": "Cloud 10.5.2605.14 was published October 27, 2026",
+                "implication": "The 10.5.2605.14 row lists SPL-274754 for an empty default source field in searches that use the tstats command. Publication does not prove that a selected stack has received the build, that the issue applies to every search, or that a customer-managed Enterprise or Forwarder package has the same fix.",
+                "action": "Confirm the selected stack's exact four-segment build and reproduce the affected tstats workflow before relying on the fix. This Cloud feed is not independent evidence of an Enterprise or UF package fix, availability, entitlement or authorization.",
                 "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
-                "verified": "2026-10-17"
+                "verified": "2026-10-28"
               }
             ],
             "requirements": [
@@ -1957,8 +1957,8 @@
                 true
               ],
               [
-                "Confirm Cloud 10.5.2605.12 on the selected stack",
-                "Publication of the October 15 maintenance notes is not tenant rollout. Verify the exact stack build and reproduce affected workflows; do not transfer these rows to a customer-managed UF/Enterprise package or infer definitive security classifications.",
+                "Confirm Cloud 10.5.2605.14 on the selected stack",
+                "Publication of the October 27 maintenance notes is not tenant rollout. Verify the exact stack build and reproduce the affected tstats workflow; do not transfer this row to a customer-managed UF/Enterprise package or infer broader compatibility, entitlement or authorization.",
                 "Validate",
                 "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
                 false
@@ -2044,11 +2044,12 @@
                 "domain": "Cloud operations",
                 "changeType": "Maintenance release published",
                 "actionLevel": "Review",
-                "from": "Cloud 10.6 release-line guidance without a maintained exact patch record",
-                "to": "The Cloud maintenance feed lists 10.6.2.0, published October 20, 2026",
-                "implication": "The maintenance build lists 2 Critical, 21 High and 23 Medium security fixes plus stack-specific fixes, including SPL-312665 for tcpout with useACK=true pipeline blockage. Publication does not prove that a selected stack has received the build, that every listed issue applies, or that a customer-managed Enterprise or Forwarder package has the same fix.",
-                "action": "Confirm the selected stack's exact four-segment version before relying on a 10.6.2.0 fix, then retest the affected workflow after rollout.",
-                "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information"
+                "from": "Cloud 10.6.2.0, published October 20, includes earlier security and stack-specific fixes such as SPL-312665 for tcpout with useACK=true pipeline blockage",
+                "to": "The Cloud maintenance feed lists 10.6.2.1, published October 27, 2026",
+                "implication": "The 10.6.2.1 row lists one preliminary High security fix and six fixed issues, including SPL-274754 for tstats source-field handling and operational fixes for KV Store status, telemetry shutdown, workload-management abort messaging, session metrics and duplicate Ingest Actions ruleset names. Publication does not prove that a selected stack has received the build, that every listed issue applies, or that a customer-managed Enterprise or Forwarder package has the same fix.",
+                "action": "Confirm the selected stack's exact four-segment version before relying on a 10.6.2.1 fix, then retest the affected workflow after rollout. Keep the preceding 10.6.2.0 useACK fix scoped to stacks that actually received that build or a verified superseding build.",
+                "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
+                "verified": "2026-10-28"
               },
               {
                 "component": "Classic dashboard custom visualizations",
@@ -2106,8 +2107,8 @@
                 true
               ],
               [
-                "Confirm Cloud 10.6.2.0 before relying on its fixes",
-                "The maintenance feed lists 10.6.2.0 and its security/fixed-issue counts, including SPL-312665, but Cloud rollout remains Splunk-managed and stack-specific. Verify the exact four-segment stack version and reproduce the affected workflow before closing an issue based on this release; do not transfer the fix to customer-managed Enterprise or Forwarder packages.",
+                "Confirm Cloud 10.6.2.1 before relying on its fixes",
+                "The maintenance feed lists 10.6.2.1 and its preliminary security/fixed-issue rows, while the preceding 10.6.2.0 row contains SPL-312665. Cloud rollout remains Splunk-managed and stack-specific. Verify the exact four-segment stack version and reproduce the affected workflow before closing an issue based on either release; do not transfer a fix to customer-managed Enterprise or Forwarder packages.",
                 "Validate",
                 "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
                 false
@@ -4955,7 +4956,7 @@
         }
       },
       "guidance": {
-        "reviewed": "2026-10-27",
+        "reviewed": "2026-10-28",
         "lifecycle": {
           "source": "https://www.splunk.com/en_us/legal/splunk-software-support-policy.html",
           "reviewed": "2026-10-01",
@@ -12605,8 +12606,8 @@
           "outcome": "Claim verification not recorded"
         },
         "payload": [
-          "Confirm Cloud 10.5.2605.12 on the selected stack",
-          "Publication of the October 15 maintenance notes is not tenant rollout. Verify the exact stack build and reproduce affected workflows; do not transfer these rows to a customer-managed UF/Enterprise package or infer definitive security classifications.",
+          "Confirm Cloud 10.5.2605.14 on the selected stack",
+          "Publication of the October 27 maintenance notes is not tenant rollout. Verify the exact stack build and reproduce the affected tstats workflow; do not transfer this row to a customer-managed UF/Enterprise package or infer broader compatibility, entitlement or authorization.",
           "Validate",
           "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
           false
@@ -28127,8 +28128,8 @@
           "outcome": "Claim verification not recorded"
         },
         "payload": [
-          "Confirm Cloud 10.6.2.0 before relying on its fixes",
-          "The maintenance feed lists 10.6.2.0 and its security/fixed-issue counts, including SPL-312665, but Cloud rollout remains Splunk-managed and stack-specific. Verify the exact four-segment stack version and reproduce the affected workflow before closing an issue based on this release; do not transfer the fix to customer-managed Enterprise or Forwarder packages.",
+          "Confirm Cloud 10.6.2.1 before relying on its fixes",
+          "The maintenance feed lists 10.6.2.1 and its preliminary security/fixed-issue rows, while the preceding 10.6.2.0 row contains SPL-312665. Cloud rollout remains Splunk-managed and stack-specific. Verify the exact four-segment stack version and reproduce the affected workflow before closing an issue based on either release; do not transfer a fix to customer-managed Enterprise or Forwarder packages.",
           "Validate",
           "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
           false
