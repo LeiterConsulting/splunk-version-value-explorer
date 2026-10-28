@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-10-27T11:11:25Z",
-      "lastSuccess": "2026-10-27T11:11:41.014Z",
+      "lastAttempt": "2026-10-28T11:45:43Z",
+      "lastSuccess": "2026-10-28T11:51:57.309Z",
       "outcome": "no-change",
-      "summary": "Reviewed 25 official sources and seven consequential claim groups; no material regional or authorization change established.",
+      "summary": "Reviewed all 25 maintained official sources and seven bounded claim groups; no supported regional or authorization fact changed.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -315,9 +315,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Reviewed 25 official sources and seven consequential claim groups; no material regional or authorization change established.",
           "scope": "25 official URLs; complete ES 8.8 regional tables, exact Marketplace offerings, dated visual matrix, SAIA/ITSI rollout and SOAR restricted scope."
+        },
+        {
+          "at": "2026-10-28T11:45:43Z",
+          "outcome": "running",
+          "summary": "Reviewing current regional and regulated public evidence.",
+          "scope": "Fresh GitHub main and Site version 234; current Service Details, ES 8.7/8.8 regional tables, exact Marketplace offerings, visual dated compliance matrix, SOAR restrictions and AI region/runtime backlog. Source retrieval is separate from claim verification."
+        },
+        {
+          "at": "2026-10-28T11:51:57.309Z",
+          "outcome": "no-change",
+          "summary": "Reviewed all 25 maintained official sources and seven bounded claim groups; no supported regional or authorization fact changed.",
+          "scope": "Fresh GitHub main and Site version 234; current Service Details, ES 8.7/8.8 regional tables, exact Marketplace offerings, visual dated compliance matrix, SOAR restrictions and AI region/runtime backlog. Source retrieval is separate from claim verification."
         }
       ],
-      "scope": "25 official URLs; complete ES 8.8 regional tables, exact Marketplace offerings, dated visual matrix, SAIA/ITSI rollout and SOAR restricted scope."
+      "scope": "Fresh GitHub main and Site version 234; current Service Details, ES 8.7/8.8 regional tables, exact Marketplace offerings, visual dated compliance matrix, SOAR restrictions and AI region/runtime backlog. Source retrieval is separate from claim verification."
     },
     {
       "id": "version-release-watch",
