@@ -734,10 +734,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-10-27T10:02:43Z",
-      "lastSuccess": "2026-10-27T10:56:06Z",
+      "lastAttempt": "2026-10-28T10:13:46Z",
+      "lastSuccess": "2026-10-28T10:14:05Z",
       "outcome": "changed",
-      "summary": "Published the ES 8.7 AI SOC Analyst task limits and permission prerequisites while preserving 8.8 CMP, entitlement, regional, pairing and unresolved edition-scope boundaries.",
+      "summary": "Reviewed all 30 maintained official sources and 16 consequential claims; added the ES 8.8 Cloud Connect 2.0 dependency-packaging boundary without inferring an ES 8.9 release or broader availability.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1043,9 +1043,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Published the ES 8.7 AI SOC Analyst task limits and permission prerequisites while preserving 8.8 CMP, entitlement, regional, pairing and unresolved edition-scope boundaries.",
           "scope": "Thirty maintained official ES, AI, pricing, regional and SOAR records; fourteen bounded high-consequence claims; exact-candidate CI/export evidence; bounded live current, legacy, shared and invalid routes; D1/fallback delivery and read-only WebMCP parity."
+        },
+        {
+          "at": "2026-10-28T10:13:46Z",
+          "outcome": "running",
+          "summary": "Checking the full maintained ES, AI, pricing, regional and SOAR source inventory plus bounded high-consequence edition, prerequisite and pairing claims.",
+          "scope": "Thirty maintained official source records; sixteen bounded high-consequence claims; ES Editions and ES-specific AI Availability consistency, links, exports and live delivery."
+        },
+        {
+          "at": "2026-10-28T10:14:05Z",
+          "outcome": "changed",
+          "summary": "Reviewed all 30 maintained official sources and 16 consequential claims; added the ES 8.8 Cloud Connect 2.0 dependency-packaging boundary without inferring an ES 8.9 release or broader availability.",
+          "scope": "Thirty maintained official source records; sixteen bounded high-consequence claims; ES Editions and ES-specific AI Availability consistency, links, exports and live delivery."
         }
       ],
-      "scope": "Thirty maintained official ES, AI, pricing, regional and SOAR records; fourteen bounded high-consequence claims; exact-candidate CI/export evidence; bounded live current, legacy, shared and invalid routes; D1/fallback delivery and read-only WebMCP parity."
+      "scope": "Thirty maintained official source records; sixteen bounded high-consequence claims; ES Editions and ES-specific AI Availability consistency, links, exports and live delivery."
     },
     {
       "id": "version-guidance-audit",

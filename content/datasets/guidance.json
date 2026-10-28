@@ -146,16 +146,16 @@
       "title": "ES 8.8 agent compatibility",
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
       "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
-      "checked": "2026-10-26",
-      "reviewed": "2026-10-26",
-      "scope": "Exact 8.8 edition, deployment, version, Cloud Connect, paired-SOAR, feature-stage, enablement, permissions and model notes"
+      "checked": "2026-10-28",
+      "reviewed": "2026-10-28",
+      "scope": "Exact 8.8 edition, deployment, version, Cloud Connect, paired-SOAR, feature-stage, enablement, permissions, model and Cloud Connect packaging notes"
     },
     "aiEsThreatGraph88": {
       "title": "ES 8.8 AI Threat Graph Detection agent",
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
       "section": "Alpha stage; risk-based detection and event-volume prerequisites; enablement and test mode",
-      "checked": "2026-10-26",
-      "reviewed": "2026-10-26",
+      "checked": "2026-10-28",
+      "reviewed": "2026-10-28",
       "scope": "Exact feature stage and task-level prerequisites; no region, offering authorization or general-availability inference"
     },
     "aiEsSocTask87": {
@@ -568,7 +568,7 @@
       },
       {
         "kind": "ai-capability",
-        "verified": "2026-10-23",
+        "verified": "2026-10-28",
         "id": "ai-saia-agent",
         "title": "SAIA · Agent Mode",
         "product": "platform",
@@ -642,20 +642,22 @@
         ],
         "requirements": [
           "Essentials: Cloud only where available; Premier: Cloud or Cloud Connected CMP through Cloud Connect.",
+          "For ES 8.8 SOC workforce use on CMP, install Cloud Connect 2.0 separately; the current guide says ES 8.9+ contains Cloud Connect 2.0+, without establishing that future release or rollout.",
           "Compatible licensed ES, supported region and account-team enablement."
         ],
         "runtime": "Security AI service; review configured model and data policies.",
-        "qualification": "The ES assistant is separate from the SAIA platform app. Generic compatibility does not broaden the edition-specific CMP qualification.",
+        "qualification": "The ES assistant is separate from the SAIA platform app. Generic compatibility does not broaden the edition-specific CMP qualification; a future-version packaging note is not release, entitlement, region or customer-authorization evidence.",
         "condition": "Confirm exact edition, deployment path, supported region and account-team enablement.",
         "src": [
           "aiEsRegions88",
           "aiEsEditions",
-          "aiEsRelease88"
+          "aiEsRelease88",
+          "aiEsAgents88"
         ]
       },
       {
         "kind": "ai-capability",
-        "verified": "2026-10-24",
+        "verified": "2026-10-28",
         "id": "ai-es-detection",
         "title": "ES · Detection Builder agent",
         "product": "es",
@@ -677,10 +679,10 @@
         ],
         "requirements": [
           "Cloud: Platform 10.1.x+.",
-          "CMP: Platform 10.4.x+, ES 8.8+, Cloud Connect 2.0."
+          "CMP: Platform 10.4.x+, ES 8.8+, Cloud Connect 2.0. For ES 8.8, install Cloud Connect 2.0 separately; the guide says ES 8.9+ contains 2.0+, without establishing that future release or rollout."
         ],
         "runtime": "ES agentic services through Cloud or Cloud Connect.",
-        "qualification": "Feature prerequisites and regional component scope remain separate.",
+        "qualification": "Feature prerequisites, dependency packaging, release status and regional component scope remain separate.",
         "condition": "Meet the deployment-specific Platform and Cloud Connect floors.",
         "src": [
           "aiEsAgents88",
@@ -722,7 +724,7 @@
       },
       {
         "kind": "ai-capability",
-        "verified": "2026-10-26",
+        "verified": "2026-10-28",
         "id": "ai-es-threat-graph",
         "title": "ES · AI Threat Graph Detection agent",
         "product": "es",
@@ -755,7 +757,7 @@
       },
       {
         "kind": "ai-capability",
-        "verified": "2026-10-27",
+        "verified": "2026-10-28",
         "id": "ai-es-soc",
         "title": "ES · AI SOC analyst agent",
         "product": "es",
@@ -777,7 +779,7 @@
         "requirements": [
           "Premier, paired SOAR and representative enablement.",
           "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the 8.7 task guide requires ES 8.7+.",
-          "CMP: Platform 10.4.x+, ES 8.8+, Cloud Connect 2.0.",
+          "CMP: Platform 10.4.x+, ES 8.8+, Cloud Connect 2.0. For ES 8.8, install Cloud Connect 2.0 separately; the guide says ES 8.9+ contains 2.0+, without establishing that future release or rollout.",
           "The 8.7 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported."
         ],
         "runtime": "Agentic SOC services; the 8.7 task guide says the Splunk-hosted model option does not apply to this workflow. Paired SOAR has independent compatibility.",

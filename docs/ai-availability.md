@@ -109,6 +109,13 @@ support, inherited connector/action permissions and the granular asset-role
 requirement. Those task-specific 8.7 boundaries are kept separate from the 8.8
 aggregate Cloud/CMP prerequisites, exact SOAR pairing, region and authorization.
 
+The October 28 review adds the current ES 8.8 agent guide's dependency-packaging
+boundary for Cloud Connected CMP. ES 8.8 requires a separate Cloud Connect 2.0
+download; the guide says ES 8.9+ contains Cloud Connect 2.0+. That future-version
+statement is not treated as proof of an ES 8.9 release, rollout, entitlement,
+region, offering authorization or SOAR pairing. The qualification is attached
+only to the ES AI Assistant, Detection Builder and AI SOC Analyst CMP paths.
+
 ## Maintenance ownership
 
 | Existing task | AI responsibility |

@@ -1,7 +1,7 @@
 /* Generated from content/datasets/editions.json. Edit the JSON source, not this adapter. */
 window.VersionCompassEditions = {
   "schemaVersion": 2,
-  "reviewed": "2026-10-26",
+  "reviewed": "2026-10-28",
   "release": "8.8",
   "releaseDate": "2026-10-21",
   "releaseStage": "Controlled Availability",
@@ -39,12 +39,12 @@ window.VersionCompassEditions = {
     "agentic88": {
       "t": "Agentic AI offerings in ES 8.8",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
-      "reviewed": "2026-10-26"
+      "reviewed": "2026-10-28"
     },
     "threatGraph88": {
       "t": "AI Threat Graph Detection agent prerequisites (ES 8.8)",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
-      "reviewed": "2026-10-26"
+      "reviewed": "2026-10-28"
     },
     "cloudcx": {
       "t": "Access Splunk Cloud Connect in ES",
@@ -238,15 +238,16 @@ window.VersionCompassEditions = {
         "v": "yes",
         "n": "Cloud; on-prem via Cloud Connect"
       },
-      "flag": "The editions overview limits Essentials to Cloud, where available, and lists Premier access through Cloud Connect. The general administration page describes Cloud Connect without specifying an edition; it does not establish an Essentials on-premises entitlement.",
+      "flag": "The editions overview limits Essentials to Cloud, where available, and lists Premier access through Cloud Connect. The 8.8 agent guide says Cloud Connected SOC workforce use requires Platform 10.4+, ES 8.8+ and the separate Cloud Connect 2.0 download; its statement that ES 8.9+ contains Cloud Connect 2.0+ is a packaging prerequisite, not proof that ES 8.9 is released or available. The general administration page does not establish an Essentials on-premises entitlement.",
       "desc": "The assistant embedded in ES, distinct from the separately versioned Splunk AI Assistant platform app.",
       "src": [
         "editions",
         "rn87",
         "aiassist",
-        "cloudcx"
+        "cloudcx",
+        "agentic88"
       ],
-      "reviewed": "2026-10-01"
+      "reviewed": "2026-10-28"
     },
     {
       "id": "mcp",
@@ -318,14 +319,14 @@ window.VersionCompassEditions = {
         "v": "yes",
         "n": "Cloud and Cloud Connected CMP"
       },
-      "desc": "Assists detection authoring and troubleshooting. Cloud requires Splunk Platform 10.1.x+; Cloud Connected CMP requires Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0. Edition inclusion and deployment prerequisites remain separate from regional rollout and customer enablement.",
+      "desc": "Assists detection authoring and troubleshooting. Cloud requires Splunk Platform 10.1.x+; Cloud Connected CMP requires Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0. For ES 8.8, Cloud Connect 2.0 is a separate Splunkbase download; the current guide says ES 8.9+ contains Cloud Connect 2.0+, without establishing an ES 8.9 release or rollout. Edition inclusion and deployment prerequisites remain separate from regional rollout and customer enablement.",
       "src": [
         "agentic88",
         "agentic",
         "rn87",
         "rn88"
       ],
-      "reviewed": "2026-10-26",
+      "reviewed": "2026-10-28",
       "tag": "updated"
     },
     {
@@ -552,7 +553,7 @@ window.VersionCompassEditions = {
         "v": "yes",
         "n": "Cloud and Cloud Connected CMP; rep-enabled"
       },
-      "desc": "Assists investigation and response. The 8.8 agent table documents Premier on Cloud and Cloud Connected CMP, paired SOAR and representative enablement. Cloud requires platform 10.2+ and ES 8.6+; CMP requires platform 10.4+, ES 8.8+ and Cloud Connect 2.0. The 8.7 task guide separately requires ES 8.7+, connector and investigation permissions, and a finding with AI triage results. It limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported.",
+      "desc": "Assists investigation and response. The 8.8 agent table documents Premier on Cloud and Cloud Connected CMP, paired SOAR and representative enablement. Cloud requires platform 10.2+ and ES 8.6+; CMP requires platform 10.4+, ES 8.8+ and Cloud Connect 2.0. For ES 8.8, Cloud Connect 2.0 is a separate Splunkbase download; the guide's statement that ES 8.9+ contains Cloud Connect 2.0+ does not establish an ES 8.9 release or rollout. The 8.7 task guide separately requires ES 8.7+, connector and investigation permissions, and a finding with AI triage results. It limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported.",
       "flag": "The 8.7 aggregate table and task guide retain different Cloud ES minimums. The task guide also requires inherited SOAR connector permissions and the es_soar_integration_user_role for granular asset access; these permission boundaries do not establish compatible SOAR pairing. The 8.8 CMP path has its own higher platform, ES and Cloud Connect floors.",
       "src": [
         "agentic88",
@@ -560,7 +561,7 @@ window.VersionCompassEditions = {
         "rn87",
         "socTask"
       ],
-      "reviewed": "2026-10-27"
+      "reviewed": "2026-10-28"
     }
   ],
   "history": {
@@ -661,11 +662,12 @@ window.VersionCompassEditions = {
     {
       "id": "cloud-connect",
       "title": "Cloud Connect and on-premises scope",
-      "text": "Detection Studio and TIM use Cloud Connect for on-premises access. The editions overview lists the ES AI Assistant through Cloud Connect under Premier. Cloud Connect supports private cloud and on-premises deployments; it does not turn Cloud-only agents into on-premises features.",
+      "text": "Detection Studio and TIM use Cloud Connect for on-premises access. The editions overview lists the ES AI Assistant through Cloud Connect under Premier. For ES 8.8 SOC workforce use on Cloud Connected CMP, the current agent guide requires the separate Cloud Connect 2.0 download; it says ES 8.9+ contains Cloud Connect 2.0+, but that packaging statement does not establish an ES 8.9 release, rollout or entitlement. Cloud Connect supports private cloud and on-premises deployments; it does not turn Cloud-only agents into on-premises features.",
       "src": [
         "editions",
         "cloudcx",
-        "agentic"
+        "agentic",
+        "agentic88"
       ],
       "details": "The guide requires access to *api.scs.splunk.com:443 and *auth.scs.splunk.com:443, or proxy configuration. Proxy settings affect the whole platform. Full access requires cloud_connection_product_get, license_read and license_edit; the first two allow read-only connection status."
     },

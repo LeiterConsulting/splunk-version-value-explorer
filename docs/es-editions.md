@@ -124,6 +124,21 @@ path, a compatible SOAR version pairing, region, entitlement or customer
 authorization. The aggregate-table versus task-guide Cloud ES minimum remains
 visible, as do the Triage, Connector Builder and Guided Response source questions.
 
+## October 28, 2026 Cloud Connect packaging clarification
+
+The current ES 8.8 agent guide now makes the Cloud Connected SOC workforce
+dependency packaging explicit. ES 8.8 requires Splunk Platform 10.4+, ES 8.8+
+and a separate Splunk Cloud Connect 2.0 download from Splunkbase. The same guide
+says ES 8.9 and later contain Cloud Connect 2.0 and later. VersionCompass keeps
+that second statement narrowly scoped to dependency packaging: it does not
+establish an ES 8.9 release, release date, rollout, entitlement, region,
+authorization or a compatible SOAR pairing.
+
+This qualification is applied to the ES AI Assistant, Detection Builder and AI
+SOC Analyst CMP paths. Cloud-only agents remain Cloud only. The current
+Connector Builder, Triage and Guided Response conflicts, AI SOC Analyst task
+limits and exact App for SOAR / Export matrices remain unchanged.
+
 ## Cloud environment evidence
 
 See [Cloud environments](cloud-environments.md) for independent CSP, region, FR-M/FR-H, and experience filters, shared report behavior, uncertainty boundaries, and dedicated maintenance ownership. Current hosting evidence does not establish historical release availability or authorize every product component.

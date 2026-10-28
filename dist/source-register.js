@@ -2976,10 +2976,12 @@ window.VersionCompassSources = {
         "editions.sources.agentic88.u",
         "content-updates.js",
         "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.3",
         "guidance: guidance.aiAvailability.capabilities.4",
         "guidance: guidance.aiAvailability.capabilities.5",
         "guidance: guidance.aiAvailability.capabilities.6",
         "guidance: guidance.aiAvailability.capabilities.7",
+        "editions: editions.capabilities.5",
         "editions: editions.capabilities.9",
         "editions: editions.capabilities.10",
         "editions: editions.capabilities.15",
@@ -2987,16 +2989,21 @@ window.VersionCompassSources = {
         "editions: editions.capabilities.18",
         "editions: editions.capabilities.19",
         "editions: editions.capabilities.20",
+        "editions: editions.notes.0",
         "editions: editions.conflicts.0.claims.0",
         "editions: editions.workflows.0",
         "editions: editions.workflows.1"
       ],
       "reviews": [
-        "2026-10-26"
+        "2026-10-28"
       ],
       "claimReferences": [
         {
           "path": "guidance: guidance.aiAvailability",
+          "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.3",
           "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
         },
         {
@@ -3018,7 +3025,7 @@ window.VersionCompassSources = {
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-10-26",
+      "reviewed": "2026-10-28",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-10-23",
       "firstUsed": null,
@@ -3038,6 +3045,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-26",
           "event": "Review status updated: Needs reconciliation · 2026-10-26"
+        },
+        {
+          "date": "2026-10-28",
+          "event": "Review status updated: Needs reconciliation · 2026-10-28"
         }
       ]
     },
@@ -3057,7 +3068,7 @@ window.VersionCompassSources = {
         "editions: editions.capabilities.10"
       ],
       "reviews": [
-        "2026-10-26"
+        "2026-10-28"
       ],
       "claimReferences": [
         {
@@ -3066,7 +3077,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-26",
+      "reviewed": "2026-10-28",
       "status": "Reviewed",
       "firstRecorded": "2026-10-26",
       "firstUsed": null,
@@ -3078,6 +3089,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-26",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-28",
+          "event": "Review status updated: Reviewed · 2026-10-28"
         }
       ]
     },

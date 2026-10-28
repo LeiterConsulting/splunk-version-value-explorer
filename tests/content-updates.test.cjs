@@ -16,17 +16,22 @@ test('badges are explicit, qualified and printable with evidence',()=>{
  const deprecation=b.entries['technical:observability:Browser RUM navigation configuration'];assert.match(deprecation.detail,/remains functional/);assert.match(deprecation.detail,/not removal/);
 });
 
-test('cycle 41 advances exact Cloud maintenance builds and retains prior provenance',()=>{
- assert.equal(b.policy.currentCycle,41);
+test('cycle 42 adds ES Cloud Connect packaging scope and retains prior provenance',()=>{
+ assert.equal(b.policy.currentCycle,42);
  assert(!b.active(b.entries['ai:es-essentials-regions']));
- const ai=b.entries["ai:catalog"];assert.equal(ai.cycle,40);assert(b.active(ai));assert.equal(ai.sourceDate,null);assert.match(ai.detail,/first 10 findings/);
+ const ai=b.entries["ai:catalog"];assert.equal(ai.cycle,42);assert(b.active(ai));assert.equal(ai.sourceDate,null);assert.match(ai.detail,/separate Cloud Connect 2\.0 download/);assert.match(ai.detail,/does not establish an ES 8\.9 release/);
+ const aiCycle40=b.entries['ai-history:catalog:cycle40'];assert.equal(aiCycle40.recordKey,'ai:catalog');assert.equal(aiCycle40.cycle,40);assert(!b.active(aiCycle40));assert.match(aiCycle40.detail,/first 10 findings/);
  const aiCycle37=b.entries['ai-history:catalog:cycle37'];assert.equal(aiCycle37.recordKey,'ai:catalog');assert.equal(aiCycle37.cycle,37);assert(!b.active(aiCycle37));assert.match(aiCycle37.detail,/Threat Graph Detection/);
- const soc=b.entries['edition:ai-soc-analyst'];assert.equal(soc.cycle,40);assert(b.active(soc));assert.match(soc.detail,/throughput.*model.*permission/);
+ const soc=b.entries['edition:ai-soc-analyst'];assert.equal(soc.cycle,42);assert(b.active(soc));assert.match(soc.detail,/dependency packaging/);
+ const socPrior=b.entries['edition-history:ai-soc-analyst:cycle40'];assert.equal(socPrior.recordKey,'edition:ai-soc-analyst');assert(!b.active(socPrior));assert.match(socPrior.detail,/throughput.*model.*permission/);
+ const aiAssistant=b.entries['edition:ai-assistant'];assert.equal(aiAssistant.cycle,42);assert(b.active(aiAssistant));assert.match(aiAssistant.detail,/future-version packaging note/);
  const aiCycle33=b.entries['ai-history:catalog:cycle33'];assert.equal(aiCycle33.recordKey,'ai:catalog');assert(!b.active(aiCycle33));assert.match(aiCycle33.detail,/us3/);
  const aiPrior=b.entries['ai-history:catalog:cycle32'];assert.equal(aiPrior.recordKey,'ai:catalog');assert(!b.active(aiPrior));assert.match(aiPrior.detail,/not an upstream launch/);
  for(const key of ['product:soar:cloud-8.8','feature:observability:Log-based alerting phased rollout']){const e=b.entries[key];assert.equal(e.cycle,33);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-24\.md/);}
  const edition=b.entries['edition:ai'];assert.equal(edition.cycle,34);assert(!b.active(edition));assert.equal(edition.kind,'corrected');assert.match(edition.detail,/Triage edition conflict/);
-  for(const key of ['edition:threat-graph-detection','edition:detection-builder']){const e=b.entries[key];assert.equal(e.cycle,37);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-26\.md/);}
+  const threatGraph=b.entries['edition:threat-graph-detection'];assert.equal(threatGraph.cycle,37);assert(!b.active(threatGraph));assert.match(threatGraph.note,/2026\/10\/2026-10-26\.md/);
+  const detectionBuilder=b.entries['edition:detection-builder'];assert.equal(detectionBuilder.cycle,42);assert(b.active(detectionBuilder));assert.match(detectionBuilder.detail,/ES 8\.9\+ bundled-2\.0/);
+  const detectionBuilderPrior=b.entries['edition-history:detection-builder:cycle37'];assert.equal(detectionBuilderPrior.recordKey,'edition:detection-builder');assert(!b.active(detectionBuilderPrior));assert.match(detectionBuilderPrior.note,/2026\/10\/2026-10-26\.md/);
  for(const key of ['feature:observability:Java instrumentation 2.33','technical:observability:Java instrumentation baseline','feature:observability:Multi-trace AI comparisons']){const e=b.entries[key];assert.equal(e.cycle,39);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-27\.md/);}
  assert.equal(b.entries['technical-history:observability:Java instrumentation baseline:2026-10-13-cycle20'].recordKey,'technical:observability:Java instrumentation baseline');
   const kvBoundary=b.entries['technical:platform:ES cohosted KV Store boundary'];assert.equal(kvBoundary.cycle,36);assert(!b.active(kvBoundary));
