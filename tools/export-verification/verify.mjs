@@ -217,7 +217,7 @@ try {
       if(route.id==='hf-inherited-runtime') expected.paginationPairs=[{heading:'Embedded Node.js runtime · 10.2',following:'Apps that assume Node.js is supplied by the platform will no longer run.'}];
       if(route.id==='soar-cloud-86-export-fips') expected.paginationPairs=[{heading:'Requirements and integrations',following:'Automation runtime'}];
       const printTabs = await keyboardReach(page, print);
-      const save = page.locator('.site-header [data-save-snapshot]').first();
+      const save = page.locator('.report-toolbar [data-save-snapshot]').first();
       const saveTabs = await keyboardReach(page, save);
       entry.keyboard = { passed: true, printTabs, saveTabs, downloadActivation: 'Enter' };
       const downloadPromise = page.waitForEvent('download');
