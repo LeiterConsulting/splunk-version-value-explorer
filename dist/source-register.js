@@ -2421,14 +2421,14 @@ window.VersionCompassSources = {
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": "2026-10-17",
+      "reviewed": "2026-10-28",
       "status": "Reviewed",
       "firstRecorded": "2026-10-10",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "Bounded Cloud maintenance claim check, not retrospective service availability.",
-      "section": "10.5.2605.12: Publication Date October 15, 2026; Search issues; Upgrade issues; Uncategorized issues",
-      "verificationScope": "Exact Cloud build publication and selected fixes, preliminary security counts. No selected tenant rollout or customer-managed UF/Enterprise fix is inferred.",
+      "section": "10.6.2.1 and 10.5.2605.14: Publication Date October 27, 2026; Security Fixes where listed; Search issues; Uncategorized issues",
+      "verificationScope": "Exact Cloud build publication, 10.6.2.1 preliminary security count and listed fixes, plus the 10.5.2605.14 tstats fix. No selected tenant rollout or customer-managed UF/Enterprise fix is inferred.",
       "events": [
         {
           "date": "2026-10-10",
@@ -2441,6 +2441,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-17",
           "event": "Review status updated: Reviewed · 2026-10-17"
+        },
+        {
+          "date": "2026-10-28",
+          "event": "Review status updated: Reviewed · 2026-10-28"
         }
       ]
     },

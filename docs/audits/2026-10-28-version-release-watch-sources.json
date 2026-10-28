@@ -1,0 +1,83 @@
+{
+  "watch": "version-release-watch",
+  "checkedAt": "2026-10-28T09:24:00.568Z",
+  "inventory": {
+    "exactUrlAndSectionBaseline": "dist/source-register.js at GitHub main 27a3a1cf96928e583f3e1de344eb3f89e67ec562",
+    "attempted": 203,
+    "directlyRetrieved": 200,
+    "officialIndexedRecovery": 1,
+    "unavailable": 2,
+    "rawResultDigest": "sha256:cdd8367c142749dea75b99f50e6ceed5fe5e74bf12000957d4d212616a6af2b2",
+    "qualification": "Every registered exact URL was requested with its maintained source-register sections. The current Enterprise 10.6 welcome page returned 404 to the direct client but was recovered through the official indexed page with the same URL and current 10.6/10.6.1 content. Historical Enterprise 8.1.14 and 8.2.12 docs.splunk.com bodies returned 403 and remain unavailable. Retrieval is not claim verification."
+  },
+  "unavailableSources": [
+    {
+      "url": "https://docs.splunk.com/Documentation/Splunk/8.1.14/ReleaseNotes/MeetSplunk",
+      "section": "Historical Enterprise 8.1.14 release identity",
+      "outcome": "unavailable",
+      "followUp": "Preserve historical scope and retry the exact official body; do not substitute adjacent release documentation."
+    },
+    {
+      "url": "https://docs.splunk.com/Documentation/Splunk/8.2.12/ReleaseNotes/MeetSplunk",
+      "section": "Historical Enterprise 8.2.12 release identity",
+      "outcome": "unavailable",
+      "followUp": "Preserve historical scope and retry the exact official body; do not substitute adjacent release documentation."
+    }
+  ],
+  "discovery": {
+    "cloud": "The maintenance feed added 10.6.2.1 and 10.5.2605.14, both published October 27, 2026. They are exact patch records, not selected-stack rollout or customer-managed package evidence.",
+    "enterprise": "The current download remains Enterprise 10.6.1.1. The official indexed 10.6 release page still identifies the distinct 10.6.1 release dated October 16; no new Enterprise route or alias was established.",
+    "soar": "SOAR Cloud 8.8.0 remains the newest documented milestone. Its explicit Controlled Availability statement and following General Availability enhancement sentence remain unresolved and both are preserved. On-premises 8.7 build 243 and conditional bridges remain unchanged.",
+    "observability": "The October service page still ends at the October 26 multi-trace comparison milestone. No October 27/28 SaaS milestone was established.",
+    "componentStreams": "Collector 0.163.1, chart 0.163.1, Java 2.33.0, .NET 1.16.0, Node.js 4.12.1, Python 2.13.2, Browser RUM 3.2.0 and Splunk Operator 3.2.0 remain the newest stable releases discovered.",
+    "ai": "The maintained SAIA 2.3.6 and ITSI 5.0+/SAIA 2.2+/MCP 1.2.1+ capability identities remain current. No additional named assistant or agent with sufficient product prerequisites and regional evidence was established."
+  },
+  "claimChecks": [
+    {
+      "claimId": "technical.platform.cloud-10.6-maintenance-build",
+      "productVersionEnvironment": "Splunk Cloud Platform 10.6.2.1; selected managed stack",
+      "sourceUrl": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
+      "section": "10.6.2.1 — Publication Date; Security Fixes; Search issues; Uncategorized issues",
+      "sourceCheckDate": "2026-10-28",
+      "claimVerificationDate": "2026-10-28",
+      "outcome": "published-build-confirmed-rollout-unestablished",
+      "qualification": "October 27 publication, one preliminary High security fix and six listed fixed issues are confirmed. Selected-stack rollout, issue applicability, entitlement, authorization and customer-managed Enterprise/Forwarder fixes are not inferred. The preceding 10.6.2.0 useACK fix retains its exact historical row."
+    },
+    {
+      "claimId": "technical.platform.cloud-10.5-maintenance-build",
+      "productVersionEnvironment": "Splunk Cloud Platform 10.5.2605.14; selected managed stack",
+      "sourceUrl": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
+      "section": "10.5.2605.14 — Publication Date; Search issues",
+      "sourceCheckDate": "2026-10-28",
+      "claimVerificationDate": "2026-10-28",
+      "outcome": "published-build-confirmed-rollout-unestablished",
+      "qualification": "October 27 publication and SPL-274754 tstats source-field fix are confirmed. Selected-stack rollout, broader search applicability and customer-managed Enterprise/Forwarder fixes are not inferred."
+    },
+    {
+      "claimId": "release.forwarders.borrowed-hf-mappings",
+      "productVersionEnvironment": "All 18 maintained Heavy Forwarder borrowed technical/runtime claims",
+      "sourceUrl": "docs/forwarder-source-mappings.json",
+      "section": "All exact URL and supporting-section bindings traversed by tests",
+      "sourceCheckDate": "2026-10-28",
+      "claimVerificationDate": "2026-10-26",
+      "outcome": "mappings-and-semantic-regressions-passed-no-date-advance",
+      "qualification": "The actual returned HF records retain exact sections and negative scope regressions. This run does not claim a new semantic verification date or broaden Enterprise-package evidence to Universal Forwarders."
+    },
+    {
+      "claimId": "release.soar.cloud-8.8-stage",
+      "productVersionEnvironment": "Splunk SOAR Cloud 8.8.0",
+      "sourceUrl": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
+      "section": "October 21, 2026 Release 8.8",
+      "sourceCheckDate": "2026-10-28",
+      "claimVerificationDate": "2026-10-24",
+      "outcome": "unchanged-conflict-preserved",
+      "qualification": "The source still says the release was Controlled Availability and then calls its enhancement list General Availability. Neither sentence is discarded or generalized to tenant rollout."
+    }
+  ],
+  "finiteBacklog": [
+    "Reconcile the KV-specific 10.2 bridge versus the general direct 10.0-to-10.6 route only from authoritative clarification.",
+    "Monitor authoritative clarification of the SOAR Cloud 8.8 Controlled Availability / General Availability wording conflict.",
+    "Retry the two unavailable historical Enterprise release bodies without substituting adjacent evidence.",
+    "Continue bounded discovery of named AI assistants and agents with exact product prerequisites and regional scope."
+  ]
+}
