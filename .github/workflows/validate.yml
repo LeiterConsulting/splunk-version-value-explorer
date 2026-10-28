@@ -13,6 +13,7 @@ jobs:
       - run: node scripts/sync-source-register.cjs --check
       - run: node scripts/sync-content-revision.cjs --check
       - run: node scripts/sync-content.cjs --check
+      - run: node scripts/sync-advisor.cjs --check
       - run: node --test tests/*.test.cjs
       - run: node scripts/build-worker.cjs
       - run: npm ci --prefix tools/export-verification
@@ -41,6 +42,8 @@ jobs:
             export-artifacts/evidence.json
             export-artifacts/navigation/
             export-artifacts/ripple-scroll/
+            export-artifacts/advisor/
+            export-artifacts/advisor-*/
             export-artifacts/cloud-default/desktop.png
             export-artifacts/cloud-default/narrow.png
             export-artifacts/cloud-default/page-*.png

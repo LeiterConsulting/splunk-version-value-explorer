@@ -30,6 +30,11 @@
     };
     document.body.appendChild(script);
   }
+  if(params.getAll('view').includes('advisor')){
+    document.querySelector('main').innerHTML='<section class="hero"><p role="status">Loading Advisor.</p></section>';
+    for(const file of ['editions.css','perspectives.css','ai-availability.css','advisor.css']){const css=document.createElement('link');css.rel='stylesheet';css.href=file;document.head.appendChild(css);}
+    load(['content-revision.js','source-register.js','report-tools.js','environment-data.js','data.js','guidance-data.js','ai-availability.js','advisor-admission.js','advisor.js','advisor-ui.js','navigation.js']);return;
+  }
   if(params.getAll('view').includes('ai-availability')){
     document.querySelector('main').innerHTML='<section class="hero"><p role="status">Loading AI Availability…</p></section>';
     for(const file of ['editions.css','perspectives.css','ai-availability.css']){const css=document.createElement('link');css.rel='stylesheet';css.href=file;document.head.appendChild(css);}

@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "policy": "Exact canonical claim/source payload pins, limited to the named goal. Changed payloads fail closed. UI work does not refresh claim verification dates. No domain-wide or document-wide admission.",
+  "goals": {
+    "agent-mode": [
+      "ai-saia-agent",
+      "region-context",
+      "serviceRegions",
+      "saiaRegions",
+      "source-aiSaiaAbout",
+      "source-aiSaiaInstall"
+    ],
+    "itsi-versions": [
+      "ai-itsi-subagent",
+      "source-aiSaiaAbout",
+      "source-aiSaiaInstall"
+    ],
+    "itsi-assistant": [
+      "ai-itsi-subagent",
+      "region-context",
+      "serviceRegions",
+      "saiaRegions",
+      "source-aiSaiaAbout",
+      "source-aiSaiaInstall"
+    ],
+    "soc-workflow": [
+      "ai-es-soc",
+      "region-context",
+      "serviceRegions",
+      "esEssentials",
+      "esPremier",
+      "esCloudConnect",
+      "source-aiEsAgents88",
+      "source-aiEsSocTask87",
+      "source-aiEsEditions",
+      "source-aiEsRegions88",
+      "source-aiEsRelease88",
+      "source-aiSaiaInstall"
+    ]
+  },
+  "claims": [
+    {
+      "id": "source-aiSaiaAbout",
+      "ref": "source:aiSaiaAbout",
+      "sha256": "95032f863788d093e31635db1d332bb009a19ca2a035bac77077d646b0dad160",
+      "scope": "Requirements; features; ITSI subagent; where the assistant runs",
+      "sources": [
+        "aiSaiaAbout"
+      ]
+    },
+    {
+      "id": "source-aiSaiaInstall",
+      "ref": "source:aiSaiaInstall",
+      "sha256": "cc34f75b436632b36a0b6e16518e47f84fadda64c9a0f313bac5adc577115d1a",
+      "scope": "FedRAMP deployments; supported regions; version compatibility",
+      "sources": [
+        "aiSaiaInstall"
+      ]
+    },
+    {
+      "id": "source-aiEsAgents88",
+      "ref": "source:aiEsAgents88",
+      "sha256": "6f0baba844898069e58f27deb7337d19dc6b36a0504038ceccdcf019b21dfbf4",
+      "scope": "Exact 8.8 edition, deployment, version, Cloud Connect, paired-SOAR, feature-stage, enablement, permissions, model and Cloud Connect packaging notes",
+      "sources": [
+        "aiEsAgents88"
+      ]
+    },
+    {
+      "id": "source-aiEsSocTask87",
+      "ref": "source:aiEsSocTask87",
+      "sha256": "148979e75beb380d2fa97c05b5dbcc4da53aa1ee97eebe87936e72832faaef2f",
+      "scope": "Task-specific ES 8.7 Cloud workflow limits and permissions; does not establish the 8.8 CMP path, SOAR version pairing, region or customer authorization",
+      "sources": [
+        "aiEsSocTask87"
+      ]
+    },
+    {
+      "id": "source-aiEsEditions",
+      "ref": "source:aiEsEditions",
+      "sha256": "1d5fa40575a02c7a48194a814c6159ee021c26f0198dc41f0ea8036303ce0444",
+      "scope": "Current edition groupings and deployment qualifications; compared with the 8.8 agent table where sources conflict",
+      "sources": [
+        "aiEsEditions"
+      ]
+    },
+    {
+      "id": "source-aiEsRegions88",
+      "ref": "source:aiEsRegions88",
+      "sha256": "fe4c45c594bc298127e0c4e762e917b404fdeb60350c17dbbecb88c174f6ff14",
+      "scope": "ES 8.8 Essentials component regions independently mapped; Premier and Cloud Connect exceptions, GCP/Azure scope and Security AI Assistant compatibility retained",
+      "sources": [
+        "aiEsRegions88"
+      ]
+    },
+    {
+      "id": "source-aiEsRelease88",
+      "ref": "source:aiEsRelease88",
+      "sha256": "80bc05589f007076fdaa596f47c7dc36910eb92efd70d19da78cfb68e6677bf8",
+      "scope": "ES 8.8 release date, release-stage label and edition table",
+      "sources": [
+        "aiEsRelease88"
+      ]
+    },
+    {
+      "id": "ai-saia-agent",
+      "ref": "capability:ai-saia-agent",
+      "sha256": "6e50bcd06a77c88a7f909e9ed56cd1ab3211423aa1755c77ef3989e4ede5d466",
+      "scope": "An installed assistant does not establish Agent Mode availability.",
+      "sources": [
+        "aiSaiaInstall",
+        "aiSaiaAbout"
+      ]
+    },
+    {
+      "id": "ai-itsi-subagent",
+      "ref": "capability:ai-itsi-subagent",
+      "sha256": "77f118ee1d9a37bbdd95d9b93c7ad5a3c73241381bc2afedcaff8f4c2d37a6ec",
+      "scope": "Base assistant regional coverage does not establish subagent-specific rollout.",
+      "sources": [
+        "aiSaiaAbout",
+        "aiSaiaInstall"
+      ]
+    },
+    {
+      "id": "ai-es-soc",
+      "ref": "capability:ai-es-soc",
+      "sha256": "46f215d3f9abea6248673a8d4d0f100ffde44feb6e2d3617d78a947311cd5b0a",
+      "scope": "The aggregate row is Premier. A separate 8.8 note assigns the Triage component to Essentials and the Response component to Premier, while the editions overview lists Triage under Premier; do not infer the whole workflow from a subcomponent. The 8.7 guide's connector/action inheritance and es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence.",
+      "sources": [
+        "aiEsAgents88",
+        "aiEsSocTask87",
+        "aiEsRelease88"
+      ]
+    },
+    {
+      "id": "saiaRegions",
+      "ref": "policy:saiaRegions",
+      "sha256": "deff7a5abb87fae0e90619eee166207b2414bbcdafd9f6a5ead33c08c6b1e8ce",
+      "scope": "Listed base SAIA service regions only; does not admit ITSI subagent rollout.",
+      "sources": [
+        "aiSaiaInstall"
+      ]
+    },
+    {
+      "id": "serviceRegions",
+      "ref": "policy:serviceRegions",
+      "sha256": "5447cb6c78596e7babc590076c79d3f0e0b068e475c3c57c78bef01962d051bd",
+      "scope": "SAIA-specific service location labels, not general Platform regions.",
+      "sources": [
+        "aiSaiaInstall"
+      ]
+    },
+    {
+      "id": "esEssentials",
+      "ref": "policy:esEssentials",
+      "sha256": "1efa83d6e3fce1e3734f224dd0e8b22e05997f897218b44d9addd357e03ae07c",
+      "scope": "Exact ES 8.8 Essentials component exceptions.",
+      "sources": [
+        "aiEsRegions88"
+      ]
+    },
+    {
+      "id": "esPremier",
+      "ref": "policy:esPremier",
+      "sha256": "5196ff9e7b910dd5b7a99d76f1a4400c7d0eef83611495a29cecf625edb961d3",
+      "scope": "Exact ES 8.8 Premier component exceptions.",
+      "sources": [
+        "aiEsRegions88"
+      ]
+    },
+    {
+      "id": "esCloudConnect",
+      "ref": "policy:esCloudConnect",
+      "sha256": "714a6b344224b0e76f6d47f69128038d2ecd6726c35a9873ddc28a01bb692850",
+      "scope": "Exact Cloud Connect component exceptions; does not establish agent rollout.",
+      "sources": [
+        "aiEsRegions88"
+      ]
+    },
+    {
+      "id": "region-context",
+      "ref": "environment:regions",
+      "sha256": "abcda3f495ae35fda7e68d583a4c8320e1e28aceb8ea37f310acf633ab1961b9",
+      "scope": "Location/provider identifiers only. This is not feature or authorization evidence.",
+      "sources": []
+    }
+  ]
+}

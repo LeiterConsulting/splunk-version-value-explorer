@@ -6,7 +6,7 @@
     { id: 'es-editions', label: 'ES Editions', href: '/?view=es-editions', group: 'explore', description: 'Compare documented edition scope.' },
     { id: 'ai-availability', label: 'AI Availability', href: '/?view=ai-availability', group: 'explore', description: 'Check requirements and availability.' },
     { id: 'splunk-11', label: '11.x Prep', href: '/?view=splunk-11', group: 'explore', description: 'Review published preparation guidance.' },
-    { id: 'advisor', label: 'Advisor', planned: true, description: 'Splunk guidance · planned' },
+    { id: 'advisor', label: 'Advisor', href: '/?view=advisor', badge: 'Work in progress', description: 'Assessed Splunk documentation for your goal' },
     { id: 'ripple', label: 'Ripple', href: '/ripple', description: 'Cisco exposure intelligence' },
     { id: 'about', label: 'About', href: '/?view=about', description: 'Project, sources and maintenance' }
   ].map(Object.freeze));
@@ -44,6 +44,7 @@
     const anchor = document.createElement('a'); anchor.href = href(item, url); anchor.dataset.siteLink = ''; anchor.dataset.destination = item.id;
     if (item.id === active) anchor.setAttribute('aria-current', 'page');
     const title = document.createElement('span'); title.textContent = item.label; anchor.append(title);
+    if (item.badge) { const badge = document.createElement('small'); badge.className = 'nav-status'; badge.textContent = item.badge; anchor.append(badge); }
     if (detail) { const small = document.createElement('small'); small.textContent = item.description; anchor.append(small); }
     return anchor;
   }

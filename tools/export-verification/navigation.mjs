@@ -18,7 +18,7 @@ export async function verifyNavigation(browser, output, base='http://127.0.0.1:4
     async function shot(name){const file=id+'-'+name+'.png';await page.screenshot({path:path.join(output,file)});result.screenshots.push(file);}
     try {
       await page.goto(themed('/?product=es&platform=enterprise&host=10.4&from=8.0&to=8.1'));await ready();await fit('VC');
-      assert.equal(await page.locator('.nav-planned').getAttribute('aria-disabled'),'true');assert.equal(await page.locator('.nav-planned a').count(),0);
+      assert.equal(await page.locator('[data-destination="advisor"]').getAttribute('href'),'/?view=advisor'+(theme==='cisco'?'&theme=cisco':''));assert.equal(await page.locator('[data-destination="advisor"] .nav-status').innerText(),'Work in progress');
       for(let cycle=0;cycle<3;cycle++) {await openExplore();assert(await page.locator('#explore-destinations').isVisible());await page.keyboard.press('Escape');assert(await page.locator('#explore-destinations').isHidden());assert(await page.locator(width<=760?'.global-menu-toggle':'.explore-trigger').evaluate(el=>el===document.activeElement));}
       await openExplore();await page.locator('.explore-trigger').press('ArrowDown');assert(await page.locator('[data-destination="release-guide"]').evaluate(el=>el===document.activeElement));await page.keyboard.press('End');assert(await page.locator('[data-destination="splunk-11"]').evaluate(el=>el===document.activeElement));await shot('explore');
       await page.locator('[data-destination="ai-availability"]').click();await ready();assert.equal(new URL(page.url()).searchParams.get('view'),'ai-availability');assert.equal(await page.locator('.report-toolbar-title').innerText(),'AI Availability');

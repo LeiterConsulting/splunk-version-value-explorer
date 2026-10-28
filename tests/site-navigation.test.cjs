@@ -2,10 +2,10 @@ const {test}=require('node:test');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const nav=require('../dist/site-navigation.js');
-test('one shared destination registry preserves existing URLs and separates planned Advisor from Ripple',()=>{
+test('one shared destination registry preserves existing URLs and labels Advisor work in progress',()=>{
   assert.deepEqual(nav.destinations.filter(x=>x.group==='explore').map(x=>x.href),['/','/?view=es-editions','/?view=ai-availability','/?view=splunk-11']);
   assert.equal(nav.destinations.find(x=>x.id==='ripple').href,'/ripple');
-  const advisor=nav.destinations.find(x=>x.id==='advisor');assert.equal(advisor.planned,true);assert.equal(advisor.href,undefined);
+  const advisor=nav.destinations.find(x=>x.id==='advisor');assert.equal(advisor.href,'/?view=advisor');assert.equal(advisor.badge,'Work in progress');
   for(const file of ['dist/index.html','tools/ripple/index.html']){const html=fs.readFileSync(file,'utf8');assert.match(html,/site-navigation\.js/);assert.match(html,/site-chrome\.css/);}
 });
 test('selection supports legacy editions and every Ripple route without changing comparison URLs',()=>{

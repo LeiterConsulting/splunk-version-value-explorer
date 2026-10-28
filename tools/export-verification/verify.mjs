@@ -8,6 +8,7 @@ import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
 import { verifyNavigation } from './navigation.mjs';
 import { verifyRippleScroll } from './ripple-scroll.mjs';
+import { verifyAdvisor } from './advisor.mjs';
 const require = createRequire(import.meta.url), { target, hash, verify } = require('../../scripts/export-evidence.cjs');
 if (process.env.SITES_MANAGED_LINUX_CONTAINER === '1') throw Error('Run export verification in dedicated application CI, not managed Sites preview.');
 const root = process.cwd(), output = path.resolve('export-artifacts');
@@ -79,6 +80,7 @@ try {
   browser = await chromium.launch();
   receipt.navigation = await verifyNavigation(browser,path.join(output,'navigation'));
   receipt.rippleScroll = await verifyRippleScroll(browser,path.join(output,'ripple-scroll'));
+  receipt.advisor = await verifyAdvisor(browser,path.join(output,'advisor'));
   const routes = JSON.parse(fs.readFileSync('tools/export-verification/routes.json'));
   for (const route of routes) for (const theme of ['default', 'cisco']) {
     const id = route.id + '-' + theme, directory = path.join(output, id); fs.mkdirSync(directory);
@@ -99,6 +101,8 @@ try {
       entry.mainNavigation={passed:true};
     }
     await page.goto(url); await settled(page);
+    if(route.id==='advisor-prerequisites') {for(const [field,value] of [['itsiVersion','5.0.0'],['saiaVersion','2.2.0'],['mcpVersion','1.2.1']])await page.locator('#advisor-'+field).fill(value);assert.equal(await page.locator('#advisor-result .advisor-result').getAttribute('data-outcome'),'no_change');}
+    if(route.id==='advisor-conflict'){for(const [field,value] of [['deployment','enterprise'],['compliance','commercial'],['region','us-east-1'],['edition','premier']])await page.locator('#advisor-'+field).selectOption(value);assert.equal(await page.locator('#advisor-result .advisor-result').getAttribute('data-outcome'),'conflicting');}
     if(routeUrl.hash) {
       assert.equal(new URL(page.url()).hash,routeUrl.hash,'Shared section anchor was discarded: '+id);
       assert(await page.locator(routeUrl.hash).count()>0,'Shared section anchor has no target: '+id);

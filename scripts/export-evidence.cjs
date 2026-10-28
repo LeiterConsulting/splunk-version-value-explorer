@@ -5,7 +5,7 @@ const gates = ['html-reopen', 'pdf-rendering', 'themes-and-narrow-screens'];
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 function target(root = process.cwd()) {
   const files = execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard'], { cwd: root, encoding: 'utf8' }).trim().split('\n')
-    .filter(f => /^(dist\/(?:ripple\/)?[^/]+\.(?:html|js|css|json|svg)|client\/.*\.js|worker\/.*\.mjs|content\/(?:datasets\/.*\.json|publication\.json)|tools\/export-verification\/[^/]+\.(?:mjs|py|json)|tools\/ripple\/.*\.(?:tsx|ts|css|html|json|svg)|scripts\/(?:export-evidence|build-ripple|check-ripple)\.cjs)$/.test(f)).sort();
+    .filter(f => /^(dist\/(?:ripple\/)?[^/]+\.(?:html|js|css|json|svg)|client\/.*\.js|worker\/.*\.mjs|content\/(?:advisor-admission\.json|datasets\/.*\.json|publication\.json)|tools\/export-verification\/[^/]+\.(?:mjs|py|json)|tools\/ripple\/.*\.(?:tsx|ts|css|html|json|svg)|scripts\/(?:export-evidence|sync-advisor|build-ripple|check-ripple)\.cjs)$/.test(f)).sort();
   const inputs = [...new Set(files)].map(file => ({ file, sha256: hash(fs.readFileSync(path.join(root, file))) }));
   const manifest = JSON.parse(fs.readFileSync(path.join(root, 'content/publication.json')));
   return { fingerprint: hash(JSON.stringify(inputs)), contentRevision: manifest.revision, engineRevision: manifest.engineRevision, inputs };
