@@ -1,6 +1,12 @@
-# Unlisted Ripple prototype
+# Ripple workspace mount
 
-The public VersionCompass Worker serves Ripple at `https://versioncompass.com/ripple` and `/ripple/`. No link is added to the main interface. Ripple has its own HTML, React bundle, CSS and icon under `dist/ripple/`; its assessment links retain the `/ripple` path. The prototype page and assets send `noindex, nofollow`, which is an indexing preference rather than access control.
+The public VersionCompass Worker serves Ripple at `https://versioncompass.com/ripple` and `/ripple/`. The owner-approved October 28 navigation adds a direct Ripple destination. Ripple has its own HTML, React bundle, CSS and icon under `dist/ripple/`; its assessment links retain the `/ripple` path. The page and assets retain `noindex, nofollow`, which is an indexing preference rather than access control.
+
+`dist/site-navigation.js` owns the shared destination registry and accessible
+disclosures for both apps; `dist/site-chrome.css` owns masthead and report-toolbar
+tokens. Ripple's `tools/ripple/chrome.css` adds teal/slate workspace styling.
+Its internal research tools remain contextual navigation. Advisor stays planned
+and has no link; its Splunk scope does not redefine Ripple's Cisco research.
 
 ## Research reads and private updates
 

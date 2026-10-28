@@ -19,12 +19,12 @@ if(header&&copy&&print){
   '<path d="M4 3h13l4 4v14H3V3h1Z"/><path d="M7 3v6h10V3M7 21v-8h10v8M14 5v2"/>'
  ];
  [copy,print].forEach((button,i)=>{
-  const label=i?'Print / PDF':'Copy comparison link';
+  const label=i?'Print / PDF':'Copy link';
   button.classList.add('header-action');button.setAttribute('aria-label',label);
   button.innerHTML='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'+icons[i]+'</svg><span class="header-action-label">'+label+'</span>';
   actions.append(button);
  });
- const save=document.createElement('button');save.type='button';save.className='header-action';save.dataset.saveSnapshot='';save.setAttribute('aria-label','Save dated snapshot');save.innerHTML='<span aria-hidden="true">↓</span><span class="header-action-label">Save dated snapshot</span>';
+ const save=document.createElement('button');save.type='button';save.className='header-action';save.dataset.saveSnapshot='';save.setAttribute('aria-label','Save dated snapshot');save.innerHTML='<span class="header-action-label">Snapshot</span>';
  // Snapshot and print share the same report guard. Keep their visible states in
  // lockstep so an unresolved or invalid selection never advertises an export.
  const syncSaveAvailability=()=>{save.disabled=Boolean(print.disabled);};
@@ -33,9 +33,10 @@ if(header&&copy&&print){
  actions.append(save);
  const snapshotStatus=document.createElement('span');snapshotStatus.className='snapshot-status header-share-status';snapshotStatus.setAttribute('role','status');actions.append(snapshotStatus);
  if(status){status.classList.add('header-share-status');actions.append(status);}
- const meta=document.createElement('div');meta.className='header-meta';
- const reviewed=header.querySelector('.reviewed');if(reviewed)meta.append(reviewed);
- meta.append(actions);header.append(meta);
+ const toolbar=document.createElement('section');toolbar.className='report-toolbar';toolbar.setAttribute('aria-label','Current report');
+ const title=document.createElement('span');title.className='report-toolbar-title';
+ const registry=window.VersionCompassNavigation;title.textContent=registry?.destinations.find(item=>item.id===registry.selected(new URL(location.href)))?.label||'Release Guide';
+ toolbar.append(title,actions);nav.before(toolbar);
  const empty=document.querySelector('.report-actions');if(empty&&!empty.children.length)empty.remove();
 }
 

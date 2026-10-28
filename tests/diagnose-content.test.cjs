@@ -2,6 +2,7 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs'), os = require('node:os'), path = require('node:path');
 const { spawnSync } = require('node:child_process');
+const { pathToFileURL } = require('node:url');
 
 function diagnose(t, failure) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-delivery-diagnostic-'));
@@ -32,7 +33,7 @@ function diagnose(t, failure) {
       return new Response('/* Generated from content/datasets/platform.json */', {status:200});
     };
   `);
-  const run = spawnSync(process.execPath, ['--import', fixture, 'scripts/diagnose-content.cjs', 'https://versioncompass.com/'], { encoding: 'utf8', timeout: 10000 });
+  const run = spawnSync(process.execPath, ['--import', pathToFileURL(fixture).href, 'scripts/diagnose-content.cjs', 'https://versioncompass.com/'], { encoding: 'utf8', timeout: 10000 });
   return { ...run, report: JSON.parse(run.stdout), progress: run.stderr.trim().split('\n').map(line => JSON.parse(line)) };
 }
 

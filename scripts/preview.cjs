@@ -17,7 +17,7 @@ const server = http.createServer(async (req, res) => {
     res.writeHead(200, {'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store'});
     res.end('<!doctype html><html><head><meta charset="utf-8"><title>VersionCompass phone preview</title></head><body><iframe title="390px VersionCompass preview" src="/'+query+'" style="width:390px;height:844px;border:0"></iframe></body></html>'); return;
   }
-  if (pathname.startsWith('/api/content/')) {
+  if (pathname.startsWith('/api/content/') || /^\/ripple(?:\/?|\/updates\/?|\/api\/.*)$/.test(pathname)) {
     const response = await (await worker).default.fetch(new Request('http://localhost' + req.url, { method: req.method }), { DB: db });
     res.writeHead(response.status, Object.fromEntries(response.headers)); res.end(Buffer.from(await response.arrayBuffer())); return;
   }

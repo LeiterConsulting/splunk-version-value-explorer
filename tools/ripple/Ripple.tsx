@@ -24,17 +24,19 @@ export default function Ripple({initialView="assessments"}:{initialView?:View}={
   const [view,setView]=useState<View>(initialView), [family,setFamily]=useState("all"), [filter,setFilter]=useState("all"), [query,setQuery]=useState("");
   const [selected,setSelected]=useState("http2-iosxe"), [watch,setWatch]=useState<string[]>([]), [onlyWatch,setOnlyWatch]=useState(false);
   const [selections,setSelections]=useState<Record<string,Selection>>({});
-  const [message,setMessage]=useState(""),[sidebar,setSidebar]=useState(false);
+  const [message,setMessage]=useState("");
   const [lookup,setLookup]=useState<Lookup|null>(null),[lookupBusy,setLookupBusy]=useState(false);
   const detailRef=useRef<HTMLElement>(null);
   useEffect(()=>{
     if(window.location.pathname.replace(/\/$/,"").endsWith("/updates")||new URLSearchParams(window.location.search).get("view")==="updates")setView("updates");
     const params=new URLSearchParams(window.location.search); if(["investigations","portfolio","sources","updates"].includes(params.get("view")??""))setView(params.get("view") as View); const id=params.get("assessment"); if(id) setSelected(id);
     try { const saved=JSON.parse(localStorage.getItem("ripple.preferences.v1") ?? "{}"); if(Array.isArray(saved.watch)) setWatch(saved.watch.filter((v:unknown)=>typeof v==="string")); if(saved.selections && typeof saved.selections==="object") setSelections(saved.selections); } catch { /* unavailable browser storage is optional */ }
-    if(bootstrapSnapshot())return;
+    const restore=()=>{const params=new URLSearchParams(window.location.search);const next=window.location.pathname.replace(/\/$/,"").endsWith("/updates")?"updates":params.get("view");setView(["investigations","portfolio","sources","updates"].includes(next??"")?next as View:"assessments");setOnlyWatch(false);setSelected(params.get("assessment")??"http2-iosxe");};
+    window.addEventListener("popstate",restore);
+    if(bootstrapSnapshot())return ()=>window.removeEventListener("popstate",restore);
     const controller=new AbortController();
     fetch("/ripple/api/snapshot",{signal:controller.signal}).then(async r=>{if(!r.ok) throw new Error("Persistent data unavailable; showing verified baseline.");setSnapshot(await r.json());}).catch(e=>{if(e.name!=="AbortError")setMessage(e.message);});
-    return ()=>controller.abort();
+    return ()=>{controller.abort();window.removeEventListener("popstate",restore);};
   },[]);
   const save=(nextWatch:string[], nextSelections:Record<string,Selection>)=>{try{localStorage.setItem("ripple.preferences.v1",JSON.stringify({watch:nextWatch,selections:nextSelections}));}catch{setMessage("Browser storage unavailable. Your selections will last for this session.");}};
   const toggleWatch=(id:string)=>{const next=watch.includes(id)?watch.filter(x=>x!==id):[...watch,id];setWatch(next);save(next,selections);};
@@ -45,33 +47,26 @@ export default function Ripple({initialView="assessments"}:{initialView?:View}={
   const excluded=snapshot.records.filter(r=>r.verdict==="not_affected"&&!r.reviewRequired).length;
   const reviews=snapshot.records.filter(r=>r.verdict==="review"||r.reviewRequired).length;
   const cves=new Set(snapshot.records.map(r=>r.cve)).size;
-  function navigate(next:View) { setView(next);setSidebar(false);setOnlyWatch(false);const url=new URL(window.location.href);url.pathname=next==="updates"?"/ripple/updates":"/ripple";url.searchParams.delete("assessment");if(next!=="assessments"&&next!=="updates")url.searchParams.set("view",next);else url.searchParams.delete("view");window.history.replaceState({},"",url); }
+  function navigate(next:View) { setView(next);setOnlyWatch(false);const url=new URL(window.location.href);url.pathname=next==="updates"?"/ripple/updates":"/ripple";url.searchParams.delete("assessment");if(next!=="assessments"&&next!=="updates")url.searchParams.set("view",next);else url.searchParams.delete("view");window.history.pushState({},"",url); }
   function choose(r:Assessment) {setSelected(r.id);const url=new URL(window.location.href);url.pathname="/ripple";url.searchParams.delete("view");url.searchParams.set("assessment",r.id);window.history.replaceState({},"",url);if(window.innerWidth<1100)setTimeout(()=>{detailRef.current?.scrollIntoView({behavior:"smooth",block:"start"});detailRef.current?.focus({preventScroll:true});},50);}
   async function inspectCve(){const id=query.trim().toUpperCase();if(!/^CVE-\d{4}-\d{4,}$/.test(id)){setMessage("Enter a CVE such as CVE-2023-44487 in the search field.");return;}setLookupBusy(true);setLookup(null);try{const r=await fetch("/ripple/api/cve?id="+encodeURIComponent(id));const data=await r.json() as Lookup;if(!r.ok)throw new Error(data.error);setLookup(data);}catch(e){setLookup({id,found:false,error:e instanceof Error?e.message:"Lookup failed"});}finally{setLookupBusy(false);}}
   const sourceRegister=[...new Map([...feeds,...sources,...snapshot.checks,...snapshot.records.flatMap(r=>[...(r.evidence?[r.evidence]:[]),...(r.relatedEvidence??[])])].map(s=>[s.id,s])).values()];
   function exportReport(){download("ripple-assessments.json",JSON.stringify({exportedAt:new Date().toISOString(),scope:"Filtered public research only. No local versions or watchlist included.",records:rows,sources: sourceRegister.filter(s=>rows.some(r=>r.sourceId===s.id||r.relatedEvidence?.some(e=>e.id===s.id))),sourceChecks:snapshot.checks},null,2),"application/json");setMessage("Exported filtered assessments and their sources. Device-local versions were omitted.");}
-  async function share(){if(!record)return;const url=new URL("/ripple",window.location.origin);url.searchParams.set("assessment",record.id);try{await navigator.clipboard.writeText(url.href);setMessage("Assessment link copied. Your local version and configuration are not included.");}catch{setMessage("Assessment link: "+url.href);}}
+  async function share(){if(!record)return;const url=new URL("/ripple",window.location.origin);url.searchParams.set("assessment",record.id);if(new URLSearchParams(window.location.search).get("theme")==="cisco")url.searchParams.set("theme","cisco");try{await navigator.clipboard.writeText(url.href);setMessage("Assessment link copied. Your local version and configuration are not included.");}catch{setMessage("Assessment link: "+url.href);}}
   const status=record ? evaluate(record,selections[record.product]) : null;
   const source=record ? record.evidence ?? sources.find(s=>s.id===record.sourceId) : null;
   const sourceCheck=record ? snapshot.checks.find(s=>s.id===record.sourceId) : null;
   return <div className="app-shell">
     <a className="skip-link" href="#main">Skip to content</a>
-    {sidebar?<button className="nav-scrim" onClick={()=>setSidebar(false)} aria-label="Close navigation"/>:null}
-    <aside className={"sidebar "+(sidebar?"open":"")}>
-      <a href="/ripple" className="brand" aria-label="Ripple home"><span className="brand-mark"><i/><i/><i/></span><span>ripple<span className="brand-dot">.</span></span></a>
-      <div className="workspace-label">EXPOSURE INTELLIGENCE</div>
-      <nav aria-label="Main navigation">
-        <button className={view==="assessments"&&!onlyWatch?"nav-item active":"nav-item"} onClick={()=>navigate("assessments")}><Radar size={19}/>Assessments<span className="nav-count">{snapshot.records.length}</span></button>
-        <button className={view==="investigations"?"nav-item active":"nav-item"} onClick={()=>navigate("investigations")}><GitBranch size={19}/>Investigations{snapshot.candidates.length>0?<span className="nav-count">{snapshot.candidates.length}</span>:null}</button>
-        <button className={view==="portfolio"?"nav-item active":"nav-item"} onClick={()=>navigate("portfolio")}><Layers3 size={19}/>Cisco portfolio</button>
-        <button className={view==="sources"?"nav-item active":"nav-item"} onClick={()=>navigate("sources")}><BookOpen size={19}/>Sources & method</button>
-      </nav>
-      <div className="nav-divider"/>
-      <button className={onlyWatch?"nav-item active":"nav-item"} onClick={()=>{setView("assessments");setOnlyWatch(true);setSidebar(false);}}><Star size={19}/>My watchlist<span className="nav-count">{watch.length}</span></button>
-      <div className="sidebar-bottom"><div className="private-note"><Fingerprint size={20}/><div><strong>Your context stays here.</strong><span>Versions and watchlists are saved only in this browser.</span></div></div><div className="sidebar-footer">Independent research<br/><span>Built by Leiter Consulting</span></div></div>
-    </aside>
     <div className="workspace">
-      <header className="topbar"><div className="topbar-left"><button className="mobile-menu icon-button" onClick={()=>setSidebar(true)} aria-label="Open navigation"><Menu size={20}/></button><span className="ecosystem-icon"><Layers3 size={16}/></span><span>Cisco ecosystem</span><span className="top-divider">/</span><span className="topbar-sub">Third-party exposure</span></div><div className="topbar-actions"><span className={"feed-status "+(snapshot.updateStatus==="complete"?"connected":"")}><i/>{snapshot.lastRun ? snapshot.updateStatus==="complete"?"Sources checked":"Partial source check" : "Baseline edition"}</span><button className="icon-button" onClick={exportReport} title="Export assessments" aria-label="Export assessments"><ArrowDownToLine size={19}/></button></div></header>
+      <div className="topbar report-toolbar" aria-label="Ripple research actions"><span className="report-toolbar-title">Ripple <span className="workspace-scope">/ Cisco exposure intelligence</span></span><div className="topbar-actions header-actions"><span className={"feed-status "+(snapshot.updateStatus==="complete"?"connected":"")}><i/>{snapshot.lastRun ? snapshot.updateStatus==="complete"?"Sources checked":"Partial source check" : "Baseline edition"}</span>{view==="assessments"&&record?<><button className="header-action" onClick={share}><Link2 size={16}/><span>Copy link</span></button><button className="header-action" onClick={()=>window.print()}><Printer size={16}/><span>Print / PDF</span></button></>:null}<button className="header-action" onClick={exportReport}><ArrowDownToLine size={16}/><span>Export research</span></button></div></div>
+      <nav className="ripple-tools" aria-label="Ripple workspace">
+        <button aria-current={view==="assessments"&&!onlyWatch?"page":undefined} onClick={()=>navigate("assessments")}><Radar size={17}/>Assessments<span>{snapshot.records.length}</span></button>
+        <button aria-current={view==="investigations"?"page":undefined} onClick={()=>navigate("investigations")}><GitBranch size={17}/>Investigations<span>{snapshot.candidates.length}</span></button>
+        <button aria-current={view==="portfolio"?"page":undefined} onClick={()=>navigate("portfolio")}><Layers3 size={17}/>Cisco portfolio</button>
+        <button aria-current={view==="sources"?"page":undefined} onClick={()=>navigate("sources")}><BookOpen size={17}/>Sources &amp; method</button>
+        <button aria-current={onlyWatch?"page":undefined} onClick={()=>{navigate("assessments");setOnlyWatch(true);}}><Star size={17}/>My watchlist<span>{watch.length}</span></button>
+      </nav>
       <main id="main">
         <div className="section-kicker"><span>RESEARCH WORKSPACE</span><span className="edition">01 / RIPPLE</span></div>
         {view==="assessments"?<>

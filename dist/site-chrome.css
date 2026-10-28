@@ -1,0 +1,61 @@
+/* Shared screen chrome. Workspace colors are tokens; report print styles stay independent. */
+@media screen {
+  :root { --chrome-bg:#071e15; --chrome-ink:#eef9f2; --chrome-muted:#b5cbc0; --chrome-accent:#8ee0b6; --chrome-paper:#fff; --chrome-text:#183d2c; --chrome-line:#d9e4dd; --chrome-selected:#e7f3eb; --compass-header-height:76px; }
+  .theme-cisco { --chrome-bg:#101d34; --chrome-accent:#a7ddff; --chrome-paper:#14213a; --chrome-text:#edf4ff; --chrome-line:#435a7b; --chrome-selected:#263e60; }
+  body.ripple-workspace { --chrome-bg:#102b31; --chrome-accent:#a4dfd6; --chrome-muted:#b7ced0; --chrome-text:#193e43; --chrome-selected:#e4f2f1; --chrome-line:#d4e3e3; }
+  .theme-cisco body.ripple-workspace { --chrome-bg:#102638; --chrome-paper:#152b3d; --chrome-text:#edf7ff; --chrome-selected:#234759; --chrome-line:#416173; }
+  .compass-masthead.site-header { position:sticky; top:0; inset:auto; z-index:1100; display:flex; align-items:center; justify-content:flex-start; gap:40px; width:100%; max-width:none; height:76px; min-height:76px; margin:0; padding:12px max(24px,calc((100vw - 1380px)/2)); background:var(--chrome-bg); color:var(--chrome-ink); border-bottom:1px solid #ffffff18; box-shadow:none; }
+  .compass-masthead .brand { display:inline-flex; flex:none; gap:10px; padding:0; margin:0; font:720 19px/1.3 Inter,ui-sans-serif,system-ui,sans-serif; letter-spacing:-.02em; text-decoration:none; color:var(--chrome-ink); }
+  .compass-masthead .brand>span { color:var(--chrome-accent); font-family:ui-monospace,monospace; }
+  .compass-masthead .site-nav { display:flex; align-items:center; justify-content:flex-start; gap:10px; flex-wrap:nowrap; max-width:none; min-width:0; font:600 14px/1.35 Inter,ui-sans-serif,system-ui,sans-serif; }
+  .compass-masthead .site-nav a,.explore-trigger,.nav-planned { display:flex; flex-direction:column; justify-content:center; align-items:flex-start; gap:2px; min-height:44px; padding:8px 13px; border:0; border-radius:6px; color:var(--chrome-ink); text-decoration:none; white-space:nowrap; background:transparent; font:inherit; }
+  .compass-masthead .site-nav a small,.nav-planned small { font-size:10px; font-weight:400; color:var(--chrome-muted); letter-spacing:.01em; }
+  .nav-planned { color:#c5d4cc; cursor:default; }
+  .explore-trigger { flex-direction:row; align-items:center; gap:12px; cursor:pointer; }
+  .explore-trigger::after { content:'⌄'; font-size:17px; }
+  .explore-trigger[aria-expanded=true]::after { transform:rotate(180deg); }
+  .compass-masthead .site-nav>a:hover,.explore-trigger:hover { background:#ffffff12; }
+  .compass-masthead .site-nav>a[aria-current],.explore-trigger.is-current { color:var(--chrome-accent); background:#ffffff0b; }
+  .compass-masthead :is(a,button):focus-visible { outline:3px solid var(--chrome-accent); outline-offset:3px; }
+  .compass-masthead .reviewed { margin-left:auto; font-size:10px; letter-spacing:.03em; color:var(--chrome-muted); }
+  .explore-disclosure { position:relative; }
+  .explore-destinations { position:absolute; top:calc(100% + 13px); left:0; width:310px; padding:12px; background:var(--chrome-paper); color:var(--chrome-text); border:1px solid var(--chrome-line); border-radius:9px; box-shadow:0 14px 40px #071e1533; }
+  .explore-destinations[hidden] { display:none!important; }
+  .nav-group-label { margin:2px 10px 9px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; opacity:.7; }
+  .compass-masthead .explore-destinations a { padding:11px 10px; color:var(--chrome-text); white-space:normal; }
+  .compass-masthead .explore-destinations a small { font-size:11px; color:var(--chrome-text); opacity:.75; }
+  .compass-masthead .explore-destinations a:hover,.compass-masthead .explore-destinations a[aria-current] { background:var(--chrome-selected); color:var(--chrome-text); }
+  .global-menu-toggle { display:none; }
+  .report-toolbar { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px max(24px,calc((100vw - 1380px)/2)); min-height:64px; border-bottom:1px solid var(--chrome-line); background:var(--chrome-paper); color:var(--chrome-text); }
+  .report-toolbar-title { font-weight:700; font-size:15px; white-space:nowrap; }
+  .report-toolbar .header-actions { display:flex; align-items:center; flex-wrap:wrap; gap:7px; }
+  .report-toolbar .header-action { display:inline-flex; position:static; align-items:center; gap:7px; width:auto; height:auto; min-height:38px; padding:7px 12px; border:1px solid var(--chrome-line); background:var(--chrome-paper); color:var(--chrome-text); border-radius:5px; font:600 12px/1.3 inherit; font-family:inherit; font-size:12px; cursor:pointer; }
+  .report-toolbar .header-action:hover:not(:disabled) { background:var(--chrome-selected); border-color:var(--chrome-text); color:var(--chrome-text); }
+  .report-toolbar .header-action svg { width:16px; height:16px; }
+  .report-toolbar .header-action-label { position:static; display:inline; padding:0; border:0; background:transparent; color:inherit; opacity:1; font:inherit; white-space:nowrap; }
+  .report-toolbar .header-action:focus-visible { outline:3px solid #358565; outline-offset:2px; }
+  .report-toolbar .header-share-status:not(:empty) { top:calc(100% + 5px); z-index:1000; background:var(--chrome-paper); color:var(--chrome-text); border-color:var(--chrome-line); }
+  .report-toolbar .header-action:disabled { cursor:not-allowed; opacity:.45; }
+  .report-navigator { top:var(--compass-header-height)!important; }
+  html main [id] { scroll-margin-top:calc(var(--compass-header-height) + var(--report-nav-height,50px) + 20px)!important; }
+  .compass-masthead~main>.hero,.compass-masthead~main>.edition-hero { padding-top:30px; }
+  .skip-link { z-index:1300; }
+  html.perspective-enabled body { padding-top:0; }
+  .perspective-enabled .compass-masthead.site-header { display:flex; position:sticky; inset:auto; top:0; padding:12px max(24px,calc((100vw - 1380px)/2)); height:76px; min-height:76px; }
+  .compass-masthead .site-nav { order:initial; width:auto; }
+  @media(max-width:1050px) { .compass-masthead.site-header { gap:20px; }.compass-masthead .site-nav { gap:2px; }.compass-masthead .reviewed-full { display:none; }.compass-masthead .reviewed-compact { display:inline; } }
+  @media(max-width:760px) {
+    .compass-masthead.site-header,.perspective-enabled .compass-masthead.site-header { height:68px; min-height:68px; gap:12px; padding:12px 18px; justify-content:space-between; flex-wrap:nowrap; }
+    .compass-masthead .brand { font-size:17px; }.compass-masthead .reviewed { margin-left:auto; font-size:9px; }.compass-masthead .reviewed-compact { max-width:68px; display:block; white-space:normal; text-align:center; line-height:1.35; }
+    .global-menu-toggle { display:block; flex:none; min-height:44px; padding:8px 11px; border:1px solid #779d8d; border-radius:5px; background:transparent; color:var(--chrome-ink); font:600 13px/1.3 inherit; font-family:inherit; cursor:pointer; }
+    .compass-masthead .global-navigation { display:none; position:absolute; top:100%; left:0; right:0; width:100%; max-height:calc(100dvh - 68px); overflow-y:auto; padding:18px; border-bottom:1px solid var(--chrome-line); box-shadow:0 15px 24px #071e1526; background:var(--chrome-paper); color:var(--chrome-text); }
+    .compass-masthead.menu-open .global-navigation { display:grid; grid-template-columns:minmax(0,1fr); justify-content:stretch; align-items:stretch; gap:6px; }
+    .compass-masthead .site-nav>a,.compass-masthead .nav-planned,.compass-masthead .explore-trigger { width:100%; color:var(--chrome-text); padding:10px 12px; }
+    .compass-masthead .site-nav>a small,.compass-masthead .nav-planned small { color:var(--chrome-text); opacity:.7; }.compass-masthead .nav-planned { border-top:1px solid var(--chrome-line); border-radius:0; padding-top:15px; }
+    .explore-trigger { justify-content:space-between; background:var(--chrome-selected); }.explore-trigger.is-current { color:var(--chrome-text); background:var(--chrome-selected); }
+    .explore-destinations { position:static; width:auto; padding:5px 0 10px 12px; border:0; box-shadow:none; }.nav-group-label { display:none; }.compass-masthead .explore-destinations a small { display:none; }
+    .compass-masthead .site-nav>a[aria-current] { color:var(--chrome-text); background:var(--chrome-selected); }
+    .report-toolbar { padding:12px 18px; gap:9px; flex-wrap:wrap; }.report-toolbar-title { width:100%; }.report-toolbar .header-action { padding:7px 9px; font-size:11px; gap:5px; }.report-toolbar .header-action svg { display:none; }
+  }
+}
+@media print { .compass-masthead,.report-toolbar { display:none!important; } }

@@ -14,7 +14,7 @@ async function worker(fetcher = async () => Response.json(snapshot)) {
 }
 const request = (route, options) => new Request('https://versioncompass.com' + route, options);
 const env = { RIPPLE_READ_SERVICE_TOKEN: secret };
-test('unlisted tool and trailing slash serve the independent app; main interface has no link', async () => {
+test('discoverable tool and trailing slash serve the independent app with existing indexing policy', async () => {
   const app = await worker();
   for (const route of ['/ripple', '/ripple/', '/ripple/updates', '/ripple/updates/', '/ripple?assessment=http2-iosxe', '/ripple/app.js', '/ripple/app.css', '/ripple/icon.svg']) {
     const response = await app.fetch(request(route), env);
@@ -23,7 +23,7 @@ test('unlisted tool and trailing slash serve the independent app; main interface
   }
   const root = await app.fetch(request('/'), env);
   assert.equal(await root.text(), assets['/index.html'].body);
-  assert.equal(/href=["'][^"']*\/ripple(?:[\/\?"'])/i.test(assets['/index.html'].body), false);
+  assert.equal(/href=["'][^"']*\/ripple(?:[\/\?"'])/i.test(assets['/index.html'].body), true);
   checkRipple();
 });
 test('only the two allowlisted read endpoints reach the fixed private service', async () => {

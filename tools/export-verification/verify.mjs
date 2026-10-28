@@ -6,6 +6,7 @@ import { spawn, execFileSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
+import { verifyNavigation } from './navigation.mjs';
 const require = createRequire(import.meta.url), { target, hash, verify } = require('../../scripts/export-evidence.cjs');
 if (process.env.SITES_MANAGED_LINUX_CONTAINER === '1') throw Error('Run export verification in dedicated application CI, not managed Sites preview.');
 const root = process.cwd(), output = path.resolve('export-artifacts');
@@ -75,6 +76,7 @@ try {
     server.stdout.on('data', () => { if (serverLog.includes('Static preview ready')) { clearTimeout(timer); resolve(); } });
   });
   browser = await chromium.launch();
+  receipt.navigation = await verifyNavigation(browser,path.join(output,'navigation'));
   const routes = JSON.parse(fs.readFileSync('tools/export-verification/routes.json'));
   for (const route of routes) for (const theme of ['default', 'cisco']) {
     const id = route.id + '-' + theme, directory = path.join(output, id); fs.mkdirSync(directory);
@@ -89,7 +91,7 @@ try {
     const url = routeUrl.href;
     if(route.id==='ai-overview') {
       await page.goto('http://127.0.0.1:4173/'+(theme==='cisco'?'?theme=cisco':'')); await settled(page);
-      await page.locator('.site-nav a').filter({hasText:'AI Availability'}).click(); await settled(page);
+      await page.locator('.explore-trigger').click(); await page.locator('.site-nav a').filter({hasText:'AI Availability'}).click(); await settled(page);
       assert.equal(new URL(page.url()).searchParams.has('perspective'),false,'Release perspective leaked into AI navigation');
       assert(await page.locator('#ai-selection').isVisible(),'Main-page AI navigation did not load a usable view');
       entry.mainNavigation={passed:true};
@@ -102,7 +104,7 @@ try {
     }
     if(route.id.startsWith('ai-')) {
       assert(await page.locator('#ai-title').isVisible());
-      assert.equal(await page.locator('.site-nav a[aria-current="page"]').getAttribute('href'),theme==='cisco'?'/?view=ai-availability&theme=cisco':'?view=ai-availability');
+      assert.equal(await page.locator('.site-nav a[aria-current="page"]').getAttribute('href'),theme==='cisco'?'/?view=ai-availability&theme=cisco':'/?view=ai-availability');
       if(route.invalid){
         assert(await page.locator('#ai-warning').isVisible());assert(await page.locator('#ai-content').isHidden());
         assert.equal(await page.locator('main>.ai-report').count(),0);
@@ -126,7 +128,7 @@ try {
     }
     if(route.id.startsWith('prep11')) {
       assert(await page.locator('#prep11-title').isVisible());
-      assert.equal(await page.locator('.site-nav a[aria-current="page"]').getAttribute('href'),theme==='cisco'?'/?view=splunk-11&theme=cisco':'?view=splunk-11');
+      assert.equal(await page.locator('.site-nav a[aria-current="page"]').getAttribute('href'),theme==='cisco'?'/?view=splunk-11&theme=cisco':'/?view=splunk-11');
       if(route.invalid) {
         assert(await page.locator('#prep11-warning').isVisible());
         assert(await page.locator('#prep11-content').isHidden());

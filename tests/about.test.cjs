@@ -43,7 +43,7 @@ test('About section tabs scroll to headings and follow the active section',()=>{
 });
 test('Header snapshot availability follows the guarded print export',()=>{
  const observers=[];
- const element=tag=>({tagName:tag.toUpperCase(),dataset:{},children:[],classList:{add(){}},style:{},append(...items){this.children.push(...items);},addEventListener(k,fn){this[k]=fn;},setAttribute(k,v){this[k]=v},removeAttribute(k){delete this[k]},replaceChildren(...items){this.children=items;},querySelectorAll(){return []},getBoundingClientRect(){return {top:200,bottom:100,height:40}},closest(){return null}});
+ const created=[];const element=tag=>{const node={tagName:tag.toUpperCase(),dataset:{},children:[],classList:{add(){}},style:{},before(){},append(...items){this.children.push(...items);},addEventListener(k,fn){this[k]=fn;},setAttribute(k,v){this[k]=v},removeAttribute(k){delete this[k]},replaceChildren(...items){this.children=items;},querySelectorAll(){return []},getBoundingClientRect(){return {top:200,bottom:100,height:40}},closest(){return null}};created.push(node);return node;};
  const main=element('main'),header=element('header'),copy=element('button'),print=element('button'),status=element('span');print.disabled=true;
  main.before=()=>{};main.querySelector=()=>null;header.querySelector=()=>null;
  const document={
@@ -54,7 +54,8 @@ test('Header snapshot availability follows the guarded print export',()=>{
  };
  class MutationObserver{constructor(callback){this.callback=callback;}observe(target,options){observers.push({target,options,callback:this.callback});}}
  vm.runInNewContext(fs.readFileSync('dist/navigation.js','utf8'),{window:{addEventListener(){}},document,location:{search:''},URLSearchParams,getComputedStyle:()=>({display:'block'}),ResizeObserver:class{observe(){}},MutationObserver,requestAnimationFrame:f=>f(),matchMedia:()=>({matches:true})});
- const save=header.children[0].children[0].children.find(child=>child.dataset?.saveSnapshot==='');
+ const toolbar=created.find(child=>child.className==='report-toolbar');assert(toolbar,'Report actions have a distinct toolbar');assert.equal(header.children.length,0,'Report actions must not crowd the masthead');
+ const save=toolbar.children[1].children.find(child=>child.dataset?.saveSnapshot==='');
  assert.equal(save.disabled,true);
  const guardObserver=observers.find(item=>item.target===print);
  assert.equal(guardObserver.options.attributes,true);assert.equal(String(guardObserver.options.attributeFilter),'disabled');

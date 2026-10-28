@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
+const { pathToFileURL } = require('node:url');
 const manifest = JSON.parse(fs.readFileSync('dist/content-manifest.json'));
 
 function runCli(t, rejection) {
@@ -33,7 +34,7 @@ function runCli(t, rejection) {
       throw Error('Unexpected publisher action');
     };
   `);
-  const result = spawnSync(process.execPath, ['--import', fixture, 'scripts/publish-content.mjs', '--commit', 'b'.repeat(40)], { input: 'a'.repeat(64) + '\n', encoding: 'utf8', env: { ...process.env, GITHUB_ACTIONS: 'false' } });
+  const result = spawnSync(process.execPath, ['--import', pathToFileURL(fixture).href, 'scripts/publish-content.mjs', '--commit', 'b'.repeat(40)], { input: 'a'.repeat(64) + '\n', encoding: 'utf8', env: { ...process.env, GITHUB_ACTIONS: 'false' } });
   return { ...result, calls: JSON.parse(fs.readFileSync(trace)) };
 }
 
