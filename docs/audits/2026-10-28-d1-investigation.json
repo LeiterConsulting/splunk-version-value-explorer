@@ -266,14 +266,259 @@
     }
   },
   "validation": {
-    "fourGates": "pending on recovery record",
-    "nodeTests": "pending on recovery record",
-    "build": "pending on recovery record",
-    "nativeExports": "pending exact-candidate CI after the operational ledger changed",
-    "live": "pre-candidate current-production checks passed; candidate publication pending"
+    "fourGates": "passed after required ordered synchronization",
+    "nodeTests": {
+      "passed": 225,
+      "failed": 0,
+      "skipped": 0
+    },
+    "build": "passed; 60-asset production Worker",
+    "nativeExports": {
+      "workflow": "Validate release metadata and reports",
+      "workflowPath": ".github/workflows/validate.yml",
+      "event": "push",
+      "runId": 40678537758,
+      "jobId": 122783015900,
+      "job": "validate",
+      "outcome": "success",
+      "runUrl": "https://github.com/LeiterConsulting/splunk-version-value-explorer/actions/runs/40678537758",
+      "commit": "5fa19bac1bed04208863fab648304055867264a0",
+      "tree": "967f2050dce322b2e6ad13e2e04f3ce7c59f5150",
+      "exportStep": 13,
+      "readinessStep": 14,
+      "artifactStep": 15,
+      "artifactId": 12812186300,
+      "artifactName": "export-evidence-5fa19bac1bed04208863fab648304055867264a0",
+      "artifactZipSha256": "f4a48e6ca714e61206b8fb27d235368434f684e4078c0b567f1b3238006cf213",
+      "artifactZipBytes": 281548355,
+      "artifactDigestVerified": true,
+      "completedAt": "2026-10-28T11:21:51.870Z",
+      "reportFingerprint": "2885adc8c580d96a642274d50558a636844f62a711f1d24c783bfb4ad86d251d",
+      "cases": 120,
+      "nativePdfs": 100,
+      "renderedCheckedPdfPages": 1733,
+      "offlineHtmlReopenings": 100,
+      "phoneThemeCases": 120,
+      "keyboardCases": 100,
+      "scriptVerification": "scripts/export-evidence.cjs passed against the recovery candidate; check-soak.cjs --exports eligible-to-advance with no missing/failed gates."
+    },
+    "humanPdfVisualReview": {
+      "outcome": "not-performed for this operational correction",
+      "impactEvidence": "Exact changed-file inventory changes only operational maintenance status, generated website-revision metadata, audit records and the existing daily release note. No report layout, engine, canonical product facts, stylesheet, PDF or HTML export implementation changed. CI retained and checked every page; no novel report layout requires additional image review in this scope. Automated geometry/text checks are not human visual inspection."
+    },
+    "actualBrowser": {
+      "checkedAt": "2026-10-28T11:26:15.927540+00:00",
+      "before": "Live About reported Failed with version 229 restored, despite the native Site being version 232 with complete current D1.",
+      "after": "Live About renders Completed \u00b7 changes found and D1 recovery verified on the current revision; corrected the stale held-publication status.",
+      "cloudRoute": "https://versioncompass.com/?product=platform&platform=cloud&from=10.5.2605&to=10.6",
+      "cloudResult": "Rendered report retains exact selection and Cloud 10.6.2.1 readiness; the actual read-only current-report WebMCP call agrees on readiness, citations and four/six/five/four section counts.",
+      "webmcpOutcome": "passed before recovery publication for the unchanged report inputs; operational ledger does not alter report semantics."
+    },
+    "live": {
+      "customDomain": {
+        "evaluatedAt": "2026-10-28T11:24:40.781Z",
+        "target": "https://versioncompass.com",
+        "expectedRevision": "content-64f889cdfe3b6d24781530f1",
+        "status": "delivery-checks-passed",
+        "checks": {
+          "database-health": {
+            "outcome": "passed",
+            "evidence": {
+              "status": "ready",
+              "storage": "d1",
+              "revision": "content-64f889cdfe3b6d24781530f1",
+              "engineRevision": "engine-be3f85c0e2e5092c351c",
+              "recordCount": 870
+            },
+            "checkedAt": "2026-10-28T11:24:24.631Z",
+            "elapsedMs": 4444
+          },
+          "live-manifest": {
+            "outcome": "passed",
+            "evidence": {
+              "schemaVersion": 1,
+              "revision": "content-64f889cdfe3b6d24781530f1",
+              "digest": "f167cd3edd10f083992edc7eb923ccfd3dab96dac0ff8c5a25a7b9bb33b5e10e",
+              "engineRevision": "engine-be3f85c0e2e5092c351c",
+              "datasetHashes": {
+                "platform": "bec0148ec8f556a9886d871825b204798213ff77dff44cac2abfa178ec40a589",
+                "products": "f6212d6365c0fc3fdb051bc1a4860e4912dbf0b47527c053aefff41347e841f3",
+                "guidance": "1c97b0bfef83c4776cf34a45b83b62e0f55ddd073c459a4f85d5f2ae016dbddc",
+                "environment": "aa4d761f225e5f84509924c2d9818a775aab906f0f1a059d626299402397fd16",
+                "editions": "31ae2eade7984edf813617b79abf7926d1aff65642b2f3fa49a3af0bf49c70ae",
+                "forwarders": "c3f74a6f8be0651698e00ada59d29bb627eb106857e3791368637f4adf408064",
+                "soar": "78ee40698345f3da3d159ec879fe75c259679b328751259940825cf7e33df762"
+              },
+              "recordCount": 870,
+              "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+              "verificationPolicy": "Migration and delivery do not create verification dates",
+              "phase": "content-model-and-database-delivery"
+            },
+            "checkedAt": "2026-10-28T11:24:25.393Z",
+            "elapsedMs": 762
+          },
+          "bundle-integrity": {
+            "outcome": "passed",
+            "evidence": {
+              "digest": "f167cd3edd10f083992edc7eb923ccfd3dab96dac0ff8c5a25a7b9bb33b5e10e",
+              "recordCount": 870
+            },
+            "checkedAt": "2026-10-28T11:24:26.002Z",
+            "elapsedMs": 608
+          },
+          "bounded-record-query": {
+            "outcome": "passed",
+            "evidence": "SOAR filter, revision and maximum page size verified",
+            "checkedAt": "2026-10-28T11:24:26.715Z",
+            "elapsedMs": 713
+          },
+          "read-only-api": {
+            "outcome": "passed",
+            "evidence": "POST rejected with 405",
+            "checkedAt": "2026-10-28T11:24:31.667Z",
+            "elapsedMs": 4952
+          },
+          "bundled-fallback-assets": {
+            "outcome": "passed",
+            "evidence": "All seven complete fallback adapters served",
+            "checkedAt": "2026-10-28T11:24:40.780Z",
+            "elapsedMs": 9113
+          }
+        },
+        "findings": [],
+        "limitations": [
+          "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
+        ]
+      },
+      "nativeOrigin": {
+        "evaluatedAt": "2026-10-28T11:24:35.348Z",
+        "target": "https://splunk-version-value-explorer.majorgeneralrabidzagnut.chatgpt.site",
+        "expectedRevision": "content-64f889cdfe3b6d24781530f1",
+        "status": "delivery-checks-passed",
+        "checks": {
+          "database-health": {
+            "outcome": "passed",
+            "evidence": {
+              "status": "ready",
+              "storage": "d1",
+              "revision": "content-64f889cdfe3b6d24781530f1",
+              "engineRevision": "engine-be3f85c0e2e5092c351c",
+              "recordCount": 870
+            },
+            "checkedAt": "2026-10-28T11:24:24.753Z",
+            "elapsedMs": 4566
+          },
+          "live-manifest": {
+            "outcome": "passed",
+            "evidence": {
+              "schemaVersion": 1,
+              "revision": "content-64f889cdfe3b6d24781530f1",
+              "digest": "f167cd3edd10f083992edc7eb923ccfd3dab96dac0ff8c5a25a7b9bb33b5e10e",
+              "engineRevision": "engine-be3f85c0e2e5092c351c",
+              "datasetHashes": {
+                "platform": "bec0148ec8f556a9886d871825b204798213ff77dff44cac2abfa178ec40a589",
+                "products": "f6212d6365c0fc3fdb051bc1a4860e4912dbf0b47527c053aefff41347e841f3",
+                "guidance": "1c97b0bfef83c4776cf34a45b83b62e0f55ddd073c459a4f85d5f2ae016dbddc",
+                "environment": "aa4d761f225e5f84509924c2d9818a775aab906f0f1a059d626299402397fd16",
+                "editions": "31ae2eade7984edf813617b79abf7926d1aff65642b2f3fa49a3af0bf49c70ae",
+                "forwarders": "c3f74a6f8be0651698e00ada59d29bb627eb106857e3791368637f4adf408064",
+                "soar": "78ee40698345f3da3d159ec879fe75c259679b328751259940825cf7e33df762"
+              },
+              "recordCount": 870,
+              "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+              "verificationPolicy": "Migration and delivery do not create verification dates",
+              "phase": "content-model-and-database-delivery"
+            },
+            "checkedAt": "2026-10-28T11:24:25.339Z",
+            "elapsedMs": 586
+          },
+          "bundle-integrity": {
+            "outcome": "passed",
+            "evidence": {
+              "digest": "f167cd3edd10f083992edc7eb923ccfd3dab96dac0ff8c5a25a7b9bb33b5e10e",
+              "recordCount": 870
+            },
+            "checkedAt": "2026-10-28T11:24:26.315Z",
+            "elapsedMs": 976
+          },
+          "bounded-record-query": {
+            "outcome": "passed",
+            "evidence": "SOAR filter, revision and maximum page size verified",
+            "checkedAt": "2026-10-28T11:24:26.972Z",
+            "elapsedMs": 657
+          },
+          "read-only-api": {
+            "outcome": "passed",
+            "evidence": "POST rejected with 405",
+            "checkedAt": "2026-10-28T11:24:31.321Z",
+            "elapsedMs": 4349
+          },
+          "bundled-fallback-assets": {
+            "outcome": "passed",
+            "evidence": "All seven complete fallback adapters served",
+            "checkedAt": "2026-10-28T11:24:35.348Z",
+            "elapsedMs": 4027
+          }
+        },
+        "findings": [],
+        "limitations": [
+          "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
+        ]
+      },
+      "assetParity": {
+        "checkedAt": "2026-10-28T11:25:08.926Z",
+        "outcome": "passed",
+        "priorAttempt": {
+          "client": "Python urllib",
+          "outcome": "HTTP 403 before asset parity could be checked",
+          "interpretation": "No D1 result was obtained by this client; focused retry used the same Node fetch client as the actual delivery diagnostics."
+        },
+        "files": [
+          {
+            "url": "https://versioncompass.com/content-revision.js",
+            "status": 200,
+            "sha256": "ba2cc87a2779a0e4dc6adfad9fe6e6d8061db384eac3a5782a4f54e8ffc59d39"
+          },
+          {
+            "url": "https://versioncompass.com/maintenance-status.js",
+            "status": 200,
+            "sha256": "8b33504035615dad87fe684b70e5af9a2dd4d244c4927839bec573d5e9f9e340"
+          },
+          {
+            "url": "https://splunk-version-value-explorer.majorgeneralrabidzagnut.chatgpt.site/content-revision.js",
+            "status": 200,
+            "sha256": "ba2cc87a2779a0e4dc6adfad9fe6e6d8061db384eac3a5782a4f54e8ffc59d39"
+          },
+          {
+            "url": "https://splunk-version-value-explorer.majorgeneralrabidzagnut.chatgpt.site/maintenance-status.js",
+            "status": 200,
+            "sha256": "8b33504035615dad87fe684b70e5af9a2dd4d244c4927839bec573d5e9f9e340"
+          }
+        ]
+      }
+    }
   },
   "publication": {
-    "status": "pending bounded operational recovery publication"
+    "status": "retry-published-and-verified",
+    "githubCommit": "5fa19bac1bed04208863fab648304055867264a0",
+    "sitesCommit": "55b10697b190f830b6b6246f52934d00ef393d66",
+    "matchingTree": "967f2050dce322b2e6ad13e2e04f3ce7c59f5150",
+    "siteVersion": 233,
+    "savedVersion": "appgprj_6aa3ff61bd288191ac95ac6e30707895~appgver_f3a91dc4146481919fd5b27566c323a5",
+    "deployment": "appgdep_6ae1db5321ac819195fbe6a753a91fd4",
+    "deployedAt": "2026-10-28T11:24:10.125506+00:00",
+    "deploymentOutcome": "succeeded",
+    "envSetRevision": 5,
+    "websiteRevision": "vc-a851471aa4e02a45",
+    "contentRevision": "content-64f889cdfe3b6d24781530f1",
+    "engineRevision": "engine-be3f85c0e2e5092c351c",
+    "bundleDigest": "f167cd3edd10f083992edc7eb923ccfd3dab96dac0ff8c5a25a7b9bb33b5e10e",
+    "origin": "https://splunk-version-value-explorer.majorgeneralrabidzagnut.chatgpt.site",
+    "customDomain": "https://versioncompass.com",
+    "archiveGzipSha256": "9c729fc971458bbbe2c11e6e3f018a71f684b413c78afc1b31b096574f775a47",
+    "savedArchiveHash": "sha256:3132d1f7c93337e4e86665931d840055150e435713e60ac81b78d624aae57611",
+    "noteUrl": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-28.md",
+    "receiptFollowup": "This record is a documentation-only follow-up. Its report inputs are identical to the cited successful candidate and may reuse its verified receipt; exact follow-up commits/version are reported separately."
   },
   "preserved": {
     "canonicalDatasets": true,
@@ -282,5 +527,6 @@
     "allWatchSchedulesAndEnabledStates": true,
     "privacyAudienceAndAuthBoundaries": true,
     "previousCompleteRevision": true
-  }
+  },
+  "completedAt": "2026-10-28T11:26:15.927540+00:00"
 }

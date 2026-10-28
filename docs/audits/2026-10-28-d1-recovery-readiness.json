@@ -1,0 +1,61 @@
+{
+  "baseline": {
+    "deployedAt": "2026-10-28T10:41:45.160554+00:00",
+    "version": 232,
+    "contentRevision": "content-64f889cdfe3b6d24781530f1"
+  },
+  "evaluatedAt": "2026-10-28T11:26:15.927540+00:00",
+  "scope": "Targeted owner-requested D1 investigation and correction of the stale operational ledger. No new product facts, source/claim dates, canonical datasets, report rules, D1 implementation, schema or material cycle.",
+  "checks": {
+    "content-parity": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-28T11:17:01.013855+00:00",
+      "evidence": "Four ordered synchronizations and all four checks passed; seven unchanged datasets, 870 records, 203 source records, current D1/manifest/bundle digest agreement."
+    },
+    "source-mappings": {
+      "outcome": "not-applicable",
+      "checkedAt": "2026-10-28T11:17:01.013855+00:00",
+      "evidence": "No factual source, claim, URL, evidence section or canonical dataset changed.",
+      "scope": {
+        "unaffected": true,
+        "rationale": "The changed files are only maintenance-status.js, generated website-revision metadata, recovery audit/receipt documents and the existing daily note. Source register and canonical dataset checks are unchanged and pass.",
+        "evidence": "git changed-file inventory; four generated-file checks; native complete bundle digest agrees with canonical publication."
+      }
+    },
+    "shared-links": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-28T11:17:01.013855+00:00",
+      "evidence": "225-test suite passes exact current/shared/legacy/invalid comparison behavior; no URL parser, report engine or public WebMCP file changed."
+    },
+    "automated-tests": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-28T11:17:01.013855+00:00",
+      "evidence": "All 225 Node tests passed with no failures or skips; production Worker built with 60 assets."
+    },
+    "live-revision": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-28T11:26:15.927540+00:00",
+      "evidence": "Version 233 succeeded at 11:24:10 UTC; all six actual production delivery checks passed independently on both origins, and live maintenance-status.js/content-revision.js are byte-identical to the validated candidate. Live About renders the recovery."
+    },
+    "maintenance-outcomes": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-28T11:17:01.013855+00:00",
+      "evidence": "Actual running/changed outcomes append the bounded D1 recovery scope and retain the version-230 failure. LastSuccess means completed scope review, not deployment."
+    },
+    "browser-journeys": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-28T11:23:37.885956+00:00",
+      "evidence": "Exact-candidate native CI completes all 120 route/theme cases. Separately inspected live About ledger and Cloud 10.5.2605 to 10.6 report; Cloud 10.6.2.1 readiness agrees with actual read-only WebMCP."
+    },
+    "keyboard": {
+      "outcome": "passed",
+      "checkedAt": "2026-10-28T11:21:51.870Z",
+      "evidence": "Native CI verifies keyboard navigation and Enter download activation on all 100 valid report/theme cases."
+    }
+  },
+  "findings": [],
+  "feedback": {
+    "status": "not-recorded",
+    "note": "No user/customer preference or success is inferred from silence."
+  }
+}
