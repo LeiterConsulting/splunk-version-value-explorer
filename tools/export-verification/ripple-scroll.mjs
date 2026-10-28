@@ -13,8 +13,10 @@ export async function verifyRippleScroll(browser,output,base='http://127.0.0.1:4
     async function pan(x,y,dy){const session=await context.newCDPSession(page);await session.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y}]});for(let i=1;i<=8;i++)await session.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x,y:y+dy*i/8}]});await session.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await session.detach();}
     try{
       await page.goto(base+'/ripple?assessment=http2-iosxe'+(theme==='cisco'?'&theme=cisco':''));await panel.waitFor();
+      if(width>=1100){await page.getByRole('button',{name:'Inspect CVE-2023-44487 for Cisco IOS XE',exact:true}).click();await page.waitForFunction(()=>{const p=document.querySelector('.evidence-panel');return p.getBoundingClientRect().bottom<=innerHeight-10;});}
       // Place the evidence region below the actual sticky chrome, well before the ledger ends.
       await panel.evaluate(el=>{const edge=parseFloat(getComputedStyle(el).top)||document.querySelector('.ripple-tools').getBoundingClientRect().bottom+16;window.scrollTo(0,el.getBoundingClientRect().top+window.scrollY-edge);});
+      await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
       let start=await state();
       if(width>=1100){
         assert(start.scroll>start.client+100,'Desktop evidence needs an independent scroll range');assert(start.bottom<=height-10,'Evidence exceeds viewport: '+JSON.stringify(start));

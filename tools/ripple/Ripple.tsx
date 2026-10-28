@@ -60,12 +60,16 @@ export default function Ripple({initialView="assessments"}:{initialView?:View}={
   const sourceCheck=record ? snapshot.checks.find(s=>s.id===record.sourceId) : null;
   useEffect(()=>{
     const panel=detailRef.current;if(!panel)return;panel.scrollTop=0;
+    let frame=0;
+    const measure=()=>{frame=0;if(!matchMedia('(min-width:1100px)').matches){panel.style.removeProperty('--evidence-available-height');return;}const top=Math.max(parseFloat(getComputedStyle(panel).top)||0,panel.getBoundingClientRect().top);panel.style.setProperty('--evidence-available-height',Math.max(160,window.innerHeight-top-16)+'px');};
+    const schedule=()=>{if(!frame)frame=requestAnimationFrame(measure);};
+    const observer=new ResizeObserver(schedule);observer.observe(panel);window.addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',schedule);measure();
     const keyboard=(event:KeyboardEvent)=>{
       if(event.target!==panel||!matchMedia('(min-width:1100px)').matches||panel.scrollHeight<=panel.clientHeight)return;
       const step=Math.max(80,panel.clientHeight-45),positions:Record<string,number>={Home:0,End:panel.scrollHeight,PageDown:panel.scrollTop+step,PageUp:panel.scrollTop-step,ArrowDown:panel.scrollTop+45,ArrowUp:panel.scrollTop-45};
       if(Object.hasOwn(positions,event.key)){event.preventDefault();panel.scrollTop=positions[event.key];}
     };
-    panel.addEventListener('keydown',keyboard);return ()=>panel.removeEventListener('keydown',keyboard);
+    panel.addEventListener('keydown',keyboard);return ()=>{panel.removeEventListener('keydown',keyboard);observer.disconnect();window.removeEventListener('scroll',schedule);window.removeEventListener('resize',schedule);if(frame)cancelAnimationFrame(frame);};
   },[view,record?.id]);
   return <div className="app-shell">
     <a className="skip-link" href="#main">Skip to content</a>
