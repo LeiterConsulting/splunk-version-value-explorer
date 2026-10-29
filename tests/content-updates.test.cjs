@@ -16,8 +16,8 @@ test('badges are explicit, qualified and printable with evidence',()=>{
  const deprecation=b.entries['technical:observability:Browser RUM navigation configuration'];assert.match(deprecation.detail,/remains functional/);assert.match(deprecation.detail,/not removal/);
 });
 
-test('cycle 42 adds ES Cloud Connect packaging scope and retains prior provenance',()=>{
- assert.equal(b.policy.currentCycle,42);
+test('cycle 43 advances the Java patch baseline and retains ES and prior provenance',()=>{
+ assert.equal(b.policy.currentCycle,43);
  assert(!b.active(b.entries['ai:es-essentials-regions']));
  const ai=b.entries["ai:catalog"];assert.equal(ai.cycle,42);assert(b.active(ai));assert.equal(ai.sourceDate,null);assert.match(ai.detail,/separate Cloud Connect 2\.0 download/);assert.match(ai.detail,/does not establish an ES 8\.9 release/);
  const aiCycle40=b.entries['ai-history:catalog:cycle40'];assert.equal(aiCycle40.recordKey,'ai:catalog');assert.equal(aiCycle40.cycle,40);assert(!b.active(aiCycle40));assert.match(aiCycle40.detail,/first 10 findings/);
@@ -32,7 +32,9 @@ test('cycle 42 adds ES Cloud Connect packaging scope and retains prior provenanc
   const threatGraph=b.entries['edition:threat-graph-detection'];assert.equal(threatGraph.cycle,37);assert(!b.active(threatGraph));assert.match(threatGraph.note,/2026\/10\/2026-10-26\.md/);
   const detectionBuilder=b.entries['edition:detection-builder'];assert.equal(detectionBuilder.cycle,42);assert(b.active(detectionBuilder));assert.match(detectionBuilder.detail,/ES 8\.9\+ bundled-2\.0/);
   const detectionBuilderPrior=b.entries['edition-history:detection-builder:cycle37'];assert.equal(detectionBuilderPrior.recordKey,'edition:detection-builder');assert(!b.active(detectionBuilderPrior));assert.match(detectionBuilderPrior.note,/2026\/10\/2026-10-26\.md/);
- for(const key of ['feature:observability:Java instrumentation 2.33','technical:observability:Java instrumentation baseline','feature:observability:Multi-trace AI comparisons']){const e=b.entries[key];assert.equal(e.cycle,39);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-27\.md/);}
+ for(const key of ['feature:observability:Java instrumentation 2.33','technical:observability:Java instrumentation baseline']){const e=b.entries[key];assert.equal(e.cycle,43);assert(b.active(e));assert.match(e.note,/2026\/10\/2026-10-29\.md/);assert.match(e.version,/2\.33\.1/);}
+ for(const key of ['feature-history:observability:Java instrumentation 2.33:2026-10-27-cycle39','technical-history:observability:Java instrumentation baseline:2026-10-27-cycle39']){const e=b.entries[key];assert.equal(e.cycle,39);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-27\.md/);assert.match(e.version,/2\.33\.0/);}
+ {const e=b.entries['feature:observability:Multi-trace AI comparisons'];assert.equal(e.cycle,39);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-27\.md/);}
  assert.equal(b.entries['technical-history:observability:Java instrumentation baseline:2026-10-13-cycle20'].recordKey,'technical:observability:Java instrumentation baseline');
   const kvBoundary=b.entries['technical:platform:ES cohosted KV Store boundary'];assert.equal(kvBoundary.cycle,36);assert(!b.active(kvBoundary));
  const editionPrior=b.entries['edition-history:ai:cycle28'];assert.equal(editionPrior.recordKey,'edition:ai');assert(!b.active(editionPrior));
@@ -50,9 +52,9 @@ test('cycle 42 adds ES Cloud Connect packaging scope and retains prior provenanc
  assert(!b.active(b.entries["guide:splunk11"]));
  for(const key of ['environment:acs-fr-m','environment:acs-fr-h']){const e=b.entries[key];assert.equal(e.cycle,18);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-10\.md/);}
  assert(!b.active(b.entries['feature:observability:Browser RUM 3.2']));
- const cloudMaintenance=b.entries['technical:platform:Cloud 10.6 maintenance build'];assert.equal(cloudMaintenance.cycle,41);assert(b.active(cloudMaintenance));assert.equal(cloudMaintenance.version,'Splunk Cloud Platform 10.6.2.1');assert.match(cloudMaintenance.note,/2026\/10\/2026-10-28\.md/);
+ const cloudMaintenance=b.entries['technical:platform:Cloud 10.6 maintenance build'];assert.equal(cloudMaintenance.cycle,41);assert(!b.active(cloudMaintenance));assert.equal(cloudMaintenance.version,'Splunk Cloud Platform 10.6.2.1');assert.match(cloudMaintenance.note,/2026\/10\/2026-10-28\.md/);
  const cloudMaintenancePrior=b.entries['technical-history:platform:Cloud 10.6 maintenance build:2026-10-23-cycle31'];assert.equal(cloudMaintenancePrior.recordKey,'technical:platform:Cloud 10.6 maintenance build');assert.equal(cloudMaintenancePrior.version,'Splunk Cloud Platform 10.6.2.0');assert(!b.active(cloudMaintenancePrior));
- const cloud105=b.entries['technical:platform:Cloud 10.5 maintenance build'];assert.equal(cloud105.cycle,41);assert(b.active(cloud105));assert.equal(cloud105.version,'Cloud 10.5.2605.14');assert.match(cloud105.note,/2026\/10\/2026-10-28\.md/);
+ const cloud105=b.entries['technical:platform:Cloud 10.5 maintenance build'];assert.equal(cloud105.cycle,41);assert(!b.active(cloud105));assert.equal(cloud105.version,'Cloud 10.5.2605.14');assert.match(cloud105.note,/2026\/10\/2026-10-28\.md/);
  const cloud105Prior=b.entries['technical-history:platform:Cloud 10.5 maintenance build:2026-10-17-cycle25'];assert.equal(cloud105Prior.recordKey,'technical:platform:Cloud 10.5 maintenance build');assert.equal(cloud105Prior.version,'Cloud 10.5.2605.12');assert(!b.active(cloud105Prior));
  const maintenance=b.entries['technical:platform:Enterprise 10.4 maintenance target'];assert(!b.active(maintenance));assert.equal(maintenance.kind,'updated');
  const detector=b.entries['feature:observability:Detector Optimization'];assert(!b.active(detector));assert.equal(detector.kind,'new');

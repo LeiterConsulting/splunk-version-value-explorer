@@ -28,14 +28,14 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-27",
+      "reviewed": "2026-10-29",
       "status": "Reviewed",
       "firstRecorded": "2026-09-28",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "An unaffected advisory does not create a patch floor, upgrade action, Cloud rollout, entitlement or authorization claim.",
-      "section": "Current advisory index — SVD-2026-1013",
-      "verificationScope": "Checked the current index and the exact SVD-2026-1013 Product Status table. The October 22 advisory, updated October 26, lists Splunk Enterprise, Splunk Cloud Platform, Universal Forwarder, Enterprise Security, ITSI, SOAR Cloud, SOAR, SOAR Connectors and Observability products as unaffected by CVE-2026-109618 and CVE-2026-109619. This is an advisory-specific applicability check, not a general security clearance.",
+      "reason": "Under Investigation is preserved as unknown applicability and does not create a patch floor, upgrade action, Cloud rollout, entitlement or authorization claim.",
+      "section": "Current advisory index — SVD-2026-1015",
+      "verificationScope": "Checked the current index and exact SVD-2026-1015 Product Status table. The October 28 advisory lists Splunk Enterprise, Splunk Cloud Platform, Universal Forwarder, Enterprise Security, ITSI, SOAR Cloud, SOAR, SOAR Connectors, Observability Cloud and Observability OpenTelemetry Collectors as Under Investigation for four Node.js vulnerabilities. This is an unresolved advisory-specific status, not proof that a product is affected, fixed or cleared.",
       "events": [
         {
           "date": "2026-09-28",
@@ -56,6 +56,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-27",
           "event": "Review status updated: Reviewed · 2026-10-27"
+        },
+        {
+          "date": "2026-10-29",
+          "event": "Review status updated: Reviewed · 2026-10-29"
         }
       ]
     },
@@ -519,6 +523,46 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-10-23",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1015",
+      "title": "October 28 Node.js vulnerability investigation",
+      "areas": [
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "forwarders.sources.nodeOctober.url",
+        "forwarders: forwarders.claimSources.security.uf",
+        "forwarders: forwarders.claimSources.security.hf"
+      ],
+      "reviews": [
+        "2026-10-29"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.security.uf",
+          "section": "Description; Product Status"
+        },
+        {
+          "path": "forwarders: forwarders.claimSources.security.hf",
+          "section": "Description; Product Status"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-29",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-29",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Monitor the exact advisory for a product-status change; do not infer applicability from Node.js presence or from an adjacent product.",
+      "section": "Description; Product Status",
+      "verificationScope": "Verified the four named Node.js vulnerabilities, the October 28 publication date and Under Investigation status for the maintained Platform, Forwarder, ES, ITSI, SOAR and Observability product families. No affected version, fix version, workaround, availability, entitlement or authorization is established.",
+      "events": [
+        {
+          "date": "2026-10-29",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -1131,7 +1175,7 @@ window.VersionCompassSources = {
         "release.productTracks.observability.releasesData.Oct 2026.requirements.3.3"
       ],
       "reviews": [],
-      "usage": "In use",
+      "usage": "Retired",
       "reviewed": "2026-10-27",
       "status": "Reviewed",
       "firstRecorded": "2026-10-27",
@@ -1143,6 +1187,38 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-10-27",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-10-29",
+          "event": "No longer cited in the maintained datasets"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.1",
+      "title": "v2.33.1",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Oct 2026.features.1.5",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.6.source",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.3.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-29",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-29",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Java instrumentation, upstream dependencies and rolling-service availability have separate lifecycles.",
+      "section": "Release v2.33.1 — General",
+      "verificationScope": "Confirmed the October 28, 2026 patch for 2.33.0 and its explicit OpenTelemetry Java instrumentation update to 2.33.1. The source does not claim another dependency change, new product capability, SaaS rollout, realm, entitlement or authorization.",
+      "events": [
+        {
+          "date": "2026-10-29",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]

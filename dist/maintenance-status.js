@@ -334,10 +334,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-28T11:13:43.806832+00:00",
-      "lastSuccess": "2026-10-28T11:13:44.338459+00:00",
+      "lastAttempt": "2026-10-29T09:59:16Z",
+      "lastSuccess": "2026-10-29T10:04:46Z",
       "outcome": "changed",
-      "summary": "D1 recovery verified on the current revision; corrected the stale held-publication status.",
+      "summary": "Verified and added Java instrumentation 2.33.1; mapped SVD-2026-1015 as Under Investigation without inferring affected or fixed product versions.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -751,9 +751,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "D1 recovery verified on the current revision; corrected the stale held-publication status.",
           "scope": "Both custom-domain and native-origin full delivery checks passed; native DB head/provenance matches current GitHub main, and the held Cloud dataset is included. Earlier version 230 remains historical and unavailable; no SQL/schema defect or runtime repair is claimed. Operational recovery only; source/claim dates and material cycle unchanged."
+        },
+        {
+          "at": "2026-10-29T09:59:16Z",
+          "outcome": "running",
+          "summary": "Checking the complete registered official inventory, current release streams and bounded highest-consequence release/compatibility/security claims.",
+          "scope": "203 registered official URLs; current Enterprise, Cloud, ES, ITSI, Observability, Forwarder, SOAR, migration and named-AI streams; borrowed HF mappings; affected route/export/publication evidence."
+        },
+        {
+          "at": "2026-10-29T10:04:46Z",
+          "outcome": "changed",
+          "summary": "Verified and added Java instrumentation 2.33.1; mapped SVD-2026-1015 as Under Investigation without inferring affected or fixed product versions.",
+          "scope": "Checked all 205 registered official URLs (203 retrieved, two historical bodies unavailable), current Enterprise/Cloud/ES/ITSI/Observability/Forwarder/SOAR/AI streams, seven component latest-release endpoints, all 18 borrowed HF mappings and affected Observability/Forwarder/current/legacy/shared/invalid report behavior."
         }
       ],
-      "scope": "Both custom-domain and native-origin full delivery checks passed; native DB head/provenance matches current GitHub main, and the held Cloud dataset is included. Earlier version 230 remains historical and unavailable; no SQL/schema defect or runtime repair is claimed. Operational recovery only; source/claim dates and material cycle unchanged."
+      "scope": "Checked all 205 registered official URLs (203 retrieved, two historical bodies unavailable), current Enterprise/Cloud/ES/ITSI/Observability/Forwarder/SOAR/AI streams, seven component latest-release endpoints, all 18 borrowed HF mappings and affected Observability/Forwarder/current/legacy/shared/invalid report behavior."
     },
     {
       "id": "es-editions-watch",

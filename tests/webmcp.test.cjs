@@ -379,10 +379,11 @@ test('October Observability route preserves SaaS semantics and component release
   assert.match(apm.action, /Inventory APM searches that use !=/);
   assert(report.breakingChanges.some(item => item.title === 'Retest APM searches that use !=' && item.breaking));
   const java = report.features.find(item => item.title === 'Java instrumentation 2.33');
-  assert.equal(java.source, 'https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.0');
+  assert.equal(java.source, 'https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.1');
+  assert.match(java.detail, /2\.33\.1/);
   assert.match(java.milestone, /Separately versioned Java instrumentation/);
-  assert(report.technicalChanges.some(item => item.component === 'Java instrumentation baseline' && item.to.includes('SDK 1.67.0') && item.to.includes('2.33.0')));
-  assert(report.readiness.some(item => item.title === 'Validate the Java 2.33 dependency baseline'));
+  assert(report.technicalChanges.some(item => item.component === 'Java instrumentation baseline' && item.from.includes('2.33.0') && item.to.includes('2.33.1')));
+  assert(report.readiness.some(item => item.title === 'Validate the Java 2.33 dependency baseline' && item.detail.includes('2.33.1')));
   const multiTrace = report.features.find(item => item.title === 'Multi-trace AI comparisons');
   assert.match(multiTrace.detail, /two to five traces/);
   assert.match(multiTrace.detail, /does not establish tenant access/);

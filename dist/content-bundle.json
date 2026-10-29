@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-e1823a49aaab99029ea41421",
-    "digest": "f167cd3edd10f083992edc7eb923ccfd3dab96dac0ff8c5a25a7b9bb33b5e10e",
-    "engineRevision": "engine-81f424ba602c5ff5303c",
+    "revision": "content-29ea20522dac226b3f8b1f5f",
+    "digest": "868dc7b46de70b75c3d9731a567c17736475e2d2711d3c0869f4f372f336cd20",
+    "engineRevision": "engine-afe3461816f3b020c2b5",
     "datasetHashes": {
       "platform": "bec0148ec8f556a9886d871825b204798213ff77dff44cac2abfa178ec40a589",
-      "products": "f6212d6365c0fc3fdb051bc1a4860e4912dbf0b47527c053aefff41347e841f3",
-      "guidance": "1c97b0bfef83c4776cf34a45b83b62e0f55ddd073c459a4f85d5f2ae016dbddc",
+      "products": "2a31ab8629d093653b5b744d51643d0880bd0cc708fd63360e5c3dc41f75c49c",
+      "guidance": "0424222596dd5fa6e27a5c59fae67c3b4b11b62dea3ca75f9d630c2b39973a39",
       "environment": "aa4d761f225e5f84509924c2d9818a775aab906f0f1a059d626299402397fd16",
       "editions": "31ae2eade7984edf813617b79abf7926d1aff65642b2f3fa49a3af0bf49c70ae",
-      "forwarders": "c3f74a6f8be0651698e00ada59d29bb627eb106857e3791368637f4adf408064",
+      "forwarders": "143dee80dbe71db2d09ca89b085c3f49ffa9132f645c963a64013bf48c384df9",
       "soar": "78ee40698345f3da3d159ec879fe75c259679b328751259940825cf7e33df762"
     },
-    "recordCount": 870,
+    "recordCount": 871,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -4499,9 +4499,9 @@
                   "Java instrumentation 2.33",
                   "Telemetry & OpenTelemetry",
                   "Keep the Java agent dependency baseline current",
-                  "Adopt the current Java agent baseline with OpenTelemetry Java SDK 1.67.0 and instrumentation 2.33.0. The separately versioned component release does not establish a new Observability Cloud rollout.",
-                  "Separately versioned Java instrumentation · released October 26, 2026",
-                  "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.0"
+                  "Adopt Java instrumentation 2.33.1, the October 28 patch for 2.33.0 that advances OpenTelemetry Java instrumentation to 2.33.1. The separately versioned component release does not establish a new Observability Cloud rollout or capability.",
+                  "Separately versioned Java instrumentation · released October 28, 2026",
+                  "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.1"
                 ],
                 [
                   "Node.js instrumentation 4.12.1",
@@ -4680,13 +4680,13 @@
                 {
                   "component": "Java instrumentation baseline",
                   "domain": "Customer-managed instrumentation",
-                  "changeType": "Dependency versions updated",
+                  "changeType": "Patch dependency updated",
                   "actionLevel": "Review",
-                  "from": "Splunk Java instrumentation 2.32.0 with OpenTelemetry Java SDK 1.66.0 and instrumentation 2.32.0",
-                  "to": "Splunk Java instrumentation 2.33.0 with OpenTelemetry Java SDK 1.67.0 and instrumentation 2.33.0",
-                  "implication": "The customer-managed agent and both upstream dependency baselines change; the release does not claim a new SaaS capability.",
+                  "from": "Splunk Java instrumentation 2.33.0 with OpenTelemetry Java instrumentation 2.33.0",
+                  "to": "Splunk Java instrumentation 2.33.1 with OpenTelemetry Java instrumentation 2.33.1",
+                  "implication": "The customer-managed agent follows the upstream Java instrumentation patch. The release does not claim a new SaaS capability or selected-tenant rollout.",
                   "action": "Validate representative traces, call graphs, profiling controls, and agent/image packaging before broad rollout.",
-                  "source": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.0"
+                  "source": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.1"
                 },
                 {
                   "component": "Node.js native profiler memory management",
@@ -4889,9 +4889,9 @@
                 ],
                 [
                   "Validate the Java 2.33 dependency baseline",
-                  "Java instrumentation 2.33 updates the OpenTelemetry SDK and instrumentation baselines. Confirm representative application traces, call graphs, profiling controls, and packaging before rollout.",
+                  "Java instrumentation 2.33.1 follows the upstream OpenTelemetry Java instrumentation 2.33.1 patch. Confirm representative application traces, call graphs, profiling controls, and packaging before rollout.",
                   "Validate",
-                  "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.0",
+                  "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.1",
                   false
                 ],
                 [
@@ -4956,7 +4956,7 @@
         }
       },
       "guidance": {
-        "reviewed": "2026-10-28",
+        "reviewed": "2026-10-29",
         "lifecycle": {
           "source": "https://www.splunk.com/en_us/legal/splunk-software-support-policy.html",
           "reviewed": "2026-10-01",
@@ -8992,6 +8992,13 @@
           "reviewed": "2026-09-28",
           "section": "Current index; not a complete applicability audit"
         },
+        "nodeOctober": {
+          "title": "October 28 Node.js vulnerability investigation",
+          "url": "https://advisory.splunk.com/advisories/SVD-2026-1015",
+          "checked": "2026-10-29",
+          "reviewed": "2026-10-29",
+          "section": "Description; Product Status"
+        },
         "esKv106": {
           "title": "10.6 customer-managed ES and KV Store boundary",
           "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
@@ -9087,14 +9094,16 @@
           "title": "Universal Forwarder advisory-specific patch floors",
           "sources": [
             "ufSecurity",
-            "advisories"
+            "advisories",
+            "nodeOctober"
           ]
         },
         "security.hf": {
           "title": "Heavy Forwarder advisory-specific patch floors",
           "sources": [
             "hfSecurity",
-            "advisories"
+            "advisories",
+            "nodeOctober"
           ]
         },
         "technical.hf-es-kv-store-10.6": {
@@ -10687,6 +10696,12 @@
         "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.2.2510/splunk-cloud-platform-release-notes/whats-new"
       },
       {
+        "id": "source-501a2d0e7c0a502cf7e0",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://advisory.splunk.com/advisories/SVD-2026-1015"
+      },
+      {
         "id": "source-51de3ce56d0c169108f3",
         "kind": "source",
         "dataset": "sources",
@@ -10897,12 +10912,6 @@
         "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.1"
       },
       {
-        "id": "source-7955944758b5019debb3",
-        "kind": "source",
-        "dataset": "sources",
-        "url": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.0"
-      },
-      {
         "id": "source-797a9dd6533cc5abce27",
         "kind": "source",
         "dataset": "sources",
@@ -11015,6 +11024,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers"
+      },
+      {
+        "id": "source-935e7a725d18da87b567",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.1"
       },
       {
         "id": "source-95dd4e296e7389510110",
@@ -11688,8 +11703,8 @@
         },
         "evidence": [
           {
-            "sourceId": "source-7955944758b5019debb3",
-            "url": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.0",
+            "sourceId": "source-935e7a725d18da87b567",
+            "url": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.1",
             "section": null,
             "sectionScope": "Section not recorded",
             "sourceVerified": null,
@@ -11702,9 +11717,9 @@
         },
         "payload": [
           "Validate the Java 2.33 dependency baseline",
-          "Java instrumentation 2.33 updates the OpenTelemetry SDK and instrumentation baselines. Confirm representative application traces, call graphs, profiling controls, and packaging before rollout.",
+          "Java instrumentation 2.33.1 follows the upstream OpenTelemetry Java instrumentation 2.33.1 patch. Confirm representative application traces, call graphs, profiling controls, and packaging before rollout.",
           "Validate",
-          "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.0",
+          "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.1",
           false
         ]
       },
@@ -15143,6 +15158,14 @@
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
             "sourceVerified": "2026-09-28",
             "sourceChecked": null
+          },
+          {
+            "sourceId": "source-501a2d0e7c0a502cf7e0",
+            "url": "https://advisory.splunk.com/advisories/SVD-2026-1015",
+            "section": "Description; Product Status",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-10-29",
+            "sourceChecked": "2026-10-29"
           }
         ],
         "verification": {
@@ -15153,7 +15176,8 @@
           "title": "Heavy Forwarder advisory-specific patch floors",
           "sources": [
             "hfSecurity",
-            "advisories"
+            "advisories",
+            "nodeOctober"
           ]
         }
       },
@@ -17862,8 +17886,8 @@
         },
         "evidence": [
           {
-            "sourceId": "source-7955944758b5019debb3",
-            "url": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.0",
+            "sourceId": "source-935e7a725d18da87b567",
+            "url": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.1",
             "section": null,
             "sectionScope": "Section not recorded",
             "sourceVerified": null,
@@ -17876,9 +17900,9 @@
         },
         "payload": [
           "Validate the Java 2.33 dependency baseline",
-          "Java instrumentation 2.33 updates the OpenTelemetry SDK and instrumentation baselines. Confirm representative application traces, call graphs, profiling controls, and packaging before rollout.",
+          "Java instrumentation 2.33.1 follows the upstream OpenTelemetry Java instrumentation 2.33.1 patch. Confirm representative application traces, call graphs, profiling controls, and packaging before rollout.",
           "Validate",
-          "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.0",
+          "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.1",
           false
         ]
       },
@@ -19591,8 +19615,8 @@
         },
         "evidence": [
           {
-            "sourceId": "source-7955944758b5019debb3",
-            "url": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.0",
+            "sourceId": "source-935e7a725d18da87b567",
+            "url": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.1",
             "section": null,
             "sectionScope": "Section not recorded",
             "sourceVerified": null,
@@ -19607,9 +19631,9 @@
           "Java instrumentation 2.33",
           "Telemetry & OpenTelemetry",
           "Keep the Java agent dependency baseline current",
-          "Adopt the current Java agent baseline with OpenTelemetry Java SDK 1.67.0 and instrumentation 2.33.0. The separately versioned component release does not establish a new Observability Cloud rollout.",
-          "Separately versioned Java instrumentation · released October 26, 2026",
-          "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.0"
+          "Adopt Java instrumentation 2.33.1, the October 28 patch for 2.33.0 that advances OpenTelemetry Java instrumentation to 2.33.1. The separately versioned component release does not establish a new Observability Cloud rollout or capability.",
+          "Separately versioned Java instrumentation · released October 28, 2026",
+          "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.1"
         ]
       },
       {
@@ -33562,6 +33586,14 @@
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
             "sourceVerified": "2026-09-28",
             "sourceChecked": null
+          },
+          {
+            "sourceId": "source-501a2d0e7c0a502cf7e0",
+            "url": "https://advisory.splunk.com/advisories/SVD-2026-1015",
+            "section": "Description; Product Status",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-10-29",
+            "sourceChecked": "2026-10-29"
           }
         ],
         "verification": {
@@ -33572,7 +33604,8 @@
           "title": "Universal Forwarder advisory-specific patch floors",
           "sources": [
             "ufSecurity",
-            "advisories"
+            "advisories",
+            "nodeOctober"
           ]
         }
       },
@@ -34220,9 +34253,9 @@
           "Java instrumentation 2.33",
           "Telemetry & OpenTelemetry",
           "Keep the Java agent dependency baseline current",
-          "Adopt the current Java agent baseline with OpenTelemetry Java SDK 1.67.0 and instrumentation 2.33.0. The separately versioned component release does not establish a new Observability Cloud rollout.",
-          "Separately versioned Java instrumentation · released October 26, 2026",
-          "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.0"
+          "Adopt Java instrumentation 2.33.1, the October 28 patch for 2.33.0 that advances OpenTelemetry Java instrumentation to 2.33.1. The separately versioned component release does not establish a new Observability Cloud rollout or capability.",
+          "Separately versioned Java instrumentation · released October 28, 2026",
+          "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.1"
         ]
       },
       {

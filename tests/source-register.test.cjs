@@ -84,6 +84,10 @@ test('every declared Forwarder claim retains an exact source and section mapping
   }
  }
  for(const required of ['upgrade.uf.10.0','upgrade.uf.10.6','upgrade.hf','receiver.enterprise','receiver.cloud','topology.enterprise-intermediate','topology.cloud-intermediate','package.os-architecture-10.6','technical.hf-kv-store-10.6','technical.hf-tls-10.6'])assert(data.claimSources[required]);
+ const nodeAdvisory=register.sources.find(row=>row.url==='https://advisory.splunk.com/advisories/SVD-2026-1015');
+ assert.equal(nodeAdvisory.reviewed,'2026-10-29');
+ assert.match(nodeAdvisory.verificationScope,/Under Investigation/);
+ for(const claimId of ['security.uf','security.hf'])assert(nodeAdvisory.claimReferences.some(ref=>ref.path==='forwarders: forwarders.claimSources.'+claimId&&ref.section==='Description; Product Status'));
 });
 test('borrowed HF 10.2 runtimes preserve historical optional/default and app-owned boundaries',()=>{
  const c={window:{},URLSearchParams};vm.createContext(c);

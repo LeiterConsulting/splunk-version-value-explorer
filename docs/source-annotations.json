@@ -144,6 +144,12 @@
     "verificationScope": "Confirmed the October 26, 2026 release and the OpenTelemetry Java SDK 1.67.0 and instrumentation 2.33.0 dependency updates. No additional functional change or SaaS rollout is inferred.",
     "reason": "Java instrumentation, upstream SDK dependencies and SaaS availability have separate lifecycles."
   },
+  "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.1": {
+    "reviewed": "2026-10-29",
+    "section": "Release v2.33.1 — General",
+    "verificationScope": "Confirmed the October 28, 2026 patch for 2.33.0 and its explicit OpenTelemetry Java instrumentation update to 2.33.1. The source does not claim another dependency change, new product capability, SaaS rollout, realm, entitlement or authorization.",
+    "reason": "Java instrumentation, upstream dependencies and rolling-service availability have separate lifecycles."
+  },
   "https://github.com/signalfx/splunk-otel-js/releases/tag/v4.12.1": {
     "reviewed": "2026-10-13",
     "section": "Release v4.12.1 — Changes",
@@ -151,10 +157,16 @@
     "reason": "The patch is a customer-managed instrumentation change, not a universal Observability Cloud backend change."
   },
   "https://advisory.splunk.com/": {
-    "reviewed": "2026-10-27",
-    "section": "Current advisory index — SVD-2026-1013",
-    "verificationScope": "Checked the current index and the exact SVD-2026-1013 Product Status table. The October 22 advisory, updated October 26, lists Splunk Enterprise, Splunk Cloud Platform, Universal Forwarder, Enterprise Security, ITSI, SOAR Cloud, SOAR, SOAR Connectors and Observability products as unaffected by CVE-2026-109618 and CVE-2026-109619. This is an advisory-specific applicability check, not a general security clearance.",
-    "reason": "An unaffected advisory does not create a patch floor, upgrade action, Cloud rollout, entitlement or authorization claim."
+    "reviewed": "2026-10-29",
+    "section": "Current advisory index — SVD-2026-1015",
+    "verificationScope": "Checked the current index and exact SVD-2026-1015 Product Status table. The October 28 advisory lists Splunk Enterprise, Splunk Cloud Platform, Universal Forwarder, Enterprise Security, ITSI, SOAR Cloud, SOAR, SOAR Connectors, Observability Cloud and Observability OpenTelemetry Collectors as Under Investigation for four Node.js vulnerabilities. This is an unresolved advisory-specific status, not proof that a product is affected, fixed or cleared.",
+    "reason": "Under Investigation is preserved as unknown applicability and does not create a patch floor, upgrade action, Cloud rollout, entitlement or authorization claim."
+  },
+  "https://advisory.splunk.com/advisories/SVD-2026-1015": {
+    "reviewed": "2026-10-29",
+    "section": "Description; Product Status",
+    "verificationScope": "Verified the four named Node.js vulnerabilities, the October 28 publication date and Under Investigation status for the maintained Platform, Forwarder, ES, ITSI, SOAR and Observability product families. No affected version, fix version, workaround, availability, entitlement or authorization is established.",
+    "reason": "Monitor the exact advisory for a product-status change; do not infer applicability from Node.js presence or from an adjacent product."
   },
   "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security": {
     "reviewed": "2026-10-02",

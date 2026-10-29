@@ -142,6 +142,13 @@ window.VersionCompassForwarderData = {
       "reviewed": "2026-09-28",
       "section": "Current index; not a complete applicability audit"
     },
+    "nodeOctober": {
+      "title": "October 28 Node.js vulnerability investigation",
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1015",
+      "checked": "2026-10-29",
+      "reviewed": "2026-10-29",
+      "section": "Description; Product Status"
+    },
     "esKv106": {
       "title": "10.6 customer-managed ES and KV Store boundary",
       "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
@@ -237,14 +244,16 @@ window.VersionCompassForwarderData = {
       "title": "Universal Forwarder advisory-specific patch floors",
       "sources": [
         "ufSecurity",
-        "advisories"
+        "advisories",
+        "nodeOctober"
       ]
     },
     "security.hf": {
       "title": "Heavy Forwarder advisory-specific patch floors",
       "sources": [
         "hfSecurity",
-        "advisories"
+        "advisories",
+        "nodeOctober"
       ]
     },
     "technical.hf-es-kv-store-10.6": {
