@@ -1,3 +1,6 @@
+Warning: truncated output (original token count: 28355)
+Total output lines: 1259
+
 window.VersionCompassMaintenance = {
   "schemaVersion": 1,
   "trackingSince": "2026-09-25",
@@ -437,396 +440,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-10-02T10:05:48Z",
           "outcome": "changed",
-          "summary": "Published-source review added Enterprise Security 8.7.1 and its Connector Builder eligibility change, retained the exact SOAR 8.7.0 compatibility boundary, and moved current Cloud and Forwarder evidence to the 10.6 Service Details page without inferring Cloud 10.6 rollout or receiver support.",
-          "scope": "Checked current Enterprise, Cloud, migration/SCMA, ES, ITSI, Observability, SOAR, UF/HF, security and maintained instrumentation discovery streams; bounded claim verification covered ES 8.7.1 release/feature, Cloud current pairing, Cloud direct/intermediate forwarders, SOAR build/Python/path/app compatibility, Enterprise 9.4.16, and source-to-section mappings. ES and Enterprise patch issue rows remain unavailable; authorization and regional ownership remain separate."
-        },
-        {
-          "at": "2026-10-03T09:39:51.458Z",
-          "outcome": "running",
-          "summary": "Reviewing complete maintained release, migration, Forwarder, Observability and SOAR official-source inventories plus bounded highest-consequence route, compatibility, security and prerequisite claims.",
-          "scope": "All maintained Version Release Watch source records; bounded claims for current Enterprise/Cloud releases, upgrade paths, premium-app pairings, migration floor, UF/HF receiver and topology compatibility, Observability customer-managed components, and SOAR 8.6/8.7 routes and prerequisites."
-        },
-        {
-          "at": "2026-10-03T10:01:00Z",
-          "outcome": "changed",
-          "summary": "Published-source review added exact Enterprise and Heavy Forwarder 10.6 release-line routes from the canonical 10.6 upgrade table while keeping 10.6 Enterprise and Cloud receiver compatibility Not established.",
-          "scope": "All 113 maintained official release, migration, premium-product, Forwarder, Observability and SOAR URLs; bounded current release, upgrade, compatibility, receiver, runtime and security claims."
-        },
-        {
-          "at": "2026-10-05T09:44:03Z",
-          "outcome": "running",
-          "summary": "Checking the complete maintained release-source inventory and bounded high-consequence release, upgrade, receiver, runtime, security and SOAR claims.",
-          "scope": "All 113 unique maintained official URLs referenced by Platform, premium-product, Forwarder and SOAR data; bounded current release, upgrade, compatibility, receiver, runtime, advisory and SOAR checks."
-        },
-        {
-          "at": "2026-10-05T09:50:11Z",
-          "outcome": "no-change",
-          "summary": "No material release, route, compatibility, runtime, security or SOAR correction was found. Current identifiers and existing uncertainty boundaries remain supported by the bounded checks.",
-          "scope": "All 113 maintained official URLs were fetched: 111 succeeded and the same two historical 8.1/8.2 pages remained unavailable. Verified current Enterprise/Cloud, UF/HF receiver and topology, premium-app, migration, Observability component, SOAR and security-advisory claims; regional authorization remained outside this watch."
-        },
-        {
-          "at": "2026-10-07T10:03:30.000Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete maintained release-source inventory and bounded high-consequence release, upgrade, receiver, runtime, security and SOAR claims.",
-          "scope": "All 120 unique maintained official URLs referenced by Platform, premium-product, Forwarder and SOAR canonical datasets; bounded current release, service-pairing, upgrade, receiver, runtime, advisory and SOAR checks."
-        },
-        {
-          "at": "2026-10-07T10:04:00.000Z",
-          "outcome": "changed",
-          "summary": "Published Cloud 10.6 current pairings and exact Enterprise/Cloud 10.6 Forwarder receiver rows while preserving environment, entitlement, topology and support qualifications.",
-          "scope": "All 120 maintained URLs were attempted with differentiated availability recorded; verified changed 10.6 service and receiver claims plus bounded Enterprise, migration, ES, ITSI, Observability, SOAR and advisory claims. D1 publication and fallback diagnostics passed; PDF rendering, independent saved-HTML reopening and narrow-screen inspection remain separately unperformed."
-        },
-        {
-          "at": "2026-10-08T09:44:01.397Z",
-          "outcome": "running",
-          "summary": "Checking release and advisory sources; reconciling current GitHub and Sites trees.",
-          "scope": "120 maintained official source URLs; current release hubs and consequential compatibility, runtime, upgrade and security claims."
-        },
-        {
-          "at": "2026-10-08T09:53:58.883Z",
-          "outcome": "changed",
-          "summary": "Checked 120 official source URLs (118 retrieved); repaired and tested 16 borrowed HF evidence mappings across 900 routes. October security and Collector/Python releases recorded as isolated factual candidates.",
-          "scope": "Full maintained URL inventory plus bounded section/claim review; provenance/operational publication only. New product facts require affected report/export validation."
-        },
-        {
-          "at": "2026-10-10T09:43:42.091Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete maintained release-source inventory and newer release streams; reconciling GitHub, Site and exact export evidence.",
-          "scope": "All 128 maintained public URLs across Platform, migration, ES, ITSI, Observability, UF/HF and SOAR; bounded current release, upgrade, receiver, security, compatibility and component claims; discovery for newer official releases."
-        },
-        {
-          "at": "2026-10-10T09:48:34.048Z",
-          "outcome": "changed",
-          "summary": "Verified Splunk Cloud Platform 10.6.1.0 maintenance evidence and added exact stack-version confirmation guidance; held an inaccessible October Observability search signal out of canonical facts.",
-          "scope": "Complete 128-URL maintained Release Watch inventory (126 retrieved; two retired historical pages unavailable); seven bounded high-consequence release, upgrade, receiver, security, SOAR and Observability checks; exact Forwarder mapping validation delegated to synchronization/tests; publication and native export/live verification recorded separately."
-        },
-        {
-          "at": "2026-10-11T09:30:45.883Z",
-          "outcome": "running",
-          "summary": "Checking the complete maintained release inventory and bounded high-consequence compatibility, upgrade, security, premium-product, Observability and SOAR claims against fresh public sources.",
-          "scope": "Fresh GitHub main and Site version 145 reconciled; full Release guide, Shared guidance, Forwarders and SOAR source inventory; current discovery; bounded Cloud maintenance, Enterprise route, UF/HF, security, premium-product, migration, Observability and SOAR checks."
-        },
-        {
-          "at": "2026-10-11T09:35:09.719Z",
-          "outcome": "no-change",
-          "summary": "No newer maintained release or advisory was found; the indexed October Observability APM signal remains held because its exact official page still returns 404.",
-          "scope": "Complete 131-URL owned inventory with 129 retrieved and two retired unavailable; seven bounded release, compatibility, security, Forwarder, Observability and SOAR claim checks; ordered content gates, full tests and build."
-        },
-        {
-          "at": "2026-10-12T09:31:37.058Z",
-          "outcome": "running",
-          "summary": "Checking the complete maintained release inventory and bounded highest-consequence release, upgrade, compatibility, security, migration, forwarder, Observability and SOAR claims.",
-          "scope": "Full generated source-register inventory for Release guide, Shared guidance, Splunk Forwarders and Splunk SOAR; current discovery streams; bounded highest-consequence existing claims."
-        },
-        {
-          "at": "2026-10-12T09:40:35.521Z",
-          "outcome": "no-change",
-          "summary": "No newer maintained release, patch, advisory, migration-app or customer-managed Observability component was found; the directly unavailable October Observability page remains held.",
-          "scope": "Complete 131-URL maintained release inventory (129 retrieved; two retired historical pages unavailable), current discovery streams and seven bounded highest-consequence claim groups."
-        },
-        {
-          "at": "2026-10-13T09:07:00Z",
-          "outcome": "running",
-          "summary": "Release inventory and bounded consequential claim review running.",
-          "scope": "Full maintained public release/source inventory plus current discovery streams; affected claims and bounded high-consequence Enterprise, Cloud, migration, Forwarders, premium-product, Observability, security and SOAR checks."
-        },
-        {
-          "at": "2026-10-13T09:18:30Z",
-          "outcome": "changed",
-          "summary": "Confirmed the October 12 Observability APM filtering change plus Java 2.32.0 and Node.js 4.12.1 component releases; updated scoped guidance and validation coverage.",
-          "scope": "All 135 previously maintained release/source URLs plus three newly confirmed official sources; affected Observability claims and bounded high-consequence Enterprise, Cloud, migration, Forwarders, premium-product, security, SCMA and SOAR checks."
-        },
-        {
-          "at": "2026-10-14T10:05:35Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete maintained release inventory and newly published Cloud maintenance and Observability component evidence.",
-          "scope": "All 138 Release guide, Shared guidance, Splunk Forwarders and Splunk SOAR URLs; current Enterprise, Cloud, ES, ITSI, SOAR, SCMA, security and Observability discovery streams; affected Cloud 10.4, Kubernetes chart and Python instrumentation claims; bounded high-consequence route, compatibility, upgrade and source-mapping checks."
-        },
-        {
-          "at": "2026-10-14T10:12:30Z",
-          "outcome": "changed",
-          "summary": "Added Cloud 10.4.2604.15, Kubernetes chart 0.162.1 and Python instrumentation 2.13.2 with exact rollout, receiver, permission and dependency qualifications.",
-          "scope": "All 138 previously maintained release/source URLs plus two newly confirmed official component sources; affected Cloud 10.4 and Observability claims and bounded high-consequence Enterprise, Cloud, migration, Forwarder, premium-product, security, SCMA and SOAR checks."
-        },
-        {
-          "at": "2026-10-15T09:08:16Z",
-          "outcome": "running",
-          "summary": "Reviewing complete release inventory, current discovery streams and bounded consequential claims.",
-          "scope": "140 maintained Release guide, Shared guidance, Forwarder and SOAR URLs; current release discovery; affected and high-consequence claim verification."
-        },
-        {
-          "at": "2026-10-15T09:17:22Z",
-          "outcome": "changed",
-          "summary": "Reviewed all 140 maintained URLs and new discovery; staged the October 21 advisory advance notice without inferring CVEs, affected ranges or deployment scope.",
-          "scope": "138 maintained URLs retrieved; two retired historical pages unavailable; one new official notice and 12 bounded consequential claims. Candidate publication/export/live checks remain separate."
-        },
-        {
-          "at": "2026-10-15T09:42:19Z",
-          "outcome": "running",
-          "summary": "Rechecking current official release inventory after the verified October 15 publication.",
-          "scope": "Complete 141-URL maintained release inventory, newer-release discovery and bounded consequential claims; no duplicate factual batch."
-        },
-        {
-          "at": "2026-10-15T09:45:08Z",
-          "outcome": "no-change",
-          "summary": "No additional factual change after the October 15 security-notice publication; current release and consequential claim checks remain qualified.",
-          "scope": "141 official URLs attempted, 139 retrieved, two retired historical pages unavailable; current-version discovery and eight bounded consequential claims. Source access is not complete claim reverification."
-        },
-        {
-          "at": "2026-10-15T16:33:49.207702Z",
-          "outcome": "running",
-          "summary": "Integrating the owner-requested public-source Splunk 11.x preparation page and verifying its bounded content scope.",
-          "scope": "Owner-requested Prep for Splunk 11.x page only: eight public URLs, seven scoped current-context records, unknown future release requirements, route/export behavior and maintenance ownership; this does not repeat the earlier full release inventory."
-        },
-        {
-          "at": "2026-10-15T16:33:49.277685Z",
-          "outcome": "changed",
-          "summary": "Added a dedicated future-release preparation page with eight cited public sources, two scoped current-context announcements, five preparation areas and six explicit open questions. No 11.x release requirement is inferred.",
-          "scope": "Owner-requested Prep for Splunk 11.x page only: eight public URLs, seven scoped current-context records, unknown future release requirements, route/export behavior and maintenance ownership; this does not repeat the earlier full release inventory."
-        },
-        {
-          "at": "2026-10-16T09:17:21Z",
-          "outcome": "running",
-          "summary": "Complete current source inventory and bounded release review; pending Export correction recovered.",
-          "scope": "173 maintained sources, seven component release streams, current SOAR/ES/ITSI discovery, five bounded consequential claim checks and actual UF/HF mapping regressions."
-        },
-        {
-          "at": "2026-10-16T09:17:21Z",
-          "outcome": "changed",
-          "summary": "Recovered and reverified Export FIPS patch guidance and distinct 8.7.1 matrix; other current release discovery unchanged.",
-          "scope": "173-source inventory attempt, 170 retrieved bodies/API records, seven current component release streams and bounded claims; production publication is separately verified."
-        },
-        {
-          "at": "2026-10-17T09:21:44Z",
-          "outcome": "running",
-          "summary": "Reviewing complete official inventory and bounded consequential claims.",
-          "scope": "173 registered public URLs; current release discovery; exact patch/security/SOAR and historical Forwarder mapping checks."
-        },
-        {
-          "at": "2026-10-17T09:31:18Z",
-          "outcome": "changed",
-          "summary": "Verified Collector 0.163 and scoped Cloud/Fleet updates; retained ES KV source discrepancy.",
-          "scope": "173 sources attempted, 170 recovered; seven component streams; six bounded claims. Publication remains separate and candidate-gated."
-        },
-        {
-          "at": "2026-10-18T09:47:35Z",
-          "outcome": "running",
-          "summary": "Official inventory and bounded compatibility review in progress.",
-          "scope": "175 registered official URLs; latest components, SOAR discovery and consequential Forwarder/SOAR/ES claims; exact candidate delivery only after applicable gates."
-        },
-        {
-          "at": "2026-10-18T09:51:34Z",
-          "outcome": "changed",
-          "summary": "Completed 175-source review; bounded HF runtime semantic evidence and product-label repair staged for exact-candidate verification.",
-          "scope": "172 retrieved/3 unavailable; seven latest component streams unchanged; six bounded claims; two actual mapping dates only. Review success is not deployment."
-        },
-        {
-          "at": "2026-10-19T09:26:55Z",
-          "outcome": "running",
-          "summary": "Official source inventory and bounded consequential claim review in progress; tracked PDF pagination repair under evaluation.",
-          "scope": "175 registered public sources; current component/SOAR discovery, HF supporting sections and native report repair. No publication implied."
-        },
-        {
-          "at": "2026-10-19T09:35:31Z",
-          "outcome": "changed",
-          "summary": "Completed official inventory and two bounded HF semantic rechecks; repaired SOAR/HF PDF pagination with native regression pending exact-candidate CI.",
-          "scope": "175 official URLs attempted (172 retrieved, 3 unavailable); seven latest component streams, current SOAR, exact Enterprise download discovery and two exact historical HF sections. Not blanket claim reverification or a deployment claim."
-        },
-        {
-          "at": "2026-10-20T09:21:51Z",
-          "outcome": "running",
-          "summary": "Checking full official inventory, exact 10.6 maintenance release discovery and bounded historical HF/security scope.",
-          "scope": "175 registered public URLs, current product/component streams, Enterprise download identity follow-up and finite consequential claim checks. Publication/native checks recorded separately."
-        },
-        {
-          "at": "2026-10-20T09:32:59Z",
-          "outcome": "changed",
-          "summary": "Reviewed 181 exact official sources; added chart 0.163 adoption and qualified Enterprise 10.6.1 maintenance identity; rechecked two HF KV Store mappings.",
-          "scope": "175 baseline URLs plus six new citations; seven component streams/current SOAR; four new technical records and two existing historical HF semantic checks. Retrieval is not blanket claim verification; publication tracked separately."
-        },
-        {
-          "at": "2026-10-21T09:47:05Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete maintained release, compatibility, migration, security, Forwarder, SOAR and customer-managed Observability source inventory.",
-          "scope": "Splunk Enterprise and Cloud Platform releases and maintenance; ES and ITSI pairings; Enterprise-to-Cloud prerequisites; Observability service and component streams; UF/HF upgrade, receiver, topology, runtime, issue and advisory evidence; SOAR On-premises, Cloud, Broker, App and Export streams; October 21 security follow-up; affected claims plus bounded highest-consequence existing mappings; routes, shared links, reports, exports, read-only WebMCP and delivery parity."
-        },
-        {
-          "at": "2026-10-21T09:58:15Z",
-          "outcome": "changed",
-          "summary": "Reviewed the complete 181-URL release inventory and current release, compatibility and security streams; repaired two bounded presentation defects and reverified two historical Heavy Forwarder mappings without changing factual guidance.",
-          "scope": "181 exact official source URLs (178 retrieved, including 26 GitHub records); Enterprise, Cloud, ES, ITSI, migration, Observability, UF/HF and SOAR discovery; SVD-2026-1006 follow-up; two HF 10.0 source-to-claim checks; full 198-test, synchronization and production-build gates; exact native export and live publication evidence pending for this candidate."
-        },
-        {
-          "at": "2026-10-22T09:27:35Z",
-          "outcome": "running",
-          "summary": "Release source inventory and bounded high-consequence verification are running.",
-          "scope": "Fresh 181-URL release inventory; Enterprise, Cloud, migration, ES, ITSI, Observability, UF/HF and SOAR discovery; security-disclosure follow-up; selected historical HF evidence; exact-candidate validation and publication checks."
-        },
-        {
-          "at": "2026-10-22T09:40:32.205Z",
-          "outcome": "changed",
-          "summary": "Published-source candidate adds ES 8.8.0 Controlled Availability and Collector 0.163.1 with unresolved pairings preserved.",
-          "scope": "186 official URLs attempted (184 retrieved), five new exact sources, affected ES and Observability claims, two HF mappings, security and SOAR discovery, exact-candidate validation."
-        },
-        {
-          "at": "2026-10-23T09:18:45Z",
-          "outcome": "running",
-          "summary": "Reviewing definitive October security advisories and Cloud maintenance evidence against the complete maintained release inventory.",
-          "scope": "Fresh complete Release Watch official-source inventory; affected Enterprise 9.4/10.0/10.2/10.4, Cloud 10.6 and SOAR security claims; bounded Forwarder, migration, premium-product and Observability checks; exact-candidate publication evidence."
-        },
-        {
-          "at": "2026-10-23T09:35:05Z",
-          "outcome": "changed",
-          "summary": "Published-source review found definitive Enterprise and SOAR security advisories, Cloud 10.6.2 maintenance, and Observability chart 0.163.1; bounded guidance and regressions were updated.",
-          "scope": "Checked 195 official source records (188 retrieved, including 29 official GitHub records); verified Enterprise 9.4.16/10.0.11/10.2.8/10.4.4 floors, scoped HF and SOAR on-prem guidance, Cloud 10.6.2 qualifications, chart 0.163.1 dependencies, and two historical HF source mappings."
-        },
-        {
-          "at": "2026-10-24T09:55:38Z",
-          "outcome": "running",
-          "summary": "Reviewing fresh release, AI capability and forwarder evidence.",
-          "scope": "Complete 198-source inventory; SOAR Cloud 8.8; Observability AI and phased log alerting; bounded HF TLS mappings; affected routes and reports."
-        },
-        {
-          "at": "2026-10-24T10:16:30Z",
-          "outcome": "changed",
-          "summary": "Added SOAR Cloud 8.8, Observability AI and phased log alerting; reverified bounded Heavy Forwarder TLS evidence and repaired affected exact-candidate export routes.",
-          "scope": "All 198 baseline official URLs attempted plus two new Observability AI sources; SOAR Cloud 8.8 stage, Broker HA, System Insights and bundled UF; Observability AI Assistant, troubleshooting agent and log alerting; two exact HF TLS mappings; affected current, shared, invalid, PDF, HTML, phone-theme and read-only report parity."
-        },
-        {
-          "at": "2026-10-25T09:24:00Z",
-          "outcome": "running",
-          "summary": "Checking the complete current release inventory and bounded high-consequence release, compatibility, forwarder and AI claims.",
-          "scope": "Fresh 200-source register; Enterprise, Cloud, migration, ES, ITSI, Observability, UF/HF, SOAR and maintained component discovery; remaining historical HF mappings; publication tracked separately."
-        },
-        {
-          "at": "2026-10-25T09:40:41Z",
-          "outcome": "changed",
-          "summary": "Reverified two Enterprise 10.6 Heavy Forwarder KV Store mappings and added bounded semantic regressions; the full official release inventory disclosed no newer product release.",
-          "scope": "All 200 registered official URLs attempted; current Enterprise, Cloud, migration, ES, ITSI, Observability, UF/HF, SOAR, security and seven maintained component streams; two HF KV Store mappings; 120 exact-candidate export cases, retained affected-route images, live current/legacy/shared/invalid browser journeys, read-only WebMCP and D1 delivery."
-        },
-        {
-          "at": "2026-10-26T09:47:15Z",
-          "outcome": "running",
-          "summary": "Reviewing the October 26 official release inventory and bounded highest-consequence Forwarder mappings.",
-          "scope": "Full 200-source official inventory plus current Enterprise, Cloud, migration, ES, ITSI, Observability, UF/HF, SOAR, security and AI discovery; priority HF KV Store mappings; generated-content, browser, export and delivery gates as applicable."
-        },
-        {
-          "at": "2026-10-26T09:51:46Z",
-          "outcome": "changed",
-          "summary": "Qualified the Enterprise 10.6.0 versus exact 10.6.1.1+ ES/cohosted-KV scope and completed re-verification of all 18 borrowed Heavy Forwarder mappings.",
-          "scope": "All 200 registered official URLs; current release, security, SOAR, Observability, component and named-AI discovery; final two historical HF mappings; exact selected/shared/legacy/invalid report scope."
-        },
-        {
-          "at": "2026-10-27T09:26:27Z",
-          "outcome": "running",
-          "summary": "Checking the complete official release/source inventory and bounded highest-consequence claims.",
-          "scope": "Splunk Enterprise, Cloud, migration, ES, ITSI, Observability, Forwarders, SOAR and named AI capability releases; exact source/section changes and coordinated ownership boundaries."
-        },
-        {
-          "at": "2026-10-27T10:08:15.465Z",
-          "outcome": "changed",
-          "summary": "Published October 26 Observability multi-trace AI guidance and Java instrumentation 2.33 dependency baseline; recorded SVD-2026-1013 as unaffected for the maintained product scope.",
-          "scope": "All 202 previously registered official URLs plus the newly registered Java 2.33 release source retrieved; bounded high-consequence release, compatibility, upgrade, security, entitlement and authorization claims; all 18 Forwarder mappings; current SOAR discovery; exact-candidate CI PDF/HTML/phone/keyboard evidence; live current, legacy, shared and invalid routes; live read-only WebMCP parity and D1 delivery health."
-        },
-        {
-          "at": "2026-10-28T09:28:59.195Z",
-          "outcome": "running",
-          "summary": "Running the October 28 release inventory and bounded high-consequence verification.",
-          "scope": "Full registered official source inventory; current release and component streams; Cloud maintenance changes; bounded UF/HF, SOAR and AI checks."
-        },
-        {
-          "at": "2026-10-28T09:32:50.451Z",
-          "outcome": "changed",
-          "summary": "Verified Cloud 10.6.2.1 and 10.5.2605.14 maintenance rows with exact-build and selected-stack qualifications.",
-          "scope": "203-source registered inventory attempted; 200 direct retrievals, one current-source indexed recovery and two historical bodies unavailable; affected Cloud claims; current Enterprise, SOAR, Observability, component and AI discovery; all 18 borrowed HF mappings traversed by regression."
-        },
-        {
-          "at": "2026-10-28T09:54:55Z",
-          "outcome": "running",
-          "summary": "Publishing the exact CI-verified Cloud maintenance candidate and verifying production D1 delivery.",
-          "scope": "GitHub candidate tree 1cb2c3733da5f7b6a4e10b09e77ec8c80c8cfdfe; Site version 230; custom-domain UI, read-only WebMCP, real D1 health, manifest, bundle, bounded query and fallback adapters."
-        },
-        {
-          "at": "2026-10-28T10:03:54.320Z",
-          "outcome": "failed",
-          "summary": "Site version 230 was rolled back because real D1 health, manifest, bundle and bounded-query requests did not complete; prior complete version 229 is restored and healthy.",
-          "scope": "Candidate publication and custom-domain D1 verification only. GitHub factual review remains successful; the candidate is held and not claimed live. Rollback version 229 passed all six delivery checks."
-        },
-        {
-          "at": "2026-10-28T11:13:43.806832+00:00",
-          "outcome": "running",
-          "summary": "Investigating the held D1 publication against fresh GitHub/Sites source and live storage.",
-          "scope": "Owner-requested D1 follow-up only; current/held revision readback, production logs, native DB publication metadata and exact Cloud dataset identity. No fresh upstream source or claim review."
-        },
-        {
-          "at": "2026-10-28T11:13:44.338459+00:00",
-          "outcome": "changed",
-          "summary": "D1 recovery verified on the current revision; corrected the stale held-publication status.",
-          "scope": "Both custom-domain and native-origin full delivery checks passed; native DB head/provenance matches current GitHub main, and the held Cloud dataset is included. Earlier version 230 remains historical and unavailable; no SQL/schema defect or runtime repair is claimed. Operational recovery only; source/claim dates and material cycle unchanged."
-        },
-        {
-          "at": "2026-10-29T09:59:16Z",
-          "outcome": "running",
-          "summary": "Checking the complete registered official inventory, current release streams and bounded highest-consequence release/compatibility/security claims.",
-          "scope": "203 registered official URLs; current Enterprise, Cloud, ES, ITSI, Observability, Forwarder, SOAR, migration and named-AI streams; borrowed HF mappings; affected route/export/publication evidence."
-        },
-        {
-          "at": "2026-10-29T10:04:46Z",
-          "outcome": "changed",
-          "summary": "Verified and added Java instrumentation 2.33.1; mapped SVD-2026-1015 as Under Investigation without inferring affected or fixed product versions.",
-          "scope": "Checked all 205 registered official URLs (203 retrieved, two historical bodies unavailable), current Enterprise/Cloud/ES/ITSI/Observability/Forwarder/SOAR/AI streams, seven component latest-release endpoints, all 18 borrowed HF mappings and affected Observability/Forwarder/current/legacy/shared/invalid report behavior."
-        }
-      ],
-      "scope": "Checked all 205 registered official URLs (203 retrieved, two historical bodies unavailable), current Enterprise/Cloud/ES/ITSI/Observability/Forwarder/SOAR/AI streams, seven component latest-release endpoints, all 18 borrowed HF mappings and affected Observability/Forwarder/current/legacy/shared/invalid report behavior."
-    },
-    {
-      "id": "es-editions-watch",
-      "name": "ES Editions Watch",
-      "lastAttempt": "2026-10-29T10:03:28Z",
-      "lastSuccess": "2026-10-29T10:10:09Z",
-      "outcome": "no-change",
-      "summary": "Retrieved all 30 maintained official records and reverified 16 bounded high-consequence claims; no supported ES editions or ES-specific AI fact changed.",
-      "history": [
-        {
-          "at": "2026-09-25T10:03:41.288013+00:00",
-          "outcome": "not-recorded",
-          "summary": "Imported scheduler attempt timestamp; not evidence of successful completion."
-        },
-        {
-          "at": "2026-09-26T10:04:09Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete public ES Essentials and Premier evidence inventory, source questions, historical records, presentation and export behavior.",
-          "scope": "ES editions overview, release notes and Cloud capability history; agent and task guides; Cloud Connect; regional and SOAR pairing; pricing, licensing and trials; UEBA; Exposure Analytics; announcements; public route, filters, sharing and print integration."
-        },
-        {
-          "at": "2026-09-26T10:10:18Z",
-          "outcome": "no-change",
-          "summary": "Reviewed all 20 maintained official ES Editions sources and every displayed claim; no material factual or scope change was found, and five unresolved source questions remain explicit.",
-          "scope": "ES editions overview, release notes and Cloud capability history; agent and task guides; Cloud Connect; regional and SOAR pairing; pricing, licensing and trials; UEBA; Exposure Analytics; announcements; public route, filters, sharing and print integration."
-        },
-        {
-          "at": "2026-09-27T10:05:39Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete public ES Essentials/Premier evidence inventory and integrated report behavior.",
-          "scope": "Official ES editions overview, 8.7 release notes and Cloud matrix, agent compatibility and task guides, Cloud Connect, regional and SOAR pairing, pricing and licensing, UEBA, Exposure Analytics, announcements, unresolved source questions, routes, themes, sharing, print, and shared navigation."
-        },
-        {
-          "at": "2026-09-27T10:08:17Z",
-          "outcome": "no-change",
-          "summary": "No supported ES edition, prerequisite, deployment, history, workflow, or presentation claim changed; five documented source questions remain unresolved.",
-          "scope": "All 20 maintained official ES edition sources and every displayed capability, history, note, highlight, workflow, conflict, edition, deployment, region, version, pricing, licensing, release-stage, route, theme, sharing, print, and agent-boundary claim."
-        },
-        {
-          "at": "2026-09-28T10:00:25Z",
-          "outcome": "running",
-          "summary": "Reviewing the maintained public ES editions evidence set.",
-          "scope": "Twenty official ES editions, release, compatibility, agent, Cloud Connect, pricing, licensing, regional, UEBA, Exposure Analytics and announcement sources; integrated route, sharing, print, perspective and publication parity."
-        },
-        {
-          "at": "2026-09-28T10:04:46Z",
-          "outcome": "no-change",
-          "summary": "All maintained ES editions evidence remains consistent with the published comparison; no factual or entitlement change was required.",
-          "scope": "Rechecked all twenty official editions, release, capability-history, agent/task, Cloud Connect, pricing, licensing/trial, regional/SOAR pairing, UEBA, Exposure Analytics and announcement sources; preserved five explicit source questions and the integrated route/export boundaries."
+    …8355 tokens truncated… and announcement sources; preserved five explicit source questions and the integrated route/export boundaries."
         },
         {
           "at": "2026-09-29T10:08:43Z",
@@ -1122,10 +736,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-guidance-audit",
       "name": "Version Guidance Audit",
-      "lastAttempt": "2026-10-26T12:28:48Z",
-      "lastSuccess": "2026-10-26T12:42:17Z",
-      "outcome": "changed",
-      "summary": "Completed the integrated guidance audit with no new factual correction; repaired the AI report footer label and Cisco Cloud print evidence contrast while retaining documented conflicts and unknowns.",
+      "lastAttempt": "2026-10-29T12:20:00Z",
+      "lastSuccess": "2026-10-29T12:22:00Z",
+      "outcome": "no-change",
+      "summary": "Completed the integrated audit with no authoritative factual correction; preserved documented conflicts and unknowns.",
       "history": [
         {
           "at": "2026-09-24T12:45:24.855849+00:00",
@@ -1239,9 +853,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Completed the integrated guidance audit with no new factual correction; repaired the AI report footer label and Cisco Cloud print evidence contrast while retaining documented conflicts and unknowns.",
           "scope": "All 200 maintained official source attempts, ten bounded high-consequence claim checks, all 18 Forwarder source mappings, ten AI capabilities, exact/legacy/invalid SOAR and report routes, both themes, phone, keyboard, native PDF, offline HTML and read-only WebMCP evidence."
+        },
+        {
+          "at": "2026-10-29T12:20:00Z",
+          "outcome": "running",
+          "summary": "Integrated guidance audit in progress.",
+          "scope": "Complete 205-source official inventory, affected October 29 release and navigation changes, and bounded highest-consequence Release Guide, migration, ES Editions, Cloud, About, Observability, Forwarders, SOAR and AI Availability claims and report behavior."
+        },
+        {
+          "at": "2026-10-29T12:22:00Z",
+          "outcome": "no-change",
+          "summary": "Completed the integrated audit with no authoritative factual correction; preserved documented conflicts and unknowns.",
+          "scope": "All 205 registered URL attempts, eleven bounded high-consequence claim groups, all 18 Forwarder mappings, ten AI capabilities, SOAR exact/legacy/invalid behavior, current route/report contracts and coordinated maintenance evidence."
         }
       ],
-      "scope": "All 200 maintained official source attempts, ten bounded high-consequence claim checks, all 18 Forwarder source mappings, ten AI capabilities, exact/legacy/invalid SOAR and report routes, both themes, phone, keyboard, native PDF, offline HTML and read-only WebMCP evidence."
+      "scope": "All 205 registered URL attempts, eleven bounded high-consequence claim groups, all 18 Forwarder mappings, ten AI capabilities, SOAR exact/legacy/invalid behavior, current route/report contracts and coordinated maintenance evidence."
     }
   ]
 };

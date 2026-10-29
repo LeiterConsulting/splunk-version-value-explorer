@@ -1,0 +1,167 @@
+{
+  "date": "2026-10-29",
+  "maintenanceId": "version-guidance-audit",
+  "startedAt": "2026-10-29T12:20:00Z",
+  "baseline": {
+    "githubCommit": "4ec3deae78e85032c2b44690dee2193b70106013",
+    "githubTree": "2ed8992738d1417d74826d240d1d34ec387c17c7",
+    "sitesVersion": 244,
+    "sitesSource": "afb82e017ad762a5482684fcf9e0e31188f0b9b7",
+    "sitesDeployment": "appgdep_6ae33076fb388191b486865dad3e7c60"
+  },
+  "scope": "Independent integrated Release Guide, migration, ES Editions, Cloud environment, About/source compendium, Observability, Universal and Heavy Forwarders, SOAR and AI Availability audit; exact source mappings, legacy/current/invalid routes, reports, WebMCP and publication parity.",
+  "inventory": {
+    "currentRegisteredSources": 205,
+    "attempted": 205,
+    "retrieved": 203,
+    "unavailable": 2,
+    "checkedAt": "2026-10-29T12:20:00Z",
+    "qualification": "Every registered exact URL was requested independently during this audit. Retrieval is not claim verification. The same historical Enterprise 8.1.14 and 8.2.12 docs.splunk.com bodies returned 403 and remain unavailable without adjacent-source substitution."
+  },
+  "claimChecks": [
+    {
+      "claimId": "cloud.current-pairing-forwarders",
+      "productVersionEnvironment": "Splunk Cloud Platform 10.6 current managed service",
+      "sourceUrl": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Current Splunk Cloud Platform and premium app versions; Supported forwarder versions",
+      "sourceCheckDate": "2026-10-29",
+      "claimVerificationDate": "2026-10-29",
+      "outcome": "confirmed-with-scope",
+      "qualification": "The current service table lists Cloud 10.6, ES 8.7 and ITSI 5.0. Forwarder rows apply to the tier communicating directly with Cloud; they do not establish historical availability, entitlement, rollout or customer authorization."
+    },
+    {
+      "claimId": "enterprise.es-itsi-10.6.1-boundary",
+      "productVersionEnvironment": "Splunk Enterprise 10.6.1 customer-managed premium-app compatibility",
+      "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+      "section": "Splunk Enterprise 10.6.1 row and 10.6.1.1-and-higher footnote",
+      "sourceCheckDate": "2026-10-29",
+      "claimVerificationDate": "2026-10-29",
+      "outcome": "confirmed-with-conflict-retained",
+      "qualification": "The table lists ES 8.4.1 through 8.7.x and ITSI 4.21.x/5.0.x for the documented rows while separately qualifying 10.6.1.1 and higher and the cohosted KV Store incompatibility for ES 8.7 and lower. The footnote is not generalized to an unlisted patch or product version."
+    },
+    {
+      "claimId": "lifecycle.enterprise-universal-forwarder",
+      "productVersionEnvironment": "Splunk Enterprise and Universal Forwarder 9.4/10.6 support windows",
+      "sourceUrl": "https://www.splunk.com/en_us/legal/splunk-software-support-policy.html",
+      "section": "Splunk Core Products; Splunk Universal Forwarder current version tables",
+      "sourceCheckDate": "2026-10-29",
+      "claimVerificationDate": "2026-10-29",
+      "outcome": "confirmed",
+      "qualification": "Explicit Enterprise deadlines remain separate from Cloud and the guide's 180-day reminder. Universal Forwarder full-support and subsequent P3 windows remain distinct."
+    },
+    {
+      "claimId": "migration.scma-current",
+      "productVersionEnvironment": "Splunk Cloud Migration Assessment 5.4.11",
+      "sourceUrl": "https://splunkbase.splunk.com/app/4974",
+      "section": "Default Version; Platform Version; CIM Version",
+      "sourceCheckDate": "2026-10-29",
+      "claimVerificationDate": "2026-10-29",
+      "outcome": "confirmed",
+      "qualification": "The listing remains 5.4.11 with the displayed Enterprise 9.1 through 10.6 and CIM 5.x/6.x/8.x ranges. This does not prescribe a migration approach or establish app readiness."
+    },
+    {
+      "claimId": "observability.october-and-components",
+      "productVersionEnvironment": "Splunk Observability Cloud October 2026 and customer-managed instrumentation",
+      "sourceUrl": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
+      "section": "October 21 and October 26 milestones",
+      "sourceCheckDate": "2026-10-29",
+      "claimVerificationDate": "2026-10-29",
+      "outcome": "confirmed-with-scope",
+      "qualification": "The rolling service page includes the October 26 multi-trace comparison milestone and retains Controlled Availability boundaries for October 21 items. Java instrumentation 2.33.1 remains a separate customer-managed patch, not a SaaS rollout or entitlement fact."
+    },
+    {
+      "claimId": "forwarders.borrowed-hf-source-mappings",
+      "productVersionEnvironment": "All 18 borrowed Heavy Forwarder technical/runtime records",
+      "sourceUrl": "docs/forwarder-source-mappings.json",
+      "section": "All stable claim IDs, exact official URLs and supporting sections",
+      "sourceCheckDate": "2026-10-29",
+      "claimVerificationDate": "2026-10-26",
+      "outcome": "complete-bounded-mapping-demonstrated-no-date-advance",
+      "qualification": "The actual 900-route traversal and semantic negative fixtures retain all 18 mappings, including inherited historical runtimes. This audit does not advance unchanged claim dates or broaden Enterprise-package evidence to Universal Forwarders."
+    },
+    {
+      "claimId": "soar.cloud-8.8-stage-conflict",
+      "productVersionEnvironment": "Splunk SOAR Cloud 8.8.0",
+      "sourceUrl": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
+      "section": "October 21, 2026 Release 8.8",
+      "sourceCheckDate": "2026-10-29",
+      "claimVerificationDate": "2026-10-29",
+      "outcome": "conflict-confirmed",
+      "qualification": "The section says 8.8.0 was released for Controlled Availability and then calls the enhancement list a General Availability release. Both statements remain visible; no tenant rollout, entitlement, region, authorization, on-premises 8.8 or pairing is inferred."
+    },
+    {
+      "claimId": "soar.onprem-8.7-build-python",
+      "productVersionEnvironment": "Splunk SOAR On-premises 8.7.0",
+      "sourceUrl": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.7.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+      "section": "September 22 build 243 correction; Python 3.9 end of support",
+      "sourceCheckDate": "2026-10-29",
+      "claimVerificationDate": "2026-10-29",
+      "outcome": "confirmed",
+      "qualification": "Build 243 corrects the two documented build 232 defects and Python 3.13-compatible automations remain required. Conditional OS/PostgreSQL bridges and privileged conversion paths remain separate."
+    },
+    {
+      "claimId": "soar.export-app-matrix-and-fips",
+      "productVersionEnvironment": "Splunk App for SOAR Export 8.7.0/8.7.1",
+      "sourceUrl": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
+      "section": "Welcome to release 8.7.1; PAPP-38496",
+      "sourceCheckDate": "2026-10-29",
+      "claimVerificationDate": "2026-10-29",
+      "outcome": "confirmed-with-scope",
+      "qualification": "The FIPS-enabled repair maps affected Export versions to 8.6.1/8.7.1. The exact Enterprise/Cloud Export matrix remains separate from App for SOAR, SOAR server releases, tenant rollout and security patch floors."
+    },
+    {
+      "claimId": "ai.complete-curated-inventory",
+      "productVersionEnvironment": "Ten named AI capabilities across SAIA, ITSI, ES and Observability",
+      "sourceUrl": "content/datasets/guidance.json",
+      "section": "aiAvailability and sources",
+      "sourceCheckDate": "2026-10-29",
+      "claimVerificationDate": "2026-10-29",
+      "outcome": "complete-current-catalog-confirmed",
+      "qualification": "Ten capabilities retain distinct product identity, documentation version, stage, edition, deployment, dependency, provider/region, entitlement, enablement and authorization fields. ITSI remains 5.0+, SAIA 2.2+ and MCP Server 1.2.1+; base-assistant regional evidence does not establish subagent rollout."
+    },
+    {
+      "claimId": "source-compendium-and-maintenance-contract",
+      "productVersionEnvironment": "About/source compendium and four-watch ownership",
+      "sourceUrl": "dist/source-register.js",
+      "section": "205 persistent exact-URL records; Eastern schedule disclosure",
+      "sourceCheckDate": "2026-10-29",
+      "claimVerificationDate": "2026-10-29",
+      "outcome": "confirmed",
+      "qualification": "The persistent register retains exact URL/section scope and retired history. The About schedule remains Release 05:00, ES 06:00, CSP 07:00 and Guidance Monday/Thursday 08:00 Eastern."
+    }
+  ],
+  "preservedUnknowns": [
+    "The two historical Enterprise 8.1.14 and 8.2.12 source bodies remain unavailable; adjacent releases are not substituted.",
+    "SOAR issue-table retrieval gaps remain unavailable, not empty.",
+    "SOAR Cloud 8.8 Controlled Availability versus General Availability wording remains a documented conflict.",
+    "The KV-specific 10.2 bridge versus the general direct 10.0-to-10.6 route remains unresolved.",
+    "SVD-2026-1015 remains Under Investigation without affected/fixed product versions or a patch floor.",
+    "FR-H SOAR, ITSI subagent regional rollout and additional CMP agent regional scope remain not established.",
+    "Current Cloud service evidence is not retrospective release availability or customer authorization."
+  ],
+  "changes": [
+    {
+      "id": "maintenance-outcome",
+      "type": "operational-no-change-record",
+      "detail": "Recorded the completed bounded audit without advancing factual, lifecycle or material-cycle dates.",
+      "factualScopeChanged": false
+    }
+  ],
+  "validation": {
+    "targetedTests": "81 targeted AI Availability, ES Editions, Forwarder, SOAR, source-register and shared WebMCP tests passed.",
+    "orderedSyncAndChecks": "The release-metadata, content, source-register and content-revision generators ran in required order; all four --check gates passed. The Advisor check also passed for the concurrent bounded navigation work.",
+    "fullNodeTests": "237 Node tests passed with zero failures or skips, including all 18 Forwarder mapping traversals across 900 routes, SOAR exact/legacy/invalid behavior, AI filters and inherited-prerequisite failures, current navigation, maintenance records and read-only WebMCP parity.",
+    "build": "The production Worker build passed with 66 assets, seven datasets, 871 records, content revision content-29ea20522dac226b3f8b1f5f and engine revision engine-afe3461816f3b020c2b5.",
+    "exactCandidateExports": {
+      "outcome": "pending",
+      "qualification": "A fresh exact-candidate receipt is required because the published maintenance ledger changes the report-input fingerprint. The prior 289ef0d receipt remains valid for its original candidate but was correctly rejected for this candidate."
+    },
+    "live": {
+      "outcome": "pending"
+    }
+  },
+  "publication": {
+    "status": "pending-candidate-validation",
+    "noteUrl": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-29.md"
+  }
+}
