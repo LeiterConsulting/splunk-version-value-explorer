@@ -1,4 +1,5 @@
 "use client";
+import {queueCategory} from "../lib/queue";
 import { useState } from "react";
 import { ArrowUpRight, ArrowDownToLine, GitBranch } from "lucide-react";
 import type { Snapshot, Investigation } from "../lib/types";
@@ -6,16 +7,22 @@ const labels: Record<Investigation["state"],string>={mapped:"Product relationshi
 const date=(value:string)=>new Date(value).toLocaleString("en-US",{month:"short",day:"numeric",year:"numeric",hour:"numeric",minute:"2-digit",timeZoneName:"short"});
 export default function Investigations({snapshot,onOpenAssessment,actions}:{snapshot:Snapshot;onOpenAssessment:(id:string)=>void;actions?:React.ReactNode}) {
   const [filter,setFilter]=useState("all");
-  const rows=snapshot.candidates.filter(c=>filter==="all"||(c.investigation?.state??"pending")===filter);
+  const [queueFilter,setQueueFilter]=useState("all");
+  const at=new Date().toISOString();
+  const categoryLabels={never_reviewed:"Never reviewed",overdue_review:"Overdue review",awaiting_vendor:"Awaiting vendor evidence",future_review:"Future review",in_progress:"In progress"};
+  const rows=snapshot.candidates.filter(c=>(queueFilter==="all"||queueCategory(c,at)===queueFilter)&&(filter==="all"||(c.investigation?.state??"pending")===filter));
   const run=snapshot.assessmentRuns?.at(-1);
   function exportInvestigations(){const url=URL.createObjectURL(new Blob([JSON.stringify({exportedAt:new Date().toISOString(),scope:"Public investigation research. No customer inventory or device-local context.",lastAssessmentAt:snapshot.lastAssessmentAt,run,investigations:rows,assessments:snapshot.records.filter(r=>rows.some(c=>c.investigation?.assessmentIds.includes(r.id)))},null,2)],{type:"application/json"}));const a=document.createElement("a");a.href=url;a.download="ripple-investigations.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
   return <>
     <div className="page-heading"><span className="eyebrow dark">EVIDENCE / SCOPE / NEXT ACTION</span><h1>Signals need a trail.</h1><p>Every lead keeps its outcome and evidence gap. A mapped product relationship may still need individual CVE review. Unknown applicability never means safe.</p></div>
     <div className="method-banner"><GitBranch size={22}/><div><strong>{snapshot.candidates.length} investigations · {run?`${run.claimChecks} scoped claims checked`:"assessment stage pending"}</strong><p>{run?`Last assessment ${date(run.at)}. ${run.mapped} product relationships mapped, ${run.needsEvidence} need evidence, ${run.relatedFirstParty} related first-party, ${run.failures} unavailable.`:"Feed intake collects leads. The assessment stage establishes supported outcomes and explicit uncertainty."}</p></div>{actions}</div>
     <div className="investigation-toolbar"><div className="investigation-filters" aria-label="Investigation status">{["all","mapped","needs_evidence","related_first_party","unavailable","pending"].map(state=><button key={state} aria-pressed={filter===state} onClick={()=>setFilter(state)}>{state==="all"?"All":state==="pending"?"Awaiting assessment":labels[state as Investigation["state"]]}<span>{snapshot.candidates.filter(c=>state==="all"||(c.investigation?.state??"pending")===state).length}</span></button>)}</div><button className="text-button" onClick={exportInvestigations}><ArrowDownToLine size={15}/>Export investigations</button></div>
+    <div className="investigation-toolbar"><label>Research queue <select aria-label="Research queue" value={queueFilter} onChange={e=>setQueueFilter(e.target.value)}><option value="all">All review schedules</option>{Object.entries(categoryLabels).map(([value,label])=><option key={value} value={value}>{label} ({snapshot.candidates.filter(c=>queueCategory(c,at)===value).length})</option>)}</select></label><p>Review timing is separate from the evidence outcome. Awaiting vendor evidence remains unresolved.</p></div>
     <div className="candidate-list">{rows.map(c=>{const i=c.investigation;return <article className="candidate" key={c.id}>
       <span className="candidate-origin">{c.origin}{c.kev?<em>Known exploited upstream</em>:null}</span><h3>{c.title}</h3>
       <div className={"investigation-state "+(i?.state??"pending")}>{i?labels[i.state]:"Awaiting assessment"}{i?.priority==="high"?<small>Priority review</small>:null}</div>
+      {c.queue?<p className="scope-caution"><strong>{categoryLabels[queueCategory(c,at)]}</strong> · {c.queue.lastResearchAt?`Last researched ${date(c.queue.lastResearchAt)}. `:""}Next review {date(c.queue.nextReviewAt)}.{c.queue.reviewTrigger==="evidence_changed"?" Supporting evidence changed; priority reassessment.":null}</p>:null}
+      {!!c.provenance?.length&&<details><summary>Advisory origins ({c.provenance.length})</summary><ul>{c.provenance.map(p=><li key={p.id}><a href={p.url} target="_blank" rel="noopener noreferrer">{p.title} · {p.origin}</a></li>)}</ul></details>}
       <p className="investigation-summary">{i?.summary??"No evidence assessment has been recorded. Cisco applicability remains unknown."}</p>
       {i?<><div className="investigation-outcome"><strong>{i.assessmentIds.length} individual claims in the ledger</strong><span>{i.packages.length} package groups · {i.products.length} product-status rows</span></div>
         {i.gaps.length?<div className="investigation-gap"><strong>Evidence still needed</strong><ul>{i.gaps.map(g=><li key={g}>{g}</li>)}</ul></div>:null}

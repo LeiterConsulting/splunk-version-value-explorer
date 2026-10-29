@@ -27,3 +27,7 @@ The seven October 23–29 operating samples contain 44–84 collection requests 
 Delivered: public navigation and bespoke workspace chrome (October 28); measured operations/transparency (October 7); first operating review (October 29).
 
 Next target reviews: intake quality and source-state clarity November 2; finding/product journeys and another operating decision November 5; contextual VersionCompass links and one-source expansion eligibility November 12; repeatable portfolio cohorts November 19. These are estimated review/delivery targets with explicit validation gates, not automatic releases. Original October targets remain historical planning context in the rollout document. See docs/audits/2026-10-29-ripple-operating-review.json and the public roadmap for scope and readiness.
+
+## Backlog recovery and rollout review
+
+The owner approved queue clarity, conservative advisory deduplication, differentiated review cadences and a temporary three-first-review daily allocation October 30–November 12. Daily collection and all caps stay unchanged; one first-review slot remains protected afterward. Expansion is limited to one validated 5–10-investigation cohort only after the canonical first-review backlog is at most five, urgent work is addressed and measured capacity supports it. The existing November 2/5/12/19 checkpoints remain conditional. A one-time November 20 evaluation will compare delivered work, backlog and operating effort and surface explicit decisions for owner review. See the rollout policy for implementation, preservation and review criteria.
