@@ -1,5 +1,9 @@
 # VersionCompass working contract
 
+## October 29 Ripple live interface
+
+Ripple is a first-class public interface at /ripple, directly linked from main navigation with its existing bespoke chrome. Read docs/architecture/ripple-brief.md, ripple-mount.md and ripple-rollout.md for product changes. This supersedes older unlinked/unlisted/temporary-pilot wording. Preserve the public read-only proxy, the original owner-private Ripple data-service writers, local-context privacy, claim scope/dates, daily schedule and collection/research caps. Keep tools/ripple/lib/roadmap.ts synchronized with the Ripple research repository authority; do not overwrite the public chrome with the backend UI. Treat delivered navigation/chrome separately from remaining finding journeys, contextual links and gated coverage expansion. Suggest bounded UI/UX improvements with value, scope, effort and validation; use the existing exact-candidate CI, repository/Sites publication and live checks for implementation. No paid services, new timers, budget increase or inventory collection is implied.
+
 ## October 23 AI Availability tab
 
 The owner authorizes normal navigation for ?view=ai-availability and its integration

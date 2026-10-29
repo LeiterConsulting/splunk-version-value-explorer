@@ -14,10 +14,16 @@ The source helper scripts retrieve data with owner-private Sites service access 
 
 ## Public transparency
 
-The footer links /ripple/updates. The page separates content/features, target roadmap dates, source/assessment operations and original claim verification. It does not expose local inventory or credentials. Main VersionCompass navigation remains unlinked.
+The footer links /ripple/updates. The page separates content/features, target roadmap dates, source/assessment operations and original claim verification. It does not expose local inventory or credentials. The initial unlinked pilot was superseded by owner-approved public navigation on October 28 and the live product instruction on October 29. The public workspace remains read-only with bespoke chrome; data-service writers stay owner-private.
 
-Targets: operating review October 14; product/finding UX October 16; first source cohort October 21; repeatable cohorts October 28; VersionCompass integration review November 4. Targets are estimates, conditional on the stated gates. Past targets do not automatically become delivered. Update status and revised dates from actual evidence. lib/roadmap.ts is the editorial authority; the public mount mirrors it in tools/ripple/lib/roadmap.ts. Seven measured daily runs inform expansion, not a fixed wait before unrelated verified repairs.
+Original October 7 planning targets (historical, superseded by the October 29 review): operating review October 14; product/finding UX October 16; first source cohort October 21; repeatable cohorts October 28; VersionCompass integration review November 4. Targets are estimates, conditional on the stated gates. Past targets do not automatically become delivered. Update status and revised dates from actual evidence. lib/roadmap.ts is the editorial authority; the public mount mirrors it in tools/ripple/lib/roadmap.ts. Seven measured daily runs inform expansion, not a fixed wait before unrelated verified repairs.
 
 ## Validation boundary
 
 Production workflow integration tests use SQLite with the actual additive migration and D1-shaped methods. They cover caps, retries, queue retention, admission/deadline, idempotency, gap preservation and existing source/claim behavior. TypeScript, build, hosted writer/readback and public read-only guards must also pass. Browser rendering and native exports are separate checks; unavailable capabilities are never reported as passing.
+
+## October 29 live product review
+
+Ripple is a first-class public VersionCompass interface. Main navigation and bespoke workspace chrome were delivered October 28; the owner confirmed that status October 29. The initial operating review is now complete from seven persisted October 23–29 daily samples: 44–84 collection requests/day, no collection retries/deferrals, queue growing from 66 to 77, with 17 pending investigations. Retain existing limits and gate source expansion on backlog and measured effort. This is not a CVE claim re-verification or permission to broaden the backend audience.
+
+Current targets: intake quality/source-state clarity November 2; finding UX and another budget/backlog review November 5; contextual links and next-source eligibility review November 12; repeatable cohort eligibility November 19. These replace expired estimates, with actual delivery separated from targets. The public roadmap records status and readiness gates. Preserve original historical targets above. Read the live brief before future product work. Daily maintenance records data and proposes bounded improvements; interface changes still require the supported source/publication checks.
