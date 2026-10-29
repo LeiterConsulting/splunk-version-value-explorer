@@ -35,6 +35,11 @@ export async function verifyNavigation(browser, output, base='http://127.0.0.1:4
       assert.equal(new URL(page.url()).pathname,'/ripple');assert.equal(new URL(page.url()).searchParams.get('theme'),theme==='cisco'?'cisco':null);assert.equal(await page.locator('[data-destination="ripple"]').getAttribute('aria-current'),'page');await fit('Ripple');await shot('ripple');
       const tools=page.getByRole('navigation',{name:'Ripple workspace'});
       await tools.getByRole('button',{name:/Investigations/}).click();assert.equal(new URL(page.url()).searchParams.get('view'),'investigations');await page.goBack();assert.equal(new URL(page.url()).searchParams.has('view'),false);await page.goForward();await page.getByRole('heading',{name:'Signals need a trail.'}).waitFor();
+      const queue=page.getByRole('combobox',{name:'Research queue'});await queue.focus();assert(await queue.evaluate(el=>el===document.activeElement));
+      await queue.selectOption('overdue_review');assert.equal(await queue.inputValue(),'overdue_review');await fit('Ripple queue filter');
+      const [investigations]=await Promise.all([page.waitForEvent('download'),page.getByRole('button',{name:'Export investigations'}).click()]);await investigations.saveAs(path.join(output,id+'-ripple-investigations.json'));
+      const queueExport=JSON.parse(fs.readFileSync(path.join(output,id+'-ripple-investigations.json')));assert(queueExport.investigations.every(c=>c.queue?.lastResearchAt&&c.queue.nextReviewAt<=queueExport.exportedAt));assert(!Object.hasOwn(queueExport,'selections'));assert(!Object.hasOwn(queueExport,'watch'));
+      await queue.selectOption('all');await fit('Ripple investigations');await shot('ripple-investigations');
       await tools.getByRole('button',{name:'Cisco portfolio'}).click();await page.locator('.coverage-table').waitFor();
       await tools.getByRole('button',{name:'Sources & method'}).click();await page.locator('.source-register').waitFor();
       await tools.getByRole('button',{name:/Assessments/}).click();

@@ -24,12 +24,14 @@ export type SourceCheck = { id: string; name: string; url: string; checkedAt: st
   outcome: "ok" | "changed" | "unavailable" | "deferred"; hash?: string; message: string };
 export type Candidate = { id: string; title: string; url: string; origin: string;
   cves: string[]; discoveredAt: string; publishedAt?: string; kev?: boolean; investigation?: Investigation;
-  queue?: {state:"pending"|"waiting"|"in_progress"; nextReviewAt:string; lastResearchAt?:string; reason:string} };
+  provenance?: {id:string;url:string;title:string;origin:string;discoveredAt:string}[]; duplicateOf?:string;
+  queue?: {state:"pending"|"waiting"|"in_progress"; nextReviewAt:string; lastResearchAt?:string; reason:string; reviewTrigger?:"evidence_changed"; cadence?:"awaiting_vendor"|"source_retry"|"periodic"; policyVersion?:string} };
 export type RunMetrics = {kind:"refresh"|"assessment"; at:string; durationMs:number; requests:number;
   receivedBytes:number; retries:number; deferred:number; candidatesAdded:number; queueSize:number; oldestPendingAt:string|null; snapshotBytes:number};
 export type OperatingData = {policy:{dailyRequests:number; dailyInvestigations:number; researchSessionMinutes:number; dailyResearchMinutes:number};
   day:string; requestsToday:number; receivedBytesToday:number; researchSessionsToday:number; researchReservedMinutes:number;
-  queue:{total:number; pending:number; waiting:number; inProgress:number; oldestPendingAt:string|null};
+  queue:{total:number; pending:number; waiting:number; inProgress:number; oldestPendingAt:string|null; retainedRows?:number; duplicateAliases?:number; neverReviewed?:number; overdueReview?:number; awaitingVendor?:number; futureReview?:number; due?:number};
+  researchPlan?:{catchupStart:string;catchupThrough:string;firstPassDaily:number;reassessmentOn:string;expansionMaxNeverReviewed:number;cohortMax:number};
   recentRuns:RunMetrics[]; contentHistory:{id:string; at:string; kind:string; summary:string; added:number; updated:number}[];
   cost:{status:"not_metered"; note:string}};
 export type Snapshot = { schemaVersion: 1; records: Assessment[]; candidates: Candidate[];
