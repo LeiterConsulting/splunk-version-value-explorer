@@ -1,1283 +1,1 @@
-window.VersionCompassMaintenance = {
-  "schemaVersion": 1,
-  "trackingSince": "2026-09-25",
-  "scheduleSnapshot": "2026-09-25",
-  "watches": [
-    {
-      "id": "csp-fedramp-watch",
-      "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-10-29T11:25:16.717Z",
-      "lastSuccess": "2026-10-29T11:27:38.215Z",
-      "outcome": "no-change",
-      "summary": "Reviewed 25 official sources and seven consequential claim groups; no supported regional or authorization fact changed.",
-      "history": [
-        {
-          "at": "2026-09-25T11:19:20.913079+00:00",
-          "outcome": "not-recorded",
-          "summary": "Imported scheduler attempt timestamp; not evidence of successful completion."
-        },
-        {
-          "at": "2026-09-26T11:59:18Z",
-          "outcome": "running",
-          "summary": "Reviewing all maintained provider, region, experience, product-availability and FedRAMP evidence, including visual-symbol tables and preserved conflicts.",
-          "scope": "Cloud Platform service details and change log; feature and regional administration guides; ES, ITSI and SOAR regional evidence; Observability realms and service scope; Compliance at Splunk matrix; FedRAMP Marketplace Moderate and High offering records; environment filters, perspectives, reports, shared URLs and read-only agent parity."
-        },
-        {
-          "at": "2026-09-26T12:07:11Z",
-          "outcome": "no-change",
-          "summary": "Reviewed all 10 maintained official environment sources and 54 records; no material factual or scope change was found, and the documented Federated Search for Amazon S3 High conflict remains explicit.",
-          "scope": "Cloud Platform service details and change log; Ingest Processor prerequisites; ES and SOAR regional and pairing evidence; ITSI host-context boundary; Observability realms and component scope; rendered US Public Sector compliance symbols; exact FedRAMP Marketplace Moderate and High offerings; environment filters, perspectives, reports, shared URLs and read-only agent parity."
-        },
-        {
-          "at": "2026-09-27T11:50:25Z",
-          "outcome": "running",
-          "summary": "Reviewing all maintained CSP, region, service-experience, product-availability, FedRAMP and Observability environment evidence.",
-          "scope": "Cloud Platform service details and change log; Ingest Processor prerequisites; ES and SOAR regional and pairing evidence; ITSI host-context boundary; Observability realms and component scope; rendered US Public Sector compliance symbols; exact FedRAMP Marketplace Moderate and High offerings; environment filters, perspectives, reports, shared URLs and read-only agent parity."
-        },
-        {
-          "at": "2026-09-27T11:53:04Z",
-          "outcome": "no-change",
-          "summary": "Reviewed all 10 maintained official environment sources and 54 records; no material factual or scope change was found, and the Federated Search for Amazon S3 High conflict remains explicit.",
-          "scope": "Cloud Platform 10.5 service details and change log; Ingest Processor prerequisites; ES 8.7 and SOAR regional and pairing evidence; ITSI host-context boundary; Observability realms and component scope; visually verified February 2026 US Public Sector compliance symbols; exact FedRAMP Marketplace Moderate and High offerings; environment filters, perspectives, reports, shared URLs and read-only agent parity."
-        },
-        {
-          "at": "2026-09-28T11:30:52Z",
-          "outcome": "running",
-          "summary": "Reviewing all maintained CSP, region, service-experience, product-availability, FedRAMP and Observability environment evidence.",
-          "scope": "Cloud Platform service details and change log; Ingest Processor prerequisites; ES and SOAR regional and pairing evidence; ITSI host-context boundary; Observability realms and component scope; rendered US Public Sector compliance symbols; exact FedRAMP Marketplace Moderate and High offerings; environment filters, perspectives, reports, shared URLs and read-only agent parity."
-        },
-        {
-          "at": "2026-09-28T11:31:36Z",
-          "outcome": "no-change",
-          "summary": "Reviewed all 10 maintained official environment sources and 54 records; no material factual or scope change was found, and the Federated Search for Amazon S3 High conflict remains explicit.",
-          "scope": "Cloud Platform 10.5 service details and change log; Ingest Processor prerequisites; ES 8.7 and SOAR regional and pairing evidence; ITSI host-context boundary; Observability realms and component scope; visually verified February 2026 US Public Sector compliance symbols; exact FedRAMP Marketplace Moderate and High offerings; environment filters, perspectives, reports, shared URLs and read-only agent parity."
-        },
-        {
-          "at": "2026-09-29T11:41:52Z",
-          "outcome": "running",
-          "summary": "Reviewing current Cloud hosting, regional, FedRAMP, product-scope and Observability evidence.",
-          "scope": "Ten maintained official environment sources and all 54 records: Cloud Platform service details and change log; feature and experience guides; ES/SOAR regional evidence; public-sector compliance matrix; exact FedRAMP Moderate and High Marketplace offerings; scoped authorization announcements; Observability service realms; Forwarders destination/provider/region/topology restrictions; UI, sharing, print/snapshot and read-only agent parity."
-        },
-        {
-          "at": "2026-09-29T11:46:36Z",
-          "outcome": "no-change",
-          "summary": "Reviewed all 10 maintained official environment sources and 54 records; no material factual or scope change was found, and the documented Federated Search for Amazon S3 High conflict remains explicit.",
-          "scope": "Cloud Platform 10.5 service details and change log; Ingest Processor prerequisites; ES 8.7 and SOAR regional and pairing evidence; ITSI host-context boundary; Observability realms and component scope; visually verified February 2026 US Public Sector compliance symbols; exact FedRAMP Marketplace Moderate and High offerings; Forwarders destination/provider/region/topology restrictions; environment filters, perspectives, reports, shared URLs, print/snapshot and read-only agent parity."
-        },
-        {
-          "at": "2026-09-30T11:30:29Z",
-          "outcome": "running",
-          "summary": "Reviewing current Cloud hosting, regional, FedRAMP, product-scope, forwarder-destination and Observability evidence.",
-          "scope": "Ten maintained official environment sources and all 54 records: Cloud Platform service details and change log; Ingest Processor prerequisites; ES/SOAR regional evidence; public-sector compliance matrix; exact FedRAMP Moderate and High Marketplace offerings; scoped authorization announcements; Observability realms; Forwarders destination/provider/region/topology restrictions; environment filters, perspectives, reports, shared URLs, print/snapshot and read-only agent parity."
-        },
-        {
-          "at": "2026-09-30T11:34:12Z",
-          "outcome": "no-change",
-          "summary": "Reviewed all 10 maintained official environment sources and 54 records; no material factual or scope change was found, and the documented Federated Search for Amazon S3 High conflict remains explicit.",
-          "scope": "Cloud Platform 10.5 service details and change log; Ingest Processor prerequisites; ES 8.7 and SOAR regional and pairing evidence; ITSI host-context boundary; Observability realms and component scope; visually verified February 2026 US Public Sector compliance symbols; exact FedRAMP Marketplace Moderate and High offerings; Forwarders destination/provider/region/topology restrictions; environment filters, perspectives, reports, shared URLs, print/snapshot and read-only agent parity."
-        },
-        {
-          "at": "2026-10-01T11:07:22Z",
-          "outcome": "running",
-          "summary": "Reviewing current Cloud hosting, regional, FedRAMP, product-scope, forwarder-destination and Observability evidence.",
-          "scope": "Ten maintained official environment sources and all 54 records: Cloud Platform service details and change log; feature and experience guides; ES/SOAR regional evidence; public-sector compliance matrix; exact FedRAMP Moderate and High Marketplace offerings; scoped authorization announcements; Observability realms; Forwarders destination/provider/region/topology restrictions; environment filters, perspectives, reports, shared URLs, print/snapshot and read-only agent parity."
-        },
-        {
-          "at": "2026-10-01T11:12:47Z",
-          "outcome": "no-change",
-          "summary": "Reviewed all 10 maintained official environment sources and 54 records; no material factual or scope change was found, and the documented Federated Search for Amazon S3 High conflict remains explicit.",
-          "scope": "Cloud Platform 10.5 service details and change log; Ingest Processor prerequisites; ES 8.7 and SOAR regional and pairing evidence; ITSI host-context boundary; Observability realms and component scope; visually verified February 2026 US Public Sector compliance symbols; exact FedRAMP Marketplace Moderate and High offerings; Forwarders destination/provider/region/topology restrictions; environment filters, perspectives, reports, shared URLs, print/snapshot and read-only agent parity."
-        },
-        {
-          "at": "2026-10-02T11:51:48Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete maintained CSP, regional, restricted-environment, FedRAMP and Observability evidence inventory, including visual symbol tables and SOAR-specific scope.",
-          "scope": "Ten maintained Cloud environment sources and all 54 records; current Cloud Service Details and change log; Ingest Processor prerequisites; ES and SOAR regional and pairing evidence; Observability realms and component scope; rendered US Public Sector compliance symbols; exact FedRAMP Moderate and High Marketplace offerings; preserved S3 High conflict; environment filters, perspectives, reports, shared URLs, print/snapshot and read-only WebMCP parity."
-        },
-        {
-          "at": "2026-10-02T12:00:07Z",
-          "outcome": "no-change",
-          "summary": "Reviewed all 10 maintained official environment sources, all 54 records and both CSP-owned SOAR regional sources; no material availability or authorization change was found, the S3 High conflict remains explicit, and the current change-log path was repaired.",
-          "scope": "Cloud Platform 10.6 Service Details and change log; Ingest Processor prerequisites; ES 8.7 and SOAR regional and pairing evidence; Observability realms and component scope; visually verified February 2026 US Public Sector symbols; exact FedRAMP Moderate and High Marketplace offerings; SOAR Moderate restrictions and FR-H gap; environment filters, perspectives, reports, shared URLs, print/snapshot and read-only WebMCP parity."
-        },
-        {
-          "at": "2026-10-03T11:58:42Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete maintained CSP, regional, restricted-environment, FedRAMP and Observability evidence inventory, including visual symbol tables and SOAR-specific scope.",
-          "scope": "Ten maintained Cloud environment sources and all environment records; current Cloud Service Details and change log; Ingest Processor prerequisites; ES, ITSI and SOAR regional/pairing evidence; Observability realms; rendered US Public Sector compliance symbols; exact FedRAMP Marketplace Moderate and High offerings; preserved S3 High conflict; environment filters, perspectives, reports, shared URLs, print/snapshot and read-only WebMCP parity."
-        },
-        {
-          "at": "2026-10-03T12:05:24Z",
-          "outcome": "no-change",
-          "summary": "Checked all 10 maintained official environment sources, the 54-record inventory and both CSP-owned SOAR sources; four high-consequence claims were reverified with no material correction, while the S3 High conflict, SOAR service-date discrepancy and SOAR FR-H gap remain explicit.",
-          "scope": "Cloud Platform 10.6 Service Details and change log; Ingest Processor prerequisites; ES 8.7 regional and SOAR pairing evidence; Observability realms; visually inspected February 2026 US Public Sector symbols; exact FedRAMP Moderate and High Marketplace offerings; SOAR commercial regions, Moderate restrictions and FR-H gap; environment filters, perspectives, reports, shared URLs, print/snapshot and read-only WebMCP parity."
-        },
-        {
-          "at": "2026-10-04T11:53:39Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete maintained Cloud and FedRAMP environment inventory plus bounded high-consequence authorization, availability and SOAR claims.",
-          "scope": "Ten environment sources, 54 environment records, two CSP-owned SOAR sources, exact Marketplace offerings, the visual compliance matrix, Observability realms, ES/ITSI/SOAR compatibility, SOAR restricted environments, the S3 High conflict, current discovery paths and four highest-consequence claims."
-        },
-        {
-          "at": "2026-10-04T12:00:21Z",
-          "outcome": "no-change",
-          "summary": "Checked all 10 maintained official environment sources, the 54-record inventory and both CSP-owned SOAR sources; four high-consequence claims were reverified with no material correction, while the S3 High conflict, SOAR service-date discrepancy and SOAR FR-H gap remain explicit.",
-          "scope": "Cloud Platform 10.6 Service Details and change log; Ingest Processor prerequisites; ES 8.7 regional and SOAR pairing evidence; Observability realms; visually inspected February 2026 US Public Sector symbols; exact FedRAMP Moderate and High Marketplace offerings; SOAR commercial regions, Moderate restrictions and FR-H gap; environment filters, perspectives, reports, shared URLs, print/snapshot and read-only WebMCP parity."
-        },
-        {
-          "at": "2026-10-05T11:17:41Z",
-          "outcome": "running",
-          "summary": "Checking the complete maintained Cloud-environment inventory and a bounded set of high-consequence authorization, availability and SOAR claims.",
-          "scope": "10 environment source URLs, 54 environment records, 2 CSP-owned SOAR sources, visual compliance matrix review, and four bounded claim checks."
-        },
-        {
-          "at": "2026-10-05T11:34:45Z",
-          "outcome": "no-change",
-          "summary": "Checked all 10 maintained Cloud-environment sources and both CSP-owned SOAR sources; reverified four high-consequence authorization, availability and service-date claims. No material factual change was found.",
-          "scope": "10 environment source URLs, 54 environment records, 2 CSP-owned SOAR sources, direct visual review of the February 2026 public-sector symbol table, and four bounded claim checks. Browser, export and native WebMCP outcomes are recorded separately in the audit."
-        },
-        {
-          "at": "2026-10-06T11:11:53Z",
-          "outcome": "running",
-          "summary": "Checking the complete CSP/FedRAMP and CSP-owned SOAR source inventory, priority authorization and availability claims, delivery parity and soak state.",
-          "scope": "10 Cloud-environment sources, 54 environment records, two CSP-owned SOAR sources, four bounded priority claims, matrix symbols, D1 and export/route evidence."
-        },
-        {
-          "at": "2026-10-06T11:26:21Z",
-          "outcome": "changed",
-          "summary": "Exact FedRAMP Marketplace Certified Services scope added for ES and ITSI in Moderate and High, and SOAR in Moderate; SOAR High remains not established and the S3 conflict remains preserved.",
-          "scope": "Twelve official sources checked; six bounded consequential claims verified; 58 environment records and four CSP-owned SOAR sources reconciled."
-        },
-        {
-          "at": "2026-10-08T15:00:51.359Z",
-          "outcome": "running",
-          "summary": "Reviewing current official CSP, FedRAMP and restricted SOAR evidence.",
-          "scope": "10 maintained environment sources and two owned SOAR sources; bounded consequential claim checks and held regional candidate follow-up."
-        },
-        {
-          "at": "2026-10-08T15:13:34.317Z",
-          "outcome": "changed",
-          "summary": "Completed bounded scope review; discovered conflicting current S3 Moderate statements and protected a candidate correction. Canonical report facts remain unchanged.",
-          "scope": "All 10 maintained environment source URLs and two CSP-owned SOAR source URLs; current/versioned and prerequisite discovery; 58 environment records inventoried, 10 bounded high-consequence claim checks. Not exhaustive historical claim verification. Operational ledger/audit publication only; no canonical factual promotion."
-        },
-        {
-          "at": "2026-10-09T14:52:11.940Z",
-          "outcome": "running",
-          "summary": "Reconciling current official CSP, FedRAMP and restricted-environment evidence into a candidate factual batch.",
-          "scope": "All 10 maintained environment source URLs and two CSP-owned SOAR sources; 58 existing records plus the held four-record Machine Data Lake candidate; bounded high-consequence claims, visual public-sector matrix, exact Marketplace offerings, current ACS discovery, affected filters/reports/exports and publication parity."
-        },
-        {
-          "at": "2026-10-09T14:56:15.761Z",
-          "outcome": "changed",
-          "summary": "Reconciled Machine Data Lake regional scope and exposed the current S3 Moderate source conflict without broadening authorization.",
-          "scope": "All 10 maintained environment sources and two CSP-owned SOAR sources; 62 canonical environment records; 11 bounded claims; visual public-sector matrix; exact Marketplace offerings; ACS High discovery; affected filter/report/export candidate. Four MDL records added and S3 Moderate corrected; exact-candidate CI and publication recorded separately."
-        },
-        {
-          "at": "2026-10-10T14:05:19Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete CSP/FedRAMP source inventory and the due ACS High follow-up.",
-          "scope": "Fresh GitHub main and Site version 143; all 10 maintained environment sources, two CSP-owned SOAR sources, visual US Public Sector matrix, exact Moderate/High Marketplace offerings, ACS High discovery, and bounded high-consequence claims."
-        },
-        {
-          "at": "2026-10-10T14:35:05Z",
-          "outcome": "changed",
-          "summary": "Published bounded ACS API v2 FedRAMP Moderate and High service-support evidence with operation restrictions and authorization unestablished; preserved all existing conflicts and unknowns.",
-          "scope": "All 13 maintained CSP environment sources, two SOAR sources, 64 canonical environment records, 11 consequential claims, visual matrix, exact Marketplace offerings, filters, reports, exports, browser links, WebMCP and live publication parity."
-        },
-        {
-          "at": "2026-10-11T14:11:43.000Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete official CSP/FedRAMP inventory and bounded highest-consequence claims.",
-          "scope": "Cloud environment providers, regions, Commercial/FR-M/FR-H availability, Marketplace scope, S3 conflicts, Machine Data Lake, ACS v2, Observability separation, and SOAR restricted-environment evidence."
-        },
-        {
-          "at": "2026-10-11T14:17:51Z",
-          "outcome": "no-change",
-          "summary": "Reviewed all 13 maintained environment sources, two CSP-owned SOAR sources and 11 consequential claims; no material change found and existing conflicts and unknowns remain explicit.",
-          "scope": "All 13 CSP/FedRAMP environment sources, two SOAR regional/restricted-environment sources, 64 canonical environment records, 11 consequential claims, visual public-sector matrix and exact Marketplace offerings."
-        },
-        {
-          "at": "2026-10-12T15:04:02Z",
-          "outcome": "running",
-          "summary": "October 12 CSP/FedRAMP inventory review is running.",
-          "scope": "Complete official Cloud environment and SOAR inventory; 11 highest-consequence authorization, availability, entitlement, regional and restriction claims; concurrent-source reconciliation and candidate validation."
-        },
-        {
-          "at": "2026-10-12T15:09:01Z",
-          "outcome": "no-change",
-          "summary": "Reviewed all 13 maintained environment sources, two CSP-owned SOAR sources and 11 consequential claims; no material change found and existing conflicts and unknowns remain explicit.",
-          "scope": "All 13 CSP/FedRAMP environment sources, two SOAR regional/restricted-environment sources, 64 canonical environment records, 11 consequential claims, visual public-sector matrix and exact Marketplace offerings."
-        },
-        {
-          "at": "2026-10-13T14:55:32Z",
-          "outcome": "running",
-          "summary": "October 13 CSP/FedRAMP inventory review is running.",
-          "scope": "Complete official Cloud environment and SOAR inventory; 11 highest-consequence authorization, availability, entitlement, regional and restriction claims; visual public-sector matrix; exact Marketplace offerings; concurrent-source reconciliation and candidate validation."
-        },
-        {
-          "at": "2026-10-13T14:59:21Z",
-          "outcome": "no-change",
-          "summary": "Reviewed all 13 maintained environment sources, two CSP-owned SOAR sources and 11 consequential claims; no material change found and existing conflicts and unknowns remain explicit.",
-          "scope": "All 13 CSP/FedRAMP environment sources, two SOAR regional/restricted-environment sources, 64 canonical environment records, 11 consequential claims, direct visual public-sector matrix inspection and exact Marketplace offerings."
-        },
-        {
-          "at": "2026-10-21T13:16:18Z",
-          "outcome": "running",
-          "summary": "Resumed current CSP/FedRAMP review after expired approval interruption.",
-          "scope": "Current 13 environment sources, shared SOAR regions/restricted guidance, newer evidence discovery and bounded consequential claims."
-        },
-        {
-          "at": "2026-10-21T13:23:13Z",
-          "outcome": "changed",
-          "summary": "Reviewed current CSP/FedRAMP sources; added scoped Agent Observability realms and qualified limited AI Assistant IL2 evidence. Candidate publication pending validation.",
-          "scope": "13 environment sources, two SOAR sources, two discovered guides; 11 existing consequential claims plus regional AI qualifications. LastSuccess is review scope, not deployment."
-        },
-        {
-          "at": "2026-10-22T11:51:50Z",
-          "outcome": "running",
-          "summary": "Reviewing current regional, restricted-environment and offering evidence from synchronized GitHub/Sites source.",
-          "scope": "15 environment sources, two CSP-owned SOAR sources, current compatibility discovery and bounded consequential claims."
-        },
-        {
-          "at": "2026-10-22T12:01:34.045497Z",
-          "outcome": "changed",
-          "summary": "Corrected SÃ£o Paulo Premier Attack Analyzer scope and unsupported regulated hybrid exclusion; resolved current SOAR service-date discrepancy.",
-          "scope": "20 exact official URLs, 13 bounded consequential claim groups; historical verification not exhaustive. Scope review complete; candidate validation and publication recorded separately."
-        },
-        {
-          "at": "2026-10-23T11:29:37.290Z",
-          "outcome": "running",
-          "summary": "Checking the complete maintained environment inventory and bounded consequential scopes, including the owner-supplied Moderate status source and tracked Cisco print-fragment repair.",
-          "scope": "15 environment sources, two shared SOAR sources, current ES 8.8 regional discovery, product/ITSI compatibility sources; visual matrix and exact Marketplace offerings. No exhaustive historical recertification."
-        },
-        {
-          "at": "2026-10-23T11:30:42.633Z",
-          "outcome": "changed",
-          "summary": "Rechecked 20 official sources and thirteen consequential claim groups; factual scope unchanged. Documented Moderate public-status authority and staged the tracked Cisco print-fragment background repair.",
-          "scope": "Complete maintained environment/SOAR source inventory; bounded authorization, provider, region, experience, ES/SOAR pairing and Observability claims. Review completed; validation and publication recorded separately."
-        },
-        {
-          "at": "2026-10-24T11:48:52Z",
-          "outcome": "running",
-          "summary": "Reviewing official regional and authorization inventory and ES 8.8 Essentials AI mapping.",
-          "scope": "24 maintained environment, shared SOAR and AI sources; bounded consequential claims"
-        },
-        {
-          "at": "2026-10-24T11:58:07.334Z",
-          "outcome": "changed",
-          "summary": "Mapped the complete ES 8.8 Essentials AI regional table independently; preserved scoped exclusions, SOP prerequisites and separate offering authorization. Publication waits for native export CI.",
-          "scope": "22 maintained official source URLs; twelve bounded consequential claim groups; complete Essentials table and visual matrix header/legend"
-        },
-        {
-          "at": "2026-10-24T12:21:48Z",
-          "outcome": "running",
-          "summary": "Checking for changes after today's verified CSP publication.",
-          "scope": "Same-day fresh GitHub/Sites reconciliation, complete 24-URL inventory access and bounded regional/authorization delta review."
-        },
-        {
-          "at": "2026-10-24T12:25:29Z",
-          "outcome": "no-change",
-          "summary": "Fresh same-day inventory and bounded regional/authorization review found no further factual change.",
-          "scope": "24 official URLs reopened; six scoped claim groups rechecked; fresh GitHub/Sites version 206 reconciliation and real D1/manifest/bundle/fallback diagnostics passed. Source access is not universal claim verification; factual dates and cycle 35 unchanged."
-        },
-        {
-          "at": "2026-10-25T11:18:14Z",
-          "outcome": "running",
-          "summary": "Review current regional, regulated and named AI evidence.",
-          "scope": "Complete maintained 24-source inventory and bounded high-consequence claims."
-        },
-        {
-          "at": "2026-10-25T11:21:15.214Z",
-          "outcome": "no-change",
-          "summary": "No material regional or authorization change found; known conflicts and scoped unknowns retained.",
-          "scope": "24 official URLs accessed; 8 bounded claim groups rechecked. Marketplace status retrieved; service tabs not reverified."
-        },
-        {
-          "at": "2026-10-26T11:50:52Z",
-          "outcome": "running",
-          "summary": "Reviewing complete regional inventory and a newly discovered High announcement.",
-          "scope": "24 maintained official sources plus October 19 High announcement; bounded authorization and regional claims."
-        },
-        {
-          "at": "2026-10-26T11:53:11Z",
-          "outcome": "changed",
-          "summary": "Retained October19 High processor/SPL-assistant announcement beside unresolved exact service, mode and rollout scope.",
-          "scope": "25 official sources; nine bounded claim groups; full ES8.8 regional tables and separate offering boundaries."
-        },
-        {
-          "at": "2026-10-27T11:11:25Z",
-          "outcome": "running",
-          "summary": "Reviewing maintained regional, authorization and named-AI evidence.",
-          "scope": "25 official URLs; complete ES 8.8 regional tables, exact Marketplace offerings, dated visual matrix, SAIA/ITSI rollout and SOAR restricted scope."
-        },
-        {
-          "at": "2026-10-27T11:11:41.014Z",
-          "outcome": "no-change",
-          "summary": "Reviewed 25 official sources and seven consequential claim groups; no material regional or authorization change established.",
-          "scope": "25 official URLs; complete ES 8.8 regional tables, exact Marketplace offerings, dated visual matrix, SAIA/ITSI rollout and SOAR restricted scope."
-        },
-        {
-          "at": "2026-10-28T11:45:43Z",
-          "outcome": "running",
-          "summary": "Reviewing current regional and regulated public evidence.",
-          "scope": "Fresh GitHub main and Site version 234; current Service Details, ES 8.7/8.8 regional tables, exact Marketplace offerings, visual dated compliance matrix, SOAR restrictions and AI region/runtime backlog. Source retrieval is separate from claim verification."
-        },
-        {
-          "at": "2026-10-28T11:51:57.309Z",
-          "outcome": "no-change",
-          "summary": "Reviewed all 25 maintained official sources and seven bounded claim groups; no supported regional or authorization fact changed.",
-          "scope": "Fresh GitHub main and Site version 234; current Service Details, ES 8.7/8.8 regional tables, exact Marketplace offerings, visual dated compliance matrix, SOAR restrictions and AI region/runtime backlog. Source retrieval is separate from claim verification."
-        },
-        {
-          "at": "2026-10-29T11:25:16.717Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete regional and authorization inventory and bounded AI/SOAR claim groups.",
-          "scope": "Fresh matching GitHub main and Site 243; 25 official URLs, exact Marketplace offerings, compliance matrix and regional/runtime backlog."
-        },
-        {
-          "at": "2026-10-29T11:27:38.215Z",
-          "outcome": "no-change",
-          "summary": "Reviewed 25 official sources and seven consequential claim groups; no supported regional or authorization fact changed.",
-          "scope": "Exact Marketplace offerings, visually inspected dated compliance matrix, ES 8.8 complete edition/CMP tables, SAIA runtime, ITSI subagent rollout, S3 conflicts and SOAR restricted environments. Source access is separate from claim verification."
-        }
-      ],
-      "scope": "Exact Marketplace offerings, visually inspected dated compliance matrix, ES 8.8 complete edition/CMP tables, SAIA runtime, ITSI subagent rollout, S3 conflicts and SOAR restricted environments. Source access is separate from claim verification."
-    },
-    {
-      "id": "version-release-watch",
-      "name": "Version Release Watch",
-      "lastAttempt": "2026-10-30T09:50:48Z",
-      "lastSuccess": "2026-10-30T09:59:31Z",
-      "outcome": "changed",
-      "summary": "Advanced the customer-managed Python instrumentation baseline to 2.13.3 with exact image, dependency and PostgreSQL-correlation scope; retained prior history and all unresolved boundaries.",
-      "history": [
-        {
-          "at": "2026-09-25T09:49:25.513366+00:00",
-          "outcome": "not-recorded",
-          "summary": "Imported scheduler attempt timestamp; not evidence of successful completion."
-        },
-        {
-          "at": "2026-09-26T09:11:11Z",
-          "outcome": "running",
-          "summary": "Reviewing official Splunk release, compatibility, migration, security and customer-managed Observability sources for changes affecting Version Compass.",
-          "scope": "Splunk Enterprise, Cloud Platform, Enterprise-to-Cloud migration, Enterprise Security, ITSI, Observability Cloud, compatibility and security notices, Splunkbase app listings, and maintained OpenTelemetry component release streams."
-        },
-        {
-          "at": "2026-09-26T09:20:06Z",
-          "outcome": "changed",
-          "summary": "Added an Enterprise 10.4.3-or-later maintenance target because Splunk advises against 10.4.2 for acknowledged forwarding; no other material release change was found.",
-          "scope": "Splunk Enterprise, Cloud Platform, Enterprise-to-Cloud migration, Enterprise Security, ITSI, Observability Cloud, compatibility and security notices, Splunkbase app listings, and maintained OpenTelemetry component release streams."
-        },
-        {
-          "at": "2026-09-27T09:49:29Z",
-          "outcome": "running",
-          "summary": "Reviewing official Splunk release, compatibility, migration, security, Splunkbase and customer-managed Observability sources for changes affecting Version Compass.",
-          "scope": "Splunk Enterprise and Cloud Platform release notes, upgrade guidance, supported paths and system requirements; Enterprise-to-Cloud migration and SCMA; Enterprise Security and ITSI releases, compatibility and Cloud pairing; security and deprecation notices; Observability Cloud milestones; maintained OpenTelemetry Collector, chart, instrumentation, RUM, exporter and semantic-convention release streams; route, share, print and WebMCP integration."
-        },
-        {
-          "at": "2026-09-27T09:51:25Z",
-          "outcome": "no-change",
-          "summary": "Reviewed the maintained official release, compatibility, migration, security, Splunkbase and Observability/OpenTelemetry streams; no material factual, compatibility, readiness or route change was found.",
-          "scope": "Splunk Enterprise 10.4 release, fixed-issue, upgrade-path, READ THIS FIRST, system-requirement and deprecation surfaces; Cloud Platform 10.5.2605 release and service-details pairing; Enterprise-to-Cloud guidance and SCMA 5.4.11; Enterprise Security 8.7 and ITSI 5.0.2 listings, release and customer-managed compatibility evidence; September security notice; September Observability timeline; maintained Collector 0.161.0, Kubernetes chart 0.161.0, .NET 1.16.0, Node.js 4.11.0, Java 2.31.1, Python 2.12.1 and Browser RUM 3.2.0 streams; route, share, print and WebMCP integration."
-        },
-        {
-          "at": "2026-09-28T09:50:44.662Z",
-          "outcome": "running",
-          "summary": "Reviewing current official Splunk release, compatibility, migration, security and Observability component sources.",
-          "scope": "Splunk Enterprise, Splunk Cloud Platform, Enterprise-to-Cloud migration, Enterprise Security, ITSI, Observability Cloud and maintained customer-managed component streams."
-        },
-        {
-          "at": "2026-09-28T09:50:50.555Z",
-          "outcome": "no-change",
-          "summary": "No newly published or revised official release information required a factual Version Compass update.",
-          "scope": "Checked current Splunk Enterprise and Cloud release notes, upgrade paths, system and compatibility guidance, ES and ITSI release/listing/dependency evidence, migration assessment listing, security notices, September Observability milestones, and maintained Collector, Kubernetes, .NET, Node.js, Java, Python and Browser RUM streams."
-        },
-        {
-          "at": "2026-09-29T09:26:16.742Z",
-          "outcome": "running",
-          "summary": "Reviewing current official Splunk release, compatibility, migration, security, forwarder and Observability component sources.",
-          "scope": "Splunk Enterprise and Cloud Platform release notes, upgrade paths, system and compatibility guidance; Enterprise-to-Cloud migration and SCMA; Enterprise Security and ITSI releases, listings and dependencies; security and deprecation notices; Universal and Heavy Forwarder releases, issues and advisories; September Observability milestones; maintained Collector, Kubernetes chart, instrumentation and RUM streams; route, share, export and read-only agent parity."
-        },
-        {
-          "at": "2026-09-29T09:28:19.781Z",
-          "outcome": "no-change",
-          "summary": "Reviewed the maintained official release, compatibility, migration, security, forwarder and Observability component sources; no material factual, compatibility, readiness or route change was found.",
-          "scope": "Splunk Enterprise 10.4 and Cloud Platform 10.5.2605 release, upgrade, system, service-pairing and compatibility evidence; Enterprise-to-Cloud migration and SCMA 5.4.11; Enterprise Security 8.7.0 and ITSI 5.0.2 release/listing/dependency evidence; SVD-2026-0901 and forwarder advisories; Universal/Heavy Forwarder 10.4 issue, receiver and Cloud-direct support evidence; September Observability timeline; Collector 0.161.0, Kubernetes chart 0.161.0, .NET 1.16.0, Node.js 4.11.0, Java 2.31.1, Python 2.12.1 and Browser RUM 3.2.0 streams; route, share, export and read-only agent parity."
-        },
-        {
-          "at": "2026-09-30T09:46:09Z",
-          "outcome": "running",
-          "summary": "Reviewing maintained Splunk release, compatibility, migration, security, forwarder and observability sources for customer-actionable changes.",
-          "scope": "Splunk Enterprise and Cloud release notes, upgrade paths, system requirements and service pairing; Enterprise Security and ITSI release and compatibility evidence; Enterprise-to-Cloud migration and SCMA; security notices; Universal and Heavy Forwarders; Observability Cloud and maintained OpenTelemetry component release feeds; route, export and read-only agent parity."
-        },
-        {
-          "at": "2026-09-30T09:57:34Z",
-          "outcome": "changed",
-          "summary": "Review found Splunk Enterprise 10.4.4 as the current customer-managed maintenance target while retaining 10.4.3 as the acknowledged-forwarding minimum and excluding 10.4.2.",
-          "scope": "Splunk Enterprise 10.4 release and fixed-issue guidance; Cloud service pairing; ES, ITSI and SCMA current releases; compatibility matrix; security notice; Forwarder maintenance guidance; September Observability timeline and maintained Collector, chart, instrumentation and RUM release streams; route, export and read-only agent parity."
-        },
-        {
-          "at": "2026-10-01T09:18:22Z",
-          "outcome": "running",
-          "summary": "Reviewing official Platform, migration, premium-app, Forwarder, security and Observability release sources.",
-          "scope": "Complete maintained release inventory plus bounded high-consequence checks for Enterprise 10.4 upgrade/maintenance, ES/ITSI pairings, Cloud service pairings, UF/HF upgrade and receiver compatibility, security notices, SCMA, and current Observability SaaS/component releases."
-        },
-        {
-          "at": "2026-10-01T09:26:21Z",
-          "outcome": "changed",
-          "summary": "Published-source review found two Observability Cloud timeline additions, Node.js instrumentation 4.12.0 and Java instrumentation 2.31.3; repaired Forwarder claim-to-section source registration without changing interface or route facts.",
-          "scope": "Checked the maintained Enterprise, Cloud service pairing, migration/SCMA, ES, ITSI, Observability SaaS and component, Forwarder receiver/topology, and advisory inventories; highest-consequence claim verification covered Enterprise 10.4 upgrade and maintenance, UF/HF receiver compatibility, Cloud receiver pairing, and the four changed Observability records. The unavailable Enterprise 10.4.4 fixed-issues detail remains backlog."
-        },
-        {
-          "at": "2026-10-02T09:56:26Z",
-          "outcome": "running",
-          "summary": "Daily official-source review in progress; evaluating Enterprise Security 8.7.1 and current Cloud 10.6 service details while rechecking SOAR, forwarder, migration, ITSI, Observability and security streams.",
-          "scope": "Current Enterprise, Cloud, migration, ES, ITSI, Observability, SOAR, UF/HF, security and maintained instrumentation discovery streams; bounded highest-consequence release, pairing, upgrade, receiver and prerequisite claims."
-        },
-        {
-          "at": "2026-10-02T10:05:48Z",
-          "outcome": "changed",
-          "summary": "Published-source review added Enterprise Security 8.7.1 and its Connector Builder eligibility change, retained the exact SOAR 8.7.0 compatibility boundary, and moved current Cloud and Forwarder evidence to the 10.6 Service Details page without inferring Cloud 10.6 rollout or receiver support.",
-          "scope": "Checked current Enterprise, Cloud, migration/SCMA, ES, ITSI, Observability, SOAR, UF/HF, security and maintained instrumentation discovery streams; bounded claim verification covered ES 8.7.1 release/feature, Cloud current pairing, Cloud direct/intermediate forwarders, SOAR build/Python/path/app compatibility, Enterprise 9.4.16, and source-to-section mappings. ES and Enterprise patch issue rows remain unavailable; authorization and regional ownership remain separate."
-        },
-        {
-          "at": "2026-10-03T09:39:51.458Z",
-          "outcome": "running",
-          "summary": "Reviewing complete maintained release, migration, Forwarder, Observability and SOAR official-source inventories plus bounded highest-consequence route, compatibility, security and prerequisite claims.",
-          "scope": "All maintained Version Release Watch source records; bounded claims for current Enterprise/Cloud releases, upgrade paths, premium-app pairings, migration floor, UF/HF receiver and topology compatibility, Observability customer-managed components, and SOAR 8.6/8.7 routes and prerequisites."
-        },
-        {
-          "at": "2026-10-03T10:01:00Z",
-          "outcome": "changed",
-          "summary": "Published-source review added exact Enterprise and Heavy Forwarder 10.6 release-line routes from the canonical 10.6 upgrade table while keeping 10.6 Enterprise and Cloud receiver compatibility Not established.",
-          "scope": "All 113 maintained official release, migration, premium-product, Forwarder, Observability and SOAR URLs; bounded current release, upgrade, compatibility, receiver, runtime and security claims."
-        },
-        {
-          "at": "2026-10-05T09:44:03Z",
-          "outcome": "running",
-          "summary": "Checking the complete maintained release-source inventory and bounded high-consequence release, upgrade, receiver, runtime, security and SOAR claims.",
-          "scope": "All 113 unique maintained official URLs referenced by Platform, premium-product, Forwarder and SOAR data; bounded current release, upgrade, compatibility, receiver, runtime, advisory and SOAR checks."
-        },
-        {
-          "at": "2026-10-05T09:50:11Z",
-          "outcome": "no-change",
-          "summary": "No material release, route, compatibility, runtime, security or SOAR correction was found. Current identifiers and existing uncertainty boundaries remain supported by the bounded checks.",
-          "scope": "All 113 maintained official URLs were fetched: 111 succeeded and the same two historical 8.1/8.2 pages remained unavailable. Verified current Enterprise/Cloud, UF/HF receiver and topology, premium-app, migration, Observability component, SOAR and security-advisory claims; regional authorization remained outside this watch."
-        },
-        {
-          "at": "2026-10-07T10:03:30.000Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete maintained release-source inventory and bounded high-consequence release, upgrade, receiver, runtime, security and SOAR claims.",
-          "scope": "All 120 unique maintained official URLs referenced by Platform, premium-product, Forwarder and SOAR canonical datasets; bounded current release, service-pairing, upgrade, receiver, runtime, advisory and SOAR checks."
-        },
-        {
-          "at": "2026-10-07T10:04:00.000Z",
-          "outcome": "changed",
-          "summary": "Published Cloud 10.6 current pairings and exact Enterprise/Cloud 10.6 Forwarder receiver rows while preserving environment, entitlement, topology and support qualifications.",
-          "scope": "All 120 maintained URLs were attempted with differentiated availability recorded; verified changed 10.6 service and receiver claims plus bounded Enterprise, migration, ES, ITSI, Observability, SOAR and advisory claims. D1 publication and fallback diagnostics passed; PDF rendering, independent saved-HTML reopening and narrow-screen inspection remain separately unperformed."
-        },
-        {
-          "at": "2026-10-08T09:44:01.397Z",
-          "outcome": "running",
-          "summary": "Checking release and advisory sources; reconciling current GitHub and Sites trees.",
-          "scope": "120 maintained official source URLs; current release hubs and consequential compatibility, runtime, upgrade and security claims."
-        },
-        {
-          "at": "2026-10-08T09:53:58.883Z",
-          "outcome": "changed",
-          "summary": "Checked 120 official source URLs (118 retrieved); repaired and tested 16 borrowed HF evidence mappings across 900 routes. October security and Collector/Python releases recorded as isolated factual candidates.",
-          "scope": "Full maintained URL inventory plus bounded section/claim review; provenance/operational publication only. New product facts require affected report/export validation."
-        },
-        {
-          "at": "2026-10-10T09:43:42.091Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete maintained release-source inventory and newer release streams; reconciling GitHub, Site and exact export evidence.",
-          "scope": "All 128 maintained public URLs across Platform, migration, ES, ITSI, Observability, UF/HF and SOAR; bounded current release, upgrade, receiver, security, compatibility and component claims; discovery for newer official releases."
-        },
-        {
-          "at": "2026-10-10T09:48:34.048Z",
-          "outcome": "changed",
-          "summary": "Verified Splunk Cloud Platform 10.6.1.0 maintenance evidence and added exact stack-version confirmation guidance; held an inaccessible October Observability search signal out of canonical facts.",
-          "scope": "Complete 128-URL maintained Release Watch inventory (126 retrieved; two retired historical pages unavailable); seven bounded high-consequence release, upgrade, receiver, security, SOAR and Observability checks; exact Forwarder mapping validation delegated to synchronization/tests; publication and native export/live verification recorded separately."
-        },
-        {
-          "at": "2026-10-11T09:30:45.883Z",
-          "outcome": "running",
-          "summary": "Checking the complete maintained release inventory and bounded high-consequence compatibility, upgrade, security, premium-product, Observability and SOAR claims against fresh public sources.",
-          "scope": "Fresh GitHub main and Site version 145 reconciled; full Release guide, Shared guidance, Forwarders and SOAR source inventory; current discovery; bounded Cloud maintenance, Enterprise route, UF/HF, security, premium-product, migration, Observability and SOAR checks."
-        },
-        {
-          "at": "2026-10-11T09:35:09.719Z",
-          "outcome": "no-change",
-          "summary": "No newer maintained release or advisory was found; the indexed October Observability APM signal remains held because its exact official page still returns 404.",
-          "scope": "Complete 131-URL owned inventory with 129 retrieved and two retired unavailable; seven bounded release, compatibility, security, Forwarder, Observability and SOAR claim checks; ordered content gates, full tests and build."
-        },
-        {
-          "at": "2026-10-12T09:31:37.058Z",
-          "outcome": "running",
-          "summary": "Checking the complete maintained release inventory and bounded highest-consequence release, upgrade, compatibility, security, migration, forwarder, Observability and SOAR claims.",
-          "scope": "Full generated source-register inventory for Release guide, Shared guidance, Splunk Forwarders and Splunk SOAR; current discovery streams; bounded highest-consequence existing claims."
-        },
-        {
-          "at": "2026-10-12T09:40:35.521Z",
-          "outcome": "no-change",
-          "summary": "No newer maintained release, patch, advisory, migration-app or customer-managed Observability component was found; the directly unavailable October Observability page remains held.",
-          "scope": "Complete 131-URL maintained release inventory (129 retrieved; two retired historical pages unavailable), current discovery streams and seven bounded highest-consequence claim groups."
-        },
-        {
-          "at": "2026-10-13T09:07:00Z",
-          "outcome": "running",
-          "summary": "Release inventory and bounded consequential claim review running.",
-          "scope": "Full maintained public release/source inventory plus current discovery streams; affected claims and bounded high-consequence Enterprise, Cloud, migration, Forwarders, premium-product, Observability, security and SOAR checks."
-        },
-        {
-          "at": "2026-10-13T09:18:30Z",
-          "outcome": "changed",
-          "summary": "Confirmed the October 12 Observability APM filtering change plus Java 2.32.0 and Node.js 4.12.1 component releases; updated scoped guidance and validation coverage.",
-          "scope": "All 135 previously maintained release/source URLs plus three newly confirmed official sources; affected Observability claims and bounded high-consequence Enterprise, Cloud, migration, Forwarders, premium-product, security, SCMA and SOAR checks."
-        },
-        {
-          "at": "2026-10-14T10:05:35Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete maintained release inventory and newly published Cloud maintenance and Observability component evidence.",
-          "scope": "All 138 Release guide, Shared guidance, Splunk Forwarders and Splunk SOAR URLs; current Enterprise, Cloud, ES, ITSI, SOAR, SCMA, security and Observability discovery streams; affected Cloud 10.4, Kubernetes chart and Python instrumentation claims; bounded high-consequence route, compatibility, upgrade and source-mapping checks."
-        },
-        {
-          "at": "2026-10-14T10:12:30Z",
-          "outcome": "changed",
-          "summary": "Added Cloud 10.4.2604.15, Kubernetes chart 0.162.1 and Python instrumentation 2.13.2 with exact rollout, receiver, permission and dependency qualifications.",
-          "scope": "All 138 previously maintained release/source URLs plus two newly confirmed official component sources; affected Cloud 10.4 and Observability claims and bounded high-consequence Enterprise, Cloud, migration, Forwarder, premium-product, security, SCMA and SOAR checks."
-        },
-        {
-          "at": "2026-10-15T09:08:16Z",
-          "outcome": "running",
-          "summary": "Reviewing complete release inventory, current discovery streams and bounded consequential claims.",
-          "scope": "140 maintained Release guide, Shared guidance, Forwarder and SOAR URLs; current release discovery; affected and high-consequence claim verification."
-        },
-        {
-          "at": "2026-10-15T09:17:22Z",
-          "outcome": "changed",
-          "summary": "Reviewed all 140 maintained URLs and new discovery; staged the October 21 advisory advance notice without inferring CVEs, affected ranges or deployment scope.",
-          "scope": "138 maintained URLs retrieved; two retired historical pages unavailable; one new official notice and 12 bounded consequential claims. Candidate publication/export/live checks remain separate."
-        },
-        {
-          "at": "2026-10-15T09:42:19Z",
-          "outcome": "running",
-          "summary": "Rechecking current official release inventory after the verified October 15 publication.",
-          "scope": "Complete 141-URL maintained release inventory, newer-release discovery and bounded consequential claims; no duplicate factual batch."
-        },
-        {
-          "at": "2026-10-15T09:45:08Z",
-          "outcome": "no-change",
-          "summary": "No additional factual change after the October 15 security-notice publication; current release and consequential claim checks remain qualified.",
-          "scope": "141 official URLs attempted, 139 retrieved, two retired historical pages unavailable; current-version discovery and eight bounded consequential claims. Source access is not complete claim reverification."
-        },
-        {
-          "at": "2026-10-15T16:33:49.207702Z",
-          "outcome": "running",
-          "summary": "Integrating the owner-requested public-source Splunk 11.x preparation page and verifying its bounded content scope.",
-          "scope": "Owner-requested Prep for Splunk 11.x page only: eight public URLs, seven scoped current-context records, unknown future release requirements, route/export behavior and maintenance ownership; this does not repeat the earlier full release inventory."
-        },
-        {
-          "at": "2026-10-15T16:33:49.277685Z",
-          "outcome": "changed",
-          "summary": "Added a dedicated future-release preparation page with eight cited public sources, two scoped current-context announcements, five preparation areas and six explicit open questions. No 11.x release requirement is inferred.",
-          "scope": "Owner-requested Prep for Splunk 11.x page only: eight public URLs, seven scoped current-context records, unknown future release requirements, route/export behavior and maintenance ownership; this does not repeat the earlier full release inventory."
-        },
-        {
-          "at": "2026-10-16T09:17:21Z",
-          "outcome": "running",
-          "summary": "Complete current source inventory and bounded release review; pending Export correction recovered.",
-          "scope": "173 maintained sources, seven component release streams, current SOAR/ES/ITSI discovery, five bounded consequential claim checks and actual UF/HF mapping regressions."
-        },
-        {
-          "at": "2026-10-16T09:17:21Z",
-          "outcome": "changed",
-          "summary": "Recovered and reverified Export FIPS patch guidance and distinct 8.7.1 matrix; other current release discovery unchanged.",
-          "scope": "173-source inventory attempt, 170 retrieved bodies/API records, seven current component release streams and bounded claims; production publication is separately verified."
-        },
-        {
-          "at": "2026-10-17T09:21:44Z",
-          "outcome": "running",
-          "summary": "Reviewing complete official inventory and bounded consequential claims.",
-          "scope": "173 registered public URLs; current release discovery; exact patch/security/SOAR and historical Forwarder mapping checks."
-        },
-        {
-          "at": "2026-10-17T09:31:18Z",
-          "outcome": "changed",
-          "summary": "Verified Collector 0.163 and scoped Cloud/Fleet updates; retained ES KV source discrepancy.",
-          "scope": "173 sources attempted, 170 recovered; seven component streams; six bounded claims. Publication remains separate and candidate-gated."
-        },
-        {
-          "at": "2026-10-18T09:47:35Z",
-          "outcome": "running",
-          "summary": "Official inventory and bounded compatibility review in progress.",
-          "scope": "175 registered official URLs; latest components, SOAR discovery and consequential Forwarder/SOAR/ES claims; exact candidate delivery only after applicable gates."
-        },
-        {
-          "at": "2026-10-18T09:51:34Z",
-          "outcome": "changed",
-          "summary": "Completed 175-source review; bounded HF runtime semantic evidence and product-label repair staged for exact-candidate verification.",
-          "scope": "172 retrieved/3 unavailable; seven latest component streams unchanged; six bounded claims; two actual mapping dates only. Review success is not deployment."
-        },
-        {
-          "at": "2026-10-19T09:26:55Z",
-          "outcome": "running",
-          "summary": "Official source inventory and bounded consequential claim review in progress; tracked PDF pagination repair under evaluation.",
-          "scope": "175 registered public sources; current component/SOAR discovery, HF supporting sections and native report repair. No publication implied."
-        },
-        {
-          "at": "2026-10-19T09:35:31Z",
-          "outcome": "changed",
-          "summary": "Completed official inventory and two bounded HF semantic rechecks; repaired SOAR/HF PDF pagination with native regression pending exact-candidate CI.",
-          "scope": "175 official URLs attempted (172 retrieved, 3 unavailable); seven latest component streams, current SOAR, exact Enterprise download discovery and two exact historical HF sections. Not blanket claim reverification or a deployment claim."
-        },
-        {
-          "at": "2026-10-20T09:21:51Z",
-          "outcome": "running",
-          "summary": "Checking full official inventory, exact 10.6 maintenance release discovery and bounded historical HF/security scope.",
-          "scope": "175 registered public URLs, current product/component streams, Enterprise download identity follow-up and finite consequential claim checks. Publication/native checks recorded separately."
-        },
-        {
-          "at": "2026-10-20T09:32:59Z",
-          "outcome": "changed",
-          "summary": "Reviewed 181 exact official sources; added chart 0.163 adoption and qualified Enterprise 10.6.1 maintenance identity; rechecked two HF KV Store mappings.",
-          "scope": "175 baseline URLs plus six new citations; seven component streams/current SOAR; four new technical records and two existing historical HF semantic checks. Retrieval is not blanket claim verification; publication tracked separately."
-        },
-        {
-          "at": "2026-10-21T09:47:05Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete maintained release, compatibility, migration, security, Forwarder, SOAR and customer-managed Observability source inventory.",
-          "scope": "Splunk Enterprise and Cloud Platform releases and maintenance; ES and ITSI pairings; Enterprise-to-Cloud prerequisites; Observability service and component streams; UF/HF upgrade, receiver, topology, runtime, issue and advisory evidence; SOAR On-premises, Cloud, Broker, App and Export streams; October 21 security follow-up; affected claims plus bounded highest-consequence existing mappings; routes, shared links, reports, exports, read-only WebMCP and delivery parity."
-        },
-        {
-          "at": "2026-10-21T09:58:15Z",
-          "outcome": "changed",
-          "summary": "Reviewed the complete 181-URL release inventory and current release, compatibility and security streams; repaired two bounded presentation defects and reverified two historical Heavy Forwarder mappings without changing factual guidance.",
-          "scope": "181 exact official source URLs (178 retrieved, including 26 GitHub records); Enterprise, Cloud, ES, ITSI, migration, Observability, UF/HF and SOAR discovery; SVD-2026-1006 follow-up; two HF 10.0 source-to-claim checks; full 198-test, synchronization and production-build gates; exact native export and live publication evidence pending for this candidate."
-        },
-        {
-          "at": "2026-10-22T09:27:35Z",
-          "outcome": "running",
-          "summary": "Release source inventory and bounded high-consequence verification are running.",
-          "scope": "Fresh 181-URL release inventory; Enterprise, Cloud, migration, ES, ITSI, Observability, UF/HF and SOAR discovery; security-disclosure follow-up; selected historical HF evidence; exact-candidate validation and publication checks."
-        },
-        {
-          "at": "2026-10-22T09:40:32.205Z",
-          "outcome": "changed",
-          "summary": "Published-source candidate adds ES 8.8.0 Controlled Availability and Collector 0.163.1 with unresolved pairings preserved.",
-          "scope": "186 official URLs attempted (184 retrieved), five new exact sources, affected ES and Observability claims, two HF mappings, security and SOAR discovery, exact-candidate validation."
-        },
-        {
-          "at": "2026-10-23T09:18:45Z",
-          "outcome": "running",
-          "summary": "Reviewing definitive October security advisories and Cloud maintenance evidence against the complete maintained release inventory.",
-          "scope": "Fresh complete Release Watch official-source inventory; affected Enterprise 9.4/10.0/10.2/10.4, Cloud 10.6 and SOAR security claims; bounded Forwarder, migration, premium-product and Observability checks; exact-candidate publication evidence."
-        },
-        {
-          "at": "2026-10-23T09:35:05Z",
-          "outcome": "changed",
-          "summary": "Published-source review found definitive Enterprise and SOAR security advisories, Cloud 10.6.2 maintenance, and Observability chart 0.163.1; bounded guidance and regressions were updated.",
-          "scope": "Checked 195 official source records (188 retrieved, including 29 official GitHub records); verified Enterprise 9.4.16/10.0.11/10.2.8/10.4.4 floors, scoped HF and SOAR on-prem guidance, Cloud 10.6.2 qualifications, chart 0.163.1 dependencies, and two historical HF source mappings."
-        },
-        {
-          "at": "2026-10-24T09:55:38Z",
-          "outcome": "running",
-          "summary": "Reviewing fresh release, AI capability and forwarder evidence.",
-          "scope": "Complete 198-source inventory; SOAR Cloud 8.8; Observability AI and phased log alerting; bounded HF TLS mappings; affected routes and reports."
-        },
-        {
-          "at": "2026-10-24T10:16:30Z",
-          "outcome": "changed",
-          "summary": "Added SOAR Cloud 8.8, Observability AI and phased log alerting; reverified bounded Heavy Forwarder TLS evidence and repaired affected exact-candidate export routes.",
-          "scope": "All 198 baseline official URLs attempted plus two new Observability AI sources; SOAR Cloud 8.8 stage, Broker HA, System Insights and bundled UF; Observability AI Assistant, troubleshooting agent and log alerting; two exact HF TLS mappings; affected current, shared, invalid, PDF, HTML, phone-theme and read-only report parity."
-        },
-        {
-          "at": "2026-10-25T09:24:00Z",
-          "outcome": "running",
-          "summary": "Checking the complete current release inventory and bounded high-consequence release, compatibility, forwarder and AI claims.",
-          "scope": "Fresh 200-source register; Enterprise, Cloud, migration, ES, ITSI, Observability, UF/HF, SOAR and maintained component discovery; remaining historical HF mappings; publication tracked separately."
-        },
-        {
-          "at": "2026-10-25T09:40:41Z",
-          "outcome": "changed",
-          "summary": "Reverified two Enterprise 10.6 Heavy Forwarder KV Store mappings and added bounded semantic regressions; the full official release inventory disclosed no newer product release.",
-          "scope": "All 200 registered official URLs attempted; current Enterprise, Cloud, migration, ES, ITSI, Observability, UF/HF, SOAR, security and seven maintained component streams; two HF KV Store mappings; 120 exact-candidate export cases, retained affected-route images, live current/legacy/shared/invalid browser journeys, read-only WebMCP and D1 delivery."
-        },
-        {
-          "at": "2026-10-26T09:47:15Z",
-          "outcome": "running",
-          "summary": "Reviewing the October 26 official release inventory and bounded highest-consequence Forwarder mappings.",
-          "scope": "Full 200-source official inventory plus current Enterprise, Cloud, migration, ES, ITSI, Observability, UF/HF, SOAR, security and AI discovery; priority HF KV Store mappings; generated-content, browser, export and delivery gates as applicable."
-        },
-        {
-          "at": "2026-10-26T09:51:46Z",
-          "outcome": "changed",
-          "summary": "Qualified the Enterprise 10.6.0 versus exact 10.6.1.1+ ES/cohosted-KV scope and completed re-verification of all 18 borrowed Heavy Forwarder mappings.",
-          "scope": "All 200 registered official URLs; current release, security, SOAR, Observability, component and named-AI discovery; final two historical HF mappings; exact selected/shared/legacy/invalid report scope."
-        },
-        {
-          "at": "2026-10-27T09:26:27Z",
-          "outcome": "running",
-          "summary": "Checking the complete official release/source inventory and bounded highest-consequence claims.",
-          "scope": "Splunk Enterprise, Cloud, migration, ES, ITSI, Observability, Forwarders, SOAR and named AI capability releases; exact source/section changes and coordinated ownership boundaries."
-        },
-        {
-          "at": "2026-10-27T10:08:15.465Z",
-          "outcome": "changed",
-          "summary": "Published October 26 Observability multi-trace AI guidance and Java instrumentation 2.33 dependency baseline; recorded SVD-2026-1013 as unaffected for the maintained product scope.",
-          "scope": "All 202 previously registered official URLs plus the newly registered Java 2.33 release source retrieved; bounded high-consequence release, compatibility, upgrade, security, entitlement and authorization claims; all 18 Forwarder mappings; current SOAR discovery; exact-candidate CI PDF/HTML/phone/keyboard evidence; live current, legacy, shared and invalid routes; live read-only WebMCP parity and D1 delivery health."
-        },
-        {
-          "at": "2026-10-28T09:28:59.195Z",
-          "outcome": "running",
-          "summary": "Running the October 28 release inventory and bounded high-consequence verification.",
-          "scope": "Full registered official source inventory; current release and component streams; Cloud maintenance changes; bounded UF/HF, SOAR and AI checks."
-        },
-        {
-          "at": "2026-10-28T09:32:50.451Z",
-          "outcome": "changed",
-          "summary": "Verified Cloud 10.6.2.1 and 10.5.2605.14 maintenance rows with exact-build and selected-stack qualifications.",
-          "scope": "203-source registered inventory attempted; 200 direct retrievals, one current-source indexed recovery and two historical bodies unavailable; affected Cloud claims; current Enterprise, SOAR, Observability, component and AI discovery; all 18 borrowed HF mappings traversed by regression."
-        },
-        {
-          "at": "2026-10-28T09:54:55Z",
-          "outcome": "running",
-          "summary": "Publishing the exact CI-verified Cloud maintenance candidate and verifying production D1 delivery.",
-          "scope": "GitHub candidate tree 1cb2c3733da5f7b6a4e10b09e77ec8c80c8cfdfe; Site version 230; custom-domain UI, read-only WebMCP, real D1 health, manifest, bundle, bounded query and fallback adapters."
-        },
-        {
-          "at": "2026-10-28T10:03:54.320Z",
-          "outcome": "failed",
-          "summary": "Site version 230 was rolled back because real D1 health, manifest, bundle and bounded-query requests did not complete; prior complete version 229 is restored and healthy.",
-          "scope": "Candidate publication and custom-domain D1 verification only. GitHub factual review remains successful; the candidate is held and not claimed live. Rollback version 229 passed all six delivery checks."
-        },
-        {
-          "at": "2026-10-28T11:13:43.806832+00:00",
-          "outcome": "running",
-          "summary": "Investigating the held D1 publication against fresh GitHub/Sites source and live storage.",
-          "scope": "Owner-requested D1 follow-up only; current/held revision readback, production logs, native DB publication metadata and exact Cloud dataset identity. No fresh upstream source or claim review."
-        },
-        {
-          "at": "2026-10-28T11:13:44.338459+00:00",
-          "outcome": "changed",
-          "summary": "D1 recovery verified on the current revision; corrected the stale held-publication status.",
-          "scope": "Both custom-domain and native-origin full delivery checks passed; native DB head/provenance matches current GitHub main, and the held Cloud dataset is included. Earlier version 230 remains historical and unavailable; no SQL/schema defect or runtime repair is claimed. Operational recovery only; source/claim dates and material cycle unchanged."
-        },
-        {
-          "at": "2026-10-29T09:59:16Z",
-          "outcome": "running",
-          "summary": "Checking the complete registered official inventory, current release streams and bounded highest-consequence release/compatibility/security claims.",
-          "scope": "203 registered official URLs; current Enterprise, Cloud, ES, ITSI, Observability, Forwarder, SOAR, migration and named-AI streams; borrowed HF mappings; affected route/export/publication evidence."
-        },
-        {
-          "at": "2026-10-29T10:04:46Z",
-          "outcome": "changed",
-          "summary": "Verified and added Java instrumentation 2.33.1; mapped SVD-2026-1015 as Under Investigation without inferring affected or fixed product versions.",
-          "scope": "Checked all 205 registered official URLs (203 retrieved, two historical bodies unavailable), current Enterprise/Cloud/ES/ITSI/Observability/Forwarder/SOAR/AI streams, seven component latest-release endpoints, all 18 borrowed HF mappings and affected Observability/Forwarder/current/legacy/shared/invalid report behavior."
-        },
-        {
-          "at": "2026-10-30T09:50:48Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete maintained release inventory and current product/component streams against the synchronized GitHub/Sites baseline.",
-          "scope": "All 205 registered official URLs; current Enterprise, Cloud, ES, ITSI, Observability, migration, Forwarder, SOAR and named-AI discovery; exact Python instrumentation 2.13.3 patch evidence; bounded high-consequence claims, source mappings, report/export and live-delivery parity."
-        },
-        {
-          "at": "2026-10-30T09:59:31Z",
-          "outcome": "changed",
-          "summary": "Advanced the customer-managed Python instrumentation baseline to 2.13.3 with exact image, dependency and PostgreSQL-correlation scope; retained prior history and all unresolved boundaries.",
-          "scope": "Complete 205-source baseline retrieval plus the newly registered Python 2.13.3 source (206 registered sources), current-stream discovery, bounded affected/high-consequence claims, all 18 borrowed HF mappings, and full local route/report/WebMCP regressions. Successful scope review is not deployment; exact-candidate exports and live delivery remain separate."
-        }
-      ],
-      "scope": "Complete 205-source baseline retrieval plus the newly registered Python 2.13.3 source (206 registered sources), current-stream discovery, bounded affected/high-consequence claims, all 18 borrowed HF mappings, and full local route/report/WebMCP regressions. Successful scope review is not deployment; exact-candidate exports and live delivery remain separate."
-    },
-    {
-      "id": "es-editions-watch",
-      "name": "ES Editions Watch",
-      "lastAttempt": "2026-10-30T10:02:54Z",
-      "lastSuccess": "2026-10-30T10:03:10Z",
-      "outcome": "no-change",
-      "summary": "Retrieved all 30 maintained official records and reverified 16 bounded high-consequence claims; no supported ES edition or ES-specific AI fact changed, and all conflicts and qualifications remain explicit.",
-      "history": [
-        {
-          "at": "2026-09-25T10:03:41.288013+00:00",
-          "outcome": "not-recorded",
-          "summary": "Imported scheduler attempt timestamp; not evidence of successful completion."
-        },
-        {
-          "at": "2026-09-26T10:04:09Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete public ES Essentials and Premier evidence inventory, source questions, historical records, presentation and export behavior.",
-          "scope": "ES editions overview, release notes and Cloud capability history; agent and task guides; Cloud Connect; regional and SOAR pairing; pricing, licensing and trials; UEBA; Exposure Analytics; announcements; public route, filters, sharing and print integration."
-        },
-        {
-          "at": "2026-09-26T10:10:18Z",
-          "outcome": "no-change",
-          "summary": "Reviewed all 20 maintained official ES Editions sources and every displayed claim; no material factual or scope change was found, and five unresolved source questions remain explicit.",
-          "scope": "ES editions overview, release notes and Cloud capability history; agent and task guides; Cloud Connect; regional and SOAR pairing; pricing, licensing and trials; UEBA; Exposure Analytics; announcements; public route, filters, sharing and print integration."
-        },
-        {
-          "at": "2026-09-27T10:05:39Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete public ES Essentials/Premier evidence inventory and integrated report behavior.",
-          "scope": "Official ES editions overview, 8.7 release notes and Cloud matrix, agent compatibility and task guides, Cloud Connect, regional and SOAR pairing, pricing and licensing, UEBA, Exposure Analytics, announcements, unresolved source questions, routes, themes, sharing, print, and shared navigation."
-        },
-        {
-          "at": "2026-09-27T10:08:17Z",
-          "outcome": "no-change",
-          "summary": "No supported ES edition, prerequisite, deployment, history, workflow, or presentation claim changed; five documented source questions remain unresolved.",
-          "scope": "All 20 maintained official ES edition sources and every displayed capability, history, note, highlight, workflow, conflict, edition, deployment, region, version, pricing, licensing, release-stage, route, theme, sharing, print, and agent-boundary claim."
-        },
-        {
-          "at": "2026-09-28T10:00:25Z",
-          "outcome": "running",
-          "summary": "Reviewing the maintained public ES editions evidence set.",
-          "scope": "Twenty official ES editions, release, compatibility, agent, Cloud Connect, pricing, licensing, regional, UEBA, Exposure Analytics and announcement sources; integrated route, sharing, print, perspective and publication parity."
-        },
-        {
-          "at": "2026-09-28T10:04:46Z",
-          "outcome": "no-change",
-          "summary": "All maintained ES editions evidence remains consistent with the published comparison; no factual or entitlement change was required.",
-          "scope": "Rechecked all twenty official editions, release, capability-history, agent/task, Cloud Connect, pricing, licensing/trial, regional/SOAR pairing, UEBA, Exposure Analytics and announcement sources; preserved five explicit source questions and the integrated route/export boundaries."
-        },
-        {
-          "at": "2026-09-29T10:08:43Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete public ES Essentials/Premier evidence inventory and integrated report behavior.",
-          "scope": "Twenty official ES editions, release, capability-history, agent/task, Cloud Connect, pricing, licensing/trial, regional/SOAR pairing, UEBA, Exposure Analytics and announcement sources; displayed capabilities, highlights, workflows, history and five source questions; public route, themes, sharing, print/snapshot, environment and navigation integration."
-        },
-        {
-          "at": "2026-09-29T10:09:38Z",
-          "outcome": "no-change",
-          "summary": "All 20 maintained ES Editions sources still support the published comparison; no factual, entitlement, prerequisite, deployment, history or presentation claim changed, and five source questions remain explicit.",
-          "scope": "Rechecked every official edition, release, capability-history, agent/task, Cloud Connect, pricing, licensing/trial, regional/SOAR pairing, UEBA, Exposure Analytics and announcement source; reviewed capabilities, highlights, workflows, history, source questions, integrated routes, themes, Cloud Environment context, sharing, print/snapshot and agent-boundary behavior."
-        },
-        {
-          "at": "2026-09-30T10:03:12Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete public ES Essentials/Premier evidence inventory and integrated report behavior.",
-          "scope": "Twenty official ES editions, release, capability-history, agent/task, Cloud Connect, pricing, licensing/trial, regional/SOAR pairing, UEBA, Exposure Analytics and announcement sources; displayed capabilities, highlights, workflows, history and five source questions; public route, themes, sharing, print/snapshot, environment and navigation integration."
-        },
-        {
-          "at": "2026-09-30T10:05:21Z",
-          "outcome": "no-change",
-          "summary": "All 20 maintained ES Editions sources still support the published comparison; no factual, entitlement, prerequisite, deployment, history or presentation claim changed, and five source questions remain explicit.",
-          "scope": "Rechecked every official edition, release, capability-history, agent/task, Cloud Connect, pricing, licensing/trial, regional/SOAR pairing, UEBA, Exposure Analytics and announcement source; reviewed capabilities, highlights, workflows, history, source questions, integrated routes, themes, Cloud Environment context, sharing, print/snapshot and agent-boundary behavior."
-        },
-        {
-          "at": "2026-10-01T09:58:46Z",
-          "outcome": "running",
-          "summary": "Started the October 1 public ES Essentials/Premier evidence review from the current GitHub/Sites-matching source.",
-          "scope": "Twenty maintained official editions, release, capability-history, agent/task, Cloud Connect, regional/SOAR pairing, pricing, licensing/trials, UEBA, Exposure Analytics and announcement sources; displayed highlights, workflows, capabilities/history, five source questions, surrounding routes and export parity."
-        },
-        {
-          "at": "2026-10-01T10:02:51Z",
-          "outcome": "no-change",
-          "summary": "All 20 maintained ES Editions sources still support the published comparison; no factual, entitlement, prerequisite, deployment, history or presentation claim changed, and five source questions remain explicit.",
-          "scope": "Rechecked every official edition, release, capability-history, agent/task, Cloud Connect, pricing, licensing/trial, regional/SOAR pairing, UEBA, Exposure Analytics and announcement source; reviewed capabilities, highlights, workflows, history, source questions, integrated routes, themes, Cloud Environment context, sharing, print/snapshot and agent-boundary behavior."
-        },
-        {
-          "at": "2026-10-03T10:01:01Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete official ES Essentials and Premier evidence inventory and bounded high-consequence entitlement, prerequisite and pairing claims.",
-          "scope": "All 20 maintained ES editions sources plus exact ES-to-SOAR and App for SOAR/Export pairing evidence."
-        },
-        {
-          "at": "2026-10-03T10:01:02Z",
-          "outcome": "no-change",
-          "summary": "All 20 maintained ES Editions sources still support the published scoped evidence; no factual edition, entitlement, prerequisite or pairing correction was required, and five source questions remain explicit.",
-          "scope": "All 20 maintained ES editions sources plus exact ES-to-SOAR, Automation Builder, App for SOAR and Export qualifications; bounded Connector Builder, Guided Response, agent minimum, pricing, licensing, UEBA and Exposure Analytics claims."
-        },
-        {
-          "at": "2026-10-04T10:02:11.106Z",
-          "outcome": "running",
-          "summary": "October 4 ES Editions evidence review started.",
-          "scope": "All maintained ES edition sources and records, including highlights, workflows, capabilities/history, entitlement, prerequisites, Cloud Connect, SOAR pairing, pricing/licensing/trials, UEBA, Exposure Analytics, unresolved conflicts and affected Release Guide parity."
-        },
-        {
-          "at": "2026-10-04T10:09:44.067Z",
-          "outcome": "no-change",
-          "summary": "Reviewed all 20 maintained ES Editions sources and four exact SOAR pairing/release records; no factual correction was supported, and all conflicts and qualifications remain open.",
-          "scope": "ES Essentials/Premier highlights, workflows, capabilities/history, Cloud Connect, agents/tasks, entitlement, prerequisites, regional/SOAR pairing, pricing, licensing/trials, UEBA, Exposure Analytics, announcements and surrounding release/export parity. Native PDF, reopened HTML, narrow-screen and live WebMCP invocation remain unavailable or unperformed and are recorded separately."
-        },
-        {
-          "at": "2026-10-05T10:02:00Z",
-          "outcome": "running",
-          "summary": "Checking the complete ES Essentials/Premier source inventory, exact SOAR pairing records and bounded highest-consequence entitlement, prerequisite, compatibility and release-stage claims.",
-          "scope": "All 20 maintained ES Editions URLs plus four exact SOAR/App/Export records; Connector Builder, Guided Response, agent version floors, pricing, Automation Builder, App for SOAR pairing, UEBA, Exposure Analytics, routes, themes and exports."
-        },
-        {
-          "at": "2026-10-05T10:04:08Z",
-          "outcome": "no-change",
-          "summary": "Reviewed all 20 maintained ES Editions sources and four exact SOAR pairing/release records; no factual correction was supported and all conflicts and qualifications remain open.",
-          "scope": "All 20 maintained ES Editions URLs plus exact App for SOAR 8.7.0, SOAR Export 8.7.0, SOAR On-premises 8.7.0 and SOAR Cloud 8.7.0 records; bounded Connector Builder, Guided Response, agent version-floor, pricing, Automation Builder, pairing, UEBA and Exposure Analytics claims."
-        },
-        {
-          "at": "2026-10-06T10:01:21.290Z",
-          "outcome": "running",
-          "summary": "Checking the complete maintained ES Editions evidence inventory and exact ESâ€“SOAR pairing records for material entitlement, prerequisite, compatibility, pricing or release-stage changes.",
-          "scope": "All 20 maintained ES Editions official sources plus exact App for SOAR 8.7.0, SOAR Export 8.7.0, SOAR On-premises 8.7.0 and SOAR Cloud 8.7.0 records; five unresolved evidence questions; bounded highest-consequence entitlement, prerequisite, pairing and release-stage claims; canonical/adapter/database parity and available route/export checks."
-        },
-        {
-          "at": "2026-10-06T10:04:09.527Z",
-          "outcome": "no-change",
-          "summary": "Checked all 20 maintained ES Editions sources and four exact SOAR pairing/release records; no factual correction was supported and all five evidence questions remain explicit.",
-          "scope": "All 20 maintained ES Editions official URLs plus exact App for SOAR 8.7.0, SOAR Export 8.7.0, SOAR On-premises 8.7.0 and SOAR Cloud 8.7.0 records; bounded Connector Builder, Guided Response, agent version-floor, pricing, Automation Builder, App pairing, UEBA and Exposure Analytics claims. Browser, export and native WebMCP outcomes are recorded separately."
-        },
-        {
-          "at": "2026-10-07T13:13:35.983Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete ES Editions source inventory and exact SOAR/App pairings from the October 7 GitHub and Sites baseline.",
-          "scope": "Twenty maintained ES Editions sources plus exact App for SOAR 8.7.0, SOAR Export 8.7.0, SOAR On-premises 8.7.0 and SOAR Cloud 8.7.0 records; canonical/adapter parity, current and legacy ES routes, themes, reports, WebMCP boundary and live content delivery."
-        },
-        {
-          "at": "2026-10-07T13:23:49.002Z",
-          "outcome": "no-change",
-          "summary": "All 20 maintained ES Editions sources and four exact SOAR/App records were checked; no factual correction was supported and all five evidence questions remain explicit.",
-          "scope": "Twenty maintained ES Editions official URLs plus exact App for SOAR 8.7.0, SOAR Export 8.7.0, SOAR On-premises 8.7.0 and SOAR Cloud 8.7.0 records; bounded Connector Builder, Guided Response, agent version-floor, pricing, Automation Builder, App pairing, UEBA and Exposure Analytics claims; rendered canonical/legacy/theme/history routes, surrounding ES report and read-only WebMCP agreement. Owner-reported HTML, PDF and narrow-screen results apply to the unchanged deployed baseline."
-        },
-        {
-          "at": "2026-10-08T12:56:58.928936+00:00",
-          "outcome": "running",
-          "summary": "Reviewing exact ES Essentials/Premier source inventory and consequential pairing/prerequisite claims from reconciled current main.",
-          "scope": "20 maintained sources plus separate exact SOAR App/Export records; no blanket historical or native export certification."
-        },
-        {
-          "at": "2026-10-08T13:02:41.331044+00:00",
-          "outcome": "no-change",
-          "summary": "20 ES sources and six SOAR records reviewed; exact Export rows recovered; ES 8.7.1 App pairing remains unlisted. No factual change.",
-          "scope": "20 maintained ES official sources and six exact SOAR App/Export/related-product/Cloud records; ten bounded high-consequence claims. No exhaustive historical verification."
-        },
-        {
-          "at": "2026-10-09T13:04:11Z",
-          "outcome": "running",
-          "summary": "Reviewing the ES editions evidence inventory, ES-specific SOAR pairings, repository/Site parity, and affected report routes.",
-          "scope": "Full 20-source ES inventory plus exact App for SOAR and Export pairing rows; bounded high-consequence entitlement, prerequisite, pricing, availability, and conflict checks."
-        },
-        {
-          "at": "2026-10-09T13:05:00Z",
-          "outcome": "no-change",
-          "summary": "All 20 maintained ES sources and exact App for SOAR/Export pairing rows were rechecked; no authoritative change justified an edition, prerequisite, pricing, release-stage, or compatibility update.",
-          "scope": "20-source ES inventory; Connector Builder, Guided Response, AI SOC Analyst, Malware/Phishing, activity pricing, Automation Builder, UEBA, Exposure Analytics, App for SOAR 8.7.0, and Export 8.7.0 consequence checks."
-        },
-        {
-          "at": "2026-10-10T13:03:10.422Z",
-          "outcome": "running",
-          "summary": "Reviewing current ES edition, entitlement and pairing evidence.",
-          "scope": "20 maintained ES sources, six exact SOAR App/Export/related-product records, and bounded high-consequence entitlement, prerequisite, pricing, licensing and pairing claims."
-        },
-        {
-          "at": "2026-10-10T13:10:20Z",
-          "outcome": "changed",
-          "summary": "Current-source maintenance updated the canonical ES licensing evidence from the 8.6 guide to the directly verified 8.7 guide without changing entitlement claims; unresolved Connector Builder and Guided Response scope conflicts remain explicit.",
-          "scope": "20 maintained ES sources and 6 exact SOAR pairing or related-product sources; 10 highest-consequence edition, entitlement, trial, regional, agent, and SOAR compatibility claims; generated adapters and affected ES routes."
-        },
-        {
-          "at": "2026-10-11T13:05:12.985Z",
-          "outcome": "running",
-          "summary": "October 11 ES Editions evidence review is running.",
-          "scope": "Complete maintained ES Editions source inventory, related SOAR pairing records, highest-consequence entitlement/prerequisite/compatibility claims, and publication evidence."
-        },
-        {
-          "at": "2026-10-11T13:08:17.291Z",
-          "outcome": "no-change",
-          "summary": "All 20 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, regional, release-stage or historical fact changed.",
-          "scope": "20 ES sources, 6 exact SOAR App/Export/related-product/Cloud records, and 10 highest-consequence claims; canonical editions data, material cycle, routes, exports, privacy and WebMCP contract unchanged."
-        },
-        {
-          "at": "2026-10-12T14:30:52Z",
-          "outcome": "running",
-          "summary": "Checking the complete maintained ES Editions and exact SOAR pairing/export inventory, plus bounded highest-consequence entitlement and prerequisite claims.",
-          "scope": "20 maintained ES official sources, six exact SOAR App/Export/related-product/Cloud records, current release discovery, and ten bounded high-consequence edition, prerequisite, pairing, pricing and release-stage claims."
-        },
-        {
-          "at": "2026-10-12T14:36:00Z",
-          "outcome": "no-change",
-          "summary": "All 20 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, regional, release-stage or historical fact changed.",
-          "scope": "20 ES sources, six exact SOAR App/Export/related-product/Cloud records, current release discovery, and ten highest-consequence claims; canonical editions data, material cycle, routes, exports, privacy and WebMCP contract unchanged."
-        },
-        {
-          "at": "2026-10-13T13:24:00Z",
-          "outcome": "running",
-          "summary": "ES editions inventory and bounded consequential claim review running.",
-          "scope": "All 20 maintained ES official sources plus six exact SOAR App/Export/related-product/Cloud pairing sources; current release discovery and ten bounded high-consequence entitlement, prerequisite, pricing, release-stage and compatibility claims."
-        },
-        {
-          "at": "2026-10-13T13:31:00Z",
-          "outcome": "no-change",
-          "summary": "All 20 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, release-stage or historical fact changed.",
-          "scope": "All 20 maintained ES official sources plus six exact SOAR App/Export/related-product/Cloud pairing sources; current release discovery and ten bounded high-consequence entitlement, prerequisite, pricing, release-stage and compatibility claims."
-        },
-        {
-          "at": "2026-10-14T13:06:20Z",
-          "outcome": "running",
-          "summary": "ES editions inventory and bounded consequential claim review running.",
-          "scope": "All 20 maintained ES official sources plus six exact SOAR App/Export/related-product/Cloud pairing sources; current release discovery and ten bounded high-consequence entitlement, prerequisite, pricing, release-stage and compatibility claims."
-        },
-        {
-          "at": "2026-10-14T13:12:00Z",
-          "outcome": "no-change",
-          "summary": "All 20 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, release-stage or historical fact changed.",
-          "scope": "All 20 maintained ES official sources plus six exact SOAR App/Export/related-product/Cloud pairing sources; current release discovery and ten bounded high-consequence entitlement, prerequisite, pricing, release-stage and compatibility claims."
-        },
-        {
-          "at": "2026-10-21T13:00:53Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete official ES Editions inventory and bounded high-consequence entitlement, prerequisite, compatibility, and SOAR pairing claims.",
-          "scope": "All maintained ES edition sources and exact related SOAR App/Export pairing records; current/legacy route, report, export, WebMCP, publication and live-delivery checks scoped to any resulting change."
-        },
-        {
-          "at": "2026-10-21T13:04:32Z",
-          "outcome": "no-change",
-          "summary": "All 20 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, release-stage or historical fact changed.",
-          "scope": "All 20 maintained ES official sources plus six exact SOAR App/Export/related-product/Cloud records; current release discovery and eleven bounded high-consequence entitlement, prerequisite, pricing, release-stage and compatibility claims."
-        },
-        {
-          "at": "2026-10-22T10:09:51.087Z",
-          "outcome": "running",
-          "summary": "Reviewing 20 maintained ES sources, six SOAR pairing records, and the newly published ES 8.8 Controlled Availability edition evidence.",
-          "scope": "Full maintained ES source inventory; exact SOAR App/Export pairing records; affected 8.8 edition/history/highlight claims; bounded high-consequence entitlement and prerequisite claims."
-        },
-        {
-          "at": "2026-10-22T10:31:00Z",
-          "outcome": "changed",
-          "summary": "Added source-backed ES 8.8 Controlled Availability edition guidance while preserving entitlement, region, pairing, deployment and unresolved source boundaries.",
-          "scope": "21 maintained ES official sources, six exact SOAR App/Export/related-product/Cloud records and twelve bounded high-consequence claims; canonical editions data, generated adapter, history, highlights, reports, current/legacy routes, themes and affected release/export behavior."
-        },
-        {
-          "at": "2026-10-23T09:55:03Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete official ES Editions inventory and bounded high-consequence entitlement, prerequisite, compatibility and SOAR pairing claims.",
-          "scope": "All 21 maintained ES official sources plus six exact SOAR App/Export/related-product/Cloud records; current release discovery and twelve bounded high-consequence edition, prerequisite, pricing, release-stage and compatibility claims."
-        },
-        {
-          "at": "2026-10-23T10:08:00Z",
-          "outcome": "no-change",
-          "summary": "All 21 maintained ES sources and six exact SOAR-related records were rechecked; no authoritative edition, entitlement, prerequisite, pairing, pricing, release-stage or historical fact changed.",
-          "scope": "All 21 maintained ES official sources plus six exact SOAR App/Export/related-product/Cloud records; current release discovery and twelve bounded high-consequence edition, prerequisite, pricing, release-stage and compatibility claims. Canonical edition facts, review dates, lifecycle dates and material cycle remain unchanged."
-        },
-        {
-          "at": "2026-10-24T10:35:38Z",
-          "outcome": "running",
-          "summary": "Reviewing fresh ES 8.8 agent compatibility evidence against the current editions and AI guidance.",
-          "scope": "Full official ES source inventory plus bounded high-consequence edition, prerequisite, pairing and AI-availability claims"
-        },
-        {
-          "at": "2026-10-24T10:54:00Z",
-          "outcome": "changed",
-          "summary": "Reconciled current ES 8.8 agent compatibility into the canonical editions and AI guidance: Connector Builder is both editions in 8.8 while the 8.7 conflict remains historical; a separate 8.8 Triage edition conflict is now explicit; Cloud and CMP prerequisite chains remain separate. Exact candidate CI, exports, live delivery and read-only WebMCP checks passed.",
-          "scope": "Twenty-nine official ES/SOAR source records and thirteen bounded high-consequence edition, prerequisite, pairing and AI-availability claims"
-        },
-        {
-          "at": "2026-10-25T09:58:05Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete official ES Essentials/Premier and ES-specific AI availability evidence inventory.",
-          "scope": "Twenty-two canonical ES sources plus exact SOAR App/Export/related-product evidence, current 8.8 edition and agent tables, deployment/version/Cloud Connect/pairing/enablement/release-stage prerequisites, bounded high-consequence claims, routes, themes, links, exports and read-only report parity."
-        },
-        {
-          "at": "2026-10-25T10:00:11Z",
-          "outcome": "no-change",
-          "summary": "Rechecked all 29 maintained ES, AI and exact SOAR-related sources plus thirteen high-consequence claims; no authoritative factual change was found and every documented conflict and scope qualification remains explicit.",
-          "scope": "Twenty-two canonical ES sources, the current 8.8 regional page, six exact SOAR App/Export/related-product records, thirteen entitlement/prerequisite/compatibility claims, and unchanged ES Editions/AI Availability report inputs; operational outcome publication tracked separately."
-        },
-        {
-          "at": "2026-10-26T09:57:37Z",
-          "outcome": "running",
-          "summary": "Reviewing the full maintained ES, AI and SOAR source inventory and reconciling current ES 8.8 agent evidence.",
-          "scope": "Twenty-two maintained ES sources, the ES 8.8 regional page, six exact SOAR/App/Export records and the newly documented ES 8.8 Threat Graph Detection task guide; bounded highest-consequence entitlement, prerequisite and pairing claims."
-        },
-        {
-          "at": "2026-10-26T10:07:55Z",
-          "outcome": "changed",
-          "summary": "Added the ES 8.8 AI Threat Graph Detection agent with alpha, Premier, Cloud-only and task-level prerequisites; corrected Detection Builder to retain its Cloud Connected CMP path.",
-          "scope": "All 29 previously maintained ES/AI/pricing/regional/SOAR sources plus the new Threat Graph task guide; fourteen high-consequence entitlement, prerequisite, release-stage and pairing claims. Existing conflicts and exact App/Export pairings remain qualified."
-        },
-        {
-          "at": "2026-10-27T10:02:43Z",
-          "outcome": "running",
-          "summary": "Reviewing the full ES Editions and ES-specific AI Availability evidence inventory against fresh GitHub and Sites source.",
-          "scope": "Thirty maintained official ES, AI, pricing, regional and SOAR sources plus fourteen bounded highest-consequence claims; no exhaustive historical verification."
-        },
-        {
-          "at": "2026-10-27T10:56:06Z",
-          "outcome": "changed",
-          "summary": "Published the ES 8.7 AI SOC Analyst task limits and permission prerequisites while preserving 8.8 CMP, entitlement, regional, pairing and unresolved edition-scope boundaries.",
-          "scope": "Thirty maintained official ES, AI, pricing, regional and SOAR records; fourteen bounded high-consequence claims; exact-candidate CI/export evidence; bounded live current, legacy, shared and invalid routes; D1/fallback delivery and read-only WebMCP parity."
-        },
-        {
-          "at": "2026-10-28T10:13:46Z",
-          "outcome": "running",
-          "summary": "Checking the full maintained ES, AI, pricing, regional and SOAR source inventory plus bounded high-consequence edition, prerequisite and pairing claims.",
-          "scope": "Thirty maintained official source records; sixteen bounded high-consequence claims; ES Editions and ES-specific AI Availability consistency, links, exports and live delivery."
-        },
-        {
-          "at": "2026-10-28T10:14:05Z",
-          "outcome": "changed",
-          "summary": "Reviewed all 30 maintained official sources and 16 consequential claims; added the ES 8.8 Cloud Connect 2.0 dependency-packaging boundary without inferring an ES 8.9 release or broader availability.",
-          "scope": "Thirty maintained official source records; sixteen bounded high-consequence claims; ES Editions and ES-specific AI Availability consistency, links, exports and live delivery."
-        },
-        {
-          "at": "2026-10-29T10:03:28Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete maintained ES editions, AI capability, licensing, regional and exact SOAR pairing source set against the October 28 published baseline.",
-          "scope": "Thirty maintained official ES/SOAR sources; 21 edition capabilities, eight current/highlight/history sections, ES-specific AI availability records, unresolved Connector Builder, Triage and Guided Response evidence, exact App for SOAR and Export pairings, legacy/current links, reports, themes and publication parity."
-        },
-        {
-          "at": "2026-10-29T10:10:09Z",
-          "outcome": "no-change",
-          "summary": "Retrieved all 30 maintained official records and reverified 16 bounded high-consequence claims; no supported ES editions or ES-specific AI fact changed.",
-          "scope": "ES 8.8 and 8.7 release and edition evidence; Cloud capability history; detailed agent and task prerequisites; Cloud Connect; pricing, licensing, trials, UEBA and Exposure Analytics; 8.7 and 8.8 regional and pairing evidence; exact App for SOAR and Export rows; Connector Builder, Triage and Guided Response conflicts; current and legacy routes, themes, reports and read-only contract."
-        },
-        {
-          "at": "2026-10-30T10:02:54Z",
-          "outcome": "running",
-          "summary": "Reviewing the complete maintained ES Essentials/Premier, ES-specific AI and exact SOAR-pairing evidence inventory on the reconciled October 30 candidate.",
-          "scope": "Thirty official ES, AI, pricing, regional, App for SOAR, SOAR Export and SOAR release records; sixteen bounded high-consequence edition, prerequisite, release-stage, entitlement and pairing claims; current/legacy/shared/invalid route and report parity."
-        },
-        {
-          "at": "2026-10-30T10:03:10Z",
-          "outcome": "no-change",
-          "summary": "Retrieved all 30 maintained official records and reverified 16 bounded high-consequence claims; no supported ES edition or ES-specific AI fact changed, and all conflicts and qualifications remain explicit.",
-          "scope": "All 30 maintained official ES/AI/commercial/regional/SOAR records; bounded ES 8.8 stage, Connector Builder, Triage, Guided Response, Cloud Connect, AI SOC Analyst, Threat Graph, pricing/trials, UEBA/Exposure, App for SOAR and Export claims. Source access and unchanged claims are recorded separately; successful scope review is not deployment."
-        }
-      ],
-      "scope": "All 30 maintained official ES/AI/commercial/regional/SOAR records; bounded ES 8.8 stage, Connector Builder, Triage, Guided Response, Cloud Connect, AI SOC Analyst, Threat Graph, pricing/trials, UEBA/Exposure, App for SOAR and Export claims. Source access and unchanged claims are recorded separately; successful scope review is not deployment."
-    },
-    {
-      "id": "version-guidance-audit",
-      "name": "Version Guidance Audit",
-      "lastAttempt": "2026-10-29T12:20:00Z",
-      "lastSuccess": "2026-10-29T12:22:00Z",
-      "outcome": "no-change",
-      "summary": "Completed the integrated audit with no authoritative factual correction; preserved documented conflicts and unknowns.",
-      "history": [
-        {
-          "at": "2026-09-24T12:45:24.855849+00:00",
-          "outcome": "not-recorded",
-          "summary": "Imported scheduler attempt timestamp; not evidence of successful completion."
-        },
-        {
-          "at": "2026-09-28T12:50:24Z",
-          "outcome": "running",
-          "summary": "Auditing current Version Compass guidance, evidence, route behavior and export/share integrity across all maintained products and views.",
-          "scope": "Enterprise and Cloud Platform routes; Enterprise-to-Cloud migration; Enterprise Security, ITSI and Observability routes; technical-change records; compatibility, lifecycle and source evidence; ES Editions; Cloud environments and perspectives; URL restoration, print/snapshot behavior, WebMCP parity, themes, navigation and publication metadata."
-        },
-        {
-          "at": "2026-09-28T12:57:31Z",
-          "outcome": "no-change",
-          "summary": "Completed the cross-product guidance audit with no customer-facing factual correction required; revalidated the maintained Enterprise, ES and ITSI lifecycle tables and all route, export, share and WebMCP contracts.",
-          "scope": "Enterprise and Cloud Platform routes; Enterprise-to-Cloud migration; Enterprise Security, ITSI and Observability routes; 72 technical-change records; compatibility and lifecycle evidence; ES Editions; Cloud environments and perspectives; malformed and exact URLs; print/snapshot restoration; WebMCP catalog, batches and current-report behavior; themes, navigation and publication metadata."
-        },
-        {
-          "at": "2026-10-01T12:37:41Z",
-          "outcome": "running",
-          "summary": "Auditing integrated Version Compass route guidance, Forwarder provenance and report parity against current official evidence.",
-          "scope": "Integrated Release Guide, ES Editions, Cloud Environment, About/source register, Enterprise-to-Cloud, Observability, Universal and Heavy Forwarder routes; upgrade and receiver paths, OS/architecture/runtime, premium-app gates, support lifecycle, edition and authorization boundaries, exact URLs, keyboard/narrow-screen, PDF, saved HTML and browser-scoped WebMCP behavior."
-        },
-        {
-          "at": "2026-10-01T12:53:15Z",
-          "outcome": "changed",
-          "summary": "Added source-backed Enterprise and Cloud 10.6 guidance, exact ES/ITSI host pairings and Universal Forwarder 10.6 paths while preserving unknown Enterprise/HF paths, receiver gaps, current Cloud 10.5 pairing and support-date uncertainty.",
-          "scope": "Audited integrated Platform, migration, ES, ITSI, Observability, ES Editions, Cloud Environment, About/source register and UF/HF routes; checked 10.6 release, upgrade, OS, compatibility and current Cloud pairing evidence; validated exact URLs, source mappings, shared reports, snapshots, print expansion and read-only WebMCP structurally. Native local browser/PDF execution was unavailable because the browser daemon and runtime binary could not start."
-        },
-        {
-          "at": "2026-10-01T20:06:02.643887+00:00",
-          "outcome": "running",
-          "summary": "Independently auditing the October 1 published source and official inventory after the morning updates.",
-          "scope": "116 in-use source URLs; bounded consequential 10.6 upgrade/receiver/package, runtime, premium-app, lifecycle, ES conflict, Cloud/FedRAMP and migration claims; Forwarder source mappings; browser, export and publication verification."
-        },
-        {
-          "at": "2026-10-01T20:30:19.106406+00:00",
-          "outcome": "changed",
-          "summary": "Independent re-audit corrected 10.6 receiver-row inheritance, ITSI cohosted KV Store prerequisites, encrypted-secret/S3 scope, Cloud readiness and the explicit Enterprise support deadline.",
-          "scope": "124 source retrieval attempts (116 baseline in-use plus eight owning-doc sources), 25 bounded claim checks, all four published watch outcomes, declared Forwarder source/section mappings, syntax, three synchronization gates and 64 structural/VM tests. Actual browser/keyboard/narrow-screen, PDF pagination, reopened HTML and native WebMCP checks not performed: browser approval timed out twice and local browser binary unavailable. LastSuccess records this bounded evidence/structural review, not publication or native certification."
-        },
-        {
-          "at": "2026-10-01T20:45:01Z",
-          "outcome": "running",
-          "summary": "Resumed independent audit after reconciling concurrent GitHub/Sites version 79; remaining migration availability and exact technical-marker/history scope corrections.",
-          "scope": "120 exact source retrieval attempts (116 original plus KV, fixed-issues and field-filter supporting URLs); bounded claim verification and independent declared Forwarder mapping inspection. Native browser/export checks recorded separately; historical borrowed-HF mapping coverage remains future Release Watch work."
-        },
-        {
-          "at": "2026-10-01T20:45:33Z",
-          "outcome": "changed",
-          "summary": "Reconciled concurrent receiver/KV/ITSI/lifecycle corrections; corrected Cloud 10.6 migration availability labels and exact release-scoped technical badges/history. 67 tests passed. Native narrow-screen/PDF/reopened-HTML/WebMCP checks remain unperformed.",
-          "scope": "120 exact URL retrieval attempts; bounded 10.6 receiver, path, OS, KV/ITSI, support, security and Cloud claim checks; attributed cross-watch outcomes; independent declared Forwarder source/section coverage. Publication and native verification are separate. Historical borrowed-HF mapping work remains unverified."
-        },
-        {
-          "at": "2026-10-01T21:08:16Z",
-          "outcome": "running",
-          "summary": "Reconcile retained publication evidence with concurrent SOAR source; independently inspect new inventory and bounded consequential claims.",
-          "scope": "140 exact URL retrieval attempts across retained audit and 20 added SOAR sources; four additional SOAR claim checks. Existing v80 native results retained as bounded evidence; PDF, narrow-screen, reopened HTML and native WebMCP remain unverified."
-        },
-        {
-          "at": "2026-10-01T21:08:35Z",
-          "outcome": "no-change",
-          "summary": "Concurrent SOAR source preserved; 20 added official sources retrieved and four consequential claims confirmed. Prior factual version 80 publication and bounded native evidence reconciled. No further factual change.",
-          "scope": "140 exact URL attempts including 20 added SOAR sources; four new build/Python/pairing/path claim checks. Retrieval is not blanket claim verification. Historical HF coverage and native PDF, narrow-screen, reopened HTML, clipboard and WebMCP remain incomplete; successful review is not deployment."
-        },
-        {
-          "at": "2026-10-08T12:19:08.883584+00:00",
-          "outcome": "running",
-          "summary": "Independent inventory and bounded consequential guidance audit from matching October 8 GitHub/Sites baseline.",
-          "scope": "Complete maintained official source inventory; bounded Platform, migration, ES/ITSI, Observability, UF/HF borrowed-source regression and SOAR path/runtime/app claims; actual current/legacy/invalid browser routes, read-only WebMCP and independently recorded publication checks."
-        },
-        {
-          "at": "2026-10-08T12:37:36.538139Z",
-          "outcome": "changed",
-          "summary": "Reviewed 146 in-use official URLs, retrieved 144; independently demonstrated 16 HF mappings across 900 routes. SOAR 6.4.1.361 eligibility gap isolated; Export 8.7 matrix recovered; audit and operational docs updated.",
-          "scope": "Complete integrated source inventory attempts and bounded Release Guide/premium/migration/lifecycle/edition/environment/Observability/Forwarder/SOAR claims; actual desktop/keyboard/legacy-invalid/read-only WebMCP and HTML download; native reopen/PDF/narrow limits recorded separately. Documentation and outcome publication only; no canonical factual batch or active delivery change."
-        },
-        {
-          "at": "2026-10-12T12:51:24.045Z",
-          "outcome": "running",
-          "summary": "Independent complete source inventory and bounded upgrade, runtime, compatibility, lifecycle and report verification in progress.",
-          "scope": "Integrated Release Guide, ES Editions, Cloud Environment, source compendium, migration, Observability, UF/HF and SOAR."
-        },
-        {
-          "at": "2026-10-12T13:03:17.924Z",
-          "outcome": "changed",
-          "summary": "Bounded audit corrected ES cohosted KV Store postponement, qualified a KV-specific source-version conflict, recovered SOAR Export prerequisite matrices and extended native export route coverage. Unavailable bodies remain unverified.",
-          "scope": "All 157 source URLs attempted; 72 first-pass bodies/API records recovered, 85 first-pass retrieval limits explicitly recorded; independent high-consequence claim checks and protected corrections. Not an exhaustive historical or lifecycle recertification."
-        },
-        {
-          "at": "2026-10-22T12:09:32Z",
-          "outcome": "running",
-          "summary": "Auditing current VersionCompass guidance, Forwarder mappings, SOAR evidence and report behavior.",
-          "scope": "Fresh GitHub/Sites reconciliation; complete official source inventory reconciliation; bounded highest-consequence Forwarder and SOAR claim checks; route, export, WebMCP and live parity."
-        },
-        {
-          "at": "2026-10-22T12:20:40Z",
-          "outcome": "changed",
-          "summary": "Corrected ES 8.8 Enterprise pairings, added October 21 Observability guidance, and advanced two verified HF source mappings.",
-          "scope": "Reconciled fresh GitHub/Sites histories; complete 187-source register/current-day 186-URL retrieval record; bounded Release Guide, ES, Cloud, migration, Observability, Forwarder and SOAR claim checks; regression, export, WebMCP and live verification."
-        },
-        {
-          "at": "2026-10-26T12:28:48Z",
-          "outcome": "running",
-          "summary": "Auditing the complete maintained Version Compass source inventory, high-consequence guidance, source mappings and exact report behavior.",
-          "scope": "Integrated Release Guide, migration, ES Editions, Cloud environment, About/source compendium, Observability, Universal and Heavy Forwarders, SOAR and AI Availability; 200 official source attempts, bounded compatibility, upgrade, security, entitlement and authorization claims, legacy/current/invalid routes, reports, WebMCP and publication parity."
-        },
-        {
-          "at": "2026-10-26T12:42:17Z",
-          "outcome": "changed",
-          "summary": "Completed the integrated guidance audit with no new factual correction; repaired the AI report footer label and Cisco Cloud print evidence contrast while retaining documented conflicts and unknowns.",
-          "scope": "All 200 maintained official source attempts, ten bounded high-consequence claim checks, all 18 Forwarder source mappings, ten AI capabilities, exact/legacy/invalid SOAR and report routes, both themes, phone, keyboard, native PDF, offline HTML and read-only WebMCP evidence."
-        },
-        {
-          "at": "2026-10-29T12:20:00Z",
-          "outcome": "running",
-          "summary": "Integrated guidance audit in progress.",
-          "scope": "Complete 205-source official inventory, affected October 29 release and navigation changes, and bounded highest-consequence Release Guide, migration, ES Editions, Cloud, About, Observability, Forwarders, SOAR and AI Availability claims and report behavior."
-        },
-        {
-          "at": "2026-10-29T12:22:00Z",
-          "outcome": "no-change",
-          "summary": "Completed the integrated audit with no authoritative factual correction; preserved documented conflicts and unknowns.",
-          "scope": "All 205 registered URL attempts, eleven bounded high-consequence claim groups, all 18 Forwarder mappings, ten AI capabilities, SOAR exact/legacy/invalid behavior, current route/report contracts and coordinated maintenance evidence."
-        }
-      ],
-      "scope": "All 205 registered URL attempts, eleven bounded high-consequence claim groups, all 18 Forwarder mappings, ten AI capabilities, SOAR exact/legacy/invalid behavior, current route/report contracts and coordinated maintenance evidence."
-    }
-  ]
-};
+YªçŠx-®éÜj×¢ëiºÚ+Š§j[h‘éÜ¢éíßÏ{å:-jZ.¶›­–)Ş³Wv–æF÷råfW'6–öä6ö×74Ö–çFVææ6RÒ°¢'66†VÖfW'6–öâ#¢À¢'G&6¶–æu6–æ6R#¢###bÓ’Ó#R"À¢'66†VGVÆU6æ6†÷B#¢###bÓ’Ó#R"À¢'vF6†W2#¢°¢°¢&–B#¢&77ÖfVG&××vF6‚"À¢&æÖR#¢$55fVE$ÕvF6‚"À¢&Æ7DGFV×B#¢###bÓÓ3C£3C£ãc¢"À¢&Æ7E7V66W72#¢###bÓÓ3C£3C£ã#S•¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢%&WG&–WfVBÆÂ#Röff–6–Â6÷W&6W2æB&WfW&–f–VB6WfVâ6öç6WVVçF–Â6Æ–Òw&÷W3²æò7W÷'FVB&Vv–öæÂ÷"WF†÷&—¦F–öâf7B6†ævVBâ"À¢&†—7F÷'’#¢°¢°¢&B#¢###bÓ’Ó#UC£“£#ã“3s’³£"À¢&÷WF6öÖR#¢&æ÷B×&V6÷&FVB"À¢'7VÖÖ'’#¢$–×÷'FVB66†VGVÆW"GFV×BF–ÖW7F×²æ÷BWf–FVæ6Röb7V66W76gVÂ6ö×ÆWF–öââ ¢ÒÀ¢°¢&B#¢###bÓ’Ó#eC£S“£…¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–ærÆÂÖ–çF–æVB&÷f–FW"Â&Vv–öâÂW‡W&–Væ6RÂ&öGV7BÖf–Æ&–Æ—G’æBfVE$ÕWf–FVæ6RÂ–æ6ÇVF–ærf—7VÂ×7–Ö&öÂF&ÆW2æB&W6W'fVB6öæfÆ–7G2â"À¢'66÷R#¢$6Æ÷VBÆFf÷&Ò6W'f–6RFWF–Ç2æB6†ævRÆös²fVGW&RæB&Vv–öæÂFÖ–æ—7G&F–öâwV–FW3²U2Â•E4’æB4ô"&Vv–öæÂWf–FVæ6S²ö'6W'f&–Æ—G’&VÆ×2æB6W'f–6R66÷S²6ö×Æ–æ6RB7ÇVæ²ÖG&—ƒ²fVE$ÕÖ&¶WGÆ6RÖöFW&FRæB†–v‚öffW&–ær&V6÷&G3²Vçf—&öæÖVçBf–ÇFW'2ÂW'7V7F—fW2Â&W÷'G2Â6†&VBU$Ç2æB&VBÖöæÇ’vVçB&—G’â ¢ÒÀ¢°¢&B#¢###bÓ’Ó#eC#£s£¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢%&Wf–WvVBÆÂÖ–çF–æVBöff–6–ÂVçf—&öæÖVçB6÷W&6W2æBSB&V6÷&G3²æòÖFW&–Âf7GVÂ÷"66÷R6†ævRv2f÷VæBÂæBF†RFö7VÖVçFVBfVFW&FVB6V&6‚f÷"Ö¦öâ32†–v‚6öæfÆ–7B&VÖ–ç2W‡Æ–6—Bâ"À¢'66÷R#¢$6Æ÷VBÆFf÷&Ò6W'f–6RFWF–Ç2æB6†ævRÆös²–ævW7B&ö6W76÷"&W&WV—6—FW3²U2æB4ô"&Vv–öæÂæB—&–ærWf–FVæ6S²•E4’†÷7BÖ6öçFW‡B&÷VæF'“²ö'6W'f&–Æ—G’&VÆ×2æB6ö×öæVçB66÷S²&VæFW&VBU2V&Æ–26V7F÷"6ö×Æ–æ6R7–Ö&öÇ3²W†7BfVE$ÕÖ&¶WGÆ6RÖöFW&FRæB†–v‚öffW&–æw3²Vçf—&öæÖVçBf–ÇFW'2ÂW'7V7F—fW2Â&W÷'G2Â6†&VBU$Ç2æB&VBÖöæÇ’vVçB&—G’â ¢ÒÀ¢°¢&B#¢###bÓ’Ó#uC£S£#U¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–ærÆÂÖ–çF–æVB55Â&Vv–öâÂ6W'f–6RÖW‡W&–Væ6RÂ&öGV7BÖf–Æ&–Æ—G’ÂfVE$ÕæBö'6W'f&–Æ—G’Vçf—&öæÖVçBWf–FVæ6Râ"À¢'66÷R#¢$6Æ÷VBÆFf÷&Ò6W'f–6RFWF–Ç2æB6†ævRÆös²–ævW7B&ö6W76÷"&W&WV—6—FW3²U2æB4ô"&Vv–öæÂæB—&–ærWf–FVæ6S²•E4’†÷7BÖ6öçFW‡B&÷VæF'“²ö'6W'f&–Æ—G’&VÆ×2æB6ö×öæVçB66÷S²&VæFW&VBU2V&Æ–26V7F÷"6ö×Æ–æ6R7–Ö&öÇ3²W†7BfVE$ÕÖ&¶WGÆ6RÖöFW&FRæB†–v‚öffW&–æw3²Vçf—&öæÖVçBf–ÇFW'2ÂW'7V7F—fW2Â&W÷'G2Â6†&VBU$Ç2æB&VBÖöæÇ’vVçB&—G’â ¢ÒÀ¢°¢&B#¢###bÓ’Ó#uC£S3£E¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢%&Wf–WvVBÆÂÖ–çF–æVBöff–6–ÂVçf—&öæÖVçB6÷W&6W2æBSB&V6÷&G3²æòÖFW&–Âf7GVÂ÷"66÷R6†ævRv2f÷VæBÂæBF†RfVFW&FVB6V&6‚f÷"Ö¦öâ32†–v‚6öæfÆ–7B&VÖ–ç2W‡Æ–6—Bâ"À¢'66÷R#¢$6Æ÷VBÆFf÷&ÒãR6W'f–6RFWF–Ç2æB6†ævRÆös²–ævW7B&ö6W76÷"&W&WV—6—FW3²U2‚ãræB4ô"&Vv–öæÂæB—&–ærWf–FVæ6S²•E4’†÷7BÖ6öçFW‡B&÷VæF'“²ö'6W'f&–Æ—G’&VÆ×2æB6ö×öæVçB66÷S²f—7VÆÇ’fW&–f–VBfV''V'’##bU2V&Æ–26V7F÷"6ö×Æ–æ6R7–Ö&öÇ3²W†7BfVE$ÕÖ&¶WGÆ6RÖöFW&FRæB†–v‚öffW&–æw3²Vçf—&öæÖVçBf–ÇFW'2ÂW'7V7F—fW2Â&W÷'G2Â6†&VBU$Ç2æB&VBÖöæÇ’vVçB&—G’â ¢ÒÀ¢°¢&B#¢###bÓ’Ó#…C£3£S%¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–ærÆÂÖ–çF–æVB55Â&Vv–öâÂ6W'f–6RÖW‡W&–Væ6RÂ&öGV7BÖf–Æ&–Æ—G’ÂfVE$ÕæBö'6W'f&–Æ—G’Vçf—&öæÖVçBWf–FVæ6Râ"À¢'66÷R#¢$6Æ÷VBÆFf÷&Ò6W'f–6RFWF–Ç2æB6†ævRÆös²–ævW7B&ö6W76÷"&W&WV—6—FW3²U2æB4ô"&Vv–öæÂæB—&–ærWf–FVæ6S²•E4’†÷7BÖ6öçFW‡B&÷VæF'“²ö'6W'f&–Æ—G’&VÆ×2æB6ö×öæVçB66÷S²&VæFW&VBU2V&Æ–26V7F÷"6ö×Æ–æ6R7–Ö&öÇ3²W†7BfVE$ÕÖ&¶WGÆ6RÖöFW&FRæB†–v‚öffW&–æw3²Vçf—&öæÖVçBf–ÇFW'2ÂW'7V7F—fW2Â&W÷'G2Â6†&VBU$Ç2æB&VBÖöæÇ’vVçB&—G’â ¢ÒÀ¢°¢&B#¢###bÓ’Ó#…C£3£3e¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢%&Wf–WvVBÆÂÖ–çF–æVBöff–6–ÂVçf—&öæÖVçB6÷W&6W2æBSB&V6÷&G3²æòÖFW&–Âf7GVÂ÷"66÷R6†ævRv2f÷VæBÂæBF†RfVFW&FVB6V&6‚f÷"Ö¦öâ32†–v‚6öæfÆ–7B&VÖ–ç2W‡Æ–6—Bâ"À¢'66÷R#¢$6Æ÷VBÆFf÷&ÒãR6W'f–6RFWF–Ç2æB6†ævRÆös²–ævW7B&ö6W76÷"&W&WV—6—FW3²U2‚ãræB4ô"&Vv–öæÂæB—&–ærWf–FVæ6S²•E4’†÷7BÖ6öçFW‡B&÷VæF'“²ö'6W'f&–Æ—G’&VÆ×2æB6ö×öæVçB66÷S²f—7VÆÇ’fW&–f–VBfV''V'’##bU2V&Æ–26V7F÷"6ö×Æ–æ6R7–Ö&öÇ3²W†7BfVE$ÕÖ&¶WGÆ6RÖöFW&FRæB†–v‚öffW&–æw3²Vçf—&öæÖVçBf–ÇFW'2ÂW'7V7F—fW2Â&W÷'G2Â6†&VBU$Ç2æB&VBÖöæÇ’vVçB&—G’â ¢ÒÀ¢°¢&B#¢###bÓ’Ó#•C£C£S%¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–ær7W'&VçB6Æ÷VB†÷7F–ærÂ&Vv–öæÂÂfVE$ÕÂ&öGV7B×66÷RæBö'6W'f&–Æ—G’Wf–FVæ6Râ"À¢'66÷R#¢%FVâÖ–çF–æVBöff–6–ÂVçf—&öæÖVçB6÷W&6W2æBÆÂSB&V6÷&G3¢6Æ÷VBÆFf÷&Ò6W'f–6RFWF–Ç2æB6†ævRÆös²fVGW&RæBW‡W&–Væ6RwV–FW3²U2õ4ô"&Vv–öæÂWf–FVæ6S²V&Æ–2×6V7F÷"6ö×Æ–æ6RÖG&—ƒ²W†7BfVE$ÕÖöFW&FRæB†–v‚Ö&¶WGÆ6RöffW&–æw3²66÷VBWF†÷&—¦F–öâææ÷Væ6VÖVçG3²ö'6W'f&–Æ—G’6W'f–6R&VÆ×3²f÷'v&FW'2FW7F–æF–öâ÷&÷f–FW"÷&Vv–öâ÷F÷öÆöw’&W7G&–7F–öç3²T’Â6†&–ærÂ&–çB÷6æ6†÷BæB&VBÖöæÇ’vVçB&—G’â ¢ÒÀ¢°¢&B#¢###bÓ’Ó#•C£Cc£3e¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢%&Wf–WvVBÆÂÖ–çF–æVBöff–6–ÂVçf—&öæÖVçB6÷W&6W2æBSB&V6÷&G3²æòÖFW&–Âf7GVÂ÷"66÷R6†ævRv2f÷VæBÂæBF†RFö7VÖVçFVBfVFW&FVB6V&6‚f÷"Ö¦öâ32†–v‚6öæfÆ–7B&VÖ–ç2W‡Æ–6—Bâ"À¢'66÷R#¢$6Æ÷VBÆFf÷&ÒãR6W'f–6RFWF–Ç2æB6†ævRÆös²–ævW7B&ö6W76÷"&W&WV—6—FW3²U2‚ãræB4ô"&Vv–öæÂæB—&–ærWf–FVæ6S²•E4’†÷7BÖ6öçFW‡B&÷VæF'“²ö'6W'f&–Æ—G’&VÆ×2æB6ö×öæVçB66÷S²f—7VÆÇ’fW&–f–VBfV''V'’##bU2V&Æ–26V7F÷"6ö×Æ–æ6R7–Ö&öÇ3²W†7BfVE$ÕÖ&¶WGÆ6RÖöFW&FRæB†–v‚öffW&–æw3²f÷'v&FW'2FW7F–æF–öâ÷&÷f–FW"÷&Vv–öâ÷F÷öÆöw’&W7G&–7F–öç3²Vçf—&öæÖVçBf–ÇFW'2ÂW'7V7F—fW2Â&W÷'G2Â6†&VBU$Ç2Â&–çB÷6æ6†÷BæB&VBÖöæÇ’vVçB&—G’â ¢ÒÀ¢°¢&B#¢###bÓ’Ó3C£3£#•¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–ær7W'&VçB6Æ÷VB†÷7F–ærÂ&Vv–öæÂÂfVE$ÕÂ&öGV7B×66÷RÂf÷'v&FW"ÖFW7F–æF–öâæBö'6W'f&–Æ—G’Wf–FVæ6Râ"À¢'66÷R#¢%FVâÖ–çF–æVBöff–6–ÂVçf—&öæÖVçB6÷W&6W2æBÆÂSB&V6÷&G3¢6Æ÷VBÆFf÷&Ò6W'f–6RFWF–Ç2æB6†ævRÆös²–ævW7B&ö6W76÷"&W&WV—6—FW3²U2õ4ô"&Vv–öæÂWf–FVæ6S²V&Æ–2×6V7F÷"6ö×Æ–æ6RÖG&—ƒ²W†7BfVE$ÕÖöFW&FRæB†–v‚Ö&¶WGÆ6RöffW&–æw3²66÷VBWF†÷&—¦F–öâææ÷Væ6VÖVçG3²ö'6W'f&–Æ—G’&VÆ×3²f÷'v&FW'2FW7F–æF–öâ÷&÷f–FW"÷&Vv–öâ÷F÷öÆöw’&W7G&–7F–öç3²Vçf—&öæÖVçBf–ÇFW'2ÂW'7V7F—fW2Â&W÷'G2Â6†&VBU$Ç2Â&–çB÷6æ6†÷BæB&VBÖöæÇ’vVçB&—G’â ¢ÒÀ¢°¢&B#¢###bÓ’Ó3C£3C£%¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢%&Wf–WvVBÆÂÖ–çF–æVBöff–6–ÂVçf—&öæÖVçB6÷W&6W2æBSB&V6÷&G3²æòÖFW&–Âf7GVÂ÷"66÷R6†ævRv2f÷VæBÂæBF†RFö7VÖVçFVBfVFW&FVB6V&6‚f÷"Ö¦öâ32†–v‚6öæfÆ–7B&VÖ–ç2W‡Æ–6—Bâ"À¢'66÷R#¢$6Æ÷VBÆFf÷&ÒãR6W'f–6RFWF–Ç2æB6†ævRÆös²–ævW7B&ö6W76÷"&W&WV—6—FW3²U2‚ãræB4ô"&Vv–öæÂæB—&–ærWf–FVæ6S²•E4’†÷7BÖ6öçFW‡B&÷VæF'“²ö'6W'f&–Æ—G’&VÆ×2æB6ö×öæVçB66÷S²f—7VÆÇ’fW&–f–VBfV''V'’##bU2V&Æ–26V7F÷"6ö×Æ–æ6R7–Ö&öÇ3²W†7BfVE$ÕÖ&¶WGÆ6RÖöFW&FRæB†–v‚öffW&–æw3²f÷'v&FW'2FW7F–æF–öâ÷&÷f–FW"÷&Vv–öâ÷F÷öÆöw’&W7G&–7F–öç3²Vçf—&öæÖVçBf–ÇFW'2ÂW'7V7F—fW2Â&W÷'G2Â6†&VBU$Ç2Â&–çB÷6æ6†÷BæB&VBÖöæÇ’vVçB&—G’â ¢ÒÀ¢°¢&B#¢###bÓÓC£s£#%¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–ær7W'&VçB6Æ÷VB†÷7F–ærÂ&Vv–öæÂÂfVE$ÕÂ&öGV7B×66÷RÂf÷'v&FW"ÖFW7F–æF–öâæBö'6W'f&–Æ—G’Wf–FVæ6Râ"À¢'66÷R#¢%FVâÖ–çF–æVBöff–6–ÂVçf—&öæÖVçB6÷W&6W2æBÆÂSB&V6÷&G3¢6Æ÷VBÆFf÷&Ò6W'f–6RFWF–Ç2æB6†ævRÆös²fVGW&RæBW‡W&–Væ6RwV–FW3²U2õ4ô"&Vv–öæÂWf–FVæ6S²V&Æ–2×6V7F÷"6ö×Æ–æ6RÖG&—ƒ²W†7BfVE$ÕÖöFW&FRæB†–v‚Ö&¶WGÆ6RöffW&–æw3²66÷VBWF†÷&—¦F–öâææ÷Væ6VÖVçG3²ö'6W'f&–Æ—G’&VÆ×3²f÷'v&FW'2FW7F–æF–öâ÷&÷f–FW"÷&Vv–öâ÷F÷öÆöw’&W7G&–7F–öç3²Vçf—&öæÖVçBf–ÇFW'2ÂW'7V7F—fW2Â&W÷'G2Â6†&VBU$Ç2Â&–çB÷6æ6†÷BæB&VBÖöæÇ’vVçB&—G’â ¢ÒÀ¢°¢&B#¢###bÓÓC£#£Cu¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢%&Wf–WvVBÆÂÖ–çF–æVBöff–6–ÂVçf—&öæÖVçB6÷W&6W2æBSB&V6÷&G3²æòÖFW&–Âf7GVÂ÷"66÷R6†ævRv2f÷VæBÂæBF†RFö7VÖVçFVBfVFW&FVB6V&6‚f÷"Ö¦öâ32†–v‚6öæfÆ–7B&VÖ–ç2W‡Æ–6—Bâ"À¢'66÷R#¢$6Æ÷VBÆFf÷&ÒãR6W'f–6RFWF–Ç2æB6†ævRÆös²–ævW7B&ö6W76÷"&W&WV—6—FW3²U2‚ãræB4ô"&Vv–öæÂæB—&–ærWf–FVæ6S²•E4’†÷7BÖ6öçFW‡B&÷VæF'“²ö'6W'f&–Æ—G’&VÆ×2æB6ö×öæVçB66÷S²f—7VÆÇ’fW&–f–VBfV''V'’##bU2V&Æ–26V7F÷"6ö×Æ–æ6R7–Ö&öÇ3²W†7BfVE$ÕÖ&¶WGÆ6RÖöFW&FRæB†–v‚öffW&–æw3²f÷'v&FW'2FW7F–æF–öâ÷&÷f–FW"÷&Vv–öâ÷F÷öÆöw’&W7G&–7F–öç3²Vçf—&öæÖVçBf–ÇFW'2ÂW'7V7F—fW2Â&W÷'G2Â6†&VBU$Ç2Â&–çB÷6æ6†÷BæB&VBÖöæÇ’vVçB&—G’â ¢ÒÀ¢°¢&B#¢###bÓÓ%C£S£C…¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–ærF†R6ö×ÆWFRÖ–çF–æVB55Â&Vv–öæÂÂ&W7G&–7FVBÖVçf—&öæÖVçBÂfVE$ÕæBö'6W'f&–Æ—G’Wf–FVæ6R–çfVçF÷'’Â–æ6ÇVF–ærf—7VÂ7–Ö&öÂF&ÆW2æB4ô"×7V6–f–266÷Râ"À¢'66÷R#¢%FVâÖ–çF–æVB6Æ÷VBVçf—&öæÖVçB6÷W&6W2æBÆÂSB&V6÷&G3²7W'&VçB6Æ÷VB6W'f–6RFWF–Ç2æB6†ævRÆös²–ævW7B&ö6W76÷"&W&WV—6—FW3²U2æB4ô"&Vv–öæÂæB—&–ærWf–FVæ6S²ö'6W'f&–Æ—G’&VÆ×2æB6ö×öæVçB66÷S²&VæFW&VBU2V&Æ–26V7F÷"6ö×Æ–æ6R7–Ö&öÇ3²W†7BfVE$ÕÖöFW&FRæB†–v‚Ö&¶WGÆ6RöffW&–æw3²&W6W'fVB32†–v‚6öæfÆ–7C²Vçf—&öæÖVçBf–ÇFW'2ÂW'7V7F—fW2Â&W÷'G2Â6†&VBU$Ç2Â&–çB÷6æ6†÷BæB&VBÖöæÇ’vV$Ô5&—G’â ¢ÒÀ¢°¢&B#¢###bÓÓ%C#££u¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢%&Wf–WvVBÆÂÖ–çF–æVBöff–6–ÂVçf—&öæÖVçB6÷W&6W2ÂÆÂSB&V6÷&G2æB&÷F‚55Ö÷væVB4ô"&Vv–öæÂ6÷W&6W3²æòÖFW&–Âf–Æ&–Æ—G’÷"WF†÷&—¦F–öâ6†ævRv2f÷VæBÂF†R32†–v‚6öæfÆ–7B&VÖ–ç2W‡Æ–6—BÂæBF†R7W'&VçB6†ævRÖÆörF‚v2&W—&VBâ"À¢'66÷R#¢$6Æ÷VBÆFf÷&Òãb6W'f–6RFWF–Ç2æB6†ævRÆös²–ævW7B&ö6W76÷"&W&WV—6—FW3²U2‚ãræB4ô"&Vv–öæÂæB—&–ærWf–FVæ6S²ö'6W'f&–Æ—G’&VÆ×2æB6ö×öæVçB66÷S²f—7VÆÇ’fW&–f–VBfV''V'’##bU2V&Æ–26V7F÷"7–Ö&öÇ3²W†7BfVE$ÕÖöFW&FRæB†–v‚Ö&¶WGÆ6RöffW&–æw3²4ô"ÖöFW&FR&W7G&–7F–öç2æBe"Ô‚v²Vçf—&öæÖVçBf–ÇFW'2ÂW'7V7F—fW2Â&W÷'G2Â6†&VBU$Ç2Â&–çB÷6æ6†÷BæB&VBÖöæÇ’vV$Ô5&—G’â ¢ÒÀ¢°¢&B#¢###bÓÓ5C£Sƒ£C%¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–ærF†R6ö×ÆWFRÖ–çF–æVB55Â&Vv–öæÂÂ&W7G&–7FVBÖVçf—&öæÖVçBÂfVE$ÕæBö'6W'f&–Æ—G’Wf–FVæ6R–çfVçF÷'’Â–æ6ÇVF–ærf—7VÂ7–Ö&öÂF&ÆW2æB4ô"×7V6–f–266÷Râ"À¢'66÷R#¢%FVâÖ–çF–æVB6Æ÷VBVçf—&öæÖVçB6÷W&6W2æBÆÂVçf—&öæÖVçB&V6÷&G3²7W'&VçB6Æ÷VB6W'f–6RFWF–Ç2æB6†ævRÆös²–ævW7B&ö6W76÷"&W&WV—6—FW3²U2Â•E4’æB4ô"&Vv–öæÂ÷—&–ærWf–FVæ6S²ö'6W'f&–Æ—G’&VÆ×3²&VæFW&VBU2V&Æ–26V7F÷"6ö×Æ–æ6R7–Ö&öÇ3²W†7BfVE$ÕÖ&¶WGÆ6RÖöFW&FRæB†–v‚öffW&–æw3²&W6W'fVB32†–v‚6öæfÆ–7C²Vçf—&öæÖVçBf–ÇFW'2ÂW'7V7F—fW2Â&W÷'G2Â6†&VBU$Ç2Â&–çB÷6æ6†÷BæB&VBÖöæÇ’vV$Ô5&—G’â ¢ÒÀ¢°¢&B#¢###bÓÓ5C#£S£#E¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢$6†V6¶VBÆÂÖ–çF–æVBöff–6–ÂVçf—&öæÖVçB6÷W&6W2ÂF†RSB×&V6÷&B–çfVçF÷'’æB&÷F‚55Ö÷væVB4ô"6÷W&6W3²f÷W"†–v‚Ö6öç6WVVæ6R6Æ–×2vW&R&WfW&–f–VBv—F‚æòÖFW&–Â6÷'&V7F–öâÂv†–ÆRF†R32†–v‚6öæfÆ–7BÂ4ô"6W'f–6RÖFFRF—67&Wæ7’æB4ô"e"Ô‚v&VÖ–âW‡Æ–6—Bâ"À¢'66÷R#¢$6Æ÷VBÆFf÷&Òãb6W'f–6RFWF–Ç2æB6†ævRÆös²–ævW7B&ö6W76÷"&W&WV—6—FW3²U2‚ãr&Vv–öæÂæB4ô"—&–ærWf–FVæ6S²ö'6W'f&–Æ—G’&VÆ×3²f—7VÆÇ’–ç7V7FVBfV''V'’##bU2V&Æ–26V7F÷"7–Ö&öÇ3²W†7BfVE$ÕÖöFW&FRæB†–v‚Ö&¶WGÆ6RöffW&–æw3²4ô"6öÖÖW&6–Â&Vv–öç2ÂÖöFW&FR&W7G&–7F–öç2æBe"Ô‚v²Vçf—&öæÖVçBf–ÇFW'2ÂW'7V7F—fW2Â&W÷'G2Â6†&VBU$Ç2Â&–çB÷6æ6†÷BæB&VBÖöæÇ’vV$Ô5&—G’â ¢ÒÀ¢°¢&B#¢###bÓÓEC£S3£3•¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–ærF†R6ö×ÆWFRÖ–çF–æVB6Æ÷VBæBfVE$ÕVçf—&öæÖVçB–çfVçF÷'’ÇW2&÷VæFVB†–v‚Ö6öç6WVVæ6RWF†÷&—¦F–öâÂf–Æ&–Æ—G’æB4ô"6Æ–×2â"À¢'66÷R#¢%FVâVçf—&öæÖVçB6÷W&6W2ÂSBVçf—&öæÖVçB&V6÷&G2ÂGvò55Ö÷væVB4ô"6÷W&6W2ÂW†7BÖ&¶WGÆ6RöffW&–æw2ÂF†Rf—7VÂ6ö×Æ–æ6RÖG&—‚Âö'6W'f&–Æ—G’&VÆ×2ÂU2ô•E4’õ4ô"6ö×F–&–Æ—G’Â4ô"&W7G&–7FVBVçf—&öæÖVçG2ÂF†R32†–v‚6öæfÆ–7BÂ7W'&VçBF—66÷fW'’F‡2æBf÷W"†–v†W7BÖ6öç6WVVæ6R6Æ–×2â ¢ÒÀ¢°¢&B#¢###bÓÓEC#££#¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢$6†V6¶VBÆÂÖ–çF–æVBöff–6–ÂVçf—&öæÖVçB6÷W&6W2ÂF†RSB×&V6÷&B–çfVçF÷'’æB&÷F‚55Ö÷væVB4ô"6÷W&6W3²f÷W"†–v‚Ö6öç6WVVæ6R6Æ–×2vW&R&WfW&–f–VBv—F‚æòÖFW&–Â6÷'&V7F–öâÂv†–ÆRF†R32†–v‚6öæfÆ–7BÂ4ô"6W'f–6RÖFFRF—67&Wæ7’æB4ô"e"Ô‚v&VÖ–âW‡Æ–6—Bâ"À¢'66÷R#¢$6Æ÷VBÆFf÷&Òãb6W'f–6RFWF–Ç2æB6†ævRÆös²–ævW7B&ö6W76÷"&W&WV—6—FW3²U2‚ãr&Vv–öæÂæB4ô"—&–ærWf–FVæ6S²ö'6W'f&–Æ—G’&VÆ×3²f—7VÆÇ’–ç7V7FVBfV''V'’##bU2V&Æ–26V7F÷"7–Ö&öÇ3²W†7BfVE$ÕÖöFW&FRæB†–v‚Ö&¶WGÆ6RöffW&–æw3²4ô"6öÖÖW&6–Â&Vv–öç2ÂÖöFW&FR&W7G&–7F–öç2æBe"Ô‚v²Vçf—&öæÖVçBf–ÇFW'2ÂW'7V7F—fW2Â&W÷'G2Â6†&VBU$Ç2Â&–çB÷6æ6†÷BæB&VBÖöæÇ’vV$Ô5&—G’â ¢ÒÀ¢°¢&B#¢###bÓÓUC£s£C¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢$6†V6¶–ærF†R6ö×ÆWFRÖ–çF–æVB6Æ÷VBÖVçf—&öæÖVçB–çfVçF÷'’æB&÷VæFVB6WBöb†–v‚Ö6öç6WVVæ6RWF†÷&—¦F–öâÂf–Æ&–Æ—G’æB4ô"6Æ–×2â"À¢'66÷R#¢#Vçf—&öæÖVçB6÷W&6RU$Ç2ÂSBVçf—&öæÖVçB&V6÷&G2Â"55Ö÷væVB4ô"6÷W&6W2Âf—7VÂ6ö×Æ–æ6RÖG&—‚&Wf–WrÂæBf÷W"&÷VæFVB6Æ–Ò6†V6·2â ¢ÒÀ¢°¢&B#¢###bÓÓUC£3C£CU¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢$6†V6¶VBÆÂÖ–çF–æVB6Æ÷VBÖVçf—&öæÖVçB6÷W&6W2æB&÷F‚55Ö÷væVB4ô"6÷W&6W3²&WfW&–f–VBf÷W"†–v‚Ö6öç6WVVæ6RWF†÷&—¦F–öâÂf–Æ&–Æ—G’æB6W'f–6RÖFFR6Æ–×2âæòÖFW&–Âf7GVÂ6†ævRv2f÷VæBâ"À¢'66÷R#¢#Vçf—&öæÖVçB6÷W&6RU$Ç2ÂSBVçf—&öæÖVçB&V6÷&G2Â"55Ö÷væVB4ô"6÷W&6W2ÂF—&V7Bf—7VÂ&Wf–WröbF†RfV''V'’##bV&Æ–2×6V7F÷"7–Ö&öÂF&ÆRÂæBf÷W"&÷VæFVB6Æ–Ò6†V6·2â'&÷w6W"ÂW‡÷'BæBæF—fRvV$Ô5÷WF6öÖW2&R&V6÷&FVB6W&FVÇ’–âF†RVF—Bâ ¢ÒÀ¢°¢&B#¢###bÓÓeC££S5¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢$6†V6¶–ærF†R6ö×ÆWFR55ôfVE$ÕæB55Ö÷væVB4ô"6÷W&6R–çfVçF÷'’Â&–÷&—G’WF†÷&—¦F–öâæBf–Æ&–Æ—G’6Æ–×2ÂFVÆ—fW'’&—G’æB6ö²7FFRâ"À¢'66÷R#¢#6Æ÷VBÖVçf—&öæÖVçB6÷W&6W2ÂSBVçf—&öæÖVçB&V6÷&G2ÂGvò55Ö÷væVB4ô"6÷W&6W2Âf÷W"&÷VæFVB&–÷&—G’6Æ–×2ÂÖG&—‚7–Ö&öÇ2ÂCæBW‡÷'B÷&÷WFRWf–FVæ6Râ ¢ÒÀ¢°¢&B#¢###bÓÓeC£#c£#¢"À¢&÷WF6öÖR#¢&6†ævVB"À¢'7VÖÖ'’#¢$W†7BfVE$ÕÖ&¶WGÆ6R6W'F–f–VB6W'f–6W266÷RFFVBf÷"U2æB•E4’–âÖöFW&FRæB†–v‚ÂæB4ô"–âÖöFW&FS²4ô"†–v‚&VÖ–ç2æ÷BW7F&Æ—6†VBæBF†R326öæfÆ–7B&VÖ–ç2&W6W'fVBâ"À¢'66÷R#¢%GvVÇfRöff–6–Â6÷W&6W26†V6¶VC²6—‚&÷VæFVB6öç6WVVçF–Â6Æ–×2fW&–f–VC²S‚Vçf—&öæÖVçB&V6÷&G2æBf÷W"55Ö÷væVB4ô"6÷W&6W2&V6öæ6–ÆVBâ ¢ÒÀ¢°¢&B#¢###bÓÓ…CS££Sã3S•¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–ær7W'&VçBöff–6–Â55ÂfVE$ÕæB&W7G&–7FVB4ô"Wf–FVæ6Râ"À¢'66÷R#¢#Ö–çF–æVBVçf—&öæÖVçB6÷W&6W2æBGvò÷væVB4ô"6÷W&6W3²&÷VæFVB6öç6WVVçF–Â6Æ–Ò6†V6·2æB†VÆB&Vv–öæÂ6æF–FFRföÆÆ÷r×Wâ ¢ÒÀ¢°¢&B#¢###bÓÓ…CS£3£3Bã3u¢"À¢&÷WF6öÖR#¢&6†ævVB"À¢'7VÖÖ'’#¢$6ö×ÆWFVB&÷VæFVB66÷R&Wf–Ws²F—66÷fW&VB6öæfÆ–7F–ær7W'&VçB32ÖöFW&FR7FFVÖVçG2æB&÷FV7FVB6æF–FFR6÷'&V7F–öââ6æöæ–6Â&W÷'Bf7G2&VÖ–âVæ6†ævVBâ"À¢'66÷R#¢$ÆÂÖ–çF–æVBVçf—&öæÖVçB6÷W&6RU$Ç2æBGvò55Ö÷væVB4ô"6÷W&6RU$Ç3²7W'&VçB÷fW'6–öæVBæB&W&WV—6—FRF—66÷fW'“²S‚Vçf—&öæÖVçB&V6÷&G2–çfVçF÷&–VBÂ&÷VæFVB†–v‚Ö6öç6WVVæ6R6Æ–Ò6†V6·2âæ÷BW††W7F—fR†—7F÷&–6Â6Æ–ÒfW&–f–6F–öââ÷W&F–öæÂÆVFvW"öVF—BV&Æ–6F–öâöæÇ“²æò6æöæ–6Âf7GVÂ&öÖ÷F–öââ ¢ÒÀ¢°¢&B#¢###bÓÓ•CC£S#£ã“C¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&V6öæ6–Æ–ær7W'&VçBöff–6–Â55ÂfVE$ÕæB&W7G&–7FVBÖVçf—&öæÖVçBWf–FVæ6R–çFò6æF–FFRf7GVÂ&F6‚â"À¢'66÷R#¢$ÆÂÖ–çF–æVBVçf—&öæÖVçB6÷W&6RU$Ç2æBGvò55Ö÷væVB4ô"6÷W&6W3²S‚W†—7F–ær&V6÷&G2ÇW2F†R†VÆBf÷W"×&V6÷&BÖ6†–æRFFÆ¶R6æF–FFS²&÷VæFVB†–v‚Ö6öç6WVVæ6R6Æ–×2Âf—7VÂV&Æ–2×6V7F÷"ÖG&—‚ÂW†7BÖ&¶WGÆ6RöffW&–æw2Â7W'&VçB52F—66÷fW'’ÂffV7FVBf–ÇFW'2÷&W÷'G2öW‡÷'G2æBV&Æ–6F–öâ&—G’â ¢ÒÀ¢°¢&B#¢###bÓÓ•CC£Sc£Rãsc¢"À¢&÷WF6öÖR#¢&6†ævVB"À¢'7VÖÖ'’#¢%&V6öæ6–ÆVBÖ6†–æRFFÆ¶R&Vv–öæÂ66÷RæBW‡÷6VBF†R7W'&VçB32ÖöFW&FR6÷W&6R6öæfÆ–7Bv—F†÷WB'&öFVæ–ærWF†÷&—¦F–öââ"À¢'66÷R#¢$ÆÂÖ–çF–æVBVçf—&öæÖVçB6÷W&6W2æBGvò55Ö÷væVB4ô"6÷W&6W3²c"6æöæ–6ÂVçf—&öæÖVçB&V6÷&G3²&÷VæFVB6Æ–×3²f—7VÂV&Æ–2×6V7F÷"ÖG&—ƒ²W†7BÖ&¶WGÆ6RöffW&–æw3²52†–v‚F—66÷fW'“²ffV7FVBf–ÇFW"÷&W÷'BöW‡÷'B6æF–FFRâf÷W"ÔDÂ&V6÷&G2FFVBæB32ÖöFW&FR6÷'&V7FVC²W†7BÖ6æF–FFR4’æBV&Æ–6F–öâ&V6÷&FVB6W&FVÇ’â ¢ÒÀ¢°¢&B#¢###bÓÓCC£S£•¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–ærF†R6ö×ÆWFR55ôfVE$Õ6÷W&6R–çfVçF÷'’æBF†RGVR52†–v‚föÆÆ÷r×Wâ"À¢'66÷R#¢$g&W6‚v—D‡V"Ö–âæB6—FRfW'6–öâC3²ÆÂÖ–çF–æVBVçf—&öæÖVçB6÷W&6W2ÂGvò55Ö÷væVB4ô"6÷W&6W2Âf—7VÂU2V&Æ–26V7F÷"ÖG&—‚ÂW†7BÖöFW&FRô†–v‚Ö&¶WGÆ6RöffW&–æw2Â52†–v‚F—66÷fW'’ÂæB&÷VæFVB†–v‚Ö6öç6WVVæ6R6Æ–×2â ¢ÒÀ¢°¢&B#¢###bÓÓCC£3S£U¢"À¢&÷WF6öÖR#¢&6†ævVB"À¢'7VÖÖ'’#¢%V&Æ—6†VB&÷VæFVB52’c"fVE$ÕÖöFW&FRæB†–v‚6W'f–6R×7W÷'BWf–FVæ6Rv—F‚÷W&F–öâ&W7G&–7F–öç2æBWF†÷&—¦F–öâVæW7F&Æ—6†VC²&W6W'fVBÆÂW†—7F–ær6öæfÆ–7G2æBVæ¶æ÷vç2â"À¢'66÷R#¢$ÆÂ2Ö–çF–æVB55Vçf—&öæÖVçB6÷W&6W2ÂGvò4ô"6÷W&6W2ÂcB6æöæ–6ÂVçf—&öæÖVçB&V6÷&G2Â6öç6WVVçF–Â6Æ–×2Âf—7VÂÖG&—‚ÂW†7BÖ&¶WGÆ6RöffW&–æw2Âf–ÇFW'2Â&W÷'G2ÂW‡÷'G2Â'&÷w6W"Æ–æ·2ÂvV$Ô5æBÆ—fRV&Æ–6F–öâ&—G’â ¢ÒÀ¢°¢&B#¢###bÓÓCC££C2ã¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–ærF†R6ö×ÆWFRöff–6–Â55ôfVE$Õ–çfVçF÷'’æB&÷VæFVB†–v†W7BÖ6öç6WVVæ6R6Æ–×2â"À¢'66÷R#¢$6Æ÷VBVçf—&öæÖVçB&÷f–FW'2Â&Vv–öç2Â6öÖÖW&6–Âôe"ÔÒôe"Ô‚f–Æ&–Æ—G’ÂÖ&¶WGÆ6R66÷RÂ326öæfÆ–7G2ÂÖ6†–æRFFÆ¶RÂ52c"Âö'6W'f&–Æ—G’6W&F–öâÂæB4ô"&W7G&–7FVBÖVçf—&öæÖVçBWf–FVæ6Râ ¢ÒÀ¢°¢&B#¢###bÓÓCC£s£S¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢%&Wf–WvVBÆÂ2Ö–çF–æVBVçf—&öæÖVçB6÷W&6W2ÂGvò55Ö÷væVB4ô"6÷W&6W2æB6öç6WVVçF–Â6Æ–×3²æòÖFW&–Â6†ævRf÷VæBæBW†—7F–ær6öæfÆ–7G2æBVæ¶æ÷vç2&VÖ–âW‡Æ–6—Bâ"À¢'66÷R#¢$ÆÂ255ôfVE$ÕVçf—&öæÖVçB6÷W&6W2ÂGvò4ô"&Vv–öæÂ÷&W7G&–7FVBÖVçf—&öæÖVçB6÷W&6W2ÂcB6æöæ–6ÂVçf—&öæÖVçB&V6÷&G2Â6öç6WVVçF–Â6Æ–×2Âf—7VÂV&Æ–2×6V7F÷"ÖG&—‚æBW†7BÖ&¶WGÆ6RöffW&–æw2â ¢ÒÀ¢°¢&B#¢###bÓÓ%CS£C£%¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢$ö7Fö&W""55ôfVE$Õ–çfVçF÷'’&Wf–Wr—2'Vææ–ærâ"À¢'66÷R#¢$6ö×ÆWFRöff–6–Â6Æ÷VBVçf—&öæÖVçBæB4ô"–çfVçF÷'“²†–v†W7BÖ6öç6WVVæ6RWF†÷&—¦F–öâÂf–Æ&–Æ—G’ÂVçF—FÆVÖVçBÂ&Vv–öæÂæB&W7G&–7F–öâ6Æ–×3²6öæ7W'&VçB×6÷W&6R&V6öæ6–Æ–F–öâæB6æF–FFRfÆ–FF–öââ ¢ÒÀ¢°¢&B#¢###bÓÓ%CS£“£¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢%&Wf–WvVBÆÂ2Ö–çF–æVBVçf—&öæÖVçB6÷W&6W2ÂGvò55Ö÷væVB4ô"6÷W&6W2æB6öç6WVVçF–Â6Æ–×3²æòÖFW&–Â6†ævRf÷VæBæBW†—7F–ær6öæfÆ–7G2æBVæ¶æ÷vç2&VÖ–âW‡Æ–6—Bâ"À¢'66÷R#¢$ÆÂ255ôfVE$ÕVçf—&öæÖVçB6÷W&6W2ÂGvò4ô"&Vv–öæÂ÷&W7G&–7FVBÖVçf—&öæÖVçB6÷W&6W2ÂcB6æöæ–6ÂVçf—&öæÖVçB&V6÷&G2Â6öç6WVVçF–Â6Æ–×2Âf—7VÂV&Æ–2×6V7F÷"ÖG&—‚æBW†7BÖ&¶WGÆ6RöffW&–æw2â ¢ÒÀ¢°¢&B#¢###bÓÓ5CC£SS£3%¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢$ö7Fö&W"255ôfVE$Õ–çfVçF÷'’&Wf–Wr—2'Vææ–ærâ"À¢'66÷R#¢$6ö×ÆWFRöff–6–Â6Æ÷VBVçf—&öæÖVçBæB4ô"–çfVçF÷'“²†–v†W7BÖ6öç6WVVæ6RWF†÷&—¦F–öâÂf–Æ&–Æ—G’ÂVçF—FÆVÖVçBÂ&Vv–öæÂæB&W7G&–7F–öâ6Æ–×3²f—7VÂV&Æ–2×6V7F÷"ÖG&—ƒ²W†7BÖ&¶WGÆ6RöffW&–æw3²6öæ7W'&VçB×6÷W&6R&V6öæ6–Æ–F–öâæB6æF–FFRfÆ–FF–öââ ¢ÒÀ¢°¢&B#¢###bÓÓ5CC£S“£#¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢%&Wf–WvVBÆÂ2Ö–çF–æVBVçf—&öæÖVçB6÷W&6W2ÂGvò55Ö÷væVB4ô"6÷W&6W2æB6öç6WVVçF–Â6Æ–×3²æòÖFW&–Â6†ævRf÷VæBæBW†—7F–ær6öæfÆ–7G2æBVæ¶æ÷vç2&VÖ–âW‡Æ–6—Bâ"À¢'66÷R#¢$ÆÂ255ôfVE$ÕVçf—&öæÖVçB6÷W&6W2ÂGvò4ô"&Vv–öæÂ÷&W7G&–7FVBÖVçf—&öæÖVçB6÷W&6W2ÂcB6æöæ–6ÂVçf—&öæÖVçB&V6÷&G2Â6öç6WVVçF–Â6Æ–×2ÂF—&V7Bf—7VÂV&Æ–2×6V7F÷"ÖG&—‚–ç7V7F–öâæBW†7BÖ&¶WGÆ6RöffW&–æw2â ¢ÒÀ¢°¢&B#¢###bÓÓ#C3£c£…¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&W7VÖVB7W'&VçB55ôfVE$Õ&Wf–WrgFW"W‡—&VB&÷fÂ–çFW''WF–öââ"À¢'66÷R#¢$7W'&VçB2Vçf—&öæÖVçB6÷W&6W2Â6†&VB4ô"&Vv–öç2÷&W7G&–7FVBwV–Fæ6RÂæWvW"Wf–FVæ6RF—66÷fW'’æB&÷VæFVB6öç6WVVçF–Â6Æ–×2â ¢ÒÀ¢°¢&B#¢###bÓÓ#C3£#3£5¢"À¢&÷WF6öÖR#¢&6†ævVB"À¢'7VÖÖ'’#¢%&Wf–WvVB7W'&VçB55ôfVE$Õ6÷W&6W3²FFVB66÷VBvVçBö'6W'f&–Æ—G’&VÆ×2æBVÆ–f–VBÆ–Ö—FVB’76—7FçB”Ã"Wf–FVæ6Râ6æF–FFRV&Æ–6F–öâVæF–ærfÆ–FF–öââ"À¢'66÷R#¢#2Vçf—&öæÖVçB6÷W&6W2ÂGvò4ô"6÷W&6W2ÂGvòF—66÷fW&VBwV–FW3²W†—7F–ær6öç6WVVçF–Â6Æ–×2ÇW2&Vv–öæÂ’VÆ–f–6F–öç2âÆ7E7V66W72—2&Wf–Wr66÷RÂæ÷BFWÆ÷–ÖVçBâ ¢ÒÀ¢°¢&B#¢###bÓÓ#%C£S£S¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–ær7W'&VçB&Vv–öæÂÂ&W7G&–7FVBÖVçf—&öæÖVçBæBöffW&–ærWf–FVæ6Rg&öÒ7–æ6‡&öæ—¦VBv—D‡V"õ6—FW26÷W&6Râ"À¢'66÷R#¢#RVçf—&öæÖVçB6÷W&6W2ÂGvò55Ö÷væVB4ô"6÷W&6W2Â7W'&VçB6ö×F–&–Æ—G’F—66÷fW'’æB&÷VæFVB6öç6WVVçF–Â6Æ–×2â ¢ÒÀ¢°¢&B#¢###bÓÓ#%C#££3BãCSC“u¢"À¢&÷WF6öÖR#¢&6†ævVB"À¢'7VÖÖ'’#¢$6÷'&V7FVB<:6òVÆò&VÖ–W"GF6²æÇ—¦W"66÷RæBVç7W÷'FVB&VwVÆFVB‡–'&–BW†6ÇW6–öã²&W6öÇfVB7W'&VçB4ô"6W'f–6RÖFFRF—67&Wæ7’â"À¢'66÷R#¢##W†7Böff–6–ÂU$Ç2Â2&÷VæFVB6öç6WVVçF–Â6Æ–Òw&÷W3²†—7F÷&–6ÂfW&–f–6F–öâæ÷BW††W7F—fRâ66÷R&Wf–Wr6ö×ÆWFS²6æF–FFRfÆ–FF–öâæBV&Æ–6F–öâ&V6÷&FVB6W&FVÇ’â ¢ÒÀ¢°¢&B#¢###bÓÓ#5C£#“£3rã#“¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢$6†V6¶–ærF†R6ö×ÆWFRÖ–çF–æVBVçf—&öæÖVçB–çfVçF÷'’æB&÷VæFVB6öç6WVVçF–Â66÷W2Â–æ6ÇVF–ærF†R÷væW"×7WÆ–VBÖöFW&FR7FGW26÷W&6RæBG&6¶VB6—66ò&–çBÖg&vÖVçB&W—"â"À¢'66÷R#¢#RVçf—&öæÖVçB6÷W&6W2ÂGvò6†&VB4ô"6÷W&6W2Â7W'&VçBU2‚ã‚&Vv–öæÂF—66÷fW'’Â&öGV7Bô•E4’6ö×F–&–Æ—G’6÷W&6W3²f—7VÂÖG&—‚æBW†7BÖ&¶WGÆ6RöffW&–æw2âæòW††W7F—fR†—7F÷&–6Â&V6W'F–f–6F–öââ ¢ÒÀ¢°¢&B#¢###bÓÓ#5C£3£C"ãc35¢"À¢&÷WF6öÖR#¢&6†ævVB"À¢'7VÖÖ'’#¢%&V6†V6¶VB#öff–6–Â6÷W&6W2æBF†—'FVVâ6öç6WVVçF–Â6Æ–Òw&÷W3²f7GVÂ66÷RVæ6†ævVBâFö7VÖVçFVBÖöFW&FRV&Æ–2×7FGW2WF†÷&—G’æB7FvVBF†RG&6¶VB6—66ò&–çBÖg&vÖVçB&6¶w&÷VæB&W—"â"À¢'66÷R#¢$6ö×ÆWFRÖ–çF–æVBVçf—&öæÖVçBõ4ô"6÷W&6R–çfVçF÷'“²&÷VæFVBWF†÷&—¦F–öâÂ&÷f–FW"Â&Vv–öâÂW‡W&–Væ6RÂU2õ4ô"—&–æræBö'6W'f&–Æ—G’6Æ–×2â&Wf–Wr6ö×ÆWFVC²fÆ–FF–öâæBV&Æ–6F–öâ&V6÷&FVB6W&FVÇ’â ¢ÒÀ¢°¢&B#¢###bÓÓ#EC£Cƒ£S%¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–æröff–6–Â&Vv–öæÂæBWF†÷&—¦F–öâ–çfVçF÷'’æBU2‚ã‚W76VçF–Ç2’Ö–ærâ"À¢'66÷R#¢##BÖ–çF–æVBVçf—&öæÖVçBÂ6†&VB4ô"æB’6÷W&6W3²&÷VæFVB6öç6WVVçF–Â6Æ–×2 ¢ÒÀ¢°¢&B#¢###bÓÓ#EC£Sƒ£rã33E¢"À¢&÷WF6öÖR#¢&6†ævVB"À¢'7VÖÖ'’#¢$ÖVBF†R6ö×ÆWFRU2‚ã‚W76VçF–Ç2’&Vv–öæÂF&ÆR–æFWVæFVçFÇ“²&W6W'fVB66÷VBW†6ÇW6–öç2Â4õ&W&WV—6—FW2æB6W&FRöffW&–ærWF†÷&—¦F–öââV&Æ–6F–öâv—G2f÷"æF—fRW‡÷'B4’â"À¢'66÷R#¢##"Ö–çF–æVBöff–6–Â6÷W&6RU$Ç3²GvVÇfR&÷VæFVB6öç6WVVçF–Â6Æ–Òw&÷W3²6ö×ÆWFRW76VçF–Ç2F&ÆRæBf—7VÂÖG&—‚†VFW"öÆVvVæB ¢ÒÀ¢°¢&B#¢###bÓÓ#EC#£#£C…¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢$6†V6¶–ærf÷"6†ævW2gFW"FöF’w2fW&–f–VB55V&Æ–6F–öââ"À¢'66÷R#¢%6ÖRÖF’g&W6‚v—D‡V"õ6—FW2&V6öæ6–Æ–F–öâÂ6ö×ÆWFR#BÕU$Â–çfVçF÷'’66W72æB&÷VæFVB&Vv–öæÂöWF†÷&—¦F–öâFVÇF&Wf–Wrâ ¢ÒÀ¢°¢&B#¢###bÓÓ#EC#£#S£#•¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢$g&W6‚6ÖRÖF’–çfVçF÷'’æB&÷VæFVB&Vv–öæÂöWF†÷&—¦F–öâ&Wf–Wrf÷VæBæògW'F†W"f7GVÂ6†ævRâ"À¢'66÷R#¢##Böff–6–ÂU$Ç2&V÷VæVC²6—‚66÷VB6Æ–Òw&÷W2&V6†V6¶VC²g&W6‚v—D‡V"õ6—FW2fW'6–öâ#b&V6öæ6–Æ–F–öâæB&VÂCöÖæ–fW7Bö'VæFÆRöfÆÆ&6²F–væ÷7F–7276VBâ6÷W&6R66W72—2æ÷BVæ—fW'6Â6Æ–ÒfW&–f–6F–öã²f7GVÂFFW2æB7–6ÆR3RVæ6†ævVBâ ¢ÒÀ¢°¢&B#¢###bÓÓ#UC£ƒ£E¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wr7W'&VçB&Vv–öæÂÂ&VwVÆFVBæBæÖVB’Wf–FVæ6Râ"À¢'66÷R#¢$6ö×ÆWFRÖ–çF–æVB#B×6÷W&6R–çfVçF÷'’æB&÷VæFVB†–v‚Ö6öç6WVVæ6R6Æ–×2â ¢ÒÀ¢°¢&B#¢###bÓÓ#UC£#£Rã#E¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢$æòÖFW&–Â&Vv–öæÂ÷"WF†÷&—¦F–öâ6†ævRf÷VæC²¶æ÷vâ6öæfÆ–7G2æB66÷VBVæ¶æ÷vç2&WF–æVBâ"À¢'66÷R#¢##Böff–6–ÂU$Ç266W76VC²‚&÷VæFVB6Æ–Òw&÷W2&V6†V6¶VBâÖ&¶WGÆ6R7FGW2&WG&–WfVC²6W'f–6RF'2æ÷B&WfW&–f–VBâ ¢ÒÀ¢°¢&B#¢###bÓÓ#eC£S£S%¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–ær6ö×ÆWFR&Vv–öæÂ–çfVçF÷'’æBæWvÇ’F—66÷fW&VB†–v‚ææ÷Væ6VÖVçBâ"À¢'66÷R#¢##BÖ–çF–æVBöff–6–Â6÷W&6W2ÇW2ö7Fö&W"’†–v‚ææ÷Væ6VÖVçC²&÷VæFVBWF†÷&—¦F–öâæB&Vv–öæÂ6Æ–×2â ¢ÒÀ¢°¢&B#¢###bÓÓ#eC£S3£¢"À¢&÷WF6öÖR#¢&6†ævVB"À¢'7VÖÖ'’#¢%&WF–æVBö7Fö&W#’†–v‚&ö6W76÷"õ5ÂÖ76—7FçBææ÷Væ6VÖVçB&W6–FRVç&W6öÇfVBW†7B6W'f–6RÂÖöFRæB&öÆÆ÷WB66÷Râ"À¢'66÷R#¢##Röff–6–Â6÷W&6W3²æ–æR&÷VæFVB6Æ–Òw&÷W3²gVÆÂU3‚ã‚&Vv–öæÂF&ÆW2æB6W&FRöffW&–ær&÷VæF&–W2â ¢ÒÀ¢°¢&B#¢###bÓÓ#uC££#U¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–ærÖ–çF–æVB&Vv–öæÂÂWF†÷&—¦F–öâæBæÖVBÔ’Wf–FVæ6Râ"À¢'66÷R#¢##Röff–6–ÂU$Ç3²6ö×ÆWFRU2‚ã‚&Vv–öæÂF&ÆW2ÂW†7BÖ&¶WGÆ6RöffW&–æw2ÂFFVBf—7VÂÖG&—‚Â4”ô•E4’&öÆÆ÷WBæB4ô"&W7G&–7FVB66÷Râ ¢ÒÀ¢°¢&B#¢###bÓÓ#uC££CãE¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢%&Wf–WvVB#Röff–6–Â6÷W&6W2æB6WfVâ6öç6WVVçF–Â6Æ–Òw&÷W3²æòÖFW&–Â&Vv–öæÂ÷"WF†÷&—¦F–öâ6†ævRW7F&Æ—6†VBâ"À¢'66÷R#¢##Röff–6–ÂU$Ç3²6ö×ÆWFRU2‚ã‚&Vv–öæÂF&ÆW2ÂW†7BÖ&¶WGÆ6RöffW&–æw2ÂFFVBf—7VÂÖG&—‚Â4”ô•E4’&öÆÆ÷WBæB4ô"&W7G&–7FVB66÷Râ ¢ÒÀ¢°¢&B#¢###bÓÓ#…C£CS£C5¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–ær7W'&VçB&Vv–öæÂæB&VwVÆFVBV&Æ–2Wf–FVæ6Râ"À¢'66÷R#¢$g&W6‚v—D‡V"Ö–âæB6—FRfW'6–öâ#3C²7W'&VçB6W'f–6RFWF–Ç2ÂU2‚ãró‚ã‚&Vv–öæÂF&ÆW2ÂW†7BÖ&¶WGÆ6RöffW&–æw2Âf—7VÂFFVB6ö×Æ–æ6RÖG&—‚Â4ô"&W7G&–7F–öç2æB’&Vv–öâ÷'VçF–ÖR&6¶Æörâ6÷W&6R&WG&–WfÂ—26W&FRg&öÒ6Æ–ÒfW&–f–6F–öââ ¢ÒÀ¢°¢&B#¢###bÓÓ#…C£S£Srã3•¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢%&Wf–WvVBÆÂ#RÖ–çF–æVBöff–6–Â6÷W&6W2æB6WfVâ&÷VæFVB6Æ–Òw&÷W3²æò7W÷'FVB&Vv–öæÂ÷"WF†÷&—¦F–öâf7B6†ævVBâ"À¢'66÷R#¢$g&W6‚v—D‡V"Ö–âæB6—FRfW'6–öâ#3C²7W'&VçB6W'f–6RFWF–Ç2ÂU2‚ãró‚ã‚&Vv–öæÂF&ÆW2ÂW†7BÖ&¶WGÆ6RöffW&–æw2Âf—7VÂFFVB6ö×Æ–æ6RÖG&—‚Â4ô"&W7G&–7F–öç2æB’&Vv–öâ÷'VçF–ÖR&6¶Æörâ6÷W&6R&WG&–WfÂ—26W&FRg&öÒ6Æ–ÒfW&–f–6F–öââ ¢ÒÀ¢°¢&B#¢###bÓÓ#•C£#S£bãsu¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–ærF†R6ö×ÆWFR&Vv–öæÂæBWF†÷&—¦F–öâ–çfVçF÷'’æB&÷VæFVB’õ4ô"6Æ–Òw&÷W2â"À¢'66÷R#¢$g&W6‚ÖF6†–ærv—D‡V"Ö–âæB6—FR#C3²#Röff–6–ÂU$Ç2ÂW†7BÖ&¶WGÆ6RöffW&–æw2Â6ö×Æ–æ6RÖG&—‚æB&Vv–öæÂ÷'VçF–ÖR&6¶Æörâ ¢ÒÀ¢°¢&B#¢###bÓÓ#•C£#s£3‚ã#U¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢%&Wf–WvVB#Röff–6–Â6÷W&6W2æB6WfVâ6öç6WVVçF–Â6Æ–Òw&÷W3²æò7W÷'FVB&Vv–öæÂ÷"WF†÷&—¦F–öâf7B6†ævVBâ"À¢'66÷R#¢$W†7BÖ&¶WGÆ6RöffW&–æw2Âf—7VÆÇ’–ç7V7FVBFFVB6ö×Æ–æ6RÖG&—‚ÂU2‚ã‚6ö×ÆWFRVF—F–öâô4ÕF&ÆW2Â4”'VçF–ÖRÂ•E4’7V&vVçB&öÆÆ÷WBÂ326öæfÆ–7G2æB4ô"&W7G&–7FVBVçf—&öæÖVçG2â6÷W&6R66W72—26W&FRg&öÒ6Æ–ÒfW&–f–6F–öââ ¢ÒÀ¢°¢&B#¢###bÓÓ3C£3C£ãc¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–ær7W'&VçB&Vv–öæÂæB&VwVÆFVBWf–FVæ6RæBV&Æ–6F–öâ&—G’â"À¢'66÷R#¢$ÆÂ#RÖ–çF–æVBöff–6–Â55ôfVE$Õô’õ4ô"U$Ç3²6WfVâ&÷VæFVB6öç6WVVçF–Â6Æ–Òw&÷W2Â7W'&VçBöÆVv7’ö–çfÆ–B&W÷'G2æB6æF–FFRW‡÷'BWf–FVæ6Râ ¢ÒÀ¢°¢&B#¢###bÓÓ3C£3C£ã#S•¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢%&WG&–WfVBÆÂ#Röff–6–Â6÷W&6W2æB&WfW&–f–VB6WfVâ6öç6WVVçF–Â6Æ–Òw&÷W3²æò7W÷'FVB&Vv–öæÂ÷"WF†÷&—¦F–öâf7B6†ævVBâ"À¢'66÷R#¢$W†7BÖ&¶WGÆ6RöffW&–æw3²326öæfÆ–7G3²6ö×ÆWFRU2‚ã‚W76VçF–Ç2õ&VÖ–W"ô4Õ&Vv–öâF&ÆW3²4””Ã"÷'VçF–ÖRô†–v‚66÷S²•E4’7V&vVçBVæ¶æ÷vâ&öÆÆ÷WC²4ô"&W7G&–7F–öç2æBFFVB6ö×Æ–æ6RÖG&—‚â7V66W76gVÂ66÷R&Wf–Wr—26W&FRg&öÒFVÆ—fW'’â ¢Ğ¢ÒÀ¢'66÷R#¢$W†7BÖ&¶WGÆ6RöffW&–æw3²326öæfÆ–7G3²6ö×ÆWFRU2‚ã‚W76VçF–Ç2õ&VÖ–W"ô4Õ&Vv–öâF&ÆW3²4””Ã"÷'VçF–ÖRô†–v‚66÷S²•E4’7V&vVçBVæ¶æ÷vâ&öÆÆ÷WC²4ô"&W7G&–7F–öç2æBFFVB6ö×Æ–æ6RÖG&—‚â7V66W76gVÂ66÷R&Wf–Wr—26W&FRg&öÒFVÆ—fW'’â ¢ÒÀ¢°¢&–B#¢'fW'6–öâ×&VÆV6R×vF6‚"À¢&æÖR#¢%fW'6–öâ&VÆV6RvF6‚"À¢&Æ7DGFV×B#¢###bÓÓ3C“£S£C…¢"À¢&Æ7E7V66W72#¢###bÓÓ3C“£S“£3¢"À¢&÷WF6öÖR#¢&6†ævVB"À¢'7VÖÖ'’#¢$Gfæ6VBF†R7W7FöÖW"ÖÖævVB—F†öâ–ç7G'VÖVçFF–öâ&6VÆ–æRFò"ã2ã2v—F‚W†7B–ÖvRÂFWVæFVæ7’æB÷7Fw&U5ÂÖ6÷'&VÆF–öâ66÷S²&WF–æVB&–÷"†—7F÷'’æBÆÂVç&W6öÇfVB&÷VæF&–W2â"À¢&†—7F÷'’#¢°¢°¢&B#¢###bÓ’Ó#UC“£C“£#RãS33cb³£"À¢&÷WF6öÖR#¢&æ÷B×&V6÷&FVB"À¢'7VÖÖ'’#¢$–×÷'FVB66†VGVÆW"GFV×BF–ÖW7F×²æ÷BWf–FVæ6Röb7V66W76gVÂ6ö×ÆWF–öââ ¢ÒÀ¢°¢&B#¢###bÓ’Ó#eC“££¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–æröff–6–Â7ÇVæ²&VÆV6RÂ6ö×F–&–Æ—G’ÂÖ–w&F–öâÂ6V7W&—G’æB7W7FöÖW"ÖÖævVBö'6W'f&–Æ—G’6÷W&6W2f÷"6†ævW2ffV7F–ærfW'6–öâ6ö×72â"À¢'66÷R#¢%7ÇVæ²VçFW'&—6RÂ6Æ÷VBÆFf÷&ÒÂVçFW'&—6R×FòÔ6Æ÷VBÖ–w&F–öâÂVçFW'&—6R6V7W&—G’Â•E4’Âö'6W'f&–Æ—G’6Æ÷VBÂ6ö×F–&–Æ—G’æB6V7W&—G’æ÷F–6W2Â7ÇVæ¶&6RÆ—7F–æw2ÂæBÖ–çF–æVB÷VåFVÆVÖWG'’6ö×öæVçB&VÆV6R7G&V×2â ¢ÒÀ¢°¢&B#¢###bÓ’Ó#eC“£#£e¢"À¢&÷WF6öÖR#¢&6†ævVB"À¢'7VÖÖ'’#¢$FFVBâVçFW'&—6RãBã2Ö÷"ÖÆFW"Ö–çFVææ6RF&vWB&V6W6R7ÇVæ²Gf—6W2v–ç7BãBã"f÷"6¶æ÷vÆVFvVBf÷'v&F–æs²æò÷F†W"ÖFW&–Â&VÆV6R6†ævRv2f÷VæBâ"À¢'66÷R#¢%7ÇVæ²VçFW'&—6RÂ6Æ÷VBÆFf÷&ÒÂVçFW'&—6R×FòÔ6Æ÷VBÖ–w&F–öâÂVçFW'&—6R6V7W&—G’Â•E4’Âö'6W'f&–Æ—G’6Æ÷VBÂ6ö×F–&–Æ—G’æB6V7W&—G’æ÷F–6W2Â7ÇVæ¶&6RÆ—7F–æw2ÂæBÖ–çF–æVB÷VåFVÆVÖWG'’6ö×öæVçB&VÆV6R7G&V×2â ¢ÒÀ¢°¢&B#¢###bÓ’Ó#uC“£C“£#•¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–æröff–6–Â7ÇVæ²&VÆV6RÂ6ö×F–&–Æ—G’ÂÖ–w&F–öâÂ6V7W&—G’Â7ÇVæ¶&6RæB7W7FöÖW"ÖÖævVBö'6W'f&–Æ—G’6÷W&6W2f÷"6†ævW2ffV7F–ærfW'6–öâ6ö×72â"À¢'66÷R#¢%7ÇVæ²VçFW'&—6RæB6Æ÷VBÆFf÷&Ò&VÆV6Ræ÷FW2ÂWw&FRwV–Fæ6RÂ7W÷'FVBF‡2æB7—7FVÒ&WV—&VÖVçG3²VçFW'&—6R×FòÔ6Æ÷VBÖ–w&F–öâæB44Ô²VçFW'&—6R6V7W&—G’æB•E4’&VÆV6W2Â6ö×F–&–Æ—G’æB6Æ÷VB—&–æs²6V7W&—G’æBFW&V6F–öâæ÷F–6W3²ö'6W'f&–Æ—G’6Æ÷VBÖ–ÆW7FöæW3²Ö–çF–æVB÷VåFVÆVÖWG'’6öÆÆV7F÷"Â6†'BÂ–ç7G'VÖVçFF–öâÂ%TÒÂW‡÷'FW"æB6VÖçF–2Ö6öçfVçF–öâ&VÆV6R7G&V×3²&÷WFRÂ6†&RÂ&–çBæBvV$Ô5–çFVw&F–öââ ¢ÒÀ¢°¢&B#¢###bÓ’Ó#uC“£S£#U¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢%&Wf–WvVBF†RÖ–çF–æVBöff–6–Â&VÆV6RÂ6ö×F–&–Æ—G’ÂÖ–w&F–öâÂ6V7W&—G’Â7ÇVæ¶&6RæBö'6W'f&–Æ—G’ô÷VåFVÆVÖWG'’7G&V×3²æòÖFW&–Âf7GVÂÂ6ö×F–&–Æ—G’Â&VF–æW72÷"&÷WFR6†ævRv2f÷VæBâ"À¢'66÷R#¢%7ÇVæ²VçFW'&—6RãB&VÆV6RÂf—†VBÖ—77VRÂWw&FR×F‚Â$TBD„•2d•%5BÂ7—7FVÒ×&WV—&VÖVçBæBFW&V6F–öâ7W&f6W3²6Æ÷VBÆFf÷&ÒãRã#cR&VÆV6RæB6W'f–6RÖFWF–Ç2—&–æs²VçFW'&—6R×FòÔ6Æ÷VBwV–Fæ6RæB44ÔRãBã²VçFW'&—6R6V7W&—G’‚ãræB•E4’Rãã"Æ—7F–æw2Â&VÆV6RæB7W7FöÖW"ÖÖævVB6ö×F–&–Æ—G’Wf–FVæ6S²6WFVÖ&W"6V7W&—G’æ÷F–6S²6WFVÖ&W"ö'6W'f&–Æ—G’F–ÖVÆ–æS²Ö–çF–æVB6öÆÆV7F÷"ãcãÂ·V&W&æWFW26†'BãcãÂääUBãbãÂæöFRæ§2BããÂ¦f"ã3ãÂ—F†öâ"ã"ãæB'&÷w6W"%TÒ2ã"ã7G&V×3²&÷WFRÂ6†&RÂ&–çBæBvV$Ô5–çFVw&F–öââ ¢ÒÀ¢°¢&B#¢###bÓ’Ó#…C“£S£CBãcc%¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–ær7W'&VçBöff–6–Â7ÇVæ²&VÆV6RÂ6ö×F–&–Æ—G’ÂÖ–w&F–öâÂ6V7W&—G’æBö'6W'f&–Æ—G’6ö×öæVçB6÷W&6W2â"À¢'66÷R#¢%7ÇVæ²VçFW'&—6RÂ7ÇVæ²6Æ÷VBÆFf÷&ÒÂVçFW'&—6R×FòÔ6Æ÷VBÖ–w&F–öâÂVçFW'&—6R6V7W&—G’Â•E4’Âö'6W'f&–Æ—G’6Æ÷VBæBÖ–çF–æVB7W7FöÖW"ÖÖævVB6ö×öæVçB7G&V×2â ¢ÒÀ¢°¢&B#¢###bÓ’Ó#…C“£S£SãSSU¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢$æòæWvÇ’V&Æ—6†VB÷"&Wf—6VBöff–6–Â&VÆV6R–æf÷&ÖF–öâ&WV—&VBf7GVÂfW'6–öâ6ö×72WFFRâ"À¢'66÷R#¢$6†V6¶VB7W'&VçB7ÇVæ²VçFW'&—6RæB6Æ÷VB&VÆV6Ræ÷FW2ÂWw&FRF‡2Â7—7FVÒæB6ö×F–&–Æ—G’wV–Fæ6RÂU2æB•E4’&VÆV6RöÆ—7F–æröFWVæFVæ7’Wf–FVæ6RÂÖ–w&F–öâ76W76ÖVçBÆ—7F–ærÂ6V7W&—G’æ÷F–6W2Â6WFVÖ&W"ö'6W'f&–Æ—G’Ö–ÆW7FöæW2ÂæBÖ–çF–æVB6öÆÆV7F÷"Â·V&W&æWFW2ÂääUBÂæöFRæ§2Â¦fÂ—F†öâæB'&÷w6W"%TÒ7G&V×2â ¢ÒÀ¢°¢&B#¢###bÓ’Ó#•C“£#c£bãsC%¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–ær7W'&VçBöff–6–Â7ÇVæ²&VÆV6RÂ6ö×F–&–Æ—G’ÂÖ–w&F–öâÂ6V7W&—G’Âf÷'v&FW"æBö'6W'f&–Æ—G’6ö×öæVçB6÷W&6W2â"À¢'66÷R#¢%7ÇVæ²VçFW'&—6RæB6Æ÷VBÆFf÷&Ò&VÆV6Ræ÷FW2ÂWw&FRF‡2Â7—7FVÒæB6ö×F–&–Æ—G’wV–Fæ6S²VçFW'&—6R×FòÔ6Æ÷VBÖ–w&F–öâæB44Ô²VçFW'&—6R6V7W&—G’æB•E4’&VÆV6W2ÂÆ—7F–æw2æBFWVæFVæ6–W3²6V7W&—G’æBFW&V6F–öâæ÷F–6W3²Væ—fW'6ÂæB†Vg’f÷'v&FW"&VÆV6W2Â—77VW2æBGf—6÷&–W3²6WFVÖ&W"ö'6W'f&–Æ—G’Ö–ÆW7FöæW3²Ö–çF–æVB6öÆÆV7F÷"Â·V&W&æWFW26†'BÂ–ç7G'VÖVçFF–öâæB%TÒ7G&V×3²&÷WFRÂ6†&RÂW‡÷'BæB&VBÖöæÇ’vVçB&—G’â ¢ÒÀ¢°¢&B#¢###bÓ’Ó#•C“£#ƒ£’ãsƒ¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢%&Wf–WvVBF†RÖ–çF–æVBöff–6–Â&VÆV6RÂ6ö×F–&–Æ—G’ÂÖ–w&F–öâÂ6V7W&—G’Âf÷'v&FW"æBö'6W'f&–Æ—G’6ö×öæVçB6÷W&6W3²æòÖFW&–Âf7GVÂÂ6ö×F–&–Æ—G’Â&VF–æW72÷"&÷WFR6†ævRv2f÷VæBâ"À¢'66÷R#¢%7ÇVæ²VçFW'&—6RãBæB6Æ÷VBÆFf÷&ÒãRã#cR&VÆV6RÂWw&FRÂ7—7FVÒÂ6W'f–6R×—&–æræB6ö×F–&–Æ—G’Wf–FVæ6S²VçFW'&—6R×FòÔ6Æ÷VBÖ–w&F–öâæB44ÔRãBã²VçFW'&—6R6V7W&—G’‚ãrãæB•E4’Rãã"&VÆV6RöÆ—7F–æröFWVæFVæ7’Wf–FVæ6S²5dBÓ##bÓ“æBf÷'v&FW"Gf—6÷&–W3²Væ—fW'6Âô†Vg’f÷'v&FW"ãB—77VRÂ&V6V—fW"æB6Æ÷VBÖF—&V7B7W÷'BWf–FVæ6S²6WFVÖ&W"ö'6W'f&–Æ—G’F–ÖVÆ–æS²6öÆÆV7F÷"ãcãÂ·V&W&æWFW26†'BãcãÂääUBãbãÂæöFRæ§2BããÂ¦f"ã3ãÂ—F†öâ"ã"ãæB'&÷w6W"%TÒ2ã"ã7G&V×3²&÷WFRÂ6†&RÂW‡÷'BæB&VBÖöæÇ’vVçB&—G’â ¢ÒÀ¢°¢&B#¢###bÓ’Ó3C“£Cc£•¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–ærÖ–çF–æVB7ÇVæ²&VÆV6RÂ6ö×F–&–Æ—G’ÂÖ–w&F–öâÂ6V7W&—G’Âf÷'v&FW"æBö'6W'f&–Æ—G’6÷W&6W2f÷"7W7FöÖW"Ö7F–öæ&ÆR6†ævW2â"À¢'66÷R#¢%7ÇVæ²VçFW'&—6RæB6Æ÷VB&VÆV6Ræ÷FW2ÂWw&FRF‡2Â7—7FVÒ&WV—&VÖVçG2æB6W'f–6R—&–æs²VçFW'&—6R6V7W&—G’æB•E4’&VÆV6RæB6ö×F–&–Æ—G’Wf–FVæ6S²VçFW'&—6R×FòÔ6Æ÷VBÖ–w&F–öâæB44Ô²6V7W&—G’æ÷F–6W3²Væ—fW'6ÂæB†Vg’f÷'v&FW'3²ö'6W'f&–Æ—G’6Æ÷VBæBÖ–çF–æVB÷VåFVÆVÖWG'’6ö×öæVçB&VÆV6RfVVG3²&÷WFRÂW‡÷'BæB&VBÖöæÇ’vVçB&—G’â ¢ÒÀ¢°¢&B#¢###bÓ’Ó3C“£Ss£3E¢"À¢&÷WF6öÖR#¢&6†ævVB"À¢'7VÖÖ'’#¢%&Wf–Wrf÷VæB7ÇVæ²VçFW'&—6RãBãB2F†R7W'&VçB7W7FöÖW"ÖÖævVBÖ–çFVææ6RF&vWBv†–ÆR&WF–æ–ærãBã22F†R6¶æ÷vÆVFvVBÖf÷'v&F–ærÖ–æ–×VÒæBW†6ÇVF–ærãBã"â"À¢'66÷R#¢%7ÇVæ²VçFW'&—6RãB&VÆV6RæBf—†VBÖ—77VRwV–Fæ6S²6Æ÷VB6W'f–6R—&–æs²U2Â•E4’æB44Ô7W'&VçB&VÆV6W3²6ö×F–&–Æ—G’ÖG&—ƒ²6V7W&—G’æ÷F–6S²f÷'v&FW"Ö–çFVææ6RwV–Fæ6S²6WFVÖ&W"ö'6W'f&–Æ—G’F–ÖVÆ–æRæBÖ–çF–æVB6öÆÆV7F÷"Â6†'BÂ–ç7G'VÖVçFF–öâæB%TÒ&VÆV6R7G&V×3²&÷WFRÂW‡÷'BæB&VBÖöæÇ’vVçB&—G’â ¢ÒÀ¢°¢&B#¢###bÓÓC“£ƒ£#%¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–æröff–6–ÂÆFf÷&ÒÂÖ–w&F–öâÂ&VÖ—VÒÖÂf÷'v&FW"Â6V7W&—G’æBö'6W'f&–Æ—G’&VÆV6R6÷W&6W2â"À¢'66÷R#¢$6ö×ÆWFRÖ–çF–æVB&VÆV6R–çfVçF÷'’ÇW2&÷VæFVB†–v‚Ö6öç6WVVæ6R6†V6·2f÷"VçFW'&—6RãBWw&FRöÖ–çFVææ6RÂU2ô•E4’—&–æw2Â6Æ÷VB6W'f–6R—&–æw2ÂTbô„bWw&FRæB&V6V—fW"6ö×F–&–Æ—G’Â6V7W&—G’æ÷F–6W2Â44ÔÂæB7W'&VçBö'6W'f&–Æ—G’62ö6ö×öæVçB&VÆV6W2â ¢ÒÀ¢°¢&B#¢###bÓÓC“£#c£#¢"À¢&÷WF6öÖR#¢&6†ævVB"À¢'7VÖÖ'’#¢%V&Æ—6†VB×6÷W&6R&Wf–Wrf÷VæBGvòö'6W'f&–Æ—G’6Æ÷VBF–ÖVÆ–æRFF—F–öç2ÂæöFRæ§2–ç7G'VÖVçFF–öâBã"ãæB¦f–ç7G'VÖVçFF–öâ"ã3ã3²&W—&VBf÷'v&FW"6Æ–Ò×Fò×6V7F–öâ6÷W&6R&Vv—7G&F–öâv—F†÷WB6†æv–ær–çFW&f6R÷"&÷WFRf7G2â"À¢'66÷R#¢$6†V6¶VBF†RÖ–çF–æVBVçFW'&—6RÂ6Æ÷VB6W'f–6R—&–ærÂÖ–w&F–öâõ44ÔÂU2Â•E4’Âö'6W'f&–Æ—G’62æB6ö×öæVçBÂf÷'v&FW"&V6V—fW"÷F÷öÆöw’ÂæBGf—6÷'’–çfVçF÷&–W3²†–v†W7BÖ6öç6WVVæ6R6Æ–ÒfW&–f–6F–öâ6÷fW&VBVçFW'&—6RãBWw&FRæBÖ–çFVææ6RÂTbô„b&V6V—fW"6ö×F–&–Æ—G’Â6Æ÷VB&V6V—fW"—&–ærÂæBF†Rf÷W"6†ævVBö'6W'f&–Æ—G’&V6÷&G2âF†RVæf–Æ&ÆRVçFW'&—6RãBãBf—†VBÖ—77VW2FWF–Â&VÖ–ç2&6¶Æörâ ¢ÒÀ¢°¢&B#¢###bÓÓ%C“£Sc£#e¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢$F–Ç’öff–6–Â×6÷W&6R&Wf–Wr–â&öw&W73²WfÇVF–ærVçFW'&—6R6V7W&—G’‚ãrãæB7W'&VçB6Æ÷VBãb6W'f–6RFWF–Ç2v†–ÆR&V6†V6¶–ær4ô"Âf÷'v&FW"ÂÖ–w&F–öâÂ•E4’Âö'6W'f&–Æ—G’æB6V7W&—G’7G&V×2â"À¢'66÷R#¢$7W'&VçBVçFW'&—6RÂ6Æ÷VBÂÖ–w&F–öâÂU2Â•E4’Âö'6W'f&–Æ—G’Â4ô"ÂTbô„bÂ6V7W&—G’æBÖ–çF–æVB–ç7G'VÖVçFF–öâF—66÷fW'’7G&V×3²&÷VæFVB†–v†W7BÖ6öç6WVVæ6R&VÆV6RÂ—&–ærÂWw&FRÂ&V6V—fW"æB&W&WV—6—FR6Æ–×2â ¢ÒÀ¢°¢&B#¢###bÓÓ%C£S£C…¢"À¢&÷WF6öÖR#¢&6†ævVB"À¢'7VÖÖ'’#¢%V&Æ—6†VB×6÷W&6R&Wf–WrFFVBVçFW'&—6R6V7W&—G’‚ãrãæB—G26öææV7F÷"'V–ÆFW"VÆ–v–&–Æ—G’6†ævRÂ&WF–æVBF†RW†7B4ô"‚ãrã6ö×F–&–Æ—G’&÷VæF'’ÂæBÖ÷fVB7W'&VçB6Æ÷VBæBf÷'v&FW"Wf–FVæ6RFòF†Rãb6W'f–6RFWF–Ç2vRv—F†÷WB–æfW'&–ær6Æ÷VBãb&öÆÆ÷WB÷"&V6V—fW"7W÷'Bâ"À¢'66÷R#¢$6†V6¶VB7W'&VçBVçFW'&—6RÂ6Æ÷VBÂÖ–w&F–öâõ44ÔÂU2Â•E4’Âö'6W'f&–Æ—G’Â4ô"ÂTbô„bÂ6V7W&—G’æBÖ–çF–æVB–ç7G'VÖVçFF–öâF—66÷fW'’7G&V×3²&÷VæFVB6Æ–ÒfW&–f–6F–öâ6÷fW&VBU2‚ãrã&VÆV6RöfVGW&RÂ6Æ÷VB7W'&VçB—&–ærÂ6Æ÷VBF—&V7Bö–çFW&ÖVF–FRf÷'v&FW'2Â4ô"'V–ÆBõ—F†öâ÷F‚ö6ö×F–&–Æ—G’ÂVçFW'&—6R’ãBãbÂæB6÷W&6R×Fò×6V7F–öâÖ–æw2âU2æBVçFW'&—6RF6‚—77VR&÷w2&VÖ–âVæf–Æ&ÆS²WF†÷&—¦F–öâæB&Vv–öæÂ÷væW'6†—&VÖ–â6W&FRâ ¢ÒÀ¢°¢&B#¢###bÓÓ5C“£3“£SãCS…¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–ær6ö×ÆWFRÖ–çF–æVB&VÆV6RÂÖ–w&F–öâÂf÷'v&FW"Âö'6W'f&–Æ—G’æB4ô"öff–6–Â×6÷W&6R–çfVçF÷&–W2ÇW2&÷VæFVB†–v†W7BÖ6öç6WVVæ6R&÷WFRÂ6ö×F–&–Æ—G’Â6V7W&—G’æB&W&WV—6—FR6Æ–×2â"À¢'66÷R#¢$ÆÂÖ–çF–æVBfW'6–öâ&VÆV6RvF6‚6÷W&6R&V6÷&G3²&÷VæFVB6Æ–×2f÷"7W'&VçBVçFW'&—6Rô6Æ÷VB&VÆV6W2ÂWw&FRF‡2Â&VÖ—VÒÖ—&–æw2ÂÖ–w&F–öâfÆö÷"ÂTbô„b&V6V—fW"æBF÷öÆöw’6ö×F–&–Æ—G’Âö'6W'f&–Æ—G’7W7FöÖW"ÖÖævVB6ö×öæVçG2ÂæB4ô"‚ãbó‚ãr&÷WFW2æB&W&WV—6—FW2â ¢ÒÀ¢°¢&B#¢###bÓÓ5C££¢"À¢&÷WF6öÖR#¢&6†ævVB"À¢'7VÖÖ'’#¢%V&Æ—6†VB×6÷W&6R&Wf–WrFFVBW†7BVçFW'&—6RæB†Vg’f÷'v&FW"ãb&VÆV6RÖÆ–æR&÷WFW2g&öÒF†R6æöæ–6ÂãbWw&FRF&ÆRv†–ÆR¶VW–ærãbVçFW'&—6RæB6Æ÷VB&V6V—fW"6ö×F–&–Æ—G’æ÷BW7F&Æ—6†VBâ"À¢'66÷R#¢$ÆÂ2Ö–çF–æVBöff–6–Â&VÆV6RÂÖ–w&F–öâÂ&VÖ—VÒ×&öGV7BÂf÷'v&FW"Âö'6W'f&–Æ—G’æB4ô"U$Ç3²&÷VæFVB7W'&VçB&VÆV6RÂWw&FRÂ6ö×F–&–Æ—G’Â&V6V—fW"Â'VçF–ÖRæB6V7W&—G’6Æ–×2â ¢ÒÀ¢°¢&B#¢###bÓÓUC“£CC£5¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢$6†V6¶–ærF†R6ö×ÆWFRÖ–çF–æVB&VÆV6R×6÷W&6R–çfVçF÷'’æB&÷VæFVB†–v‚Ö6öç6WVVæ6R&VÆV6RÂWw&FRÂ&V6V—fW"Â'VçF–ÖRÂ6V7W&—G’æB4ô"6Æ–×2â"À¢'66÷R#¢$ÆÂ2Væ—VRÖ–çF–æVBöff–6–ÂU$Ç2&VfW&Væ6VB'’ÆFf÷&ÒÂ&VÖ—VÒ×&öGV7BÂf÷'v&FW"æB4ô"FF²&÷VæFVB7W'&VçB&VÆV6RÂWw&FRÂ6ö×F–&–Æ—G’Â&V6V—fW"Â'VçF–ÖRÂGf—6÷'’æB4ô"6†V6·2â ¢ÒÀ¢°¢&B#¢###bÓÓUC“£S£¢"À¢&÷WF6öÖR#¢&æòÖ6†ævR"À¢'7VÖÖ'’#¢$æòÖFW&–Â&VÆV6RÂ&÷WFRÂ6ö×F–&–Æ—G’Â'VçF–ÖRÂ6V7W&—G’÷"4ô"6÷'&V7F–öâv2f÷VæBâ7W'&VçB–FVçF–f–W'2æBW†—7F–ærVæ6W'F–çG’&÷VæF&–W2&VÖ–â7W÷'FVB'’F†R&÷VæFVB6†V6·2â"À¢'66÷R#¢$ÆÂ2Ö–çF–æVBöff–6–ÂU$Ç2vW&RfWF6†VC¢7V66VVFVBæBF†R6ÖRGvò†—7F÷&–6Â‚ãó‚ã"vW2&VÖ–æVBVæf–Æ&ÆRâfW&–f–VB7W'&VçBVçFW'&—6Rô6Æ÷VBÂTbô„b&V6V—fW"æBF÷öÆöw’Â&VÖ—VÒÖÂÖ–w&F–öâÂö'6W'f&–Æ—G’6ö×öæVçBÂ4ô"æB6V7W&—G’ÖGf—6÷'’6Æ–×3²&Vv–öæÂWF†÷&—¦F–öâ&VÖ–æVB÷WG6–FRF†—2vF6‚â ¢ÒÀ¢°¢&B#¢###bÓÓuC£3£3ã¢"À¢&÷WF6öÖR#¢''Vææ–ær"À¢'7VÖÖ'’#¢%&Wf–Wv–ærF†R6ö×ÆWFRÖ–çF–æVB&VÆV6R×6÷W&6R–çfVçF÷'’æB&÷VæFVB†–v‚Ö6öç6WVVæ6R&VÆV6RÂWw&FRÂ&V6V—fW"Â'VçF–ÖRÂ6V7W&—G’æB4ô"6Æ–×2â"À¢'66÷R#¢$ÆÂ#Væ—VRÖ–çF–æVBöff–6–ÂU$Ç2&VfW&Væ6VB'’ÆFf÷&ÒÂ&VÖ—VÒ×&öGV7BÂf÷'v&FW"æB4ô"6æöæ–6ÂFF6WG3²&÷VæFVB7W'&VçB&VÆV6RÂ6W'f–6R×—&–ærÂWw&FRÂ&V6V—fW"Â'VçF–ÖRÂGf—6÷'’æB4ô"6†V6·2â ¢ÒÀ¢°¢&B#¢###bÓÓuC£C£ã¢"À¢&÷WF6öÖR#¢&6†ævVB"À¢'7VÖÖ'’#¢%V&Æ—6†VB6Æ÷VBãb7W'&VçB—&–æw2æBW†7BVçFW'&—6Rô6Æ÷VBãbf÷'v&FW"&V6V—fW"&÷w2v†–ÆR&W6W'f–ærVçf—&öæÖVçBÂVçF—FÆVÖVçBÂF÷öÆöw’æB7W÷'BVÆ–f–6F–öç2â"À¢'66÷R#¢$ÆÂ#Ö–çF–æVBU$Ç2vW&RGFV×FVBv—F‚F–ffW&VçF–FVBf–Æ&–Æ—G’&V6÷/=ï›h‘éì¶»§q«^uÍ½Á”É•Ù¥•Ü¥Ì¹½Ğ‘•Á±½åµ•¹Ğì•á…Ğµ…¹‘¥‘…Ñ”•áÁ½ÉÑÌ…¹±¥Ù”‘•±¥Ù•ÉäÉ•µ…¥¸Í•Á…É…Ñ”¸ˆ(€€€ô°(€€€ì(€€€€€€‰¥ˆè€‰•Ìµ•‘¥Ñ¥½¹Ìµİ…Ñ ˆ°(€€€€€€‰¹…µ”ˆè€‰L‘¥Ñ¥½¹Ì]…Ñ ˆ°(€€€€€€‰±…ÍÑÑÑ•µÁĞˆè€ˆÈÀÈØ´ÄÀ´ÌÁPÄÀèÀÈèÔÑhˆ°(€€€€€€‰±…ÍÑMÕ•ÍÌˆè€ˆÈÀÈØ´ÄÀ´ÌÁPÄÀèÀÌèÄÁhˆ°(€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€‰ÍÕµµ…Éäˆè€‰I•ÑÉ¥•Ù•…±°€ÌÀµ…¥¹Ñ…¥¹•½™™¥¥…°É•½É‘Ì…¹É•Ù•É¥™¥•€ÄØ‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”±…¥µÌì¹¼ÍÕÁÁ½ÉÑ•L•‘¥Ñ¥½¸½ÈLµÍÁ•¥™¥Œ$™…Ğ¡…¹•°…¹…±°½¹™±¥ÑÌ…¹ÅÕ…±¥™¥…Ñ¥½¹ÌÉ•µ…¥¸•áÁ±¥¥Ğ¸ˆ°(€€€€€€‰¡¥ÍÑ½Éäˆèl(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´Àä´ÈÕPÄÀèÀÌèĞÄ¸ÈààÀÄÌ¬ÀÀèÀÀˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹½ĞµÉ•½É‘•ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰%µÁ½ÉÑ•Í¡•‘Õ±•È…ÑÑ•µÁĞÑ¥µ•ÍÑ…µÀì¹½Ğ•Ù¥‘•¹”½˜ÍÕ•ÍÍ™Õ°½µÁ±•Ñ¥½¸¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´Àä´ÈÙPÄÀèÀĞèÀåhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ¥¹œÑ¡”½µÁ±•Ñ”ÁÕ‰±¥ŒLÍÍ•¹Ñ¥…±Ì…¹AÉ•µ¥•È•Ù¥‘•¹”¥¹Ù•¹Ñ½Éä°Í½ÕÉ”ÅÕ•ÍÑ¥½¹Ì°¡¥ÍÑ½É¥…°É•½É‘Ì°ÁÉ•Í•¹Ñ…Ñ¥½¸…¹•áÁ½ÉĞ‰•¡…Ù¥½È¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰L•‘¥Ñ¥½¹Ì½Ù•ÉÙ¥•Ü°É•±•…Í”¹½Ñ•Ì…¹±½Õ…Á…‰¥±¥Ñä¡¥ÍÑ½Éäì…•¹Ğ…¹Ñ…Í¬Õ¥‘•Ìì±½Õ½¹¹•ĞìÉ•¥½¹…°…¹M=HÁ…¥É¥¹œìÁÉ¥¥¹œ°±¥•¹Í¥¹œ…¹ÑÉ¥…±ÌìU	ìáÁ½ÍÕÉ”¹…±åÑ¥Ìì…¹¹½Õ¹•µ•¹ÑÌìÁÕ‰±¥ŒÉ½ÕÑ”°™¥±Ñ•ÉÌ°Í¡…É¥¹œ…¹ÁÉ¥¹Ğ¥¹Ñ•É…Ñ¥½¸¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´Àä´ÈÙPÄÀèÄÀèÄáhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ•…±°€ÈÀµ…¥¹Ñ…¥¹•½™™¥¥…°L‘¥Ñ¥½¹ÌÍ½ÕÉ•Ì…¹•Ù•Éä‘¥ÍÁ±…å•±…¥´ì¹¼µ…Ñ•É¥…°™…ÑÕ…°½ÈÍ½Á”¡…¹”İ…Ì™½Õ¹°…¹™¥Ù”Õ¹É•Í½±Ù•Í½ÕÉ”ÅÕ•ÍÑ¥½¹ÌÉ•µ…¥¸•áÁ±¥¥Ğ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰L•‘¥Ñ¥½¹Ì½Ù•ÉÙ¥•Ü°É•±•…Í”¹½Ñ•Ì…¹±½Õ…Á…‰¥±¥Ñä¡¥ÍÑ½Éäì…•¹Ğ…¹Ñ…Í¬Õ¥‘•Ìì±½Õ½¹¹•ĞìÉ•¥½¹…°…¹M=HÁ…¥É¥¹œìÁÉ¥¥¹œ°±¥•¹Í¥¹œ…¹ÑÉ¥…±ÌìU	ìáÁ½ÍÕÉ”¹…±åÑ¥Ìì…¹¹½Õ¹•µ•¹ÑÌìÁÕ‰±¥ŒÉ½ÕÑ”°™¥±Ñ•ÉÌ°Í¡…É¥¹œ…¹ÁÉ¥¹Ğ¥¹Ñ•É…Ñ¥½¸¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´Àä´ÈİPÄÀèÀÔèÌåhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ¥¹œÑ¡”½µÁ±•Ñ”ÁÕ‰±¥ŒLÍÍ•¹Ñ¥…±Ì½AÉ•µ¥•È•Ù¥‘•¹”¥¹Ù•¹Ñ½Éä…¹¥¹Ñ•É…Ñ•É•Á½ÉĞ‰•¡…Ù¥½È¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰=™™¥¥…°L•‘¥Ñ¥½¹Ì½Ù•ÉÙ¥•Ü°€à¸ÜÉ•±•…Í”¹½Ñ•Ì…¹±½Õµ…ÑÉ¥à°…•¹Ğ½µÁ…Ñ¥‰¥±¥Ñä…¹Ñ…Í¬Õ¥‘•Ì°±½Õ½¹¹•Ğ°É•¥½¹…°…¹M=HÁ…¥É¥¹œ°ÁÉ¥¥¹œ…¹±¥•¹Í¥¹œ°U	°áÁ½ÍÕÉ”¹…±åÑ¥Ì°…¹¹½Õ¹•µ•¹ÑÌ°Õ¹É•Í½±Ù•Í½ÕÉ”ÅÕ•ÍÑ¥½¹Ì°É½ÕÑ•Ì°Ñ¡•µ•Ì°Í¡…É¥¹œ°ÁÉ¥¹Ğ°…¹Í¡…É•¹…Ù¥…Ñ¥½¸¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´Àä´ÈİPÄÀèÀàèÄİhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰9¼ÍÕÁÁ½ÉÑ•L•‘¥Ñ¥½¸°ÁÉ•É•ÅÕ¥Í¥Ñ”°‘•Á±½åµ•¹Ğ°¡¥ÍÑ½Éä°İ½É­™±½Ü°½ÈÁÉ•Í•¹Ñ…Ñ¥½¸±…¥´¡…¹•ì™¥Ù”‘½Õµ•¹Ñ•Í½ÕÉ”ÅÕ•ÍÑ¥½¹ÌÉ•µ…¥¸Õ¹É•Í½±Ù•¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰±°€ÈÀµ…¥¹Ñ…¥¹•½™™¥¥…°L•‘¥Ñ¥½¸Í½ÕÉ•Ì…¹•Ù•Éä‘¥ÍÁ±…å•…Á…‰¥±¥Ñä°¡¥ÍÑ½Éä°¹½Ñ”°¡¥¡±¥¡Ğ°İ½É­™±½Ü°½¹™±¥Ğ°•‘¥Ñ¥½¸°‘•Á±½åµ•¹Ğ°É•¥½¸°Ù•ÉÍ¥½¸°ÁÉ¥¥¹œ°±¥•¹Í¥¹œ°É•±•…Í”µÍÑ…”°É½ÕÑ”°Ñ¡•µ”°Í¡…É¥¹œ°ÁÉ¥¹Ğ°…¹…•¹Ğµ‰½Õ¹‘…Éä±…¥´¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´Àä´ÈáPÄÀèÀÀèÈÕhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ¥¹œÑ¡”µ…¥¹Ñ…¥¹•ÁÕ‰±¥ŒL•‘¥Ñ¥½¹Ì•Ù¥‘•¹”Í•Ğ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰Qİ•¹Ñä½™™¥¥…°L•‘¥Ñ¥½¹Ì°É•±•…Í”°½µÁ…Ñ¥‰¥±¥Ñä°…•¹Ğ°±½Õ½¹¹•Ğ°ÁÉ¥¥¹œ°±¥•¹Í¥¹œ°É•¥½¹…°°U	°áÁ½ÍÕÉ”¹…±åÑ¥Ì…¹…¹¹½Õ¹•µ•¹ĞÍ½ÕÉ•Ìì¥¹Ñ•É…Ñ•É½ÕÑ”°Í¡…É¥¹œ°ÁÉ¥¹Ğ°Á•ÉÍÁ•Ñ¥Ù”…¹ÁÕ‰±¥…Ñ¥½¸Á…É¥Ñä¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´Àä´ÈáPÄÀèÀĞèĞÙhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰±°µ…¥¹Ñ…¥¹•L•‘¥Ñ¥½¹Ì•Ù¥‘•¹”É•µ…¥¹Ì½¹Í¥ÍÑ•¹Ğİ¥Ñ Ñ¡”ÁÕ‰±¥Í¡•½µÁ…É¥Í½¸ì¹¼™…ÑÕ…°½È•¹Ñ¥Ñ±•µ•¹Ğ¡…¹”İ…ÌÉ•ÅÕ¥É•¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰I•¡•­•…±°Ñİ•¹Ñä½™™¥¥…°•‘¥Ñ¥½¹Ì°É•±•…Í”°…Á…‰¥±¥Ñäµ¡¥ÍÑ½Éä°…•¹Ğ½Ñ…Í¬°±½Õ½¹¹•Ğ°ÁÉ¥¥¹œ°±¥•¹Í¥¹œ½ÑÉ¥…°°É•¥½¹…°½M=HÁ…¥É¥¹œ°U	°áÁ½ÍÕÉ”¹…±åÑ¥Ì…¹…¹¹½Õ¹•µ•¹ĞÍ½ÕÉ•ÌìÁÉ•Í•ÉÙ•™¥Ù”•áÁ±¥¥ĞÍ½ÕÉ”ÅÕ•ÍÑ¥½¹Ì…¹Ñ¡”¥¹Ñ•É…Ñ•É½ÕÑ”½•áÁ½ÉĞ‰½Õ¹‘…É¥•Ì¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´Àä´ÈåPÄÀèÀàèĞÍhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ¥¹œÑ¡”½µÁ±•Ñ”ÁÕ‰±¥ŒLÍÍ•¹Ñ¥…±Ì½AÉ•µ¥•È•Ù¥‘•¹”¥¹Ù•¹Ñ½Éä…¹¥¹Ñ•É…Ñ•É•Á½ÉĞ‰•¡…Ù¥½È¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰Qİ•¹Ñä½™™¥¥…°L•‘¥Ñ¥½¹Ì°É•±•…Í”°…Á…‰¥±¥Ñäµ¡¥ÍÑ½Éä°…•¹Ğ½Ñ…Í¬°±½Õ½¹¹•Ğ°ÁÉ¥¥¹œ°±¥•¹Í¥¹œ½ÑÉ¥…°°É•¥½¹…°½M=HÁ…¥É¥¹œ°U	°áÁ½ÍÕÉ”¹…±åÑ¥Ì…¹…¹¹½Õ¹•µ•¹ĞÍ½ÕÉ•Ìì‘¥ÍÁ±…å•…Á…‰¥±¥Ñ¥•Ì°¡¥¡±¥¡ÑÌ°İ½É­™±½İÌ°¡¥ÍÑ½Éä…¹™¥Ù”Í½ÕÉ”ÅÕ•ÍÑ¥½¹ÌìÁÕ‰±¥ŒÉ½ÕÑ”°Ñ¡•µ•Ì°Í¡…É¥¹œ°ÁÉ¥¹Ğ½Í¹…ÁÍ¡½Ğ°•¹Ù¥É½¹µ•¹Ğ…¹¹…Ù¥…Ñ¥½¸¥¹Ñ•É…Ñ¥½¸¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´Àä´ÈåPÄÀèÀäèÌáhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰±°€ÈÀµ…¥¹Ñ…¥¹•L‘¥Ñ¥½¹ÌÍ½ÕÉ•ÌÍÑ¥±°ÍÕÁÁ½ÉĞÑ¡”ÁÕ‰±¥Í¡•½µÁ…É¥Í½¸ì¹¼™…ÑÕ…°°•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”°‘•Á±½åµ•¹Ğ°¡¥ÍÑ½Éä½ÈÁÉ•Í•¹Ñ…Ñ¥½¸±…¥´¡…¹•°…¹™¥Ù”Í½ÕÉ”ÅÕ•ÍÑ¥½¹ÌÉ•µ…¥¸•áÁ±¥¥Ğ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰I•¡•­••Ù•Éä½™™¥¥…°•‘¥Ñ¥½¸°É•±•…Í”°…Á…‰¥±¥Ñäµ¡¥ÍÑ½Éä°…•¹Ğ½Ñ…Í¬°±½Õ½¹¹•Ğ°ÁÉ¥¥¹œ°±¥•¹Í¥¹œ½ÑÉ¥…°°É•¥½¹…°½M=HÁ…¥É¥¹œ°U	°áÁ½ÍÕÉ”¹…±åÑ¥Ì…¹…¹¹½Õ¹•µ•¹ĞÍ½ÕÉ”ìÉ•Ù¥•İ•…Á…‰¥±¥Ñ¥•Ì°¡¥¡±¥¡ÑÌ°İ½É­™±½İÌ°¡¥ÍÑ½Éä°Í½ÕÉ”ÅÕ•ÍÑ¥½¹Ì°¥¹Ñ•É…Ñ•É½ÕÑ•Ì°Ñ¡•µ•Ì°±½Õ¹Ù¥É½¹µ•¹Ğ½¹Ñ•áĞ°Í¡…É¥¹œ°ÁÉ¥¹Ğ½Í¹…ÁÍ¡½Ğ…¹…•¹Ğµ‰½Õ¹‘…Éä‰•¡…Ù¥½È¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´Àä´ÌÁPÄÀèÀÌèÄÉhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ¥¹œÑ¡”½µÁ±•Ñ”ÁÕ‰±¥ŒLÍÍ•¹Ñ¥…±Ì½AÉ•µ¥•È•Ù¥‘•¹”¥¹Ù•¹Ñ½Éä…¹¥¹Ñ•É…Ñ•É•Á½ÉĞ‰•¡…Ù¥½È¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰Qİ•¹Ñä½™™¥¥…°L•‘¥Ñ¥½¹Ì°É•±•…Í”°…Á…‰¥±¥Ñäµ¡¥ÍÑ½Éä°…•¹Ğ½Ñ…Í¬°±½Õ½¹¹•Ğ°ÁÉ¥¥¹œ°±¥•¹Í¥¹œ½ÑÉ¥…°°É•¥½¹…°½M=HÁ…¥É¥¹œ°U	°áÁ½ÍÕÉ”¹…±åÑ¥Ì…¹…¹¹½Õ¹•µ•¹ĞÍ½ÕÉ•Ìì‘¥ÍÁ±…å•…Á…‰¥±¥Ñ¥•Ì°¡¥¡±¥¡ÑÌ°İ½É­™±½İÌ°¡¥ÍÑ½Éä…¹™¥Ù”Í½ÕÉ”ÅÕ•ÍÑ¥½¹ÌìÁÕ‰±¥ŒÉ½ÕÑ”°Ñ¡•µ•Ì°Í¡…É¥¹œ°ÁÉ¥¹Ğ½Í¹…ÁÍ¡½Ğ°•¹Ù¥É½¹µ•¹Ğ…¹¹…Ù¥…Ñ¥½¸¥¹Ñ•É…Ñ¥½¸¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´Àä´ÌÁPÄÀèÀÔèÈÅhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰±°€ÈÀµ…¥¹Ñ…¥¹•L‘¥Ñ¥½¹ÌÍ½ÕÉ•ÌÍÑ¥±°ÍÕÁÁ½ÉĞÑ¡”ÁÕ‰±¥Í¡•½µÁ…É¥Í½¸ì¹¼™…ÑÕ…°°•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”°‘•Á±½åµ•¹Ğ°¡¥ÍÑ½Éä½ÈÁÉ•Í•¹Ñ…Ñ¥½¸±…¥´¡…¹•°…¹™¥Ù”Í½ÕÉ”ÅÕ•ÍÑ¥½¹ÌÉ•µ…¥¸•áÁ±¥¥Ğ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰I•¡•­••Ù•Éä½™™¥¥…°•‘¥Ñ¥½¸°É•±•…Í”°…Á…‰¥±¥Ñäµ¡¥ÍÑ½Éä°…•¹Ğ½Ñ…Í¬°±½Õ½¹¹•Ğ°ÁÉ¥¥¹œ°±¥•¹Í¥¹œ½ÑÉ¥…°°É•¥½¹…°½M=HÁ…¥É¥¹œ°U	°áÁ½ÍÕÉ”¹…±åÑ¥Ì…¹…¹¹½Õ¹•µ•¹ĞÍ½ÕÉ”ìÉ•Ù¥•İ•…Á…‰¥±¥Ñ¥•Ì°¡¥¡±¥¡ÑÌ°İ½É­™±½İÌ°¡¥ÍÑ½Éä°Í½ÕÉ”ÅÕ•ÍÑ¥½¹Ì°¥¹Ñ•É…Ñ•É½ÕÑ•Ì°Ñ¡•µ•Ì°±½Õ¹Ù¥É½¹µ•¹Ğ½¹Ñ•áĞ°Í¡…É¥¹œ°ÁÉ¥¹Ğ½Í¹…ÁÍ¡½Ğ…¹…•¹Ğµ‰½Õ¹‘…Éä‰•¡…Ù¥½È¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀÅPÀäèÔàèĞÙhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰MÑ…ÉÑ•Ñ¡”=Ñ½‰•È€ÄÁÕ‰±¥ŒLÍÍ•¹Ñ¥…±Ì½AÉ•µ¥•È•Ù¥‘•¹”É•Ù¥•Ü™É½´Ñ¡”ÕÉÉ•¹Ğ¥Ñ!Õˆ½M¥Ñ•Ìµµ…Ñ¡¥¹œÍ½ÕÉ”¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰Qİ•¹Ñäµ…¥¹Ñ…¥¹•½™™¥¥…°•‘¥Ñ¥½¹Ì°É•±•…Í”°…Á…‰¥±¥Ñäµ¡¥ÍÑ½Éä°…•¹Ğ½Ñ…Í¬°±½Õ½¹¹•Ğ°É•¥½¹…°½M=HÁ…¥É¥¹œ°ÁÉ¥¥¹œ°±¥•¹Í¥¹œ½ÑÉ¥…±Ì°U	°áÁ½ÍÕÉ”¹…±åÑ¥Ì…¹…¹¹½Õ¹•µ•¹ĞÍ½ÕÉ•Ìì‘¥ÍÁ±…å•¡¥¡±¥¡ÑÌ°İ½É­™±½İÌ°…Á…‰¥±¥Ñ¥•Ì½¡¥ÍÑ½Éä°™¥Ù”Í½ÕÉ”ÅÕ•ÍÑ¥½¹Ì°ÍÕÉÉ½Õ¹‘¥¹œÉ½ÕÑ•Ì…¹•áÁ½ÉĞÁ…É¥Ñä¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀÅPÄÀèÀÈèÔÅhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰±°€ÈÀµ…¥¹Ñ…¥¹•L‘¥Ñ¥½¹ÌÍ½ÕÉ•ÌÍÑ¥±°ÍÕÁÁ½ÉĞÑ¡”ÁÕ‰±¥Í¡•½µÁ…É¥Í½¸ì¹¼™…ÑÕ…°°•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”°‘•Á±½åµ•¹Ğ°¡¥ÍÑ½Éä½ÈÁÉ•Í•¹Ñ…Ñ¥½¸±…¥´¡…¹•°…¹™¥Ù”Í½ÕÉ”ÅÕ•ÍÑ¥½¹ÌÉ•µ…¥¸•áÁ±¥¥Ğ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰I•¡•­••Ù•Éä½™™¥¥…°•‘¥Ñ¥½¸°É•±•…Í”°…Á…‰¥±¥Ñäµ¡¥ÍÑ½Éä°…•¹Ğ½Ñ…Í¬°±½Õ½¹¹•Ğ°ÁÉ¥¥¹œ°±¥•¹Í¥¹œ½ÑÉ¥…°°É•¥½¹…°½M=HÁ…¥É¥¹œ°U	°áÁ½ÍÕÉ”¹…±åÑ¥Ì…¹…¹¹½Õ¹•µ•¹ĞÍ½ÕÉ”ìÉ•Ù¥•İ•…Á…‰¥±¥Ñ¥•Ì°¡¥¡±¥¡ÑÌ°İ½É­™±½İÌ°¡¥ÍÑ½Éä°Í½ÕÉ”ÅÕ•ÍÑ¥½¹Ì°¥¹Ñ•É…Ñ•É½ÕÑ•Ì°Ñ¡•µ•Ì°±½Õ¹Ù¥É½¹µ•¹Ğ½¹Ñ•áĞ°Í¡…É¥¹œ°ÁÉ¥¹Ğ½Í¹…ÁÍ¡½Ğ…¹…•¹Ğµ‰½Õ¹‘…Éä‰•¡…Ù¥½È¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀÍPÄÀèÀÄèÀÅhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ¥¹œÑ¡”½µÁ±•Ñ”½™™¥¥…°LÍÍ•¹Ñ¥…±Ì…¹AÉ•µ¥•È•Ù¥‘•¹”¥¹Ù•¹Ñ½Éä…¹‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”…¹Á…¥É¥¹œ±…¥µÌ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰±°€ÈÀµ…¥¹Ñ…¥¹•L•‘¥Ñ¥½¹ÌÍ½ÕÉ•ÌÁ±ÕÌ•á…ĞLµÑ¼µM=H…¹ÁÀ™½ÈM=H½áÁ½ÉĞÁ…¥É¥¹œ•Ù¥‘•¹”¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀÍPÄÀèÀÄèÀÉhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰±°€ÈÀµ…¥¹Ñ…¥¹•L‘¥Ñ¥½¹ÌÍ½ÕÉ•ÌÍÑ¥±°ÍÕÁÁ½ÉĞÑ¡”ÁÕ‰±¥Í¡•Í½Á••Ù¥‘•¹”ì¹¼™…ÑÕ…°•‘¥Ñ¥½¸°•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”½ÈÁ…¥É¥¹œ½ÉÉ•Ñ¥½¸İ…ÌÉ•ÅÕ¥É•°…¹™¥Ù”Í½ÕÉ”ÅÕ•ÍÑ¥½¹ÌÉ•µ…¥¸•áÁ±¥¥Ğ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰±°€ÈÀµ…¥¹Ñ…¥¹•L•‘¥Ñ¥½¹ÌÍ½ÕÉ•ÌÁ±ÕÌ•á…ĞLµÑ¼µM=H°ÕÑ½µ…Ñ¥½¸	Õ¥±‘•È°ÁÀ™½ÈM=H…¹áÁ½ÉĞÅÕ…±¥™¥…Ñ¥½¹Ìì‰½Õ¹‘•½¹¹•Ñ½È	Õ¥±‘•È°Õ¥‘•I•ÍÁ½¹Í”°…•¹Ğµ¥¹¥µÕ´°ÁÉ¥¥¹œ°±¥•¹Í¥¹œ°U	…¹áÁ½ÍÕÉ”¹…±åÑ¥Ì±…¥µÌ¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀÑPÄÀèÀÈèÄÄ¸ÄÀÙhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰=Ñ½‰•È€ĞL‘¥Ñ¥½¹Ì•Ù¥‘•¹”É•Ù¥•ÜÍÑ…ÉÑ•¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰±°µ…¥¹Ñ…¥¹•L•‘¥Ñ¥½¸Í½ÕÉ•Ì…¹É•½É‘Ì°¥¹±Õ‘¥¹œ¡¥¡±¥¡ÑÌ°İ½É­™±½İÌ°…Á…‰¥±¥Ñ¥•Ì½¡¥ÍÑ½Éä°•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ•Ì°±½Õ½¹¹•Ğ°M=HÁ…¥É¥¹œ°ÁÉ¥¥¹œ½±¥•¹Í¥¹œ½ÑÉ¥…±Ì°U	°áÁ½ÍÕÉ”¹…±åÑ¥Ì°Õ¹É•Í½±Ù•½¹™±¥ÑÌ…¹…™™•Ñ•I•±•…Í”Õ¥‘”Á…É¥Ñä¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀÑPÄÀèÀäèĞĞ¸ÀØİhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ•…±°€ÈÀµ…¥¹Ñ…¥¹•L‘¥Ñ¥½¹ÌÍ½ÕÉ•Ì…¹™½ÕÈ•á…ĞM=HÁ…¥É¥¹œ½É•±•…Í”É•½É‘Ìì¹¼™…ÑÕ…°½ÉÉ•Ñ¥½¸İ…ÌÍÕÁÁ½ÉÑ•°…¹…±°½¹™±¥ÑÌ…¹ÅÕ…±¥™¥…Ñ¥½¹ÌÉ•µ…¥¸½Á•¸¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰LÍÍ•¹Ñ¥…±Ì½AÉ•µ¥•È¡¥¡±¥¡ÑÌ°İ½É­™±½İÌ°…Á…‰¥±¥Ñ¥•Ì½¡¥ÍÑ½Éä°±½Õ½¹¹•Ğ°…•¹ÑÌ½Ñ…Í­Ì°•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ•Ì°É•¥½¹…°½M=HÁ…¥É¥¹œ°ÁÉ¥¥¹œ°±¥•¹Í¥¹œ½ÑÉ¥…±Ì°U	°áÁ½ÍÕÉ”¹…±åÑ¥Ì°…¹¹½Õ¹•µ•¹ÑÌ…¹ÍÕÉÉ½Õ¹‘¥¹œÉ•±•…Í”½•áÁ½ÉĞÁ…É¥Ñä¸9…Ñ¥Ù”A°É•½Á•¹•!Q50°¹…ÉÉ½ÜµÍÉ••¸…¹±¥Ù”]•‰5@¥¹Ù½…Ñ¥½¸É•µ…¥¸Õ¹…Ù…¥±…‰±”½ÈÕ¹Á•É™½Éµ•…¹…É”É•½É‘•Í•Á…É…Ñ•±ä¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀÕPÄÀèÀÈèÀÁhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰¡•­¥¹œÑ¡”½µÁ±•Ñ”LÍÍ•¹Ñ¥…±Ì½AÉ•µ¥•ÈÍ½ÕÉ”¥¹Ù•¹Ñ½Éä°•á…ĞM=HÁ…¥É¥¹œÉ•½É‘Ì…¹‰½Õ¹‘•¡¥¡•ÍĞµ½¹Í•ÅÕ•¹”•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”°½µÁ…Ñ¥‰¥±¥Ñä…¹É•±•…Í”µÍÑ…”±…¥µÌ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰±°€ÈÀµ…¥¹Ñ…¥¹•L‘¥Ñ¥½¹ÌUI1ÌÁ±ÕÌ™½ÕÈ•á…ĞM=H½ÁÀ½áÁ½ÉĞÉ•½É‘Ìì½¹¹•Ñ½È	Õ¥±‘•È°Õ¥‘•I•ÍÁ½¹Í”°…•¹ĞÙ•ÉÍ¥½¸™±½½ÉÌ°ÁÉ¥¥¹œ°ÕÑ½µ…Ñ¥½¸	Õ¥±‘•È°ÁÀ™½ÈM=HÁ…¥É¥¹œ°U	°áÁ½ÍÕÉ”¹…±åÑ¥Ì°É½ÕÑ•Ì°Ñ¡•µ•Ì…¹•áÁ½ÉÑÌ¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀÕPÄÀèÀĞèÀáhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ•…±°€ÈÀµ…¥¹Ñ…¥¹•L‘¥Ñ¥½¹ÌÍ½ÕÉ•Ì…¹™½ÕÈ•á…ĞM=HÁ…¥É¥¹œ½É•±•…Í”É•½É‘Ìì¹¼™…ÑÕ…°½ÉÉ•Ñ¥½¸İ…ÌÍÕÁÁ½ÉÑ•…¹…±°½¹™±¥ÑÌ…¹ÅÕ…±¥™¥…Ñ¥½¹ÌÉ•µ…¥¸½Á•¸¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰±°€ÈÀµ…¥¹Ñ…¥¹•L‘¥Ñ¥½¹ÌUI1ÌÁ±ÕÌ•á…ĞÁÀ™½ÈM=H€à¸Ü¸À°M=HáÁ½ÉĞ€à¸Ü¸À°M=H=¸µÁÉ•µ¥Í•Ì€à¸Ü¸À…¹M=H±½Õ€à¸Ü¸ÀÉ•½É‘Ìì‰½Õ¹‘•½¹¹•Ñ½È	Õ¥±‘•È°Õ¥‘•I•ÍÁ½¹Í”°…•¹ĞÙ•ÉÍ¥½¸µ™±½½È°ÁÉ¥¥¹œ°ÕÑ½µ…Ñ¥½¸	Õ¥±‘•È°Á…¥É¥¹œ°U	…¹áÁ½ÍÕÉ”¹…±åÑ¥Ì±…¥µÌ¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀÙPÄÀèÀÄèÈÄ¸ÈäÁhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰¡•­¥¹œÑ¡”½µÁ±•Ñ”µ…¥¹Ñ…¥¹•L‘¥Ñ¥½¹Ì•Ù¥‘•¹”¥¹Ù•¹Ñ½Éä…¹•á…ĞOŠMM=HÁ…¥É¥¹œÉ•½É‘Ì™½Èµ…Ñ•É¥…°•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”°½µÁ…Ñ¥‰¥±¥Ñä°ÁÉ¥¥¹œ½ÈÉ•±•…Í”µÍÑ…”¡…¹•Ì¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰±°€ÈÀµ…¥¹Ñ…¥¹•L‘¥Ñ¥½¹Ì½™™¥¥…°Í½ÕÉ•ÌÁ±ÕÌ•á…ĞÁÀ™½ÈM=H€à¸Ü¸À°M=HáÁ½ÉĞ€à¸Ü¸À°M=H=¸µÁÉ•µ¥Í•Ì€à¸Ü¸À…¹M=H±½Õ€à¸Ü¸ÀÉ•½É‘Ìì™¥Ù”Õ¹É•Í½±Ù••Ù¥‘•¹”ÅÕ•ÍÑ¥½¹Ìì‰½Õ¹‘•¡¥¡•ÍĞµ½¹Í•ÅÕ•¹”•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”°Á…¥É¥¹œ…¹É•±•…Í”µÍÑ…”±…¥µÌì…¹½¹¥…°½…‘…ÁÑ•È½‘…Ñ…‰…Í”Á…É¥Ñä…¹…Ù…¥±…‰±”É½ÕÑ”½•áÁ½ÉĞ¡•­Ì¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀÙPÄÀèÀĞèÀä¸ÔÈİhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰¡•­•…±°€ÈÀµ…¥¹Ñ…¥¹•L‘¥Ñ¥½¹ÌÍ½ÕÉ•Ì…¹™½ÕÈ•á…ĞM=HÁ…¥É¥¹œ½É•±•…Í”É•½É‘Ìì¹¼™…ÑÕ…°½ÉÉ•Ñ¥½¸İ…ÌÍÕÁÁ½ÉÑ•…¹…±°™¥Ù”•Ù¥‘•¹”ÅÕ•ÍÑ¥½¹ÌÉ•µ…¥¸•áÁ±¥¥Ğ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰±°€ÈÀµ…¥¹Ñ…¥¹•L‘¥Ñ¥½¹Ì½™™¥¥…°UI1ÌÁ±ÕÌ•á…ĞÁÀ™½ÈM=H€à¸Ü¸À°M=HáÁ½ÉĞ€à¸Ü¸À°M=H=¸µÁÉ•µ¥Í•Ì€à¸Ü¸À…¹M=H±½Õ€à¸Ü¸ÀÉ•½É‘Ìì‰½Õ¹‘•½¹¹•Ñ½È	Õ¥±‘•È°Õ¥‘•I•ÍÁ½¹Í”°…•¹ĞÙ•ÉÍ¥½¸µ™±½½È°ÁÉ¥¥¹œ°ÕÑ½µ…Ñ¥½¸	Õ¥±‘•È°ÁÀÁ…¥É¥¹œ°U	…¹áÁ½ÍÕÉ”¹…±åÑ¥Ì±…¥µÌ¸	É½İÍ•È°•áÁ½ÉĞ…¹¹…Ñ¥Ù”]•‰5@½ÕÑ½µ•Ì…É”É•½É‘•Í•Á…É…Ñ•±ä¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀİPÄÌèÄÌèÌÔ¸äàÍhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ¥¹œÑ¡”½µÁ±•Ñ”L‘¥Ñ¥½¹ÌÍ½ÕÉ”¥¹Ù•¹Ñ½Éä…¹•á…ĞM=H½ÁÀÁ…¥É¥¹Ì™É½´Ñ¡”=Ñ½‰•È€Ü¥Ñ!Õˆ…¹M¥Ñ•Ì‰…Í•±¥¹”¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰Qİ•¹Ñäµ…¥¹Ñ…¥¹•L‘¥Ñ¥½¹ÌÍ½ÕÉ•ÌÁ±ÕÌ•á…ĞÁÀ™½ÈM=H€à¸Ü¸À°M=HáÁ½ÉĞ€à¸Ü¸À°M=H=¸µÁÉ•µ¥Í•Ì€à¸Ü¸À…¹M=H±½Õ€à¸Ü¸ÀÉ•½É‘Ìì…¹½¹¥…°½…‘…ÁÑ•ÈÁ…É¥Ñä°ÕÉÉ•¹Ğ…¹±•…äLÉ½ÕÑ•Ì°Ñ¡•µ•Ì°É•Á½ÉÑÌ°]•‰5@‰½Õ¹‘…Éä…¹±¥Ù”½¹Ñ•¹Ğ‘•±¥Ù•Éä¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀİPÄÌèÈÌèĞä¸ÀÀÉhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰±°€ÈÀµ…¥¹Ñ…¥¹•L‘¥Ñ¥½¹ÌÍ½ÕÉ•Ì…¹™½ÕÈ•á…ĞM=H½ÁÀÉ•½É‘Ìİ•É”¡•­•ì¹¼™…ÑÕ…°½ÉÉ•Ñ¥½¸İ…ÌÍÕÁÁ½ÉÑ•…¹…±°™¥Ù”•Ù¥‘•¹”ÅÕ•ÍÑ¥½¹ÌÉ•µ…¥¸•áÁ±¥¥Ğ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰Qİ•¹Ñäµ…¥¹Ñ…¥¹•L‘¥Ñ¥½¹Ì½™™¥¥…°UI1ÌÁ±ÕÌ•á…ĞÁÀ™½ÈM=H€à¸Ü¸À°M=HáÁ½ÉĞ€à¸Ü¸À°M=H=¸µÁÉ•µ¥Í•Ì€à¸Ü¸À…¹M=H±½Õ€à¸Ü¸ÀÉ•½É‘Ìì‰½Õ¹‘•½¹¹•Ñ½È	Õ¥±‘•È°Õ¥‘•I•ÍÁ½¹Í”°…•¹ĞÙ•ÉÍ¥½¸µ™±½½È°ÁÉ¥¥¹œ°ÕÑ½µ…Ñ¥½¸	Õ¥±‘•È°ÁÀÁ…¥É¥¹œ°U	…¹áÁ½ÍÕÉ”¹…±åÑ¥Ì±…¥µÌìÉ•¹‘•É•…¹½¹¥…°½±•…ä½Ñ¡•µ”½¡¥ÍÑ½ÉäÉ½ÕÑ•Ì°ÍÕÉÉ½Õ¹‘¥¹œLÉ•Á½ÉĞ…¹É•…µ½¹±ä]•‰5@…É••µ•¹Ğ¸=İ¹•ÈµÉ•Á½ÉÑ•!Q50°A…¹¹…ÉÉ½ÜµÍÉ••¸É•ÍÕ±ÑÌ…ÁÁ±äÑ¼Ñ¡”Õ¹¡…¹•‘•Á±½å•‰…Í•±¥¹”¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀáPÄÈèÔØèÔà¸äÈàäÌØ¬ÀÀèÀÀˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ¥¹œ•á…ĞLÍÍ•¹Ñ¥…±Ì½AÉ•µ¥•ÈÍ½ÕÉ”¥¹Ù•¹Ñ½Éä…¹½¹Í•ÅÕ•¹Ñ¥…°Á…¥É¥¹œ½ÁÉ•É•ÅÕ¥Í¥Ñ”±…¥µÌ™É½´É•½¹¥±•ÕÉÉ•¹Ğµ…¥¸¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€ˆÈÀµ…¥¹Ñ…¥¹•Í½ÕÉ•ÌÁ±ÕÌÍ•Á…É…Ñ”•á…ĞM=HÁÀ½áÁ½ÉĞÉ•½É‘Ìì¹¼‰±…¹­•Ğ¡¥ÍÑ½É¥…°½È¹…Ñ¥Ù”•áÁ½ÉĞ•ÉÑ¥™¥…Ñ¥½¸¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀáPÄÌèÀÈèĞÄ¸ÌÌÄÀĞĞ¬ÀÀèÀÀˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€ˆÈÀLÍ½ÕÉ•Ì…¹Í¥àM=HÉ•½É‘ÌÉ•Ù¥•İ•ì•á…ĞáÁ½ÉĞÉ½İÌÉ•½Ù•É•ìL€à¸Ü¸ÄÁÀÁ…¥É¥¹œÉ•µ…¥¹ÌÕ¹±¥ÍÑ•¸9¼™…ÑÕ…°¡…¹”¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€ˆÈÀµ…¥¹Ñ…¥¹•L½™™¥¥…°Í½ÕÉ•Ì…¹Í¥à•á…ĞM=HÁÀ½áÁ½ÉĞ½É•±…Ñ•µÁÉ½‘ÕĞ½±½ÕÉ•½É‘ÌìÑ•¸‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”±…¥µÌ¸9¼•á¡…ÕÍÑ¥Ù”¡¥ÍÑ½É¥…°Ù•É¥™¥…Ñ¥½¸¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀåPÄÌèÀĞèÄÅhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ¥¹œÑ¡”L•‘¥Ñ¥½¹Ì•Ù¥‘•¹”¥¹Ù•¹Ñ½Éä°LµÍÁ•¥™¥ŒM=HÁ…¥É¥¹Ì°É•Á½Í¥Ñ½Éä½M¥Ñ”Á…É¥Ñä°…¹…™™•Ñ•É•Á½ÉĞÉ½ÕÑ•Ì¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰Õ±°€ÈÀµÍ½ÕÉ”L¥¹Ù•¹Ñ½ÉäÁ±ÕÌ•á…ĞÁÀ™½ÈM=H…¹áÁ½ÉĞÁ…¥É¥¹œÉ½İÌì‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”°ÁÉ¥¥¹œ°…Ù…¥±…‰¥±¥Ñä°…¹½¹™±¥Ğ¡•­Ì¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀåPÄÌèÀÔèÀÁhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰±°€ÈÀµ…¥¹Ñ…¥¹•LÍ½ÕÉ•Ì…¹•á…ĞÁÀ™½ÈM=H½áÁ½ÉĞÁ…¥É¥¹œÉ½İÌİ•É”É•¡•­•ì¹¼…ÕÑ¡½É¥Ñ…Ñ¥Ù”¡…¹”©ÕÍÑ¥™¥•…¸•‘¥Ñ¥½¸°ÁÉ•É•ÅÕ¥Í¥Ñ”°ÁÉ¥¥¹œ°É•±•…Í”µÍÑ…”°½È½µÁ…Ñ¥‰¥±¥ÑäÕÁ‘…Ñ”¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€ˆÈÀµÍ½ÕÉ”L¥¹Ù•¹Ñ½Éäì½¹¹•Ñ½È	Õ¥±‘•È°Õ¥‘•I•ÍÁ½¹Í”°$M=¹…±åÍĞ°5…±İ…É”½A¡¥Í¡¥¹œ°…Ñ¥Ù¥ÑäÁÉ¥¥¹œ°ÕÑ½µ…Ñ¥½¸	Õ¥±‘•È°U	°áÁ½ÍÕÉ”¹…±åÑ¥Ì°ÁÀ™½ÈM=H€à¸Ü¸À°…¹áÁ½ÉĞ€à¸Ü¸À½¹Í•ÅÕ•¹”¡•­Ì¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÄÁPÄÌèÀÌèÄÀ¸ĞÈÉhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ¥¹œÕÉÉ•¹ĞL•‘¥Ñ¥½¸°•¹Ñ¥Ñ±•µ•¹Ğ…¹Á…¥É¥¹œ•Ù¥‘•¹”¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€ˆÈÀµ…¥¹Ñ…¥¹•LÍ½ÕÉ•Ì°Í¥à•á…ĞM=HÁÀ½áÁ½ÉĞ½É•±…Ñ•µÁÉ½‘ÕĞÉ•½É‘Ì°…¹‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”°ÁÉ¥¥¹œ°±¥•¹Í¥¹œ…¹Á…¥É¥¹œ±…¥µÌ¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÄÁPÄÌèÄÀèÈÁhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¡…¹•ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰ÕÉÉ•¹ĞµÍ½ÕÉ”µ…¥¹Ñ•¹…¹”ÕÁ‘…Ñ•Ñ¡”…¹½¹¥…°L±¥•¹Í¥¹œ•Ù¥‘•¹”™É½´Ñ¡”€à¸ØÕ¥‘”Ñ¼Ñ¡”‘¥É•Ñ±äÙ•É¥™¥•€à¸ÜÕ¥‘”İ¥Ñ¡½ÕĞ¡…¹¥¹œ•¹Ñ¥Ñ±•µ•¹Ğ±…¥µÌìÕ¹É•Í½±Ù•½¹¹•Ñ½È	Õ¥±‘•È…¹Õ¥‘•I•ÍÁ½¹Í”Í½Á”½¹™±¥ÑÌÉ•µ…¥¸•áÁ±¥¥Ğ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€ˆÈÀµ…¥¹Ñ…¥¹•LÍ½ÕÉ•Ì…¹€Ø•á…ĞM=HÁ…¥É¥¹œ½ÈÉ•±…Ñ•µÁÉ½‘ÕĞÍ½ÕÉ•Ìì€ÄÀ¡¥¡•ÍĞµ½¹Í•ÅÕ•¹”•‘¥Ñ¥½¸°•¹Ñ¥Ñ±•µ•¹Ğ°ÑÉ¥…°°É•¥½¹…°°…•¹Ğ°…¹M=H½µÁ…Ñ¥‰¥±¥Ñä±…¥µÌì•¹•É…Ñ•…‘…ÁÑ•ÉÌ…¹…™™•Ñ•LÉ½ÕÑ•Ì¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÄÅPÄÌèÀÔèÄÈ¸äàÕhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰=Ñ½‰•È€ÄÄL‘¥Ñ¥½¹Ì•Ù¥‘•¹”É•Ù¥•Ü¥ÌÉÕ¹¹¥¹œ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰½µÁ±•Ñ”µ…¥¹Ñ…¥¹•L‘¥Ñ¥½¹ÌÍ½ÕÉ”¥¹Ù•¹Ñ½Éä°É•±…Ñ•M=HÁ…¥É¥¹œÉ•½É‘Ì°¡¥¡•ÍĞµ½¹Í•ÅÕ•¹”•¹Ñ¥Ñ±•µ•¹Ğ½ÁÉ•É•ÅÕ¥Í¥Ñ”½½µÁ…Ñ¥‰¥±¥Ñä±…¥µÌ°…¹ÁÕ‰±¥…Ñ¥½¸•Ù¥‘•¹”¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÄÅPÄÌèÀàèÄÜ¸ÈäÅhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰±°€ÈÀµ…¥¹Ñ…¥¹•LÍ½ÕÉ•Ì…¹Í¥à•á…ĞM=HµÉ•±…Ñ•É•½É‘Ìİ•É”É•¡•­•ì¹¼…ÕÑ¡½É¥Ñ…Ñ¥Ù”•‘¥Ñ¥½¸°•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”°Á…¥É¥¹œ°ÁÉ¥¥¹œ°É•¥½¹…°°É•±•…Í”µÍÑ…”½È¡¥ÍÑ½É¥…°™…Ğ¡…¹•¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€ˆÈÀLÍ½ÕÉ•Ì°€Ø•á…ĞM=HÁÀ½áÁ½ÉĞ½É•±…Ñ•µÁÉ½‘ÕĞ½±½ÕÉ•½É‘Ì°…¹€ÄÀ¡¥¡•ÍĞµ½¹Í•ÅÕ•¹”±…¥µÌì…¹½¹¥…°•‘¥Ñ¥½¹Ì‘…Ñ„°µ…Ñ•É¥…°å±”°É½ÕÑ•Ì°•áÁ½ÉÑÌ°ÁÉ¥Ù…ä…¹]•‰5@½¹ÑÉ…ĞÕ¹¡…¹•¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÄÉPÄĞèÌÀèÔÉhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰¡•­¥¹œÑ¡”½µÁ±•Ñ”µ…¥¹Ñ…¥¹•L‘¥Ñ¥½¹Ì…¹•á…ĞM=HÁ…¥É¥¹œ½•áÁ½ÉĞ¥¹Ù•¹Ñ½Éä°Á±ÕÌ‰½Õ¹‘•¡¥¡•ÍĞµ½¹Í•ÅÕ•¹”•¹Ñ¥Ñ±•µ•¹Ğ…¹ÁÉ•É•ÅÕ¥Í¥Ñ”±…¥µÌ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€ˆÈÀµ…¥¹Ñ…¥¹•L½™™¥¥…°Í½ÕÉ•Ì°Í¥à•á…ĞM=HÁÀ½áÁ½ÉĞ½É•±…Ñ•µÁÉ½‘ÕĞ½±½ÕÉ•½É‘Ì°ÕÉÉ•¹ĞÉ•±•…Í”‘¥Í½Ù•Éä°…¹Ñ•¸‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”•‘¥Ñ¥½¸°ÁÉ•É•ÅÕ¥Í¥Ñ”°Á…¥É¥¹œ°ÁÉ¥¥¹œ…¹É•±•…Í”µÍÑ…”±…¥µÌ¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÄÉPÄĞèÌØèÀÁhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰±°€ÈÀµ…¥¹Ñ…¥¹•LÍ½ÕÉ•Ì…¹Í¥à•á…ĞM=HµÉ•±…Ñ•É•½É‘Ìİ•É”É•¡•­•ì¹¼…ÕÑ¡½É¥Ñ…Ñ¥Ù”•‘¥Ñ¥½¸°•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”°Á…¥É¥¹œ°ÁÉ¥¥¹œ°É•¥½¹…°°É•±•…Í”µÍÑ…”½È¡¥ÍÑ½É¥…°™…Ğ¡…¹•¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€ˆÈÀLÍ½ÕÉ•Ì°Í¥à•á…ĞM=HÁÀ½áÁ½ÉĞ½É•±…Ñ•µÁÉ½‘ÕĞ½±½ÕÉ•½É‘Ì°ÕÉÉ•¹ĞÉ•±•…Í”‘¥Í½Ù•Éä°…¹Ñ•¸¡¥¡•ÍĞµ½¹Í•ÅÕ•¹”±…¥µÌì…¹½¹¥…°•‘¥Ñ¥½¹Ì‘…Ñ„°µ…Ñ•É¥…°å±”°É½ÕÑ•Ì°•áÁ½ÉÑÌ°ÁÉ¥Ù…ä…¹]•‰5@½¹ÑÉ…ĞÕ¹¡…¹•¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÄÍPÄÌèÈĞèÀÁhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰L•‘¥Ñ¥½¹Ì¥¹Ù•¹Ñ½Éä…¹‰½Õ¹‘•½¹Í•ÅÕ•¹Ñ¥…°±…¥´É•Ù¥•ÜÉÕ¹¹¥¹œ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰±°€ÈÀµ…¥¹Ñ…¥¹•L½™™¥¥…°Í½ÕÉ•ÌÁ±ÕÌÍ¥à•á…ĞM=HÁÀ½áÁ½ÉĞ½É•±…Ñ•µÁÉ½‘ÕĞ½±½ÕÁ…¥É¥¹œÍ½ÕÉ•ÌìÕÉÉ•¹ĞÉ•±•…Í”‘¥Í½Ù•Éä…¹Ñ•¸‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”°ÁÉ¥¥¹œ°É•±•…Í”µÍÑ…”…¹½µÁ…Ñ¥‰¥±¥Ñä±…¥µÌ¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÄÍPÄÌèÌÄèÀÁhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰±°€ÈÀµ…¥¹Ñ…¥¹•LÍ½ÕÉ•Ì…¹Í¥à•á…ĞM=HµÉ•±…Ñ•É•½É‘Ìİ•É”É•¡•­•ì¹¼…ÕÑ¡½É¥Ñ…Ñ¥Ù”•‘¥Ñ¥½¸°•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”°Á…¥É¥¹œ°ÁÉ¥¥¹œ°É•±•…Í”µÍÑ…”½È¡¥ÍÑ½É¥…°™…Ğ¡…¹•¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰±°€ÈÀµ…¥¹Ñ…¥¹•L½™™¥¥…°Í½ÕÉ•ÌÁ±ÕÌÍ¥à•á…ĞM=HÁÀ½áÁ½ÉĞ½É•±…Ñ•µÁÉ½‘ÕĞ½±½ÕÁ…¥É¥¹œÍ½ÕÉ•ÌìÕÉÉ•¹ĞÉ•±•…Í”‘¥Í½Ù•Éä…¹Ñ•¸‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”°ÁÉ¥¥¹œ°É•±•…Í”µÍÑ…”…¹½µÁ…Ñ¥‰¥±¥Ñä±…¥µÌ¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÄÑPÄÌèÀØèÈÁhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰L•‘¥Ñ¥½¹Ì¥¹Ù•¹Ñ½Éä…¹‰½Õ¹‘•½¹Í•ÅÕ•¹Ñ¥…°±…¥´É•Ù¥•ÜÉÕ¹¹¥¹œ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰±°€ÈÀµ…¥¹Ñ…¥¹•L½™™¥¥…°Í½ÕÉ•ÌÁ±ÕÌÍ¥à•á…ĞM=HÁÀ½áÁ½ÉĞ½É•±…Ñ•µÁÉ½‘ÕĞ½±½ÕÁ…¥É¥¹œÍ½ÕÉ•ÌìÕÉÉ•¹ĞÉ•±•…Í”‘¥Í½Ù•Éä…¹Ñ•¸‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”°ÁÉ¥¥¹œ°É•±•…Í”µÍÑ…”…¹½µÁ…Ñ¥‰¥±¥Ñä±…¥µÌ¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÄÑPÄÌèÄÈèÀÁhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰±°€ÈÀµ…¥¹Ñ…¥¹•LÍ½ÕÉ•Ì…¹Í¥à•á…ĞM=HµÉ•±…Ñ•É•½É‘Ìİ•É”É•¡•­•ì¹¼…ÕÑ¡½É¥Ñ…Ñ¥Ù”•‘¥Ñ¥½¸°•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”°Á…¥É¥¹œ°ÁÉ¥¥¹œ°É•±•…Í”µÍÑ…”½È¡¥ÍÑ½É¥…°™…Ğ¡…¹•¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰±°€ÈÀµ…¥¹Ñ…¥¹•L½™™¥¥…°Í½ÕÉ•ÌÁ±ÕÌÍ¥à•á…ĞM=HÁÀ½áÁ½ÉĞ½É•±…Ñ•µÁÉ½‘ÕĞ½±½ÕÁ…¥É¥¹œÍ½ÕÉ•ÌìÕÉÉ•¹ĞÉ•±•…Í”‘¥Í½Ù•Éä…¹Ñ•¸‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”°ÁÉ¥¥¹œ°É•±•…Í”µÍÑ…”…¹½µÁ…Ñ¥‰¥±¥Ñä±…¥µÌ¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈÅPÄÌèÀÀèÔÍhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ¥¹œÑ¡”½µÁ±•Ñ”½™™¥¥…°L‘¥Ñ¥½¹Ì¥¹Ù•¹Ñ½Éä…¹‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”°½µÁ…Ñ¥‰¥±¥Ñä°…¹M=HÁ…¥É¥¹œ±…¥µÌ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰±°µ…¥¹Ñ…¥¹•L•‘¥Ñ¥½¸Í½ÕÉ•Ì…¹•á…ĞÉ•±…Ñ•M=HÁÀ½áÁ½ÉĞÁ…¥É¥¹œÉ•½É‘ÌìÕÉÉ•¹Ğ½±•…äÉ½ÕÑ”°É•Á½ÉĞ°•áÁ½ÉĞ°]•‰5@°ÁÕ‰±¥…Ñ¥½¸…¹±¥Ù”µ‘•±¥Ù•Éä¡•­ÌÍ½Á•Ñ¼…¹äÉ•ÍÕ±Ñ¥¹œ¡…¹”¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈÅPÄÌèÀĞèÌÉhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰±°€ÈÀµ…¥¹Ñ…¥¹•LÍ½ÕÉ•Ì…¹Í¥à•á…ĞM=HµÉ•±…Ñ•É•½É‘Ìİ•É”É•¡•­•ì¹¼…ÕÑ¡½É¥Ñ…Ñ¥Ù”•‘¥Ñ¥½¸°•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”°Á…¥É¥¹œ°ÁÉ¥¥¹œ°É•±•…Í”µÍÑ…”½È¡¥ÍÑ½É¥…°™…Ğ¡…¹•¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰±°€ÈÀµ…¥¹Ñ…¥¹•L½™™¥¥…°Í½ÕÉ•ÌÁ±ÕÌÍ¥à•á…ĞM=HÁÀ½áÁ½ÉĞ½É•±…Ñ•µÁÉ½‘ÕĞ½±½ÕÉ•½É‘ÌìÕÉÉ•¹ĞÉ•±•…Í”‘¥Í½Ù•Éä…¹•±•Ù•¸‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”°ÁÉ¥¥¹œ°É•±•…Í”µÍÑ…”…¹½µÁ…Ñ¥‰¥±¥Ñä±…¥µÌ¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈÉPÄÀèÀäèÔÄ¸Ààİhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ¥¹œ€ÈÀµ…¥¹Ñ…¥¹•LÍ½ÕÉ•Ì°Í¥àM=HÁ…¥É¥¹œÉ•½É‘Ì°…¹Ñ¡”¹•İ±äÁÕ‰±¥Í¡•L€à¸à½¹ÑÉ½±±•Ù…¥±…‰¥±¥Ñä•‘¥Ñ¥½¸•Ù¥‘•¹”¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰Õ±°µ…¥¹Ñ…¥¹•LÍ½ÕÉ”¥¹Ù•¹Ñ½Éäì•á…ĞM=HÁÀ½áÁ½ÉĞÁ…¥É¥¹œÉ•½É‘Ìì…™™•Ñ•€à¸à•‘¥Ñ¥½¸½¡¥ÍÑ½Éä½¡¥¡±¥¡Ğ±…¥µÌì‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”•¹Ñ¥Ñ±•µ•¹Ğ…¹ÁÉ•É•ÅÕ¥Í¥Ñ”±…¥µÌ¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈÉPÄÀèÌÄèÀÁhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¡…¹•ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰‘‘•Í½ÕÉ”µ‰…­•L€à¸à½¹ÑÉ½±±•Ù…¥±…‰¥±¥Ñä•‘¥Ñ¥½¸Õ¥‘…¹”İ¡¥±”ÁÉ•Í•ÉÙ¥¹œ•¹Ñ¥Ñ±•µ•¹Ğ°É•¥½¸°Á…¥É¥¹œ°‘•Á±½åµ•¹Ğ…¹Õ¹É•Í½±Ù•Í½ÕÉ”‰½Õ¹‘…É¥•Ì¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€ˆÈÄµ…¥¹Ñ…¥¹•L½™™¥¥…°Í½ÕÉ•Ì°Í¥à•á…ĞM=HÁÀ½áÁ½ÉĞ½É•±…Ñ•µÁÉ½‘ÕĞ½±½ÕÉ•½É‘Ì…¹Ñİ•±Ù”‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”±…¥µÌì…¹½¹¥…°•‘¥Ñ¥½¹Ì‘…Ñ„°•¹•É…Ñ•…‘…ÁÑ•È°¡¥ÍÑ½Éä°¡¥¡±¥¡ÑÌ°É•Á½ÉÑÌ°ÕÉÉ•¹Ğ½±•…äÉ½ÕÑ•Ì°Ñ¡•µ•Ì…¹…™™•Ñ•É•±•…Í”½•áÁ½ÉĞ‰•¡…Ù¥½È¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈÍPÀäèÔÔèÀÍhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ¥¹œÑ¡”½µÁ±•Ñ”½™™¥¥…°L‘¥Ñ¥½¹Ì¥¹Ù•¹Ñ½Éä…¹‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”°½µÁ…Ñ¥‰¥±¥Ñä…¹M=HÁ…¥É¥¹œ±…¥µÌ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰±°€ÈÄµ…¥¹Ñ…¥¹•L½™™¥¥…°Í½ÕÉ•ÌÁ±ÕÌÍ¥à•á…ĞM=HÁÀ½áÁ½ÉĞ½É•±…Ñ•µÁÉ½‘ÕĞ½±½ÕÉ•½É‘ÌìÕÉÉ•¹ĞÉ•±•…Í”‘¥Í½Ù•Éä…¹Ñİ•±Ù”‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”•‘¥Ñ¥½¸°ÁÉ•É•ÅÕ¥Í¥Ñ”°ÁÉ¥¥¹œ°É•±•…Í”µÍÑ…”…¹½µÁ…Ñ¥‰¥±¥Ñä±…¥µÌ¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈÍPÄÀèÀàèÀÁhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰±°€ÈÄµ…¥¹Ñ…¥¹•LÍ½ÕÉ•Ì…¹Í¥à•á…ĞM=HµÉ•±…Ñ•É•½É‘Ìİ•É”É•¡•­•ì¹¼…ÕÑ¡½É¥Ñ…Ñ¥Ù”•‘¥Ñ¥½¸°•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”°Á…¥É¥¹œ°ÁÉ¥¥¹œ°É•±•…Í”µÍÑ…”½È¡¥ÍÑ½É¥…°™…Ğ¡…¹•¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰±°€ÈÄµ…¥¹Ñ…¥¹•L½™™¥¥…°Í½ÕÉ•ÌÁ±ÕÌÍ¥à•á…ĞM=HÁÀ½áÁ½ÉĞ½É•±…Ñ•µÁÉ½‘ÕĞ½±½ÕÉ•½É‘ÌìÕÉÉ•¹ĞÉ•±•…Í”‘¥Í½Ù•Éä…¹Ñİ•±Ù”‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”•‘¥Ñ¥½¸°ÁÉ•É•ÅÕ¥Í¥Ñ”°ÁÉ¥¥¹œ°É•±•…Í”µÍÑ…”…¹½µÁ…Ñ¥‰¥±¥Ñä±…¥µÌ¸…¹½¹¥…°•‘¥Ñ¥½¸™…ÑÌ°É•Ù¥•Ü‘…Ñ•Ì°±¥™•å±”‘…Ñ•Ì…¹µ…Ñ•É¥…°å±”É•µ…¥¸Õ¹¡…¹•¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈÑPÄÀèÌÔèÌáhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ¥¹œ™É•Í L€à¸à…•¹Ğ½µÁ…Ñ¥‰¥±¥Ñä•Ù¥‘•¹”……¥¹ÍĞÑ¡”ÕÉÉ•¹Ğ•‘¥Ñ¥½¹Ì…¹$Õ¥‘…¹”¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰Õ±°½™™¥¥…°LÍ½ÕÉ”¥¹Ù•¹Ñ½ÉäÁ±ÕÌ‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”•‘¥Ñ¥½¸°ÁÉ•É•ÅÕ¥Í¥Ñ”°Á…¥É¥¹œ…¹$µ…Ù…¥±…‰¥±¥Ñä±…¥µÌˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈÑPÄÀèÔĞèÀÁhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¡…¹•ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•½¹¥±•ÕÉÉ•¹ĞL€à¸à…•¹Ğ½µÁ…Ñ¥‰¥±¥Ñä¥¹Ñ¼Ñ¡”…¹½¹¥…°•‘¥Ñ¥½¹Ì…¹$Õ¥‘…¹”è½¹¹•Ñ½È	Õ¥±‘•È¥Ì‰½Ñ •‘¥Ñ¥½¹Ì¥¸€à¸àİ¡¥±”Ñ¡”€à¸Ü½¹™±¥ĞÉ•µ…¥¹Ì¡¥ÍÑ½É¥…°ì„Í•Á…É…Ñ”€à¸àQÉ¥…”•‘¥Ñ¥½¸½¹™±¥Ğ¥Ì¹½Ü•áÁ±¥¥Ğì±½Õ…¹5@ÁÉ•É•ÅÕ¥Í¥Ñ”¡…¥¹ÌÉ•µ…¥¸Í•Á…É…Ñ”¸á…Ğ…¹‘¥‘…Ñ”$°•áÁ½ÉÑÌ°±¥Ù”‘•±¥Ù•Éä…¹É•…µ½¹±ä]•‰5@¡•­ÌÁ…ÍÍ•¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰Qİ•¹Ñäµ¹¥¹”½™™¥¥…°L½M=HÍ½ÕÉ”É•½É‘Ì…¹Ñ¡¥ÉÑ••¸‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”•‘¥Ñ¥½¸°ÁÉ•É•ÅÕ¥Í¥Ñ”°Á…¥É¥¹œ…¹$µ…Ù…¥±…‰¥±¥Ñä±…¥µÌˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈÕPÀäèÔàèÀÕhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ¥¹œÑ¡”½µÁ±•Ñ”½™™¥¥…°LÍÍ•¹Ñ¥…±Ì½AÉ•µ¥•È…¹LµÍÁ•¥™¥Œ$…Ù…¥±…‰¥±¥Ñä•Ù¥‘•¹”¥¹Ù•¹Ñ½Éä¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰Qİ•¹ÑäµÑİ¼…¹½¹¥…°LÍ½ÕÉ•ÌÁ±ÕÌ•á…ĞM=HÁÀ½áÁ½ÉĞ½É•±…Ñ•µÁÉ½‘ÕĞ•Ù¥‘•¹”°ÕÉÉ•¹Ğ€à¸à•‘¥Ñ¥½¸…¹…•¹ĞÑ…‰±•Ì°‘•Á±½åµ•¹Ğ½Ù•ÉÍ¥½¸½±½Õ½¹¹•Ğ½Á…¥É¥¹œ½•¹…‰±•µ•¹Ğ½É•±•…Í”µÍÑ…”ÁÉ•É•ÅÕ¥Í¥Ñ•Ì°‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”±…¥µÌ°É½ÕÑ•Ì°Ñ¡•µ•Ì°±¥¹­Ì°•áÁ½ÉÑÌ…¹É•…µ½¹±äÉ•Á½ÉĞÁ…É¥Ñä¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈÕPÄÀèÀÀèÄÅhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•¡•­•…±°€Èäµ…¥¹Ñ…¥¹•L°$…¹•á…ĞM=HµÉ•±…Ñ•Í½ÕÉ•ÌÁ±ÕÌÑ¡¥ÉÑ••¸¡¥ µ½¹Í•ÅÕ•¹”±…¥µÌì¹¼…ÕÑ¡½É¥Ñ…Ñ¥Ù”™…ÑÕ…°¡…¹”İ…Ì™½Õ¹…¹•Ù•Éä‘½Õµ•¹Ñ•½¹™±¥Ğ…¹Í½Á”ÅÕ…±¥™¥…Ñ¥½¸É•µ…¥¹Ì•áÁ±¥¥Ğ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰Qİ•¹ÑäµÑİ¼…¹½¹¥…°LÍ½ÕÉ•Ì°Ñ¡”ÕÉÉ•¹Ğ€à¸àÉ•¥½¹…°Á…”°Í¥à•á…ĞM=HÁÀ½áÁ½ÉĞ½É•±…Ñ•µÁÉ½‘ÕĞÉ•½É‘Ì°Ñ¡¥ÉÑ••¸•¹Ñ¥Ñ±•µ•¹Ğ½ÁÉ•É•ÅÕ¥Í¥Ñ”½½µÁ…Ñ¥‰¥±¥Ñä±…¥µÌ°…¹Õ¹¡…¹•L‘¥Ñ¥½¹Ì½$Ù…¥±…‰¥±¥ÑäÉ•Á½ÉĞ¥¹ÁÕÑÌì½Á•É…Ñ¥½¹…°½ÕÑ½µ”ÁÕ‰±¥…Ñ¥½¸ÑÉ…­•Í•Á…É…Ñ•±ä¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈÙPÀäèÔÜèÌİhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ¥¹œÑ¡”™Õ±°µ…¥¹Ñ…¥¹•L°$…¹M=HÍ½ÕÉ”¥¹Ù•¹Ñ½Éä…¹É•½¹¥±¥¹œÕÉÉ•¹ĞL€à¸à…•¹Ğ•Ù¥‘•¹”¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰Qİ•¹ÑäµÑİ¼µ…¥¹Ñ…¥¹•LÍ½ÕÉ•Ì°Ñ¡”L€à¸àÉ•¥½¹…°Á…”°Í¥à•á…ĞM=H½ÁÀ½áÁ½ÉĞÉ•½É‘Ì…¹Ñ¡”¹•İ±ä‘½Õµ•¹Ñ•L€à¸àQ¡É•…ĞÉ…Á •Ñ•Ñ¥½¸Ñ…Í¬Õ¥‘”ì‰½Õ¹‘•¡¥¡•ÍĞµ½¹Í•ÅÕ•¹”•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”…¹Á…¥É¥¹œ±…¥µÌ¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈÙPÄÀèÀÜèÔÕhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¡…¹•ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰‘‘•Ñ¡”L€à¸à$Q¡É•…ĞÉ…Á •Ñ•Ñ¥½¸…•¹Ğİ¥Ñ …±Á¡„°AÉ•µ¥•È°±½Õµ½¹±ä…¹Ñ…Í¬µ±•Ù•°ÁÉ•É•ÅÕ¥Í¥Ñ•Ìì½ÉÉ•Ñ••Ñ•Ñ¥½¸	Õ¥±‘•ÈÑ¼É•Ñ…¥¸¥ÑÌ±½Õ½¹¹•Ñ•5@Á…Ñ ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰±°€ÈäÁÉ•Ù¥½ÕÍ±äµ…¥¹Ñ…¥¹•L½$½ÁÉ¥¥¹œ½É•¥½¹…°½M=HÍ½ÕÉ•ÌÁ±ÕÌÑ¡”¹•ÜQ¡É•…ĞÉ…Á Ñ…Í¬Õ¥‘”ì™½ÕÉÑ••¸¡¥ µ½¹Í•ÅÕ•¹”•¹Ñ¥Ñ±•µ•¹Ğ°ÁÉ•É•ÅÕ¥Í¥Ñ”°É•±•…Í”µÍÑ…”…¹Á…¥É¥¹œ±…¥µÌ¸á¥ÍÑ¥¹œ½¹™±¥ÑÌ…¹•á…ĞÁÀ½áÁ½ÉĞÁ…¥É¥¹ÌÉ•µ…¥¸ÅÕ…±¥™¥•¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈİPÄÀèÀÈèĞÍhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ¥¹œÑ¡”™Õ±°L‘¥Ñ¥½¹Ì…¹LµÍÁ•¥™¥Œ$Ù…¥±…‰¥±¥Ñä•Ù¥‘•¹”¥¹Ù•¹Ñ½Éä……¥¹ÍĞ™É•Í ¥Ñ!Õˆ…¹M¥Ñ•ÌÍ½ÕÉ”¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰Q¡¥ÉÑäµ…¥¹Ñ…¥¹•½™™¥¥…°L°$°ÁÉ¥¥¹œ°É•¥½¹…°…¹M=HÍ½ÕÉ•ÌÁ±ÕÌ™½ÕÉÑ••¸‰½Õ¹‘•¡¥¡•ÍĞµ½¹Í•ÅÕ•¹”±…¥µÌì¹¼•á¡…ÕÍÑ¥Ù”¡¥ÍÑ½É¥…°Ù•É¥™¥…Ñ¥½¸¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈİPÄÀèÔØèÀÙhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¡…¹•ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰AÕ‰±¥Í¡•Ñ¡”L€à¸Ü$M=¹…±åÍĞÑ…Í¬±¥µ¥ÑÌ…¹Á•Éµ¥ÍÍ¥½¸ÁÉ•É•ÅÕ¥Í¥Ñ•Ìİ¡¥±”ÁÉ•Í•ÉÙ¥¹œ€à¸à5@°•¹Ñ¥Ñ±•µ•¹Ğ°É•¥½¹…°°Á…¥É¥¹œ…¹Õ¹É•Í½±Ù••‘¥Ñ¥½¸µÍ½Á”‰½Õ¹‘…É¥•Ì¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰Q¡¥ÉÑäµ…¥¹Ñ…¥¹•½™™¥¥…°L°$°ÁÉ¥¥¹œ°É•¥½¹…°…¹M=HÉ•½É‘Ìì™½ÕÉÑ••¸‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”±…¥µÌì•á…Ğµ…¹‘¥‘…Ñ”$½•áÁ½ÉĞ•Ù¥‘•¹”ì‰½Õ¹‘•±¥Ù”ÕÉÉ•¹Ğ°±•…ä°Í¡…É•…¹¥¹Ù…±¥É½ÕÑ•ÌìÄ½™…±±‰…¬‘•±¥Ù•Éä…¹É•…µ½¹±ä]•‰5@Á…É¥Ñä¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈáPÄÀèÄÌèĞÙhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰¡•­¥¹œÑ¡”™Õ±°µ…¥¹Ñ…¥¹•L°$°ÁÉ¥¥¹œ°É•¥½¹…°…¹M=HÍ½ÕÉ”¥¹Ù•¹Ñ½ÉäÁ±ÕÌ‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”•‘¥Ñ¥½¸°ÁÉ•É•ÅÕ¥Í¥Ñ”…¹Á…¥É¥¹œ±…¥µÌ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰Q¡¥ÉÑäµ…¥¹Ñ…¥¹•½™™¥¥…°Í½ÕÉ”É•½É‘ÌìÍ¥áÑ••¸‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”±…¥µÌìL‘¥Ñ¥½¹Ì…¹LµÍÁ•¥™¥Œ$Ù…¥±…‰¥±¥Ñä½¹Í¥ÍÑ•¹ä°±¥¹­Ì°•áÁ½ÉÑÌ…¹±¥Ù”‘•±¥Ù•Éä¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈáPÄÀèÄĞèÀÕhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¡…¹•ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ•…±°€ÌÀµ…¥¹Ñ…¥¹•½™™¥¥…°Í½ÕÉ•Ì…¹€ÄØ½¹Í•ÅÕ•¹Ñ¥…°±…¥µÌì…‘‘•Ñ¡”L€à¸à±½Õ½¹¹•Ğ€È¸À‘•Á•¹‘•¹äµÁ…­…¥¹œ‰½Õ¹‘…Éäİ¥Ñ¡½ÕĞ¥¹™•ÉÉ¥¹œ…¸L€à¸äÉ•±•…Í”½È‰É½…‘•È…Ù…¥±…‰¥±¥Ñä¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰Q¡¥ÉÑäµ…¥¹Ñ…¥¹•½™™¥¥…°Í½ÕÉ”É•½É‘ÌìÍ¥áÑ••¸‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”±…¥µÌìL‘¥Ñ¥½¹Ì…¹LµÍÁ•¥™¥Œ$Ù…¥±…‰¥±¥Ñä½¹Í¥ÍÑ•¹ä°±¥¹­Ì°•áÁ½ÉÑÌ…¹±¥Ù”‘•±¥Ù•Éä¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈåPÄÀèÀÌèÈáhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ¥¹œÑ¡”½µÁ±•Ñ”µ…¥¹Ñ…¥¹•L•‘¥Ñ¥½¹Ì°$…Á…‰¥±¥Ñä°±¥•¹Í¥¹œ°É•¥½¹…°…¹•á…ĞM=HÁ…¥É¥¹œÍ½ÕÉ”Í•Ğ……¥¹ÍĞÑ¡”=Ñ½‰•È€ÈàÁÕ‰±¥Í¡•‰…Í•±¥¹”¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰Q¡¥ÉÑäµ…¥¹Ñ…¥¹•½™™¥¥…°L½M=HÍ½ÕÉ•Ìì€ÈÄ•‘¥Ñ¥½¸…Á…‰¥±¥Ñ¥•Ì°•¥¡ĞÕÉÉ•¹Ğ½¡¥¡±¥¡Ğ½¡¥ÍÑ½ÉäÍ•Ñ¥½¹Ì°LµÍÁ•¥™¥Œ$…Ù…¥±…‰¥±¥ÑäÉ•½É‘Ì°Õ¹É•Í½±Ù•½¹¹•Ñ½È	Õ¥±‘•È°QÉ¥…”…¹Õ¥‘•I•ÍÁ½¹Í”•Ù¥‘•¹”°•á…ĞÁÀ™½ÈM=H…¹áÁ½ÉĞÁ…¥É¥¹Ì°±•…ä½ÕÉÉ•¹Ğ±¥¹­Ì°É•Á½ÉÑÌ°Ñ¡•µ•Ì…¹ÁÕ‰±¥…Ñ¥½¸Á…É¥Ñä¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈåPÄÀèÄÀèÀåhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•ÑÉ¥•Ù•…±°€ÌÀµ…¥¹Ñ…¥¹•½™™¥¥…°É•½É‘Ì…¹É•Ù•É¥™¥•€ÄØ‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”±…¥µÌì¹¼ÍÕÁÁ½ÉÑ•L•‘¥Ñ¥½¹Ì½ÈLµÍÁ•¥™¥Œ$™…Ğ¡…¹•¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰L€à¸à…¹€à¸ÜÉ•±•…Í”…¹•‘¥Ñ¥½¸•Ù¥‘•¹”ì±½Õ…Á…‰¥±¥Ñä¡¥ÍÑ½Éäì‘•Ñ…¥±•…•¹Ğ…¹Ñ…Í¬ÁÉ•É•ÅÕ¥Í¥Ñ•Ìì±½Õ½¹¹•ĞìÁÉ¥¥¹œ°±¥•¹Í¥¹œ°ÑÉ¥…±Ì°U	…¹áÁ½ÍÕÉ”¹…±åÑ¥Ìì€à¸Ü…¹€à¸àÉ•¥½¹…°…¹Á…¥É¥¹œ•Ù¥‘•¹”ì•á…ĞÁÀ™½ÈM=H…¹áÁ½ÉĞÉ½İÌì½¹¹•Ñ½È	Õ¥±‘•È°QÉ¥…”…¹Õ¥‘•I•ÍÁ½¹Í”½¹™±¥ÑÌìÕÉÉ•¹Ğ…¹±•…äÉ½ÕÑ•Ì°Ñ¡•µ•Ì°É•Á½ÉÑÌ…¹É•…µ½¹±ä½¹ÑÉ…Ğ¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÌÁPÄÀèÀÈèÔÑhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ¥¹œÑ¡”½µÁ±•Ñ”µ…¥¹Ñ…¥¹•LÍÍ•¹Ñ¥…±Ì½AÉ•µ¥•È°LµÍÁ•¥™¥Œ$…¹•á…ĞM=HµÁ…¥É¥¹œ•Ù¥‘•¹”¥¹Ù•¹Ñ½Éä½¸Ñ¡”É•½¹¥±•=Ñ½‰•È€ÌÀ…¹‘¥‘…Ñ”¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰Q¡¥ÉÑä½™™¥¥…°L°$°ÁÉ¥¥¹œ°É•¥½¹…°°ÁÀ™½ÈM=H°M=HáÁ½ÉĞ…¹M=HÉ•±•…Í”É•½É‘ÌìÍ¥áÑ••¸‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”•‘¥Ñ¥½¸°ÁÉ•É•ÅÕ¥Í¥Ñ”°É•±•…Í”µÍÑ…”°•¹Ñ¥Ñ±•µ•¹Ğ…¹Á…¥É¥¹œ±…¥µÌìÕÉÉ•¹Ğ½±•…ä½Í¡…É•½¥¹Ù…±¥É½ÕÑ”…¹É•Á½ÉĞÁ…É¥Ñä¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÌÁPÄÀèÀÌèÄÁhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•ÑÉ¥•Ù•…±°€ÌÀµ…¥¹Ñ…¥¹•½™™¥¥…°É•½É‘Ì…¹É•Ù•É¥™¥•€ÄØ‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”±…¥µÌì¹¼ÍÕÁÁ½ÉÑ•L•‘¥Ñ¥½¸½ÈLµÍÁ•¥™¥Œ$™…Ğ¡…¹•°…¹…±°½¹™±¥ÑÌ…¹ÅÕ…±¥™¥…Ñ¥½¹ÌÉ•µ…¥¸•áÁ±¥¥Ğ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰±°€ÌÀµ…¥¹Ñ…¥¹•½™™¥¥…°L½$½½µµ•É¥…°½É•¥½¹…°½M=HÉ•½É‘Ìì‰½Õ¹‘•L€à¸àÍÑ…”°½¹¹•Ñ½È	Õ¥±‘•È°QÉ¥…”°Õ¥‘•I•ÍÁ½¹Í”°±½Õ½¹¹•Ğ°$M=¹…±åÍĞ°Q¡É•…ĞÉ…Á °ÁÉ¥¥¹œ½ÑÉ¥…±Ì°U	½áÁ½ÍÕÉ”°ÁÀ™½ÈM=H…¹áÁ½ÉĞ±…¥µÌ¸M½ÕÉ”…•ÍÌ…¹Õ¹¡…¹•±…¥µÌ…É”É•½É‘•Í•Á…É…Ñ•±äìÍÕ•ÍÍ™Õ°Í½Á”É•Ù¥•Ü¥Ì¹½Ğ‘•Á±½åµ•¹Ğ¸ˆ(€€€€€€€ô(€€€€€t°(€€€€€€‰Í½Á”ˆè€‰±°€ÌÀµ…¥¹Ñ…¥¹•½™™¥¥…°L½$½½µµ•É¥…°½É•¥½¹…°½M=HÉ•½É‘Ìì‰½Õ¹‘•L€à¸àÍÑ…”°½¹¹•Ñ½È	Õ¥±‘•È°QÉ¥…”°Õ¥‘•I•ÍÁ½¹Í”°±½Õ½¹¹•Ğ°$M=¹…±åÍĞ°Q¡É•…ĞÉ…Á °ÁÉ¥¥¹œ½ÑÉ¥…±Ì°U	½áÁ½ÍÕÉ”°ÁÀ™½ÈM=H…¹áÁ½ÉĞ±…¥µÌ¸M½ÕÉ”…•ÍÌ…¹Õ¹¡…¹•±…¥µÌ…É”É•½É‘•Í•Á…É…Ñ•±äìÍÕ•ÍÍ™Õ°Í½Á”É•Ù¥•Ü¥Ì¹½Ğ‘•Á±½åµ•¹Ğ¸ˆ(€€€ô°(€€€ì(€€€€€€‰¥ˆè€‰Ù•ÉÍ¥½¸µÕ¥‘…¹”µ…Õ‘¥Ğˆ°(€€€€€€‰¹…µ”ˆè€‰Y•ÉÍ¥½¸Õ¥‘…¹”Õ‘¥Ğˆ°(€€€€€€‰±…ÍÑÑÑ•µÁĞˆè€ˆÈÀÈØ´ÄÀ´ÈåPÄÈèÈÀèÀÁhˆ°(€€€€€€‰±…ÍÑMÕ•ÍÌˆè€ˆÈÀÈØ´ÄÀ´ÈåPÄÈèÈÈèÀÁhˆ°(€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€‰ÍÕµµ…Éäˆè€‰½µÁ±•Ñ•Ñ¡”¥¹Ñ•É…Ñ•…Õ‘¥Ğİ¥Ñ ¹¼…ÕÑ¡½É¥Ñ…Ñ¥Ù”™…ÑÕ…°½ÉÉ•Ñ¥½¸ìÁÉ•Í•ÉÙ•‘½Õµ•¹Ñ•½¹™±¥ÑÌ…¹Õ¹­¹½İ¹Ì¸ˆ°(€€€€€€‰¡¥ÍÑ½Éäˆèl(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´Àä´ÈÑPÄÈèĞÔèÈĞ¸àÔÔàĞä¬ÀÀèÀÀˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹½ĞµÉ•½É‘•ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰%µÁ½ÉÑ•Í¡•‘Õ±•È…ÑÑ•µÁĞÑ¥µ•ÍÑ…µÀì¹½Ğ•Ù¥‘•¹”½˜ÍÕ•ÍÍ™Õ°½µÁ±•Ñ¥½¸¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´Àä´ÈáPÄÈèÔÀèÈÑhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰Õ‘¥Ñ¥¹œÕÉÉ•¹ĞY•ÉÍ¥½¸½µÁ…ÍÌÕ¥‘…¹”°•Ù¥‘•¹”°É½ÕÑ”‰•¡…Ù¥½È…¹•áÁ½ÉĞ½Í¡…É”¥¹Ñ•É¥Ñä…É½ÍÌ…±°µ…¥¹Ñ…¥¹•ÁÉ½‘ÕÑÌ…¹Ù¥•İÌ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰¹Ñ•ÉÁÉ¥Í”…¹±½ÕA±…Ñ™½É´É½ÕÑ•Ìì¹Ñ•ÉÁÉ¥Í”µÑ¼µ±½Õµ¥É…Ñ¥½¸ì¹Ñ•ÉÁÉ¥Í”M•ÕÉ¥Ñä°%QM$…¹=‰Í•ÉÙ…‰¥±¥ÑäÉ½ÕÑ•ÌìÑ•¡¹¥…°µ¡…¹”É•½É‘Ìì½µÁ…Ñ¥‰¥±¥Ñä°±¥™•å±”…¹Í½ÕÉ”•Ù¥‘•¹”ìL‘¥Ñ¥½¹Ìì±½Õ•¹Ù¥É½¹µ•¹ÑÌ…¹Á•ÉÍÁ•Ñ¥Ù•ÌìUI0É•ÍÑ½É…Ñ¥½¸°ÁÉ¥¹Ğ½Í¹…ÁÍ¡½Ğ‰•¡…Ù¥½È°]•‰5@Á…É¥Ñä°Ñ¡•µ•Ì°¹…Ù¥…Ñ¥½¸…¹ÁÕ‰±¥…Ñ¥½¸µ•Ñ…‘…Ñ„¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´Àä´ÈáPÄÈèÔÜèÌÅhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰½µÁ±•Ñ•Ñ¡”É½ÍÌµÁÉ½‘ÕĞÕ¥‘…¹”…Õ‘¥Ğİ¥Ñ ¹¼ÕÍÑ½µ•Èµ™…¥¹œ™…ÑÕ…°½ÉÉ•Ñ¥½¸É•ÅÕ¥É•ìÉ•Ù…±¥‘…Ñ•Ñ¡”µ…¥¹Ñ…¥¹•¹Ñ•ÉÁÉ¥Í”°L…¹%QM$±¥™•å±”Ñ…‰±•Ì…¹…±°É½ÕÑ”°•áÁ½ÉĞ°Í¡…É”…¹]•‰5@½¹ÑÉ…ÑÌ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰¹Ñ•ÉÁÉ¥Í”…¹±½ÕA±…Ñ™½É´É½ÕÑ•Ìì¹Ñ•ÉÁÉ¥Í”µÑ¼µ±½Õµ¥É…Ñ¥½¸ì¹Ñ•ÉÁÉ¥Í”M•ÕÉ¥Ñä°%QM$…¹=‰Í•ÉÙ…‰¥±¥ÑäÉ½ÕÑ•Ìì€ÜÈÑ•¡¹¥…°µ¡…¹”É•½É‘Ìì½µÁ…Ñ¥‰¥±¥Ñä…¹±¥™•å±”•Ù¥‘•¹”ìL‘¥Ñ¥½¹Ìì±½Õ•¹Ù¥É½¹µ•¹ÑÌ…¹Á•ÉÍÁ•Ñ¥Ù•Ììµ…±™½Éµ•…¹•á…ĞUI1ÌìÁÉ¥¹Ğ½Í¹…ÁÍ¡½ĞÉ•ÍÑ½É…Ñ¥½¸ì]•‰5@…Ñ…±½œ°‰…Ñ¡•Ì…¹ÕÉÉ•¹ĞµÉ•Á½ÉĞ‰•¡…Ù¥½ÈìÑ¡•µ•Ì°¹…Ù¥…Ñ¥½¸…¹ÁÕ‰±¥…Ñ¥½¸µ•Ñ…‘…Ñ„¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀÅPÄÈèÌÜèĞÅhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰Õ‘¥Ñ¥¹œ¥¹Ñ•É…Ñ•Y•ÉÍ¥½¸½µÁ…ÍÌÉ½ÕÑ”Õ¥‘…¹”°½Éİ…É‘•ÈÁÉ½Ù•¹…¹”…¹É•Á½ÉĞÁ…É¥Ñä……¥¹ÍĞÕÉÉ•¹Ğ½™™¥¥…°•Ù¥‘•¹”¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰%¹Ñ•É…Ñ•I•±•…Í”Õ¥‘”°L‘¥Ñ¥½¹Ì°±½Õ¹Ù¥É½¹µ•¹Ğ°‰½ÕĞ½Í½ÕÉ”É•¥ÍÑ•È°¹Ñ•ÉÁÉ¥Í”µÑ¼µ±½Õ°=‰Í•ÉÙ…‰¥±¥Ñä°U¹¥Ù•ÉÍ…°…¹!•…Ùä½Éİ…É‘•ÈÉ½ÕÑ•ÌìÕÁÉ…‘”…¹É••¥Ù•ÈÁ…Ñ¡Ì°=L½…É¡¥Ñ•ÑÕÉ”½ÉÕ¹Ñ¥µ”°ÁÉ•µ¥Õ´µ…ÁÀ…Ñ•Ì°ÍÕÁÁ½ÉĞ±¥™•å±”°•‘¥Ñ¥½¸…¹…ÕÑ¡½É¥é…Ñ¥½¸‰½Õ¹‘…É¥•Ì°•á…ĞUI1Ì°­•å‰½…É½¹…ÉÉ½ÜµÍÉ••¸°A°Í…Ù•!Q50…¹‰É½İÍ•ÈµÍ½Á•]•‰5@‰•¡…Ù¥½È¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀÅPÄÈèÔÌèÄÕhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¡…¹•ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰‘‘•Í½ÕÉ”µ‰…­•¹Ñ•ÉÁÉ¥Í”…¹±½Õ€ÄÀ¸ØÕ¥‘…¹”°•á…ĞL½%QM$¡½ÍĞÁ…¥É¥¹Ì…¹U¹¥Ù•ÉÍ…°½Éİ…É‘•È€ÄÀ¸ØÁ…Ñ¡Ìİ¡¥±”ÁÉ•Í•ÉÙ¥¹œÕ¹­¹½İ¸¹Ñ•ÉÁÉ¥Í”½!Á…Ñ¡Ì°É••¥Ù•È…ÁÌ°ÕÉÉ•¹Ğ±½Õ€ÄÀ¸ÔÁ…¥É¥¹œ…¹ÍÕÁÁ½ÉĞµ‘…Ñ”Õ¹•ÉÑ…¥¹Ñä¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰Õ‘¥Ñ•¥¹Ñ•É…Ñ•A±…Ñ™½É´°µ¥É…Ñ¥½¸°L°%QM$°=‰Í•ÉÙ…‰¥±¥Ñä°L‘¥Ñ¥½¹Ì°±½Õ¹Ù¥É½¹µ•¹Ğ°‰½ÕĞ½Í½ÕÉ”É•¥ÍÑ•È…¹U½!É½ÕÑ•Ìì¡•­•€ÄÀ¸ØÉ•±•…Í”°ÕÁÉ…‘”°=L°½µÁ…Ñ¥‰¥±¥Ñä…¹ÕÉÉ•¹Ğ±½ÕÁ…¥É¥¹œ•Ù¥‘•¹”ìÙ…±¥‘…Ñ••á…ĞUI1Ì°Í½ÕÉ”µ…ÁÁ¥¹Ì°Í¡…É•É•Á½ÉÑÌ°Í¹…ÁÍ¡½ÑÌ°ÁÉ¥¹Ğ•áÁ…¹Í¥½¸…¹É•…µ½¹±ä]•‰5@ÍÑÉÕÑÕÉ…±±ä¸9…Ñ¥Ù”±½…°‰É½İÍ•È½A•á•ÕÑ¥½¸İ…ÌÕ¹…Ù…¥±…‰±”‰•…ÕÍ”Ñ¡”‰É½İÍ•È‘…•µ½¸…¹ÉÕ¹Ñ¥µ”‰¥¹…Éä½Õ±¹½ĞÍÑ…ÉĞ¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀÅPÈÀèÀØèÀÈ¸ØĞÌààÜ¬ÀÀèÀÀˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰%¹‘•Á•¹‘•¹Ñ±ä…Õ‘¥Ñ¥¹œÑ¡”=Ñ½‰•È€ÄÁÕ‰±¥Í¡•Í½ÕÉ”…¹½™™¥¥…°¥¹Ù•¹Ñ½Éä…™Ñ•ÈÑ¡”µ½É¹¥¹œÕÁ‘…Ñ•Ì¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€ˆÄÄØ¥¸µÕÍ”Í½ÕÉ”UI1Ìì‰½Õ¹‘•½¹Í•ÅÕ•¹Ñ¥…°€ÄÀ¸ØÕÁÉ…‘”½É••¥Ù•È½Á…­…”°ÉÕ¹Ñ¥µ”°ÁÉ•µ¥Õ´µ…ÁÀ°±¥™•å±”°L½¹™±¥Ğ°±½Õ½•‘I5@…¹µ¥É…Ñ¥½¸±…¥µÌì½Éİ…É‘•ÈÍ½ÕÉ”µ…ÁÁ¥¹Ìì‰É½İÍ•È°•áÁ½ÉĞ…¹ÁÕ‰±¥…Ñ¥½¸Ù•É¥™¥…Ñ¥½¸¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀÅPÈÀèÌÀèÄä¸ÄÀØĞÀØ¬ÀÀèÀÀˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¡…¹•ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰%¹‘•Á•¹‘•¹ĞÉ”µ…Õ‘¥Ğ½ÉÉ•Ñ•€ÄÀ¸ØÉ••¥Ù•ÈµÉ½Ü¥¹¡•É¥Ñ…¹”°%QM$½¡½ÍÑ•-XMÑ½É”ÁÉ•É•ÅÕ¥Í¥Ñ•Ì°•¹ÉåÁÑ•µÍ•É•Ğ½LÌÍ½Á”°±½ÕÉ•…‘¥¹•ÍÌ…¹Ñ¡”•áÁ±¥¥Ğ¹Ñ•ÉÁÉ¥Í”ÍÕÁÁ½ÉĞ‘•…‘±¥¹”¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€ˆÄÈĞÍ½ÕÉ”É•ÑÉ¥•Ù…°…ÑÑ•µÁÑÌ€ ÄÄØ‰…Í•±¥¹”¥¸µÕÍ”Á±ÕÌ•¥¡Ğ½İ¹¥¹œµ‘½ŒÍ½ÕÉ•Ì¤°€ÈÔ‰½Õ¹‘•±…¥´¡•­Ì°…±°™½ÕÈÁÕ‰±¥Í¡•İ…Ñ ½ÕÑ½µ•Ì°‘•±…É•½Éİ…É‘•ÈÍ½ÕÉ”½Í•Ñ¥½¸µ…ÁÁ¥¹Ì°Íå¹Ñ…à°Ñ¡É•”Íå¹¡É½¹¥é…Ñ¥½¸…Ñ•Ì…¹€ØĞÍÑÉÕÑÕÉ…°½Y4Ñ•ÍÑÌ¸ÑÕ…°‰É½İÍ•È½­•å‰½…É½¹…ÉÉ½ÜµÍÉ••¸°AÁ…¥¹…Ñ¥½¸°É•½Á•¹•!Q50…¹¹…Ñ¥Ù”]•‰5@¡•­Ì¹½ĞÁ•É™½Éµ•è‰É½İÍ•È…ÁÁÉ½Ù…°Ñ¥µ•½ÕĞÑİ¥”…¹±½…°‰É½İÍ•È‰¥¹…ÉäÕ¹…Ù…¥±…‰±”¸1…ÍÑMÕ•ÍÌÉ•½É‘ÌÑ¡¥Ì‰½Õ¹‘••Ù¥‘•¹”½ÍÑÉÕÑÕÉ…°É•Ù¥•Ü°¹½ĞÁÕ‰±¥…Ñ¥½¸½È¹…Ñ¥Ù”•ÉÑ¥™¥…Ñ¥½¸¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀÅPÈÀèĞÔèÀÅhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•ÍÕµ•¥¹‘•Á•¹‘•¹Ğ…Õ‘¥Ğ…™Ñ•ÈÉ•½¹¥±¥¹œ½¹ÕÉÉ•¹Ğ¥Ñ!Õˆ½M¥Ñ•ÌÙ•ÉÍ¥½¸€ÜäìÉ•µ…¥¹¥¹œµ¥É…Ñ¥½¸…Ù…¥±…‰¥±¥Ñä…¹•á…ĞÑ•¡¹¥…°µµ…É­•È½¡¥ÍÑ½ÉäÍ½Á”½ÉÉ•Ñ¥½¹Ì¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€ˆÄÈÀ•á…ĞÍ½ÕÉ”É•ÑÉ¥•Ù…°…ÑÑ•µÁÑÌ€ ÄÄØ½É¥¥¹…°Á±ÕÌ-X°™¥á•µ¥ÍÍÕ•Ì…¹™¥•±µ™¥±Ñ•ÈÍÕÁÁ½ÉÑ¥¹œUI1Ì¤ì‰½Õ¹‘•±…¥´Ù•É¥™¥…Ñ¥½¸…¹¥¹‘•Á•¹‘•¹Ğ‘•±…É•½Éİ…É‘•Èµ…ÁÁ¥¹œ¥¹ÍÁ•Ñ¥½¸¸9…Ñ¥Ù”‰É½İÍ•È½•áÁ½ÉĞ¡•­ÌÉ•½É‘•Í•Á…É…Ñ•±äì¡¥ÍÑ½É¥…°‰½ÉÉ½İ•µ!µ…ÁÁ¥¹œ½Ù•É…”É•µ…¥¹Ì™ÕÑÕÉ”I•±•…Í”]…Ñ İ½É¬¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀÅPÈÀèĞÔèÌÍhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¡…¹•ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•½¹¥±•½¹ÕÉÉ•¹ĞÉ••¥Ù•È½-X½%QM$½±¥™•å±”½ÉÉ•Ñ¥½¹Ìì½ÉÉ•Ñ•±½Õ€ÄÀ¸Øµ¥É…Ñ¥½¸…Ù…¥±…‰¥±¥Ñä±…‰•±Ì…¹•á…ĞÉ•±•…Í”µÍ½Á•Ñ•¡¹¥…°‰…‘•Ì½¡¥ÍÑ½Éä¸€ØÜÑ•ÍÑÌÁ…ÍÍ•¸9…Ñ¥Ù”¹…ÉÉ½ÜµÍÉ••¸½A½É•½Á•¹•µ!Q50½]•‰5@¡•­ÌÉ•µ…¥¸Õ¹Á•É™½Éµ•¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€ˆÄÈÀ•á…ĞUI0É•ÑÉ¥•Ù…°…ÑÑ•µÁÑÌì‰½Õ¹‘•€ÄÀ¸ØÉ••¥Ù•È°Á…Ñ °=L°-X½%QM$°ÍÕÁÁ½ÉĞ°Í•ÕÉ¥Ñä…¹±½Õ±…¥´¡•­Ìì…ÑÑÉ¥‰ÕÑ•É½ÍÌµİ…Ñ ½ÕÑ½µ•Ìì¥¹‘•Á•¹‘•¹Ğ‘•±…É•½Éİ…É‘•ÈÍ½ÕÉ”½Í•Ñ¥½¸½Ù•É…”¸AÕ‰±¥…Ñ¥½¸…¹¹…Ñ¥Ù”Ù•É¥™¥…Ñ¥½¸…É”Í•Á…É…Ñ”¸!¥ÍÑ½É¥…°‰½ÉÉ½İ•µ!µ…ÁÁ¥¹œİ½É¬É•µ…¥¹ÌÕ¹Ù•É¥™¥•¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀÅPÈÄèÀàèÄÙhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•½¹¥±”É•Ñ…¥¹•ÁÕ‰±¥…Ñ¥½¸•Ù¥‘•¹”İ¥Ñ ½¹ÕÉÉ•¹ĞM=HÍ½ÕÉ”ì¥¹‘•Á•¹‘•¹Ñ±ä¥¹ÍÁ•Ğ¹•Ü¥¹Ù•¹Ñ½Éä…¹‰½Õ¹‘•½¹Í•ÅÕ•¹Ñ¥…°±…¥µÌ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€ˆÄĞÀ•á…ĞUI0É•ÑÉ¥•Ù…°…ÑÑ•µÁÑÌ…É½ÍÌÉ•Ñ…¥¹•…Õ‘¥Ğ…¹€ÈÀ…‘‘•M=HÍ½ÕÉ•Ìì™½ÕÈ…‘‘¥Ñ¥½¹…°M=H±…¥´¡•­Ì¸á¥ÍÑ¥¹œØàÀ¹…Ñ¥Ù”É•ÍÕ±ÑÌÉ•Ñ…¥¹•…Ì‰½Õ¹‘••Ù¥‘•¹”ìA°¹…ÉÉ½ÜµÍÉ••¸°É•½Á•¹•!Q50…¹¹…Ñ¥Ù”]•‰5@É•µ…¥¸Õ¹Ù•É¥™¥•¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀÅPÈÄèÀàèÌÕhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰½¹ÕÉÉ•¹ĞM=HÍ½ÕÉ”ÁÉ•Í•ÉÙ•ì€ÈÀ…‘‘•½™™¥¥…°Í½ÕÉ•ÌÉ•ÑÉ¥•Ù•…¹™½ÕÈ½¹Í•ÅÕ•¹Ñ¥…°±…¥µÌ½¹™¥Éµ•¸AÉ¥½È™…ÑÕ…°Ù•ÉÍ¥½¸€àÀÁÕ‰±¥…Ñ¥½¸…¹‰½Õ¹‘•¹…Ñ¥Ù”•Ù¥‘•¹”É•½¹¥±•¸9¼™ÕÉÑ¡•È™…ÑÕ…°¡…¹”¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€ˆÄĞÀ•á…ĞUI0…ÑÑ•µÁÑÌ¥¹±Õ‘¥¹œ€ÈÀ…‘‘•M=HÍ½ÕÉ•Ìì™½ÕÈ¹•Ü‰Õ¥±½AåÑ¡½¸½Á…¥É¥¹œ½Á…Ñ ±…¥´¡•­Ì¸I•ÑÉ¥•Ù…°¥Ì¹½Ğ‰±…¹­•Ğ±…¥´Ù•É¥™¥…Ñ¥½¸¸!¥ÍÑ½É¥…°!½Ù•É…”…¹¹…Ñ¥Ù”A°¹…ÉÉ½ÜµÍÉ••¸°É•½Á•¹•!Q50°±¥Á‰½…É…¹]•‰5@É•µ…¥¸¥¹½µÁ±•Ñ”ìÍÕ•ÍÍ™Õ°É•Ù¥•Ü¥Ì¹½Ğ‘•Á±½åµ•¹Ğ¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀáPÄÈèÄäèÀà¸ààÌÔàĞ¬ÀÀèÀÀˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰%¹‘•Á•¹‘•¹Ğ¥¹Ù•¹Ñ½Éä…¹‰½Õ¹‘•½¹Í•ÅÕ•¹Ñ¥…°Õ¥‘…¹”…Õ‘¥Ğ™É½´µ…Ñ¡¥¹œ=Ñ½‰•È€à¥Ñ!Õˆ½M¥Ñ•Ì‰…Í•±¥¹”¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰½µÁ±•Ñ”µ…¥¹Ñ…¥¹•½™™¥¥…°Í½ÕÉ”¥¹Ù•¹Ñ½Éäì‰½Õ¹‘•A±…Ñ™½É´°µ¥É…Ñ¥½¸°L½%QM$°=‰Í•ÉÙ…‰¥±¥Ñä°U½!‰½ÉÉ½İ•µÍ½ÕÉ”É•É•ÍÍ¥½¸…¹M=HÁ…Ñ ½ÉÕ¹Ñ¥µ”½…ÁÀ±…¥µÌì…ÑÕ…°ÕÉÉ•¹Ğ½±•…ä½¥¹Ù…±¥‰É½İÍ•ÈÉ½ÕÑ•Ì°É•…µ½¹±ä]•‰5@…¹¥¹‘•Á•¹‘•¹Ñ±äÉ•½É‘•ÁÕ‰±¥…Ñ¥½¸¡•­Ì¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÀáPÄÈèÌÜèÌØ¸ÔÌàÄÌåhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¡…¹•ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰I•Ù¥•İ•€ÄĞØ¥¸µÕÍ”½™™¥¥…°UI1Ì°É•ÑÉ¥•Ù•€ÄĞĞì¥¹‘•Á•¹‘•¹Ñ±ä‘•µ½¹ÍÑÉ…Ñ•€ÄØ!µ…ÁÁ¥¹Ì…É½ÍÌ€äÀÀÉ½ÕÑ•Ì¸M=H€Ø¸Ğ¸Ä¸ÌØÄ•±¥¥‰¥±¥Ñä…À¥Í½±…Ñ•ìáÁ½ÉĞ€à¸Üµ…ÑÉ¥àÉ•½Ù•É•ì…Õ‘¥Ğ…¹½Á•É…Ñ¥½¹…°‘½ÌÕÁ‘…Ñ•¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰½µÁ±•Ñ”¥¹Ñ•É…Ñ•Í½ÕÉ”¥¹Ù•¹Ñ½Éä…ÑÑ•µÁÑÌ…¹‰½Õ¹‘•I•±•…Í”Õ¥‘”½ÁÉ•µ¥Õ´½µ¥É…Ñ¥½¸½±¥™•å±”½•‘¥Ñ¥½¸½•¹Ù¥É½¹µ•¹Ğ½=‰Í•ÉÙ…‰¥±¥Ñä½½Éİ…É‘•È½M=H±…¥µÌì…ÑÕ…°‘•Í­Ñ½À½­•å‰½…É½±•…äµ¥¹Ù…±¥½É•…µ½¹±ä]•‰5@…¹!Q50‘½İ¹±½…ì¹…Ñ¥Ù”É•½Á•¸½A½¹…ÉÉ½Ü±¥µ¥ÑÌÉ•½É‘•Í•Á…É…Ñ•±ä¸½Õµ•¹Ñ…Ñ¥½¸…¹½ÕÑ½µ”ÁÕ‰±¥…Ñ¥½¸½¹±äì¹¼…¹½¹¥…°™…ÑÕ…°‰…Ñ ½È…Ñ¥Ù”‘•±¥Ù•Éä¡…¹”¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÄÉPÄÈèÔÄèÈĞ¸ÀĞÕhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰%¹‘•Á•¹‘•¹Ğ½µÁ±•Ñ”Í½ÕÉ”¥¹Ù•¹Ñ½Éä…¹‰½Õ¹‘•ÕÁÉ…‘”°ÉÕ¹Ñ¥µ”°½µÁ…Ñ¥‰¥±¥Ñä°±¥™•å±”…¹É•Á½ÉĞÙ•É¥™¥…Ñ¥½¸¥¸ÁÉ½É•ÍÌ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰%¹Ñ•É…Ñ•I•±•…Í”Õ¥‘”°L‘¥Ñ¥½¹Ì°±½Õ¹Ù¥É½¹µ•¹Ğ°Í½ÕÉ”½µÁ•¹‘¥Õ´°µ¥É…Ñ¥½¸°=‰Í•ÉÙ…‰¥±¥Ñä°U½!…¹M=H¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÄÉPÄÌèÀÌèÄÜ¸äÈÑhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¡…¹•ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰	½Õ¹‘•…Õ‘¥Ğ½ÉÉ•Ñ•L½¡½ÍÑ•-XMÑ½É”Á½ÍÑÁ½¹•µ•¹Ğ°ÅÕ…±¥™¥•„-XµÍÁ•¥™¥ŒÍ½ÕÉ”µÙ•ÉÍ¥½¸½¹™±¥Ğ°É•½Ù•É•M=HáÁ½ÉĞÁÉ•É•ÅÕ¥Í¥Ñ”µ…ÑÉ¥•Ì…¹•áÑ•¹‘•¹…Ñ¥Ù”•áÁ½ÉĞÉ½ÕÑ”½Ù•É…”¸U¹…Ù…¥±…‰±”‰½‘¥•ÌÉ•µ…¥¸Õ¹Ù•É¥™¥•¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰±°€ÄÔÜÍ½ÕÉ”UI1Ì…ÑÑ•µÁÑ•ì€ÜÈ™¥ÉÍĞµÁ…ÍÌ‰½‘¥•Ì½A$É•½É‘ÌÉ•½Ù•É•°€àÔ™¥ÉÍĞµÁ…ÍÌÉ•ÑÉ¥•Ù…°±¥µ¥ÑÌ•áÁ±¥¥Ñ±äÉ•½É‘•ì¥¹‘•Á•¹‘•¹Ğ¡¥ µ½¹Í•ÅÕ•¹”±…¥´¡•­Ì…¹ÁÉ½Ñ•Ñ•½ÉÉ•Ñ¥½¹Ì¸9½Ğ…¸•á¡…ÕÍÑ¥Ù”¡¥ÍÑ½É¥…°½È±¥™•å±”É••ÉÑ¥™¥…Ñ¥½¸¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈÉPÄÈèÀäèÌÉhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰Õ‘¥Ñ¥¹œÕÉÉ•¹ĞY•ÉÍ¥½¹½µÁ…ÍÌÕ¥‘…¹”°½Éİ…É‘•Èµ…ÁÁ¥¹Ì°M=H•Ù¥‘•¹”…¹É•Á½ÉĞ‰•¡…Ù¥½È¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰É•Í ¥Ñ!Õˆ½M¥Ñ•ÌÉ•½¹¥±¥…Ñ¥½¸ì½µÁ±•Ñ”½™™¥¥…°Í½ÕÉ”¥¹Ù•¹Ñ½ÉäÉ•½¹¥±¥…Ñ¥½¸ì‰½Õ¹‘•¡¥¡•ÍĞµ½¹Í•ÅÕ•¹”½Éİ…É‘•È…¹M=H±…¥´¡•­ÌìÉ½ÕÑ”°•áÁ½ÉĞ°]•‰5@…¹±¥Ù”Á…É¥Ñä¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈÉPÄÈèÈÀèĞÁhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¡…¹•ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰½ÉÉ•Ñ•L€à¸à¹Ñ•ÉÁÉ¥Í”Á…¥É¥¹Ì°…‘‘•=Ñ½‰•È€ÈÄ=‰Í•ÉÙ…‰¥±¥ÑäÕ¥‘…¹”°…¹…‘Ù…¹•Ñİ¼Ù•É¥™¥•!Í½ÕÉ”µ…ÁÁ¥¹Ì¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰I•½¹¥±•™É•Í ¥Ñ!Õˆ½M¥Ñ•Ì¡¥ÍÑ½É¥•Ìì½µÁ±•Ñ”€ÄàÜµÍ½ÕÉ”É•¥ÍÑ•È½ÕÉÉ•¹Ğµ‘…ä€ÄàØµUI0É•ÑÉ¥•Ù…°É•½Éì‰½Õ¹‘•I•±•…Í”Õ¥‘”°L°±½Õ°µ¥É…Ñ¥½¸°=‰Í•ÉÙ…‰¥±¥Ñä°½Éİ…É‘•È…¹M=H±…¥´¡•­ÌìÉ•É•ÍÍ¥½¸°•áÁ½ÉĞ°]•‰5@…¹±¥Ù”Ù•É¥™¥…Ñ¥½¸¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈÙPÄÈèÈàèĞáhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰Õ‘¥Ñ¥¹œÑ¡”½µÁ±•Ñ”µ…¥¹Ñ…¥¹•Y•ÉÍ¥½¸½µÁ…ÍÌÍ½ÕÉ”¥¹Ù•¹Ñ½Éä°¡¥ µ½¹Í•ÅÕ•¹”Õ¥‘…¹”°Í½ÕÉ”µ…ÁÁ¥¹Ì…¹•á…ĞÉ•Á½ÉĞ‰•¡…Ù¥½È¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰%¹Ñ•É…Ñ•I•±•…Í”Õ¥‘”°µ¥É…Ñ¥½¸°L‘¥Ñ¥½¹Ì°±½Õ•¹Ù¥É½¹µ•¹Ğ°‰½ÕĞ½Í½ÕÉ”½µÁ•¹‘¥Õ´°=‰Í•ÉÙ…‰¥±¥Ñä°U¹¥Ù•ÉÍ…°…¹!•…Ùä½Éİ…É‘•ÉÌ°M=H…¹$Ù…¥±…‰¥±¥Ñäì€ÈÀÀ½™™¥¥…°Í½ÕÉ”…ÑÑ•µÁÑÌ°‰½Õ¹‘•½µÁ…Ñ¥‰¥±¥Ñä°ÕÁÉ…‘”°Í•ÕÉ¥Ñä°•¹Ñ¥Ñ±•µ•¹Ğ…¹…ÕÑ¡½É¥é…Ñ¥½¸±…¥µÌ°±•…ä½ÕÉÉ•¹Ğ½¥¹Ù…±¥É½ÕÑ•Ì°É•Á½ÉÑÌ°]•‰5@…¹ÁÕ‰±¥…Ñ¥½¸Á…É¥Ñä¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈÙPÄÈèĞÈèÄİhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¡…¹•ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰½µÁ±•Ñ•Ñ¡”¥¹Ñ•É…Ñ•Õ¥‘…¹”…Õ‘¥Ğİ¥Ñ ¹¼¹•Ü™…ÑÕ…°½ÉÉ•Ñ¥½¸ìÉ•Á…¥É•Ñ¡”$É•Á½ÉĞ™½½Ñ•È±…‰•°…¹¥Í¼±½ÕÁÉ¥¹Ğ•Ù¥‘•¹”½¹ÑÉ…ÍĞİ¡¥±”É•Ñ…¥¹¥¹œ‘½Õµ•¹Ñ•½¹™±¥ÑÌ…¹Õ¹­¹½İ¹Ì¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰±°€ÈÀÀµ…¥¹Ñ…¥¹•½™™¥¥…°Í½ÕÉ”…ÑÑ•µÁÑÌ°Ñ•¸‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”±…¥´¡•­Ì°…±°€Äà½Éİ…É‘•ÈÍ½ÕÉ”µ…ÁÁ¥¹Ì°Ñ•¸$…Á…‰¥±¥Ñ¥•Ì°•á…Ğ½±•…ä½¥¹Ù…±¥M=H…¹É•Á½ÉĞÉ½ÕÑ•Ì°‰½Ñ Ñ¡•µ•Ì°Á¡½¹”°­•å‰½…É°¹…Ñ¥Ù”A°½™™±¥¹”!Q50…¹É•…µ½¹±ä]•‰5@•Ù¥‘•¹”¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈåPÄÈèÈÀèÀÁhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰ÉÕ¹¹¥¹œˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰%¹Ñ•É…Ñ•Õ¥‘…¹”…Õ‘¥Ğ¥¸ÁÉ½É•ÍÌ¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰½µÁ±•Ñ”€ÈÀÔµÍ½ÕÉ”½™™¥¥…°¥¹Ù•¹Ñ½Éä°…™™•Ñ•=Ñ½‰•È€ÈäÉ•±•…Í”…¹¹…Ù¥…Ñ¥½¸¡…¹•Ì°…¹‰½Õ¹‘•¡¥¡•ÍĞµ½¹Í•ÅÕ•¹”I•±•…Í”Õ¥‘”°µ¥É…Ñ¥½¸°L‘¥Ñ¥½¹Ì°±½Õ°‰½ÕĞ°=‰Í•ÉÙ…‰¥±¥Ñä°½Éİ…É‘•ÉÌ°M=H…¹$Ù…¥±…‰¥±¥Ñä±…¥µÌ…¹É•Á½ÉĞ‰•¡…Ù¥½È¸ˆ(€€€€€€€ô°(€€€€€€€ì(€€€€€€€€€€‰…Ğˆè€ˆÈÀÈØ´ÄÀ´ÈåPÄÈèÈÈèÀÁhˆ°(€€€€€€€€€€‰½ÕÑ½µ”ˆè€‰¹¼µ¡…¹”ˆ°(€€€€€€€€€€‰ÍÕµµ…Éäˆè€‰½µÁ±•Ñ•Ñ¡”¥¹Ñ•É…Ñ•…Õ‘¥Ğİ¥Ñ ¹¼…ÕÑ¡½É¥Ñ…Ñ¥Ù”™…ÑÕ…°½ÉÉ•Ñ¥½¸ìÁÉ•Í•ÉÙ•‘½Õµ•¹Ñ•½¹™±¥ÑÌ…¹Õ¹­¹½İ¹Ì¸ˆ°(€€€€€€€€€€‰Í½Á”ˆè€‰±°€ÈÀÔÉ•¥ÍÑ•É•UI0…ÑÑ•µÁÑÌ°•±•Ù•¸‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”±…¥´É½ÕÁÌ°…±°€Äà½Éİ…É‘•Èµ…ÁÁ¥¹Ì°Ñ•¸$…Á…‰¥±¥Ñ¥•Ì°M=H•á…Ğ½±•…ä½¥¹Ù…±¥‰•¡…Ù¥½È°ÕÉÉ•¹ĞÉ½ÕÑ”½É•Á½ÉĞ½¹ÑÉ…ÑÌ…¹½½É‘¥¹…Ñ•µ…¥¹Ñ•¹…¹”•Ù¥‘•¹”¸ˆ(€€€€€€€ô(€€€€€t°(€€€€€€‰Í½Á”ˆè€‰±°€ÈÀÔÉ•¥ÍÑ•É•UI0…ÑÑ•µÁÑÌ°•±•Ù•¸‰½Õ¹‘•¡¥ µ½¹Í•ÅÕ•¹”±…¥´É½ÕÁÌ°…±°€Äà½Éİ…É‘•Èµ…ÁÁ¥¹Ì°Ñ•¸$…Á…‰¥±¥Ñ¥•Ì°M=H•á…Ğ½±•…ä½¥¹Ù…±¥‰•¡…Ù¥½È°ÕÉÉ•¹ĞÉ½ÕÑ”½É•Á½ÉĞ½¹ÑÉ…ÑÌ…¹½½É‘¥¹…Ñ•µ…¥¹Ñ•¹…¹”•Ù¥‘•¹”¸ˆ(€€€ô(€t)ôì(
