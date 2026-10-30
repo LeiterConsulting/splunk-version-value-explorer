@@ -2,6 +2,12 @@
 
 Contract version: **1.0.0**. Transport: **read-only, commit-pinned repository JSON**.
 
+Operation: **native publication enabled** for the four existing review watches.
+See [native publication](issue-feed-native.md) for mandatory reviewer behavior,
+audit outcomes, provenance follow-up and the CI gate. The existing consumer
+contract and checkpoints are unchanged; the twelve historical findings are a
+baseline rather than a coverage cap.
+
 This feed supports discovery and assessment of issues identified by VersionCompass:
 conflicting statements, suspected errors, uncertain claims and bounded coverage
 gaps that affect a reader's decision. It publishes evidence and independent public
@@ -231,13 +237,14 @@ synthetic fixtures are separate in `content/issue-feed-examples.json`. They do n
 replace canonical product facts in `content/datasets/*.json`. Generated exports
 must never be edited directly.
 
-Existing watches should append an assessment only after actually reviewing the
-named claim and public evidence. Coordinate shared finding identities across watch
+Existing watches must append an assessment when an existing finding is actually
+reassessed against named public evidence. Coordinate shared finding identities across watch
 families; do not mint an issue per report. Preserve unknown source revisions and
 original dates, labels, scope and provenance. Normalization is an explicit basis,
-not a new independent review. This release adds repository instructions and CI
-checks; it creates no timer or scheduler change and does not guarantee that every
-future watch run will produce a finding or reassessment.
+not a new independent review. Native publication is mandatory in the existing task
+prompts and CI requires explicit outcomes for future changed watch audits. This
+does not create a timer or guarantee a new finding on every run. A no-observation
+run is explicit; a pending or blocked feed is not complete delivery.
 
 ```bash
 node scripts/sync-issue-feed.cjs

@@ -99,10 +99,13 @@ Share finding identities across watches without silently merging different scope
 Append a new assessment only when the concern was actually reviewed; a no-change
 audit or missing issue does not imply reassessment or resolution. Preserve original
 labels, claim dates, exact sections, provenance and explicitly unknown revisions.
-Run the feed generation/check gate when its ledger changes. The first publication
-is a two-concern historical normalization, not complete adoption by every watch.
-This adds repository maintenance guidance and CI validation, not a timer, scheduler
-edit, new live-site endpoint, or guarantee of a finding on every run.
+Run the feed generation/check gate when its ledger changes. The initial publication
+was a two-concern historical normalization, later expanded to twelve concerns.
+Native publication is now required in all four saved review-task prompts. Follow
+[native publication](issue-feed-native.md), record a feed outcome in each future
+changed watch audit, and pass its CI gate. Existing schedules, timing modes and
+enabled states remain unchanged. No new live-site endpoint or guaranteed daily
+finding is implied. Completion of future native runs remains separately observable.
 
 
 ## Perspective presentation

@@ -105,7 +105,7 @@ function validateLedger(ledger, previous = null) {
   }
   return ledger;
 }
-function build(ledger) {
+function build(ledger, policy = null) {
   validateLedger(ledger);
   const files = new Map(), descriptors = new Map();
   for (const record of ledger.records) {
@@ -121,6 +121,11 @@ function build(ledger) {
     publications.push({ publicationId: `vci-${digest}`, sequence: snapshot.sequence, publishedAt: snapshot.publishedAt, path: file, sha256: digest, byteLength: Buffer.byteLength(bytes) });
   }
   const index = { schemaVersion: VERSION, publicationVersion: VERSION, kind: 'index', feedId: ledger.synthetic ? 'versioncompass-issues-examples' : 'versioncompass-issues', synthetic: ledger.synthetic, latest: publications.at(-1), publications, cadence: { mode: 'existing-watch-publications', fixedFeedInterval: null, qualification: 'Issue-level review follows the existing watches. No fresh assessment, SLA or exhaustive coverage is implied by an index update.' }, repositoryPublication: { transport: 'commit-pinned-static-json', qualification: 'Resolve one full Git commit and read all paths at that commit. publishedAt is the producer timestamp; Git commit availability is repository publication evidence.' }, liveSiteDelivery: { status: 'not-designated', endpoint: null, qualification: 'This feed is published in the repository. Website deployment or D1 health does not establish feed delivery.' } };
+  if (policy) {
+    const bytes = encode(policy);
+    index.producer = { mode: policy.mode, enabled: policy.enabled, activatedAt: policy.activatedAt, contractVersion: VERSION, policy: { path: 'producer-policy.json', sha256: sha256(bytes), byteLength: Buffer.byteLength(bytes) }, qualification: 'Native editorial publication is required for the existing watches. Coverage stays explicitly bounded; no downstream action or new claim review is implied by this metadata.' };
+    files.set('producer-policy.json', bytes);
+  }
   files.set('index.json', encode(index));
   for (const bytes of files.values()) assert(Buffer.byteLength(bytes) <= 2 * 1024 * 1024, 'Feed object exceeds 2 MiB');
   return { files, index };
@@ -141,7 +146,8 @@ function sync(root = process.cwd(), check = false) {
   const outputs = [[ledger, 'feeds/issues/v1'], [JSON.parse(fs.readFileSync(path.join(root, 'content/issue-feed-examples.json'))), 'feeds/issues/v1/examples']];
   let count = 0;
   for (const [input, destination] of outputs) {
-    const { files } = build(input);
+    const policy = destination === 'feeds/issues/v1' && fs.existsSync(path.join(root, 'content/issue-feed-policy.json')) ? JSON.parse(fs.readFileSync(path.join(root, 'content/issue-feed-policy.json'))) : null;
+    const { files } = build(input, policy);
     for (const directory of ['records', 'snapshots']) {
       const full = path.join(root, destination, directory);
       for (const name of fs.existsSync(full) ? fs.readdirSync(full) : []) assert(files.has(`${directory}/${name}`), 'Unexpected generated file: ' + path.join(destination, directory, name));

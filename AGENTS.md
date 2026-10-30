@@ -2,6 +2,17 @@
 
 ## October 30 public issue feed
 
+Native publication is now enabled as a normal required review output. Read
+docs/issue-feed-native.md and content/issue-feed-policy.json. Every future changed
+main/source watch audit must declare its feed outcome; CI checks this with
+scripts/check-native-issue-feed.cjs. Use record-issue-feed-outcome.cjs to bind the
+actual review input and retained checkpoint. Finish any pending-public-provenance
+follow-up before reporting full delivery. Preserve qualified unresolved issues
+as public observations without turning them into confident product guidance.
+The current twelve findings are not a cap; add supported new findings and actual
+scoped reassessments through the existing watches. No new timer, consumer identity,
+write-back, automatic closure or website endpoint is authorized by this activation.
+
 The owner authorizes the agnostic public issue feed for discovery and assessment
 of issues identified by VersionCompass. Read docs/issue-feed.md before changing
 the contract or emitting findings. Use content/issue-feed.json as the public

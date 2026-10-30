@@ -1,5 +1,10 @@
 # Public issue feed 1.0.0
 
+**Native producer enabled.** [Publication policy](producer-policy.json) and
+[reviewer guide](../../../docs/issue-feed-native.md) make the feed a required
+output of the existing independent review watches. Coverage remains bounded;
+activation alone does not add assessments or advance the issue checkpoint.
+
 A read-only publication supporting discovery and assessment of issues identified
 by VersionCompass. Start with the [definition and consumer guide](../../../docs/issue-feed.md),
 [index](index.json) and [JSON Schema](schema.json).

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "enabled": true,
+  "mode": "native",
+  "contractVersion": "1.0.0",
+  "activatedAt": "2026-10-30T22:03:59.810Z",
+  "transport": "commit-pinned-static-json",
+  "privacy": "public-evidence-only",
+  "consumerWriteBack": false,
+  "automaticWorkClosure": false,
+  "watches": [
+    {
+      "id": "version-release-watch",
+      "required": true,
+      "scope": "Platform, release, upgrade, component and security observations"
+    },
+    {
+      "id": "es-editions-watch",
+      "required": true,
+      "scope": "ES editions, capabilities, prerequisites, pairing and commercial scope"
+    },
+    {
+      "id": "csp-fedramp-watch",
+      "required": true,
+      "scope": "Provider, region, regulated availability and authorization scope"
+    },
+    {
+      "id": "version-guidance-audit",
+      "required": true,
+      "scope": "Independent cross-product audit and assessment coverage"
+    }
+  ],
+  "publicationRule": "Every supported new finding and actual scoped reassessment is part of the normal review output. Preserve original IDs, evidence and dates. Explicitly declare no-new-observations, pending-public-provenance or blocked outcomes; never manufacture records from labels or silence.",
+  "provenanceRule": "Publish the audit first when an immutable public audit commit is needed; declare pending-public-provenance, then finish the feed follow-up before reporting the run fully delivered.",
+  "scheduleRule": "Reuse the four existing watches without changing schedules, timing modes, enabled states or audience.",
+  "coverageRule": "The twelve normalized findings are a historical baseline, not a cap or complete global coverage. Future supported findings may be added in the same contract."
+}

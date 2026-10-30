@@ -976,6 +976,62 @@
             }
           },
           "additionalProperties": true
+        },
+        "producer": {
+          "$ref": "#/$defs/producer"
+        }
+      },
+      "additionalProperties": true
+    },
+    "producer": {
+      "type": "object",
+      "required": [
+        "mode",
+        "enabled",
+        "activatedAt",
+        "contractVersion",
+        "policy",
+        "qualification"
+      ],
+      "properties": {
+        "mode": {
+          "const": "native"
+        },
+        "enabled": {
+          "const": true
+        },
+        "activatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "contractVersion": {
+          "const": "1.0.0"
+        },
+        "policy": {
+          "type": "object",
+          "required": [
+            "path",
+            "sha256",
+            "byteLength"
+          ],
+          "properties": {
+            "path": {
+              "const": "producer-policy.json"
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "byteLength": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "additionalProperties": true
+        },
+        "qualification": {
+          "type": "string",
+          "minLength": 1
         }
       },
       "additionalProperties": true

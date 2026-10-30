@@ -24,6 +24,8 @@ For public issue observations, follow [the issue-feed contract](docs/issue-feed.
 Append scoped findings/reassessments to the ledger, preserve immutable history and
 run `node scripts/sync-issue-feed.cjs --check`. Do not infer a correction from a
 missing record, retrieval success, audit date or editorial disposition.
+Native reviewer output is required: follow [native feed publication](docs/issue-feed-native.md),
+record an outcome for changed watch audits and pass `node scripts/check-native-issue-feed.cjs`.
 
 Contributed guidance should be:
 
