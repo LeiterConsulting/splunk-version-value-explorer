@@ -21,13 +21,13 @@ function transport(ledger, mutate) {
   };
 }
 test('generated production and synthetic feeds are synchronized and isolated', () => {
-  assert.equal(sync(process.cwd(), true).findings, 2);
+  assert.equal(sync(process.cwd(), true).findings, 12);
   assert.equal(build(real).index.synthetic, false);
   assert.equal(build(example).index.synthetic, true);
   for (const { files } of [build(real), build(example)]) for (const [file, bytes] of files) if (file !== 'index.json') assert.equal(file.split('/')[1], sha256(bytes) + '.json');
 });
-test('real records preserve two scoped concerns, original audit labels and revision uncertainty', () => {
-  assert.equal(real.records.filter(r => r.kind === 'assessment').length, 4);
+test('expanded records preserve scoped concerns, original audit labels and revision uncertainty', () => {
+  assert.equal(real.records.filter(r => r.kind === 'assessment').length, 23);
   assert(real.records.every(r => r.provenance.every(p => p.basis === 'published-audit-normalization')));
   assert(real.records.some(r => r.evidence.some(e => e.documentRevision.type === 'unavailable')));
   assert(real.records.some(r => r.evidence.some(e => e.documentRevision.type === 'sha256')));
@@ -35,8 +35,8 @@ test('real records preserve two scoped concerns, original audit labels and revis
     const file = p.url.split(/\/blob\/[a-f0-9]{40}\//)[1];
     const audit = JSON.parse(fs.readFileSync(file));
     const observed = p.pointer.split('/').slice(1).reduce((value, field) => value[field], audit);
-    assert.equal(observed.outcome, p.originalLabel);
-    if (record.kind === 'assessment') assert.equal(record.assessedAt, observed.verifiedAt || observed.claimVerificationDate);
+    assert.equal(observed.outcome || observed.status, p.originalLabel);
+    if (record.kind === 'assessment' && (observed.verifiedAt || observed.claimVerificationDate)) assert.equal(record.assessedAt, observed.verifiedAt || observed.claimVerificationDate);
     for (const e of record.evidence.filter(e => e.documentRevision.type === 'sha256')) assert(audit.sourceChecks.some(s => s.url === e.url && s.sha256 === e.documentRevision.value && s.checkedAt === e.sourceCheckedAt));
   }
 });
@@ -47,7 +47,7 @@ test('producer rejects changed history, duplicates, missing assessed findings an
   assert.throws(() => validateLedger(duplicate), /Duplicate record/);
   const missing = clone(real); missing.publications[0].recordKeys = missing.publications[0].recordKeys.filter(k => k !== key(missing.records[0]));
   assert.throws(() => validateLedger(missing), /omits assessed finding/);
-  const removed = clone(real); removed.publications[1].recordKeys.pop();
+  const removed = clone(real); removed.publications.at(-1).recordKeys.pop();
   assert.throws(() => validateLedger(removed), /Unpublished|retain all/);
 });
 test('coverage-gap producer requires a finite retrieved corpus, not retrieval failure', () => {
@@ -58,7 +58,7 @@ test('coverage-gap producer requires a finite retrieved corpus, not retrieval fa
 test('editorial withdrawal is distinct from an addressed assessment', () => {
   const next = clone(real), withdrawn = clone(real.records[0]);
   withdrawn.revision = 2; withdrawn.lifecycle = { disposition: 'withdrawn', reason: 'Synthetic test of editorial withdrawal; no public correction asserted.' };
-  next.records.push(withdrawn); next.publications.push({ ...clone(next.publications.at(-1)), sequence: 3, recordKeys: [...next.publications.at(-1).recordKeys, key(withdrawn)] });
+  next.records.push(withdrawn); next.publications.push({ ...clone(next.publications.at(-1)), sequence: next.publications.length + 1, recordKeys: [...next.publications.at(-1).recordKeys, key(withdrawn)] });
   validateLedger(next, real);
   assert.equal(next.records.filter(r => r.outcome === 'addressed-in-reviewed-scope').length, 0);
 });
@@ -127,4 +127,22 @@ test('CI history check rejects an already-committed rewrite against the parent',
     git(['add', '.']); git(['-c', 'user.name=Feed test', '-c', 'user.email=feed@example.invalid', 'commit', '-m', 'Invalid rewritten ledger']);
     assert.throws(() => sync(root, true), /immutable/);
   } finally { fs.rmSync(root, { recursive: true, force: true }); }
+});
+test('pilot checkpoint recovers expanded coverage without replacing prior records', async () => {
+  assert.equal(real.publications[0].recordKeys.length, 4);
+  assert.equal(real.publications[1].recordKeys.length, 6);
+  const pilotKeys = new Set(real.publications[1].recordKeys);
+  assert.equal(real.records.filter(r => pilotKeys.has(key(r))).length, 6);
+  const index = build(real).index;
+  assert.equal(index.publications[1].publicationId, 'vci-e1be5a90eb89a51c1af75f167631ed0beceec8f7b4dd1374b8cf1bd6d4e81a0b');
+  const read = await readIssueFeed({ commit, checkpoint: index.publications[1].publicationId, fetchImpl: transport(real) });
+  assert.equal(read.publications.length, 1);
+  assert.equal(read.records.filter(r => r.record.kind === 'finding').length, 12);
+  assert.equal(read.records.filter(r => r.record.kind === 'assessment').length, 23);
+  assert.equal(read.records.filter(r => !pilotKeys.has(key(r.record))).length, 29);
+  const noop = await readIssueFeed({ commit, checkpoint: read.checkpoint, fetchImpl: transport(real) });
+  assert.equal(noop.records.length, 0);
+  const security = read.records.find(r => r.record.findingId === 'vci-svd-2026-1015-applicability' && r.record.kind === 'assessment').record;
+  assert.equal(security.assessedAt, '2026-10-29');
+  assert.equal(security.evidence[0].sourceCheckedAt, '2026-10-30');
 });

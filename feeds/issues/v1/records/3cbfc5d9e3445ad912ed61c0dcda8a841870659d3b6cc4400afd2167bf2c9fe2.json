@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "findingId": "vci-app-for-soar-es-pairing",
+  "revision": 1,
+  "recordedAt": "2026-10-30T21:52:50.319Z",
+  "title": "App for SOAR pairing with later ES releases is not established by the reviewed matrix",
+  "concernType": "uncertain-claim",
+  "problem": "The reviewed App for SOAR 8.7.0 matrix lists ES 8.7.0 and 8.6.1; it does not establish pairing with ES 8.7.1, 8.8 or 8.9.",
+  "scope": {
+    "products": [
+      "Splunk App for SOAR",
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "App for SOAR 8.7.0",
+      "ES 8.7.1",
+      "ES 8.8",
+      "ES 8.9"
+    ],
+    "editions": null,
+    "deployments": null,
+    "regions": null,
+    "audiences": [
+      "Customers and documentation readers evaluating the stated decision"
+    ],
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "impact": {
+    "customerScenario": "A reader plans an App for SOAR integration with a later ES release.",
+    "consequence": "Independent release numbers are insufficient to establish compatibility; unlisted does not mean explicitly unsupported.",
+    "level": "unknown"
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "Historical published observations are normalized without creating a new source review or numeric confidence score."
+  },
+  "claimIds": [
+    "pairing:app-for-soar:8.7.0"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "No withdrawal, merge or supersession is recorded."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-1",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.7.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "section": "8.7.0 product compatibility matrix",
+      "statement": "The audit records the exact listed compatibility rows and leaves the later ES pairings unestablished.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-10-29",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "No exact official-document revision or response-body digest was retained for this statement in the cited observation."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "published-audit-normalization",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/0c202aefc47fb57d0911eb134f3488fe1aeba2e6/docs/audits/2026-10-29-es-editions-watch.json",
+      "pointer": "/claimChecks/12",
+      "originalLabel": "verified-unchanged"
+    },
+    {
+      "basis": "published-audit-normalization",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/0c202aefc47fb57d0911eb134f3488fe1aeba2e6/docs/audits/2026-10-29-es-editions-watch.json",
+      "pointer": "/boundedBacklog/2",
+      "originalLabel": "open"
+    }
+  ]
+}

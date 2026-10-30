@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-enterprise-kv-106-upgrade-bridge",
+  "revision": 1,
+  "recordedAt": "2026-10-30T21:52:50.319Z",
+  "assessmentId": "vcia-enterprise-kv-106-upgrade-bridge-20261012",
+  "assessedAt": "2026-10-12",
+  "outcome": "unable-to-verify",
+  "rationale": "Specific KV guide requires 10.2+ first; general Enterprise table permits 10.0 direct. Retain the graph and warn of the narrower prerequisite.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise",
+      "Heavy Forwarder"
+    ],
+    "versions": [
+      "Sources 10.0 or lower",
+      "Destination 10.6"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed with KV Store"
+    ],
+    "regions": null,
+    "audiences": [
+      "Customers and documentation readers evaluating the stated decision"
+    ],
+    "exclusions": [
+      "KV-specific prerequisite; not applied to Universal Forwarders or Cloud-managed upgrade routes."
+    ]
+  },
+  "comparedAssessmentIds": [],
+  "remainingConcerns": [
+    "Clarify applicability of the KV-specific bridge versus the general release-line route; do not relax the KV prerequisite."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "kv-specific-bridge",
+      "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-the-kv-store-server-version",
+      "section": "Upgrade the KV store server version — source-version prerequisite",
+      "statement": "The audit records a KV-specific requirement to reach 10.2 or higher first for sources at 10.0 or lower.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-10-12",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "No exact official-document revision or response-body digest was retained for this statement in the cited observation."
+      }
+    },
+    {
+      "evidenceId": "kv-general-route",
+      "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise",
+      "section": "Enterprise 10.6 upgrade-path table",
+      "statement": "The same claim assessment preserves the separate general table that permits a direct 10.0-to-10.6 route.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": null,
+      "availability": "not-recorded",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "No exact official-document revision or response-body digest was retained for this statement in the cited observation."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "published-audit-normalization",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/0c202aefc47fb57d0911eb134f3488fe1aeba2e6/docs/audits/2026-10-12-version-guidance-audit.json",
+      "pointer": "/claimChecks/3",
+      "originalLabel": "conflicting-evidence-preserved"
+    }
+  ]
+}

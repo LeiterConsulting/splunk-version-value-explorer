@@ -41,7 +41,20 @@ Reading `main` independently for each object risks combining publications. Commi
 pinning supplies a consistent repository view. Hashes verify bytes against that
 view; they do not independently authenticate the publisher or prove product facts.
 
-## Current coverage and the first publication
+## Current coverage
+
+Checkpoint three expands the production stream to **twelve findings and twenty-three
+historical assessments** across four contributing watch families. See the
+[coverage register](issue-feed-coverage.md) for the exact concerns, source dates,
+exclusions and the migration from the initial two-finding pilot. The schema and
+protocol remain 1.0.0. Re-resolve the repository commit and replay from the saved
+checkpoint; no reset or new finding identity is required for the original concerns.
+
+All additions normalize already-published evidence. Original claim dates, unknown
+source revisions and narrower follow-up scopes remain intact; no fresh review is
+implied by the expanded publication.
+
+## Initial pilot and the first publication
 
 The initial bounded pilot normalizes **two real concerns and four assessments**:
 

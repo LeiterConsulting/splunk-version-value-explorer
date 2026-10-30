@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-high-runtime-scope",
+  "revision": 1,
+  "recordedAt": "2026-10-30T21:52:50.319Z",
+  "assessmentId": "vcia-saia-high-runtime-scope-20261029",
+  "assessedAt": "2026-10-29T11:27:38Z",
+  "outcome": "unable-to-verify",
+  "rationale": "IL2 excludes Agent Mode and fixes Splunk-hosted runtime; same-region prompt processing is conditional on Splunk-hosted choice. Exact High mode/version/runtime/rollout remains unresolved.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant for SPL"
+    ],
+    "versions": [
+      "SAIA 2.3.6 documentation",
+      "October 19 High announcement"
+    ],
+    "editions": null,
+    "deployments": [
+      "Splunk Cloud Platform"
+    ],
+    "regions": [
+      "FedRAMP High scope under assessment"
+    ],
+    "audiences": [
+      "Customers and documentation readers evaluating the stated decision"
+    ],
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "comparedAssessmentIds": [],
+  "remainingConcerns": [
+    "Resolve exact High app/version, mode, runtime, eligible stack and rollout without transferring IL2 restrictions or privileges."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "csp-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "section": "FedRAMP deployments; supported regions; version compatibility",
+      "statement": "The cited audit reviews this source within SAIA 2.3.6; versioned IL2 and October 19 High announcement. IL2 excludes Agent Mode and fixes Splunk-hosted runtime; same-region prompt processing is conditional on Splunk-hosted choice. Exact High mode/version/runtime/rollout remains unresolved.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-10-29T11:25:15.199Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "eaf409fa918bf5a696b85ce87d200a64f0f4dba84f9d73d9bf2a1cb7b7463b0d",
+        "qualification": "Response-body digest recorded by the cited audit; source bytes are not retained by this feed and the digest is not a semantic diff."
+      }
+    },
+    {
+      "evidenceId": "csp-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+      "section": "Requirements; features; ITSI subagent; where the assistant runs",
+      "statement": "The cited audit reviews this source within SAIA 2.3.6; versioned IL2 and October 19 High announcement. IL2 excludes Agent Mode and fixes Splunk-hosted runtime; same-region prompt processing is conditional on Splunk-hosted choice. Exact High mode/version/runtime/rollout remains unresolved.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-10-29T11:25:15.199Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "49e8fb96e7dec4f08cb6c55c6dd6a63e97fb4c3c7bc86733f96e1aa1c347d3c4",
+        "qualification": "Response-body digest recorded by the cited audit; source bytes are not retained by this feed and the digest is not a semantic diff."
+      }
+    },
+    {
+      "evidenceId": "csp-3",
+      "url": "https://www.splunk.com/en_us/blog/industries/edge-and-ingest-processors-with-spl2-and-splunk-ai-assistant-achieve-fedramp-high.html",
+      "section": "Expanding Capabilities in AWS GovCloud with FedRAMP High",
+      "statement": "The cited audit reviews this source within SAIA 2.3.6; versioned IL2 and October 19 High announcement. IL2 excludes Agent Mode and fixes Splunk-hosted runtime; same-region prompt processing is conditional on Splunk-hosted choice. Exact High mode/version/runtime/rollout remains unresolved.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-10-29T11:25:15.200Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "50d335dfc32e42b7ca3bfd025e8a0247eea6ee03d10e6d31096b20fd13a541f2",
+        "qualification": "Response-body digest recorded by the cited audit; source bytes are not retained by this feed and the digest is not a semantic diff."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "published-audit-normalization",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/0c202aefc47fb57d0911eb134f3488fe1aeba2e6/docs/audits/2026-10-29-csp-fedramp-watch.json",
+      "pointer": "/claimChecks/3",
+      "originalLabel": "verified-unchanged-with-qualifications"
+    }
+  ]
+}

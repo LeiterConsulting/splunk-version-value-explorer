@@ -15,6 +15,12 @@ Preserve all published revisions and checkpoints, the bounded coverage declarati
 public-source/read-only/privacy boundaries and the existing watch schedules.
 Publish no consumer identity, private evidence or operational workflow state. This
 is a repository feed, not a new website API, timer, tool or interface change.
+Checkpoint three expands coverage to twelve concerns; docs/issue-feed-coverage.md
+lists the bounded set and evidence dates. Preserve the original checkpoints/IDs.
+Each existing watch must check its assessed unresolved concerns against the feed
+after a run and append only supported new findings or actual scoped assessments;
+an unchanged source retrieval or preserved old claim date is not a fresh review.
+Document deferred normalization explicitly rather than implying complete coverage.
 
 ## October 29 Ripple live interface
 
