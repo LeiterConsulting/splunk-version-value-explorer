@@ -128,9 +128,16 @@ function build(ledger) {
 function sync(root = process.cwd(), check = false) {
   const source = 'content/issue-feed.json';
   const ledger = JSON.parse(fs.readFileSync(path.join(root, source)));
-  let previous;
-  try { previous = JSON.parse(execFileSync('git', ['show', `HEAD:${source}`], { cwd: root, stdio: ['ignore', 'pipe', 'ignore'], encoding: 'utf8' })); } catch {}
-  validateLedger(ledger, previous);
+  // HEAD covers uncommitted edits; available parents cover a committed candidate
+  // that manually rewrote old bytes. CI fetches two generations for this check.
+  let revisions = ['HEAD'];
+  try { revisions.push(...execFileSync('git', ['rev-list', '--parents', '-n', '1', 'HEAD'], { cwd: root, stdio: ['ignore', 'pipe', 'ignore'], encoding: 'utf8' }).trim().split(/\s+/).slice(1)); } catch {}
+  validateLedger(ledger);
+  for (const revision of revisions) {
+    let old;
+    try { old = execFileSync('git', ['show', `${revision}:${source}`], { cwd: root, stdio: ['ignore', 'pipe', 'ignore'], encoding: 'utf8' }); } catch { continue; }
+    validateLedger(ledger, JSON.parse(old));
+  }
   const outputs = [[ledger, 'feeds/issues/v1'], [JSON.parse(fs.readFileSync(path.join(root, 'content/issue-feed-examples.json'))), 'feeds/issues/v1/examples']];
   let count = 0;
   for (const [input, destination] of outputs) {

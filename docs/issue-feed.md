@@ -233,9 +233,10 @@ node --test tests/issue-feed.test.cjs
 ```
 
 The normal publication gates, complete test suite and build still apply. The
-generator refuses changed published record/snapshot history relative to Git HEAD,
-unknown generated files and inconsistent references. Reviewers must also reject
-historical rewriting across Git commits; Git itself is the history authority.
+generator refuses changed published record/snapshot history relative to Git HEAD
+and its available parents, unknown generated files and inconsistent references.
+CI fetches two generations so it can also reject a committed historical rewrite.
+Reviewers must also reject history rewriting; Git itself is the history authority.
 Retain published records and snapshots rather than pruning them. No operational
 state, credentials, private evidence, consumer identifiers or write-back channel
 belongs in this feed. The publication remains public-source-only and read-only.

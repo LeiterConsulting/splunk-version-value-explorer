@@ -1,6 +1,9 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
+const os = require('node:os');
+const path = require('node:path');
+const { execFileSync } = require('node:child_process');
 const { build, validateLedger, sha256, key, sync } = require('../scripts/lib/issue-feed.cjs');
 const { readIssueFeed } = require('../scripts/read-issue-feed.cjs');
 const real = JSON.parse(fs.readFileSync('content/issue-feed.json'));
@@ -108,4 +111,20 @@ test('consumer retains an unknown outcome for review without interpreting it', a
   assert.equal(read.quarantined.length, 1);
   assert.equal(read.quarantined[0].record.outcome, 'future-unknown-result');
   assert.deepEqual(read.quarantined[0].record.futureEvidence, { retained: true });
+});
+test('CI history check rejects an already-committed rewrite against the parent', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-issue-history-'));
+  const git = args => execFileSync('git', args, { cwd: root, stdio: 'pipe' });
+  const write = ledger => {
+    fs.mkdirSync(path.join(root, 'content'), { recursive: true });
+    fs.writeFileSync(path.join(root, 'content/issue-feed.json'), JSON.stringify(ledger));
+    fs.writeFileSync(path.join(root, 'content/issue-feed-examples.json'), JSON.stringify(example));
+  };
+  try {
+    git(['init', '--initial-branch', 'main']); write(real);
+    git(['add', '.']); git(['-c', 'user.name=Feed test', '-c', 'user.email=feed@example.invalid', 'commit', '-m', 'Original ledger']);
+    const changed = clone(real); changed.records[0].title += ' rewritten'; write(changed);
+    git(['add', '.']); git(['-c', 'user.name=Feed test', '-c', 'user.email=feed@example.invalid', 'commit', '-m', 'Invalid rewritten ledger']);
+    assert.throws(() => sync(root, true), /immutable/);
+  } finally { fs.rmSync(root, { recursive: true, force: true }); }
 });
