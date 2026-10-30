@@ -371,7 +371,7 @@ test('October Observability route preserves SaaS semantics and component release
   const rt = await runtime();
   const report = rt.run('compare_routes', { routes: [{ product: 'observability', platform: 'cloud', host: '10.6', from: 'Sep 2026', to: 'Oct 2026' }] }).reports[0];
   assert.equal(rt.window.SPLUNK_DATA.productTracks.observability.latest, 'Oct 2026');
-  for (const title of ['Stricter APM not-equal tag filtering', 'Java instrumentation 2.33', 'Node.js instrumentation 4.12.1', 'Kubernetes chart 0.162.1', 'Python instrumentation 2.13.2', 'Collector 0.163.1 security and input patch', 'Application-scoped call graph exclusions', 'Broader parentless-span MetricSets', 'Metric chart baselines', 'IBM MQ built-in dashboards', 'Multi-trace AI comparisons']) {
+  for (const title of ['Stricter APM not-equal tag filtering', 'Java instrumentation 2.33', 'Node.js instrumentation 4.12.1', 'Kubernetes chart 0.162.1', 'Python instrumentation 2.13.3', 'Collector 0.163.1 security and input patch', 'Application-scoped call graph exclusions', 'Broader parentless-span MetricSets', 'Metric chart baselines', 'IBM MQ built-in dashboards', 'Multi-trace AI comparisons']) {
     assert(report.features.some(item => item.title === title), title);
   }
   const apm = report.technicalChanges.find(item => item.component === 'APM not-equal tag filters');
@@ -396,9 +396,14 @@ test('October Observability route preserves SaaS semantics and component release
   assert(report.technicalChanges.some(item => item.component === 'Light Prometheus Receiver feature gate' && item.changeType === 'Removed' && item.to.includes('standard Prometheus receiver')));
   assert(report.technicalChanges.some(item => item.component === 'Kubernetes OpAMP Bridge identity' && item.to.includes('0.161.0')));
   assert(report.breakingChanges.some(item => item.title === 'Migrate off the Light Prometheus Receiver before chart 0.162.1' && item.breaking));
-  const python = report.features.find(item => item.title === 'Python instrumentation 2.13.2');
-  assert.equal(python.source, 'https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2');
+  const python = report.features.find(item => item.title === 'Python instrumentation 2.13.3');
+  assert.equal(python.source, 'https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.3');
+  assert.match(python.detail, /CPython 3\.10 through 3\.14/);
+  assert.match(python.detail, /does not establish a new Observability Cloud rollout/);
   assert(report.technicalChanges.some(item => item.component === 'Python OpAMP client dependency' && item.to.includes('0.4b0')));
+  assert(report.technicalChanges.some(item => item.component === 'Python 2.13.3 auto-instrumentation images and dependency floors' && item.to.includes('Requests 2.33.0+') && item.to.includes('wrapt 2.5.1+')));
+  assert(report.technicalChanges.some(item => item.component === 'Python PostgreSQL query-to-trace correlation' && item.to.includes('PostgreSQL query-to-trace correlation')));
+  assert(report.readiness.some(item => item.title === 'Validate Python 2.13.3 images, dependencies and PostgreSQL correlation'));
   for (const component of ['Collector 0.163.1 Light Prometheus Receiver removal', 'Collector 0.163.1 Splunk input authorization boundary', 'Collector 0.163.1 Go and CA security refresh']) assert(report.technicalChanges.some(item => item.component === component), component);
   assert(report.breakingChanges.some(item => item.title === 'Patch and validate Collector 0.163.1' && item.detail.includes('Chart 0.163.1 now packages this patch')));
   const exclusions = report.technicalChanges.find(item => item.component === 'APM call graph package exclusions');

@@ -1021,12 +1021,12 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.productTracks.observability.releasesData.Oct 2026.features.6.5",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.11.source",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.12.source",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.13.source",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.14.source",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.15.source",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.16.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.17.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.18.source",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.8.3",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.9.3"
       ],
@@ -1055,9 +1055,9 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.productTracks.observability.releasesData.Oct 2026.features.7.5",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.17.source",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.18.source",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.19.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.20.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.21.source",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.10.3"
       ],
       "reviews": [],
@@ -1528,9 +1528,7 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.releasesData.Oct 2026.features.5.5",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.10.source",
-        "release.productTracks.observability.releasesData.Oct 2026.requirements.7.3"
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.10.source"
       ],
       "reviews": [],
       "usage": "In use",
@@ -1545,6 +1543,35 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-10-14",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.3",
+      "title": "v2.13.3",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Oct 2026.features.5.5",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.11.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.12.source",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.7.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-10-30",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-30",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "This customer-managed instrumentation patch does not establish a rolling Observability Cloud capability, tenant rollout, realm, entitlement, authorization or universal application compatibility.",
+      "section": "v2.13.3 release body",
+      "verificationScope": "Verified the October 29, 2026 release and its CPython 3.10-3.14 standard/SecureApp image dependency bundles for AMD64 and ARM64, image signing and verification, PostgreSQL query-to-trace correlation, Requests 2.33.0+ and wrapt 2.5.1+ floors, and conditional loading of declarative-configuration dependencies.",
+      "events": [
+        {
+          "date": "2026-10-30",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -5934,7 +5961,7 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.20.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.22.source",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.11.3"
       ],
       "reviews": [],
@@ -6157,7 +6184,7 @@ window.VersionCompassSources = {
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.3.source",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.4.source",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.5.source",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.21.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.23.source",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.0.3",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.1.3",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.2.3",

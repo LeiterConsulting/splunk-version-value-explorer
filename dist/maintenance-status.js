@@ -346,10 +346,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-29T09:59:16Z",
-      "lastSuccess": "2026-10-29T10:04:46Z",
+      "lastAttempt": "2026-10-30T09:50:48Z",
+      "lastSuccess": "2026-10-30T09:59:31Z",
       "outcome": "changed",
-      "summary": "Verified and added Java instrumentation 2.33.1; mapped SVD-2026-1015 as Under Investigation without inferring affected or fixed product versions.",
+      "summary": "Advanced the customer-managed Python instrumentation baseline to 2.13.3 with exact image, dependency and PostgreSQL-correlation scope; retained prior history and all unresolved boundaries.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -775,9 +775,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Verified and added Java instrumentation 2.33.1; mapped SVD-2026-1015 as Under Investigation without inferring affected or fixed product versions.",
           "scope": "Checked all 205 registered official URLs (203 retrieved, two historical bodies unavailable), current Enterprise/Cloud/ES/ITSI/Observability/Forwarder/SOAR/AI streams, seven component latest-release endpoints, all 18 borrowed HF mappings and affected Observability/Forwarder/current/legacy/shared/invalid report behavior."
+        },
+        {
+          "at": "2026-10-30T09:50:48Z",
+          "outcome": "running",
+          "summary": "Reviewing the complete maintained release inventory and current product/component streams against the synchronized GitHub/Sites baseline.",
+          "scope": "All 205 registered official URLs; current Enterprise, Cloud, ES, ITSI, Observability, migration, Forwarder, SOAR and named-AI discovery; exact Python instrumentation 2.13.3 patch evidence; bounded high-consequence claims, source mappings, report/export and live-delivery parity."
+        },
+        {
+          "at": "2026-10-30T09:59:31Z",
+          "outcome": "changed",
+          "summary": "Advanced the customer-managed Python instrumentation baseline to 2.13.3 with exact image, dependency and PostgreSQL-correlation scope; retained prior history and all unresolved boundaries.",
+          "scope": "Complete 205-source baseline retrieval plus the newly registered Python 2.13.3 source (206 registered sources), current-stream discovery, bounded affected/high-consequence claims, all 18 borrowed HF mappings, and full local route/report/WebMCP regressions. Successful scope review is not deployment; exact-candidate exports and live delivery remain separate."
         }
       ],
-      "scope": "Checked all 205 registered official URLs (203 retrieved, two historical bodies unavailable), current Enterprise/Cloud/ES/ITSI/Observability/Forwarder/SOAR/AI streams, seven component latest-release endpoints, all 18 borrowed HF mappings and affected Observability/Forwarder/current/legacy/shared/invalid report behavior."
+      "scope": "Complete 205-source baseline retrieval plus the newly registered Python 2.13.3 source (206 registered sources), current-stream discovery, bounded affected/high-consequence claims, all 18 borrowed HF mappings, and full local route/report/WebMCP regressions. Successful scope review is not deployment; exact-candidate exports and live delivery remain separate."
     },
     {
       "id": "es-editions-watch",

@@ -2159,12 +2159,12 @@ Object.assign(window.SPLUNK_DATA, {
               "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.163.1"
             ],
             [
-              "Python instrumentation 2.13.2",
+              "Python instrumentation 2.13.3",
               "Telemetry & OpenTelemetry",
-              "Keep remote management dependencies current",
-              "Use the patch that advances the OpAMP client to 0.4b0 and removes the direct requests-dependency workaround while retaining the 2.13.0 configuration and image qualifications.",
-              "Separately versioned Python instrumentation · released October 13, 2026",
-              "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2"
+              "Repair auto-instrumentation images and tighten dependency baselines",
+              "Use the patch that bundles dependencies for CPython 3.10 through 3.14 in standard and SecureApp images on AMD64 and ARM64, signs and verifies both image variants, adds PostgreSQL query-to-trace correlation, and raises the Requests and wrapt minimums. The separately versioned component release does not establish a new Observability Cloud rollout, realm, entitlement or universal application compatibility.",
+              "Separately versioned Python instrumentation · released October 29, 2026",
+              "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.3"
             ],
             [
               "Collector 0.163 migration controls",
@@ -2364,6 +2364,28 @@ Object.assign(window.SPLUNK_DATA, {
               "source": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2"
             },
             {
+              "component": "Python 2.13.3 auto-instrumentation images and dependency floors",
+              "domain": "Customer-managed instrumentation",
+              "changeType": "Patch packaging and dependencies updated",
+              "actionLevel": "Validate",
+              "from": "Python instrumentation 2.13.2 retains the preceding auto-instrumentation image dependency layout and dependency floors",
+              "to": "Python instrumentation 2.13.3 bundles dependencies for CPython 3.10 through 3.14 in standard and SecureApp AMD64/ARM64 images, signs and verifies both variants, requires Requests 2.33.0+ and wrapt 2.5.1+, and loads declarative-configuration dependencies only when file configuration is used",
+              "implication": "The patch repairs documented image startup behavior and strengthens release integrity, but dependency resolution, architecture-specific image selection and declarative configuration startup can still change in a customer-managed deployment.",
+              "action": "Resolve the new dependency floors, verify the exact signed image and architecture, and test startup, declarative configuration, traces, profiling and call graphs before broad rollout.",
+              "source": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.3"
+            },
+            {
+              "component": "Python PostgreSQL query-to-trace correlation",
+              "domain": "Customer-managed instrumentation",
+              "changeType": "Coverage added",
+              "actionLevel": "Review",
+              "from": "The maintained Python 2.13.2 baseline does not declare PostgreSQL query-to-trace correlation",
+              "to": "Python instrumentation 2.13.3 adds PostgreSQL query-to-trace correlation",
+              "implication": "PostgreSQL spans can gain correlation context after the agent patch; this component capability does not establish a rolling-service feature, tenant rollout or application-wide compatibility.",
+              "action": "Validate representative PostgreSQL traces, query attribution, data volume and sensitive-data handling before relying on the new correlation in production.",
+              "source": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.3"
+            },
+            {
               "component": "Collector 0.163 OS and removed components",
               "domain": "Collector host & configuration",
               "changeType": "Removed",
@@ -2547,10 +2569,10 @@ Object.assign(window.SPLUNK_DATA, {
               false
             ],
             [
-              "Validate Python 2.13.2 OpAMP and dependency behavior",
-              "Python instrumentation 2.13.2 advances the OpAMP client and removes a direct requests-dependency workaround. Validate dependency resolution, startup and representative telemetry while retaining the documented 2.13.0 configuration and image checks.",
+              "Validate Python 2.13.3 images, dependencies and PostgreSQL correlation",
+              "Python instrumentation 2.13.3 repairs auto-instrumentation image startup across CPython 3.10–3.14 and AMD64/ARM64, signs and verifies standard and SecureApp images, raises Requests and wrapt minimums, and adds PostgreSQL query-to-trace correlation. Validate dependency resolution, image provenance, startup, declarative configuration, representative PostgreSQL traces, profiling and call graphs while retaining the documented 2.13.0 configuration boundaries and 2.13.2 OpAMP history.",
               "Validate",
-              "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2",
+              "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.3",
               false
             ],
             [
