@@ -794,10 +794,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-10-29T10:03:28Z",
-      "lastSuccess": "2026-10-29T10:10:09Z",
+      "lastAttempt": "2026-10-30T10:02:54Z",
+      "lastSuccess": "2026-10-30T10:03:10Z",
       "outcome": "no-change",
-      "summary": "Retrieved all 30 maintained official records and reverified 16 bounded high-consequence claims; no supported ES editions or ES-specific AI fact changed.",
+      "summary": "Retrieved all 30 maintained official records and reverified 16 bounded high-consequence claims; no supported ES edition or ES-specific AI fact changed, and all conflicts and qualifications remain explicit.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1127,9 +1127,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Retrieved all 30 maintained official records and reverified 16 bounded high-consequence claims; no supported ES editions or ES-specific AI fact changed.",
           "scope": "ES 8.8 and 8.7 release and edition evidence; Cloud capability history; detailed agent and task prerequisites; Cloud Connect; pricing, licensing, trials, UEBA and Exposure Analytics; 8.7 and 8.8 regional and pairing evidence; exact App for SOAR and Export rows; Connector Builder, Triage and Guided Response conflicts; current and legacy routes, themes, reports and read-only contract."
+        },
+        {
+          "at": "2026-10-30T10:02:54Z",
+          "outcome": "running",
+          "summary": "Reviewing the complete maintained ES Essentials/Premier, ES-specific AI and exact SOAR-pairing evidence inventory on the reconciled October 30 candidate.",
+          "scope": "Thirty official ES, AI, pricing, regional, App for SOAR, SOAR Export and SOAR release records; sixteen bounded high-consequence edition, prerequisite, release-stage, entitlement and pairing claims; current/legacy/shared/invalid route and report parity."
+        },
+        {
+          "at": "2026-10-30T10:03:10Z",
+          "outcome": "no-change",
+          "summary": "Retrieved all 30 maintained official records and reverified 16 bounded high-consequence claims; no supported ES edition or ES-specific AI fact changed, and all conflicts and qualifications remain explicit.",
+          "scope": "All 30 maintained official ES/AI/commercial/regional/SOAR records; bounded ES 8.8 stage, Connector Builder, Triage, Guided Response, Cloud Connect, AI SOC Analyst, Threat Graph, pricing/trials, UEBA/Exposure, App for SOAR and Export claims. Source access and unchanged claims are recorded separately; successful scope review is not deployment."
         }
       ],
-      "scope": "ES 8.8 and 8.7 release and edition evidence; Cloud capability history; detailed agent and task prerequisites; Cloud Connect; pricing, licensing, trials, UEBA and Exposure Analytics; 8.7 and 8.8 regional and pairing evidence; exact App for SOAR and Export rows; Connector Builder, Triage and Guided Response conflicts; current and legacy routes, themes, reports and read-only contract."
+      "scope": "All 30 maintained official ES/AI/commercial/regional/SOAR records; bounded ES 8.8 stage, Connector Builder, Triage, Guided Response, Cloud Connect, AI SOC Analyst, Threat Graph, pricing/trials, UEBA/Exposure, App for SOAR and Export claims. Source access and unchanged claims are recorded separately; successful scope review is not deployment."
     },
     {
       "id": "version-guidance-audit",
