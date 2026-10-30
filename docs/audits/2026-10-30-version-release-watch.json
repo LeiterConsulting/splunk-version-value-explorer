@@ -2,7 +2,7 @@
   "watch": "Version Release Watch",
   "maintenanceId": "version-release-watch",
   "date": "2026-10-30",
-  "outcome": "candidate-validation-running",
+  "outcome": "changed-and-published",
   "scope": [
     "Complete 205-URL registered official inventory and current release-stream discovery",
     "Splunk OpenTelemetry Python instrumentation 2.13.3 exact patch scope",
@@ -24,11 +24,24 @@
   ],
   "sourceOutcome": "All 205 registered URLs were attempted; 203 returned successfully and the same two historical docs.splunk.com bodies returned 403. The affected Python claim and bounded high-consequence claims were separately verified.",
   "validation": {
-    "status": "running",
-    "qualification": "Ordered generation, exact-candidate CI export evidence, publication and live checks have not yet completed."
+    "status": "passed-with-publication-workflow-receipt-discrepancy",
+    "qualification": "Ordered synchronization, all four check gates, sync-advisor check, 237 Node tests and the 66-asset build passed. Exact-candidate CI run 41038086600 job 124003810765 passed; export artifact 12968124960 digest sha256:f425915ae9aa326f01e553d1e313404449daac3ffb7bb8469498a66ef13093c6 bound 134 cases, 110 native PDFs, 1,759 checked rendered pages, 110 independently reopened offline HTML reports, 134 both-theme phone checks and 110 keyboard checks to fingerprint 54d4f9484942280474d2846ba0c8f9c6e4a83e97d8897563183f275eb32db5df. Selected retained pages were inspected separately without a novel visual finding. GitHub Publish verified content run 41039057770 job 124007022437 reported failure, but independent production checks afterward proved the exact D1 revision, manifest and bundle healthy; the failed workflow receipt is not called successful."
   },
   "publication": {
-    "status": "not-published"
+    "status": "published-and-independently-live-verified",
+    "githubCommit": "323407428d3547f7e8891f1addc7665c925e7369",
+    "githubTree": "81b0eb0fc20e93071ad6c5ce3498494848f1ecfa",
+    "sitesSourceCommit": "89e6598845f251d87254711019728a766e4dfc6d",
+    "sitesSourceTree": "81b0eb0fc20e93071ad6c5ce3498494848f1ecfa",
+    "sitesVersion": 249,
+    "sitesDeployment": "appgdep_6ae46e641cc881918b5a3541ebb07d13",
+    "deployedAt": "2026-10-30T10:16:12.296Z",
+    "liveCheckedAt": "2026-10-30T10:17:29.731Z",
+    "contentRevision": "content-e1d13c7af1853370ecf9c758",
+    "engineRevision": "engine-6b2814f7b990ef16c640",
+    "records": 872,
+    "bundleDigest": "sha256:e45b9e76eecb71623df465fec28a6eb67511a1a8aec56a5b4a0d124fdb3f1107",
+    "releaseNoteUrl": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/10/2026-10-30.md"
   },
   "backlog": [
     {
