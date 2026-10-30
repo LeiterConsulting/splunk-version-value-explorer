@@ -28,6 +28,16 @@ Choose a product first, then select its deployment context, current release, and
 
 No registration, lead form, subscription, or customer information is collected.
 
+## Public issue feed
+
+The [public issue feed](docs/issue-feed.md) supports discovery and assessment of
+issues identified by VersionCompass through versioned, read-only repository JSON.
+It provides stable finding identities, scoped evidence, independent assessment
+history, immutable snapshots and recovery checkpoints. The initial coverage is
+explicitly bounded; synthetic examples are separate from real observations.
+Start with the [publication index](feeds/issues/v1/index.json) and
+[consumer guide](docs/issue-feed.md).
+
 ## Screenshots
 
 ### Select the upgrade or migration journey

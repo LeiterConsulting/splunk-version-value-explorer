@@ -87,6 +87,22 @@ Copying or forking this repository does not copy its Codex tasks, credentials, p
 - [Cloud environments and regional evidence](cloud-environments.md)
 - [Browser-based agent access](webmcp.md)
 - [Release history](releases/README.md)
+- [Public issue feed](issue-feed.md)
+
+## Public issue observations — October 30
+
+The four existing watch families also follow [the public issue-feed contract](issue-feed.md).
+Release Watch owns platform/component concerns, ES Editions Watch owns ES-specific
+edition and capability concerns, CSP FedRAMP Watch owns regional/regulated concerns,
+and Guidance Audit independently assesses cross-product coverage and consistency.
+Share finding identities across watches without silently merging different scopes.
+Append a new assessment only when the concern was actually reviewed; a no-change
+audit or missing issue does not imply reassessment or resolution. Preserve original
+labels, claim dates, exact sections, provenance and explicitly unknown revisions.
+Run the feed generation/check gate when its ledger changes. The first publication
+is a two-concern historical normalization, not complete adoption by every watch.
+This adds repository maintenance guidance and CI validation, not a timer, scheduler
+edit, new live-site endpoint, or guarantee of a finding on every run.
 
 
 ## Perspective presentation

@@ -1,5 +1,21 @@
 # VersionCompass working contract
 
+## October 30 public issue feed
+
+The owner authorizes the agnostic public issue feed for discovery and assessment
+of issues identified by VersionCompass. Read docs/issue-feed.md before changing
+the contract or emitting findings. Use content/issue-feed.json as the public
+observation ledger, keep synthetic examples separate, and generate feeds/issues/v1
+with scripts/sync-issue-feed.cjs. Run its --check gate and issue-feed tests alongside
+normal publication checks. Existing watches should reuse stable finding identities
+and append assessments only for actual scoped claim reviews; preserve original
+audit labels, dates, uncertainty and commit-pinned provenance. Normalization is not
+new verification. No missing record, unchanged audit or status label closes work.
+Preserve all published revisions and checkpoints, the bounded coverage declaration,
+public-source/read-only/privacy boundaries and the existing watch schedules.
+Publish no consumer identity, private evidence or operational workflow state. This
+is a repository feed, not a new website API, timer, tool or interface change.
+
 ## October 29 Ripple live interface
 
 Ripple is a first-class public interface at /ripple, directly linked from main navigation with its existing bespoke chrome. Read docs/architecture/ripple-brief.md, ripple-mount.md and ripple-rollout.md for product changes. This supersedes older unlinked/unlisted/temporary-pilot wording. Preserve the public read-only proxy, the original owner-private Ripple data-service writers, local-context privacy, claim scope/dates, daily schedule and collection/research caps. Keep tools/ripple/lib/roadmap.ts synchronized with the Ripple research repository authority; do not overwrite the public chrome with the backend UI. Treat delivered navigation/chrome separately from remaining finding journeys, contextual links and gated coverage expansion. Suggest bounded UI/UX improvements with value, scope, effort and validation; use the existing exact-candidate CI, repository/Sites publication and live checks for implementation. No paid services, new timers, budget increase or inventory collection is implied.

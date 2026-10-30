@@ -20,6 +20,11 @@ For substantial changes, open an issue first so the intended scope and approach 
 
 ## Content principles
 
+For public issue observations, follow [the issue-feed contract](docs/issue-feed.md).
+Append scoped findings/reassessments to the ledger, preserve immutable history and
+run `node scripts/sync-issue-feed.cjs --check`. Do not infer a correction from a
+missing record, retrieval success, audit date or editorial disposition.
+
 Contributed guidance should be:
 
 1. **Source-backed.** Link factual release and upgrade claims to official Splunk documentation.

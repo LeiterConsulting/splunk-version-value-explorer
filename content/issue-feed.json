@@ -1,0 +1,567 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "records": [
+    {
+      "schemaVersion": "1.0.0",
+      "kind": "finding",
+      "synthetic": false,
+      "findingId": "vci-soar-cloud-880-release-stage",
+      "revision": 1,
+      "recordedAt": "2026-10-30T17:21:21.564Z",
+      "title": "SOAR Cloud 8.8 release-stage wording conflicts within the release entry",
+      "concernType": "contradiction",
+      "problem": "The release entry uses Controlled Availability and General Availability descriptions for the same release entry, leaving the documented release-stage boundary unresolved.",
+      "scope": {
+        "products": [
+          "Splunk SOAR"
+        ],
+        "versions": [
+          "Cloud 8.8.0"
+        ],
+        "editions": null,
+        "deployments": [
+          "Splunk-managed Cloud"
+        ],
+        "regions": null,
+        "audiences": [
+          "Customers evaluating release stage",
+          "Documentation readers"
+        ],
+        "exclusions": [
+          "No tenant availability, entitlement, authorization or deployment suitability is established."
+        ]
+      },
+      "scopeComparison": "Both audited statements occur within the October 21, 2026 SOAR Cloud 8.8 entry. No evidence in this normalization establishes that they refer to different cohorts or stages.",
+      "impact": {
+        "customerScenario": "A reader deciding whether SOAR Cloud 8.8 is generally available or requires Controlled Availability access.",
+        "consequence": "The reader cannot determine that boundary from the conflicting wording and should not infer tenant eligibility.",
+        "level": "unknown"
+      },
+      "confidence": {
+        "level": "not-rated",
+        "rationale": "Two published audits explicitly preserve the contradiction. This feed normalization adds no independent confidence score."
+      },
+      "claimIds": [
+        "soar.cloud-8.8-stage-conflict",
+        "release:soar-cloud:8.8-stage-conflict"
+      ],
+      "lifecycle": {
+        "disposition": "active",
+        "reason": "No withdrawal, merge or supersession recorded."
+      },
+      "relationships": {
+        "related": [],
+        "mergedInto": [],
+        "supersedes": [],
+        "supersededBy": []
+      },
+      "evidence": [
+        {
+          "evidenceId": "soar-ca-statement",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
+          "section": "October 21, 2026 Release 8.8 — release-stage sentence",
+          "statement": "The published audit records that the release sentence identifies Controlled Availability.",
+          "excerpt": null,
+          "role": "observed",
+          "sourceCheckedAt": "2026-10-29",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "unavailable",
+            "value": null,
+            "qualification": "The cited audit did not retain an exact revision or response-body digest for this statement. The document URL can change; the commit-pinned audit remains the historical observation."
+          }
+        },
+        {
+          "evidenceId": "soar-ga-statement",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
+          "section": "October 21, 2026 Release 8.8 — enhancement-list introduction",
+          "statement": "The published audit records that the enhancement list is described as a General Availability release.",
+          "excerpt": null,
+          "role": "challenging",
+          "sourceCheckedAt": "2026-10-29",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "unavailable",
+            "value": null,
+            "qualification": "The cited audit did not retain an exact revision or response-body digest for this statement. The document URL can change; the commit-pinned audit remains the historical observation."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "published-audit-normalization",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/a9153c093688d736dae0e66daca69721011c56b9/docs/audits/2026-10-29-version-guidance-audit.json",
+          "pointer": "/claimChecks/6",
+          "originalLabel": "conflict-confirmed"
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "kind": "assessment",
+      "synthetic": false,
+      "findingId": "vci-soar-cloud-880-release-stage",
+      "revision": 1,
+      "recordedAt": "2026-10-30T17:21:21.564Z",
+      "assessmentId": "vcia-soar-stage-20261029",
+      "assessedAt": "2026-10-29",
+      "outcome": "still-present",
+      "rationale": "The section says 8.8.0 was released for Controlled Availability and then calls the enhancement list a General Availability release. Both statements remain visible; no tenant rollout, entitlement, region, authorization, on-premises 8.8 or pairing is inferred.",
+      "reviewedScope": {
+        "products": [
+          "Splunk SOAR"
+        ],
+        "versions": [
+          "Cloud 8.8.0"
+        ],
+        "editions": null,
+        "deployments": [
+          "Splunk-managed Cloud"
+        ],
+        "regions": null,
+        "audiences": [
+          "Customers evaluating release stage",
+          "Documentation readers"
+        ],
+        "exclusions": [
+          "No tenant availability, entitlement, authorization or deployment suitability is established."
+        ]
+      },
+      "comparedAssessmentIds": [],
+      "remainingConcerns": [
+        "Release-stage wording remains conflicting; actual tenant rollout and eligibility are not established."
+      ],
+      "evidence": [
+        {
+          "evidenceId": "soar-ca-statement",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
+          "section": "October 21, 2026 Release 8.8 — release-stage sentence",
+          "statement": "The published audit records that the release sentence identifies Controlled Availability.",
+          "excerpt": null,
+          "role": "observed",
+          "sourceCheckedAt": "2026-10-29",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "unavailable",
+            "value": null,
+            "qualification": "The cited audit did not retain an exact revision or response-body digest for this statement. The document URL can change; the commit-pinned audit remains the historical observation."
+          }
+        },
+        {
+          "evidenceId": "soar-ga-statement",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
+          "section": "October 21, 2026 Release 8.8 — enhancement-list introduction",
+          "statement": "The published audit records that the enhancement list is described as a General Availability release.",
+          "excerpt": null,
+          "role": "challenging",
+          "sourceCheckedAt": "2026-10-29",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "unavailable",
+            "value": null,
+            "qualification": "The cited audit did not retain an exact revision or response-body digest for this statement. The document URL can change; the commit-pinned audit remains the historical observation."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "published-audit-normalization",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/a9153c093688d736dae0e66daca69721011c56b9/docs/audits/2026-10-29-version-guidance-audit.json",
+          "pointer": "/claimChecks/6",
+          "originalLabel": "conflict-confirmed"
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "kind": "assessment",
+      "synthetic": false,
+      "findingId": "vci-soar-cloud-880-release-stage",
+      "revision": 1,
+      "recordedAt": "2026-10-30T17:21:21.564Z",
+      "assessmentId": "vcia-soar-stage-20261030",
+      "assessedAt": "2026-10-30",
+      "outcome": "still-present",
+      "rationale": "Controlled Availability release sentence and General Availability enhancement heading remain conflicting evidence.",
+      "reviewedScope": {
+        "products": [
+          "Splunk SOAR"
+        ],
+        "versions": [
+          "Cloud 8.8.0"
+        ],
+        "editions": null,
+        "deployments": [
+          "Splunk-managed Cloud"
+        ],
+        "regions": null,
+        "audiences": [
+          "Customers evaluating release stage",
+          "Documentation readers"
+        ],
+        "exclusions": [
+          "No tenant availability, entitlement, authorization or deployment suitability is established."
+        ]
+      },
+      "comparedAssessmentIds": [
+        "vcia-soar-stage-20261029"
+      ],
+      "remainingConcerns": [
+        "Release-stage wording remains conflicting; actual tenant rollout and eligibility are not established."
+      ],
+      "evidence": [
+        {
+          "evidenceId": "soar-ca-statement",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
+          "section": "October 21, 2026 Release 8.8 — release-stage sentence",
+          "statement": "The published audit records that the release sentence identifies Controlled Availability.",
+          "excerpt": null,
+          "role": "observed",
+          "sourceCheckedAt": "2026-10-30",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "unavailable",
+            "value": null,
+            "qualification": "The cited audit did not retain an exact revision or response-body digest for this statement. The document URL can change; the commit-pinned audit remains the historical observation."
+          }
+        },
+        {
+          "evidenceId": "soar-ga-statement",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
+          "section": "October 21, 2026 Release 8.8 — enhancement-list introduction",
+          "statement": "The published audit records that the enhancement list is described as a General Availability release.",
+          "excerpt": null,
+          "role": "challenging",
+          "sourceCheckedAt": "2026-10-30",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "unavailable",
+            "value": null,
+            "qualification": "The cited audit did not retain an exact revision or response-body digest for this statement. The document URL can change; the commit-pinned audit remains the historical observation."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "published-audit-normalization",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/a9153c093688d736dae0e66daca69721011c56b9/docs/audits/2026-10-30-es-editions-watch.json",
+          "pointer": "/claimChecks/14",
+          "originalLabel": "conflict-preserved"
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "kind": "finding",
+      "synthetic": false,
+      "findingId": "vci-itsi-subagent-region",
+      "revision": 1,
+      "recordedAt": "2026-10-30T17:21:21.564Z",
+      "title": "ITSI subagent regional availability remains unestablished",
+      "concernType": "uncertain-claim",
+      "problem": "Base-assistant regional availability and related-app version prerequisites do not establish the regional rollout of the ITSI subagent.",
+      "scope": {
+        "products": [
+          "Splunk IT Service Intelligence",
+          "Splunk AI Assistant",
+          "Splunk MCP Server"
+        ],
+        "versions": [
+          "ITSI 5.0+",
+          "SAIA 2.2+",
+          "MCP Server 1.2.1+"
+        ],
+        "editions": null,
+        "deployments": [
+          "Cloud regional availability not established"
+        ],
+        "regions": null,
+        "audiences": [
+          "Customers evaluating ITSI subagent regional availability"
+        ],
+        "exclusions": [
+          "No tenant availability, entitlement, authorization or deployment suitability is established."
+        ]
+      },
+      "impact": {
+        "customerScenario": "A reader evaluating whether the ITSI subagent is available in the intended Cloud region.",
+        "consequence": "The published evidence is insufficient for a regional availability decision; app prerequisites alone cannot supply that answer.",
+        "level": "unknown"
+      },
+      "confidence": {
+        "level": "not-rated",
+        "rationale": "This is an explicitly preserved uncertainty, not an assertion that the feature is unavailable or that the entire documentation corpus lacks an answer."
+      },
+      "claimIds": [
+        "availability:itsi:subagent-region"
+      ],
+      "lifecycle": {
+        "disposition": "active",
+        "reason": "No withdrawal, merge or supersession recorded."
+      },
+      "relationships": {
+        "related": [],
+        "mergedInto": [],
+        "supersedes": [],
+        "supersededBy": []
+      },
+      "evidence": [
+        {
+          "evidenceId": "itsi-region-1",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+          "section": "ITSI subagent",
+          "statement": "No subagent-specific regional rollout established. Base SAIA region coverage is insufficient.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-10-29T11:25:15.199Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "49e8fb96e7dec4f08cb6c55c6dd6a63e97fb4c3c7bc86733f96e1aa1c347d3c4",
+            "qualification": "Exact retrieved response-body digest recorded by the cited audit; bytes are not retained in this feed and this is not a semantic change or publisher revision."
+          }
+        },
+        {
+          "evidenceId": "itsi-region-2",
+          "url": "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/install-and-upgrade/5.0/planning/itsi-compatibility-with-related-apps-and-add-ons",
+          "section": "ITSI compatibility with related apps and add-ons",
+          "statement": "The audit records related-app version prerequisites separately from subagent regional rollout.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-10-29T11:25:15.201Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "23496c0f1a35e1e6e9d53c88cf60ccb950df3f295cdf6578e991cc5e4bacf3bc",
+            "qualification": "Exact retrieved response-body digest recorded by the cited audit; bytes are not retained in this feed and this is not a semantic change or publisher revision."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "published-audit-normalization",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/a9153c093688d736dae0e66daca69721011c56b9/docs/audits/2026-10-29-csp-fedramp-watch.json",
+          "pointer": "/claimChecks/4",
+          "originalLabel": "verified-unchanged-with-qualifications"
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "kind": "assessment",
+      "synthetic": false,
+      "findingId": "vci-itsi-subagent-region",
+      "revision": 1,
+      "recordedAt": "2026-10-30T17:21:21.564Z",
+      "assessmentId": "vcia-itsi-region-20261029",
+      "assessedAt": "2026-10-29T11:27:38Z",
+      "outcome": "unable-to-verify",
+      "rationale": "No subagent-specific regional rollout established. Base SAIA region coverage is insufficient.",
+      "reviewedScope": {
+        "products": [
+          "Splunk IT Service Intelligence",
+          "Splunk AI Assistant",
+          "Splunk MCP Server"
+        ],
+        "versions": [
+          "ITSI 5.0+",
+          "SAIA 2.2+",
+          "MCP Server 1.2.1+"
+        ],
+        "editions": null,
+        "deployments": [
+          "Cloud regional availability not established"
+        ],
+        "regions": null,
+        "audiences": [
+          "Customers evaluating ITSI subagent regional availability"
+        ],
+        "exclusions": [
+          "No tenant availability, entitlement, authorization or deployment suitability is established."
+        ]
+      },
+      "comparedAssessmentIds": [],
+      "remainingConcerns": [
+        "Subagent-specific regional rollout remains not established by the reviewed sources."
+      ],
+      "evidence": [
+        {
+          "evidenceId": "itsi-region-1",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+          "section": "ITSI subagent",
+          "statement": "No subagent-specific regional rollout established. Base SAIA region coverage is insufficient.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-10-29T11:25:15.199Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "49e8fb96e7dec4f08cb6c55c6dd6a63e97fb4c3c7bc86733f96e1aa1c347d3c4",
+            "qualification": "Exact retrieved response-body digest recorded by the cited audit; bytes are not retained in this feed and this is not a semantic change or publisher revision."
+          }
+        },
+        {
+          "evidenceId": "itsi-region-2",
+          "url": "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/install-and-upgrade/5.0/planning/itsi-compatibility-with-related-apps-and-add-ons",
+          "section": "ITSI compatibility with related apps and add-ons",
+          "statement": "The audit records related-app version prerequisites separately from subagent regional rollout.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-10-29T11:25:15.201Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "23496c0f1a35e1e6e9d53c88cf60ccb950df3f295cdf6578e991cc5e4bacf3bc",
+            "qualification": "Exact retrieved response-body digest recorded by the cited audit; bytes are not retained in this feed and this is not a semantic change or publisher revision."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "published-audit-normalization",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/a9153c093688d736dae0e66daca69721011c56b9/docs/audits/2026-10-29-csp-fedramp-watch.json",
+          "pointer": "/claimChecks/4",
+          "originalLabel": "verified-unchanged-with-qualifications"
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "kind": "assessment",
+      "synthetic": false,
+      "findingId": "vci-itsi-subagent-region",
+      "revision": 1,
+      "recordedAt": "2026-10-30T17:21:21.564Z",
+      "assessmentId": "vcia-itsi-region-20261030",
+      "assessedAt": "2026-10-30T11:33:57.205Z",
+      "outcome": "unable-to-verify",
+      "rationale": "No subagent-specific regional rollout established. Base SAIA region coverage is insufficient.",
+      "reviewedScope": {
+        "products": [
+          "Splunk IT Service Intelligence",
+          "Splunk AI Assistant",
+          "Splunk MCP Server"
+        ],
+        "versions": [
+          "ITSI 5.0+",
+          "SAIA 2.2+",
+          "MCP Server 1.2.1+"
+        ],
+        "editions": null,
+        "deployments": [
+          "Cloud regional availability not established"
+        ],
+        "regions": null,
+        "audiences": [
+          "Customers evaluating ITSI subagent regional availability"
+        ],
+        "exclusions": [
+          "No tenant availability, entitlement, authorization or deployment suitability is established."
+        ]
+      },
+      "comparedAssessmentIds": [
+        "vcia-itsi-region-20261029"
+      ],
+      "remainingConcerns": [
+        "Subagent-specific regional rollout remains not established by the reviewed sources."
+      ],
+      "evidence": [
+        {
+          "evidenceId": "itsi-region-1",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+          "section": "ITSI subagent",
+          "statement": "No subagent-specific regional rollout established. Base SAIA region coverage is insufficient.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-10-30T11:30:16.767Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "4e3423674977885ad3f6ec48b9301a289dfa08e930689fc026fa4d7d1bf70f0f",
+            "qualification": "Exact retrieved response-body digest recorded by the cited audit; bytes are not retained in this feed and this is not a semantic change or publisher revision."
+          }
+        },
+        {
+          "evidenceId": "itsi-region-2",
+          "url": "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/install-and-upgrade/5.0/planning/itsi-compatibility-with-related-apps-and-add-ons",
+          "section": "ITSI compatibility with related apps and add-ons",
+          "statement": "The audit records related-app version prerequisites separately from subagent regional rollout.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-10-30T11:30:16.768Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "431bc2390f0eefbaff79b2118800dc44df4addb67857547c2060250ef6c89d5d",
+            "qualification": "Exact retrieved response-body digest recorded by the cited audit; bytes are not retained in this feed and this is not a semantic change or publisher revision."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "published-audit-normalization",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/a9153c093688d736dae0e66daca69721011c56b9/docs/audits/2026-10-30-csp-fedramp-watch.json",
+          "pointer": "/claimChecks/4",
+          "originalLabel": "verified-unchanged-with-qualifications"
+        }
+      ]
+    }
+  ],
+  "publications": [
+    {
+      "sequence": 1,
+      "publishedAt": "2026-10-30T17:21:21.564Z",
+      "coverage": {
+        "mode": "bounded-pilot",
+        "watchFamilies": [
+          "version-guidance-audit",
+          "es-editions-watch",
+          "csp-fedramp-watch"
+        ],
+        "completeness": "Complete only for the two explicitly selected concerns and their cited October 29/30 assessments. This is not an exhaustive audit export or historical backfill.",
+        "exclusions": [
+          "Other assessed concerns and watch families are not yet normalized.",
+          "Source inventories are not claim-specific verification.",
+          "No current direct source retrieval or new independent claim review was performed for this normalization.",
+          "Missing records never indicate resolution."
+        ],
+        "evidenceThrough": "2026-10-30"
+      },
+      "recordKeys": [
+        "finding:vci-soar-cloud-880-release-stage@1",
+        "assessment:vcia-soar-stage-20261029@1",
+        "finding:vci-itsi-subagent-region@1",
+        "assessment:vcia-itsi-region-20261029@1"
+      ]
+    },
+    {
+      "sequence": 2,
+      "publishedAt": "2026-10-30T17:21:30.864Z",
+      "coverage": {
+        "mode": "bounded-pilot",
+        "watchFamilies": [
+          "version-guidance-audit",
+          "es-editions-watch",
+          "csp-fedramp-watch"
+        ],
+        "completeness": "Complete only for the two explicitly selected concerns and their cited October 29/30 assessments. This is not an exhaustive audit export or historical backfill.",
+        "exclusions": [
+          "Other assessed concerns and watch families are not yet normalized.",
+          "Source inventories are not claim-specific verification.",
+          "No current direct source retrieval or new independent claim review was performed for this normalization.",
+          "Missing records never indicate resolution."
+        ],
+        "evidenceThrough": "2026-10-30"
+      },
+      "recordKeys": [
+        "finding:vci-soar-cloud-880-release-stage@1",
+        "assessment:vcia-soar-stage-20261029@1",
+        "assessment:vcia-soar-stage-20261030@1",
+        "finding:vci-itsi-subagent-region@1",
+        "assessment:vcia-itsi-region-20261029@1",
+        "assessment:vcia-itsi-region-20261030@1"
+      ]
+    }
+  ]
+}
