@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-malware-phishing-version-floor",
+  "revision": 1,
+  "recordedAt": "2026-10-31T10:09:10.384Z",
+  "assessmentId": "vcia-es-malware-phishing-version-floor-20261031",
+  "assessedAt": "2026-10-31",
+  "outcome": "still-present",
+  "rationale": "The current ES 8.8 detailed task requires ES 8.6+ while the current ES 8.8 aggregate table lists ES 8.5+; the lower floor is not certified for the task.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "ES 8.5+ aggregate row",
+      "ES 8.6+ detailed task",
+      "Platform 10.2+"
+    ],
+    "editions": [
+      "Premier"
+    ],
+    "deployments": [
+      "Splunk Cloud Platform"
+    ],
+    "regions": null,
+    "audiences": [
+      "Customers and documentation readers evaluating the stated decision"
+    ],
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-es-malware-phishing-version-floor-20261030"
+  ],
+  "remainingConcerns": [
+    "Reconcile the task-specific and aggregate version boundaries without lowering the documented task prerequisite."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "es-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/analyze-scripts-using-the-ai-powered-malware-reversing-agent-and-phishing-analysis-agent-in-splunk-enterprise-security",
+      "section": "Premier scope, Platform 10.2+, ES 8.6+ and paired-SOAR prerequisites",
+      "statement": "The current ES 8.8 task guide preserves the task-specific ES 8.6+ floor and paired-SOAR prerequisite.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-10-31",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "No exact official-document revision or response-body digest was retained for this statement in the cited observation."
+      }
+    },
+    {
+      "evidenceId": "es-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "8.8 Malware Reversing and Phishing aggregate compatibility row",
+      "statement": "The current ES 8.8 aggregate row preserves the lower ES 8.5+ statement as a distinct scope.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-10-31",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "No exact official-document revision or response-body digest was retained for this statement in the cited observation."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "published-audit-normalization",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/9a4ca8bbbbc032770c678512b3e3d0266d837551/docs/audits/2026-10-31-es-editions-watch.json",
+      "pointer": "/claimChecks/9",
+      "originalLabel": "source-modernized-conflict-preserved"
+    }
+  ]
+}

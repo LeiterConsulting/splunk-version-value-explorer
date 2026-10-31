@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-87-connector-builder-editions",
+  "revision": 1,
+  "recordedAt": "2026-10-31T10:09:10.384Z",
+  "assessmentId": "vcia-es-87-connector-builder-editions-20261031",
+  "assessedAt": "2026-10-31",
+  "outcome": "still-present",
+  "rationale": "The ES 8.7 agent table still lists both editions while the 8.7 release notes list Premier; current ES 8.8 evidence does not rewrite that historical conflict.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "8.7",
+      "8.7.1"
+    ],
+    "editions": null,
+    "deployments": [
+      "Splunk Cloud Platform"
+    ],
+    "regions": null,
+    "audiences": [
+      "Customers and documentation readers evaluating the stated decision"
+    ],
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-es-87-connector-builder-editions-20261030"
+  ],
+  "remainingConcerns": [
+    "Reconcile ES 8.7 edition scope without applying the ES 8.8 table retrospectively."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "es-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "8.7 compatibility information for AI agents",
+      "statement": "The audit records a both-edition Connector Builder row for ES 8.7.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-10-31",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "No exact official-document revision or response-body digest was retained for this statement in the cited observation."
+      }
+    },
+    {
+      "evidenceId": "es-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "8.7.1 and 8.7.0 edition rows",
+      "statement": "The audit records a Premier-only release-note description for the historical capability.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-10-31",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "No exact official-document revision or response-body digest was retained for this statement in the cited observation."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "published-audit-normalization",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/9a4ca8bbbbc032770c678512b3e3d0266d837551/docs/audits/2026-10-31-es-editions-watch.json",
+      "pointer": "/claimChecks/4",
+      "originalLabel": "historical-conflict-preserved"
+    }
+  ]
+}
