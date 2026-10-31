@@ -358,10 +358,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-30T09:50:48Z",
-      "lastSuccess": "2026-10-30T09:59:31Z",
-      "outcome": "changed",
-      "summary": "Advanced the customer-managed Python instrumentation baseline to 2.13.3 with exact image, dependency and PostgreSQL-correlation scope; retained prior history and all unresolved boundaries.",
+      "lastAttempt": "2026-10-31T10:24:58.723Z",
+      "lastSuccess": "2026-10-31T10:28:00.000Z",
+      "outcome": "no-change",
+      "summary": "No new release, compatibility or remediation fact was established; three consequential unresolved claims were independently reassessed and retained with exact scope.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -799,9 +799,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Advanced the customer-managed Python instrumentation baseline to 2.13.3 with exact image, dependency and PostgreSQL-correlation scope; retained prior history and all unresolved boundaries.",
           "scope": "Complete 205-source baseline retrieval plus the newly registered Python 2.13.3 source (206 registered sources), current-stream discovery, bounded affected/high-consequence claims, all 18 borrowed HF mappings, and full local route/report/WebMCP regressions. Successful scope review is not deployment; exact-candidate exports and live delivery remain separate."
+        },
+        {
+          "at": "2026-10-31T10:24:58.723Z",
+          "outcome": "running",
+          "summary": "Reviewing the complete maintained release inventory and current product/component streams against fresh GitHub main and the existing public Site source.",
+          "scope": "All 211 registered official URLs; current Enterprise, Cloud, migration, ES, ITSI, Observability, Forwarder, SOAR, security and named-AI discovery; bounded SOAR stage, KV-specific upgrade bridge, SVD-2026-1015 and HF source-mapping checks; native issue-feed output and publication evidence."
+        },
+        {
+          "at": "2026-10-31T10:28:00.000Z",
+          "outcome": "no-change",
+          "summary": "No new release, compatibility or remediation fact was established; three consequential unresolved claims were independently reassessed and retained with exact scope.",
+          "scope": "All 211 registered official URLs (209 retrieved; two historical bodies unavailable), current release discovery, all 18 borrowed HF mappings across 900 routes, bounded SOAR 8.8 stage, Enterprise 10.6 KV bridge and SVD-2026-1015 checks, plus native issue-feed publication follow-through. LastSuccess denotes this scope review, not deployment."
         }
       ],
-      "scope": "Complete 205-source baseline retrieval plus the newly registered Python 2.13.3 source (206 registered sources), current-stream discovery, bounded affected/high-consequence claims, all 18 borrowed HF mappings, and full local route/report/WebMCP regressions. Successful scope review is not deployment; exact-candidate exports and live delivery remain separate."
+      "scope": "All 211 registered official URLs (209 retrieved; two historical bodies unavailable), current release discovery, all 18 borrowed HF mappings across 900 routes, bounded SOAR 8.8 stage, Enterprise 10.6 KV bridge and SVD-2026-1015 checks, plus native issue-feed publication follow-through. LastSuccess denotes this scope review, not deployment."
     },
     {
       "id": "es-editions-watch",
