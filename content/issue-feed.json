@@ -3511,6 +3511,264 @@
           "originalLabel": "conflict-preserved"
         }
       ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "kind": "assessment",
+      "synthetic": false,
+      "findingId": "vci-itsi-subagent-region",
+      "revision": 1,
+      "recordedAt": "2026-10-31T11:36:00Z",
+      "assessmentId": "vcia-itsi-region-20261031",
+      "assessedAt": "2026-10-31T11:34:00Z",
+      "outcome": "unable-to-verify",
+      "rationale": "No subagent-specific regional rollout established. Base SAIA region coverage is insufficient.",
+      "reviewedScope": {
+        "products": [
+          "Splunk IT Service Intelligence",
+          "Splunk AI Assistant",
+          "Splunk MCP Server"
+        ],
+        "versions": [
+          "ITSI 5.0+",
+          "SAIA 2.2+",
+          "MCP Server 1.2.1+"
+        ],
+        "editions": null,
+        "deployments": [
+          "Cloud regional availability not established"
+        ],
+        "regions": null,
+        "audiences": [
+          "Customers evaluating ITSI subagent regional availability"
+        ],
+        "exclusions": [
+          "No tenant availability, entitlement, authorization or deployment suitability is established."
+        ]
+      },
+      "comparedAssessmentIds": [
+        "vcia-itsi-region-20261030"
+      ],
+      "remainingConcerns": [
+        "Subagent-specific regional rollout remains not established by the reviewed sources."
+      ],
+      "evidence": [
+        {
+          "evidenceId": "itsi-region-1",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+          "section": "ITSI subagent",
+          "statement": "No subagent-specific regional rollout established. Base SAIA region coverage is insufficient.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-10-31T11:31:20.279Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "997c2c567643c03ec1709782a27e6129eea20eb15e53ba39e9fddaa7315ee6c7",
+            "qualification": "Exact retrieved response-body digest recorded by the cited audit; bytes are not retained in this feed and this is not a semantic change or publisher revision."
+          }
+        },
+        {
+          "evidenceId": "itsi-region-2",
+          "url": "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/install-and-upgrade/5.0/planning/itsi-compatibility-with-related-apps-and-add-ons",
+          "section": "ITSI compatibility with related apps and add-ons",
+          "statement": "The audit records related-app version prerequisites separately from subagent regional rollout.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-10-31T11:31:20.338Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "fcaf2a4336a7dd46524cc409813b3ecf193a2bfc310e12ca460dbbf6599f1784",
+            "qualification": "Exact retrieved response-body digest recorded by the cited audit; bytes are not retained in this feed and this is not a semantic change or publisher revision."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "published-audit-normalization",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/d979e58dd7a8ceb8f5569bca6110953a1dddcbab/docs/audits/2026-10-31-csp-fedramp-watch.json",
+          "pointer": "/claimChecks/4",
+          "originalLabel": "verified-unchanged-with-qualifications"
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "kind": "assessment",
+      "synthetic": false,
+      "findingId": "vci-saia-high-runtime-scope",
+      "revision": 1,
+      "recordedAt": "2026-10-31T11:36:00Z",
+      "assessmentId": "vcia-saia-high-runtime-scope-20261031",
+      "assessedAt": "2026-10-31T11:34:00Z",
+      "outcome": "unable-to-verify",
+      "rationale": "IL2 excludes Agent Mode and fixes Splunk-hosted runtime; same-region prompt processing is conditional on Splunk-hosted choice. Exact High mode/version/runtime/rollout remains unresolved.",
+      "reviewedScope": {
+        "products": [
+          "Splunk AI Assistant for SPL"
+        ],
+        "versions": [
+          "SAIA 2.3.6 documentation",
+          "October 19 High announcement"
+        ],
+        "editions": null,
+        "deployments": [
+          "Splunk Cloud Platform"
+        ],
+        "regions": [
+          "FedRAMP High scope under assessment"
+        ],
+        "audiences": [
+          "Customers and documentation readers evaluating the stated decision"
+        ],
+        "exclusions": [
+          "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+        ]
+      },
+      "comparedAssessmentIds": [
+        "vcia-saia-high-runtime-scope-20261030"
+      ],
+      "remainingConcerns": [
+        "Resolve exact High app/version, mode, runtime, eligible stack and rollout without transferring IL2 restrictions or privileges."
+      ],
+      "evidence": [
+        {
+          "evidenceId": "csp-1",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+          "section": "FedRAMP deployments; supported regions; version compatibility",
+          "statement": "The cited audit reviews this source within SAIA 2.3.6; versioned IL2 and October 19 High announcement. IL2 excludes Agent Mode and fixes Splunk-hosted runtime; same-region prompt processing is conditional on Splunk-hosted choice. Exact High mode/version/runtime/rollout remains unresolved.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-10-31T11:31:20.352Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "e84cdd53cd59773bad9bcbb8d599ece05464e01f59826fb912d67d2f3c2e3372",
+            "qualification": "Response-body digest recorded by the cited audit; source bytes are not retained by this feed and the digest is not a semantic diff."
+          }
+        },
+        {
+          "evidenceId": "csp-2",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+          "section": "Requirements; features; ITSI subagent; where the assistant runs",
+          "statement": "The cited audit reviews this source within SAIA 2.3.6; versioned IL2 and October 19 High announcement. IL2 excludes Agent Mode and fixes Splunk-hosted runtime; same-region prompt processing is conditional on Splunk-hosted choice. Exact High mode/version/runtime/rollout remains unresolved.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-10-31T11:31:20.279Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "997c2c567643c03ec1709782a27e6129eea20eb15e53ba39e9fddaa7315ee6c7",
+            "qualification": "Response-body digest recorded by the cited audit; source bytes are not retained by this feed and the digest is not a semantic diff."
+          }
+        },
+        {
+          "evidenceId": "csp-3",
+          "url": "https://www.splunk.com/en_us/blog/industries/edge-and-ingest-processors-with-spl2-and-splunk-ai-assistant-achieve-fedramp-high.html",
+          "section": "Expanding Capabilities in AWS GovCloud with FedRAMP High",
+          "statement": "The cited audit reviews this source within SAIA 2.3.6; versioned IL2 and October 19 High announcement. IL2 excludes Agent Mode and fixes Splunk-hosted runtime; same-region prompt processing is conditional on Splunk-hosted choice. Exact High mode/version/runtime/rollout remains unresolved.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-10-31T11:31:12.357Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "89ae4d0d399a2e29e843ee5db3eff1161ad10b572a134449251c5ed60185de51",
+            "qualification": "Response-body digest recorded by the cited audit; source bytes are not retained by this feed and the digest is not a semantic diff."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "published-audit-normalization",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/d979e58dd7a8ceb8f5569bca6110953a1dddcbab/docs/audits/2026-10-31-csp-fedramp-watch.json",
+          "pointer": "/claimChecks/3",
+          "originalLabel": "verified-unchanged-with-qualifications"
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "kind": "assessment",
+      "synthetic": false,
+      "findingId": "vci-cloud-s3-restricted-scope",
+      "revision": 1,
+      "recordedAt": "2026-10-31T11:36:00Z",
+      "assessmentId": "vcia-cloud-s3-restricted-scope-20261031",
+      "assessedAt": "2026-10-31T11:34:00Z",
+      "outcome": "unable-to-verify",
+      "rationale": "Current expanded-search exclusions and historical High/IL5 support remain conflicting in their exact scopes.",
+      "reviewedScope": {
+        "products": [
+          "Splunk Cloud Platform"
+        ],
+        "versions": [
+          "10.6 current service",
+          "10.3 historical guidance"
+        ],
+        "editions": null,
+        "deployments": [
+          "Splunk-managed Cloud"
+        ],
+        "regions": [
+          "FedRAMP Moderate",
+          "FedRAMP High",
+          "IL5"
+        ],
+        "audiences": [
+          "Customers and documentation readers evaluating the stated decision"
+        ],
+        "exclusions": [
+          "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+        ]
+      },
+      "comparedAssessmentIds": [
+        "vcia-cloud-s3-restricted-scope-20261030"
+      ],
+      "remainingConcerns": [
+        "Reconcile the historical/current and expanded-federation scopes from authoritative evidence."
+      ],
+      "evidence": [
+        {
+          "evidenceId": "csp-1",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+          "section": "Available regions and region differences; Machine Data Lake search; third-party federated-search limitations; current subscription table lists Cloud 10.6, ES 8.7 and ITSI 5.0; supported forwarder rows extend through 10.6; page modification date",
+          "statement": "The cited audit reviews this source within Cloud 10.6 and historical 10.3; Moderate/High/IL5. Current expanded-search exclusions and historical High/IL5 support remain conflicting in their exact scopes.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-10-31T11:31:20.324Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "ebcd4b9e31687ef20dc1a3d14a7d6a8ca82184dcff8a330686944c61a415282f",
+            "qualification": "Response-body digest recorded by the cited audit; source bytes are not retained by this feed and the digest is not a semantic diff."
+          }
+        },
+        {
+          "evidenceId": "csp-2",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log",
+          "section": "October 21, 2026 entry adds Cloud Activity Based Pricing across service-description sections for relevant Cloud 10.6 versions; October 6 regional/search/subscription history and April 8 version-scoped S3 guidance remain separate. Individual effective dates do not establish regional rollout, entitlement or authorization.",
+          "statement": "The cited audit reviews this source within Cloud 10.6 and historical 10.3; Moderate/High/IL5. Current expanded-search exclusions and historical High/IL5 support remain conflicting in their exact scopes.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-10-31T11:31:20.345Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "63991dfd7b634fa8b06239e9a76c9ba883379877226feb819c26dbbde7cc381d",
+            "qualification": "Response-body digest recorded by the cited audit; source bytes are not retained by this feed and the digest is not a semantic diff."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "published-audit-normalization",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/d979e58dd7a8ceb8f5569bca6110953a1dddcbab/docs/audits/2026-10-31-csp-fedramp-watch.json",
+          "pointer": "/claimChecks/1",
+          "originalLabel": "verified-unchanged-with-qualifications"
+        }
+      ]
     }
   ],
   "publications": [
@@ -3725,6 +3983,92 @@
         "assessment:vcia-app-for-soar-es-pairing-20261031@1",
         "assessment:vcia-es-activity-pricing-deployment-scope-20261031@1",
         "assessment:vcia-soar-stage-20261031@1"
+      ]
+    },
+    {
+      "sequence": 5,
+      "publishedAt": "2026-10-31T11:36:01Z",
+      "coverage": {
+        "mode": "bounded-pilot",
+        "watchFamilies": [
+          "version-guidance-audit",
+          "version-release-watch",
+          "es-editions-watch",
+          "csp-fedramp-watch"
+        ],
+        "completeness": "Bounded cumulative coverage of twelve findings and thirty-three assessments, including three actual October 31 CSP scoped reassessments. No exhaustive historical reverification is implied.",
+        "exclusions": [
+          "Unavailable source bodies and issue-table extraction failures are not emitted as knowledge gaps.",
+          "Ordinary confirmed facts and unresolved questions lacking claim-specific support are not promoted to issues.",
+          "No new official-document review or claim-date advancement is performed by normalization.",
+          "Missing findings or absent new assessments never establish resolution."
+        ],
+        "evidenceThrough": "2026-10-31",
+        "findingIds": [
+          "vci-soar-cloud-880-release-stage",
+          "vci-itsi-subagent-region",
+          "vci-es-87-connector-builder-editions",
+          "vci-es-88-triage-editions",
+          "vci-es-guided-response-enhancement-scope",
+          "vci-es-malware-phishing-version-floor",
+          "vci-app-for-soar-es-pairing",
+          "vci-es-activity-pricing-deployment-scope",
+          "vci-saia-high-runtime-scope",
+          "vci-cloud-s3-restricted-scope",
+          "vci-svd-2026-1015-applicability",
+          "vci-enterprise-kv-106-upgrade-bridge"
+        ],
+        "assessmentDateRange": {
+          "earliest": "2026-10-12",
+          "latest": "2026-10-31"
+        }
+      },
+      "recordKeys": [
+        "finding:vci-soar-cloud-880-release-stage@1",
+        "assessment:vcia-soar-stage-20261029@1",
+        "assessment:vcia-soar-stage-20261030@1",
+        "finding:vci-itsi-subagent-region@1",
+        "assessment:vcia-itsi-region-20261029@1",
+        "assessment:vcia-itsi-region-20261030@1",
+        "finding:vci-es-87-connector-builder-editions@1",
+        "assessment:vcia-es-87-connector-builder-editions-20261029@1",
+        "assessment:vcia-es-87-connector-builder-editions-20261030@1",
+        "finding:vci-es-88-triage-editions@1",
+        "assessment:vcia-es-88-triage-editions-20261029@1",
+        "assessment:vcia-es-88-triage-editions-20261030@1",
+        "finding:vci-es-guided-response-enhancement-scope@1",
+        "assessment:vcia-es-guided-response-enhancement-scope-20261029@1",
+        "assessment:vcia-es-guided-response-enhancement-scope-20261030@1",
+        "finding:vci-es-malware-phishing-version-floor@1",
+        "assessment:vcia-es-malware-phishing-version-floor-20261029@1",
+        "assessment:vcia-es-malware-phishing-version-floor-20261030@1",
+        "finding:vci-app-for-soar-es-pairing@1",
+        "assessment:vcia-app-for-soar-es-pairing-20261029@1",
+        "assessment:vcia-app-for-soar-es-pairing-20261030@1",
+        "finding:vci-es-activity-pricing-deployment-scope@1",
+        "assessment:vcia-es-activity-pricing-deployment-scope-20261029@1",
+        "assessment:vcia-es-activity-pricing-deployment-scope-20261030@1",
+        "finding:vci-saia-high-runtime-scope@1",
+        "assessment:vcia-saia-high-runtime-scope-20261029@1",
+        "assessment:vcia-saia-high-runtime-scope-20261030@1",
+        "finding:vci-cloud-s3-restricted-scope@1",
+        "assessment:vcia-cloud-s3-restricted-scope-20261029@1",
+        "assessment:vcia-cloud-s3-restricted-scope-20261030@1",
+        "finding:vci-svd-2026-1015-applicability@1",
+        "assessment:vcia-svd-2026-1015-applicability-20261029@1",
+        "finding:vci-enterprise-kv-106-upgrade-bridge@1",
+        "assessment:vcia-enterprise-kv-106-upgrade-bridge-20261012@1",
+        "assessment:vcia-enterprise-kv-106-upgrade-bridge-20261025@1",
+        "assessment:vcia-es-87-connector-builder-editions-20261031@1",
+        "assessment:vcia-es-88-triage-editions-20261031@1",
+        "assessment:vcia-es-guided-response-enhancement-scope-20261031@1",
+        "assessment:vcia-es-malware-phishing-version-floor-20261031@1",
+        "assessment:vcia-app-for-soar-es-pairing-20261031@1",
+        "assessment:vcia-es-activity-pricing-deployment-scope-20261031@1",
+        "assessment:vcia-soar-stage-20261031@1",
+        "assessment:vcia-itsi-region-20261031@1",
+        "assessment:vcia-saia-high-runtime-scope-20261031@1",
+        "assessment:vcia-cloud-s3-restricted-scope-20261031@1"
       ]
     }
   ]
