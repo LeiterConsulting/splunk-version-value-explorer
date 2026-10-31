@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-app-for-soar-es-pairing",
+  "revision": 1,
+  "recordedAt": "2026-10-31T10:09:10.384Z",
+  "assessmentId": "vcia-app-for-soar-es-pairing-20261031",
+  "assessedAt": "2026-10-31",
+  "outcome": "unable-to-verify",
+  "rationale": "App for SOAR 8.7.0 still lists ES 8.7.0 and 8.6.1; later ES pairings remain unlisted and are not inferred from independent release numbers.",
+  "reviewedScope": {
+    "products": [
+      "Splunk App for SOAR",
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "App for SOAR 8.7.0",
+      "ES 8.7.1",
+      "ES 8.8",
+      "ES 8.9"
+    ],
+    "editions": null,
+    "deployments": null,
+    "regions": null,
+    "audiences": [
+      "Customers and documentation readers evaluating the stated decision"
+    ],
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-app-for-soar-es-pairing-20261030"
+  ],
+  "remainingConcerns": [
+    "An exact published compatibility row is needed for the later ES version before establishing the pairing."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "es-1",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.7.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "section": "8.7.0 product compatibility matrix",
+      "statement": "The audit records the exact listed compatibility rows and leaves the later ES pairings unestablished.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-10-31",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "No exact official-document revision or response-body digest was retained for this statement in the cited observation."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "published-audit-normalization",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/9a4ca8bbbbc032770c678512b3e3d0266d837551/docs/audits/2026-10-31-es-editions-watch.json",
+      "pointer": "/claimChecks/12",
+      "originalLabel": "unknown-later-pairing-preserved"
+    },
+    {
+      "basis": "published-audit-normalization",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/9a4ca8bbbbc032770c678512b3e3d0266d837551/docs/audits/2026-10-31-es-editions-watch.json",
+      "pointer": "/boundedBacklog/2",
+      "originalLabel": "open"
+    }
+  ]
+}
