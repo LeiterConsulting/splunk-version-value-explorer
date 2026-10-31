@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-10-30T11:34:00.161Z",
-      "lastSuccess": "2026-10-30T11:34:00.259Z",
+      "lastAttempt": "2026-10-31T11:29:39Z",
+      "lastSuccess": "2026-10-31T11:34:00Z",
       "outcome": "no-change",
-      "summary": "Retrieved all 25 official sources and reverified seven consequential claim groups; no supported regional or authorization fact changed.",
+      "summary": "25 official sources retrieved; seven consequential claim groups reviewed. No supported regional or authorization change.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -351,9 +351,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Retrieved all 25 official sources and reverified seven consequential claim groups; no supported regional or authorization fact changed.",
           "scope": "Exact Marketplace offerings; S3 conflicts; complete ES 8.8 Essentials/Premier/CMP region tables; SAIA IL2/runtime/High scope; ITSI subagent unknown rollout; SOAR restrictions and dated compliance matrix. Successful scope review is separate from delivery."
+        },
+        {
+          "at": "2026-10-31T11:29:39Z",
+          "outcome": "running",
+          "summary": "Reviewing official regional and regulated evidence.",
+          "scope": "25 maintained sources and bounded consequential claims."
+        },
+        {
+          "at": "2026-10-31T11:34:00Z",
+          "outcome": "no-change",
+          "summary": "25 official sources retrieved; seven consequential claim groups reviewed. No supported regional or authorization change.",
+          "scope": "Marketplace offerings, S3 conflicts, ES 8.8 regions, SAIA runtime, ITSI subagent, SOAR restrictions and dated visual matrix; 10.7 documentation discovery remains qualified."
         }
       ],
-      "scope": "Exact Marketplace offerings; S3 conflicts; complete ES 8.8 Essentials/Premier/CMP region tables; SAIA IL2/runtime/High scope; ITSI subagent unknown rollout; SOAR restrictions and dated compliance matrix. Successful scope review is separate from delivery."
+      "scope": "Marketplace offerings, S3 conflicts, ES 8.8 regions, SAIA runtime, ITSI subagent, SOAR restrictions and dated visual matrix; 10.7 documentation discovery remains qualified."
     },
     {
       "id": "version-release-watch",
