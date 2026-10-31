@@ -139,6 +139,28 @@ SOC Analyst CMP paths. Cloud-only agents remain Cloud only. The current
 Connector Builder, Triage and Guided Response conflicts, AI SOC Analyst task
 limits and exact App for SOAR / Export matrices remain unchanged.
 
+## October 31, 2026 version-current task evidence
+
+The current ES 8.8 task pages now directly support the maintained Connector
+Builder, AI SOC Analyst, Malware/Phishing, Cloud Connect and licensing/trial
+claims. VersionCompass uses those exact 8.8 pages for the current snapshot while
+retaining the 8.7 pages as historical evidence. This source modernization does
+not broaden edition entitlement, infer a SOAR pairing or change release stage.
+
+The current AI SOC Analyst task guide establishes the Cloud and Cloud Connected
+CMP prerequisite chains, existing-finding scope, first-ten and approximate
+per-tenant daily limits, frontier-model requirement and inherited connector/asset
+permissions. Its Cloud ES 8.7+ floor still differs from the aggregate 8.8 table's
+ES 8.6+ row. The current Malware/Phishing task guide likewise retains Platform
+10.2+/ES 8.6+ against the aggregate table's ES 8.5+ row. Both discrepancies remain
+visible rather than being normalized into a lower floor.
+
+The ES 8.8 licensing page preserves the 30-day Essentials and 90-day Premier
+trial terms, expiry behavior and Cloud Connected entitlement-display caveat. The
+8.8 Cloud Connect and Connector Builder guides preserve exact permissions,
+network and pairing prerequisites. Licensing, workflow grouping, pairing,
+enablement, region and authorization remain independent facts.
+
 ## Cloud environment evidence
 
 See [Cloud environments](cloud-environments.md) for independent CSP, region, FR-M/FR-H, and experience filters, shared report behavior, uncertainty boundaries, and dedicated maintenance ownership. Current hosting evidence does not establish historical release availability or authorize every product component.

@@ -31,6 +31,7 @@
       "esPremier",
       "esCloudConnect",
       "source-aiEsAgents88",
+      "source-aiEsSocTask88",
       "source-aiEsSocTask87",
       "source-aiEsEditions",
       "source-aiEsRegions88",
@@ -64,6 +65,15 @@
       "scope": "Exact 8.8 edition, deployment, version, Cloud Connect, paired-SOAR, feature-stage, enablement, permissions, model and Cloud Connect packaging notes",
       "sources": [
         "aiEsAgents88"
+      ]
+    },
+    {
+      "id": "source-aiEsSocTask88",
+      "ref": "source:aiEsSocTask88",
+      "sha256": "5a4c95637b9a7d4da58c21bc8e3ae0891333bbdd524b755d50e11437afb13bb1",
+      "scope": "Task-specific ES 8.8 Cloud and Cloud Connected CMP workflow limits and permissions; exact SOAR version pairing, region and customer authorization remain separate",
+      "sources": [
+        "aiEsSocTask88"
       ]
     },
     {
@@ -125,10 +135,11 @@
     {
       "id": "ai-es-soc",
       "ref": "capability:ai-es-soc",
-      "sha256": "46f215d3f9abea6248673a8d4d0f100ffde44feb6e2d3617d78a947311cd5b0a",
-      "scope": "The aggregate row is Premier. A separate 8.8 note assigns the Triage component to Essentials and the Response component to Premier, while the editions overview lists Triage under Premier; do not infer the whole workflow from a subcomponent. The 8.7 guide's connector/action inheritance and es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence.",
+      "sha256": "1df0a8b6bdbf7ec32a75e106df0ef172ed9038930bb7afb3a92a9798b283ffd3",
+      "scope": "The aggregate row is Premier. A separate 8.8 note assigns the Triage component to Essentials and the Response component to Premier, while the editions overview lists Triage under Premier; do not infer the whole workflow from a subcomponent. The 8.8 task guide's Cloud/CMP limits, connector/action inheritance and es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence; the 8.7 source remains historical.",
       "sources": [
         "aiEsAgents88",
+        "aiEsSocTask88",
         "aiEsSocTask87",
         "aiEsRelease88"
       ]

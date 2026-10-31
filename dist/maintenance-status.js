@@ -806,10 +806,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-10-30T10:02:54Z",
-      "lastSuccess": "2026-10-30T10:03:10Z",
-      "outcome": "no-change",
-      "summary": "Retrieved all 30 maintained official records and reverified 16 bounded high-consequence claims; no supported ES edition or ES-specific AI fact changed, and all conflicts and qualifications remain explicit.",
+      "lastAttempt": "2026-10-31T09:59:56.620Z",
+      "lastSuccess": "2026-10-31T10:07:00Z",
+      "outcome": "changed",
+      "summary": "Modernized current ES 8.8 task-source mappings for Connector Builder, AI SOC Analyst, Malware/Phishing, Cloud Connect and licensing while preserving historical conflicts, unknown pairings and exact scope.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1151,9 +1151,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Retrieved all 30 maintained official records and reverified 16 bounded high-consequence claims; no supported ES edition or ES-specific AI fact changed, and all conflicts and qualifications remain explicit.",
           "scope": "All 30 maintained official ES/AI/commercial/regional/SOAR records; bounded ES 8.8 stage, Connector Builder, Triage, Guided Response, Cloud Connect, AI SOC Analyst, Threat Graph, pricing/trials, UEBA/Exposure, App for SOAR and Export claims. Source access and unchanged claims are recorded separately; successful scope review is not deployment."
+        },
+        {
+          "at": "2026-10-31T09:59:56.620Z",
+          "outcome": "running",
+          "summary": "Reviewing the complete maintained ES Editions, ES-specific AI and exact SOAR-pairing evidence inventory from the reconciled October 31 GitHub and Sites baseline.",
+          "scope": "Thirty-five official ES, AI, pricing, regional and SOAR records plus sixteen bounded high-consequence edition, prerequisite, release-stage, entitlement and pairing claim groups."
+        },
+        {
+          "at": "2026-10-31T10:07:00Z",
+          "outcome": "changed",
+          "summary": "Modernized current ES 8.8 task-source mappings for Connector Builder, AI SOC Analyst, Malware/Phishing, Cloud Connect and licensing while preserving historical conflicts, unknown pairings and exact scope.",
+          "scope": "Complete 35-source ES Editions inventory plus sixteen bounded high-consequence entitlement, prerequisite, compatibility, pricing, regional and SOAR claim groups; native issue-feed publication remains in its explicit provenance phase."
         }
       ],
-      "scope": "All 30 maintained official ES/AI/commercial/regional/SOAR records; bounded ES 8.8 stage, Connector Builder, Triage, Guided Response, Cloud Connect, AI SOC Analyst, Threat Graph, pricing/trials, UEBA/Exposure, App for SOAR and Export claims. Source access and unchanged claims are recorded separately; successful scope review is not deployment."
+      "scope": "Complete 35-source ES Editions inventory plus sixteen bounded high-consequence entitlement, prerequisite, compatibility, pricing, regional and SOAR claim groups; native issue-feed publication remains in its explicit provenance phase."
     },
     {
       "id": "version-guidance-audit",

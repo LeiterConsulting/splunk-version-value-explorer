@@ -1,7 +1,7 @@
 /* Generated from content/datasets/editions.json. Edit the JSON source, not this adapter. */
 window.VersionCompassEditions = {
   "schemaVersion": 2,
-  "reviewed": "2026-10-28",
+  "reviewed": "2026-10-31",
   "release": "8.8",
   "releaseDate": "2026-10-21",
   "releaseStage": "Controlled Availability",
@@ -51,6 +51,11 @@ window.VersionCompassEditions = {
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.7/introduction/access-splunk-cloud-connect-in-splunk-enterprise-security-to-access-cloud-extensions",
       "reviewed": "2026-10-01"
     },
+    "cloudcx88": {
+      "t": "Access Splunk Cloud Connect in ES 8.8",
+      "u": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.8/introduction/access-splunk-cloud-connect-in-splunk-enterprise-security-to-access-cloud-extensions",
+      "reviewed": "2026-10-31"
+    },
     "aiassist": {
       "t": "AI Assistant overview (ES)",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/ai-assistant-overview",
@@ -81,15 +86,30 @@ window.VersionCompassEditions = {
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/automation-with-playbooks/configure-splunk-soar-apps-in-splunk-enterprise-security",
       "reviewed": "2026-10-01"
     },
+    "connectorTask88": {
+      "t": "Connector Builder prerequisites (ES 8.8)",
+      "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/automation-with-playbooks/configure-splunk-soar-apps-in-splunk-enterprise-security",
+      "reviewed": "2026-10-31"
+    },
     "socTask": {
       "t": "AI SOC Analyst workflow prerequisites (ES 8.7)",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
       "reviewed": "2026-10-27"
     },
+    "socTask88": {
+      "t": "AI SOC Analyst workflow prerequisites (ES 8.8)",
+      "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "reviewed": "2026-10-31"
+    },
     "malwareTask": {
       "t": "Malware Reversing and Phishing task guide (ES 8.7)",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/analyze-scripts-using-the-ai-powered-malware-reversing-agent-and-phishing-analysis-agent-in-splunk-enterprise-security",
       "reviewed": "2026-10-01"
+    },
+    "malwareTask88": {
+      "t": "Malware Reversing and Phishing task guide (ES 8.8)",
+      "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/analyze-scripts-using-the-ai-powered-malware-reversing-agent-and-phishing-analysis-agent-in-splunk-enterprise-security",
+      "reviewed": "2026-10-31"
     },
     "ueba": {
       "t": "Splunk UEBA product page",
@@ -105,6 +125,11 @@ window.VersionCompassEditions = {
       "t": "ES licensing and trials (8.7 documentation)",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.7/introduction/licensing-for-splunk-enterprise-security",
       "reviewed": "2026-10-10"
+    },
+    "licensing88": {
+      "t": "ES licensing and trials (8.8 documentation)",
+      "u": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.8/introduction/licensing-for-splunk-enterprise-security",
+      "reviewed": "2026-10-31"
     },
     "regions": {
       "t": "ES 8.7 compatibility and regional availability",
@@ -484,14 +509,15 @@ window.VersionCompassEditions = {
         "v": "yes",
         "n": "Cloud only"
       },
-      "desc": "Summarizes suspicious scripts. Premier, Cloud only, with paired SOAR. The 8.7 agent table lists ES 8.5+, but the 8.7 task guide specifies platform 10.2+ and ES 8.6+.",
+      "desc": "Summarizes suspicious scripts. Premier, Cloud only, with paired SOAR. The 8.8 agent table lists ES 8.5+, but the 8.8 task guide specifies platform 10.2+ and ES 8.6+.",
       "flag": "Minimum-version discrepancy: confirm the target deployment against both sources; ES 8.5 alone is not established as sufficient by the task guide.",
       "src": [
         "agentic88",
         "agentic",
+        "malwareTask88",
         "malwareTask"
       ],
-      "reviewed": "2026-10-24"
+      "reviewed": "2026-10-31"
     },
     {
       "id": "automation-builder",
@@ -531,15 +557,16 @@ window.VersionCompassEditions = {
         "n": "8.8 Cloud only; paired SOAR"
       },
       "flag": "The 8.8 agent table documents Essentials and Premier on Cloud with ES 8.7+ and paired SOAR. This current statement does not retroactively resolve the 8.7 conflict: the 8.7 agent table lists both editions while the 8.7.1 release notes assign Connector Builder to Premier.",
-      "desc": "Generates and refines connectors. The 8.8 agent table documents both editions on Cloud, ES 8.7+ and paired SOAR. The 8.7 task guide additionally requires platform 10.1+, SOAR Cloud pairing, and SOAR App: Edit and SOAR Asset: Edit permissions; exact pairing and permissions remain separate from edition inclusion.",
+      "desc": "Generates and refines connectors. The 8.8 agent table documents both editions on Cloud, ES 8.7+ and paired SOAR. The 8.8 task guide additionally requires platform 10.1+, SOAR Cloud pairing, and SOAR App: Edit and SOAR Asset: Edit permissions; exact pairing and permissions remain separate from edition inclusion.",
       "src": [
         "agentic88",
         "agentic",
         "rn87",
         "matrix",
+        "connectorTask88",
         "connectorTask"
       ],
-      "reviewed": "2026-10-24"
+      "reviewed": "2026-10-31"
     },
     {
       "id": "ai-soc-analyst",
@@ -553,15 +580,16 @@ window.VersionCompassEditions = {
         "v": "yes",
         "n": "Cloud and Cloud Connected CMP; rep-enabled"
       },
-      "desc": "Assists investigation and response. The 8.8 agent table documents Premier on Cloud and Cloud Connected CMP, paired SOAR and representative enablement. Cloud requires platform 10.2+ and ES 8.6+; CMP requires platform 10.4+, ES 8.8+ and Cloud Connect 2.0. For ES 8.8, Cloud Connect 2.0 is a separate Splunkbase download; the guide's statement that ES 8.9+ contains Cloud Connect 2.0+ does not establish an ES 8.9 release or rollout. The 8.7 task guide separately requires ES 8.7+, connector and investigation permissions, and a finding with AI triage results. It limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported.",
-      "flag": "The 8.7 aggregate table and task guide retain different Cloud ES minimums. The task guide also requires inherited SOAR connector permissions and the es_soar_integration_user_role for granular asset access; these permission boundaries do not establish compatible SOAR pairing. The 8.8 CMP path has its own higher platform, ES and Cloud Connect floors.",
+      "desc": "Assists investigation and response. The 8.8 agent table documents Premier on Cloud and Cloud Connected CMP, paired SOAR and representative enablement. Cloud requires platform 10.2+ and ES 8.6+; CMP requires platform 10.4+, ES 8.8+ and Cloud Connect 2.0. For ES 8.8, Cloud Connect 2.0 is a separate Splunkbase download; the guide's statement that ES 8.9+ contains Cloud Connect 2.0+ does not establish an ES 8.9 release or rollout. The 8.8 task guide separately requires ES 8.7+, connector and investigation permissions, and a finding with AI triage results. It limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported.",
+      "flag": "The 8.8 aggregate table and task guide retain different Cloud ES minimums. The task guide also requires inherited SOAR connector permissions and the es_soar_integration_user_role for granular asset access; these permission boundaries do not establish compatible SOAR pairing. The CMP path has its own higher platform, ES and Cloud Connect floors.",
       "src": [
         "agentic88",
         "agentic",
         "rn87",
+        "socTask88",
         "socTask"
       ],
-      "reviewed": "2026-10-28"
+      "reviewed": "2026-10-31"
     }
   ],
   "history": {
@@ -665,6 +693,7 @@ window.VersionCompassEditions = {
       "text": "Detection Studio and TIM use Cloud Connect for on-premises access. The editions overview lists the ES AI Assistant through Cloud Connect under Premier. For ES 8.8 SOC workforce use on Cloud Connected CMP, the current agent guide requires the separate Cloud Connect 2.0 download; it says ES 8.9+ contains Cloud Connect 2.0+, but that packaging statement does not establish an ES 8.9 release, rollout or entitlement. Cloud Connect supports private cloud and on-premises deployments; it does not turn Cloud-only agents into on-premises features.",
       "src": [
         "editions",
+        "cloudcx88",
         "cloudcx",
         "agentic",
         "agentic88"
@@ -693,8 +722,9 @@ window.VersionCompassEditions = {
     {
       "id": "licensing",
       "title": "Licensing and trial terms",
-      "text": "ES is used with Splunk Enterprise or Cloud Platform and does not add ingestion capacity. The 8.7 licensing guide documents 30-day Essentials and 90-day Premier trials.",
+      "text": "ES is used with Splunk Enterprise or Cloud Platform and does not add ingestion capacity. The 8.8 licensing guide documents 30-day Essentials and 90-day Premier trials.",
       "src": [
+        "licensing88",
         "licensing"
       ],
       "details": "Existing Essentials customers trialing Premier revert to their purchased Essentials entitlement with retained access to Essentials features and processed data. Other trial expiry restrictions can block Mission Control, Detection Editor and Content Management; Premier trials also restrict UEBA. Confirm the applicable trial and contract terms."
@@ -749,15 +779,16 @@ window.VersionCompassEditions = {
       "claims": [
         {
           "src": [
-            "agentic"
+            "agentic88"
           ],
-          "text": "The 8.7 agent compatibility table lists ES 8.6+ and platform 10.2+, Premier Cloud, with paired SOAR."
+          "text": "The 8.8 agent compatibility table lists ES 8.6+ and platform 10.2+, Premier Cloud, with paired SOAR."
         },
         {
           "src": [
+            "socTask88",
             "socTask"
           ],
-          "text": "The 8.7 workflow task guide requires ES 8.7+ and platform 10.2+, Premier Cloud, paired SOAR and representative enablement."
+          "text": "The 8.8 workflow task guide requires ES 8.7+ and platform 10.2+, Premier Cloud, paired SOAR and representative enablement."
         }
       ],
       "meaning": "The task-specific guide has a higher ES minimum. The comparison preserves both statements instead of certifying ES 8.6 for the workflow.",
@@ -770,15 +801,16 @@ window.VersionCompassEditions = {
       "claims": [
         {
           "src": [
-            "agentic"
+            "agentic88"
           ],
-          "text": "The 8.7 agent table lists ES 8.5+, Premier Cloud and paired SOAR."
+          "text": "The 8.8 agent table lists ES 8.5+, Premier Cloud and paired SOAR."
         },
         {
           "src": [
+            "malwareTask88",
             "malwareTask"
           ],
-          "text": "The 8.7 task guide specifies ES 8.6+, platform 10.2+ and paired SOAR."
+          "text": "The 8.8 task guide specifies ES 8.6+, platform 10.2+ and paired SOAR."
         }
       ],
       "meaning": "Both sources describe these agents, but their minimum ES versions differ. The task guide also adds a platform prerequisite absent from the table.",

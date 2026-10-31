@@ -16,13 +16,16 @@ test('badges are explicit, qualified and printable with evidence',()=>{
  const deprecation=b.entries['technical:observability:Browser RUM navigation configuration'];assert.match(deprecation.detail,/remains functional/);assert.match(deprecation.detail,/not removal/);
 });
 
-test('cycle 44 advances the Python patch baseline and retains Java, ES and prior provenance',()=>{
- assert.equal(b.policy.currentCycle,44);
+test('cycle 45 advances current ES task evidence and retains Python, Java and prior provenance',()=>{
+ assert.equal(b.policy.currentCycle,45);
  assert(!b.active(b.entries['ai:es-essentials-regions']));
- const ai=b.entries["ai:catalog"];assert.equal(ai.cycle,42);assert(!b.active(ai));assert.equal(ai.sourceDate,null);assert.match(ai.detail,/separate Cloud Connect 2\.0 download/);assert.match(ai.detail,/does not establish an ES 8\.9 release/);
+ const ai=b.entries["ai:catalog"];assert.equal(ai.cycle,45);assert(b.active(ai));assert.equal(ai.sourceDate,null);assert.match(ai.detail,/current ES 8\.8 task guide/);assert.match(ai.detail,/Exact SOAR pairing.*remain separate/);
+ const aiCycle42=b.entries['ai-history:catalog:cycle42'];assert.equal(aiCycle42.recordKey,'ai:catalog');assert.equal(aiCycle42.cycle,42);assert(!b.active(aiCycle42));assert.match(aiCycle42.detail,/separate Cloud Connect 2\.0 download/);assert.match(aiCycle42.detail,/does not establish an ES 8\.9 release/);
  const aiCycle40=b.entries['ai-history:catalog:cycle40'];assert.equal(aiCycle40.recordKey,'ai:catalog');assert.equal(aiCycle40.cycle,40);assert(!b.active(aiCycle40));assert.match(aiCycle40.detail,/first 10 findings/);
  const aiCycle37=b.entries['ai-history:catalog:cycle37'];assert.equal(aiCycle37.recordKey,'ai:catalog');assert.equal(aiCycle37.cycle,37);assert(!b.active(aiCycle37));assert.match(aiCycle37.detail,/Threat Graph Detection/);
- const soc=b.entries['edition:ai-soc-analyst'];assert.equal(soc.cycle,42);assert(!b.active(soc));assert.match(soc.detail,/dependency packaging/);
+ const soc=b.entries['edition:ai-soc-analyst'];assert.equal(soc.cycle,45);assert(b.active(soc));assert.match(soc.detail,/exact ES 8\.8 workflow source/);assert.match(soc.detail,/exact pairing question remain open/);
+ const socCycle42=b.entries['edition-history:ai-soc-analyst:cycle42'];assert.equal(socCycle42.recordKey,'edition:ai-soc-analyst');assert.equal(socCycle42.cycle,42);assert(!b.active(socCycle42));assert.match(socCycle42.detail,/dependency packaging/);
+ for(const key of ['edition:connector-builder','edition:malware-reversing','edition:cloud-connect','edition:licensing']){const e=b.entries[key];assert.equal(e.cycle,45);assert(b.active(e));assert.match(e.note,/2026\/10\/2026-10-31\.md/);}
  const socPrior=b.entries['edition-history:ai-soc-analyst:cycle40'];assert.equal(socPrior.recordKey,'edition:ai-soc-analyst');assert(!b.active(socPrior));assert.match(socPrior.detail,/throughput.*model.*permission/);
  const aiAssistant=b.entries['edition:ai-assistant'];assert.equal(aiAssistant.cycle,42);assert(!b.active(aiAssistant));assert.match(aiAssistant.detail,/future-version packaging note/);
  const aiCycle33=b.entries['ai-history:catalog:cycle33'];assert.equal(aiCycle33.recordKey,'ai:catalog');assert(!b.active(aiCycle33));assert.match(aiCycle33.detail,/us3/);
@@ -32,7 +35,7 @@ test('cycle 44 advances the Python patch baseline and retains Java, ES and prior
   const threatGraph=b.entries['edition:threat-graph-detection'];assert.equal(threatGraph.cycle,37);assert(!b.active(threatGraph));assert.match(threatGraph.note,/2026\/10\/2026-10-26\.md/);
   const detectionBuilder=b.entries['edition:detection-builder'];assert.equal(detectionBuilder.cycle,42);assert(!b.active(detectionBuilder));assert.match(detectionBuilder.detail,/ES 8\.9\+ bundled-2\.0/);
   const detectionBuilderPrior=b.entries['edition-history:detection-builder:cycle37'];assert.equal(detectionBuilderPrior.recordKey,'edition:detection-builder');assert(!b.active(detectionBuilderPrior));assert.match(detectionBuilderPrior.note,/2026\/10\/2026-10-26\.md/);
- for(const key of ['feature:observability:Java instrumentation 2.33','technical:observability:Java instrumentation baseline']){const e=b.entries[key];assert.equal(e.cycle,43);assert(b.active(e));assert.match(e.note,/2026\/10\/2026-10-29\.md/);assert.match(e.version,/2\.33\.1/);}
+ for(const key of ['feature:observability:Java instrumentation 2.33','technical:observability:Java instrumentation baseline']){const e=b.entries[key];assert.equal(e.cycle,43);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-29\.md/);assert.match(e.version,/2\.33\.1/);}
  for(const key of ['feature-history:observability:Java instrumentation 2.33:2026-10-27-cycle39','technical-history:observability:Java instrumentation baseline:2026-10-27-cycle39']){const e=b.entries[key];assert.equal(e.cycle,39);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-27\.md/);assert.match(e.version,/2\.33\.0/);}
  {const e=b.entries['feature:observability:Multi-trace AI comparisons'];assert.equal(e.cycle,39);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-27\.md/);}
  assert.equal(b.entries['technical-history:observability:Java instrumentation baseline:2026-10-13-cycle20'].recordKey,'technical:observability:Java instrumentation baseline');

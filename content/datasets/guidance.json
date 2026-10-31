@@ -1,5 +1,5 @@
 {
-  "reviewed": "2026-10-30",
+  "reviewed": "2026-10-31",
   "lifecycle": {
     "source": "https://www.splunk.com/en_us/legal/splunk-software-support-policy.html",
     "reviewed": "2026-10-01",
@@ -165,6 +165,14 @@
       "checked": "2026-10-27",
       "reviewed": "2026-10-27",
       "scope": "Task-specific ES 8.7 Cloud workflow limits and permissions; does not establish the 8.8 CMP path, SOAR version pairing, region or customer authorization"
+    },
+    "aiEsSocTask88": {
+      "title": "ES 8.8 AI SOC analyst workflow",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions",
+      "checked": "2026-10-31",
+      "reviewed": "2026-10-31",
+      "scope": "Task-specific ES 8.8 Cloud and Cloud Connected CMP workflow limits and permissions; exact SOAR version pairing, region and customer authorization remain separate"
     },
     "aiEsEditions": {
       "title": "ES editions overview",
@@ -778,15 +786,16 @@
         ],
         "requirements": [
           "Premier, paired SOAR and representative enablement.",
-          "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the 8.7 task guide requires ES 8.7+.",
+          "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the 8.8 task guide requires ES 8.7+.",
           "CMP: Platform 10.4.x+, ES 8.8+, Cloud Connect 2.0. For ES 8.8, install Cloud Connect 2.0 separately; the guide says ES 8.9+ contains 2.0+, without establishing that future release or rollout.",
-          "The 8.7 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported."
+          "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported."
         ],
-        "runtime": "Agentic SOC services; the 8.7 task guide says the Splunk-hosted model option does not apply to this workflow. Paired SOAR has independent compatibility.",
-        "qualification": "The aggregate row is Premier. A separate 8.8 note assigns the Triage component to Essentials and the Response component to Premier, while the editions overview lists Triage under Premier; do not infer the whole workflow from a subcomponent. The 8.7 guide's connector/action inheritance and es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence.",
+        "runtime": "Agentic SOC services; the 8.8 task guide says the Splunk-hosted model option does not apply to this workflow. Paired SOAR has independent compatibility.",
+        "qualification": "The aggregate row is Premier. A separate 8.8 note assigns the Triage component to Essentials and the Response component to Premier, while the editions overview lists Triage under Premier; do not infer the whole workflow from a subcomponent. The 8.8 guide's connector/action inheritance and es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence.",
         "condition": "Confirm Premier access, exact Cloud or CMP prerequisites, paired SOAR compatibility, representative enablement, frontier-model support and inherited connector/asset permissions.",
         "src": [
           "aiEsAgents88",
+          "aiEsSocTask88",
           "aiEsSocTask87",
           "aiEsRelease88"
         ]

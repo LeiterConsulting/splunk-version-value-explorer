@@ -116,6 +116,14 @@ statement is not treated as proof of an ES 8.9 release, rollout, entitlement,
 region, offering authorization or SOAR pairing. The qualification is attached
 only to the ES AI Assistant, Detection Builder and AI SOC Analyst CMP paths.
 
+The October 31 review binds the current AI SOC Analyst record to the exact ES 8.8
+task guide. The page independently confirms the Cloud and CMP chains, limits,
+frontier-model and inherited connector/asset permission boundaries already
+maintained by VersionCompass. The earlier 8.7 page remains historical evidence;
+its date is not advanced. The current task page still requires ES 8.7+ for Cloud
+while the aggregate 8.8 table lists ES 8.6+, so the minimum-version discrepancy,
+paired-SOAR question, region and authorization remain unresolved separately.
+
 ## Maintenance ownership
 
 | Existing task | AI responsibility |

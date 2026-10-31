@@ -2769,8 +2769,6 @@ window.VersionCompassSources = {
         "editions: editions.capabilities.19",
         "editions: editions.capabilities.20",
         "editions: editions.notes.0",
-        "editions: editions.conflicts.1.claims.0",
-        "editions: editions.conflicts.2.claims.0",
         "editions: editions.conflicts.4.claims.0",
         "editions: editions.workflows.0",
         "editions: editions.workflows.1",
@@ -3094,6 +3092,8 @@ window.VersionCompassSources = {
         "editions: editions.capabilities.20",
         "editions: editions.notes.0",
         "editions: editions.conflicts.0.claims.0",
+        "editions: editions.conflicts.1.claims.0",
+        "editions: editions.conflicts.2.claims.0",
         "editions: editions.workflows.0",
         "editions: editions.workflows.1"
       ],
@@ -3156,6 +3156,81 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/analyze-scripts-using-the-ai-powered-malware-reversing-agent-and-phishing-analysis-agent-in-splunk-enterprise-security",
+      "title": "Malware Reversing and Phishing task guide (ES 8.8)",
+      "areas": [
+        "ES editions",
+        "Shared guidance"
+      ],
+      "references": [
+        "editions.sources.malwareTask88.u",
+        "content-updates.js",
+        "editions: editions.capabilities.17",
+        "editions: editions.conflicts.2.claims.1"
+      ],
+      "reviews": [
+        "2026-10-31"
+      ],
+      "conflict": true,
+      "usage": "In use",
+      "reviewed": "2026-10-31",
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-10-31",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-31",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "title": "ES 8.8 AI SOC analyst workflow",
+      "areas": [
+        "Release guide",
+        "ES editions",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.guidance.sources.aiEsSocTask88.url",
+        "editions.sources.socTask88.u",
+        "content-updates.js",
+        "guidance: guidance.aiAvailability.capabilities.7",
+        "editions: editions.capabilities.20",
+        "editions: editions.conflicts.1.claims.1"
+      ],
+      "reviews": [
+        "2026-10-31"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.7",
+          "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions"
+        }
+      ],
+      "conflict": true,
+      "usage": "In use",
+      "reviewed": "2026-10-31",
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-10-31",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-31",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
       "title": "ES 8.8 AI Threat Graph Detection agent",
       "areas": [
@@ -3196,6 +3271,37 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-28",
           "event": "Review status updated: Reviewed · 2026-10-28"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/automation-with-playbooks/configure-splunk-soar-apps-in-splunk-enterprise-security",
+      "title": "Connector Builder prerequisites (ES 8.8)",
+      "areas": [
+        "ES editions",
+        "Shared guidance"
+      ],
+      "references": [
+        "editions.sources.connectorTask88.u",
+        "content-updates.js",
+        "editions: editions.capabilities.19"
+      ],
+      "reviews": [
+        "2026-10-31"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-31",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-31",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-31",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },
@@ -4036,6 +4142,68 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-10-10",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.8/introduction/access-splunk-cloud-connect-in-splunk-enterprise-security-to-access-cloud-extensions",
+      "title": "Access Splunk Cloud Connect in ES 8.8",
+      "areas": [
+        "ES editions",
+        "Shared guidance"
+      ],
+      "references": [
+        "editions.sources.cloudcx88.u",
+        "content-updates.js",
+        "editions: editions.notes.0"
+      ],
+      "reviews": [
+        "2026-10-31"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-31",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-31",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-31",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.8/introduction/licensing-for-splunk-enterprise-security",
+      "title": "ES licensing and trials (8.8 documentation)",
+      "areas": [
+        "ES editions",
+        "Shared guidance"
+      ],
+      "references": [
+        "editions.sources.licensing88.u",
+        "content-updates.js",
+        "editions: editions.notes.3"
+      ],
+      "reviews": [
+        "2026-10-31"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-10-31",
+      "status": "Reviewed",
+      "firstRecorded": "2026-10-31",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-10-31",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
