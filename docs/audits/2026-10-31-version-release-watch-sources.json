@@ -1,0 +1,118 @@
+{
+  "watch": "version-release-watch",
+  "checkedAt": "2026-10-31T10:24:58.723Z",
+  "inventory": {
+    "exactUrlAndSectionBaseline": "dist/source-register.js at GitHub main d4ee057d2720a64a35f36d83b7586cd6cd541588 / tree ea2fbb0b0ec5d871bb8898ac7034c76eee34b617",
+    "attempted": 211,
+    "directlyRetrieved": 209,
+    "unavailable": 2,
+    "rawResultDigest": "sha256:24f62306d8a017b9d6eb675ab4aa748e13d3a35488ddea19494d357f59ee7b47",
+    "qualification": "Every registered exact URL was requested with its maintained supporting sections. The workload-management-on-Kubernetes page required indexed exact-URL recovery after the batch open omitted it. Retrieval is not claim verification. The same two historical Enterprise 8.1.14 and 8.2.12 docs.splunk.com bodies remain unavailable."
+  },
+  "unavailableSources": [
+    {
+      "url": "https://docs.splunk.com/Documentation/Splunk/8.1.14/ReleaseNotes/MeetSplunk",
+      "section": "Historical Enterprise 8.1.14 release identity",
+      "outcome": "unavailable",
+      "followUp": "Preserve historical scope and retry the exact official body; do not substitute adjacent release documentation."
+    },
+    {
+      "url": "https://docs.splunk.com/Documentation/Splunk/8.2.12/ReleaseNotes/MeetSplunk",
+      "section": "Historical Enterprise 8.2.12 release identity",
+      "outcome": "unavailable",
+      "followUp": "Preserve historical scope and retry the exact official body; do not substitute adjacent release documentation."
+    }
+  ],
+  "discovery": {
+    "enterprise": "Enterprise 10.6.1 remains the newest documented maintenance release; the general 10.6 route still permits 10.0.x to 10.6.x while the current KV Store guide retains the narrower 10.2-or-higher bridge when KV Store is present.",
+    "cloud": "The maintenance feed still ends at 10.6.2.1 and 10.5.2605.14. Publication remains separate from rollout to a selected stack.",
+    "soar": "SOAR Cloud 8.8.0 remains the newest documented milestone. The same entry still says Controlled Availability and then introduces the enhancement list as General Availability. On-premises 8.7 build 243 versus 232 and conditional bridges remain unchanged.",
+    "observability": "No newer maintained customer-managed Collector, chart, Java, Python, .NET, Node.js or Browser RUM release was established after the October 30 baseline. Source retrieval does not recertify every component claim.",
+    "security": "SVD-2026-1015 still lists the maintained product families as Under Investigation and retains an October 28 last-update date; no product-specific affected version, fixed version, workaround or patch floor is established.",
+    "ai": "No additional named SAIA or ITSI assistant/agent release with sufficient exact prerequisite evidence was established. Regional and regulated rollout remain separately owned."
+  },
+  "claimChecks": [
+    {
+      "claimId": "release.platform.current-lines",
+      "productVersionEnvironment": "Enterprise 10.6.1; Cloud 10.6.2.1 and 10.5.2605.14",
+      "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/whats-new-in-10.6.1",
+      "section": "What's new in 10.6.1; Cloud maintenance feed 10.6.2.1 and 10.5.2605.14 rows",
+      "sourceCheckDate": "2026-10-31",
+      "claimVerificationDate": "2026-10-31",
+      "outcome": "unchanged",
+      "qualification": "Current release identities remain separate from exact download builds, selected-stack rollout, support dates, premium-app pairing, entitlement and authorization."
+    },
+    {
+      "claimId": "release.forwarders.borrowed-hf-mappings",
+      "productVersionEnvironment": "All 18 maintained Heavy Forwarder borrowed technical/runtime claims",
+      "sourceUrl": "docs/forwarder-source-mappings.json",
+      "section": "All exact URL and supporting-section bindings traversed by tests",
+      "sourceCheckDate": "2026-10-31",
+      "claimVerificationDate": "2026-10-26",
+      "outcome": "mappings-and-semantic-regressions-passed-no-date-advance",
+      "qualification": "All 18 mappings retained exact supporting sections across the generated register and 900 actual UF/HF routes; negative semantic fixtures passed. This run does not claim a new semantic verification date or broaden Enterprise-package evidence to Universal Forwarders."
+    },
+    {
+      "claimId": "release.soar.cloud-8.8-stage",
+      "productVersionEnvironment": "Splunk SOAR Cloud 8.8.0",
+      "sourceUrl": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
+      "section": "October 21, 2026 Release 8.8 — release sentence and enhancement-list introduction",
+      "sourceCheckDate": "2026-10-31",
+      "claimVerificationDate": "2026-10-31",
+      "outcome": "unchanged-conflict-preserved",
+      "qualification": "Controlled Availability and General Availability wording remain in the same entry. No tenant rollout, entitlement, region, authorization, on-premises 8.8, installation path or ES pairing is inferred."
+    },
+    {
+      "claimId": "technical.hf.10.6.kv-store-source-version-prerequisite",
+      "productVersionEnvironment": "Customer-managed Enterprise-package Heavy Forwarder with KV Store; source 10.0 or lower to 10.6",
+      "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.6/administer-the-app-key-value-store/upgrade-the-kv-store-server-version",
+      "section": "10.2-or-higher bridge and KV Store 7.0-or-higher prerequisite; compared with Enterprise 10.6 upgrade-path table",
+      "sourceCheckDate": "2026-10-31",
+      "claimVerificationDate": "2026-10-31",
+      "outcome": "unchanged-conflict-preserved",
+      "qualification": "The KV-specific page still requires 10.2 or higher before 10.6 for sources at 10.0 or lower, while the general table still permits a direct 10.0.x-to-10.6.x route. The narrower prerequisite is not applied to UF or Cloud-managed routes."
+    },
+    {
+      "claimId": "security.cross-product.svd-2026-1015",
+      "productVersionEnvironment": "Maintained Splunk platform, premium, SOAR and Observability families",
+      "sourceUrl": "https://advisory.splunk.com/advisories/SVD-2026-1015",
+      "section": "Description; Product Status; Last Updated",
+      "sourceCheckDate": "2026-10-31",
+      "sourceEffectiveDate": "2026-10-28",
+      "claimVerificationDate": "2026-10-31",
+      "outcome": "under-investigation-preserved",
+      "qualification": "Affected versions, fixed versions, workaround and patch floor remain unknown and are not inferred from runtime presence or adjacent products."
+    }
+  ],
+  "finiteBacklog": [
+    "Monitor SVD-2026-1015 for product-specific affected/fixed versions or a cleared status; Under Investigation remains unknown applicability.",
+    "Reconcile the KV-specific 10.2 bridge versus the general direct 10.0-to-10.6 route only from authoritative clarification.",
+    "Monitor authoritative clarification of the SOAR Cloud 8.8 Controlled Availability / General Availability wording conflict.",
+    "Retry the two unavailable historical Enterprise release bodies without substituting adjacent evidence.",
+    "Continue bounded discovery of named AI assistants and agents with exact product prerequisites and separately owned regional scope."
+  ],
+  "issueFeed": {
+    "schemaVersion": 1,
+    "watchId": "version-release-watch",
+    "status": "pending-public-provenance",
+    "recordedAt": "2026-10-31T10:26:22.160Z",
+    "reviewDigest": "bcb92af7a883bf9ada4cfb0a537da5235ca5f4035e457bf079f95f10954f480c",
+    "publicationId": "vci-fdb602a83c58dd87d89389744734105e04c6b46e59c06a5f47123dd6e59fc774",
+    "recordKeys": [],
+    "notReassessedFindingIds": [
+      "vci-itsi-subagent-region",
+      "vci-es-87-connector-builder-editions",
+      "vci-es-88-triage-editions",
+      "vci-es-guided-response-enhancement-scope",
+      "vci-es-malware-phishing-version-floor",
+      "vci-app-for-soar-es-pairing",
+      "vci-es-activity-pricing-deployment-scope",
+      "vci-saia-high-runtime-scope",
+      "vci-cloud-s3-restricted-scope"
+    ],
+    "deferredConcerns": [
+      "Publish this source audit first, then append the three reviewed assessments with immutable commit-pinned provenance and publish their cumulative checkpoint."
+    ],
+    "qualification": "Three existing Release Watch findings were actually reassessed in this source audit. Their feed records require the audit to be public before immutable provenance can be assigned; no observation is reported delivered yet."
+  }
+}
