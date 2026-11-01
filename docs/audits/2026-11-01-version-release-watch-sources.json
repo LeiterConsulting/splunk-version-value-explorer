@@ -1,0 +1,132 @@
+{
+  "watch": "version-release-watch",
+  "checkedAt": "2026-11-01T10:12:59.100Z",
+  "inventory": {
+    "exactUrlAndSectionBaseline": "dist/source-register.js after the Cloud 10.7 source registration",
+    "attempted": 213,
+    "directlyRetrieved": 211,
+    "unavailable": 2,
+    "rawResultDigest": "sha256:d66f432727ca7168c8118418034a7f862b523f70e17d7a733451ad81e3629b30",
+    "qualification": "Every registered exact URL was requested with maintained source-register references. Retrieval is not claim verification. The same two historical Enterprise 8.1.14 and 8.2.12 docs.splunk.com bodies returned 403 and remain unavailable."
+  },
+  "unavailableSources": [
+    {
+      "url": "https://docs.splunk.com/Documentation/Splunk/8.1.14/ReleaseNotes/MeetSplunk",
+      "section": "Historical Enterprise 8.1.14 release identity",
+      "outcome": "unavailable-403",
+      "followUp": "Preserve historical scope and retry the exact official body; do not substitute adjacent release documentation."
+    },
+    {
+      "url": "https://docs.splunk.com/Documentation/Splunk/8.2.12/ReleaseNotes/MeetSplunk",
+      "section": "Historical Enterprise 8.2.12 release identity",
+      "outcome": "unavailable-403",
+      "followUp": "Preserve historical scope and retry the exact official body; do not substitute adjacent release documentation."
+    }
+  ],
+  "discovery": {
+    "enterprise": "Enterprise 10.6.1 remains the newest documented release and the download page remains 10.6.1.1; no new Enterprise route, alias or support date was established.",
+    "cloud": "Official 10.7 release notes are published. The current Service Details table still names Cloud 10.6, so release documentation and selected-stack/current-subscription rollout remain distinct. The maintenance feed adds 10.6.2.2 and 10.5.2605.15.",
+    "soar": "SOAR Cloud 8.8.0 remains the newest documented milestone. Its Controlled Availability release sentence and General Availability enhancement sentence remain unresolved and both are preserved. On-premises 8.7 build 243 versus 232 and conditional Python, OS and PostgreSQL bridges remain unchanged.",
+    "observability": "The newest discovered stable maintained component releases remain Collector 0.163.1, chart 0.163.1, Java 2.33.1, Python 2.13.3, Node.js 4.12.1, .NET 1.16.0 and Browser RUM 3.2.0.",
+    "security": "SVD-2026-1015 remains Under Investigation for every maintained product family listed by the advisory; no affected or fixed version, workaround or patch floor is established.",
+    "ai": "The maintained SAIA 2.3.6 and ITSI 5.0+/SAIA 2.2+/MCP 1.2.1+ identities remain current. No additional named assistant or agent with sufficient exact product prerequisites and regional evidence was established."
+  },
+  "claimChecks": [
+    {
+      "claimId": "release.cloud.10.7",
+      "productVersionEnvironment": "Splunk Cloud Platform 10.7 documented release route",
+      "sourceUrl": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+      "section": "Version 10.7; Federated Search provider names; Python version support; Machine Data Lake; catalog management; custom SMTP; application-layer authentication",
+      "sourceCheckDate": "2026-11-01",
+      "sourceEffectiveDate": null,
+      "claimVerificationDate": "2026-11-01",
+      "outcome": "release-route-confirmed-with-rollout-qualification",
+      "qualification": "The page establishes the 10.7 route and exact documented changes. It does not establish selected-stack rollout, current service pairing, premium-app compatibility, receiver/version compatibility, entitlement, region or authorization. The WLM item explicitly labeled for 10.8 is excluded."
+    },
+    {
+      "claimId": "release.cloud.10.7-current-service-pairing",
+      "productVersionEnvironment": "Splunk Cloud Platform current subscription pairing under 10.7 documentation",
+      "sourceUrl": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Current version table",
+      "sourceCheckDate": "2026-11-01",
+      "sourceEffectiveDate": null,
+      "claimVerificationDate": "2026-11-01",
+      "outcome": "current-table-remains-10.6",
+      "qualification": "The table still names Cloud 10.6, ES 8.7, ITSI 5.0 and PCI 8.7. This does not negate the published 10.7 release route; it leaves selected-stack and subscription rollout unestablished."
+    },
+    {
+      "claimId": "release.cloud.maintenance-10.6.2.2-10.5.2605.15",
+      "productVersionEnvironment": "Splunk Cloud Platform exact maintenance builds",
+      "sourceUrl": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
+      "section": "10.6.2.2 and 10.5.2605.15 publication, security and fixed-issue rows; preceding retained rows",
+      "sourceCheckDate": "2026-11-01",
+      "sourceEffectiveDate": "2026-10-30",
+      "claimVerificationDate": "2026-11-01",
+      "outcome": "exact-build-records-advanced",
+      "qualification": "10.6.2.2 was published October 30 and 10.5.2605.15 October 28. Publication does not prove selected-stack rollout or transfer fixes to customer-managed packages."
+    },
+    {
+      "claimId": "release.forwarders.borrowed-hf-mappings",
+      "productVersionEnvironment": "All 18 maintained Heavy Forwarder borrowed technical/runtime claims",
+      "sourceUrl": "docs/forwarder-source-mappings.json",
+      "section": "All exact URL and supporting-section bindings traversed by tests",
+      "sourceCheckDate": "2026-11-01",
+      "claimVerificationDate": "2026-10-26",
+      "outcome": "mappings-and-semantic-regressions-passed-no-date-advance",
+      "qualification": "All 18 exact mappings, negative semantic fixtures and the generated 900-route coverage passed in the 255-test suite. No new semantic verification date or broadening from Enterprise-package evidence to Universal Forwarders is claimed."
+    },
+    {
+      "claimId": "release.soar.cloud-8.8-stage",
+      "productVersionEnvironment": "Splunk SOAR Cloud 8.8.0",
+      "sourceUrl": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
+      "section": "October 21, 2026 Release 8.8",
+      "sourceCheckDate": "2026-11-01",
+      "claimVerificationDate": "2026-11-01",
+      "outcome": "unchanged-conflict-preserved",
+      "qualification": "The explicit Controlled Availability sentence and following General Availability enhancement sentence remain. Neither is generalized to tenant rollout, entitlement, region, authorization, on-premises 8.8 or an ES pairing."
+    },
+    {
+      "claimId": "security.cross-product.svd-2026-1015",
+      "productVersionEnvironment": "Maintained Splunk platform, premium, SOAR and Observability families",
+      "sourceUrl": "https://advisory.splunk.com/advisories/SVD-2026-1015",
+      "section": "Description; Product Status",
+      "sourceCheckDate": "2026-11-01",
+      "claimVerificationDate": "2026-11-01",
+      "outcome": "under-investigation-preserved",
+      "qualification": "Affected versions, fixed versions, workaround and patch floor remain unknown and are not inferred from runtime presence or adjacent products."
+    }
+  ],
+  "finiteBacklog": [
+    "Confirm selected-stack rollout and current subscription pairing for Cloud 10.7 without inferring from release-note publication.",
+    "Monitor SVD-2026-1015 for product-specific affected/fixed versions or a cleared status; Under Investigation remains unknown applicability.",
+    "Reconcile the KV-specific 10.2 bridge versus the general direct 10.0-to-10.6 route only from authoritative clarification.",
+    "Monitor authoritative clarification of the SOAR Cloud 8.8 Controlled Availability / General Availability wording conflict.",
+    "Retry the two unavailable historical Enterprise release bodies without substituting adjacent evidence.",
+    "Continue bounded discovery of named AI assistants and agents with exact product prerequisites and regional scope."
+  ],
+  "issueFeed": {
+    "schemaVersion": 1,
+    "watchId": "version-release-watch",
+    "status": "pending-public-provenance",
+    "recordedAt": "2026-11-01T10:15:07.519Z",
+    "reviewDigest": "dc4685ce3731c0d56f65e77e18151c02ad71add1453ffc98d6714e6a909a4d04",
+    "publicationId": "vci-867974f2c403807b35f81bb2180d44a9d6f9107782fa3fb753eae03a08ce600b",
+    "recordKeys": [],
+    "notReassessedFindingIds": [
+      "vci-itsi-subagent-region",
+      "vci-es-87-connector-builder-editions",
+      "vci-es-88-triage-editions",
+      "vci-es-guided-response-enhancement-scope",
+      "vci-es-malware-phishing-version-floor",
+      "vci-app-for-soar-es-pairing",
+      "vci-es-activity-pricing-deployment-scope",
+      "vci-saia-high-runtime-scope",
+      "vci-cloud-s3-restricted-scope",
+      "vci-enterprise-kv-106-upgrade-bridge"
+    ],
+    "deferredConcerns": [
+      "Publish the source audit first, then bind supported new and reassessed feed observations to its immutable commit provenance."
+    ],
+    "qualification": "The source inventory, claim checks and mapping regressions passed, but feed records require immutable public provenance; no records are claimed yet."
+  }
+}

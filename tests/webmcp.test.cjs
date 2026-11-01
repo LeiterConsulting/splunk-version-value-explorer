@@ -187,7 +187,7 @@ test('historical links preserve routes, explain newer guidance, and offer option
   assert.equal(rt.window.VersionCompassPage.getSelection().to, '9.4');
   const currentGuidance = context.reasons.find(x => x.code === 'newer_guidance');
   assert(currentGuidance);
-  assert.match(currentGuidance.source, /\/docs\/releases\/2026\/10\/2026-10-\d{2}\.md$/);
+  assert.match(currentGuidance.source, /\/docs\/releases\/2026\/(?:10\/2026-10-\d{2}|11\/2026-11-01)\.md$/);
   const newer = context.reasons.find(x => x.code === 'newer_target');
   assert.equal(new URLSearchParams(newer.actionUrl).get('to'), '10.6');
   assert.equal(new URLSearchParams(newer.actionUrl).get('from'), '8.2');
@@ -462,8 +462,9 @@ test('Fleet configuration and Cloud maintenance remain opt-in and stack scoped',
  const rt=await runtime(),r=rt.run('compare_routes',{routes:[{product:'observability',platform:'cloud',host:'10.6',from:'Sep 2026',to:'Oct 2026'}]}).reports[0];
  assert(r.features.some(t=>t.title==='Kubernetes Collector remote configuration'));
  const t=r.technicalChanges.find(t=>t.component==='Fleet Management Kubernetes configuration');assert.match(t.to,/0.162.1/);assert.match(t.action,/remoteManagement.enabled=true/);assert.match(t.implication,/ConfigMaps/);
- const cloud=rt.run('compare_routes',{routes:[{product:'platform',platform:'cloud',from:'10.4.2604',to:'10.5.2605'}]}).reports[0];assert(cloud.technicalChanges.some(t=>t.component==='Cloud 10.5 maintenance build'&&t.to.includes('10.5.2605.14')&&t.implication.includes('SPL-274754')));
- const cloud106=rt.run('compare_routes',{routes:[{product:'platform',platform:'cloud',from:'10.5.2605',to:'10.6'}]}).reports[0],maintenance=cloud106.technicalChanges.find(t=>t.component==='Cloud 10.6 maintenance build');assert(maintenance);assert.match(maintenance.to,/10\.6\.2\.1/);assert.match(maintenance.from,/10\.6\.2\.0/);assert.match(maintenance.implication,/preliminary High/);assert.match(maintenance.action,/preceding 10\.6\.2\.0 useACK fix/);
+ const cloud=rt.run('compare_routes',{routes:[{product:'platform',platform:'cloud',from:'10.4.2604',to:'10.5.2605'}]}).reports[0];assert(cloud.technicalChanges.some(t=>t.component==='Cloud 10.5 maintenance build'&&t.to.includes('10.5.2605.15')&&t.implication.includes('SPL-319104')&&t.implication.includes('10.5.2605.14')));
+ const cloud106=rt.run('compare_routes',{routes:[{product:'platform',platform:'cloud',from:'10.5.2605',to:'10.6'}]}).reports[0],maintenance=cloud106.technicalChanges.find(t=>t.component==='Cloud 10.6 maintenance build');assert(maintenance);assert.match(maintenance.to,/10\.6\.2\.2/);assert.match(maintenance.from,/10\.6\.2\.1/);assert.match(maintenance.implication,/one Critical and one Medium/);assert.match(maintenance.action,/10\.6\.2\.1 and 10\.6\.2\.0/);
+ const cloud107=rt.run('compare_routes',{routes:[{product:'platform',platform:'cloud',from:'10.6',to:'10.7'}]}).reports[0];assert(cloud107);assert(cloud107.technicalChanges.some(t=>t.component==='Cloud 10.7 release documentation versus current service pairing'&&t.from.includes('Cloud 10.6')&&t.to.includes('10.7')));assert(cloud107.technicalChanges.some(t=>t.component==='Forwarder-to-indexer application authentication'&&t.implication.includes('does not establish receiver-version compatibility')));
  const ent=rt.run('compare_routes',{routes:[{product:'platform',platform:'enterprise',from:'9.4',to:'10.6'}]}).reports[0];assert(!ent.technicalChanges.some(t=>t.component==='Cloud 10.5 maintenance build'));
 });
 test('ES KV warning preserves exact 10.6.0 and 10.6.1.1 maintenance scope',async()=>{

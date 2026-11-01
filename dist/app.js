@@ -55,7 +55,7 @@
   const defaults = {
     platform: {
       enterprise: { from: "9.4", to: "10.4" },
-      cloud: { from: "9.3.2408", to: "10.6" },
+      cloud: { from: "9.3.2408", to: "10.7" },
       migration: { from: "9.4", to: "10.6" }
     },
     es: {
@@ -469,7 +469,7 @@
       journey = activeTrack().label + " " + state.from + " → " + state.to + " · " + platformContext + state.host;
     }
     printTitle.textContent = journey;
-    printSubtitle.textContent = "Site updated October 31, 2026 · versioncompass.com";
+    printSubtitle.textContent = "Site updated November 1, 2026 · versioncompass.com";
     document.title = "Version Compass | " + journey;
   }
 

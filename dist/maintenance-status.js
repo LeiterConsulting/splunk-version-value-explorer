@@ -370,10 +370,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-10-30T09:50:48Z",
-      "lastSuccess": "2026-10-30T09:59:31Z",
+      "lastAttempt": "2026-11-01T10:10:16Z",
+      "lastSuccess": "2026-11-01T10:15:20Z",
       "outcome": "changed",
-      "summary": "Advanced the customer-managed Python instrumentation baseline to 2.13.3 with exact image, dependency and PostgreSQL-correlation scope; retained prior history and all unresolved boundaries.",
+      "summary": "Verified the Cloud 10.7 documented release route separately from the still-current 10.6 service pairing and advanced exact Cloud maintenance records to 10.6.2.2 and 10.5.2605.15.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -811,9 +811,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Advanced the customer-managed Python instrumentation baseline to 2.13.3 with exact image, dependency and PostgreSQL-correlation scope; retained prior history and all unresolved boundaries.",
           "scope": "Complete 205-source baseline retrieval plus the newly registered Python 2.13.3 source (206 registered sources), current-stream discovery, bounded affected/high-consequence claims, all 18 borrowed HF mappings, and full local route/report/WebMCP regressions. Successful scope review is not deployment; exact-candidate exports and live delivery remain separate."
+        },
+        {
+          "at": "2026-11-01T10:10:16Z",
+          "outcome": "running",
+          "summary": "Reviewing the complete official inventory and reconciling Cloud 10.7 release evidence, current service pairing, maintenance builds, source mappings and native issue-feed output.",
+          "scope": "211 registered public sources; Cloud, Enterprise, migration, ES, ITSI, Observability, UF/HF, SOAR, AI release dependencies, bounded security and issue-feed claims, routes and export evidence."
+        },
+        {
+          "at": "2026-11-01T10:15:20Z",
+          "outcome": "changed",
+          "summary": "Verified the Cloud 10.7 documented release route separately from the still-current 10.6 service pairing and advanced exact Cloud maintenance records to 10.6.2.2 and 10.5.2605.15.",
+          "scope": "All 213 registered official URLs attempted (211 retrieved; two historical bodies unavailable); affected Cloud claims, current product/component discovery, SOAR and SVD bounded reassessments, all 18 HF mappings, 255 tests, synchronization and build gates. Exact-candidate exports and publication remain separate."
         }
       ],
-      "scope": "Complete 205-source baseline retrieval plus the newly registered Python 2.13.3 source (206 registered sources), current-stream discovery, bounded affected/high-consequence claims, all 18 borrowed HF mappings, and full local route/report/WebMCP regressions. Successful scope review is not deployment; exact-candidate exports and live delivery remain separate."
+      "scope": "All 213 registered official URLs attempted (211 retrieved; two historical bodies unavailable); affected Cloud claims, current product/component discovery, SOAR and SVD bounded reassessments, all 18 HF mappings, 255 tests, synchronization and build gates. Exact-candidate exports and publication remain separate."
     },
     {
       "id": "es-editions-watch",
