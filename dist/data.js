@@ -1378,7 +1378,7 @@ window.SPLUNK_DATA = {
   "cloud": {
     "label": "Splunk Cloud Platform",
     "kind": "Splunk-managed release",
-    "latest": "10.6",
+    "latest": "10.7",
     "releases": [
       "9.2.2406",
       "9.3.2408",
@@ -1387,7 +1387,8 @@ window.SPLUNK_DATA = {
       "10.2.2510",
       "10.4.2604",
       "10.5.2605",
-      "10.6"
+      "10.6",
+      "10.7"
     ],
     "releasesData": {
       "9.2.2406": {
@@ -1858,12 +1859,12 @@ window.SPLUNK_DATA = {
             "domain": "Managed-service maintenance",
             "changeType": "Patch published",
             "actionLevel": "Review",
-            "from": "Cloud 10.5.2605.13 and earlier maintenance builds do not establish the fixes in this patch",
-            "to": "Cloud 10.5.2605.14 was published October 27, 2026",
-            "implication": "The 10.5.2605.14 row lists SPL-274754 for an empty default source field in searches that use the tstats command. Publication does not prove that a selected stack has received the build, that the issue applies to every search, or that a customer-managed Enterprise or Forwarder package has the same fix.",
-            "action": "Confirm the selected stack's exact four-segment build and reproduce the affected tstats workflow before relying on the fix. This Cloud feed is not independent evidence of an Enterprise or UF package fix, availability, entitlement or authorization.",
+            "from": "Cloud 10.5.2605.14, published October 27, lists the preceding tstats source-field fix",
+            "to": "Cloud 10.5.2605.15 was published October 28, 2026",
+            "implication": "The 10.5.2605.15 row lists SPL-319104 for missing Canadian time-zone options; the preceding 10.5.2605.14 row remains the exact source for SPL-274754. Publication does not prove that a selected stack has received either build or that a customer-managed Enterprise or Forwarder package has the same fix.",
+            "action": "Confirm the selected stack's exact four-segment build and reproduce the affected time-zone workflow before relying on the new fix. Keep the tstats fix scoped to 10.5.2605.14 or a verified superseding build; do not transfer either row to customer-managed packages.",
             "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
-            "verified": "2026-10-28"
+            "verified": "2026-11-01"
           }
         ],
         "requirements": [
@@ -1889,8 +1890,8 @@ window.SPLUNK_DATA = {
             true
           ],
           [
-            "Confirm Cloud 10.5.2605.14 on the selected stack",
-            "Publication of the October 27 maintenance notes is not tenant rollout. Verify the exact stack build and reproduce the affected tstats workflow; do not transfer this row to a customer-managed UF/Enterprise package or infer broader compatibility, entitlement or authorization.",
+            "Confirm Cloud 10.5.2605.15 on the selected stack",
+            "Publication of the October 28 maintenance notes is not tenant rollout. Verify the exact stack build and reproduce the affected time-zone workflow; retain the prior tstats fix as its own historical row and do not transfer either Cloud row to a customer-managed UF/Enterprise package.",
             "Validate",
             "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
             false
@@ -1976,12 +1977,12 @@ window.SPLUNK_DATA = {
             "domain": "Cloud operations",
             "changeType": "Maintenance release published",
             "actionLevel": "Review",
-            "from": "Cloud 10.6.2.0, published October 20, includes earlier security and stack-specific fixes such as SPL-312665 for tcpout with useACK=true pipeline blockage",
-            "to": "The Cloud maintenance feed lists 10.6.2.1, published October 27, 2026",
-            "implication": "The 10.6.2.1 row lists one preliminary High security fix and six fixed issues, including SPL-274754 for tstats source-field handling and operational fixes for KV Store status, telemetry shutdown, workload-management abort messaging, session metrics and duplicate Ingest Actions ruleset names. Publication does not prove that a selected stack has received the build, that every listed issue applies, or that a customer-managed Enterprise or Forwarder package has the same fix.",
-            "action": "Confirm the selected stack's exact four-segment version before relying on a 10.6.2.1 fix, then retest the affected workflow after rollout. Keep the preceding 10.6.2.0 useACK fix scoped to stacks that actually received that build or a verified superseding build.",
+            "from": "Cloud 10.6.2.1, published October 27, follows 10.6.2.0 and its stack-specific SPL-312665 useACK fix",
+            "to": "The Cloud maintenance feed lists 10.6.2.2, published October 30, 2026",
+            "implication": "The 10.6.2.2 row lists preliminary counts of one Critical and one Medium security fix plus SPL-319104 for missing Canadian time zones and SPL-319575 for a false clock warning followed by session deletion. Publication does not prove selected-stack rollout, issue applicability, or a customer-managed Enterprise or Forwarder fix.",
+            "action": "Confirm the selected stack's exact four-segment version before relying on a 10.6.2.2 fix, then retest the affected time-zone and session workflows. Keep preceding 10.6.2.1 and 10.6.2.0 fixes scoped to exact or verified superseding builds.",
             "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
-            "verified": "2026-10-28"
+            "verified": "2026-11-01"
           },
           {
             "component": "Classic dashboard custom visualizations",
@@ -2039,11 +2040,141 @@ window.SPLUNK_DATA = {
             true
           ],
           [
-            "Confirm Cloud 10.6.2.1 before relying on its fixes",
-            "The maintenance feed lists 10.6.2.1 and its preliminary security/fixed-issue rows, while the preceding 10.6.2.0 row contains SPL-312665. Cloud rollout remains Splunk-managed and stack-specific. Verify the exact four-segment stack version and reproduce the affected workflow before closing an issue based on either release; do not transfer a fix to customer-managed Enterprise or Forwarder packages.",
+            "Confirm Cloud 10.6.2.2 before relying on its fixes",
+            "The maintenance feed lists 10.6.2.2 and its preliminary security/fixed-issue rows; 10.6.2.1 and the 10.6.2.0 SPL-312665 row remain separate historical fix scope. Verify the exact four-segment stack version and reproduce the affected workflow before closing an issue; do not transfer a Cloud fix to customer-managed Enterprise or Forwarder packages.",
             "Validate",
             "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
             false
+          ]
+        ]
+      },
+      "10.7": {
+        "date": "Official release notes available October 2026",
+        "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+        "features": [
+          [
+            "Machine Data Lake multi-search-head workflows",
+            "Data management",
+            "Operate promotions across search heads",
+            "Edit supported streaming promotions from multiple search heads while preserving the documented Machine Data Lake scope."
+          ],
+          [
+            "Continuous Machine Data Lake promotions",
+            "Data management",
+            "Keep eligible data moving",
+            "Run supported streaming promotions continuously rather than only through discrete promotion runs."
+          ],
+          [
+            "Catalog-managed datasets and connections",
+            "Data management",
+            "Centralize eligible data definitions",
+            "Manage supported datasets and connections through the catalog experience."
+          ],
+          [
+            "Custom SMTP",
+            "Platform operations",
+            "Use a selected mail relay",
+            "Configure custom SMTP for supported standard-search-head email workflows with the documented no-fallback boundary."
+          ],
+          [
+            "Application-layer forwarder authentication",
+            "Security & compliance",
+            "Add an indexer trust control",
+            "Use the new forwarder-to-indexer application authentication feature in audit mode or an explicitly validated enforcement plan."
+          ]
+        ],
+        "technicalChanges": [
+          {
+            "component": "Federated provider names",
+            "domain": "Search & federation",
+            "changeType": "Matching rule changed",
+            "actionLevel": "Required",
+            "from": "Provider names can differ only by letter case",
+            "to": "Provider-name handling is fully case-insensitive",
+            "implication": "Case-only duplicate provider names collide after the 10.7 change.",
+            "action": "Inventory and rename case-only duplicates before the selected stack receives the change, then retest federated searches.",
+            "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new"
+          },
+          {
+            "component": "Cloud app Python runtime",
+            "domain": "Apps & runtime",
+            "changeType": "Default runtime changed",
+            "actionLevel": "Required",
+            "from": "Python 3.9 remains available as a normal app runtime",
+            "to": "Python 3.13 is the default, Python 3.14 is opt-in, and Python 3.9 is disabled by default",
+            "implication": "Incompatible apps can be forced to Python 3.13; a temporary Python 3.9 exception requires Splunk Support and is not a durable compatibility path.",
+            "action": "Test every app on Python 3.13, validate any deliberate 3.14 opt-in, and use temporary 3.9 only within an explicitly confirmed exception and migration plan.",
+            "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new"
+          },
+          {
+            "component": "Forwarder-to-indexer application authentication",
+            "domain": "Connectivity & trust",
+            "changeType": "Authentication control added",
+            "actionLevel": "Review",
+            "from": "Existing forwarding trust and transport controls",
+            "to": "Application-layer authentication is available with audit mode as the default",
+            "implication": "The control adds a trust layer but does not establish receiver-version compatibility, direct-to-Cloud eligibility, topology, certificates, tenant rollout or authorization.",
+            "action": "Inventory identities in audit mode and verify receiver, topology, certificate and Cloud-direct requirements separately before enforcement.",
+            "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new"
+          },
+          {
+            "component": "Custom SMTP delivery",
+            "domain": "Platform operations",
+            "changeType": "Delivery path added",
+            "actionLevel": "Review",
+            "from": "Default platform mail delivery",
+            "to": "Standard search heads can use custom SMTP; SOAR continues to use default mail",
+            "implication": "If custom SMTP fails, the platform does not fall back to the default mail server.",
+            "action": "Test delivery, failure alerting and recovery for each supported standard search head; keep SOAR mail behavior separate.",
+            "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new"
+          },
+          {
+            "component": "Cloud 10.7 release documentation versus current service pairing",
+            "domain": "Cloud operations",
+            "changeType": "Release documented; rollout unconfirmed",
+            "actionLevel": "Required",
+            "from": "Current Service Details pair subscriptions with Cloud 10.6",
+            "to": "Official Cloud 10.7 release notes are published while the current service table still names Cloud 10.6",
+            "implication": "The 10.7 release route is documented, but selected-stack rollout, subscription pairing, provider, region, feature, entitlement and regulated-environment availability are not established by the release page.",
+            "action": "Use the 10.7 route for documented changes only; confirm the exact selected stack and current service pairing before treating a feature or release as available.",
+            "source": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details"
+          }
+        ],
+        "requirements": [
+          [
+            "Resolve case-only federated provider names",
+            "Provider names are fully case-insensitive in 10.7. Rename case-only duplicates and validate federated searches before the selected stack receives the change.",
+            "Blocker",
+            "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+            true
+          ],
+          [
+            "Validate Cloud app Python runtimes",
+            "Python 3.13 is the default and Python 3.14 is opt-in; Python 3.9 is disabled by default and only a temporary Support exception. Test apps and dependencies before rollout.",
+            "Blocker",
+            "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+            true
+          ],
+          [
+            "Keep application authentication separate from receiver compatibility",
+            "Audit-mode identities do not prove receiver/version support, direct-to-Cloud eligibility, topology, certificates or authorization. Validate each boundary independently before enforcement.",
+            "Validate",
+            "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+            true
+          ],
+          [
+            "Test custom SMTP without fallback",
+            "Custom SMTP is scoped to supported standard search heads and does not fall back to default mail after failure. Prove delivery, alerting and recovery; keep SOAR mail behavior separate.",
+            "Validate",
+            "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+            false
+          ],
+          [
+            "Confirm the selected stack before using Cloud 10.7 guidance",
+            "Official 10.7 release notes are published, but the current Service Details table still pairs subscriptions with Cloud 10.6. Confirm the exact stack, provider, region, feature, entitlement and regulated scope before treating 10.7 as deployed or available.",
+            "Blocker",
+            "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+            true
           ]
         ]
       }

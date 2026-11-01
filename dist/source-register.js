@@ -2256,6 +2256,35 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "title": "splunk cloud platform service details",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.cloud.releasesData.10.7.technicalChanges.4.source",
+        "release.cloud.releasesData.10.7.requirements.4.3",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-11-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Current service pairing is separate from release publication, tenant rollout, entitlement, region and authorization.",
+      "section": "Current version table",
+      "verificationScope": "Confirmed that the current subscription table still lists Splunk Cloud Platform 10.6, Enterprise Security 8.7, ITSI 5.0 and PCI 8.7 even though 10.7 release notes are published. This does not negate the documented 10.7 release or establish deployment on any selected stack.",
+      "events": [
+        {
+          "date": "2026-11-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor",
       "title": "Ingest Processor experience and tenant prerequisites",
       "areas": [
@@ -2524,14 +2553,14 @@ window.VersionCompassSources = {
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": "2026-10-28",
+      "reviewed": "2026-11-01",
       "status": "Reviewed",
       "firstRecorded": "2026-10-10",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "Bounded Cloud maintenance claim check, not retrospective service availability.",
-      "section": "10.6.2.1 and 10.5.2605.14: Publication Date October 27, 2026; Security Fixes where listed; Search issues; Uncategorized issues",
-      "verificationScope": "Exact Cloud build publication, 10.6.2.1 preliminary security count and listed fixes, plus the 10.5.2605.14 tstats fix. No selected tenant rollout or customer-managed UF/Enterprise fix is inferred.",
+      "section": "10.6.2.2: Publication Date October 30, 2026, preliminary Security Fixes, SPL-319104 and SPL-319575; 10.5.2605.15: Publication Date October 28, 2026 and SPL-319104; preceding 10.6.2.1, 10.6.2.0 and 10.5.2605.14 rows",
+      "verificationScope": "Exact Cloud build publication, 10.6.2.2 preliminary security counts and two listed fixes, plus the 10.5.2605.15 time-zone fix. Earlier build fixes remain historical exact-build scope. No selected tenant rollout or customer-managed UF/Enterprise fix is inferred.",
       "events": [
         {
           "date": "2026-10-10",
@@ -2548,6 +2577,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-28",
           "event": "Review status updated: Reviewed · 2026-10-28"
+        },
+        {
+          "date": "2026-11-01",
+          "event": "Review status updated: Reviewed · 2026-11-01"
         }
       ]
     },
@@ -2583,6 +2616,42 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-10-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+      "title": "whats new",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.cloud.releasesData.10.7.source",
+        "release.cloud.releasesData.10.7.technicalChanges.0.source",
+        "release.cloud.releasesData.10.7.technicalChanges.1.source",
+        "release.cloud.releasesData.10.7.technicalChanges.2.source",
+        "release.cloud.releasesData.10.7.technicalChanges.3.source",
+        "release.cloud.releasesData.10.7.requirements.0.3",
+        "release.cloud.releasesData.10.7.requirements.1.3",
+        "release.cloud.releasesData.10.7.requirements.2.3",
+        "release.cloud.releasesData.10.7.requirements.3.3",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-11-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Release documentation and managed-service deployment are distinct evidence scopes.",
+      "section": "Version 10.7; Federated Search provider names; Python version support; Machine Data Lake; catalog management; custom SMTP; forwarder-to-indexer application-layer authentication",
+      "verificationScope": "Confirmed the documented 10.7 release route and affected runtime, federation, mail, data-management and authentication changes. The page does not establish selected-stack rollout, current subscription pairing, Forwarder receiver compatibility, region, entitlement or authorization. The WLM federated-search item explicitly marked for 10.8 is excluded from the 10.7 record.",
+      "events": [
+        {
+          "date": "2026-11-01",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]

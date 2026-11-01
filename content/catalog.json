@@ -14,6 +14,12 @@
       "url": "https://help.splunk.com/en/splunk-soar/splunk-automation-broker/splunk-soar-automation-broker-release-notes/whats-new-in-splunk-soar-automation-broker"
     },
     {
+      "id": "source-03e1a737a519532ffdea",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new"
+    },
+    {
       "id": "source-040fbe9e458b16b5230c",
       "kind": "source",
       "dataset": "sources",
@@ -264,6 +270,12 @@
       "kind": "source",
       "dataset": "sources",
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions"
+    },
+    {
+      "id": "source-2e2e157125c5c312bbb7",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details"
     },
     {
       "id": "source-2ed5d15b6b7ae23dfe31",
@@ -1527,6 +1539,36 @@
       ]
     },
     {
+      "id": "vc-0441c7e4912c464d09ce",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "platform": "cloud",
+        "release": "10.7"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-2e2e157125c5c312bbb7",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Confirm the selected stack before using Cloud 10.7 guidance",
+        "Official 10.7 release notes are published, but the current Service Details table still pairs subscriptions with Cloud 10.6. Confirm the exact stack, provider, region, feature, entitlement and regulated scope before treating 10.7 as deployed or available.",
+        "Blocker",
+        "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+        true
+      ]
+    },
+    {
       "id": "vc-05844b3d6b4f970ae189",
       "kind": "feature",
       "dataset": "products",
@@ -2399,8 +2441,8 @@
         "outcome": "Claim verification not recorded"
       },
       "payload": [
-        "Confirm Cloud 10.5.2605.14 on the selected stack",
-        "Publication of the October 27 maintenance notes is not tenant rollout. Verify the exact stack build and reproduce the affected tstats workflow; do not transfer this row to a customer-managed UF/Enterprise package or infer broader compatibility, entitlement or authorization.",
+        "Confirm Cloud 10.5.2605.15 on the selected stack",
+        "Publication of the October 28 maintenance notes is not tenant rollout. Verify the exact stack build and reproduce the affected time-zone workflow; retain the prior tstats fix as its own historical row and do not transfer either Cloud row to a customer-managed UF/Enterprise package.",
         "Validate",
         "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
         false
@@ -3708,6 +3750,36 @@
         "Platform operations",
         "Represent maintenance builds precisely",
         "Accommodate the new four-segment version format in inventory, automation, and policy logic."
+      ]
+    },
+    {
+      "id": "vc-245aab035710e97651a0",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "platform": "cloud",
+        "release": "10.7"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-03e1a737a519532ffdea",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Validate Cloud app Python runtimes",
+        "Python 3.13 is the default and Python 3.14 is opt-in; Python 3.9 is disabled by default and only a temporary Support exception. Test apps and dependencies before rollout.",
+        "Blocker",
+        "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+        true
       ]
     },
     {
@@ -5372,6 +5444,35 @@
         "Use the chart that packages Collector 0.162, Target Allocator 0.160, Operator 0.124.1, current instrumentation agents, and the documented CRD and IPv6 fixes.",
         "Separately versioned Kubernetes chart · released October 8, 2026",
         "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.0"
+      ]
+    },
+    {
+      "id": "vc-37e165cf4ddff75a5e27",
+      "kind": "feature",
+      "dataset": "platform",
+      "scope": {
+        "platform": "cloud",
+        "release": "10.7"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-03e1a737a519532ffdea",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Application-layer forwarder authentication",
+        "Security & compliance",
+        "Add an indexer trust control",
+        "Use the new forwarder-to-indexer application authentication feature in audit mode or an explicitly validated enforcement plan."
       ]
     },
     {
@@ -9155,6 +9256,35 @@
         "Blocker",
         "https://advisory.splunk.com/advisories/SVD-2026-0807",
         true
+      ]
+    },
+    {
+      "id": "vc-5a61051d32b10ac056a6",
+      "kind": "feature",
+      "dataset": "platform",
+      "scope": {
+        "platform": "cloud",
+        "release": "10.7"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-03e1a737a519532ffdea",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Custom SMTP",
+        "Platform operations",
+        "Use a selected mail relay",
+        "Configure custom SMTP for supported standard-search-head email workflows with the documented no-fallback boundary."
       ]
     },
     {
@@ -17000,6 +17130,35 @@
       ]
     },
     {
+      "id": "vc-b9744c1bd2fbd91809f7",
+      "kind": "feature",
+      "dataset": "platform",
+      "scope": {
+        "platform": "cloud",
+        "release": "10.7"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-03e1a737a519532ffdea",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Machine Data Lake multi-search-head workflows",
+        "Data management",
+        "Operate promotions across search heads",
+        "Edit supported streaming promotions from multiple search heads while preserving the documented Machine Data Lake scope."
+      ]
+    },
+    {
       "id": "vc-b9e53c1cd250dd557c4a",
       "kind": "feature",
       "dataset": "products",
@@ -17554,6 +17713,36 @@
       }
     },
     {
+      "id": "vc-bfc9988b1a930d5679c1",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "platform": "cloud",
+        "release": "10.7"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-03e1a737a519532ffdea",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Test custom SMTP without fallback",
+        "Custom SMTP is scoped to supported standard search heads and does not fall back to default mail after failure. Prove delivery, alerting and recovery; keep SOAR mail behavior separate.",
+        "Validate",
+        "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+        false
+      ]
+    },
+    {
       "id": "vc-bfd2e7255d7d6eb64ca1",
       "kind": "claim",
       "dataset": "forwarders",
@@ -17981,8 +18170,8 @@
         "outcome": "Claim verification not recorded"
       },
       "payload": [
-        "Confirm Cloud 10.6.2.1 before relying on its fixes",
-        "The maintenance feed lists 10.6.2.1 and its preliminary security/fixed-issue rows, while the preceding 10.6.2.0 row contains SPL-312665. Cloud rollout remains Splunk-managed and stack-specific. Verify the exact four-segment stack version and reproduce the affected workflow before closing an issue based on either release; do not transfer a fix to customer-managed Enterprise or Forwarder packages.",
+        "Confirm Cloud 10.6.2.2 before relying on its fixes",
+        "The maintenance feed lists 10.6.2.2 and its preliminary security/fixed-issue rows; 10.6.2.1 and the 10.6.2.0 SPL-312665 row remain separate historical fix scope. Verify the exact four-segment stack version and reproduce the affected workflow before closing an issue; do not transfer a Cloud fix to customer-managed Enterprise or Forwarder packages.",
         "Validate",
         "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
         false
@@ -19708,6 +19897,35 @@
       }
     },
     {
+      "id": "vc-d1ae63fac68f88036dda",
+      "kind": "feature",
+      "dataset": "platform",
+      "scope": {
+        "platform": "cloud",
+        "release": "10.7"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-03e1a737a519532ffdea",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Catalog-managed datasets and connections",
+        "Data management",
+        "Centralize eligible data definitions",
+        "Manage supported datasets and connections through the catalog experience."
+      ]
+    },
+    {
       "id": "vc-d220a6961b8668fc89ff",
       "kind": "feature",
       "dataset": "platform",
@@ -20008,6 +20226,36 @@
         "Splunk identifies 10.0.0 through 10.0.10 as affected. Upgrade to 10.0.11 or later and complete applicable component-specific remediation, including the documented Edge Processor package-download authentication and restart sequence when that path is used.",
         "Blocker",
         "https://advisory.splunk.com/advisories/SVD-2026-1007",
+        true
+      ]
+    },
+    {
+      "id": "vc-d46b363d755aa6c3fc7b",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "platform": "cloud",
+        "release": "10.7"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-03e1a737a519532ffdea",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Resolve case-only federated provider names",
+        "Provider names are fully case-insensitive in 10.7. Rename case-only duplicates and validate federated searches before the selected stack receives the change.",
+        "Blocker",
+        "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
         true
       ]
     },
@@ -21913,6 +22161,65 @@
         "status": "Documented",
         "verified": "2026-10-01"
       }
+    },
+    {
+      "id": "vc-df84e58522debcc6cdbd",
+      "kind": "feature",
+      "dataset": "platform",
+      "scope": {
+        "platform": "cloud",
+        "release": "10.7"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-03e1a737a519532ffdea",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Continuous Machine Data Lake promotions",
+        "Data management",
+        "Keep eligible data moving",
+        "Run supported streaming promotions continuously rather than only through discrete promotion runs."
+      ]
+    },
+    {
+      "id": "vc-dfb1e32c2c6c4a23cbdd",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "platform": "cloud",
+        "release": "10.7"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-03e1a737a519532ffdea",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Keep application authentication separate from receiver compatibility",
+        "Audit-mode identities do not prove receiver/version support, direct-to-Cloud eligibility, topology, certificates or authorization. Validate each boundary independently before enforcement.",
+        "Validate",
+        "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+        true
+      ]
     },
     {
       "id": "vc-dfefefa2da6e9c232d91",
