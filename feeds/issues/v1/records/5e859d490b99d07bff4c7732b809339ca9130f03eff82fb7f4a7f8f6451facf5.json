@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-cloud-s3-restricted-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-01T12:12:04.090Z",
+  "assessmentId": "vcia-cloud-s3-restricted-scope-20261101",
+  "assessedAt": "2026-11-01T12:10:17Z",
+  "outcome": "unable-to-verify",
+  "rationale": "Current expanded-search exclusions and historical High/IL5 support remain conflicting in their exact scopes.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform"
+    ],
+    "versions": [
+      "10.6 current service",
+      "10.3 historical guidance"
+    ],
+    "editions": null,
+    "deployments": [
+      "Splunk-managed Cloud"
+    ],
+    "regions": [
+      "FedRAMP Moderate",
+      "FedRAMP High",
+      "IL5"
+    ],
+    "audiences": [
+      "Customers and documentation readers evaluating the stated decision"
+    ],
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-cloud-s3-restricted-scope-20261031"
+  ],
+  "remainingConcerns": [
+    "Reconcile the historical/current and expanded-federation scopes from authoritative evidence."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "csp-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions and region differences; Machine Data Lake search; third-party federated-search limitations; current subscription table lists Cloud 10.6, ES 8.7 and ITSI 5.0; supported forwarder rows extend through 10.6; page modification date",
+      "statement": "The cited audit reviews this source within Cloud 10.6 and historical 10.3; Moderate/High/IL5. Current expanded-search exclusions and historical High/IL5 support remain conflicting in their exact scopes.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-01T12:06:41.028Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b58b2608630a5f92027536ad2bc970fa72ebe74d9214215ad4b67ec65fba6b97",
+        "qualification": "Exact retrieved response-body digest; this is not a semantic diff or publisher revision."
+      }
+    },
+    {
+      "evidenceId": "csp-2",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "October 21, 2026 entry adds Cloud Activity Based Pricing across service-description sections for relevant Cloud 10.6 versions; October 6 regional/search/subscription history and April 8 version-scoped S3 guidance remain separate. Individual effective dates do not establish regional rollout, entitlement or authorization.",
+      "statement": "The cited audit reviews this source within Cloud 10.6 and historical 10.3; Moderate/High/IL5. Current expanded-search exclusions and historical High/IL5 support remain conflicting in their exact scopes.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-01T12:06:45.620Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "d76413f77d112e62efe14d7f609444be5ec8a0a65dd3b767de52c768236b3c79",
+        "qualification": "Exact retrieved response-body digest; this is not a semantic diff or publisher revision."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/3693b64e5457ad21a4555dcc362c7e515cb971ba/docs/audits/2026-11-01-csp-fedramp-watch.json",
+      "pointer": "/claimChecks/1",
+      "originalLabel": "verified-unchanged-with-qualifications"
+    }
+  ]
+}

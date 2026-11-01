@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-10-31T11:29:39Z",
-      "lastSuccess": "2026-10-31T11:34:00Z",
-      "outcome": "no-change",
-      "summary": "25 official sources retrieved; seven consequential claim groups reviewed. No supported regional or authorization change.",
+      "lastAttempt": "2026-11-01T12:12:26Z",
+      "lastSuccess": "2026-11-01T12:13:04Z",
+      "outcome": "changed",
+      "summary": "Reviewed 27 official URLs and eight bounded claim groups; recorded a new RCA metric-scope ambiguity and three regional/regulated reassessments. Canonical facts remain unchanged.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -363,9 +363,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "25 official sources retrieved; seven consequential claim groups reviewed. No supported regional or authorization change.",
           "scope": "Marketplace offerings, S3 conflicts, ES 8.8 regions, SAIA runtime, ITSI subagent, SOAR restrictions and dated visual matrix; 10.7 documentation discovery remains qualified."
+        },
+        {
+          "at": "2026-11-01T12:12:26Z",
+          "outcome": "running",
+          "summary": "Completing the current official-source review, issue-feed follow-up and exact-candidate publication checks.",
+          "scope": "27 official URLs; eight bounded claim groups; regional/regulated scope and current source ambiguity."
+        },
+        {
+          "at": "2026-11-01T12:13:04Z",
+          "outcome": "changed",
+          "summary": "Reviewed 27 official URLs and eight bounded claim groups; recorded a new RCA metric-scope ambiguity and three regional/regulated reassessments. Canonical facts remain unchanged.",
+          "scope": "Complete 25-source inventory plus two 10.7 discovery URLs; eight bounded claim groups; four issue-feed records. Exact-candidate CI and production publication evidence recorded separately."
         }
       ],
-      "scope": "Marketplace offerings, S3 conflicts, ES 8.8 regions, SAIA runtime, ITSI subagent, SOAR restrictions and dated visual matrix; 10.7 documentation discovery remains qualified."
+      "scope": "Complete 25-source inventory plus two 10.7 discovery URLs; eight bounded claim groups; four issue-feed records. Exact-candidate CI and production publication evidence recorded separately."
     },
     {
       "id": "version-release-watch",

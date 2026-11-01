@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "findingId": "vci-observability-rca-custom-metric-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-01T12:12:04.090Z",
+  "title": "Observability RCA custom-metric support and optimization guidance need scope clarification",
+  "concernType": "contradiction",
+  "problem": "The guide explicitly says only standard default metrics and no custom metrics, while its later optimization guidance says custom metrics can be useful with standard dimensions. This is a scope ambiguity, not evidence of supported custom-metric RCA. Existing explicit restriction is retained; Release Watch owns product-scope reconciliation.",
+  "scope": {
+    "products": [
+      "Splunk Observability Cloud AI troubleshooting agent"
+    ],
+    "versions": [
+      "Current rolling documentation; source publication date unknown"
+    ],
+    "editions": null,
+    "deployments": [
+      "Non-Governmental Observability realms"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating RCA metric eligibility"
+    ],
+    "exclusions": [
+      "No custom-metric support, new regional rollout, entitlement or authorization is established."
+    ]
+  },
+  "impact": {
+    "customerScenario": "A reader plans RCA for a detector based on custom metrics.",
+    "consequence": "Later optimization guidance could be misread as support despite the explicit unsupported statement. Retain the explicit limitation pending clarification.",
+    "level": "unknown"
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "Both statements were independently read in the same public document; their intended relationship remains unknown."
+  },
+  "claimIds": [
+    "availability:observability:rca-custom-metrics-scope"
+  ],
+  "scopeComparison": "Both statements discuss RCA metrics in the same current guide; the later paragraph may describe useful context rather than supported detector eligibility. That narrower interpretation is possible but not stated explicitly.",
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "The scope question remains unresolved."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "rca-default-only",
+      "section": "Use AI troubleshooting agent to identify potential root causes",
+      "statement": "The guide explicitly limits supported detectors and alerts to standard default metrics and states that custom metrics are not supported at this time.",
+      "role": "observed",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan",
+      "excerpt": null,
+      "sourceCheckedAt": "2026-11-01T12:06:54.872Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "acc95722905836d424ed0eba7aaffa838e14854e665e716b46bd30ae8147007a",
+        "qualification": "Exact fetched response body; not a semantic revision or retained official-document archive."
+      }
+    },
+    {
+      "evidenceId": "rca-custom-context",
+      "section": "How To Make RCA More Effective — Prefer standard APM and Kubernetes telemetry conventions",
+      "statement": "The later guidance says custom metrics can be useful if they include standard dimensions identifying the affected domain and entity.",
+      "role": "challenging",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan",
+      "excerpt": null,
+      "sourceCheckedAt": "2026-11-01T12:06:54.872Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "acc95722905836d424ed0eba7aaffa838e14854e665e716b46bd30ae8147007a",
+        "qualification": "Exact fetched response body; not a semantic revision or retained official-document archive."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/3693b64e5457ad21a4555dcc362c7e515cb971ba/docs/audits/2026-11-01-csp-fedramp-watch.json",
+      "pointer": "/claimChecks/7",
+      "originalLabel": "conflicting-guidance"
+    }
+  ]
+}
