@@ -831,9 +831,9 @@ window.VersionCompassMaintenance = {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
       "lastAttempt": "2026-11-01T11:01:55Z",
-      "lastSuccess": "2026-10-31T10:07:00Z",
-      "outcome": "running",
-      "summary": "Reviewing current ES editions, AI prerequisites, licensing, regional and SOAR pairing evidence against the post-Release-Watch baseline.",
+      "lastSuccess": "2026-11-01T11:27:11.817Z",
+      "outcome": "changed",
+      "summary": "Recovered the ES 8.8 edition capability matrix and current compatibility source mappings; published seven bounded issue-feed reassessments and deployed the validated revision.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1193,9 +1193,15 @@ window.VersionCompassMaintenance = {
           "outcome": "running",
           "summary": "Reviewing current ES editions, AI prerequisites, licensing, regional and SOAR pairing evidence against the post-Release-Watch baseline.",
           "scope": "Fresh 35-source maintained inventory plus newly discovered version-current ES 8.8 matrix evidence; bounded high-consequence claims, issue-feed dispositions, exact-candidate exports and live parity."
+        },
+        {
+          "at": "2026-11-01T11:27:11.817Z",
+          "outcome": "changed",
+          "summary": "Recovered the ES 8.8 edition capability matrix and current compatibility source mappings; published seven bounded issue-feed reassessments and deployed the validated revision.",
+          "scope": "36 official ES, pricing, licensing, SOAR and AI sources; 18 high-consequence claim groups; ES Editions current, legacy, shared and invalid journeys; 136 exact-candidate export cases; seven issue-feed assessments; Site version 257 live health."
         }
       ],
-      "scope": "Fresh 35-source maintained inventory plus newly discovered version-current ES 8.8 matrix evidence; bounded high-consequence claims, issue-feed dispositions, exact-candidate exports and live parity."
+      "scope": "36 official ES, pricing, licensing, SOAR and AI sources; 18 high-consequence claim groups; ES Editions current, legacy, shared and invalid journeys; 136 exact-candidate export cases; seven issue-feed assessments; Site version 257 live health."
     },
     {
       "id": "version-guidance-audit",
