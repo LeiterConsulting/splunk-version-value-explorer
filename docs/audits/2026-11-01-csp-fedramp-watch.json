@@ -469,7 +469,7 @@
     },
     {
       "claimId": "discovery:cloud:10.7-documentation",
-      "nextAction": "Release Watch to reconcile exact release evidence before exposing any selectable stack."
+      "nextAction": "Preserve Release Watch's already-published 10.7 release evidence and reconcile its current 10.6 service-table scope without implying universal tenant rollout or retrospective availability."
     },
     {
       "claimId": "availability:observability:rca-custom-metrics-scope",
@@ -478,14 +478,116 @@
       "reviewBy": "2026-11-03T20:00:00Z"
     }
   ],
+  "supplementalSourceChecks": [
+    {
+      "id": "aiEsSocTask88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions",
+      "checkedAt": "2026-11-01T12:17:32.202Z",
+      "status": 200,
+      "bytes": 189321,
+      "sha256": "4a785008e294a96e3f330b8e3de7bd8e45fba236c383f7a206b51d383a5c02b9",
+      "priorSha256": null,
+      "outcome": "retrieved; claim verification separate"
+    },
+    {
+      "id": "aiEsSocTask87",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "section": "Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions",
+      "checkedAt": "2026-11-01T12:17:32.200Z",
+      "status": 200,
+      "bytes": 191775,
+      "sha256": "b326212b15a7553be8ad0cdaceb4339ff9a35eefe18504fadbe5d251c93c0de4",
+      "priorSha256": null,
+      "outcome": "retrieved; claim verification separate"
+    },
+    {
+      "id": "aiEsThreatGraph88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
+      "section": "Alpha stage; risk-based detection and event-volume prerequisites; enablement and test mode",
+      "checkedAt": "2026-11-01T12:17:32.198Z",
+      "status": 200,
+      "bytes": 170205,
+      "sha256": "1d834bdc2b7c6c6dbfdb11865c3d907fd403a8b068af0d551b61e350fb85719a",
+      "priorSha256": null,
+      "outcome": "retrieved; claim verification separate"
+    },
+    {
+      "id": "aiEsAgents88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
+      "checkedAt": "2026-11-01T12:17:32.193Z",
+      "status": 200,
+      "bytes": 190398,
+      "sha256": "d6d683c784d0416fb7de73937ad27c7809793324e7f505eb69ea66ab6ecbe4f7",
+      "priorSha256": null,
+      "outcome": "retrieved; claim verification separate"
+    },
+    {
+      "id": "aiEsEditions",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
+      "section": "Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings",
+      "checkedAt": "2026-11-01T12:17:32.204Z",
+      "status": 200,
+      "bytes": 138020,
+      "sha256": "355ed7883993b1c03e5da167937510d33de0d40d8965f2b069b409b971df0f32",
+      "priorSha256": null,
+      "outcome": "retrieved; claim verification separate"
+    },
+    {
+      "id": "aiEsRelease88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "ES 8.8 Controlled Availability",
+      "checkedAt": "2026-11-01T12:17:36.036Z",
+      "status": 200,
+      "bytes": 217092,
+      "sha256": "ca603e4ae384c019317a1aefaf0c84bd39bd8b97c9ecf00316eb0fd2cc76f42c",
+      "priorSha256": null,
+      "outcome": "retrieved; claim verification separate"
+    },
+    {
+      "id": "aiObsJulyRelease",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/july-2026",
+      "section": "July 8 AI troubleshooting agent and remediation plan milestone",
+      "checkedAt": "2026-11-01T12:17:36.065Z",
+      "status": 200,
+      "bytes": 168236,
+      "sha256": "d4e3bf27f0a26572a679ec067a6e2fbd3e6624fc3af704fa6238e23e11b4a0aa",
+      "priorSha256": null,
+      "outcome": "retrieved; claim verification separate"
+    }
+  ],
+  "supplementalScope": "Seven additional ES agent/task/edition/release and Observability July sources from the shared AI inventory were fetched to check the completeness of the regional evidence corpus. Their retrieval does not reverify all product claims or advance borrowed dates. The existing Cloud/CMP prerequisites, model and permission qualifications remain outside regional rollout certification.",
   "factualDatesAdvanced": false,
   "materialCycleAdvanced": false,
   "validation": {
     "matrix": "Actual cloud-browser visual inspection of US Public Sector IL5/Moderate/High/GovRAMP/TX-RAMP header, representative checkmarks, blank ITSI-AI/Observability rows, legend and February2026 qualification. No blank cell interpreted as exclusion.",
-    "automated": "Pending final candidate checks",
-    "exports": "Pending exact candidate or identical-input receipt",
-    "browser": "Pending affected current/legacy/shared/invalid journeys",
-    "live": "Prior complete version258 retained pending candidate verification"
+    "automated": "Passed four ordered sync/check gates, Advisor/feed/native-feed gates,255 full Node tests and66-asset production build.",
+    "exports": {
+      "status": "passed",
+      "workflow": ".github/workflows/validate.yml",
+      "run": 41305512292,
+      "job": 124844967768,
+      "commit": "85e2780c3a73ad383c0b99cd615d04961e0c01c9",
+      "tree": "c5cae6f4d82ebc7aa5c84e24e39c0738ce74a3fc",
+      "artifactId": 13083422585,
+      "artifactDigest": "sha256:59db4036a02e8ee673534390c07a106200a4106b6df16e95aad4c0390bf6dd12",
+      "visualArtifactId": 13083575248,
+      "visualDigest": "sha256:84189029af6cc64899197b34cd359dc64006705fbed366a1318f2325765ce9cc",
+      "fingerprint": "07cdfb6e439499296fe136687e700e11ce50d965114231542c33dc579aafeae5",
+      "cases": 136,
+      "pdfs": 112,
+      "pages": 1790,
+      "offlineHtmlReopens": 112,
+      "phone": 136,
+      "keyboard": 112,
+      "binding": "Downloaded ZIP digests independently match GitHub. export-evidence.cjs and check-soak --exports pass against identical current report inputs; no missing/failed gates.",
+      "visualReview": "Separate assistant inspection of High Cloud PDF page1 in both themes and Cisco AI comparison phone image found no novel defect. Every page received automated checks; no all-page human review is claimed."
+    },
+    "browser": "Actual live High Cloud, provider-only, region-only, mismatched GCP/GovCloud blocked exports, legacy SOAR8.6.0→8.7.0 conversion/anchor and valid unknown ITSI regional comparison passed. Actual keyboard Tab focused Skip to comparison. AI share control showed Link copied and retained selected comparison/theme/region.",
+    "webmcp": "Actual deployed read-only current report matched ten High environment records and S3 conflict; invalid mismatched link returned INVALID_INPUT_OR_UNAVAILABLE_DATA. Stable names and schema unchanged.",
+    "live": "Retained version258 real D1/manifest/bundle/query/POST405/all7 fallbacks passed at2026-11-01T12:18:09.867Z,890 records. New deployment live checks recorded separately in final publication receipt.",
+    "issueFeed": "Commit85e2780c3a73ad383c0b99cd615d04961e0c01c9 readback and recovery from prior checkpoint verified60 immutable records/digests/lineage,one new cumulative checkpoint,no quarantine."
   },
   "publication": {
     "status": "candidate-not-published"
@@ -494,8 +596,8 @@
     "schemaVersion": 1,
     "watchId": "csp-fedramp-watch",
     "status": "published",
-    "recordedAt": "2026-11-01T12:12:45.692Z",
-    "reviewDigest": "95c8e25c0caf0360470869727723506b8ae4bd538bd80c83652262fa909761d8",
+    "recordedAt": "2026-11-01T12:21:18.695Z",
+    "reviewDigest": "4bbc57811807bd9ac75b93e59e8738f39366878716423581dd85ef24c90157c9",
     "publicationId": "vci-688ebb340edf4d0716dd03697bc5485318f8f9b3ded250cc6d929f811a4ac59e",
     "recordKeys": [
       "assessment:vcia-itsi-region-20261101@1",
