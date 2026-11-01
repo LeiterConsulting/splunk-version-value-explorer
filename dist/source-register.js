@@ -3853,7 +3853,7 @@ window.VersionCompassSources = {
     },
     {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/splunk-enterprise-security-editions-cloud-capability-matrix",
-      "title": "Editions Cloud Capability Matrix",
+      "title": "ES 8.7 Editions Cloud Capability Matrix",
       "areas": [
         "ES editions"
       ],
@@ -3921,17 +3921,21 @@ window.VersionCompassSources = {
       "title": "compatibility and regional availability",
       "areas": [
         "Release guide",
+        "ES editions",
         "Shared guidance"
       ],
       "references": [
         "release.productTracks.es.releasesData.8.8.technicalChanges.0.source",
         "release.guidance.sources.aiEsRegions88.url",
+        "editions.sources.regions88.u",
         "content-updates.js",
         "guidance: guidance.aiAvailability",
-        "guidance: guidance.aiAvailability.capabilities.3"
+        "guidance: guidance.aiAvailability.capabilities.3",
+        "editions: editions.notes.1"
       ],
       "reviews": [
-        "2026-10-24"
+        "2026-10-24",
+        "2026-11-01"
       ],
       "claimReferences": [
         {
@@ -3944,7 +3948,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-22",
+      "reviewed": "2026-11-01",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-10-22",
       "firstUsed": null,
@@ -3964,6 +3968,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-22",
           "event": "Review status updated: Needs reconciliation · 2026-10-22"
+        },
+        {
+          "date": "2026-11-01",
+          "event": "Review status updated: Needs reconciliation · 2026-11-01"
         }
       ]
     },
@@ -4069,6 +4077,35 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-10-22",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/splunk-enterprise-security-editions-cloud-capability-matrix",
+      "title": "ES 8.8 Editions Cloud Capability Matrix",
+      "areas": [
+        "ES editions"
+      ],
+      "references": [
+        "editions.sources.matrix88.u",
+        "editions: editions.history.8.8"
+      ],
+      "reviews": [
+        "2026-11-01"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-01",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-01",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Version-current Cloud capability history corroborates a subset of the detailed 8.8 release table without replacing its more granular edition assignments.",
+      "section": "ES 8.2 through ES 8.8 Essentials (included in Premier) and Premier Only rows",
+      "verificationScope": "Verified the ES 8.8 Cloud capability row for Detection Builder instruction support, investigation aggregation, detection re-run, Cloud Connected Agentic SOC, UEBA dataset/Insider Threat Matrix, TAXII2 connectors and Automation Broker HA. The compact matrix is supporting release-history evidence, not a complete entitlement, rollout, region, authorization or pairing table.",
+      "events": [
+        {
+          "date": "2026-11-01",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]

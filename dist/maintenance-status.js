@@ -830,10 +830,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-10-31T09:59:56.620Z",
+      "lastAttempt": "2026-11-01T11:01:55Z",
       "lastSuccess": "2026-10-31T10:07:00Z",
-      "outcome": "changed",
-      "summary": "Modernized current ES 8.8 task-source mappings for Connector Builder, AI SOC Analyst, Malware/Phishing, Cloud Connect and licensing while preserving historical conflicts, unknown pairings and exact scope.",
+      "outcome": "running",
+      "summary": "Reviewing current ES editions, AI prerequisites, licensing, regional and SOAR pairing evidence against the post-Release-Watch baseline.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1187,9 +1187,15 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Modernized current ES 8.8 task-source mappings for Connector Builder, AI SOC Analyst, Malware/Phishing, Cloud Connect and licensing while preserving historical conflicts, unknown pairings and exact scope.",
           "scope": "Complete 35-source ES Editions inventory plus sixteen bounded high-consequence entitlement, prerequisite, compatibility, pricing, regional and SOAR claim groups; native issue-feed publication remains in its explicit provenance phase."
+        },
+        {
+          "at": "2026-11-01T11:01:55Z",
+          "outcome": "running",
+          "summary": "Reviewing current ES editions, AI prerequisites, licensing, regional and SOAR pairing evidence against the post-Release-Watch baseline.",
+          "scope": "Fresh 35-source maintained inventory plus newly discovered version-current ES 8.8 matrix evidence; bounded high-consequence claims, issue-feed dispositions, exact-candidate exports and live parity."
         }
       ],
-      "scope": "Complete 35-source ES Editions inventory plus sixteen bounded high-consequence entitlement, prerequisite, compatibility, pricing, regional and SOAR claim groups; native issue-feed publication remains in its explicit provenance phase."
+      "scope": "Fresh 35-source maintained inventory plus newly discovered version-current ES 8.8 matrix evidence; bounded high-consequence claims, issue-feed dispositions, exact-candidate exports and live parity."
     },
     {
       "id": "version-guidance-audit",

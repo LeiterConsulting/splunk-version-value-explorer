@@ -1,7 +1,7 @@
 /* Generated from content/datasets/editions.json. Edit the JSON source, not this adapter. */
 window.VersionCompassEditions = {
   "schemaVersion": 2,
-  "reviewed": "2026-10-31",
+  "reviewed": "2026-11-01",
   "release": "8.8",
   "releaseDate": "2026-10-21",
   "releaseStage": "Controlled Availability",
@@ -17,9 +17,14 @@ window.VersionCompassEditions = {
       "reviewed": "2026-10-01"
     },
     "matrix": {
-      "t": "Editions Cloud Capability Matrix",
+      "t": "ES 8.7 Editions Cloud Capability Matrix",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/splunk-enterprise-security-editions-cloud-capability-matrix",
       "reviewed": "2026-10-01"
+    },
+    "matrix88": {
+      "t": "ES 8.8 Editions Cloud Capability Matrix",
+      "u": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/splunk-enterprise-security-editions-cloud-capability-matrix",
+      "reviewed": "2026-11-01"
     },
     "editions": {
       "t": "Overview of ES Editions",
@@ -135,6 +140,11 @@ window.VersionCompassEditions = {
       "t": "ES 8.7 compatibility and regional availability",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
       "reviewed": "2026-10-01"
+    },
+    "regions88": {
+      "t": "ES 8.8 compatibility and regional availability",
+      "u": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "reviewed": "2026-11-01"
     },
     "guided": {
       "t": "Guided Response prerequisites (8.6 documentation)",
@@ -681,7 +691,8 @@ window.VersionCompassEditions = {
         "Automation Broker High Availability"
       ],
       "src": [
-        "rn88"
+        "rn88",
+        "matrix88"
       ],
       "qualification": "ES 8.8.0 is Controlled Availability. The release table states that Essentials features are also included in Premier; access, deployment, region, pairing, entitlement and authorization remain separate checks."
     }
@@ -705,9 +716,10 @@ window.VersionCompassEditions = {
       "title": "Edition inclusion is only one requirement",
       "text": "Regional availability and ES–SOAR pairing must be checked separately. A Cloud listing does not establish availability on every stack, cloud provider or regulated deployment.",
       "src": [
+        "regions88",
         "regions"
       ],
-      "details": "Splunk publishes distinct SOAR pairing matrices for Premier and other paired deployments. Pairing is unsupported on Enterprise 9.4.0–9.4.2. Review the source for exact SOAR versions, hybrid certificate requirements and government-cloud exclusions."
+      "details": "The current 8.8 guide preserves distinct SOAR pairing matrices and certificate rules, while the 8.7 guide remains historical evidence. Pairing is unsupported on Enterprise 9.4.0–9.4.2. Review the target-version source for exact SOAR versions, hybrid certificate requirements and government-cloud exclusions."
     },
     {
       "id": "assistants",

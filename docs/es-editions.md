@@ -164,3 +164,18 @@ enablement, region and authorization remain independent facts.
 ## Cloud environment evidence
 
 See [Cloud environments](cloud-environments.md) for independent CSP, region, FR-M/FR-H, and experience filters, shared report behavior, uncertainty boundaries, and dedicated maintenance ownership. Current hosting evidence does not establish historical release availability or authorize every product component.
+
+## November 1, 2026 version-current matrix recovery
+
+The ES 8.8 Editions Cloud Capability Matrix is now retained alongside the
+detailed 8.8 release table instead of relying on the 8.7 matrix for all edition
+history. Its compact 8.8 row corroborates Detection Builder instruction support,
+investigation aggregation, detection re-run, Cloud Connected Agentic SOC, UEBA
+dataset and Insider Threat Matrix work, TAXII2 connectors and Automation Broker
+high availability. It is a concise history row, not a complete entitlement list.
+
+The current 8.8 compatibility and regional guide is also cited directly by the
+edition-availability note; the 8.7 guide remains historical evidence. Neither
+source changes the Controlled Availability stage, resolves the Triage, Connector
+Builder or Guided Response questions, establishes a later App for SOAR pairing,
+or turns provider, region, entitlement and authorization into one fact.
