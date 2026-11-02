@@ -2182,6 +2182,14 @@
               "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.1"
             ],
             [
+              "Collector 0.164 migration controls",
+              "Telemetry & OpenTelemetry",
+              "Migrate Splunk configuration and telemetry identities deliberately",
+              "Collector 0.164 removes the splunk_inputs receiver and splunk_outputs exporter in favor of the splunkconf configuration provider, removes fluent_forward from default configurations while retaining the component for custom use, and introduces additional monitor, checkpoint and telemetry-identity transitions. This standalone customer-managed component release is not a Kubernetes chart update, SaaS rollout, realm, entitlement or authorization claim.",
+              "Separately versioned Collector · released October 30, 2026",
+              "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.164.0"
+            ],
+            [
               "Kubernetes Collector remote configuration",
               "Infrastructure & Kubernetes",
               "Apply versioned pipeline templates to groups",
@@ -2493,6 +2501,66 @@
               "verified": "2026-10-22"
             },
             {
+              "component": "Collector 0.164 Splunk configuration path",
+              "domain": "Collector configuration & Splunk ingestion",
+              "changeType": "Components removed and defaults changed",
+              "actionLevel": "Required",
+              "from": "Default configurations can include fluent_forward, and the splunk_inputs receiver plus splunk_outputs exporter read Splunk configuration trees directly",
+              "to": "Collector 0.164 removes fluent_forward from the default configurations while retaining it in the distribution, removes splunk_inputs and splunk_outputs, and uses the splunkconf config provider to read the .conf tree and outputs.conf destination",
+              "implication": "A configuration that declares either removed component is invalid after upgrade. A deployment that depended on the old fluent_forward default also stops collecting that path unless the receiver is added explicitly. This does not change a Splunk Platform forwarder route or certify a Cloud receiver pairing.",
+              "action": "Inventory explicit and inherited receiver/exporter declarations, migrate Splunk configuration loading to the splunkconf provider, add fluent_forward explicitly only when required, and validate configuration plus end-to-end telemetry delivery before rollout.",
+              "source": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.164.0",
+              "verified": "2026-11-02"
+            },
+            {
+              "component": "Collector 0.164 Smart Agent monitor lifecycle",
+              "domain": "Collector integrations",
+              "changeType": "Deprecated with conditional validation gate",
+              "actionLevel": "Required",
+              "from": "The selected Smart Agent host, container, IIS, Kubernetes-event and Elasticsearch monitors remain available without the new TelegrafExec validation gate",
+              "to": "Ten monitors are deprecated in favor of host_metrics, docker_stats, iis, k8s_events and elasticsearch receivers; telegraf/exec now fails validation unless receiver.smartagentreceiver.TelegrafExec is enabled, and the monitor set is planned for removal on or after December 2026",
+              "implication": "Existing telegraf/exec configurations can fail immediately after upgrade, while the other named monitors retain a finite migration window. Deprecation is not removal and does not prove an exact removal release.",
+              "action": "Inventory the named monitors, migrate to the documented replacement receivers, use the TelegrafExec gate only as a bounded bridge when necessary, and validate equivalent telemetry before the announced removal window.",
+              "source": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.164.0",
+              "verified": "2026-11-02"
+            },
+            {
+              "component": "Collector 0.164 telemetry identity changes",
+              "domain": "Metrics, logs & semantic conventions",
+              "changeType": "Defaults and resource identities changed",
+              "actionLevel": "Required",
+              "from": "Earlier releases can emit deprecated kubelet resource attributes, legacy Azure and Zipkin semantic-convention names, permissively sanitized Prometheus labels and a single SQL Server tempdb used state",
+              "to": "Collector 0.164 removes the listed deprecated kubelet attributes, defaults Azure and Zipkin translation to newer semantic-convention names, preserves leading and consecutive Prometheus label underscores, and replaces tempdb.state=used with user_objects, internal_objects, version_store and mixed_extents for the enabled sqlserver.database.tempdb.space metric",
+              "implication": "Queries, dashboards, detectors, routing rules and cardinality assumptions can change even when collection remains healthy. The SQL Server state change applies only where the development metric is enabled.",
+              "action": "Compare representative resource attributes, label names and metric dimensions before and after upgrade; update queries and dashboards deliberately and sum the replacement SQL Server states when total used space is required.",
+              "source": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.164.0",
+              "verified": "2026-11-02"
+            },
+            {
+              "component": "Collector 0.164 filelog checkpoints",
+              "domain": "Log collection state",
+              "changeType": "Checkpoint encoding made mandatory",
+              "actionLevel": "Review",
+              "from": "filelog can write JSON checkpoints when the protobuf checkpoint feature is disabled",
+              "to": "Collector 0.164 always writes protobuf checkpoints; existing JSON checkpoints are still read and are rewritten as protobuf on the next save",
+              "implication": "Forward collection is designed to retain existing JSON state, but the persisted checkpoint representation changes. The source does not establish downgrade behavior or a need to delete checkpoints.",
+              "action": "Preserve storage, exercise restart and resume behavior with representative files, and validate duplicate/loss boundaries before broad rollout; do not delete or recreate checkpoint state without separate evidence.",
+              "source": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.164.0",
+              "verified": "2026-11-02"
+            },
+            {
+              "component": "Collector 0.164 exporter retry classification",
+              "domain": "Telemetry delivery & back pressure",
+              "changeType": "Retry behavior corrected",
+              "actionLevel": "Validate",
+              "from": "SignalFx and Splunk HEC exporters can retry non-transient 4xx responses indefinitely, while Prometheus remote write can bound the entire retry loop by one request timeout and retry at the initial interval",
+              "to": "Collector 0.164 treats non-transient 4xx responses as permanent except 408, 409 and 429; Prometheus remote write applies timeout per attempt, grows delay to max_interval and bounds the batch by max_elapsed_time and shutdown deadline",
+              "implication": "Invalid payloads stop retrying, transient delivery gets the documented retry budget, and queue/back-pressure behavior can change. This is Collector exporter behavior, not proof that a backend or tenant accepts the payload.",
+              "action": "Exercise representative permanent, transient, throttled and outage responses; confirm queue sizing, retry budgets, data-loss alerts and shutdown flushing before rollout.",
+              "source": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.164.0",
+              "verified": "2026-11-02"
+            },
+            {
               "component": "Fleet Management Kubernetes configuration",
               "domain": "Collector management",
               "changeType": "Opt-in capability",
@@ -2593,6 +2661,13 @@
               "Collector 0.163.1 removes lightprometheus, refreshes Go and CA certificates for CVE-2026-111943, and repairs Splunk input metadata and index-authorization behavior. Replace removed configuration and test allowed/denied index paths, trust chains and telemetry delivery. Chart 0.163.1 now packages this patch; validate the exact standalone or chart rollout independently.",
               "Blocker",
               "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.1",
+              true
+            ],
+            [
+              "Migrate and validate Collector 0.164",
+              "Collector 0.164 removes splunk_inputs and splunk_outputs, changes the Splunk configuration-loading path, drops fluent_forward from defaults, requires a gate for Smart Agent telegraf/exec, begins the named monitor migration window, changes selected telemetry identities and checkpoint encoding, and corrects exporter retry behavior. Migrate configuration and validate representative collection, identity, restart and delivery paths before rollout. The Kubernetes chart remains separately versioned at 0.163.1 until its own release evidence changes.",
+              "Blocker",
+              "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.164.0",
               true
             ],
             [

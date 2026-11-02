@@ -1078,6 +1078,38 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.164.0",
+      "title": "v0.164.0",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Oct 2026.features.8.5",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.22.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.23.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.24.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.25.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.26.source",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.11.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-11-02",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-02",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Versioned customer-managed component release with breaking configuration and telemetry contracts; it is not a Kubernetes chart release, SaaS release, platform pairing or authorization claim.",
+      "section": "Breaking changes; Deprecations; Enhancements; Bug fixes; Docker Image Manifests",
+      "verificationScope": "Verified the October 30 standalone Collector 0.164.0 publication and a bounded high-consequence set: Splunk receiver/exporter removal and splunkconf replacement, fluent_forward default scope, Smart Agent monitor migration/gate, selected semantic and checkpoint transitions, exporter retry corrections and published Linux/Windows image architectures. Chart 0.163.1 remains separately versioned; no SaaS rollout, realm, entitlement, authorization or universal configuration compatibility is inferred.",
+      "events": [
+        {
+          "date": "2026-11-02",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://github.com/signalfx/splunk-otel-dotnet/releases/tag/v1.16.0",
       "title": "v1.16.0",
       "areas": [
@@ -6235,8 +6267,8 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.22.source",
-        "release.productTracks.observability.releasesData.Oct 2026.requirements.11.3"
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.27.source",
+        "release.productTracks.observability.releasesData.Oct 2026.requirements.12.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -6448,17 +6480,17 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.productTracks.observability.releasesData.Oct 2026.source",
-        "release.productTracks.observability.releasesData.Oct 2026.features.8.5",
         "release.productTracks.observability.releasesData.Oct 2026.features.9.5",
         "release.productTracks.observability.releasesData.Oct 2026.features.10.5",
         "release.productTracks.observability.releasesData.Oct 2026.features.11.5",
         "release.productTracks.observability.releasesData.Oct 2026.features.12.5",
         "release.productTracks.observability.releasesData.Oct 2026.features.13.5",
         "release.productTracks.observability.releasesData.Oct 2026.features.14.5",
+        "release.productTracks.observability.releasesData.Oct 2026.features.15.5",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.3.source",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.4.source",
         "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.5.source",
-        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.23.source",
+        "release.productTracks.observability.releasesData.Oct 2026.technicalChanges.28.source",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.0.3",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.1.3",
         "release.productTracks.observability.releasesData.Oct 2026.requirements.2.3",

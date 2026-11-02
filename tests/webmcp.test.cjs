@@ -187,7 +187,7 @@ test('historical links preserve routes, explain newer guidance, and offer option
   assert.equal(rt.window.VersionCompassPage.getSelection().to, '9.4');
   const currentGuidance = context.reasons.find(x => x.code === 'newer_guidance');
   assert(currentGuidance);
-  assert.match(currentGuidance.source, /\/docs\/releases\/2026\/(?:10\/2026-10-\d{2}|11\/2026-11-01)\.md$/);
+  assert.match(currentGuidance.source, /\/docs\/releases\/2026\/(?:10\/2026-10-\d{2}|11\/2026-11-0[12])\.md$/);
   const newer = context.reasons.find(x => x.code === 'newer_target');
   assert.equal(new URLSearchParams(newer.actionUrl).get('to'), '10.6');
   assert.equal(new URLSearchParams(newer.actionUrl).get('from'), '8.2');
@@ -426,6 +426,18 @@ test('Collector 0.163 stays separate from the Kubernetes chart and retains scope
  const alias=r.technicalChanges.find(t=>t.component==='Collector 0.163 SQL Server receiver alias');assert.equal(alias.actionLevel,'Review');assert.match(alias.to,/remains.*deprecated alias/);
  assert(r.breakingChanges.some(t=>t.title==='Migrate removed Collector 0.163 configuration'&&t.breaking));
  const prior=rt.run('compare_routes',{routes:[{...route,from:'Jul 2026',to:'Sep 2026'}]}).reports[0];assert(!prior.features.some(t=>t.title.includes('0.163')));
+});
+
+test('Collector 0.164 keeps standalone configuration removals and migration boundaries explicit',async()=>{
+ const route={product:'observability',platform:'cloud',host:'10.6',from:'Sep 2026',to:'Oct 2026'},rt=await runtime({selection:route});
+ const r=rt.run('compare_routes',{routes:[route]}).reports[0];
+ const f=r.features.find(x=>x.title==='Collector 0.164 migration controls');assert(f);
+ assert.equal(f.source,'https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.164.0');assert.match(f.milestone,/October 30/);assert.match(f.detail,/not a Kubernetes chart update/);
+ for(const name of ['Collector 0.164 Splunk configuration path','Collector 0.164 Smart Agent monitor lifecycle','Collector 0.164 telemetry identity changes','Collector 0.164 filelog checkpoints','Collector 0.164 exporter retry classification'])assert(r.technicalChanges.some(t=>t.component===name),name);
+ const path=r.technicalChanges.find(t=>t.component==='Collector 0.164 Splunk configuration path');assert.equal(path.actionLevel,'Required');assert.match(path.to,/splunkconf/);assert.match(path.implication,/does not change a Splunk Platform forwarder route/);
+ const monitor=r.technicalChanges.find(t=>t.component==='Collector 0.164 Smart Agent monitor lifecycle');assert.match(monitor.to,/December 2026/);assert.match(monitor.implication,/Deprecation is not removal/);
+ const checkpoints=r.technicalChanges.find(t=>t.component==='Collector 0.164 filelog checkpoints');assert.match(checkpoints.to,/existing JSON checkpoints are still read/);assert.match(checkpoints.implication,/does not establish downgrade behavior/);
+ assert(r.breakingChanges.some(t=>t.title==='Migrate and validate Collector 0.164'&&t.breaking));
 });
 test('chart 0.163.1 adopts the Collector patch and preserves conditional metric pipelines across UI and tools',async()=>{
  const route={product:'observability',platform:'cloud',host:'10.6',from:'Sep 2026',to:'Oct 2026'},rt=await runtime({selection:route});

@@ -382,10 +382,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-01T10:10:16Z",
+      "lastAttempt": "2026-11-02T10:42:27.640Z",
       "lastSuccess": "2026-11-01T10:15:20Z",
-      "outcome": "changed",
-      "summary": "Verified the Cloud 10.7 documented release route separately from the still-current 10.6 service pairing and advanced exact Cloud maintenance records to 10.6.2.2 and 10.5.2605.15.",
+      "outcome": "running",
+      "summary": "Version Release Watch is checking the complete official inventory and bounded high-consequence claims on fresh matching GitHub/Sites source.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -835,9 +835,15 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Verified the Cloud 10.7 documented release route separately from the still-current 10.6 service pairing and advanced exact Cloud maintenance records to 10.6.2.2 and 10.5.2605.15.",
           "scope": "All 213 registered official URLs attempted (211 retrieved; two historical bodies unavailable); affected Cloud claims, current product/component discovery, SOAR and SVD bounded reassessments, all 18 HF mappings, 255 tests, synchronization and build gates. Exact-candidate exports and publication remain separate."
+        },
+        {
+          "at": "2026-11-02T10:42:27.640Z",
+          "outcome": "running",
+          "summary": "Version Release Watch is checking the complete official inventory and bounded high-consequence claims on fresh matching GitHub/Sites source.",
+          "scope": "Enterprise, Cloud, migration, ES, ITSI, Observability, Universal/Heavy Forwarders, SOAR, named AI, issue-feed disposition, routes and publication evidence."
         }
       ],
-      "scope": "All 213 registered official URLs attempted (211 retrieved; two historical bodies unavailable); affected Cloud claims, current product/component discovery, SOAR and SVD bounded reassessments, all 18 HF mappings, 255 tests, synchronization and build gates. Exact-candidate exports and publication remain separate."
+      "scope": "Enterprise, Cloud, migration, ES, ITSI, Observability, Universal/Heavy Forwarders, SOAR, named AI, issue-feed disposition, routes and publication evidence."
     },
     {
       "id": "es-editions-watch",
