@@ -383,9 +383,9 @@ window.VersionCompassMaintenance = {
       "id": "version-release-watch",
       "name": "Version Release Watch",
       "lastAttempt": "2026-11-02T10:42:27.640Z",
-      "lastSuccess": "2026-11-01T10:15:20Z",
-      "outcome": "running",
-      "summary": "Version Release Watch is checking the complete official inventory and bounded high-consequence claims on fresh matching GitHub/Sites source.",
+      "lastSuccess": "2026-11-02T10:54:25.978Z",
+      "outcome": "changed",
+      "summary": "Added scoped Collector 0.164 migration guidance and published four bounded issue-feed reassessments.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -841,9 +841,15 @@ window.VersionCompassMaintenance = {
           "outcome": "running",
           "summary": "Version Release Watch is checking the complete official inventory and bounded high-consequence claims on fresh matching GitHub/Sites source.",
           "scope": "Enterprise, Cloud, migration, ES, ITSI, Observability, Universal/Heavy Forwarders, SOAR, named AI, issue-feed disposition, routes and publication evidence."
+        },
+        {
+          "at": "2026-11-02T10:54:25.978Z",
+          "outcome": "changed",
+          "summary": "Added scoped Collector 0.164 migration guidance and published four bounded issue-feed reassessments.",
+          "scope": "Complete 215-source inventory; Collector 0.164 affected claims; bounded Enterprise, Cloud, Forwarder, SOAR, security, Observability RCA and AI prerequisite claims; canonical datasets, route/tool regressions, native issue feed and publication gates."
         }
       ],
-      "scope": "Enterprise, Cloud, migration, ES, ITSI, Observability, Universal/Heavy Forwarders, SOAR, named AI, issue-feed disposition, routes and publication evidence."
+      "scope": "Complete 215-source inventory; Collector 0.164 affected claims; bounded Enterprise, Cloud, Forwarder, SOAR, security, Observability RCA and AI prerequisite claims; canonical datasets, route/tool regressions, native issue feed and publication gates."
     },
     {
       "id": "es-editions-watch",

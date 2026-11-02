@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-observability-rca-custom-metric-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-02T10:51:48.948Z",
+  "assessmentId": "vcia-observability-rca-custom-metric-scope-20261102",
+  "assessedAt": "2026-11-02",
+  "outcome": "still-present",
+  "rationale": "The same current guide still states that custom metrics are unsupported for the AI troubleshooting agent and later says custom metrics can be useful with standard dimensions. The explicit restriction remains controlling pending authoritative clarification.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Observability Cloud AI troubleshooting agent"
+    ],
+    "versions": [
+      "Current rolling documentation; source publication date unknown"
+    ],
+    "editions": null,
+    "deployments": [
+      "Non-Governmental Observability realms"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating RCA metric eligibility"
+    ],
+    "exclusions": [
+      "No custom-metric support, new regional rollout, entitlement or authorization is established."
+    ]
+  },
+  "comparedAssessmentIds": [],
+  "remainingConcerns": [
+    "The relationship between detector eligibility and contextual custom metrics remains unclear."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "rca-default-only-20261102",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan",
+      "section": "Use AI troubleshooting agent to identify potential root causes",
+      "statement": "The guide states that supported detectors and alerts use standard default metrics and that custom metrics are not supported.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-02T10:47:24.929Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ff61d2d7f5ca6dc61ab9c7c590e49b7da3352e45bd6f5757f660c9e9516ba22d",
+        "qualification": "Exact fetched response-body digest; not a semantic revision or retained official-document archive."
+      }
+    },
+    {
+      "evidenceId": "rca-custom-context-20261102",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan",
+      "section": "How To Make RCA More Effective — Prefer standard APM and Kubernetes telemetry conventions",
+      "statement": "The later guidance says custom metrics can be useful when standard dimensions identify the affected domain and entity.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-02T10:47:24.929Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ff61d2d7f5ca6dc61ab9c7c590e49b7da3352e45bd6f5757f660c9e9516ba22d",
+        "qualification": "Exact fetched response-body digest; not a semantic revision or retained official-document archive."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/4c741a6fcf49774b3a74c8e00eca2536083cd396/docs/audits/2026-11-02-version-release-watch.json",
+      "pointer": "/claimChecks/7",
+      "originalLabel": "conflicting-guidance-still-present-explicit-restriction-retained"
+    },
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/4c741a6fcf49774b3a74c8e00eca2536083cd396/docs/audits/2026-11-02-version-release-watch-sources.json",
+      "pointer": "/claimChecks/7",
+      "originalLabel": "conflicting-guidance-still-present-explicit-restriction-retained"
+    }
+  ]
+}
