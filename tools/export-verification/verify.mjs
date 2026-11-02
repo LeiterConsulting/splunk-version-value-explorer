@@ -8,7 +8,7 @@ import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
 import { verifyNavigation } from './navigation.mjs';
 import { verifyRippleScroll } from './ripple-scroll.mjs';
-import { verifyAdvisor } from './advisor.mjs';
+import { verifyAdvisor, configureAdvisorRoute } from './advisor.mjs';
 const require = createRequire(import.meta.url), { target, hash, verify } = require('../../scripts/export-evidence.cjs');
 if (process.env.SITES_MANAGED_LINUX_CONTAINER === '1') throw Error('Run export verification in dedicated application CI, not managed Sites preview.');
 const root = process.cwd(), output = path.resolve('export-artifacts');
@@ -101,8 +101,7 @@ try {
       entry.mainNavigation={passed:true};
     }
     await page.goto(url); await settled(page);
-    if(route.id==='advisor-prerequisites') {for(const [field,value] of [['itsiVersion','5.0.0'],['saiaVersion','2.2.0'],['mcpVersion','1.2.1']])await page.locator('#advisor-'+field).fill(value);assert.equal(await page.locator('#advisor-result .advisor-result').getAttribute('data-outcome'),'no_change');}
-    if(route.id==='advisor-conflict'){for(const [field,value] of [['deployment','enterprise'],['compliance','commercial'],['region','us-east-1'],['edition','premier']])await page.locator('#advisor-'+field).selectOption(value);assert.equal(await page.locator('#advisor-result .advisor-result').getAttribute('data-outcome'),'conflicting');}
+    await configureAdvisorRoute(page,route);
     if(routeUrl.hash) {
       assert.equal(new URL(page.url()).hash,routeUrl.hash,'Shared section anchor was discarded: '+id);
       assert(await page.locator(routeUrl.hash).count()>0,'Shared section anchor has no target: '+id);
@@ -196,7 +195,7 @@ try {
     entry.narrow = {passed:true,viewport:{width:390,height:844},file:relative(path.join(directory,'narrow.png'))};
     await page.evaluate(states=>[...document.querySelectorAll('main details')].filter(d=>!d.closest('#release-report,.edition-report')).forEach((d,i)=>{d.open=states[i];}),disclosureState);
     await page.setViewportSize({width:1440,height:1000});
-    if (route.invalid) {
+    if (route.invalid || route.exportsBlocked) {
       assert(await print.isDisabled(), 'Invalid route must block print');
       assert(await page.locator('.header-actions [data-save-snapshot], .header-report-actions [data-save-snapshot], .site-header [data-save-snapshot]').first().isDisabled(), 'Invalid route must block saved HTML');
       entry.exportsBlocked = true;

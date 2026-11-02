@@ -1,52 +1,124 @@
-# Advisor: bounded first build
+# Advisor decision briefs
 
-Advisor is visibly **Work in progress** at `?view=advisor`, including the shared
-mobile navigation and Ripple masthead. It offers deterministic, goal-specific
-paths from already assessed published Splunk documentation. It has no runtime
-model, external discovery, new schedule or automatic environment inventory.
+Advisor turns a specific Splunk decision and self-reported context into a bounded
+decision brief: established facts, reported-version comparisons, missing user
+facts, missing assessed evidence, current conflicts, historical corrections and
+concrete next verification. It remains visibly **Work in progress**. It is not a
+chatbot, environment inspection, readiness certificate or general upgrade adviser.
 
-## Current goals
+## Current coverage
 
-- SAIA Agent Mode: deployment-specific Platform floor and scoped commercial
-  service-region evidence; app pairing, permissions, activation and runtime
-  remain explicit conditions. Regulated or unknown context is insufficient.
-- ITSI assistance: the assessed ITSI/SAIA/MCP version floors. A separate narrow
-  version-only goal can return no version change indicated. It never claims
-  complete pairing or feature access. Subagent regional rollout stays unknown.
-- ES AI SOC workflow: preserve the 8.8 aggregate versus current 8.8 task-specific
-  version floors and the historical Triage edition contradiction, with current
-  sources and impact. The November 2 note no longer explicitly assigns Essentials;
-  exact component entitlement remains unestablished. The scoped admission pin was
-  reassessed for that correction; unrelated pins and claim dates remain unchanged.
-- Keeping current capabilities can produce no change proposed. Reported ingest
-  pressure produces insufficient evidence, without capacity or remedy inference.
+The three cards show coverage and exclusions before data entry. No assessment is
+displayed initially. A visitor explicitly builds a brief; editing context, loading
+a profile, changing decisions or using browser history requires a new brief.
+Print and dated HTML remain disabled until that brief exists.
 
-Licensing, sizing and operational advice without enough assessed evidence are
-excluded from this build and recorded as future potential. Inputs are explicitly
-self-reported, unknown is allowed, and access confirmation does not establish
-entitlement, health, compliance or customer authorization.
+| Decision | Relevant reports | Bounded outcome |
+| --- | --- | --- |
+| Plan for SAIA Agent Mode | Deployment, service environment, Enterprise Platform version where applicable, AI service location, reported access | Documented Enterprise minimum and commercial location context; explicit unknown pairing, activation, runtime, entitlement and regulated scope |
+| Check ITSI assistant dependencies | ITSI, SAIA and MCP Server versions | Three minimum comparisons; no gap can mean no version uplift indicated **by those minimums alone**. Complete pairing and subagent regional rollout remain separate. |
+| Untangle ES AI SOC requirements | Deployment/environment/edition/access, applicable Platform and ES versions, CMP Cloud Connect version | Separate Cloud/CMP chains, the current Cloud ES 8.6+/8.7+ discrepancy, and corrected historical Triage wording. Exact SOAR pairing and agent-specific rollout remain unestablished. |
 
-## Claim admission and maintenance
+A minimum is never selected as a recommended target. Reported access never proves
+entitlement or customer authorization. A missing fact about a visitor is not
+conflated with missing product evidence. Historical Essentials/Triage wording is
+not presented as a continuing current contradiction. The separately unresolved
+Cloud aggregate-versus-task minimum remains visible with both current sources.
 
-`content/advisor-admission.json` is an admission registry, not a parallel factual
-dataset. Each named goal references exact canonical capability/policy/source
-payloads with SHA-256 pins and an explicit scope. Location metadata admits only
-identifiers, not feature availability. Every cited source has its own pinned
-review scope; a domain or document is not blanket approval. Canonical facts
-remain in the existing datasets. Dates are rendered from those unchanged facts.
+Unsupported ingest-pressure and generic keep-current choices are removed from
+actionable coverage. Their published URLs show the original intent and an explicit
+not-covered explanation, without inventing a new assessment. The old broad ITSI
+assistance link offers a deliberate transition to dependency-check coverage; it
+does not silently reinterpret an availability request as a compatibility result.
 
-Runtime verifies every required pin before offering a factual path. A changed
-claim or source pauses that goal for reassessment. Review the actual changed
-claim, supporting section, contradictions and impact before updating its pin;
-never refresh pins automatically during a content sync. Then run
-`node scripts/sync-advisor.cjs` to regenerate its adapter and add scenario tests
-for new reasoning. The generator only copies reviewed admission metadata.
+## Evidence and dates
 
-## Local profile and reporting
+Canonical facts remain in the seven existing datasets. No UI change updates source,
+claim or lifecycle dates. `content/advisor-admission.json` pins exact assessed
+claim/source payloads within a named scope. `content/advisor-goals.json` describes
+decision coverage, evidence dependencies, owners, review policy and release gates;
+it is configuration, not another factual dataset.
 
-Profiles save only when requested in browser localStorage. Save/load/clear use
-one namespaced key. Nothing is sent to an Advisor API. URL history and copied
-links contain only the goal and appearance. PDF and dated HTML deliberately
-include the self-reported context and supporting evidence. Invalid or private
-URL fields block exports until the link is corrected. New export routes and a
-six-case responsive/appearance interaction matrix are in exact-candidate CI.
+Keep three clocks separate:
+
+1. **Source checked:** the recorded retrieval/check date for that source scope.
+2. **Claim/section assessed:** the original capability or supporting-section review
+   date. A later Triage-note review does not reverify every older prerequisite.
+3. **Brief created:** the time this browser built a result from reported context.
+   It does not perform a live source check.
+
+A matching local hash proves content identity, not that an upstream page is still
+current. Advisor's configurable review windows are 14 days for recorded source
+checks and 30 days for claim/section assessments, inclusive through the due date.
+These are product review gates, not vendor support periods. Undated, future-dated,
+changed or overdue dependencies pause factual paths. The resulting review-needed
+brief contains no changed capability text or confident recommendation.
+
+## Change-driven maintenance
+
+Existing Version Release Watch owns SAIA/ITSI dependencies. ES Editions Watch owns
+the ES workflow/edition/deployment chain. CSP FedRAMP Watch owns service location
+and regulated evidence. Guidance Audit independently checks coverage, contradictions
+and exports. No new timer or schedule change is introduced.
+
+Run `node scripts/advisor-maintenance.cjs` during an existing review when a goal's
+dependency changes or its review is due. It reports affected goals, dependencies,
+dates and owners without fetching sources or advancing dates. Its `--check` mode
+also proves that changed and overdue evidence cannot yield a factual path.
+Existing native issue-feed obligations still apply to actual source-watch reviews;
+UI normalization is not a new product finding or claim reassessment.
+
+For a changed dependency, inspect the actual claim and supporting section. Record
+any current conflict and decision impact; preserve corrected wording as history.
+Update only the justified admission pin after scoped reassessment. A real source
+check may change its check date without pretending the underlying claim was newly
+assessed. Do not refresh all pins automatically. Regenerate the two adapters with
+`node scripts/sync-advisor.cjs`, then run its check and the maintenance gate.
+
+## Prioritized expansion backlog
+
+The registry is the single configuration source for the on-screen backlog:
+
+1. Exact app/Platform pairing decisions, with patch-specific qualifications and
+   supported negative outcomes.
+2. Capability-specific ITSI/ES agent regional rollout, without inheriting base
+   assistant or hosting coverage.
+3. Additional released capability decisions with useful bounded outcomes.
+4. Licensing, sizing and operational decisions only after sufficient assessed
+   published documentation supports their exact recommendation and limitations.
+
+These are emerging opportunities, not admitted facts or promised availability.
+Add a card only with an implemented decision, exact assessed evidence dependencies,
+an existing maintenance owner, known/unknown/negative/conflict and drift/freshness
+tests, and screen/PDF/offline-HTML routes. The registry generator refuses a new
+card until its decision handler is explicitly implemented. Do not expand coverage
+just to increase the number of cards.
+
+## Privacy and Release Guide handoff
+
+Inputs remain local. Save/load/clear uses the existing namespaced localStorage key;
+older profiles require review under the revised coverage. No profile field is read
+from or appended to an Advisor URL. Copy shares the decision and theme only. PDF
+and dated HTML deliberately retain relevant self-reported inputs and all caveats.
+
+A commercial Enterprise Agent Mode version-gap brief can carry a ten-minute,
+single-use sessionStorage note to the existing Enterprise Release Guide. The
+navigation URL contains no reported version or target. The note retains the
+reported version and the distinction between a documented minimum and a target;
+it never changes comparison selections. The guide's normal defaults are not an
+Advisor recommendation. Visitors choose their comparison themselves, after which
+the Release Guide's established sharing behavior applies. The private note is
+consumed once, excluded from copied links/reports and ignored when malformed or
+expired. No inventory or visitor identity is stored on a server.
+
+## Release gates
+
+Run the four existing sync commands in required order and their check gates,
+Advisor adapter/maintenance gates, feed/native-feed checks, the complete unit suite
+and build. The dedicated browser matrix covers explicit build/dirty/empty states,
+keyboard, labels, themes, phone/tablet/laptop, history, older links/profiles,
+private handoff, snapshots and changed-evidence rejection. Exact-candidate CI adds
+known/unknown/CMP/regulated/changed-evidence decision briefs to native PDF rendering
+and independent offline HTML reopening. Landing and unsupported views deliberately
+block exports, without being labelled failed assessments. Retain actual artifacts,
+inspect novel layouts and verify the deployed custom-domain UI, assets and D1.

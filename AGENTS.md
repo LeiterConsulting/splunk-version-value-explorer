@@ -1,5 +1,22 @@
 # VersionCompass working contract
 
+## November 2 Advisor decision briefs
+
+Read docs/advisor.md and content/advisor-goals.json for active decision coverage,
+dependencies, review windows, existing owners and release gates. Advisor uses
+assessed canonical claims; a content hash proves identity, not upstream currency.
+Keep source checks, scoped claim/section assessments and brief creation dates
+separate. Existing watches should run scripts/advisor-maintenance.cjs after changes
+to a goal dependency or its review dates. Inspect and reassess the exact scope
+before updating an admission pin; never refresh all pins or advance claim dates
+as a UI/content-sync side effect. Changed or overdue dependencies pause factual
+paths without treating unknown as unavailable. Preserve corrected historical
+wording separately from current contradictions and keep all qualifications in
+screen, PDF and offline HTML. New cards require an implemented bounded decision,
+assessed sources, useful negative/conflict cases and candidate exports. The
+prioritized backlog describes opportunities, not admitted facts. Reuse existing
+watches and the progress task; no new schedule or customer-context collection.
+
 ## October 30 public issue feed
 
 Native publication is now enabled as a normal required review output. Read

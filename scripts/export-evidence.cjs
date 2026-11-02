@@ -5,7 +5,7 @@ const gates = ['html-reopen', 'pdf-rendering', 'themes-and-narrow-screens'];
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 function target(root = process.cwd()) {
   const files = execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard'], { cwd: root, encoding: 'utf8' }).trim().split('\n')
-    .filter(f => /^(dist\/(?:ripple\/)?[^/]+\.(?:html|js|css|json|svg)|client\/.*\.js|worker\/.*\.mjs|content\/(?:advisor-admission\.json|datasets\/.*\.json|publication\.json)|tools\/export-verification\/[^/]+\.(?:mjs|py|json)|tools\/ripple\/.*\.(?:tsx|ts|css|html|json|svg)|scripts\/(?:export-evidence|sync-advisor|build-ripple|check-ripple)\.cjs)$/.test(f)).sort();
+    .filter(f => /^(dist\/(?:ripple\/)?[^/]+\.(?:html|js|css|json|svg)|client\/.*\.js|worker\/.*\.mjs|content\/(?:advisor-(?:admission|goals)\.json|datasets\/.*\.json|publication\.json)|tools\/export-verification\/[^/]+\.(?:mjs|py|json)|tools\/ripple\/.*\.(?:tsx|ts|css|html|json|svg)|scripts\/(?:export-evidence|sync-advisor|advisor-maintenance|build-ripple|check-ripple)\.cjs)$/.test(f)).sort();
   const inputs = [...new Set(files)].map(file => ({ file, sha256: hash(fs.readFileSync(path.join(root, file))) }));
   const manifest = JSON.parse(fs.readFileSync(path.join(root, 'content/publication.json')));
   return { fingerprint: hash(JSON.stringify(inputs)), contentRevision: manifest.revision, engineRevision: manifest.engineRevision, inputs };
@@ -29,9 +29,10 @@ function verify(directory, root = process.cwd()) {
     verifiedArtifacts.add(artifact.file);
   }
   for (const c of receipt.cases) {
-    const invalid = routes.find(r => c.id === r.id + '-default' || c.id === r.id + '-cisco')?.invalid;
+    const route = routes.find(r => c.id === r.id + '-default' || c.id === r.id + '-cisco');
+    const invalid = route?.invalid || route?.exportsBlocked;
     if (!c.narrow?.passed || !verifiedArtifacts.has(c.screen) || !verifiedArtifacts.has(c.narrow.file)) throw Error('Missing rendered viewport evidence');
-    if (invalid) { if (c.exportsBlocked !== true) throw Error('Invalid route exports were not blocked'); continue; }
+    if (invalid) { if (c.exportsBlocked !== true) throw Error('Invalid route exports were not blocked (including deliberate non-reporting views)'); continue; }
     if (!c.html?.offlineReopened || !c.html.complete || !c.html.networkRequestsBlocked || !verifiedArtifacts.has(c.html.file)) throw Error('Saved HTML was not independently verified');
     if (!c.pdf?.passed || c.pdf.pageCount < 1 || c.pdf.pages?.length !== c.pdf.pageCount || !verifiedArtifacts.has(c.pdf.file)
       || !c.pdf.pages.every(p => p.passed && verifiedArtifacts.has(p.file)) || !verifiedArtifacts.has(c.pdf.inspection)) throw Error('Missing PDF page verification');

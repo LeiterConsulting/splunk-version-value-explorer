@@ -13,7 +13,7 @@
     return;
   }
   const preview = params.getAll('view').length === 1 && params.get('view') === 'es-editions' || !params.has('view') && params.getAll('preview').length === 1 && params.get('preview') === 'es-editions';
-  const normal = ['environment-data.js','environment.js','data.js','product-data.js','guidance-data.js','comparison.js','guidance.js','release-print.js','app.js','soar-data.js','soar.js','webmcp.js'];
+  const normal = ['environment-data.js','environment.js','data.js','product-data.js','guidance-data.js','comparison.js','guidance.js','release-print.js','app.js','soar-data.js','soar.js','webmcp.js','advisor-handoff.js'];
   if (preview) {
     document.body.classList.add('editions-preview');
     document.querySelector('main').innerHTML = '<section class="hero"><p class="dek" role="status">Loading ES editions comparison…</p></section>';
@@ -33,7 +33,7 @@
   if(params.getAll('view').includes('advisor')){
     document.querySelector('main').innerHTML='<section class="hero"><p role="status">Loading Advisor.</p></section>';
     for(const file of ['editions.css','perspectives.css','ai-availability.css','advisor.css']){const css=document.createElement('link');css.rel='stylesheet';css.href=file;document.head.appendChild(css);}
-    load(['content-revision.js','source-register.js','report-tools.js','environment-data.js','data.js','guidance-data.js','ai-availability.js','advisor-admission.js','advisor.js','advisor-ui.js','navigation.js']);return;
+    load(['content-revision.js','source-register.js','report-tools.js','environment-data.js','data.js','guidance-data.js','ai-availability.js','advisor-admission.js','advisor-goals.js','advisor.js','advisor-report.js','advisor-ui.js','navigation.js']);return;
   }
   if(params.getAll('view').includes('ai-availability')){
     document.querySelector('main').innerHTML='<section class="hero"><p role="status">Loading AI Availability…</p></section>';

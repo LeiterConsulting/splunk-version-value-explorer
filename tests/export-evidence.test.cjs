@@ -9,7 +9,7 @@ function fixture(t) {
   const receipt = {schemaVersion:1,outcome:'passed',target:target(),commit:'a'.repeat(40),tree:'b'.repeat(40),completedAt:'2026-10-08T12:00:00Z',
     artifacts:[{file:'fixture.txt',sha256:hash(fs.readFileSync(path.join(dir,'fixture.txt')))}],
     cases:routes.flatMap(r=>['default','cisco'].map(theme=>({id:r.id+'-'+theme,outcome:'passed',screen:'fixture.txt',narrow:{passed:true,file:'fixture.txt'},
-      ...(r.invalid?{exportsBlocked:true}:{html:{file:'fixture.txt',offlineReopened:true,complete:true,networkRequestsBlocked:true},pdf:{passed:true,file:'fixture.txt',inspection:'fixture.txt',pageCount:1,pages:[{file:'fixture.txt',passed:true}]}})})))};
+      ...(r.invalid||r.exportsBlocked?{exportsBlocked:true}:{html:{file:'fixture.txt',offlineReopened:true,complete:true,networkRequestsBlocked:true},pdf:{passed:true,file:'fixture.txt',inspection:'fixture.txt',pageCount:1,pages:[{file:'fixture.txt',passed:true}]}})})))};
   const save = ()=>fs.writeFileSync(path.join(dir,'evidence.json'),JSON.stringify(receipt)); save(); return {dir,receipt,save};
 }
 test('candidate evidence requires complete routes, page renders, offline reopening and intact artifact bytes',t=>{
