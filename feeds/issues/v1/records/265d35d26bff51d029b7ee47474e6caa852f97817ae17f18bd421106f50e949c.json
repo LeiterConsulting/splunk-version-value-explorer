@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-itsi-subagent-region",
+  "revision": 1,
+  "recordedAt": "2026-11-02T13:53:32.523Z",
+  "assessmentId": "vcia-guidance-20261102-itsi-subagent-region",
+  "assessedAt": "2026-11-02T13:48:27.639Z",
+  "outcome": "unable-to-verify",
+  "rationale": "Exact app floors are documented, but base-assistant regional rows do not establish ITSI subagent rollout or regulated authorization. The bounded reviewed corpus comprises the About/subagent, install/regional and related-app pages; no unsupported provider or exclusion is inferred.",
+  "reviewedScope": {
+    "products": [
+      "Splunk IT Service Intelligence",
+      "Splunk AI Assistant",
+      "Splunk MCP Server"
+    ],
+    "versions": [
+      "ITSI 5.0+",
+      "SAIA 2.2+",
+      "MCP Server 1.2.1+"
+    ],
+    "editions": null,
+    "deployments": [
+      "Cloud regional availability not established"
+    ],
+    "regions": null,
+    "audiences": [
+      "Customers evaluating ITSI subagent regional availability"
+    ],
+    "exclusions": [
+      "No tenant availability, entitlement, authorization or deployment suitability is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-itsi-region-20261102"
+  ],
+  "remainingConcerns": [
+    "Subagent-specific regional rollout remains not established by the reviewed sources."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "source-145-observed",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+      "section": "Splunk AI Assistant ITSI subagent; Where Splunk AI Assistant runs",
+      "statement": "ITSI 5.0.0+, SAIA 2.2.0+ and MCP Server 1.2.1+ are documented.",
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-02T13:36:48.833Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "63bac90fdbf13761eceeaa7da35a30c2562808da18f873f26fce230265d2859d",
+        "qualification": "Exact fetched response-body digest; not a semantic diff or publisher revision."
+      },
+      "excerpt": null
+    },
+    {
+      "evidenceId": "source-146-challenging",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "section": "Supported regions; FedRAMP deployments",
+      "statement": "These are base-assistant regional and limited IL2 rules, not an ITSI subagent rollout table.",
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-02T13:36:48.835Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "97ec9fba0b7ad69a2bcabbe6b180f1b09d5629402a3321d1b37fce746a906eb6",
+        "qualification": "Exact fetched response-body digest; not a semantic diff or publisher revision."
+      },
+      "excerpt": null
+    },
+    {
+      "evidenceId": "source-149-observed",
+      "url": "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/install-and-upgrade/5.0/planning/itsi-compatibility-with-related-apps-and-add-ons",
+      "section": "ITSI compatibility with related apps and add-ons — 5.0 row",
+      "statement": "Related-app compatibility is distinct from subagent regional rollout.",
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-02T13:36:48.835Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "40f92649a9ea3ca87a95d54480f63f44aa3e7d9c22e78c6b965039bc0f7ce4eb",
+        "qualification": "Exact fetched response-body digest; not a semantic diff or publisher revision."
+      },
+      "excerpt": null
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/847688aa54b0d8d0f8ca6768dd7cfdf9ba5bf619/docs/audits/2026-11-02-version-guidance-audit.json",
+      "pointer": "/claimChecks/6",
+      "originalLabel": "version-floors-confirmed-rollout-unestablished"
+    }
+  ]
+}

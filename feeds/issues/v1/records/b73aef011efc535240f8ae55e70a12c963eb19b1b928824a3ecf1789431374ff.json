@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-app-for-soar-es-pairing",
+  "revision": 1,
+  "recordedAt": "2026-11-02T13:53:32.523Z",
+  "assessmentId": "vcia-guidance-20261102-app-for-soar-es-pairing",
+  "assessedAt": "2026-11-02T13:48:27.639Z",
+  "outcome": "unable-to-verify",
+  "rationale": "App for SOAR lists ES 8.7.0/8.6.1, not a later ES 8.8 pairing. Export has separate 8.7.0 and 8.7.1 rows, CIM/Python prerequisites and FIPS repair. Independent release numbers do not establish pairing or security-safe platform patches.",
+  "reviewedScope": {
+    "products": [
+      "Splunk App for SOAR",
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "App for SOAR 8.7.0",
+      "ES 8.7.1",
+      "ES 8.8",
+      "ES 8.9"
+    ],
+    "editions": null,
+    "deployments": null,
+    "regions": null,
+    "audiences": [
+      "Customers and documentation readers evaluating the stated decision"
+    ],
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-app-for-soar-es-pairing-20261101"
+  ],
+  "remainingConcerns": [
+    "An exact published compatibility row is needed for the later ES version before establishing the pairing."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "source-192-observed",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.7.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "section": "Splunk product compatibility matrix; /rest/audit footnote",
+      "statement": "App for SOAR 8.7.0 retains its exact listed pairings and SOAR 8.7 audit-polling floor.",
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-02T13:37:32.117Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "2a9ddffd3e709c2e214095e218325b46d099d9c841ca7c5ce2dda4774440e8ec",
+        "qualification": "Exact fetched response-body digest; not a semantic diff or publisher revision."
+      },
+      "excerpt": null
+    },
+    {
+      "evidenceId": "source-189-observed",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+      "section": "Required Python version; compatibility matrix; required app",
+      "statement": "Cloud Export retains separate 8.7.0/8.7.1 rows and CIM requirement.",
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-02T13:37:32.116Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "2463169cba157c6eecb8ea0dd72cae3796a5e1dab9e65a0d71398b8ed14c7962",
+        "qualification": "Exact fetched response-body digest; not a semantic diff or publisher revision."
+      },
+      "excerpt": null
+    },
+    {
+      "evidenceId": "source-190-observed",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+      "section": "Required Python version; compatibility matrix; required app",
+      "statement": "Enterprise Export prerequisites remain separate.",
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-02T13:37:32.116Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ea6e622536b810077a5a048a409a2fd2421796b157830e10917d92eb1625b60d",
+        "qualification": "Exact fetched response-body digest; not a semantic diff or publisher revision."
+      },
+      "excerpt": null
+    },
+    {
+      "evidenceId": "source-191-observed",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
+      "section": "Welcome to release 8.7.1; PAPP-38496",
+      "statement": "FIPS repair is Export-specific.",
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-02T13:37:32.116Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "1bd37930f8740abeb5c40ebf1c5800f15971439197bc5a468a258093594a0550",
+        "qualification": "Exact fetched response-body digest; not a semantic diff or publisher revision."
+      },
+      "excerpt": null
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/847688aa54b0d8d0f8ca6768dd7cfdf9ba5bf619/docs/audits/2026-11-02-version-guidance-audit.json",
+      "pointer": "/claimChecks/9",
+      "originalLabel": "confirmed-separate-functionality-matrices"
+    }
+  ]
+}

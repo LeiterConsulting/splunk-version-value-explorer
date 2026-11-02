@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-soar-cloud-880-release-stage",
+  "revision": 1,
+  "recordedAt": "2026-11-02T13:53:32.523Z",
+  "assessmentId": "vcia-guidance-20261102-soar-cloud-880-release-stage",
+  "assessedAt": "2026-11-02T13:48:27.639Z",
+  "outcome": "still-present",
+  "rationale": "The release is explicitly Controlled Availability, followed by General Availability enhancement prose. The current Broker HA row has no independent GA label and requires representative enablement. Corrected the feature to Conditional; no on-premises 8.8, tenant rollout, entitlement, region, pairing or authorization is inferred.",
+  "reviewedScope": {
+    "products": [
+      "Splunk SOAR"
+    ],
+    "versions": [
+      "Cloud 8.8.0"
+    ],
+    "editions": null,
+    "deployments": [
+      "Splunk-managed Cloud"
+    ],
+    "regions": null,
+    "audiences": [
+      "Customers evaluating release stage",
+      "Documentation readers"
+    ],
+    "exclusions": [
+      "No tenant availability, entitlement, authorization, ES pairing or deployment suitability is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-soar-stage-20261102"
+  ],
+  "remainingConcerns": [
+    "Release CA/GA wording remains inconsistent. The current Broker HA row requires representative enablement and does not independently establish a GA stage."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "source-173-observed",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
+      "section": "October 21, 2026 Release 8.8 — release-stage statement; enhancement introduction; Automation Broker HA row",
+      "statement": "The release statement says CA, the enhancement introduction says GA, and the Broker HA row requires contacting a representative for enablement.",
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-02T13:37:16.861Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "51943e0da9c21d59d20bb5e8bfc001edfd7ae713d69df1637e51726b532d0fa7",
+        "qualification": "Exact fetched response-body digest; not a semantic diff or publisher revision."
+      },
+      "excerpt": null
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/847688aa54b0d8d0f8ca6768dd7cfdf9ba5bf619/docs/audits/2026-11-02-version-guidance-audit.json",
+      "pointer": "/claimChecks/2",
+      "originalLabel": "release-conflict-retained-feature-ga-overstatement-corrected"
+    }
+  ]
+}

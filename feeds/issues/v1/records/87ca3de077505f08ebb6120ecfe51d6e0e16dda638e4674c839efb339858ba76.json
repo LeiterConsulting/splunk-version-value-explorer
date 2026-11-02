@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "findingId": "vci-es-soc-analyst-version-floor",
+  "revision": 1,
+  "recordedAt": "2026-11-02T13:53:32.523Z",
+  "title": "AI SOC Analyst aggregate and task-specific Cloud ES floors differ",
+  "concernType": "contradiction",
+  "problem": "The aggregate row lists Platform 10.2.x+ and ES 8.6+ for Cloud; the current 8.8 task guide requires Platform 10.2+ and ES 8.7+. CMP separately requires Platform 10.4+, ES 8.8+ and Cloud Connect 2.0. Do not certify Cloud ES 8.6 from the lower aggregate floor.",
+  "scope": {
+    "products": [
+      "Splunk Enterprise Security AI SOC Analyst"
+    ],
+    "versions": [
+      "ES 8.8 documentation: aggregate Cloud ES 8.6+ versus task-specific ES 8.7+"
+    ],
+    "editions": [
+      "Premier"
+    ],
+    "deployments": [
+      "Splunk Cloud Platform"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers planning AI SOC Analyst prerequisites"
+    ],
+    "exclusions": [
+      "CMP has its separate Platform 10.4+/ES 8.8+/Cloud Connect 2.0 chain; no lower-floor eligibility, tenant rollout, entitlement, pairing or authorization is established."
+    ]
+  },
+  "impact": {
+    "customerScenario": "A Premier Cloud customer evaluates the AI SOC Analyst workflow using the aggregate ES 8.6+ row.",
+    "consequence": "The current task guide has a higher ES 8.7+ minimum. Relying only on the lower aggregate floor could omit an applicable prerequisite.",
+    "level": "unknown"
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "Both exact current 8.8 public sections were independently inspected; their intended minimum-version relationship remains unresolved."
+  },
+  "claimIds": [
+    "editions.soc-analyst-cloud-version-floor"
+  ],
+  "scopeComparison": "Both current 8.8 pages describe the AI SOC Analyst Cloud workflow. The aggregate table lists ES 8.6+, while the task-specific prerequisite lists ES 8.7+. Separate CMP floors do not resolve the Cloud discrepancy.",
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Task-specific and aggregate prerequisites still need authoritative reconciliation."
+  },
+  "relationships": {
+    "related": [
+      "vci-es-88-triage-editions",
+      "vci-es-malware-phishing-version-floor"
+    ],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "source-086-observed",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Compatibility information for AI agents — AI SOC analyst agent row",
+      "statement": "The Cloud aggregate row lists ES 8.6+ and Platform 10.2.x+; the separate CMP chain requires Platform 10.4+, ES 8.8+ and Cloud Connect 2.0.",
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-02T13:35:31.439Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "bca1c86117d89f4c1d1810d363760ea82910fab0d548cc9770daf1cfb179fa52",
+        "qualification": "Exact fetched response-body digest; not a semantic diff or publisher revision."
+      },
+      "excerpt": null
+    },
+    {
+      "evidenceId": "source-088-challenging",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "section": "Prerequisites to use the AI SOC analyst agent",
+      "statement": "The current task guide requires ES 8.7+ and Platform 10.2+ for Cloud, plus paired SOAR, assistant enablement and connector permissions.",
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-02T13:35:31.439Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "a33dbe368a0c87ee79b4f5485179c0ccedfc01084cb7b80381fb50759e57cff6",
+        "qualification": "Exact fetched response-body digest; not a semantic diff or publisher revision."
+      },
+      "excerpt": null
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/847688aa54b0d8d0f8ca6768dd7cfdf9ba5bf619/docs/audits/2026-11-02-version-guidance-audit.json",
+      "pointer": "/claimChecks/1",
+      "originalLabel": "minimum-version-discrepancy-confirmed"
+    }
+  ]
+}

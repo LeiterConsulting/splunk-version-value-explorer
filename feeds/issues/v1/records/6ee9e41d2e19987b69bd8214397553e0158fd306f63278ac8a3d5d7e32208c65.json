@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-enterprise-kv-106-upgrade-bridge",
+  "revision": 1,
+  "recordedAt": "2026-11-02T13:53:32.523Z",
+  "assessmentId": "vcia-guidance-20261102-enterprise-kv-106-upgrade-bridge",
+  "assessedAt": "2026-11-02T13:48:27.639Z",
+  "outcome": "still-present",
+  "rationale": "The general table lists direct 10.0-to-10.6; the KV-specific guide requires 10.2 or higher first. Cohosted migration requires KV 7.0+, disk, health and parallel backup, impairs writes and can be postponed. Current procedure names ITSI 5.0.x and lower; the ES matrix boundary is independently scoped. No UF inheritance.",
+  "reviewedScope": {
+    "products": [
+      "Heavy Forwarder"
+    ],
+    "versions": [
+      "Sources 10.0 or lower",
+      "Destination 10.6"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed Enterprise package with KV Store"
+    ],
+    "regions": null,
+    "audiences": [
+      "Customers and documentation readers evaluating the stated decision"
+    ],
+    "exclusions": [
+      "KV-specific prerequisite; not applied to Universal Forwarders or Cloud-managed upgrade routes."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-enterprise-kv-106-upgrade-bridge-20261025"
+  ],
+  "remainingConcerns": [
+    "The general graph and narrower KV Store prerequisite remain separately scoped pending authoritative clarification."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "source-052-observed",
+      "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-the-kv-store-server-version",
+      "section": "Upgrade the KV store server version — source 10.0 or lower prerequisite",
+      "statement": "Sources at Enterprise 10.0 or lower must first upgrade to 10.2 or higher before 10.6.",
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-02T13:34:51.490Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "582951da279740d2dc3ae5fd16d841dee0dc48220d5886923689607fb0681527",
+        "qualification": "Exact fetched response-body digest; not a semantic diff or publisher revision."
+      },
+      "excerpt": null
+    },
+    {
+      "evidenceId": "source-127-challenging",
+      "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise",
+      "section": "Upgrade path table",
+      "statement": "The general table lists 10.0.x to 10.6.x without the KV-specific bridge.",
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-02T13:36:24.503Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b9d9ad9afa37170087000b071c842531fa342bae7963b6d4a1d8a300a2979871",
+        "qualification": "Exact fetched response-body digest; not a semantic diff or publisher revision."
+      },
+      "excerpt": null
+    },
+    {
+      "evidenceId": "source-053-observed",
+      "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+      "section": "Prepare for upgrade; Postpone the automatic database upgrade",
+      "statement": "Current KV preparation and postponement remain conditional component requirements.",
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-02T13:34:51.490Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "62e661fe3b1f86a63eeeabe86c5b622d1002b6da070526e2a80d17cbe79b7eb0",
+        "qualification": "Exact fetched response-body digest; not a semantic diff or publisher revision."
+      },
+      "excerpt": null
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/847688aa54b0d8d0f8ca6768dd7cfdf9ba5bf619/docs/audits/2026-11-02-version-guidance-audit.json",
+      "pointer": "/claimChecks/3",
+      "originalLabel": "conflict-preserved"
+    }
+  ]
+}

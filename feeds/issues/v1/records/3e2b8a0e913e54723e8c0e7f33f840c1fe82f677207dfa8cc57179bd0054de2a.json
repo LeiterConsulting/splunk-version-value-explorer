@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-cloud-107-release-service-pairing",
+  "revision": 1,
+  "recordedAt": "2026-11-02T13:53:32.523Z",
+  "assessmentId": "vcia-guidance-20261102-cloud-107-release-service-pairing",
+  "assessedAt": "2026-11-02T13:48:27.639Z",
+  "outcome": "still-present",
+  "rationale": "The 10.7-path Service Details still names Cloud 10.6, ES 8.7 and ITSI 5.0. This does not negate the documented 10.7 milestone or establish selected-stack rollout, entitlement, region, authorization or historical first availability.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform"
+    ],
+    "versions": [
+      "10.7 documented release route",
+      "10.6 current subscription table"
+    ],
+    "editions": null,
+    "deployments": [
+      "Splunk-managed Cloud"
+    ],
+    "regions": null,
+    "audiences": [
+      "Customers evaluating upgrade timing",
+      "Documentation readers"
+    ],
+    "exclusions": [
+      "No selected-stack rollout, premium-product compatibility, receiver compatibility, entitlement, region or authorization is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-cloud-107-release-service-pairing-20261102"
+  ],
+  "remainingConcerns": [
+    "Authoritative selected-stack and current-subscription pairing for Cloud 10.7 remains unestablished."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "source-066-observed",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Current Splunk Cloud Platform and Premium App versions",
+      "statement": "The current subscription table names 10.6 / ES 8.7 / ITSI 5.0.",
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-02T13:35:10.363Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "5eb2d672a05c72392a1cafa766e307deec1fc5b77895d182378ae4e8abe9f160",
+        "qualification": "Exact fetched response-body digest; not a semantic diff or publisher revision."
+      },
+      "excerpt": null
+    },
+    {
+      "evidenceId": "source-076-challenging",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+      "section": "What's new",
+      "statement": "The versioned release page documents Cloud 10.7 separately.",
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-02T13:35:22.197Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "15daba876032ba957fed71a7a69e9946c22111512eeb537354eeedfb543304a9",
+        "qualification": "Exact fetched response-body digest; not a semantic diff or publisher revision."
+      },
+      "excerpt": null
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/847688aa54b0d8d0f8ca6768dd7cfdf9ba5bf619/docs/audits/2026-11-02-version-guidance-audit.json",
+      "pointer": "/claimChecks/5",
+      "originalLabel": "documented-route-current-table-still-10.6"
+    }
+  ]
+}
