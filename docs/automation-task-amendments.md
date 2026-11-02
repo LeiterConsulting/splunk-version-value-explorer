@@ -6,12 +6,12 @@ state, notification preference, model and permission. Read the actual saved obje
 before editing; keep before/after digests and readback in the amendment ledger.
 The conceptual cadence in scheduled-maintenance.md is not a saved configuration.
 
-The attempt in this delegated environment to view `version-release-watch` and
-`version-guidance-audit` returned **“Automations are only supported for local
-threads.”** The local automation directory is empty. Neither task was changed.
-Before/after snapshots and first-execution verification remain blocked/pending.
-Use the existing task's supported local context to finish this operation; no new
-task or substitute schedule is authorized. A manual audit is not its first run.
+The existing saved configurations were unavailable to this review. Neither task
+was changed. Before/after snapshots and first-execution verification remain
+blocked/pending. Finish reconciliation through the authorized task-management
+context; no new task or substitute schedule is authorized. A manual audit is not
+its first execution. Exact private troubleshooting details are retained outside
+this public repository.
 
 ## Addition to Version Release Watch
 
