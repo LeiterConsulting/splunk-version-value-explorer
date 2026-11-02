@@ -9,6 +9,7 @@ import { chromium } from 'playwright';
 import { verifyNavigation } from './navigation.mjs';
 import { verifyRippleScroll } from './ripple-scroll.mjs';
 import { verifyAdvisor, configureAdvisorRoute } from './advisor.mjs';
+import { prepareExact, verifyExact } from './exact-releases.mjs';
 const require = createRequire(import.meta.url), { target, hash, verify } = require('../../scripts/export-evidence.cjs');
 if (process.env.SITES_MANAGED_LINUX_CONTAINER === '1') throw Error('Run export verification in dedicated application CI, not managed Sites preview.');
 const root = process.cwd(), output = path.resolve('export-artifacts');
@@ -86,6 +87,7 @@ try {
     const id = route.id + '-' + theme, directory = path.join(output, id); fs.mkdirSync(directory);
     const entry = { id, outcome: 'failed' }; receipt.cases.push(entry);
     const context = await browser.newContext({viewport:{width:1440,height:1000},acceptDownloads:true});
+    await prepareExact(context,route);
     try {
     const page = await context.newPage(), errors = []; page.on('pageerror', e => errors.push(e.message));
     // Restrict application CI to its own local Worker; no external source or customer requests.
@@ -102,6 +104,7 @@ try {
     }
     await page.goto(url); await settled(page);
     await configureAdvisorRoute(page,route);
+    await verifyExact(page,route,theme);
     if(routeUrl.hash) {
       assert.equal(new URL(page.url()).hash,routeUrl.hash,'Shared section anchor was discarded: '+id);
       assert(await page.locator(routeUrl.hash).count()>0,'Shared section anchor has no target: '+id);

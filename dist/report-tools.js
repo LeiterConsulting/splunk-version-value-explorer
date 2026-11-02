@@ -1,7 +1,7 @@
 (function(){
 'use strict';
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function decorate(html){
+function decorate(html,sourceUrls){
  // A report is a preserved view, not an interactive copy of the screen.
  // Open nested history too: closed details otherwise disappear from native PDFs.
  html=html.replace(/<details\b([^>]*)>/g,(_tag,attrs)=>'<details'+attrs.replace(/\sopen(?:="[^"]*")?/g,'')+' open>')
@@ -9,7 +9,7 @@ function decorate(html){
   .replace(/<button\b[^>]*>[\s\S]*?<\/button>/g,'')
   .replace(/<span class="snapshot-status"[^>]*>[\s\S]*?<\/span>/g,'')
   .replace(/<input\b([^>]*\btype="date"[^>]*)>/g,(_tag,attrs)=>'<span class="report-filter-date">'+esc(attrs.match(/\bvalue="([^"]*)"/)?.[1]||'Not recorded')+'</span>');
- const relevant=(window.VersionCompassSources?.sources||[]).filter(r=>html.includes(esc(r.url)));
+ const relevant=(window.VersionCompassSources?.sources||[]).filter(r=>sourceUrls?sourceUrls.includes(r.url):html.includes(esc(r.url)));
  const dataset=window.VersionCompassContent;
  const provenance=dataset?.revision?' Dataset '+esc(dataset.revision)+' · Rules '+esc(dataset.engineRevision||'Not recorded')+' · Delivery '+esc(dataset.status)+'.':'';
  return '<p class="report-revision"><strong>Content revision '+esc(window.VersionCompassRevision?.id||'Not recorded')+'</strong> · Publication '+esc(window.VersionCompassRevision?.publication||'Not recorded')+'.'+provenance+' Live links show evolving guidance; a saved snapshot preserves this report.</p>'+html+'<section class="report-section"><h2>Verification dates for cited sources</h2><p>Dates apply only to recorded verification scope, not every dependent claim.</p><ul>'+relevant.map(r=>'<li><a href="'+esc(r.url)+'">'+esc(r.title)+'</a> · Last verified '+esc(r.reviewed||'not recorded')+' · '+esc(r.status)+(r.verificationScope?' · '+esc(r.verificationScope):'')+'</li>').join('')+'</ul></section>';

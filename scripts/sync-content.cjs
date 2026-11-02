@@ -47,6 +47,7 @@ for (const [id, file, global] of specs) {
   }
   write('dist/' + file, '/* Generated from content/datasets/' + id + '.json. Edit the JSON source, not this adapter. */\n' + adapter);
 }
+if (datasets.guidance.exactReleases) require('../dist/exact-releases.js').validate(datasets.guidance.exactReleases, datasets.guidance.sources);
 const identityFile = 'content/identities.json';
 const identities = fs.existsSync(identityFile) ? JSON.parse(fs.readFileSync(identityFile, 'utf8')) : {};
 const records = [], sourceMap = new Map();
@@ -114,7 +115,7 @@ if (new Set(records.map(r => r.id)).size !== records.length) throw Error('Duplic
 write(identityFile, identities);
 const catalog = { schemaVersion: 1, records };
 write('content/catalog.json', catalog);
-const engineFiles = ['advisor-goals.js', 'advisor-report.js', 'advisor-handoff.js', 'advisor-admission.js', 'advisor.js', 'advisor-ui.js', 'ai-availability.js', 'ai-availability-ui.js', 'prep11.js', 'prep11-ui.js', 'comparison.js', 'forwarders.js', 'soar.js', 'environment.js', 'guidance.js', 'editions.js', 'report-tools.js', 'release-print.js', 'evidence.js', 'decision-support.js', 'perspectives.js', 'webmcp.js', 'navigation.js', 'app.js', 'soar-ui.js', 'forwarders-ui.js', 'content-client.js'].map(file => 'dist/' + file).concat(['worker/publication-core.mjs', 'worker/content-store.mjs', 'worker/index.mjs', 'worker/publisher.mjs', 'client/content-client-active.js']);
+const engineFiles = ['exact-releases.js', 'exact-releases-view.js', 'exact-releases-ui.js', 'exact-releases-webmcp.js', 'advisor-goals.js', 'advisor-report.js', 'advisor-handoff.js', 'advisor-admission.js', 'advisor.js', 'advisor-ui.js', 'ai-availability.js', 'ai-availability-ui.js', 'prep11.js', 'prep11-ui.js', 'comparison.js', 'forwarders.js', 'soar.js', 'environment.js', 'guidance.js', 'editions.js', 'report-tools.js', 'release-print.js', 'evidence.js', 'decision-support.js', 'perspectives.js', 'webmcp.js', 'navigation.js', 'app.js', 'soar-ui.js', 'forwarders-ui.js', 'content-client.js'].map(file => 'dist/' + file).concat(['worker/publication-core.mjs', 'worker/content-store.mjs', 'worker/index.mjs', 'worker/publisher.mjs', 'client/content-client-active.js']);
 const engineRevision = 'engine-' + hash(engineFiles.map(file => [file, fs.readFileSync(file, 'utf8')])).slice(0, 20);
 const digest = hash({ schemaVersion: 1, globals, catalog });
 // A rules-only change creates a new publication while preserving dataset hashes.

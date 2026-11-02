@@ -1,5 +1,23 @@
 # Agent access through WebMCP
 
+## Optional exact-release pilot
+
+The separate `/?view=exact-releases` view adds
+`versioncompass_compare_exact_releases` without changing the existing tools.
+It reads `{from, to, asOf}` with exact product/component identities such as
+`splunk:enterprise:9.4.15` and `splunk:enterprise:9.4.16`, and an assessment date
+such as `2026-11-02`. The UF component is `universal-forwarder`. Unknown fields,
+unlisted releases, mixed components, equal targets and downgrades are rejected.
+The response includes derived endpoint states, claim IDs/scopes/assessment history,
+the public source directory, catalog events, and a separately qualified upgrade
+route. No exact supported upgrade edges are assessed in this bounded seed.
+Earlier as-of dates do not reconstruct evidence that this new catalog never held.
+The tool does not change the page, collect context or write data. Registration is
+feature detected and uses the existing lifecycle cleanup pattern. See
+[model and boundaries](exact-release-pilot.md).
+
+The remainder of this document describes the existing release-line contract.
+
 [Version Compass](https://versioncompass.com) exposes four read-only tools through the browser's imperative `document.modelContext.registerTool` API. Open the site in a WebMCP-capable browser/agent environment to discover them. The normal interface remains usable in browsers without this API.
 
 This is **browser-scoped WebMCP**, not a standalone MCP server. There is no `/mcp` HTTP endpoint, API key, server process, or background agent connection to configure. A conventional MCP client needs a browser integration that supports WebMCP; entering the website URL as a remote MCP server is not sufficient. See the [WebMCP specification](https://webmachinelearning.github.io/webmcp/) for the browser API and its evolving support.
