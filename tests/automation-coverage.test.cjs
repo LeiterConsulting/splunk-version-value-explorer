@@ -23,6 +23,12 @@ test('sources fetched without assessed claims cannot report assessed-no-change',
   entry.disposition = 'assessed-no-change'; entry.assessments = [];
   assert.throws(() => validateRun(bind(run), registry), /Fetched sources are not assessed/);
 });
+test('the registry cannot silently omit an implemented Prep11 capability or Advisor decision', () => {
+  for (const id of ['prep11.operator', 'advisor.agent-mode']) {
+    const value = structuredClone(registry); value.capabilities = value.capabilities.filter(c => c.id !== id);
+    assert.throws(() => validateRegistry(value), /Unregistered/);
+  }
+});
 test('omitted mandatory capabilities and broad success over explicit gaps fail closed', () => {
   const missing = structuredClone(original); missing.coverage.pop();
   assert.throws(() => validateRun(bind(missing), registry), /Missing mandatory/);
@@ -61,6 +67,7 @@ test('future changed watch reviews cannot omit coverage or substitute a manual i
   try {
     git(['init', '--initial-branch', 'main']);
     for (const file of ['automation-coverage.json', 'automation-amendments.json']) write('content/' + file, JSON.parse(fs.readFileSync('content/' + file)));
+    write('content/advisor-goals.json', JSON.parse(fs.readFileSync('content/advisor-goals.json')));
     write('content/datasets/guidance.json', JSON.parse(fs.readFileSync('content/datasets/guidance.json')));
     const file = 'docs/audits/2026-11-02-version-release-watch.json';
     write(file, { scope: 'prior' });

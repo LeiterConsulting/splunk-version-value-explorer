@@ -21,6 +21,12 @@ function validateRegistry(registry, root = process.cwd()) {
   assert(Array.isArray(registry.owners) && strings(registry.owners.map(o => o.id)), 'Invalid owner identities');
   const owners = new Set(registry.owners.map(o => o.id));
   assert(Array.isArray(registry.capabilities) && strings(registry.capabilities.map(c => c.id)), 'Duplicate/missing capability identities');
+  const guidance = read(root, 'content/datasets/guidance.json');
+  for (const record of [...guidance.preparation11.baseline, ...guidance.preparation11.contextUpdates]) {
+    assert(registry.capabilities.some(c => c.claimFamilies?.some(f => f.id === record.id && pointer(guidance, f.pointer)?.id === record.id)), 'Unregistered Prep11 claim family: ' + record.id);
+  }
+  const advisorGoals = read(root, 'content/advisor-goals.json').goals;
+  for (const goal of advisorGoals) assert(registry.capabilities.some(c => c.id === 'advisor.' + goal.id && c.claimFamilies?.some(f => f.id === goal.record)), 'Unregistered Advisor decision: ' + goal.id);
   for (const c of registry.capabilities) {
     assert(c.mandatory === true && c.requiredDisposition === 'every-participating-run', 'Pilot scope cannot silently become optional: ' + c.id);
     assert(owners.has(c.primaryOwner), 'Missing primary owner: ' + c.id);
