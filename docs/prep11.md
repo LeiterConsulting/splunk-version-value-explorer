@@ -21,3 +21,25 @@ Version Release Watch owns discovery and current source/claim updates. Guidance 
 The page's filters affect the screen. PDF and saved HTML contain all maintained updates, preparation areas, open questions and numbered citations, with the current screen selection described. Saved HTML freezes its report, not its external sources. URLs preserve area, update type, search, Cisco theme and meaningful anchors. Ambiguous or comparison-shaped prep URLs retain original input, block exports and offer explicit recovery.
 
 The export route inventory includes both themes for default, selected/shared and invalid prep inputs. Dedicated application CI must pass native PDF page checks, independent offline HTML reopenings, phone layouts and real Tab access to print/save actions. Preserve surrounding Platform, legacy and ES routes. Inspect retained novel page images separately from automated geometry checks.
+
+## November 2 scoped pilot review
+
+The current help matrix was independently assessed: SOK 3.2.0 lists Enterprise
+10.0.12–10.6.0, Kubernetes 1.32–1.37 and September 24. The linked changelog still
+lists Enterprise 10.6.0, Kubernetes 1.32–1.36 and September 8. Both scopes remain
+visible; neither establishes 11.x support. Architecture/app-delivery and the two
+dated announcement-context claims were assessed separately. Targeted official
+discovery found no qualifying 11.x announcement, which does not prove absence.
+
+The page header now labels the discovery date. It does not imply all preparation
+claims were refreshed. The exact 10.6 workload source remained inaccessible, so
+its October 15 source/claim dates are preserved with a visible review blocker.
+The migration landing page was retrieved, but the complete staffing/transition
+scope was not assessed; its claim date is also preserved with an explicit gap.
+These qualifications appear in screen, PDF and offline HTML.
+
+See the [coverage review](audits/2026-11-02-prep11-advisor-coverage.json),
+[constitution](automation-constitution.md) and [task reconciliation](automation-task-amendments.md).
+The earlier November 2 audit's eight URL retrievals do not establish semantic
+assessment. The pilot is pending saved-task readback and verified real first
+executions; no cadence or permissions were changed by this implementation.

@@ -4442,7 +4442,8 @@
         "action": "Inventory admission, placement and monitoring rules; validate which controls work in the chosen current lab topology before assuming equivalent behavior.",
         "src": [
           "prep11workload"
-        ]
+        ],
+        "reviewStatus": "Review blocked on November 2: the exact Enterprise 10.6 source was inaccessible. The October 15 assessment has not been refreshed."
       }
     },
     {
@@ -5829,7 +5830,8 @@
         "action": "Assess ownership, staffing, communication and post-migration responsibilities. Use the released Enterprise-to-Cloud guide for technical assessment and exact service-specific evidence.",
         "src": [
           "prep11migration"
-        ]
+        ],
+        "reviewStatus": "Source retrieved on November 2; the complete staffing and transition scope was not reassessed. The October 15 claim date remains."
       }
     },
     {
@@ -8020,10 +8022,10 @@
         "id": "splunk-11-preparation",
         "title": "Prep for Splunk 11.x",
         "scope": "Upcoming Splunk Enterprise 11.x and later major releases",
-        "checked": "2026-10-15",
+        "checked": "2026-11-02",
         "evidenceStatus": "Awaiting version-specific public evidence",
         "summary": "Follow public announcements, understand the decisions ahead, and prepare against documented current capabilities while 11.x details develop.",
-        "boundary": "No version-specific public 11.x release announcement was located in the sources checked on October 15, 2026. Release timing, deployment requirements and migration paths remain unconfirmed here.",
+        "boundary": "No version-specific public 11.x release announcement was located in the targeted official-source searches on November 2, 2026. This bounded discovery does not prove none exists. Release timing, deployment requirements and migration paths remain unconfirmed here. Individual preparation claims retain their own assessment dates below.",
         "announcementPolicy": "An announcement records a stated plan. Released documentation, exact compatibility matrices and service-specific evidence are required before a plan becomes an installation path, supported pairing or availability claim.",
         "announcements": [],
         "baseline": [
@@ -8032,11 +8034,11 @@
             "title": "Start with an exact Operator compatibility tuple",
             "track": "infrastructure",
             "kind": "baseline",
-            "version": "SOK 3.2.0 / Enterprise 9.4.15–10.6.0",
+            "version": "SOK 3.2.0 / matrix Enterprise 10.0.12–10.6.0",
             "effectiveDate": null,
-            "verified": "2026-10-15",
+            "verified": "2026-11-02",
             "status": "Current baseline · source discrepancy",
-            "text": "The 3.2 help matrix lists Kubernetes 1.32–1.37 and Enterprise 9.4.15–10.6.0. The linked change log lists Kubernetes 1.32–1.36 and Enterprise 10.6.0 for 3.2.0. Its September 8 heading also differs from the matrix’s September 24 release date.",
+            "text": "The 3.2 help matrix lists Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0. The linked change log lists Kubernetes 1.32–1.36 and Enterprise 10.6.0 for 3.2.0. Its September 8 heading also differs from the matrix’s September 24 release date.",
             "qualification": "Preserve both published scopes. Confirm the exact Kubernetes, Operator and Enterprise combination before using it; neither source certifies 11.x.",
             "action": "Record the intended Kubernetes distribution and version, Operator release and exact Enterprise build. Resolve the differing 3.2 version/date statements before relying on their disputed range.",
             "src": [
@@ -8051,7 +8053,7 @@
             "kind": "baseline",
             "version": "Current Operator validated architecture",
             "effectiveDate": null,
-            "verified": "2026-10-15",
+            "verified": "2026-11-02",
             "status": "Current preparation guidance",
             "text": "The Operator validated architecture describes single-site and multi-site layouts, persistent storage, SmartStore and the App Framework. It discourages distributed non-clustered deployments because they lack the redundancy expected in Kubernetes.",
             "qualification": "Current architecture guidance is preparation context. An 11.x topology, sizing or migration requirement is not established.",
@@ -8067,7 +8069,7 @@
             "kind": "baseline",
             "version": "Current Operator App Framework and premium-app guidance",
             "effectiveDate": null,
-            "verified": "2026-10-15",
+            "verified": "2026-11-02",
             "status": "Current preparation guidance",
             "text": "The current Operator architecture covers app distribution through the App Framework and separate considerations for premium apps. Existing apps, add-ons, scripts, credentials and filesystem assumptions need their own review.",
             "qualification": "App installation and a container image do not prove ES, ITSI, SOAR or third-party compatibility with 11.x.",
@@ -8090,7 +8092,8 @@
             "action": "Inventory admission, placement and monitoring rules; validate which controls work in the chosen current lab topology before assuming equivalent behavior.",
             "src": [
               "prep11workload"
-            ]
+            ],
+            "reviewStatus": "Review blocked on November 2: the exact Enterprise 10.6 source was inaccessible. The October 15 assessment has not been refreshed."
           },
           {
             "id": "prep11-cloud-option",
@@ -8106,7 +8109,8 @@
             "action": "Assess ownership, staffing, communication and post-migration responsibilities. Use the released Enterprise-to-Cloud guide for technical assessment and exact service-specific evidence.",
             "src": [
               "prep11migration"
-            ]
+            ],
+            "reviewStatus": "Source retrieved on November 2; the complete staffing and transition scope was not reassessed. The October 15 claim date remains."
           }
         ],
         "questions": [
@@ -8161,9 +8165,9 @@
           "owner": "Version Release Watch",
           "audit": "Version Guidance Audit",
           "scope": "Discover official public 11.x+ announcements and version-specific documentation; recheck this finite source inventory and affected claims; coordinate ES editions and Cloud/FedRAMP evidence with their existing owners.",
-          "checked": "2026-10-15",
-          "outcome": "No version-specific 11.x announcement located; current preparation context verified",
-          "followUp": "Add the first verifiable public 11.x announcement with its exact statement, source date, release stage, applicability and remaining unknowns. Preserve prior statements as dated history."
+          "checked": "2026-11-02",
+          "outcome": "Targeted discovery located no qualifying 11.x announcement. Operator tuple corrected; architecture, app-delivery and two dated announcement-context claims reassessed. Workload source inaccessible; complete migration staffing scope deferred. Individual dates and gaps remain explicit.",
+          "followUp": "Recover and assess the exact Enterprise 10.6 workload-management section, finish the migration-readiness scope, then verify the amended existing watch configurations and real first executions. Preserve the SOK conflict and unconfirmed 11.x requirements."
         },
         "contextUpdates": [
           {
@@ -8173,7 +8177,7 @@
             "status": "Published announcement · 10.6 context",
             "sourceDate": "2026-09-30",
             "effectiveDate": null,
-            "verified": "2026-10-15",
+            "verified": "2026-11-02",
             "text": "The 10.6 announcement asks app and automation owners to use supported product-identification methods rather than relying on version numbers alone to distinguish Enterprise from Cloud.",
             "qualification": "This is published 10.6 guidance and a useful preparation task. It does not announce an 11.x release or a migration path.",
             "src": [
@@ -8187,7 +8191,7 @@
             "status": "Published announcement · adjacent product scope",
             "sourceDate": "2026-09-15",
             "effectiveDate": null,
-            "verified": "2026-10-15",
+            "verified": "2026-11-02",
             "text": "Cisco’s announcement describes Kubernetes-based self-managed AI infrastructure for Splunk customers. It describes AI Assistant as available and Agent Launchpad as coming later in 2026.",
             "qualification": "The statement is specific to self-managed AI and Cisco AI POD for Splunk. It does not establish an 11.x deployment model or confirm later delivery of the named planned feature.",
             "src": [
@@ -9681,7 +9685,7 @@
           "section": "Organizational readiness guide: staffing plan, communications plan and post-migration staffing transition plan",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
           "sourceVerified": "2026-10-15",
-          "sourceChecked": "2026-10-15"
+          "sourceChecked": "2026-11-02"
         }
       ],
       "verification": {
@@ -9702,7 +9706,8 @@
         "action": "Assess ownership, staffing, communication and post-migration responsibilities. Use the released Enterprise-to-Cloud guide for technical assessment and exact service-specific evidence.",
         "src": [
           "prep11migration"
-        ]
+        ],
+        "reviewStatus": "Source retrieved on November 2; the complete staffing and transition scope was not reassessed. The October 15 claim date remains."
       }
     },
     {
@@ -9954,12 +9959,12 @@
           "url": "https://help.splunk.com/en/splunk-enterprise/splunk-validated-architectures/applied-svas/splunk-operator-for-kubernetes",
           "section": "Deployment Options; Storage Considerations; Application Lifecycle Management / App Framework / Premium Apps; Resilience and Scaling",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-15",
-          "sourceChecked": "2026-10-15"
+          "sourceVerified": "2026-11-02",
+          "sourceChecked": "2026-11-02"
         }
       ],
       "verification": {
-        "date": "2026-10-15",
+        "date": "2026-11-02",
         "outcome": "Recorded in original claim"
       },
       "payload": {
@@ -9969,7 +9974,7 @@
         "kind": "baseline",
         "version": "Current Operator App Framework and premium-app guidance",
         "effectiveDate": null,
-        "verified": "2026-10-15",
+        "verified": "2026-11-02",
         "status": "Current preparation guidance",
         "text": "The current Operator architecture covers app distribution through the App Framework and separate considerations for premium apps. Existing apps, add-ons, scripts, credentials and filesystem assumptions need their own review.",
         "qualification": "App installation and a container image do not prove ES, ITSI, SOAR or third-party compatibility with 11.x.",
@@ -10601,7 +10606,7 @@
       "scope": {},
       "evidence": [],
       "verification": {
-        "date": "2026-10-15",
+        "date": "2026-11-02",
         "outcome": "Recorded in original claim"
       },
       "payload": {
@@ -10611,7 +10616,7 @@
         "status": "Published announcement · 10.6 context",
         "sourceDate": "2026-09-30",
         "effectiveDate": null,
-        "verified": "2026-10-15",
+        "verified": "2026-11-02",
         "text": "The 10.6 announcement asks app and automation owners to use supported product-identification methods rather than relying on version numbers alone to distinguish Enterprise from Cloud.",
         "qualification": "This is published 10.6 guidance and a useful preparation task. It does not announce an 11.x release or a migration path.",
         "src": [
@@ -13091,12 +13096,12 @@
           "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m09/cisco-delivers-trusted-ai-at-scale-through-new-splunk-advancements.html",
           "section": "Self-managed Splunk AI, accelerated by NVIDIA",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-15",
-          "sourceChecked": "2026-10-15"
+          "sourceVerified": "2026-11-02",
+          "sourceChecked": "2026-11-02"
         }
       ],
       "verification": {
-        "date": "2026-10-15",
+        "date": "2026-11-02",
         "outcome": "Recorded in original claim"
       },
       "payload": {
@@ -13106,7 +13111,7 @@
         "status": "Published announcement · adjacent product scope",
         "sourceDate": "2026-09-15",
         "effectiveDate": null,
-        "verified": "2026-10-15",
+        "verified": "2026-11-02",
         "text": "Cisco’s announcement describes Kubernetes-based self-managed AI infrastructure for Splunk customers. It describes AI Assistant as available and Agent Launchpad as coming later in 2026.",
         "qualification": "The statement is specific to self-managed AI and Cisco AI POD for Splunk. It does not establish an 11.x deployment model or confirm later delivery of the named planned feature.",
         "src": [
@@ -14777,7 +14782,7 @@
       },
       "evidence": [],
       "verification": {
-        "date": "2026-10-15",
+        "date": "2026-11-02",
         "outcome": "Recorded in original claim"
       },
       "payload": {
@@ -14787,7 +14792,7 @@
         "kind": "baseline",
         "version": "Current Operator validated architecture",
         "effectiveDate": null,
-        "verified": "2026-10-15",
+        "verified": "2026-11-02",
         "status": "Current preparation guidance",
         "text": "The Operator validated architecture describes single-site and multi-site layouts, persistent storage, SmartStore and the App Framework. It discourages distributed non-clustered deployments because they lack the redundancy expected in Kubernetes.",
         "qualification": "Current architecture guidance is preparation context. An 11.x topology, sizing or migration requirement is not established.",
@@ -15578,11 +15583,11 @@
       "kind": "baseline",
       "dataset": "platform",
       "scope": {
-        "version": "SOK 3.2.0 / Enterprise 9.4.15–10.6.0"
+        "version": "SOK 3.2.0 / matrix Enterprise 10.0.12–10.6.0"
       },
       "evidence": [],
       "verification": {
-        "date": "2026-10-15",
+        "date": "2026-11-02",
         "outcome": "Recorded in original claim"
       },
       "payload": {
@@ -15590,11 +15595,11 @@
         "title": "Start with an exact Operator compatibility tuple",
         "track": "infrastructure",
         "kind": "baseline",
-        "version": "SOK 3.2.0 / Enterprise 9.4.15–10.6.0",
+        "version": "SOK 3.2.0 / matrix Enterprise 10.0.12–10.6.0",
         "effectiveDate": null,
-        "verified": "2026-10-15",
+        "verified": "2026-11-02",
         "status": "Current baseline · source discrepancy",
-        "text": "The 3.2 help matrix lists Kubernetes 1.32–1.37 and Enterprise 9.4.15–10.6.0. The linked change log lists Kubernetes 1.32–1.36 and Enterprise 10.6.0 for 3.2.0. Its September 8 heading also differs from the matrix’s September 24 release date.",
+        "text": "The 3.2 help matrix lists Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0. The linked change log lists Kubernetes 1.32–1.36 and Enterprise 10.6.0 for 3.2.0. Its September 8 heading also differs from the matrix’s September 24 release date.",
         "qualification": "Preserve both published scopes. Confirm the exact Kubernetes, Operator and Enterprise combination before using it; neither source certifies 11.x.",
         "action": "Record the intended Kubernetes distribution and version, Operator release and exact Enterprise build. Resolve the differing 3.2 version/date statements before relying on their disputed range.",
         "src": [
@@ -17122,7 +17127,8 @@
         "action": "Inventory admission, placement and monitoring rules; validate which controls work in the chosen current lab topology before assuming equivalent behavior.",
         "src": [
           "prep11workload"
-        ]
+        ],
+        "reviewStatus": "Review blocked on November 2: the exact Enterprise 10.6 source was inaccessible. The October 15 assessment has not been refreshed."
       }
     },
     {
@@ -18633,12 +18639,12 @@
           "url": "https://help.splunk.com/en/splunk-enterprise/splunk-validated-architectures/applied-svas/splunk-operator-for-kubernetes",
           "section": "Deployment Options; Storage Considerations; Application Lifecycle Management / App Framework / Premium Apps; Resilience and Scaling",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-15",
-          "sourceChecked": "2026-10-15"
+          "sourceVerified": "2026-11-02",
+          "sourceChecked": "2026-11-02"
         }
       ],
       "verification": {
-        "date": "2026-10-15",
+        "date": "2026-11-02",
         "outcome": "Recorded in original claim"
       },
       "payload": {
@@ -18648,7 +18654,7 @@
         "kind": "baseline",
         "version": "Current Operator validated architecture",
         "effectiveDate": null,
-        "verified": "2026-10-15",
+        "verified": "2026-11-02",
         "status": "Current preparation guidance",
         "text": "The Operator validated architecture describes single-site and multi-site layouts, persistent storage, SmartStore and the App Framework. It discourages distributed non-clustered deployments because they lack the redundancy expected in Kubernetes.",
         "qualification": "Current architecture guidance is preparation context. An 11.x topology, sizing or migration requirement is not established.",
@@ -18792,10 +18798,10 @@
         "id": "splunk-11-preparation",
         "title": "Prep for Splunk 11.x",
         "scope": "Upcoming Splunk Enterprise 11.x and later major releases",
-        "checked": "2026-10-15",
+        "checked": "2026-11-02",
         "evidenceStatus": "Awaiting version-specific public evidence",
         "summary": "Follow public announcements, understand the decisions ahead, and prepare against documented current capabilities while 11.x details develop.",
-        "boundary": "No version-specific public 11.x release announcement was located in the sources checked on October 15, 2026. Release timing, deployment requirements and migration paths remain unconfirmed here.",
+        "boundary": "No version-specific public 11.x release announcement was located in the targeted official-source searches on November 2, 2026. This bounded discovery does not prove none exists. Release timing, deployment requirements and migration paths remain unconfirmed here. Individual preparation claims retain their own assessment dates below.",
         "announcementPolicy": "An announcement records a stated plan. Released documentation, exact compatibility matrices and service-specific evidence are required before a plan becomes an installation path, supported pairing or availability claim.",
         "announcements": [],
         "baseline": [
@@ -18804,11 +18810,11 @@
             "title": "Start with an exact Operator compatibility tuple",
             "track": "infrastructure",
             "kind": "baseline",
-            "version": "SOK 3.2.0 / Enterprise 9.4.15–10.6.0",
+            "version": "SOK 3.2.0 / matrix Enterprise 10.0.12–10.6.0",
             "effectiveDate": null,
-            "verified": "2026-10-15",
+            "verified": "2026-11-02",
             "status": "Current baseline · source discrepancy",
-            "text": "The 3.2 help matrix lists Kubernetes 1.32–1.37 and Enterprise 9.4.15–10.6.0. The linked change log lists Kubernetes 1.32–1.36 and Enterprise 10.6.0 for 3.2.0. Its September 8 heading also differs from the matrix’s September 24 release date.",
+            "text": "The 3.2 help matrix lists Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0. The linked change log lists Kubernetes 1.32–1.36 and Enterprise 10.6.0 for 3.2.0. Its September 8 heading also differs from the matrix’s September 24 release date.",
             "qualification": "Preserve both published scopes. Confirm the exact Kubernetes, Operator and Enterprise combination before using it; neither source certifies 11.x.",
             "action": "Record the intended Kubernetes distribution and version, Operator release and exact Enterprise build. Resolve the differing 3.2 version/date statements before relying on their disputed range.",
             "src": [
@@ -18823,7 +18829,7 @@
             "kind": "baseline",
             "version": "Current Operator validated architecture",
             "effectiveDate": null,
-            "verified": "2026-10-15",
+            "verified": "2026-11-02",
             "status": "Current preparation guidance",
             "text": "The Operator validated architecture describes single-site and multi-site layouts, persistent storage, SmartStore and the App Framework. It discourages distributed non-clustered deployments because they lack the redundancy expected in Kubernetes.",
             "qualification": "Current architecture guidance is preparation context. An 11.x topology, sizing or migration requirement is not established.",
@@ -18839,7 +18845,7 @@
             "kind": "baseline",
             "version": "Current Operator App Framework and premium-app guidance",
             "effectiveDate": null,
-            "verified": "2026-10-15",
+            "verified": "2026-11-02",
             "status": "Current preparation guidance",
             "text": "The current Operator architecture covers app distribution through the App Framework and separate considerations for premium apps. Existing apps, add-ons, scripts, credentials and filesystem assumptions need their own review.",
             "qualification": "App installation and a container image do not prove ES, ITSI, SOAR or third-party compatibility with 11.x.",
@@ -18862,7 +18868,8 @@
             "action": "Inventory admission, placement and monitoring rules; validate which controls work in the chosen current lab topology before assuming equivalent behavior.",
             "src": [
               "prep11workload"
-            ]
+            ],
+            "reviewStatus": "Review blocked on November 2: the exact Enterprise 10.6 source was inaccessible. The October 15 assessment has not been refreshed."
           },
           {
             "id": "prep11-cloud-option",
@@ -18878,7 +18885,8 @@
             "action": "Assess ownership, staffing, communication and post-migration responsibilities. Use the released Enterprise-to-Cloud guide for technical assessment and exact service-specific evidence.",
             "src": [
               "prep11migration"
-            ]
+            ],
+            "reviewStatus": "Source retrieved on November 2; the complete staffing and transition scope was not reassessed. The October 15 claim date remains."
           }
         ],
         "questions": [
@@ -18933,9 +18941,9 @@
           "owner": "Version Release Watch",
           "audit": "Version Guidance Audit",
           "scope": "Discover official public 11.x+ announcements and version-specific documentation; recheck this finite source inventory and affected claims; coordinate ES editions and Cloud/FedRAMP evidence with their existing owners.",
-          "checked": "2026-10-15",
-          "outcome": "No version-specific 11.x announcement located; current preparation context verified",
-          "followUp": "Add the first verifiable public 11.x announcement with its exact statement, source date, release stage, applicability and remaining unknowns. Preserve prior statements as dated history."
+          "checked": "2026-11-02",
+          "outcome": "Targeted discovery located no qualifying 11.x announcement. Operator tuple corrected; architecture, app-delivery and two dated announcement-context claims reassessed. Workload source inaccessible; complete migration staffing scope deferred. Individual dates and gaps remain explicit.",
+          "followUp": "Recover and assess the exact Enterprise 10.6 workload-management section, finish the migration-readiness scope, then verify the amended existing watch configurations and real first executions. Preserve the SOK conflict and unconfirmed 11.x requirements."
         },
         "contextUpdates": [
           {
@@ -18945,7 +18953,7 @@
             "status": "Published announcement · 10.6 context",
             "sourceDate": "2026-09-30",
             "effectiveDate": null,
-            "verified": "2026-10-15",
+            "verified": "2026-11-02",
             "text": "The 10.6 announcement asks app and automation owners to use supported product-identification methods rather than relying on version numbers alone to distinguish Enterprise from Cloud.",
             "qualification": "This is published 10.6 guidance and a useful preparation task. It does not announce an 11.x release or a migration path.",
             "src": [
@@ -18959,7 +18967,7 @@
             "status": "Published announcement · adjacent product scope",
             "sourceDate": "2026-09-15",
             "effectiveDate": null,
-            "verified": "2026-10-15",
+            "verified": "2026-11-02",
             "text": "Cisco’s announcement describes Kubernetes-based self-managed AI infrastructure for Splunk customers. It describes AI Assistant as available and Agent Launchpad as coming later in 2026.",
             "qualification": "The statement is specific to self-managed AI and Cisco AI POD for Splunk. It does not establish an 11.x deployment model or confirm later delivery of the named planned feature.",
             "src": [
@@ -19203,7 +19211,7 @@
       "kind": "baseline",
       "dataset": "guidance",
       "scope": {
-        "version": "SOK 3.2.0 / Enterprise 9.4.15–10.6.0"
+        "version": "SOK 3.2.0 / matrix Enterprise 10.0.12–10.6.0"
       },
       "evidence": [
         {
@@ -19211,20 +19219,20 @@
           "url": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix",
           "section": "SOK to Splunk Enterprise version compatibility; Upgrade path guidance",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-15",
-          "sourceChecked": "2026-10-15"
+          "sourceVerified": "2026-11-02",
+          "sourceChecked": "2026-11-02"
         },
         {
           "sourceId": "source-158dd0c40e435bfe9abc",
           "url": "https://splunk.github.io/splunk-operator/reference/ChangeLog.html",
           "section": "3.2.0 (2026-09-08); Breaking Changes; Supported Kubernetes and Splunk versions",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-15",
-          "sourceChecked": "2026-10-15"
+          "sourceVerified": "2026-11-02",
+          "sourceChecked": "2026-11-02"
         }
       ],
       "verification": {
-        "date": "2026-10-15",
+        "date": "2026-11-02",
         "outcome": "Recorded in original claim"
       },
       "payload": {
@@ -19232,11 +19240,11 @@
         "title": "Start with an exact Operator compatibility tuple",
         "track": "infrastructure",
         "kind": "baseline",
-        "version": "SOK 3.2.0 / Enterprise 9.4.15–10.6.0",
+        "version": "SOK 3.2.0 / matrix Enterprise 10.0.12–10.6.0",
         "effectiveDate": null,
-        "verified": "2026-10-15",
+        "verified": "2026-11-02",
         "status": "Current baseline · source discrepancy",
-        "text": "The 3.2 help matrix lists Kubernetes 1.32–1.37 and Enterprise 9.4.15–10.6.0. The linked change log lists Kubernetes 1.32–1.36 and Enterprise 10.6.0 for 3.2.0. Its September 8 heading also differs from the matrix’s September 24 release date.",
+        "text": "The 3.2 help matrix lists Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0. The linked change log lists Kubernetes 1.32–1.36 and Enterprise 10.6.0 for 3.2.0. Its September 8 heading also differs from the matrix’s September 24 release date.",
         "qualification": "Preserve both published scopes. Confirm the exact Kubernetes, Operator and Enterprise combination before using it; neither source certifies 11.x.",
         "action": "Record the intended Kubernetes distribution and version, Operator release and exact Enterprise build. Resolve the differing 3.2 version/date statements before relying on their disputed range.",
         "src": [
@@ -20083,7 +20091,7 @@
       },
       "evidence": [],
       "verification": {
-        "date": "2026-10-15",
+        "date": "2026-11-02",
         "outcome": "Recorded in original claim"
       },
       "payload": {
@@ -20093,7 +20101,7 @@
         "kind": "baseline",
         "version": "Current Operator App Framework and premium-app guidance",
         "effectiveDate": null,
-        "verified": "2026-10-15",
+        "verified": "2026-11-02",
         "status": "Current preparation guidance",
         "text": "The current Operator architecture covers app distribution through the App Framework and separate considerations for premium apps. Existing apps, add-ons, scripts, credentials and filesystem assumptions need their own review.",
         "qualification": "App installation and a container image do not prove ES, ITSI, SOAR or third-party compatibility with 11.x.",
@@ -22912,7 +22920,7 @@
       "scope": {},
       "evidence": [],
       "verification": {
-        "date": "2026-10-15",
+        "date": "2026-11-02",
         "outcome": "Recorded in original claim"
       },
       "payload": {
@@ -22922,7 +22930,7 @@
         "status": "Published announcement · adjacent product scope",
         "sourceDate": "2026-09-15",
         "effectiveDate": null,
-        "verified": "2026-10-15",
+        "verified": "2026-11-02",
         "text": "Cisco’s announcement describes Kubernetes-based self-managed AI infrastructure for Splunk customers. It describes AI Assistant as available and Agent Launchpad as coming later in 2026.",
         "qualification": "The statement is specific to self-managed AI and Cisco AI POD for Splunk. It does not establish an 11.x deployment model or confirm later delivery of the named planned feature.",
         "src": [
@@ -25541,12 +25549,12 @@
           "url": "https://www.splunk.com/en_us/blog/platform/announcing-splunk-cloud-platform-10-6-and-splunk-enterprise-10-6.html",
           "section": "Keep Apps and Integrations Ready for Updated Versioning",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-15",
-          "sourceChecked": "2026-10-15"
+          "sourceVerified": "2026-11-02",
+          "sourceChecked": "2026-11-02"
         }
       ],
       "verification": {
-        "date": "2026-10-15",
+        "date": "2026-11-02",
         "outcome": "Recorded in original claim"
       },
       "payload": {
@@ -25556,7 +25564,7 @@
         "status": "Published announcement · 10.6 context",
         "sourceDate": "2026-09-30",
         "effectiveDate": null,
-        "verified": "2026-10-15",
+        "verified": "2026-11-02",
         "text": "The 10.6 announcement asks app and automation owners to use supported product-identification methods rather than relying on version numbers alone to distinguish Enterprise from Cloud.",
         "qualification": "This is published 10.6 guidance and a useful preparation task. It does not announce an 11.x release or a migration path.",
         "src": [

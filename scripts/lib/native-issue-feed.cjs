@@ -14,7 +14,7 @@ function watchFor(file) {
 function reviewDigest(audit) {
   // Publication receipts can advance after the review without manufacturing a
   // new claim assessment. Every other field remains bound to the declaration.
-  const review = Object.fromEntries(Object.entries(audit).filter(([name]) => !['issueFeed', 'publication', 'validation', 'validationOutcomes', 'baseline'].includes(name)));
+  const review = Object.fromEntries(Object.entries(audit).filter(([name]) => !['issueFeed', 'automationCoverage', 'publication', 'validation', 'validationOutcomes', 'baseline'].includes(name)));
   return hash(review);
 }
 function validatePolicy(policy) {

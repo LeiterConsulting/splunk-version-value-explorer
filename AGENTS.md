@@ -1,5 +1,18 @@
 # VersionCompass working contract
 
+## November 2 automation coverage constitution
+
+Follow docs/automation-constitution.md and the versioned
+content/automation-coverage.json registry for the Prep11/Advisor pilot. Read
+content/automation-amendments.json for actual saved-task and activation state;
+implementation alone does not activate amended tasks. Every participating run
+declares every mandatory capability disposition and separates retrieval from
+assessed claims and delivery. Run scripts/check-automation-coverage.cjs alongside
+the native issue-feed gate. Preserve existing cadence and permissions. Read
+docs/automation-task-amendments.md for pending saved-task reconciliation and
+first-execution requirements. Do not treat the manual pilot review as a real
+execution of an amended watch.
+
 ## November 2 Advisor decision briefs
 
 Read docs/advisor.md and content/advisor-goals.json for active decision coverage,

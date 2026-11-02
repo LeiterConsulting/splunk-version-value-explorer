@@ -25,3 +25,11 @@ test('prep route loads its bounded model and renderer without exposing new brows
  const loaded=[],main={},head=[],c={window:{location:{search:'?view=splunk-11'}},URLSearchParams,document:{querySelector:()=>main,querySelectorAll:()=>[],createElement:()=>({}),head:{appendChild:e=>head.push(e)},body:{appendChild:e=>{loaded.push(e.src);e.onload();}}}};
  vm.runInNewContext(fs.readFileSync('dist/site-router.js','utf8'),c);assert(loaded.includes('prep11-ui.js'));assert(!loaded.includes('app.js'));assert(!loaded.includes('webmcp.js'));assert(head.some(e=>e.href==='prep11.css'));
 });
+
+test('November 2 scoped correction preserves the workload assessment date and exports review gaps',()=>{
+ const a=model(),d=a.data(),operator=d.baseline.find(r=>r.id==='prep11-operator-baseline');
+ assert.match(operator.version,/10\.0\.12–10\.6\.0/);assert(!operator.text.includes('9.4.15'));
+ assert.match(operator.text,/Enterprise 10\.6\.0/);assert.match(operator.qualification,/neither source certifies 11\.x/);
+ const workload=d.baseline.find(r=>r.id==='prep11-workload-baseline');assert.equal(workload.verified,'2026-10-15');assert.equal(a.source('prep11workload').checked,'2026-10-15');
+ const report=a.report({area:'all',updates:'all',q:'',theme:''});assert(report.includes('Discovery checked 2026-11-02'));assert(report.includes(a.esc(workload.reviewStatus)));assert(report.includes('complete staffing and transition scope was not reassessed'));
+});
