@@ -30,6 +30,11 @@
     };
     document.body.appendChild(script);
   }
+  if(params.getAll('view').includes('exact-releases')){
+    document.querySelector('main').innerHTML='<section class="hero"><p role="status">Loading exact release pilot.</p></section>';
+    for(const file of ['editions.css','exact-releases.css']){const css=document.createElement('link');css.rel='stylesheet';css.href=file;document.head.appendChild(css);}
+    load(['content-revision.js','source-register.js','report-tools.js','data.js','guidance-data.js','exact-releases.js','exact-releases-view.js','exact-releases-ui.js','exact-releases-webmcp.js','navigation.js']);return;
+  }
   if(params.getAll('view').includes('advisor')){
     document.querySelector('main').innerHTML='<section class="hero"><p role="status">Loading Advisor.</p></section>';
     for(const file of ['editions.css','perspectives.css','ai-availability.css','advisor.css']){const css=document.createElement('link');css.rel='stylesheet';css.href=file;document.head.appendChild(css);}

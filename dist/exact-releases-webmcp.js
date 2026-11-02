@@ -1,0 +1,7 @@
+/* Additive pilot tool; existing release-line tool names and semantics are intact. */
+(function(root){
+'use strict';
+const document=root.document;if(!document)return;let lifecycle;
+function register(){if(lifecycle||!document.modelContext?.registerTool)return;lifecycle=new AbortController();try{Promise.resolve(document.modelContext.registerTool({name:'versioncompass_compare_exact_releases',title:'Compare exact releases (bounded pilot)',description:'Read assessed endpoint states and catalog events for the Enterprise 9.4/10.4 pilot or the scoped UF 10.4 regression. Does not establish an upgrade path, comprehensive security coverage, or change page selections.',annotations:{readOnlyHint:true,untrustedContentHint:true},inputSchema:{type:'object',properties:{from:{type:'string'},to:{type:'string'},asOf:{type:'string',format:'date'}},required:['from','to','asOf'],additionalProperties:false},execute(input){try{if(!input||Object.keys(input).some(k=>!['from','to','asOf'].includes(k)))throw Error('Unknown field');const d=root.SPLUNK_DATA.guidance;return {ok:true,report:root.VersionCompassExactReleases.compare(d.exactReleases,d.sources,input),sources:Object.fromEntries(Object.entries(d.sources).filter(([id])=>id.startsWith('exact')))};}catch(e){return {ok:false,error:e.message};}}},{signal:lifecycle.signal})).catch(()=>{lifecycle?.abort();lifecycle=null;});}catch{lifecycle.abort();lifecycle=null;}}
+root.addEventListener('pagehide',()=>{lifecycle?.abort();lifecycle=null;});root.addEventListener('pageshow',register);register();
+}(window));

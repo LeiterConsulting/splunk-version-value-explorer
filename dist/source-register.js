@@ -329,21 +329,48 @@ window.VersionCompassSources = {
         "release.enterprise.releasesData.10.4.technicalChanges.4.source",
         "release.enterprise.releasesData.10.4.requirements.0.3",
         "release.enterprise.releasesData.10.4.requirements.1.3",
+        "release.guidance.sources.exactSecurity.url",
         "forwarders.sources.securityOctober.url",
         "content-updates.js",
+        "guidance: guidance.exactReleases.claims.7.assessments.0",
+        "guidance: guidance.exactReleases.claims.8.assessments.0",
+        "guidance: guidance.exactReleases.claims.9.assessments.0",
+        "guidance: guidance.exactReleases.claims.10.assessments.0",
+        "guidance: guidance.exactReleases.relationships.0",
         "forwarders: forwarders.claimSources.security.enterprise-october"
       ],
       "reviews": [
-        "2026-10-23"
+        "2026-10-23",
+        "2026-11-02"
       ],
       "claimReferences": [
+        {
+          "path": "guidance: guidance.exactReleases.claims.7.assessments.0",
+          "section": "Product Status; CVE-2026-76288 Description and Mitigations. Other CVEs are outside this pilot."
+        },
+        {
+          "path": "guidance: guidance.exactReleases.claims.8.assessments.0",
+          "section": "Product Status; CVE-2026-76288 Description and Mitigations. Other CVEs are outside this pilot."
+        },
+        {
+          "path": "guidance: guidance.exactReleases.claims.9.assessments.0",
+          "section": "Product Status; CVE-2026-76288 Description and Mitigations. Other CVEs are outside this pilot."
+        },
+        {
+          "path": "guidance: guidance.exactReleases.claims.10.assessments.0",
+          "section": "Product Status; CVE-2026-76288 Description and Mitigations. Other CVEs are outside this pilot."
+        },
+        {
+          "path": "guidance: guidance.exactReleases.relationships.0",
+          "section": "Product Status; CVE-2026-76288 Description and Mitigations. Other CVEs are outside this pilot."
+        },
         {
           "path": "forwarders: forwarders.claimSources.security.enterprise-october",
           "section": "Solutions; Product Status; CVE-2026-76290 additional post-upgrade action"
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-23",
+      "reviewed": "2026-11-02",
       "status": "Reviewed",
       "firstRecorded": "2026-10-23",
       "firstUsed": null,
@@ -355,6 +382,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-23",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-02",
+          "event": "Review status updated: Reviewed · 2026-11-02"
         }
       ]
     },
@@ -4610,7 +4641,9 @@ window.VersionCompassSources = {
         "release.enterprise.releasesData.10.4.requirements.4.3",
         "release.enterprise.releasesData.10.4.requirements.5.3",
         "release.enterprise.releasesData.10.4.requirements.6.3",
+        "release.guidance.sources.exactUpgrade.url",
         "forwarders.sources.upgrade104.url",
+        "guidance: guidance.exactReleases.claims.6.assessments.0",
         "forwarders: forwarders.claimSources.upgrade.uf.10.4",
         "forwarders: borrowed.technical.hf.10.4.legacy-tls-protocols",
         "forwarders: borrowed.technical.hf.10.4.certificate-signatures",
@@ -4619,9 +4652,14 @@ window.VersionCompassSources = {
         "forwarders: borrowed.technical.hf.10.4.windows-service-identity"
       ],
       "reviews": [
+        "2026-11-02",
         "2026-09-28"
       ],
       "claimReferences": [
+        {
+          "path": "guidance: guidance.exactReleases.claims.6.assessments.0",
+          "section": "Splunk has removed support for versions 1.0 and 1.1 of TLS; Enterprise component, all operating systems, introduced 10.4"
+        },
         {
           "path": "forwarders: forwarders.claimSources.upgrade.uf.10.4",
           "section": "Key points; component-specific changes"
@@ -4679,13 +4717,13 @@ window.VersionCompassSources = {
       ],
       "usage": "In use",
       "reviewed": "2026-09-28",
-      "status": "Reviewed",
+      "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
       "section": "Key points; component-specific changes",
-      "verificationScope": "Forwarders increment: verified only Key points; component-specific changes. No complete patch, authorization or historical applicability audit.",
+      "verificationScope": "Forwarders increment: verified only Key points; component-specific changes. No complete patch, authorization or historical applicability audit. November 2 exact-release pilot: only Splunk has removed support for versions 1.0 and 1.1 of TLS; Enterprise component, all operating systems, introduced 10.4. The two 10.4 legacy TLS statements conflict; no winner selected and no unrelated claim verification renewed.",
       "events": [
         {
           "date": "2026-09-25",
@@ -4694,6 +4732,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-28",
           "event": "Review status updated: Reviewed · 2026-09-28"
+        },
+        {
+          "date": "2026-11-02",
+          "event": "Review status updated: Needs reconciliation · 2026-09-28"
         }
       ]
     },
@@ -5301,21 +5343,84 @@ window.VersionCompassSources = {
       ]
     },
     {
-      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues",
-      "title": "10.4.2 acknowledged forwarding blockage; 10.4.3 fix",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/deprecated-features/deprecated-and-removed-in-version-10.4",
+      "title": "Enterprise 10.4 removed features",
       "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.exactRemoved.url",
+        "guidance: guidance.exactReleases.claims.3.assessments.0"
+      ],
+      "reviews": [
+        "2026-11-02"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.exactReleases.claims.3.assessments.0",
+          "section": "Removed features: HTML dashboards"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-02",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-02",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-02",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues",
+      "title": "Universal Forwarder useAck regression and fix",
+      "areas": [
+        "Release guide",
         "Splunk Forwarders",
         "Shared guidance"
       ],
       "references": [
+        "release.guidance.sources.exactUF.url",
         "forwarders.sources.ack.url",
         "content-updates.js",
+        "guidance: guidance.exactReleases.releases.11",
+        "guidance: guidance.exactReleases.releases.12",
+        "guidance: guidance.exactReleases.claims.11.assessments.0",
+        "guidance: guidance.exactReleases.claims.12.assessments.0",
+        "guidance: guidance.exactReleases.relationships.10",
         "forwarders: forwarders.claimSources.maintenance.10.4"
       ],
       "reviews": [
+        "2026-11-02",
         "2026-09-28"
       ],
       "claimReferences": [
+        {
+          "path": "guidance: guidance.exactReleases.releases.11",
+          "section": "Important: UF 10.4.2 warning; fixed in UF 10.4.3; receiver acknowledgements"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.releases.12",
+          "section": "Important: UF 10.4.2 warning; fixed in UF 10.4.3; receiver acknowledgements"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.claims.11.assessments.0",
+          "section": "Important: UF 10.4.2 warning; fixed in UF 10.4.3; receiver acknowledgements"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.claims.12.assessments.0",
+          "section": "Important: UF 10.4.2 warning; fixed in UF 10.4.3; receiver acknowledgements"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.relationships.10",
+          "section": "Important: UF 10.4.2 warning; fixed in UF 10.4.3; receiver acknowledgements"
+        },
         {
           "path": "forwarders: forwarders.claimSources.maintenance.10.4",
           "section": "Important upgrade notice"
@@ -5353,16 +5458,73 @@ window.VersionCompassSources = {
         "release.enterprise.releasesData.10.4.source",
         "release.enterprise.releasesData.10.4.technicalChanges.5.source",
         "release.enterprise.releasesData.10.4.technicalChanges.9.source",
+        "release.guidance.sources.exact104.url",
         "forwarders.sources.maintenance.url",
         "content-updates.js",
+        "guidance: guidance.exactReleases.releases.6",
+        "guidance: guidance.exactReleases.releases.7",
+        "guidance: guidance.exactReleases.releases.8",
+        "guidance: guidance.exactReleases.releases.9",
+        "guidance: guidance.exactReleases.releases.10",
+        "guidance: guidance.exactReleases.claims.4.assessments.0",
+        "guidance: guidance.exactReleases.claims.5.assessments.0",
+        "guidance: guidance.exactReleases.relationships.6",
+        "guidance: guidance.exactReleases.relationships.7",
+        "guidance: guidance.exactReleases.relationships.8",
+        "guidance: guidance.exactReleases.relationships.9",
         "forwarders: forwarders.claimSources.maintenance.10.4",
         "forwarders: borrowed.technical.hf.10.4.python-application-runtime",
         "forwarders: borrowed.technical.hf.10.4.kv-store-database-engine"
       ],
       "reviews": [
+        "2026-11-02",
         "2026-09-30"
       ],
       "claimReferences": [
+        {
+          "path": "guidance: guidance.exactReleases.releases.6",
+          "section": "10.4 TLS 1.3 and legacy TLS availability; 10.4.2/10.4.3 UF warning; maintenance release headings"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.releases.7",
+          "section": "10.4 TLS 1.3 and legacy TLS availability; 10.4.2/10.4.3 UF warning; maintenance release headings"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.releases.8",
+          "section": "10.4 TLS 1.3 and legacy TLS availability; 10.4.2/10.4.3 UF warning; maintenance release headings"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.releases.9",
+          "section": "10.4 TLS 1.3 and legacy TLS availability; 10.4.2/10.4.3 UF warning; maintenance release headings"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.releases.10",
+          "section": "10.4 TLS 1.3 and legacy TLS availability; 10.4.2/10.4.3 UF warning; maintenance release headings"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.claims.4.assessments.0",
+          "section": "10.4 TLS 1.3 and legacy TLS availability; 10.4.2/10.4.3 UF warning; maintenance release headings"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.claims.5.assessments.0",
+          "section": "10.4 TLS 1.3 and legacy TLS availability; 10.4.2/10.4.3 UF warning; maintenance release headings"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.relationships.6",
+          "section": "10.4 TLS 1.3 and legacy TLS availability; 10.4.2/10.4.3 UF warning; maintenance release headings"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.relationships.7",
+          "section": "10.4 TLS 1.3 and legacy TLS availability; 10.4.2/10.4.3 UF warning; maintenance release headings"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.relationships.8",
+          "section": "10.4 TLS 1.3 and legacy TLS availability; 10.4.2/10.4.3 UF warning; maintenance release headings"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.relationships.9",
+          "section": "10.4 TLS 1.3 and legacy TLS availability; 10.4.2/10.4.3 UF warning; maintenance release headings"
+        },
         {
           "path": "forwarders: forwarders.claimSources.maintenance.10.4",
           "section": "What's new in 10.4.2, 10.4.3 and 10.4.4"
@@ -5390,13 +5552,13 @@ window.VersionCompassSources = {
       ],
       "usage": "In use",
       "reviewed": "2026-10-01",
-      "status": "Reviewed",
+      "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "The current maintenance target and the documented minimum safe floor are separate facts. This check does not convert a maintenance patch into a new release-line route or apply an Enterprise patch recommendation to Splunk Cloud.",
       "section": "What's new in 10.4.2, 10.4.3 and 10.4.4",
-      "verificationScope": "Reconfirmed that Splunk Enterprise 10.4.4 was published September 29, 2026 and remains the newest listed 10.4 maintenance release. The page still directs customers away from 10.4.2 and records the acknowledged-forwarding fix in 10.4.3. The inaccessible 10.4.4 fixed-issues page was not treated as evidence of features, security coverage or resolved defects.",
+      "verificationScope": "Reconfirmed that Splunk Enterprise 10.4.4 was published September 29, 2026 and remains the newest listed 10.4 maintenance release. The page still directs customers away from 10.4.2 and records the acknowledged-forwarding fix in 10.4.3. The inaccessible 10.4.4 fixed-issues page was not treated as evidence of features, security coverage or resolved defects. November 2 exact-release pilot: only 10.4 TLS 1.3 and legacy TLS availability; 10.4.2/10.4.3 UF warning; maintenance release headings. The two 10.4 legacy TLS statements conflict; no winner selected and no unrelated claim verification renewed.",
       "events": [
         {
           "date": "2026-09-25",
@@ -5409,6 +5571,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-11-02",
+          "event": "Review status updated: Needs reconciliation · 2026-10-01"
         }
       ]
     },
@@ -5642,15 +5808,120 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/9.4/deprecated-features/deprecated-and-removed-in-version-9.4",
+      "title": "Enterprise 9.4 deprecated features",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.exactDeprecated.url",
+        "guidance: guidance.exactReleases.claims.2.assessments.0"
+      ],
+      "reviews": [
+        "2026-11-02"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.exactReleases.claims.2.assessments.0",
+          "section": "Still deprecated: HTML dashboards"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-02",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-02",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-02",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/9.4/whats-new/welcome-to-splunk-enterprise-9.4",
       "title": "welcome to splunk enterprise 9.4",
       "areas": [
         "Release guide"
       ],
       "references": [
-        "release.enterprise.releasesData.9.4.source"
+        "release.enterprise.releasesData.9.4.source",
+        "release.guidance.sources.exact94.url",
+        "guidance: guidance.exactReleases.releases.0",
+        "guidance: guidance.exactReleases.releases.1",
+        "guidance: guidance.exactReleases.releases.2",
+        "guidance: guidance.exactReleases.releases.3",
+        "guidance: guidance.exactReleases.releases.4",
+        "guidance: guidance.exactReleases.releases.5",
+        "guidance: guidance.exactReleases.claims.0.assessments.0",
+        "guidance: guidance.exactReleases.claims.1.assessments.0",
+        "guidance: guidance.exactReleases.relationships.1",
+        "guidance: guidance.exactReleases.relationships.2",
+        "guidance: guidance.exactReleases.relationships.3",
+        "guidance: guidance.exactReleases.relationships.4",
+        "guidance: guidance.exactReleases.relationships.5"
       ],
-      "reviews": [],
+      "reviews": [
+        "2026-11-02"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.exactReleases.releases.0",
+          "section": "9.4 release headings; 9.4.3 filterType default and later documentation visibility"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.releases.1",
+          "section": "9.4 release headings; 9.4.3 filterType default and later documentation visibility"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.releases.2",
+          "section": "9.4 release headings; 9.4.3 filterType default and later documentation visibility"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.releases.3",
+          "section": "9.4 release headings; 9.4.3 filterType default and later documentation visibility"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.releases.4",
+          "section": "9.4 release headings; 9.4.3 filterType default and later documentation visibility"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.releases.5",
+          "section": "9.4 release headings; 9.4.3 filterType default and later documentation visibility"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.claims.0.assessments.0",
+          "section": "9.4 release headings; 9.4.3 filterType default and later documentation visibility"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.claims.1.assessments.0",
+          "section": "9.4 release headings; 9.4.3 filterType default and later documentation visibility"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.relationships.1",
+          "section": "9.4 release headings; 9.4.3 filterType default and later documentation visibility"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.relationships.2",
+          "section": "9.4 release headings; 9.4.3 filterType default and later documentation visibility"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.relationships.3",
+          "section": "9.4 release headings; 9.4.3 filterType default and later documentation visibility"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.relationships.4",
+          "section": "9.4 release headings; 9.4.3 filterType default and later documentation visibility"
+        },
+        {
+          "path": "guidance: guidance.exactReleases.relationships.5",
+          "section": "9.4 release headings; 9.4.3 filterType default and later documentation visibility"
+        }
+      ],
       "usage": "In use",
       "reviewed": "2026-10-02",
       "status": "Reviewed",

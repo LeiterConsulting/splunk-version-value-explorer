@@ -3,6 +3,7 @@
   'use strict';
   const destinations = Object.freeze([
     { id: 'release-guide', label: 'Release Guide', href: '/', group: 'explore', description: 'Compare versions and upgrade paths.' },
+    { id: 'exact-releases', label: 'Exact Releases', href: '/?view=exact-releases', group: 'explore', badge: 'Bounded pilot', description: 'Trace assessed Enterprise 9.4/10.4 and UF release states.' },
     { id: 'es-editions', label: 'ES Editions', href: '/?view=es-editions', group: 'explore', description: 'Compare documented edition scope.' },
     { id: 'ai-availability', label: 'AI Availability', href: '/?view=ai-availability', group: 'explore', description: 'Check requirements and availability.' },
     { id: 'splunk-11', label: '11.x Prep', href: '/?view=splunk-11', group: 'explore', description: 'Review published preparation guidance.' },
