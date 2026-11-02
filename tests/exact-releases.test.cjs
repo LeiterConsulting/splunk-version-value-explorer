@@ -23,3 +23,60 @@ test('rendered report traces both conflicting claims, scope, unknowns and correc
 test('additive WebMCP uses the same evaluator, rejects writes, cleans up and tolerates missing support',async()=>{let registered,signal;const handlers={};const root={VersionCompassExactReleases:a,SPLUNK_DATA:{guidance:d},document:{modelContext:{registerTool(tool,options){registered=tool;signal=options.signal;}}},addEventListener(name,fn){handlers[name]=fn;}};const code=fs.readFileSync('dist/exact-releases-webmcp.js','utf8');vm.runInNewContext(code,{window:root,AbortController});assert.equal(registered.name,'versioncompass_compare_exact_releases');assert.equal(registered.annotations.readOnlyHint,true);const input={from:id('9.4.15'),to:id('9.4.16'),asOf:day};assert.equal(JSON.stringify(registered.execute(input).report),JSON.stringify(a.compare(seed,d.sources,input)));assert.equal(registered.execute({...input,write:true}).ok,false);handlers.pagehide();assert.equal(signal.aborted,true);handlers.pageshow();assert.equal(signal.aborted,false);delete root.document.modelContext;assert.doesNotThrow(()=>vm.runInNewContext(code,{window:root,AbortController}));});
 
 test('as-of knowledge cannot leak future assessed events into a historical comparison',()=>{const r=compare('9.4.0','10.4.0','enterprise',seed,{asOf:'2026-11-01'});assert.equal(r.intervalEvents.length,0);assert(r.to.rows.every(r=>r.status==='unknown'));});
+
+function view(guidance){
+ const root={VersionCompassExactReleases:a,SPLUNK_DATA:{guidance}};
+ vm.runInNewContext(fs.readFileSync('dist/exact-releases-view.js','utf8'),{window:root});
+ return root.VersionCompassExactView;
+}
+function fixtureReport(g,sources,asOf){return a.compare(g,sources,{from:id('9.4.2'),to:id('9.4.8'),asOf});}
+
+test('historical renderer selects dated citations rather than the last assessment in the array',()=>{
+ const g=clone(),c=g.claims.find(c=>c.id==='filter-after'),sources={...d.sources,fixtureFuture:{title:'FUTURE ASSESSMENT SOURCE',url:'https://help.splunk.com/fixture-future-assessment'}};
+ c.assessments.push({...c.assessments[0],id:'fixture-future-assessment',date:'2026-11-05',src:['fixtureFuture'],section:'FUTURE SECTION'});
+ const guidance={...d,sources,exactReleases:g},v=view(guidance),before=JSON.stringify(g);
+ const historical=fixtureReport(g,sources,day),html=v.report(historical),historicalTimeline=v.timeline(historical);
+ assert(v.timeline(historical).includes(d.sources.exact94.url));
+ assert(!html.includes(sources.fixtureFuture.url));assert(!html.includes('FUTURE SECTION'));
+ assert(!v.corrections(historical).includes('2026-11-05'));
+ const later=fixtureReport(g,sources,'2026-11-06');
+ assert(v.timeline(later).includes(sources.fixtureFuture.url));assert(v.corrections(later).includes('FUTURE SECTION'));
+ c.assessments.reverse();
+ assert.equal(v.timeline(fixtureReport(g,sources,day)),historicalTimeline);
+ assert(v.timeline(fixtureReport(g,sources,'2026-11-06')).includes(sources.fixtureFuture.url));
+ c.assessments.reverse();assert.equal(JSON.stringify(g),before);
+});
+
+test('withdrawal removes current correction assertions while earlier reports and history remain intact',()=>{
+ const g=clone(),c=g.claims.find(c=>c.id==='filter-after');
+ c.assessments.push({...c.assessments[0],id:'fixture-withdrawal',date:'2026-11-03',status:'withdrawn',reason:'Synthetic withdrawal for renderer regression test.'});
+ c.assessments.push({...c.assessments[0],id:'fixture-later-reassessment',date:'2026-11-05'});
+ const v=view({...d,exactReleases:g}),before=JSON.stringify(g);
+ const historical=fixtureReport(g,d.sources,day),withdrawn=fixtureReport(g,d.sources,'2026-11-04');
+ assert(v.corrections(historical).includes(c.text));
+ assert.equal(row(withdrawn.to,'filter-type').status,'unknown');
+ assert(!v.corrections(withdrawn).includes(c.text));assert(!v.corrections(withdrawn).includes('9.4.8 / enterprise'));
+ assert(!v.timeline(withdrawn).includes(c.text));assert(!v.report(withdrawn).includes(c.text));
+ assert(v.corrections(fixtureReport(g,d.sources,'2026-11-06')).includes(c.text));
+ assert.equal(row(withdrawn.to,'filter-type').history.find(h=>h.id===c.id).assessments.length,3);
+ assert.equal(JSON.stringify(g),before);
+});
+
+test('one supported event claim cannot cause a withdrawn sibling conclusion to be rendered',()=>{
+ const g=clone(),c=g.claims.find(c=>c.id==='filter-after'),supported=structuredClone(c);
+ c.assessments.push({...c.assessments[0],id:'fixture-sibling-withdrawal',date:'2026-11-03',status:'withdrawn'});
+ supported.id='fixture-supported-correction';supported.text='INDEPENDENT SUPPORTED CORRECTION';
+ supported.assessments=[{...supported.assessments[0],id:'fixture-sibling-supported',date:'2026-11-03'}];g.claims.push(supported);
+ const event=g.events.find(e=>e.id==='event-filter-docs');event.claims.push(supported.id);
+ const r=fixtureReport(g,d.sources,'2026-11-03'),html=view({...d,exactReleases:g}).corrections(r);
+ assert(html.includes(supported.text));assert(!html.includes(c.text));assert(!html.includes('Claim filter-after'));
+ assert(!html.includes(event.detail));assert(html.includes('Some event claims are not supported'));
+});
+
+test('documentation corrections match the selected component and endpoint branches',()=>{
+ const v=view(d);
+ assert(!v.corrections(compare('10.4.2','10.4.3','universal-forwarder')).includes('9.4.8 / enterprise'));
+ assert(!v.corrections(compare('10.4.2','10.4.3')).includes('9.4.8 / enterprise'));
+ assert(v.corrections(compare('9.4.2','9.4.8')).includes('9.4.8 / enterprise'));
+ assert(v.corrections(compare('9.4.16','10.4.3')).includes('9.4.8 / enterprise'));
+});

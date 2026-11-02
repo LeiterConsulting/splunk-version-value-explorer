@@ -17,6 +17,9 @@ export async function verifyExact(page,route,theme){
  if(route.id==='exact-cross-line')assert.equal(result.rows.find(r=>r.entity==='CVE-2026-76288').to.status,'affected');
  if(route.id==='exact-uf')assert.equal(result.rows.find(r=>r.entity==='uf-useack').to.status,'fixed');
  if(route.id==='exact-stale')assert(text.includes('stale'));
+ const documentation=await page.locator('#exact-documentation').innerText();
+ if(result.to.release.component==='universal-forwarder'||[result.from.release.branch,result.to.release.branch].every(b=>b==='enterprise-10.4'))assert(!documentation.includes('9.4.8 / enterprise'),'Documentation correction escaped component or branch scope');
+ if(route.id==='exact-docs')assert(documentation.includes('9.4.8 / enterprise'));
  await page.emulateMedia({media:'print'});
  const contrast=await page.evaluate(()=>{
    const rgb=s=>s.match(/[\d.]+/g)?.slice(0,3).map(Number);

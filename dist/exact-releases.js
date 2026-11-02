@@ -27,6 +27,10 @@ function validate(g,sources){
 }
 function assessment(c,asOf){return c.assessments.filter(a=>a.date<=asOf).sort((a,b)=>b.date.localeCompare(a.date))[0];}
 function resolved(g,c,asOf){const own=assessment(c,asOf);if(!own)return null;const edge=g.relationships.find(e=>e.type==='inherits'&&e.from===c.id);if(!edge)return {...own,verificationDate:own.date,inheritedFrom:[]};const parent=edge.assessed<=asOf?resolved(g,g.claims.find(x=>x.id===edge.to),asOf):null;return {...own,status:parent?.status==='supported'?own.status:'uncertain',verificationDate:parent?.verificationDate&&parent.verificationDate<own.date?parent.verificationDate:own.date,inheritedFrom:[edge.to,...(parent?.inheritedFrom||[])],inheritanceQualification:edge.qualification};}
+function eventClaims(g,event,asOf){
+ if(!validDate(asOf))throw Error('Assessment date required');
+ return event.claims.map(id=>g.claims.find(c=>c.id===id)).map(c=>({...c,assessment:resolved(g,c,asOf)})).filter(c=>c.assessment?.status==='supported');
+}
 function snapshot(g,sources,releaseId,asOf){
  validate(g,sources);if(!validDate(asOf))throw Error('Assessment date required');
  const r=g.releases.find(r=>r.id===releaseId);if(!r)throw Error('Release is outside this pilot');
@@ -47,7 +51,7 @@ function compare(g,sources,input){
  if(order(from.release.version,to.release.version)>=0)throw Error('Select a later distinct target; identifiers are never rounded');
  const rows=to.rows.map(row=>{const before=from.rows.find(r=>r.entity===row.entity);return {entity:row.entity,title:row.title,from:before,to:row,net:before.status===row.status?'same assessed state':'different assessed state'};});
  const relevant=g.releases.filter(r=>r.product===to.release.product&&r.component===to.release.component&&[from.release.branch,to.release.branch].includes(r.branch));
- const eventAvailable=e=>e.claims.some(id=>assessment(g.claims.find(c=>c.id===id),input.asOf)?.status==='supported');
+ const eventAvailable=e=>eventClaims(g,e,input.asOf).length>0;
  const intervalEvents=g.events.filter(e=>eventAvailable(e)&&e.softwareChange!==false&&e.type!=='documentation-correction'&&relevant.some(r=>r.id===e.release&&order(r.version,from.release.version)>0&&order(r.version,to.release.version)<=0)).sort((a,b)=>order(g.releases.find(r=>r.id===a.release).version,g.releases.find(r=>r.id===b.release).version)||a.id.localeCompare(b.id));
  const route=input.route;
  let path={status:'unknown',nodes:[],events:[],reason:'No exact supported upgrade route has been assessed in this pilot. The timeline is a release catalog, not installation instructions.'};
@@ -57,7 +61,7 @@ function compare(g,sources,input){
 function read(search,g){const p=new URLSearchParams(search),errors=[],allowed=['view','from','to','component','theme','asOf'];for(const [k]of p){if(!allowed.includes(k))errors.push('Unknown parameter: '+k);if(p.getAll(k).length>1&&!errors.includes('Repeated parameter: '+k))errors.push('Repeated parameter: '+k);}for(const k of ['component','from','to','asOf'])if(p.has(k)&&p.get(k)==='')errors.push('Empty parameter: '+k);if(p.get('view')!=='exact-releases')errors.push('Exact release view required');const component=p.get('component')||'enterprise';if(!['enterprise','universal-forwarder'].includes(component))errors.push('Component is outside this pilot');if(p.has('theme')&&p.get('theme')!=='cisco')errors.push('Unknown theme');const state={component,from:p.get('from')||(component==='enterprise'?'9.4.15':'10.4.2'),to:p.get('to')||(component==='enterprise'?'10.4.4':'10.4.3'),asOf:p.get('asOf')||new Date().toISOString().slice(0,10),theme:p.get('theme')||''};for(const v of [state.from,state.to]){try{version(v);if(!g.releases.some(r=>r.component===component&&r.version===v))errors.push('Release outside pilot: '+v);}catch(e){errors.push(e.message);}}return {state,errors};}
 function url(s){const p=new URLSearchParams({view:'exact-releases',component:s.component,from:s.from,to:s.to,asOf:s.asOf});if(s.theme)p.set('theme',s.theme);return '/?'+p;}
 function input(s){return {from:'splunk:'+s.component+':'+s.from,to:'splunk:'+s.component+':'+s.to,asOf:s.asOf};}
-const api={version,order,key,scopeMatches,validate,snapshot,compare,read,url,input,esc,types,relations};
+const api={version,order,key,scopeMatches,validate,eventClaims,snapshot,compare,read,url,input,esc,types,relations};
 if(typeof module==='object'&&module.exports)module.exports=api;
 root.VersionCompassExactReleases=api;
 }(typeof window==='object'?window:globalThis));

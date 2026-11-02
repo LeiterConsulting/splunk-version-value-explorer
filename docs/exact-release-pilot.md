@@ -43,6 +43,15 @@ This new pilot has no assessments before November 2, so earlier as-of snapshots
 are unknown. Staleness after 30 days is a review-window signal, not vendor support
 policy or a renewed verification. No evaluator run changes canonical dates.
 
+Event admission, timeline citations and documentation corrections share the same
+latest applicable assessment resolver at the selected as-of date. A future source
+or section cannot replace a historical citation. A later withdrawal or uncertain
+assessment stops the earlier conclusion from being asserted as currently supported;
+earlier as-of reports and the complete canonical assessment history remain intact.
+For events with several claims, each conclusion must have its own current support.
+Documentation corrections cover only the selected component and endpoint branches,
+so an Enterprise 9.4 correction does not become UF or 10.4-only comparison context.
+
 Net comparisons derive both endpoint snapshots. Catalog events within the selected
 version interval are shown separately. They are not installation hops or a claim
 that a cross-line upgrade encounters every entry. Route events require an explicit
