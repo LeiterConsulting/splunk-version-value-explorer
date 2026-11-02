@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "findingId": "vci-ai-report-source-directory",
+  "revision": 1,
+  "recordedAt": "2026-11-02T14:07:07.187Z",
+  "title": "AI numbered report directory omitted cited current task sources",
+  "concernType": "suspected-error",
+  "problem": "Current Threat Graph and AI SOC Analyst task sources were cited by capability records but omitted from the numbered directory. The first held Triage candidate added a third unmatched citation. The renderer numbered these references zero and report anchors had no targets.",
+  "scope": {
+    "products": [
+      "VersionCompass AI Availability report"
+    ],
+    "versions": [
+      "Published Site 262 baseline; repaired November 2 candidate"
+    ],
+    "editions": [
+      "All applicable AI capability selections"
+    ],
+    "deployments": [
+      "Environment and comparison print/saved-HTML reports"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers following numbered report citations"
+    ],
+    "exclusions": [
+      "This is a VersionCompass source-directory mapping defect, not a Splunk product availability, entitlement or authorization determination. Vendor facts and earlier verification dates are unchanged."
+    ]
+  },
+  "impact": {
+    "customerScenario": "A reader follows the exact supporting source from a printed or saved AI Availability report.",
+    "consequence": "The source record exists and screen external links remain usable, but citation zero and missing internal directory targets weaken report traceability.",
+    "level": "unknown"
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "Commit-pinned public canonical mappings and the actual report engine were inspected; a regression reproduced the missing directory source before repair."
+  },
+  "claimIds": [
+    "reports.ai-numbered-source-directory"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Preserve the defect and its bounded repair assessment; no automatic downstream closure."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "directory-7cd8139",
+      "url": "https://raw.githubusercontent.com/LeiterConsulting/splunk-version-value-explorer/7cd813967f4b56bd8e3dd5c4b8967337b055cf1a/content/datasets/guidance.json",
+      "section": "/aiAvailability/sourceIds and /aiAvailability/src versus /aiAvailability/capabilities/*/src",
+      "statement": "Published Site 262 baseline; two task-source directory omissions. Missing numbered-directory IDs: aiEsThreatGraph88, aiEsSocTask88. Source records exist, but their print/saved-HTML directory targets are absent.",
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-02T14:04:07.652Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b0c7f430d95dd5fcc5b84ad597ac7d092cd559c8b10368a08268b4358394fa43",
+        "qualification": "Exact public commit-pinned JSON bytes; this verifies the website source mapping, not vendor capability truth."
+      },
+      "excerpt": null
+    },
+    {
+      "evidenceId": "directory-847688a",
+      "url": "https://raw.githubusercontent.com/LeiterConsulting/splunk-version-value-explorer/847688aa54b0d8d0f8ca6768dd7cfdf9ba5bf619/content/datasets/guidance.json",
+      "section": "/aiAvailability/sourceIds and /aiAvailability/src versus /aiAvailability/capabilities/*/src",
+      "statement": "Held first candidate; new scoped Triage source also omitted. Missing numbered-directory IDs: aiEsThreatGraph88, aiEsSocTask88, aiEsTriageNote88. Source records exist, but their print/saved-HTML directory targets are absent.",
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-02T14:04:15.860Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "991f621a87cb44f9b9d3cc2093cf580add6c479a163066edb5b66d70ff64feac",
+        "qualification": "Exact public commit-pinned JSON bytes; this verifies the website source mapping, not vendor capability truth."
+      },
+      "excerpt": null
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/7c7200e3547be2a5fc93d62a8414202e7d4f7e9d/docs/audits/2026-11-02-version-guidance-audit.json",
+      "pointer": "/claimChecks/15",
+      "originalLabel": "source-directory-repaired-in-bounded-mapping-scope"
+    }
+  ]
+}

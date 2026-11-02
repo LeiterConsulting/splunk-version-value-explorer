@@ -2,7 +2,7 @@
 
 ## November 2 native Guidance Audit continuation
 
-The cumulative stream now contains fifteen findings and sixty-three assessments.
+The cumulative stream now contains sixteen findings and sixty-four assessments.
 The independent Guidance Audit adds eight scoped existing-finding reassessments,
 including a partially addressed Triage wording conflict, and one new finding and
 assessment for the current AI SOC Analyst Cloud minimum-version discrepancy.
@@ -12,7 +12,13 @@ complete deployment pairing. All records pin the public audit commit; source
 retrieval and publication timestamps remain separate from actual claim dates.
 Six other known findings were not reassessed in this bounded audit. The index
 retains every previous record and checkpoint and is the authoritative current
-count. The following checkpoint-three account remains historical.
+count. Checkpoint twelve additionally records the AI numbered-source directory
+defect and its bounded canonical mapping repair: current Threat Graph and SOC
+Analyst task citations were absent from the directory, and the first held Triage
+candidate had one further unmatched citation. The new regression reproduced the
+defect and the native offline-HTML verifier now checks positive numbers and real
+targets. Native export and production delivery remain separate evidence gates.
+The following checkpoint-three account remains historical.
 
 Checkpoint three, October 30, 2026. Contract and publication protocol remain **1.0.0**.
 
