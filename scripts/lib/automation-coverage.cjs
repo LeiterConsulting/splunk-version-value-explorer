@@ -50,6 +50,7 @@ function validateRun(run, registry, root = process.cwd()) {
   assert(run.schemaVersion === 1 && run.registryVersion === registry.registryVersion && text(run.runId), 'Run needs the exact registry version and identity');
   assert(registry.owners.some(o => o.id === run.watchId) && timestamp(run.recordedAt), 'Invalid run owner/time');
   assert(run.kind === 'saved-task-execution' || run.kind === 'implementation-review', 'Invalid run kind');
+  assert(typeof run.claimedComplete === 'boolean' && typeof run.publication?.claimedDelivered === 'boolean', 'Run must explicitly declare coverage and delivery completeness');
   assert(run.reviewDigest === reviewDigest(run), 'Stale coverage review-input digest');
   const required = registry.capabilities.filter(c => c.participatingWatches.includes(run.watchId));
   assert(required.length > 0 && Array.isArray(run.coverage), 'No mandatory coverage declared');
@@ -82,6 +83,7 @@ function validateRun(run, registry, root = process.cwd()) {
   }
   const gaps = run.coverage.filter(o => !successful.has(o.disposition)).map(o => ({ capabilityId: o.capabilityId, disposition: o.disposition }));
   assert(!run.claimedComplete || gaps.length === 0, 'Broad success hides incomplete mandatory coverage');
+  assert(!['success', 'succeeded', 'passed', 'complete', 'completed'].includes(run.outcome) || gaps.length === 0, 'Broad success hides incomplete mandatory coverage');
   const changed = run.coverage.filter(o => o.disposition === 'changed');
   const checkIds = [...new Set(changed.flatMap(o => required.find(c => c.id === o.capabilityId).requiredChecks))];
   const deliveryComplete = gaps.length === 0 && checkIds.every(id => run.validation?.checks?.some(c => c.id === id && c.outcome === 'passed' && text(c.evidence))) && changed.every(o => timestamp(o.publishedAt) && timestamp(o.liveVerifiedAt));

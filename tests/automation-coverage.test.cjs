@@ -28,6 +28,8 @@ test('omitted mandatory capabilities and broad success over explicit gaps fail c
   assert.throws(() => validateRun(bind(missing), registry), /Missing mandatory/);
   const success = structuredClone(original); success.claimedComplete = true;
   assert.throws(() => validateRun(bind(success), registry), /Broad success/);
+  success.claimedComplete = false; success.outcome = 'success';
+  assert.throws(() => validateRun(bind(success), registry), /Broad success/);
 });
 test('the real manual review retains blocked and deferred coverage without claiming saved-task execution or delivery', () => {
   const result = validateRun(original, registry);

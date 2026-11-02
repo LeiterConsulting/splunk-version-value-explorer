@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-02T16:23:22.648Z",
+  "sourceCommit": "f7116088002e4efe44771e1107ef8aecb1bfd487",
+  "scope": "Local validation of isolated pilot reconciled with Advisor verification commit 21e7585c360a014e0a0348340acf5e03568ed36a; exact CI/export and production publication remain separate.",
+  "unitSuite": {
+    "outcome": "passed",
+    "tests": 271,
+    "transcriptSha256": "a1cabcc4f8675c9f604293f816e0d95add57700d5fe06be67f22fd78d6e60d66",
+    "qualification": "Complete suite passed after reconciliation. An additional broad-success-label guard received the nine-test affected coverage suite afterward; exact candidate CI will rerun the complete suite."
+  },
+  "checks": [
+    {
+      "id": "sync-gates",
+      "outcome": "passed",
+      "verifiedAt": "2026-11-02T16:23:22.648Z",
+      "evidence": "docs/audits/2026-11-02-automation-pilot-validation.json"
+    },
+    {
+      "id": "unit-suite",
+      "outcome": "passed",
+      "verifiedAt": "2026-11-02T16:23:22.648Z",
+      "evidence": "docs/audits/2026-11-02-automation-pilot-validation.json"
+    },
+    {
+      "id": "advisor-maintenance",
+      "outcome": "passed",
+      "verifiedAt": "2026-11-02T16:23:22.648Z",
+      "evidence": "docs/audits/2026-11-02-automation-pilot-validation.json"
+    },
+    {
+      "id": "native-issue-feed",
+      "outcome": "passed",
+      "verifiedAt": "2026-11-02T16:23:22.648Z",
+      "evidence": "docs/audits/2026-11-02-automation-pilot-validation.json"
+    },
+    {
+      "id": "coverage-gate",
+      "outcome": "passed",
+      "verifiedAt": "2026-11-02T16:23:22.648Z",
+      "evidence": "docs/audits/2026-11-02-automation-pilot-validation.json"
+    },
+    {
+      "id": "build",
+      "outcome": "passed",
+      "verifiedAt": "2026-11-02T16:23:22.648Z",
+      "evidence": "docs/audits/2026-11-02-automation-pilot-validation.json"
+    }
+  ],
+  "build": {
+    "outcome": "passed",
+    "assets": 69,
+    "contentRevision": "content-8620ab614abc48a74251ea1d",
+    "engineRevision": "engine-01e722950733cd709e04"
+  },
+  "coverage": {
+    "structuralGate": "passed",
+    "semanticCoverageComplete": false,
+    "assessedGroups": 6,
+    "mandatoryGroups": 11,
+    "blocked": [
+      "prep11.workload"
+    ],
+    "deferred": [
+      "prep11.cloud-option",
+      "advisor.agent-mode",
+      "advisor.itsi-versions",
+      "advisor.soc-workflow"
+    ]
+  },
+  "exactCandidateCi": {
+    "status": "pending",
+    "runId": null,
+    "commit": null
+  },
+  "exports": {
+    "status": "pending",
+    "artifact": null
+  },
+  "publication": {
+    "status": "held-for-parent-integration",
+    "sitesVersion": null,
+    "liveVerification": null
+  },
+  "savedTasks": {
+    "status": "blocked",
+    "action": "automation_update mode=view",
+    "targets": [
+      "version-release-watch",
+      "version-guidance-audit"
+    ],
+    "reason": "Automations are only supported for local threads.",
+    "mutationsPerformed": false,
+    "firstExecution": "pending"
+  },
+  "environmentRepair": {
+    "qualification": "Fresh Windows checkout converted LF to CRLF, invalidating original byte hashes and import stripping. Restored original LF bytes only in this isolated worktree. Tests requiring temporary Git fixtures and the installed Python launcher passed outside the restricted shell. No repository-wide line-ending change was committed."
+  }
+}
