@@ -919,7 +919,7 @@ window.VersionCompassEditions = {
     },
     {
       "title": "Investigate and respond",
-      "text": "Triage helps assess incoming findings; Guided Response helps run SOAR actions. AI SOC Analyst uses investigation and response-plan context. Current 8.8 sources disagree on Triage edition scope, so check each agent’s edition, deployment, enablement and pairing requirements before treating this as an available end-to-end workflow.",
+      "text": "Triage helps assess incoming findings; Guided Response helps run SOAR actions. AI SOC Analyst uses investigation and response-plan context. The earlier explicit Essentials statement is historical; the current 8.8 note names Premier, while exact Triage subcomponent entitlement remains unestablished. Check each agent’s edition, deployment, enablement and pairing requirements before treating this as an available end-to-end workflow.",
       "ids": [
         "triage-agent",
         "guided-response",
