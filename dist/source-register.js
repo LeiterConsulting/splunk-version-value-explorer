@@ -5507,7 +5507,7 @@ window.VersionCompassSources = {
         "content-updates.js"
       ],
       "reviews": [
-        "2026-10-15"
+        "2026-11-02"
       ],
       "usage": "In use",
       "reviewed": "2026-10-15",
@@ -5872,7 +5872,7 @@ window.VersionCompassSources = {
         "guidance: guidance.preparation11.baseline.0"
       ],
       "reviews": [
-        "2026-10-15"
+        "2026-11-02"
       ],
       "claimReferences": [
         {
@@ -5912,7 +5912,7 @@ window.VersionCompassSources = {
         "guidance: guidance.preparation11.baseline.2"
       ],
       "reviews": [
-        "2026-10-15"
+        "2026-11-02"
       ],
       "claimReferences": [
         {
@@ -7985,7 +7985,7 @@ window.VersionCompassSources = {
         "guidance: guidance.preparation11.baseline.4"
       ],
       "reviews": [
-        "2026-10-15"
+        "2026-11-02"
       ],
       "claimReferences": [
         {
@@ -8056,7 +8056,7 @@ window.VersionCompassSources = {
         "guidance: guidance.preparation11.contextUpdates.1"
       ],
       "reviews": [
-        "2026-10-15"
+        "2026-11-02"
       ],
       "claimReferences": [
         {
@@ -8095,7 +8095,7 @@ window.VersionCompassSources = {
         "guidance: guidance.preparation11.baseline.0"
       ],
       "reviews": [
-        "2026-10-15"
+        "2026-11-02"
       ],
       "claimReferences": [
         {
@@ -8545,7 +8545,7 @@ window.VersionCompassSources = {
         "guidance: guidance.preparation11.contextUpdates.0"
       ],
       "reviews": [
-        "2026-10-15"
+        "2026-11-02"
       ],
       "claimReferences": [
         {

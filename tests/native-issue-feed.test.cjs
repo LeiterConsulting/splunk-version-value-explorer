@@ -32,6 +32,7 @@ test('review changes require a current declaration while publication receipts do
   const value = audit(); value.claimChecks[0].qualification += ' Changed scope.';
   assert.throws(() => checkDeclaration(value, file, ledger), /Stale/);
   const published = audit(); published.publication = { receipt: 'later-deployment-receipt' };
+  published.automationCoverage = { runFile: 'docs/audits/2026-11-02-test-coverage.json' };
   assert.equal(checkDeclaration(published, file, ledger).status, 'no-new-observations');
 });
 test('published outcomes require record identity, retained checkpoint and exact audit provenance', () => {

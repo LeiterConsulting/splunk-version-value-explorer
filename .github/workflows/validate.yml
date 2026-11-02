@@ -19,6 +19,7 @@ jobs:
       - run: node scripts/advisor-maintenance.cjs --check
       - run: node scripts/sync-issue-feed.cjs --check
       - run: node scripts/check-native-issue-feed.cjs
+      - run: node scripts/check-automation-coverage.cjs
       - run: node --test tests/*.test.cjs
       - run: node scripts/build-worker.cjs
       - run: npm ci --prefix tools/export-verification
