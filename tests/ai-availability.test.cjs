@@ -16,6 +16,17 @@ test('AI catalog preserves named products, exact dependency floors and scoped da
  assert.equal(a.source('aiEsSocTask87').reviewed,'2026-10-27');
  for(const id of ['aiEsEditions','aiEsRelease88'])assert.equal(a.source(id).reviewed,'2026-10-24');
 });
+
+test('every capability and inherited assessment citation has a positive number and complete report target',()=>{
+ const a=model(),d=a.data();
+ const required=new Set(d.capabilities.flatMap(r=>r.src));
+ for(const r of d.capabilities)for(const deployment of ['cloud','enterprise'])for(const compliance of ['commercial','fr-m','fr-h'])for(const id of a.assess(r,state(a,{deployment,compliance,edition:'premier',region:'us-east-1'})).src)required.add(id);
+ for(const id of required){assert(d.sourceIds.includes(id),'Missing numbered AI directory source: '+id);assert(d.src.includes(id),'Missing catalog source mapping: '+id);}
+ for(const mode of ['environment','compare']){
+  const html=a.report(state(a,{mode}));assert(!/>\[0\]</.test(html),'Citation zero is invalid');
+  for(const ref of html.matchAll(/href="#ai-ref-([^"]+)"/g))assert(html.includes('id="ai-ref-'+ref[1]+'"'),'Missing full-report citation target '+ref[1]);
+ }
+});
 test('Observability AI capabilities keep realm, rollout and metric limits scoped',()=>{
  const a=model(),d=a.data();assert(a.products.observability);assert.match(d.observabilityRealmConflict,/us3/);
  assert.equal(assess(a,'ai-observability-assistant',{region:'us-east-1'}).availability,'conditional');

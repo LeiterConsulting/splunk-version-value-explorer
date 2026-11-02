@@ -432,7 +432,10 @@ window.SPLUNK_DATA.guidance = {
       "aiObsAssistant",
       "aiObsRca",
       "aiObsServiceDetails",
-      "aiObsJulyRelease"
+      "aiObsJulyRelease",
+      "aiEsThreatGraph88",
+      "aiEsSocTask88",
+      "aiEsTriageNote88"
     ],
     "src": [
       "aiHighAnnouncement20261019",
@@ -446,7 +449,10 @@ window.SPLUNK_DATA.guidance = {
       "aiObsAssistant",
       "aiObsRca",
       "aiObsServiceDetails",
-      "aiObsJulyRelease"
+      "aiObsJulyRelease",
+      "aiEsThreatGraph88",
+      "aiEsSocTask88",
+      "aiEsTriageNote88"
     ],
     "serviceRegions": [
       {

@@ -1242,10 +1242,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-guidance-audit",
       "name": "Version Guidance Audit",
-      "lastAttempt": "2026-11-02T13:34:09.040Z",
-      "lastSuccess": "2026-11-02T13:48:56.380Z",
+      "lastAttempt": "2026-11-02T14:04:21.578Z",
+      "lastSuccess": "2026-11-02T14:04:21.669Z",
       "outcome": "changed",
-      "summary": "Independent audit corrected current ES Triage and SOAR Broker HA scope; historical evidence and unknowns preserved.",
+      "summary": "Corrected current Triage, Broker HA stage scope and complete AI report source-directory mappings.",
       "history": [
         {
           "at": "2026-09-24T12:45:24.855849+00:00",
@@ -1383,9 +1383,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Independent audit corrected current ES Triage and SOAR Broker HA scope; historical evidence and unknowns preserved.",
           "scope": "215 exact registered source URLs checked (213 retrieved); 15 bounded claim groups, all ten AI capability/source chains, 18 borrowed HF mappings/900 routes, genuine before/after regressions; native feed and exact candidate delivery separately recorded."
+        },
+        {
+          "at": "2026-11-02T14:04:21.578Z",
+          "outcome": "running",
+          "summary": "Continuing independent audit after discovering a numbered AI source-directory defect.",
+          "scope": "215 URLs checked, 213 retrieved; 16 bounded claim groups, ten AI capabilities, 18 borrowed HF mappings/900 routes, three genuine before/after repairs; revised exact-candidate export and live delivery separately verified."
+        },
+        {
+          "at": "2026-11-02T14:04:21.669Z",
+          "outcome": "changed",
+          "summary": "Corrected current Triage, Broker HA stage scope and complete AI report source-directory mappings.",
+          "scope": "215 URLs checked, 213 retrieved; 16 bounded claim groups, ten AI capabilities, 18 borrowed HF mappings/900 routes, three genuine before/after repairs; revised exact-candidate export and live delivery separately verified."
         }
       ],
-      "scope": "215 exact registered source URLs checked (213 retrieved); 15 bounded claim groups, all ten AI capability/source chains, 18 borrowed HF mappings/900 routes, genuine before/after regressions; native feed and exact candidate delivery separately recorded."
+      "scope": "215 URLs checked, 213 retrieved; 16 bounded claim groups, ten AI capabilities, 18 borrowed HF mappings/900 routes, three genuine before/after repairs; revised exact-candidate export and live delivery separately verified."
     }
   ]
 };

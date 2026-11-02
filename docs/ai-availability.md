@@ -131,6 +131,11 @@ longer explicitly assigns Triage to Essentials and names Premier in its SOC
 analyst description. The earlier Essentials wording remains historical evidence;
 exact subcomponent entitlement remains unestablished. The new scoped citation
 does not advance the older prerequisite, source-wide or regional review dates.
+The same audit repairs the numbered directory mappings for the current Threat
+Graph and AI SOC Analyst task sources and the scoped Triage note. Every cited
+capability or inherited prerequisite source must have a positive citation number
+and an actual report-directory target. Native downloaded-HTML verification checks
+those targets after independent offline reopening.
 
 | Existing task | AI responsibility |
 | --- | --- |

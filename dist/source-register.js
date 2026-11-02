@@ -3210,6 +3210,10 @@ window.VersionCompassSources = {
           "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
         },
         {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "SOC analyst Triage/Response note; aggregate AI SOC Analyst availability row"
+        },
+        {
           "path": "guidance: guidance.aiAvailability.capabilities.3",
           "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
         },
@@ -3312,6 +3316,7 @@ window.VersionCompassSources = {
         "release.guidance.sources.aiEsSocTask88.url",
         "editions.sources.socTask88.u",
         "content-updates.js",
+        "guidance: guidance.aiAvailability",
         "guidance: guidance.aiAvailability.capabilities.7",
         "editions: editions.capabilities.20",
         "editions: editions.conflicts.1.claims.1"
@@ -3320,6 +3325,10 @@ window.VersionCompassSources = {
         "2026-10-31"
       ],
       "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions"
+        },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.7",
           "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions"
@@ -3354,6 +3363,7 @@ window.VersionCompassSources = {
         "release.guidance.sources.aiEsThreatGraph88.url",
         "editions.sources.threatGraph88.u",
         "content-updates.js",
+        "guidance: guidance.aiAvailability",
         "guidance: guidance.aiAvailability.capabilities.6",
         "editions: editions.capabilities.10"
       ],
@@ -3361,6 +3371,10 @@ window.VersionCompassSources = {
         "2026-10-28"
       ],
       "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Alpha stage; risk-based detection and event-volume prerequisites; enablement and test mode"
+        },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.6",
           "section": "Alpha stage; risk-based detection and event-volume prerequisites; enablement and test mode"

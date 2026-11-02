@@ -240,6 +240,8 @@ try {
       const reopenedText = normalize(await reopened.locator('body').textContent());
       assert(reopenedText.includes(normalize(expected.text)), 'Saved HTML lost report content');
       assert.equal(await reopened.locator('script,iframe,object,embed').count(), 0);
+      const citationFailures=await reopened.evaluate(()=>[...document.querySelectorAll('a[href^="#ai-ref-"]')].filter(a=>a.textContent.trim()==='[0]'||!document.getElementById(a.getAttribute('href').slice(1))).map(a=>({label:a.textContent,href:a.getAttribute('href')})));
+      assert.deepEqual(citationFailures,[], 'Downloaded AI report has an unnumbered or missing source target');
       assert.equal(requests.length, 0, 'Offline HTML attempted network requests');
       await reopened.screenshot({path:path.join(directory,'html-reopened.png')});
       entry.html = {file:relative(htmlFile),offlineReopened:true,complete:true,networkRequestsBlocked:true};

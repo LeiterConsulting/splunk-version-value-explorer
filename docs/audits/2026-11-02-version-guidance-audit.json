@@ -719,6 +719,46 @@
           }
         }
       ]
+    },
+    {
+      "claimId": "reports.ai-numbered-source-directory",
+      "productVersionEnvironment": "VersionCompass AI Availability environment/comparison print and saved HTML; published baseline and held first candidate",
+      "claimVerificationDate": "2026-11-02",
+      "assessedAt": "2026-11-02T14:04:16.047Z",
+      "outcome": "source-directory-repaired-in-bounded-mapping-scope",
+      "qualification": "The published baseline omitted aiEsThreatGraph88 and aiEsSocTask88 from the numbered directory despite capability citations; the first held candidate additionally omitted aiEsTriageNote88. That produced citation zero and absent internal report anchors while the source records and external screen links existed. All three IDs are now in canonical sourceIds/src. A regression failed on the missing Threat Graph source before repair and now validates every capability and inherited assessment citation, positive numbering and report targets. Native downloaded-report CI now independently rejects zero or missing AI targets. This mapping-scope repair does not advance vendor facts or earlier source dates; native export/live delivery is recorded separately.",
+      "evidence": [
+        {
+          "evidenceId": "directory-7cd8139",
+          "url": "https://raw.githubusercontent.com/LeiterConsulting/splunk-version-value-explorer/7cd813967f4b56bd8e3dd5c4b8967337b055cf1a/content/datasets/guidance.json",
+          "section": "/aiAvailability/sourceIds and /aiAvailability/src versus /aiAvailability/capabilities/*/src",
+          "statement": "Published Site 262 baseline; two task-source directory omissions. Missing numbered-directory IDs: aiEsThreatGraph88, aiEsSocTask88. Source records exist, but their print/saved-HTML directory targets are absent.",
+          "role": "observed",
+          "sourceCheckedAt": "2026-11-02T14:04:07.652Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "b0c7f430d95dd5fcc5b84ad597ac7d092cd559c8b10368a08268b4358394fa43",
+            "qualification": "Exact public commit-pinned JSON bytes; this verifies the website source mapping, not vendor capability truth."
+          }
+        },
+        {
+          "evidenceId": "directory-847688a",
+          "url": "https://raw.githubusercontent.com/LeiterConsulting/splunk-version-value-explorer/847688aa54b0d8d0f8ca6768dd7cfdf9ba5bf619/content/datasets/guidance.json",
+          "section": "/aiAvailability/sourceIds and /aiAvailability/src versus /aiAvailability/capabilities/*/src",
+          "statement": "Held first candidate; new scoped Triage source also omitted. Missing numbered-directory IDs: aiEsThreatGraph88, aiEsSocTask88, aiEsTriageNote88. Source records exist, but their print/saved-HTML directory targets are absent.",
+          "role": "challenging",
+          "sourceCheckedAt": "2026-11-02T14:04:15.860Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "991f621a87cb44f9b9d3cc2093cf580add6c479a163066edb5b66d70ff64feac",
+            "qualification": "Exact public commit-pinned JSON bytes; this verifies the website source mapping, not vendor capability truth."
+          }
+        }
+      ],
+      "findingId": "vci-ai-report-source-directory",
+      "feedOutcome": "addressed-in-reviewed-scope"
     }
   ],
   "changes": [
@@ -731,6 +771,11 @@
       "id": "broker-ha88-current-row",
       "owner": "Version Guidance Audit; Version Release Watch follow-through",
       "detail": "Corrected independent feature GA assertion to Conditional with representative enablement; release CA/GA conflict and historical evidence retained."
+    },
+    {
+      "id": "ai-source-directory",
+      "owner": "Version Guidance Audit",
+      "detail": "Repaired three canonical numbered-directory/source mappings; preserved all earlier citation numbering, vendor fact dates and record identities. Added genuine before/after regression and native offline-downloaded-HTML target checks."
     }
   ],
   "maintenanceCrossCheck": [
@@ -809,12 +854,12 @@
   },
   "validation": {
     "orderedSyncAndChecks": "Release metadata, content, source register and content revision generators ran in order and all four --check gates passed, alongside Advisor, issue-feed and native-output checks.",
-    "fullNodeTests": "257 tests passed, zero failures/skips. Includes eighteen borrowed HF mappings across 900 actual routes, missing inherited-reference and semantic negative fixtures, all AI filter/intersection and inherited-prerequisite cases, SOAR exact/legacy/invalid scope, and dependent Advisor fail-closed pins.",
-    "build": "Production Worker build passed with seven datasets, 895 records and 66 assets; content-cda3d56c4e570282f2ca0167; engine-636c9c37e2be7a9340e3.",
+    "fullNodeTests": "258 tests passed, zero failures/skips, after the additional source-directory regression. The earlier 257-test candidate remains separately recorded and superseded.",
+    "build": "Revised production Worker build passed with seven datasets, 895 records and 66 assets; content-e353b5ba39073b7603655fa7; engine-636c9c37e2be7a9340e3.",
     "focusedTests": "72 initial mapping/SOAR/AI/WebMCP tests passed. Triage and Broker regressions separately failed before repair and passed afterward. Dependent Advisor pins were explicitly reassessed for the changed qualification only.",
     "browser": "Actual live Cisco legacy SOAR 6.3.0-to-8.7 preserved 8.5.0 bridge, exact build/runtime and collapsed detail. Tab reached Skip to comparison. Repeated SOAR target disabled copy/print/snapshot and current-report WebMCP returned INVALID_INPUT_OR_UNAVAILABLE_DATA. Additional affected candidate checks pending CI and live publication.",
     "nativeExports": {
-      "status": "pending-exact-candidate-ci"
+      "status": "pending-revised-exact-candidate-ci"
     },
     "liveBaseline": {
       "evaluatedAt": "2026-11-02T13:35:53.692Z",
@@ -890,30 +935,40 @@
       "limitations": [
         "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
       ]
+    },
+    "initialCandidate": {
+      "commit": "847688aa54b0d8d0f8ca6768dd7cfdf9ba5bf619",
+      "tree": "0ed29f6e05665190e3ac41eb42a09fc0b513407e",
+      "workflowRun": 41456877302,
+      "job": 125315684601,
+      "outcome": "CI passed but candidate superseded before deployment after independent source-directory defect discovery",
+      "qualification": "Do not use its export receipt for the revised report inputs. Site 262 remains live until the repaired exact candidate passes."
+    },
+    "feedReadback": {
+      "checkedAt": "2026-11-02T13:56:04.443Z",
+      "commit": "d864c941cca875cee8a5ebef898b0bec5cf638bc",
+      "checkpoint": "vci-fda2dbf3e3abc145d5bf1c4b42b78ffa1b500ca346ce8f49ac8814eee0df1344",
+      "fullRecords": 78,
+      "fullPublications": 1,
+      "replayedPublications": 1,
+      "replayedRecords": 78,
+      "quarantined": 0,
+      "qualification": "All committed index/snapshot/record bytes and lineage verified from the exact public commit; prior checkpoint recovery passed. No consumer persistence or closure is implied."
     }
   },
   "publication": {
-    "status": "candidate-held-until-applicable-checks-pass"
+    "status": "revised-candidate-held-until-applicable-checks-pass",
+    "publishedAuditCommit": "847688aa54b0d8d0f8ca6768dd7cfdf9ba5bf619",
+    "publishedFirstFeedCommit": "d864c941cca875cee8a5ebef898b0bec5cf638bc"
   },
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "version-guidance-audit",
-    "status": "published",
-    "recordedAt": "2026-11-02T13:54:08.381Z",
-    "reviewDigest": "8db710b699fc33796e0c7516fff885292e9c14ff6f5ca9f16708cf69cadf432a",
+    "status": "pending-public-provenance",
+    "recordedAt": "2026-11-02T14:04:21.552Z",
+    "reviewDigest": "9f58bf12b0f84257bf5c03cd561a651102f7c1673b70d6599b9505290c9940db",
     "publicationId": "vci-fda2dbf3e3abc145d5bf1c4b42b78ffa1b500ca346ce8f49ac8814eee0df1344",
-    "recordKeys": [
-      "finding:vci-es-soc-analyst-version-floor@1",
-      "assessment:vcia-guidance-20261102-es-88-triage-editions@1",
-      "assessment:vcia-guidance-20261102-es-soc-analyst-version-floor@1",
-      "assessment:vcia-guidance-20261102-soar-cloud-880-release-stage@1",
-      "assessment:vcia-guidance-20261102-enterprise-kv-106-upgrade-bridge@1",
-      "assessment:vcia-guidance-20261102-svd-2026-1015-applicability@1",
-      "assessment:vcia-guidance-20261102-cloud-107-release-service-pairing@1",
-      "assessment:vcia-guidance-20261102-itsi-subagent-region@1",
-      "assessment:vcia-guidance-20261102-observability-rca-custom-metric-scope@1",
-      "assessment:vcia-guidance-20261102-app-for-soar-es-pairing@1"
-    ],
+    "recordKeys": [],
     "notReassessedFindingIds": [
       "vci-es-87-connector-builder-editions",
       "vci-es-guided-response-enhancement-scope",
@@ -922,7 +977,9 @@
       "vci-saia-high-runtime-scope",
       "vci-cloud-s3-restricted-scope"
     ],
-    "deferredConcerns": [],
-    "qualification": "Eight distinct existing-finding reassessments and one new AI SOC Analyst Cloud version-floor finding/assessment use immutable public audit commit 847688aa54b0d8d0f8ca6768dd7cfdf9ba5bf619. Earlier statements, unknown revisions, original labels and all history remain. Delivery still requires committed-byte readback and checkpoint recovery, recorded separately from this declaration."
+    "deferredConcerns": [
+      "Publish the added AI directory mapping assessment, then immediately append its finding/assessment with that exact public audit commit. Earlier nine assessments and checkpoint eleven remain already delivered."
+    ],
+    "qualification": "Revised audit includes one newly supported VersionCompass report-mapping issue. The first nine assessments remain immutable; new issue provenance is pending and the repaired runtime candidate remains held for new exact-candidate CI."
   }
 }
