@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-01T12:12:26Z",
-      "lastSuccess": "2026-11-01T12:13:04Z",
+      "lastAttempt": "2026-11-02T12:52:38.341Z",
+      "lastSuccess": "2026-11-02T12:52:38.429Z",
       "outcome": "changed",
-      "summary": "Reviewed 27 official URLs and eight bounded claim groups; recorded a new RCA metric-scope ambiguity and three regional/regulated reassessments. Canonical facts remain unchanged.",
+      "summary": "Reviewed 34 official URLs and eight claim groups; recorded four issue reassessments with no canonical fact change.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -375,9 +375,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Reviewed 27 official URLs and eight bounded claim groups; recorded a new RCA metric-scope ambiguity and three regional/regulated reassessments. Canonical facts remain unchanged.",
           "scope": "Complete 25-source inventory plus two 10.7 discovery URLs; eight bounded claim groups; four issue-feed records. Exact-candidate CI and production publication evidence recorded separately."
+        },
+        {
+          "at": "2026-11-02T12:52:38.341Z",
+          "outcome": "running",
+          "summary": "Reviewing current CSP/FedRAMP evidence and regional AI scope.",
+          "scope": "Complete 34-URL inventory; exact Marketplace status, S3 conflicts, ES8.8 tables, SAIA runtime, ITSI subagent, SOAR restrictions, dated matrix and RCA wording. Publication checks recorded separately."
+        },
+        {
+          "at": "2026-11-02T12:52:38.429Z",
+          "outcome": "changed",
+          "summary": "Reviewed 34 official URLs and eight claim groups; recorded four issue reassessments with no canonical fact change.",
+          "scope": "Complete 34-URL inventory; exact Marketplace status, S3 conflicts, ES8.8 tables, SAIA runtime, ITSI subagent, SOAR restrictions, dated matrix and RCA wording. Publication checks recorded separately."
         }
       ],
-      "scope": "Complete 25-source inventory plus two 10.7 discovery URLs; eight bounded claim groups; four issue-feed records. Exact-candidate CI and production publication evidence recorded separately."
+      "scope": "Complete 34-URL inventory; exact Marketplace status, S3 conflicts, ES8.8 tables, SAIA runtime, ITSI subagent, SOAR restrictions, dated matrix and RCA wording. Publication checks recorded separately."
     },
     {
       "id": "version-release-watch",

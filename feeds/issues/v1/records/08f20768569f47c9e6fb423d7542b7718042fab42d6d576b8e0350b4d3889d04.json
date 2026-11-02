@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-observability-rca-custom-metric-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-02T12:52:16.903Z",
+  "assessmentId": "vcia-observability-rca-custom-metric-scope-csp-20261102",
+  "assessedAt": "2026-11-02T12:50:45.867Z",
+  "outcome": "still-present",
+  "rationale": "The guide explicitly says only standard default metrics and no custom metrics, while its later optimization guidance says custom metrics can be useful with standard dimensions. This is a scope ambiguity, not evidence of supported custom-metric RCA. Existing explicit restriction is retained; Release Watch owns product-scope reconciliation.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Observability Cloud AI troubleshooting agent"
+    ],
+    "versions": [
+      "Current rolling documentation; source publication date unknown"
+    ],
+    "editions": null,
+    "deployments": [
+      "Non-Governmental Observability realms"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating RCA metric eligibility"
+    ],
+    "exclusions": [
+      "No custom-metric support, new regional rollout, entitlement or authorization is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-observability-rca-custom-metric-scope-20261102"
+  ],
+  "remainingConcerns": [
+    "The relationship between detector eligibility and contextual custom metrics remains unclear."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "rca-default-only-20261102",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan",
+      "section": "Availability; supported alerts and metrics; opt-in behavior; Kubernetes remediation plans",
+      "statement": "The guide explicitly says only standard default metrics and no custom metrics, while its later optimization guidance says custom metrics can be useful with standard dimensions. This is a scope ambiguity, not evidence of supported custom-metric RCA. Existing explicit restriction is retained; Release Watch owns product-scope reconciliation.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-02T12:48:37.084Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "a994a8fd1cc7bf6ef4a5269a1ca0921640c5bb7ef1d2b424fa730037247ba3cf",
+        "qualification": "Exact retrieved response-body digest; not a semantic diff or publisher revision."
+      }
+    },
+    {
+      "evidenceId": "rca-custom-context-20261102",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan",
+      "section": "Availability; supported alerts and metrics; opt-in behavior; Kubernetes remediation plans",
+      "statement": "The guide explicitly says only standard default metrics and no custom metrics, while its later optimization guidance says custom metrics can be useful with standard dimensions. This is a scope ambiguity, not evidence of supported custom-metric RCA. Existing explicit restriction is retained; Release Watch owns product-scope reconciliation.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-02T12:48:37.084Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "a994a8fd1cc7bf6ef4a5269a1ca0921640c5bb7ef1d2b424fa730037247ba3cf",
+        "qualification": "Exact retrieved response-body digest; not a semantic diff or publisher revision."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/8a13f729bb1bb53bce25a502241aabe46dfc836d/docs/audits/2026-11-02-csp-fedramp-watch.json",
+      "pointer": "/claimChecks/7",
+      "originalLabel": "conflicting-guidance"
+    }
+  ]
+}
