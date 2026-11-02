@@ -6,12 +6,19 @@ state, notification preference, model and permission. Read the actual saved obje
 before editing; keep before/after digests and readback in the amendment ledger.
 The conceptual cadence in scheduled-maintenance.md is not a saved configuration.
 
-The existing saved configurations were unavailable to this review. Neither task
-was changed. Before/after snapshots and first-execution verification remain
-blocked/pending. Finish reconciliation through the authorized task-management
-context; no new task or substitute schedule is authorized. A manual audit is not
-its first execution. Exact private troubleshooting details are retained outside
-this public repository.
+The November 2 reconciliation read both existing saved configurations, appended
+the authorized additions and independently read them back. Only the prompt and
+update timestamp changed. The complete original prompts, existing Eastern VEVENTs,
+flexible timing, enabled states and other exposed settings were retained. Digest
+and setting receipts are in the amendment ledger; private conversation identifiers
+and full task snapshots are not published.
+
+Both native run-now actions returned the amended prompt for inline execution.
+Their actual bounded execution records are retained separately from the earlier
+manual pilot. Mandatory follow-up and delivery remain incomplete, so activation
+is pending. No scheduler run identity was supplied by the inline control; the
+retained run identities do not claim to be scheduler IDs. No duplicate task,
+substitute schedule, permission change or new timer was created.
 
 ## Addition to Version Release Watch
 
