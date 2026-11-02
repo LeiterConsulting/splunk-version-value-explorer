@@ -51,6 +51,14 @@ window.SPLUNK_DATA.guidance = {
     "releases": {}
   },
   "sources": {
+    "aiEsTriageNote88": {
+      "title": "ES 8.8 current Triage component note",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "SOC analyst Triage/Response note; aggregate AI SOC Analyst availability row",
+      "checked": "2026-11-02",
+      "reviewed": "2026-11-02",
+      "scope": "Only the current Triage note and Premier aggregate row; other prerequisites and historical statements retain their prior dates."
+    },
     "aiHighAnnouncement20261019": {
       "title": "October 19 Splunk AI Assistant FedRAMP High announcement",
       "url": "https://www.splunk.com/en_us/blog/industries/edge-and-ingest-processors-with-spl2-and-splunk-ai-assistant-achieve-fedramp-high.html",
@@ -824,13 +832,14 @@ window.SPLUNK_DATA.guidance = {
           "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported."
         ],
         "runtime": "Agentic SOC services; the 8.8 task guide says the Splunk-hosted model option does not apply to this workflow. Paired SOAR has independent compatibility.",
-        "qualification": "The aggregate row is Premier. A separate 8.8 note assigns the Triage component to Essentials and the Response component to Premier, while the editions overview lists Triage under Premier; do not infer the whole workflow from a subcomponent. The 8.8 guide's connector/action inheritance and es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence.",
+        "qualification": "The aggregate row is Premier. The current 8.8 note no longer explicitly assigns Triage to Essentials; it describes Triage and Response within the SOC analyst agent and names Premier. The earlier Essentials statement remains historical evidence, while exact subcomponent entitlement remains unestablished. The 8.8 guide's connector/action inheritance and es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence.",
         "condition": "Confirm Premier access, exact Cloud or CMP prerequisites, paired SOAR compatibility, representative enablement, frontier-model support and inherited connector/asset permissions.",
         "src": [
           "aiEsAgents88",
           "aiEsSocTask88",
           "aiEsSocTask87",
-          "aiEsRelease88"
+          "aiEsRelease88",
+          "aiEsTriageNote88"
         ]
       },
       {

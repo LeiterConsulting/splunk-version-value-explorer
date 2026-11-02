@@ -1242,10 +1242,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-guidance-audit",
       "name": "Version Guidance Audit",
-      "lastAttempt": "2026-10-29T12:20:00Z",
-      "lastSuccess": "2026-10-29T12:22:00Z",
-      "outcome": "no-change",
-      "summary": "Completed the integrated audit with no authoritative factual correction; preserved documented conflicts and unknowns.",
+      "lastAttempt": "2026-11-02T13:34:09.040Z",
+      "lastSuccess": "2026-11-02T13:48:56.380Z",
+      "outcome": "changed",
+      "summary": "Independent audit corrected current ES Triage and SOAR Broker HA scope; historical evidence and unknowns preserved.",
       "history": [
         {
           "at": "2026-09-24T12:45:24.855849+00:00",
@@ -1371,9 +1371,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Completed the integrated audit with no authoritative factual correction; preserved documented conflicts and unknowns.",
           "scope": "All 205 registered URL attempts, eleven bounded high-consequence claim groups, all 18 Forwarder mappings, ten AI capabilities, SOAR exact/legacy/invalid behavior, current route/report contracts and coordinated maintenance evidence."
+        },
+        {
+          "at": "2026-11-02T13:34:09.040Z",
+          "outcome": "running",
+          "summary": "Independent integrated guidance audit in progress.",
+          "scope": "Complete registered official-source inventory change check; bounded consequential claim and generated mapping review; report, native feed and publication evidence."
+        },
+        {
+          "at": "2026-11-02T13:48:56.380Z",
+          "outcome": "changed",
+          "summary": "Independent audit corrected current ES Triage and SOAR Broker HA scope; historical evidence and unknowns preserved.",
+          "scope": "215 exact registered source URLs checked (213 retrieved); 15 bounded claim groups, all ten AI capability/source chains, 18 borrowed HF mappings/900 routes, genuine before/after regressions; native feed and exact candidate delivery separately recorded."
         }
       ],
-      "scope": "All 205 registered URL attempts, eleven bounded high-consequence claim groups, all 18 Forwarder mappings, ten AI capabilities, SOAR exact/legacy/invalid behavior, current route/report contracts and coordinated maintenance evidence."
+      "scope": "215 exact registered source URLs checked (213 retrieved); 15 bounded claim groups, all ten AI capability/source chains, 18 borrowed HF mappings/900 routes, genuine before/after regressions; native feed and exact candidate delivery separately recorded."
     }
   ]
 };

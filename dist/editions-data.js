@@ -6,6 +6,13 @@ window.VersionCompassEditions = {
   "releaseDate": "2026-10-21",
   "releaseStage": "Controlled Availability",
   "sources": {
+    "triageNote88": {
+      "t": "ES 8.8 current Triage component note",
+      "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "reviewed": "2026-11-02",
+      "section": "SOC analyst Triage/Response note; aggregate AI SOC Analyst availability row",
+      "verificationScope": "Only the current Triage note and Premier aggregate row were reverified November 2; other agent rows retain their separate dates and scope."
+    },
     "rn88": {
       "t": "ES 8.8 release notes",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
@@ -471,21 +478,22 @@ window.VersionCompassEditions = {
       "lane": "Agentic SOC Workforce",
       "ess": {
         "v": "review",
-        "n": "8.8 sources disagree"
+        "n": "8.8 component scope unestablished"
       },
       "prem": {
         "v": "part",
         "n": "Cloud; verify 8.8 component scope"
       },
-      "flag": "Current 8.8 sources conflict: the agent guide says the SOC analyst agent includes a Triage component available in Essentials, while the editions overview lists Triage under Premier. The 8.7 Cloud matrix also groups Triage enhancements under Premier. Confirm the component and target-version entitlement.",
-      "desc": "Investigates queued findings and presents a disposition, rationale and suggested next steps. The linked setup guide remains 8.6 documentation and does not resolve the 8.8 edition conflict or establish deployment prerequisites for every current workflow.",
+      "flag": "The current 8.8 agent note no longer explicitly assigns Triage to Essentials. It describes Triage and Response within the SOC analyst agent and names Premier; the editions overview also groups Triage under Premier. The earlier Essentials statement remains a historical conflict, not current entitlement evidence. Confirm the exact component, deployment and enablement scope.",
+      "desc": "Investigates queued findings and presents a disposition, rationale and suggested next steps. The linked setup guide remains 8.6 documentation and does not establish prerequisites for every current 8.8 workflow or Essentials entitlement.",
       "src": [
         "agentic88",
+        "triageNote88",
         "editions",
         "matrix",
         "triage"
       ],
-      "reviewed": "2026-10-24"
+      "reviewed": "2026-11-02"
     },
     {
       "id": "guided-response",
@@ -765,14 +773,14 @@ window.VersionCompassEditions = {
   "conflicts": [
     {
       "id": "triage-edition-88",
-      "kind": "Direct edition conflict",
+      "kind": "Historical conflict and current component scope",
       "title": "Which edition includes the Triage component in 8.8?",
       "claims": [
         {
           "src": [
-            "agentic88"
+            "triageNote88"
           ],
-          "text": "The 8.8 agent guide says the SOC analyst agent includes a Triage component available in Essentials and a Response component available in Premier."
+          "text": "The current 8.8 agent note describes Triage and Response within the SOC analyst agent and names Premier, without explicitly assigning Triage to Essentials. The aggregate AI SOC Analyst row is Premier."
         },
         {
           "src": [
@@ -781,7 +789,7 @@ window.VersionCompassEditions = {
           "text": "The current editions overview lists Triage Agent in the Premier agent group."
         }
       ],
-      "meaning": "The sources assign different edition scope to Triage. The aggregate AI SOC Analyst row is Premier and does not by itself resolve the subcomponent entitlement.",
+      "meaning": "The earlier explicit Essentials statement is retained in historical audits and issue assessments. It is absent from the current note, so the former direct-conflict description is partially addressed. This does not independently settle every Triage subcomponent entitlement or authorize Essentials use.",
       "question": "Confirm the exact 8.8 Triage experience, edition and enablement scope for the target deployment."
     },
     {

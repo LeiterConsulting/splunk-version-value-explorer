@@ -1344,7 +1344,7 @@
         {
           "sourceId": "source-82e4d5d64919b192142d",
           "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
+          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
           "sourceVerified": "2026-10-24",
           "sourceChecked": "2026-10-24"
@@ -4053,7 +4053,7 @@
         {
           "sourceId": "source-82e4d5d64919b192142d",
           "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
+          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
           "sourceVerified": "2026-10-24",
           "sourceChecked": "2026-10-24"
@@ -4272,7 +4272,7 @@
         {
           "sourceId": "source-82e4d5d64919b192142d",
           "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
+          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
           "sourceVerified": "2026-10-24",
           "sourceChecked": "2026-10-24"
@@ -5693,30 +5693,30 @@
         {
           "sourceId": "source-82e4d5d64919b192142d",
           "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
+          "section": "October 21, 2026 release 8.8: Automation Broker High Availability row and representative-enablement note; CA heading and GA enhancement prose",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-24",
-          "sourceChecked": "2026-10-24"
+          "sourceVerified": "2026-11-02",
+          "sourceChecked": "2026-11-02"
         }
       ],
       "verification": {
-        "date": "2026-10-24",
+        "date": "2026-11-02",
         "outcome": "Recorded in original claim"
       },
       "payload": {
         "id": "broker-ha88",
-        "title": "Automation Broker high availability reaches GA",
-        "detail": "The Cloud 8.8 enhancement table marks Automation Broker high availability General Availability. This supersedes the Cloud 8.7 Controlled Availability stage for that feature only; it does not make the full 8.8 release generally available or establish regional, entitlement or pairing scope.",
+        "title": "Automation Broker high availability in Cloud 8.8",
+        "detail": "The current Cloud 8.8 Broker HA row has no separate GA label and requires contacting a Splunk representative to enable the feature. The section still says the release is Controlled Availability and describes the enhancement list as General Availability. Preserve that conflict rather than independently certifying Broker HA as GA. Cloud 8.7's Controlled Availability history, regional, entitlement and pairing scope remain separate.",
         "kind": "feature",
         "release": "8.8.0",
         "src": [
-          "cloud"
+          "cloudBroker88"
         ],
         "deployments": [
           "cloud"
         ],
-        "status": "Documented",
-        "verified": "2026-10-24",
+        "status": "Conditional",
+        "verified": "2026-11-02",
         "outcome": "Keep response actions running if a Broker fails and distribute work across a Broker group."
       }
     },
@@ -5969,7 +5969,7 @@
         {
           "sourceId": "source-82e4d5d64919b192142d",
           "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
+          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
           "sourceVerified": "2026-10-24",
           "sourceChecked": "2026-10-24"
@@ -7595,13 +7595,14 @@
               "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported."
             ],
             "runtime": "Agentic SOC services; the 8.8 task guide says the Splunk-hosted model option does not apply to this workflow. Paired SOAR has independent compatibility.",
-            "qualification": "The aggregate row is Premier. A separate 8.8 note assigns the Triage component to Essentials and the Response component to Premier, while the editions overview lists Triage under Premier; do not infer the whole workflow from a subcomponent. The 8.8 guide's connector/action inheritance and es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence.",
+            "qualification": "The aggregate row is Premier. The current 8.8 note no longer explicitly assigns Triage to Essentials; it describes Triage and Response within the SOC analyst agent and names Premier. The earlier Essentials statement remains historical evidence, while exact subcomponent entitlement remains unestablished. The 8.8 guide's connector/action inheritance and es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence.",
             "condition": "Confirm Premier access, exact Cloud or CMP prerequisites, paired SOAR compatibility, representative enablement, frontier-model support and inherited connector/asset permissions.",
             "src": [
               "aiEsAgents88",
               "aiEsSocTask88",
               "aiEsSocTask87",
-              "aiEsRelease88"
+              "aiEsRelease88",
+              "aiEsTriageNote88"
             ]
           },
           {
@@ -9049,7 +9050,7 @@
         {
           "sourceId": "source-82e4d5d64919b192142d",
           "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
+          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
           "sourceVerified": "2026-10-24",
           "sourceChecked": "2026-10-24"
@@ -11746,7 +11747,7 @@
         {
           "sourceId": "source-82e4d5d64919b192142d",
           "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
+          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
           "sourceVerified": "2026-10-24",
           "sourceChecked": "2026-10-24"
@@ -12803,7 +12804,7 @@
         {
           "sourceId": "source-82e4d5d64919b192142d",
           "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
+          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
           "sourceVerified": "2026-10-24",
           "sourceChecked": "2026-10-24"
@@ -13771,7 +13772,7 @@
         {
           "sourceId": "source-82e4d5d64919b192142d",
           "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
+          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
           "sourceVerified": "2026-10-24",
           "sourceChecked": "2026-10-24"
@@ -17976,10 +17977,10 @@
         {
           "sourceId": "source-d6c87ecad818dd756db9",
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
-          "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
+          "section": "SOC analyst Triage/Response note; aggregate AI SOC Analyst availability row",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-28",
-          "sourceChecked": "2026-10-28"
+          "sourceVerified": "2026-11-02",
+          "sourceChecked": "2026-11-02"
         },
         {
           "sourceId": "source-88f5fe3da30855096e74",
@@ -18038,13 +18039,14 @@
           "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported."
         ],
         "runtime": "Agentic SOC services; the 8.8 task guide says the Splunk-hosted model option does not apply to this workflow. Paired SOAR has independent compatibility.",
-        "qualification": "The aggregate row is Premier. A separate 8.8 note assigns the Triage component to Essentials and the Response component to Premier, while the editions overview lists Triage under Premier; do not infer the whole workflow from a subcomponent. The 8.8 guide's connector/action inheritance and es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence.",
+        "qualification": "The aggregate row is Premier. The current 8.8 note no longer explicitly assigns Triage to Essentials; it describes Triage and Response within the SOC analyst agent and names Premier. The earlier Essentials statement remains historical evidence, while exact subcomponent entitlement remains unestablished. The 8.8 guide's connector/action inheritance and es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence.",
         "condition": "Confirm Premier access, exact Cloud or CMP prerequisites, paired SOAR compatibility, representative enablement, frontier-model support and inherited connector/asset permissions.",
         "src": [
           "aiEsAgents88",
           "aiEsSocTask88",
           "aiEsSocTask87",
-          "aiEsRelease88"
+          "aiEsRelease88",
+          "aiEsTriageNote88"
         ]
       }
     },
@@ -19410,7 +19412,7 @@
         {
           "sourceId": "source-82e4d5d64919b192142d",
           "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
+          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
           "sourceVerified": "2026-10-24",
           "sourceChecked": "2026-10-24"
@@ -19628,7 +19630,7 @@
         {
           "sourceId": "source-82e4d5d64919b192142d",
           "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
+          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
           "sourceVerified": "2026-10-24",
           "sourceChecked": "2026-10-24"
@@ -21043,13 +21045,14 @@
               "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported."
             ],
             "runtime": "Agentic SOC services; the 8.8 task guide says the Splunk-hosted model option does not apply to this workflow. Paired SOAR has independent compatibility.",
-            "qualification": "The aggregate row is Premier. A separate 8.8 note assigns the Triage component to Essentials and the Response component to Premier, while the editions overview lists Triage under Premier; do not infer the whole workflow from a subcomponent. The 8.8 guide's connector/action inheritance and es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence.",
+            "qualification": "The aggregate row is Premier. The current 8.8 note no longer explicitly assigns Triage to Essentials; it describes Triage and Response within the SOC analyst agent and names Premier. The earlier Essentials statement remains historical evidence, while exact subcomponent entitlement remains unestablished. The 8.8 guide's connector/action inheritance and es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence.",
             "condition": "Confirm Premier access, exact Cloud or CMP prerequisites, paired SOAR compatibility, representative enablement, frontier-model support and inherited connector/asset permissions.",
             "src": [
               "aiEsAgents88",
               "aiEsSocTask88",
               "aiEsSocTask87",
-              "aiEsRelease88"
+              "aiEsRelease88",
+              "aiEsTriageNote88"
             ]
           },
           {
@@ -21557,9 +21560,9 @@
         {
           "sourceId": "source-d6c87ecad818dd756db9",
           "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
-          "section": null,
-          "sectionScope": "Section not recorded",
-          "sourceVerified": "2026-10-28",
+          "section": "SOC analyst Triage/Response note; aggregate AI SOC Analyst availability row",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-11-02",
           "sourceChecked": null
         },
         {
@@ -21597,21 +21600,22 @@
         "lane": "Agentic SOC Workforce",
         "ess": {
           "v": "review",
-          "n": "8.8 sources disagree"
+          "n": "8.8 component scope unestablished"
         },
         "prem": {
           "v": "part",
           "n": "Cloud; verify 8.8 component scope"
         },
-        "flag": "Current 8.8 sources conflict: the agent guide says the SOC analyst agent includes a Triage component available in Essentials, while the editions overview lists Triage under Premier. The 8.7 Cloud matrix also groups Triage enhancements under Premier. Confirm the component and target-version entitlement.",
-        "desc": "Investigates queued findings and presents a disposition, rationale and suggested next steps. The linked setup guide remains 8.6 documentation and does not resolve the 8.8 edition conflict or establish deployment prerequisites for every current workflow.",
+        "flag": "The current 8.8 agent note no longer explicitly assigns Triage to Essentials. It describes Triage and Response within the SOC analyst agent and names Premier; the editions overview also groups Triage under Premier. The earlier Essentials statement remains a historical conflict, not current entitlement evidence. Confirm the exact component, deployment and enablement scope.",
+        "desc": "Investigates queued findings and presents a disposition, rationale and suggested next steps. The linked setup guide remains 8.6 documentation and does not establish prerequisites for every current 8.8 workflow or Essentials entitlement.",
         "src": [
           "agentic88",
+          "triageNote88",
           "editions",
           "matrix",
           "triage"
         ],
-        "reviewed": "2026-10-24"
+        "reviewed": "2026-11-02"
       }
     },
     {
@@ -22248,7 +22252,7 @@
         {
           "sourceId": "source-82e4d5d64919b192142d",
           "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
+          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
           "sourceVerified": "2026-10-24",
           "sourceChecked": "2026-10-24"
@@ -22525,13 +22529,14 @@
           "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported."
         ],
         "runtime": "Agentic SOC services; the 8.8 task guide says the Splunk-hosted model option does not apply to this workflow. Paired SOAR has independent compatibility.",
-        "qualification": "The aggregate row is Premier. A separate 8.8 note assigns the Triage component to Essentials and the Response component to Premier, while the editions overview lists Triage under Premier; do not infer the whole workflow from a subcomponent. The 8.8 guide's connector/action inheritance and es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence.",
+        "qualification": "The aggregate row is Premier. The current 8.8 note no longer explicitly assigns Triage to Essentials; it describes Triage and Response within the SOC analyst agent and names Premier. The earlier Essentials statement remains historical evidence, while exact subcomponent entitlement remains unestablished. The 8.8 guide's connector/action inheritance and es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence.",
         "condition": "Confirm Premier access, exact Cloud or CMP prerequisites, paired SOAR compatibility, representative enablement, frontier-model support and inherited connector/asset permissions.",
         "src": [
           "aiEsAgents88",
           "aiEsSocTask88",
           "aiEsSocTask87",
-          "aiEsRelease88"
+          "aiEsRelease88",
+          "aiEsTriageNote88"
         ]
       }
     },
@@ -24678,7 +24683,7 @@
     },
     {
       "id": "vc-f78fd50498074ddd491c",
-      "kind": "Direct edition conflict",
+      "kind": "Historical conflict and current component scope",
       "dataset": "editions",
       "scope": {
         "release": "8.8"
@@ -24690,14 +24695,14 @@
       },
       "payload": {
         "id": "triage-edition-88",
-        "kind": "Direct edition conflict",
+        "kind": "Historical conflict and current component scope",
         "title": "Which edition includes the Triage component in 8.8?",
         "claims": [
           {
             "src": [
-              "agentic88"
+              "triageNote88"
             ],
-            "text": "The 8.8 agent guide says the SOC analyst agent includes a Triage component available in Essentials and a Response component available in Premier."
+            "text": "The current 8.8 agent note describes Triage and Response within the SOC analyst agent and names Premier, without explicitly assigning Triage to Essentials. The aggregate AI SOC Analyst row is Premier."
           },
           {
             "src": [
@@ -24706,7 +24711,7 @@
             "text": "The current editions overview lists Triage Agent in the Premier agent group."
           }
         ],
-        "meaning": "The sources assign different edition scope to Triage. The aggregate AI SOC Analyst row is Premier and does not by itself resolve the subcomponent entitlement.",
+        "meaning": "The earlier explicit Essentials statement is retained in historical audits and issue assessments. It is absent from the current note, so the former direct-conflict description is partially addressed. This does not independently settle every Triage subcomponent entitlement or authorize Essentials use.",
         "question": "Confirm the exact 8.8 Triage experience, edition and enablement scope for the target deployment."
       }
     },

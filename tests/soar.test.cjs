@@ -67,7 +67,11 @@ test('SOAR Cloud 8.8 remains deployment-scoped and preserves release-stage ambig
  const r=a.assess({...a.defaults,deployment:'cloud',from:'8.7.0',to:'8.8.0'});
  assert.equal(r.errors.length,0);assert.equal(r.routeStatus,'Managed service milestones');
  assert(r.requirements.some(x=>x.id==='cloud88-stage'&&/Controlled Availability/.test(x.detail)&&/wording conflict/.test(x.detail)));
- assert(r.features.some(x=>x.id==='broker-ha88'&&/General Availability/.test(x.detail)));
+ const broker=r.features.find(x=>x.id==='broker-ha88');
+ assert.equal(broker.status,'Conditional');
+ assert(!/reaches GA/.test(broker.title));
+ assert.match(broker.detail,/no separate GA label/);
+ assert.match(broker.detail,/representative/);
  assert(r.features.some(x=>x.id==='system-insights88'));
  assert(r.technical.some(x=>x.id==='cloud88-forwarder'&&/10\.4\.4/.test(x.detail)&&/not a receiver/.test(x.detail)));
  assert.deepEqual(Object.keys(r.targetRequirements).sort(),['runtime','src']);assert(!r.issues.some(x=>x.id==='export-fips'));

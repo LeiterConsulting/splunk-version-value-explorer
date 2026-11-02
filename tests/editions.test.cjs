@@ -100,6 +100,23 @@ test('Connector Builder applies the 8.8 both-edition row while preserving the 8.
  assert.match(question.title,/in 8\.7/);assert.match(question.meaning,/8\.8 agent table/);assert.match(question.question,/target ES version/);
 });
 
+test('current Triage note stops asserting Essentials while retaining historical uncertainty in reports',()=>{
+ const triage=data.capabilities.find(c=>c.id==='triage-agent');
+ assert.equal(triage.ess.v,'review');
+ assert.match(triage.flag,/no longer explicitly assigns Triage to Essentials/);
+ assert.match(triage.flag,/historical/);
+ const question=data.conflicts.find(c=>c.id==='triage-edition-88');
+ assert.match(question.claims[0].text,/current.*Premier/);
+ assert.match(question.meaning,/earlier.*Essentials/);
+ const ai=JSON.parse(read('content/datasets/guidance.json')).aiAvailability.capabilities.find(c=>c.id==='ai-es-soc');
+ assert.deepEqual(ai.editions,['premier']);
+ assert.match(ai.qualification,/no longer explicitly assigns Triage to Essentials/);
+ assert(!ai.qualification.includes('A separate 8.8 note assigns the Triage component to Essentials'));
+ const r=runtime('?view=es-editions&filter=review&release=8.8');
+ const html=r.snapshot();assert(html.includes(triage.flag));assert(html.includes(question.meaning));
+ assert.match(html,/no longer explicitly assigns Triage to Essentials/);
+});
+
 test('editions shares and navigation retain the optional theme',async()=>{
  const r=runtime('?view=es-editions&theme=cisco');
  assert(r.html.includes('href="/?theme=cisco"'));

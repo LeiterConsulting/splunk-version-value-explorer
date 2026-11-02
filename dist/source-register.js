@@ -3167,14 +3167,16 @@ window.VersionCompassSources = {
     },
     {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
-      "title": "ES 8.8 agent compatibility",
+      "title": "ES 8.8 current Triage component note",
       "areas": [
         "Release guide",
         "ES editions",
         "Shared guidance"
       ],
       "references": [
+        "release.guidance.sources.aiEsTriageNote88.url",
         "release.guidance.sources.aiEsAgents88.url",
+        "editions.sources.triageNote88.u",
         "editions.sources.agentic88.u",
         "content-updates.js",
         "guidance: guidance.aiAvailability",
@@ -3199,7 +3201,8 @@ window.VersionCompassSources = {
         "editions: editions.workflows.1"
       ],
       "reviews": [
-        "2026-10-28"
+        "2026-10-28",
+        "2026-11-02"
       ],
       "claimReferences": [
         {
@@ -3225,11 +3228,15 @@ window.VersionCompassSources = {
         {
           "path": "guidance: guidance.aiAvailability.capabilities.7",
           "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.7",
+          "section": "SOC analyst Triage/Response note; aggregate AI SOC Analyst availability row"
         }
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-10-28",
+      "reviewed": "2026-11-02",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-10-23",
       "firstUsed": null,
@@ -3253,6 +3260,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-28",
           "event": "Review status updated: Needs reconciliation · 2026-10-28"
+        },
+        {
+          "date": "2026-11-02",
+          "event": "Review status updated: Needs reconciliation · 2026-11-02"
         }
       ]
     },
@@ -6812,12 +6823,13 @@ window.VersionCompassSources = {
     },
     {
       "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
-      "title": "SOAR Cloud release notes",
+      "title": "SOAR Cloud 8.8 current Automation Broker HA row",
       "areas": [
         "Splunk SOAR",
         "Shared guidance"
       ],
       "references": [
+        "soar.sources.cloudBroker88.url",
         "soar.sources.cloud.url",
         "content-updates.js",
         "soar: soar.records.1",
@@ -6835,60 +6847,61 @@ window.VersionCompassSources = {
         "soar: soar.targetRequirements.8.8.0"
       ],
       "reviews": [
+        "2026-11-02",
         "2026-10-24"
       ],
       "claimReferences": [
         {
           "path": "soar: soar.records.1",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
+          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
         },
         {
           "path": "soar: soar.records.2",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
+          "section": "October 21, 2026 release 8.8: Automation Broker High Availability row and representative-enablement note; CA heading and GA enhancement prose"
         },
         {
           "path": "soar: soar.records.3",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
+          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
         },
         {
           "path": "soar: soar.records.4",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
+          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
         },
         {
           "path": "soar: soar.records.5",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
+          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
         },
         {
           "path": "soar: soar.records.7",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
+          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
         },
         {
           "path": "soar: soar.records.8",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
+          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
         },
         {
           "path": "soar: soar.records.9",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
+          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
         },
         {
           "path": "soar: soar.records.10",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
+          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
         },
         {
           "path": "soar: soar.records.13",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
+          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
         },
         {
           "path": "soar: soar.records.14",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
+          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
         },
         {
           "path": "soar: soar.records.15",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
+          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
         },
         {
           "path": "soar: soar.targetRequirements.8.8.0",
-          "section": "October 21, 2026 release 8.8 Controlled Availability; Automation Broker HA General Availability; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
+          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
         }
       ],
       "usage": "In use",

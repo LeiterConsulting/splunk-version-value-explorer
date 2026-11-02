@@ -161,6 +161,16 @@ trial terms, expiry behavior and Cloud Connected entitlement-display caveat. The
 network and pairing prerequisites. Licensing, workflow grouping, pairing,
 enablement, region and authorization remain independent facts.
 
+## November 2 current Triage note reconciliation
+
+The current 8.8 agent guide no longer explicitly assigns Triage to Essentials.
+It describes Triage and Response within the SOC analyst agent and names Premier;
+the editions overview also groups Triage under Premier. The earlier explicit
+Essentials statement remains in historical audits and issue assessments. This
+partially addresses the former direct conflict without settling every component
+entitlement, deployment or enablement question. The scoped November 2 note
+citation does not advance older agent prerequisite or regional verification dates.
+
 ## Cloud environment evidence
 
 See [Cloud environments](cloud-environments.md) for independent CSP, region, FR-M/FR-H, and experience filters, shared report behavior, uncertainty boundaries, and dedicated maintenance ownership. Current hosting evidence does not establish historical release availability or authorize every product component.

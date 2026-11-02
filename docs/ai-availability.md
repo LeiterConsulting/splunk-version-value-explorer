@@ -126,6 +126,12 @@ paired-SOAR question, region and authorization remain unresolved separately.
 
 ## Maintenance ownership
 
+The November 2 independent audit reconciles the current 8.8 Triage note: it no
+longer explicitly assigns Triage to Essentials and names Premier in its SOC
+analyst description. The earlier Essentials wording remains historical evidence;
+exact subcomponent entitlement remains unestablished. The new scoped citation
+does not advance the older prerequisite, source-wide or regional review dates.
+
 | Existing task | AI responsibility |
 | --- | --- |
 | Version Release Watch | Own SAIA/ITSI identity, releases, versions/dependencies and discovery of additional documented capabilities. |

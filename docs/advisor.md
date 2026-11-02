@@ -13,9 +13,11 @@ model, external discovery, new schedule or automatic environment inventory.
 - ITSI assistance: the assessed ITSI/SAIA/MCP version floors. A separate narrow
   version-only goal can return no version change indicated. It never claims
   complete pairing or feature access. Subagent regional rollout stays unknown.
-- ES AI SOC workflow: preserve the 8.8 aggregate versus 8.7 task-specific
-  version floors and the Triage edition contradiction, with both sources and
-  impact. The component is never substituted for the aggregate workflow.
+- ES AI SOC workflow: preserve the 8.8 aggregate versus current 8.8 task-specific
+  version floors and the historical Triage edition contradiction, with current
+  sources and impact. The November 2 note no longer explicitly assigns Essentials;
+  exact component entitlement remains unestablished. The scoped admission pin was
+  reassessed for that correction; unrelated pins and claim dates remain unchanged.
 - Keeping current capabilities can produce no change proposed. Reported ingest
   pressure produces insufficient evidence, without capacity or remedy inference.
 
