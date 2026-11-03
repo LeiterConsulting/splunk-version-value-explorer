@@ -75,6 +75,12 @@ test('edition recovery requires a deliberate choice and retains valid shared con
  choice.value='8.7';choice.listeners.change();assert.equal(open.disabled,false);open.listeners.click();
  const p=new URLSearchParams(r.location.href.split('?')[1]);assert.deepEqual(p.getAll('release'),['8.7']);assert.equal(p.get('theme'),'cisco');assert.equal(p.get('compliance'),'fr-h');assert.equal(p.get('region'),'us-gov-east-1');assert.equal(p.get('perspective'),'security');assert.equal(p.get('filter'),'review');assert.equal(p.has('preview'),false);
 });
+test('history recovery preserves ambiguous and mismatched environment inputs for their own resolution',()=>{
+ const r=runtime('?view=es-editions&release=8.8&release=8.7&csp=aws&csp=azure&region=us-gov-east-1&compliance=fr-h');
+ const choice=r.elements.get('edition-recover-history');choice.value='8.7';choice.listeners.change();r.elements.get('edition-recover-open').listeners.click();
+ const p=new URLSearchParams(r.location.href.split('?')[1]);assert.deepEqual(p.getAll('csp'),['aws','azure']);assert.equal(p.get('region'),'us-gov-east-1');assert.equal(p.get('compliance'),'fr-h');
+ const recovered=runtime('?'+p);assert.equal(recovered.elements.get('edition-print').disabled,true);assert.throws(()=>recovered.snapshot(),/environment/i);
+});
 
 test('ES 8.8 remains Controlled Availability with edition-specific release history',()=>{
  assert.equal(data.release,'8.8');assert.equal(data.releaseStage,'Controlled Availability');assert.equal(data.sources.rn88.reviewed,'2026-10-24');

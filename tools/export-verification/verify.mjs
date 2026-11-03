@@ -160,6 +160,14 @@ try {
       assert(await page.locator('#edition-recover-open').isDisabled());
       assert(await page.evaluate(()=>{try{window.VersionCompassBuildSnapshot();return false;}catch(error){return /selection/.test(error.message);}}));
       entry.selectionRecovery={passed:true,originalInputRetained:true,noSubstituteReport:true};
+      if(route.id==='editions-history-environment-recovery') {
+        await page.locator('#edition-recover-history').selectOption('8.7');
+        await page.locator('#edition-recover-open').click();await settled(page);
+        const preserved=await page.evaluate(()=>{const p=new URLSearchParams(location.search);return{providers:p.getAll('csp'),region:p.get('region'),compliance:p.get('compliance'),release:p.get('release')};});
+        assert.deepEqual(preserved,{providers:['aws','azure'],region:'us-gov-east-1',compliance:'fr-h',release:'8.7'});
+        assert(await page.evaluate(()=>{try{window.VersionCompassBuildSnapshot();return false;}catch(error){return /environment/.test(error.message);}}));
+        entry.selectionRecovery.ambiguousEnvironmentRetained=true;
+      }
     }
     const print = page.locator('#print-report, #edition-print').first();
     assert.equal(await page.evaluate(() => document.documentElement.classList.contains('theme-cisco')), theme === 'cisco');
