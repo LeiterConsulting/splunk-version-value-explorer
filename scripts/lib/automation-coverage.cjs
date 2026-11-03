@@ -137,7 +137,9 @@ function validateAmendments(ledger, registry, root = process.cwd()) {
       return true;
     });
     assert(a.activation?.status === 'pending' || a.activation?.status === 'active', 'Invalid amendment activation');
-    if (a.activation.status === 'active' || registry.activation === 'active') assert(reconciled && executed && timestamp(a.activation.activatedAt) && Date.parse(a.activation.activatedAt) <= Date.now(), 'Activation requires saved readback and real verified first executions');
+    // An active version needs its own complete amendment. Pending prior/future
+    // contracts remain history; any explicitly active amendment still validates.
+    if (a.activation.status === 'active' || registry.activation === 'active' && a.registryVersion === registry.registryVersion) assert(reconciled && executed && timestamp(a.activation.activatedAt) && Date.parse(a.activation.activatedAt) <= Date.now(), 'Activation requires saved readback and real verified first executions');
     if (!reconciled || !executed) assert(a.activation.status === 'pending' && a.activation.activatedAt === null, 'Unverified amendment must stay pending');
   }
   if (registry.activation === 'active') assert(ledger.amendments.some(a => a.registryVersion === registry.registryVersion && a.activation?.status === 'active'), 'Active registry needs a matching active amendment');

@@ -80,6 +80,11 @@
     if(state.compliance!=='commercial'||region?.id.startsWith('us-gov-')){
       return result('not_established',d.regulatedQualification+(record.id==='ai-saia-agent'?' The documented IL2 assistant excludes Agent Mode.':''),['aiSaiaInstall','aiHighAnnouncement20261019']);
     }
+    if(record.id==='ai-saia-agent'){
+      if(state.deployment==='enterprise')return result('not_established','The current Cloud Connected installation guide excludes SAIA 2.2.0–2.3.6 and says the 2.1.1 fallback lacks Agent Mode; SAIA-9918 records the access issue. The feature guide still describes a 2.1+ path. Meeting those minima or planned 2.4.0 support does not establish a current Enterprise path.',['aiSaiaCloudConnected','aiSaiaKnownIssues','aiSaiaAgentMode']);
+      if(!Array.isArray(d.agentModeRegions)||region&&!d.agentModeRegions.includes(region.id)||!region&&provider&&provider!=='aws')return result('not_established','The Agent Mode feature guide lists specific AWS locations. Base SAIA and Azure Model Runtime regions do not establish this feature; an absent listing is not a universal unavailability claim.',['aiSaiaAgentMode','aiSaiaModelRuntime']);
+      return result('conditional',(region?'The selected AWS location is listed specifically for Agent Mode. ':'Confirm an exact AWS location from the Agent Mode feature list. ')+record.condition+' Model Runtime may process requests beyond the selected region; the broad Cloud Connected assurance and feature-specific external-processing scope remain distinct.',['aiSaiaAgentMode','aiSaiaModelRuntime','aiSaiaCloudConnected']);
+    }
     if(region&&!d.saiaRegions.includes(region.id))return result('not_established','The selected region is not listed in the reviewed SAIA service table. Absence is not an unavailability claim.',['aiSaiaInstall']);
     if(!region&&provider&&!['aws','azure'].includes(provider))return result('not_established','This provider is not established by the reviewed SAIA region table.',['aiSaiaInstall']);
     if(record.product==='itsi'&&region)return result('not_established','The base SAIA service has regional evidence, but the ITSI subagent’s specific regional rollout is not independently established here. Its version prerequisites are documented.',['aiSaiaAbout']);

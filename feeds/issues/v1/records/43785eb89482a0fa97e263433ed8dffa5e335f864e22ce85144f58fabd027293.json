@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "findingId": "vci-saia-agent-runtime-processing-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-03T19:08:20.777Z",
+  "title": "Agent Mode model-processing scope differs from broad Cloud Connected assurance",
+  "concernType": "uncertain-claim",
+  "problem": "Broad Cloud Connected no-third-party wording does not explain its relationship to the feature-specific Model Runtime external-processing and cross-region routing statements required for Agent Mode.",
+  "scope": {
+    "products": [
+      "Splunk AI Assistant"
+    ],
+    "versions": [
+      "SAIA 2.3.6 documentation"
+    ],
+    "editions": null,
+    "deployments": [
+      "Splunk Enterprise with Cloud Connected"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers assessing Agent Mode model-processing boundaries"
+    ],
+    "exclusions": [
+      "No customer authorization, actual tenant routing, residency guarantee, regulated approval or exact app/Platform pairing is established."
+    ]
+  },
+  "scopeComparison": "These are different configuration/feature scopes. Preserve both rather than declaring all Cloud Connected traffic external, declaring a universal contradiction, or promising residency.",
+  "impact": {
+    "customerScenario": "A reader considering Cloud Connected Agent Mode under a data-location or model-provider constraint.",
+    "consequence": "A base-service location or broad setup assurance cannot settle the feature-specific processing boundary. Exact configured mode and applicable policy need confirmation.",
+    "level": "unknown"
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "Exact official indexed sections support the scope question; raw bodies were unavailable and no tenant configuration was inspected."
+  },
+  "claimIds": [
+    "ai-saia-agent"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Scoped documentation uncertainty remains; no resolution inferred."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "saia-cloud-connected-assurance",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "Prerequisites; Activation steps; How Splunk AI Assistant uses your data",
+      "statement": "The Cloud Connected setup guide describes proprietary/open-source inference in Splunk Cloud services and broadly states that data is not sent to third-party services.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-03",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact official indexed sections read November 3. Direct HTTPS403 retained in the immutable audit. Raw source body digest and exact retrieval timestamp are unknown; no document-wide revision inferred."
+      }
+    },
+    {
+      "evidenceId": "saia-feature-model-runtime",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+      "section": "Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off",
+      "statement": "The Model Runtime guide describes external LLM processing beyond the Splunk platform boundary and Data zone/Global request routing. Model Runtime is required for Agent Mode.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-03",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact official indexed sections read November 3. Direct HTTPS403 retained in the immutable audit. Raw source body digest and exact retrieval timestamp are unknown; no document-wide revision inferred."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/f7091494aace9a95de67ffd054c106499ad36275/docs/audits/2026-11-03-coverage-followup-assessment.json",
+      "pointer": "/claimAssessments/2",
+      "originalLabel": "feature-specific-runtime-scope-assessed"
+    }
+  ]
+}

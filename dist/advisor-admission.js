@@ -9,7 +9,13 @@ window.VersionCompassAdvisorAdmission = {
       "serviceRegions",
       "saiaRegions",
       "source-aiSaiaAbout",
-      "source-aiSaiaInstall"
+      "source-aiSaiaInstall",
+      "source-aiSaiaAgentMode",
+      "source-aiSaiaModelRuntime",
+      "source-aiSaiaCloudConnected",
+      "agentModeRegions",
+      "source-aiSaiaKnownIssues",
+      "agentModeCloudConnected"
     ],
     "itsi-versions": [
       "ai-itsi-subagent",
@@ -126,11 +132,15 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "ai-saia-agent",
       "ref": "capability:ai-saia-agent",
-      "sha256": "6e50bcd06a77c88a7f909e9ed56cd1ab3211423aa1755c77ef3989e4ede5d466",
-      "scope": "An installed assistant does not establish Agent Mode availability.",
+      "sha256": "4c2a52bbae81f94c082b501edb38a4299da4a0b3cf4078f4a8e623bebe335515",
+      "scope": "Agent Mode has its own AWS-only region list; base SAIA or Azure Model Runtime availability does not establish this feature. Cloud Connected’s broad no-third-party assurance differs from the feature-specific external-processing documentation. Preserve both scopes; do not infer customer authorization or a residency guarantee. Current Cloud Connected compatibility is blocked/conflicting; meeting the feature guide’s minima does not restore that path. This restriction is not transferred to native Cloud deployments.",
       "sources": [
         "aiSaiaInstall",
-        "aiSaiaAbout"
+        "aiSaiaAbout",
+        "aiSaiaAgentMode",
+        "aiSaiaModelRuntime",
+        "aiSaiaCloudConnected",
+        "aiSaiaKnownIssues"
       ]
     },
     {
@@ -207,6 +217,62 @@ window.VersionCompassAdvisorAdmission = {
       "sha256": "abcda3f495ae35fda7e68d583a4c8320e1e28aceb8ea37f310acf633ab1961b9",
       "scope": "Location/provider identifiers only. This is not feature or authorization evidence.",
       "sources": []
+    },
+    {
+      "id": "source-aiSaiaAgentMode",
+      "ref": "source:aiSaiaAgentMode",
+      "sha256": "913df0e7b6e2e8231077a04fb7e3b7ac0f8d6d984738947d23ea8497ecb65fc4",
+      "scope": "Feature-specific AWS locations and Platform 10.1.x+; Cloud Connected app 2.1+; runtime/admin enablement and bidirectional setup. No tenant, entitlement or authorization finding.",
+      "sources": [
+        "aiSaiaAgentMode"
+      ]
+    },
+    {
+      "id": "source-aiSaiaModelRuntime",
+      "ref": "source:aiSaiaModelRuntime",
+      "sha256": "5632b9de202983c3d1a9ef1582f5dd64e2aa63e57f6984a945bcf11995ba07b2",
+      "scope": "Model Runtime requirement for Agent Mode; Data zone versus Global routing; external LLM processing. Runtime support in Azure is not Agent Mode support.",
+      "sources": [
+        "aiSaiaModelRuntime"
+      ]
+    },
+    {
+      "id": "source-aiSaiaCloudConnected",
+      "ref": "source:aiSaiaCloudConnected",
+      "sha256": "36f0ae7672fc13016eebac9bb37cb55a3280716759b04329090472d77b89533f",
+      "scope": "Current 2.2.0–2.3.6 Cloud Connected exclusion, 2.1.1 fallback without Agent Mode and planned 2.4.0; broad data assurance remains separate from feature-specific Model Runtime external processing.",
+      "sources": [
+        "aiSaiaCloudConnected"
+      ]
+    },
+    {
+      "id": "agentModeRegions",
+      "ref": "policy:agentModeRegions",
+      "sha256": "07a1c1337ea323a1296a711582b322fd07a30be07818aafef60e742701355a5a",
+      "scope": "Exact Agent Mode 2.3.6 feature-specific AWS list; no inheritance from base SAIA or Model Runtime.",
+      "sources": [
+        "aiSaiaAgentMode"
+      ]
+    },
+    {
+      "id": "source-aiSaiaKnownIssues",
+      "ref": "source:aiSaiaKnownIssues",
+      "scope": "The versioned known issue blocks current Cloud Connected access and names a 2.1.1 workaround; no Agent Mode availability or future 2.4 release inferred.",
+      "sources": [
+        "aiSaiaKnownIssues"
+      ],
+      "sha256": "a84d25f5c03f57a947e389e76b8edf74112e65831f509021c2b270b1ca860147"
+    },
+    {
+      "id": "agentModeCloudConnected",
+      "ref": "policy:agentModeCloudConnected",
+      "scope": "Current Cloud Connected compatibility block/disagreement; planned support is not released availability.",
+      "sources": [
+        "aiSaiaAgentMode",
+        "aiSaiaCloudConnected",
+        "aiSaiaKnownIssues"
+      ],
+      "sha256": "4a894024dc757fbf820c1fd8ebf5c428e2587a3a62060c063c8d8927026304b8"
     }
   ]
 };

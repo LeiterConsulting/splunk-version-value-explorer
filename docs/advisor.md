@@ -15,7 +15,7 @@ Print and dated HTML remain disabled until that brief exists.
 
 | Decision | Relevant reports | Bounded outcome |
 | --- | --- | --- |
-| Plan for SAIA Agent Mode | Deployment, service environment, Enterprise Platform version where applicable, AI service location, reported access | Documented Enterprise minimum and commercial location context; explicit unknown pairing, activation, runtime, entitlement and regulated scope |
+| Plan for SAIA Agent Mode | Deployment, service environment, Platform version, Cloud Connected SAIA version, AI service location, reported access | Feature-specific minima/AWS locations with the current Cloud Connected compatibility block; explicit unknown pairing, activation, runtime policy, entitlement and regulated scope |
 | Check ITSI assistant dependencies | ITSI, SAIA and MCP Server versions | Three minimum comparisons; no gap can mean no version uplift indicated **by those minimums alone**. Complete pairing and subagent regional rollout remain separate. |
 | Untangle ES AI SOC requirements | Deployment/environment/edition/access, applicable Platform and ES versions, CMP Cloud Connect version | Separate Cloud/CMP chains, the current Cloud ES 8.6+/8.7+ discrepancy, and corrected historical Triage wording. Exact SOAR pairing and agent-specific rollout remain unestablished. |
 
@@ -24,6 +24,18 @@ entitlement or customer authorization. A missing fact about a visitor is not
 conflated with missing product evidence. Historical Essentials/Triage wording is
 not presented as a continuing current contradiction. The separately unresolved
 Cloud aggregate-versus-task minimum remains visible with both current sources.
+
+The November 3 candidate uses the exact Agent Mode and Model Runtime pages rather
+than inheriting base-SAIA regions. Azure/Dubai base-service listings do not support
+Agent Mode; Dublin's feature-specific AWS listing remains usable for native Cloud.
+Current Cloud Connected compatibility excludes SAIA 2.2.0–2.3.6; its 2.1.1 fallback
+lacks Agent Mode. The general feature page still describes a 2.1+ path, and SAIA-9918
+records the current access issue. Enterprise briefs retain this conflict instead
+of treating a met minimum or planned 2.4.0 support as a usable path. Runtime must be
+enabled, while actual activation and routing still need confirmation. Model
+Runtime's external processing and Data zone/Global routing remain visibly separate
+from Cloud Connected's broader no-third-party assurance. See the
+[scoped assessment and pending rollout](automation-coverage-followups.md).
 
 Unsupported ingest-pressure and generic keep-current choices are removed from
 actionable coverage. Their published URLs show the original intent and an explicit

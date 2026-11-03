@@ -32,6 +32,15 @@ test('scoped follow-up refreshes exact workload and migration claims without bor
  assert.match(operator.text,/Enterprise 10\.6\.0/);assert.match(operator.qualification,/neither source certifies 11\.x/);
  const workload=d.baseline.find(r=>r.id==='prep11-workload-baseline');assert.equal(workload.verified,'2026-11-03');assert.equal(a.source('prep11workload').checked,'2026-11-03');assert.match(workload.text,/Basic mode supports admission rules only/);assert.match(workload.text,/allow_basic.*false by default/);assert.match(workload.reviewStatus,/Basic does not load categories or pools/);
  const cloud=d.baseline.find(r=>r.id==='prep11-cloud-option');assert.equal(cloud.verified,'2026-11-03');assert.match(cloud.text,/staffing plan.*communications plan.*transition plan/);assert.match(cloud.reviewStatus,/not guaranteed staffing reductions/);
- assert.equal(operator.verified,'2026-11-02');assert.equal(d.contextUpdates.find(r=>r.id==='prep11-news-selfmanaged-ai').verified,'2026-11-02');
- const report=a.report({area:'all',updates:'all',q:'',theme:''});assert(report.includes('Discovery checked 2026-11-02'));assert(report.includes(a.esc(workload.reviewStatus)));assert(report.includes(a.esc(cloud.reviewStatus)));assert(report.includes('not an 11.x promise'));
+ assert.equal(operator.verified,'2026-11-02');assert.equal(d.contextUpdates.find(r=>r.id==='prep11-news-versioning').verified,'2026-11-02');
+ const report=a.report({area:'all',updates:'all',q:'',theme:''});assert(report.includes('Discovery checked 2026-11-03'));assert(report.includes(a.esc(workload.reviewStatus)));assert(report.includes(a.esc(cloud.reviewStatus)));assert(report.includes('not an 11.x promise'));
+});
+test('recovered Cisco context and bounded discovery retain historical failure and future-release uncertainty',()=>{
+ const a=model(),d=a.data(),context=d.contextUpdates.find(r=>r.id==='prep11-news-selfmanaged-ai');
+ assert.equal(context.verified,'2026-11-03');assert.equal(context.sourceDate,'2026-09-15');assert.equal(context.effectiveDate,null);
+ assert.match(context.reviewStatus,/earlier semantic Site Unavailable/);assert.match(context.qualification,/does not establish an 11.x deployment model/);
+ assert.match(d.boundary,/November 3, 2026/);assert.match(d.boundary,/does not prove none exists/);
+ const prior=JSON.parse(fs.readFileSync('docs/audits/2026-11-03-release-watch-scheduled-coverage.json'));
+ assert.equal(prior.coverage.find(c=>c.capabilityId==='prep11.context-ai').disposition,'blocked');
+ assert.equal(prior.claimedComplete,false);
 });

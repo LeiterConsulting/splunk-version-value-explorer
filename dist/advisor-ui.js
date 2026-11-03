@@ -33,11 +33,11 @@
     mcpVersion:'Enter the installed Splunk MCP Server version, or leave this blank for Unknown.',
     esVersion:'Enter the installed ES version. Known source discrepancies are not resolved by entering a version.',
     cloudConnectVersion:'Enter the installed Cloud Connect version. ES 8.8 packaging remains separately qualified.',
-    region:'Where would the assistant’s AI service run? This may differ from your Splunk hosting region. Only assessed SAIA service locations are listed.'
+    region:'Where would the assistant’s AI service run? This may differ from your Splunk hosting region. Base-assistant locations and feature-specific requirements are assessed separately.'
   };
   function options(rows,value){return Object.entries(rows).map(([key,label])=>'<option value="'+esc(key)+'"'+(key===value?' selected':'')+'>'+esc(label)+'</option>').join('');}
   function regionOptions(){let html=options({unknown:'Unknown / not confirmed',other:'Another location / not in this list'},state.region);
-    for(const provider of ['aws','azure']){const rows=window.VersionCompassAIAvailability.regions().filter(row=>row.provider===provider&&window.VersionCompassAIAvailability.data().saiaRegions.includes(row.id));html+='<optgroup label="'+(provider==='aws'?'AWS AI service locations':'Azure AI service locations')+'">'+rows.map(row=>'<option value="'+esc(row.id)+'"'+(state.region===row.id?' selected':'')+'>'+esc(row.label)+'</option>').join('')+'</optgroup>';}return html;}
+    for(const provider of ['aws','azure']){const data=window.VersionCompassAIAvailability.data(),locations=[...data.saiaRegions,...(data.agentModeRegions||[])],rows=window.VersionCompassAIAvailability.regions().filter(row=>row.provider===provider&&locations.includes(row.id));html+='<optgroup label="'+(provider==='aws'?'AWS AI service locations':'Azure AI service locations')+'">'+rows.map(row=>'<option value="'+esc(row.id)+'"'+(state.region===row.id?' selected':'')+'>'+esc(row.label)+'</option>').join('')+'</optgroup>';}return html;}
   function renderFields(){
     const focused=document.activeElement?.id;
     get('context-fields').innerHTML=a.fields(state).map(key=>'<div class="advisor-field"><label for="advisor-'+key+'">'+esc(a.labels[key])+(key.endsWith('Version')?' <span class="advisor-optional">optional if unknown</span>':'')+'</label>'+

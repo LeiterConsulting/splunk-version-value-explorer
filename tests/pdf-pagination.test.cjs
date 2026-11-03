@@ -26,3 +26,8 @@ test('native Safari section headings cannot be separated from their first conten
  const script=`import sys,json,hashlib,pathlib\nsys.path.insert(0,'tools/export-verification')\nfrom pagination import inspect\nroot=pathlib.Path('tests/fixtures')\nrecord=json.loads((root/'prep11-safari-section-before.json').read_text())\nraw=(root/record['textFile']).read_bytes()\nassert hashlib.sha256(raw).hexdigest()==record['textSha256']\ncontent=raw.decode()\nassert len(content.split('\\f'))==record['pageCount']\nfor pair in record['pairs']:\n try:\n  inspect(content,[pair])\n except AssertionError as error:\n  assert 'Orphaned PDF heading' in str(error)\n else:\n  raise AssertionError('Native Safari section orphan was accepted: '+pair['heading'])\n`;
  assert.doesNotThrow(()=>execFileSync('python3',['-B','-c',script]));
 });
+
+test('retained Advisor native PDFs reject the observed table, date-grid and source-entry splits',()=>{
+ const script=`import sys,json,hashlib,pathlib\nsys.path.insert(0,'tools/export-verification')\nfrom pagination import inspect\nroot=pathlib.Path('tests/fixtures')\nrecord=json.loads((root/'advisor-pagination-before.json').read_text())\nfor fixture in record['records']:\n raw=(root/fixture['textFile']).read_bytes()\n assert hashlib.sha256(raw).hexdigest()==fixture['textSha256']\n for pair in fixture['pairs']:\n  try:\n   inspect(raw.decode(),[pair])\n  except AssertionError as error:\n   assert 'Orphaned PDF heading' in str(error)\n  else:\n   raise AssertionError('Observed Advisor split was accepted: '+fixture['case']+' '+pair['heading'])\n`;
+ assert.doesNotThrow(()=>execFileSync('python3',['-B','-c',script]));
+});

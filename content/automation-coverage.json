@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "registryVersion": "1.0.0",
+  "registryVersion": "1.2.0",
   "activation": "pending-first-executions",
   "constitution": "docs/automation-constitution.md",
   "publicSourceHosts": [
@@ -591,10 +591,14 @@
           "id": "ai-saia-agent",
           "dataset": "guidance",
           "pointer": "/aiAvailability/capabilities/1",
-          "scope": "Enterprise version minimum, assessed commercial AI service locations and documented feature limitations. Exclusions: Full app/Platform compatibility, tenant activation, entitlement and regulated authorization are not established.",
+          "scope": "Feature-specific Platform minimum, Cloud Connected app minimum, AWS AI service locations and Model Runtime requirements, with explicit routing and data-boundary uncertainty. Exclusions: Full app/Platform compatibility, tenant activation, entitlement and regulated authorization are not established. Current Cloud Connected exclusion/feature-guide disagreement and planned future support remain explicit; no positive Enterprise path from a minimum alone.",
           "sourceIds": [
             "aiSaiaInstall",
-            "aiSaiaAbout"
+            "aiSaiaAbout",
+            "aiSaiaAgentMode",
+            "aiSaiaModelRuntime",
+            "aiSaiaCloudConnected",
+            "aiSaiaKnownIssues"
           ]
         }
       ],
@@ -610,6 +614,30 @@
           "dataset": "guidance",
           "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
           "section": "Requirements; features; ITSI subagent; where the assistant runs"
+        },
+        {
+          "id": "aiSaiaAgentMode",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+          "section": "Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites"
+        },
+        {
+          "id": "aiSaiaModelRuntime",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+          "section": "Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off"
+        },
+        {
+          "id": "aiSaiaCloudConnected",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+          "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data"
+        },
+        {
+          "id": "aiSaiaKnownIssues",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
+          "section": "SAIA-9918 Cloud Connected access and 2.1.1 workaround"
         }
       ],
       "interfaces": [
@@ -734,7 +762,8 @@
       "participatingWatches": [
         "version-release-watch",
         "es-editions-watch",
-        "version-guidance-audit"
+        "version-guidance-audit",
+        "csp-fedramp-watch"
       ],
       "requiredDisposition": "every-participating-run",
       "claimFamilies": [

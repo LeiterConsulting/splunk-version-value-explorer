@@ -5,10 +5,28 @@ const os = require('node:os');
 const path = require('node:path');
 const { execFileSync } = require('node:child_process');
 const { validateRegistry, validateRun, validateAmendments, reviewDigest, check } = require('../scripts/lib/automation-coverage.cjs');
-const registry = JSON.parse(fs.readFileSync('content/automation-coverage.json'));
+// Historical fixtures resolve the immutable contract under which they ran.
+const registry = JSON.parse(fs.readFileSync('content/automation-registries/1.0.0.json'));
 const original = JSON.parse(fs.readFileSync('docs/audits/2026-11-02-prep11-advisor-coverage.json'));
 const amendments = JSON.parse(fs.readFileSync('content/automation-amendments.json'));
+amendments.amendments = amendments.amendments.filter(a => a.registryVersion === registry.registryVersion);
+function copyHistoricalFixture(file, root) {
+  fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true });
+  if (file === 'content/automation-coverage.json') fs.writeFileSync(path.join(root,file),JSON.stringify(registry));
+  else if (file === 'content/automation-amendments.json') fs.writeFileSync(path.join(root,file),JSON.stringify(amendments));
+  else fs.copyFileSync(file,path.join(root,file));
+}
 const bind = run => { run.reviewDigest = reviewDigest(run); return run; };
+test('current source contract retains feature-specific Agent Mode evidence and existing CSP SOC responsibility',()=>{
+ const current=JSON.parse(fs.readFileSync('content/automation-coverage.json'));
+ assert.equal(current.registryVersion,'1.2.0');assert.equal(current.activation,'pending-first-executions');validateRegistry(current);
+ const agent=current.capabilities.find(c=>c.id==='advisor.agent-mode');
+ for(const id of ['aiSaiaAgentMode','aiSaiaModelRuntime','aiSaiaCloudConnected'])assert(agent.claimFamilies[0].sourceIds.includes(id));
+ const soc=current.capabilities.find(c=>c.id==='advisor.soc-workflow');assert.equal(soc.primaryOwner,'es-editions-watch');assert(soc.participatingWatches.includes('csp-fedramp-watch'));
+ assert.match(soc.claimFamilies[0].scope,/customer authorization remain separate/);
+ assert.deepEqual(JSON.parse(fs.readFileSync('content/automation-registries/1.2.0.json')),current);
+ assert.equal(validateRun(original,current).gaps.length,5); // Historical implementation outcome is not relabeled.
+});
 test('pilot covers Prep11 and all three Advisor decisions with separate primary and independent ownership', () => {
   assert.equal(validateRegistry(registry).capabilities.length, 11);
   assert.equal(check().activation, 'pending-first-executions');
@@ -66,7 +84,7 @@ test('future changed watch reviews cannot omit coverage or substitute a manual i
   const write = (file, value) => { fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); fs.writeFileSync(path.join(root, file), JSON.stringify(value)); };
   try {
     git(['init', '--initial-branch', 'main']);
-    for (const file of ['automation-coverage.json', 'automation-amendments.json']) write('content/' + file, JSON.parse(fs.readFileSync('content/' + file)));
+    write('content/automation-coverage.json',registry);write('content/automation-amendments.json',amendments);
     write('content/automation-registries/1.0.0.json', registry);
     write('content/advisor-goals.json', JSON.parse(fs.readFileSync('content/advisor-goals.json')));
     write('content/datasets/guidance.json', JSON.parse(fs.readFileSync('content/datasets/guidance.json')));
@@ -123,7 +141,7 @@ test('retained runs resolve immutable registry versions after an active version 
 });
 test('first execution cannot activate without delivered checks and matching scheduled task identity', t => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-first-execution-')); t.after(() => fs.rmSync(root, { recursive: true, force: true }));
-  for (const file of ['content/advisor-goals.json', 'content/datasets/guidance.json']) { fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); fs.copyFileSync(file, path.join(root, file)); }
+  for (const file of ['content/advisor-goals.json', 'content/datasets/guidance.json']) copyHistoricalFixture(file, root);
   const ledger = structuredClone(amendments); ledger.amendments[0].savedTasks = [ledger.amendments[0].savedTasks[0]];
   const task = ledger.amendments[0].savedTasks[0], file = 'docs/audits/2026-11-02-synthetic-test-coverage.json';
   task.firstExecution = { status: 'verified', runId: 'synthetic-test', runFile: file, verifiedAt: '2026-11-03T00:00:00Z', evidence: 'Synthetic native run receipt.', schedulerRunId: 'synthetic-scheduler-run' };
@@ -137,7 +155,7 @@ test('first execution cannot activate without delivered checks and matching sche
 });
 test('an active amendment cannot borrow an older complete run that omits its new mandatory gate', t => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-amendment-version-')); t.after(() => fs.rmSync(root, { recursive: true, force: true }));
-  for (const file of ['content/advisor-goals.json', 'content/datasets/guidance.json', 'content/automation-registries/1.0.0.json']) { fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); fs.copyFileSync(file, path.join(root, file)); }
+  for (const file of ['content/advisor-goals.json', 'content/datasets/guidance.json', 'content/automation-registries/1.0.0.json']) copyHistoricalFixture(file, root);
   const next = structuredClone(registry); next.registryVersion = '1.1.0'; next.activation = 'active';
   next.capabilities[0].requiredChecks.push('synthetic-new-required-gate');
   const ledger = structuredClone(amendments), amendment = ledger.amendments[0];
@@ -156,6 +174,15 @@ test('an active amendment cannot borrow an older complete run that omits its new
   assert.throws(() => validateAmendments(ledger, next, root), /delivery/);
   run.validation.checks.push({ id: 'synthetic-new-required-gate', outcome: 'passed', evidence: 'Synthetic newly required gate.' }); save();
   assert.doesNotThrow(() => validateAmendments(ledger, next, root));
+  // Pending contracts retain their history; only this contract's own complete
+  // execution can satisfy its activation gates.
+  const pending=structuredClone(amendments.amendments[0]);pending.id='synthetic-pending-prior';
+  pending.savedTasks[0].firstExecution.status='pending';ledger.amendments.push(pending);
+  assert.doesNotThrow(() => validateAmendments(ledger,next,root));
+  const future=structuredClone(pending);future.id='synthetic-pending-future';future.registryVersion='1.2.0';
+  fs.mkdirSync(path.join(root,'content/automation-registries'),{recursive:true});
+  fs.writeFileSync(path.join(root,'content/automation-registries/1.2.0.json'),JSON.stringify({...registry,registryVersion:'1.2.0'}));
+  ledger.amendments.push(future);assert.doesNotThrow(() => validateAmendments(ledger,next,root));
   amendment.registryVersion = '1.0.0'; run.registryVersion = '1.0.0'; run.validation.checks.pop(); save();
   next.activation = 'pending-first-executions'; assert.doesNotThrow(() => validateAmendments(ledger, next, root));
   next.activation = 'active'; assert.throws(() => validateAmendments(ledger, next, root), /matching active amendment/);
@@ -163,7 +190,7 @@ test('an active amendment cannot borrow an older complete run that omits its new
 test('ES participating ownership cannot omit its mandatory coverage binding', t => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-es-coverage-')); t.after(() => fs.rmSync(root, { recursive: true, force: true }));
   const git = args => execFileSync('git', args, { cwd: root, stdio: 'pipe' });
-  for (const file of ['content/advisor-goals.json', 'content/datasets/guidance.json', 'content/automation-coverage.json', 'content/automation-amendments.json', 'content/automation-registries/1.0.0.json']) { fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); fs.copyFileSync(file, path.join(root, file)); }
+  for (const file of ['content/advisor-goals.json', 'content/datasets/guidance.json', 'content/automation-coverage.json', 'content/automation-amendments.json', 'content/automation-registries/1.0.0.json']) copyHistoricalFixture(file, root);
   git(['init', '--initial-branch', 'main']); git(['add', '.']); git(['-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-m', 'Synthetic baseline']);
   const file = 'docs/audits/2026-11-03-es-editions-watch.json'; fs.mkdirSync(path.join(root, 'docs/audits'), { recursive: true }); fs.writeFileSync(path.join(root, file), JSON.stringify({ scope: 'Synthetic new ES review' }));
   assert.throws(() => check(root), /lacks mandatory coverage/);
@@ -171,7 +198,7 @@ test('ES participating ownership cannot omit its mandatory coverage binding', t 
 test('version snapshots cannot be rewritten or deleted even alongside a matching active registry edit', t => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-registry-history-')); t.after(() => fs.rmSync(root, { recursive: true, force: true }));
   const git = args => execFileSync('git', args, { cwd: root, stdio: 'pipe' });
-  for (const file of ['content/advisor-goals.json', 'content/datasets/guidance.json', 'content/automation-coverage.json', 'content/automation-amendments.json', 'content/automation-registries/1.0.0.json']) { fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); fs.copyFileSync(file, path.join(root, file)); }
+  for (const file of ['content/advisor-goals.json', 'content/datasets/guidance.json', 'content/automation-coverage.json', 'content/automation-amendments.json', 'content/automation-registries/1.0.0.json']) copyHistoricalFixture(file, root);
   git(['init', '--initial-branch', 'main']); git(['add', '.']); git(['-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-m', 'Synthetic registry baseline']);
   const value = structuredClone(registry); value.capabilities[0].title += ' edited';
   for (const file of ['content/automation-coverage.json','content/automation-registries/1.0.0.json']) fs.writeFileSync(path.join(root,file),JSON.stringify(value));
@@ -182,7 +209,7 @@ test('ordinary deletion support does not permit staged or unstaged coverage-hist
   for (const staged of [false, true]) {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-retained-coverage-')); t.after(() => fs.rmSync(root, { recursive: true, force: true }));
     const git = args => execFileSync('git', args, { cwd: root, stdio: 'pipe' });
-    for (const file of ['content/advisor-goals.json', 'content/datasets/guidance.json', 'content/automation-coverage.json', 'content/automation-amendments.json', 'content/automation-registries/1.0.0.json']) { fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); fs.copyFileSync(file, path.join(root, file)); }
+    for (const file of ['content/advisor-goals.json', 'content/datasets/guidance.json', 'content/automation-coverage.json', 'content/automation-amendments.json', 'content/automation-registries/1.0.0.json']) copyHistoricalFixture(file, root);
     const file = path.join(root, 'docs/audits/2026-11-02-retained-coverage.json'); fs.mkdirSync(path.dirname(file), { recursive: true }); fs.writeFileSync(file, JSON.stringify(original));
     git(['init', '--initial-branch', 'main']); git(['add', '.']); git(['-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-m', 'Synthetic retained coverage']);
     fs.rmSync(file); if (staged) git(['add', '--update']);
@@ -193,7 +220,7 @@ test('verified activation changes operational state without rewriting the versio
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-activation-state-')); t.after(() => fs.rmSync(root, { recursive: true, force: true }));
   const git = args => execFileSync('git', args, { cwd: root, stdio: 'pipe' });
   const write = (file, value) => { fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); fs.writeFileSync(path.join(root, file), JSON.stringify(value)); };
-  for (const file of ['content/advisor-goals.json', 'content/datasets/guidance.json', 'content/automation-coverage.json', 'content/automation-amendments.json', 'content/automation-registries/1.0.0.json']) { fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); fs.copyFileSync(file, path.join(root, file)); }
+  for (const file of ['content/advisor-goals.json', 'content/datasets/guidance.json', 'content/automation-coverage.json', 'content/automation-amendments.json', 'content/automation-registries/1.0.0.json']) copyHistoricalFixture(file, root);
   git(['init', '--initial-branch', 'main']); git(['add', '.']); git(['-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-m', 'Synthetic pending activation']);
   write('content/automation-coverage.json', { ...registry, activation: 'active' });
   assert.throws(() => check(root), /Activation requires/);

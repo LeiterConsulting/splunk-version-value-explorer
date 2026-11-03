@@ -11,6 +11,7 @@ import { verifyRippleScroll } from './ripple-scroll.mjs';
 import { verifyAdvisor, configureAdvisorRoute } from './advisor.mjs';
 import { prepareExact, verifyExact } from './exact-releases.mjs';
 import { verifyPrep11Oversized } from './prep11-print.mjs';
+import { verifyAdvisorOversized } from './advisor-print.mjs';
 const require = createRequire(import.meta.url), { target, hash, verify } = require('../../scripts/export-evidence.cjs');
 if (process.env.SITES_MANAGED_LINUX_CONTAINER === '1') throw Error('Run export verification in dedicated application CI, not managed Sites preview.');
 const root = process.cwd(), output = path.resolve('export-artifacts');
@@ -242,25 +243,26 @@ try {
           return title.textContent.trim();
         }).filter(Boolean);
         const printAnnotations = [...doc.querySelectorAll('.content-change-print')].map(el=>el.textContent.trim()).filter(Boolean);
-        const paginationPairs=[], prep=doc.querySelector('.prep11-report');
+        const paginationPairs=[], prep=doc.querySelector('.prep11-report'),advisor=doc.querySelector('.advisor-report');
+        const occurrences=new WeakMap(),normalize=value=>value.replace(/\s+/g,'').toLowerCase();
+        const pair=(heading,following)=>{
+          if(!heading||!following)throw Error('Missing pagination fragment');
+          // Bind the DOM occurrence; repeated titles in the source register
+          // must never rescue an earlier split heading or citation.
+          if(!occurrences.has(heading)) {
+            const range=doc.createRange();range.selectNodeContents(doc.body);range.setEndBefore(heading);
+            const before=normalize(range.toString()),needle=normalize(heading.textContent);
+            if(!needle)throw Error('Empty pagination heading');
+            let offset=0,count=1,found;
+            while((found=before.indexOf(needle,offset))!==-1){count++;offset=found+needle.length;}
+            occurrences.set(heading,count);
+          }
+          paginationPairs.push({heading:heading.textContent.trim(),following:following.textContent.trim(),headingOccurrence:occurrences.get(heading)});
+        };
         let paginationCoverage;
         if(prep) {
           const data=window.VersionCompassPrep11.data(), records=[...prep.querySelectorAll('.prep11-record')], questions=[...prep.querySelectorAll('.prep11-question')], sources=[...prep.querySelectorAll('.prep11-sources li')];
           if(records.length!==data.baseline.length+data.announcements.length+(data.contextUpdates||[]).length||questions.length!==data.questions.length||sources.length!==data.sourceIds.length)throw Error('Prep11 pagination coverage is missing canonical records');
-          const occurrences=new WeakMap(),normalize=value=>value.replace(/\s+/g,'').toLowerCase();
-          const pair=(heading,following)=>{
-            // Bind the actual DOM occurrence, including labels reused by future
-            // announcements. A later source-register title must not rescue it.
-            if(!occurrences.has(heading)) {
-              const range=doc.createRange();range.selectNodeContents(doc.body);range.setEndBefore(heading);
-              const before=normalize(range.toString()),needle=normalize(heading.textContent);
-              if(!needle)throw Error('Empty Prep11 pagination heading');
-              let offset=0,count=1,found;
-              while((found=before.indexOf(needle,offset))!==-1){count++;offset=found+needle.length;}
-              occurrences.set(heading,count);
-            }
-            paginationPairs.push({heading:heading.textContent.trim(),following:following.textContent.trim(),headingOccurrence:occurrences.get(heading)});
-          };
           for(const card of [...records,...questions]) {
             const title=card.querySelector('h3'),label=card.querySelector('.prep11-label');
             if(label)pair(label,title);
@@ -282,8 +284,39 @@ try {
           }
           paginationCoverage={records:records.length,questions:questions.length,sources:sources.length,sections:sections.length,pairs:paginationPairs.length};
         }
+        let advisorPaginationCoverage;
+        if(advisor) {
+          const leads=[...advisor.querySelectorAll('.advisor-section-lead')],briefs=[...advisor.querySelectorAll('.advisor-brief-section')],sources=[...advisor.querySelectorAll('.advisor-source-list li')];
+          if(leads.length!==4)throw Error('Advisor report lost a section containment lead');
+          for(const lead of leads) {
+            const title=lead.querySelector('h2');
+            for(const fragment of lead.querySelectorAll('p,li'))pair(title,fragment);
+          }
+          for(const brief of briefs) {
+            const title=brief.querySelector('h3'),first=brief.querySelector('p,li strong');
+            pair(title,first);
+            const table=brief.querySelector('table');
+            if(table){
+              const label=brief.querySelector('.advisor-table-caption');
+              if(!label||doc.getElementById(table.getAttribute('aria-labelledby'))!==label)throw Error('Advisor printed table lost its accessible label');
+              pair(title,label);pair(title,table.querySelector('tbody th'));
+            }
+          }
+          for(const item of advisor.querySelectorAll('.advisor-result li')) {
+            const title=item.querySelector('strong,h4');
+            if(title)for(const paragraph of item.querySelectorAll('p'))pair(title,paragraph);
+          }
+          for(const source of sources) {
+            const group=source.querySelector(':scope > .advisor-source-entry');
+            if(!group)throw Error('Advisor source lost block containment');
+            const title=group.querySelector('h3');pair(title,group.querySelector('a'));
+            for(const paragraph of group.querySelectorAll('p'))pair(title,paragraph);
+          }
+          advisorPaginationCoverage={sections:leads.length,briefs:briefs.length,sources:sources.length,pairs:paginationPairs.length};
+        }
         return { html, text: doc.body.textContent, headings, printAnnotations, revision: window.VersionCompassRevision.id,
-          ...(prep?{paginationPairs,paginationKind:'prep11-containment',paginationCoverage}:{}) };
+          ...(prep?{paginationPairs,paginationKind:'prep11-containment',paginationCoverage}:{}),
+          ...(advisor?{paginationPairs,paginationKind:'advisor-containment',advisorPaginationCoverage}:{}) };
       });
       if(route.id==='enterprise') expected.paginationPairs=[{heading:'Recommended action',following:'Match the exact package identifier to its release'}];
       if(route.id==='observability-october') expected.paginationPairs=[
@@ -323,17 +356,20 @@ try {
       const inspected = JSON.parse(execFileSync('python3',['tools/export-verification/inspect-pdf.py',pdf,directory,path.join(directory,'expected.json')],{encoding:'utf8'}));
       entry.pdf = {...inspected,file:relative(pdf),inspection:relative(path.join(directory,'inspection.json')),pages:inspected.pages.map(p=>({...p,file:relative(p.file)}))};
       if(expected.paginationCoverage)entry.prep11PaginationCoverage={...expected.paginationCoverage,passed:true};
+      if(expected.advisorPaginationCoverage)entry.advisorPaginationCoverage={...expected.advisorPaginationCoverage,passed:true};
       if(expected.paginationPairs) {
         // Prep11's negative is a controlled Chromium fragmentation fixture with
         // containment disabled. It is not a new Safari capture or a WebKit pass.
-        const prep11=expected.paginationKind==='prep11-containment';
+        const prep11=expected.paginationKind==='prep11-containment',advisor=expected.paginationKind==='advisor-containment';
         const legacy=await page.addStyleTag({content:'.soar-view #release-report .soar-target-requirements{display:contents!important;break-inside:auto!important}.forwarders-view #release-report .forwarder-technical{break-inside:auto!important}.forwarders-view #release-report .forwarder-technical h4{break-after:auto!important}.release-report .technical-item-head,.release-report .technical-item h4,.release-report .technical-explanation strong{break-after:auto!important;page-break-after:auto!important}.release-report .technical-explanation p{break-inside:auto!important;page-break-inside:auto!important}'+(prep11?'.prep11-report .prep11-record,.prep11-report .prep11-question,.prep11-report .prep11-sources li{break-inside:auto!important;page-break-inside:auto!important}.prep11-report .prep11-record-lead,.prep11-report .prep11-question-lead,.prep11-report .prep11-source-entry{display:contents!important;break-inside:auto!important;page-break-inside:auto!important}.prep11-report .prep11-label,.prep11-report h3{break-after:auto!important;page-break-after:auto!important}':'')});
+        const advisorLegacy=advisor?await page.addStyleTag({content:'.advisor-report .advisor-section-lead,.advisor-report .advisor-source-entry{display:contents!important}.advisor-report .advisor-section-lead,.advisor-report .advisor-brief-section,.advisor-report .advisor-result li,.advisor-report .advisor-source-entry{break-inside:auto!important;page-break-inside:auto!important}.advisor-report .advisor-table-scroll{display:block!important}'}):null;
         const priorPdf=path.join(directory,'pre-repair.pdf');
         await page.pdf({path:priorPdf,format:'A4',printBackground:true,preferCSSPageSize:true});
         let priorText=execFileSync('pdftotext',['-raw',priorPdf,'-'],{encoding:'utf8'});
         let failures=paginationFailures(priorText,expected.paginationPairs);
         let replayMode='prior-css-native-layout';
         if(prep11)replayMode='controlled-no-containment-native-layout';
+        if(advisor)replayMode='controlled-no-advisor-containment-native-layout';
         if(!failures.length) {
           // Release-note and source-register growth can move the same card away
           // from a natural page boundary. Keep the negative fixture executable:
@@ -349,6 +385,7 @@ try {
           replayMode='forced-native-page-boundary';
         }
         await legacy.evaluate(el=>el.remove());
+        if(advisorLegacy)await advisorLegacy.evaluate(el=>el.remove());
         fs.writeFileSync(path.join(directory,'pre-repair.txt'),priorText);
         assert(failures.length>0,'Pre-repair native PDF did not reproduce the orphan heading: '+id);
         entry.paginationRegression={passed:true,replayMode,
@@ -358,6 +395,7 @@ try {
       const restored = await page.evaluate(() => ({url:location.href,details:[...document.querySelectorAll('main details')].filter(d=>!d.closest('#release-report,.edition-report')).map(d=>[d.id,d.open])}));
       assert.deepEqual(restored,baseline,'Print/export changed the selected report or disclosure state');
       if(route.id==='prep11')entry.prep11Oversized=await verifyPrep11Oversized(page,context,path.join(directory,'oversized'),theme,expected.revision,output);
+      if(route.id==='advisor-agent-known')entry.advisorOversized=await verifyAdvisorOversized(page,context,path.join(directory,'oversized'),theme,expected.revision,output);
     }
     assert.equal(errors.length,0,'Browser errors: '+errors.join('; '));
     entry.outcome='passed'; console.log('Export verification passed: '+id);

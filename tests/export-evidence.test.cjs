@@ -10,6 +10,10 @@ function fixture(t) {
     artifacts:[{file:'fixture.txt',sha256:hash(fs.readFileSync(path.join(dir,'fixture.txt')))}],
     cases:routes.flatMap(r=>['default','cisco'].map(theme=>({id:r.id+'-'+theme,outcome:'passed',screen:'fixture.txt',narrow:{passed:true,file:'fixture.txt'},
       ...(r.invalid||r.exportsBlocked?{exportsBlocked:true}:{html:{file:'fixture.txt',offlineReopened:true,complete:true,networkRequestsBlocked:true},pdf:{passed:true,file:'fixture.txt',inspection:'fixture.txt',pageCount:1,pages:[{file:'fixture.txt',passed:true}]}})})))};
+  for(const c of receipt.cases.filter(c=>c.id.startsWith('advisor')&&!c.exportsBlocked)) {
+    c.advisorPaginationCoverage={passed:true,sections:4,pairs:5};c.pdf.pagination=Array.from({length:5},()=>({passed:true}));c.paginationRegression={passed:true,oldNativePdf:'fixture.txt'};
+    if(c.id.startsWith('advisor-agent-known-'))c.advisorOversized={passed:true,complete:true,firstPageHasContent:true,syntheticUnits:2,syntheticParagraphs:96,endMarkers:2,printThemeParity:{passed:true},pageCount:3,pages:Array.from({length:3},()=>({file:'fixture.txt',passed:true})),file:'fixture.txt',inspection:'fixture.txt'};
+  }
   const save = ()=>fs.writeFileSync(path.join(dir,'evidence.json'),JSON.stringify(receipt)); save(); return {dir,receipt,save};
 }
 test('candidate evidence requires complete routes, page renders, offline reopening and intact artifact bytes',t=>{
@@ -37,4 +41,10 @@ test('an invalid SOAR route cannot borrow validation from a shorter valid route 
 });
 test('publisher provenance requires the successful rendered-export CI step',async()=>{
   const {REQUIRED_STEPS}=await import('../worker/publication-core.mjs'); assert(REQUIRED_STEPS.includes('node tools/export-verification/verify.mjs'));
+});
+test('Advisor evidence cannot omit containment, negative replay or oversized completeness checks',t=>{
+ const f=fixture(t);
+ for(const mutate of [c=>delete c.advisorPaginationCoverage,c=>c.pdf.pagination.pop(),c=>c.paginationRegression.passed=false,c=>c.advisorOversized.complete=false,c=>c.advisorOversized.pages.pop(),c=>c.advisorOversized.firstPageHasContent=false]) {
+  const original=JSON.stringify(f.receipt),c=f.receipt.cases.find(c=>c.id==='advisor-agent-known-cisco');mutate(c);f.save();assert.throws(()=>verify(f.dir),/Advisor/);Object.assign(f.receipt,JSON.parse(original));f.save();
+ }
 });

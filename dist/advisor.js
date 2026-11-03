@@ -22,7 +22,7 @@
     for(const key of Object.keys(state))if(typeof input[key]==='string')state[key]=input[key].slice(0,40);
     if(!Object.hasOwn(goals,state.goal)&&!Object.hasOwn(legacy,state.goal))state.goal='unknown';
     for(const [key,values]of Object.entries(choices))if(!Object.hasOwn(values,state[key]))state[key]='unknown';
-    if(!['unknown','other'].includes(state.region)&&!ai.data().saiaRegions.includes(state.region))state.region='other';
+    if(!['unknown','other'].includes(state.region)&&![...ai.data().saiaRegions,...(ai.data().agentModeRegions||[])].includes(state.region))state.region='other';
     return state;
   }
   function read(search) {
@@ -61,7 +61,8 @@
   }
   function fields(state){
     return (definition(state.goal)?.inputs||[]).filter(key=>{
-      if(state.goal==='agent-mode'&&key==='platformVersion')return state.deployment==='enterprise';
+      if(state.goal==='agent-mode'&&key==='platformVersion')return state.deployment!=='unknown';
+      if(state.goal==='agent-mode'&&key==='saiaVersion')return state.deployment==='enterprise';
       if(state.goal==='soc-workflow'&&['platformVersion','esVersion'].includes(key))return state.deployment!=='unknown';
       if(key==='cloudConnectVersion')return state.goal==='soc-workflow'&&state.deployment==='enterprise';
       return true;
@@ -113,13 +114,17 @@
       if(state.access!=='yes')fact('Confirm capability access and enablement with your organization and Splunk.','Your report does not establish a license, entitlement or customer authorization.');
       if(state.compliance!=='commercial')evidence('This decision does not establish the capability for a regulated or unknown service environment.',state.goal==='agent-mode'?'The commercial path is not an authorization finding. Agent Mode is excluded by the documented limited IL2 assistant.':'Capability-specific regulated rollout and customer authorization are not established by the commercial workflow.',state.goal==='agent-mode'?['aiSaiaInstall']:['aiEsAgents88']);
       if(state.goal==='agent-mode'){
-        established('The assessed SAIA 2.3.6 documentation requires Platform 10.1.x+ for Agent Mode on Enterprise.',['aiSaiaInstall','aiSaiaAbout']);
-        if(state.deployment==='enterprise')check('platformVersion','10.1.0',['aiSaiaInstall','aiSaiaAbout']);
+        established('The Agent Mode feature guide lists Platform 10.1.x+ and a Cloud Connected SAIA 2.1+ path. These minima do not establish current Cloud Connected compatibility.',['aiSaiaAgentMode','aiSaiaCloudConnected']);
+        if(state.deployment!=='unknown')check('platformVersion','10.1.0',['aiSaiaAgentMode']);
+        if(state.deployment==='enterprise')check('saiaVersion','2.1.0',['aiSaiaAgentMode','aiSaiaCloudConnected']);
+        if(state.deployment==='enterprise')r.conflicts.push({title:'Current Cloud Connected compatibility differs from the feature guide',scope:'Enterprise Cloud Connected only',text:'Current Cloud Connected compatibility blocks the general Agent Mode path: installation guidance excludes SAIA 2.2.0–2.3.6 and says the 2.1.1 fallback lacks Agent Mode; SAIA-9918 records the access problem.',impact:'The feature guide still describes a 2.1+ path. Keep both scopes; planned 2.4.0 support is not a released supported path, and meeting the minima does not resolve this block.',sourceIds:['aiSaiaAgentMode','aiSaiaCloudConnected','aiSaiaKnownIssues'],affectsDecision:state.compliance==='commercial'&&(state.region==='unknown'||ai.data().agentModeRegions?.includes(state.region))&&floor(state.saiaVersion,'2.1.0')!=='below'});
         if(state.region==='unknown')fact('Confirm where the assistant’s AI service would run.','Its service location can differ from where your Splunk deployment runs. Leave this unknown until confirmed.');
-        else if(state.region==='other'||!ai.data().saiaRegions.includes(state.region))evidence('The reported AI service location is not in the assessed SAIA service table.','An absent listing is not an unavailability claim. Obtain service-specific location evidence.',['aiSaiaInstall']);
-        else established('The selected location is listed for the base SAIA service. This does not independently establish every feature, model runtime or tenant rollout.',['aiSaiaInstall']);
+        else if(state.region==='other'||!ai.data().agentModeRegions?.includes(state.region))evidence('The reported AI service location is not in the Agent Mode feature’s AWS list.','Base SAIA and Azure Model Runtime locations cannot establish Agent Mode support. An absent listing is not a universal unavailability claim.',['aiSaiaAgentMode','aiSaiaModelRuntime']);
+        else established('The selected AWS AI service location is listed specifically for Agent Mode. Tenant activation and model/data routing remain separate.',['aiSaiaAgentMode']);
+        evidence('Model Runtime and administrator enablement still need confirmation.','Model Runtime is required. Its Data zone/Global routing can process requests beyond the selected region and can use external LLMs. The broad Cloud Connected no-third-party assurance differs from this feature-specific guidance; no residency guarantee is established.',['aiSaiaAgentMode','aiSaiaModelRuntime','aiSaiaCloudConnected']);
         evidence('The complete app/Platform pairing and tenant activation have not been validated.','An installed assistant and a met Platform minimum do not establish Agent Mode availability or entitlement.',['aiSaiaAbout','aiSaiaInstall']);
-        action('Verify the supported app/Platform pairing and activation','Use the installation and feature guidance for the exact app release, service location, permissions and model-runtime policy.',['aiSaiaInstall','aiSaiaAbout']);
+        if(state.deployment==='enterprise')action('Resolve current Cloud Connected compatibility before enabling Agent Mode','Reconcile the installation restriction and SAIA-9918 with the feature guide. A met minimum or planned 2.4.0 support does not restore the current path. Only after an actual supported release is established, verify runtime policy and the documented bidirectional connectivity, regional allowlist and certificate setup.',['aiSaiaAgentMode','aiSaiaCloudConnected','aiSaiaKnownIssues','aiSaiaModelRuntime']);
+        else action('Verify the supported app/Platform pairing and activation','Confirm the exact feature-specific AWS location, Model Runtime policy, administrator activation and permissions before enabling the feature.',['aiSaiaAgentMode','aiSaiaModelRuntime']);
       }else{
         established('The aggregate AI SOC workflow is documented for Premier, with paired SOAR and representative enablement. ES 8.8 is Controlled Availability.',['aiEsAgents88','aiEsRelease88']);
         if(state.edition==='unknown')fact('Confirm the ES edition.','The aggregate workflow’s Premier requirement is separate from subcomponent entitlement.');
@@ -145,7 +150,7 @@
     else if(below.length){r.status='version_gap';r.title='A documented version gap needs attention';}
     else if(r.missingFacts.length){r.status='needs_facts';r.title='Complete the facts that affect this decision';}
     else if(state.goal==='itsi-versions'){r.status='no_change';r.title='No version gap found for these three minimums';}
-    else if(state.compliance!=='commercial'&&state.goal!=='itsi-versions'||state.goal==='agent-mode'&&state.region==='other'||state.goal==='soc-workflow'&&state.edition==='essentials'){r.status='not_established';r.title='This context is not established by the assessed evidence';}
+    else if(state.compliance!=='commercial'&&state.goal!=='itsi-versions'||state.goal==='agent-mode'&&state.region!=='unknown'&&!ai.data().agentModeRegions?.includes(state.region)||state.goal==='soc-workflow'&&state.edition==='essentials'){r.status='not_established';r.title='This context is not established by the assessed evidence';}
     else{r.status='conditional';r.title='The reported prerequisites support further verification';}
     if(state.goal==='itsi-versions'&&r.status==='no_change')r.summary='Your reported versions meet these three documented minimums. No version uplift is indicated by that comparison alone; complete pairing, availability, permissions and entitlement remain separate.';
     if(below.length)action('Plan a supported change, not just a minimum-version jump','The documented minimum identifies a prerequisite gap. Review supported transitions and exact app compatibility before choosing a target; Advisor does not recommend the minimum as your target.');

@@ -67,6 +67,25 @@ test('ITSI integration never inherits a positive regional rollout from base SAIA
  const a=model(),r=assess(a,'ai-itsi-subagent',{region:'us-east-1'});
  assert.equal(r.availability,'not_established');assert.match(r.detail,/ITSI subagent/);
 });
+test('Agent Mode uses its exact AWS feature list, independently of base SAIA and Azure runtime coverage',()=>{
+ const a=model();
+ for(const region of ['azure-ai-us-east','me-central-1']){
+  assert.equal(assess(a,'ai-saia-spl',{region}).availability,'conditional');
+  const result=assess(a,'ai-saia-agent',{region});assert.equal(result.availability,'not_established');assert(result.src.includes('aiSaiaAgentMode'));
+ }
+ assert.equal(assess(a,'ai-saia-agent',{csp:'azure'}).availability,'not_established');
+ for(const region of ['us-east-1','eu-west-1'])assert.equal(assess(a,'ai-saia-agent',{region}).availability,'conditional');
+ const record=a.data().capabilities.find(r=>r.id==='ai-saia-agent');
+ assert(record.requirements.some(x=>/Model Runtime must be enabled/.test(x)));
+ assert.match(record.runtime,/Data zone.*Global/);assert.match(record.qualification,/no-third-party.*external-processing/);
+ delete a.data().agentModeRegions;
+ assert.equal(assess(a,'ai-saia-agent',{region:'us-east-1'}).availability,'not_established');
+});
+test('current Enterprise Cloud Connected access restriction does not become a native Cloud restriction',()=>{
+ const a=model(),enterprise=assess(a,'ai-saia-agent',{deployment:'enterprise',region:'us-east-1'});
+ assert.equal(enterprise.availability,'not_established');assert.match(enterprise.detail,/2.2.0–2.3.6/);assert.match(enterprise.detail,/2.1.1 fallback lacks Agent Mode/);assert(enterprise.src.includes('aiSaiaKnownIssues'));
+ assert.equal(assess(a,'ai-saia-agent',{deployment:'cloud',region:'us-east-1'}).availability,'conditional');
+});
 test('ES Cloud and CMP retain different Montreal and Calgary component exceptions',()=>{
  const a=model();
  assert.equal(assess(a,'ai-es-assistant',{region:'ca-central-1',edition:'premier'}).availability,'conditional');
