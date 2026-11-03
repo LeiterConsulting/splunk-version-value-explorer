@@ -21,11 +21,22 @@ export async function verifyNavigation(browser, output, base='http://127.0.0.1:4
       assert.equal(await page.locator('[data-destination="advisor"]').getAttribute('href'),'/?view=advisor'+(theme==='cisco'?'&theme=cisco':''));assert.equal(await page.locator('[data-destination="advisor"] .nav-status').innerText(),'Work in progress');
       for(let cycle=0;cycle<3;cycle++) {await openExplore();assert(await page.locator('#explore-destinations').isVisible());await page.keyboard.press('Escape');assert(await page.locator('#explore-destinations').isHidden());assert(await page.locator(width<=760?'.global-menu-toggle':'.explore-trigger').evaluate(el=>el===document.activeElement));}
       await openExplore();await page.locator('.explore-trigger').press('ArrowDown');assert(await page.locator('[data-destination="release-guide"]').evaluate(el=>el===document.activeElement));await page.keyboard.press('End');assert(await page.locator('[data-destination="splunk-11"]').evaluate(el=>el===document.activeElement));await shot('explore');
+      const comparisonUrl=page.url();
+      await page.locator('[data-destination="splunk-11"]').click();await ready();
+      const preparationUrl=themed('/?view=splunk-11');
+      assert.equal(page.url(),preparationUrl,'Comparison state leaked into Prep11 navigation');
+      assert(await page.locator('#prep11-content').isVisible(),'Prep11 navigation must render usable content, not only its heading');
+      assert(await page.locator('#prep11-warning').isHidden(),'Prep11 navigation opened invalid-link recovery');
+      assert(await page.locator('#print-report').isEnabled());assert(await page.locator('.report-toolbar [data-save-snapshot]').isEnabled());
+      assert.equal(await page.locator('.prep11-question-grid .prep11-question').count(),6);await fit('Prep11');await shot('prep11');
+      await page.goBack();await ready();assert.equal(page.url(),comparisonUrl,'Back navigation changed the comparison');
+      await page.goForward();await ready();assert.equal(page.url(),preparationUrl);assert(await page.locator('#prep11-content').isVisible());
+      await page.goBack();await ready();await openExplore();
       await page.locator('[data-destination="ai-availability"]').click();await ready();assert.equal(new URL(page.url()).searchParams.get('view'),'ai-availability');assert.equal(await page.locator('.report-toolbar-title').innerText(),'AI Availability');
       assert.equal(await page.locator('[data-destination="ai-availability"]').getAttribute('aria-current'),'page');
       await page.goBack();await ready();assert.equal(new URL(page.url()).searchParams.get('product'),'es');await page.goForward();await ready();assert.equal(new URL(page.url()).searchParams.get('view'),'ai-availability');
       await openExplore();await page.locator('[data-destination="es-editions"]').click();await ready();assert(await page.locator('#edition-title').isVisible());
-      await openExplore();await page.locator('[data-destination="splunk-11"]').click();await ready();assert(await page.locator('#prep11-title').isVisible());
+      await openExplore();await page.locator('[data-destination="splunk-11"]').click();await ready();assert.equal(page.url(),preparationUrl);assert(await page.locator('#prep11-content').isVisible());assert(await page.locator('#prep11-warning').isHidden());
       await openExplore();await page.locator('[data-destination="release-guide"]').click();await ready();
       // Focus leaving a nonmodal disclosure closes it, without stealing focus.
       await openExplore();await page.locator('#copy-link').focus();assert(await page.locator('#explore-destinations').isHidden());assert(await page.locator('#copy-link').evaluate(el=>el===document.activeElement));
@@ -51,7 +62,7 @@ export async function verifyNavigation(browser, output, base='http://127.0.0.1:4
       const before=page.url();await page.emulateMedia({media:'print'});assert(await page.locator('.site-header').isHidden());assert(await page.locator('.ripple-tools').isHidden());await page.pdf({path:path.join(output,id+'-ripple.pdf'),format:'A4',printBackground:true});await page.emulateMedia({media:'screen'});assert.equal(page.url(),before);
       await page.goto(themed('/?platform=enterprise&from=9.4&to=10.6'));await ready();const save=page.locator('.report-toolbar [data-save-snapshot]');assert(await save.isEnabled(),'Valid snapshot action disabled');const [snapshot]=await Promise.all([page.waitForEvent('download'),save.click()]);await snapshot.saveAs(path.join(output,id+'-snapshot.html'));
       await page.locator('.report-navigator button[data-target="technical-title"]').click();await page.waitForFunction(()=>{const top=document.getElementById('technical-title').getBoundingClientRect().top,edge=document.querySelector('.report-navigator').getBoundingClientRect().bottom;return top>=edge-3&&top<=edge+45;});
-      assert.deepEqual(errors,[]);result.cases.push({id,passed:true});
+      assert.deepEqual(errors,[]);result.cases.push({id,passed:true,prep11Navigation:{passed:true,comparisonInputPreserved:true,contentVisible:true,exportsEnabled:true,backForward:true}});
     } catch(error) {await page.screenshot({path:path.join(output,id+'-failure.png'),fullPage:true});throw new Error(id+': '+error.stack);}
     finally {await context.close();}
   }

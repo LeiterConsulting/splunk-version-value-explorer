@@ -20,6 +20,13 @@ Version Release Watch owns discovery and current source/claim updates. Guidance 
 
 The page's filters affect the screen. PDF and saved HTML contain all maintained updates, preparation areas, open questions and numbered citations, with the current screen selection described. Saved HTML freezes its report, not its external sources. URLs preserve area, update type, search, Cisco theme and meaningful anchors. Ambiguous or comparison-shaped prep URLs retain original input, block exports and offer explicit recovery.
 
+Comparison perspective hooks must leave Prep11 destination URLs intact, including
+shared filters, anchors and invalid original input. The shared navigation carries
+the selected theme, not comparison perspective or release selections, into a fresh
+preparation view. Browser regression checks require visible preparation content,
+enabled exports and preserved back/forward comparison state; the page heading alone
+also appears on invalid-link recovery and is insufficient verification.
+
 The export route inventory includes both themes for default, selected/shared and invalid prep inputs. Dedicated application CI must pass native PDF page checks, independent offline HTML reopenings, phone layouts and real Tab access to print/save actions. Preserve surrounding Platform, legacy and ES routes. Inspect retained novel page images separately from automated geometry checks.
 
 ## November 2 scoped pilot review
