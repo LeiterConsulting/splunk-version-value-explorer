@@ -4,6 +4,18 @@ function model(){const context={window:{SPLUNK_DATA:{guidance:JSON.parse(fs.read
 const agent={goal:'agent-mode',deployment:'enterprise',compliance:'commercial',region:'us-east-1',platformVersion:'10.4.0',saiaVersion:'2.3.6',access:'yes'};
 const itsi={goal:'itsi-versions',itsiVersion:'5.0.0',saiaVersion:'2.2.0',mcpVersion:'1.2.1'};
 const evaluate=(a,state,now=NOW)=>a.evaluate(state,{now});
+test('every Advisor export fixture names visible inputs and reaches its intended model outcome before browser execution',()=>{
+ const fixtures=JSON.parse(fs.readFileSync('tools/export-verification/advisor-fixtures.json'));
+ const routes=JSON.parse(fs.readFileSync('tools/export-verification/routes.json')).filter(r=>r.id.startsWith('advisor')&&!r.invalid&&!r.exportsBlocked);
+ assert.deepEqual(Object.keys(fixtures.cases).sort(),routes.map(r=>r.id).sort());
+ for(const route of routes){
+  const w=model(),a=w.VersionCompassAdvisor,fixture=fixtures.cases[route.id],goal=new URLSearchParams(route.query).get('goal'),context={goal,...fixture.input};
+  const fields=a.fields(a.normalize(context));
+  for(const key of Object.keys(fixture.input))assert(fields.includes(key),route.id+' fills a hidden field: '+key);
+  if(fixture.evidenceChanged)w.SPLUNK_DATA.guidance.aiAvailability.capabilities.find(r=>r.id==='ai-itsi-subagent').requirements[0]+=' [synthetic unreviewed fixture]';
+  assert.equal(evaluate(a,context).status,fixture.outcome,route.id+' fixture no longer reaches its intended outcome');
+ }
+});
 test('current Cloud Connected block and fallback are not cleared by a minimum or a planned release',()=>{
  const a=model().VersionCompassAdvisor;
  for(const saiaVersion of ['2.1.1','2.2.0','2.3.6','2.4.0']){

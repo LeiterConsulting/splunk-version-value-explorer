@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "cases": {
+    "advisor-prerequisites": {
+      "input": {
+        "itsiVersion": "5.0.0",
+        "saiaVersion": "2.2.0",
+        "mcpVersion": "1.2.1"
+      },
+      "outcome": "no_change"
+    },
+    "advisor-conflict": {
+      "input": {
+        "deployment": "cloud",
+        "compliance": "commercial",
+        "edition": "premier",
+        "platformVersion": "10.4",
+        "esVersion": "8.8",
+        "access": "yes"
+      },
+      "outcome": "conflicting"
+    },
+    "advisor-agent-gap": {
+      "input": {
+        "deployment": "enterprise",
+        "compliance": "commercial",
+        "platformVersion": "9.4",
+        "region": "unknown",
+        "access": "unknown"
+      },
+      "outcome": "conflicting"
+    },
+    "advisor-agent-known": {
+      "input": {
+        "deployment": "enterprise",
+        "compliance": "commercial",
+        "platformVersion": "10.4",
+        "saiaVersion": "2.3.6",
+        "region": "us-east-1",
+        "access": "yes"
+      },
+      "outcome": "conflicting"
+    },
+    "advisor-agent-azure": {
+      "input": {
+        "deployment": "enterprise",
+        "compliance": "commercial",
+        "platformVersion": "10.4",
+        "saiaVersion": "2.3.6",
+        "region": "azure-ai-us-east",
+        "access": "yes"
+      },
+      "outcome": "not_established"
+    },
+    "advisor-agent-dubai": {
+      "input": {
+        "deployment": "enterprise",
+        "compliance": "commercial",
+        "platformVersion": "10.4",
+        "saiaVersion": "2.3.6",
+        "region": "me-central-1",
+        "access": "yes"
+      },
+      "outcome": "not_established"
+    },
+    "advisor-agent-dublin": {
+      "input": {
+        "deployment": "cloud",
+        "compliance": "commercial",
+        "platformVersion": "10.4",
+        "region": "eu-west-1",
+        "access": "yes"
+      },
+      "outcome": "conditional"
+    },
+    "advisor-agent-cloud-known": {
+      "input": {
+        "deployment": "cloud",
+        "compliance": "commercial",
+        "platformVersion": "10.4",
+        "region": "us-east-1",
+        "access": "yes"
+      },
+      "outcome": "conditional"
+    },
+    "advisor-agent-fallback": {
+      "input": {
+        "deployment": "enterprise",
+        "compliance": "commercial",
+        "platformVersion": "10.4",
+        "saiaVersion": "2.1.1",
+        "region": "us-east-1",
+        "access": "yes"
+      },
+      "outcome": "conflicting"
+    },
+    "advisor-agent-app-gap": {
+      "input": {
+        "deployment": "enterprise",
+        "compliance": "commercial",
+        "platformVersion": "10.4",
+        "saiaVersion": "2.0.0",
+        "region": "us-east-1",
+        "access": "yes"
+      },
+      "outcome": "version_gap"
+    },
+    "advisor-agent-cloud-gap": {
+      "input": {
+        "deployment": "cloud",
+        "compliance": "commercial",
+        "platformVersion": "10.0",
+        "region": "us-east-1",
+        "access": "yes"
+      },
+      "outcome": "version_gap"
+    },
+    "advisor-agent-regulated": {
+      "input": {
+        "deployment": "enterprise",
+        "compliance": "fr-h",
+        "platformVersion": "10.4",
+        "saiaVersion": "2.3.6",
+        "region": "us-east-1",
+        "access": "yes"
+      },
+      "outcome": "not_established"
+    },
+    "advisor-es-cmp": {
+      "input": {
+        "deployment": "enterprise",
+        "compliance": "commercial",
+        "edition": "premier",
+        "platformVersion": "10.4",
+        "esVersion": "8.8",
+        "cloudConnectVersion": "2.0",
+        "access": "yes"
+      },
+      "outcome": "conditional"
+    },
+    "advisor-unknown": {
+      "input": {},
+      "outcome": "needs_facts"
+    },
+    "advisor-evidence-changed": {
+      "input": {},
+      "outcome": "needs_review",
+      "evidenceChanged": true
+    }
+  }
+}

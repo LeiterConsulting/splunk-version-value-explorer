@@ -147,3 +147,12 @@ feed preparation: 3,471 bytes, SHA-256
 `e99f489ae52b03520cea01a72194b9aa2608e747874cf394044cd436dccc5797`.
 Earlier checkpoints and manual outcomes remain history. Current unknowns are not
 closed by the revised interface or candidate CI.
+
+Advisor export scenarios now share `tools/export-verification/advisor-fixtures.json`
+between browser checks and a Node preflight. Every configured input must be an
+active field for that scenario, and its model result must match the same intended
+UI outcome before the long native matrix starts. This prevents new dependency
+fields or hidden controls from first surfacing as late browser failures. The
+regulated fixture supplies its applicable SAIA version; native Cloud scenarios
+do not fill the hidden Enterprise-only app field. Negative UI assertions and the
+complete PDF/offline-HTML matrix remain required.
