@@ -1,5 +1,18 @@
 # VersionCompass working contract
 
+## November 3 automation reliability
+
+Read docs/automation-operations.md before a watch, pipeline repair or delivery.
+Use npm run maintenance:sync for isolated ordered generation, then maintenance:verify
+before committing. Verify transferred JSON against its original raw-byte manifest;
+never commit tool-display text. Keep exact-head CI/export, D1 stage/activation,
+Sites runtime and live verification distinct. A green publisher job is not delivery
+proof. New semantic reviews from every declared participating watch, including ES
+and CSP, need coverage bindings; pre-repair inputs remain historical. Preserve
+immutable registry snapshots and audited ledger repair baselines. Existing timers,
+permissions, credentials and activation boundaries remain unchanged. Use the
+existing progress task for read-only pipeline diagnostics and recovery follow-up.
+
 ## November 2 automation coverage constitution
 
 Follow docs/automation-constitution.md and the versioned

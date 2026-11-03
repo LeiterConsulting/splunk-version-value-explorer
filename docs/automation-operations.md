@@ -1,0 +1,202 @@
+# Automation operations and recovery
+
+This is the operating procedure for the four existing watches and the existing
+progress task. The [constitution](automation-constitution.md) owns accuracy,
+authority and coverage. Repository changes, saved-task configuration, content
+staging, Sites deployment and visitor delivery are separate states. No new timer,
+permission, credential or deployment is created by this procedure.
+
+## What failed and what is repaired
+
+The [November 3 incident record](audits/2026-11-03-pipeline-reliability.json)
+retains 400 run identities and the first failed step, skipped steps and bounded log
+evidence for every failed run, covering October 22–November 3, 12:30 UTC.
+
+| Population (latest attempt per run) | Passed | Failed | Other |
+| --- | ---: | ---: | --- |
+| Validation, all events | 223 | 35 | 3 cancelled |
+| Publisher | 83 | 36 | 20 skipped |
+| PR-triggered validation subset | 45 | 7 | 0 |
+
+There were 14 stale generated-content failures, 8 stale revision failures, 1 stale
+release metadata failure, 6 malformed ledger/parent failures and 6 browser failures.
+Publisher failures were 18 engine mismatches, 17 CI-not-ready and 1 missing-step
+contract. These are workflow-run counts, including duplicate push/PR validation;
+they are not a failure rate for all individual tests or all automation tasks.
+Final passing PR heads can hide earlier failed commits. Six earlier failed attempts
+on five subsequently successful publisher runs are recorded separately, including
+one `fetch failed` whose mutation outcome was not established by that log.
+
+* Preparation now validates raw UTF-8 JSON, executes ordered generators/checks in
+  an isolated clone, verifies inputs did not change concurrently, then applies
+  prepared output. Failure before application leaves original files unchanged;
+  file replacement errors restore the saved preimages. An interrupted process is
+  still an incomplete operation: inspect Git and rerun checks before committing.
+* The publisher checks out the triggering validation SHA. It only publishes when
+  that SHA also matches the workflow's existing OIDC SHA. If newer main has
+  superseded the trigger, it records `superseded-trigger-not-published` and makes
+  no publisher request. The newer commit must pass its own validation. This fixes
+  the newer-main race while preserving commit-scoped authorization.
+* Engine-changing candidates stop before requesting credentials or writing D1,
+  with `held-runtime-deployment-required` and a failing exit code. They require
+  the separate authorized Sites runtime process. Engine rejection remains a gate.
+* Mandatory publisher evidence includes Advisor, native feed, coverage, export
+  readiness and retained candidate artifacts. Skipping any required step fails
+  verification. The runtime must be deployed to enforce this amended contract.
+* Artifact uploads run only when export verification actually started. Failed
+  exports still retain partial evidence and remain failed; early syntax/generation
+  failure no longer adds two misleading missing-artifact errors. Successful
+  exports still require artifacts. A newer run on the same event/ref may cancel
+  obsolete validation; cancellation supplies no accepted export evidence.
+* Coverage rejects future/stale successful assessments and stale supporting
+  retrievals, pins Advisor identities to their actual records, requires discovery,
+  and binds participating ES/CSP reviews. Registry snapshots are immutable by
+  version; old runs resolve their original contract. Activation requires complete
+  delivery checks plus matching task/scheduler identities. No historical run was
+  relabeled complete. Pre-repair ES/CSP review inputs at commit
+  `52375081184ae679779fbce57969e20fc588af88` are explicitly grandfathered for
+  binding only; a new semantic review requires its declared coverage.
+
+November 3 ES recovery-selector and exact-release registration failures were
+already repaired in main before this branch: invalid links use the recovery
+controls, and the exact-release harness waits for tool registration. The previous
+October 24 theme and October 28 navigation failures also have later successful
+candidate runs. Those old failures are retained; they are not claimed as new fixes
+here. Exact-candidate CI must rerun the current complete matrix.
+
+## Daily writer procedure
+
+1. Read AGENTS, the constitution, active registry/amendment ledger and relevant
+   product/source docs. Read actual task/run identity when available; retain
+   unknown controls/times as unknown. Preserve the saved cadence, timezone,
+   timing mode, enabled state, notifications and permissions. Never infer task
+   activation from repository implementation.
+2. Fetch current GitHub main and read current Sites version/provenance. Use one
+   dedicated branch and a draft PR; isolate concurrent writers. Reconcile before
+   pushing and again before release. Never overwrite another writer's checkout,
+   force-push, directly repair main or merge a red/pending candidate. Repository
+   protection settings were not established by this investigation; lack of access
+   is not proof they are absent. Changes to those settings require authorization.
+3. Retrieve exact official source sections for the owned scope. Validate semantic
+   content, product/version, publication stage, component, environment and region.
+   HTTP 200, a digest, a search snippet or an unchanged page is retrieval evidence,
+   not claim assessment. A `Site Unavailable` body is blocked even with HTTP 200.
+   Retain exact URL, section, retrieval method/time/hash and actual assessment
+   scope/date. A search result is qualified as indexed evidence. Preserve conflicts
+   and unknowns rather than borrowing adjacent releases or related services.
+4. Record every mandatory participating capability, including explicit blocked,
+   deferred, failed or out-of-scope entries with owner, finite action and review
+   date. Freshness is evaluated at the retained run and later observed continuation
+   times, not today's date when replaying history. Stale evidence may be retained
+   in an incomplete outcome; it cannot establish complete assessed coverage.
+   Do not refresh a claim, section date or Advisor pin merely to satisfy a gate.
+5. Reuse source reads only within their real assessed scope. Reuse finding IDs and
+   immutable checkpoints. Same review digest/checkpoint means no new assessment;
+   a different claim/section still needs review. A daily run need not invent a
+   product change or new finding. Record an operational attempt/completion or an
+   honest partial result using the existing maintenance outcome contract.
+6. Edit canonical JSON and review inputs. Bind the native feed outcome and coverage
+   to final semantic inputs. If public provenance does not yet exist, use the
+   existing two-phase audit-then-feed process with finite follow-up. Delivery-only
+   receipts cannot manufacture an assessment. Do not claim full delivery while
+   feed provenance remains pending.
+7. Run the single preparation and validation path from the repository root:
+
+   ```bash
+   npm run maintenance:sync
+   npm run maintenance:verify
+   git diff --check
+   ```
+
+   Generation order is Advisor adapters, release metadata, canonical content,
+   source register, content revision, then issue feed. All individual check gates
+   run after generation. `maintenance:verify` also runs the full Node suite and
+   Worker build. Neither command publishes or reviews upstream evidence. Scripts
+   never update admission pins or claim dates automatically.
+8. Transfer files as raw bytes, Git blobs or archives. Never copy a rendered tool
+   result, its warning header, truncated preview or JSON string representation
+   into a repository file. Capture the original byte manifest before transfer:
+
+   ```bash
+   node scripts/maintenance.cjs --manifest > /tmp/vc-original-inputs.json
+   node scripts/verify-transfer.cjs content/issue-feed.json ORIGINAL_SHA256 ORIGINAL_BYTES
+   ```
+
+   The last two arguments must come from that original raw file, independently
+   of the destination. A destination-computed hash alone proves nothing about
+   transfer. Stage all generated changes together. Review file paths, hashes,
+   qualifications, tests and diff before the commit.
+9. Push the dedicated branch and update the draft PR. Wait for the exact final
+   push-head validation and PR integration validation. Any subsequent input edit
+   invalidates that candidate's check status. Record run/attempt/head identities,
+   first failed step and actual skipped steps. Do not call skipped checks passed.
+10. Download the exact successful export artifact and compare GitHub's ZIP digest.
+    Extract it and run `node scripts/export-evidence.cjs EXTRACTED_DIRECTORY` in
+    the candidate checkout. Inspect novel layouts separately. The fingerprint may
+    justify reusing unchanged report evidence for a documentation receipt; it
+    does not override a current applicable failure or replace final-head CI.
+
+## Delivery state and release boundary
+
+| State | Required evidence | Does not establish |
+| --- | --- | --- |
+| Assessed | Exact source sections, scope, dates, qualifications | Publication |
+| Candidate validated | Exact-head gates/tests/build/native exports | Merge or live delivery |
+| Repository integrated | Approved merge/main commit and exact-main CI | Sites deployment |
+| D1 staged / already current | Publisher outcome plus revision/engine | Visitor advancement when `activeDelivery:false` |
+| D1 activated | Guarded activation receipt and expected generation | New runtime deployed or live UI verified |
+| Sites deployed | Saved version, source commit/tree, matching archive and succeeded deployment | Correct production behavior |
+| Live verified | Exact asset/manifest/bundle/D1/API/UI/export checks with limits | Complete semantic or security coverage |
+
+The publisher retains `publisher-outcome-RUN-ATTEMPT`. Its receipt always leaves
+`claimedDelivered:false`, since the CLI cannot perform the entire live check.
+A successful stage or `already-current` can be green with active delivery off.
+Inspect the returned status, engine, revision and active-delivery flag. Sites
+publication is separate. Preserve `VC_ACTIVE_DELIVERY` until its original real-D1
+activation/rollback and independent-reader gates are satisfied.
+
+For this repair, merge, Sites deployment and saved-task activation remain approval
+gates. Review this draft's exact CI evidence first. After approved integration,
+validate the final main SHA, deploy the matching runtime through the existing
+Sites procedure only when authorized, verify source/tree and live checks, then
+observe actual scheduled watch executions. Read back saved settings if prompts
+are amended. Do not add a timer, widen permissions or mark the pilot active to
+complete rollout. The current Release Watch still has four incomplete mandatory
+capabilities; the Guidance Audit's complete first execution is also pending.
+
+## Monitoring through the existing progress task
+
+Run `node scripts/pipeline-status.mjs` using existing read access (optionally the
+in-memory `VC_GITHUB_EVIDENCE_TOKEN`). It reads the current main SHA and up to 100
+recent Actions runs, rejects stale/PR success as main evidence, and reports retained
+coverage gaps and overdue follow-ups. GitHub read failure stops the diagnostic;
+do not expand access or infer no failures. Saved-task execution health, exact
+publisher receipts and live checks still require their own readback. No schedule
+is installed by this script; use the existing progress task.
+
+Report same-run validation failure, missing/pending main checks, publisher rejection,
+engine mismatch, blocked source, overdue coverage, pending feed provenance or
+source/deployment drift at the next existing progress check. High-consequence
+unsupported guidance requires immediate hold/escalation under existing authority.
+Measure daily completeness, first-attempt failures, repeated findings, overdue
+follow-ups, recovery and useful delivered decisions separately. Preserve unknown
+elapsed time, calls, tokens and cost as null. No delivery SLA is inferred.
+
+## Recovery table
+
+| Symptom | Diagnose and recover |
+| --- | --- |
+| Stale catalog/adapter/revision | Reconcile latest inputs; run isolated preparation, inspect generated bytes, verify and commit the whole set. Do not hand-edit generated authorities or update expected test values blindly. |
+| Malformed current ledger | Reject before generation. Recover exact intended raw bytes and verify original digest/length. Never parse a display transcript as data. |
+| Malformed immutable parent | Require `content/issue-feed-repairs.json`: exact damaged commit/blob SHA-256, its immediate valid parent/blob SHA-256, reason and retained incident audit. Full Git history is required. The repair validates append-only history against that baseline and preserves every immutable public record/snapshot from the damaged commit. No generic ignore flag exists; valid historical JSON never uses this exception. |
+| Browser assertion/timeout | Read the first failing route, console and retained partial images. Reproduce exact route/theme, fix application or harness readiness as warranted, and run the full candidate matrix. Missing selector/tool is not automatically an environment problem. |
+| `validation-ci-not-ready` / missing step | Verify selected SHA, latest main push run, attempt and named steps. Wait for applicable CI; reconcile an obsolete trigger. Never change success criteria or publish a different SHA. |
+| Engine mismatch | Hold content publication; compare candidate/deployed engines. Use the separate approved matching-runtime release, then fresh exact-main evidence and readback. Do not disable the check. |
+| Network/5xx/rate limit | Bound source GET retries to one retry (two attempts total), respect Retry-After and record unavailable coverage. No unbounded retry loop or fallback-source inference. Publisher POST timeouts have uncertain outcome: inspect head/provenance/operation status before any retry. Reuse the same operation identity; never create duplicate findings/publications to retry. |
+| Permission denied | Stop the denied action. Record exact action/target/reason/completed work and denied/pending/uncertain status. Continue independent work. Do not change credentials/access or route around denial. |
+| Duplicate/concurrent writer | Compare exact head, input hashes, review digests and checkpoint IDs. Reconcile new changes and rerun gates. Same-operation publication remains idempotent; stale compare-and-swap must not be retried with guessed expectations. |
+| Successful job, incomplete delivery | Read the outcome receipt. Keep repository, D1, runtime and live verification distinct; retain the last verified public revision and finish finite follow-ups. |
+| Unsafe published guidance | Record the applicable failure and known complete restore target; follow the existing authorized rollback procedure. Missing local tooling alone does not justify rollback. Preserve all incident/history evidence. |
+
+Recovery never authorizes deleting immutable findings, relaxing tests, advancing
+source dates, setting activation flags or modifying repository protections.

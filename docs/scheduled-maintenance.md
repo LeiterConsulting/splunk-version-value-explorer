@@ -4,6 +4,10 @@ Version Compass uses scheduled tasks running in Codex to keep its public compari
 
 This document describes the maintenance model and its boundaries. It is a conceptual guide for readers evaluating the repository or considering a similar site, rather than a task configuration or operational recipe.
 
+The [automation operating procedure](automation-operations.md) supplies the actual
+preparation, exact-head validation, delivery-state, monitoring and recovery steps.
+It does not create or reschedule tasks.
+
 ## Review coverage and cadence
 
 The owner-authorized [Splunk 11.x preparation page](prep11.md) is covered by the existing Release Watch and Guidance Audit. Its public announcements, current preparation context and unconfirmed future requirements remain distinct. No additional schedule is created.

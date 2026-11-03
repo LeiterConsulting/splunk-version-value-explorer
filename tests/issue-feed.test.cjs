@@ -126,6 +126,23 @@ test('CI history check rejects an already-committed rewrite against the parent',
     assert.throws(() => sync(root, true), /immutable/);
   } finally { fs.rmSync(root, { recursive: true, force: true }); }
 });
+test('malformed parent recovery requires exact incident bytes, a valid immediate baseline and every public object', t => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-issue-repair-')); t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  const git = args => execFileSync('git', args, { cwd: root, stdio: ['ignore', 'pipe', 'pipe'] }).toString().trim();
+  const write = (file, value) => { fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); fs.writeFileSync(path.join(root, file), typeof value === 'string' ? value : JSON.stringify(value)); };
+  const commit = () => { git(['add', '.']); git(['-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-m', 'Synthetic recovery fixture']); return git(['rev-parse', 'HEAD']); };
+  const first = new Set(real.publications[0].recordKeys), baseline = { ...clone(real), records: real.records.filter(r => first.has(key(r))), publications: real.publications.slice(0, 1) };
+  git(['init', '--initial-branch', 'main']); write('content/issue-feed.json', baseline); write('content/issue-feed-examples.json', example); sync(root); const good = commit();
+  write('content/issue-feed.json', real); sync(root); const damaged = 'Warning: truncated output\nTotal output lines: fixture\n'; write('content/issue-feed.json', damaged); const bad = commit();
+  write('content/issue-feed.json', real); assert.throws(() => sync(root, true), /audited byte-pinned repair/);
+  const repair = { source: 'content/issue-feed.json', corruptedCommit: bad, corruptedSha256: sha256(damaged), baselineCommit: good, baselineSha256: sha256(fs.readFileSync(path.join(root, 'content/issue-feed.json'))), reason: 'Synthetic corrupted-parent fixture.', auditFile: 'docs/audits/synthetic-repair.json' };
+  repair.baselineSha256 = sha256(execFileSync('git', ['show', good + ':content/issue-feed.json'], { cwd: root }));
+  write(repair.auditFile, { synthetic: true }); const save = () => write('content/issue-feed-repairs.json', { schemaVersion: 1, repairs: [repair] }); save();
+  assert.doesNotThrow(() => sync(root, true));
+  write('content/issue-feed.json', baseline); assert.throws(() => sync(root, true), /retain every immutable/); write('content/issue-feed.json', real);
+  repair.corruptedSha256 = '0'.repeat(64); save(); assert.throws(() => sync(root, true), /audited byte-pinned repair/);
+  repair.corruptedSha256 = sha256(damaged); repair.baselineSha256 = '0'.repeat(64); save(); assert.throws(() => sync(root, true), /baseline byte digest mismatch/);
+});
 test('pilot checkpoint recovers expanded coverage without replacing prior records', async () => {
   assert.equal(real.publications[0].recordKeys.length, 4);
   assert.equal(real.publications[1].recordKeys.length, 6);

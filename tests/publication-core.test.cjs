@@ -133,6 +133,13 @@ test('untrusted repository and malformed commit are rejected without outbound re
     assert.equal(requests, 0);
   }
 });
+test('every named mandatory gate rejects skipped or missing step evidence', async () => {
+  const m = await core(), c = await candidate();
+  for (const required of m.REQUIRED_STEPS) {
+    const { fetcher } = await evidenceFetch(c, (url, value) => { if (value.jobs) value.jobs[0].steps.find(s => s.name === required).conclusion = 'skipped'; });
+    await assert.rejects(m.verifyRepositoryPublication(c, { engineRevision: engine, fetcher }), /evidence missing/);
+  }
+});
 test('provenance failures never write a revision or change the active pointer', async t => {
   const { m, db, a } = await prepared(t), b = await bundle(8), c = await candidate(b);
   const options = { engineRevision: engine, fetcher: async () => new Response('unavailable', { status: 503 }) };

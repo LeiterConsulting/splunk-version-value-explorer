@@ -24,7 +24,7 @@ test('sources fetched without assessed claims cannot report assessed-no-change',
   assert.throws(() => validateRun(bind(run), registry), /Fetched sources are not assessed/);
 });
 test('the registry cannot silently omit an implemented Prep11 capability or Advisor decision', () => {
-  for (const id of ['prep11.operator', 'advisor.agent-mode']) {
+  for (const id of ['prep11.discovery', 'prep11.operator', 'advisor.agent-mode']) {
     const value = structuredClone(registry); value.capabilities = value.capabilities.filter(c => c.id !== id);
     assert.throws(() => validateRegistry(value), /Unregistered/);
   }
@@ -67,6 +67,7 @@ test('future changed watch reviews cannot omit coverage or substitute a manual i
   try {
     git(['init', '--initial-branch', 'main']);
     for (const file of ['automation-coverage.json', 'automation-amendments.json']) write('content/' + file, JSON.parse(fs.readFileSync('content/' + file)));
+    write('content/automation-registries/1.0.0.json', registry);
     write('content/advisor-goals.json', JSON.parse(fs.readFileSync('content/advisor-goals.json')));
     write('content/datasets/guidance.json', JSON.parse(fs.readFileSync('content/datasets/guidance.json')));
     const file = 'docs/audits/2026-11-02-version-release-watch.json';
@@ -81,4 +82,64 @@ test('future changed watch reviews cannot omit coverage or substitute a manual i
     run.auditBindings = [{ file, reviewDigest: require('../scripts/lib/native-issue-feed.cjs').reviewDigest(audit) }];
     write(runFile, bind(run)); assert.equal(check(root).runs[0].coverageComplete, false);
   } finally { fs.rmSync(root, { recursive: true, force: true }); }
+});
+function completeRun() {
+  const run = structuredClone(original);
+  run.claimedComplete = true; run.outcome = 'complete';
+  run.coverage = registry.capabilities.map(c => ({ capabilityId: c.id, disposition: 'assessed-no-change', qualification: 'Synthetic validator fixture, not a source review.',
+    discoveredAt: null, retrievedAt: run.recordedAt, assessedAt: run.recordedAt, publishedAt: null, liveVerifiedAt: null,
+    retrievals: c.sources.map(s => ({ sourceId: s.id, outcome: 'retrieved', retrievedAt: run.recordedAt, evidence: 'Synthetic retrieved fixture.' })),
+    assessments: c.claimFamilies.map(f => ({ claimId: f.id, outcome: 'assessed-no-change', sourceIds: f.sourceIds, assessedAt: run.recordedAt, evidence: 'Synthetic scoped review.', qualification: 'Fixture only.' })) }));
+  return bind(run);
+}
+test('freshness is measured at the actual retained run, with stale and future evidence rejected', () => {
+  assert.equal(validateRun(completeRun(), registry).coverageComplete, true);
+  for (const mutate of [
+    r => { r.coverage[0].assessments[0].assessedAt = '2026-09-01T00:00:00Z'; },
+    r => { r.coverage[0].assessments[0].assessedAt = '2099-01-01T00:00:00Z'; },
+    r => { r.coverage[0].retrievals[0].retrievedAt = '2026-09-01T00:00:00Z'; },
+    r => { r.coverage[0].retrievals[0].retrievedAt = '2099-01-01T00:00:00Z'; },
+    r => { r.recordedAt = '2099-01-01T00:00:00Z'; },
+  ]) { const run = completeRun(); mutate(run); assert.throws(() => validateRun(bind(run), registry), /Stale|Future/); }
+  assert.equal(validateRun(completeRun(), registry, process.cwd(), Date.parse('2026-11-03T00:00:00Z')).coverageComplete, true);
+});
+test('Advisor claim identity must match the pointed-to canonical record', () => {
+  const r = structuredClone(registry), goals = r.capabilities.filter(c => c.id.startsWith('advisor.'));
+  goals[0].claimFamilies[0].pointer = goals[1].claimFamilies[0].pointer;
+  assert.throws(() => validateRegistry(r), /mismatched Advisor/);
+});
+test('complete no-change coverage still needs every required validation gate for delivery', () => {
+  const run = completeRun(); run.publication.claimedDelivered = true;
+  assert.throws(() => validateRun(bind(run), registry), /delivery is incomplete/);
+});
+test('retained runs resolve immutable registry versions after an active version change', t => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-coverage-version-')); t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  for (const file of ['content/advisor-goals.json', 'content/datasets/guidance.json', 'content/automation-registries/1.0.0.json']) {
+    fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); fs.copyFileSync(file, path.join(root, file));
+  }
+  const next = { ...structuredClone(registry), registryVersion: '1.1.0' };
+  assert.equal(validateRun(original, next, root).runId, original.runId);
+  const missing = { ...original, registryVersion: '9.0.0' }; assert.throws(() => validateRun(missing, next, root), /ENOENT/);
+});
+test('first execution cannot activate without delivered checks and matching scheduled task identity', t => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-first-execution-')); t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  for (const file of ['content/advisor-goals.json', 'content/datasets/guidance.json']) { fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); fs.copyFileSync(file, path.join(root, file)); }
+  const ledger = structuredClone(amendments); ledger.amendments[0].savedTasks = [ledger.amendments[0].savedTasks[0]];
+  const task = ledger.amendments[0].savedTasks[0], file = 'docs/audits/2026-11-02-synthetic-test-coverage.json';
+  task.firstExecution = { status: 'verified', runId: 'synthetic-test', runFile: file, verifiedAt: '2026-11-03T00:00:00Z', evidence: 'Synthetic native run receipt.', schedulerRunId: 'synthetic-scheduler-run' };
+  const run = completeRun(); run.kind = 'saved-task-execution'; run.runId = 'synthetic-test';
+  const save = () => { fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); fs.writeFileSync(path.join(root, file), JSON.stringify(bind(run))); };
+  save(); assert.throws(() => validateAmendments(ledger, registry, root), /delivery/);
+  run.validation = { checks: [...new Set(registry.capabilities.flatMap(c => c.requiredChecks))].map(id => ({ id, outcome: 'passed', evidence: 'Synthetic gate fixture, not CI/live evidence.' })) };
+  run.publication.claimedDelivered = true; save(); assert.throws(() => validateAmendments(ledger, registry, root), /task and scheduler identity/);
+  run.execution = { taskId: task.taskId, schedulerRunId: 'wrong-run' }; save(); assert.throws(() => validateAmendments(ledger, registry, root), /task and scheduler identity/);
+  run.execution.schedulerRunId = task.firstExecution.schedulerRunId; save(); assert.doesNotThrow(() => validateAmendments(ledger, registry, root));
+});
+test('ES participating ownership cannot omit its mandatory coverage binding', t => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-es-coverage-')); t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  const git = args => execFileSync('git', args, { cwd: root, stdio: 'pipe' });
+  for (const file of ['content/advisor-goals.json', 'content/datasets/guidance.json', 'content/automation-coverage.json', 'content/automation-amendments.json', 'content/automation-registries/1.0.0.json']) { fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); fs.copyFileSync(file, path.join(root, file)); }
+  git(['init', '--initial-branch', 'main']); git(['add', '.']); git(['-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-m', 'Synthetic baseline']);
+  const file = 'docs/audits/2026-11-03-es-editions-watch.json'; fs.mkdirSync(path.join(root, 'docs/audits'), { recursive: true }); fs.writeFileSync(path.join(root, file), JSON.stringify({ scope: 'Synthetic new ES review' }));
+  assert.throws(() => check(root), /lacks mandatory coverage/);
 });

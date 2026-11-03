@@ -140,8 +140,29 @@ function sync(root = process.cwd(), check = false) {
   validateLedger(ledger);
   for (const revision of revisions) {
     let old;
-    try { old = execFileSync('git', ['show', `${revision}:${source}`], { cwd: root, stdio: ['ignore', 'pipe', 'ignore'], encoding: 'utf8' }); } catch { continue; }
-    validateLedger(ledger, JSON.parse(old));
+    try { old = execFileSync('git', ['show', `${revision}:${source}`], { cwd: root, stdio: ['ignore', 'pipe', 'ignore'] }); } catch { continue; }
+    let baseline;
+    try { baseline = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(old)); }
+    catch {
+      // Never skip malformed history. Only an explicit, byte-pinned incident can
+      // substitute its immediate last-valid parent, retaining every public object.
+      const git = args => execFileSync('git', args, { cwd: root, stdio: ['ignore', 'pipe', 'ignore'], encoding: 'utf8' }).trim();
+      const commit = git(['rev-parse', revision]);
+      const repairsFile = path.join(root, 'content/issue-feed-repairs.json');
+      const repairs = fs.existsSync(repairsFile) ? JSON.parse(fs.readFileSync(repairsFile)) : null;
+      const repair = repairs?.schemaVersion === 1 && repairs.repairs?.find(r => r.corruptedCommit === commit && r.source === source && r.corruptedSha256 === sha256(old));
+      assert(repair && /^[a-f0-9]{40}$/.test(repair.baselineCommit || '') && /^[a-f0-9]{64}$/.test(repair.baselineSha256 || '') && typeof repair.reason === 'string' && repair.reason.trim() && /^docs\/audits\/[a-z0-9-]+\.json$/.test(repair.auditFile || '') && fs.existsSync(path.join(root, repair.auditFile)), 'Malformed immutable ledger at ' + commit + '; an audited byte-pinned repair and full Git history are required');
+      assert(git(['rev-parse', commit + '^']) === repair.baselineCommit, 'Repair baseline must be the immediate last-valid parent');
+      const validBytes = execFileSync('git', ['show', repair.baselineCommit + ':' + source], { cwd: root, stdio: ['ignore', 'pipe', 'ignore'], encoding: 'utf8' });
+      assert(sha256(validBytes) === repair.baselineSha256, 'Repair baseline byte digest mismatch');
+      baseline = JSON.parse(validBytes); validateLedger(baseline);
+      const generated = build(ledger).files;
+      for (const file of git(['ls-tree', '-r', '--name-only', commit, 'feeds/issues/v1/records', 'feeds/issues/v1/snapshots']).split('\n').filter(Boolean)) {
+        const retained = execFileSync('git', ['show', commit + ':' + file], { cwd: root, stdio: ['ignore', 'pipe', 'ignore'], encoding: 'utf8' });
+        assert(generated.get(file.replace(/^feeds\/issues\/v1\//, '')) === retained, 'Repair must retain every immutable published feed object: ' + file);
+      }
+    }
+    validateLedger(ledger, baseline);
   }
   const outputs = [[ledger, 'feeds/issues/v1'], [JSON.parse(fs.readFileSync(path.join(root, 'content/issue-feed-examples.json'))), 'feeds/issues/v1/examples']];
   let count = 0;

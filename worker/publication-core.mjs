@@ -9,9 +9,16 @@ export const REQUIRED_STEPS = [
   'node scripts/sync-source-register.cjs --check',
   'node scripts/sync-content-revision.cjs --check',
   'node scripts/sync-content.cjs --check',
+  'node scripts/sync-advisor.cjs --check',
+  'node scripts/advisor-maintenance.cjs --check',
+  'node scripts/sync-issue-feed.cjs --check',
+  'node scripts/check-native-issue-feed.cjs',
+  'node scripts/check-automation-coverage.cjs',
   'node --test tests/*.test.cjs',
   'node scripts/build-worker.cjs',
   'node tools/export-verification/verify.mjs',
+  'Bind rendered exports to release readiness',
+  'Retain candidate export evidence',
 ];
 const REVISION = /^content-[a-f0-9]{24}$/;
 const ENGINE = /^engine-[a-f0-9]{20}$/;

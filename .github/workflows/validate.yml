@@ -1,5 +1,8 @@
 name: Validate release metadata and reports
 on: [push, pull_request]
+concurrency:
+  group: versioncompass-validation-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -7,10 +10,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Validate input bytes before generation checks
+        run: node scripts/maintenance.cjs --manifest > /tmp/maintenance-inputs.json
       - run: node scripts/sync-release-metadata.cjs --check
       - run: node scripts/sync-source-register.cjs --check
       - run: node scripts/sync-content-revision.cjs --check
@@ -27,12 +32,13 @@ jobs:
       - name: Install PDF page renderer
         run: sudo apt-get update && sudo apt-get install -y poppler-utils
       - run: node tools/export-verification/verify.mjs
+        id: exports
       - name: Bind rendered exports to release readiness
         run: |
           node -e 'const fs=require("node:fs");const input=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));input.evaluatedAt=new Date().toISOString();fs.writeFileSync(process.argv[2],JSON.stringify(input,null,2)+"\n")' docs/audits/2026-10-10-version-release-watch-soak.json /tmp/version-release-watch-soak.json
           node scripts/check-soak.cjs /tmp/version-release-watch-soak.json --exports export-artifacts
       - name: Retain candidate export evidence
-        if: always()
+        if: always() && steps.exports.outcome != 'skipped' && steps.exports.outcome != ''
         uses: actions/upload-artifact@v4
         with:
           name: export-evidence-${{ github.sha }}
@@ -40,7 +46,7 @@ jobs:
           if-no-files-found: error
           retention-days: 30
       - name: Retain affected route images for visual review
-        if: always()
+        if: always() && steps.exports.outcome != 'skipped' && steps.exports.outcome != ''
         uses: actions/upload-artifact@v4
         with:
           name: export-visual-review-${{ github.sha }}

@@ -23,9 +23,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ inputs.commit }}
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - run: node scripts/maintenance.cjs --check
       - run: node scripts/sync-release-metadata.cjs --check
       - run: node scripts/sync-content.cjs --check
       - run: node scripts/sync-source-register.cjs --check

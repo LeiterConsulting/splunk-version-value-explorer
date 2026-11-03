@@ -7,19 +7,20 @@ const { spawnSync } = require('node:child_process');
 const { pathToFileURL } = require('node:url');
 const manifest = JSON.parse(fs.readFileSync('dist/content-manifest.json'));
 
-function runCli(t, rejection) {
+function runCli(t, rejection, deployedEngine = manifest.engineRevision) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-publisher-cli-'));
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));
   const trace = path.join(root, 'trace.json'), fixture = path.join(root, 'transport.mjs');
   fs.writeFileSync(fixture, `
     import fs from 'node:fs';
     import assert from 'node:assert/strict';
-    const manifest = ${JSON.stringify(manifest)}, rejection = ${JSON.stringify(rejection)};
+    const manifest = ${JSON.stringify(manifest)}, rejection = ${JSON.stringify(rejection)}, deployedEngine = ${JSON.stringify(deployedEngine)};
     const calls = []; let initialized = false;
     process.on('exit', () => fs.writeFileSync(${JSON.stringify(trace)}, JSON.stringify(calls)));
     globalThis.fetch = async (url, options) => {
       assert.equal(new URL(url).origin, 'https://versioncompass.com');
       assert.equal(options.redirect, 'error');
+      if (new URL(url).pathname === '/content-manifest.json') return Response.json({...manifest,engineRevision:deployedEngine});
       assert.equal(options.headers.Authorization, 'Bearer ' + 'a'.repeat(64));
       const route = new URL(url).pathname.split('/').at(-1); calls.push(route);
       if (route === 'stage') return Response.json({revision:manifest.revision});
@@ -42,7 +43,15 @@ test('publisher CLI explicitly initializes a fresh engine without requiring publ
   const result = runCli(t, {status:409, reason:'initial-publication-required'});
   assert.equal(result.status, 0, result.stderr);
   assert.deepEqual(result.calls, ['stage', 'head', 'bootstrap', 'head']);
-  assert.deepEqual(JSON.parse(result.stdout), {status:'already-current',revision:manifest.revision,engineRevision:manifest.engineRevision,activeDelivery:false});
+  const receipt = JSON.parse(result.stdout);
+  assert.equal(receipt.status, 'already-current'); assert.equal(receipt.revision, manifest.revision);
+  assert.equal(receipt.activeDelivery, false); assert.equal(receipt.claimedDelivered, false);
+});
+test('engine changes hold before requesting credentials or performing a publisher write', t => {
+  const result = runCli(t, { status: 409, reason: 'initial-publication-required' }, 'engine-'+'0'.repeat(20));
+  assert.equal(result.status, 1); assert.deepEqual(result.calls, []);
+  assert.equal(JSON.parse(result.stdout).status, 'held-runtime-deployment-required');
+  assert.match(result.stderr, /separately authorized Sites runtime deployment/);
 });
 
 test('publisher CLI never bootstraps on authentication, verification or existing-head failures', t => {
