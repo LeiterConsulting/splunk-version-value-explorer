@@ -8,7 +8,11 @@
       "serviceRegions",
       "saiaRegions",
       "source-aiSaiaAbout",
-      "source-aiSaiaInstall"
+      "source-aiSaiaInstall",
+      "source-aiSaiaAgentMode",
+      "source-aiSaiaModelRuntime",
+      "source-aiSaiaCloudConnected",
+      "agentModeRegions"
     ],
     "itsi-versions": [
       "ai-itsi-subagent",
@@ -46,7 +50,9 @@
       "ref": "source:aiEsTriageNote88",
       "sha256": "1376f942c0a27556a759306ce38e8345e6c008f3704d33b408dec95df59f6fb3",
       "scope": "November 2 current Triage/Response note and Premier aggregate row only; historical entitlement and other prerequisite dates remain separate.",
-      "sources": ["aiEsTriageNote88"]
+      "sources": [
+        "aiEsTriageNote88"
+      ]
     },
     {
       "id": "source-aiSaiaAbout",
@@ -123,11 +129,14 @@
     {
       "id": "ai-saia-agent",
       "ref": "capability:ai-saia-agent",
-      "sha256": "6e50bcd06a77c88a7f909e9ed56cd1ab3211423aa1755c77ef3989e4ede5d466",
-      "scope": "An installed assistant does not establish Agent Mode availability.",
+      "sha256": "29be68877c4351b56138126839da1998e1cc01f51011c547b1081a9476a535e2",
+      "scope": "Agent Mode has its own AWS-only region list; base SAIA or Azure Model Runtime availability does not establish this feature. Cloud Connected’s broad no-third-party assurance differs from the feature-specific external-processing documentation. Preserve both scopes; do not infer customer authorization or a residency guarantee.",
       "sources": [
         "aiSaiaInstall",
-        "aiSaiaAbout"
+        "aiSaiaAbout",
+        "aiSaiaAgentMode",
+        "aiSaiaModelRuntime",
+        "aiSaiaCloudConnected"
       ]
     },
     {
@@ -204,6 +213,42 @@
       "sha256": "abcda3f495ae35fda7e68d583a4c8320e1e28aceb8ea37f310acf633ab1961b9",
       "scope": "Location/provider identifiers only. This is not feature or authorization evidence.",
       "sources": []
+    },
+    {
+      "id": "source-aiSaiaAgentMode",
+      "ref": "source:aiSaiaAgentMode",
+      "sha256": "913df0e7b6e2e8231077a04fb7e3b7ac0f8d6d984738947d23ea8497ecb65fc4",
+      "scope": "Feature-specific AWS locations and Platform 10.1.x+; Cloud Connected app 2.1+; runtime/admin enablement and bidirectional setup. No tenant, entitlement or authorization finding.",
+      "sources": [
+        "aiSaiaAgentMode"
+      ]
+    },
+    {
+      "id": "source-aiSaiaModelRuntime",
+      "ref": "source:aiSaiaModelRuntime",
+      "sha256": "5632b9de202983c3d1a9ef1582f5dd64e2aa63e57f6984a945bcf11995ba07b2",
+      "scope": "Model Runtime requirement for Agent Mode; Data zone versus Global routing; external LLM processing. Runtime support in Azure is not Agent Mode support.",
+      "sources": [
+        "aiSaiaModelRuntime"
+      ]
+    },
+    {
+      "id": "source-aiSaiaCloudConnected",
+      "ref": "source:aiSaiaCloudConnected",
+      "sha256": "7de9174d5e0e23ead5555add2ecb1f1b2305eb569a1be6a83ecd197ce5520417",
+      "scope": "Cloud Connected app/activation path and broad no-third-party assurance; preserve disagreement with feature-specific Model Runtime external processing, not a universal residency guarantee.",
+      "sources": [
+        "aiSaiaCloudConnected"
+      ]
+    },
+    {
+      "id": "agentModeRegions",
+      "ref": "policy:agentModeRegions",
+      "sha256": "07a1c1337ea323a1296a711582b322fd07a30be07818aafef60e742701355a5a",
+      "scope": "Exact Agent Mode 2.3.6 feature-specific AWS list; no inheritance from base SAIA or Model Runtime.",
+      "sources": [
+        "aiSaiaAgentMode"
+      ]
     }
   ]
 }

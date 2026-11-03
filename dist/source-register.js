@@ -2772,6 +2772,46 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "title": "SAIA 2.3.6 Cloud Connected setup and data assurance",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.aiSaiaCloudConnected.url",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.1"
+      ],
+      "reviews": [
+        "2026-11-03"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Prerequisites; Activation steps; How Splunk AI Assistant uses your data"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.1",
+          "section": "Prerequisites; Activation steps; How Splunk AI Assistant uses your data"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-03",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-03",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-03",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.6/ai-assistant-in-security-and-agentic-capabilities/run-soar-response-actions-using-the-guided-response-agent-in-splunk-enterprise-security",
       "title": "Guided Response prerequisites (8.6 documentation)",
       "areas": [
@@ -6135,6 +6175,86 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "title": "SAIA 2.3.6 Agent Mode requirements and supported regions",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.aiSaiaAgentMode.url",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.1"
+      ],
+      "reviews": [
+        "2026-11-03"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.1",
+          "section": "Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-03",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-03",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-03",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+      "title": "SAIA 2.3.6 Model Runtime routing and data boundary",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.aiSaiaModelRuntime.url",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.1"
+      ],
+      "reviews": [
+        "2026-11-03"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.1",
+          "section": "Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-03",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-03",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-03",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix",
       "title": "Splunk Operator 3.2 compatibility matrix",
       "areas": [
@@ -8331,7 +8451,7 @@ window.VersionCompassSources = {
         "guidance: guidance.preparation11.contextUpdates.1"
       ],
       "reviews": [
-        "2026-11-02"
+        "2026-11-03"
       ],
       "claimReferences": [
         {

@@ -7835,6 +7835,253 @@
           "originalLabel": "conflicting-guidance"
         }
       ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "kind": "finding",
+      "synthetic": false,
+      "findingId": "vci-saia-agent-runtime-processing-scope",
+      "revision": 1,
+      "recordedAt": "2026-11-03T19:08:20.777Z",
+      "title": "Agent Mode model-processing scope differs from broad Cloud Connected assurance",
+      "concernType": "uncertain-claim",
+      "problem": "Broad Cloud Connected no-third-party wording does not explain its relationship to the feature-specific Model Runtime external-processing and cross-region routing statements required for Agent Mode.",
+      "scope": {
+        "products": [
+          "Splunk AI Assistant"
+        ],
+        "versions": [
+          "SAIA 2.3.6 documentation"
+        ],
+        "editions": null,
+        "deployments": [
+          "Splunk Enterprise with Cloud Connected"
+        ],
+        "regions": null,
+        "audiences": [
+          "Readers assessing Agent Mode model-processing boundaries"
+        ],
+        "exclusions": [
+          "No customer authorization, actual tenant routing, residency guarantee, regulated approval or exact app/Platform pairing is established."
+        ]
+      },
+      "scopeComparison": "These are different configuration/feature scopes. Preserve both rather than declaring all Cloud Connected traffic external, declaring a universal contradiction, or promising residency.",
+      "impact": {
+        "customerScenario": "A reader considering Cloud Connected Agent Mode under a data-location or model-provider constraint.",
+        "consequence": "A base-service location or broad setup assurance cannot settle the feature-specific processing boundary. Exact configured mode and applicable policy need confirmation.",
+        "level": "unknown"
+      },
+      "confidence": {
+        "level": "not-rated",
+        "rationale": "Exact official indexed sections support the scope question; raw bodies were unavailable and no tenant configuration was inspected."
+      },
+      "claimIds": [
+        "ai-saia-agent"
+      ],
+      "lifecycle": {
+        "disposition": "active",
+        "reason": "Scoped documentation uncertainty remains; no resolution inferred."
+      },
+      "relationships": {
+        "related": [],
+        "mergedInto": [],
+        "supersedes": [],
+        "supersededBy": []
+      },
+      "evidence": [
+        {
+          "evidenceId": "saia-cloud-connected-assurance",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+          "section": "Prerequisites; Activation steps; How Splunk AI Assistant uses your data",
+          "statement": "The Cloud Connected setup guide describes proprietary/open-source inference in Splunk Cloud services and broadly states that data is not sent to third-party services.",
+          "excerpt": null,
+          "role": "observed",
+          "sourceCheckedAt": "2026-11-03",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "unavailable",
+            "value": null,
+            "qualification": "Exact official indexed sections read November 3. Direct HTTPS403 retained in the immutable audit. Raw source body digest and exact retrieval timestamp are unknown; no document-wide revision inferred."
+          }
+        },
+        {
+          "evidenceId": "saia-feature-model-runtime",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+          "section": "Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off",
+          "statement": "The Model Runtime guide describes external LLM processing beyond the Splunk platform boundary and Data zone/Global request routing. Model Runtime is required for Agent Mode.",
+          "excerpt": null,
+          "role": "challenging",
+          "sourceCheckedAt": "2026-11-03",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "unavailable",
+            "value": null,
+            "qualification": "Exact official indexed sections read November 3. Direct HTTPS403 retained in the immutable audit. Raw source body digest and exact retrieval timestamp are unknown; no document-wide revision inferred."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "direct-public-review",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/f7091494aace9a95de67ffd054c106499ad36275/docs/audits/2026-11-03-coverage-followup-assessment.json",
+          "pointer": "/claimAssessments/2",
+          "originalLabel": "feature-specific-runtime-scope-assessed"
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "kind": "assessment",
+      "synthetic": false,
+      "findingId": "vci-saia-agent-runtime-processing-scope",
+      "revision": 1,
+      "recordedAt": "2026-11-03T19:08:20.777Z",
+      "assessmentId": "vcia-manual-coverage-20261103-saia-runtime-processing",
+      "assessedAt": "2026-11-03T19:00:19.460Z",
+      "outcome": "still-present",
+      "rationale": "The feature-specific Agent Mode/runtime requirements were assessed and incorporated in the candidate. The general setup assurance is retained separately; no actual model selection, request destination or customer authorization is established.",
+      "reviewedScope": {
+        "products": [
+          "Splunk AI Assistant"
+        ],
+        "versions": [
+          "SAIA 2.3.6 documentation"
+        ],
+        "editions": null,
+        "deployments": [
+          "Splunk Enterprise with Cloud Connected"
+        ],
+        "regions": null,
+        "audiences": [
+          "Readers assessing Agent Mode model-processing boundaries"
+        ],
+        "exclusions": [
+          "No customer authorization, actual tenant routing, residency guarantee, regulated approval or exact app/Platform pairing is established."
+        ]
+      },
+      "comparedAssessmentIds": [],
+      "remainingConcerns": [
+        "Vendor clarification of broad Cloud Connected assurance versus configured Model Runtime external processing; actual tenant policy remains outside this public-source review."
+      ],
+      "evidence": [
+        {
+          "evidenceId": "saia-cloud-connected-assurance",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+          "section": "Prerequisites; Activation steps; How Splunk AI Assistant uses your data",
+          "statement": "The Cloud Connected setup guide describes proprietary/open-source inference in Splunk Cloud services and broadly states that data is not sent to third-party services.",
+          "excerpt": null,
+          "role": "observed",
+          "sourceCheckedAt": "2026-11-03",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "unavailable",
+            "value": null,
+            "qualification": "Exact official indexed sections read November 3. Direct HTTPS403 retained in the immutable audit. Raw source body digest and exact retrieval timestamp are unknown; no document-wide revision inferred."
+          }
+        },
+        {
+          "evidenceId": "saia-feature-model-runtime",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+          "section": "Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off",
+          "statement": "The Model Runtime guide describes external LLM processing beyond the Splunk platform boundary and Data zone/Global request routing. Model Runtime is required for Agent Mode.",
+          "excerpt": null,
+          "role": "challenging",
+          "sourceCheckedAt": "2026-11-03",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "unavailable",
+            "value": null,
+            "qualification": "Exact official indexed sections read November 3. Direct HTTPS403 retained in the immutable audit. Raw source body digest and exact retrieval timestamp are unknown; no document-wide revision inferred."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "direct-public-review",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/f7091494aace9a95de67ffd054c106499ad36275/docs/audits/2026-11-03-coverage-followup-assessment.json",
+          "pointer": "/claimAssessments/2",
+          "originalLabel": "feature-specific-runtime-scope-assessed"
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "kind": "assessment",
+      "synthetic": false,
+      "findingId": "vci-es-soc-analyst-version-floor",
+      "revision": 1,
+      "recordedAt": "2026-11-03T19:08:20.777Z",
+      "assessmentId": "vcia-manual-coverage-20261103-es-soc-version-floor",
+      "assessedAt": "2026-11-03T19:00:19.460Z",
+      "outcome": "still-present",
+      "rationale": "Current aggregate Cloud ES 8.6+ and task-specific ES 8.7+ remain different. CMP retains its independent 10.4+/8.8+/Cloud Connect 2.0 chain. The bounded decision can preserve this discrepancy without demanding excluded per-agent eligibility as a coverage prerequisite.",
+      "reviewedScope": {
+        "products": [
+          "Splunk Enterprise Security AI SOC Analyst"
+        ],
+        "versions": [
+          "ES 8.8 documentation: aggregate Cloud ES 8.6+ versus task-specific ES 8.7+"
+        ],
+        "editions": [
+          "Premier"
+        ],
+        "deployments": [
+          "Splunk Cloud Platform"
+        ],
+        "regions": null,
+        "audiences": [
+          "Readers planning AI SOC Analyst prerequisites"
+        ],
+        "exclusions": [
+          "CMP has its separate Platform 10.4+/ES 8.8+/Cloud Connect 2.0 chain; no lower-floor eligibility, tenant rollout, entitlement, pairing or authorization is established."
+        ]
+      },
+      "comparedAssessmentIds": [
+        "vcia-es-editions-20261103-es-soc-analyst-version-floor"
+      ],
+      "remainingConcerns": [
+        "Cloud ES minimum discrepancy unresolved; exact pairing, per-agent rollout, component entitlement and customer authorization remain separate."
+      ],
+      "evidence": [
+        {
+          "evidenceId": "soc-aggregate-cloud-floor",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+          "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
+          "statement": "The aggregate AI SOC Analyst Cloud row states Platform 10.2.x+ and ES 8.6+; CMP requirements remain a separate row.",
+          "excerpt": null,
+          "role": "observed",
+          "sourceCheckedAt": "2026-11-03",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "unavailable",
+            "value": null,
+            "qualification": "Exact official indexed sections read November 3. Direct HTTPS403 retained in the immutable audit. Raw source body digest and exact retrieval timestamp are unknown; no document-wide revision inferred."
+          }
+        },
+        {
+          "evidenceId": "soc-task-cloud-floor",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+          "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions",
+          "statement": "The current 8.8 task prerequisite states ES 8.7+ for Cloud, with a separate CMP requirement. It preserves frontier-model and inherited connector/asset-role boundaries.",
+          "excerpt": null,
+          "role": "challenging",
+          "sourceCheckedAt": "2026-11-03",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "unavailable",
+            "value": null,
+            "qualification": "Exact official indexed sections read November 3. Direct HTTPS403 retained in the immutable audit. Raw source body digest and exact retrieval timestamp are unknown; no document-wide revision inferred."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "direct-public-review",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/f7091494aace9a95de67ffd054c106499ad36275/docs/audits/2026-11-03-coverage-followup-assessment.json",
+          "pointer": "/claimAssessments/3",
+          "originalLabel": "registered-soc-scope-assessed-no-change"
+        }
+      ]
     }
   ],
   "publications": [
@@ -9298,6 +9545,151 @@
         "assessment:vcia-saia-high-runtime-scope-20261103@1",
         "assessment:vcia-cloud-s3-restricted-scope-20261103@1",
         "assessment:vcia-observability-rca-custom-metric-scope-csp-20261103@1"
+      ]
+    },
+    {
+      "sequence": 16,
+      "publishedAt": "2026-11-03T19:08:20.777Z",
+      "coverage": {
+        "mode": "bounded-pilot",
+        "watchFamilies": [
+          "version-guidance-audit",
+          "version-release-watch",
+          "es-editions-watch",
+          "csp-fedramp-watch"
+        ],
+        "completeness": "Bounded cumulative 19 findings and 78 assessments; adds one commercial SAIA runtime-scope concern and two actual manual scoped assessments. No scheduled completion, resolution or customer authorization inferred.",
+        "exclusions": [
+          "Unavailable source bodies and issue-table extraction failures are not emitted as knowledge gaps.",
+          "Ordinary confirmed facts and unresolved questions lacking claim-specific support are not promoted to issues.",
+          "No claim date is advanced beyond the exact published assessment evidence.",
+          "Missing findings or absent new assessments never establish resolution."
+        ],
+        "evidenceThrough": "2026-11-03",
+        "findingIds": [
+          "vci-soar-cloud-880-release-stage",
+          "vci-itsi-subagent-region",
+          "vci-es-87-connector-builder-editions",
+          "vci-es-88-triage-editions",
+          "vci-es-guided-response-enhancement-scope",
+          "vci-es-malware-phishing-version-floor",
+          "vci-app-for-soar-es-pairing",
+          "vci-es-activity-pricing-deployment-scope",
+          "vci-saia-high-runtime-scope",
+          "vci-cloud-s3-restricted-scope",
+          "vci-svd-2026-1015-applicability",
+          "vci-enterprise-kv-106-upgrade-bridge",
+          "vci-cloud-107-release-service-pairing",
+          "vci-observability-rca-custom-metric-scope",
+          "vci-es-soc-analyst-version-floor",
+          "vci-ai-report-source-directory",
+          "vci-sok-32-compatibility-scope",
+          "vci-es-editions-ambiguous-link",
+          "vci-saia-agent-runtime-processing-scope"
+        ],
+        "assessmentDateRange": {
+          "earliest": "2026-10-12",
+          "latest": "2026-11-03"
+        }
+      },
+      "recordKeys": [
+        "finding:vci-soar-cloud-880-release-stage@1",
+        "assessment:vcia-soar-stage-20261029@1",
+        "assessment:vcia-soar-stage-20261030@1",
+        "finding:vci-itsi-subagent-region@1",
+        "assessment:vcia-itsi-region-20261029@1",
+        "assessment:vcia-itsi-region-20261030@1",
+        "finding:vci-es-87-connector-builder-editions@1",
+        "assessment:vcia-es-87-connector-builder-editions-20261029@1",
+        "assessment:vcia-es-87-connector-builder-editions-20261030@1",
+        "finding:vci-es-88-triage-editions@1",
+        "assessment:vcia-es-88-triage-editions-20261029@1",
+        "assessment:vcia-es-88-triage-editions-20261030@1",
+        "finding:vci-es-guided-response-enhancement-scope@1",
+        "assessment:vcia-es-guided-response-enhancement-scope-20261029@1",
+        "assessment:vcia-es-guided-response-enhancement-scope-20261030@1",
+        "finding:vci-es-malware-phishing-version-floor@1",
+        "assessment:vcia-es-malware-phishing-version-floor-20261029@1",
+        "assessment:vcia-es-malware-phishing-version-floor-20261030@1",
+        "finding:vci-app-for-soar-es-pairing@1",
+        "assessment:vcia-app-for-soar-es-pairing-20261029@1",
+        "assessment:vcia-app-for-soar-es-pairing-20261030@1",
+        "finding:vci-es-activity-pricing-deployment-scope@1",
+        "assessment:vcia-es-activity-pricing-deployment-scope-20261029@1",
+        "assessment:vcia-es-activity-pricing-deployment-scope-20261030@1",
+        "finding:vci-saia-high-runtime-scope@1",
+        "assessment:vcia-saia-high-runtime-scope-20261029@1",
+        "assessment:vcia-saia-high-runtime-scope-20261030@1",
+        "finding:vci-cloud-s3-restricted-scope@1",
+        "assessment:vcia-cloud-s3-restricted-scope-20261029@1",
+        "assessment:vcia-cloud-s3-restricted-scope-20261030@1",
+        "finding:vci-svd-2026-1015-applicability@1",
+        "assessment:vcia-svd-2026-1015-applicability-20261029@1",
+        "finding:vci-enterprise-kv-106-upgrade-bridge@1",
+        "assessment:vcia-enterprise-kv-106-upgrade-bridge-20261012@1",
+        "assessment:vcia-enterprise-kv-106-upgrade-bridge-20261025@1",
+        "assessment:vcia-es-87-connector-builder-editions-20261031@1",
+        "assessment:vcia-es-88-triage-editions-20261031@1",
+        "assessment:vcia-es-guided-response-enhancement-scope-20261031@1",
+        "assessment:vcia-es-malware-phishing-version-floor-20261031@1",
+        "assessment:vcia-app-for-soar-es-pairing-20261031@1",
+        "assessment:vcia-es-activity-pricing-deployment-scope-20261031@1",
+        "assessment:vcia-soar-stage-20261031@1",
+        "assessment:vcia-itsi-region-20261031@1",
+        "assessment:vcia-saia-high-runtime-scope-20261031@1",
+        "assessment:vcia-cloud-s3-restricted-scope-20261031@1",
+        "finding:vci-cloud-107-release-service-pairing@1",
+        "assessment:vcia-cloud-107-release-service-pairing-20261101@1",
+        "assessment:vcia-soar-stage-20261101@1",
+        "assessment:vcia-svd-2026-1015-applicability-20261101@1",
+        "assessment:vcia-es-87-connector-builder-editions-20261101@1",
+        "assessment:vcia-es-88-triage-editions-20261101@1",
+        "assessment:vcia-es-guided-response-enhancement-scope-20261101@1",
+        "assessment:vcia-es-malware-phishing-version-floor-20261101@1",
+        "assessment:vcia-es-activity-pricing-deployment-scope-20261101@1",
+        "assessment:vcia-app-for-soar-es-pairing-20261101@1",
+        "assessment:vcia-soar-stage-es-editions-20261101@1",
+        "assessment:vcia-itsi-region-20261101@1",
+        "assessment:vcia-saia-high-runtime-scope-20261101@1",
+        "assessment:vcia-cloud-s3-restricted-scope-20261101@1",
+        "finding:vci-observability-rca-custom-metric-scope@1",
+        "assessment:vcia-observability-rca-custom-metric-scope-20261102@1",
+        "assessment:vcia-cloud-107-release-service-pairing-20261102@1",
+        "assessment:vcia-soar-stage-20261102@1",
+        "assessment:vcia-svd-2026-1015-applicability-20261102@1",
+        "assessment:vcia-itsi-region-20261102@1",
+        "assessment:vcia-saia-high-runtime-scope-20261102@1",
+        "assessment:vcia-cloud-s3-restricted-scope-20261102@1",
+        "assessment:vcia-observability-rca-custom-metric-scope-csp-20261102@1",
+        "assessment:vcia-guidance-20261102-es-88-triage-editions@1",
+        "finding:vci-es-soc-analyst-version-floor@1",
+        "assessment:vcia-guidance-20261102-es-soc-analyst-version-floor@1",
+        "assessment:vcia-guidance-20261102-soar-cloud-880-release-stage@1",
+        "assessment:vcia-guidance-20261102-enterprise-kv-106-upgrade-bridge@1",
+        "assessment:vcia-guidance-20261102-svd-2026-1015-applicability@1",
+        "assessment:vcia-guidance-20261102-cloud-107-release-service-pairing@1",
+        "assessment:vcia-guidance-20261102-itsi-subagent-region@1",
+        "assessment:vcia-guidance-20261102-observability-rca-custom-metric-scope@1",
+        "assessment:vcia-guidance-20261102-app-for-soar-es-pairing@1",
+        "finding:vci-ai-report-source-directory@1",
+        "assessment:vcia-guidance-20261102-ai-report-source-directory@1",
+        "finding:vci-sok-32-compatibility-scope@1",
+        "assessment:vcia-release-20261103-sok32-compatibility-scope@1",
+        "assessment:vcia-es-editions-20261103-es-88-triage-editions@1",
+        "assessment:vcia-es-editions-20261103-es-soc-analyst-version-floor@1",
+        "assessment:vcia-es-editions-20261103-es-87-connector-builder-editions@1",
+        "assessment:vcia-es-editions-20261103-es-guided-response-enhancement-scope@1",
+        "assessment:vcia-es-editions-20261103-es-malware-phishing-version-floor@1",
+        "assessment:vcia-es-editions-20261103-app-for-soar-es-pairing@1",
+        "finding:vci-es-editions-ambiguous-link@1",
+        "assessment:vcia-es-editions-20261103-ambiguous-link@1",
+        "assessment:vcia-itsi-region-20261103@1",
+        "assessment:vcia-saia-high-runtime-scope-20261103@1",
+        "assessment:vcia-cloud-s3-restricted-scope-20261103@1",
+        "assessment:vcia-observability-rca-custom-metric-scope-csp-20261103@1",
+        "finding:vci-saia-agent-runtime-processing-scope@1",
+        "assessment:vcia-manual-coverage-20261103-saia-runtime-processing@1",
+        "assessment:vcia-manual-coverage-20261103-es-soc-version-floor@1"
       ]
     }
   ]

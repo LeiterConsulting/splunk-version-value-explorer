@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-soc-analyst-version-floor",
+  "revision": 1,
+  "recordedAt": "2026-11-03T19:08:20.777Z",
+  "assessmentId": "vcia-manual-coverage-20261103-es-soc-version-floor",
+  "assessedAt": "2026-11-03T19:00:19.460Z",
+  "outcome": "still-present",
+  "rationale": "Current aggregate Cloud ES 8.6+ and task-specific ES 8.7+ remain different. CMP retains its independent 10.4+/8.8+/Cloud Connect 2.0 chain. The bounded decision can preserve this discrepancy without demanding excluded per-agent eligibility as a coverage prerequisite.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security AI SOC Analyst"
+    ],
+    "versions": [
+      "ES 8.8 documentation: aggregate Cloud ES 8.6+ versus task-specific ES 8.7+"
+    ],
+    "editions": [
+      "Premier"
+    ],
+    "deployments": [
+      "Splunk Cloud Platform"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers planning AI SOC Analyst prerequisites"
+    ],
+    "exclusions": [
+      "CMP has its separate Platform 10.4+/ES 8.8+/Cloud Connect 2.0 chain; no lower-floor eligibility, tenant rollout, entitlement, pairing or authorization is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-es-editions-20261103-es-soc-analyst-version-floor"
+  ],
+  "remainingConcerns": [
+    "Cloud ES minimum discrepancy unresolved; exact pairing, per-agent rollout, component entitlement and customer authorization remain separate."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "soc-aggregate-cloud-floor",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
+      "statement": "The aggregate AI SOC Analyst Cloud row states Platform 10.2.x+ and ES 8.6+; CMP requirements remain a separate row.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-03",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact official indexed sections read November 3. Direct HTTPS403 retained in the immutable audit. Raw source body digest and exact retrieval timestamp are unknown; no document-wide revision inferred."
+      }
+    },
+    {
+      "evidenceId": "soc-task-cloud-floor",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions",
+      "statement": "The current 8.8 task prerequisite states ES 8.7+ for Cloud, with a separate CMP requirement. It preserves frontier-model and inherited connector/asset-role boundaries.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-03",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact official indexed sections read November 3. Direct HTTPS403 retained in the immutable audit. Raw source body digest and exact retrieval timestamp are unknown; no document-wide revision inferred."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/f7091494aace9a95de67ffd054c106499ad36275/docs/audits/2026-11-03-coverage-followup-assessment.json",
+      "pointer": "/claimAssessments/3",
+      "originalLabel": "registered-soc-scope-assessed-no-change"
+    }
+  ]
+}

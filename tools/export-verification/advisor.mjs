@@ -10,14 +10,19 @@ export async function configureAdvisorRoute(page,route){
     'advisor-prerequisites':{itsiVersion:'5.0.0',saiaVersion:'2.2.0',mcpVersion:'1.2.1'},
     'advisor-conflict':{deployment:'cloud',compliance:'commercial',edition:'premier',platformVersion:'10.4',esVersion:'8.8',access:'yes'},
     'advisor-agent-gap':{deployment:'enterprise',compliance:'commercial',platformVersion:'9.4',region:'unknown',access:'unknown'},
-    'advisor-agent-known':{deployment:'enterprise',compliance:'commercial',platformVersion:'10.4',region:'us-east-1',access:'yes'},
+    'advisor-agent-known':{deployment:'enterprise',compliance:'commercial',platformVersion:'10.4',saiaVersion:'2.3.6',region:'us-east-1',access:'yes'},
+    'advisor-agent-azure':{deployment:'enterprise',compliance:'commercial',platformVersion:'10.4',saiaVersion:'2.3.6',region:'azure-ai-us-east',access:'yes'},
+    'advisor-agent-dubai':{deployment:'enterprise',compliance:'commercial',platformVersion:'10.4',saiaVersion:'2.3.6',region:'me-central-1',access:'yes'},
+    'advisor-agent-dublin':{deployment:'enterprise',compliance:'commercial',platformVersion:'10.4',saiaVersion:'2.3.6',region:'eu-west-1',access:'yes'},
+    'advisor-agent-app-gap':{deployment:'enterprise',compliance:'commercial',platformVersion:'10.4',saiaVersion:'2.0.0',region:'us-east-1',access:'yes'},
+    'advisor-agent-cloud-gap':{deployment:'cloud',compliance:'commercial',platformVersion:'10.0',region:'us-east-1',access:'yes'},
     'advisor-agent-regulated':{deployment:'enterprise',compliance:'fr-h',platformVersion:'10.4',region:'us-east-1',access:'yes'},
     'advisor-es-cmp':{deployment:'enterprise',compliance:'commercial',edition:'premier',platformVersion:'10.4',esVersion:'8.8',cloudConnectVersion:'2.0',access:'yes'}
   };
   for(const [field,value]of Object.entries(fixtures[route.id]||{})){const control=page.locator('#advisor-'+field);if((await control.evaluate(el=>el.tagName))==='SELECT')await control.selectOption(value);else await control.fill(value);}
   if(route.id==='advisor-evidence-changed')await page.evaluate(()=>{window.SPLUNK_DATA.guidance.aiAvailability.capabilities.find(row=>row.id==='ai-itsi-subagent').requirements[0]='UNASSESSED_CI_CHANGE_DO_NOT_PUBLISH';});
   await page.locator('#advisor-build').click();
-  const outcomes={'advisor-prerequisites':'no_change','advisor-conflict':'conflicting','advisor-agent-gap':'version_gap','advisor-agent-known':'conditional','advisor-agent-regulated':'not_established','advisor-es-cmp':'conditional','advisor-unknown':'needs_facts','advisor-evidence-changed':'needs_review'};
+  const outcomes={'advisor-prerequisites':'no_change','advisor-conflict':'conflicting','advisor-agent-gap':'version_gap','advisor-agent-known':'conditional','advisor-agent-azure':'not_established','advisor-agent-dubai':'not_established','advisor-agent-dublin':'conditional','advisor-agent-app-gap':'version_gap','advisor-agent-cloud-gap':'version_gap','advisor-agent-regulated':'not_established','advisor-es-cmp':'conditional','advisor-unknown':'needs_facts','advisor-evidence-changed':'needs_review'};
   if(outcomes[route.id])assert.equal(await page.locator('#advisor-result .advisor-result').getAttribute('data-outcome'),outcomes[route.id]);
 }
 
