@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "kind": "implementation-review",
+  "recordedAt": "2026-11-03T19:22:21.097464+00:00",
+  "scope": "Additional actual assessment of the current Cloud Connected compatibility section and linked SAIA-9918; supersedes an unsupported positive current Enterprise path in the intermediate candidate, not a saved-task execution.",
+  "claimId": "ai-saia-agent",
+  "outcome": "conflicting-current-cloud-connected-scope",
+  "sourceAssessments": [
+    {
+      "sourceId": "aiSaiaCloudConnected",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "Cloud Connected compatibility; Version compatibility",
+      "observedOn": "2026-11-03",
+      "retrievedAt": null,
+      "sha256": null,
+      "evidence": "Current installation guidance excludes Cloud Connected for SAIA 2.2.0 through 2.3.6. Its fallback is 2.1.1, explicitly without Agent Mode. Planned 2.4.0 support in late November is not released availability."
+    },
+    {
+      "sourceId": "aiSaiaKnownIssues",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
+      "section": "SAIA-9918 Cloud Connected access and 2.1.1 workaround",
+      "observedOn": "2026-11-03",
+      "retrievedAt": null,
+      "sha256": null,
+      "evidence": "SAIA-9918 says 2.3.6 users cannot reach Cloud Connected and offers a 2.1.1 downgrade workaround. It does not independently establish Agent Mode support in that workaround."
+    },
+    {
+      "sourceId": "aiSaiaAgentMode",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "section": "Requirements; Cloud Connected setup",
+      "observedOn": "2026-11-03",
+      "retrievedAt": null,
+      "sha256": null,
+      "evidence": "The feature page still describes Agent Mode for Enterprise through Cloud Connected in 2.1+; this general feature statement is not reconciled with the current installation and known-issue restrictions."
+    }
+  ],
+  "assessmentAt": "2026-11-03T19:22:21.097464+00:00",
+  "qualification": "All three exact official indexed sections assessed. Raw body digests and retrieval timestamps remain unknown. Preserve documented blocks and disagreement; do not borrow Cloud support for Enterprise, promise the planned 2.4 release, or infer customer authorization.",
+  "candidateCorrection": {
+    "enterprise": "No positive Agent Mode path from reported minima; show current compatibility conflict/block and exact sources.",
+    "nativeCloud": "Existing feature-specific AWS/minimum/runtime/authorization boundaries remain independent.",
+    "history": "Keep immutable 1.0.0 and intermediate 1.1.0 snapshots, original manual/scheduled outcomes and published feed checkpoints; current draft uses 1.2.0."
+  },
+  "validation": {
+    "status": "pending-final-head"
+  },
+  "publication": {
+    "repository": "supporting draft-branch audit pending",
+    "sites": null,
+    "claimedDelivered": false
+  },
+  "issueFeed": {
+    "status": "pending-public-provenance",
+    "owner": "version-release-watch",
+    "nextAction": "Publish and raw-byte verify this audit, then append the bounded Cloud Connected scope finding/assessment with its immutable commit.",
+    "reviewBy": "2026-11-05"
+  }
+}
