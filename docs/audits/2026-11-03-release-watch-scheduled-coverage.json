@@ -162,8 +162,8 @@
       "discoveredAt": null,
       "retrievedAt": "2026-11-03T11:15:58.782Z",
       "assessedAt": "2026-11-03T11:17:30.393Z",
-      "publishedAt": null,
-      "liveVerifiedAt": null,
+      "publishedAt": "2026-11-03T12:11:37Z",
+      "liveVerifiedAt": "2026-11-03T12:13:02.829Z",
       "qualification": "Basic mode does not establish full workload-pool or placement-rule parity. This is current-release behavior, not an 11.x promise.",
       "retrievals": [
         {
@@ -192,8 +192,8 @@
       "discoveredAt": null,
       "retrievedAt": "2026-11-03T11:15:58.804Z",
       "assessedAt": "2026-11-03T11:17:30.393Z",
-      "publishedAt": null,
-      "liveVerifiedAt": null,
+      "publishedAt": "2026-11-03T12:11:37Z",
+      "liveVerifiedAt": "2026-11-03T12:13:02.829Z",
       "qualification": "Cloud is a separate migration program. Enterprise announcements do not establish Cloud rollout, entitlement or FedRAMP Moderate/High authorization.",
       "retrievals": [
         {
@@ -421,15 +421,86 @@
     "cost": null
   },
   "validation": {
-    "checks": []
+    "checks": [
+      {
+        "id": "sync-gates",
+        "outcome": "passed",
+        "evidence": "Ordered four sync generators/all four --check gates passed"
+      },
+      {
+        "id": "unit-suite",
+        "outcome": "passed",
+        "evidence": "297 Node tests passed"
+      },
+      {
+        "id": "advisor-maintenance",
+        "outcome": "passed",
+        "evidence": "Three committed decisions pass freshness/drift script and --check; original pins unchanged"
+      },
+      {
+        "id": "native-issue-feed",
+        "outcome": "passed",
+        "evidence": "90 records/14 checkpoints; exact public readback digests and prior checkpoint recovery passed, no quarantine"
+      },
+      {
+        "id": "coverage-gate",
+        "outcome": "passed",
+        "evidence": "All eleven dispositions/bindings accounted; four gaps explicit; first execution remains incomplete"
+      },
+      {
+        "id": "build",
+        "outcome": "passed",
+        "evidence": "74-asset worker build passed"
+      },
+      {
+        "id": "exact-candidate-exports",
+        "outcome": "passed",
+        "evidence": "CI41632087403/job125903937142; 182 cases/134PDF/1968pages/134 offlineHTML, exact fingerprint"
+      },
+      {
+        "id": "artifact-readback",
+        "outcome": "passed",
+        "evidence": "Artifact13228618468 ZIP SHA256 df2b02ef39be2dffcbdc2ee93478c85c71befb57730dcbb5cd9a827f8dd8d3e7; all3558 listed artifact digests verified"
+      },
+      {
+        "id": "live-ui-assets-d1",
+        "outcome": "passed",
+        "evidence": "Actual production six delivery checks passed, plus bounded ES recovery/legacy and Prep UI journeys; receipt docs/audits/2026-11-03-delivery.json"
+      }
+    ]
   },
   "publication": {
     "claimedDelivered": false,
+    "boundedChangedScopeDelivered": true,
+    "qualification": "The two changed Prep11 capability scopes are published and live verified. Whole mandatory coverage/delivery remains incomplete: seven changed/assessed and four deferred/blocked. No activation completion.",
     "repository": {
-      "status": "pending combined candidate"
+      "commit": "98d91a3391296c07b60d91d052d728f712638c2c",
+      "tree": "11c66ad7d2ef5d083200fbb41a2c2bdb4fd36c96",
+      "publishedAt": "2026-11-03T12:11:37Z"
     },
-    "sites": null,
-    "liveVerification": null
+    "sites": {
+      "githubCommit": "98d91a3391296c07b60d91d052d728f712638c2c",
+      "sourceTree": "11c66ad7d2ef5d083200fbb41a2c2bdb4fd36c96",
+      "sitesCommit": "5e5ab85feb315ed1160535d95a167ee05720acaf",
+      "versionNumber": 270,
+      "versionId": "appgprj_6aa3ff61bd288191ac95ac6e30707895~appgver_16700b1dcaf481918e2e77dbe18c0d4a",
+      "deploymentId": "appgdep_6ae9cfa712a4819199f53e7bbf62c36b",
+      "deploymentStatus": "succeeded",
+      "deployedAt": "2026-11-03T12:12:30.755168+00:00",
+      "publishedAt": "2026-11-03T12:11:37Z",
+      "liveVerifiedAt": "2026-11-03T12:13:02.829Z",
+      "contentRevision": "content-a98eba9f017c20644b9f7923",
+      "engineRevision": "engine-bc8b50a57678c5701408",
+      "records": 909,
+      "reportFingerprint": "a7de0b4d84a2e07944812a59608cbfd600cd0d77d22d69630b53b0cd9a1430fb",
+      "noteUrl": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/11/2026-11-03.md",
+      "rollbackVersion": 269
+    },
+    "liveVerification": {
+      "checkedAt": "2026-11-03T12:13:02.829Z",
+      "outcome": "delivery-checks-passed",
+      "receipt": "docs/audits/2026-11-03-delivery.json"
+    }
   },
   "reviewDigest": "102aa3dfbe283200a1b3568efb0ece521c142f79fb2e19d3df56083b3dbdcaec"
 }
