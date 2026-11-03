@@ -189,3 +189,20 @@ test('ordinary deletion support does not permit staged or unstaged coverage-hist
     assert.throws(() => check(root), /Do not delete coverage history/);
   }
 });
+test('verified activation changes operational state without rewriting the versioned contract snapshot', t => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-activation-state-')); t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  const git = args => execFileSync('git', args, { cwd: root, stdio: 'pipe' });
+  const write = (file, value) => { fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); fs.writeFileSync(path.join(root, file), JSON.stringify(value)); };
+  for (const file of ['content/advisor-goals.json', 'content/datasets/guidance.json', 'content/automation-coverage.json', 'content/automation-amendments.json', 'content/automation-registries/1.0.0.json']) { fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); fs.copyFileSync(file, path.join(root, file)); }
+  git(['init', '--initial-branch', 'main']); git(['add', '.']); git(['-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-m', 'Synthetic pending activation']);
+  write('content/automation-coverage.json', { ...registry, activation: 'active' });
+  assert.throws(() => check(root), /Activation requires/);
+  const ledger = structuredClone(amendments), amendment = ledger.amendments[0]; amendment.savedTasks = [amendment.savedTasks[0]];
+  const task = amendment.savedTasks[0], file = 'docs/audits/2026-11-02-synthetic-activation-coverage.json';
+  task.firstExecution = { status: 'verified', runId: 'synthetic-activation', runFile: file, verifiedAt: '2026-11-03T00:00:00Z', evidence: 'Synthetic verified execution.', schedulerRunId: 'synthetic-activation-run' };
+  const run = completeRun(); run.kind = 'saved-task-execution'; run.runId = task.firstExecution.runId; run.execution = { taskId: task.taskId, schedulerRunId: task.firstExecution.schedulerRunId };
+  run.validation = { checks: [...new Set(registry.capabilities.flatMap(c => c.requiredChecks))].map(id => ({ id, outcome: 'passed', evidence: 'Synthetic complete gate fixture.' })) }; run.publication.claimedDelivered = true;
+  amendment.activation = { status: 'active', activatedAt: '2026-11-03T00:00:00Z' }; write(file, bind(run)); write('content/automation-amendments.json', ledger);
+  assert.equal(check(root).activation, 'active');
+  assert.equal(fs.readFileSync(path.join(root,'content/automation-registries/1.0.0.json'),'utf8'), fs.readFileSync('content/automation-registries/1.0.0.json','utf8'));
+});

@@ -66,6 +66,9 @@ Activation also binds the first execution to the amendment's exact registry
 version. An older complete run cannot supply newly required gates for a later
 amendment. Historical runs and prior amendments retain their original versions;
 an active registry requires its own matching active amendment.
+The operational `activation` flag can advance after those existing gates pass
+without changing the contract version. Snapshot bytes remain immutable; all
+contract fields, required gates and capability scope still match that version.
 
 November 3 ES recovery-selector and exact-release registration failures were
 already repaired in main before this branch: invalid links use the recovery

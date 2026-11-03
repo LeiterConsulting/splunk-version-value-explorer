@@ -1748,8 +1748,8 @@
     "base": "52375081184ae679779fbce57969e20fc588af88",
     "deployment": "not-authorized-or-performed",
     "localValidation": {
-      "tests": 319,
-      "passed": 319,
+      "tests": 320,
+      "passed": 320,
       "failed": 0,
       "workerAssets": 74,
       "preparation": "isolated-generation-and-checks-passed",
@@ -6678,13 +6678,19 @@
       "Validated generated deletions use the same apply/restore boundary as writes. Retained coverage-history deletion remains blocked."
     ],
     "validation": {
-      "tests": 319,
-      "passed": 319,
+      "tests": 320,
+      "passed": 320,
       "failed": 0,
       "skipped": 0,
       "preparation": "isolated preparation passed with no generated changes",
       "exactHeadCI": "pending revised draft head"
     },
-    "rollout": "No merge, deployment, saved-task, schedule, credential, permission or real activation change."
+    "rollout": "No merge, deployment, saved-task, schedule, credential, permission or real activation change.",
+    "updatedAt": "2026-11-03T13:36:39Z",
+    "followOnRegression": {
+      "issue": "Complete verified same-version activation was incorrectly rejected because the immutable snapshot included its initial operational activation flag.",
+      "beforeFix": "Registry changes require a new version and snapshot",
+      "correction": "Only the operational activation flag is excluded from contract equality. Snapshot bytes and every versioned requirement stay immutable; actual activation still requires the matching amendment and all existing execution/delivery gates."
+    }
   }
 }

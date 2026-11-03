@@ -10,6 +10,7 @@ const text = value => typeof value === 'string' && value.trim().length > 0;
 const strings = value => Array.isArray(value) && value.length > 0 && value.every(text) && new Set(value).size === value.length;
 const timestamp = value => typeof value === 'string' && /T.*(?:Z|[+-]\d\d:\d\d)$/.test(value) && Number.isFinite(Date.parse(value));
 const read = (root, file) => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'));
+const registryContract = registry => JSON.stringify(Object.fromEntries(Object.entries(registry).filter(([key]) => key !== 'activation')));
 const reviewDigest = run => native.reviewDigest({ ...Object.fromEntries(Object.entries(run).filter(([key]) => key !== 'reviewDigest')), coverage: run.coverage?.map(o => Object.fromEntries(Object.entries(o).filter(([key]) => !['publishedAt', 'liveVerifiedAt'].includes(key)))) });
 function pointer(value, location) {
   assert(typeof location === 'string' && location.startsWith('/'), 'Claim needs a JSON pointer');
@@ -158,7 +159,9 @@ function check(root = process.cwd()) {
     const snapshot = read(root, file);
     assert(file === 'content/automation-registries/' + snapshot.registryVersion + '.json', 'Registry snapshot identity mismatch');
     validateRegistry(snapshot, root, snapshot.registryVersion !== registry.registryVersion);
-    if (snapshot.registryVersion === registry.registryVersion) assert(JSON.stringify(snapshot) === JSON.stringify(registry), 'Registry changes require a new version and snapshot');
+    // Activation is an operational state verified against the amendment ledger
+    // above. It can advance without inventing another contract version/run cycle.
+    if (snapshot.registryVersion === registry.registryVersion) assert(registryContract(snapshot) === registryContract(registry), 'Registry changes require a new version and snapshot');
     for (const revision of ['HEAD', ...parents]) {
       let previous;
       try { previous = execFileSync('git', ['show', revision + ':' + file], { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }); } catch { continue; }
