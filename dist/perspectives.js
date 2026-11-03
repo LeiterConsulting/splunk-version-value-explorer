@@ -5,10 +5,13 @@ const E=window.VersionCompassEnvironment,original=E.body;
 const choices={overview:'Decision overview',security:'Security & compliance',platform:'Platform & data operations',application:'Application observability',all:'All perspectives'};
 const params=new URLSearchParams(location.search);let role=Object.hasOwn(choices,params.get('perspective'))?params.get('perspective'):'overview';
 const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function preserve(value){const u=new URL(value,location.href);if(u.origin===location.origin){u.searchParams.delete('lab');if(!['ai-availability','advisor'].includes(u.searchParams.get('view')))u.searchParams.set('perspective',role);else u.searchParams.delete('perspective');}return u.pathname+u.search+u.hash;}
+// Prep11 has its own strict URL contract. Keep both valid selections and invalid
+// original input intact; a comparison perspective is not a preparation filter.
+const preparationLink=u=>u.searchParams.getAll('view').includes('splunk-11');
+function preserve(value){const u=new URL(value,location.href);if(u.origin===location.origin&&!preparationLink(u)){u.searchParams.delete('lab');if(!['ai-availability','advisor'].includes(u.searchParams.get('view')))u.searchParams.set('perspective',role);else u.searchParams.delete('perspective');}return u.pathname+u.search+u.hash;}
 for(const method of ['replaceState','pushState']){const fn=history[method].bind(history);history[method]=function(s,t,u){return fn(s,t,u?preserve(u):u)}}
 // Existing copy controls use their own URL builders. Preserve preview on clipboard writes too.
-if(navigator.clipboard?.writeText){const write=navigator.clipboard.writeText.bind(navigator.clipboard);navigator.clipboard.writeText=text=>{try{const u=new URL(text);if(u.origin===location.origin||u.hostname==='versioncompass.com'){u.searchParams.delete('lab');u.searchParams.set('perspective',role);text=u.href;}}catch{}return write(text);};}
+if(navigator.clipboard?.writeText){const write=navigator.clipboard.writeText.bind(navigator.clipboard);navigator.clipboard.writeText=text=>{try{const u=new URL(text);if((u.origin===location.origin||u.hostname==='versioncompass.com')&&!preparationLink(u)){u.searchParams.delete('lab');u.searchParams.set('perspective',role);text=u.href;}}catch{}return write(text);};}
 document.addEventListener('click',event=>{const a=event.target.closest('a');if(!a)return;const u=new URL(a.href,location.href);if(u.origin===location.origin&&(!u.pathname||u.pathname==='/'||u.pathname.endsWith('index.html'))){a.href=preserve(u.href);}},true);
 document.documentElement.classList.add('perspective-enabled');
 const css=document.createElement('link');css.rel='stylesheet';css.href='perspectives.css';document.head.appendChild(css);
