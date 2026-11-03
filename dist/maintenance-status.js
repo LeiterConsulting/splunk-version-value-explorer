@@ -394,10 +394,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-02T10:42:27.640Z",
-      "lastSuccess": "2026-11-02T10:54:25.978Z",
+      "lastAttempt": "2026-11-03T11:17:30.591Z",
+      "lastSuccess": "2026-11-03T11:17:30.674Z",
       "outcome": "changed",
-      "summary": "Added scoped Collector 0.164 migration guidance and published four bounded issue-feed reassessments.",
+      "summary": "Assessed exact 10.6 workload modes/activation/status and Lantern staffing/communications/transition. Seven mandatory capabilities assessed/changed; four remain explicitly incomplete. Native/live delivery is separate.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -859,9 +859,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Added scoped Collector 0.164 migration guidance and published four bounded issue-feed reassessments.",
           "scope": "Complete 215-source inventory; Collector 0.164 affected claims; bounded Enterprise, Cloud, Forwarder, SOAR, security, Observability RCA and AI prerequisite claims; canonical datasets, route/tool regressions, native issue feed and publication gates."
+        },
+        {
+          "at": "2026-11-03T11:17:30.591Z",
+          "outcome": "running",
+          "summary": "Delivering two source-assessed Prep11 qualification follow-ups with retained same-run inventory and bounded ES repair candidate.",
+          "scope": "Full 217-source same-run inventory retained; two scoped Prep11 factual updates, three Advisor drift guards and borrowed HF mapping regressions; no broad lifecycle/authorization refresh."
+        },
+        {
+          "at": "2026-11-03T11:17:30.674Z",
+          "outcome": "changed",
+          "summary": "Assessed exact 10.6 workload modes/activation/status and Lantern staffing/communications/transition. Seven mandatory capabilities assessed/changed; four remain explicitly incomplete. Native/live delivery is separate.",
+          "scope": "Full 217-source same-run inventory retained; two scoped Prep11 factual updates, three Advisor drift guards and borrowed HF mapping regressions; no broad lifecycle/authorization refresh."
         }
       ],
-      "scope": "Complete 215-source inventory; Collector 0.164 affected claims; bounded Enterprise, Cloud, Forwarder, SOAR, security, Observability RCA and AI prerequisite claims; canonical datasets, route/tool regressions, native issue feed and publication gates."
+      "scope": "Full 217-source same-run inventory retained; two scoped Prep11 factual updates, three Advisor drift guards and borrowed HF mapping regressions; no broad lifecycle/authorization refresh."
     },
     {
       "id": "es-editions-watch",

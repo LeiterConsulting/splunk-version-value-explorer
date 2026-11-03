@@ -93,15 +93,15 @@ window.SPLUNK_DATA.guidance = {
       "title": "Enterprise 10.6 workload management on Kubernetes",
       "url": "https://help.splunk.com/en/splunk-enterprise/administer/manage-workloads/10.6/use-workload-management-on-kubernetes",
       "section": "Workload management modes",
-      "checked": "2026-10-15",
-      "reviewed": "2026-10-15"
+      "checked": "2026-11-03",
+      "reviewed": "2026-11-03"
     },
     "prep11migration": {
       "title": "Splunk Lantern: Cloud migration readiness",
       "url": "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Readiness",
       "section": "Organizational readiness guide: staffing plan, communications plan and post-migration staffing transition plan",
-      "checked": "2026-11-02",
-      "reviewed": "2026-10-15"
+      "checked": "2026-11-03",
+      "reviewed": "2026-11-03"
     },
     "prep11enterprise": {
       "title": "Welcome to Splunk Enterprise 10.6",
@@ -355,15 +355,15 @@ window.SPLUNK_DATA.guidance = {
         "kind": "baseline",
         "version": "Enterprise 10.6 documentation; capability introduced in 10.4+",
         "effectiveDate": null,
-        "verified": "2026-10-15",
+        "verified": "2026-11-03",
         "status": "Current baseline",
-        "text": "Current workload-management guidance distinguishes Advanced mode, requiring writable CPU and memory cgroups, from Basic mode, which supports admission rules on systems such as Kubernetes.",
+        "text": "Enterprise 10.6 documentation describes Advanced mode with writable CPU and memory cgroup controllers and the full categories, pools and placement/monitoring/admission rule set. Basic mode supports admission rules only. Its allow_basic fallback setting is false by default; Kubernetes use requires explicitly enabling it.",
         "qualification": "Basic mode does not establish full workload-pool or placement-rule parity. This is current-release behavior, not an 11.x promise.",
         "action": "Inventory admission, placement and monitoring rules; validate which controls work in the chosen current lab topology before assuming equivalent behavior.",
         "src": [
           "prep11workload"
         ],
-        "reviewStatus": "Review blocked on November 2: the exact Enterprise 10.6 source was inaccessible. The October 15 assessment has not been refreshed."
+        "reviewStatus": "Exact Enterprise 10.6 source retrieved and its modes, activation and mode-status sections assessed on November 3, 2026. The CLI reports basic/advanced; Basic does not load categories or pools. Expected Advanced-mode preflight warnings are not proof that an intentional Basic deployment is misconfigured."
       },
       {
         "id": "prep11-cloud-option",
@@ -372,15 +372,15 @@ window.SPLUNK_DATA.guidance = {
         "kind": "baseline",
         "version": "Current Splunk Cloud Platform migration guidance",
         "effectiveDate": null,
-        "verified": "2026-10-15",
+        "verified": "2026-11-03",
         "status": "Planning option",
-        "text": "Splunk Lantern’s migration readiness guidance calls for team ownership, communication and an operating model for the move to Splunk Cloud Platform.",
+        "text": "Splunk Lantern’s organizational-readiness guide calls for a Cloud migration staffing plan, a communications plan and a post-migration staffing transition plan. It describes options for shifting duties toward business value, platform optimization or other work after infrastructure responsibilities change.",
         "qualification": "Cloud is a separate migration program. Enterprise announcements do not establish Cloud rollout, entitlement or FedRAMP Moderate/High authorization.",
         "action": "Assess ownership, staffing, communication and post-migration responsibilities. Use the released Enterprise-to-Cloud guide for technical assessment and exact service-specific evidence.",
         "src": [
           "prep11migration"
         ],
-        "reviewStatus": "Source retrieved on November 2; the complete staffing and transition scope was not reassessed. The October 15 claim date remains."
+        "reviewStatus": "Staffing, communications and post-migration transition sections retrieved and assessed on November 3, 2026. These are planning options, not guaranteed staffing reductions, a technical migration path or customer-specific advice."
       }
     ],
     "questions": [
@@ -436,8 +436,8 @@ window.SPLUNK_DATA.guidance = {
       "audit": "Version Guidance Audit",
       "scope": "Discover official public 11.x+ announcements and version-specific documentation; recheck this finite source inventory and affected claims; coordinate ES editions and Cloud/FedRAMP evidence with their existing owners.",
       "checked": "2026-11-02",
-      "outcome": "Targeted discovery located no qualifying 11.x announcement. Operator tuple corrected; architecture, app-delivery and two dated announcement-context claims reassessed. Workload source inaccessible; complete migration staffing scope deferred. Individual dates and gaps remain explicit.",
-      "followUp": "Recover and assess the exact Enterprise 10.6 workload-management section, finish the migration-readiness scope, then verify the amended existing watch configurations and real first executions. Preserve the SOK conflict and unconfirmed 11.x requirements."
+      "outcome": "November 3 follow-up assessed exact Enterprise 10.6 workload modes/activation/status and Lantern staffing/communications/transition scope. The finite full inventory was checked this run. Other claim dates remain scoped; Cisco newsroom context was inaccessible despite HTTP 200 and Advisor regional/runtime dependencies remain incomplete.",
+      "followUp": "Recheck the exact Cisco newsroom body and finish Agent Mode and SOC per-service regional/runtime/customer-authorization dependencies with their existing owners by November 5. No 11.x compatibility or complete activation is claimed."
     },
     "contextUpdates": [
       {

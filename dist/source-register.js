@@ -4947,14 +4947,16 @@ window.VersionCompassSources = {
       "url": "https://help.splunk.com/en/splunk-enterprise/administer/manage-workloads/10.6/use-workload-management-on-kubernetes",
       "title": "Enterprise 10.6 workload management on Kubernetes",
       "areas": [
-        "Release guide"
+        "Release guide",
+        "Shared guidance"
       ],
       "references": [
         "release.guidance.sources.prep11workload.url",
+        "content-updates.js",
         "guidance: guidance.preparation11.baseline.3"
       ],
       "reviews": [
-        "2026-10-15"
+        "2026-11-03"
       ],
       "claimReferences": [
         {
@@ -8246,17 +8248,19 @@ window.VersionCompassSources = {
       "url": "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Readiness",
       "title": "Readiness",
       "areas": [
-        "Release guide"
+        "Release guide",
+        "Shared guidance"
       ],
       "references": [
         "release.migration.sources.readiness",
         "release.migration.operatingBenefits.7.5",
         "release.migration.steps.0.4",
         "release.guidance.sources.prep11migration.url",
+        "content-updates.js",
         "guidance: guidance.preparation11.baseline.4"
       ],
       "reviews": [
-        "2026-11-02"
+        "2026-11-03"
       ],
       "claimReferences": [
         {

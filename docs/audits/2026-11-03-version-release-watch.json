@@ -2,14 +2,14 @@
   "date": "2026-11-03",
   "maintenanceId": "version-release-watch",
   "startedAt": "2026-11-03T10:41:16.458491Z",
-  "outcome": "incomplete",
+  "outcome": "changed-with-incomplete-coverage",
   "baseline": {
     "githubCommit": "814441567f6dab095ea19ad641801ade76020cdf",
     "sitesCommit": "3dd090bc9782e7255e1b0fb3e80a82018a012c4b",
     "tree": "3715214c434c732dcdf07b227b79d062ec728340",
     "siteVersion": 269
   },
-  "scope": "Full source inventory retrieval; bounded Prep11/Advisor claim families and genuine historical HF mapping regressions. No broad product/source-wide claim reverification.",
+  "scope": "Full source inventory retrieval; bounded Prep11/Advisor claim families and genuine historical HF mapping regressions. No broad product/source-wide claim reverification. November 3 delivery continuation changes only two assessed Prep11 claim families; ES link guard is separately owned/audited. Retained full inventory reads remain actual earlier same-run evidence.",
   "inventory": {
     "attempted": 217,
     "http200": 215,
@@ -75,6 +75,50 @@
       "assessedAt": "2026-11-03T10:48:20.343Z",
       "evidence": "About page ITSI subagent section independently confirms ITSI 5.0.0+, MCP Server 1.2.1+, and SAIA 2.2.0+. Installation/runtime page does not establish complete pairing or subagent rollout; no inherited regional or authorization conclusion. Three Advisor freshness/drift guards pass with original pins.",
       "qualification": "Three documented version minimums, missing dependencies and the next pairing/enablement questions. Exclusions: Meeting the minimums does not establish a supported complete pairing or subagent-specific regional rollout."
+    },
+    {
+      "capabilityId": "prep11.workload",
+      "claimId": "prep11-workload-baseline",
+      "outcome": "changed",
+      "sourceIds": [
+        "prep11workload"
+      ],
+      "assessedAt": "2026-11-03T11:17:30.393Z",
+      "evidence": "Exact Enterprise 10.6 modes table assessed: Advanced writable CPU/memory cgroups, full categories/pools/placement/monitoring/admission rules; Basic admission rules only; allow_basic=false by default; explicit Kubernetes activation; mode-status output and expected Advanced preflight warning qualification.",
+      "qualification": "Basic mode does not establish full workload-pool or placement-rule parity. This is current-release behavior, not an 11.x promise.",
+      "sources": [
+        {
+          "id": "prep11workload",
+          "url": "https://help.splunk.com/en/splunk-enterprise/administer/manage-workloads/10.6/use-workload-management-on-kubernetes",
+          "checkedAt": "2026-11-03T11:15:58.782Z",
+          "status": 200,
+          "sha256": "0ffa8733dad72a545b7f48e8e214188804727bcd8ad29ac8e484b0322c966aa5",
+          "bytes": 143995,
+          "section": "Workload management modes"
+        }
+      ]
+    },
+    {
+      "capabilityId": "prep11.cloud-option",
+      "claimId": "prep11-cloud-option",
+      "outcome": "changed",
+      "sourceIds": [
+        "prep11migration"
+      ],
+      "assessedAt": "2026-11-03T11:17:30.393Z",
+      "evidence": "Organizational readiness staffing, communications and post-migration staffing transition sections assessed, including options to shift duties. No guaranteed staffing, technical migration, Cloud rollout or regulated authorization conclusion.",
+      "qualification": "Cloud is a separate migration program. Enterprise announcements do not establish Cloud rollout, entitlement or FedRAMP Moderate/High authorization.",
+      "sources": [
+        {
+          "id": "prep11migration",
+          "url": "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Readiness",
+          "checkedAt": "2026-11-03T11:15:58.804Z",
+          "status": 200,
+          "sha256": "c0d0a04a6713510c2981253508a603f87f022ed5f858489fdaa99abfb87ef2ca",
+          "bytes": 84377,
+          "section": "Organizational readiness guide: staffing plan, communications plan and post-migration staffing transition plan"
+        }
+      ]
     }
   ],
   "followUp": [
@@ -83,20 +127,6 @@
       "reason": "Targeted official Splunk 11/11.0 search found no qualifying version-specific announcement in the named query scope. Cisco newsroom exact URL returned HTTP 200 with a Site Unavailable body; mapped context evidence remains incomplete, not proof of absence.",
       "owner": "version-release-watch",
       "action": "Targeted official Splunk 11/11.0 search found no qualifying version-specific announcement in the named query scope. Cisco newsroom exact URL returned HTTP 200 with a Site Unavailable body; mapped context evidence remains incomplete, not proof of absence.",
-      "reviewBy": "2026-11-05"
-    },
-    {
-      "capabilityId": "prep11.workload",
-      "reason": "Exact Enterprise 10.6 Workload management modes table retrieved and assessed: Basic admission rules only; Advanced writable CPU/memory cgroups; allow_basic defaults false. Existing November 2 blocked-review screen qualification is now stale. Canonical qualification update and affected native exports remain required; no date silently advanced.",
-      "owner": "version-release-watch",
-      "action": "Exact Enterprise 10.6 Workload management modes table retrieved and assessed: Basic admission rules only; Advanced writable CPU/memory cgroups; allow_basic defaults false. Existing November 2 blocked-review screen qualification is now stale. Canonical qualification update and affected native exports remain required; no date silently advanced.",
-      "reviewBy": "2026-11-05"
-    },
-    {
-      "capabilityId": "prep11.cloud-option",
-      "reason": "Retrieved and assessed staffing, communications and post-migration transition sections. The retained screen qualification says that scope was not assessed November 2; update that dated qualification with current bounded assessment and affected report exports before completing delivery.",
-      "owner": "version-release-watch",
-      "action": "Retrieved and assessed staffing, communications and post-migration transition sections. The retained screen qualification says that scope was not assessed November 2; update that dated qualification with current bounded assessment and affected report exports before completing delivery.",
       "reviewBy": "2026-11-05"
     },
     {
@@ -115,7 +145,7 @@
     },
     {
       "capabilityId": "advisor.soc-workflow",
-      "reason": "Eight mapped source scopes retrieved except no broad semantic certification. Full ES-owned edition/deployment/platform/Cloud Connect/SOAR/permission chain and CSP region/runtime rules remain due with their owners. No family-level prerequisite inheritance or pin refresh.",
+      "reason": "ES-owned edition/deployment/platform/Cloud Connect/SOAR/permissions assessed in docs/audits/2026-11-03-es-editions-watch.json. Complete per-agent service-region/model/runtime/customer-authorization chain remains unassessed with CSP owner; no pin refresh.",
       "owner": "es-editions-watch",
       "action": "Eight mapped source scopes retrieved except no broad semantic certification. Full ES-owned edition/deployment/platform/Cloud Connect/SOAR/permission chain and CSP region/runtime rules remain due with their owners. No family-level prerequisite inheritance or pin refresh.",
       "reviewBy": "2026-11-05"
@@ -229,7 +259,7 @@
       ],
       "qualification": "Recorded review windows and identity checks, not a new upstream source retrieval or claim assessment. Paused decisions offer no factual path; existing owners reassess their exact dependencies."
     },
-    "publicationImpact": "Repository-only audit/coverage/amendment records; no dataset, adapter, UI, report, runtime or export input changes. No Site deployment or new native rendering is claimed.",
+    "publicationImpact": "Combined bounded Prep11 factual detail/qualification refresh and separately audited ES link safety repair. Factual cycle advances once to 49. Exact candidate native exports, imagery and live verification required; previous healthy Site 269 retained until passed.",
     "automated": {
       "tests": 294,
       "failed": 0,
@@ -325,24 +355,27 @@
         "rationale": "Only audit/coverage/amendment and repository feed files change. Seven canonical datasets, report/route/UI/runtime code, generated adapters, assets, and content/publication.json are byte-identical to the reconciled live source. Existing export baseline is retained; no new native rendering claimed.",
         "evidence": "Changed-file inventory and export-evidence target inputs have no intersection."
       }
+    },
+    "discovery": {
+      "at": "2026-11-03T11:17:30.393Z",
+      "queries": [
+        "site:splunk.com \"Splunk Enterprise 11.0\" release",
+        "site:help.splunk.com \"Splunk Enterprise 11\""
+      ],
+      "outcome": "No qualifying version-specific announcement found in returned search scope. One POD architecture result is current 10.6 context. Not proof of absence; original canonical discovery/context dates retained."
     }
   },
   "publication": {
-    "status": "repository-review-evidence; coverage incomplete; runtime unchanged",
-    "sites": "No Site runtime change or new deployment claimed; retained version 269 health independently checked.",
-    "auditProvenance": "97e73cc3ecbc154413007b7f2f4a3e9910c40501"
+    "status": "combined-candidate; no live publication claimed"
   },
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "version-release-watch",
-    "status": "published",
-    "recordedAt": "2026-11-03T10:52:16.338Z",
-    "reviewDigest": "2143c418f7bee05a96939afc2505fe8afb1a382d189ac9596f26dee5eead3cc5",
-    "publicationId": "vci-7279b855ce117fc1dd7d1a2f7b7e41c612f1d9ca5c98f8b82f538952daca39df",
-    "recordKeys": [
-      "finding:vci-sok-32-compatibility-scope@1",
-      "assessment:vcia-release-20261103-sok32-compatibility-scope@1"
-    ],
+    "status": "no-new-observations",
+    "recordedAt": "2026-11-03T11:17:30.475Z",
+    "reviewDigest": "48375ba95a6f7dd0ad9cd8a55f6b8df533b1fc9a8576eccf927e415c9318ffd7",
+    "publicationId": "vci-14d174431ff7726a913b87a2797ba51ec8d3fbfcb1fde37afe85905b7f7ac2a5",
+    "recordKeys": [],
     "notReassessedFindingIds": [
       "vci-soar-cloud-880-release-stage",
       "vci-itsi-subagent-region",
@@ -359,9 +392,12 @@
       "vci-cloud-107-release-service-pairing",
       "vci-observability-rca-custom-metric-scope",
       "vci-es-soc-analyst-version-floor",
-      "vci-ai-report-source-directory"
+      "vci-ai-report-source-directory",
+      "vci-sok-32-compatibility-scope",
+      "vci-es-editions-ambiguous-link"
     ],
     "deferredConcerns": [],
-    "qualification": "One supported new SOK 3.2 source conflict and its actual November 3 assessment cite immutable public audit 97e73cc3ecbc154413007b7f2f4a3e9910c40501. Sixteen existing findings not reassessed. Coverage gaps and unchanged runtime are separate."
-  }
+    "qualification": "Delivery continuation assessed two ordinary Prep11 claim families; no additional issue observation or reassessment made. Earlier SOK issue/assessment remains publicly retained at its actual prior audit commit and review time; no repeated assessment is manufactured."
+  },
+  "continuedAt": "2026-11-03T11:17:30.393Z"
 }

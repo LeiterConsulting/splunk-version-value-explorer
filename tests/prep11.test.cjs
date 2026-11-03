@@ -26,10 +26,12 @@ test('prep route loads its bounded model and renderer without exposing new brows
  vm.runInNewContext(fs.readFileSync('dist/site-router.js','utf8'),c);assert(loaded.includes('prep11-ui.js'));assert(!loaded.includes('app.js'));assert(!loaded.includes('webmcp.js'));assert(head.some(e=>e.href==='prep11.css'));
 });
 
-test('November 2 scoped correction preserves the workload assessment date and exports review gaps',()=>{
+test('scoped follow-up refreshes exact workload and migration claims without borrowing other dates',()=>{
  const a=model(),d=a.data(),operator=d.baseline.find(r=>r.id==='prep11-operator-baseline');
  assert.match(operator.version,/10\.0\.12–10\.6\.0/);assert(!operator.text.includes('9.4.15'));
  assert.match(operator.text,/Enterprise 10\.6\.0/);assert.match(operator.qualification,/neither source certifies 11\.x/);
- const workload=d.baseline.find(r=>r.id==='prep11-workload-baseline');assert.equal(workload.verified,'2026-10-15');assert.equal(a.source('prep11workload').checked,'2026-10-15');
- const report=a.report({area:'all',updates:'all',q:'',theme:''});assert(report.includes('Discovery checked 2026-11-02'));assert(report.includes(a.esc(workload.reviewStatus)));assert(report.includes('complete staffing and transition scope was not reassessed'));
+ const workload=d.baseline.find(r=>r.id==='prep11-workload-baseline');assert.equal(workload.verified,'2026-11-03');assert.equal(a.source('prep11workload').checked,'2026-11-03');assert.match(workload.text,/Basic mode supports admission rules only/);assert.match(workload.text,/allow_basic.*false by default/);assert.match(workload.reviewStatus,/Basic does not load categories or pools/);
+ const cloud=d.baseline.find(r=>r.id==='prep11-cloud-option');assert.equal(cloud.verified,'2026-11-03');assert.match(cloud.text,/staffing plan.*communications plan.*transition plan/);assert.match(cloud.reviewStatus,/not guaranteed staffing reductions/);
+ assert.equal(operator.verified,'2026-11-02');assert.equal(d.contextUpdates.find(r=>r.id==='prep11-news-selfmanaged-ai').verified,'2026-11-02');
+ const report=a.report({area:'all',updates:'all',q:'',theme:''});assert(report.includes('Discovery checked 2026-11-02'));assert(report.includes(a.esc(workload.reviewStatus)));assert(report.includes(a.esc(cloud.reviewStatus)));assert(report.includes('not an 11.x promise'));
 });

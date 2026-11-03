@@ -149,51 +149,63 @@
     },
     {
       "capabilityId": "prep11.workload",
-      "disposition": "deferred",
+      "disposition": "changed",
       "discoveredAt": null,
-      "retrievedAt": "2026-11-03T10:48:20.343Z",
-      "assessedAt": null,
+      "retrievedAt": "2026-11-03T11:15:58.782Z",
+      "assessedAt": "2026-11-03T11:17:30.393Z",
       "publishedAt": null,
       "liveVerifiedAt": null,
-      "qualification": "Exact Enterprise 10.6 Workload management modes table retrieved and assessed: Basic admission rules only; Advanced writable CPU/memory cgroups; allow_basic defaults false. Existing November 2 blocked-review screen qualification is now stale. Canonical qualification update and affected native exports remain required; no date silently advanced.",
+      "qualification": "Basic mode does not establish full workload-pool or placement-rule parity. This is current-release behavior, not an 11.x promise.",
       "retrievals": [
         {
           "sourceId": "prep11workload",
           "outcome": "retrieved",
-          "retrievedAt": "2026-11-03T10:45:13.512Z",
-          "evidence": "https://help.splunk.com/en/splunk-enterprise/administer/manage-workloads/10.6/use-workload-management-on-kubernetes | Workload management modes | HTTP 200; body SHA-256 212b7db931530a581048d074a7378dea804f908ebe41e7c314211fe8a5445a18"
+          "retrievedAt": "2026-11-03T11:15:58.782Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/administer/manage-workloads/10.6/use-workload-management-on-kubernetes | Workload management modes | HTTP 200; SHA-256 0ffa8733dad72a545b7f48e8e214188804727bcd8ad29ac8e484b0322c966aa5"
         }
       ],
-      "assessments": [],
-      "followUp": {
-        "owner": "version-release-watch",
-        "action": "Exact Enterprise 10.6 Workload management modes table retrieved and assessed: Basic admission rules only; Advanced writable CPU/memory cgroups; allow_basic defaults false. Existing November 2 blocked-review screen qualification is now stale. Canonical qualification update and affected native exports remain required; no date silently advanced.",
-        "reviewBy": "2026-11-05"
-      }
+      "assessments": [
+        {
+          "claimId": "prep11-workload-baseline",
+          "outcome": "changed",
+          "sourceIds": [
+            "prep11workload"
+          ],
+          "assessedAt": "2026-11-03T11:17:30.393Z",
+          "evidence": "Exact Enterprise 10.6 modes table assessed: Advanced writable CPU/memory cgroups, full categories/pools/placement/monitoring/admission rules; Basic admission rules only; allow_basic=false by default; explicit Kubernetes activation; mode-status output and expected Advanced preflight warning qualification.",
+          "qualification": "Basic mode does not establish full workload-pool or placement-rule parity. This is current-release behavior, not an 11.x promise."
+        }
+      ]
     },
     {
       "capabilityId": "prep11.cloud-option",
-      "disposition": "deferred",
+      "disposition": "changed",
       "discoveredAt": null,
-      "retrievedAt": "2026-11-03T10:48:20.343Z",
-      "assessedAt": null,
+      "retrievedAt": "2026-11-03T11:15:58.804Z",
+      "assessedAt": "2026-11-03T11:17:30.393Z",
       "publishedAt": null,
       "liveVerifiedAt": null,
-      "qualification": "Retrieved and assessed staffing, communications and post-migration transition sections. The retained screen qualification says that scope was not assessed November 2; update that dated qualification with current bounded assessment and affected report exports before completing delivery.",
+      "qualification": "Cloud is a separate migration program. Enterprise announcements do not establish Cloud rollout, entitlement or FedRAMP Moderate/High authorization.",
       "retrievals": [
         {
           "sourceId": "prep11migration",
           "outcome": "retrieved",
-          "retrievedAt": "2026-11-03T10:45:15.345Z",
-          "evidence": "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Readiness | Organizational readiness guide: staffing plan, communications plan and post-migration staffing transition plan | HTTP 200; body SHA-256 481b0903bff3ba8260081a05e50d1097a804aae8a326adb5e1c4511736d29f11"
+          "retrievedAt": "2026-11-03T11:15:58.804Z",
+          "evidence": "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Readiness | Organizational readiness guide: staffing plan, communications plan and post-migration staffing transition plan | HTTP 200; SHA-256 c0d0a04a6713510c2981253508a603f87f022ed5f858489fdaa99abfb87ef2ca"
         }
       ],
-      "assessments": [],
-      "followUp": {
-        "owner": "version-release-watch",
-        "action": "Retrieved and assessed staffing, communications and post-migration transition sections. The retained screen qualification says that scope was not assessed November 2; update that dated qualification with current bounded assessment and affected report exports before completing delivery.",
-        "reviewBy": "2026-11-05"
-      }
+      "assessments": [
+        {
+          "claimId": "prep11-cloud-option",
+          "outcome": "changed",
+          "sourceIds": [
+            "prep11migration"
+          ],
+          "assessedAt": "2026-11-03T11:17:30.393Z",
+          "evidence": "Organizational readiness staffing, communications and post-migration staffing transition sections assessed, including options to shift duties. No guaranteed staffing, technical migration, Cloud rollout or regulated authorization conclusion.",
+          "qualification": "Cloud is a separate migration program. Enterprise announcements do not establish Cloud rollout, entitlement or FedRAMP Moderate/High authorization."
+        }
+      ]
     },
     {
       "capabilityId": "prep11.context-versioning",
@@ -377,8 +389,8 @@
       ],
       "assessments": [],
       "followUp": {
-        "owner": "es-editions-watch",
-        "action": "Eight mapped source scopes retrieved except no broad semantic certification. Full ES-owned edition/deployment/platform/Cloud Connect/SOAR/permission chain and CSP region/runtime rules remain due with their owners. No family-level prerequisite inheritance or pin refresh.",
+        "owner": "csp-fedramp-watch",
+        "action": "ES-owned edition/deployment/platform/Cloud Connect/SOAR/permissions assessed in docs/audits/2026-11-03-es-editions-watch.json. Complete per-agent service-region/model/runtime/customer-authorization chain remains unassessed with CSP owner; no pin refresh.",
         "reviewBy": "2026-11-05"
       }
     }
@@ -386,11 +398,11 @@
   "auditBindings": [
     {
       "file": "docs/audits/2026-11-03-version-release-watch.json",
-      "reviewDigest": "2143c418f7bee05a96939afc2505fe8afb1a382d189ac9596f26dee5eead3cc5"
+      "reviewDigest": "48375ba95a6f7dd0ad9cd8a55f6b8df533b1fc9a8576eccf927e415c9318ffd7"
     },
     {
       "file": "docs/audits/2026-11-03-version-release-watch-sources.json",
-      "reviewDigest": "1f9ef5f2bd0107b23750b729ac45caa0fa8e13de103ef7a4859783eb89140d5b"
+      "reviewDigest": "32579ea879a8a80adf0973ab95d37134bad8650a61cd439faa4e4278be264fa5"
     }
   ],
   "resources": {
@@ -405,10 +417,10 @@
   "publication": {
     "claimedDelivered": false,
     "repository": {
-      "status": "pending"
+      "status": "pending combined candidate"
     },
     "sites": null,
     "liveVerification": null
   },
-  "reviewDigest": "fa5902041065570bfa8436420080a7797b34c7c5aaef395f475bf116bf7e50c0"
+  "reviewDigest": "1e421e23e704fad8d8c4d3f9e39c7e52c2ff247ca4571fb5871cc3436b3ac6bb"
 }
