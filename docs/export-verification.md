@@ -64,3 +64,28 @@ and actual downloaded-HTML reopening remain distinct verification states.
 A later session's missing capabilities do not invalidate recorded applicable verification or establish a production regression. Do not roll back a healthy verified deployment solely because the assistant cannot reopen HTML or capture PDF. Hold a new unverified candidate, retrieve CI evidence or repair the runner, and retain the last verified deployment. Roll back for an evidenced regression, corrupted delivery, unsupported/unsafe published guidance or failed applicable material check, recording the finding and known complete restore target. Reconcile fresh GitHub/Sites revisions so older maintainers cannot overwrite newer verified fixes.
 
 The process repair initially left the rolled-back October 9 factual batch staged in Git history. The owner-requested restoration subsequently passed its own 30-case native export matrix and was published as Site version 141; see [the restoration audit](audits/2026-10-09-held-revisions-publication.json). The earlier rollback remains historical evidence.
+
+## Advisor pagination regression coverage
+
+Advisor reports keep short brief sections, evidence-date section leads, evidence
+items and complete source-entry blocks together. Oversized blocks remain free to
+fragment; containment is never implemented with clipping or fixed heights. The
+shared verification register opts into an Advisor lead without changing Prep11's
+existing groups or other report families.
+
+Every valid Advisor route in both themes supplies dynamic heading-occurrence
+pairs for all four section leads, bounded briefs, table caption/first row,
+evidence-item paragraphs and complete source entries. The verifier retains
+coverage counts and a controlled no-containment native negative; a forced native
+page-boundary fallback is identified separately. Historical actual Chromium
+page text from PR #66 at `f3eb1fb` reproduces the observed date-grid, table and
+source-scope splits, with original PDF/text hashes and Actions artifact provenance.
+These historical negatives test detection and do not constitute new Safari checks.
+
+The Agent Mode known-context cases also print fresh oversized brief and source
+blocks, each with 48 unique paragraphs and an end marker. Every fragment must
+survive across multiple pages, the first page must contain real test content and
+both theme appearances must match the canonical print theme. Artifact acceptance
+requires the Advisor containment, negative replay and oversized completeness
+records as well as the existing complete PDF/HTML/viewport inventory. Selected
+rendered-page visual review remains separate from these automated checks.

@@ -36,6 +36,18 @@ function verify(directory, root = process.cwd()) {
     if (!c.html?.offlineReopened || !c.html.complete || !c.html.networkRequestsBlocked || !verifiedArtifacts.has(c.html.file)) throw Error('Saved HTML was not independently verified');
     if (!c.pdf?.passed || c.pdf.pageCount < 1 || c.pdf.pages?.length !== c.pdf.pageCount || !verifiedArtifacts.has(c.pdf.file)
       || !c.pdf.pages.every(p => p.passed && verifiedArtifacts.has(p.file)) || !verifiedArtifacts.has(c.pdf.inspection)) throw Error('Missing PDF page verification');
+    if (route.id.startsWith('advisor')) {
+      const coverage=c.advisorPaginationCoverage;
+      if (!coverage?.passed || coverage.sections!==4 || !Number.isInteger(coverage.pairs) || coverage.pairs<5
+        || c.pdf.pagination?.length!==coverage.pairs || !c.pdf.pagination.every(p=>p.passed)
+        || !c.paginationRegression?.passed || !verifiedArtifacts.has(c.paginationRegression.oldNativePdf)) throw Error('Missing Advisor pagination verification');
+      if (route.id==='advisor-agent-known') {
+        const stress=c.advisorOversized;
+        if (!stress?.passed || !stress.complete || !stress.firstPageHasContent || stress.syntheticUnits!==2 || stress.syntheticParagraphs!==96 || stress.endMarkers!==2
+          || !stress.printThemeParity?.passed || stress.pageCount<3 || stress.pages?.length!==stress.pageCount
+          || !stress.pages.every(p=>p.passed&&verifiedArtifacts.has(p.file)) || !verifiedArtifacts.has(stress.file) || !verifiedArtifacts.has(stress.inspection)) throw Error('Missing oversized Advisor fragmentation verification');
+      }
+    }
   }
   return { receipt, checks: Object.fromEntries(gates.map(g => [g, { outcome: 'passed', checkedAt: receipt.completedAt,
     evidence: { type: 'ci-rendered-export-verification', commit: receipt.commit, tree: receipt.tree, runId: receipt.runId,

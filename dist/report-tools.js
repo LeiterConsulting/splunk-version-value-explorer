@@ -16,8 +16,9 @@ function decorate(html,sourceUrls,options={}){
  const heading='<h2>Verification dates for cited sources</h2><p>Dates apply only to recorded verification scope, not every dependent claim.</p>';
  // Prep11 opts in: WebKit ignores break-after avoidance, so keep the heading,
  // qualification and first actual source together in a normal block.
- const verification=options.keepSectionLeads&&rows.length
-  ?'<div class="prep11-section-lead">'+heading+'<ul>'+rows[0]+'</ul></div>'+(rows.length>1?'<ul class="prep11-source-continuation">'+rows.slice(1).join('')+'</ul>':'')
+ const leadKind=options.sectionLeadKind==='advisor'?'advisor':'prep11';
+ const verification=options.keepSectionLeads
+  ?'<div class="'+leadKind+'-section-lead">'+heading+(rows.length?'<ul>'+rows[0]+'</ul>':'')+'</div>'+(rows.length>1?'<ul class="'+leadKind+'-source-continuation">'+rows.slice(1).join('')+'</ul>':'')
   :heading+'<ul>'+rows.join('')+'</ul>';
  return '<p class="report-revision"><strong>Content revision '+esc(window.VersionCompassRevision?.id||'Not recorded')+'</strong> · Publication '+esc(window.VersionCompassRevision?.publication||'Not recorded')+'.'+provenance+' Live links show evolving guidance; a saved snapshot preserves this report.</p>'+html+'<section class="report-section">'+verification+'</section>';
 }

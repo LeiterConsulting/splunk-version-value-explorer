@@ -3,3 +3,22 @@
 @media(max-width:1000px){.advisor-decision-grid{grid-template-columns:1fr}.advisor-decision-card{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px}.advisor-card-status,.advisor-card-title,.advisor-card-question,.advisor-card-action{grid-column:1/-1}.advisor-card-boundary{border-top:0;padding-top:0}}
 @media(max-width:600px){.advisor-body{padding:0 18px 30px}.advisor-hero{padding:26px 18px!important}.advisor-hero h1{font-size:2.1rem!important}.advisor-fields,.advisor-gap-grid,.advisor-review-stamps{grid-template-columns:1fr}.advisor-decision-card{display:flex;padding:20px}.advisor-decision-card[aria-pressed=true]{padding:19px}.advisor-card-boundary{border-top:1px solid var(--line);padding-top:12px}.advisor-outcome,.advisor-next,.advisor-conflict{padding:18px}.advisor-outcome h2{font-size:1.5rem}.advisor-section>h2{font-size:1.55rem}.advisor-profile-actions{display:grid}.advisor-profile-actions button{width:100%}.advisor-profile-summary{grid-template-columns:1fr}}
 @media print{.advisor-view .advisor-report{display:block!important}.advisor-view:not(.advisor-has-brief) main::before{content:"Build a decision brief before printing. No assessment has been made.";display:block;font:12pt system-ui}.advisor-view:not(.advisor-has-brief) .advisor-report{display:none!important}.advisor-guide-context,.advisor-view .site-footer{display:none!important}.advisor-report .advisor-outcome{padding:10pt;border-left-width:2pt;break-inside:avoid}.advisor-report .advisor-outcome h2{font-size:15pt}.advisor-report .advisor-result p,.advisor-report .advisor-result li{font-size:9pt;line-height:1.45}.advisor-report .advisor-status{font-size:8pt;letter-spacing:.05em}.advisor-report h3{font-size:11pt;break-after:avoid}.advisor-report h4{font-size:10pt;break-after:avoid}.advisor-report .advisor-brief-section{padding:9pt 0}.advisor-report .advisor-gap-grid{display:block}.advisor-report .advisor-conflict{padding:9pt 12pt;break-inside:avoid}.advisor-report .advisor-next{padding:10pt;border-radius:0}.advisor-report .advisor-next li{padding-bottom:8pt;break-inside:avoid}.advisor-report .advisor-history{padding:6pt 0}.advisor-report .advisor-history>summary{display:none}.advisor-report .advisor-table-scroll{overflow:visible}.advisor-report .advisor-table-scroll table{min-width:0;width:100%;font-size:8pt;table-layout:fixed}.advisor-report .advisor-table-scroll th,.advisor-report .advisor-table-scroll td{padding:6pt;overflow-wrap:anywhere}.advisor-report .advisor-table-scroll tr{break-inside:avoid}.advisor-report .advisor-citation,.advisor-report .advisor-table-scroll caption{font-size:7.5pt}.advisor-report .advisor-review-stamps{gap:12pt}.advisor-report .advisor-review-stamps p,.advisor-report .advisor-fineprint,.advisor-report .advisor-source-list p,.advisor-report .advisor-source-list a{font-size:8pt!important}.advisor-report .advisor-source-list li{padding:8pt 0;break-inside:auto}.advisor-report .advisor-source-list h3{font-size:9pt}.advisor-report .advisor-profile-summary{grid-template-columns:1fr 1fr;font-size:9pt}.advisor-report .advisor-boundary{font-size:8pt!important;padding:8pt}.advisor-report .advisor-brief-section>p,.advisor-report .advisor-source-list p{orphans:3;widows:3}}
+
+/* Keep short report units together without clipping oversized evidence. A normal
+   block is required: paged engines do not consistently honor heading avoidance
+   across grid, scroll-box and table boundaries. */
+@media print {
+  .advisor-report .advisor-section-lead,
+  .advisor-report .advisor-brief-section,
+  .advisor-report .advisor-result li,
+  .advisor-report .advisor-source-entry,
+  .advisor-report .report-section > ul > li,
+  .advisor-report .advisor-source-continuation > li {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .advisor-report .advisor-table-scroll { display: contents; }
+  .advisor-report .advisor-table-caption { font-size: 7.5pt; color: var(--muted); margin: 0 0 6pt; }
+  .advisor-report .advisor-section-lead :is(ol,ul) { margin-bottom: 0; }
+  .advisor-report .advisor-source-continuation { margin-top: 0; }
+}

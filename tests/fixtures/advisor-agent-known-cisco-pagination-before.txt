@@ -1,0 +1,167 @@
+1
+Version Compass · Independent public-source report
+Content revision vc-f209310a6a2ff937 · Publication 2026-11-03. Dataset content-d540be5de1717ed652172bdf ·
+Rules engine-7131172471c78ba2599f · Delivery database. Live links show evolving guidance; a saved snapshot
+preserves this report.
+VERSION COMPASS / ADVISOR · WORK IN PROGRESS
+Decision brief
+Plan for SAIA Agent Mode
+Self-reported context
+These inputs are unverified. A goal link excludes them; this preserved brief deliberately includes them.
+Deployment
+Enterprise / Cloud Connected CMP
+Service environment
+Commercial service
+Platform version
+10.4
+SAIA app version
+2.3.6
+AI service location
+Virginia
+Access and enablement
+Reported confirmed
+CONFLICTING GUIDANCE
+Clarify the conflicting workflow requirement
+The assessed documentation establishes the points below. Your environment has not been inspected.
+Current Cloud Connected compatibility differs from the feature guide
+Enterprise Cloud Connected only
+Current Cloud Connected compatibility blocks the general Agent Mode path: installation guidance excludes SAIA 2.2.0–
+2.3.6 and says the 2.1.1 fallback lacks Agent Mode; SAIA-9918 records the access problem.
+Decision impact: The feature guide still describes a 2.1+ path. Keep both scopes; planned 2.4.0 support is not a released
+supported path, and meeting the minima does not resolve this block.
+[3] SAIA 2.3.6 Agent Mode requirements and supported regions · [5] SAIA 2.3.6 Cloud Connected setup and data assurance · [6] SAIA 2.3.6
+known issues: Cloud Connected SAIA-9918
+2
+Version Compass · Independent public-source report
+What this brief covers
+Feature-specific Platform minimum, Cloud Connected app minimum, AWS AI service locations and Model Runtime requirements,
+with explicit routing and data-boundary uncertainty. Current Cloud Connected installation/known-issue conflicts block a positive
+Enterprise path.
+Boundary: Full app/Platform compatibility, tenant activation, entitlement and regulated authorization are not established.
+What the assessed documentation establishes
+The Agent Mode feature guide lists Platform 10.1.x+ and a Cloud Connected SAIA 2.1+ path. These minima do not
+establish current Cloud Connected compatibility.
+[3] SAIA 2.3.6 Agent Mode requirements and supported regions · [5] SAIA 2.3.6 Cloud Connected setup and data assurance
+The selected AWS AI service location is listed specifically for Agent Mode. Tenant activation and model/data routing
+remain separate.
+[3] SAIA 2.3.6 Agent Mode requirements and supported regions
+Reported versions against documented minimums
+A minimum is a prerequisite, not a recommended target or proof of full compatibility.
+Self-reported versions; only the stated minimum is compared.
+3
+Version Compass · Independent public-source report
+Component You report Documented minimum Comparison
+Platform version 10.4 10.1.0
+[3] SAIA 2.3.6 Agent Mode
+requirements and supported
+regions
+Meets this minimum only
+SAIA app version 2.3.6 2.1.0
+[3] SAIA 2.3.6 Agent Mode
+requirements and supported
+regions · [5] SAIA 2.3.6 Cloud
+Connected setup and data
+assurance
+Meets this minimum only
+Missing facts about your environment
+No additional user-fact gap was identified for this limited comparison. This is not an environment inspection.
+Missing or limited assessed evidence
+Model Runtime and administrator enablement still need confirmation.
+Model Runtime is required. Its Data zone/Global routing can process requests beyond the selected region and can use
+external LLMs. The broad Cloud Connected no-third-party assurance differs from this feature-specific guidance; no residency
+guarantee is established.
+[3] SAIA 2.3.6 Agent Mode requirements and supported regions · [4] SAIA 2.3.6 Model Runtime routing and data boundary · [5] SAIA 2.3.6 Cloud
+Connected setup and data assurance
+The complete app/Platform pairing and tenant activation have not been validated.
+An installed assistant and a met Platform minimum do not establish Agent Mode availability or entitlement.
+[2] SAIA 2.3.6 overview and ITSI subagent · [1] SAIA 2.3.6 installation and service regions
+What to verify or do next
+1. Resolve current Cloud Connected compatibility before enabling Agent Mode
+Reconcile the installation restriction and SAIA-9918 with the feature guide. A met minimum or planned 2.4.0 support
+does not restore the current path. Only after an actual supported release is established, verify runtime policy and the
+documented bidirectional connectivity, regional allowlist and certificate setup.
+[3] SAIA 2.3.6 Agent Mode requirements and supported regions · [5] SAIA 2.3.6 Cloud Connected setup and data assurance · [6] SAIA 2.3.6
+known issues: Cloud Connected SAIA-9918 · [4] SAIA 2.3.6 Model Runtime routing and data boundary
+SAIA · Agent Mode
+SAIA 2.3.6 documentation · GA app · feature-specific limits
+4
+Version Compass · Independent public-source report
+Platform 10.1.x+ is required by the Agent Mode feature guide.
+The feature guide describes a Cloud Connected SAIA 2.1+ path, but current installation guidance says 2.2.0–2.3.6 lacks
+Cloud Connected and its 2.1.1 fallback lacks Agent Mode; SAIA-9918 independently records the access issue.
+Model Runtime must be enabled; a Splunk-hosted-only setting does not satisfy the documented Agent Mode runtime choice.
+Cloud Connected setup also requires the documented bidirectional connectivity, regional allowlist and certificate/stack-
+address configuration.
+The documented limited IL2 FedRAMP assistant excludes Agent Mode.
+Cloud Connected support is planned for SAIA 2.4.0 in late November 2026; a plan does not establish a released supported
+path.
+Agent Mode has its own AWS-only region list; base SAIA or Azure Model Runtime availability does not establish this feature.
+Cloud Connected’s broad no-third-party assurance differs from the feature-specific external-processing documentation. Preserve
+both scopes; do not infer customer authorization or a residency guarantee. Current Cloud Connected compatibility is
+blocked/conflicting; meeting the feature guide’s minima does not restore that path. This restriction is not transferred to native
+Cloud deployments.
+Capability record assessed 2026-11-03. Later section-specific assessments below do not advance every prerequisite date.
+Self-reported context only. This brief does not establish complete compatibility, entitlement, tenant availability, health, compliance or customer
+authorization.
+Evidence dates and review scope
+Brief created
+2026-11-03T19:54:13.444Z UTC
+Recorded source checks
+2026-10-23, 2026-11-03
+Recorded claim / section assessments
+2026-10-23, 2026-11-03
+This brief uses dated assessed evidence. It does not recheck Splunk pages when you build it. The creation date is not a new source or claim
+review. Advisor review due by 2026-11-06 under its published review policy.
+1. SAIA 2.3.6 installation and service regions
+https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-
+assistant-for-splunk-cloud-customers
+Supporting section: FedRAMP deployments; supported regions; version compatibility
+Source checked 2026-10-23 · Section assessed 2026-10-23
+Assessment scope: FedRAMP deployments; supported regions; version compatibility
+2. SAIA 2.3.6 overview and ITSI subagent
+https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant
+Supporting section: Requirements; features; ITSI subagent; where the assistant runs
+Source checked 2026-10-23 · Section assessed 2026-10-23
+Assessment scope: Requirements; features; ITSI subagent; where the assistant runs
+5
+Version Compass · Independent public-source report
+3. SAIA 2.3.6 Agent Mode requirements and supported regions
+https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant
+Supporting section: Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites
+Source checked 2026-11-03 · Section assessed 2026-11-03
+Assessment scope: Feature-specific AWS locations and Platform 10.1.x+; Cloud Connected app 2.1+; runtime/admin enablement and
+bidirectional setup. No tenant, entitlement or authorization finding.
+4. SAIA 2.3.6 Model Runtime routing and data boundary
+https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant
+Supporting section: Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off
+Source checked 2026-11-03 · Section assessed 2026-11-03
+Assessment scope: Model Runtime requirement for Agent Mode; Data zone versus Global routing; external LLM processing. Runtime
+support in Azure is not Agent Mode support.
+5. SAIA 2.3.6 Cloud Connected setup and data assurance
+https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-
+assistant-for-splunk-enterprise-customers-with-cloud-connected
+Supporting section: Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data
+Source checked 2026-11-03 · Section assessed 2026-11-03
+Assessment scope: Current 2.2.0–2.3.6 Cloud Connected exclusion, 2.1.1 fallback without Agent Mode and planned 2.4.0; broad data
+assurance remains separate from feature-specific Model Runtime external processing.
+6. SAIA 2.3.6 known issues: Cloud Connected SAIA-9918
+https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues
+Supporting section: SAIA-9918 Cloud Connected access and 2.1.1 workaround
+Source checked 2026-11-03 · Section assessed 2026-11-03
+Assessment scope: The versioned known issue blocks current Cloud Connected access and names a 2.1.1 workaround; no Agent Mode
+availability or future 2.4 release inferred.
+Current coverage and exclusions
+Only previously assessed published Splunk documentation supports factual claims. Licensing, sizing, ingest
+troubleshooting and operational advice without sufficient assessed evidence are outside this build. No runtime model
+or automatic environment inspection is used.
+6
+Version Compass · Independent public-source report
+Verification dates for cited sources
+Dates apply only to recorded verification scope, not every dependent claim.
+SAIA 2.3.6 Cloud Connected setup and data assurance · Last verified 2026-11-03 · Reviewed
+SAIA 2.3.6 known issues: Cloud Connected SAIA-9918 · Last verified 2026-11-03 · Reviewed
+SAIA 2.3.6 overview and ITSI subagent · Last verified 2026-10-23 · Reviewed
+SAIA 2.3.6 installation and service regions · Last verified 2026-10-23 · Reviewed
+SAIA 2.3.6 Agent Mode requirements and supported regions · Last verified 2026-11-03 · Reviewed
+SAIA 2.3.6 Model Runtime routing and data boundary · Last verified 2026-11-03 · Reviewed
+
