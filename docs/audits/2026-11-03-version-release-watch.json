@@ -1,0 +1,269 @@
+{
+  "date": "2026-11-03",
+  "maintenanceId": "version-release-watch",
+  "startedAt": "2026-11-03T10:41:16.458491Z",
+  "outcome": "incomplete",
+  "baseline": {
+    "githubCommit": "814441567f6dab095ea19ad641801ade76020cdf",
+    "sitesCommit": "3dd090bc9782e7255e1b0fb3e80a82018a012c4b",
+    "tree": "3715214c434c732dcdf07b227b79d062ec728340",
+    "siteVersion": 269
+  },
+  "scope": "Full source inventory retrieval; bounded Prep11/Advisor claim families and genuine historical HF mapping regressions. No broad product/source-wide claim reverification.",
+  "inventory": {
+    "attempted": 217,
+    "http200": 215,
+    "usableBodies": 214,
+    "historical403": 2,
+    "semanticUnavailable": 1,
+    "qualification": "Retrieval is not claim verification; digests are response identity, not semantic change detection."
+  },
+  "claimChecks": [
+    {
+      "capabilityId": "prep11.operator",
+      "claimId": "prep11-operator-baseline",
+      "outcome": "assessed-no-change",
+      "sourceIds": [
+        "prep11operator",
+        "prep11changelog"
+      ],
+      "assessedAt": "2026-11-03T10:48:20.343Z",
+      "evidence": "Exact help matrix 3.2.0 lists Kubernetes 1.32–1.37, Enterprise 10.0.12–10.6.0, September 24; linked changelog 3.2.0 lists Kubernetes 1.32–1.36, Enterprise 10.6.0, September 8. Both scopes remain visible; neither certifies 11.x. Operator-first upgrade and secretKeyRef/EULA boundaries remain separate.",
+      "qualification": "Preserve both published scopes. Confirm the exact Kubernetes, Operator and Enterprise combination before using it; neither source certifies 11.x."
+    },
+    {
+      "capabilityId": "prep11.architecture",
+      "claimId": "prep11-architecture-baseline",
+      "outcome": "assessed-no-change",
+      "sourceIds": [
+        "prep11architecture"
+      ],
+      "assessedAt": "2026-11-03T10:48:20.343Z",
+      "evidence": "Storage Considerations and Resilience describe SmartStore/object storage, local persistent volumes for hot data/configuration, pod recovery and storage/failure planning. Assessed current architecture preparation only; no future 11.x topology or sizing promise.",
+      "qualification": "Current architecture guidance is preparation context. An 11.x topology, sizing or migration requirement is not established."
+    },
+    {
+      "capabilityId": "prep11.app-delivery",
+      "claimId": "prep11-app-delivery",
+      "outcome": "assessed-no-change",
+      "sourceIds": [
+        "prep11architecture"
+      ],
+      "assessedAt": "2026-11-03T10:48:20.343Z",
+      "evidence": "Application Lifecycle Management and App Framework describe declarative remote object-store app distribution and premium-app considerations. App deployment is not certification of ES/ITSI/SOAR or 11.x compatibility.",
+      "qualification": "App installation and a container image do not prove ES, ITSI, SOAR or third-party compatibility with 11.x."
+    },
+    {
+      "capabilityId": "prep11.context-versioning",
+      "claimId": "prep11-news-versioning",
+      "outcome": "assessed-no-change",
+      "sourceIds": [
+        "prep11platformnews"
+      ],
+      "assessedAt": "2026-11-03T10:48:20.343Z",
+      "evidence": "Keep Apps and Integrations Ready for Updated Versioning explicitly recommends supported product-identification methods starting in 10.6 rather than distinguishing Enterprise/Cloud from version number alone. Not an 11.x announcement.",
+      "qualification": "This is published 10.6 guidance and a useful preparation task. It does not announce an 11.x release or a migration path."
+    },
+    {
+      "capabilityId": "advisor.itsi-versions",
+      "claimId": "ai-itsi-subagent",
+      "outcome": "assessed-no-change",
+      "sourceIds": [
+        "aiSaiaAbout",
+        "aiSaiaInstall"
+      ],
+      "assessedAt": "2026-11-03T10:48:20.343Z",
+      "evidence": "About page ITSI subagent section independently confirms ITSI 5.0.0+, MCP Server 1.2.1+, and SAIA 2.2.0+. Installation/runtime page does not establish complete pairing or subagent rollout; no inherited regional or authorization conclusion. Three Advisor freshness/drift guards pass with original pins.",
+      "qualification": "Three documented version minimums, missing dependencies and the next pairing/enablement questions. Exclusions: Meeting the minimums does not establish a supported complete pairing or subagent-specific regional rollout."
+    }
+  ],
+  "followUp": [
+    {
+      "capabilityId": "prep11.discovery",
+      "reason": "Targeted official Splunk 11/11.0 search found no qualifying version-specific announcement in the named query scope. Cisco newsroom exact URL returned HTTP 200 with a Site Unavailable body; mapped context evidence remains incomplete, not proof of absence.",
+      "owner": "version-release-watch",
+      "action": "Targeted official Splunk 11/11.0 search found no qualifying version-specific announcement in the named query scope. Cisco newsroom exact URL returned HTTP 200 with a Site Unavailable body; mapped context evidence remains incomplete, not proof of absence.",
+      "reviewBy": "2026-11-05"
+    },
+    {
+      "capabilityId": "prep11.workload",
+      "reason": "Exact Enterprise 10.6 Workload management modes table retrieved and assessed: Basic admission rules only; Advanced writable CPU/memory cgroups; allow_basic defaults false. Existing November 2 blocked-review screen qualification is now stale. Canonical qualification update and affected native exports remain required; no date silently advanced.",
+      "owner": "version-release-watch",
+      "action": "Exact Enterprise 10.6 Workload management modes table retrieved and assessed: Basic admission rules only; Advanced writable CPU/memory cgroups; allow_basic defaults false. Existing November 2 blocked-review screen qualification is now stale. Canonical qualification update and affected native exports remain required; no date silently advanced.",
+      "reviewBy": "2026-11-05"
+    },
+    {
+      "capabilityId": "prep11.cloud-option",
+      "reason": "Retrieved and assessed staffing, communications and post-migration transition sections. The retained screen qualification says that scope was not assessed November 2; update that dated qualification with current bounded assessment and affected report exports before completing delivery.",
+      "owner": "version-release-watch",
+      "action": "Retrieved and assessed staffing, communications and post-migration transition sections. The retained screen qualification says that scope was not assessed November 2; update that dated qualification with current bounded assessment and affected report exports before completing delivery.",
+      "reviewBy": "2026-11-05"
+    },
+    {
+      "capabilityId": "prep11.context-ai",
+      "reason": "Cisco newsroom exact source returned a semantic Site Unavailable body despite HTTP 200. No adjacent source substitutes for the scoped September statement.",
+      "owner": "version-release-watch",
+      "action": "Recheck the exact official newsroom source once access recovers; preserve original scope/date.",
+      "reviewBy": "2026-11-05"
+    },
+    {
+      "capabilityId": "advisor.agent-mode",
+      "reason": "Fresh install/about retrieval and drift checks completed, but complete Agent Mode Enterprise floor, current commercial per-service region and runtime chain were not independently assessed in this bounded run. No pin or date refresh.",
+      "owner": "version-release-watch",
+      "action": "Fresh install/about retrieval and drift checks completed, but complete Agent Mode Enterprise floor, current commercial per-service region and runtime chain were not independently assessed in this bounded run. No pin or date refresh.",
+      "reviewBy": "2026-11-05"
+    },
+    {
+      "capabilityId": "advisor.soc-workflow",
+      "reason": "Eight mapped source scopes retrieved except no broad semantic certification. Full ES-owned edition/deployment/platform/Cloud Connect/SOAR/permission chain and CSP region/runtime rules remain due with their owners. No family-level prerequisite inheritance or pin refresh.",
+      "owner": "es-editions-watch",
+      "action": "Eight mapped source scopes retrieved except no broad semantic certification. Full ES-owned edition/deployment/platform/Cloud Connect/SOAR/permission chain and CSP region/runtime rules remain due with their owners. No family-level prerequisite inheritance or pin refresh.",
+      "reviewBy": "2026-11-05"
+    }
+  ],
+  "automationCoverage": {
+    "runFile": "docs/audits/2026-11-03-release-watch-scheduled-coverage.json"
+  },
+  "validation": {
+    "mapping": "source-register and Forwarders suites passed, including 18 actual borrowed HF mappings across 900 routes and deliberately removed-reference/semantic negative fixtures. No semantic dates advanced.",
+    "advisor": {
+      "checkedAt": "2026-11-03T10:45:13.890Z",
+      "decisions": [
+        {
+          "id": "agent-mode",
+          "coverage": "Enterprise version minimum, assessed commercial AI service locations and documented feature limitations.",
+          "exclusions": "Full app/Platform compatibility, tenant activation, entitlement and regulated authorization are not established.",
+          "owners": [
+            "Version Release Watch",
+            "CSP FedRAMP Watch",
+            "Version Guidance Audit"
+          ],
+          "dependencies": [
+            "ai-saia-agent",
+            "region-context",
+            "serviceRegions",
+            "saiaRegions",
+            "source-aiSaiaAbout",
+            "source-aiSaiaInstall"
+          ],
+          "status": "recorded",
+          "sourceChecks": [
+            "2026-10-23"
+          ],
+          "claimAndSectionAssessments": [
+            "2026-10-23",
+            "2026-10-28"
+          ],
+          "reviewDue": "2026-11-06",
+          "rejectedDependencies": []
+        },
+        {
+          "id": "itsi-versions",
+          "coverage": "Three documented version minimums, missing dependencies and the next pairing/enablement questions.",
+          "exclusions": "Meeting the minimums does not establish a supported complete pairing or subagent-specific regional rollout.",
+          "owners": [
+            "Version Release Watch",
+            "CSP FedRAMP Watch",
+            "Version Guidance Audit"
+          ],
+          "dependencies": [
+            "ai-itsi-subagent",
+            "source-aiSaiaAbout",
+            "source-aiSaiaInstall"
+          ],
+          "status": "recorded",
+          "sourceChecks": [
+            "2026-10-23"
+          ],
+          "claimAndSectionAssessments": [
+            "2026-10-23"
+          ],
+          "reviewDue": "2026-11-06",
+          "rejectedDependencies": []
+        },
+        {
+          "id": "soc-workflow",
+          "coverage": "Assessed deployment-specific prerequisites, the current Cloud version discrepancy and the corrected historical Triage wording.",
+          "exclusions": "Exact SOAR pairing, agent-specific regional rollout, component entitlement and customer authorization remain separate.",
+          "owners": [
+            "ES Editions Watch",
+            "CSP FedRAMP Watch",
+            "Version Guidance Audit"
+          ],
+          "dependencies": [
+            "ai-es-soc",
+            "region-context",
+            "serviceRegions",
+            "esEssentials",
+            "esPremier",
+            "esCloudConnect",
+            "source-aiEsAgents88",
+            "source-aiEsTriageNote88",
+            "source-aiEsSocTask88",
+            "source-aiEsSocTask87",
+            "source-aiEsEditions",
+            "source-aiEsRegions88",
+            "source-aiEsRelease88",
+            "source-aiSaiaInstall"
+          ],
+          "status": "recorded",
+          "sourceChecks": [
+            "2026-10-23",
+            "2026-10-24",
+            "2026-10-27",
+            "2026-10-28",
+            "2026-10-31",
+            "2026-11-02"
+          ],
+          "claimAndSectionAssessments": [
+            "2026-10-23",
+            "2026-10-24",
+            "2026-10-27",
+            "2026-10-28",
+            "2026-10-31",
+            "2026-11-02"
+          ],
+          "reviewDue": "2026-11-06",
+          "rejectedDependencies": []
+        }
+      ],
+      "qualification": "Recorded review windows and identity checks, not a new upstream source retrieval or claim assessment. Paused decisions offer no factual path; existing owners reassess their exact dependencies."
+    },
+    "publicationImpact": "Repository-only audit/coverage/amendment records; no dataset, adapter, UI, report, runtime or export input changes. No Site deployment or new native rendering is claimed."
+  },
+  "publication": {
+    "status": "repository-evidence-pending",
+    "sites": "unchanged; no report/runtime inputs changed"
+  },
+  "issueFeed": {
+    "schemaVersion": 1,
+    "watchId": "version-release-watch",
+    "status": "pending-public-provenance",
+    "recordedAt": "2026-11-03T10:50:05.866Z",
+    "reviewDigest": "2143c418f7bee05a96939afc2505fe8afb1a382d189ac9596f26dee5eead3cc5",
+    "publicationId": "vci-4e4f28c884ecb28704659773e9dd58de6e87518ff64873fceb7ea3bb553dde99",
+    "recordKeys": [],
+    "notReassessedFindingIds": [
+      "vci-soar-cloud-880-release-stage",
+      "vci-itsi-subagent-region",
+      "vci-es-87-connector-builder-editions",
+      "vci-es-88-triage-editions",
+      "vci-es-guided-response-enhancement-scope",
+      "vci-es-malware-phishing-version-floor",
+      "vci-app-for-soar-es-pairing",
+      "vci-es-activity-pricing-deployment-scope",
+      "vci-saia-high-runtime-scope",
+      "vci-cloud-s3-restricted-scope",
+      "vci-svd-2026-1015-applicability",
+      "vci-enterprise-kv-106-upgrade-bridge",
+      "vci-cloud-107-release-service-pairing",
+      "vci-observability-rca-custom-metric-scope",
+      "vci-es-soc-analyst-version-floor",
+      "vci-ai-report-source-directory"
+    ],
+    "deferredConcerns": [
+      "Version Release Watch: publish exact audit provenance then append the independently observed SOK 3.2 matrix/changelog scope conflict in the immediate feed follow-up; review by 2026-11-05."
+    ],
+    "qualification": "Five bounded assessed claim families; SOK conflict is supported and awaits immutable audit provenance. Other existing findings were not reassessed."
+  }
+}
