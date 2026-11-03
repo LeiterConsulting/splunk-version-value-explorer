@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-03",
+  "status": "draft-candidate-not-merged-or-deployed",
+  "scope": "Prep11 PDF pagination and its export regression guard",
+  "baseline": {
+    "githubCommit": "2b529ef56a2f9d35095656da39899e608e1b4fb7",
+    "tree": "26589c6dd7710eb3ffbe3d02f3a4177e3654d4c0",
+    "siteVersion": 275,
+    "url": "https://versioncompass.com/?view=splunk-11",
+    "retainedDefaultSafariPdf": {
+      "sha256": "3db76ef2356a54313942c96d4d382b0035e6c7ea549ea3fed1a956c1dff0f706",
+      "bytes": 107141,
+      "pages": 6,
+      "priorInspection": "All six pages visually reviewed; 131 expected text fragments retained; no blank or out-of-bounds text. Minor pagination finding, not content loss.",
+      "splits": [
+        {
+          "kind": "category-label-to-heading",
+          "labelPage": 2,
+          "headingPage": 3,
+          "heading": "Inventory apps and configuration delivery"
+        },
+        {
+          "kind": "citation-title-to-url-and-review-scope",
+          "titlePage": 5,
+          "urlAndScopePage": 6,
+          "title": "Cisco announces self-managed Splunk AI"
+        }
+      ],
+      "fixture": "tests/fixtures/prep11-safari-pagination-before.json",
+      "textFixtureSha256": "1b04518e4ff8ee21d52ba2546470e17c49264186ba56d6365dd4fc2cbeb6d5c8"
+    }
+  },
+  "causes": [
+    {
+      "finding": "Cards explicitly allowed inside fragmentation; label/heading break-after avoidance alone is not enforced in WebKit paged output.",
+      "sources": [
+        "https://bugs.webkit.org/show_bug.cgi?id=294559",
+        "https://raw.githubusercontent.com/mdn/browser-compat-data/main/css/properties/break-after.json",
+        "https://raw.githubusercontent.com/mdn/browser-compat-data/main/css/properties/break-inside.json",
+        "https://www.w3.org/TR/css-break-3/"
+      ]
+    },
+    {
+      "finding": "A repeated source title later in the report concealed the split first citation from the old any-page matcher.",
+      "reproduction": "Two new Node/Python regression tests failed before the occurrence-specific guard repair, including the retained Safari page text."
+    }
+  ],
+  "candidate": {
+    "rendering": "Normal block containment for short records, questions and source entries; nested lead blocks for oversized records; page-break-inside:avoid plus break-inside:avoid; no fixed height, overflow clipping or forced page break.",
+    "guard": "Canonical counts and DOM-occurrence-specific label/title/paragraph/citation pair checks in both-theme native Chromium PDF output, including future reused labels.",
+    "negative": "Controlled native Chromium fragmentation with containment disabled; fallback forced page boundary is labeled separately. Historical Safari text is a separate detection fixture.",
+    "oversized": "Separate fresh CI page containing one canonical card plus 48 synthetic numbered paragraphs and a final marker; complete multi-page output, lead grouping, meaningful first-page content and canonical computed print-theme parity required. Visual review caught and repaired an initial fixture-only misplaced Cisco class and revision-only preface; neither was a canonical report finding.",
+    "facts": "No canonical datasets, source or claim review dates, material cycles, schedules, permissions or activation changes.",
+    "sectionLeads": "All five section headings grouped with their initial content. Source numbering continues explicitly at 2 after the first grouped source. The shared verification decorator opts in only for Prep11; original source facts and dates are preserved."
+  },
+  "verificationLimits": {
+    "newNativeSafariCandidateCapture": "Passed for the scoped candidate runtime hashes recorded in nativeQuietWindow; both themes, US Letter/100%. Not a deployed/live-delivery claim.",
+    "nativeCiscoSafariCapture": "Passed against the candidate preview with backgrounds on and off. A separate live Site275 Cisco capture was not performed.",
+    "actualLiveDownloadedHtmlInteractiveReopening": "unverified; prior browser file-protocol security denial remains in force",
+    "safariInteractionDuringInvestigation": "Initial investigation: none. Owner-authorized quiet follow-up: separate test tab and native Print / Save as PDF only; no unrelated tabs or permissions changed.",
+    "isolatedWebKitAttempt": "A no-window, ephemeral WKWebView print probe using fresh synthetic repository output stalled and produced an incomplete PDF. Its owned process was terminated; no pass is claimed. It did not open retained downloads or control Safari.",
+    "smallestRemainingNativeCheck": "No remaining default Prep11 candidate PDF failure observed within the tested scope. Actual live downloaded HTML reopening remains unverified under the prior file-protocol denial; candidate HTML download permission was requested and cancelled. Merge/deployment still require separate approval."
+  },
+  "releaseBoundary": "Draft PR and exact-head CI only; separate approval required to merge or deploy. Pilot activation and independent visitor advancement remain governed by their existing gates.",
+  "nativeQuietWindow": {
+    "authorizedWindowUtc": [
+      "2026-11-03T17:11:00Z",
+      "2026-11-03T17:51:00Z"
+    ],
+    "source": "Owner-authorized quiet computer session, PR65 application preview on 127.0.0.1:4197 with in-memory SQLite. No live deployment.",
+    "beforeSectionRepair": {
+      "commit": "8f442a7772d28f625a1abd8b6a65ad06f0b469d2",
+      "bothThemes": "Original 63 label/card/citation pairs passed; three section-heading orphans remained.",
+      "fixture": "tests/fixtures/prep11-safari-section-before.json"
+    },
+    "runtimeHashes": {
+      "dist/prep11.js": "bdb6bb7134641c15376f497625044cd497bee2cf50fc32583ca4f47fbe585806",
+      "dist/prep11.css": "fd41fedaed9b844aaf9b74583bb8c4d747e69bc34710ef6a448280ec982c672b",
+      "dist/report-tools.js": "42e3879e71d28c1360faa5c12ec4ec4432c7835195136ae55b49566deb59f7e0",
+      "content/publication.json": "c72711c3258a3a1993fa6343bbc807575d7e8249a4e59505699046f04b221e49",
+      "dist/content-revision.js": "4ad6975a543bfb23914da6a850a7ab935852804c1a1f7d06ab20d44073ea80bd"
+    },
+    "settings": {
+      "paper": "US Letter",
+      "orientation": "portrait",
+      "scalePercent": 100,
+      "headersAndFooters": true,
+      "printerSubmission": false
+    },
+    "captures": [
+      {
+        "file": "prep11-default-safari-section-fix-backgrounds-off.pdf",
+        "bytes": 108161,
+        "sha256": "e30760b100124aa07bc0596158c8ce624c3ad88e146647c8e9863c248496fd26",
+        "modifiedAt": "2026-11-03T17:27:27.049877+00:00",
+        "pages": 7,
+        "fragments": 100,
+        "paginationPairs": 73,
+        "bounds": "passed",
+        "humanPageReview": "all seven pages reviewed",
+        "backgrounds": "off"
+      },
+      {
+        "file": "prep11-cisco-safari-section-fix-backgrounds-off.pdf",
+        "bytes": 166038,
+        "sha256": "154e791ae609df656cfc0ceff74956ee5c5e1720fc89100efca7f462f396cf19",
+        "modifiedAt": "2026-11-03T17:26:50.657663+00:00",
+        "pages": 7,
+        "fragments": 100,
+        "paginationPairs": 73,
+        "bounds": "passed",
+        "humanPageReview": "all seven pages reviewed",
+        "backgrounds": "off"
+      },
+      {
+        "file": "prep11-cisco-safari-section-fix-backgrounds-on.pdf",
+        "bytes": 166038,
+        "sha256": "07599fd2f49a44e70b8fb24b5b02e3395956f34ebb85874aabddd465df578e64",
+        "modifiedAt": "2026-11-03T17:26:18.213550+00:00",
+        "pages": 7,
+        "fragments": 100,
+        "paginationPairs": 73,
+        "bounds": "passed",
+        "humanPageReview": "all seven pages reviewed",
+        "backgrounds": "on"
+      }
+    ],
+    "coverage": {
+      "records": 7,
+      "questions": 6,
+      "sources": 8,
+      "sections": 5,
+      "pagePairs": 73,
+      "fullTextFragments": 100
+    },
+    "htmlDownload": "The candidate save action requested a new Safari download permission for 127.0.0.1. Cancelled to preserve permissions; no download/reopening pass claimed.",
+    "preferences": "Print-background preference restored to its original off state; headers/footers, paper, scale and printer unchanged."
+  }
+}

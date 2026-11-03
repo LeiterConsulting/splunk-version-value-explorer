@@ -20,6 +20,45 @@ Download the artifact through the GitHub connector from a verified Actions run i
 
 Keep October 7 owner verification accepted for its historical baseline; do not invent hashes or generalize it to new content. Keep source/claim dates, browser checks, artifacts, CI, live delivery and owner review separate. No new waiting period or schedule change applies.
 
+## Prep11 pagination regression coverage
+
+`pagination.py` accepts `headingOccurrence` to bind a check to a particular heading
+in printed page order, then requires its following text after that heading on the
+same page. Use this for repeating titles. The earlier any-page matcher could accept
+a broken first citation when its title repeated later in the source register.
+The retained six-page Safari text fixture reproduces the actual split; its JSON
+provenance binds both original PDF and extracted text hashes. This historical
+fixture tests detection, not the candidate's rendering in Safari.
+
+Prep11 default/shared cases dynamically cover every canonical record, question and
+source. The positive native Chromium PDFs must keep each short card's paragraphs
+and each citation's title/URL/review scope together. Receipt fields
+`prep11PaginationCoverage` and `paginationRegression` retain coverage and the
+negative replay. The negative disables containment in fresh Chromium output; it
+is explicitly controlled, not labeled an actual Safari or original-layout replay.
+The existing forced-page-boundary fallback is recorded distinctly when needed.
+
+Every Prep11 report section must also contain a lead group with its heading and
+initial content. Include every paragraph, question title and first list entry in
+that group's page assertions. A retained seven-page native Safari fixture
+reproduces the question, source-directory and verification-register section
+orphans that the original card/citation-only gate omitted. Use the complete first
+verification entry: its title also occurs earlier in the source directory and can
+otherwise produce an ambiguous match. The current matrix checks 73 pairs across
+all five section leads, seven records, six questions and eight numbered sources.
+
+Both default Prep11 theme cases also retain `oversized/`: a fresh synthetic card
+with 48 uniquely numbered paragraphs and a final marker. Every paragraph must
+survive native printing; the result must span multiple pages while keeping its
+label/heading/lead together. Each page is rendered and checked for blank pages and
+out-of-bounds text. The probe is a separate CI page and cannot change the visitor's
+selection or canonical dataset. Its root/body theme classes and computed print
+text/background colors must match the canonical page, including citation/scope
+contrast. The first page must contain the first synthetic paragraph; a revision-only
+preface cannot stand in for meaningful first-page output. Inspect the retained images separately from these
+automated checks. Chromium checks, historical Safari evidence, new Safari capture
+and actual downloaded-HTML reopening remain distinct verification states.
+
 ## Rollback decisions
 
 A later session's missing capabilities do not invalidate recorded applicable verification or establish a production regression. Do not roll back a healthy verified deployment solely because the assistant cannot reopen HTML or capture PDF. Hold a new unverified candidate, retrieve CI evidence or repair the runner, and retain the last verified deployment. Roll back for an evidenced regression, corrupted delivery, unsupported/unsafe published guidance or failed applicable material check, recording the finding and known complete restore target. Reconcile fresh GitHub/Sites revisions so older maintainers cannot overwrite newer verified fixes.
