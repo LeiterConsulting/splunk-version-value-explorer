@@ -143,3 +143,13 @@ test('ES participating ownership cannot omit its mandatory coverage binding', t 
   const file = 'docs/audits/2026-11-03-es-editions-watch.json'; fs.mkdirSync(path.join(root, 'docs/audits'), { recursive: true }); fs.writeFileSync(path.join(root, file), JSON.stringify({ scope: 'Synthetic new ES review' }));
   assert.throws(() => check(root), /lacks mandatory coverage/);
 });
+test('version snapshots cannot be rewritten or deleted even alongside a matching active registry edit', t => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-registry-history-')); t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  const git = args => execFileSync('git', args, { cwd: root, stdio: 'pipe' });
+  for (const file of ['content/advisor-goals.json', 'content/datasets/guidance.json', 'content/automation-coverage.json', 'content/automation-amendments.json', 'content/automation-registries/1.0.0.json']) { fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); fs.copyFileSync(file, path.join(root, file)); }
+  git(['init', '--initial-branch', 'main']); git(['add', '.']); git(['-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-m', 'Synthetic registry baseline']);
+  const value = structuredClone(registry); value.capabilities[0].title += ' edited';
+  for (const file of ['content/automation-coverage.json','content/automation-registries/1.0.0.json']) fs.writeFileSync(path.join(root,file),JSON.stringify(value));
+  assert.throws(() => check(root), /snapshot is immutable/);
+  fs.rmSync(path.join(root,'content/automation-registries/1.0.0.json')); assert.throws(() => check(root), /ENOENT|snapshot/);
+});

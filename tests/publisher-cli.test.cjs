@@ -23,7 +23,7 @@ function runCli(t, rejection, deployedEngine = manifest.engineRevision) {
       if (new URL(url).pathname === '/content-manifest.json') return Response.json({...manifest,engineRevision:deployedEngine});
       assert.equal(options.headers.Authorization, 'Bearer ' + 'a'.repeat(64));
       const route = new URL(url).pathname.split('/').at(-1); calls.push(route);
-      if (route === 'stage') return Response.json({revision:manifest.revision});
+      if (route === 'stage') { if (rejection.network) throw Error('Synthetic transport failure'); return Response.json({revision:manifest.revision}); }
       if (route === 'bootstrap') {
         const body = JSON.parse(options.body);
         assert.equal(body.candidate.bundle.manifest.revision, manifest.revision);
@@ -52,6 +52,13 @@ test('engine changes hold before requesting credentials or performing a publishe
   assert.equal(result.status, 1); assert.deepEqual(result.calls, []);
   assert.equal(JSON.parse(result.stdout).status, 'held-runtime-deployment-required');
   assert.match(result.stderr, /separately authorized Sites runtime deployment/);
+});
+test('a publisher POST transport failure stays uncertain and requires readback before retry', t => {
+  const result = runCli(t, { network: true });
+  assert.equal(result.status, 1); assert.deepEqual(result.calls, ['stage']);
+  const receipt = JSON.parse(result.stdout);
+  assert.equal(receipt.action, 'stage'); assert.equal(receipt.mutationOutcome, 'uncertain-read-back-before-retry');
+  assert.deepEqual(receipt.completedActions, ['runtime-inspection']); assert.equal(receipt.claimedDelivered, false);
 });
 
 test('publisher CLI never bootstraps on authentication, verification or existing-head failures', t => {

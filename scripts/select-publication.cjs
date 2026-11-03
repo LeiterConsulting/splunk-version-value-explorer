@@ -5,7 +5,7 @@ function select(eventName, event, workflowSha) {
   if (!/^[a-f0-9]{40}$/.test(workflowSha || '')) throw Error('Invalid workflow commit');
   if (eventName === 'workflow_dispatch') return { commit: workflowSha, publish: true, status: 'candidate-selected' };
   const run = event.workflow_run;
-  if (eventName !== 'workflow_run' || run?.conclusion !== 'success' || run.status !== 'completed' || run.event !== 'push' || run.head_branch !== 'main' || run.path !== '.github/workflows/validate.yml' || run.repository?.full_name !== repository || run.head_repository?.full_name !== repository || !/^[a-f0-9]{40}$/.test(run.head_sha || '')) throw Error('Untrusted or unsuccessful validation trigger');
+  if (eventName !== 'workflow_run' || !Number.isSafeInteger(run?.id) || run.id <= 0 || run.conclusion !== 'success' || run.status !== 'completed' || run.event !== 'push' || run.head_branch !== 'main' || run.path !== '.github/workflows/validate.yml' || run.repository?.full_name !== repository || run.head_repository?.full_name !== repository || !/^[a-f0-9]{40}$/.test(run.head_sha || '')) throw Error('Untrusted or unsuccessful validation trigger');
   return { commit: run.head_sha, validationRun: run.id, publish: run.head_sha === workflowSha, status: run.head_sha === workflowSha ? 'candidate-selected' : 'superseded-trigger-not-published' };
 }
 if (require.main === module) {

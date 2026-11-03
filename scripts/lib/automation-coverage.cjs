@@ -112,7 +112,7 @@ function validateRun(run, registry, root = process.cwd(), now = Date.now()) {
   assert(!['success', 'succeeded', 'passed', 'complete', 'completed'].includes(run.outcome) || gaps.length === 0, 'Broad success hides incomplete mandatory coverage');
   const changed = run.coverage.filter(o => o.disposition === 'changed');
   const checkIds = [...new Set(required.flatMap(c => c.requiredChecks))];
-  const deliveryComplete = gaps.length === 0 && checkIds.every(id => run.validation?.checks?.some(c => c.id === id && c.outcome === 'passed' && text(c.evidence))) && changed.every(o => timestamp(o.publishedAt) && timestamp(o.liveVerifiedAt));
+  const deliveryComplete = gaps.length === 0 && checkIds.every(id => run.validation?.checks?.some(c => c.id === id && c.outcome === 'passed' && text(c.evidence))) && changed.every(o => timestamp(o.publishedAt) && timestamp(o.liveVerifiedAt) && Date.parse(o.publishedAt) >= Date.parse(o.assessedAt) && Date.parse(o.liveVerifiedAt) >= Date.parse(o.publishedAt));
   assert(!run.publication?.claimedDelivered || deliveryComplete, 'Publication/live delivery is incomplete');
   return { runId: run.runId, watchId: run.watchId, coverageComplete: gaps.length === 0, deliveryComplete, gaps, qualification: 'Structural coverage accounting only; source truth and independent judgment require actual review.' };
 }
@@ -127,14 +127,14 @@ function validateAmendments(ledger, registry, root = process.cwd()) {
     const executed = a.savedTasks.every(t => {
       const first = t.firstExecution;
       if (first?.status !== 'verified') return false;
-      assert(text(first.runId) && timestamp(first.verifiedAt) && text(first.evidence) && /^docs\/audits\/\d{4}-\d{2}-\d{2}-[a-z0-9-]+-coverage\.json$/.test(first.runFile || ''), 'Verified first execution needs a retained coverage run');
+      assert(text(first.runId) && timestamp(first.verifiedAt) && Date.parse(first.verifiedAt) <= Date.now() && text(first.evidence) && /^docs\/audits\/\d{4}-\d{2}-\d{2}-[a-z0-9-]+-coverage\.json$/.test(first.runFile || ''), 'Verified first execution needs a retained coverage run');
       const run = read(root, first.runFile), result = validateRun(run, registry, root);
       assert(run.kind === 'saved-task-execution' && run.runId === first.runId && run.watchId === t.id && result.coverageComplete && result.deliveryComplete && run.claimedComplete && run.publication.claimedDelivered, 'Manual/incomplete review or delivery cannot verify first saved-task execution');
       assert(text(t.taskId) && run.execution?.taskId === t.taskId && text(run.execution.schedulerRunId) && first.schedulerRunId === run.execution.schedulerRunId && Date.parse(first.verifiedAt) >= Date.parse(run.recordedAt), 'First execution needs matching task and scheduler identity');
       return true;
     });
     assert(a.activation?.status === 'pending' || a.activation?.status === 'active', 'Invalid amendment activation');
-    if (a.activation.status === 'active' || registry.activation === 'active') assert(reconciled && executed && timestamp(a.activation.activatedAt), 'Activation requires saved readback and real verified first executions');
+    if (a.activation.status === 'active' || registry.activation === 'active') assert(reconciled && executed && timestamp(a.activation.activatedAt) && Date.parse(a.activation.activatedAt) <= Date.now(), 'Activation requires saved readback and real verified first executions');
     if (!reconciled || !executed) assert(a.activation.status === 'pending' && a.activation.activatedAt === null, 'Unverified amendment must stay pending');
   }
   return ledger;

@@ -7,8 +7,13 @@ if (!['--commit', '--bootstrap'].includes(args[0]) || (args[0] === '--commit' &&
   console.error('Usage: node scripts/publish-content.mjs --commit <main-SHA> | --bootstrap <main-SHA>'); process.exit(1);
 }
 const commit = args[1], base = 'https://versioncompass.com';
+let action = 'candidate-input', mutation = false;
+const completedActions = [];
+function actionTarget() {
+  return ['stage','head','bootstrap','activate'].includes(action) ? base + '/api/publisher/' + action : action === 'candidate-input' ? 'dist/content-bundle.json' : action === 'credential-acquisition' ? (process.env.GITHUB_ACTIONS === 'true' ? 'GitHub Actions OIDC issuer' : 'hidden stdin') : base + '/content-manifest.json';
+}
 function receipt(result) {
-  const value = { commit, recordedAt: new Date().toISOString(), ...result, claimedDelivered: false,
+  const value = { commit, recordedAt: new Date().toISOString(), action, target: actionTarget(), completedActions, ...result, claimedDelivered: false,
     qualification: 'D1 publisher result only. Sites runtime deployment and live visitor verification require separate evidence.' };
   if (process.env.GITHUB_ACTIONS === 'true') {
     fs.writeFileSync('publication-outcome.json', JSON.stringify(value, null, 2) + '\n');
@@ -44,6 +49,7 @@ async function credential() {
 try {
   if (process.env.GITHUB_ACTIONS === 'true' && process.env.GITHUB_SHA !== commit) throw Error('Selected commit differs from the workflow OIDC commit; no publication attempted');
   const candidate = { repository: 'LeiterConsulting/splunk-version-value-explorer', commit, bundle: JSON.parse(fs.readFileSync('dist/content-bundle.json', 'utf8')) };
+  action = 'runtime-inspection';
   const runtime = await fetch(base + '/content-manifest.json', { redirect: 'error', signal: AbortSignal.timeout(15000) });
   if (!runtime.ok) throw Error('Deployed engine inspection unavailable; no publication attempted');
   const deployed = await runtime.json();
@@ -52,12 +58,14 @@ try {
     const error = Error('Engine mismatch: candidate requires a separately authorized Sites runtime deployment; no publisher write attempted');
     error.reason = 'engine-mismatch'; throw error;
   }
+  completedActions.push(action); action = 'credential-acquisition';
   const token = await credential();
   if (!token || /\s/.test(token)) throw Error('Invalid credential');
   const evidenceCredential = process.env.GITHUB_ACTIONS === 'true' ? process.env.VC_GITHUB_EVIDENCE_TOKEN : null;
   if (process.env.GITHUB_ACTIONS === 'true' && !/^[A-Za-z0-9._~+\/-]{20,8190}={0,2}$/.test(evidenceCredential || '')) throw Error('Workflow evidence credential unavailable');
   const operation = action => 'pub-' + crypto.createHash('sha256').update(commit + ':' + action).digest('hex').slice(0, 32);
   async function call(route, body) {
+    action = route; mutation = !!body;
     const response = await fetch(base + '/api/publisher/' + route, {
       method: body ? 'POST' : 'GET', redirect: 'error', signal: AbortSignal.timeout(120000),
       headers: { Authorization: 'Bearer ' + token, ...(body ? { 'Content-Type': 'application/json' } : {}) },
@@ -71,7 +79,7 @@ try {
       error.status = response.status; error.reason = reason;
       throw error;
     }
-    return response.json();
+    const result = await response.json(); completedActions.push(route); mutation = false; return result;
   }
   if (args[0] === '--bootstrap') {
     receipt(await call('bootstrap', { candidate, operationId: operation('bootstrap') }));
@@ -94,6 +102,7 @@ try {
     }
   }
 } catch (error) {
-  receipt({ status: error.reason === 'engine-mismatch' ? 'held-runtime-deployment-required' : 'failed', reason: /^[a-z0-9-]{1,60}$/.test(error.reason || '') ? error.reason : 'publisher-verification-failed' });
+  receipt({ status: error.reason === 'engine-mismatch' ? 'held-runtime-deployment-required' : 'failed', reason: /^[a-z0-9-]{1,60}$/.test(error.reason || '') ? error.reason : 'publisher-verification-failed',
+    mutationOutcome: mutation ? ([401,403].includes(error.status) ? 'denied' : error.status ? 'rejected-completion-unverified' : 'uncertain-read-back-before-retry') : 'no-write-at-failed-action' });
   console.error(error.message); process.exitCode = 1;
 }

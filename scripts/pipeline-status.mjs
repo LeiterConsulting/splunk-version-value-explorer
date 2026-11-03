@@ -31,8 +31,18 @@ async function main(args) {
   } else throw Error('Usage: node scripts/pipeline-status.mjs [--snapshot <retained-GitHub-response.json>]');
   const result = summarize(head, runs), coverage = require('./lib/automation-coverage.cjs').check();
   const today = new Date().toISOString().slice(0, 10);
-  const retained = coverage.runs.map(r => ({ ...r, overdue: JSON.parse(fs.readFileSync(r.file)).coverage.filter(o => o.followUp?.reviewBy < today).map(o => ({ capabilityId: o.capabilityId, ...o.followUp })) }));
-  console.log(JSON.stringify({ evaluatedAt: new Date().toISOString(), repository, ...result, coverage: { activation: coverage.activation, runs: retained } }, null, 2));
+  const latestByWatch = new Map();
+  for (const r of coverage.runs) {
+    const run = JSON.parse(fs.readFileSync(r.file));
+    if (run.kind !== 'saved-task-execution') continue;
+    const cutoff = Math.max(Date.parse(run.recordedAt), ...(run.execution?.observations || []).map(o => Date.parse(o.observedAt)));
+    if ((latestByWatch.get(r.watchId)?.cutoff ?? -Infinity) >= cutoff) continue;
+    latestByWatch.set(r.watchId, { ...r, cutoff, registryVersion: run.registryVersion, currentRegistry: run.registryVersion === coverage.registryVersion,
+      overdue: run.coverage.filter(o => o.followUp?.reviewBy < today).map(o => ({ capabilityId: o.capabilityId, ...o.followUp })) });
+  }
+  console.log(JSON.stringify({ evaluatedAt: new Date().toISOString(), repository, ...result, coverage: { activation: coverage.activation,
+    currentSavedExecutions: [...latestByWatch.values()], retainedHistory: coverage.runs.map(({ file, runId, watchId }) => ({ file, runId, watchId })),
+    qualification: 'Latest retained saved execution per watch; absent watches and changed registry versions need their own current evidence. Old runs remain history, not current overdue assessments.' } }, null, 2));
   if (result.validation.status !== 'success' || result.publisher.status !== 'success') process.exitCode = 1;
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main(process.argv.slice(2)).catch(error => { console.error(error.message); process.exitCode = 1; });
