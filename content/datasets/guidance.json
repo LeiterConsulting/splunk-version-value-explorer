@@ -307,11 +307,20 @@
     "aiSaiaCloudConnected": {
       "title": "SAIA 2.3.6 Cloud Connected setup and data assurance",
       "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
-      "section": "Prerequisites; Activation steps; How Splunk AI Assistant uses your data",
-      "scope": "Cloud Connected app/activation path and broad no-third-party assurance; preserve disagreement with feature-specific Model Runtime external processing, not a universal residency guarantee.",
+      "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data",
+      "scope": "Current 2.2.0–2.3.6 Cloud Connected exclusion, 2.1.1 fallback without Agent Mode and planned 2.4.0; broad data assurance remains separate from feature-specific Model Runtime external processing.",
       "checked": "2026-11-03",
       "reviewed": "2026-11-03",
       "retrieval": "Official indexed page sections assessed; direct HTTPS availability is recorded separately in the follow-up audit. No upstream byte digest inferred from indexed text."
+    },
+    "aiSaiaKnownIssues": {
+      "title": "SAIA 2.3.6 known issues: Cloud Connected SAIA-9918",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
+      "section": "SAIA-9918 Cloud Connected access and 2.1.1 workaround",
+      "checked": "2026-11-03",
+      "reviewed": "2026-11-03",
+      "scope": "The versioned known issue blocks current Cloud Connected access and names a 2.1.1 workaround; no Agent Mode availability or future 2.4 release inferred.",
+      "retrieval": "Official indexed issue row assessed; raw response body/retrieval timestamp unknown."
     }
   },
   "preparation11": {
@@ -523,7 +532,8 @@
       "aiEsTriageNote88",
       "aiSaiaAgentMode",
       "aiSaiaModelRuntime",
-      "aiSaiaCloudConnected"
+      "aiSaiaCloudConnected",
+      "aiSaiaKnownIssues"
     ],
     "src": [
       "aiHighAnnouncement20261019",
@@ -543,7 +553,8 @@
       "aiEsTriageNote88",
       "aiSaiaAgentMode",
       "aiSaiaModelRuntime",
-      "aiSaiaCloudConnected"
+      "aiSaiaCloudConnected",
+      "aiSaiaKnownIssues"
     ],
     "serviceRegions": [
       {
@@ -728,20 +739,22 @@
         "description": "Use the assistant’s agentic workflow, subject to its separate requirements.",
         "requirements": [
           "Platform 10.1.x+ is required by the Agent Mode feature guide.",
-          "Enterprise uses the Cloud Connected option; Agent Mode requires SAIA 2.1+ on that path, a listed AWS AI service region and administrator enablement.",
+          "The feature guide describes a Cloud Connected SAIA 2.1+ path, but current installation guidance says 2.2.0–2.3.6 lacks Cloud Connected and its 2.1.1 fallback lacks Agent Mode; SAIA-9918 independently records the access issue.",
           "Model Runtime must be enabled; a Splunk-hosted-only setting does not satisfy the documented Agent Mode runtime choice.",
           "Cloud Connected setup also requires the documented bidirectional connectivity, regional allowlist and certificate/stack-address configuration.",
-          "The documented limited IL2 FedRAMP assistant excludes Agent Mode."
+          "The documented limited IL2 FedRAMP assistant excludes Agent Mode.",
+          "Cloud Connected support is planned for SAIA 2.4.0 in late November 2026; a plan does not establish a released supported path."
         ],
         "runtime": "Model Runtime may select external LLMs outside the Splunk platform data boundary. Its regional table distinguishes Data zone routing from Global routing; a selected AI service location does not guarantee in-region processing.",
-        "qualification": "Agent Mode has its own AWS-only region list; base SAIA or Azure Model Runtime availability does not establish this feature. Cloud Connected’s broad no-third-party assurance differs from the feature-specific external-processing documentation. Preserve both scopes; do not infer customer authorization or a residency guarantee.",
+        "qualification": "Agent Mode has its own AWS-only region list; base SAIA or Azure Model Runtime availability does not establish this feature. Cloud Connected’s broad no-third-party assurance differs from the feature-specific external-processing documentation. Preserve both scopes; do not infer customer authorization or a residency guarantee. Current Cloud Connected compatibility is blocked/conflicting; meeting the feature guide’s minima does not restore that path. This restriction is not transferred to native Cloud deployments.",
         "condition": "Confirm the exact Agent Mode AWS location, supported app/Platform pairing, Model Runtime policy, administrator activation and Cloud Connected prerequisites before enabling it.",
         "src": [
           "aiSaiaInstall",
           "aiSaiaAbout",
           "aiSaiaAgentMode",
           "aiSaiaModelRuntime",
-          "aiSaiaCloudConnected"
+          "aiSaiaCloudConnected",
+          "aiSaiaKnownIssues"
         ]
       },
       {
@@ -1052,7 +1065,18 @@
       "ap-northeast-1",
       "ap-southeast-3",
       "sa-east-1"
-    ]
+    ],
+    "agentModeCloudConnected": {
+      "evidenceVersion": "2.3.6",
+      "status": "conflicting",
+      "documentedUnavailableFrom": "2.2.0",
+      "documentedUnavailableThrough": "2.3.6",
+      "fallbackVersion": "2.1.1",
+      "fallbackAgentMode": false,
+      "plannedVersion": "2.4.0",
+      "plannedWindow": "late November 2026",
+      "qualification": "The feature guide still describes a Cloud Connected 2.1+ path, but the current installation compatibility section and SAIA-9918 block the current path. A planned release is not delivered availability."
+    }
   },
   "exactReleases": {
     "schemaVersion": 1,

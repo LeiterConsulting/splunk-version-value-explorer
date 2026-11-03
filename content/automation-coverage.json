@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "registryVersion": "1.1.0",
+  "registryVersion": "1.2.0",
   "activation": "pending-first-executions",
   "constitution": "docs/automation-constitution.md",
   "publicSourceHosts": [
@@ -591,13 +591,14 @@
           "id": "ai-saia-agent",
           "dataset": "guidance",
           "pointer": "/aiAvailability/capabilities/1",
-          "scope": "Feature-specific Platform minimum, Cloud Connected app minimum, AWS AI service locations and Model Runtime requirements, with explicit routing and data-boundary uncertainty. Exclusions: Full app/Platform compatibility, tenant activation, entitlement and regulated authorization are not established.",
+          "scope": "Feature-specific Platform minimum, Cloud Connected app minimum, AWS AI service locations and Model Runtime requirements, with explicit routing and data-boundary uncertainty. Exclusions: Full app/Platform compatibility, tenant activation, entitlement and regulated authorization are not established. Current Cloud Connected exclusion/feature-guide disagreement and planned future support remain explicit; no positive Enterprise path from a minimum alone.",
           "sourceIds": [
             "aiSaiaInstall",
             "aiSaiaAbout",
             "aiSaiaAgentMode",
             "aiSaiaModelRuntime",
-            "aiSaiaCloudConnected"
+            "aiSaiaCloudConnected",
+            "aiSaiaKnownIssues"
           ]
         }
       ],
@@ -630,7 +631,13 @@
           "id": "aiSaiaCloudConnected",
           "dataset": "guidance",
           "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
-          "section": "Prerequisites; Activation steps; How Splunk AI Assistant uses your data"
+          "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data"
+        },
+        {
+          "id": "aiSaiaKnownIssues",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
+          "section": "SAIA-9918 Cloud Connected access and 2.1.1 workaround"
         }
       ],
       "interfaces": [

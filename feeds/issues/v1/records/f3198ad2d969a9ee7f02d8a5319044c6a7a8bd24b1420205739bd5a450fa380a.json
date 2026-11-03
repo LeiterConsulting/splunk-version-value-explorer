@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-cloud-connected-agent-mode-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-03T19:28:17.806Z",
+  "assessmentId": "vcia-manual-coverage-20261103-saia-cloud-connected-scope",
+  "assessedAt": "2026-11-03T19:22:21.097Z",
+  "outcome": "still-present",
+  "rationale": "The current installation restriction and SAIA-9918 are retained against the general feature path. Revised candidate briefs fail closed for Enterprise. Native Cloud feature requirements remain independent; planned 2.4.0 is not admitted as released.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant"
+    ],
+    "versions": [
+      "SAIA 2.3.6 documentation",
+      "2.1.1 fallback",
+      "planned 2.4.0 is not established as released"
+    ],
+    "editions": null,
+    "deployments": [
+      "Splunk Enterprise with Cloud Connected"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating a current Enterprise Agent Mode path"
+    ],
+    "exclusions": [
+      "No native Cloud restriction, actual tenant availability, supported future release, entitlement or customer authorization is inferred."
+    ]
+  },
+  "comparedAssessmentIds": [],
+  "remainingConcerns": [
+    "Vendor reconciliation of general feature wording with current Cloud Connected installation restrictions; future 2.4.0 support must be verified after actual release."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "saia-current-compatibility",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "Cloud Connected compatibility; Version compatibility",
+      "statement": "Current installation guidance excludes Cloud Connected for SAIA 2.2.0 through 2.3.6. Its fallback is 2.1.1, explicitly without Agent Mode. Planned 2.4.0 support in late November is not released availability.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-03",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact official indexed section assessed; raw upstream bytes and exact retrieval time unknown. Immutable audit retains the actual bounded observation."
+      }
+    },
+    {
+      "evidenceId": "saia-9918-current-access",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
+      "section": "SAIA-9918 Cloud Connected access and 2.1.1 workaround",
+      "statement": "SAIA-9918 says 2.3.6 users cannot reach Cloud Connected and offers a 2.1.1 downgrade workaround. It does not independently establish Agent Mode support in that workaround.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-03",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact official indexed section assessed; raw upstream bytes and exact retrieval time unknown. Immutable audit retains the actual bounded observation."
+      }
+    },
+    {
+      "evidenceId": "saia-feature-general-path",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "section": "Requirements; Cloud Connected setup",
+      "statement": "The feature page still describes Agent Mode for Enterprise through Cloud Connected in 2.1+; this general feature statement is not reconciled with the current installation and known-issue restrictions.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-03",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact official indexed section assessed; raw upstream bytes and exact retrieval time unknown. Immutable audit retains the actual bounded observation."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/41db7ae767267237b8c017f8e13f4d327969784a/docs/audits/2026-11-03-saia-cloud-connected-compatibility.json",
+      "pointer": "/sourceAssessments",
+      "originalLabel": "conflicting-current-cloud-connected-scope"
+    }
+  ]
+}

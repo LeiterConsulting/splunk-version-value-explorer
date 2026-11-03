@@ -2788,11 +2788,51 @@ window.VersionCompassSources = {
       "claimReferences": [
         {
           "path": "guidance: guidance.aiAvailability",
-          "section": "Prerequisites; Activation steps; How Splunk AI Assistant uses your data"
+          "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.1",
-          "section": "Prerequisites; Activation steps; How Splunk AI Assistant uses your data"
+          "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-03",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-03",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-03",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
+      "title": "SAIA 2.3.6 known issues: Cloud Connected SAIA-9918",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.aiSaiaKnownIssues.url",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.1"
+      ],
+      "reviews": [
+        "2026-11-03"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "SAIA-9918 Cloud Connected access and 2.1.1 workaround"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.1",
+          "section": "SAIA-9918 Cloud Connected access and 2.1.1 workaround"
         }
       ],
       "usage": "In use",

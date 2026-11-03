@@ -19,12 +19,12 @@ function copyHistoricalFixture(file, root) {
 const bind = run => { run.reviewDigest = reviewDigest(run); return run; };
 test('current source contract retains feature-specific Agent Mode evidence and existing CSP SOC responsibility',()=>{
  const current=JSON.parse(fs.readFileSync('content/automation-coverage.json'));
- assert.equal(current.registryVersion,'1.1.0');assert.equal(current.activation,'pending-first-executions');validateRegistry(current);
+ assert.equal(current.registryVersion,'1.2.0');assert.equal(current.activation,'pending-first-executions');validateRegistry(current);
  const agent=current.capabilities.find(c=>c.id==='advisor.agent-mode');
  for(const id of ['aiSaiaAgentMode','aiSaiaModelRuntime','aiSaiaCloudConnected'])assert(agent.claimFamilies[0].sourceIds.includes(id));
  const soc=current.capabilities.find(c=>c.id==='advisor.soc-workflow');assert.equal(soc.primaryOwner,'es-editions-watch');assert(soc.participatingWatches.includes('csp-fedramp-watch'));
  assert.match(soc.claimFamilies[0].scope,/customer authorization remain separate/);
- assert.deepEqual(JSON.parse(fs.readFileSync('content/automation-registries/1.1.0.json')),current);
+ assert.deepEqual(JSON.parse(fs.readFileSync('content/automation-registries/1.2.0.json')),current);
  assert.equal(validateRun(original,current).gaps.length,5); // Historical implementation outcome is not relabeled.
 });
 test('pilot covers Prep11 and all three Advisor decisions with separate primary and independent ownership', () => {

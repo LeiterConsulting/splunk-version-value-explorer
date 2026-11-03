@@ -1,10 +1,10 @@
 # Saved-task reconciliation for the coverage pilot
 
-## Pending November 3 source-contract 1.1.0 candidate
+## Pending November 3 source-contract 1.2.0 candidate
 
 The [manual follow-up](automation-coverage-followups.md) adds exact Agent Mode,
 Model Runtime and Cloud Connected sources and records CSP's existing SOC regional
-responsibility in registry 1.1.0. This is an unreconciled draft, not a saved-task
+responsibility in registry 1.2.0. This is an unreconciled draft, not a saved-task
 update. Preserve the actual saved 1.0.0 prompt history described below. Release
 Watch read remains denied in this context; no read/update or alternate task route
 was attempted. Schedules and permissions remain untouched.
@@ -12,7 +12,7 @@ was attempted. Schedules and permissions remain untouched.
 When supported access is authorized, reconcile Release Watch, independent Guidance
 Audit, ES and CSP's participating scope to the exact new registry. Retain complete
 before/after prompts and settings, compare digests and read back only authorized
-changes. Require feature-specific Agent Mode regions/runtime sources; keep the
+changes. Require feature-specific Agent Mode regions/runtime and current compatibility/SAIA-9918 sources; planned 2.4.0 support is not released availability; keep the
 SOC decision's excluded eligibility/rollout/pairing scope explicit. A bounded
 assessment of an unknown does not establish it as available. Record actual
 task/scheduler identities and full validation/live delivery in each first execution.

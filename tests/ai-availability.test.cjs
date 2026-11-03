@@ -81,6 +81,11 @@ test('Agent Mode uses its exact AWS feature list, independently of base SAIA and
  delete a.data().agentModeRegions;
  assert.equal(assess(a,'ai-saia-agent',{region:'us-east-1'}).availability,'not_established');
 });
+test('current Enterprise Cloud Connected access restriction does not become a native Cloud restriction',()=>{
+ const a=model(),enterprise=assess(a,'ai-saia-agent',{deployment:'enterprise',region:'us-east-1'});
+ assert.equal(enterprise.availability,'not_established');assert.match(enterprise.detail,/2.2.0–2.3.6/);assert.match(enterprise.detail,/2.1.1 fallback lacks Agent Mode/);assert(enterprise.src.includes('aiSaiaKnownIssues'));
+ assert.equal(assess(a,'ai-saia-agent',{deployment:'cloud',region:'us-east-1'}).availability,'conditional');
+});
 test('ES Cloud and CMP retain different Montreal and Calgary component exceptions',()=>{
  const a=model();
  assert.equal(assess(a,'ai-es-assistant',{region:'ca-central-1',edition:'premier'}).availability,'conditional');

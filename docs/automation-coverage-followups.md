@@ -8,7 +8,7 @@ preserved. Site 276 remains the deployed PDF repair; this candidate is unpublish
 
 Read the [scoped assessment](audits/2026-11-03-coverage-followup-assessment.json)
 and [manual coverage record](audits/2026-11-03-coverage-followup-coverage.json).
-The latter accounts for all eleven capabilities: four assessed here, seven reused
+The current [compatibility follow-up](audits/2026-11-03-current-compatibility-followup-coverage.json) accounts for all eleven capabilities: four assessed here, seven reused
 within their unchanged scope and original clocks. Structural coverage is complete;
 candidate validation/publication and real-task execution remain separate gates.
 
@@ -16,15 +16,19 @@ candidate validation/publication and real-task execution remain separate gates.
 | --- | --- | --- |
 | Prep11 discovery | Named official-domain 11/11.0/11.x searches and all three mapped context sources assessed. No qualifying version-specific announcement found in that search. | No universal absence, release date, deployment model, migration edge or regulated rollout inferred. |
 | Prep11 AI context | The exact September 15 Cisco newsroom body is readable and supports the existing AI POD/Assistant context and planned Launchpad wording. | Earlier semantic unavailable response preserved; no later product delivery or Enterprise 11.x conclusion. |
-| Advisor Agent Mode | Added feature-specific Agent Mode, Model Runtime and Cloud Connected sources; corrected region checks, Platform/app minimums and runtime/data-boundary caveats. | Base assistant/Azure runtime support is not Agent Mode scope; tenant activation, entitlement and authorization remain unknown. |
+| Advisor Agent Mode | Added exact Agent Mode/runtime/Cloud Connected/SAIA-9918 sources; corrected regions and minima; current Enterprise path fails closed on the installation/feature-guide disagreement. | Base assistant/Azure runtime support is not Agent Mode scope; tenant activation, entitlement and authorization remain unknown. |
 | Advisor SOC | Assessed the registered prerequisite/discrepancy/history decision and reconciled ES/CSP's existing reviews. Existing Cloud ES 8.6+/8.7+ discrepancy and corrected Triage history remain. | Exact pairing, per-agent rollout, component entitlement and customer authorization are excluded from this bounded decision and stay unresolved. |
 
 ## Source and runtime accuracy
 
 Agent Mode has a specific fifteen-region AWS list, including Dublin and excluding
 base-assistant locations such as Dubai and Azure. The feature guide requires
-Platform 10.1.x+, Model Runtime and administrator enablement. Cloud Connected adds
-the SAIA 2.1+ path and documented bidirectional/allowlist/certificate setup. The
+Platform 10.1.x+, Model Runtime and administrator enablement. The feature guide describes a Cloud Connected SAIA 2.1+ path and setup. However,
+the current installation compatibility section excludes 2.2.0–2.3.6, says the
+2.1.1 fallback lacks Agent Mode, and plans 2.4.0 without establishing release.
+Linked known issue SAIA-9918 independently records the access problem. Enterprise
+briefs show that disagreement/block; meeting a minimum cannot produce a positive
+current path. Native Cloud scope remains separate. The
 existing local Platform and SAIA version fields now check those applicable minima.
 A minimum is not a recommended target or proof of pairing.
 
@@ -46,10 +50,13 @@ The complete base-SAIA and ITSI source scopes were not silently reverified.
 
 ## Contract version and owners
 
-Registry **1.1.0** adds the exact feature sources and makes CSP's existing SOC
+Registry **1.2.0** adds the exact feature sources and makes CSP's existing SOC
 regional responsibility a participating obligation. ES remains primary; Release
 Watch owns Prep11/SAIA and Guidance remains independent. Immutable registry 1.0.0
-and every historical execution remain unchanged. Pending amendments of other
+and every historical execution remain unchanged. Intermediate 1.1.0 was already
+public on the draft branch before the additional compatibility check; its immutable
+snapshot is retained, and current corrections use 1.2.0. See the [additional actual
+assessment](audits/2026-11-03-saia-cloud-connected-compatibility.json). Pending amendments of other
 versions cannot invalidate a version's independently verified activation; each
 version still requires its own matching tasks, execution, checks and live delivery.
 No activation flag is advanced here.
@@ -61,7 +68,7 @@ claims can be assessed; the excluded agent/model data-location and regulated cha
 remains a CSP follow-up due **November 5**. Customer authorization always remains
 customer-specific and is never collected by these public-source automations.
 
-The [amendment ledger](../content/automation-amendments.json) records 1.1.0 as
+The [amendment ledger](../content/automation-amendments.json) records 1.2.0 as
 draft implementation, saved prompts unreconciled and first executions pending.
 [Saved-task instructions](automation-task-amendments.md) describe the pending
 reconciliation; no task read/update, schedule, notification, access or permission
@@ -93,7 +100,7 @@ At the next existing progress check:
    native issue-feed provenance, exact-head tests/exports/artifacts, repository
    integration and actual live revision/assets/D1/UI readback.
 4. Reconcile saved prompts through an authorized supported task read/update and
-   readback before claiming 1.1.0 execution. The earlier Release read remains
+   readback before claiming 1.2.0 execution. The earlier Release read remains
    denied; no alternative route may be used to obtain that task data.
 5. Mark a first execution verified only when the existing complete delivery and
    matching identity gates pass. Pilot activation remains pending until every
@@ -124,9 +131,19 @@ No browser/security permission change is assumed or requested by this draft.
 ## Candidate validation and release
 
 Run `npm run maintenance:sync`, `npm run maintenance:verify` and `git diff --check`.
-The expanded matrix covers Azure/Dubai negative paths, Dublin's feature-specific
-listing, a Cloud Platform gap and a Cloud Connected app gap, in both themes.
+The expanded matrix covers Azure/Dubai negative paths, native Cloud Dublin,
+a Cloud Platform gap, a Cloud Connected app gap, the current Enterprise conflict
+and the 2.1.1 fallback, in both themes.
 Wait for push and PR integration CI on the final head and independently verify its
-retained export artifact. Preserve public issue-feed provenance and checkpoints. The new candidate retains 97 cumulative records (19 findings, 78 assessments), including a bounded commercial SAIA runtime-scope observation and a fresh SOC discrepancy assessment. Its source audit was pushed first at `f7091494aace9a95de67ffd054c106499ad36275` and independently read back against the original 14,903-byte SHA-256 `906ab90279b01ed53ec3c4fb0697ea1c68711f178435e350e1918069e0fbd47d`; no commit or upstream digest was invented.
+retained export artifact. Preserve public issue-feed provenance and checkpoints. The intermediate checkpoint retains 97 cumulative records (19 findings, 78 assessments), including a bounded commercial SAIA runtime-scope observation and a fresh SOC discrepancy assessment. Its source audit was pushed first at `f7091494aace9a95de67ffd054c106499ad36275` and independently read back against the original 14,903-byte SHA-256 `906ab90279b01ed53ec3c4fb0697ea1c68711f178435e350e1918069e0fbd47d`; no commit or upstream digest was invented.
 This continuation authorizes a draft PR, not merge or deployment. Any later rollout
 needs separate approval and matching runtime/live readback.
+
+The final 1.2.0 candidate adds the current Cloud Connected compatibility conflict
+and its manual assessment at a further cumulative checkpoint (99 records: 20
+findings, 79 assessments). Supporting audit commit
+`41db7ae767267237b8c017f8e13f4d327969784a` was independently byte-verified before
+feed preparation: 3,471 bytes, SHA-256
+`e99f489ae52b03520cea01a72194b9aa2608e747874cf394044cd436dccc5797`.
+Earlier checkpoints and manual outcomes remain history. Current unknowns are not
+closed by the revised interface or candidate CI.
