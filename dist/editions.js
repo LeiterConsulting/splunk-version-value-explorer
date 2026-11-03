@@ -8,6 +8,30 @@
   const allowedFilters = ['all','essentials','premier','changed','review'];
   const state = { filter: allowedFilters.includes(params.get('filter')) ? params.get('filter') : 'all', query: (params.get('q') || '').slice(0,200), release: Object.hasOwn(data.history,params.get('release')) ? params.get('release') : data.release };
   const esc = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const selectionErrors = [];
+  for (const key of ['view','preview','release','filter','q']) if (params.getAll(key).length > 1) selectionErrors.push('Repeated '+key+' values require an explicit selection.');
+  if (params.has('view') && (params.get('view') !== 'es-editions' || params.has('preview'))) selectionErrors.push('Conflicting view markers require an explicit selection.');
+  if (params.has('release') && !Object.hasOwn(data.history,params.get('release'))) selectionErrors.push('The history release is empty or unsupported.');
+  if (params.has('filter') && !allowedFilters.includes(params.get('filter'))) selectionErrors.push('The capability filter is unsupported.');
+  if (['from','to','host','platform'].some(key=>params.has(key)) || params.has('product') && params.get('product') !== 'es') selectionErrors.push('This link contains comparison fields that cannot be converted to edition history.');
+  if (selectionErrors.length) {
+    document.title = 'Version Compass | Resolve ES editions selection';
+    document.querySelector('.skip-link').href = '#edition-comparison';
+    document.querySelector('main').innerHTML = '<section class="hero edition-hero" id="edition-comparison"><p class="eyebrow">ENTERPRISE SECURITY · LINK RECOVERY</p><h1 id="edition-title">Choose the intended history release</h1><div class="edition-caution" role="alert"><p>The original selection cannot produce a confirmed comparison. Copy Link, PDF and saved HTML are unavailable until you explicitly choose a release.</p><ul>'+selectionErrors.map(error=>'<li>'+esc(error)+'</li>').join('')+'</ul></div><p><strong>Original link</strong></p><p class="edition-qualification">'+esc(location.search+(location.hash||''))+'</p><label class="edition-history-control">History release<select id="edition-recover-history"><option value="">Choose a release</option>'+Object.keys(data.history).map(version=>'<option value="'+esc(version)+'">ES '+esc(version)+'</option>').join('')+'</select></label><p>Opening the chosen history clears ambiguous history/search fields and foreign comparison fields. Cloud environment values are preserved, including values that still require warning resolution. Valid theme, perspective, search, filter and anchor values are retained.</p><button id="edition-recover-open" type="button" disabled>Open chosen history</button><div class="edition-toolbar"><button id="edition-copy" type="button" disabled>Copy comparison link</button><button id="edition-print" type="button" disabled>Print / save PDF</button></div></section>';
+    const choice=document.getElementById('edition-recover-history'), open=document.getElementById('edition-recover-open');
+    document.getElementById('edition-copy').disabled=true;document.getElementById('edition-print').disabled=true;open.disabled=true;
+    choice.addEventListener('change',()=>{open.disabled=!Object.hasOwn(data.history,choice.value);});
+    open.addEventListener('click',()=>{
+      if(!Object.hasOwn(data.history,choice.value))return;
+      const recovered=new URLSearchParams({view:'es-editions',release:choice.value});
+      for(const key of ['theme','perspective','q','filter']) if(params.getAll(key).length===1 && (key!=='filter'||allowedFilters.includes(params.get(key)))) recovered.set(key,params.get(key));
+      // A history choice never confirms or clears a Cloud environment choice.
+      for(const key of ['csp','region','compliance']) for(const value of params.getAll(key)) recovered.append(key,value);
+      location.href=location.pathname+'?'+recovered+(location.hash||'');
+    });
+    window.VersionCompassBuildSnapshot=()=>{throw Error('Resolve the ES editions selection before exporting.');};
+    return;
+  }
   const links = keys => keys.map(key => '<a href="'+esc(data.sources[key].u)+'" target="_blank" rel="noopener noreferrer">'+esc(data.sources[key].t)+' ↗</a>').join(' · ');
   const sources = keys => '<p class="edition-sources">'+links(keys)+'</p>';
   const jump = ids => '<p class="edition-jumps">'+ids.map(id=>'<a href="'+esc(themed('?view=es-editions&q='+encodeURIComponent(data.capabilities.find(c=>c.id===id).name)+'#edition-matrix-title'))+'">'+esc(data.capabilities.find(c=>c.id===id).name)+' →</a>').join('')+'</p>';

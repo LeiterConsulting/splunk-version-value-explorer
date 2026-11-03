@@ -394,10 +394,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-02T10:42:27.640Z",
-      "lastSuccess": "2026-11-02T10:54:25.978Z",
+      "lastAttempt": "2026-11-03T11:17:30.591Z",
+      "lastSuccess": "2026-11-03T11:17:30.674Z",
       "outcome": "changed",
-      "summary": "Added scoped Collector 0.164 migration guidance and published four bounded issue-feed reassessments.",
+      "summary": "Assessed exact 10.6 workload modes/activation/status and Lantern staffing/communications/transition. Seven mandatory capabilities assessed/changed; four remain explicitly incomplete. Native/live delivery is separate.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -859,17 +859,29 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Added scoped Collector 0.164 migration guidance and published four bounded issue-feed reassessments.",
           "scope": "Complete 215-source inventory; Collector 0.164 affected claims; bounded Enterprise, Cloud, Forwarder, SOAR, security, Observability RCA and AI prerequisite claims; canonical datasets, route/tool regressions, native issue feed and publication gates."
+        },
+        {
+          "at": "2026-11-03T11:17:30.591Z",
+          "outcome": "running",
+          "summary": "Delivering two source-assessed Prep11 qualification follow-ups with retained same-run inventory and bounded ES repair candidate.",
+          "scope": "Full 217-source same-run inventory retained; two scoped Prep11 factual updates, three Advisor drift guards and borrowed HF mapping regressions; no broad lifecycle/authorization refresh."
+        },
+        {
+          "at": "2026-11-03T11:17:30.674Z",
+          "outcome": "changed",
+          "summary": "Assessed exact 10.6 workload modes/activation/status and Lantern staffing/communications/transition. Seven mandatory capabilities assessed/changed; four remain explicitly incomplete. Native/live delivery is separate.",
+          "scope": "Full 217-source same-run inventory retained; two scoped Prep11 factual updates, three Advisor drift guards and borrowed HF mapping regressions; no broad lifecycle/authorization refresh."
         }
       ],
-      "scope": "Complete 215-source inventory; Collector 0.164 affected claims; bounded Enterprise, Cloud, Forwarder, SOAR, security, Observability RCA and AI prerequisite claims; canonical datasets, route/tool regressions, native issue feed and publication gates."
+      "scope": "Full 217-source same-run inventory retained; two scoped Prep11 factual updates, three Advisor drift guards and borrowed HF mapping regressions; no broad lifecycle/authorization refresh."
     },
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-01T11:01:55Z",
-      "lastSuccess": "2026-11-01T11:27:11.817Z",
+      "lastAttempt": "2026-11-03T11:09:50.641Z",
+      "lastSuccess": "2026-11-03T11:09:50.716Z",
       "outcome": "changed",
-      "summary": "Recovered the ES 8.8 edition capability matrix and current compatibility source mappings; published seven bounded issue-feed reassessments and deployed the validated revision.",
+      "summary": "Reviewed 38 source scopes/37 official URLs and fourteen bounded claim groups; repaired ambiguous ES links with explicit recovery. Native export/live delivery verification remains separate.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1235,9 +1247,33 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Recovered the ES 8.8 edition capability matrix and current compatibility source mappings; published seven bounded issue-feed reassessments and deployed the validated revision.",
           "scope": "36 official ES, pricing, licensing, SOAR and AI sources; 18 high-consequence claim groups; ES Editions current, legacy, shared and invalid journeys; 136 exact-candidate export cases; seven issue-feed assessments; Site version 257 live health."
+        },
+        {
+          "at": "2026-11-03T11:02:17.186Z",
+          "outcome": "running",
+          "summary": "ES edition and SOC prerequisite review in progress",
+          "scope": "38 source scopes/37 exact official URLs;14 claim groups; exact SOC Cloud/CMP/permissions/runtime and App/Export scope. Native feed and publication separately recorded."
+        },
+        {
+          "at": "2026-11-03T11:02:17.269Z",
+          "outcome": "no-change",
+          "summary": "Fourteen scoped ES/SOAR claim groups preserved; no canonical correction supported.",
+          "scope": "38 source scopes/37 exact official URLs;14 claim groups; exact SOC Cloud/CMP/permissions/runtime and App/Export scope. Native feed and publication separately recorded."
+        },
+        {
+          "at": "2026-11-03T11:09:50.641Z",
+          "outcome": "running",
+          "summary": "Repairing an independently reproduced ES history-link ambiguity.",
+          "scope": "ES edition entitlement/prerequisite/pairing conflicts, agent task floors, exact comparison/history URL safety; unreassessed historical/region claims remain dated and qualified."
+        },
+        {
+          "at": "2026-11-03T11:09:50.716Z",
+          "outcome": "changed",
+          "summary": "Reviewed 38 source scopes/37 official URLs and fourteen bounded claim groups; repaired ambiguous ES links with explicit recovery. Native export/live delivery verification remains separate.",
+          "scope": "ES edition entitlement/prerequisite/pairing conflicts, agent task floors, exact comparison/history URL safety; unreassessed historical/region claims remain dated and qualified."
         }
       ],
-      "scope": "36 official ES, pricing, licensing, SOAR and AI sources; 18 high-consequence claim groups; ES Editions current, legacy, shared and invalid journeys; 136 exact-candidate export cases; seven issue-feed assessments; Site version 257 live health."
+      "scope": "ES edition entitlement/prerequisite/pairing conflicts, agent task floors, exact comparison/history URL safety; unreassessed historical/region claims remain dated and qualified."
     },
     {
       "id": "version-guidance-audit",
