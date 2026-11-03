@@ -229,20 +229,120 @@
       ],
       "qualification": "Recorded review windows and identity checks, not a new upstream source retrieval or claim assessment. Paused decisions offer no factual path; existing owners reassess their exact dependencies."
     },
-    "publicationImpact": "Repository-only audit/coverage/amendment records; no dataset, adapter, UI, report, runtime or export input changes. No Site deployment or new native rendering is claimed."
+    "publicationImpact": "Repository-only audit/coverage/amendment records; no dataset, adapter, UI, report, runtime or export input changes. No Site deployment or new native rendering is claimed.",
+    "automated": {
+      "tests": 294,
+      "failed": 0,
+      "skipped": 0,
+      "buildAssets": 74,
+      "datasets": 7,
+      "records": 909,
+      "syncChecks": "All four checks plus Advisor, coverage, feed and native-feed gates passed after final declarations."
+    },
+    "liveBaseline": {
+      "evaluatedAt": "2026-11-03T10:51:22.262Z",
+      "target": "https://versioncompass.com",
+      "expectedRevision": "content-5d857c3ba29f23a97eed9951",
+      "status": "delivery-checks-passed",
+      "checks": {
+        "database-health": {
+          "outcome": "passed",
+          "evidence": {
+            "status": "ready",
+            "storage": "d1",
+            "revision": "content-5d857c3ba29f23a97eed9951",
+            "engineRevision": "engine-5f0cc9b39f8af35986f2",
+            "recordCount": 909
+          },
+          "checkedAt": "2026-11-03T10:51:06.198Z",
+          "elapsedMs": 5639
+        },
+        "live-manifest": {
+          "outcome": "passed",
+          "evidence": {
+            "schemaVersion": 1,
+            "revision": "content-5d857c3ba29f23a97eed9951",
+            "digest": "b7df8db0ea0e8ca67ba88b78cc6d3e487dc21e66bfe9a1e71d66ecdac744be4b",
+            "engineRevision": "engine-5f0cc9b39f8af35986f2",
+            "datasetHashes": {
+              "platform": "818fa4ab221967ac299810ff273b6faeacb2d40f798503491d6b975cd32e1823",
+              "products": "d2b9ac0fdc5da71a460003442d62843a78a1b26b2eda0ec14383620a7191df52",
+              "guidance": "8d869974550b4e359bed52702a24d9bf9d7d193849589527f4c23ff97cc839d1",
+              "environment": "aa4d761f225e5f84509924c2d9818a775aab906f0f1a059d626299402397fd16",
+              "editions": "6ffd093dbb06bcd48d241566d526039dc272d7dca5314147e8ceda63de8e5dd9",
+              "forwarders": "143dee80dbe71db2d09ca89b085c3f49ffa9132f645c963a64013bf48c384df9",
+              "soar": "4d256f79a169fb83c255b8286d83e7fe5be3ffd6d31a16806402340313d07675"
+            },
+            "recordCount": 909,
+            "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+            "verificationPolicy": "Migration and delivery do not create verification dates",
+            "phase": "content-model-and-database-delivery"
+          },
+          "checkedAt": "2026-11-03T10:51:07.031Z",
+          "elapsedMs": 833
+        },
+        "bundle-integrity": {
+          "outcome": "passed",
+          "evidence": {
+            "digest": "b7df8db0ea0e8ca67ba88b78cc6d3e487dc21e66bfe9a1e71d66ecdac744be4b",
+            "recordCount": 909
+          },
+          "checkedAt": "2026-11-03T10:51:07.883Z",
+          "elapsedMs": 851
+        },
+        "bounded-record-query": {
+          "outcome": "passed",
+          "evidence": "SOAR filter, revision and maximum page size verified",
+          "checkedAt": "2026-11-03T10:51:08.299Z",
+          "elapsedMs": 416
+        },
+        "read-only-api": {
+          "outcome": "passed",
+          "evidence": "POST rejected with 405",
+          "checkedAt": "2026-11-03T10:51:14.391Z",
+          "elapsedMs": 6092
+        },
+        "bundled-fallback-assets": {
+          "outcome": "passed",
+          "evidence": "All seven complete fallback adapters served",
+          "checkedAt": "2026-11-03T10:51:22.262Z",
+          "elapsedMs": 7871
+        }
+      },
+      "findings": [],
+      "limitations": [
+        "Browser journeys, actual HTML reopening and native PDF rendering require separate evidence."
+      ]
+    },
+    "maintenanceOutcome": {
+      "outcome": "blocked",
+      "qualification": "record-maintenance.cjs recorded actual running/blocked scope outcome. The changed runtime ledger is retained as a held candidate, not published or described as live. LastSuccess is not advanced for incomplete scope."
+    },
+    "exportImpact": {
+      "outcome": "not-applicable",
+      "scope": {
+        "unaffected": true,
+        "rationale": "Only audit/coverage/amendment and repository feed files change. Seven canonical datasets, report/route/UI/runtime code, generated adapters, assets, and content/publication.json are byte-identical to the reconciled live source. Existing export baseline is retained; no new native rendering claimed.",
+        "evidence": "Changed-file inventory and export-evidence target inputs have no intersection."
+      }
+    }
   },
   "publication": {
-    "status": "repository-evidence-pending",
-    "sites": "unchanged; no report/runtime inputs changed"
+    "status": "repository-review-evidence; coverage incomplete; runtime unchanged",
+    "sites": "No Site runtime change or new deployment claimed; retained version 269 health independently checked.",
+    "auditProvenance": "97e73cc3ecbc154413007b7f2f4a3e9910c40501"
   },
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "version-release-watch",
-    "status": "pending-public-provenance",
-    "recordedAt": "2026-11-03T10:50:05.866Z",
+    "status": "published",
+    "recordedAt": "2026-11-03T10:52:16.338Z",
     "reviewDigest": "2143c418f7bee05a96939afc2505fe8afb1a382d189ac9596f26dee5eead3cc5",
-    "publicationId": "vci-4e4f28c884ecb28704659773e9dd58de6e87518ff64873fceb7ea3bb553dde99",
-    "recordKeys": [],
+    "publicationId": "vci-7279b855ce117fc1dd7d1a2f7b7e41c612f1d9ca5c98f8b82f538952daca39df",
+    "recordKeys": [
+      "finding:vci-sok-32-compatibility-scope@1",
+      "assessment:vcia-release-20261103-sok32-compatibility-scope@1"
+    ],
     "notReassessedFindingIds": [
       "vci-soar-cloud-880-release-stage",
       "vci-itsi-subagent-region",
@@ -261,9 +361,7 @@
       "vci-es-soc-analyst-version-floor",
       "vci-ai-report-source-directory"
     ],
-    "deferredConcerns": [
-      "Version Release Watch: publish exact audit provenance then append the independently observed SOK 3.2 matrix/changelog scope conflict in the immediate feed follow-up; review by 2026-11-05."
-    ],
-    "qualification": "Five bounded assessed claim families; SOK conflict is supported and awaits immutable audit provenance. Other existing findings were not reassessed."
+    "deferredConcerns": [],
+    "qualification": "One supported new SOK 3.2 source conflict and its actual November 3 assessment cite immutable public audit 97e73cc3ecbc154413007b7f2f4a3e9910c40501. Sixteen existing findings not reassessed. Coverage gaps and unchanged runtime are separate."
   }
 }

@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "findingId": "vci-sok-32-compatibility-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-03T10:51:53.038Z",
+  "title": "SOK 3.2 help matrix and changelog publish different compatibility scopes",
+  "concernType": "contradiction",
+  "problem": "The exact SOK 3.2 help matrix and linked 3.2.0 changelog disagree on Kubernetes maximum, Enterprise range and release date.",
+  "scope": {
+    "products": [
+      "Splunk Operator for Kubernetes",
+      "Splunk Enterprise"
+    ],
+    "versions": [
+      "SOK 3.2.0"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed Kubernetes"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating exact supported tuples"
+    ],
+    "exclusions": [
+      "No universal Kubernetes maximum, Enterprise 11.x compatibility, app pairing, Cloud availability or authorization is established."
+    ]
+  },
+  "scopeComparison": "Both name SOK 3.2.0, but date and version scopes differ. No authoritative reconciliation was retrieved; no universal maximum or future-version support is inferred.",
+  "impact": {
+    "customerScenario": "Selecting an exact Kubernetes/Operator/Enterprise tuple before upgrade.",
+    "consequence": "The reader must verify which scope applies rather than choose a maximum or infer 11.x support.",
+    "level": "unknown"
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "Directly assessed the named table and linked changelog; broader scope and vendor resolution remain unknown."
+  },
+  "claimIds": [
+    "prep11-operator-baseline"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Current qualified source conflict; no automatic closure."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "sok32-prep11operator",
+      "url": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix",
+      "section": "SOK to Splunk Enterprise version compatibility; Upgrade path guidance",
+      "statement": "Help matrix 3.2.0 lists September 24, Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-03T10:45:14.269Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "f628a09825126f232e0079f4532bc8217f73dde42e49ac975eda353e9a160f5f",
+        "qualification": "Retrieved response-body SHA-256; vendor revision/effective date not independently established. Public audit pins the assessment, not a future upstream document."
+      }
+    },
+    {
+      "evidenceId": "sok32-prep11changelog",
+      "url": "https://splunk.github.io/splunk-operator/reference/ChangeLog.html",
+      "section": "3.2.0 (2026-09-08); Breaking Changes; Supported Kubernetes and Splunk versions",
+      "statement": "Changelog 3.2.0 lists September 8, Kubernetes 1.32–1.36 and Enterprise 10.6.0.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-03T10:45:15.452Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "26ab5b4459deeb2ae2d6fd8ad0f544e8c7ddbda5d85880e2b6805fffb833908e",
+        "qualification": "Retrieved response-body SHA-256; vendor revision/effective date not independently established. Public audit pins the assessment, not a future upstream document."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/97e73cc3ecbc154413007b7f2f4a3e9910c40501/docs/audits/2026-11-03-version-release-watch.json",
+      "pointer": "/claimChecks/0",
+      "originalLabel": "assessed-no-change"
+    }
+  ]
+}
