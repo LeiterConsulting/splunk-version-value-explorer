@@ -31,6 +31,7 @@ export async function verifyExact(page,route,theme){
    });
  });
  await page.emulateMedia({media:null});assert.deepEqual(contrast,[],'Exact-release PDF has low-contrast headings or citations');
+ await page.waitForFunction(()=>window.__exactTools?.versioncompass_compare_exact_releases);
  const agent=await page.evaluate(()=>{const a=window.VersionCompassExactReleases,d=window.SPLUNK_DATA.guidance,s=a.read(location.search,d.exactReleases).state,t=window.__exactTools.versioncompass_compare_exact_releases;return {readOnly:t.annotations.readOnlyHint,report:t.execute(a.input(s)),bad:t.execute({...a.input(s),write:true})};});
  assert.equal(agent.readOnly,true);assert.equal(agent.report.ok,true);assert.deepEqual(agent.report.report,result);assert.equal(agent.bad.ok,false);
  assert.equal(await page.locator('[data-destination="exact-releases"]').getAttribute('aria-current'),'page');
