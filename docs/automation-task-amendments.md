@@ -6,12 +6,15 @@ state, notification preference, model and permission. Read the actual saved obje
 before editing; keep before/after digests and readback in the amendment ledger.
 The conceptual cadence in scheduled-maintenance.md is not a saved configuration.
 
-The existing saved configurations were unavailable to this review. Neither task
-was changed. Before/after snapshots and first-execution verification remain
-blocked/pending. Finish reconciliation through the authorized task-management
-context; no new task or substitute schedule is authorized. A manual audit is not
-its first execution. Exact private troubleshooting details are retained outside
-this public repository.
+The initial implementation review could not access the saved configurations.
+The November 2 reconciliation in draft PR #61 subsequently saved and independently
+read back both full amended prompts, with only prompt/update-time changes. The
+November 3 readback matches their retained exposed settings; the amendment ledger
+preserves the original before/after digests and the limits of unexposed controls.
+Both inline first-execution candidates and the current scheduled Release Watch
+candidate remain incomplete. Activation stays pending until both participating
+tasks have verified complete first executions. No new task or substitute schedule
+is authorized, and a manual pilot is not a real scheduled execution.
 
 ## Addition to Version Release Watch
 

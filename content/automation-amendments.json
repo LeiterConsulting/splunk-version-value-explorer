@@ -20,7 +20,7 @@
         "source": "Owner-approved November 2, 2026 Prep11/Advisor pilot and public constitution scope."
       },
       "implementation": {
-        "status": "locally-validated-awaiting-exact-ci-integration-and-saved-task-readback",
+        "status": "published-implementation; saved prompts reconciled; first amended inline executions incomplete",
         "files": [
           "docs/automation-constitution.md",
           "content/automation-coverage.json",
@@ -31,23 +31,31 @@
       "savedTasks": [
         {
           "id": "version-release-watch",
-          "status": "blocked",
-          "beforeDigest": null,
-          "afterDigest": null,
-          "readbackEvidence": null,
-          "cadencePreserved": null,
-          "permissionsPreserved": null,
+          "status": "read-back-verified",
+          "beforeDigest": "sha256:ada865ac053871590760308af3f415becfc29d1a41a513e3c2e2d29909f64ff5",
+          "afterDigest": "sha256:0a8ae49f63e4228c4db504b98d9d2ac9bf6f3941837369ebd60d13f8b1d229a0",
+          "readbackEvidence": "Native automations.peek read before prompt-only automations.update, then independent peek readback. Full original prompt retained as prefix; only prompt and updated_at differed in exposed saved object. No schedule, timezone, timing mode, enabled state, title or conversation change. Notification/model/permission controls are not exposed by this connector and were omitted from mutation; no new authority was added.",
+          "cadencePreserved": true,
+          "permissionsPreserved": true,
           "attempt": {
-            "action": "automation_update mode=view",
-            "target": "version-release-watch",
-            "outcome": "blocked-configuration-unavailable",
-            "reason": "Saved task configuration was unavailable to this review. No task mutation was performed; authorized reconciliation and readback remain pending."
+            "action": "automations.update prompt only, then automations.peek",
+            "outcome": "saved-and-read-back",
+            "target": "6aa950be0884819196ca3f8ae776f49b"
           },
           "firstExecution": {
-            "status": "pending",
-            "runId": null,
+            "status": "executed-incomplete",
+            "runId": "release-watch-first-amended-run-now-20261102",
+            "runFile": "docs/audits/2026-11-02-release-watch-first-amended-coverage.json",
             "verifiedAt": null,
-            "evidence": null
+            "evidence": "Native run_now succeeded and returned inline_run with the saved amended prompt. The inline prompt was executed in this turn. No scheduler run ID was exposed; runId is the retained execution record identity. Incomplete capability/delivery scope is recorded in the run file; not a verified complete first execution."
+          },
+          "taskId": "6aa950be0884819196ca3f8ae776f49b",
+          "readbackAt": "2026-11-02T17:19:27.246108+00:00",
+          "retainedSettings": {
+            "schedule": "BEGIN:VEVENT\nDTSTART;TZID=America/New_York:20260916T050000\nRRULE:FREQ=DAILY\nEND:VEVENT",
+            "timingMode": "flexible_schedule",
+            "defaultTimezone": "America/Los_Angeles",
+            "isEnabled": true
           },
           "executionCandidates": [
             {
@@ -58,34 +66,52 @@
               "verifiedAt": null,
               "evidence": "Actual same amended-task execution continuation: seven assessed/changed and four incomplete mandatory capabilities. Native publication/checks pending; no complete activation."
             }
-          ]
+          ],
+          "currentReadback": {
+            "checkedAt": "2026-11-03T11:21:16.458Z",
+            "outcome": "retained-settings-match",
+            "evidence": "Independent native saved-task readback matches the retained schedule, timing mode, timezone and enabled state from public draft PR 61 commit 0440dcc03aff3e9191ea3ff6053f1b1c4c3b4d37. Amended full prompt remains saved. No configuration mutation performed in this review. Unexposed model/notification/permission controls are not newly certified."
+          }
         },
         {
           "id": "version-guidance-audit",
-          "status": "blocked",
-          "beforeDigest": null,
-          "afterDigest": null,
-          "readbackEvidence": null,
-          "cadencePreserved": null,
-          "permissionsPreserved": null,
+          "status": "read-back-verified",
+          "beforeDigest": "sha256:1e119280bc4ca078b50239d893080849fb7a5776f5644440385facd7d539a8d3",
+          "afterDigest": "sha256:5b2cd471b1a3d18e740077ec2f4006dc9761bdd55b8c43bec8136382a2b18fa0",
+          "readbackEvidence": "Native automations.peek read before prompt-only automations.update, then independent peek readback. Full original prompt retained as prefix; only prompt and updated_at differed in exposed saved object. No schedule, timezone, timing mode, enabled state, title or conversation change. Notification/model/permission controls are not exposed by this connector and were omitted from mutation; no new authority was added.",
+          "cadencePreserved": true,
+          "permissionsPreserved": true,
           "attempt": {
-            "action": "automation_update mode=view",
-            "target": "version-guidance-audit",
-            "outcome": "blocked-configuration-unavailable",
-            "reason": "Saved task configuration was unavailable to this review. No task mutation was performed; authorized reconciliation and readback remain pending."
+            "action": "automations.update prompt only, then automations.peek",
+            "outcome": "saved-and-read-back",
+            "target": "6aa953b3525c81918e61d1584274573e"
           },
           "firstExecution": {
-            "status": "pending",
-            "runId": null,
+            "status": "executed-incomplete",
+            "runId": "guidance-audit-first-amended-run-now-20261102",
+            "runFile": "docs/audits/2026-11-02-guidance-audit-first-amended-coverage.json",
             "verifiedAt": null,
-            "evidence": null
+            "evidence": "Native run_now succeeded and returned inline_run with the saved amended prompt. The inline prompt was executed in this turn. No scheduler run ID was exposed; runId is the retained execution record identity. Incomplete capability/delivery scope is recorded in the run file; not a verified complete first execution."
+          },
+          "taskId": "6aa953b3525c81918e61d1584274573e",
+          "readbackAt": "2026-11-02T17:19:28.801375+00:00",
+          "retainedSettings": {
+            "schedule": "BEGIN:VEVENT\nDTSTART;TZID=America/New_York:20260917T080000\nRRULE:FREQ=WEEKLY;BYDAY=MO,TH\nEND:VEVENT",
+            "timingMode": "flexible_schedule",
+            "defaultTimezone": "America/Los_Angeles",
+            "isEnabled": true
+          },
+          "currentReadback": {
+            "checkedAt": "2026-11-03T11:21:16.458Z",
+            "outcome": "retained-settings-match",
+            "evidence": "Independent native saved-task readback matches the retained schedule, timing mode, timezone and enabled state from public draft PR 61 commit 0440dcc03aff3e9191ea3ff6053f1b1c4c3b4d37. Amended full prompt remains saved. No configuration mutation performed in this review. Unexposed model/notification/permission controls are not newly certified."
           }
         }
       ],
       "activation": {
         "status": "pending",
         "activatedAt": null,
-        "reason": "Actual saved task reconciliation/readback and real amended-task first executions have not been verified."
+        "reason": "Both saved prompts and preserved exposed settings are read-back verified. Historical inline executions and current scheduled Release continuation remain incomplete; complete verified first executions for both participating tasks are required."
       }
     }
   ]

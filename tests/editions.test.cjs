@@ -51,7 +51,7 @@ function runtime(search='?preview=es-editions'){
 }
 test('ambiguous or unsupported edition history links keep original input and block every report export',()=>{
  for(const search of ['?view=es-editions&release=8.8&release=8.7','?preview=es-editions&release=unknown','?view=es-editions&release=','?view=es-editions&filter=review&filter=changed','?view=es-editions&from=8.6&to=8.8','?view=es-editions&view=es-editions']){
-  const r=runtime(search);assert.equal(r.location.search,search);assert.equal(r.elements.get('edition-copy').disabled,true);assert.equal(r.elements.get('edition-print').disabled,true);assert.throws(()=>r.snapshot(),/selection/i);assert(!r.html.includes('report-matrix'));assert(r.html.includes('Original link'));assert(r.html.includes('Choose the intended history release'));
+ const r=runtime(search);assert.equal(r.location.search,search);assert.equal(r.elements.get('edition-copy').disabled,true);assert.equal(r.elements.get('edition-print').disabled,true);assert.throws(()=>r.snapshot(),/selection/i);assert(!r.html.includes('report-matrix'));assert(r.html.includes('Original link'));assert(r.html.includes('id="edition-title"'));assert(r.html.includes('Choose the intended history release'));
  }
 });
 test('search, filters, history URLs, copy links and print restoration work without leaking preview tools',async()=>{
