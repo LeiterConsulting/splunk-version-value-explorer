@@ -19,6 +19,9 @@ permissions:
 jobs:
   prepare:
     runs-on: ubuntu-latest
+    env:
+      CANDIDATE_COMMIT: ${{ inputs.commit }}
+      EXPECTED_CONTENT_REVISION: ${{ inputs.expected_current_revision }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -27,6 +30,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Validate literal publication inputs
+        run: node -e 'if (!/^[a-f0-9]{40}$/.test(process.env.CANDIDATE_COMMIT) || !/^content-[a-f0-9]{24}$/.test(process.env.EXPECTED_CONTENT_REVISION)) throw Error("Full commit and expected revision required")'
       - run: node scripts/maintenance.cjs --check
       - run: node scripts/sync-release-metadata.cjs --check
       - run: node scripts/sync-content.cjs --check
@@ -37,16 +42,16 @@ jobs:
       - name: Verify exact public main provenance and completed CI
         run: >-
           node scripts/verify-publication.mjs
-          --commit "${{ inputs.commit }}"
+          --commit "$CANDIDATE_COMMIT"
           --engine "$(node -p "require('./content/publication.json').engineRevision")"
       - name: Bind publication request to the verified commit and tree
         run: >-
           node scripts/publication-request.cjs
           --repository "$GITHUB_REPOSITORY"
-          --commit "${{ inputs.commit }}"
+          --commit "$CANDIDATE_COMMIT"
           --tree "$(git rev-parse 'HEAD^{tree}')"
           --ref "refs/heads/main"
-          --expectedCurrentRevision "${{ inputs.expected_current_revision }}"
+          --expectedCurrentRevision "$EXPECTED_CONTENT_REVISION"
           > publication-request.json
       - uses: actions/upload-artifact@v4
         with:
