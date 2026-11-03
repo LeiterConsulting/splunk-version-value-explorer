@@ -272,7 +272,15 @@ try {
             pair(group.querySelector('strong'),group.querySelector('a'));
             pair(group.querySelector('strong'),group.querySelector('p'));
           }
-          paginationCoverage={records:records.length,questions:questions.length,sources:sources.length,pairs:paginationPairs.length};
+          const sections=[...prep.querySelectorAll('.report-section')];
+          for(const section of sections) {
+            const lead=section.querySelector(':scope > .prep11-section-lead'),title=lead?.querySelector('h2');
+            if(!title)throw Error('Prep11 section heading has no containment lead');
+            const following=[...lead.querySelectorAll('h3,p,li')];
+            if(!following.length)throw Error('Prep11 section heading has no following content');
+            for(const fragment of following)pair(title,fragment);
+          }
+          paginationCoverage={records:records.length,questions:questions.length,sources:sources.length,sections:sections.length,pairs:paginationPairs.length};
         }
         return { html, text: doc.body.textContent, headings, printAnnotations, revision: window.VersionCompassRevision.id,
           ...(prep?{paginationPairs,paginationKind:'prep11-containment',paginationCoverage}:{}) };

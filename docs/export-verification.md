@@ -38,6 +38,15 @@ negative replay. The negative disables containment in fresh Chromium output; it
 is explicitly controlled, not labeled an actual Safari or original-layout replay.
 The existing forced-page-boundary fallback is recorded distinctly when needed.
 
+Every Prep11 report section must also contain a lead group with its heading and
+initial content. Include every paragraph, question title and first list entry in
+that group's page assertions. A retained seven-page native Safari fixture
+reproduces the question, source-directory and verification-register section
+orphans that the original card/citation-only gate omitted. Use the complete first
+verification entry: its title also occurs earlier in the source directory and can
+otherwise produce an ambiguous match. The current matrix checks 73 pairs across
+all five section leads, seven records, six questions and eight numbered sources.
+
 Both default Prep11 theme cases also retain `oversized/`: a fresh synthetic card
 with 48 uniquely numbered paragraphs and a final marker. Every paragraph must
 survive native printing; the result must span multiple pages while keeping its

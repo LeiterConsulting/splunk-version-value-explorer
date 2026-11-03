@@ -21,3 +21,8 @@ test('retained native Safari page text rejects the observed label and citation s
  const script=`import sys,json,hashlib,pathlib\nsys.path.insert(0,'tools/export-verification')\nfrom pagination import inspect\nroot=pathlib.Path('tests/fixtures')\nrecord=json.loads((root/'prep11-safari-pagination-before.json').read_text())\nraw=(root/record['textFile']).read_bytes()\nassert hashlib.sha256(raw).hexdigest()==record['textSha256']\ncontent=raw.decode()\nassert len(content.split('\\f'))==record['pageCount']\nfor pair in record['pairs']:\n try:\n  inspect(content,[pair])\n except AssertionError as error:\n  assert 'Orphaned PDF heading' in str(error)\n else:\n  raise AssertionError('Native Safari split was accepted: '+pair['heading'])\n`;
  assert.doesNotThrow(()=>execFileSync('python3',['-B','-c',script]));
 });
+
+test('native Safari section headings cannot be separated from their first content',()=>{
+ const script=`import sys,json,hashlib,pathlib\nsys.path.insert(0,'tools/export-verification')\nfrom pagination import inspect\nroot=pathlib.Path('tests/fixtures')\nrecord=json.loads((root/'prep11-safari-section-before.json').read_text())\nraw=(root/record['textFile']).read_bytes()\nassert hashlib.sha256(raw).hexdigest()==record['textSha256']\ncontent=raw.decode()\nassert len(content.split('\\f'))==record['pageCount']\nfor pair in record['pairs']:\n try:\n  inspect(content,[pair])\n except AssertionError as error:\n  assert 'Orphaned PDF heading' in str(error)\n else:\n  raise AssertionError('Native Safari section orphan was accepted: '+pair['heading'])\n`;
+ assert.doesNotThrow(()=>execFileSync('python3',['-B','-c',script]));
+});

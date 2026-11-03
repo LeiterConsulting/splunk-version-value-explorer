@@ -43,10 +43,17 @@ does not enforce that value in paged output; see [WebKit 294559](https://bugs.we
 The [print investigation](audits/2026-11-03-prep11-print-pagination.json) retains
 the original PDF identity, page-text fixture and validation limits. Every canonical
 card paragraph and citation URL/review scope gets an occurrence-specific page
-assertion in both-theme CI. A separate synthetic oversized card must print all
+assertion in both-theme CI. Five section leads also keep their headings with
+opening content; the first source remains numbered 1 and the continued list starts
+explicitly at 2. Prep11 opts into the shared verification-register lead grouping.
+A separate synthetic oversized card must print all
 48 added paragraphs and its final marker across multiple pages. These are native
-Chromium checks. A new candidate Safari capture, Cisco-theme native Safari capture
-and interactive reopening of the actual live downloaded HTML remain unverified.
+Chromium checks. The later owner-authorized quiet session captured and inspected
+the candidate in native Safari in both themes. All 100 text fragments and 73
+page-placement pairs passed; each PDF has seven US Letter pages at 100%. Cisco
+was checked with print backgrounds on and off. Runtime and PDF hashes are retained
+in the investigation. Interactive reopening of the actual live downloaded HTML
+remains unverified; a candidate download permission request was cancelled.
 Do not interrupt an active Safari session or substitute a local server/alternate
 browser path for a denied file opening. This candidate requires separate approval
 before merge or deployment.

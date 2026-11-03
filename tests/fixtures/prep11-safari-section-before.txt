@@ -1,0 +1,207 @@
+11/3/26, 12:15
+Version Compass | Prep for Splunk 11.x
+Page 1 of 7
+http://127.0.0.1:4197/?view=splunk-11
+Content revision vc-a3340bceb4558cfb · Publication 2026-11-03. Dataset content-
+a5840c5dc2e6c5bfa4f197ea · Rules engine-ee8c1e0986f3f7fcac0d · Delivery database. Live links show
+evolving guidance; a saved snapshot preserves this report.
+VERSION COMPASS / FUTURE RELEASE PREPARATION
+Prep for Splunk 11.x
+Upcoming Enterprise 11.x+ · Discovery checked 2026-11-02
+Independent public-source preparation guide. Not an official Cisco or Splunk publication.
+No version-specific public 11.x release announcement was located in the targeted official-source searches on
+November 2, 2026. This bounded discovery does not prove none exists. Release timing, deployment
+requirements and migration paths remain unconfirmed here. Individual preparation claims retain their own
+assessment dates below.
+Screen selection: All preparation areas · All public updates. This report includes the complete public update
+inventory, every preparation area, all open questions and numbered citations.
+Public updates
+An announcement records a stated plan. Released documentation, exact compatibility matrices and service-
+specific evidence are required before a plan becomes an installation path, supported pairing or availability claim.
+0 version-specific 11.x announcements recorded. Current-release context is labeled separately.
+2026-09-30 · Published announcement · 10.6 context
+Review custom version-detection logic
+The 10.6 announcement asks app and automation owners to use supported product-identification methods
+rather than relying on version numbers alone to distinguish Enterprise from Cloud.
+Scope: This is published 10.6 guidance and a useful preparation task. It does not announce an 11.x release
+or a migration path.
+Claim verified 2026-11-02 · [7]
+11/3/26, 12:15
+Version Compass | Prep for Splunk 11.x
+Page 2 of 7
+http://127.0.0.1:4197/?view=splunk-11
+2026-09-15 · Published announcement · adjacent product scope
+Kubernetes-based architecture announced for Cisco AI POD for Splunk
+Cisco’s announcement describes Kubernetes-based self-managed AI infrastructure for Splunk customers. It
+describes AI Assistant as available and Agent Launchpad as coming later in 2026.
+Scope: The statement is specific to self-managed AI and Cisco AI POD for Splunk. It does not establish an
+11.x deployment model or confirm later delivery of the named planned feature.
+Claim verified 2026-11-02 · [8]
+Prepare now
+These are editorial preparation actions supported by current documentation. They are not confirmed 11.x
+requirements.
+Current baseline · source discrepancy · SOK 3.2.0 / matrix Enterprise 10.0.12–10.6.0
+Start with an exact Operator compatibility tuple
+The 3.2 help matrix lists Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0. The linked change log lists
+Kubernetes 1.32–1.36 and Enterprise 10.6.0 for 3.2.0. Its September 8 heading also differs from the matrix’s
+September 24 release date.
+Scope: Preserve both published scopes. Confirm the exact Kubernetes, Operator and Enterprise
+combination before using it; neither source certifies 11.x.
+Prepare now: Record the intended Kubernetes distribution and version, Operator release and exact Enterprise
+build. Resolve the differing 3.2 version/date statements before relying on their disputed range.
+Claim verified 2026-11-02 · [1] · [2]
+11/3/26, 12:15
+Version Compass | Prep for Splunk 11.x
+Page 3 of 7
+http://127.0.0.1:4197/?view=splunk-11
+Current preparation guidance · Current Operator validated architecture
+Design storage and failure recovery before moving workloads
+The Operator validated architecture describes single-site and multi-site layouts, persistent storage, SmartStore
+and the App Framework. It discourages distributed non-clustered deployments because they lack the
+redundancy expected in Kubernetes.
+Scope: Current architecture guidance is preparation context. An 11.x topology, sizing or migration
+requirement is not established.
+Prepare now: Map search heads, indexers and management roles to availability zones, storage classes,
+recovery objectives and a tested restore design.
+Claim verified 2026-11-02 · [3]
+Current preparation guidance · Current Operator App Framework and premium-app guidance
+Inventory apps and configuration delivery
+The current Operator architecture covers app distribution through the App Framework and separate
+considerations for premium apps. Existing apps, add-ons, scripts, credentials and filesystem assumptions need
+their own review.
+Scope: App installation and a container image do not prove ES, ITSI, SOAR or third-party compatibility with
+11.x.
+Prepare now: Build an app and integration inventory, identify persistent state and external dependencies, and
+plan repeatable deployment and rollback tests. Keep exact premium-product matrices as a separate decision
+gate.
+Claim verified 2026-11-02 · [3]
+11/3/26, 12:15
+Version Compass | Prep for Splunk 11.x
+Page 4 of 7
+http://127.0.0.1:4197/?view=splunk-11
+Current baseline · Enterprise 10.6 documentation; capability introduced in 10.4+
+Recheck search resource controls
+Enterprise 10.6 documentation describes Advanced mode with writable CPU and memory cgroup controllers and
+the full categories, pools and placement/monitoring/admission rule set. Basic mode supports admission rules
+only. Its allow_basic fallback setting is false by default; Kubernetes use requires explicitly enabling it.
+Scope: Basic mode does not establish full workload-pool or placement-rule parity. This is current-release
+behavior, not an 11.x promise.
+Prepare now: Inventory admission, placement and monitoring rules; validate which controls work in the chosen
+current lab topology before assuming equivalent behavior.
+Claim verified 2026-11-03 · [4]
+Review status: Exact Enterprise 10.6 source retrieved and its modes, activation and mode-status sections
+assessed on November 3, 2026. The CLI reports basic/advanced; Basic does not load categories or pools.
+Expected Advanced-mode preflight warnings are not proof that an intentional Basic deployment is
+misconfigured.
+Planning option · Current Splunk Cloud Platform migration guidance
+Compare the future operating model with a Cloud migration
+Splunk Lantern’s organizational-readiness guide calls for a Cloud migration staffing plan, a communications plan
+and a post-migration staffing transition plan. It describes options for shifting duties toward business value,
+platform optimization or other work after infrastructure responsibilities change.
+Scope: Cloud is a separate migration program. Enterprise announcements do not establish Cloud rollout,
+entitlement or FedRAMP Moderate/High authorization.
+Prepare now: Assess ownership, staffing, communication and post-migration responsibilities. Use the released
+Enterprise-to-Cloud guide for technical assessment and exact service-specific evidence.
+Claim verified 2026-11-03 · [5]
+Review status: Staffing, communications and post-migration transition sections retrieved and assessed on
+November 3, 2026. These are planning options, not guaranteed staffing reductions, a technical migration
+path or customer-specific advice.
+Still to be confirmed
+11/3/26, 12:15
+Version Compass | Prep for Splunk 11.x
+Page 5 of 7
+http://127.0.0.1:4197/?view=splunk-11
+When will 11.x be available, and at what release stage?
+A confirmed public release date, preview or general-availability stage is not recorded in this evidence set.
+Evidence to watch: A dated official announcement and version-specific release notes.
+What deployment models will 11.x support?
+Supported deployment models, platform requirements and component-specific support for 11.x remain
+unconfirmed here.
+Evidence to watch: Version-specific system requirements and an official deployment/support statement.
+How will existing deployments reach 11.x?
+No 10.x-to-11.x upgrade edge, in-place conversion or data-movement procedure is published in this guide.
+Evidence to watch: READ THIS FIRST, an exact upgrade-path table, migration procedure and rollback limits.
+Which premium products, apps and forwarders will pair?
+Existing 10.x support does not establish 11.x support for ES, ITSI, SOAR, apps, forwarders or receiver
+topologies.
+Evidence to watch: Exact app, runtime, premium-product and forwarder/receiver matrices.
+What changes for support, security and lifecycle?
+No 11.x support deadline, runtime floor, FIPS status or security baseline is inferred from adjacent releases.
+Evidence to watch: The applicable public support-policy line, system requirements, advisories and
+cryptographic guidance.
+What changes for Cloud or regulated environments?
+Commercial Enterprise plans do not establish a Cloud service date, regional rollout or FR-M/FR-H authorization.
+Evidence to watch: Current Cloud Service Details, product-specific regional evidence and exact authorized
+Marketplace offerings.
+Public sources and review scope
+11/3/26, 12:15
+Version Compass | Prep for Splunk 11.x
+Page 6 of 7
+http://127.0.0.1:4197/?view=splunk-11
+Discover official public 11.x+ announcements and version-specific documentation; recheck this finite source
+inventory and affected claims; coordinate ES editions and Cloud/FedRAMP evidence with their existing owners.
+Verification dates for cited sources
+Dates apply only to recorded verification scope, not every dependent claim.
+1. Splunk Operator 3.2 compatibility matrix
+https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-
+operator-compatibility-matrix
+Section: SOK to Splunk Enterprise version compatibility; Upgrade path guidance · Source checked 2026-11-02 · Scope reviewed 2026-
+11-02
+2. Splunk Operator change log
+https://splunk.github.io/splunk-operator/reference/ChangeLog.html
+Section: 3.2.0 (2026-09-08); Breaking Changes; Supported Kubernetes and Splunk versions · Source checked 2026-11-02 · Scope
+reviewed 2026-11-02
+3. Splunk Validated Architecture: Operator for Kubernetes
+https://help.splunk.com/en/splunk-enterprise/splunk-validated-architectures/applied-svas/splunk-operator-for-kubernetes
+Section: Deployment Options; Storage Considerations; Application Lifecycle Management / App Framework / Premium Apps; Resilience
+and Scaling · Source checked 2026-11-02 · Scope reviewed 2026-11-02
+4. Enterprise 10.6 workload management on Kubernetes
+https://help.splunk.com/en/splunk-enterprise/administer/manage-workloads/10.6/use-workload-management-on-kubernetes
+Section: Workload management modes · Source checked 2026-11-03 · Scope reviewed 2026-11-03
+5. Splunk Lantern: Cloud migration readiness
+https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Readiness
+Section: Organizational readiness guide: staffing plan, communications plan and post-migration staffing transition plan · Source checked
+2026-11-03 · Scope reviewed 2026-11-03
+6. Welcome to Splunk Enterprise 10.6
+https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-
+10.6
+Section: Release introduction; upgrade and system-requirement links · Source checked 2026-11-02 · Scope reviewed 2026-10-15
+7. Splunk Platform 10.6 public announcement
+https://www.splunk.com/en_us/blog/platform/announcing-splunk-cloud-platform-10-6-and-splunk-enterprise-10-6.html
+Section: Keep Apps and Integrations Ready for Updated Versioning · Source checked 2026-11-02 · Scope reviewed 2026-11-02
+8. Cisco announces self-managed Splunk AI
+https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m09/cisco-delivers-trusted-ai-at-scale-through-new-splunk-advancements.html
+Section: Self-managed Splunk AI, accelerated by NVIDIA · Source checked 2026-11-02 · Scope reviewed 2026-11-02
+11/3/26, 12:15
+Version Compass | Prep for Splunk 11.x
+Page 7 of 7
+http://127.0.0.1:4197/?view=splunk-11
+Enterprise 10.6 workload management on Kubernetes · Last verified 2026-10-15 · Reviewed · October 15
+preparation-page review: Workload management modes. Current-version or adjacent-product evidence does
+not establish 11.x requirements, compatibility or availability.
+welcome to splunk enterprise 10.6 · Last verified 2026-10-15 · Reviewed · Confirmed the September 30,
+2026 Enterprise 10.6 publication, cohosted PostgreSQL KV Store transition, $8 encrypted-secret format,
+four-segment version format, Federated Search floor and Universal Forwarder 10.6 certification. Release
+publication does not establish an upgrade edge, lifecycle deadline, OS tuple, receiver pairing or app
+entitlement. October 15 preparation-page review: Release introduction; upgrade and system-requirement
+links. Current-version or adjacent-product evidence does not establish 11.x requirements, compatibility or
+availability.
+Splunk Operator 3.2 compatibility matrix · Last verified 2026-10-15 · Needs reconciliation · October 15
+preparation-page review: SOK to Splunk Enterprise version compatibility; Upgrade path guidance. Current-
+version or adjacent-product evidence does not establish 11.x requirements, compatibility or availability.
+Splunk Validated Architecture: Operator for Kubernetes · Last verified 2026-10-15 · Reviewed · October 15
+preparation-page review: Deployment Options; Storage Considerations; Application Lifecycle Management /
+App Framework / Premium Apps; Resilience and Scaling. Current-version or adjacent-product evidence
+does not establish 11.x requirements, compatibility or availability.
+Readiness · Last verified 2026-10-15 · Reviewed · October 15 preparation-page review: Organizational
+readiness guide: staffing plan, communications plan and post-migration staffing transition plan. Current-
+version or adjacent-product evidence does not establish 11.x requirements, compatibility or availability.
+Cisco announces self-managed Splunk AI · Last verified 2026-10-15 · Reviewed · October 15 preparation-
+page review: Self-managed Splunk AI, accelerated by NVIDIA. Current-version or adjacent-product evidence
+does not establish 11.x requirements, compatibility or availability.
+Splunk Operator change log · Last verified 2026-10-15 · Needs reconciliation · October 15 preparation-page
+review: 3.2.0 (2026-09-08); Breaking Changes; Supported Kubernetes and Splunk versions. Current-version
+or adjacent-product evidence does not establish 11.x requirements, compatibility or availability.
+Splunk Platform 10.6 public announcement · Last verified 2026-10-15 · Reviewed · October 15 preparation-
+page review: Keep Apps and Integrations Ready for Updated Versioning. Current-version or adjacent-
+product evidence does not establish 11.x requirements, compatibility or availability.
