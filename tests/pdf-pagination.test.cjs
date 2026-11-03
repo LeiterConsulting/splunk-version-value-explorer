@@ -13,7 +13,7 @@ test('native pagination replay labels deterministic page-boundary fallback separ
 });
 
 test('the first citation occurrence cannot borrow a later repeated source title to hide an orphan',()=>{
- const script=`import sys\nsys.path.insert(0,'tools/export-verification')\nfrom pagination import inspect\npair={'heading':'Source title','following':'https://example.test/exact-source','headingOccurrence':1}\ntry:\n inspect('Source title\\fhttps://example.test/exact-source Source title https://example.test/exact-source', [pair])\nexcept AssertionError as error:\n assert 'Orphaned PDF heading' in str(error)\nelse:\n raise AssertionError('A repeated later source title concealed the first split citation')\nassert inspect('Source title https://example.test/exact-source\\fSource title', [pair])[0]['pages']==[1]\n`;
+ const script=`import sys\nsys.path.insert(0,'tools/export-verification')\nfrom pagination import inspect\npair={'heading':'Source title','following':'https://example.test/exact-source','headingOccurrence':1}\ntry:\n inspect('Source title\\fhttps://example.test/exact-source Source title https://example.test/exact-source', [pair])\nexcept AssertionError as error:\n assert 'Orphaned PDF heading' in str(error)\nelse:\n raise AssertionError('A repeated later source title concealed the first split citation')\nassert inspect('Source title https://example.test/exact-source\\fSource title', [pair])[0]['pages']==[1]\nassert inspect('Source title\\fSource title https://example.test/exact-source', [{**pair,'headingOccurrence':2}])[0]['pages']==[2]\n`;
  assert.doesNotThrow(()=>execFileSync('python3',['-B','-c',script]));
 });
 

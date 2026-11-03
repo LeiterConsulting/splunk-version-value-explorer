@@ -247,7 +247,20 @@ try {
         if(prep) {
           const data=window.VersionCompassPrep11.data(), records=[...prep.querySelectorAll('.prep11-record')], questions=[...prep.querySelectorAll('.prep11-question')], sources=[...prep.querySelectorAll('.prep11-sources li')];
           if(records.length!==data.baseline.length+data.announcements.length+(data.contextUpdates||[]).length||questions.length!==data.questions.length||sources.length!==data.sourceIds.length)throw Error('Prep11 pagination coverage is missing canonical records');
-          const pair=(heading,following)=>paginationPairs.push({heading:heading.textContent.trim(),following:following.textContent.trim(),headingOccurrence:1});
+          const occurrences=new WeakMap(),normalize=value=>value.replace(/\s+/g,'').toLowerCase();
+          const pair=(heading,following)=>{
+            // Bind the actual DOM occurrence, including labels reused by future
+            // announcements. A later source-register title must not rescue it.
+            if(!occurrences.has(heading)) {
+              const range=doc.createRange();range.selectNodeContents(doc.body);range.setEndBefore(heading);
+              const before=normalize(range.toString()),needle=normalize(heading.textContent);
+              if(!needle)throw Error('Empty Prep11 pagination heading');
+              let offset=0,count=1,found;
+              while((found=before.indexOf(needle,offset))!==-1){count++;offset=found+needle.length;}
+              occurrences.set(heading,count);
+            }
+            paginationPairs.push({heading:heading.textContent.trim(),following:following.textContent.trim(),headingOccurrence:occurrences.get(heading)});
+          };
           for(const card of [...records,...questions]) {
             const title=card.querySelector('h3'),label=card.querySelector('.prep11-label');
             if(label)pair(label,title);
