@@ -43,7 +43,10 @@ with 48 uniquely numbered paragraphs and a final marker. Every paragraph must
 survive native printing; the result must span multiple pages while keeping its
 label/heading/lead together. Each page is rendered and checked for blank pages and
 out-of-bounds text. The probe is a separate CI page and cannot change the visitor's
-selection or canonical dataset. Inspect the retained images separately from these
+selection or canonical dataset. Its root/body theme classes and computed print
+text/background colors must match the canonical page, including citation/scope
+contrast. The first page must contain the first synthetic paragraph; a revision-only
+preface cannot stand in for meaningful first-page output. Inspect the retained images separately from these
 automated checks. Chromium checks, historical Safari evidence, new Safari capture
 and actual downloaded-HTML reopening remain distinct verification states.
 
