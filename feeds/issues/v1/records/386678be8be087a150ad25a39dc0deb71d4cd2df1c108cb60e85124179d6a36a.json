@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "findingId": "vci-es-editions-ambiguous-link",
+  "revision": 1,
+  "recordedAt": "2026-11-03T11:13:31.945Z",
+  "title": "Ambiguous ES history links silently selected one release and enabled exports",
+  "concernType": "suspected-error",
+  "problem": "Repeated or unsupported history input could silently render a different selected history with Copy Link, PDF and saved HTML available.",
+  "scope": {
+    "products": [
+      "VersionCompass ES Editions"
+    ],
+    "versions": [
+      "Site 269 baseline; November 3 repair candidate"
+    ],
+    "editions": [
+      "Essentials / Premier comparison"
+    ],
+    "deployments": [
+      "Current view and legacy preview alias; screen/PDF/saved HTML"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers opening shared edition history links"
+    ],
+    "exclusions": [
+      "VersionCompass URL selection defect; no vendor entitlement, authorization or compatibility conclusion. Repair assessment is source/regression scope, pending separate native and live delivery verification."
+    ]
+  },
+  "impact": {
+    "customerScenario": "Open a shared ES Editions link containing conflicting historical releases.",
+    "consequence": "An unconfirmed history selection can be mistaken for the intended report.",
+    "level": "unknown"
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "Live duplicate-release behavior and a failing-before/passing-after regression were independently observed."
+  },
+  "claimIds": [
+    "es-editions-ambiguous-link"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Keep original defect and bounded repair assessment; no automatic downstream closure."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "es20261103-14-0",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/fd8315145b54013c575ed4e969be1dd9a990d320/dist/editions.js",
+      "section": "state release selection; syncUrl; report; VersionCompassBuildSnapshot",
+      "statement": "Live duplicate release=8.8&release=8.7 silently canonicalized to 8.8 with report exports enabled. A genuine pre-repair regression failed on this exact URL. Candidate retains ambiguous/unsupported input, renders no substitute report and blocks Copy Link/PDF/HTML until deliberate history recovery. Duplicate view/preview markers, empty/unknown releases, repeated filters and foreign comparison fields are covered.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-03T11:09:50.641Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact public baseline commit is retained in the source URL; no separate upstream document revision exists for the live behavior observation."
+      }
+    },
+    {
+      "evidenceId": "es20261103-link-candidate",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/760e6d0fc1c86cd63962c61c692cdca206aa4d82/dist/editions.js",
+      "section": "selectionErrors guard; explicit edition-recover-history action; rejected VersionCompassBuildSnapshot",
+      "statement": "Public candidate guards unsupported or ambiguous history, retains original input, omits its report and requires deliberate recovery; a genuine pre-repair regression failed and sixteen focused post-repair tests passed. Native/live delivery is separately pending.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-03T11:13:57.084Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact public baseline commit is retained in the source URL; no separate upstream document revision exists for the live behavior observation."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/760e6d0fc1c86cd63962c61c692cdca206aa4d82/docs/audits/2026-11-03-es-editions-watch.json",
+      "pointer": "/claimChecks/14",
+      "originalLabel": "reproduced-and-repaired-in-candidate"
+    }
+  ]
+}
