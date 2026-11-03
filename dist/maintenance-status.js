@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-02T12:52:38.341Z",
-      "lastSuccess": "2026-11-02T12:52:38.429Z",
-      "outcome": "changed",
-      "summary": "Reviewed 34 official URLs and eight claim groups; recorded four issue reassessments with no canonical fact change.",
+      "lastAttempt": "2026-11-03T12:30:17.020Z",
+      "lastSuccess": "2026-11-03T12:30:17.094Z",
+      "outcome": "no-change",
+      "summary": "34officialinventorychecks and8boundedclaimassessments; no supported factual change",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -387,9 +387,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Reviewed 34 official URLs and eight claim groups; recorded four issue reassessments with no canonical fact change.",
           "scope": "Complete 34-URL inventory; exact Marketplace status, S3 conflicts, ES8.8 tables, SAIA runtime, ITSI subagent, SOAR restrictions, dated matrix and RCA wording. Publication checks recorded separately."
+        },
+        {
+          "at": "2026-11-03T12:30:17.020Z",
+          "outcome": "running",
+          "summary": "34officialinventorychecks and8boundedclaimassessments; no supported factual change",
+          "scope": "7direct/27indexedretrievals; exact Marketplace status only, S3conflicts, ES8.8regionaltables, SAIAregulated/runtime, ITSIregionalunknown, SOARrestricted, datedvisualmatrix, O11yRCAambiguity. Publication separate."
+        },
+        {
+          "at": "2026-11-03T12:30:17.094Z",
+          "outcome": "no-change",
+          "summary": "34officialinventorychecks and8boundedclaimassessments; no supported factual change",
+          "scope": "7direct/27indexedretrievals; exact Marketplace status only, S3conflicts, ES8.8regionaltables, SAIAregulated/runtime, ITSIregionalunknown, SOARrestricted, datedvisualmatrix, O11yRCAambiguity. Publication separate."
         }
       ],
-      "scope": "Complete 34-URL inventory; exact Marketplace status, S3 conflicts, ES8.8 tables, SAIA runtime, ITSI subagent, SOAR restrictions, dated matrix and RCA wording. Publication checks recorded separately."
+      "scope": "7direct/27indexedretrievals; exact Marketplace status only, S3conflicts, ES8.8regionaltables, SAIAregulated/runtime, ITSIregionalunknown, SOARrestricted, datedvisualmatrix, O11yRCAambiguity. Publication separate."
     },
     {
       "id": "version-release-watch",
