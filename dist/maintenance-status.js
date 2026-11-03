@@ -866,10 +866,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-01T11:01:55Z",
-      "lastSuccess": "2026-11-01T11:27:11.817Z",
+      "lastAttempt": "2026-11-03T11:09:50.641Z",
+      "lastSuccess": "2026-11-03T11:09:50.716Z",
       "outcome": "changed",
-      "summary": "Recovered the ES 8.8 edition capability matrix and current compatibility source mappings; published seven bounded issue-feed reassessments and deployed the validated revision.",
+      "summary": "Reviewed 38 source scopes/37 official URLs and fourteen bounded claim groups; repaired ambiguous ES links with explicit recovery. Native export/live delivery verification remains separate.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1235,9 +1235,33 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Recovered the ES 8.8 edition capability matrix and current compatibility source mappings; published seven bounded issue-feed reassessments and deployed the validated revision.",
           "scope": "36 official ES, pricing, licensing, SOAR and AI sources; 18 high-consequence claim groups; ES Editions current, legacy, shared and invalid journeys; 136 exact-candidate export cases; seven issue-feed assessments; Site version 257 live health."
+        },
+        {
+          "at": "2026-11-03T11:02:17.186Z",
+          "outcome": "running",
+          "summary": "ES edition and SOC prerequisite review in progress",
+          "scope": "38 source scopes/37 exact official URLs;14 claim groups; exact SOC Cloud/CMP/permissions/runtime and App/Export scope. Native feed and publication separately recorded."
+        },
+        {
+          "at": "2026-11-03T11:02:17.269Z",
+          "outcome": "no-change",
+          "summary": "Fourteen scoped ES/SOAR claim groups preserved; no canonical correction supported.",
+          "scope": "38 source scopes/37 exact official URLs;14 claim groups; exact SOC Cloud/CMP/permissions/runtime and App/Export scope. Native feed and publication separately recorded."
+        },
+        {
+          "at": "2026-11-03T11:09:50.641Z",
+          "outcome": "running",
+          "summary": "Repairing an independently reproduced ES history-link ambiguity.",
+          "scope": "ES edition entitlement/prerequisite/pairing conflicts, agent task floors, exact comparison/history URL safety; unreassessed historical/region claims remain dated and qualified."
+        },
+        {
+          "at": "2026-11-03T11:09:50.716Z",
+          "outcome": "changed",
+          "summary": "Reviewed 38 source scopes/37 official URLs and fourteen bounded claim groups; repaired ambiguous ES links with explicit recovery. Native export/live delivery verification remains separate.",
+          "scope": "ES edition entitlement/prerequisite/pairing conflicts, agent task floors, exact comparison/history URL safety; unreassessed historical/region claims remain dated and qualified."
         }
       ],
-      "scope": "36 official ES, pricing, licensing, SOAR and AI sources; 18 high-consequence claim groups; ES Editions current, legacy, shared and invalid journeys; 136 exact-candidate export cases; seven issue-feed assessments; Site version 257 live health."
+      "scope": "ES edition entitlement/prerequisite/pairing conflicts, agent task floors, exact comparison/history URL safety; unreassessed historical/region claims remain dated and qualified."
     },
     {
       "id": "version-guidance-audit",

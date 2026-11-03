@@ -187,7 +187,7 @@ test('historical links preserve routes, explain newer guidance, and offer option
   assert.equal(rt.window.VersionCompassPage.getSelection().to, '9.4');
   const currentGuidance = context.reasons.find(x => x.code === 'newer_guidance');
   assert(currentGuidance);
-  assert.match(currentGuidance.source, /\/docs\/releases\/2026\/(?:10\/2026-10-\d{2}|11\/2026-11-0[12])\.md$/);
+  assert.equal(currentGuidance.source, 'https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/'+require('../scripts/release-archive.cjs').discover(root)[0].file);
   const newer = context.reasons.find(x => x.code === 'newer_target');
   assert.equal(new URLSearchParams(newer.actionUrl).get('to'), '10.6');
   assert.equal(new URLSearchParams(newer.actionUrl).get('from'), '8.2');

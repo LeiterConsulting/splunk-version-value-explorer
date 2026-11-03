@@ -152,6 +152,15 @@ try {
         if(route.id==='prep11-shared')assert.equal(await page.locator('#prep11-count').innerText(),'1 of 5 preparation areas');
       }
     }
+    if(route.id.startsWith('editions-') && route.invalid) {
+      assert(await page.getByRole('heading',{name:'Choose the intended history release',exact:true}).isVisible());
+      assert.equal(await page.evaluate(()=>location.search),new URL(url).search);
+      assert.equal(await page.locator('main>.edition-report').count(),0);
+      assert(await page.locator('#edition-copy').isDisabled());
+      assert(await page.locator('#edition-recover-open').isDisabled());
+      assert(await page.evaluate(()=>{try{window.VersionCompassBuildSnapshot();return false;}catch(error){return /selection/.test(error.message);}}));
+      entry.selectionRecovery={passed:true,originalInputRetained:true,noSubstituteReport:true};
+    }
     const print = page.locator('#print-report, #edition-print').first();
     assert.equal(await page.evaluate(() => document.documentElement.classList.contains('theme-cisco')), theme === 'cisco');
     entry.screen = relative(path.join(directory, 'desktop.png')); await page.screenshot({path:path.join(output,entry.screen)});

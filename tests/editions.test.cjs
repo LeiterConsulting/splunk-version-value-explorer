@@ -5,10 +5,10 @@ const read=f=>fs.readFileSync(path.join(__dirname,'..',f),'utf8');
 const dataContext={window:{}};vm.runInNewContext(read('dist/editions-data.js'),dataContext);const data=dataContext.window.VersionCompassEditions;
 function router(search){const loaded=[],head=[],main={innerHTML:''};const document={body:{classList:{add(){}},appendChild(el){loaded.push(el.src);el.onload();}},head:{appendChild(el){head.push(el);}},querySelector(){return main;},querySelectorAll(){return [];},createElement(){return {};}};vm.runInNewContext(read('dist/site-router.js'),{window:{location:{search}},URLSearchParams,document});return {loaded,head,main};}
 test('public editions and legacy preview routes load editions; release routes stay isolated',()=>{
- for(const q of ['', '?product=es&platform=enterprise&host=10.4&from=8.6&to=8.7','?preview=no','?preview=es-editions&preview=es-editions']){const r=router(q);assert.deepEqual(r.loaded,['content-revision.js','source-register.js','evidence.js','report-tools.js','decision-support.js','environment-data.js','environment.js','perspectives.js','data.js','product-data.js','guidance-data.js','comparison.js','guidance.js','release-print.js','app.js','soar-data.js','soar.js','webmcp.js','advisor-handoff.js','navigation.js']);assert.equal(r.head.length,0);}
+ for(const q of ['', '?product=es&platform=enterprise&host=10.4&from=8.6&to=8.7','?preview=no']){const r=router(q);assert.deepEqual(r.loaded,['content-revision.js','source-register.js','evidence.js','report-tools.js','decision-support.js','environment-data.js','environment.js','perspectives.js','data.js','product-data.js','guidance-data.js','comparison.js','guidance.js','release-print.js','app.js','soar-data.js','soar.js','webmcp.js','advisor-handoff.js','navigation.js']);assert.equal(r.head.length,0);}
  const r=router('?preview=es-editions');assert.deepEqual(r.loaded,['content-revision.js','source-register.js','evidence.js','report-tools.js','decision-support.js','environment-data.js','environment.js','perspectives.js','editions-data.js','editions.js','navigation.js']);assert(!r.head.some(x=>x.name==='robots'));
  assert.deepEqual(router('?view=es-editions').loaded,['content-revision.js','source-register.js','evidence.js','report-tools.js','decision-support.js','environment-data.js','environment.js','perspectives.js','editions-data.js','editions.js','navigation.js']);
- assert.deepEqual(router('?view=es-editions&view=es-editions').loaded,router('').loaded);
+ for(const q of ['?view=es-editions&view=es-editions','?preview=es-editions&preview=es-editions','?view=advisor&view=es-editions'])assert.deepEqual(router(q).loaded,router('?view=es-editions').loaded);
  assert.deepEqual(router('?view=about').loaded,['source-register.js','maintenance-status.js','about.js','navigation.js']);
 });
 test('all evidence records have dated, official HTTPS citations and known edition statuses',()=>{
@@ -49,6 +49,11 @@ function runtime(search='?preview=es-editions'){
  vm.runInNewContext(read('dist/editions.js'),{document,location,history,window,URL,URLSearchParams,navigator:{clipboard:{async writeText(value){copied=value;}}}});
  return {elements,details,events,rows,location,html,snapshot(){return window.VersionCompassBuildSnapshot();},get copied(){return copied;}};
 }
+test('ambiguous or unsupported edition history links keep original input and block every report export',()=>{
+ for(const search of ['?view=es-editions&release=8.8&release=8.7','?preview=es-editions&release=unknown','?view=es-editions&release=','?view=es-editions&filter=review&filter=changed','?view=es-editions&from=8.6&to=8.8','?view=es-editions&view=es-editions']){
+  const r=runtime(search);assert.equal(r.location.search,search);assert.equal(r.elements.get('edition-copy').disabled,true);assert.equal(r.elements.get('edition-print').disabled,true);assert.throws(()=>r.snapshot(),/selection/i);assert(!r.html.includes('report-matrix'));assert(r.html.includes('Original link'));assert(r.html.includes('Choose the intended history release'));
+ }
+});
 test('search, filters, history URLs, copy links and print restoration work without leaking preview tools',async()=>{
  const r=runtime();assert.equal(r.elements.get('edition-count').textContent,'21 of 21 capabilities');assert(r.details.every(x=>!x.open));
  const filter=r.elements.get('edition-filter');filter.value='review';filter.listeners.change();assert.equal([...r.rows.values()].filter(x=>!x.hidden).length,2);
@@ -60,8 +65,15 @@ test('search, filters, history URLs, copy links and print restoration work witho
  r.details[0].open=true;r.events.beforeprint();r.events.beforeprint();assert(r.details.every(x=>x.open));r.events.afterprint();assert(r.details[0].open);assert(r.details.slice(1).every(x=>!x.open));
  assert.equal(r.elements.get('.agent-note').hidden,true);
 });
-test('malformed preview fields fall back safely and query text is escaped',()=>{
- const r=runtime('?preview=es-editions&release=unknown&filter=unknown&q=%22%3E%3Cimg%20src%3Dx%20onerror%3Dalert(1)%3E');assert.equal(r.elements.get('edition-history').value,'8.8');assert.equal(r.elements.get('edition-filter').value,'all');assert(!r.html.includes('<img'));assert(r.html.includes('&lt;img'));
+test('valid preview query text is escaped',()=>{
+ const r=runtime('?preview=es-editions&release=8.7&filter=review&q=%22%3E%3Cimg%20src%3Dx%20onerror%3Dalert(1)%3E');assert.equal(r.elements.get('edition-history').value,'8.7');assert.equal(r.elements.get('edition-filter').value,'review');assert(!r.html.includes('<img'));assert(r.html.includes('&lt;img'));
+});
+test('edition recovery requires a deliberate choice and retains valid shared context',()=>{
+ const r=runtime('?preview=es-editions&release=8.8&release=8.7&theme=cisco&perspective=security&csp=aws&region=us-gov-east-1&compliance=fr-h&filter=review');
+ const choice=r.elements.get('edition-recover-history'),open=r.elements.get('edition-recover-open');
+ assert.equal(open.disabled,true);open.listeners.click();assert.equal(r.location.href,undefined);
+ choice.value='8.7';choice.listeners.change();assert.equal(open.disabled,false);open.listeners.click();
+ const p=new URLSearchParams(r.location.href.split('?')[1]);assert.deepEqual(p.getAll('release'),['8.7']);assert.equal(p.get('theme'),'cisco');assert.equal(p.get('compliance'),'fr-h');assert.equal(p.get('region'),'us-gov-east-1');assert.equal(p.get('perspective'),'security');assert.equal(p.get('filter'),'review');assert.equal(p.has('preview'),false);
 });
 
 test('ES 8.8 remains Controlled Availability with edition-specific release history',()=>{

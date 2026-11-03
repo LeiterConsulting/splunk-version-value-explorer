@@ -12,7 +12,7 @@
     window.location.href = window.VersionCompassTheme?.href('?product=' + pendingProduct) || '?product=' + pendingProduct;
     return;
   }
-  const preview = params.getAll('view').length === 1 && params.get('view') === 'es-editions' || !params.has('view') && params.getAll('preview').length === 1 && params.get('preview') === 'es-editions';
+  const preview = params.getAll('view').includes('es-editions') || params.getAll('preview').includes('es-editions');
   const normal = ['environment-data.js','environment.js','data.js','product-data.js','guidance-data.js','comparison.js','guidance.js','release-print.js','app.js','soar-data.js','soar.js','webmcp.js','advisor-handoff.js'];
   if (preview) {
     document.body.classList.add('editions-preview');
@@ -30,6 +30,7 @@
     };
     document.body.appendChild(script);
   }
+  if(preview){load(['content-revision.js','source-register.js','evidence.js','report-tools.js','decision-support.js','environment-data.js','environment.js','perspectives.js','editions-data.js','editions.js','navigation.js']);return;}
   if(params.getAll('view').includes('exact-releases')){
     document.querySelector('main').innerHTML='<section class="hero"><p role="status">Loading exact release pilot.</p></section>';
     for(const file of ['editions.css','exact-releases.css']){const css=document.createElement('link');css.rel='stylesheet';css.href=file;document.head.appendChild(css);}
