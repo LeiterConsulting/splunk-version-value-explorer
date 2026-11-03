@@ -160,6 +160,11 @@ try {
       assert(await page.locator('#edition-recover-open').isDisabled());
       assert(await page.evaluate(()=>{try{window.VersionCompassBuildSnapshot();return false;}catch(error){return /selection/.test(error.message);}}));
       entry.selectionRecovery={passed:true,originalInputRetained:true,noSubstituteReport:true};
+      const contrast=await page.evaluate(()=>[...document.querySelectorAll('.edition-hero .edition-caution,.edition-hero .edition-qualification')].map(el=>{
+        const css=getComputedStyle(el),rgb=value=>value.match(/[\d.]+/g).slice(0,3).map(Number),lum=values=>values.map(v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4;}).reduce((sum,v,i)=>sum+v*[.2126,.7152,.0722][i],0),a=lum(rgb(css.color)),b=lum(rgb(css.backgroundColor));return{ratio:(Math.max(a,b)+.05)/(Math.min(a,b)+.05),foreground:css.color,background:css.backgroundColor};
+      }));
+      assert(contrast.length===2&&contrast.every(c=>c.ratio>=4.5),'Recovery warning/original-link text must be readable: '+JSON.stringify(contrast));
+      entry.selectionRecovery.contrast=contrast;
       if(route.id==='editions-history-environment-recovery') {
         await page.locator('#edition-recover-history').selectOption('8.7');
         await page.locator('#edition-recover-open').click();await settled(page);
