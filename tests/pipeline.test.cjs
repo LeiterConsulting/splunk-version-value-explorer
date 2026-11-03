@@ -40,6 +40,26 @@ test('source edits arriving during isolated generation cause a safe retry instea
   assert.throws(() => regenerate(root, [[process.execPath, '-e', 'require("fs").writeFileSync('+JSON.stringify(input)+',"{}\\n")']]), /Source changed/);
   assert.equal(fs.readFileSync(input, 'utf8'), '{}\n'); assert.equal(JSON.parse(fs.readFileSync(path.join(root, 'generated.json'))).stale, true);
 });
+for (const staged of [false, true]) test('preparation preserves an ordinary ' + (staged ? 'staged' : 'unstaged') + ' tracked deletion', t => {
+  const root = fixture(t), file = path.join(root, 'obsolete.txt');
+  const git = args => execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: 'pipe' });
+  fs.writeFileSync(file, 'Synthetic obsolete file.\n'); git(['add', 'obsolete.txt']);
+  git(['-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-m', 'Synthetic obsolete input']);
+  fs.rmSync(file); if (staged) git(['add', '--update']);
+  const status = git(['status', '--porcelain']);
+  assert.deepEqual(inputManifest(root).find(f => f.file === 'obsolete.txt'), { file: 'obsolete.txt', deleted: true });
+  const verifyDeletion = [process.execPath, '-e', 'const fs=require("fs"),cp=require("child_process");if(fs.existsSync("obsolete.txt")||cp.spawnSync("git",["ls-files","--error-unmatch","obsolete.txt"]).status===0)process.exit(1)'];
+  assert.equal(regenerate(root, [verifyDeletion]).generated.length, 0);
+  assert.equal(fs.existsSync(file), false); assert.equal(git(['status', '--porcelain']), status);
+});
+test('generated deletion is applied only after successful validation', t => {
+  const root = fixture(t), file = path.join(root, 'generated.json'), before = fs.readFileSync(file);
+  const remove = [process.execPath, '-e', 'require("fs").unlinkSync("generated.json")'];
+  assert.throws(() => regenerate(root, [remove, [process.execPath, '-e', 'process.exit(1)']]), /Preparation failed/);
+  assert.deepEqual(fs.readFileSync(file), before);
+  assert.deepEqual(regenerate(root, [remove]).generated, [{ file: 'generated.json', deleted: true }]);
+  assert.equal(fs.existsSync(file), false);
+});
 test('publication requires the full native-feed, coverage, Advisor and retained-export contract', async () => {
   const { REQUIRED_STEPS } = await import('../worker/publication-core.mjs');
   for (const step of ['node scripts/sync-advisor.cjs --check','node scripts/advisor-maintenance.cjs --check','node scripts/sync-issue-feed.cjs --check','node scripts/check-native-issue-feed.cjs','node scripts/check-automation-coverage.cjs','Bind rendered exports to release readiness','Retain candidate export evidence']) assert(REQUIRED_STEPS.includes(step));

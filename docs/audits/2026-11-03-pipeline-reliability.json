@@ -1748,8 +1748,8 @@
     "base": "52375081184ae679779fbce57969e20fc588af88",
     "deployment": "not-authorized-or-performed",
     "localValidation": {
-      "tests": 314,
-      "passed": 314,
+      "tests": 319,
+      "passed": 319,
       "failed": 0,
       "workerAssets": 74,
       "preparation": "isolated-generation-and-checks-passed",
@@ -6657,5 +6657,34 @@
       "createdAt": "2026-10-22T10:24:38Z",
       "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/actions/runs/39762882243"
     }
-  ]
+  ],
+  "independentReviewCorrections": {
+    "recordedAt": "2026-11-03T13:28:45Z",
+    "reviewedHead": "904354b2871ddc51d3f2a2aaa58a81772b290e8b",
+    "reproducedBeforeFix": [
+      {
+        "issue": "A later active amendment accepted an older complete registry run without its new mandatory gate.",
+        "regressionResult": "Missing expected exception for the exact amendment registry version."
+      },
+      {
+        "issue": "Ordinary tracked deletions failed isolated preparation in both staged and unstaged states.",
+        "regressionResult": "Missing/non-regular input: obsolete.txt in both reproductions."
+      }
+    ],
+    "changes": [
+      "First execution must match the amendment registry version; validation resolves that exact retained contract. Historical runs remain valid history and cannot activate a later contract.",
+      "An active registry requires a matching active amendment.",
+      "Input manifests explicitly retain tracked deletion records from HEAD and the working inventory. The isolated index reflects those deletions; the writer index remains untouched.",
+      "Validated generated deletions use the same apply/restore boundary as writes. Retained coverage-history deletion remains blocked."
+    ],
+    "validation": {
+      "tests": 319,
+      "passed": 319,
+      "failed": 0,
+      "skipped": 0,
+      "preparation": "isolated preparation passed with no generated changes",
+      "exactHeadCI": "pending revised draft head"
+    },
+    "rollout": "No merge, deployment, saved-task, schedule, credential, permission or real activation change."
+  }
 }

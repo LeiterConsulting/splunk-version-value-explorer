@@ -9,9 +9,13 @@ function files(root) {
   return [...new Set(execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard', '-z'], { cwd: root }).toString().split('\0').filter(Boolean))].sort();
 }
 function inputManifest(root = process.cwd()) {
-  return files(root).map(file => {
+  const tracked = execFileSync('git', ['ls-tree', '-r', '--name-only', '-z', 'HEAD'], { cwd: root }).toString().split('\0').filter(Boolean);
+  return [...new Set([...tracked, ...files(root)])].sort().map(file => {
     const full = path.join(root, file);
-    if (!fs.existsSync(full) || !fs.lstatSync(full).isFile()) throw Error('Missing/non-regular input: ' + file);
+    let stat;
+    try { stat = fs.lstatSync(full); }
+    catch (error) { if (error.code === 'ENOENT') return { file, deleted: true }; throw error; }
+    if (!stat.isFile()) throw Error('Non-regular input: ' + file);
     const bytes = fs.readFileSync(full);
     if (file.endsWith('.json')) {
       try { JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes)); }
@@ -31,18 +35,25 @@ function regenerate(root = process.cwd(), commands = generators.map(id => comman
   const staging = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-prepare-'));
   try {
     execFileSync('git', ['clone', '--quiet', '--shared', root, staging], { stdio: 'pipe' });
-    for (const { file } of before) { const target = path.join(staging, file); fs.mkdirSync(path.dirname(target), { recursive: true }); fs.copyFileSync(path.join(root, file), target); }
-    // Reflect working-tree deletions, rather than resurrecting the cloned file.
-    for (const file of files(staging)) if (!fs.existsSync(path.join(root, file))) fs.rmSync(path.join(staging, file));
+    execFileSync('git', ['checkout', '--quiet', '--detach', head], { cwd: staging, stdio: 'pipe' });
+    for (const { file, deleted } of before) {
+      const target = path.join(staging, file);
+      if (deleted) { fs.rmSync(target, { force: true }); continue; }
+      fs.mkdirSync(path.dirname(target), { recursive: true }); fs.copyFileSync(path.join(root, file), target);
+    }
+    // Give gates the actual candidate inventory, including staged/unstaged
+    // deletions. Only the isolated index changes; the writer's index stays intact.
+    execFileSync('git', ['add', '--all'], { cwd: staging, stdio: 'pipe' });
     run(commands, staging);
     const after = inputManifest(staging), previous = new Map(before.map(f => [f.file, f]));
-    const changed = after.filter(f => previous.get(f.file)?.sha256 !== f.sha256);
+    const changed = after.filter(f => previous.get(f.file)?.sha256 !== f.sha256 || previous.get(f.file)?.deleted !== f.deleted);
     if (JSON.stringify(inputManifest(root)) !== JSON.stringify(before) || execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim() !== head) throw Error('Source changed during preparation; reconcile and retry. No generated files applied.');
     const restored = [];
     try {
-      for (const { file } of changed) {
+      for (const { file, deleted } of changed) {
         const target = path.join(root, file), temp = target + '.vc-preparing';
         restored.push({ target, bytes: fs.existsSync(target) ? fs.readFileSync(target) : null });
+        if (deleted) { fs.rmSync(target, { force: true }); continue; }
         fs.mkdirSync(path.dirname(target), { recursive: true }); fs.copyFileSync(path.join(staging, file), temp); fs.renameSync(temp, target);
       }
     } catch (error) {
@@ -58,7 +69,7 @@ function main(args) {
   const inputs = inputManifest();
   if (args[0] === '--manifest') return { inputs };
   run(checks.map(id => command(id, true)), process.cwd());
-  if (args[0] === '--verify') run([[process.execPath, '--test', ...files(process.cwd()).filter(f => /^tests\/[^/]+\.test\.cjs$/.test(f))], command('build-worker')], process.cwd());
+  if (args[0] === '--verify') run([[process.execPath, '--test', ...inputs.filter(f => !f.deleted && /^tests\/[^/]+\.test\.cjs$/.test(f.file)).map(f => f.file)], command('build-worker')], process.cwd());
   return { status: args[0] === '--verify' ? 'local-validation-passed' : 'structural-checks-passed', inputCount: inputs.length, qualification: 'Does not verify upstream claims, rendered exports, repository integration or live delivery.' };
 }
 if (require.main === module) { try { console.log(JSON.stringify(main(process.argv.slice(2)), null, 2)); } catch (error) { console.error(error.message); process.exitCode = 1; } }

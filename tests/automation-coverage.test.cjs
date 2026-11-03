@@ -135,6 +135,31 @@ test('first execution cannot activate without delivered checks and matching sche
   run.execution = { taskId: task.taskId, schedulerRunId: 'wrong-run' }; save(); assert.throws(() => validateAmendments(ledger, registry, root), /task and scheduler identity/);
   run.execution.schedulerRunId = task.firstExecution.schedulerRunId; save(); assert.doesNotThrow(() => validateAmendments(ledger, registry, root));
 });
+test('an active amendment cannot borrow an older complete run that omits its new mandatory gate', t => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-amendment-version-')); t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  for (const file of ['content/advisor-goals.json', 'content/datasets/guidance.json', 'content/automation-registries/1.0.0.json']) { fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); fs.copyFileSync(file, path.join(root, file)); }
+  const next = structuredClone(registry); next.registryVersion = '1.1.0'; next.activation = 'active';
+  next.capabilities[0].requiredChecks.push('synthetic-new-required-gate');
+  const ledger = structuredClone(amendments), amendment = ledger.amendments[0];
+  amendment.registryVersion = next.registryVersion; amendment.activation = { status: 'active', activatedAt: '2026-11-03T00:00:00Z' };
+  amendment.savedTasks = [amendment.savedTasks[0]];
+  const task = amendment.savedTasks[0], file = 'docs/audits/2026-11-02-synthetic-version-coverage.json';
+  task.firstExecution = { status: 'verified', runId: 'synthetic-version-test', runFile: file, verifiedAt: '2026-11-03T00:00:00Z', evidence: 'Synthetic scheduled execution fixture.', schedulerRunId: 'synthetic-version-run' };
+  const run = completeRun(); run.kind = 'saved-task-execution'; run.runId = task.firstExecution.runId;
+  run.execution = { taskId: task.taskId, schedulerRunId: task.firstExecution.schedulerRunId };
+  run.validation = { checks: [...new Set(registry.capabilities.flatMap(c => c.requiredChecks))].map(id => ({ id, outcome: 'passed', evidence: 'Synthetic gate fixture.' })) };
+  run.publication.claimedDelivered = true;
+  const save = () => { fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); fs.writeFileSync(path.join(root, file), JSON.stringify(bind(run))); };
+  save(); assert.equal(validateRun(run, next, root).deliveryComplete, true);
+  assert.throws(() => validateAmendments(ledger, next, root), /exact amendment registry version/);
+  run.registryVersion = next.registryVersion; save();
+  assert.throws(() => validateAmendments(ledger, next, root), /delivery/);
+  run.validation.checks.push({ id: 'synthetic-new-required-gate', outcome: 'passed', evidence: 'Synthetic newly required gate.' }); save();
+  assert.doesNotThrow(() => validateAmendments(ledger, next, root));
+  amendment.registryVersion = '1.0.0'; run.registryVersion = '1.0.0'; run.validation.checks.pop(); save();
+  next.activation = 'pending-first-executions'; assert.doesNotThrow(() => validateAmendments(ledger, next, root));
+  next.activation = 'active'; assert.throws(() => validateAmendments(ledger, next, root), /matching active amendment/);
+});
 test('ES participating ownership cannot omit its mandatory coverage binding', t => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-es-coverage-')); t.after(() => fs.rmSync(root, { recursive: true, force: true }));
   const git = args => execFileSync('git', args, { cwd: root, stdio: 'pipe' });
@@ -152,4 +177,15 @@ test('version snapshots cannot be rewritten or deleted even alongside a matching
   for (const file of ['content/automation-coverage.json','content/automation-registries/1.0.0.json']) fs.writeFileSync(path.join(root,file),JSON.stringify(value));
   assert.throws(() => check(root), /snapshot is immutable/);
   fs.rmSync(path.join(root,'content/automation-registries/1.0.0.json')); assert.throws(() => check(root), /ENOENT|snapshot/);
+});
+test('ordinary deletion support does not permit staged or unstaged coverage-history removal', t => {
+  for (const staged of [false, true]) {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-retained-coverage-')); t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+    const git = args => execFileSync('git', args, { cwd: root, stdio: 'pipe' });
+    for (const file of ['content/advisor-goals.json', 'content/datasets/guidance.json', 'content/automation-coverage.json', 'content/automation-amendments.json', 'content/automation-registries/1.0.0.json']) { fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); fs.copyFileSync(file, path.join(root, file)); }
+    const file = path.join(root, 'docs/audits/2026-11-02-retained-coverage.json'); fs.mkdirSync(path.dirname(file), { recursive: true }); fs.writeFileSync(file, JSON.stringify(original));
+    git(['init', '--initial-branch', 'main']); git(['add', '.']); git(['-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-m', 'Synthetic retained coverage']);
+    fs.rmSync(file); if (staged) git(['add', '--update']);
+    assert.throws(() => check(root), /Do not delete coverage history/);
+  }
 });

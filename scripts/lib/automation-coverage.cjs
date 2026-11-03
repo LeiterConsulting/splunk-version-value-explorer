@@ -128,7 +128,9 @@ function validateAmendments(ledger, registry, root = process.cwd()) {
       const first = t.firstExecution;
       if (first?.status !== 'verified') return false;
       assert(text(first.runId) && timestamp(first.verifiedAt) && Date.parse(first.verifiedAt) <= Date.now() && text(first.evidence) && /^docs\/audits\/\d{4}-\d{2}-\d{2}-[a-z0-9-]+-coverage\.json$/.test(first.runFile || ''), 'Verified first execution needs a retained coverage run');
-      const run = read(root, first.runFile), result = validateRun(run, registry, root);
+      const run = read(root, first.runFile);
+      assert(run.registryVersion === a.registryVersion, 'First execution needs the exact amendment registry version');
+      const result = validateRun(run, registry, root);
       assert(run.kind === 'saved-task-execution' && run.runId === first.runId && run.watchId === t.id && result.coverageComplete && result.deliveryComplete && run.claimedComplete && run.publication.claimedDelivered, 'Manual/incomplete review or delivery cannot verify first saved-task execution');
       assert(text(t.taskId) && run.execution?.taskId === t.taskId && text(run.execution.schedulerRunId) && first.schedulerRunId === run.execution.schedulerRunId && Date.parse(first.verifiedAt) >= Date.parse(run.recordedAt), 'First execution needs matching task and scheduler identity');
       return true;
@@ -137,17 +139,19 @@ function validateAmendments(ledger, registry, root = process.cwd()) {
     if (a.activation.status === 'active' || registry.activation === 'active') assert(reconciled && executed && timestamp(a.activation.activatedAt) && Date.parse(a.activation.activatedAt) <= Date.now(), 'Activation requires saved readback and real verified first executions');
     if (!reconciled || !executed) assert(a.activation.status === 'pending' && a.activation.activatedAt === null, 'Unverified amendment must stay pending');
   }
+  if (registry.activation === 'active') assert(ledger.amendments.some(a => a.registryVersion === registry.registryVersion && a.activation?.status === 'active'), 'Active registry needs a matching active amendment');
   return ledger;
 }
 function check(root = process.cwd()) {
   const registry = validateRegistry(read(root, 'content/automation-coverage.json'), root);
   validateAmendments(read(root, 'content/automation-amendments.json'), registry, root);
   const git = args => execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim().split('\n').filter(Boolean);
+  const parents = git(['rev-list', '--parents', '-n', '1', 'HEAD'])[0].split(/\s+/).slice(1);
+  for (const revision of ['HEAD', ...parents]) for (const file of git(['ls-tree', '-r', '--name-only', revision, 'docs/audits']).filter(f => f.endsWith('-coverage.json'))) assert(fs.existsSync(path.join(root, file)), 'Do not delete coverage history: ' + file);
   const candidates = new Set([...git(['ls-files', 'docs/audits/*-coverage.json']), ...git(['ls-files', '--others', '--exclude-standard', 'docs/audits/*-coverage.json'])]);
   const results = [...candidates].map(file => ({ file, ...validateRun(read(root, file), registry, root) }));
   // Match the native-feed changed-review gate; historical unchanged runs do not
   // acquire a retrospective assessment or an invented task execution.
-  const parents = git(['rev-list', '--parents', '-n', '1', 'HEAD'])[0].split(/\s+/).slice(1);
   const snapshots = new Set([...git(['ls-files', 'content/automation-registries/*.json']), ...git(['ls-files', '--others', '--exclude-standard', 'content/automation-registries/*.json'])]);
   assert(snapshots.has('content/automation-registries/' + registry.registryVersion + '.json'), 'Current registry needs an immutable version snapshot');
   for (const file of snapshots) {

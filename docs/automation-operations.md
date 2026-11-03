@@ -32,6 +32,11 @@ one `fetch failed` whose mutation outcome was not established by that log.
   prepared output. Failure before application leaves original files unchanged;
   file replacement errors restore the saved preimages. An interrupted process is
   still an incomplete operation: inspect Git and rerun checks before committing.
+  The input manifest records tracked deletions explicitly, whether staged or
+  unstaged. The isolated index matches that candidate before gates run; the
+  writer's original staged/unstaged state stays intact. Validated generated
+  deletions follow the same apply/restore boundary as generated file writes.
+  Coverage history and immutable registries remain protected by their own gates.
 * The publisher checks out the triggering validation SHA. It only publishes when
   that SHA also matches the workflow's existing OIDC SHA. If newer main has
   superseded the trigger, it records `superseded-trigger-not-published` and makes
@@ -56,6 +61,11 @@ one `fetch failed` whose mutation outcome was not established by that log.
   relabeled complete. Pre-repair ES/CSP review inputs at commit
   `52375081184ae679779fbce57969e20fc588af88` are explicitly grandfathered for
   binding only; a new semantic review requires its declared coverage.
+
+Activation also binds the first execution to the amendment's exact registry
+version. An older complete run cannot supply newly required gates for a later
+amendment. Historical runs and prior amendments retain their original versions;
+an active registry requires its own matching active amendment.
 
 November 3 ES recovery-selector and exact-release registration failures were
 already repaired in main before this branch: invalid links use the recovery
