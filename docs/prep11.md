@@ -29,6 +29,28 @@ also appears on invalid-link recovery and is insufficient verification.
 
 The export route inventory includes both themes for default, selected/shared and invalid prep inputs. Dedicated application CI must pass native PDF page checks, independent offline HTML reopenings, phone layouts and real Tab access to print/save actions. Preserve surrounding Platform, legacy and ES routes. Inspect retained novel page images separately from automated geometry checks.
 
+### Print pagination candidate, November 3
+
+The retained default-theme Safari PDF from Site 275 preserves the report's content,
+but splits an App Framework category label from its heading and a citation title
+from its URL/review scope. The candidate groups short preparation/update cards,
+questions and source entries with `break-inside: avoid` and the legacy
+`page-break-inside` alias. Inner lead blocks keep labels/headings with their opening
+text when an oversized card must fragment. No fixed height or clipping is used.
+This addresses a known WebKit limitation: it recognizes `break-after: avoid` but
+does not enforce that value in paged output; see [WebKit 294559](https://bugs.webkit.org/show_bug.cgi?id=294559).
+
+The [print investigation](audits/2026-11-03-prep11-print-pagination.json) retains
+the original PDF identity, page-text fixture and validation limits. Every canonical
+card paragraph and citation URL/review scope gets an occurrence-specific page
+assertion in both-theme CI. A separate synthetic oversized card must print all
+48 added paragraphs and its final marker across multiple pages. These are native
+Chromium checks. A new candidate Safari capture, Cisco-theme native Safari capture
+and interactive reopening of the actual live downloaded HTML remain unverified.
+Do not interrupt an active Safari session or substitute a local server/alternate
+browser path for a denied file opening. This candidate requires separate approval
+before merge or deployment.
+
 ## November 2 scoped pilot review
 
 The current help matrix was independently assessed: SOK 3.2.0 lists Enterprise

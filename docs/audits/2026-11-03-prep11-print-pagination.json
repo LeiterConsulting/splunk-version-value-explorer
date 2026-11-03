@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-03",
+  "status": "draft-candidate-not-merged-or-deployed",
+  "scope": "Prep11 PDF pagination and its export regression guard",
+  "baseline": {
+    "githubCommit": "2b529ef56a2f9d35095656da39899e608e1b4fb7",
+    "tree": "26589c6dd7710eb3ffbe3d02f3a4177e3654d4c0",
+    "siteVersion": 275,
+    "url": "https://versioncompass.com/?view=splunk-11",
+    "retainedDefaultSafariPdf": {
+      "sha256": "3db76ef2356a54313942c96d4d382b0035e6c7ea549ea3fed1a956c1dff0f706",
+      "bytes": 107141,
+      "pages": 6,
+      "priorInspection": "All six pages visually reviewed; 131 expected text fragments retained; no blank or out-of-bounds text. Minor pagination finding, not content loss.",
+      "splits": [
+        { "kind": "category-label-to-heading", "labelPage": 2, "headingPage": 3, "heading": "Inventory apps and configuration delivery" },
+        { "kind": "citation-title-to-url-and-review-scope", "titlePage": 5, "urlAndScopePage": 6, "title": "Cisco announces self-managed Splunk AI" }
+      ],
+      "fixture": "tests/fixtures/prep11-safari-pagination-before.json",
+      "textFixtureSha256": "1b04518e4ff8ee21d52ba2546470e17c49264186ba56d6365dd4fc2cbeb6d5c8"
+    }
+  },
+  "causes": [
+    {
+      "finding": "Cards explicitly allowed inside fragmentation; label/heading break-after avoidance alone is not enforced in WebKit paged output.",
+      "sources": [
+        "https://bugs.webkit.org/show_bug.cgi?id=294559",
+        "https://raw.githubusercontent.com/mdn/browser-compat-data/main/css/properties/break-after.json",
+        "https://raw.githubusercontent.com/mdn/browser-compat-data/main/css/properties/break-inside.json",
+        "https://www.w3.org/TR/css-break-3/"
+      ]
+    },
+    {
+      "finding": "A repeated source title later in the report concealed the split first citation from the old any-page matcher.",
+      "reproduction": "Two new Node/Python regression tests failed before the occurrence-specific guard repair, including the retained Safari page text."
+    }
+  ],
+  "candidate": {
+    "rendering": "Normal block containment for short records, questions and source entries; nested lead blocks for oversized records; page-break-inside:avoid plus break-inside:avoid; no fixed height, overflow clipping or forced page break.",
+    "guard": "Canonical counts and first-occurrence label/title/paragraph/citation pair checks in both-theme native Chromium PDF output.",
+    "negative": "Controlled native Chromium fragmentation with containment disabled; fallback forced page boundary is labeled separately. Historical Safari text is a separate detection fixture.",
+    "oversized": "Separate fresh CI page containing one canonical card plus 48 synthetic numbered paragraphs and a final marker; complete multi-page output and lead grouping required.",
+    "facts": "No canonical datasets, source or claim review dates, material cycles, schedules, permissions or activation changes."
+  },
+  "verificationLimits": {
+    "newNativeSafariCandidateCapture": "unverified",
+    "nativeCiscoSafariCapture": "unverified",
+    "actualLiveDownloadedHtmlInteractiveReopening": "unverified; prior browser file-protocol security denial remains in force",
+    "safariInteractionDuringInvestigation": "none; active user work left untouched",
+    "isolatedWebKitAttempt": "A no-window, ephemeral WKWebView print probe using fresh synthetic repository output stalled and produced an incomplete PDF. Its owned process was terminated; no pass is claimed. It did not open retained downloads or control Safari.",
+    "smallestRemainingNativeCheck": "When an owner-authorized non-disruptive native session is available, print the candidate Prep11 report in each theme and inspect every page, including labels, qualifications and complete citation entries. Actual live downloaded HTML reopening requires a permitted file-open capability; do not substitute a server, alternate browser surface or indirect execution for the denial."
+  },
+  "releaseBoundary": "Draft PR and exact-head CI only; separate approval required to merge or deploy. Pilot activation and independent visitor advancement remain governed by their existing gates."
+}
