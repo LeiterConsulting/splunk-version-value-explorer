@@ -18,6 +18,15 @@ Digests, settings and actual recorded-run observations are retained in the
 [November 4 receipt](audits/2026-11-04-automation-task-reconciliation.json) and the
 current amendment ledger. No duplicate task or timer was created.
 
+The later November 4 troubleshooting request added a run-integrity/reporting guard
+to these same four complete prompts. Each independently read-back current digest
+is retained as currentConfiguration in the 1.2.0 amendment; the first reconciliation
+receipt remains unchanged. The guard anchors the task's own scope/report identity,
+rejects old or another watch's result as its success, and carries read-only
+diagnostics inside existing watches. It is a safeguard awaiting real execution,
+not an evidenced repair of scheduler/result-routing internals. See the
+[runtime diagnostic](audits/2026-11-04-automation-runtime-diagnostic.json).
+
 For each future run, require feature-specific Agent Mode regions/runtime and current compatibility/SAIA-9918 sources; planned 2.4.0 support is not released availability; keep the
 SOC decision's excluded eligibility/rollout/pairing scope explicit. A bounded
 assessment of an unknown does not establish it as available. Record actual

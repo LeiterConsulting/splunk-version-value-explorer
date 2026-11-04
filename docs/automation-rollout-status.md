@@ -35,6 +35,19 @@ validation/feed/provenance/export/publication/live evidence. Pilot activation an
 VC_ACTIVE_DELIVERY remain unchanged. The next nominal Guidance slot is November 5
 08:00 Eastern, flexible. Existing runs, not a new timer, provide follow-through.
 
+The subsequent account/task audit confirmed the four watches remain enabled,
+the one-time delivery checkpoint remains intentionally disabled, and Ripple's
+daily updater and November 20 owner review are retained. A prompt-only run-integrity
+guard was independently read back for all four watches; their schedules, timing,
+environments and other exposed settings remain unchanged. The candidate read-only
+pipeline diagnostic now refuses green-CI-only readiness when native task evidence
+or current participating coverage is missing. Its regression tests reproduce
+duplicated/wrong-watch reports, stale result/run joins, changed configuration and
+incomplete delivery. The [runtime diagnostic](audits/2026-11-04-automation-runtime-diagnostic.json)
+retains actual outcomes and finite follow-up. Native scheduler internals and the
+cause of the Release/Guidance incidents remain unavailable; no repair or future
+dispatch is claimed merely from the saved guard or passing local tests.
+
 ## Published implementation
 
 [PR #66](https://github.com/LeiterConsulting/splunk-version-value-explorer/pull/66)
