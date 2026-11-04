@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-soc-analyst-version-floor",
+  "revision": 1,
+  "recordedAt": "2026-11-04T11:34:00Z",
+  "assessmentId": "vcia-es-editions-20261104-es-soc-analyst-version-floor",
+  "assessedAt": "2026-11-04T11:22:00Z",
+  "outcome": "still-present",
+  "rationale": "The renamed Triage and Response aggregate Cloud row still lists Platform 10.2.x+ and ES 8.6+, while the task guide requires Platform 10.2+ and ES 8.7+. CMP separately requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and SAIA 2.4+, but current SAIA guidance says 2.4.0 support is planned rather than released.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security AI SOC Analyst"
+    ],
+    "versions": [
+      "ES 8.8 documentation: aggregate Cloud ES 8.6+ versus task-specific ES 8.7+"
+    ],
+    "editions": [
+      "Premier"
+    ],
+    "deployments": [
+      "Splunk Cloud Platform"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers planning AI SOC Analyst prerequisites"
+    ],
+    "exclusions": [
+      "CMP has its separate Platform 10.4+/ES 8.8+/Cloud Connect 2.0 chain; no lower-floor eligibility, tenant rollout, entitlement, pairing or authorization is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-manual-coverage-20261103-es-soc-version-floor"
+  ],
+  "remainingConcerns": [
+    "Cloud ES minimum remains unresolved; the separately documented CMP dependency chain does not establish a currently supported available path."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "es20261104-es-soc-analyst-version-floor-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Triage and Response compatibility row",
+      "statement": "The aggregate row still says Platform 10.2.x+ and ES 8.6+ for Cloud; the current task guide requires Platform 10.2+ and ES 8.7+.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-04T11:08:00Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact official indexed section assessed on November 4; raw upstream bytes and publisher revision/effective time remain unknown. The immutable public audit pins this bounded assessment."
+      }
+    },
+    {
+      "evidenceId": "es20261104-es-soc-analyst-version-floor-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
+      "section": "Prerequisites",
+      "statement": "The aggregate row still says Platform 10.2.x+ and ES 8.6+ for Cloud; the current task guide requires Platform 10.2+ and ES 8.7+.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-04T11:08:00Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact official indexed section assessed on November 4; raw upstream bytes and publisher revision/effective time remain unknown. The immutable public audit pins this bounded assessment."
+      }
+    },
+    {
+      "evidenceId": "es20261104-es-soc-analyst-version-floor-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/set-up-splunk-cloud-connect-to-use-the-agentic-soc",
+      "section": "Prerequisites; Install Cloud Connect and SAIA; Activate services; tokens",
+      "statement": "The current ES setup page requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+, then documents service activation and a shared search-head certificate for token use. Current SAIA 2.3.6 guidance says Cloud Connected support is planned for version 2.4.0 in late November 2026; versions 2.2.0 through 2.3.6 are unsupported and the 2.1.1 fallback lacks Agent Mode.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-04T11:08:00Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact official indexed section assessed on November 4; raw upstream bytes and publisher revision/effective time remain unknown. The immutable public audit pins this bounded assessment."
+      }
+    },
+    {
+      "evidenceId": "es20261104-es-soc-analyst-version-floor-3",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "Cloud Connected compatibility; Version compatibility",
+      "statement": "The current ES setup page requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+, then documents service activation and a shared search-head certificate for token use. Current SAIA 2.3.6 guidance says Cloud Connected support is planned for version 2.4.0 in late November 2026; versions 2.2.0 through 2.3.6 are unsupported and the 2.1.1 fallback lacks Agent Mode.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-04T11:08:00Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact official indexed section assessed on November 4; raw upstream bytes and publisher revision/effective time remain unknown. The immutable public audit pins this bounded assessment."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/bda15357128a808e17c5c8cbebdb825b4063da1f/docs/audits/2026-11-04-es-editions-watch.json",
+      "pointer": "/claimChecks/3",
+      "originalLabel": "confirmed-conflict"
+    },
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/bda15357128a808e17c5c8cbebdb825b4063da1f/docs/audits/2026-11-04-es-editions-watch.json",
+      "pointer": "/claimChecks/1",
+      "originalLabel": "changed"
+    }
+  ]
+}

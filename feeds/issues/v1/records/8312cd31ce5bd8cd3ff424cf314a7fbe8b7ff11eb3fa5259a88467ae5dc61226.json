@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-cloud-connected-agent-mode-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-04T11:34:00Z",
+  "assessmentId": "vcia-es-editions-20261104-saia-cloud-connected-agent-mode-scope",
+  "assessedAt": "2026-11-04T11:22:00Z",
+  "outcome": "still-present",
+  "rationale": "The ES agentic setup now explicitly requires SAIA 2.4+ for Cloud Connected CMP, while current SAIA 2.3.6 guidance says 2.4.0 support is planned for late November 2026, versions 2.2.0–2.3.6 are unsupported and the 2.1.1 fallback lacks Agent Mode. The planned dependency is not represented as released availability.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant"
+    ],
+    "versions": [
+      "SAIA 2.3.6 documentation",
+      "2.1.1 fallback",
+      "planned 2.4.0 is not established as released"
+    ],
+    "editions": null,
+    "deployments": [
+      "Splunk Enterprise with Cloud Connected"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating a current Enterprise Agent Mode path"
+    ],
+    "exclusions": [
+      "No native Cloud restriction, actual tenant availability, supported future release, entitlement or customer authorization is inferred."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-manual-coverage-20261103-saia-cloud-connected-scope"
+  ],
+  "remainingConcerns": [
+    "Verify the exact supported Cloud Connected and Agent Mode scope only after an authoritative SAIA 2.4 release and compatibility update."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "es20261104-saia-cloud-connected-agent-mode-scope-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/set-up-splunk-cloud-connect-to-use-the-agentic-soc",
+      "section": "Prerequisites; Install Cloud Connect and SAIA; Activate services; tokens",
+      "statement": "The current ES setup page requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+, then documents service activation and a shared search-head certificate for token use. Current SAIA 2.3.6 guidance says Cloud Connected support is planned for version 2.4.0 in late November 2026; versions 2.2.0 through 2.3.6 are unsupported and the 2.1.1 fallback lacks Agent Mode.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-04T11:08:00Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact official indexed section assessed on November 4; raw upstream bytes and publisher revision/effective time remain unknown. The immutable public audit pins this bounded assessment."
+      }
+    },
+    {
+      "evidenceId": "es20261104-saia-cloud-connected-agent-mode-scope-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "Cloud Connected compatibility; Version compatibility",
+      "statement": "The current ES setup page requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+, then documents service activation and a shared search-head certificate for token use. Current SAIA 2.3.6 guidance says Cloud Connected support is planned for version 2.4.0 in late November 2026; versions 2.2.0 through 2.3.6 are unsupported and the 2.1.1 fallback lacks Agent Mode.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-04T11:08:00Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact official indexed section assessed on November 4; raw upstream bytes and publisher revision/effective time remain unknown. The immutable public audit pins this bounded assessment."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/bda15357128a808e17c5c8cbebdb825b4063da1f/docs/audits/2026-11-04-es-editions-watch.json",
+      "pointer": "/claimChecks/1",
+      "originalLabel": "changed"
+    }
+  ]
+}
