@@ -2780,7 +2780,8 @@ window.VersionCompassSources = {
       "references": [
         "release.guidance.sources.aiSaiaCloudConnected.url",
         "guidance: guidance.aiAvailability",
-        "guidance: guidance.aiAvailability.capabilities.1"
+        "guidance: guidance.aiAvailability.capabilities.1",
+        "guidance: guidance.aiAvailability.capabilities.7"
       ],
       "reviews": [
         "2026-11-03"
@@ -2792,6 +2793,10 @@ window.VersionCompassSources = {
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.1",
+          "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.7",
           "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data"
         }
       ],
@@ -3277,29 +3282,19 @@ window.VersionCompassSources = {
       ]
     },
     {
-      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
-      "title": "ES 8.8 current Triage component note",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+      "title": "ES 8.8 current Triage and Response aggregate row",
       "areas": [
-        "Release guide",
-        "ES editions",
-        "Shared guidance"
+        "ES editions"
       ],
       "references": [
-        "release.guidance.sources.aiEsTriageNote88.url",
-        "release.guidance.sources.aiEsAgents88.url",
         "editions.sources.triageNote88.u",
         "editions.sources.agentic88.u",
-        "content-updates.js",
-        "guidance: guidance.aiAvailability",
-        "guidance: guidance.aiAvailability.capabilities.3",
-        "guidance: guidance.aiAvailability.capabilities.4",
-        "guidance: guidance.aiAvailability.capabilities.5",
-        "guidance: guidance.aiAvailability.capabilities.6",
-        "guidance: guidance.aiAvailability.capabilities.7",
         "editions: editions.capabilities.5",
         "editions: editions.capabilities.9",
         "editions: editions.capabilities.10",
         "editions: editions.capabilities.15",
+        "editions: editions.capabilities.16",
         "editions: editions.capabilities.17",
         "editions: editions.capabilities.18",
         "editions: editions.capabilities.19",
@@ -3312,47 +3307,206 @@ window.VersionCompassSources = {
         "editions: editions.workflows.1"
       ],
       "reviews": [
-        "2026-10-28",
-        "2026-11-02"
+        "2026-11-04"
+      ],
+      "conflict": true,
+      "usage": "In use",
+      "reviewed": "2026-11-04",
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-11-04",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-04",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/analyze-scripts-using-the-ai-powered-malware-reversing-agent-and-phishing-analysis-agent-in-splunk-enterprise-security",
+      "title": "Malware Reversing and Phishing task guide (ES 8.8)",
+      "areas": [
+        "ES editions"
+      ],
+      "references": [
+        "editions.sources.malwareTask88.u",
+        "editions: editions.capabilities.17",
+        "editions: editions.conflicts.2.claims.1"
+      ],
+      "reviews": [
+        "2026-11-04"
+      ],
+      "conflict": true,
+      "usage": "In use",
+      "reviewed": "2026-11-04",
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-11-04",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-04",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/set-up-splunk-cloud-connect-to-use-the-agentic-soc",
+      "title": "ES 8.8 Cloud Connect setup for the agentic SOC",
+      "areas": [
+        "Release guide",
+        "ES editions",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.guidance.sources.aiEsCloudConnectAgentic88.url",
+        "editions.sources.cloudcxAgentic88.u",
+        "content-updates.js",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.3",
+        "guidance: guidance.aiAvailability.capabilities.4",
+        "guidance: guidance.aiAvailability.capabilities.7",
+        "editions: editions.capabilities.5",
+        "editions: editions.capabilities.9",
+        "editions: editions.capabilities.20",
+        "editions: editions.notes.0"
+      ],
+      "reviews": [
+        "2026-11-04"
       ],
       "claimReferences": [
         {
           "path": "guidance: guidance.aiAvailability",
-          "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
-        },
-        {
-          "path": "guidance: guidance.aiAvailability",
-          "section": "SOC analyst Triage/Response note; aggregate AI SOC Analyst availability row"
+          "section": "Platform, ES, Cloud Connect and Splunk AI Assistant floors; installation, service activation and token certificate setup"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.3",
-          "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
+          "section": "Platform, ES, Cloud Connect and Splunk AI Assistant floors; installation, service activation and token certificate setup"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.4",
-          "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
-        },
-        {
-          "path": "guidance: guidance.aiAvailability.capabilities.5",
-          "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
-        },
-        {
-          "path": "guidance: guidance.aiAvailability.capabilities.6",
-          "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
+          "section": "Platform, ES, Cloud Connect and Splunk AI Assistant floors; installation, service activation and token certificate setup"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.7",
-          "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
-        },
-        {
-          "path": "guidance: guidance.aiAvailability.capabilities.7",
-          "section": "SOC analyst Triage/Response note; aggregate AI SOC Analyst availability row"
+          "section": "Platform, ES, Cloud Connect and Splunk AI Assistant floors; installation, service activation and token certificate setup"
         }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-04",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-04",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-04",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
+      "title": "Triage and Response agent workflow prerequisites (ES 8.8)",
+      "areas": [
+        "ES editions",
+        "Shared guidance"
+      ],
+      "references": [
+        "editions.sources.socTask88.u",
+        "content-updates.js",
+        "editions: editions.capabilities.15",
+        "editions: editions.capabilities.20",
+        "editions: editions.conflicts.1.claims.1"
+      ],
+      "reviews": [
+        "2026-11-04"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-11-02",
+      "reviewed": "2026-11-04",
       "status": "Needs reconciliation",
+      "firstRecorded": "2026-11-04",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-04",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "title": "ES 8.8 current Triage and Response aggregate row",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.guidance.sources.aiEsTriageNote88.url",
+        "release.guidance.sources.aiEsAgents88.url",
+        "content-updates.js",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.3",
+        "guidance: guidance.aiAvailability.capabilities.4",
+        "guidance: guidance.aiAvailability.capabilities.5",
+        "guidance: guidance.aiAvailability.capabilities.6",
+        "guidance: guidance.aiAvailability.capabilities.7"
+      ],
+      "reviews": [
+        "2026-11-04"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Triage and Response agent aggregate availability and compatibility row"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.3",
+          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.4",
+          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.5",
+          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.6",
+          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.7",
+          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.7",
+          "section": "Triage and Response agent aggregate availability and compatibility row"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-04",
+      "status": "Reviewed",
       "firstRecorded": "2026-10-23",
       "firstUsed": null,
       "outdatedAsOf": null,
@@ -3379,29 +3533,26 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-02",
           "event": "Review status updated: Needs reconciliation · 2026-11-02"
+        },
+        {
+          "date": "2026-11-04",
+          "event": "Review status updated: Reviewed · 2026-11-04"
         }
       ]
     },
     {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/analyze-scripts-using-the-ai-powered-malware-reversing-agent-and-phishing-analysis-agent-in-splunk-enterprise-security",
-      "title": "Malware Reversing and Phishing task guide (ES 8.8)",
+      "title": "analyze scripts using the ai powered malware reversing agent and phishing analysis agent in splunk enterprise security",
       "areas": [
-        "ES editions",
         "Shared guidance"
       ],
       "references": [
-        "editions.sources.malwareTask88.u",
-        "content-updates.js",
-        "editions: editions.capabilities.17",
-        "editions: editions.conflicts.2.claims.1"
+        "content-updates.js"
       ],
-      "reviews": [
-        "2026-10-31"
-      ],
-      "conflict": true,
+      "reviews": [],
       "usage": "In use",
-      "reviewed": "2026-10-31",
-      "status": "Needs reconciliation",
+      "reviewed": null,
+      "status": "Review date unknown",
       "firstRecorded": "2026-10-31",
       "firstUsed": null,
       "outdatedAsOf": null,
@@ -3412,28 +3563,28 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-31",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-04",
+          "event": "Review status updated: Review date unknown"
         }
       ]
     },
     {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
-      "title": "ES 8.8 AI SOC analyst workflow",
+      "title": "ES 8.8 Triage and Response workflow",
       "areas": [
         "Release guide",
-        "ES editions",
         "Shared guidance"
       ],
       "references": [
         "release.guidance.sources.aiEsSocTask88.url",
-        "editions.sources.socTask88.u",
         "content-updates.js",
         "guidance: guidance.aiAvailability",
-        "guidance: guidance.aiAvailability.capabilities.7",
-        "editions: editions.capabilities.20",
-        "editions: editions.conflicts.1.claims.1"
+        "guidance: guidance.aiAvailability.capabilities.7"
       ],
       "reviews": [
-        "2026-10-31"
+        "2026-11-04"
       ],
       "claimReferences": [
         {
@@ -3445,10 +3596,9 @@ window.VersionCompassSources = {
           "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions"
         }
       ],
-      "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-10-31",
-      "status": "Needs reconciliation",
+      "reviewed": "2026-11-04",
+      "status": "Reviewed",
       "firstRecorded": "2026-10-31",
       "firstUsed": null,
       "outdatedAsOf": null,
@@ -3459,6 +3609,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-31",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-04",
+          "event": "Review status updated: Reviewed · 2026-11-04"
         }
       ]
     },
@@ -3524,10 +3678,10 @@ window.VersionCompassSources = {
         "editions: editions.capabilities.19"
       ],
       "reviews": [
-        "2026-10-31"
+        "2026-11-04"
       ],
       "usage": "In use",
-      "reviewed": "2026-10-31",
+      "reviewed": "2026-11-04",
       "status": "Reviewed",
       "firstRecorded": "2026-10-31",
       "firstUsed": null,
@@ -3539,6 +3693,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-31",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-04",
+          "event": "Review status updated: Reviewed · 2026-11-04"
         }
       ]
     },
@@ -6175,7 +6333,8 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability",
         "guidance: guidance.aiAvailability.capabilities.0",
         "guidance: guidance.aiAvailability.capabilities.1",
-        "guidance: guidance.aiAvailability.capabilities.2"
+        "guidance: guidance.aiAvailability.capabilities.2",
+        "guidance: guidance.aiAvailability.capabilities.7"
       ],
       "reviews": [
         "2026-10-23"
@@ -6196,6 +6355,10 @@ window.VersionCompassSources = {
         {
           "path": "guidance: guidance.aiAvailability.capabilities.2",
           "section": "FedRAMP deployments; supported regions; version compatibility"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.7",
+          "section": "FedRAMP deployments; supported regions; version compatibility"
         }
       ],
       "usage": "In use",
@@ -6210,6 +6373,43 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-10-23",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-04",
+          "event": "Review status updated: Reviewed · 2026-11-04"
+        },
+        {
+          "date": "2026-11-04",
+          "event": "Review status updated: Reviewed · 2026-10-23"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "title": "Splunk AI Assistant 2.3.6 Cloud Connected compatibility",
+      "areas": [
+        "ES editions"
+      ],
+      "references": [
+        "editions.sources.saiaCloudConnected.u",
+        "editions: editions.capabilities.20"
+      ],
+      "reviews": [
+        "2026-11-04"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-04",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-04",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-04",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]

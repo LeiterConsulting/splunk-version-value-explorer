@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "registryVersion": "1.2.0",
+  "runId": "es-editions-watch-20261104",
+  "watchId": "es-editions-watch",
+  "kind": "saved-task-execution",
+  "recordedAt": "2026-11-04T11:22:30Z",
+  "claimedComplete": true,
+  "outcome": "complete",
+  "execution": {
+    "taskId": "6ab2aa014df881918687cc1e30393ea9",
+    "schedulerRunId": null,
+    "startedAt": null,
+    "qualification": "This is the actual ES Editions Watch run and the automation service exposed saved-task ID 6ab2aa014df881918687cc1e30393ea9. It did not expose a scheduler-run ID or reported start time, and saved-prompt reconciliation remains pending, so this is not claimed as a verified first 1.2.0 execution.",
+    "observations": [
+      {
+        "observedAt": "2026-11-04T11:22:30Z",
+        "schedulerRunId": null,
+        "reportedStartedAt": null,
+        "recordedStatus": "in_progress",
+        "qualification": "Actual watch execution observed for saved-task ID 6ab2aa014df881918687cc1e30393ea9; native scheduler-run identity and reported start time were not exposed and remain null."
+      }
+    ]
+  },
+  "coverage": [
+    {
+      "capabilityId": "advisor.soc-workflow",
+      "disposition": "changed",
+      "discoveredAt": "2026-11-04T11:08:00Z",
+      "retrievedAt": "2026-11-04T11:20:00Z",
+      "assessedAt": "2026-11-04T11:22:00Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "qualification": "Current ES 8.8 pages rename the combined workflow to Triage and Response and document a CMP dependency chain of Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and SAIA 2.4+. Current SAIA guidance says Cloud Connected support is planned for 2.4.0 in late November 2026, so the prerequisite is not represented as an available supported path. The Cloud ES-version discrepancy, historical Triage edition conflict, exact pairing, regional rollout, entitlement and customer authorization remain separate.",
+      "retrievals": [
+        {
+          "sourceId": "aiEsAgents88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-04T11:08:00Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security | Official redirect to current Agentic AI offerings page; complete compatibility table and Triage and Response aggregate row assessed."
+        },
+        {
+          "sourceId": "aiEsSocTask88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-04T11:08:00Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security | Official redirect to current Triage and Response task; deployment floors, limits, model and permission boundaries assessed."
+        },
+        {
+          "sourceId": "aiEsSocTask87",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-04T11:08:00Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security | Historical 8.7 workflow prerequisites, limits and permissions assessed without retrospective scope expansion."
+        },
+        {
+          "sourceId": "aiEsRelease88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-04T11:08:00Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security | ES 8.8 Controlled Availability release scope assessed."
+        },
+        {
+          "sourceId": "aiEsTriageNote88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-04T11:08:00Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security | Current renamed aggregate row and historical Triage/Response qualification assessed."
+        },
+        {
+          "sourceId": "aiSaiaInstall",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-04T11:20:00Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers | Version compatibility, FedRAMP qualification and complete service-region table assessed; this Cloud page does not establish Cloud Connected 2.4 availability."
+        },
+        {
+          "sourceId": "aiEsRegions88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-04T11:08:00Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability | Complete Essentials, Premier and Cloud Connect regional tables and Security AI Assistant qualification assessed."
+        },
+        {
+          "sourceId": "aiEsEditions",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-04T11:08:00Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions | Edition capability groups, deployment qualification and agent groupings assessed."
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "ai-es-soc",
+          "outcome": "changed",
+          "sourceIds": [
+            "aiEsAgents88",
+            "aiEsSocTask88",
+            "aiEsSocTask87",
+            "aiEsRelease88",
+            "aiEsTriageNote88",
+            "aiSaiaInstall",
+            "aiEsRegions88",
+            "aiEsEditions"
+          ],
+          "assessedAt": "2026-11-04T11:22:00Z",
+          "evidence": "The current 8.8 aggregate and task pages rename the workflow to Triage and Response, retain different Cloud ES floors, and document the CMP prerequisite chain. A separately retrieved current SAIA Cloud Connected compatibility section says versions 2.2.0 through 2.3.6 are unsupported, 2.1.1 lacks Agent Mode, and 2.4.0 support is planned for late November 2026.",
+          "qualification": "The registered eight-source claim family is complete. The additional task-specific SAIA Cloud Connected page establishes that the ES 2.4 prerequisite is not currently a supported available path. Exact SOAR pairing, per-agent regional rollout, component entitlement and customer authorization remain excluded and separately owned."
+        }
+      ]
+    }
+  ],
+  "auditBindings": [
+    {
+      "file": "docs/audits/2026-11-04-es-editions-watch.json",
+      "reviewDigest": "4c5b9146ec1522eeb3d0252ac9d31f55cd4a952f97478350a230cf98cbbf2069"
+    }
+  ],
+  "resources": {
+    "elapsedMs": null,
+    "toolCalls": null,
+    "tokens": null,
+    "cost": null
+  },
+  "validation": {
+    "checks": [
+      { "id": "sync-gates", "outcome": "passed", "evidence": "maintenance:verify passed all ordered generated-content check gates on the reconciled candidate." },
+      { "id": "unit-suite", "outcome": "passed", "evidence": "maintenance:verify completed the full Node test suite successfully on the reconciled candidate." },
+      { "id": "advisor-maintenance", "outcome": "passed", "evidence": "maintenance:verify completed advisor-maintenance and its check gate with the updated scoped admission pins." },
+      { "id": "native-issue-feed", "outcome": "pending", "evidence": "Pending immutable-provenance feed follow-up." },
+      { "id": "coverage-gate", "outcome": "passed", "evidence": "maintenance:verify accepted the finalized capability coverage and audit binding." },
+      { "id": "build", "outcome": "passed", "evidence": "maintenance:verify completed npm run build successfully on the reconciled candidate." },
+      { "id": "exact-candidate-exports", "outcome": "pending", "evidence": "Pending application CI artifact." },
+      { "id": "artifact-readback", "outcome": "pending", "evidence": "Pending application CI artifact." },
+      { "id": "live-ui-assets-d1", "outcome": "pending", "evidence": "Pending publication and live checks." }
+    ]
+  },
+  "publication": {
+    "claimedDelivered": false,
+    "boundedChangedScopeDelivered": false,
+    "qualification": "Canonical and audit changes are not yet published. The saved-task ID was exposed, but saved-prompt reconciliation and the scheduler-run ID remain unavailable, so this run does not verify the first 1.2.0 execution or activate the amendment.",
+    "repository": null,
+    "sites": null,
+    "liveVerification": null
+  },
+  "reviewDigest": "183f4135d40f76774fbe41f814bfb68e7259956bc0fc6e022bf40e13d76b2ec5"
+}

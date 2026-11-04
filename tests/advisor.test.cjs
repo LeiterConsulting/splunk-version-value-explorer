@@ -1,5 +1,5 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
-const NOW='2026-11-03T18:00:00.000Z';
+const NOW='2026-11-04T18:00:00.000Z';
 function model(){const context={window:{SPLUNK_DATA:{guidance:JSON.parse(fs.readFileSync('content/datasets/guidance.json'))},VersionCompassEnvironmentData:JSON.parse(fs.readFileSync('content/datasets/environment.json'))},URLSearchParams,TextEncoder};for(const file of ['content-hash.js','ai-availability.js','advisor-admission.js','advisor-goals.js','advisor.js','advisor-report.js'])vm.runInNewContext(fs.readFileSync('dist/'+file,'utf8'),context);return context.window;}
 const agent={goal:'agent-mode',deployment:'enterprise',compliance:'commercial',region:'us-east-1',platformVersion:'10.4.0',saiaVersion:'2.3.6',access:'yes'};
 const itsi={goal:'itsi-versions',itsiVersion:'5.0.0',saiaVersion:'2.2.0',mcpVersion:'1.2.1'};

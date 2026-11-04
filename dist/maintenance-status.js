@@ -890,10 +890,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-03T11:09:50.641Z",
-      "lastSuccess": "2026-11-03T11:09:50.716Z",
+      "lastAttempt": "2026-11-04T11:10:31Z",
+      "lastSuccess": "2026-11-04T11:23:37.366Z",
       "outcome": "changed",
-      "summary": "Reviewed 38 source scopes/37 official URLs and fourteen bounded claim groups; repaired ambiguous ES links with explicit recovery. Native export/live delivery verification remains separate.",
+      "summary": "Reconciled current ES 8.8 Triage and Response identity and the qualified Cloud Connected agentic dependency chain.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1283,9 +1283,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Reviewed 38 source scopes/37 official URLs and fourteen bounded claim groups; repaired ambiguous ES links with explicit recovery. Native export/live delivery verification remains separate.",
           "scope": "ES edition entitlement/prerequisite/pairing conflicts, agent task floors, exact comparison/history URL safety; unreassessed historical/region claims remain dated and qualified."
+        },
+        {
+          "at": "2026-11-04T11:10:31Z",
+          "outcome": "running",
+          "summary": "Reviewing current ES edition, agentic dependency and SOAR-pairing evidence.",
+          "scope": "39 maintained ES/SOAR source scopes across 38 official URLs; changed and highest-consequence claims bounded to current agentic identity, dependency, entitlement, version-floor, pairing and ambiguity evidence."
+        },
+        {
+          "at": "2026-11-04T11:23:37.366Z",
+          "outcome": "changed",
+          "summary": "Reconciled current ES 8.8 Triage and Response identity and the qualified Cloud Connected agentic dependency chain.",
+          "scope": "40 maintained edition/SOAR source scopes across 39 official URLs; fourteen bounded affected or high-consequence claim families; current SAIA 2.4 planned-versus-required conflict; issue-feed and publication evidence recorded separately."
         }
       ],
-      "scope": "ES edition entitlement/prerequisite/pairing conflicts, agent task floors, exact comparison/history URL safety; unreassessed historical/region claims remain dated and qualified."
+      "scope": "40 maintained edition/SOAR source scopes across 39 official URLs; fourteen bounded affected or high-consequence claim families; current SAIA 2.4 planned-versus-required conflict; issue-feed and publication evidence recorded separately."
     },
     {
       "id": "version-guidance-audit",
