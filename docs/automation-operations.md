@@ -170,10 +170,13 @@ activation/rollback and independent-reader gates are satisfied.
 
 The approved PR #66 implementation is merged and deployed as Sites version 277;
 see the [current rollout and execution status](automation-rollout-status.md).
-Its earlier draft-only publication gate is satisfied. This does not reconcile saved
-prompts, verify a new scheduled run or activate the pilot. The retained November 3
-Release Watch receipt remains 7/11 under 1.0.0; current 1.2.0 task reconciliation
-and complete real first executions remain pending for all four declared tasks.
+Its earlier draft-only publication gate is satisfied. Saved prompts were separately
+reconciled and independently read back for all four declared tasks under the
+November 4 owner request; see the configuration receipt in rollout status. This
+does not verify a new scheduled run or activate the pilot. The retained November 3
+Release Watch coverage remains 7/11 under 1.0.0. November 4 scheduler completion
+contains an ES report with no accepted Release coverage; complete real first
+executions under the newly saved 1.2.0 additions remain pending for all four tasks.
 
 For future changes, keep merge, Sites deployment and saved-task activation authority
 separate. Review the exact candidate, validate the final main SHA, deploy a matching
@@ -191,6 +194,34 @@ coverage gaps and overdue follow-ups. GitHub read failure stops the diagnostic;
 do not expand access or infer no failures. Saved-task execution health, exact
 publisher receipts and live checks still require their own readback. No schedule
 is installed by this script; use the existing progress task.
+
+The one-time progress task is intentionally disabled and expired; it is not a
+recurring health monitor. The four existing watch prompts now carry read-only
+diagnostic follow-through. Preserve that checkpoint's state and all existing
+watch schedules. At each actual watch execution, begin the report with its own
+title/watchId and actual scheduler identity when exposed. Other watches' results
+remain reference evidence, never this task's completed review.
+
+`pipeline-status.mjs --tasks /absolute/path/native-snapshot.json` joins an actual
+supported native read to validated retained coverage. The input is
+`{observedAt,tasks:[...]}`: each task supplies the native id, enabled state, retained
+schedule/timing and run_details plus `configurationDigest`. Derive that digest from
+the full actual saved object, sorting top-level keys and excluding only run_details,
+last_run_time, next_run_time and updated_at; SHA-256 the UTF-8 JSON and prefix it
+with `sha256:`. Keep private full snapshots outside the public repository; publish
+only scoped digests and diagnostic receipts. No native API, task or permission is
+introduced by this local diagnostic.
+
+The diagnostic compares last_run.id with latest_result.run_id, report identity,
+duplicate output across watches, saved configuration, amendment time, exact task/
+scheduler/registry receipt and complete validated coverage/delivery. Missing or
+incomplete evidence returns nonzero/unverified even when CI is green. Without a
+native snapshot, scheduler evidence is unavailable, not implicitly healthy. Null
+next_run_time across the connector inventory is unknown, not proof of disabled
+dispatch. This does not diagnose scheduler internals or prove future execution.
+The November 4 mismatched Release result and generic Guidance failure remain
+unresolved until actual matching runs supply evidence. The guard does not restart
+an observation window or change an activation flag.
 
 Report same-run validation failure, missing/pending main checks, publisher rejection,
 engine mismatch, blocked source, overdue coverage, pending feed provenance or

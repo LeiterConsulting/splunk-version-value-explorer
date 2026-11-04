@@ -2,8 +2,51 @@
 
 This record reconciles the completed November 3 rollout with the still-pending
 saved-task contract. It does not record a new source assessment or scheduled run.
-The latest repository/live reconciliation at November 4, 00:30 UTC found main and
-Sites unchanged from the completed rollout.
+The November 4, 00:30 UTC repository/live reconciliation found main and Sites
+unchanged from that rollout. A later owner-authorized saved-task reconciliation
+is recorded below; the November 3 delivery receipts retain their original scope.
+
+## November 4 saved-task and recorded-run reconciliation
+
+All four actual saved prompts now include the exact published registry 1.2.0
+addition and their own watch identities. Native prompt-only writes and independent
+readbacks preserved the entire original prompts and every other exposed setting
+except update timestamps. Release remains daily 05:00 Eastern, Guidance Monday/
+Thursday 08:00 Eastern, ES daily 06:00 Eastern and CSP daily 07:00 Eastern. Release,
+Guidance and CSP retain flexible timing; ES retains exact timing. All remain enabled.
+Permission/model/notification controls are unexposed and were omitted from writes.
+The [configuration/run receipt](audits/2026-11-04-automation-task-reconciliation.json)
+and current amendment retain exact identities, digests and settings. No new timer.
+
+Release Watch run `b6b55a2e-ce70-832f-b887-35e3b9c52e5c` was scheduled November 4
+05:00 Eastern, started 07:03:35 Eastern and recorded completed at 07:04:42 Eastern.
+Its nontruncated result text is byte-identical to the separately recorded ES
+Editions result. No matching November 4 Release audit/coverage or scheduler-run
+reference exists in the complete reviewed tracked source inventory. Scheduler
+completion is retained; successful Release review and a cause are unestablished.
+The latest retained Release coverage remains the November 3 1.0.0 receipt (7/11).
+Guidance's latest recorded scheduler result is the November 2 generic task failure;
+its cause is likewise unknown. Neither result verifies the newly saved amendment.
+
+All four first executions under the saved 1.2.0 additions remain pending. Each
+requires its actual matching task/scheduler identity, complete participating scope
+(Release/Guidance eleven each; ES/CSP one SOC capability each) and applicable
+validation/feed/provenance/export/publication/live evidence. Pilot activation and
+VC_ACTIVE_DELIVERY remain unchanged. The next nominal Guidance slot is November 5
+08:00 Eastern, flexible. Existing runs, not a new timer, provide follow-through.
+
+The subsequent account/task audit confirmed the four watches remain enabled,
+the one-time delivery checkpoint remains intentionally disabled, and Ripple's
+daily updater and November 20 owner review are retained. A prompt-only run-integrity
+guard was independently read back for all four watches; their schedules, timing,
+environments and other exposed settings remain unchanged. The candidate read-only
+pipeline diagnostic now refuses green-CI-only readiness when native task evidence
+or current participating coverage is missing. Its regression tests reproduce
+duplicated/wrong-watch reports, stale result/run joins, changed configuration and
+incomplete delivery. The [runtime diagnostic](audits/2026-11-04-automation-runtime-diagnostic.json)
+retains actual outcomes and finite follow-up. Native scheduler internals and the
+cause of the Release/Guidance incidents remain unavailable; no repair or future
+dispatch is claimed merely from the saved guard or passing local tests.
 
 ## Published implementation
 
@@ -68,7 +111,7 @@ label does not supply a saved-task readback or advance an activation flag.
 | Repository/runtime implementation | Published in PR #66 / Sites 277 |
 | Four bounded manual follow-up assessments | Published; implementation reviews, not scheduled executions |
 | Latest retained real Release Watch receipt | November 3, **7/11**, registry **1.0.0**; original bytes retained |
-| Saved-task reconciliation to 1.2.0 | Pending for Release Watch, Guidance Audit, ES Editions and CSP/FedRAMP |
+| Saved-task reconciliation to 1.2.0 | Saved and independently read back for all four on November 4 |
 | Complete real first executions for 1.2.0 | Pending; require actual matching task/scheduler identities and checks/delivery |
 | Pilot activation | Pending |
 
@@ -89,14 +132,16 @@ These are derived from retained Eastern DTSTART, not a fresh scheduler lookup.
 At the November 4 00:30 UTC reconciliation the Release window was still ahead.
 No new scheduled run, actual dispatch time or task outcome is claimed.
 
-## Next authorized reconciliation
+## Retained pre-reconciliation procedure
 
-Use the [prepared 1.2.0 amendment text](automation-task-amendments.md#prepared-120-append-text-not-saved)
+The procedure below preceded the November 4 authorized update. Use the
+[1.2.0 amendment text](automation-task-amendments.md#120-append-text-saved-november-4)
 only from a context with independently authorized supported task access. Preserve
 the complete existing prompt/settings, append only the authorized addition, retain
 before/after digests and read back the actual update. The earlier Release Watch
-read remains denied in this context; repository evidence is not an alternate route
-to obtain that saved object.
+read denial belonged to that prior context; repository evidence supplied no
+alternate route. The November 4 supported native actions succeeded under the new
+explicit owner request and are recorded separately above.
 
 For the real execution, declare exactly the capabilities in this watch's
 `participatingWatches` mapping: Release/Guidance each have eleven; ES/CSP each have
@@ -110,8 +155,9 @@ to meet the existing readback, exact-version execution and delivery gates.
 
 No new timer, cadence, model, permission, notification setting, factual scope or
 automatic expansion is authorized. Future repository changes still need their own
-review/merge/deployment authority. The current documentation follow-up is a draft;
-it does not authorize another deployment or task update.
+review/merge/deployment authority. The documentation follow-up remains a separate
+repository publication; its receipts do not authorize another deployment or task
+mutation.
 
 ## Original downloaded HTML
 
