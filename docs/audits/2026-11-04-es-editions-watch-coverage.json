@@ -29,8 +29,8 @@
       "discoveredAt": "2026-11-04T11:08:00Z",
       "retrievedAt": "2026-11-04T11:20:00Z",
       "assessedAt": "2026-11-04T11:22:00Z",
-      "publishedAt": null,
-      "liveVerifiedAt": null,
+      "publishedAt": "2026-11-04T11:39:04Z",
+      "liveVerifiedAt": "2026-11-04T11:57:54.787Z",
       "qualification": "Current ES 8.8 pages rename the combined workflow to Triage and Response and document a CMP dependency chain of Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and SAIA 2.4+. Current SAIA guidance says Cloud Connected support is planned for 2.4.0 in late November 2026, so the prerequisite is not represented as an available supported path. The Cloud ES-version discrepancy, historical Triage edition conflict, exact pairing, regional rollout, entitlement and customer authorization remain separate.",
       "retrievals": [
         {
@@ -123,18 +123,37 @@
       { "id": "native-issue-feed", "outcome": "passed", "evidence": "Published seven distinct assessment records in cumulative checkpoint vci-1526b83158de270e3bc75a38a32dc0262b1e8a8fd0c5acb96f705787b863e1cb; sync/check and native recovery gate passed." },
       { "id": "coverage-gate", "outcome": "passed", "evidence": "maintenance:verify accepted the finalized capability coverage and audit binding." },
       { "id": "build", "outcome": "passed", "evidence": "maintenance:verify completed npm run build successfully on the reconciled candidate." },
-      { "id": "exact-candidate-exports", "outcome": "pending", "evidence": "Pending application CI artifact." },
-      { "id": "artifact-readback", "outcome": "pending", "evidence": "Pending application CI artifact." },
-      { "id": "live-ui-assets-d1", "outcome": "pending", "evidence": "Pending publication and live checks." }
+      { "id": "exact-candidate-exports", "outcome": "passed", "evidence": "Workflow 41822647976, job 126549363365 passed for commit e793196cf41d78b2f2d38e17ec2186c421e8c1e1/tree 23e431d5ffa89440484a0a7ec5bcbd8ed60581fe. Artifact 13318088345 (sha256:562c73369e302c13ad00d4280a54b2c253f1333a938645a3416eb6d59db908d9) bound 198 cases and fingerprint 61e05ea780e7e66f1d059382583f1734bfe6a72472be5085d7ddac0d947a1a84; HTML reopen, PDF pages and both-theme narrow checks passed." },
+      { "id": "artifact-readback", "outcome": "passed", "evidence": "Downloaded artifact digest matched GitHub, scripts/export-evidence.cjs and check-soak.cjs --exports passed, and retained ES Editions/AI desktop, phone, PDF and reopened-HTML images were separately inspected in default and Cisco themes without a novel visual defect." },
+      { "id": "live-ui-assets-d1", "outcome": "passed", "evidence": "Site version 278/source b9bbfed113e7c283a54edddf7a9caf81be3eaf45 deployed as appgdep_6aeb1d1ab8f481918a17c216cc4bec89. Browser journey confirmed the ES Editions route and current qualified Triage/Response text. At 2026-11-04T11:57:54.787Z D1 health, manifest, immutable bundle digest, bounded SOAR query, POST 405 and all seven fallback adapters agreed on content-3e628f98f5fa4ebbcb1172b3, engine-ccf3aa74bf9e80abe2a8, digest 539107cca7e9416dcc2a0df3b903bed4406bd54fbc8bc6ac5945c7ea61e3290d and 917 records." }
     ]
   },
   "publication": {
-    "claimedDelivered": false,
-    "boundedChangedScopeDelivered": false,
-    "qualification": "Canonical and audit changes are not yet published. The saved-task ID was exposed, but saved-prompt reconciliation and the scheduler-run ID remain unavailable, so this run does not verify the first 1.2.0 execution or activate the amendment.",
-    "repository": null,
-    "sites": null,
-    "liveVerification": null
+    "claimedDelivered": true,
+    "boundedChangedScopeDelivered": true,
+    "qualification": "The bounded ES Editions and AI dependency update, seven immutable-provenance issue-feed reassessments and exact validated runtime are live. The saved-task ID was exposed, but saved-prompt reconciliation and the scheduler-run ID remain unavailable, so this run still does not verify the first 1.2.0 execution or activate the amendment.",
+    "repository": {
+      "auditCommit": "bda15357128a808e17c5c8cbebdb825b4063da1f",
+      "candidateCommit": "e793196cf41d78b2f2d38e17ec2186c421e8c1e1",
+      "tree": "23e431d5ffa89440484a0a7ec5bcbd8ed60581fe",
+      "validatedWorkflowRun": 41822647976,
+      "validatedWorkflowJob": 126549363365
+    },
+    "sites": {
+      "version": 278,
+      "sourceCommit": "b9bbfed113e7c283a54edddf7a9caf81be3eaf45",
+      "sourceTree": "23e431d5ffa89440484a0a7ec5bcbd8ed60581fe",
+      "deploymentId": "appgdep_6aeb1d1ab8f481918a17c216cc4bec89",
+      "status": "succeeded"
+    },
+    "liveVerification": {
+      "checkedAt": "2026-11-04T11:57:54.787Z",
+      "contentRevision": "content-3e628f98f5fa4ebbcb1172b3",
+      "engineRevision": "engine-ccf3aa74bf9e80abe2a8",
+      "digest": "539107cca7e9416dcc2a0df3b903bed4406bd54fbc8bc6ac5945c7ea61e3290d",
+      "recordCount": 917,
+      "storage": "d1"
+    }
   },
   "reviewDigest": "183f4135d40f76774fbe41f814bfb68e7259956bc0fc6e022bf40e13d76b2ec5"
 }
