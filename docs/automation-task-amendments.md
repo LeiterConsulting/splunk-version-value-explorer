@@ -174,11 +174,12 @@ existing approvals; report blocked delivery rather than publishing without them.
 No product change is required for an honest assessed-no-change run, but its claimed
 coverage/delivery still needs the registry's actual supporting checks and evidence.
 
-Do not label a first execution verified or activate the pilot until the exact
-1.2.0 amendment has authorized saved readback, matching real task/scheduler identity,
-complete participating coverage and required validation/live delivery for every
-saved task it lists. A manual publication, old-version run or green publisher is
-not that proof. Leave VC_ACTIVE_DELIVERY and its separate runtime gates unchanged.
+Record this task's first execution as verified only after authorized saved readback,
+matching real task/scheduler identity, complete participating coverage and required
+validation/live delivery for this exact 1.2.0 amendment. Activate the pilot only
+after every saved task listed in the amendment satisfies its own required gates.
+A manual publication, old-version run or green publisher is not that proof.
+Leave VC_ACTIVE_DELIVERY and its separate runtime gates unchanged.
 Use the existing watches and progress task; create no timer or automatic expansion.
 END VERSIONCOMPASS CONTRACT 1.2.0 ADDITION
 ```
