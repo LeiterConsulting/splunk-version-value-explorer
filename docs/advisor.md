@@ -25,7 +25,7 @@ conflated with missing product evidence. Historical Essentials/Triage wording is
 not presented as a continuing current contradiction. The separately unresolved
 Cloud aggregate-versus-task minimum remains visible with both current sources.
 
-The November 3 candidate uses the exact Agent Mode and Model Runtime pages rather
+The November 3 published implementation uses the exact Agent Mode and Model Runtime pages rather
 than inheriting base-SAIA regions. Azure/Dubai base-service listings do not support
 Agent Mode; Dublin's feature-specific AWS listing remains usable for native Cloud.
 Current Cloud Connected compatibility excludes SAIA 2.2.0–2.3.6; its 2.1.1 fallback
@@ -35,7 +35,8 @@ of treating a met minimum or planned 2.4.0 support as a usable path. Runtime mus
 enabled, while actual activation and routing still need confirmation. Model
 Runtime's external processing and Data zone/Global routing remain visibly separate
 from Cloud Connected's broader no-third-party assurance. See the
-[scoped assessment and pending rollout](automation-coverage-followups.md).
+[scoped assessment](automation-coverage-followups.md) and [completed rollout / pending
+saved-task gates](automation-rollout-status.md).
 
 Unsupported ingest-pressure and generic keep-current choices are removed from
 actionable coverage. Their published URLs show the original intent and an explicit

@@ -1,16 +1,29 @@
-# November 3 coverage follow-up candidate
+# November 3 manual coverage follow-up
 
-This is an owner-requested **manual implementation review and draft repair**. It
-does not complete or relabel a scheduled task. The retained November 3 Release
-Watch execution remains **7/11**, with its original four deferred/blocked entries.
-The workload and Cloud migration assessments already published in Site 270 are
-preserved. Site 276 remains the deployed PDF repair; this candidate is unpublished.
+The implementation was approved, merged in [PR #66](https://github.com/LeiterConsulting/splunk-version-value-explorer/pull/66)
+and deployed as **Sites version 277** on November 3. See the [rollout status and
+evidence](automation-rollout-status.md) for exact source/tree, CI, deployment and
+scoped live verification. Repository/runtime delivery is complete in that recorded
+scope; saved-task reconciliation and pilot activation remain pending.
+
+This was a **manual implementation review**, not a completed or relabeled scheduled
+task. The retained November 3 Release Watch execution remains **7/11**, registry
+**1.0.0**, with its original four deferred/blocked entries. Workload and Cloud
+migration assessments already published in Site 270 are preserved. The historical
+manual coverage records keep their original clocks and incomplete delivery fields;
+the later rollout evidence is recorded separately.
+
+> Pre-rollout history: the work was prepared as a draft while Site 276 was deployed.
+> That publication boundary was subsequently satisfied by the separate owner-approved
+> PR #66 rollout; it did not satisfy saved-task reconciliation or activation.
 
 Read the [scoped assessment](audits/2026-11-03-coverage-followup-assessment.json)
 and [manual coverage record](audits/2026-11-03-coverage-followup-coverage.json).
 The current [compatibility follow-up](audits/2026-11-03-current-compatibility-followup-coverage.json) accounts for all eleven capabilities: four assessed here, seven reused
 within their unchanged scope and original clocks. Structural coverage is complete;
-candidate validation/publication and real-task execution remain separate gates.
+the recorded implementation validation/publication does not establish real-task
+execution. The assessments below retain their actual November 3 scope and dates;
+this documentation reconciliation is not a new factual review.
 
 | Previously incomplete area | Manual result | Boundary retained |
 | --- | --- | --- |
@@ -68,8 +81,10 @@ claims can be assessed; the excluded agent/model data-location and regulated cha
 remains a CSP follow-up due **November 5**. Customer authorization always remains
 customer-specific and is never collected by these public-source automations.
 
-The [amendment ledger](../content/automation-amendments.json) records 1.2.0 as
-draft implementation, saved prompts unreconciled and first executions pending.
+The [amendment ledger](../content/automation-amendments.json) records the published
+1.2.0 implementation with commit-pinned rollout evidence and retains its original
+pre-rollout statement. Saved prompts remain unreconciled and first executions
+pending; no saved-task object or activation flag changes with that status correction.
 [Saved-task instructions](automation-task-amendments.md) describe the pending
 reconciliation; no task read/update, schedule, notification, access or permission
 change was performed. The denied Release Watch read was not retried.
@@ -117,7 +132,7 @@ window ended and availability has not been reconfirmed.
 
 Read-only byte inspection confirms the retained original default/Cisco HTML files
 are older snapshots (`vc-6b39f188fa0eba15`, `content-6759811bccd73ef85c4dd505`,
-`engine-ab77696a956d17882973`), not current Site 276 or this candidate. They must
+`engine-ab77696a956d17882973`), predating deployed Site 277. They must
 remain their own historical artifacts. Static inspection cannot establish an
 interactive reopening pass. Exact-candidate CI downloads/reopens its own exports
 offline; that also does not substitute for the denied original-file check.
@@ -128,7 +143,13 @@ a surfaced permitted file-opening capability after the security denial is resolv
 Assistant desktop testing additionally needs explicit availability confirmation.
 No browser/security permission change is assumed or requested by this draft.
 
-## Candidate validation and release
+## Validation and retained preparation history
+
+PR #66's reviewed candidate, exact merged main and matching runtime passed the
+recorded checks and live verification. The [publication record](automation-rollout-status.md)
+distinguishes those results from pending real executions and unverified original-file
+reopening. Apply the following procedure to future candidates; it does not mean the
+completed PR #66 publication remains pending.
 
 Run `npm run maintenance:sync`, `npm run maintenance:verify` and `git diff --check`.
 The expanded matrix covers Azure/Dubai negative paths, native Cloud Dublin,
@@ -136,8 +157,10 @@ a Cloud Platform gap, a Cloud Connected app gap, the current Enterprise conflict
 and the 2.1.1 fallback, in both themes.
 Wait for push and PR integration CI on the final head and independently verify its
 retained export artifact. Preserve public issue-feed provenance and checkpoints. The intermediate checkpoint retains 97 cumulative records (19 findings, 78 assessments), including a bounded commercial SAIA runtime-scope observation and a fresh SOC discrepancy assessment. Its source audit was pushed first at `f7091494aace9a95de67ffd054c106499ad36275` and independently read back against the original 14,903-byte SHA-256 `906ab90279b01ed53ec3c4fb0697ea1c68711f178435e350e1918069e0fbd47d`; no commit or upstream digest was invented.
-This continuation authorizes a draft PR, not merge or deployment. Any later rollout
-needs separate approval and matching runtime/live readback.
+> Historical preparation boundary: this continuation initially authorized a draft,
+> with merge/deployment gated on separate approval and matching live readback.
+> The owner later approved PR #66 and its rollout completed. New changes still need
+> their own applicable approval; this documentation follow-up is not another rollout.
 
 The final 1.2.0 candidate adds the current Cloud Connected compatibility conflict
 and its manual assessment at a further cumulative checkpoint (99 records: 20
