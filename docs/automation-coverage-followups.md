@@ -4,7 +4,9 @@ The implementation was approved, merged in [PR #66](https://github.com/LeiterCon
 and deployed as **Sites version 277** on November 3. See the [rollout status and
 evidence](automation-rollout-status.md) for exact source/tree, CI, deployment and
 scoped live verification. Repository/runtime delivery is complete in that recorded
-scope; saved-task reconciliation and pilot activation remain pending.
+scope. Saved tasks were subsequently reconciled under the November 4 owner request;
+real first executions for the newly saved amendment and pilot activation remain
+pending. See the current [configuration/run receipt](audits/2026-11-04-automation-task-reconciliation.json).
 
 This was a **manual implementation review**, not a completed or relabeled scheduled
 task. The retained November 3 Release Watch execution remains **7/11**, registry
@@ -83,11 +85,11 @@ customer-specific and is never collected by these public-source automations.
 
 The [amendment ledger](../content/automation-amendments.json) records the published
 1.2.0 implementation with commit-pinned rollout evidence and retains its original
-pre-rollout statement. Saved prompts remain unreconciled and first executions
-pending; no saved-task object or activation flag changes with that status correction.
-[Saved-task instructions](automation-task-amendments.md) describe the pending
-reconciliation; no task read/update, schedule, notification, access or permission
-change was performed. The denied Release Watch read was not retried.
+pre-rollout statement. That publication-status correction changed no saved task or
+activation flag. The later November 4 owner-authorized reconciliation saved and
+independently read back all four full amended prompts. [Saved-task instructions](automation-task-amendments.md)
+record that separate supported action and preserved settings. The prior-context
+denial remains historical; first executions under the new additions remain pending.
 
 ## Next real execution and existing progress checks
 
@@ -114,9 +116,9 @@ At the next existing progress check:
 3. Inspect every required capability's assessed sections and finite exceptions,
    native issue-feed provenance, exact-head tests/exports/artifacts, repository
    integration and actual live revision/assets/D1/UI readback.
-4. Reconcile saved prompts through an authorized supported task read/update and
-   readback before claiming 1.2.0 execution. The earlier Release read remains
-   denied; no alternative route may be used to obtain that task data.
+4. Preserve the November 4 supported saved-prompt/readback receipts. Match each
+   subsequent actual execution to its task, scheduler identity and exact 1.2.0
+   contract before accepting it. Do not use an alternate route around a denial.
 5. Mark a first execution verified only when the existing complete delivery and
    matching identity gates pass. Pilot activation remains pending until every
    participating task required by its amendment passes. Keep `VC_ACTIVE_DELIVERY`

@@ -170,10 +170,13 @@ activation/rollback and independent-reader gates are satisfied.
 
 The approved PR #66 implementation is merged and deployed as Sites version 277;
 see the [current rollout and execution status](automation-rollout-status.md).
-Its earlier draft-only publication gate is satisfied. This does not reconcile saved
-prompts, verify a new scheduled run or activate the pilot. The retained November 3
-Release Watch receipt remains 7/11 under 1.0.0; current 1.2.0 task reconciliation
-and complete real first executions remain pending for all four declared tasks.
+Its earlier draft-only publication gate is satisfied. Saved prompts were separately
+reconciled and independently read back for all four declared tasks under the
+November 4 owner request; see the configuration receipt in rollout status. This
+does not verify a new scheduled run or activate the pilot. The retained November 3
+Release Watch coverage remains 7/11 under 1.0.0. November 4 scheduler completion
+contains an ES report with no accepted Release coverage; complete real first
+executions under the newly saved 1.2.0 additions remain pending for all four tasks.
 
 For future changes, keep merge, Sites deployment and saved-task activation authority
 separate. Review the exact candidate, validate the final main SHA, deploy a matching

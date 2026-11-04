@@ -1,20 +1,24 @@
 # Saved-task reconciliation for the coverage pilot
 
-## Published source-contract 1.2.0; saved-task reconciliation pending
+## Published source-contract 1.2.0; saved tasks reconciled November 4
 
 The [manual follow-up](automation-coverage-followups.md) adds exact Agent Mode,
 Model Runtime and Cloud Connected sources and records CSP's existing SOC regional
 responsibility in registry 1.2.0. [PR #66 is merged and deployed as Sites 277](automation-rollout-status.md).
-The implementation publication is complete in its recorded scope, but the saved
-prompts remain unreconciled to 1.2.0. This page does not perform a saved-task
-update. Preserve the actual saved 1.0.0 prompt history described below. Release
-Watch read remains denied in this context; no read/update or alternate task route
-was attempted. Schedules and permissions remain untouched.
+The implementation publication is complete in its recorded scope. Chris's November
+4 request authorized supported saved-task reconciliation. Native reads, prompt-only
+updates and independent readbacks succeeded for Release Watch, Guidance Audit, ES
+Editions Watch and CSP FedRAMP Watch. Each complete original prompt was retained and
+the exact prepared 1.2.0 block below appended, followed by its actual watch identity.
+Only prompt and update timestamp differed in the full exposed saved objects.
+Schedules, timezones, timing modes, enabled states and environment selections match.
+Unexposed permission/model/notification controls were omitted from the mutations;
+no new authority was added. The earlier denied-context statements remain historical.
+Digests, settings and actual recorded-run observations are retained in the
+[November 4 receipt](audits/2026-11-04-automation-task-reconciliation.json) and the
+current amendment ledger. No duplicate task or timer was created.
 
-When supported access is authorized, reconcile Release Watch, independent Guidance
-Audit, ES and CSP's participating scope to the exact new registry. Retain complete
-before/after prompts and settings, compare digests and read back only authorized
-changes. Require feature-specific Agent Mode regions/runtime and current compatibility/SAIA-9918 sources; planned 2.4.0 support is not released availability; keep the
+For each future run, require feature-specific Agent Mode regions/runtime and current compatibility/SAIA-9918 sources; planned 2.4.0 support is not released availability; keep the
 SOC decision's excluded eligibility/rollout/pairing scope explicit. A bounded
 assessment of an unknown does not establish it as available. Record actual
 task/scheduler identities and full validation/live delivery in each first execution.
@@ -103,14 +107,15 @@ applicable checks/publication, and retain its actual run identity and evidence.
 Only then mark that task's firstExecution verified. Activate the pilot only after
 both tasks satisfy those gates. Pending or blocked evidence must remain explicit.
 
-## Prepared 1.2.0 append text (not saved)
+<a id="prepared-120-append-text-not-saved"></a>
 
-This is proposed exact prompt text for an authorized operator to append to each
-existing complete saved prompt. It has not been applied, read back or executed.
-The earlier denied Release Watch access must not be retried or routed around from
-this context. First obtain independently authorized supported access, preserve the
-full original prompt/settings and verify that only the authorized prompt addition
-changed. Do not replace a full prompt with this block or alter cadence, timezone,
+## 1.2.0 append text (saved November 4)
+
+The exact block below was applied and independently read back through supported
+access under the November 4 owner request. It does not supply a real execution of
+the newly saved amendment. Preserve the full original prompt/settings and verify
+that only an authorized prompt addition changes. Do not replace a full prompt with
+this block or alter cadence, timezone,
 timing mode, enabled state, notifications, model, budget or permissions.
 
 Use this registry ID for the corresponding existing task; task IDs themselves must
@@ -184,8 +189,11 @@ Use the existing watches and progress task; create no timer or automatic expansi
 END VERSIONCOMPASS CONTRACT 1.2.0 ADDITION
 ```
 
-After a future authorized update, record complete before/after prompt digests,
-actual readback and preserved settings in the current amendment. Observe and retain
-the real execution; only then evaluate its existing first-execution/activation
-gates. Until that evidence exists, all four 1.2.0 task records and pilot activation
-remain pending. The prepared text is not evidence that any of those actions ran.
+The current amendment records actual before/after configuration and prompt digests,
+readback and preserved settings for all four tasks. Real first executions after
+those saved updates remain pending. November 4 Release Watch is scheduler-completed,
+but its result repeats the separately recorded ES report; no matching Release
+coverage was found at the reviewed main/source tree. It cannot verify this later
+1.2.0 amendment. Observe each actual matching execution, complete its participating
+coverage and applicable validation/delivery, then evaluate activation. A saved
+prompt, manual review or older-version run cannot satisfy those gates.

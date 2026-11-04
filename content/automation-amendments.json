@@ -216,10 +216,14 @@
         "schedules": "No schedule, timezone, timing mode, notification, enabled-state or permission changes."
       },
       "authorization": {
-        "evidence": "Chris asked to continue the remaining automation coverage and HTML verification work; parent authorized tested draft PRs while preserving denied task/browser actions and existing owners."
+        "evidence": "Chris asked to continue the remaining automation coverage and HTML verification work; parent authorized tested draft PRs while preserving denied task/browser actions and existing owners.",
+        "savedTaskReconciliation": {
+          "observedAt": "2026-11-04T15:25:32.821Z",
+          "evidence": "Chris's November 4 request: check today's Release Watch run and reconcile the existing saved watch tasks to registry 1.2.0 while preserving schedules and permissions. Supported native reads/updates/readbacks succeeded in this context; no denied action or alternate task route was used."
+        }
       },
       "implementation": {
-        "status": "published repository and runtime implementation; saved prompts not reconciled to 1.2.0; first real executions pending",
+        "status": "published repository/runtime implementation; all four saved prompts reconciled and read back to 1.2.0; real matching first executions pending",
         "files": [
           "content/automation-coverage.json",
           "content/automation-registries/1.2.0.json",
@@ -251,61 +255,145 @@
       "savedTasks": [
         {
           "id": "version-release-watch",
-          "status": "pending",
-          "beforeDigest": null,
-          "afterDigest": null,
-          "readbackEvidence": "No saved-task read or update performed in this continuation. Release Watch read remains denied; no alternate route used. Other tasks require their own supported reconciliation and readback.",
+          "status": "read-back-verified",
+          "beforeDigest": "sha256:f84ab1012fbd3fdd6aff2448666eaddc213f6450c2efc9693de861c70df5865c",
+          "afterDigest": "sha256:9d4c41ef228f109a4cab7278cffee24d1073f1c56773fba95aa9fee6a1c8fff9",
+          "readbackEvidence": "Native prompt-only automations.update followed by independent automations.peek. Exact prepared public 1.2.0 append block and actual watch identity appended; complete original prompt retained. Only prompt and updated_at changed in the full exposed saved object. Permission/model/notification controls are unexposed and omitted from mutations; no new authority. Full private before/after snapshots retained in the execution workspace; public receipt contains digests, not private conversation/environment identifiers.",
           "cadencePreserved": true,
           "permissionsPreserved": true,
           "firstExecution": {
             "status": "pending",
-            "verifiedAt": null
-          }
+            "verifiedAt": null,
+            "evidence": "Requires an actual execution after the saved 1.2.0 update with matching task/scheduler identity, complete participating coverage and applicable validation/delivery. Earlier runs and manual reconciliation do not satisfy this amendment."
+          },
+          "previousReconciliation": {
+            "status": "pending",
+            "beforeDigest": null,
+            "afterDigest": null,
+            "readbackEvidence": "No saved-task read or update performed in this continuation. Release Watch read remains denied; no alternate route used. Other tasks require their own supported reconciliation and readback."
+          },
+          "taskId": "6aa950be0884819196ca3f8ae776f49b",
+          "beforePromptDigest": "sha256:7cc0690e9e502876c13e0fb3bedb45e4546dee96eb3880d9e62cba754e48912f",
+          "afterPromptDigest": "sha256:e2e9bc701e1408962bbb1750d931d29130eb9069d3752567447e8a25a5401f2d",
+          "readbackAt": "2026-11-04T15:25:32.821Z",
+          "savedUpdatedAt": "2026-11-04T15:24:26.167422+00:00",
+          "retainedSettings": {
+            "schedule": "BEGIN:VEVENT\nDTSTART;TZID=America/New_York:20260916T050000\nRRULE:FREQ=DAILY\nEND:VEVENT",
+            "timingMode": "flexible_schedule",
+            "defaultTimezone": "America/Los_Angeles",
+            "isEnabled": true,
+            "environmentSelection": "inherited",
+            "environmentDetailsDigest": "sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+          },
+          "reconciliationRecord": "docs/audits/2026-11-04-automation-task-reconciliation.json"
         },
         {
           "id": "version-guidance-audit",
-          "status": "pending",
-          "beforeDigest": null,
-          "afterDigest": null,
-          "readbackEvidence": "No saved-task read or update performed in this continuation. Release Watch read remains denied; no alternate route used. Other tasks require their own supported reconciliation and readback.",
+          "status": "read-back-verified",
+          "beforeDigest": "sha256:39d4a6383f02587b36b059bc85cb2888829b6fc9c972a58273bb42b2ad3c0b38",
+          "afterDigest": "sha256:5a470dca9d4193d85ee3f7f4175e7d7433947a2c848b6023a137bd9fd0532fea",
+          "readbackEvidence": "Native prompt-only automations.update followed by independent automations.peek. Exact prepared public 1.2.0 append block and actual watch identity appended; complete original prompt retained. Only prompt and updated_at changed in the full exposed saved object. Permission/model/notification controls are unexposed and omitted from mutations; no new authority. Full private before/after snapshots retained in the execution workspace; public receipt contains digests, not private conversation/environment identifiers.",
           "cadencePreserved": true,
           "permissionsPreserved": true,
           "firstExecution": {
             "status": "pending",
-            "verifiedAt": null
-          }
+            "verifiedAt": null,
+            "evidence": "Requires an actual execution after the saved 1.2.0 update with matching task/scheduler identity, complete participating coverage and applicable validation/delivery. Earlier runs and manual reconciliation do not satisfy this amendment."
+          },
+          "previousReconciliation": {
+            "status": "pending",
+            "beforeDigest": null,
+            "afterDigest": null,
+            "readbackEvidence": "No saved-task read or update performed in this continuation. Release Watch read remains denied; no alternate route used. Other tasks require their own supported reconciliation and readback."
+          },
+          "taskId": "6aa953b3525c81918e61d1584274573e",
+          "beforePromptDigest": "sha256:cdb5945cb8feea382fa206c84bdf15771dab4c7587a3a06937f51a408dbe7669",
+          "afterPromptDigest": "sha256:116cccc502c515b18d20814d61705e51b2382b9a98c9648259ca82fbe2fdc83f",
+          "readbackAt": "2026-11-04T15:25:32.821Z",
+          "savedUpdatedAt": "2026-11-04T15:24:29.234268+00:00",
+          "retainedSettings": {
+            "schedule": "BEGIN:VEVENT\nDTSTART;TZID=America/New_York:20260917T080000\nRRULE:FREQ=WEEKLY;BYDAY=MO,TH\nEND:VEVENT",
+            "timingMode": "flexible_schedule",
+            "defaultTimezone": "America/Los_Angeles",
+            "isEnabled": true,
+            "environmentSelection": "inherited",
+            "environmentDetailsDigest": "sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+          },
+          "reconciliationRecord": "docs/audits/2026-11-04-automation-task-reconciliation.json"
         },
         {
           "id": "es-editions-watch",
-          "status": "pending",
-          "beforeDigest": null,
-          "afterDigest": null,
-          "readbackEvidence": "No saved-task read or update performed in this continuation. Release Watch read remains denied; no alternate route used. Other tasks require their own supported reconciliation and readback.",
+          "status": "read-back-verified",
+          "beforeDigest": "sha256:bea10b464dbdb807b119ae202bb4725e87fe8d263e922f363c4c17c228c9be19",
+          "afterDigest": "sha256:88aa6fa8cbb4fd9fa03a1db8e2cc7412b9267343edc53c0433dd1a7407f39611",
+          "readbackEvidence": "Native prompt-only automations.update followed by independent automations.peek. Exact prepared public 1.2.0 append block and actual watch identity appended; complete original prompt retained. Only prompt and updated_at changed in the full exposed saved object. Permission/model/notification controls are unexposed and omitted from mutations; no new authority. Full private before/after snapshots retained in the execution workspace; public receipt contains digests, not private conversation/environment identifiers.",
           "cadencePreserved": true,
           "permissionsPreserved": true,
           "firstExecution": {
             "status": "pending",
-            "verifiedAt": null
-          }
+            "verifiedAt": null,
+            "evidence": "Requires an actual execution after the saved 1.2.0 update with matching task/scheduler identity, complete participating coverage and applicable validation/delivery. Earlier runs and manual reconciliation do not satisfy this amendment."
+          },
+          "previousReconciliation": {
+            "status": "pending",
+            "beforeDigest": null,
+            "afterDigest": null,
+            "readbackEvidence": "No saved-task read or update performed in this continuation. Release Watch read remains denied; no alternate route used. Other tasks require their own supported reconciliation and readback."
+          },
+          "taskId": "6ab2aa014df881918687cc1e30393ea9",
+          "beforePromptDigest": "sha256:456284afcc76c7a2038f9003b2e7856fa69ee51e3f048c01bff7ece63d36a503",
+          "afterPromptDigest": "sha256:a65a425f0b1a60847469418735183aea807ea1fe714d7a87e76878b5b7372486",
+          "readbackAt": "2026-11-04T15:25:32.821Z",
+          "savedUpdatedAt": "2026-11-04T15:24:32.571429+00:00",
+          "retainedSettings": {
+            "schedule": "BEGIN:VEVENT\nDTSTART;TZID=America/New_York:20260923T060000\nRRULE:FREQ=DAILY;BYHOUR=6;BYMINUTE=0;BYSECOND=0\nEND:VEVENT",
+            "timingMode": "exact_schedule",
+            "defaultTimezone": "America/New_York",
+            "isEnabled": true,
+            "environmentSelection": "inherited",
+            "environmentDetailsDigest": "sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+          },
+          "reconciliationRecord": "docs/audits/2026-11-04-automation-task-reconciliation.json"
         },
         {
           "id": "csp-fedramp-watch",
-          "status": "pending",
-          "beforeDigest": null,
-          "afterDigest": null,
-          "readbackEvidence": "No saved-task read or update performed in this continuation. Release Watch read remains denied; no alternate route used. Other tasks require their own supported reconciliation and readback.",
+          "status": "read-back-verified",
+          "beforeDigest": "sha256:c38b2ca646bda287322febabd5d30d5c9664df208338711f8d90da9706200363",
+          "afterDigest": "sha256:91ad6ad8c803c5d3b6440b13372e3e7d80b82b2a3c351d5a7e733b7e611fa4cf",
+          "readbackEvidence": "Native prompt-only automations.update followed by independent automations.peek. Exact prepared public 1.2.0 append block and actual watch identity appended; complete original prompt retained. Only prompt and updated_at changed in the full exposed saved object. Permission/model/notification controls are unexposed and omitted from mutations; no new authority. Full private before/after snapshots retained in the execution workspace; public receipt contains digests, not private conversation/environment identifiers.",
           "cadencePreserved": true,
           "permissionsPreserved": true,
           "firstExecution": {
             "status": "pending",
-            "verifiedAt": null
-          }
+            "verifiedAt": null,
+            "evidence": "Requires an actual execution after the saved 1.2.0 update with matching task/scheduler identity, complete participating coverage and applicable validation/delivery. Earlier runs and manual reconciliation do not satisfy this amendment."
+          },
+          "previousReconciliation": {
+            "status": "pending",
+            "beforeDigest": null,
+            "afterDigest": null,
+            "readbackEvidence": "No saved-task read or update performed in this continuation. Release Watch read remains denied; no alternate route used. Other tasks require their own supported reconciliation and readback."
+          },
+          "taskId": "6ab54b477dc88191873e8abb9c735bf7",
+          "beforePromptDigest": "sha256:12e98b47433d50f392264e2915d06562525ccfc0e2d69ee8ad5d63d380e7875a",
+          "afterPromptDigest": "sha256:27eeb256d2f243e134576a0c788e6768bcfcf029dd80236a94e5d887a178ff43",
+          "readbackAt": "2026-11-04T15:25:32.821Z",
+          "savedUpdatedAt": "2026-11-04T15:24:36.258962+00:00",
+          "retainedSettings": {
+            "schedule": "BEGIN:VEVENT\nDTSTART;TZID=America/New_York:20260925T070000\nRRULE:FREQ=DAILY;BYHOUR=7;BYMINUTE=0;BYSECOND=0\nEND:VEVENT",
+            "timingMode": "flexible_schedule",
+            "defaultTimezone": "America/New_York",
+            "isEnabled": true,
+            "environmentSelection": "inherited",
+            "environmentDetailsDigest": "sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+          },
+          "reconciliationRecord": "docs/audits/2026-11-04-automation-task-reconciliation.json"
         }
       ],
       "activation": {
         "status": "pending",
         "activatedAt": null,
-        "reason": "Repository and matching Sites runtime are published, but saved prompts remain unreconciled to 1.2.0 and real scheduler identities, complete first executions, validation and live delivery for those executions remain pending. Prior 1.0.0 runs retain their historical contract."
+        "reason": "All four actual saved prompts and preserved exposed settings are now read-back verified for 1.2.0. Matching real first executions, complete participating coverage and applicable validation/delivery remain pending. November 4 Release scheduler completion contains an ES report, supplies no accepted Release coverage and predates this saved amendment."
       }
     }
   ]
