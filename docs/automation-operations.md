@@ -168,14 +168,19 @@ Inspect the returned status, engine, revision and active-delivery flag. Sites
 publication is separate. Preserve `VC_ACTIVE_DELIVERY` until its original real-D1
 activation/rollback and independent-reader gates are satisfied.
 
-For this repair, merge, Sites deployment and saved-task activation remain approval
-gates. Review this draft's exact CI evidence first. After approved integration,
-validate the final main SHA, deploy the matching runtime through the existing
-Sites procedure only when authorized, verify source/tree and live checks, then
-observe actual scheduled watch executions. Read back saved settings if prompts
-are amended. Do not add a timer, widen permissions or mark the pilot active to
-complete rollout. The current Release Watch still has four incomplete mandatory
-capabilities; the Guidance Audit's complete first execution is also pending.
+The approved PR #66 implementation is merged and deployed as Sites version 277;
+see the [current rollout and execution status](automation-rollout-status.md).
+Its earlier draft-only publication gate is satisfied. This does not reconcile saved
+prompts, verify a new scheduled run or activate the pilot. The retained November 3
+Release Watch receipt remains 7/11 under 1.0.0; current 1.2.0 task reconciliation
+and complete real first executions remain pending for all four declared tasks.
+
+For future changes, keep merge, Sites deployment and saved-task activation authority
+separate. Review the exact candidate, validate the final main SHA, deploy a matching
+runtime only when authorized, verify source/tree and live checks, then observe the
+actual scheduled executions. Read back saved settings only through authorized
+supported access if prompts are amended. Do not add a timer, widen permissions or
+mark the pilot active merely to complete rollout.
 
 ## Monitoring through the existing progress task
 
