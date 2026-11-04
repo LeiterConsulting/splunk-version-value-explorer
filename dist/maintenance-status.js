@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-03T12:30:17.020Z",
+      "lastAttempt": "2026-11-04T12:44:20.463Z",
       "lastSuccess": "2026-11-03T12:30:17.094Z",
-      "outcome": "no-change",
-      "summary": "34officialinventorychecks and8boundedclaimassessments; no supported factual change",
+      "outcome": "blocked",
+      "summary": "Retrieved 34 official URLs and assessed eight bounded claim groups. SOAR service now lists November 2026 / 8.8.0; CA/GA wording remains unresolved.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -399,9 +399,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "34officialinventorychecks and8boundedclaimassessments; no supported factual change",
           "scope": "7direct/27indexedretrievals; exact Marketplace status only, S3conflicts, ES8.8regionaltables, SAIAregulated/runtime, ITSIregionalunknown, SOARrestricted, datedvisualmatrix, O11yRCAambiguity. Publication separate."
+        },
+        {
+          "at": "2026-11-04T12:44:20.463Z",
+          "outcome": "running",
+          "summary": "CSP regional and regulated evidence review in progress.",
+          "scope": "34 official inventory URLs and bounded consequential claims."
+        },
+        {
+          "at": "2026-11-04T12:50:23Z",
+          "outcome": "blocked",
+          "summary": "Retrieved 34 official URLs and assessed eight bounded claim groups. SOAR service now lists November 2026 / 8.8.0; CA/GA wording remains unresolved.",
+          "scope": "Matrix visual verification and full SOC claim-family assessment remain incomplete. Five issue reassessments prepared; canonical facts and material cycle unchanged."
         }
       ],
-      "scope": "7direct/27indexedretrievals; exact Marketplace status only, S3conflicts, ES8.8regionaltables, SAIAregulated/runtime, ITSIregionalunknown, SOARrestricted, datedvisualmatrix, O11yRCAambiguity. Publication separate."
+      "scope": "Matrix visual verification and full SOC claim-family assessment remain incomplete. Five issue reassessments prepared; canonical facts and material cycle unchanged."
     },
     {
       "id": "version-release-watch",
