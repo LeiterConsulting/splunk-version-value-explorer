@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-saia-high-runtime-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-05T12:27:20.470Z",
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/15df959274e65dcea4a15221951690af028d9748/docs/audits/2026-11-05-csp-fedramp-watch.json",
+      "pointer": "/claimChecks/3",
+      "originalLabel": "unable-to-verify-high-runtime-scope"
+    }
+  ],
+  "kind": "assessment",
+  "assessmentId": "vcia-csp-20261105-saia-high-runtime-scope",
+  "assessedAt": "2026-11-05T12:25:13.540Z",
+  "outcome": "unable-to-verify",
+  "rationale": "The 2.3.6 guide keeps limited IL2 for 2.0.0+, omits Agent Mode in that scope, defaults training off and fixes runtime to Splunk-hosted models. The commercial-region lead-in includes two GovCloud rows. The About guide qualifies same-region prompts by hosted model choice. The separate High SPL authoring/explanation announcement does not reconcile exact app, mode, runtime or tenant rollout.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant for SPL"
+    ],
+    "versions": [
+      "SAIA 2.3.6 documentation",
+      "October 19 High announcement"
+    ],
+    "editions": null,
+    "deployments": [
+      "Splunk Cloud Platform"
+    ],
+    "regions": [
+      "FedRAMP High scope under assessment"
+    ],
+    "audiences": [
+      "Customers and documentation readers evaluating the stated decision"
+    ],
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-csp-20261104-saia-high-runtime-scope"
+  ],
+  "remainingConcerns": [
+    "Exact High version, mode, runtime and rollout remain unestablished."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "csp-20261105-aisaiainstall",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "section": "FedRAMP deployments; supported regions; version compatibility",
+      "statement": "The 2.3.6 guide keeps limited IL2 for 2.0.0+, omits Agent Mode in that scope, defaults training off and fixes runtime to Splunk-hosted models. The commercial-region lead-in includes two GovCloud rows. The About guide qualifies same-region prompts by hosted model choice. The separate High SPL authoring/explanation announcement does not reconcile exact app, mode, runtime or tenant rollout.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "50113df81819a79d60f6fbe0ea1cd6b35dc44c116a1f5f2003116074ea8f8077",
+        "qualification": "SHA-256 of the direct public HTTP response body. Publisher revision is unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261105-aisaiaabout",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+      "section": "Requirements; features; ITSI subagent; where the assistant runs",
+      "statement": "The 2.3.6 guide keeps limited IL2 for 2.0.0+, omits Agent Mode in that scope, defaults training off and fixes runtime to Splunk-hosted models. The commercial-region lead-in includes two GovCloud rows. The About guide qualifies same-region prompts by hosted model choice. The separate High SPL authoring/explanation announcement does not reconcile exact app, mode, runtime or tenant rollout.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "27f80e9e1c2f18c7c8d693185cd7acbf8d869a87cc4007fe9b1f23944edab746",
+        "qualification": "SHA-256 of the direct public HTTP response body. Publisher revision is unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261105-highannouncement20261019",
+      "url": "https://www.splunk.com/en_us/blog/industries/edge-and-ingest-processors-with-spl2-and-splunk-ai-assistant-achieve-fedramp-high.html",
+      "section": "Expanding Capabilities in AWS GovCloud with FedRAMP High",
+      "statement": "The 2.3.6 guide keeps limited IL2 for 2.0.0+, omits Agent Mode in that scope, defaults training off and fixes runtime to Splunk-hosted models. The commercial-region lead-in includes two GovCloud rows. The About guide qualifies same-region prompts by hosted model choice. The separate High SPL authoring/explanation announcement does not reconcile exact app, mode, runtime or tenant rollout.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ce74554ad000576229d977814666da0aa5a3a89071047bd4ee835289550fcca8",
+        "qualification": "SHA-256 of the direct public HTTP response body. Publisher revision is unknown."
+      }
+    }
+  ]
+}

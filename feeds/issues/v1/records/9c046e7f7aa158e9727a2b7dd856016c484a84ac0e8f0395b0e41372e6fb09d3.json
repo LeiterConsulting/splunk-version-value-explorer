@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-cloud-s3-restricted-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-05T12:27:20.470Z",
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/15df959274e65dcea4a15221951690af028d9748/docs/audits/2026-11-05-csp-fedramp-watch.json",
+      "pointer": "/claimChecks/1",
+      "originalLabel": "conflict-preserved"
+    }
+  ],
+  "kind": "assessment",
+  "assessmentId": "vcia-csp-20261105-cloud-s3-restricted-scope",
+  "assessedAt": "2026-11-05T12:25:13.540Z",
+  "outcome": "still-present",
+  "rationale": "The regional table excludes High and IL5 for Amazon S3 while the April 8 entry adds GovCloud High and IL5 for relevant 10.3 versions. The current broader third-party-store search section also excludes Moderate, High and IL5. Preserve distinct release and product-feature scopes; no common supported path established.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform"
+    ],
+    "versions": [
+      "10.6 current service",
+      "10.3 historical guidance"
+    ],
+    "editions": null,
+    "deployments": [
+      "Splunk-managed Cloud"
+    ],
+    "regions": [
+      "FedRAMP Moderate",
+      "FedRAMP High",
+      "IL5"
+    ],
+    "audiences": [
+      "Customers and documentation readers evaluating the stated decision"
+    ],
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-csp-20261104-cloud-s3-restricted-scope"
+  ],
+  "remainingConcerns": [
+    "Reconcile the version-scoped April change, current regional table and broader search restrictions."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "csp-20261105-service",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions and region differences; Machine Data Lake search; third-party federated-search limitations; current subscription table lists Cloud 10.6, ES 8.7 and ITSI 5.0; supported forwarder rows extend through 10.6; page modification date",
+      "statement": "The regional table excludes High and IL5 for Amazon S3 while the April 8 entry adds GovCloud High and IL5 for relevant 10.3 versions. The current broader third-party-store search section also excludes Moderate, High and IL5. Preserve distinct release and product-feature scopes; no common supported path established.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "88505ee4128ee68acc83e01b5636209d3db79aa027714b077efa269e7149caf0",
+        "qualification": "SHA-256 of the direct public HTTP response body. Publisher revision is unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261105-changes",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "October 21, 2026 entry adds Cloud Activity Based Pricing across service-description sections for relevant Cloud 10.6 versions; October 6 regional/search/subscription history and April 8 version-scoped S3 guidance remain separate. Individual effective dates do not establish regional rollout, entitlement or authorization.",
+      "statement": "The regional table excludes High and IL5 for Amazon S3 while the April 8 entry adds GovCloud High and IL5 for relevant 10.3 versions. The current broader third-party-store search section also excludes Moderate, High and IL5. Preserve distinct release and product-feature scopes; no common supported path established.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "fc3fc1af1725450342bc6c88c426fcb2f31df2768e065fbeebd4d5e641d7ad43",
+        "qualification": "SHA-256 of the direct public HTTP response body. Publisher revision is unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261105-discovery0",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Current service versions, regional and restricted search sections",
+      "statement": "The regional table excludes High and IL5 for Amazon S3 while the April 8 entry adds GovCloud High and IL5 for relevant 10.3 versions. The current broader third-party-store search section also excludes Moderate, High and IL5. Preserve distinct release and product-feature scopes; no common supported path established.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "de722d89d514b1de289e5cc69e0ba6d7bd9500f7ee9f6ba37d1092f3c42ea055",
+        "qualification": "SHA-256 of the direct public HTTP response body. Publisher revision is unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261105-discovery1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "Current service versions, regional and restricted search sections",
+      "statement": "The regional table excludes High and IL5 for Amazon S3 while the April 8 entry adds GovCloud High and IL5 for relevant 10.3 versions. The current broader third-party-store search section also excludes Moderate, High and IL5. Preserve distinct release and product-feature scopes; no common supported path established.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "55aee0025ab977ff022623910ca45d0c0d8171561b734334f468a9c535f07d13",
+        "qualification": "SHA-256 of the direct public HTTP response body. Publisher revision is unknown."
+      }
+    }
+  ]
+}

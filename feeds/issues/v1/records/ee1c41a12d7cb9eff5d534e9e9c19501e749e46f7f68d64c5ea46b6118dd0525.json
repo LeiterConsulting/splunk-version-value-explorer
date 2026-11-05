@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "findingId": "vci-es-security-assistant-runtime-ap-routing",
+  "revision": 1,
+  "recordedAt": "2026-11-05T12:35:10.653Z",
+  "title": "ES Security Assistant guides differ on Model Runtime routing in five AWS AP locations",
+  "concernType": "contradiction",
+  "problem": "The same five AWS AP locations have Global routing in the ES 8.6 guide and Data zone routing in the ES 8.8 guide, with both naming ES 8.6 as availability context.",
+  "scope": {
+    "products": [
+      "Splunk Security Assistant in Enterprise Security"
+    ],
+    "versions": [
+      "8.6 guide",
+      "8.8 release guide"
+    ],
+    "editions": null,
+    "deployments": null,
+    "regions": [
+      "Mumbai",
+      "Seoul",
+      "Singapore",
+      "Sydney",
+      "Tokyo"
+    ],
+    "audiences": [
+      "Readers assessing Security Assistant data-location boundaries"
+    ],
+    "exclusions": [
+      "Exact deployed routing, tenant policy, effective date, data residency, authorization, SAIA Agent Mode and SOC per-agent rollout."
+    ]
+  },
+  "scopeComparison": "Both versioned tables label availability for the five AWS AP rows as of ES 8.6. The 8.6 guide classifies those rows as Global; the 8.8 release guide classifies them as Data zone. The tables distinguish worldwide routing from routing within a zone. They do not supply an effective routing-change date, exact applicable deployment/configuration, request destination, residency assurance or authorization. Retain both versioned statements and confirm the applicable service policy before relying on either classification.",
+  "impact": {
+    "customerScenario": "A reader assessing whether Security Assistant requests can route outside a geographic zone.",
+    "consequence": "The two versioned classifications require reconciliation before relying on zone containment.",
+    "level": "unknown"
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "Both direct versioned tables expose the differing classifications; exact deployment applicability remains unresolved."
+  },
+  "claimIds": [
+    "ai:es:security-assistant:model-runtime-ap-routing"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Versioned source classifications differ."
+  },
+  "relationships": {
+    "related": [
+      "vci-es-security-assistant-runtime-default"
+    ],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-security-assistant-runtime-86",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.6/splunk-enterprise-security-release-notes/model-runtime-in-splunk-ai-assistant-for-security",
+      "section": "Model Runtime feature availability and region standard",
+      "statement": "AWS AP Mumbai, Seoul, Singapore, Sydney and Tokyo are labeled available as of ES 8.6, with Global routing in this guide.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "a658cfb7d28527ac6b81b38f619564ece86c10e3321848aa176892a889ec6df0",
+        "qualification": "Direct official HTTP response body; exact publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-security-assistant-runtime-88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "Model Runtime in Splunk Security Assistant > Model Runtime feature availability and region standard",
+      "statement": "AWS AP Mumbai, Seoul, Singapore, Sydney and Tokyo are labeled available as of ES 8.6, with Data zone routing in this guide.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "96b06e2720cc88c0be6de2ae2324677021d2c15eda1e6b01d5b3be17e0f290c6",
+        "qualification": "Direct official HTTP response body; exact publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/1baf9d641f3b20640a35e43f87a3c89583426d9f/docs/audits/2026-11-05-csp-fedramp-watch-sources.json",
+      "pointer": "/claimChecks/0",
+      "originalLabel": "conflicting-versioned-routing-classifications"
+    }
+  ]
+}
