@@ -418,10 +418,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-03T11:17:30.591Z",
+      "lastAttempt": "2026-11-05T10:45:12.698312Z",
       "lastSuccess": "2026-11-03T11:17:30.674Z",
-      "outcome": "changed",
-      "summary": "Assessed exact 10.6 workload modes/activation/status and Lantern staffing/communications/transition. Seven mandatory capabilities assessed/changed; four remain explicitly incomplete. Native/live delivery is separate.",
+      "outcome": "blocked",
+      "summary": "SOAR Cloud 8.8.0 GA evidence and three historical HF sections reviewed. Cisco newsroom evidence remains unavailable.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -895,9 +895,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Assessed exact 10.6 workload modes/activation/status and Lantern staffing/communications/transition. Seven mandatory capabilities assessed/changed; four remain explicitly incomplete. Native/live delivery is separate.",
           "scope": "Full 217-source same-run inventory retained; two scoped Prep11 factual updates, three Advisor drift guards and borrowed HF mapping regressions; no broad lifecycle/authorization refresh."
+        },
+        {
+          "at": "2026-11-05T10:45:12.698312Z",
+          "outcome": "running",
+          "summary": "Reviewing release inventory and registered claim families.",
+          "scope": "221 tracked and registry URLs screened. Nine assessed registry capabilities and two blocked. Bounded SOAR and historical HF candidate."
+        },
+        {
+          "at": "2026-11-05T10:54:26.198Z",
+          "outcome": "blocked",
+          "summary": "SOAR Cloud 8.8.0 GA evidence and three historical HF sections reviewed. Cisco newsroom evidence remains unavailable.",
+          "scope": "221 tracked and registry URLs screened. Nine assessed registry capabilities and two blocked. Bounded SOAR and historical HF candidate."
         }
       ],
-      "scope": "Full 217-source same-run inventory retained; two scoped Prep11 factual updates, three Advisor drift guards and borrowed HF mapping regressions; no broad lifecycle/authorization refresh."
+      "scope": "221 tracked and registry URLs screened. Nine assessed registry capabilities and two blocked. Bounded SOAR and historical HF candidate."
     },
     {
       "id": "es-editions-watch",

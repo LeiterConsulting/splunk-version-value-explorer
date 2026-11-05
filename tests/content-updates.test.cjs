@@ -17,8 +17,9 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('cycle 50 adds scoped ES agentic facts and retains prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,50);
- for(const key of ['prep11:prep11-workload-baseline','prep11:prep11-cloud-option']){assert.equal(b.entries[key].cycle,49);assert(b.active(b.entries[key]));assert.equal(b.entries[key].sourceDate,null);}
+ assert.equal(b.policy.currentCycle,51);
+ const soar=b.entries['product:soar:cloud-8.8'];assert.equal(soar.cycle,51);assert(b.active(soar));assert.match(soar.detail,/November 4 General Availability/);
+ for(const key of ['prep11:prep11-workload-baseline','prep11:prep11-cloud-option']){assert.equal(b.entries[key].cycle,49);assert(b.active(b.entries[key],50));assert(!b.active(b.entries[key]));assert.equal(b.entries[key].sourceDate,null);}
  for(const key of ['ai:triage-note','soar:broker-ha88']){assert.equal(b.entries[key].cycle,48);assert(!b.active(b.entries[key]));assert.equal(b.entries[key].sourceDate,null);}
  {const e=b.entries['edition:triage-agent'];assert.equal(e.cycle,50);assert(b.active(e));assert.equal(e.sourceDate,null);assert.match(e.detail,/Triage and Response agents/);}
  assert(!b.active(b.entries['ai:es-essentials-regions']));
@@ -34,7 +35,7 @@ test('cycle 50 adds scoped ES agentic facts and retains prior cycle provenance',
  const aiAssistant=b.entries['edition:ai-assistant'];assert.equal(aiAssistant.cycle,50);assert(b.active(aiAssistant));assert.match(aiAssistant.detail,/2\.4 Cloud Connected support as planned/);
  const aiCycle33=b.entries['ai-history:catalog:cycle33'];assert.equal(aiCycle33.recordKey,'ai:catalog');assert(!b.active(aiCycle33));assert.match(aiCycle33.detail,/us3/);
  const aiPrior=b.entries['ai-history:catalog:cycle32'];assert.equal(aiPrior.recordKey,'ai:catalog');assert(!b.active(aiPrior));assert.match(aiPrior.detail,/not an upstream launch/);
- for(const key of ['product:soar:cloud-8.8','feature:observability:Log-based alerting phased rollout']){const e=b.entries[key];assert.equal(e.cycle,33);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-24\.md/);}
+ for(const key of ['product:soar:cloud-8.8-history-33','feature:observability:Log-based alerting phased rollout']){const e=b.entries[key];assert.equal(e.cycle,33);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-24\.md/);}
  const edition=b.entries['edition:ai'];assert.equal(edition.cycle,34);assert(!b.active(edition));assert.equal(edition.kind,'corrected');assert.match(edition.detail,/Triage edition conflict/);
   const threatGraph=b.entries['edition:threat-graph-detection'];assert.equal(threatGraph.cycle,37);assert(!b.active(threatGraph));assert.match(threatGraph.note,/2026\/10\/2026-10-26\.md/);
   const detectionBuilder=b.entries['edition:detection-builder'];assert.equal(detectionBuilder.cycle,50);assert(b.active(detectionBuilder));assert.match(detectionBuilder.detail,/only plans 2\.4 Cloud Connected support/);

@@ -176,7 +176,7 @@ test('borrowed HF 10.4 security and Windows identities retain their exact histor
   assert.match(windows.to,/Local service or non-administrator domain accounts/);
   assert.match(windows.implication,/reconfigure a local-system deployment or halt when a domain service account remains an administrator/);
   for(const id of ['technical.hf.10.4.certificate-signatures','technical.hf.10.4.windows-service-identity']) {
-   assert(c.window.VersionCompassSources.sources.some(s=>s.claimReferences?.some(r=>r.claimId===id&&r.claimVerified==='2026-10-19')));
+   assert(c.window.VersionCompassSources.sources.some(s=>s.claimReferences?.some(r=>r.claimId===id&&r.claimVerified==='2026-11-05')));
   }
  }
  const records=api.assess({...api.defaults,type:'hf',from:'10.2',to:'10.4'}).technical;check(records);
@@ -194,7 +194,8 @@ test('borrowed HF KV Store prerequisites and TLS precedence reject reversed or w
   assert(media&&tls);
   assert.match(media.to,/engine 7 or later is required/);assert.match(media.action,/before starting the 10.4 upgrade/);
   assert.match(tls.from,/ignored in favor of sslConfig/);assert.equal(tls.to,'TLS settings in the kvstore stanza take precedence');
-  for(const id of ['technical.hf.10.4.kv-store-binaries','technical.hf.10.4.kv-store-tls-configuration'])assert(c.window.VersionCompassSources.sources.some(s=>s.claimReferences?.some(r=>r.claimId===id&&r.claimVerified==='2026-10-20'&&r.section)));
+  assert(c.window.VersionCompassSources.sources.some(s=>s.claimReferences?.some(r=>r.claimId==='technical.hf.10.4.kv-store-binaries'&&r.claimVerified==='2026-11-05'&&r.section==='Splunk removed older unsupported MongoDB database engine binaries')));
+  assert(c.window.VersionCompassSources.sources.some(s=>s.claimReferences?.some(r=>r.claimId==='technical.hf.10.4.kv-store-tls-configuration'&&r.claimVerified==='2026-10-20'&&r.section)));
  }
  const records=api.assess({...api.defaults,type:'hf',from:'10.2',to:'10.4'}).technical;check(records);
  const reversed=JSON.parse(JSON.stringify(records));reversed.find(r=>r.component==='KV Store TLS configuration').to='sslConfig always takes precedence';assert.throws(()=>check(reversed),/kvstore stanza take precedence/);

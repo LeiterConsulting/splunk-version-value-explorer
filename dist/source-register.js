@@ -4918,19 +4918,19 @@ window.VersionCompassSources = {
           "release": "10.4",
           "component": "Certificate signatures",
           "section": "Splunk removed support for Secure Hash Algorithm 1 (SHA1) certificate signatures",
-          "claimVerified": "2026-10-19",
+          "claimVerified": "2026-11-05",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval. October 19 bounded semantic recheck: 10.0 deprecation is distinct from 10.4 removal; reissue SHA-256 or stronger certificates. No UF or Cloud-service inference."
+          "qualification": "10.0 deprecation precedes 10.4 removal; reissue certificates at SHA-256 or stronger. Enterprise-package customer-managed HF scope."
         },
         {
           "path": "forwarders: borrowed.technical.hf.10.4.kv-store-binaries",
           "claimId": "technical.hf.10.4.kv-store-binaries",
           "release": "10.4",
           "component": "KV Store binaries",
-          "section": "Splunk removed the binary files that were associated with older versions of the MongoDB database engine",
-          "claimVerified": "2026-10-20",
+          "section": "Splunk removed older unsupported MongoDB database engine binaries",
+          "claimVerified": "2026-11-05",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. October 20 bounded semantic recheck: unsupported MongoDB binaries are removed from 10.4 media; an instance using KV Store must reach engine 7 or higher before the Enterprise-package upgrade. This is not a blanket UF prerequisite or a claim every HF uses KV Store."
+          "qualification": "10.4 READ THIS FIRST limits the change to the Enterprise package across OSes and instructs KV Store users to reach MongoDB 7 or higher first. The current exact heading replaces the older heading. Component-dependent HF scope; no UF or Cloud-managed host inference."
         },
         {
           "path": "forwarders: borrowed.technical.hf.10.4.kv-store-tls-configuration",
@@ -4948,9 +4948,9 @@ window.VersionCompassSources = {
           "release": "10.4",
           "component": "Windows service identity",
           "section": "Splunk Enterprise on Windows no longer lets you install, upgrade, or run it as an administrator-level user",
-          "claimVerified": "2026-10-19",
+          "claimVerified": "2026-11-05",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval. October 19 bounded semantic recheck: Windows-only 10.4 installer branches differ for local-system, domain-administrator and existing local-service accounts; non-administrator domain accounts remain permitted. No Unix or Cloud-managed installation inference."
+          "qualification": "Windows-only branches differ for local-system, domain-administrator and local-service accounts. Non-administrator domain accounts remain possible."
         }
       ],
       "usage": "In use",
@@ -7478,6 +7478,7 @@ window.VersionCompassSources = {
       "references": [
         "soar.sources.cloudBroker88.url",
         "soar.sources.cloud.url",
+        "soar.sources.cloud88Ga.url",
         "content-updates.js",
         "soar: soar.records.1",
         "soar: soar.records.2",
@@ -7491,20 +7492,21 @@ window.VersionCompassSources = {
         "soar: soar.records.13",
         "soar: soar.records.14",
         "soar: soar.records.15",
+        "soar: soar.backlog.5",
         "soar: soar.targetRequirements.8.8.0"
       ],
       "reviews": [
-        "2026-11-02",
+        "2026-11-05",
         "2026-10-24"
       ],
       "claimReferences": [
         {
           "path": "soar: soar.records.1",
-          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
+          "section": "November 4, 2026 Release 8.8; General Availability statement; Automation Broker High Availability"
         },
         {
           "path": "soar: soar.records.2",
-          "section": "October 21, 2026 release 8.8: Automation Broker High Availability row and representative-enablement note; CA heading and GA enhancement prose"
+          "section": "November 4, 2026 Release 8.8: Automation Broker High Availability row and representative-activation note"
         },
         {
           "path": "soar: soar.records.3",
@@ -7545,6 +7547,10 @@ window.VersionCompassSources = {
         {
           "path": "soar: soar.records.15",
           "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
+        },
+        {
+          "path": "soar: soar.backlog.5",
+          "section": "November 4, 2026 Release 8.8; General Availability statement; Automation Broker High Availability"
         },
         {
           "path": "soar: soar.targetRequirements.8.8.0",
@@ -7588,16 +7594,28 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.regions.url",
+        "soar.sources.cloud88Service.url",
         "content-updates.js",
-        "soar: soar.backlog.0"
+        "soar: soar.records.1",
+        "soar: soar.backlog.0",
+        "soar: soar.backlog.5"
       ],
       "reviews": [
-        "2026-10-22"
+        "2026-10-22",
+        "2026-11-05"
       ],
       "claimReferences": [
         {
+          "path": "soar: soar.records.1",
+          "section": "Supported versions / Current Splunk SOAR (Cloud) version and Supported Python version"
+        },
+        {
           "path": "soar: soar.backlog.0",
-          "section": "Available regions; supported versions. The current-version prose and table both state September 2026 for 8.7.0; the previously observed April label is retained in historical audits."
+          "section": "Available regions. Historical 8.7.0 September service version assessment retained in the October 22 audit. See the separate current supported-version source."
+        },
+        {
+          "path": "soar: soar.backlog.5",
+          "section": "Supported versions / Current Splunk SOAR (Cloud) version and Supported Python version"
         }
       ],
       "usage": "In use",
