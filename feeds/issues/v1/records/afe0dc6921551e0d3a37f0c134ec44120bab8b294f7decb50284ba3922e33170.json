@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-itsi-subagent-region",
+  "revision": 1,
+  "recordedAt": "2026-11-05T12:27:20.470Z",
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/15df959274e65dcea4a15221951690af028d9748/docs/audits/2026-11-05-csp-fedramp-watch.json",
+      "pointer": "/claimChecks/4",
+      "originalLabel": "unable-to-establish-subagent-region"
+    }
+  ],
+  "kind": "assessment",
+  "assessmentId": "vcia-csp-20261105-itsi-subagent-region",
+  "assessedAt": "2026-11-05T12:25:13.540Z",
+  "outcome": "still-present",
+  "rationale": "The subagent and app dependency sections establish version floors without listing subagent-specific rollout regions. The base SAIA service region table does not establish the subagent location.",
+  "reviewedScope": {
+    "products": [
+      "Splunk IT Service Intelligence",
+      "Splunk AI Assistant",
+      "Splunk MCP Server"
+    ],
+    "versions": [
+      "ITSI 5.0+",
+      "SAIA 2.2+",
+      "MCP Server 1.2.1+"
+    ],
+    "editions": null,
+    "deployments": [
+      "Cloud regional availability not established"
+    ],
+    "regions": null,
+    "audiences": [
+      "Customers evaluating ITSI subagent regional availability"
+    ],
+    "exclusions": [
+      "No tenant availability, entitlement, authorization or deployment suitability is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-release-20261105-itsi-subagent-region"
+  ],
+  "remainingConcerns": [
+    "Subagent-specific region or rollout evidence remains unavailable in this review."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "csp-20261105-aisaiaabout",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+      "section": "Requirements; features; ITSI subagent; where the assistant runs",
+      "statement": "The subagent and app dependency sections establish version floors without listing subagent-specific rollout regions. The base SAIA service region table does not establish the subagent location.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "27f80e9e1c2f18c7c8d693185cd7acbf8d869a87cc4007fe9b1f23944edab746",
+        "qualification": "SHA-256 of the direct public HTTP response body. Publisher revision is unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261105-aisaiainstall",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "section": "FedRAMP deployments; supported regions; version compatibility",
+      "statement": "The subagent and app dependency sections establish version floors without listing subagent-specific rollout regions. The base SAIA service region table does not establish the subagent location.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "50113df81819a79d60f6fbe0ea1cd6b35dc44c116a1f5f2003116074ea8f8077",
+        "qualification": "SHA-256 of the direct public HTTP response body. Publisher revision is unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261105-itsirelatedapps",
+      "url": "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/install-and-upgrade/5.0/planning/itsi-compatibility-with-related-apps-and-add-ons",
+      "section": "Conditional integrations; runtime and app/version compatibility",
+      "statement": "The subagent and app dependency sections establish version floors without listing subagent-specific rollout regions. The base SAIA service region table does not establish the subagent location.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "4973ecec768d89aca16b48e5fbf87dd18e8319aa6019d321372fed8820956189",
+        "qualification": "SHA-256 of the direct public HTTP response body. Publisher revision is unknown."
+      }
+    }
+  ]
+}

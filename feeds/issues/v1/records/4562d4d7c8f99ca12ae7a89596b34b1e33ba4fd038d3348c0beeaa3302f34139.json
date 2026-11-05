@@ -1,0 +1,199 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-es-soc-analyst-version-floor",
+  "revision": 1,
+  "recordedAt": "2026-11-05T12:27:20.470Z",
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/15df959274e65dcea4a15221951690af028d9748/docs/audits/2026-11-05-csp-fedramp-watch.json",
+      "pointer": "/claimChecks/9",
+      "originalLabel": "assessed-no-change"
+    }
+  ],
+  "kind": "assessment",
+  "assessmentId": "vcia-csp-20261105-es-soc-analyst-version-floor",
+  "assessedAt": "2026-11-05T12:25:13.540Z",
+  "outcome": "still-present",
+  "rationale": "The current Premier Triage and Response aggregate lists Cloud Platform 10.2.x+ and ES 8.6+, paired SOAR and representative enablement. The 8.8 task prerequisites specify ES 8.7+ with paired SOAR, assistant enabled and investigation/connector permissions. It limits analysis to existing findings with AI triage, first ten when a detection produces more, about 200 findings per tenant daily, and frontier models. SOAR action/asset roles are additional. The 8.7 task guide uses historical AI SOC Analyst wording and the 8.7+ floor. The current aggregate names the Premier combined workflow without the earlier explicit Essentials component wording; the editions overview groups Triage under Premier. Current Cloud Connected CMP requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0 and separate setup requires SAIA 2.4+. The exact 2.3.6 Cloud Connected install guide excludes 2.2.0–2.3.6 and describes 2.4.0 as planned; 2.1.1 does not satisfy the stated floor. ES 8.8 GA on November 4 does not settle these prerequisites. The base assistant guide’s limited IL2/hosted-only scope and product regional tables do not establish regulated or per-agent rollout.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security AI SOC Analyst"
+    ],
+    "versions": [
+      "ES 8.8 documentation: aggregate Cloud ES 8.6+ versus task-specific ES 8.7+"
+    ],
+    "editions": [
+      "Premier"
+    ],
+    "deployments": [
+      "Splunk Cloud Platform"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers planning AI SOC Analyst prerequisites"
+    ],
+    "exclusions": [
+      "CMP has its separate Platform 10.4+/ES 8.8+/Cloud Connect 2.0 chain; no lower-floor eligibility, tenant rollout, entitlement, pairing or authorization is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-es-20261105-es-soc-analyst-version-floor"
+  ],
+  "remainingConcerns": [
+    "Cloud aggregate 8.6+ and task 8.7+ floors remain divergent. Exact pairing and tenant authorization are separate."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "csp-20261105-aiesagents88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
+      "statement": "The current Premier Triage and Response aggregate lists Cloud Platform 10.2.x+ and ES 8.6+, paired SOAR and representative enablement. The 8.8 task prerequisites specify ES 8.7+ with paired SOAR, assistant enabled and investigation/connector permissions. It limits analysis to existing findings with AI triage, first ten when a detection produces more, about 200 findings per tenant daily, and frontier models. SOAR action/asset roles are additional. The 8.7 task guide uses historical AI SOC Analyst wording and the 8.7+ floor. The current aggregate names the Premier combined workflow without the earlier explicit Essentials component wording; the editions overview groups Triage under Premier. Current Cloud Connected CMP requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0 and separate setup requires SAIA 2.4+. The exact 2.3.6 Cloud Connected install guide excludes 2.2.0–2.3.6 and describes 2.4.0 as planned; 2.1.1 does not satisfy the stated floor. ES 8.8 GA on November 4 does not settle these prerequisites. The base assistant guide’s limited IL2/hosted-only scope and product regional tables do not establish regulated or per-agent rollout.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "d0290dc61b1768734280b9945ce13a7eac36d34f167dae3e1db0ea856c02edcc",
+        "qualification": "SHA-256 of the direct public HTTP response body. Publisher revision is unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261105-aiessoctask88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions",
+      "statement": "The current Premier Triage and Response aggregate lists Cloud Platform 10.2.x+ and ES 8.6+, paired SOAR and representative enablement. The 8.8 task prerequisites specify ES 8.7+ with paired SOAR, assistant enabled and investigation/connector permissions. It limits analysis to existing findings with AI triage, first ten when a detection produces more, about 200 findings per tenant daily, and frontier models. SOAR action/asset roles are additional. The 8.7 task guide uses historical AI SOC Analyst wording and the 8.7+ floor. The current aggregate names the Premier combined workflow without the earlier explicit Essentials component wording; the editions overview groups Triage under Premier. Current Cloud Connected CMP requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0 and separate setup requires SAIA 2.4+. The exact 2.3.6 Cloud Connected install guide excludes 2.2.0–2.3.6 and describes 2.4.0 as planned; 2.1.1 does not satisfy the stated floor. ES 8.8 GA on November 4 does not settle these prerequisites. The base assistant guide’s limited IL2/hosted-only scope and product regional tables do not establish regulated or per-agent rollout.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "710ca3a97eee04fee5c7fd89d94ceb57dab1ef9c001069edfc3a356a025f9c72",
+        "qualification": "SHA-256 of the direct public HTTP response body. Publisher revision is unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261105-aiessoctask87",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "section": "Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions",
+      "statement": "The current Premier Triage and Response aggregate lists Cloud Platform 10.2.x+ and ES 8.6+, paired SOAR and representative enablement. The 8.8 task prerequisites specify ES 8.7+ with paired SOAR, assistant enabled and investigation/connector permissions. It limits analysis to existing findings with AI triage, first ten when a detection produces more, about 200 findings per tenant daily, and frontier models. SOAR action/asset roles are additional. The 8.7 task guide uses historical AI SOC Analyst wording and the 8.7+ floor. The current aggregate names the Premier combined workflow without the earlier explicit Essentials component wording; the editions overview groups Triage under Premier. Current Cloud Connected CMP requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0 and separate setup requires SAIA 2.4+. The exact 2.3.6 Cloud Connected install guide excludes 2.2.0–2.3.6 and describes 2.4.0 as planned; 2.1.1 does not satisfy the stated floor. ES 8.8 GA on November 4 does not settle these prerequisites. The base assistant guide’s limited IL2/hosted-only scope and product regional tables do not establish regulated or per-agent rollout.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "d4625467fbfba43b9199aa5c3688923cbebf200cb0410ce5c8a26a5990ebaa05",
+        "qualification": "SHA-256 of the direct public HTTP response body. Publisher revision is unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261105-aiesrelease88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "ES 8.8 Controlled Availability",
+      "statement": "The current Premier Triage and Response aggregate lists Cloud Platform 10.2.x+ and ES 8.6+, paired SOAR and representative enablement. The 8.8 task prerequisites specify ES 8.7+ with paired SOAR, assistant enabled and investigation/connector permissions. It limits analysis to existing findings with AI triage, first ten when a detection produces more, about 200 findings per tenant daily, and frontier models. SOAR action/asset roles are additional. The 8.7 task guide uses historical AI SOC Analyst wording and the 8.7+ floor. The current aggregate names the Premier combined workflow without the earlier explicit Essentials component wording; the editions overview groups Triage under Premier. Current Cloud Connected CMP requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0 and separate setup requires SAIA 2.4+. The exact 2.3.6 Cloud Connected install guide excludes 2.2.0–2.3.6 and describes 2.4.0 as planned; 2.1.1 does not satisfy the stated floor. ES 8.8 GA on November 4 does not settle these prerequisites. The base assistant guide’s limited IL2/hosted-only scope and product regional tables do not establish regulated or per-agent rollout.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "96b06e2720cc88c0be6de2ae2324677021d2c15eda1e6b01d5b3be17e0f290c6",
+        "qualification": "SHA-256 of the direct public HTTP response body. Publisher revision is unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261105-aiestriagenote88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "SOC analyst Triage/Response note; aggregate AI SOC Analyst availability row",
+      "statement": "The current Premier Triage and Response aggregate lists Cloud Platform 10.2.x+ and ES 8.6+, paired SOAR and representative enablement. The 8.8 task prerequisites specify ES 8.7+ with paired SOAR, assistant enabled and investigation/connector permissions. It limits analysis to existing findings with AI triage, first ten when a detection produces more, about 200 findings per tenant daily, and frontier models. SOAR action/asset roles are additional. The 8.7 task guide uses historical AI SOC Analyst wording and the 8.7+ floor. The current aggregate names the Premier combined workflow without the earlier explicit Essentials component wording; the editions overview groups Triage under Premier. Current Cloud Connected CMP requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0 and separate setup requires SAIA 2.4+. The exact 2.3.6 Cloud Connected install guide excludes 2.2.0–2.3.6 and describes 2.4.0 as planned; 2.1.1 does not satisfy the stated floor. ES 8.8 GA on November 4 does not settle these prerequisites. The base assistant guide’s limited IL2/hosted-only scope and product regional tables do not establish regulated or per-agent rollout.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "f50deb3ea65bb02080098232cbb25fdfa2822e8386216569ba31e5e8bf85abe6",
+        "qualification": "SHA-256 of the direct public HTTP response body. Publisher revision is unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261105-aisaiainstall",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "section": "FedRAMP deployments; supported regions; version compatibility",
+      "statement": "The current Premier Triage and Response aggregate lists Cloud Platform 10.2.x+ and ES 8.6+, paired SOAR and representative enablement. The 8.8 task prerequisites specify ES 8.7+ with paired SOAR, assistant enabled and investigation/connector permissions. It limits analysis to existing findings with AI triage, first ten when a detection produces more, about 200 findings per tenant daily, and frontier models. SOAR action/asset roles are additional. The 8.7 task guide uses historical AI SOC Analyst wording and the 8.7+ floor. The current aggregate names the Premier combined workflow without the earlier explicit Essentials component wording; the editions overview groups Triage under Premier. Current Cloud Connected CMP requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0 and separate setup requires SAIA 2.4+. The exact 2.3.6 Cloud Connected install guide excludes 2.2.0–2.3.6 and describes 2.4.0 as planned; 2.1.1 does not satisfy the stated floor. ES 8.8 GA on November 4 does not settle these prerequisites. The base assistant guide’s limited IL2/hosted-only scope and product regional tables do not establish regulated or per-agent rollout.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "50113df81819a79d60f6fbe0ea1cd6b35dc44c116a1f5f2003116074ea8f8077",
+        "qualification": "SHA-256 of the direct public HTTP response body. Publisher revision is unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261105-aiesregions88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility",
+      "statement": "The current Premier Triage and Response aggregate lists Cloud Platform 10.2.x+ and ES 8.6+, paired SOAR and representative enablement. The 8.8 task prerequisites specify ES 8.7+ with paired SOAR, assistant enabled and investigation/connector permissions. It limits analysis to existing findings with AI triage, first ten when a detection produces more, about 200 findings per tenant daily, and frontier models. SOAR action/asset roles are additional. The 8.7 task guide uses historical AI SOC Analyst wording and the 8.7+ floor. The current aggregate names the Premier combined workflow without the earlier explicit Essentials component wording; the editions overview groups Triage under Premier. Current Cloud Connected CMP requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0 and separate setup requires SAIA 2.4+. The exact 2.3.6 Cloud Connected install guide excludes 2.2.0–2.3.6 and describes 2.4.0 as planned; 2.1.1 does not satisfy the stated floor. ES 8.8 GA on November 4 does not settle these prerequisites. The base assistant guide’s limited IL2/hosted-only scope and product regional tables do not establish regulated or per-agent rollout.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "4d32b754b28604a275210b1fbd9c55290729310591d4537952eafb71b0c47a57",
+        "qualification": "SHA-256 of the direct public HTTP response body. Publisher revision is unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261105-aieseditions",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
+      "section": "Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings",
+      "statement": "The current Premier Triage and Response aggregate lists Cloud Platform 10.2.x+ and ES 8.6+, paired SOAR and representative enablement. The 8.8 task prerequisites specify ES 8.7+ with paired SOAR, assistant enabled and investigation/connector permissions. It limits analysis to existing findings with AI triage, first ten when a detection produces more, about 200 findings per tenant daily, and frontier models. SOAR action/asset roles are additional. The 8.7 task guide uses historical AI SOC Analyst wording and the 8.7+ floor. The current aggregate names the Premier combined workflow without the earlier explicit Essentials component wording; the editions overview groups Triage under Premier. Current Cloud Connected CMP requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0 and separate setup requires SAIA 2.4+. The exact 2.3.6 Cloud Connected install guide excludes 2.2.0–2.3.6 and describes 2.4.0 as planned; 2.1.1 does not satisfy the stated floor. ES 8.8 GA on November 4 does not settle these prerequisites. The base assistant guide’s limited IL2/hosted-only scope and product regional tables do not establish regulated or per-agent rollout.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "98fd91fb759677eda659ed24f7ef1ec054c0d1bfc4c334c9dad6f95e5d4a1e0a",
+        "qualification": "SHA-256 of the direct public HTTP response body. Publisher revision is unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261105-editions-cloudcxagentic88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/set-up-splunk-cloud-connect-to-use-the-agentic-soc",
+      "section": "Agentic SOC prerequisites; Cloud Connect and SAIA installation; service activation; token certificate setup",
+      "statement": "The current Premier Triage and Response aggregate lists Cloud Platform 10.2.x+ and ES 8.6+, paired SOAR and representative enablement. The 8.8 task prerequisites specify ES 8.7+ with paired SOAR, assistant enabled and investigation/connector permissions. It limits analysis to existing findings with AI triage, first ten when a detection produces more, about 200 findings per tenant daily, and frontier models. SOAR action/asset roles are additional. The 8.7 task guide uses historical AI SOC Analyst wording and the 8.7+ floor. The current aggregate names the Premier combined workflow without the earlier explicit Essentials component wording; the editions overview groups Triage under Premier. Current Cloud Connected CMP requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0 and separate setup requires SAIA 2.4+. The exact 2.3.6 Cloud Connected install guide excludes 2.2.0–2.3.6 and describes 2.4.0 as planned; 2.1.1 does not satisfy the stated floor. ES 8.8 GA on November 4 does not settle these prerequisites. The base assistant guide’s limited IL2/hosted-only scope and product regional tables do not establish regulated or per-agent rollout.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b6df110ee169d3d422ade7b3178330c2db88d831da03e8ca8da3ffba6c96a5a2",
+        "qualification": "SHA-256 of the direct public HTTP response body. Publisher revision is unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261105-editions-saiacloudconnected",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "Cloud Connected compatibility and version compatibility",
+      "statement": "The current Premier Triage and Response aggregate lists Cloud Platform 10.2.x+ and ES 8.6+, paired SOAR and representative enablement. The 8.8 task prerequisites specify ES 8.7+ with paired SOAR, assistant enabled and investigation/connector permissions. It limits analysis to existing findings with AI triage, first ten when a detection produces more, about 200 findings per tenant daily, and frontier models. SOAR action/asset roles are additional. The 8.7 task guide uses historical AI SOC Analyst wording and the 8.7+ floor. The current aggregate names the Premier combined workflow without the earlier explicit Essentials component wording; the editions overview groups Triage under Premier. Current Cloud Connected CMP requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0 and separate setup requires SAIA 2.4+. The exact 2.3.6 Cloud Connected install guide excludes 2.2.0–2.3.6 and describes 2.4.0 as planned; 2.1.1 does not satisfy the stated floor. ES 8.8 GA on November 4 does not settle these prerequisites. The base assistant guide’s limited IL2/hosted-only scope and product regional tables do not establish regulated or per-agent rollout.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "d1b6024a171796b8c1b0819ce0cdc3a2847e7e41367f73e172d606ae42b5cec0",
+        "qualification": "SHA-256 of the direct public HTTP response body. Publisher revision is unknown."
+      }
+    }
+  ]
+}

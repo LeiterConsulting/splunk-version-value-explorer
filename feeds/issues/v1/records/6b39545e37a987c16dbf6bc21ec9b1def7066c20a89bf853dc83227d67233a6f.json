@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-es-security-assistant-runtime-default",
+  "revision": 1,
+  "recordedAt": "2026-11-05T12:27:20.470Z",
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/15df959274e65dcea4a15221951690af028d9748/docs/audits/2026-11-05-csp-fedramp-watch.json",
+      "pointer": "/claimChecks/10",
+      "originalLabel": "documentation-ambiguity"
+    }
+  ],
+  "kind": "finding",
+  "title": "ES Security Assistant Model Runtime guide uses default-on and opt-in wording",
+  "concernType": "uncertain-claim",
+  "problem": "The release guide describes Model Runtime as default for ES 8.6 and later and uses opt-in wording in its usage section. It does not explain whether those descriptions refer to the same deployment or initial setting.",
+  "scope": {
+    "products": [
+      "Splunk Security Assistant in Enterprise Security"
+    ],
+    "versions": [
+      "ES 8.8 release guide",
+      "ES 8.6+ as named in the guide"
+    ],
+    "editions": null,
+    "deployments": null,
+    "regions": null,
+    "audiences": [
+      "Readers evaluating Security Assistant model-processing boundaries"
+    ],
+    "exclusions": [
+      "Actual deployment defaults, tenant policy, SAIA Agent Mode, SOC workflow runtime, data residency, entitlement and regulated authorization."
+    ]
+  },
+  "scopeComparison": "The default-setting statement and usage wording are in separate subsections of the same versioned release guide. Neither establishes a setting for a specific tenant or service offering.",
+  "impact": {
+    "customerScenario": "A reader evaluating whether Security Assistant prompts may be sent beyond the Splunk platform boundary.",
+    "consequence": "Confirm the applicable configuration and policy before relying on the documentation for default behavior or processing location.",
+    "level": "unknown"
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "Exact public source sections establish a wording ambiguity. No tenant configuration was inspected."
+  },
+  "claimIds": [
+    "ai:es:security-assistant:model-runtime-default"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Exact deployment defaults and configuration-specific semantics remain unresolved."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-security-assistant-runtime-default",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "Model Runtime in Splunk Security Assistant > What it means when you let Splunk determine the best model to use",
+      "statement": "The guide states that ES 8.6 and later use Model Runtime by default and describes the administrator control for Splunk-hosted models only.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "96b06e2720cc88c0be6de2ae2324677021d2c15eda1e6b01d5b3be17e0f290c6",
+        "qualification": "SHA-256 of the direct public HTTP response body. Publisher revision is unknown."
+      }
+    },
+    {
+      "evidenceId": "es-security-assistant-runtime-opt-in",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "Model Runtime in Splunk Security Assistant > Using the Model Runtime feature",
+      "statement": "The guide refers to opting in and explains the potential use of an Azure OpenAI endpoint outside the Splunk platform data boundary.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "96b06e2720cc88c0be6de2ae2324677021d2c15eda1e6b01d5b3be17e0f290c6",
+        "qualification": "SHA-256 of the direct public HTTP response body. Publisher revision is unknown."
+      }
+    }
+  ]
+}

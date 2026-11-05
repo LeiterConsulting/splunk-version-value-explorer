@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-observability-rca-custom-metric-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-05T12:27:20.470Z",
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/15df959274e65dcea4a15221951690af028d9748/docs/audits/2026-11-05-csp-fedramp-watch.json",
+      "pointer": "/claimChecks/6",
+      "originalLabel": "conflicting-guidance"
+    }
+  ],
+  "kind": "assessment",
+  "assessmentId": "vcia-csp-20261105-observability-rca-custom-metric-scope",
+  "assessedAt": "2026-11-05T12:25:13.540Z",
+  "outcome": "still-present",
+  "rationale": "The support note explicitly limits detectors/alerts to standard default metrics. The optimization advice says custom metrics may be useful with standard dimensions. Preserve the support limitation and the wording ambiguity; no supported custom-metric RCA conclusion.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Observability Cloud AI troubleshooting agent"
+    ],
+    "versions": [
+      "Current rolling documentation; source publication date unknown"
+    ],
+    "editions": null,
+    "deployments": [
+      "Non-Governmental Observability realms"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating RCA metric eligibility"
+    ],
+    "exclusions": [
+      "No custom-metric support, new regional rollout, entitlement or authorization is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-csp-20261104-observability-rca-custom-metric-scope"
+  ],
+  "remainingConcerns": [
+    "Reconcile custom-metric optimization wording with the explicit default-metric support boundary."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "csp-20261105-aiobsrca",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan",
+      "section": "Availability; supported alerts and metrics; opt-in behavior; Kubernetes remediation plans",
+      "statement": "The support note explicitly limits detectors/alerts to standard default metrics. The optimization advice says custom metrics may be useful with standard dimensions. Preserve the support limitation and the wording ambiguity; no supported custom-metric RCA conclusion.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "7ca6cbaf6066ba8ee7a6d0dc1c9ca84dac7ff1e78088aaf49577cfae2003d091",
+        "qualification": "SHA-256 of the direct public HTTP response body. Publisher revision is unknown."
+      }
+    }
+  ]
+}
