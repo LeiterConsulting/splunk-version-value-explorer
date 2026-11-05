@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-soc-analyst-version-floor",
+  "assessmentId": "vcia-guidance-20261105-es-soc-analyst-version-floor",
+  "revision": 1,
+  "recordedAt": "2026-11-05T13:40:07.060Z",
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/3d3ad6ada5a4a2039cabd3116bd2d84092427cf7/docs/audits/2026-11-05-version-guidance-audit.json",
+      "pointer": "/claimChecks/5",
+      "originalLabel": "still-present"
+    }
+  ],
+  "assessedAt": "2026-11-05T13:38:09.667Z",
+  "outcome": "still-present",
+  "rationale": "The current 8.8 aggregate lists Cloud ES 8.6+ and Cloud Platform 10.2.x+, while the 8.8 task guide states ES 8.7+ and Platform 10.2+ with paired SOAR and permissions. The 8.7 task history retains 8.7+ within its own scope. ES 8.8 GA does not resolve the difference.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security AI SOC Analyst"
+    ],
+    "versions": [
+      "ES 8.8 documentation: aggregate Cloud ES 8.6+ versus task-specific ES 8.7+"
+    ],
+    "editions": [
+      "Premier"
+    ],
+    "deployments": [
+      "Splunk Cloud Platform"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers planning AI SOC Analyst prerequisites"
+    ],
+    "exclusions": [
+      "CMP has its separate Platform 10.4+/ES 8.8+/Cloud Connect 2.0 chain; no lower-floor eligibility, tenant rollout, entitlement, pairing or authorization is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-csp-20261105-es-soc-analyst-version-floor"
+  ],
+  "remainingConcerns": [
+    "Reconcile the combined-row and task-specific floors when Splunk publishes exact applicability."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261105-soc-aggregate",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Compatibility information for AI agents > Triage and Response agent",
+      "statement": "The aggregate gives the lower ES Cloud floor.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "8f451244f3235dc9b6786ade5b2d4d1bbf119bbf8109880e5f05a6232d228a90",
+        "qualification": "Direct public response body. Exact publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261105-soc-task",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "section": "Prerequisites",
+      "statement": "The task guide gives the higher ES Cloud floor and adds prerequisites.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "0520a27d7ca634d395c66814beacf60b7e3a8db115e7f48821ecdaa3657b4655",
+        "qualification": "Direct public response body. Exact publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261105-soc-history",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "section": "Prerequisites",
+      "statement": "Earlier task documentation independently gives 8.7+ in its Cloud scope.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "de0315cda21d8362780ad4c7ed2df5340f7608f1e9f43c6e518be05d48c4134a",
+        "qualification": "Direct public response body. Exact publisher revision unknown."
+      }
+    }
+  ]
+}

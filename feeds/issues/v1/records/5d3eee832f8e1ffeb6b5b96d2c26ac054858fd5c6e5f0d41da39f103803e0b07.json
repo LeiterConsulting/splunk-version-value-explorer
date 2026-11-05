@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-cloud-107-release-service-pairing",
+  "assessmentId": "vcia-guidance-20261105-cloud-107-release-service-pairing",
+  "revision": 1,
+  "recordedAt": "2026-11-05T13:40:07.060Z",
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/3d3ad6ada5a4a2039cabd3116bd2d84092427cf7/docs/audits/2026-11-05-version-guidance-audit.json",
+      "pointer": "/claimChecks/8",
+      "originalLabel": "still-present"
+    }
+  ],
+  "assessedAt": "2026-11-05T13:38:09.667Z",
+  "outcome": "still-present",
+  "rationale": "The 10.7 release notes document the release series. The 10.7 Service Details current subscription table still lists Platform 10.6, ES 8.7 and ITSI 5.0. The forwarder table applies to directly connected UF/HF, including the intermediate tier if it is the direct sender. It supplies 10.6.x to 10.6.x and no 10.7 receiver row.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform"
+    ],
+    "versions": [
+      "10.7 documented release route",
+      "10.6 current subscription table"
+    ],
+    "editions": null,
+    "deployments": [
+      "Splunk-managed Cloud"
+    ],
+    "regions": null,
+    "audiences": [
+      "Customers evaluating upgrade timing",
+      "Documentation readers"
+    ],
+    "exclusions": [
+      "No selected-stack rollout, premium-product compatibility, receiver compatibility, entitlement, region or authorization is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-guidance-20261102-cloud-107-release-service-pairing"
+  ],
+  "remainingConcerns": [
+    "Recheck the subscription and direct-forwarder tables against versioned releases."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261105-cloud-release-107",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+      "section": "What’s new in Splunk Cloud Platform 10.7",
+      "statement": "The release notes identify the 10.7 feature scope.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "7f47aad39357fbdf59e761227a0bd1d313fd6071537d07b8ce6243002cd12d4f",
+        "qualification": "Direct public response body. Exact publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261105-cloud-service-107",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Current Splunk Cloud Platform and Premium App versions; Supported forwarder versions",
+      "statement": "Current subscription and directly connected forwarder support scopes are stated separately.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "6640814a22c01f575105c382e207ec55bcd53892831daf20d7fe0b749d6dc16e",
+        "qualification": "Direct public response body. Exact publisher revision unknown."
+      }
+    }
+  ]
+}
