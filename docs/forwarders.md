@@ -81,3 +81,7 @@ Two remaining 10.6 borrowed Heavy Forwarder mappings were independently rechecke
 ## October 29 Node.js advisory status
 
 SVD-2026-1015 lists Splunk Enterprise and Universal Forwarder as **Under Investigation** for four Node.js vulnerabilities. The exact advisory is mapped to the UF and HF security source groups, but no affected version, fixed version, workaround or patch floor is recorded. Heavy Forwarder applicability remains conditional on Enterprise-package evidence, and Universal Forwarder applicability remains its own product determination. Cloud rollout, receiver compatibility, topology, entitlement and authorization remain separate.
+
+## November 5 historical HF section repair
+
+Enterprise 10.4 READ THIS FIRST now heads the KV Store package change “Splunk removed older unsupported MongoDB database engine binaries.” The mapped section still requires KV Store to reach MongoDB 7 or later before upgrading. Rechecked that heading, SHA-1 deprecation versus removal, and the three Windows installer identity branches. Scope stays with the applicable customer-managed Enterprise package. Regression checks exercise the actual HF and UF routes and verify the exact generated citation and assessment date for the repaired section.

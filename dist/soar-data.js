@@ -7,10 +7,10 @@ window.VersionCompassSOARData = {
     "cloudBroker88": {
       "title": "SOAR Cloud 8.8 current Automation Broker HA row",
       "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
-      "section": "October 21, 2026 release 8.8: Automation Broker High Availability row and representative-enablement note; CA heading and GA enhancement prose",
-      "checked": "2026-11-02",
-      "reviewed": "2026-11-02",
-      "qualification": "Bounded current Broker HA row and stage wording only. Earlier release, runtime and other component scopes retain their own dates."
+      "section": "November 4, 2026 Release 8.8: Automation Broker High Availability row and representative-activation note",
+      "checked": "2026-11-05",
+      "reviewed": "2026-11-05",
+      "qualification": "Broker HA activation note only. Earlier release, runtime and other component scopes retain their own dates."
     },
     "securityNotice": {
       "title": "October 21 advisory advance notice",
@@ -66,7 +66,8 @@ window.VersionCompassSOARData = {
       "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history",
       "checked": "2026-10-24",
       "reviewed": "2026-10-24",
-      "outcome": "confirmed-with-stage-wording-conflict"
+      "outcome": "confirmed-with-stage-wording-conflict",
+      "qualification": "Historical release-note mapping. The October 21 CA wording and earlier GA enhancement prose were superseded for current stage by the November 4 entry. Historical assessments retain their original scope."
     },
     "path86": {
       "title": "SOAR 8.6.0 upgrade paths",
@@ -111,7 +112,7 @@ window.VersionCompassSOARData = {
     "regions": {
       "title": "SOAR Cloud service description",
       "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/soar-cloud-service-description/the-splunk-soar-service/splunk-soar-cloud-introduction",
-      "section": "Available regions; supported versions. The current-version prose and table both state September 2026 for 8.7.0; the previously observed April label is retained in historical audits.",
+      "section": "Available regions. Historical 8.7.0 September service version assessment retained in the October 22 audit. See the separate current supported-version source.",
       "checked": "2026-10-22",
       "reviewed": "2026-10-22",
       "outcome": "confirmed"
@@ -259,6 +260,22 @@ window.VersionCompassSOARData = {
       "checked": "2026-10-15",
       "reviewed": "2026-10-15",
       "outcome": "confirmed"
+    },
+    "cloud88Ga": {
+      "title": "SOAR Cloud 8.8 General Availability release notes",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
+      "section": "November 4, 2026 Release 8.8; General Availability statement; Automation Broker High Availability",
+      "checked": "2026-11-05",
+      "reviewed": "2026-11-05",
+      "qualification": "Release milestone and Broker activation wording only. Tenant rollout, region, entitlement, pairing and authorization require separate evidence."
+    },
+    "cloud88Service": {
+      "title": "SOAR Cloud current supported version",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/soar-cloud-service-description/the-splunk-soar-service/splunk-soar-cloud-introduction",
+      "section": "Supported versions / Current Splunk SOAR (Cloud) version and Supported Python version",
+      "checked": "2026-11-05",
+      "reviewed": "2026-11-05",
+      "qualification": "November 2026 service table and current Python 3.13 interpreter only. Regional claims retain their own dates."
     }
   },
   "records": [
@@ -283,24 +300,25 @@ window.VersionCompassSOARData = {
     },
     {
       "id": "cloud88-stage",
-      "title": "Cloud 8.8 is Controlled Availability",
-      "detail": "SOAR Cloud 8.8.0 was released for Controlled Availability on October 21, 2026. The same section then calls its enhancements a General Availability release; retain the explicit release-stage statement and the internal wording conflict until Splunk reconciles it. Tenant rollout, entitlement, region and authorization remain separate.",
+      "title": "Cloud 8.8 General Availability milestone",
+      "detail": "Splunk documents November 4, 2026 General Availability for SOAR Cloud 8.8.0 after its October 21 Controlled Availability milestone. The earlier entry mixed CA and GA wording. The current service table lists 8.8.0 for November 2026 and Python 3.13. Tenant rollout, entitlement, region, pairing and authorization require separate evidence.",
       "kind": "requirement",
       "release": "8.8.0",
       "src": [
-        "cloud"
+        "cloud88Ga",
+        "cloud88Service"
       ],
       "deployments": [
         "cloud"
       ],
       "status": "Conditional",
-      "verified": "2026-10-24",
+      "verified": "2026-11-05",
       "target": true
     },
     {
       "id": "broker-ha88",
       "title": "Automation Broker high availability in Cloud 8.8",
-      "detail": "The current Cloud 8.8 Broker HA row has no separate GA label and requires contacting a Splunk representative to enable the feature. The section still says the release is Controlled Availability and describes the enhancement list as General Availability. Preserve that conflict rather than independently certifying Broker HA as GA. Cloud 8.7's Controlled Availability history, regional, entitlement and pairing scope remain separate.",
+      "detail": "The November 4 SOAR Cloud 8.8 release notes list Broker high availability and require contacting a Splunk representative to activate it. Feature activation, region, entitlement and pairing remain conditional. Cloud 8.7 Controlled Availability remains historical.",
       "kind": "feature",
       "release": "8.8.0",
       "src": [
@@ -310,7 +328,7 @@ window.VersionCompassSOARData = {
         "cloud"
       ],
       "status": "Conditional",
-      "verified": "2026-11-02",
+      "verified": "2026-11-05",
       "outcome": "Keep response actions running if a Broker fails and distribute work across a Broker group."
     },
     {
@@ -781,7 +799,7 @@ window.VersionCompassSOARData = {
       "id": "service-date-discrepancy",
       "priority": 2,
       "status": "resolved",
-      "question": "Current SOAR Cloud 8.7.0 service prose and table now both state September 2026. The former April table label remains historical evidence, without an inferred correction date or tenant rollout date.",
+      "question": "Historical SOAR Cloud 8.7.0 service prose and table were reconciled to September 2026 on review. The former April table label remains historical evidence, without an inferred correction or tenant rollout date.",
       "src": [
         "regions"
       ],
@@ -834,9 +852,15 @@ window.VersionCompassSOARData = {
     {
       "id": "cloud88-stage-wording",
       "owner": "Version Release Watch",
-      "status": "open",
+      "status": "resolved",
       "priority": "release stage",
-      "topic": "Reconcile the Cloud 8.8 section’s explicit Controlled Availability release statement with its following General Availability enhancement sentence; preserve both until authoritative clarification."
+      "topic": "The November 4 release entry explicitly states GA. The earlier October 21 CA/GA wording remains historical. Tenant rollout and Broker activation remain distinct.",
+      "resolvedAt": "2026-11-05",
+      "evidence": "docs/audits/2026-11-05-version-release-watch.json",
+      "src": [
+        "cloud88Ga",
+        "cloud88Service"
+      ]
     }
   ],
   "targetRequirements": {

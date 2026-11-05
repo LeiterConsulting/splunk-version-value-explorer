@@ -68,3 +68,9 @@ SVD-2026-1010, SVD-2026-1011 and SVD-2026-1012 replace the October 14 advance no
 ### October 16 structured Cloud scope repair
 
 Live WebMCP replay found that the shared Cloud assessment returned customer-managed host floors despite the screen/exports filtering them. Cloud `targetRequirements` now contains only its automation runtime and `cloud` citation; customer-managed OS, database, Elasticsearch, bundled UF and sizing remain complete on on-premises routes. A regression failed before and passes after the fix, with 185 full tests and a new exact-input 58-case export CI receipt. Stable tool names, release/source dates and current-service-versus-history boundaries are unchanged. See the October 16 audit and release note for actual delivery evidence and bounded cosmetic follow-up.
+
+## November 5 Cloud 8.8 release-stage reassessment
+
+The November 4 release entry explicitly dates SOAR Cloud 8.8.0 General Availability. The October 21 Controlled Availability statement and the earlier conflicting enhancement wording remain historical. The November service table lists 8.8.0 and Python 3.13. Broker HA still requires representative activation. Keep managed-service milestones separate from tenant rollout, regional and regulated scope, entitlement, pairing and on-premises installation paths.
+
+The on-premises 8.8 release-note discovery is recorded for a separate exact build and prerequisite review. The existing validated on-premises targets and 8.7 build distinctions remain in the guide.
