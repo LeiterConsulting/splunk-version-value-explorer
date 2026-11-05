@@ -312,12 +312,12 @@ test('Enterprise Security 8.7 preserves the line selector while exposing the exa
   assert.equal(rt.window.SPLUNK_DATA.productTracks.es.latest, '8.8');
 });
 
-test('Enterprise Security 8.8 preserves Controlled Availability and exact matrix scope', async () => {
+test('Enterprise Security 8.8 GA preserves feature access and exact matrix scope', async () => {
   const rt = await runtime();
   const enterprise = rt.run('compare_routes', { routes: [{ product: 'es', platform: 'enterprise', host: '10.4', from: '8.7', to: '8.8' }] }).reports[0];
   assert.equal(enterprise.compatibility.status, 'ok');
   for (const title of ['Investigation aggregation', 'Detection rerun', 'Quick search and advanced filtering']) assert(enterprise.features.some(item => item.title === title), title);
-  assert(enterprise.breakingChanges.some(item => item.title === 'Confirm Controlled Availability access' && item.breaking));
+  assert(enterprise.breakingChanges.some(item => item.title === 'Confirm ES 8.8 feature access' && item.breaking && item.detail.includes('November 4, 2026')));
   assert(enterprise.breakingChanges.some(item => item.title === 'Match an exact supported Splunk Enterprise host' && item.detail.includes('10.2.x and 10.4.x') && item.detail.includes('10.6.1.1 and higher')));
   assert(enterprise.breakingChanges.some(item => item.title === 'Keep the incomplete issue tables unresolved'));
   const trust = enterprise.technicalChanges.find(item => item.component === 'ES-SOAR hybrid certificate trust');

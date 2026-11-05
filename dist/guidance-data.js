@@ -202,10 +202,10 @@ window.SPLUNK_DATA.guidance = {
     "aiEsRelease88": {
       "title": "ES 8.8 release stage",
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
-      "section": "ES 8.8 Controlled Availability",
-      "checked": "2026-10-24",
-      "reviewed": "2026-10-24",
-      "scope": "ES 8.8 release date, release-stage label and edition table"
+      "section": "What's new in 8.8.0 / November 4 General Availability and edition table",
+      "checked": "2026-11-05",
+      "reviewed": "2026-11-05",
+      "scope": "ES 8.8 release stage and edition table only. Per-agent release stage, entitlement and rollout remain separate."
     },
     "aiObsAssistant": {
       "title": "AI Assistant in Observability Cloud",
@@ -806,7 +806,7 @@ window.SPLUNK_DATA.guidance = {
           "evidenceVersion": "8.8"
         },
         "version": "ES 8.8 documentation · Cloud 8.2+; CMP 8.8+",
-        "stage": "8.8 release · Controlled Availability",
+        "stage": "8.8 release · General Availability",
         "description": "Summarize investigations and assist with SPL.",
         "editions": [
           "essentials",
@@ -844,7 +844,7 @@ window.SPLUNK_DATA.guidance = {
           "evidenceVersion": "8.8"
         },
         "version": "ES 8.8 agent guide",
-        "stage": "8.8 release · Controlled Availability",
+        "stage": "8.8 release · General Availability",
         "description": "Assist detection authoring and tuning.",
         "editions": [
           "essentials",
@@ -879,7 +879,7 @@ window.SPLUNK_DATA.guidance = {
           "evidenceVersion": "8.8"
         },
         "version": "ES 8.8 agent guide",
-        "stage": "8.8 release · Controlled Availability",
+        "stage": "8.8 release · General Availability",
         "description": "Turn an SOP into a response plan.",
         "editions": [
           "essentials",
@@ -912,7 +912,7 @@ window.SPLUNK_DATA.guidance = {
           "evidenceVersion": "8.8"
         },
         "version": "ES 8.8 agent and task guides",
-        "stage": "Alpha feature · ES 8.8 release Controlled Availability",
+        "stage": "Alpha feature · ES 8.8 release General Availability",
         "description": "Surface hidden malicious activity by stitching intermediate findings into evidence chains.",
         "editions": [
           "premier"
@@ -925,7 +925,7 @@ window.SPLUNK_DATA.guidance = {
           "Turn on at least one risk-based detection; the guide says approximately one million events are needed to surface quality findings."
         ],
         "runtime": "ES Cloud agentic service; test mode routes generated findings to a detection test queue.",
-        "qualification": "Alpha status, ES 8.8 Controlled Availability, Premier entitlement, regional availability and offering/customer authorization are separate facts.",
+        "qualification": "Alpha status, ES 8.8 General Availability, Premier entitlement, regional availability and offering/customer authorization are separate facts.",
         "condition": "Confirm Premier entitlement, representative enablement, exact service region, risk-based detection coverage and adequate event volume.",
         "src": [
           "aiEsAgents88",
@@ -945,7 +945,7 @@ window.SPLUNK_DATA.guidance = {
           "evidenceVersion": "8.8"
         },
         "version": "ES 8.8 agent guide",
-        "stage": "8.8 release · Controlled Availability",
+        "stage": "8.8 release · General Availability",
         "description": "Assist security investigation and response.",
         "editions": [
           "premier"

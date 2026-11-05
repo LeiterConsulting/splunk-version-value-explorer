@@ -1,7 +1,7 @@
 /* Editorial change provenance. Cycles advance only with material factual updates. */
 (function(){
 'use strict';
-const policy={currentCycle:51,retentionCycles:2};
+const policy={currentCycle:52,retentionCycles:2};
 const note25='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-25.md';
 const note26='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-26.md';
 const note30='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-30.md';
@@ -46,6 +46,7 @@ const ingest='https://help.splunk.com/en/splunk-cloud-platform/process-data-at-i
 const fedrampModerate='https://www.fedramp.gov/marketplace/products/F1607197917/';
 const fedrampHigh='https://www.fedramp.gov/marketplace/products/FR2314156865/';
 const entries={
+"edition:exposure":{"kind":"updated","cycle":52,"date":"2026-11-05","version":"ES 8.8.0 GA · Exposure Analytics","detail":"The November 4 release table identifies four Exposure Analytics enhancements under Essentials. Confirm feature access and deployment scope separately.","source":"https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security","sourceDate":"2026-11-04","note":"https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/11/2026-11-05.md"},
 "feature-history:observability:Java instrumentation 2.33:2026-10-27-cycle39":{recordKey:"feature:observability:Java instrumentation 2.33",kind:"updated",cycle:39,date:"2026-10-27",version:"Splunk OpenTelemetry Java 2.33.0",detail:"Advanced the customer-managed Java agent to OpenTelemetry Java SDK 1.67.0 and instrumentation 2.33.0 without implying a SaaS rollout or additional capability.",source:"https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.0",sourceDate:"2026-10-26",note:noteOct27},
 "feature:observability:Java instrumentation 2.33":{kind:"updated",cycle:43,date:"2026-10-29",version:"Splunk OpenTelemetry Java 2.33.1",detail:"Advanced the customer-managed Java agent to the patch that follows upstream OpenTelemetry Java instrumentation 2.33.1, without inferring another dependency change, SaaS rollout or additional capability.",source:"https://github.com/signalfx/splunk-otel-java/releases/tag/v2.33.1",sourceDate:"2026-10-28",note:noteOct29},
 "technical-history:observability:Java instrumentation baseline:2026-10-13-cycle20":{recordKey:"technical:observability:Java instrumentation baseline",kind:"updated",cycle:20,date:"2026-10-13",version:"Splunk OpenTelemetry Java 2.32.0",detail:"Advanced the Java agent baseline to OpenTelemetry SDK 1.66.0 and instrumentation 2.32.0 with scoped call-graph validation.",source:"https://github.com/signalfx/splunk-otel-java/releases/tag/v2.32.0",sourceDate:"2026-10-12",note:note13},

@@ -3,8 +3,8 @@ window.VersionCompassEditions = {
   "schemaVersion": 2,
   "reviewed": "2026-11-01",
   "release": "8.8",
-  "releaseDate": "2026-10-21",
-  "releaseStage": "Controlled Availability",
+  "releaseDate": "2026-11-04",
+  "releaseStage": "General Availability",
   "sources": {
     "triageNote88": {
       "t": "ES 8.8 current Triage and Response aggregate row",
@@ -16,7 +16,9 @@ window.VersionCompassEditions = {
     "rn88": {
       "t": "ES 8.8 release notes",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
-      "reviewed": "2026-10-24"
+      "reviewed": "2026-11-05",
+      "section": "What's new in 8.8.0; November 4 GA and edition table",
+      "verificationScope": "Release milestone, edition table and Exposure Analytics rows. Capability-specific entitlement, rollout, pairing and authorization retain separate evidence."
     },
     "rn87": {
       "t": "ES 8.7 release notes",
@@ -190,7 +192,7 @@ window.VersionCompassEditions = {
         "v": "yes",
         "n": "Cloud and On-premises"
       },
-      "desc": "Detection, triage, investigation, response and case management in the ES application. ES 8.8 adds investigation aggregation, detection rerun, finer-grained RBAC, analyst-queue search/filtering and dashboard consolidation under Controlled Availability; edition inclusion does not establish customer access or rollout.",
+      "desc": "Detection, triage, investigation, response and case management in the ES application. ES 8.8 adds investigation aggregation, detection rerun, finer-grained RBAC, analyst-queue search/filtering and dashboard consolidation in the November 4 General Availability release; edition inclusion does not establish customer access or rollout.",
       "src": [
         "editions",
         "pricing",
@@ -273,13 +275,14 @@ window.VersionCompassEditions = {
         "v": "yes",
         "n": "Cloud and On-premises"
       },
-      "desc": "Entity and business context for exposure prioritization. Included in ES licensing at no additional cost; the September announcement describes entity discovery, change history and business context. The product page separately labels continuous posture metrics and Entity Profiling as coming soon; do not treat those named enhancements as shipped.",
+      "desc": "Entity and business context for exposure prioritization. The November 4 ES 8.8 release table assigns Entity posture, Entity profile, Entity actions and Entity analysis enhancements to Essentials, which are also included in Premier. The separate Exposure Analytics page describes posture metrics and profiling. Confirm exact deployment, feature access and prerequisites before relying on these enhancements.",
       "src": [
         "editions",
         "ea",
-        "conf26"
+        "conf26",
+        "rn88"
       ],
-      "reviewed": "2026-10-01"
+      "reviewed": "2026-11-05"
     },
     {
       "id": "ai-assistant",
@@ -398,7 +401,7 @@ window.VersionCompassEditions = {
         "v": "part",
         "n": "Alpha; Cloud only; representative-enabled"
       },
-      "flag": "The agent is an alpha feature in ES 8.8 and requires Splunk representative enablement. Alpha status, ES 8.8 Controlled Availability, edition entitlement, regional availability and customer authorization remain separate.",
+      "flag": "The agent is an alpha feature in ES 8.8 and requires Splunk representative enablement. Alpha status, ES 8.8 General Availability, edition entitlement, regional availability and customer authorization remain separate.",
       "desc": "Surfaces hidden malicious activity by stitching intermediate findings into evidence chains. The exact 8.8 guide requires at least one risk-based detection and approximately one million processed events for quality findings; the aggregate table lists Premier, Cloud only and ES 8.8+.",
       "src": [
         "agentic88",
@@ -707,7 +710,8 @@ window.VersionCompassEditions = {
         "RBAC templates for detections, UEBA, A&I and threat intelligence",
         "Quick Search and Advanced Filtering",
         "Additional TAXII2 authentication support",
-        "Dashboard Consolidation"
+        "Dashboard Consolidation",
+        "Exposure Analytics: Entity posture, Entity profile, Entity actions and Entity analysis enhancements"
       ],
       "p": [
         "UEBA Dataset Management",
@@ -721,7 +725,7 @@ window.VersionCompassEditions = {
         "rn88",
         "matrix88"
       ],
-      "qualification": "ES 8.8.0 is Controlled Availability. The release table states that Essentials features are also included in Premier; access, deployment, region, pairing, entitlement and authorization remain separate checks."
+      "qualification": "ES 8.8.0 reached General Availability on November 4, after October 21 Controlled Availability. The release table states that Essentials features are also included in Premier; access, deployment, region, pairing, entitlement and authorization remain separate checks."
     }
   },
   "notes": [
@@ -782,7 +786,7 @@ window.VersionCompassEditions = {
     {
       "id": "announcement",
       "title": "Announcements and shipped releases",
-      "text": "The September Agentic SOC announcement describes expanded workflows and Exposure Analytics. ES 8.8 release notes now assign the new release capabilities by edition under Controlled Availability; release stage and access remain separate from entitlement.",
+      "text": "The September Agentic SOC announcement describes expanded workflows and Exposure Analytics. ES 8.8 release notes now assign the new release capabilities by edition in the November 4 GA entry; release stage and access remain separate from entitlement.",
       "src": [
         "conf26",
         "rn88"
@@ -985,8 +989,8 @@ window.VersionCompassEditions = {
   "highlights": [
     {
       "id": "Agent authoring and response",
-      "title": "Controlled Availability boundary",
-      "text": "ES 8.8.0 was released October 21 under Controlled Availability. Its edition table states that Essentials features are also included in Premier, but neither the release number nor the table establishes universal access, managed Cloud rollout, region, entitlement, authorization or an ES–SOAR pairing.",
+      "title": "ES 8.8 release-stage boundary",
+      "text": "ES 8.8.0 reached General Availability on November 4, after October 21 Controlled Availability. Its edition table states that Essentials features are also included in Premier, but neither the release number nor the table establishes universal access, managed Cloud rollout, region, entitlement, authorization or an ES–SOAR pairing.",
       "src": [
         "rn88"
       ]

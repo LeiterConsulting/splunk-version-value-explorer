@@ -36,7 +36,7 @@ test('task-level prerequisites and pricing uncertainty remain explicit without c
  for(const id of ['soc-version','malware-version','activity-pricing'])assert.equal(data.conflicts.find(c=>c.id===id).claims.length,2);
  assert.match(data.notes.find(n=>n.id==='pricing').text,/eligibility unclear/);
  assert(!cap('soar').desc.includes('offered with user-seat pricing'));
- assert(data.capabilities.some(c=>c.name==='Exposure Analytics'&&c.desc.includes('coming soon')));
+ assert(data.capabilities.some(c=>c.name==='Exposure Analytics'&&c.desc.includes('Entity posture')));
 });
 function runtime(search='?preview=es-editions'){
  const elements=new Map(),events={},details=[],rows=new Map(data.capabilities.map(c=>[c.id,{hidden:false}]));let copied='';let html='';
@@ -82,11 +82,11 @@ test('history recovery preserves ambiguous and mismatched environment inputs for
  const recovered=runtime('?'+p);assert.equal(recovered.elements.get('edition-print').disabled,true);assert.throws(()=>recovered.snapshot(),/environment/i);
 });
 
-test('ES 8.8 remains Controlled Availability with edition-specific release history',()=>{
- assert.equal(data.release,'8.8');assert.equal(data.releaseStage,'Controlled Availability');assert.equal(data.sources.rn88.reviewed,'2026-10-24');
+test('ES 8.8 GA preserves edition-specific release history and the October CA milestone',()=>{
+ assert.equal(data.release,'8.8');assert.equal(data.releaseStage,'General Availability');assert.equal(data.sources.rn88.reviewed,'2026-11-05');
  assert(data.history['8.8'].e.includes('Detection Rerun'));assert(data.history['8.8'].p.includes('Automation Broker High Availability'));
  assert.match(data.history['8.8'].qualification,/Controlled Availability/);assert.match(data.history['8.8'].qualification,/pairing/);
- const r=runtime('?view=es-editions&release=8.8');assert(r.html.includes('Controlled Availability'));assert(r.elements.get('edition-timeline').innerHTML.includes('Detection Rerun'));assert(r.elements.get('edition-timeline').innerHTML.includes('Automation Broker High Availability'));
+ const r=runtime('?view=es-editions&release=8.8');assert(r.html.includes('General Availability'));assert(r.elements.get('edition-timeline').innerHTML.includes('Detection Rerun'));assert(r.elements.get('edition-timeline').innerHTML.includes('Automation Broker High Availability'));
 });
 
 test('explanations and both sides of source questions remain visible without opening disclosures',()=>{

@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-app-for-soar-es-pairing",
+  "revision": 1,
+  "recordedAt": "2026-11-05T11:09:39.729Z",
+  "assessmentId": "vcia-es-20261105-app-for-soar-es-pairing",
+  "assessedAt": "2026-11-05T11:06:03.157Z",
+  "outcome": "still-present",
+  "rationale": "App for SOAR 8.7.0 lists optional ES 8.7.0 and 8.6.1. Its exact functionality-tested row does not establish ES 8.8 pairing. Export 8.7.1 instead lists optional ES 8.7.0 or 8.6.0 with its own Python 3.13 and CIM prerequisites. On-premises SOAR 8.8.0 in the Export row is not ES 8.8.",
+  "reviewedScope": {
+    "products": [
+      "Splunk App for SOAR",
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "App for SOAR 8.7.0",
+      "ES 8.7.1",
+      "ES 8.8",
+      "ES 8.9"
+    ],
+    "editions": null,
+    "deployments": null,
+    "regions": null,
+    "audiences": [
+      "Customers and documentation readers evaluating the stated decision"
+    ],
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-es-editions-20261104-app-for-soar-es-pairing"
+  ],
+  "remainingConcerns": [
+    "The exact App for SOAR 8.7.0 and Export 8.7.1 rows stay separate and leave ES 8.8 pairing unestablished."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "es-1",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.7.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "section": "Splunk product compatibility matrix / App for SOAR 8.7.0",
+      "statement": "Assessed within app-for-soar-pairing. The exact App for SOAR 8.7.0 and Export 8.7.1 rows stay separate and leave ES 8.8 pairing unestablished.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05T11:02:52.860Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "94cadda72e1486e6e06b24db4f36eafbab831a3f1f4e67b47cbd2d35024e3414",
+        "qualification": "SHA-256 of the retrieved public response body."
+      }
+    },
+    {
+      "evidenceId": "es-2",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+      "section": "Python and compatibility matrix / Export 8.7.1",
+      "statement": "Assessed within app-for-soar-pairing. The exact App for SOAR 8.7.0 and Export 8.7.1 rows stay separate and leave ES 8.8 pairing unestablished.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05T11:02:52.864Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "1a71d3191ccdba458ece1bcb9d34815d4cc0ddbb7e6ca672c583a3e878a5a251",
+        "qualification": "SHA-256 of the retrieved public response body."
+      }
+    },
+    {
+      "evidenceId": "es-3",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+      "section": "Python and compatibility matrix / Export 8.7.1",
+      "statement": "Assessed within app-for-soar-pairing. The exact App for SOAR 8.7.0 and Export 8.7.1 rows stay separate and leave ES 8.8 pairing unestablished.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05T11:02:52.917Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "cef8cd73bece673d9d000e550992b50da526d2325234f7993fd549679b57f920",
+        "qualification": "SHA-256 of the retrieved public response body."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/39d3ad8fd05559501346c3b7b91458ca6967d3e0/docs/audits/2026-11-05-es-editions-watch.json",
+      "pointer": "/claimChecks/6",
+      "originalLabel": "still-present"
+    }
+  ]
+}
