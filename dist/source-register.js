@@ -4352,6 +4352,7 @@ window.VersionCompassSources = {
         "editions: editions.capabilities.0",
         "editions: editions.capabilities.1",
         "editions: editions.capabilities.2",
+        "editions: editions.capabilities.4",
         "editions: editions.capabilities.9",
         "editions: editions.capabilities.10",
         "editions: editions.capabilities.12",
@@ -4363,32 +4364,32 @@ window.VersionCompassSources = {
         "editions: editions.highlights.2"
       ],
       "reviews": [
-        "2026-10-24"
+        "2026-11-05"
       ],
       "claimReferences": [
         {
           "path": "guidance: guidance.aiAvailability",
-          "section": "ES 8.8 Controlled Availability"
+          "section": "What's new in 8.8.0 / November 4 General Availability and edition table"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.3",
-          "section": "ES 8.8 Controlled Availability"
+          "section": "What's new in 8.8.0 / November 4 General Availability and edition table"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.4",
-          "section": "ES 8.8 Controlled Availability"
+          "section": "What's new in 8.8.0 / November 4 General Availability and edition table"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.5",
-          "section": "ES 8.8 Controlled Availability"
+          "section": "What's new in 8.8.0 / November 4 General Availability and edition table"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.6",
-          "section": "ES 8.8 Controlled Availability"
+          "section": "What's new in 8.8.0 / November 4 General Availability and edition table"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.7",
-          "section": "ES 8.8 Controlled Availability"
+          "section": "What's new in 8.8.0 / November 4 General Availability and edition table"
         }
       ],
       "usage": "In use",

@@ -574,14 +574,14 @@ Object.assign(window.SPLUNK_DATA, {
           ]
         },
         "8.8": {
-          "date": "October 21, 2026 · Controlled Availability",
+          "date": "November 4, 2026 · General Availability",
           "source": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
           "features": [
             [
               "Investigation aggregation",
               "Investigation & response",
               "Connect related security work",
-              "Route related findings and finding groups into configurable cross-domain investigations. Confirm Controlled Availability access and the applicable edition before planning adoption."
+              "Route related findings and finding groups into configurable cross-domain investigations. Confirm feature access and the applicable edition before planning adoption."
             ],
             [
               "Detection rerun",
@@ -612,15 +612,15 @@ Object.assign(window.SPLUNK_DATA, {
           ],
           "requirements": [
             [
-              "Confirm Controlled Availability access",
-              "Splunk published Enterprise Security 8.8.0 for Controlled Availability on October 21, 2026. Publication does not establish universal availability, tenant rollout, entitlement or regional authorization.",
+              "Confirm ES 8.8 feature access",
+              "Splunk documents General Availability on November 4, 2026 after October 21 Controlled Availability. Confirm feature stage, tenant rollout, entitlement and regional authorization separately.",
               "Blocker",
               "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
               true
             ],
             [
               "Match an exact supported Splunk Enterprise host",
-              "The product matrix explicitly lists Enterprise Security 8.8 with Enterprise 10.2.x and 10.4.x. A separate 10.6.1 row footnote states that ES 8.4.x and higher are compatible with Enterprise 10.6.1.1 and higher. This exact-patch qualification does not certify the generic 10.6 selector, 10.6.0 or 10.6.1. Confirm the actual patch, Controlled Availability access and other prerequisites; broader 9.2.0-and-higher prose does not override the exact matrix scope.",
+              "The product matrix explicitly lists Enterprise Security 8.8 with Enterprise 10.2.x and 10.4.x. A separate 10.6.1 row footnote states that ES 8.4.x and higher are compatible with Enterprise 10.6.1.1 and higher. This exact-patch qualification does not certify the generic 10.6 selector, 10.6.0 or 10.6.1. Confirm the actual patch, feature access and other prerequisites; broader 9.2.0-and-higher prose does not override the exact matrix scope.",
               "Blocker",
               "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
               true

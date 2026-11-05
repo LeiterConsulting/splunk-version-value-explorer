@@ -1,0 +1,199 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-soc-analyst-version-floor",
+  "revision": 1,
+  "recordedAt": "2026-11-05T11:09:39.729Z",
+  "assessmentId": "vcia-es-20261105-es-soc-analyst-version-floor",
+  "assessedAt": "2026-11-05T11:06:03.157Z",
+  "outcome": "still-present",
+  "rationale": "The current Premier aggregate Triage and Response row lists Cloud Platform 10.2.x+ and ES 8.6+, while the 8.8 task guide lists ES 8.7+ with paired SOAR. The 8.7 task guide retains historical AI SOC analyst naming. Earlier explicit Essentials Triage wording is historical and the current aggregate row does not decide subcomponent entitlement. CMP setup separately requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and SAIA 2.4+. The Cloud Connected installation guide still plans 2.4.0 and excludes 2.2.0–2.3.6. Current task constraints retain existing triaged findings, first ten findings, approximately 200 findings per tenant per day, frontier models, connector and investigation permissions and granular SOAR asset roles. ES GA does not change those conditions. Region/authorization, exact pairing and per-agent entitlement remain excluded.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security AI SOC Analyst"
+    ],
+    "versions": [
+      "ES 8.8 documentation: aggregate Cloud ES 8.6+ versus task-specific ES 8.7+"
+    ],
+    "editions": [
+      "Premier"
+    ],
+    "deployments": [
+      "Splunk Cloud Platform"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers planning AI SOC Analyst prerequisites"
+    ],
+    "exclusions": [
+      "CMP has its separate Platform 10.4+/ES 8.8+/Cloud Connect 2.0 chain; no lower-floor eligibility, tenant rollout, entitlement, pairing or authorization is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-release-20261105-es-soc-analyst-version-floor"
+  ],
+  "remainingConcerns": [
+    "The Cloud aggregate 8.6+ and task-specific 8.7+ statements remain distinct; both require paired SOAR. The separate CMP path retains its documented prerequisites and planned SAIA 2.4 dependency."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "es-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
+      "statement": "Assessed within ai-es-soc. The Cloud aggregate 8.6+ and task-specific 8.7+ statements remain distinct; both require paired SOAR. The separate CMP path retains its documented prerequisites and planned SAIA 2.4 dependency.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05T11:02:52.965Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ac3a502d24f7e894a342dbd659d36a0fec959e1117e606d1ef245966825f057d",
+        "qualification": "SHA-256 of the retrieved public response body."
+      }
+    },
+    {
+      "evidenceId": "es-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions",
+      "statement": "Assessed within ai-es-soc. The Cloud aggregate 8.6+ and task-specific 8.7+ statements remain distinct; both require paired SOAR. The separate CMP path retains its documented prerequisites and planned SAIA 2.4 dependency.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05T11:02:52.989Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "100729481d77112485237da1ad0e3317da280196322cd9fcd6ce1dd459d3abc3",
+        "qualification": "SHA-256 of the retrieved public response body."
+      }
+    },
+    {
+      "evidenceId": "es-3",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "section": "Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions",
+      "statement": "Assessed within ai-es-soc. The Cloud aggregate 8.6+ and task-specific 8.7+ statements remain distinct; both require paired SOAR. The separate CMP path retains its documented prerequisites and planned SAIA 2.4 dependency.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05T11:02:48.160Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9775c78f72c755d3bff81ab9e0539ac28eb5b24059b33a2507b15bd43d8c1b0a",
+        "qualification": "SHA-256 of the retrieved public response body."
+      }
+    },
+    {
+      "evidenceId": "es-4",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "ES 8.8 Controlled Availability",
+      "statement": "Assessed within ai-es-soc. The Cloud aggregate 8.6+ and task-specific 8.7+ statements remain distinct; both require paired SOAR. The separate CMP path retains its documented prerequisites and planned SAIA 2.4 dependency.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05T11:02:40.465Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "68415186bd5e9d0ce7957374400eb839c1efec93c41e3718c018307f9a93196f",
+        "qualification": "SHA-256 of the retrieved public response body."
+      }
+    },
+    {
+      "evidenceId": "es-5",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "SOC analyst Triage/Response note; aggregate AI SOC Analyst availability row",
+      "statement": "Assessed within ai-es-soc. The Cloud aggregate 8.6+ and task-specific 8.7+ statements remain distinct; both require paired SOAR. The separate CMP path retains its documented prerequisites and planned SAIA 2.4 dependency.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05T11:02:52.965Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ac3a502d24f7e894a342dbd659d36a0fec959e1117e606d1ef245966825f057d",
+        "qualification": "SHA-256 of the retrieved public response body."
+      }
+    },
+    {
+      "evidenceId": "es-6",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "section": "FedRAMP deployments; supported regions; version compatibility",
+      "statement": "Assessed within ai-es-soc. The Cloud aggregate 8.6+ and task-specific 8.7+ statements remain distinct; both require paired SOAR. The separate CMP path retains its documented prerequisites and planned SAIA 2.4 dependency.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05T11:02:52.996Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "1dd74d0a631284f1f586845a93d4e3a58b90d25ab3852bf82c0734c9d671b1e2",
+        "qualification": "SHA-256 of the retrieved public response body."
+      }
+    },
+    {
+      "evidenceId": "es-7",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility",
+      "statement": "Assessed within ai-es-soc. The Cloud aggregate 8.6+ and task-specific 8.7+ statements remain distinct; both require paired SOAR. The separate CMP path retains its documented prerequisites and planned SAIA 2.4 dependency.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05T11:02:49.008Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "1a3242185d865b07ca6ecc00bbe84e61f9b1c510c7fd53d475864e0391dc4325",
+        "qualification": "SHA-256 of the retrieved public response body."
+      }
+    },
+    {
+      "evidenceId": "es-8",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
+      "section": "Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings",
+      "statement": "Assessed within ai-es-soc. The Cloud aggregate 8.6+ and task-specific 8.7+ statements remain distinct; both require paired SOAR. The separate CMP path retains its documented prerequisites and planned SAIA 2.4 dependency.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05T11:02:40.471Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "bb6eaa15ca0bc0796d8b90e381a5a2ccbbb2bef52c86c4ba4721721af49566ea",
+        "qualification": "SHA-256 of the retrieved public response body."
+      }
+    },
+    {
+      "evidenceId": "es-9",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/set-up-splunk-cloud-connect-to-use-the-agentic-soc",
+      "section": "Prerequisites to use the agentic SOC with Splunk Cloud Connect",
+      "statement": "Assessed within ai-es-soc. The Cloud aggregate 8.6+ and task-specific 8.7+ statements remain distinct; both require paired SOAR. The separate CMP path retains its documented prerequisites and planned SAIA 2.4 dependency.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05T11:02:40.492Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "a5ca014ae7310c21ff433bb25e5bdc7c607bfd10d6bbdb8c83ca31168b9202ee",
+        "qualification": "SHA-256 of the retrieved public response body."
+      }
+    },
+    {
+      "evidenceId": "es-10",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "Cloud Connected compatibility and planned 2.4.0",
+      "statement": "Assessed within ai-es-soc. The Cloud aggregate 8.6+ and task-specific 8.7+ statements remain distinct; both require paired SOAR. The separate CMP path retains its documented prerequisites and planned SAIA 2.4 dependency.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-05T11:02:48.035Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "6cf4aa5a67fd39ba33357a4cd97fb34d93a1fa55913a9a6a99085745ab804ded",
+        "qualification": "SHA-256 of the retrieved public response body."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/39d3ad8fd05559501346c3b7b91458ca6967d3e0/docs/audits/2026-11-05-es-editions-watch.json",
+      "pointer": "/claimChecks/2",
+      "originalLabel": "changed"
+    }
+  ]
+}

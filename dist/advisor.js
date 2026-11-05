@@ -126,7 +126,7 @@
         if(state.deployment==='enterprise')action('Resolve current Cloud Connected compatibility before enabling Agent Mode','Reconcile the installation restriction and SAIA-9918 with the feature guide. A met minimum or planned 2.4.0 support does not restore the current path. Only after an actual supported release is established, verify runtime policy and the documented bidirectional connectivity, regional allowlist and certificate setup.',['aiSaiaAgentMode','aiSaiaCloudConnected','aiSaiaKnownIssues','aiSaiaModelRuntime']);
         else action('Verify the supported app/Platform pairing and activation','Confirm the exact feature-specific AWS location, Model Runtime policy, administrator activation and permissions before enabling the feature.',['aiSaiaAgentMode','aiSaiaModelRuntime']);
       }else{
-        established('The aggregate AI SOC workflow is documented for Premier, with paired SOAR and representative enablement. ES 8.8 is Controlled Availability.',['aiEsAgents88','aiEsRelease88']);
+        established('The aggregate AI SOC workflow is documented for Premier, with paired SOAR and representative enablement. Splunk documents ES 8.8 General Availability from November 4, 2026. Confirm component access and enablement separately.',['aiEsAgents88','aiEsRelease88']);
         if(state.edition==='unknown')fact('Confirm the ES edition.','The aggregate workflow’s Premier requirement is separate from subcomponent entitlement.');
         if(state.edition==='essentials')evidence('The assessed aggregate workflow row specifies Premier.','Do not infer access to the whole workflow from a component or earlier edition wording.',['aiEsAgents88','aiEsTriageNote88']);
         if(state.deployment==='enterprise'){

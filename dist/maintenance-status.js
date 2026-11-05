@@ -914,10 +914,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-04T11:10:31Z",
-      "lastSuccess": "2026-11-04T11:23:37.366Z",
+      "lastAttempt": "2026-11-05T11:01:22.806488Z",
+      "lastSuccess": "2026-11-05T11:06:03.157Z",
       "outcome": "changed",
-      "summary": "Reconciled current ES 8.8 Triage and Response identity and the qualified Cloud Connected agentic dependency chain.",
+      "summary": "Reconciled ES 8.8 GA and Exposure Analytics release rows. Preserved exact agent and pairing qualifications.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1319,9 +1319,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Reconciled current ES 8.8 Triage and Response identity and the qualified Cloud Connected agentic dependency chain.",
           "scope": "40 maintained edition/SOAR source scopes across 39 official URLs; fourteen bounded affected or high-consequence claim families; current SAIA 2.4 planned-versus-required conflict; issue-feed and publication evidence recorded separately."
+        },
+        {
+          "at": "2026-11-05T11:01:22.806488Z",
+          "outcome": "running",
+          "summary": "Reviewing ES evidence inventory and SOC prerequisites.",
+          "scope": "42 official URLs and seven bounded claim groups. Registry 1.2.0 SOC scope assessed."
+        },
+        {
+          "at": "2026-11-05T11:06:03.157Z",
+          "outcome": "changed",
+          "summary": "Reconciled ES 8.8 GA and Exposure Analytics release rows. Preserved exact agent and pairing qualifications.",
+          "scope": "42 official URLs and seven bounded claim groups. Registry 1.2.0 SOC scope assessed."
         }
       ],
-      "scope": "40 maintained edition/SOAR source scopes across 39 official URLs; fourteen bounded affected or high-consequence claim families; current SAIA 2.4 planned-versus-required conflict; issue-feed and publication evidence recorded separately."
+      "scope": "42 official URLs and seven bounded claim groups. Registry 1.2.0 SOC scope assessed."
     },
     {
       "id": "version-guidance-audit",
