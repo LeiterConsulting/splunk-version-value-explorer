@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-app-for-soar-es-pairing",
+  "assessmentId": "vcia-guidance-20261105-app-for-soar-es-pairing",
+  "revision": 1,
+  "recordedAt": "2026-11-05T13:40:07.060Z",
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/3d3ad6ada5a4a2039cabd3116bd2d84092427cf7/docs/audits/2026-11-05-version-guidance-audit.json",
+      "pointer": "/claimChecks/9",
+      "originalLabel": "still-present"
+    }
+  ],
+  "assessedAt": "2026-11-05T13:38:09.667Z",
+  "outcome": "still-present",
+  "rationale": "The tested App for SOAR 8.7.0 row lists ES 8.7.0 and 8.6.1, with SOAR 8.7.0 and 8.6.0 and a SOAR 8.7.0 audit-polling caveat. The separate Export 8.7.1 row lists different CIM and product versions, including on-prem SOAR 8.8.0 and Cloud SOAR 8.7.0. Neither table makes independent releases or unlisted combinations tested pairings.",
+  "reviewedScope": {
+    "products": [
+      "Splunk App for SOAR",
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "App for SOAR 8.7.0",
+      "ES 8.7.1",
+      "ES 8.8",
+      "ES 8.9"
+    ],
+    "editions": null,
+    "deployments": null,
+    "regions": null,
+    "audiences": [
+      "Customers and documentation readers evaluating the stated decision"
+    ],
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-es-20261105-app-for-soar-es-pairing"
+  ],
+  "remainingConcerns": [
+    "Wait for an exact tested App for SOAR row covering later ES. Keep Export and Broker independent."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261105-app-for-soar",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.7.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "section": "Splunk product compatibility matrix > 8.7.0",
+      "statement": "The exact App for SOAR row and audit-polling qualification.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "62b7084913ff0a8049d36515a16ad1d4c32fe13fdc4bfc269a134cd70f67cd25",
+        "qualification": "Direct public response body. Exact publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261105-soar-export",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+      "section": "Required Python version; Splunk product compatibility matrix > Export 8.7.1 and 8.7.0",
+      "statement": "Export has its own Python 3.13 and tested combinations.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "e7316fc24cca1202795d55a8c54d5e21b93be225c0f576d70649f9a2b992d840",
+        "qualification": "Direct public response body. Exact publisher revision unknown."
+      }
+    }
+  ]
+}

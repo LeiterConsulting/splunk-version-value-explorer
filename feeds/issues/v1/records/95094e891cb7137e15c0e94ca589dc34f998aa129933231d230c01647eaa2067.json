@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-itsi-subagent-region",
+  "assessmentId": "vcia-guidance-20261105-itsi-subagent-region",
+  "revision": 1,
+  "recordedAt": "2026-11-05T13:40:07.060Z",
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/3d3ad6ada5a4a2039cabd3116bd2d84092427cf7/docs/audits/2026-11-05-version-guidance-audit.json",
+      "pointer": "/claimChecks/4",
+      "originalLabel": "still-present"
+    }
+  ],
+  "assessedAt": "2026-11-05T13:38:09.667Z",
+  "outcome": "still-present",
+  "rationale": "The About page ITSI subagent section sets ITSI 5.0.0+, Splunk MCP Server 1.2.1+ and SAIA 2.2.0+. The Cloud install matrix is a separate assistant/platform layer. The ITSI 5.0 related-app matrix and base assistant service geography do not establish a subagent-specific rollout.",
+  "reviewedScope": {
+    "products": [
+      "Splunk IT Service Intelligence",
+      "Splunk AI Assistant",
+      "Splunk MCP Server"
+    ],
+    "versions": [
+      "ITSI 5.0+",
+      "SAIA 2.2+",
+      "MCP Server 1.2.1+"
+    ],
+    "editions": null,
+    "deployments": [
+      "Cloud regional availability not established"
+    ],
+    "regions": null,
+    "audiences": [
+      "Customers evaluating ITSI subagent regional availability"
+    ],
+    "exclusions": [
+      "No tenant availability, entitlement, authorization or deployment suitability is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-csp-20261105-itsi-subagent-region"
+  ],
+  "remainingConcerns": [
+    "Check the published subagent-specific deployment table when available. Keep base assistant geography separate."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261105-itsi-about",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+      "section": "Splunk AI Assistant ITSI subagent; Where Splunk AI Assistant runs",
+      "statement": "The exact dependency floors describe the subagent. The service description is at assistant level.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "cff3d56e37879b2faba594fea31b383e2bb3dcdafbef69ff2c9a217952f350ce",
+        "qualification": "Direct public response body. Exact publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261105-itsi-related",
+      "url": "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/install-and-upgrade/5.0/planning/itsi-compatibility-with-related-apps-and-add-ons",
+      "section": "ITSI compatibility with related apps and add-ons",
+      "statement": "The table is a related-app compatibility table and supplies no subagent location matrix.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b873a9c6619e7504cb85387bfc6b6d180746b1d8731a94d235994131b87ba37f",
+        "qualification": "Direct public response body. Exact publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261105-itsi-install",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "section": "FedRAMP deployments; supported regions; version compatibility",
+      "statement": "The base installation table supplies no subagent-specific regional decision.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ec5a9be65817f8ea923f1dc0c8975ef7390817f2131df26ba451c9921fdfd785",
+        "qualification": "Direct public response body. Exact publisher revision unknown."
+      }
+    }
+  ]
+}

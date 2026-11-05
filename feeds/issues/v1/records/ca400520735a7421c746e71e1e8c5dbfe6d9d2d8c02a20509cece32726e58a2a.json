@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-svd-2026-1015-applicability",
+  "assessmentId": "vcia-guidance-20261105-svd-2026-1015-applicability",
+  "revision": 1,
+  "recordedAt": "2026-11-05T13:40:07.060Z",
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/3d3ad6ada5a4a2039cabd3116bd2d84092427cf7/docs/audits/2026-11-05-version-guidance-audit.json",
+      "pointer": "/claimChecks/0",
+      "originalLabel": "partially-addressed"
+    }
+  ],
+  "assessedAt": "2026-11-05T13:38:09.667Z",
+  "outcome": "partially-addressed",
+  "rationale": "Splunk’s November 4 Product Status update lists UF, Cloud Platform, ES, ITSI, SOAR Cloud, SOAR and SOAR Connectors as unaffected. Enterprise 10.0 and lower is affected through the bundled Node.js runtime, with 10.2+ recommended for that runtime. The advisory separately says all Enterprise versions include vulnerable Visual Exporter and offers disabling or removing it as a potential mitigation. SOAR Automation Broker is affected; the advisory gives no exact affected/fixed Broker build. Observability Cloud and OpenTelemetry Collectors remain under investigation. HF evaluation depends on the installed Enterprise-package components. The historical October assessment is retained.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise",
+      "Splunk Universal Forwarder",
+      "Splunk Cloud Platform",
+      "Splunk Enterprise Security",
+      "Splunk ITSI",
+      "Splunk SOAR",
+      "Splunk SOAR Cloud",
+      "Splunk SOAR Connectors",
+      "Splunk SOAR Automation Broker",
+      "Splunk Visual Exporter",
+      "Splunk Observability Cloud",
+      "Splunk Observability OpenTelemetry Collectors"
+    ],
+    "versions": [
+      "Enterprise 10.0 and lower bundled runtime",
+      "Enterprise 10.2 or higher as bundled-runtime mitigation",
+      "Enterprise all versions as scoped by the Visual Exporter advisory footnote"
+    ],
+    "editions": null,
+    "deployments": null,
+    "regions": null,
+    "audiences": [
+      "Customers and documentation readers evaluating the stated decision"
+    ],
+    "exclusions": [
+      "No exact Broker patch or package version, installed HF component, new Enterprise 10.0 patch date or customer authorization is inferred."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-guidance-20261102-svd-2026-1015-applicability"
+  ],
+  "remainingConcerns": [
+    "Carry the component-scoped revision into source annotations and eligible report guidance. Check for an exact Broker remediation, preserve the advisory’s present limits, and validate delivery before activation."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261105-node-advisory",
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1015",
+      "section": "Description; Product Status > Under Investigation, Affected Products and Unaffected Products; November 4 Changelog",
+      "statement": "Revised status and separate Enterprise runtime, Visual Exporter, Automation Broker and investigation scopes.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "d466d3e6783a2103beee20801032274cdbd081d21d767ac36eff801f92a7be0a",
+        "qualification": "Direct public response body. Exact publisher revision unknown."
+      }
+    }
+  ]
+}

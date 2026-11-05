@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-agent-runtime-processing-scope",
+  "assessmentId": "vcia-guidance-20261105-saia-agent-runtime-processing-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-05T13:40:07.060Z",
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/3d3ad6ada5a4a2039cabd3116bd2d84092427cf7/docs/audits/2026-11-05-version-guidance-audit.json",
+      "pointer": "/claimChecks/3",
+      "originalLabel": "still-present"
+    }
+  ],
+  "assessedAt": "2026-11-05T13:38:09.667Z",
+  "outcome": "still-present",
+  "rationale": "The Cloud Connected install article’s data section describes Splunk-hosted inference and no third-party transmission. Agent Mode requires Model Runtime, whose guide permits third-party LLM selection and lists Global and Data zone routing. No exception in these sections reconciles the scopes for a working Cloud Connected Agent Mode path.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant"
+    ],
+    "versions": [
+      "SAIA 2.3.6 documentation"
+    ],
+    "editions": null,
+    "deployments": [
+      "Splunk Enterprise with Cloud Connected"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers assessing Agent Mode model-processing boundaries"
+    ],
+    "exclusions": [
+      "No customer authorization, actual tenant routing, residency guarantee, regulated approval or exact app/Platform pairing is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-release-20261105-saia-agent-runtime-processing-scope"
+  ],
+  "remainingConcerns": [
+    "Compare the mode-specific and installation statements once the current Cloud Connected release has documented support."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261105-runtime-install",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "What data leaves your environment",
+      "statement": "The general setup text describes Splunk-only processing.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "da406e3558be7b96406b654322abbad8c12e1f109b7acaa62069f9176068e3a7",
+        "qualification": "Direct public response body. Exact publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261105-runtime-feature",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+      "section": "Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off",
+      "statement": "Feature-specific runtime allows third-party inference and multiple routing standards.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9921f0c61f6f6e0869350f4b5c5bc57d811d9d78edecdaf23a9f14af9150ac28",
+        "qualification": "Direct public response body. Exact publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261105-runtime-agent",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "section": "Requirements > Model Runtime",
+      "statement": "Agent Mode requires Model Runtime.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-05",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "19f8787691c350fc5c990ba1c034dcfc80314f82521712636b6e28faac950fb2",
+        "qualification": "Direct public response body. Exact publisher revision unknown."
+      }
+    }
+  ]
+}
