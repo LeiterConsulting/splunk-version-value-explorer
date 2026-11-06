@@ -17,9 +17,10 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('cycle 50 adds scoped ES agentic facts and retains prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,52);
+ assert.equal(b.policy.currentCycle,53);
  const ea=b.entries["edition:exposure"];assert.equal(ea.cycle,52);assert(b.active(ea));
- const soar=b.entries['product:soar:cloud-8.8'];assert.equal(soar.cycle,51);assert(b.active(soar));assert.match(soar.detail,/November 4 General Availability/);
+ const soar=b.entries['product:soar:cloud-8.8'];assert.equal(soar.cycle,51);assert(!b.active(soar));assert.match(soar.detail,/November 4 General Availability/);
+ const app=b.entries['technical:soar:app88'];assert.equal(app.cycle,53);assert(b.active(app));
  for(const key of ['prep11:prep11-workload-baseline','prep11:prep11-cloud-option']){assert.equal(b.entries[key].cycle,49);assert(b.active(b.entries[key],50));assert(!b.active(b.entries[key]));assert.equal(b.entries[key].sourceDate,null);}
  for(const key of ['ai:triage-note','soar:broker-ha88']){assert.equal(b.entries[key].cycle,48);assert(!b.active(b.entries[key]));assert.equal(b.entries[key].sourceDate,null);}
  {const e=b.entries['edition:triage-agent'];assert.equal(e.cycle,50);assert(b.active(e,51));assert.equal(e.sourceDate,null);assert.match(e.detail,/Triage and Response agents/);}

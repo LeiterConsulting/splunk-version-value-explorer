@@ -4,6 +4,13 @@ window.VersionCompassSOARData = {
   "latest": "8.8.0",
   "trackingSince": "2026-10-01",
   "sources": {
+    "app88": {
+      "title": "Splunk App for SOAR 8.8.0 prerequisites",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.8.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "section": "Required user privileges and ports; Splunk product compatibility matrix — App 8.8.0 row",
+      "checked": "2026-11-06",
+      "reviewed": "2026-11-06"
+    },
     "cloudBroker88": {
       "title": "SOAR Cloud 8.8 current Automation Broker HA row",
       "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
@@ -604,6 +611,23 @@ window.VersionCompassSOARData = {
       ],
       "status": "Required",
       "verified": "2026-10-01",
+      "target": true
+    },
+    {
+      "id": "app88",
+      "title": "Splunk App for SOAR 8.8.0 tested pairing",
+      "detail": "The App 8.8.0 row lists ES 8.8.0 or 8.7.0 (ES is optional), Enterprise 10.4.2 or 10.2.2, Cloud Platform 10.5.2605 or 10.4.2604, and SOAR Cloud 8.8.0 or 8.7.0. The on-premises column lists SOAR 8.8.0 and a malformed second value, 8..0. Confirm that second value from a corrected matrix before relying on it. These tested app combinations do not establish Export compatibility, a recommended security patch, an on-premises upgrade path, or tenant availability.",
+      "kind": "technical",
+      "release": "8.8.0",
+      "src": [
+        "app88"
+      ],
+      "deployments": [
+        "cmp",
+        "cloud"
+      ],
+      "status": "Validate",
+      "verified": "2026-11-06",
       "target": true
     },
     {

@@ -1,5 +1,17 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 function core(){const c={window:{},URLSearchParams};for(const f of ['soar-data.js','soar.js'])vm.runInNewContext(fs.readFileSync('dist/'+f,'utf8'),c);return c;}
+test('SOAR App 8.8 retains the malformed matrix value and the prior route boundary',()=>{
+ const a=core().window.VersionCompassSOAR;
+ const cloud=a.assess({...a.defaults,deployment:'cloud',from:'8.7.0',to:'8.8.0'});
+ const app=cloud.technical.find(x=>x.id==='app88');
+ assert.match(app.detail,/8\.\.0/);
+ assert.match(app.detail,/Cloud Platform 10\.5\.2605 or 10\.4\.2604/);
+ assert.doesNotMatch(app.detail,/Cloud Platform 10\.6/);
+ assert.deepEqual(Array.from(app.src),['app88']);
+ assert.match(cloud.coverage,/8\.8 General Availability/);
+ assert(!a.targets('cmp').includes('8.8.0'));
+ assert(!a.assess(a.defaults).technical.some(x=>x.id==='app88'));
+});
 test('SOAR paths retain Python bridge, OS bridge and privileged unknowns',()=>{const a=core().window.VersionCompassSOAR;
  assert.deepEqual(Array.from(a.assess({...a.defaults,from:'6.4.1'}).path),['6.4.1','8.5.0','8.7.0']);
  assert.deepEqual(Array.from(a.assess({...a.defaults,from:'6.1.0',os:'al2'}).path),['6.1.0','6.2.1','6.4.0','8.5.0','8.7.0']);

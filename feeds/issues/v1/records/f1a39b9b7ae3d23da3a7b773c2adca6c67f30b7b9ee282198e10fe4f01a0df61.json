@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-svd-2026-1015-applicability",
+  "revision": 1,
+  "recordedAt": "2026-11-06T10:47:57.863Z",
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/1c5562499092acd234c58583688654b56ba5156b/docs/audits/2026-11-06-version-release-watch.json",
+      "pointer": "/claimChecks/0",
+      "originalLabel": "partially-addressed"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "release-20261106-0-0",
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1015",
+      "section": "Product Status — Affected Products and footnotes; Unaffected Products; November 5 changelog",
+      "statement": "The revised advisory narrows bundled Node.js exposure to Enterprise 10.0 and lists 9.4 and 10.2+ as unaffected by that runtime issue. Universal Forwarder is unaffected. The separate Visual Exporter exposure spans Enterprise versions, with disable/remove as possible mitigation. Automation Broker, Observability Cloud and Splunk Observability OpenTelemetry Collector are listed affected; this advisory gives no exact fix for them. This supersedes prior applicability wording while preserving its historical dates.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-06",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "4e3c17e8bed1a3aec4be5afb57692220b790bb847824f491b93b36190af1d201",
+        "qualification": "Direct public response bytes. Exact publisher revision unknown."
+      }
+    }
+  ],
+  "kind": "assessment",
+  "assessmentId": "vcia-release-20261106-svd-2026-1015-applicability",
+  "assessedAt": "2026-11-06T10:46:06.779Z",
+  "outcome": "partially-addressed",
+  "rationale": "The revised advisory narrows bundled Node.js exposure to Enterprise 10.0 and lists 9.4 and 10.2+ as unaffected by that runtime issue. Universal Forwarder is unaffected. The separate Visual Exporter exposure spans Enterprise versions, with disable/remove as possible mitigation. Automation Broker, Observability Cloud and Splunk Observability OpenTelemetry Collector are listed affected; this advisory gives no exact fix for them. This supersedes prior applicability wording while preserving its historical dates.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise, Universal Forwarder, Visual Exporter, SOAR Automation Broker, Observability Cloud and Collector"
+    ],
+    "versions": [
+      "November 5 advisory revision"
+    ],
+    "editions": null,
+    "deployments": [
+      "Component-specific and managed-service scopes"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating the documented applicability"
+    ],
+    "exclusions": [
+      "No additional deployment, version, entitlement, authorization or fix is inferred."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-guidance-20261105-svd-2026-1015-applicability"
+  ],
+  "remainingConcerns": [
+    "Recheck exact component-specific fixed versions and mitigations."
+  ]
+}

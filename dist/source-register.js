@@ -141,14 +141,14 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.security.url",
-        "soar: soar.records.24"
+        "soar: soar.records.25"
       ],
       "reviews": [
         "2026-10-01"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.24",
+          "path": "soar: soar.records.25",
           "section": "Solutions; Product Status; CVE-2026-76362 Additional Solution"
         }
       ],
@@ -184,14 +184,14 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.packages.url",
-        "soar: soar.records.24"
+        "soar: soar.records.25"
       ],
       "reviews": [
         "2026-10-01"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.24",
+          "path": "soar: soar.records.25",
           "section": "Description: third-party fixes in 8.6.0 and higher"
         }
       ],
@@ -560,7 +560,7 @@ window.VersionCompassSources = {
     },
     {
       "url": "https://advisory.splunk.com/advisories/SVD-2026-1015",
-      "title": "October 28 Node.js vulnerability investigation",
+      "title": "Node.js product status · SVD-2026-1015",
       "areas": [
         "Splunk Forwarders"
       ],
@@ -570,31 +570,35 @@ window.VersionCompassSources = {
         "forwarders: forwarders.claimSources.security.hf"
       ],
       "reviews": [
-        "2026-10-29"
+        "2026-11-06"
       ],
       "claimReferences": [
         {
           "path": "forwarders: forwarders.claimSources.security.uf",
-          "section": "Description; Product Status"
+          "section": "Product Status — Affected Products and Enterprise / Visual Exporter footnotes; Unaffected Products; November 5 changelog"
         },
         {
           "path": "forwarders: forwarders.claimSources.security.hf",
-          "section": "Description; Product Status"
+          "section": "Product Status — Affected Products and Enterprise / Visual Exporter footnotes; Unaffected Products; November 5 changelog"
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-29",
+      "reviewed": "2026-11-06",
       "status": "Reviewed",
       "firstRecorded": "2026-10-29",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "Monitor the exact advisory for a product-status change; do not infer applicability from Node.js presence or from an adjacent product.",
-      "section": "Description; Product Status",
-      "verificationScope": "Verified the four named Node.js vulnerabilities, the October 28 publication date and Under Investigation status for the maintained Platform, Forwarder, ES, ITSI, SOAR and Observability product families. No affected version, fix version, workaround, availability, entitlement or authorization is established.",
+      "reason": "The October investigation record remains historical. Do not infer component applicability or patch floors from another product's status.",
+      "section": "Product Status — Affected Products and footnotes; Unaffected Products; November 5 changelog",
+      "verificationScope": "The November 5 update lists Enterprise 10.0 bundled Node.js as affected and Enterprise 9.4 and 10.2 or later as unaffected by that runtime issue. Visual Exporter is a separate exposure across Enterprise versions. Universal Forwarder is listed unaffected. SOAR Automation Broker, Observability Cloud and Splunk Observability OpenTelemetry Collector are listed affected without exact fixed builds in this advisory.",
       "events": [
         {
           "date": "2026-10-29",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-06",
+          "event": "Review status updated: Reviewed · 2026-11-06"
         }
       ]
     },
@@ -4781,9 +4785,9 @@ window.VersionCompassSources = {
           "release": "10.2",
           "component": "Embedded Node.js runtime",
           "section": "The Node.js JavaScript runtime environment has been removed",
-          "claimVerified": "2026-10-18",
+          "claimVerified": "2026-11-06",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval. October 18 bounded semantic recheck: removal concerns the bundled Node.js runtime; app-owned builds remain distinct. No UF runtime or Cloud-managed installation requirement is inferred."
+          "qualification": "November 6 semantic recheck: the Enterprise 10.2 section removes bundled Node.js and requires Node.js-dependent apps to carry their own runtime. Heavy Forwarder inherits only the applicable Enterprise-package scope. Visual Exporter is assessed independently in SVD-2026-1015. No UF runtime, Cloud-managed installation requirement or app-owned vulnerability conclusion is inferred."
         },
         {
           "path": "forwarders: borrowed.technical.hf.10.2.unix-service-identity",
@@ -7657,7 +7661,7 @@ window.VersionCompassSources = {
       "references": [
         "soar.sources.requirements86.url",
         "content-updates.js",
-        "soar: soar.records.25",
+        "soar: soar.records.26",
         "soar: soar.targetRequirements.8.6.0"
       ],
       "reviews": [
@@ -7665,7 +7669,7 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.25",
+          "path": "soar: soar.records.26",
           "section": "Supported operating systems; PostgreSQL 15; Elasticsearch versions; bundled UF 10.4.0; container restriction"
         },
         {
@@ -7701,7 +7705,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.sizing86.url",
-        "soar: soar.records.26",
+        "soar: soar.records.27",
         "soar: soar.targetRequirements.8.6.0"
       ],
       "reviews": [
@@ -7709,7 +7713,7 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.26",
+          "path": "soar: soar.records.27",
           "section": "Production CPU, memory, volume sizing, network and system utilities"
         },
         {
@@ -8284,8 +8288,8 @@ window.VersionCompassSources = {
       "references": [
         "soar.sources.exportCloud.url",
         "content-updates.js",
-        "soar: soar.records.21",
         "soar: soar.records.22",
+        "soar: soar.records.23",
         "soar: soar.backlog.2"
       ],
       "reviews": [
@@ -8293,11 +8297,11 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.21",
+          "path": "soar: soar.records.22",
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
         },
         {
-          "path": "soar: soar.records.22",
+          "path": "soar: soar.records.23",
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
         },
         {
@@ -8335,8 +8339,8 @@ window.VersionCompassSources = {
       "references": [
         "soar.sources.exportEnterprise.url",
         "content-updates.js",
-        "soar: soar.records.21",
         "soar: soar.records.22",
+        "soar: soar.records.23",
         "soar: soar.backlog.2"
       ],
       "reviews": [
@@ -8344,11 +8348,11 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.21",
+          "path": "soar: soar.records.22",
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
         },
         {
-          "path": "soar: soar.records.22",
+          "path": "soar: soar.records.23",
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
         },
         {
@@ -8386,19 +8390,19 @@ window.VersionCompassSources = {
       "references": [
         "soar.sources.export.url",
         "content-updates.js",
-        "soar: soar.records.21",
-        "soar: soar.records.23"
+        "soar: soar.records.22",
+        "soar: soar.records.24"
       ],
       "reviews": [
         "2026-10-15"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.21",
+          "path": "soar: soar.records.22",
           "section": "Welcome to release 8.7.1; Known issues in release 8.7.0 (PAPP-38496); Fixed issues in release 8.7.0 (PAPP-38389)"
         },
         {
-          "path": "soar: soar.records.23",
+          "path": "soar: soar.records.24",
           "section": "Welcome to release 8.7.1; Known issues in release 8.7.0 (PAPP-38496); Fixed issues in release 8.7.0 (PAPP-38389)"
         }
       ],
@@ -8438,14 +8442,14 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.app.url",
-        "soar: soar.records.20"
+        "soar: soar.records.21"
       ],
       "reviews": [
         "2026-10-01"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.20",
+          "path": "soar: soar.records.21",
           "section": "8.7.0 compatibility table; /rest/audit footnote"
         }
       ],
@@ -8474,6 +8478,43 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-02",
           "event": "Review status updated: Reviewed · 2026-10-02"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.8.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "title": "Splunk App for SOAR 8.8.0 prerequisites",
+      "areas": [
+        "Splunk SOAR",
+        "Shared guidance"
+      ],
+      "references": [
+        "soar.sources.app88.url",
+        "content-updates.js",
+        "soar: soar.records.20"
+      ],
+      "reviews": [
+        "2026-11-06"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.20",
+          "section": "Required user privileges and ports; Splunk product compatibility matrix — App 8.8.0 row"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-06",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-06",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-06",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },

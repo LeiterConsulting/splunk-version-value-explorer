@@ -47,7 +47,7 @@ function assess(s){const errors=validate(s);if(errors.length)return {selection:{
  // Cloud exposes only its documented automation runtime; server OS/database,
  // bundled Forwarder and sizing floors are customer-managed requirements.
  const targetRequirements=cloud?{runtime:d.targetRequirements[s.to].runtime,src:['cloud']}:d.targetRequirements[s.to];
- return {selection:{...s},errors,path:s.installation==='privileged'&&!cloud?[]:path,routeStatus,pathSource:cloud?'cloud':s.installation==='privileged'?'prepare':pathSource,conditions,questions,availability,features,requirements:selected.filter(r=>r.kind==='requirement'),technical:selected.filter(r=>r.kind==='technical'),targetRequirements,issues,coverage:'Selected on-premises targets remain 8.6/8.7; Cloud release evidence extends through 8.8 Controlled Availability. Exact builds, tenant rollout, legacy conversions and complete issue inventories require the cited guidance.',sources:d.sources};
+ return {selection:{...s},errors,path:s.installation==='privileged'&&!cloud?[]:path,routeStatus,pathSource:cloud?'cloud':s.installation==='privileged'?'prepare':pathSource,conditions,questions,availability,features,requirements:selected.filter(r=>r.kind==='requirement'),technical:selected.filter(r=>r.kind==='technical'),targetRequirements,issues,coverage:'Selected on-premises targets remain 8.6/8.7; Cloud release evidence extends through 8.8 General Availability. Exact builds, tenant rollout, legacy conversions and complete issue inventories require the cited guidance.',sources:d.sources};
 }
 window.VersionCompassSOAR={defaults,options,targets,selectable,validate,read,url,assess};
 }());

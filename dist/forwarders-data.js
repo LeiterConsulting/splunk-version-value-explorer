@@ -143,11 +143,11 @@ window.VersionCompassForwarderData = {
       "section": "Current index; not a complete applicability audit"
     },
     "nodeOctober": {
-      "title": "October 28 Node.js vulnerability investigation",
+      "title": "Node.js product status · SVD-2026-1015",
       "url": "https://advisory.splunk.com/advisories/SVD-2026-1015",
-      "checked": "2026-10-29",
-      "reviewed": "2026-10-29",
-      "section": "Description; Product Status"
+      "checked": "2026-11-06",
+      "reviewed": "2026-11-06",
+      "section": "Product Status — Affected Products and Enterprise / Visual Exporter footnotes; Unaffected Products; November 5 changelog"
     },
     "esKv106": {
       "title": "10.6 customer-managed ES and KV Store boundary",
@@ -495,6 +495,22 @@ window.VersionCompassForwarderData = {
     ]
   ],
   "securityNotices": {
+    "nodeUf": {
+      "title": "Universal Forwarder · SVD-2026-1015",
+      "source": "nodeOctober",
+      "types": [
+        "uf"
+      ],
+      "detail": "Splunk lists Universal Forwarder as unaffected by this advisory. This is limited to the four vulnerabilities in SVD-2026-1015."
+    },
+    "nodeHf": {
+      "title": "Enterprise-package components · SVD-2026-1015",
+      "source": "nodeOctober",
+      "types": [
+        "hf"
+      ],
+      "detail": "Splunk identifies the bundled Enterprise 10.0 Node.js runtime as affected and recommends 10.2 or later for that component. Its November 5 advisory lists Enterprise 9.4 and 10.2 or later as unaffected by the bundled-runtime issue. Visual Exporter is a separate exposure across Enterprise versions. Splunk lists disabling or removing the app as a possible mitigation. Check the exact installed Heavy Forwarder components and apps before applying either action."
+    },
     "october21": {
       "title": "October 21 Enterprise security advisory",
       "source": "securityOctober",
