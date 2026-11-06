@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "assessment",
+  "findingId": "vci-es-security-assistant-runtime-default",
+  "assessmentId": "vcia-csp-20261106-es-security-assistant-runtime-default",
+  "revision": 1,
+  "recordedAt": "2026-11-06T12:56:54.352Z",
+  "assessedAt": "2026-11-06T12:54:20.908Z",
+  "outcome": "still-present",
+  "rationale": "The current 8.8 release guide says Model Runtime defaults on for ES 8.6+ and explains the administrator setting to limit it to Splunk-hosted models. Its usage section still uses opt-in wording and explains potential Azure OpenAI processing outside Splunk boundaries. The effective default for an individual deployment remains unresolved.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Security Assistant in ES"
+    ],
+    "versions": [
+      "8.6 and later wording in 8.8 release guide"
+    ],
+    "editions": null,
+    "deployments": [
+      "Model choice and potential third-party processing"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating the documented deployment or service boundary"
+    ],
+    "exclusions": [
+      "No exact entitlement, tenant rollout, customer authorization or unlisted compatibility is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261106-12-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "Model Runtime in Splunk Security Assistant > model choice and Using the Model Runtime feature",
+      "statement": "The current 8.8 release guide says Model Runtime defaults on for ES 8.6+ and explains the administrator setting to limit it to Splunk-hosted models. Its usage section still uses opt-in wording and explains potential Azure OpenAI processing outside Splunk boundaries. The effective default for an individual deployment remains unresolved.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-06",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "71924973c8dbffcb716b631bc7d274f1cbb430de6a3800c1ba741d4d9e0c739f",
+        "qualification": "Direct public HTTP body digest. Publisher revision remains unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/1bdc3e0d58261c2108770630538f6a1a24a2a5e9/docs/audits/2026-11-06-csp-fedramp-watch.json",
+      "pointer": "/claimChecks/12",
+      "originalLabel": "documentation-ambiguity"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-es-20261106-es-security-assistant-runtime-default"
+  ],
+  "remainingConcerns": [
+    "Retain exact source, environment and historical limits until public evidence supersedes them."
+  ]
+}

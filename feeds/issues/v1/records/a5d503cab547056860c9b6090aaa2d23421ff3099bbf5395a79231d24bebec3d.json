@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "assessment",
+  "findingId": "vci-cloud-s3-restricted-scope",
+  "assessmentId": "vcia-csp-20261106-cloud-s3-restricted-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-06T12:56:54.352Z",
+  "assessedAt": "2026-11-06T12:54:20.908Z",
+  "outcome": "still-present",
+  "rationale": "Both Service Details versions list S3 for Moderate in both GovCloud regions and exclude High and IL5 in those regions. The April 8 change entry adds High and IL5 in both for relevant 10.3 versions. Both broader third-party-store sections exclude Moderate, High, IRAP and IL5. The exact S3 versus expanded search relationship and current supported High path remain unresolved.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform"
+    ],
+    "versions": [
+      "10.6 and 10.7 Service Details; relevant 10.3 changelog scope"
+    ],
+    "editions": null,
+    "deployments": [
+      "AWS GovCloud East/West, Moderate, High and IL5"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating the documented deployment or service boundary"
+    ],
+    "exclusions": [
+      "No exact entitlement, tenant rollout, customer authorization or unlisted compatibility is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261106-1-0",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions and region differences > Federated search for Amazon S3; Federated search for third party data stores",
+      "statement": "Both Service Details versions list S3 for Moderate in both GovCloud regions and exclude High and IL5 in those regions. The April 8 change entry adds High and IL5 in both for relevant 10.3 versions. Both broader third-party-store sections exclude Moderate, High, IRAP and IL5. The exact S3 versus expanded search relationship and current supported High path remain unresolved.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-06",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "5b1893fc33eae9b82606903481501196608229407d088bac791785c17c6a22d8",
+        "qualification": "Direct public HTTP body digest. Publisher revision remains unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261106-1-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions and region differences > Federated search for Amazon S3; Federated search for third party data stores",
+      "statement": "Both Service Details versions list S3 for Moderate in both GovCloud regions and exclude High and IL5 in those regions. The April 8 change entry adds High and IL5 in both for relevant 10.3 versions. Both broader third-party-store sections exclude Moderate, High, IRAP and IL5. The exact S3 versus expanded search relationship and current supported High path remain unresolved.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-06",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "a224d205941ae82ec0cdd187068dac44a3146faded821f4834aff2a597f9576d",
+        "qualification": "Direct public HTTP body digest. Publisher revision remains unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261106-1-2",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "April 2026 > 8 April > FedRAMP High and DoD IL5 S3 row",
+      "statement": "Both Service Details versions list S3 for Moderate in both GovCloud regions and exclude High and IL5 in those regions. The April 8 change entry adds High and IL5 in both for relevant 10.3 versions. Both broader third-party-store sections exclude Moderate, High, IRAP and IL5. The exact S3 versus expanded search relationship and current supported High path remain unresolved.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-06",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "7c6b22d4e05494bb49c2d326ed8d1bdf46c43ad4b63deae57b89b7f0d77977cf",
+        "qualification": "Direct public HTTP body digest. Publisher revision remains unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261106-1-3",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "April 2026 > 8 April > FedRAMP High and DoD IL5 S3 row",
+      "statement": "Both Service Details versions list S3 for Moderate in both GovCloud regions and exclude High and IL5 in those regions. The April 8 change entry adds High and IL5 in both for relevant 10.3 versions. Both broader third-party-store sections exclude Moderate, High, IRAP and IL5. The exact S3 versus expanded search relationship and current supported High path remain unresolved.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-06",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "a3f1969bf7e0a4eab6d5f5b22e90978d3a0cfdd208b6625c23ad1acbfa381d65",
+        "qualification": "Direct public HTTP body digest. Publisher revision remains unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/1bdc3e0d58261c2108770630538f6a1a24a2a5e9/docs/audits/2026-11-06-csp-fedramp-watch.json",
+      "pointer": "/claimChecks/1",
+      "originalLabel": "conflict-preserved"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261105-cloud-s3-restricted-scope"
+  ],
+  "remainingConcerns": [
+    "Retain exact source, environment and historical limits until public evidence supersedes them."
+  ]
+}
