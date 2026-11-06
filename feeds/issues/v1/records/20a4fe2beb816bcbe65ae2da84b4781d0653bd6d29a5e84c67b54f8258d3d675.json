@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "assessment",
+  "findingId": "vci-es-security-assistant-runtime-default",
+  "assessmentId": "vcia-es-20261106-es-security-assistant-runtime-default",
+  "revision": 1,
+  "recordedAt": "2026-11-06T11:35:24.702Z",
+  "assessedAt": "2026-11-06T11:06:19.405Z",
+  "outcome": "still-present",
+  "rationale": "The current 8.8 runtime chapter says ES 8.6+ uses Model Runtime by default with a hosted-only control, and separately describes opting in and audit tagging. The historical 8.6 page retains the same wording pattern. Actual tenant state, prompt routing and entitlement require direct evidence outside this review.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "8.6 and 8.8 documentation"
+    ],
+    "editions": null,
+    "deployments": [
+      "Security Assistant Model Runtime"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers comparing documented ES deployment and edition scope"
+    ],
+    "exclusions": [
+      "The reviewed scope does not establish unlisted compatibility, customer enablement, entitlement or authorization."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-20261106-7-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "What it means when you let Splunk determine the best model to use; Using the Model Runtime feature",
+      "statement": "The current 8.8 runtime chapter says ES 8.6+ uses Model Runtime by default with a hosted-only control, and separately describes opting in and audit tagging. The historical 8.6 page retains the same wording pattern. Actual tenant state, prompt routing and entitlement require direct evidence outside this review.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-06",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9b9e8f1e37db65ce9a0473f40618d55382bc14a6beb468f05a0281ec75331e1e",
+        "qualification": "Direct public response bytes; exact publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-20261106-7-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.6/splunk-enterprise-security-release-notes/model-runtime-in-splunk-ai-assistant-for-security",
+      "section": "Historical default setting and opt-in discussion",
+      "statement": "The current 8.8 runtime chapter says ES 8.6+ uses Model Runtime by default with a hosted-only control, and separately describes opting in and audit tagging. The historical 8.6 page retains the same wording pattern. Actual tenant state, prompt routing and entitlement require direct evidence outside this review.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-06",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "532a979e753dc1c751dc0f26b56f4dac62df7cb464e2e0a5f3e193b0d037ae1c",
+        "qualification": "Direct public response bytes; exact publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/cfab52056cb745b27de2938de12be6a4330ea270/docs/audits/2026-11-06-es-editions-watch.json",
+      "pointer": "/claimChecks/7",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [],
+  "remainingConcerns": [
+    "Retain the version, deployment and feature qualifications until supported by exact official evidence."
+  ]
+}

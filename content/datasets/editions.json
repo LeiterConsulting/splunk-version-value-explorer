@@ -176,6 +176,34 @@
       "t": "Triage agent setup (8.6 documentation)",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.6/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-triage-agent-in-splunk-enterprise-security",
       "reviewed": "2026-10-01"
+    },
+    "appForSoar88": {
+      "t": "App for SOAR 8.8.0 tested compatibility",
+      "u": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.8.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "reviewed": "2026-11-06",
+      "section": "Splunk product compatibility matrix, 8.8.0 row; Required user privileges and ports",
+      "verificationScope": "Exact ES, host and SOAR values, including the malformed on-premises cell."
+    },
+    "appForSoar87": {
+      "t": "Historical App for SOAR 8.7.0 tested compatibility",
+      "u": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.7.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "reviewed": "2026-11-06",
+      "section": "Splunk product compatibility matrix, 8.7.0 row",
+      "verificationScope": "Historical exact ES 8.7.0 and 8.6.1 entries."
+    },
+    "soarExportEnterprise87": {
+      "t": "SOAR Export 8.7 prerequisites on Enterprise",
+      "u": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+      "reviewed": "2026-11-06",
+      "section": "Required Python version; Splunk product compatibility matrix, 8.7.1 row; Required app",
+      "verificationScope": "Exact optional ES values and the separate Python and CIM prerequisites."
+    },
+    "soarExportCloud87": {
+      "t": "SOAR Export 8.7 prerequisites on Cloud Platform",
+      "u": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+      "reviewed": "2026-11-06",
+      "section": "Required Python version; Splunk product compatibility matrix, 8.7.1 row; Required app",
+      "verificationScope": "Exact optional ES values and the separate Python and CIM prerequisites."
     }
   },
   "capabilities": [
@@ -439,13 +467,15 @@
         "v": "yes",
         "n": "Included, natively integrated"
       },
-      "flag": "Pairing has separate version and deployment constraints. Splunk Enterprise 9.4.0–9.4.2 does not support ES–SOAR pairing. Check the exact pairing matrix before planning integration.",
+      "flag": "Pairing has separate version and deployment constraints. Splunk Enterprise 9.4.0–9.4.2 does not support ES–SOAR pairing. Check the exact pairing matrix before planning integration. App for SOAR 8.8.0 lists ES 8.8.0 in its tested row. See Edition inclusion is only one requirement for exact App and Export scope.",
       "desc": "Premier includes SOAR; standalone SOAR is also offered. ES 8.8 adds System Insights enhancements, private-CA certificate management for the documented ES–SOAR pairing, and Automation Broker high availability under Premier. The current pricing page does not specify a SOAR seat model. Edition entitlement and the 8.8 release number do not prove a compatible instance is paired.",
       "src": [
         "editions",
         "pricing",
         "regions",
-        "rn88"
+        "rn88",
+        "regions88",
+        "appForSoar88"
       ],
       "reviewed": "2026-10-22"
     },
@@ -748,9 +778,13 @@
       "text": "Regional availability and ES–SOAR pairing must be checked separately. A Cloud listing does not establish availability on every stack, cloud provider or regulated deployment.",
       "src": [
         "regions88",
-        "regions"
+        "regions",
+        "appForSoar88",
+        "appForSoar87",
+        "soarExportEnterprise87",
+        "soarExportCloud87"
       ],
-      "details": "The current 8.8 guide preserves distinct SOAR pairing matrices and certificate rules, while the 8.7 guide remains historical evidence. Pairing is unsupported on Enterprise 9.4.0–9.4.2. Review the target-version source for exact SOAR versions, hybrid certificate requirements and government-cloud exclusions."
+      "details": "The current 8.8 guide preserves distinct SOAR pairing matrices and certificate rules, while the 8.7 guide remains historical evidence. Pairing is unsupported on Enterprise 9.4.0–9.4.2. Review the target-version source for exact SOAR versions, hybrid certificate requirements and government-cloud exclusions. The separate App for SOAR 8.8.0 functionality-tested row lists optional ES 8.8.0 or 8.7.0, Enterprise 10.4.2 or 10.2.2, Cloud Platform 10.5.2605 or 10.4.2604, SOAR Cloud 8.8.0 or 8.7.0, and SOAR on-premises 8.8.0 plus an unresolved entry printed as 8..0. The older App 8.7.0 row lists ES 8.7.0 or 8.6.1. The distinct SOAR Export 8.7.1 row lists ES 8.7.0 or 8.6.0, Python 3.13 and CIM 8.7.0-2335 or 8.5.0-1681. These tested app rows do not establish configured native pairing, feature entitlement or regulated authorization."
     },
     {
       "id": "assistants",
