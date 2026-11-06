@@ -50,9 +50,27 @@ test('publisher CLI explicitly initializes a fresh engine without requiring publ
 test('engine changes hold before requesting credentials or performing a publisher write', t => {
   const result = runCli(t, { status: 409, reason: 'initial-publication-required' }, 'engine-'+'0'.repeat(20));
   assert.equal(result.status, 1); assert.deepEqual(result.calls, []);
-  assert.equal(JSON.parse(result.stdout).status, 'held-runtime-deployment-required');
+  const receipt = JSON.parse(result.stdout);
+  assert.equal(receipt.status, 'held-runtime-deployment-required');
+  assert.equal(receipt.action, 'runtime-inspection');
+  assert.equal(receipt.reason, 'engine-mismatch');
+  assert.equal(receipt.mutationOutcome, 'no-write-at-failed-action');
+  assert.equal(receipt.deployedEngineRevision, 'engine-'+'0'.repeat(20));
+  assert.equal(receipt.requiredEngineRevision, manifest.engineRevision);
   assert.match(result.stderr, /separately authorized Sites runtime deployment/);
 });
+test('an API rejection after staging stays a failure even if it reports an engine mismatch', t => {
+  const result = runCli(t, { status: 409, reason: 'engine-mismatch' });
+  assert.equal(result.status, 1);
+  assert.deepEqual(result.calls, ['stage', 'head']);
+  const receipt = JSON.parse(result.stdout);
+  assert.equal(receipt.status, 'failed');
+  assert.equal(receipt.action, 'head');
+  assert.equal(receipt.reason, 'engine-mismatch');
+  assert.deepEqual(receipt.completedActions, ['runtime-inspection', 'stage']);
+  assert.equal(receipt.requiredEngineRevision, undefined);
+});
+
 test('a publisher POST transport failure stays uncertain and requires readback before retry', t => {
   const result = runCli(t, { network: true });
   assert.equal(result.status, 1); assert.deepEqual(result.calls, ['stage']);

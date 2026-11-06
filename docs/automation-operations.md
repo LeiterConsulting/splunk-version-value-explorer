@@ -164,8 +164,11 @@ here. Exact-candidate CI must rerun the current complete matrix.
 The publisher retains `publisher-outcome-RUN-ATTEMPT`. Its receipt always leaves
 `claimedDelivered:false`, since the CLI cannot perform the entire live check.
 A successful stage or `already-current` can be green with active delivery off.
-Inspect the returned status, engine, revision and active-delivery flag. Sites
-publication is separate. Preserve `VC_ACTIVE_DELIVERY` until its original real-D1
+Inspect the returned status, engine, revision and active-delivery flag. A
+preflight runtime hold records both the deployed and required engine revisions
+in its receipt and Actions job summary. If the candidate is still current main,
+use the separate authorized Sites runtime deployment process before retrying
+the publisher. Preserve `VC_ACTIVE_DELIVERY` until its original real-D1
 activation/rollback and independent-reader gates are satisfied.
 
 The approved PR #66 implementation is merged and deployed as Sites version 277;
