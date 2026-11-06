@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "finding",
+  "findingId": "vci-soar-cmp-88-upgrade-example-destination",
+  "revision": 1,
+  "recordedAt": "2026-11-06T11:53:20.955Z",
+  "title": "SOAR unprivileged upgrade example gives two destination versions",
+  "concernType": "contradiction",
+  "problem": "The 8.8.0 unprivileged path example identifies 8.6.0 in its introduction but ends at 8.8.0.",
+  "scope": {
+    "products": [
+      "Splunk SOAR (On-premises)"
+    ],
+    "versions": [
+      "8.8.0 documentation; Phantom 4.6 example"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed unprivileged upgrade example"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating a historical SOAR path"
+    ],
+    "exclusions": [
+      "No target build, known/fixed issue, complete install path or supported deployment combination is inferred."
+    ]
+  },
+  "scopeComparison": "The labels occur inside the same example for a Phantom 4.6 starting point. The route-specific OS and Python bridge steps do not resolve the target label discrepancy.",
+  "impact": {
+    "customerScenario": "Planning an unprivileged upgrade from a legacy Phantom release.",
+    "consequence": "The example alone cannot identify the exact intended target or certify a complete plan.",
+    "level": "unknown"
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "Both printed destinations were independently observed. The intended target is unknown."
+  },
+  "claimIds": [
+    "release.soar.cmp.8.8.0-unprivileged-example-destination"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Recheck the exact source for corrected wording and independently verify the complete version and path scope."
+  },
+  "relationships": {
+    "related": [
+      "vci-soar-cmp-88-fixed-issues-label"
+    ],
+    "supersedes": [],
+    "supersededBy": [],
+    "mergedInto": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "soar-upgrade-example-intro",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+      "section": "Example > introductory destination",
+      "statement": "The opening sentence names 8.6.0 as the intended destination.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-06",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b099d056f5d93d87982ccc64675b9f716a277422085f0cd38f5eb8a4a0af9774",
+        "qualification": "Direct public response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "soar-upgrade-example-final",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+      "section": "Example > final upgrade step",
+      "statement": "The last step names 8.8.0 as its destination.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-06",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b099d056f5d93d87982ccc64675b9f716a277422085f0cd38f5eb8a4a0af9774",
+        "qualification": "Direct public response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "soar-upgrade-example-version-scope",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/splunk-soar-on-premises-upgrade-overview-and-prerequisites",
+      "section": "Version numbering; Upgrade overview checklist",
+      "statement": "Splunk distinguishes the package build and installation path.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-06",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "513a472dc4d3c7715d673359f8d55ae963f94517a869166b290e4229898afa90",
+        "qualification": "Direct public response bytes; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/4cd91ebda9d2c8faf8e78afa7b9e4cfb6bb3e991/docs/audits/2026-11-06-version-release-watch-sources.json",
+      "pointer": "/continuations/0/claims/0",
+      "originalLabel": "still-present"
+    }
+  ]
+}
