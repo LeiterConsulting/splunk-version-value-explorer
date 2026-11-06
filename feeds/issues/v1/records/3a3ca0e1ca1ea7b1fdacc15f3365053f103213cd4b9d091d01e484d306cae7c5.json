@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "assessment",
+  "findingId": "vci-app-for-soar-88-onprem-matrix-cell",
+  "assessmentId": "vcia-es-exact-20261106-app-for-soar-88-onprem-matrix-cell",
+  "revision": 1,
+  "recordedAt": "2026-11-06T12:12:59.719Z",
+  "assessedAt": "2026-11-06T12:11:17.197Z",
+  "outcome": "still-present",
+  "rationale": "The on-premises SOAR column lists 8.8.0 and a malformed 8..0 entry. The adjacent Cloud column explicitly lists 8.8.0 and 8.7.0. The intended second on-premises version remains unknown.",
+  "reviewedScope": {
+    "products": [
+      "Splunk App for SOAR"
+    ],
+    "versions": [
+      "8.8.0"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed SOAR column"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers comparing documented ES deployments and prerequisites"
+    ],
+    "exclusions": [
+      "Exact native pairing, customer enablement, feature entitlement and customer authorization remain separate."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-exact-20261106-2-0",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.8.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "section": "Splunk product compatibility matrix > 8.8.0 row > ES, Enterprise, Cloud Platform, SOAR on-premises and SOAR Cloud columns",
+      "statement": "The on-premises SOAR column lists 8.8.0 and a malformed 8..0 entry. The adjacent Cloud column explicitly lists 8.8.0 and 8.7.0. The intended second on-premises version remains unknown.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-06",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "e4a27a1597ee9d551a967345436bde8ac0354a8fe0108b37fe085581cb7e3a6f",
+        "qualification": "Direct public response bytes; exact publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/3358966ab5d689bef3533ad65785d0c2a6ddee4e/docs/audits/2026-11-06-es-editions-watch-sources.json",
+      "pointer": "/continuations/0/claims/2",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-es-follow-20261106-app-for-soar-88-onprem-matrix-cell"
+  ],
+  "remainingConcerns": [
+    "Keep exact source versions and the scoped unresolved dependency or matrix ambiguity."
+  ]
+}
