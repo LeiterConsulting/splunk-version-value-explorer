@@ -4261,6 +4261,7 @@ window.VersionCompassSources = {
         "content-updates.js",
         "guidance: guidance.aiAvailability",
         "guidance: guidance.aiAvailability.capabilities.3",
+        "editions: editions.capabilities.12",
         "editions: editions.notes.1"
       ],
       "reviews": [
@@ -8280,19 +8281,23 @@ window.VersionCompassSources = {
     },
     {
       "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
-      "title": "SOAR Export 8.7 prerequisites on Splunk Cloud Platform",
+      "title": "SOAR Export 8.7 prerequisites on Cloud Platform",
       "areas": [
+        "ES editions",
         "Splunk SOAR",
         "Shared guidance"
       ],
       "references": [
+        "editions.sources.soarExportCloud87.u",
         "soar.sources.exportCloud.url",
         "content-updates.js",
+        "editions: editions.notes.1",
         "soar: soar.records.22",
         "soar: soar.records.23",
         "soar: soar.backlog.2"
       ],
       "reviews": [
+        "2026-11-06",
         "2026-10-15"
       ],
       "claimReferences": [
@@ -8331,19 +8336,23 @@ window.VersionCompassSources = {
     },
     {
       "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
-      "title": "SOAR Export 8.7 prerequisites on Splunk Enterprise",
+      "title": "SOAR Export 8.7 prerequisites on Enterprise",
       "areas": [
+        "ES editions",
         "Splunk SOAR",
         "Shared guidance"
       ],
       "references": [
+        "editions.sources.soarExportEnterprise87.u",
         "soar.sources.exportEnterprise.url",
         "content-updates.js",
+        "editions: editions.notes.1",
         "soar: soar.records.22",
         "soar: soar.records.23",
         "soar: soar.backlog.2"
       ],
       "reviews": [
+        "2026-11-06",
         "2026-10-15"
       ],
       "claimReferences": [
@@ -8436,15 +8445,19 @@ window.VersionCompassSources = {
     },
     {
       "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.7.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
-      "title": "Splunk App for SOAR prerequisites",
+      "title": "Historical App for SOAR 8.7.0 tested compatibility",
       "areas": [
+        "ES editions",
         "Splunk SOAR"
       ],
       "references": [
+        "editions.sources.appForSoar87.u",
         "soar.sources.app.url",
+        "editions: editions.notes.1",
         "soar: soar.records.21"
       ],
       "reviews": [
+        "2026-11-06",
         "2026-10-01"
       ],
       "claimReferences": [
@@ -8483,14 +8496,18 @@ window.VersionCompassSources = {
     },
     {
       "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.8.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
-      "title": "Splunk App for SOAR 8.8.0 prerequisites",
+      "title": "App for SOAR 8.8.0 tested compatibility",
       "areas": [
+        "ES editions",
         "Splunk SOAR",
         "Shared guidance"
       ],
       "references": [
+        "editions.sources.appForSoar88.u",
         "soar.sources.app88.url",
         "content-updates.js",
+        "editions: editions.capabilities.12",
+        "editions: editions.notes.1",
         "soar: soar.records.20"
       ],
       "reviews": [

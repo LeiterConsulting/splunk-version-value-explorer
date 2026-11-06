@@ -22,6 +22,18 @@ test('all evidence records have dated, official HTTPS citations and known editio
  assert(data.capabilities.find(x=>x.id==='automation-builder').flag.includes('still requires'));
  assert(data.notes.find(x=>x.id==='assistants').text.includes('Cloud Connected'));
 });
+test('ES editions keeps the tested App for SOAR and SOAR Export rows separate',()=>{
+ const note=data.notes.find(x=>x.id==='availability');
+ assert.match(note.details,/App for SOAR 8\.8\.0.*optional ES 8\.8\.0 or 8\.7\.0/);
+ assert.match(note.details,/SOAR on-premises 8\.8\.0 plus an unresolved entry printed as 8\.\.0/);
+ assert.match(note.details,/App 8\.7\.0 row lists ES 8\.7\.0 or 8\.6\.1/);
+ assert.match(note.details,/SOAR Export 8\.7\.1 row lists ES 8\.7\.0 or 8\.6\.0, Python 3\.13 and CIM/);
+ assert.match(note.details,/do not establish configured native pairing, feature entitlement or regulated authorization/);
+ for(const id of ['appForSoar88','appForSoar87','soarExportEnterprise87','soarExportCloud87']){
+  assert(note.src.includes(id));
+  assert.match(data.sources[id].section,/Splunk product compatibility matrix/);
+ }
+});
 test('task-level prerequisites and pricing uncertainty remain explicit without changing edition entitlement',()=>{
  const cap=id=>data.capabilities.find(c=>c.id===id);
  assert.match(cap('automation-builder').desc,/10\.1\+.*FedRAMP/);

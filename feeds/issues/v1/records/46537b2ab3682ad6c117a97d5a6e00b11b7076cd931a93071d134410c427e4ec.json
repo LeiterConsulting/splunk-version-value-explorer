@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "assessment",
+  "findingId": "vci-app-for-soar-88-onprem-matrix-cell",
+  "assessmentId": "vcia-es-follow-20261106-app-for-soar-88-onprem-matrix-cell",
+  "revision": 1,
+  "recordedAt": "2026-11-06T11:35:24.702Z",
+  "assessedAt": "2026-11-06T11:33:59.772Z",
+  "outcome": "still-present",
+  "rationale": "The current App 8.8.0 row explicitly names ES 8.8.0/8.7.0. The on-premises column still has a second malformed value 8..0. The distinct Cloud column and independent Export matrix do not resolve it. The exact missing on-premises version remains unknown.",
+  "reviewedScope": {
+    "products": [
+      "Splunk App for SOAR and SOAR on-premises"
+    ],
+    "versions": [
+      "8.8.0"
+    ],
+    "editions": null,
+    "deployments": [
+      "Tested product matrix, customer-managed SOAR column"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers comparing documented ES deployment and edition scope"
+    ],
+    "exclusions": [
+      "The reviewed scope does not establish unlisted compatibility, customer enablement, entitlement or authorization."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-follow-20261106-4-0",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.8.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "section": "Splunk product compatibility matrix, App 8.8.0 row and distinct ES/Cloud/on-premises columns",
+      "statement": "The current App 8.8.0 row explicitly names ES 8.8.0/8.7.0. The on-premises column still has a second malformed value 8..0. The distinct Cloud column and independent Export matrix do not resolve it. The exact missing on-premises version remains unknown.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-06",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ad578173701cc0d05b7990522271c1278d554db5d0ab83e959245a33786e5084",
+        "qualification": "Direct public response bytes; exact publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/c3b9ec7b47d8ec95650e65cd5c3b8f0f4d62f48d/docs/audits/2026-11-06-es-editions-watch-sources.json",
+      "pointer": "/claimChecks/4",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [],
+  "remainingConcerns": [
+    "Retain the version, deployment and feature qualifications until supported by exact official evidence."
+  ]
+}

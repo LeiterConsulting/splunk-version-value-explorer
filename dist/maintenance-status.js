@@ -926,10 +926,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-05T11:01:22.806488Z",
-      "lastSuccess": "2026-11-05T11:06:03.157Z",
+      "lastAttempt": "2026-11-06T11:29:59.905922Z",
+      "lastSuccess": "2026-11-06T11:33:59.772Z",
       "outcome": "changed",
-      "summary": "Reconciled ES 8.8 GA and Exposure Analytics release rows. Preserved exact agent and pairing qualifications.",
+      "summary": "Reconciled exact tested ES 8.8.0 App evidence while keeping separate Export and native pairing limits.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1343,9 +1343,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Reconciled ES 8.8 GA and Exposure Analytics release rows. Preserved exact agent and pairing qualifications.",
           "scope": "42 official URLs and seven bounded claim groups. Registry 1.2.0 SOC scope assessed."
+        },
+        {
+          "at": "2026-11-06T11:29:59.905922Z",
+          "outcome": "running",
+          "summary": "November 6 ES Editions Watch follow-through started.",
+          "scope": "ES Editions registered SOC prerequisite/discrepancy/history and bounded exact App, Export, Automation Builder and licensing scope."
+        },
+        {
+          "at": "2026-11-06T11:33:59.772Z",
+          "outcome": "changed",
+          "summary": "Reconciled exact tested ES 8.8.0 App evidence while keeping separate Export and native pairing limits.",
+          "scope": "ES Editions registered SOC prerequisite/discrepancy/history and bounded exact App, Export, Automation Builder and licensing scope."
         }
       ],
-      "scope": "42 official URLs and seven bounded claim groups. Registry 1.2.0 SOC scope assessed."
+      "scope": "ES Editions registered SOC prerequisite/discrepancy/history and bounded exact App, Export, Automation Builder and licensing scope."
     },
     {
       "id": "version-guidance-audit",
