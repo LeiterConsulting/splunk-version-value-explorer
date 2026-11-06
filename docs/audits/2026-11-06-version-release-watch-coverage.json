@@ -466,13 +466,174 @@
     }
   ],
   "validation": {
-    "checks": []
+    "checks": [
+      {
+        "id": "sync-gates",
+        "outcome": "passed",
+        "evidence": "All four source and content generation checks passed on exact main validation."
+      },
+      {
+        "id": "unit-suite",
+        "outcome": "passed",
+        "evidence": "343 Node tests and production 74-asset build passed."
+      },
+      {
+        "id": "advisor-maintenance",
+        "outcome": "passed",
+        "evidence": "Advisor maintenance gate passed without rewriting or advancing unrelated dependency pins."
+      },
+      {
+        "id": "native-issue-feed",
+        "outcome": "passed",
+        "evidence": "Exact main native feed gate and independent recovery replay verified."
+      },
+      {
+        "id": "coverage-gate",
+        "outcome": "passed",
+        "evidence": "Registry 1.2.0 coverage gate passed on exact main. First execution remains a separate verification."
+      },
+      {
+        "id": "build",
+        "outcome": "passed",
+        "evidence": "Exact source 74-asset Worker and 921-record bundle."
+      },
+      {
+        "id": "exact-candidate-exports",
+        "outcome": "passed",
+        "evidence": "Exact main Chromium validation retained 198 cases, 148 PDFs and 148 independently reopened HTML reports."
+      },
+      {
+        "id": "artifact-readback",
+        "outcome": "passed",
+        "evidence": "Exact GitHub commit, tree, job and ZIP digest verified; every retained artifact hash matched."
+      },
+      {
+        "id": "live-ui-assets-d1",
+        "outcome": "passed",
+        "evidence": "Real D1, manifest, independently checked bundle, bounded records, write guard, fallback, and all assets matched the exact saved version."
+      }
+    ]
   },
   "publication": {
-    "claimedDelivered": false,
-    "qualification": "Validation, repository integration, D1 staging, Site deployment and live verification are separate.",
+    "claimedDelivered": true,
+    "qualification": "Exact scoped factual candidate was published and live-verified. Broader public evidence gaps and first-execution verification remain separately recorded.",
     "auditProvenanceCommit": "1c5562499092acd234c58583688654b56ba5156b",
-    "feedCheckpoint": "vci-3c530eecc5a68f0b3aeb8c5c000310c80cd2279478dc4664d5ad4494ec96e10f"
+    "feedCheckpoint": "vci-3c530eecc5a68f0b3aeb8c5c000310c80cd2279478dc4664d5ad4494ec96e10f",
+    "live": {
+      "githubMain": "94beb77e3351dcf15edd082de54dc2ff51db9232",
+      "tree": "107ccd8893c1f881b1ef310ab2e9ab537a4bcf4d",
+      "siteSource": "4986c20ab553a880cc5c5215c9bf9bb78e2b01b0",
+      "siteVersion": 285,
+      "siteDeployment": "appgdep_6aedb8aa4b30819181cca901451097d3",
+      "deployedAt": "2026-11-06T11:23:29.113683Z",
+      "deploymentStatus": "succeeded",
+      "liveVerifiedAt": "2026-11-06T11:24:11.666Z",
+      "assetVerifiedAt": "2026-11-06T11:23:52.413Z",
+      "liveAssets": 74,
+      "revision": "content-23d93c80f59b48ac00b329fc",
+      "engine": "engine-bd0e5353fa8d54129877",
+      "records": 921,
+      "rollbackVersion": 283,
+      "d1": {
+        "status": "delivery-checks-passed",
+        "checks": {
+          "database-health": {
+            "outcome": "passed",
+            "evidence": {
+              "status": "ready",
+              "storage": "d1",
+              "revision": "content-23d93c80f59b48ac00b329fc",
+              "engineRevision": "engine-bd0e5353fa8d54129877",
+              "recordCount": 921
+            },
+            "checkedAt": "2026-11-06T11:23:54.913Z",
+            "elapsedMs": 8374
+          },
+          "live-manifest": {
+            "outcome": "passed",
+            "evidence": {
+              "schemaVersion": 1,
+              "revision": "content-23d93c80f59b48ac00b329fc",
+              "digest": "682a3c06189782affcf2a454a908397e438fc91ddc4c31f281f475277f329b77",
+              "engineRevision": "engine-bd0e5353fa8d54129877",
+              "datasetHashes": {
+                "platform": "818fa4ab221967ac299810ff273b6faeacb2d40f798503491d6b975cd32e1823",
+                "products": "7972fe0629d27b51d1c1bd91eb29759dee047e002eca089b86a6dbfbc5b92f84",
+                "guidance": "fd24681a358c0b1fbe78e64f1b78557657ef1097830fee56dda9ec52319d44f5",
+                "environment": "aa4d761f225e5f84509924c2d9818a775aab906f0f1a059d626299402397fd16",
+                "editions": "51c1f5a054e44430a94b7d3a29ef5a2f568930fdbebb36ee56323d29b4a55407",
+                "forwarders": "8c39ce0677a2341ab8fdb0a53a7c45e9ce3093a07408ce78a4b72feb0f938964",
+                "soar": "21374b8fc9d1368645022bb65866d7b88bd162e96260c0b0959fc24ec3ac74c0"
+              },
+              "recordCount": 921,
+              "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+              "verificationPolicy": "Migration and delivery do not create verification dates",
+              "phase": "content-model-and-database-delivery"
+            },
+            "checkedAt": "2026-11-06T11:23:55.333Z",
+            "elapsedMs": 420
+          },
+          "bundle-integrity": {
+            "outcome": "passed",
+            "evidence": {
+              "digest": "682a3c06189782affcf2a454a908397e438fc91ddc4c31f281f475277f329b77",
+              "recordCount": 921
+            },
+            "checkedAt": "2026-11-06T11:23:55.679Z",
+            "elapsedMs": 345
+          },
+          "bounded-record-query": {
+            "outcome": "passed",
+            "evidence": "SOAR filter, revision and maximum page size verified",
+            "checkedAt": "2026-11-06T11:23:56.038Z",
+            "elapsedMs": 359
+          },
+          "read-only-api": {
+            "outcome": "passed",
+            "evidence": "POST rejected with 405",
+            "checkedAt": "2026-11-06T11:24:00.752Z",
+            "elapsedMs": 4714
+          },
+          "bundled-fallback-assets": {
+            "outcome": "passed",
+            "evidence": "All seven complete fallback adapters served",
+            "checkedAt": "2026-11-06T11:24:11.666Z",
+            "elapsedMs": 10914
+          }
+        }
+      },
+      "readOnlyWebMcp": "Production SOAR Cloud 8.7.0 to 8.8.0 and HF 10.0 to 10.2 reports retained exact routes and matching technical and security scope.",
+      "publisher": {
+        "runId": 42209824010,
+        "firstOutcome": "held-runtime-deployment-required: engine-mismatch before deployment; no write",
+        "retry": {
+          "status": "already-current",
+          "recordedAt": "2026-11-06T11:26:35.950Z",
+          "jobId": 127866826743,
+          "completedActions": [
+            "runtime-inspection",
+            "stage",
+            "head",
+            "bootstrap"
+          ],
+          "revision": "content-23d93c80f59b48ac00b329fc",
+          "engine": "engine-bd0e5353fa8d54129877",
+          "activeDelivery": false,
+          "claimedDelivered": false
+        },
+        "activeDeliveryFlagChanged": false
+      },
+      "issueFeed": {
+        "commit": "94beb77e3351dcf15edd082de54dc2ff51db9232",
+        "checkpoint": "vci-3c530eecc5a68f0b3aeb8c5c000310c80cd2279478dc4664d5ad4494ec96e10f",
+        "recoveredRecords": 150,
+        "newRecords": 9,
+        "quarantined": 0,
+        "indexDigest": "b93c9068a11404316ed8b93da3596d81e901dd26330950371b6b8297d8417e72",
+        "proof": "1c5562499092acd234c58583688654b56ba5156b"
+      },
+      "soak": "eligible-to-advance"
+    }
   },
   "reviewDigest": "22f0e5ecfb4824046bcb66af995413ea09f6b56bf09d1d71fcf6b6297df88f53"
 }
