@@ -1,7 +1,7 @@
 /* Editorial change provenance. Cycles advance only with material factual updates. */
 (function(){
 'use strict';
-const policy={currentCycle:52,retentionCycles:2};
+const policy={currentCycle:53,retentionCycles:2};
 const note25='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-25.md';
 const note26='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-26.md';
 const note30='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-30.md';
@@ -245,6 +245,7 @@ Object.assign(entries,{
  'prep11:prep11-workload-baseline':{kind:'updated',cycle:49,date:'2026-11-03',version:'Enterprise 10.6 modes and activation',detail:'Assessed the exact modes table, admission-only Basic scope, allow_basic=false default and mode-status/preflight qualifications; no 11.x requirements inferred.',source:'https://help.splunk.com/en/splunk-enterprise/administer/manage-workloads/10.6/use-workload-management-on-kubernetes',sourceDate:null,note:'https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/11/2026-11-03.md'},
  'prep11:prep11-cloud-option':{kind:'updated',cycle:49,date:'2026-11-03',version:'Current Cloud migration readiness',detail:'Assessed staffing, communications and transition options separately from technical migration paths, guaranteed staffing changes and authorization.',source:'https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Readiness',sourceDate:null,note:'https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/11/2026-11-03.md'}
 });
+entries['technical:soar:app88']={kind:'new',cycle:53,date:'2026-11-06',version:'Splunk App for SOAR 8.8.0',detail:'Added the exact tested matrix with its malformed on-premises value still unresolved.',source:'https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.8.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar',sourceDate:null,note:'https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/11/2026-11-06.md'};
 const labels={new:'New',updated:'Updated',deprecated:'Deprecated',removed:'Removed',corrected:'Corrected'};
 const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function active(entry,cycle=policy.currentCycle){return !!entry&&cycle>=entry.cycle&&cycle-entry.cycle<policy.retentionCycles;}

@@ -1,5 +1,17 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 function api(){const c={window:{},URLSearchParams};for(const f of ['data.js','product-data.js','comparison.js','forwarders-data.js','forwarders.js'])vm.runInNewContext(fs.readFileSync('dist/'+f,'utf8'),c);return c.window.VersionCompassForwarders;}
+test('Node.js advisory keeps UF and Enterprise package conclusions separate',()=>{
+ const a=api();
+ const notice=type=>a.assess({...a.defaults,type}).risks.filter(r=>r.source==='nodeOctober');
+ const [uf]=notice('uf'),[hf]=notice('hf');
+ assert.equal(notice('uf').length,1);
+ assert.equal(notice('hf').length,1);
+ assert.match(uf.detail,/Universal Forwarder as unaffected/);
+ assert.doesNotMatch(uf.detail,/Visual Exporter|10\.2|Fixed versions/);
+ assert.match(hf.detail,/Enterprise 10\.0 Node\.js runtime as affected/);
+ assert.match(hf.detail,/Visual Exporter is a separate exposure/);
+ assert.doesNotMatch(hf.detail,/Fixed versions on this route/);
+});
 test('UF bridges follow UF evidence, HF reuses Enterprise path',()=>{const a=api();assert.equal(a.assess(a.defaults).path.join(','),'9.4,10.0,10.4');assert.equal(a.assess({...a.defaults,to:'10.2'}).path.join(','),'9.4,10.0,10.2');assert.equal(a.assess({...a.defaults,type:'hf',to:'10.2'}).path.join(','),'9.4,10.2');});
 test('10.6 preserves separate UF, HF and receiver evidence',()=>{const a=api();assert.equal(a.assess({...a.defaults,from:'10.0',to:'10.6'}).path.join(','),'10.0,10.6');assert.equal(a.assess({...a.defaults,from:'10.4',to:'10.6'}).path.join(','),'10.4,10.6');const hf=a.assess({...a.defaults,type:'hf',from:'10.4',to:'10.6'});assert.equal(hf.path.join(','),'10.4,10.6');assert.equal(hf.claims[0].status,'conditional');assert.equal(hf.claims[0].source,'enterprise106');assert(hf.steps.every(step=>step.source==='enterprise106'));assert.equal(a.assess({...a.defaults,from:'10.4',to:'10.6',receiver:'10.6'}).claims[1].status,'available');assert.equal(a.assess({...a.defaults,from:'10.4',to:'10.6',destination:'cloud',receiver:'10.6'}).claims[1].status,'conditional');});
 test('compatibility never grants authorization or certificate renewal',()=>{const a=api();for(const destination of ['fr-m','fr-h']){const m=a.assess({...a.defaults,destination});assert.equal(m.claims[1].status,'not_established');assert.equal(m.claims[2].status,'not_established');assert.equal(m.features[0].status,'unavailable');}assert.equal(a.renewal({...a.defaults,destination:'cloud',provider:'aws',region:'us-east-1'}).status,'conditional');for(const v of [{region:'ap-south-1'},{topology:'intermediate'},{topology:'edge'},{provider:'azure'}])assert.equal(a.renewal({...a.defaults,destination:'cloud',provider:'aws',...v}).status,'unavailable');});

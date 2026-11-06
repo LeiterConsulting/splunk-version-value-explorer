@@ -1064,6 +1064,12 @@
       "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/9.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-9.0-read-this-first"
     },
     {
+      "id": "source-c959d0800e253f8eeab4",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.8.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar"
+    },
+    {
       "id": "source-c9e220cd95d6b39fd838",
       "kind": "source",
       "dataset": "sources",
@@ -5188,10 +5194,10 @@
         {
           "sourceId": "source-501a2d0e7c0a502cf7e0",
           "url": "https://advisory.splunk.com/advisories/SVD-2026-1015",
-          "section": "Description; Product Status",
+          "section": "Product Status — Affected Products and Enterprise / Visual Exporter footnotes; Unaffected Products; November 5 changelog",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-29",
-          "sourceChecked": "2026-10-29"
+          "sourceVerified": "2026-11-06",
+          "sourceChecked": "2026-11-06"
         }
       ],
       "verification": {
@@ -5910,6 +5916,25 @@
       "payload": {
         "title": "HF 10.6 KV Store database engine",
         "src": "kv106"
+      }
+    },
+    {
+      "id": "vc-3b96aaebd41e848f7cd0",
+      "kind": "claim",
+      "dataset": "forwarders",
+      "scope": {},
+      "evidence": [],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": {
+        "title": "Enterprise-package components · SVD-2026-1015",
+        "source": "nodeOctober",
+        "types": [
+          "hf"
+        ],
+        "detail": "Splunk identifies the bundled Enterprise 10.0 Node.js runtime as affected and recommends 10.2 or later for that component. Its November 5 advisory lists Enterprise 9.4 and 10.2 or later as unaffected by the bundled-runtime issue. Visual Exporter is a separate exposure across Enterprise versions. Splunk lists disabling or removing the app as a possible mitigation. Check the exact installed Heavy Forwarder components and apps before applying either action."
       }
     },
     {
@@ -6797,6 +6822,83 @@
           "agentic",
           "rn87"
         ]
+      }
+    },
+    {
+      "id": "vc-4645de3803b0b0b63536",
+      "kind": "technical",
+      "dataset": "soar",
+      "scope": {
+        "regions": {
+          "aws": [
+            "Oregon",
+            "Virginia",
+            "London",
+            "Dublin",
+            "Frankfurt",
+            "Milan",
+            "Paris",
+            "Mumbai",
+            "Seoul",
+            "Singapore",
+            "Sydney",
+            "Tokyo",
+            "Canada Central",
+            "Canada West"
+          ],
+          "gcp": [
+            "Iowa",
+            "London",
+            "Dammam",
+            "Belgium",
+            "Frankfurt",
+            "Singapore",
+            "Sydney",
+            "Montreal"
+          ],
+          "azure": [
+            "Phoenix",
+            "Virginia",
+            "London",
+            "Tokyo"
+          ]
+        },
+        "release": "8.8.0",
+        "deployments": [
+          "cmp",
+          "cloud"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "source-c959d0800e253f8eeab4",
+          "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.8.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+          "section": "Required user privileges and ports; Splunk product compatibility matrix — App 8.8.0 row",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-11-06",
+          "sourceChecked": "2026-11-06"
+        }
+      ],
+      "verification": {
+        "date": "2026-11-06",
+        "outcome": "Recorded in original claim"
+      },
+      "payload": {
+        "id": "app88",
+        "title": "Splunk App for SOAR 8.8.0 tested pairing",
+        "detail": "The App 8.8.0 row lists ES 8.8.0 or 8.7.0 (ES is optional), Enterprise 10.4.2 or 10.2.2, Cloud Platform 10.5.2605 or 10.4.2604, and SOAR Cloud 8.8.0 or 8.7.0. The on-premises column lists SOAR 8.8.0 and a malformed second value, 8..0. Confirm that second value from a corrected matrix before relying on it. These tested app combinations do not establish Export compatibility, a recommended security patch, an on-premises upgrade path, or tenant availability.",
+        "kind": "technical",
+        "release": "8.8.0",
+        "src": [
+          "app88"
+        ],
+        "deployments": [
+          "cmp",
+          "cloud"
+        ],
+        "status": "Validate",
+        "verified": "2026-11-06",
+        "target": true
       }
     },
     {
@@ -11259,6 +11361,25 @@
         "Detect entity-level anomalies",
         "Apply AI-assisted adaptive thresholding to entity data."
       ]
+    },
+    {
+      "id": "vc-7248952573aee7e77180",
+      "kind": "claim",
+      "dataset": "forwarders",
+      "scope": {},
+      "evidence": [],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": {
+        "title": "Universal Forwarder · SVD-2026-1015",
+        "source": "nodeOctober",
+        "types": [
+          "uf"
+        ],
+        "detail": "Splunk lists Universal Forwarder as unaffected by this advisory. This is limited to the four vulnerabilities in SVD-2026-1015."
+      }
     },
     {
       "id": "vc-7257e798f4fc4a32ad1e",
@@ -24522,10 +24643,10 @@
         {
           "sourceId": "source-501a2d0e7c0a502cf7e0",
           "url": "https://advisory.splunk.com/advisories/SVD-2026-1015",
-          "section": "Description; Product Status",
+          "section": "Product Status — Affected Products and Enterprise / Visual Exporter footnotes; Unaffected Products; November 5 changelog",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-10-29",
-          "sourceChecked": "2026-10-29"
+          "sourceVerified": "2026-11-06",
+          "sourceChecked": "2026-11-06"
         }
       ],
       "verification": {

@@ -418,10 +418,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-05T10:45:12.698312Z",
+      "lastAttempt": "2026-11-06T10:36:55.424003Z",
       "lastSuccess": "2026-11-03T11:17:30.674Z",
       "outcome": "blocked",
-      "summary": "SOAR Cloud 8.8.0 GA evidence and three historical HF sections reviewed. Cisco newsroom evidence remains unavailable.",
+      "summary": "Scoped evidence and audit prepared. Remaining on-premises SOAR and historical Forwarder checks and live delivery require separate verification.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -907,9 +907,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "SOAR Cloud 8.8.0 GA evidence and three historical HF sections reviewed. Cisco newsroom evidence remains unavailable.",
           "scope": "221 tracked and registry URLs screened. Nine assessed registry capabilities and two blocked. Bounded SOAR and historical HF candidate."
+        },
+        {
+          "at": "2026-11-06T10:36:55.424003Z",
+          "outcome": "running",
+          "summary": "November 6 Version Release Watch review.",
+          "scope": "Registered public release sources and eleven registry capabilities. Scoped SVD-2026-1015, App for SOAR 8.8 and HF 10.2 runtime evidence."
+        },
+        {
+          "at": "2026-11-06T10:47:57.863Z",
+          "outcome": "blocked",
+          "summary": "Scoped evidence and audit prepared. Remaining on-premises SOAR and historical Forwarder checks and live delivery require separate verification.",
+          "scope": "Registered public release sources and eleven registry capabilities. Scoped SVD-2026-1015, App for SOAR 8.8 and HF 10.2 runtime evidence."
         }
       ],
-      "scope": "221 tracked and registry URLs screened. Nine assessed registry capabilities and two blocked. Bounded SOAR and historical HF candidate."
+      "scope": "Registered public release sources and eleven registry capabilities. Scoped SVD-2026-1015, App for SOAR 8.8 and HF 10.2 runtime evidence."
     },
     {
       "id": "es-editions-watch",
