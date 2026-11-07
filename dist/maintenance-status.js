@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-04T12:44:20.463Z",
+      "lastAttempt": "2026-11-07T12:50:05.488292Z",
       "lastSuccess": "2026-11-03T12:30:17.094Z",
       "outcome": "blocked",
-      "summary": "Retrieved 34 official URLs and assessed eight bounded claim groups. SOAR service now lists November 2026 / 8.8.0; CA/GA wording remains unresolved.",
+      "summary": "Reviewed regional and authorization evidence. Exact runtime delivery requires a separate verified candidate.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -411,9 +411,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Retrieved 34 official URLs and assessed eight bounded claim groups. SOAR service now lists November 2026 / 8.8.0; CA/GA wording remains unresolved.",
           "scope": "Matrix visual verification and full SOC claim-family assessment remain incomplete. Five issue reassessments prepared; canonical facts and material cycle unchanged."
+        },
+        {
+          "at": "2026-11-07T12:50:05.488292Z",
+          "outcome": "running",
+          "summary": "Reviewing current CSP service, FedRAMP scope and the registered SOC decision.",
+          "scope": "November 7 Eastern public-source inventory and existing delivery diagnostic."
+        },
+        {
+          "at": "2026-11-07T13:01:59.243Z",
+          "outcome": "blocked",
+          "summary": "Reviewed regional and authorization evidence. Exact runtime delivery requires a separate verified candidate.",
+          "scope": "51 public URLs, 17 bounded claim groups and one assessed Registry 1.2.0 SOC disposition. Moderate component listing unresolved."
         }
       ],
-      "scope": "Matrix visual verification and full SOC claim-family assessment remain incomplete. Five issue reassessments prepared; canonical facts and material cycle unchanged."
+      "scope": "51 public URLs, 17 bounded claim groups and one assessed Registry 1.2.0 SOC disposition. Moderate component listing unresolved."
     },
     {
       "id": "version-release-watch",

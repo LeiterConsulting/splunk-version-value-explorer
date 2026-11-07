@@ -17,10 +17,10 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('cycle 50 adds scoped ES agentic facts and retains prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,54);
+ assert.equal(b.policy.currentCycle,55);
  const ea=b.entries["edition:exposure"];assert.equal(ea.cycle,52);assert(b.active(ea,53));assert(!b.active(ea));
  const soar=b.entries['product:soar:cloud-8.8'];assert.equal(soar.cycle,51);assert(!b.active(soar));assert.match(soar.detail,/November 4 General Availability/);
- const app=b.entries['technical:soar:app88'];assert.equal(app.cycle,53);assert(b.active(app));
+ const app=b.entries['technical:soar:app88'];assert.equal(app.cycle,53);assert(!b.active(app));
  const pairing=b.entries['edition:soar'];assert.equal(pairing.cycle,54);assert(b.active(pairing));assert.match(pairing.detail,/distinct Export 8\.7\.1/);
  const earlierPairing=b.entries['edition-history:soar:cycle28'];assert.equal(earlierPairing.recordKey,'edition:soar');assert(!b.active(earlierPairing));
  for(const key of ['prep11:prep11-workload-baseline','prep11:prep11-cloud-option']){assert.equal(b.entries[key].cycle,49);assert(b.active(b.entries[key],50));assert(!b.active(b.entries[key]));assert.equal(b.entries[key].sourceDate,null);}
@@ -75,7 +75,7 @@ test('cycle 50 adds scoped ES agentic facts and retains prior cycle provenance',
  for(const key of ['feature:observability:Python instrumentation 2.13.3','technical:observability:Python 2.13.3 auto-instrumentation images and dependency floors','technical:observability:Python PostgreSQL query-to-trace correlation']){const e=b.entries[key];assert.equal(e.cycle,44);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-30\.md/);assert.match(e.version,/2\.13\.3/);}
  for(const key of ['environment:s3-moderate','environment:machine-data-lake-aws','environment:machine-data-lake-gov','environment:machine-data-lake-gcp','environment:machine-data-lake-azure']){const e=b.entries[key];assert.equal(e.cycle,15);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-09\.md/);}
  for(const key of ['compatibility:es:cloud-current','compatibility:itsi:cloud-current','technical:forwarders:10.6 receiver compatibility','technical:forwarders:Cloud 10.6 receiver compatibility','technical:platform:Cloud 10.6 publication versus stack availability']){const e=b.entries[key];assert.equal(e.cycle,14);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-07\.md/);}
- const offerings=b.entries['environment:es-fr-m-offering'];assert(!b.active(offerings));assert.equal(offerings.cycle,13);
+ const offerings=b.entries['environment:es-fr-m-offering'];assert(b.active(offerings));assert.equal(offerings.cycle,55);
  const kv=b.entries['technical:platform:KV Store database engine'];assert(!b.active(kv));assert.equal(kv.cycle,19);assert.match(kv.detail,/ES-specific/);assert.equal(b.entries['technical-history:platform:KV Store database engine:2026-10-01-cycle5'].recordKey,'technical:platform:KV Store database engine');assert.equal(b.entries['technical-history:platform:KV Store database engine:2026-10-01-cycle6'].cycle,6);
  for(const key of ['feature:observability:Stricter APM not-equal tag filtering','technical:observability:APM not-equal tag filters','feature:observability:Java instrumentation 2.32','feature:observability:Node.js instrumentation 4.12.1','technical:observability:Node.js instrumentation baseline']){const e=b.entries[key];assert.equal(e.cycle,20);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-13\.md/);}
  for(const key of ['technical:platform:Cloud 10.4 maintenance build','feature:observability:Kubernetes chart 0.162.1','technical:observability:Light Prometheus Receiver feature gate','technical:observability:Kubernetes OpAMP Bridge identity','feature-history:observability:Python instrumentation 2.13.2:2026-10-14-cycle21','technical:observability:Python OpAMP client dependency']){const e=b.entries[key];assert.equal(e.cycle,21);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-14\.md/);}
@@ -90,7 +90,7 @@ test('10.6 technical badges never label older or Cloud records',()=>{
 });
 
 test('cycle thirteen offering badges expire after two material cycles but retain provenance',()=>{
- for(const key of ['environment:es-fr-m-offering','environment:es-fr-h-offering','environment:itsi-fr-m-offering','environment:itsi-fr-h-offering','product:soar:fedramp-moderate-offering']){const e=b.entries[key];assert(e);assert.equal(e.cycle,13);assert(!b.active(e));assert.match(e.detail,/separate|scope/);assert.equal(b.html(key),'');}
+ for(const key of ['environment-history:es-fr-m-offering:cycle13','environment:es-fr-h-offering','environment-history:itsi-fr-m-offering:cycle13','environment:itsi-fr-h-offering','product-history:soar:fedramp-moderate-offering:cycle13']){const e=b.entries[key];assert(e);assert.equal(e.cycle,13);assert(!b.active(e));assert.match(e.detail,/separate|scope/);assert.equal(b.html(key),'');}
 });
 
 test('restored release markers expire after two later material cycles but retain provenance',()=>{

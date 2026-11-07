@@ -262,8 +262,8 @@ window.VersionCompassEnvironmentData = {
       "title": "FedRAMP Marketplace: Cloud Platform Moderate",
       "url": "https://www.fedramp.gov/marketplace/products/F1607197917/",
       "published": "2019-10-11",
-      "scope": "Exact Moderate CSO record and Certified Services list; offering-level assessment scope, not universal feature, entitlement, pairing, rollout or customer authorization evidence",
-      "checked": "2026-10-10"
+      "scope": "Overview > offering status and Certified Services display. November 7 shows FedRAMP Certified and N/A for the component list; November 6 observations are retained as dated evidence.",
+      "checked": "2026-11-07"
     },
     "victoria": {
       "title": "Victoria Experience High announcement",
@@ -305,6 +305,20 @@ window.VersionCompassEnvironmentData = {
       "published": "2026-08-07",
       "scope": "Splunk AI Assistant for FedRAMP deployments and Supported regions; limited IL2 support for 2.0.0+, GovCloud rows and commercial-stack lead-in retained separately; no High or offering authorization inferred",
       "checked": "2026-10-21"
+    },
+    "service107": {
+      "title": "Cloud Platform 10.7 Service Details",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "published": null,
+      "scope": "Available regions and region differences > Edge Processor solution and Ingest Processor; both AWS GovCloud regions for High and Moderate. Current subscription table is separate.",
+      "checked": "2026-11-07"
+    },
+    "changes107": {
+      "title": "Cloud Platform 10.7 service description change log",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log",
+      "published": null,
+      "scope": "November 6, 2026 > Available regions and region differences; applies to relevant Cloud 10.7 versions.",
+      "checked": "2026-11-07"
     }
   },
   "records": [
@@ -552,7 +566,7 @@ window.VersionCompassEnvironmentData = {
     {
       "id": "es-fr-m-offering",
       "product": "es",
-      "feature": "Enterprise Security certified service",
+      "feature": "Enterprise Security Moderate offering scope",
       "provider": "aws",
       "regions": [
         "us-gov-east-1",
@@ -561,15 +575,15 @@ window.VersionCompassEnvironmentData = {
       "regimes": [
         "fr-m"
       ],
-      "availability": "conditional",
-      "authorization": "documented",
-      "detail": "The exact Moderate Marketplace CSO lists Splunk Enterprise Security as a Certified Service. This is offering-level assessment scope; edition, feature, entitlement, pairing, rollout and customer authorization remain separate.",
+      "availability": "not_established",
+      "authorization": "not_established",
+      "detail": "The November 6 review observed Splunk Enterprise Security in the exact Moderate Marketplace Certified Services list. On November 7 the offering still displayed FedRAMP Certified, but Certified Services displayed N/A. Current named component scope remains unresolved. Edition, feature, entitlement, pairing, rollout and customer authorization remain separate.",
       "sources": [
         "moderate",
         "service"
       ],
-      "checked": "2026-10-06",
-      "scope": "Current exact CSO Certified Services list; not a historical availability guarantee"
+      "checked": "2026-11-07",
+      "scope": "November 6 dated component listing and November 7 current public display; no change to underlying certification inferred"
     },
     {
       "id": "es-fr-h-offering",
@@ -596,7 +610,7 @@ window.VersionCompassEnvironmentData = {
     {
       "id": "itsi-fr-m-offering",
       "product": "itsi",
-      "feature": "IT Service Intelligence certified service",
+      "feature": "IT Service Intelligence Moderate offering scope",
       "provider": "aws",
       "regions": [
         "us-gov-east-1",
@@ -605,15 +619,15 @@ window.VersionCompassEnvironmentData = {
       "regimes": [
         "fr-m"
       ],
-      "availability": "conditional",
-      "authorization": "documented",
-      "detail": "The exact Moderate Marketplace CSO lists Splunk IT Service Intelligence as a Certified Service. This is offering-level assessment scope; feature, entitlement, pairing, rollout and customer authorization remain separate.",
+      "availability": "not_established",
+      "authorization": "not_established",
+      "detail": "The November 6 review observed Splunk IT Service Intelligence in the exact Moderate Marketplace Certified Services list. On November 7 the offering still displayed FedRAMP Certified, but Certified Services displayed N/A. Current named component scope remains unresolved. Edition, feature, entitlement, pairing, rollout and customer authorization remain separate.",
       "sources": [
         "moderate",
         "service"
       ],
-      "checked": "2026-10-06",
-      "scope": "Current exact CSO Certified Services list; not a historical availability guarantee"
+      "checked": "2026-11-07",
+      "scope": "November 6 dated component listing and November 7 current public display; no change to underlying certification inferred"
     },
     {
       "id": "itsi-fr-h-offering",
@@ -1842,16 +1856,18 @@ window.VersionCompassEnvironmentData = {
       "regimes": [
         "fr-h"
       ],
-      "availability": "not_established",
+      "availability": "conditional",
       "authorization": "not_established",
-      "detail": "Splunk's October 19, 2026 announcement states that Edge Processor achieved FedRAMP High authorization for Cloud Platform customers in AWS GovCloud (US), with automatic onboarding for eligible stacks. The current service table does not independently establish every eligible stack or rollout. Confirm exact service eligibility, enablement and customer authorization; the announcement is not universal availability evidence.",
+      "detail": "Cloud 10.7 Service Details lists Edge Processor for FedRAMP High in both AWS GovCloud regions. The November 6 change log scopes this to relevant 10.7 versions. The 10.6 table lists Moderate only. The October 19 announcement limits automatic onboarding to eligible stacks. Confirm provisioning, enablement and customer authorization for the actual deployment.",
       "sources": [
+        "service107",
+        "changes107",
         "service",
         "compliance",
         "highAnnouncement20261019"
       ],
-      "checked": "2026-10-26",
-      "scope": "October 19 announcement claim; exact service eligibility and rollout remain unestablished"
+      "checked": "2026-11-07",
+      "scope": "Cloud 10.7 service evidence in AWS GovCloud East and West; distinct from versioned 10.6 guidance and historical release or tenant availability"
     },
     {
       "id": "ingest-high-unknown",
@@ -1865,17 +1881,43 @@ window.VersionCompassEnvironmentData = {
       "regimes": [
         "fr-h"
       ],
-      "availability": "not_established",
+      "availability": "conditional",
       "authorization": "not_established",
-      "detail": "Splunk's October 19, 2026 announcement states that Ingest Processor achieved FedRAMP High authorization for Cloud Platform customers in AWS GovCloud (US), with automatic onboarding to the Essentials tier for eligible stacks. Preserve the Victoria and provisioned-tenant prerequisites. Exact stack eligibility, tier entitlement, enablement and customer authorization still require confirmation; the announcement is not universal availability evidence.",
+      "detail": "Cloud 10.7 Service Details lists Ingest Processor for FedRAMP High in both AWS GovCloud regions. The November 6 change log scopes this to relevant 10.7 versions. The 10.6 table lists Moderate only. Ingest Processor requires Victoria and a provisioned tenant. The October 19 announcement scopes eligible-stack onboarding to the Essentials tier. Confirm tier entitlement, enablement and customer authorization for the actual deployment.",
       "sources": [
+        "service107",
+        "changes107",
         "service",
         "compliance",
         "ingest",
         "highAnnouncement20261019"
       ],
-      "checked": "2026-10-26",
-      "scope": "October 19 announcement claim; Essentials tier and eligible AWS GovCloud stacks only; actual rollout remains unestablished"
+      "checked": "2026-11-07",
+      "scope": "Cloud 10.7 service evidence in AWS GovCloud East and West; distinct from versioned 10.6 guidance and historical release or tenant availability",
+      "experience": "victoria"
+    },
+    {
+      "id": "ingest-classic-high",
+      "product": "platform",
+      "feature": "Ingest Processor",
+      "provider": "aws",
+      "regions": [
+        "us-gov-east-1",
+        "us-gov-west-1"
+      ],
+      "regimes": [
+        "fr-h"
+      ],
+      "experience": "classic",
+      "availability": "unavailable",
+      "authorization": "not_established",
+      "detail": "Ingest Processor requires Victoria Experience. The Cloud 10.7 High listing in both GovCloud regions does not establish a Classic exception, tenant access or feature authorization.",
+      "sources": [
+        "service107",
+        "ingest"
+      ],
+      "checked": "2026-11-07",
+      "scope": "Current Victoria prerequisite applied to the High listing in relevant Cloud 10.7 versions; no historical availability inference"
     },
     {
       "id": "platform-ai-high-unknown",
