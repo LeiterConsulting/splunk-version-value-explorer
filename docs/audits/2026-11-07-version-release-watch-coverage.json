@@ -468,13 +468,71 @@
     }
   ],
   "validation": {
-    "checks": []
+    "checks": [
+      {
+        "id": "sync-gates",
+        "outcome": "passed",
+        "evidence": "Reconciled local candidate passes the named gate. Full Node suite contains 345 tests."
+      },
+      {
+        "id": "advisor-maintenance",
+        "outcome": "passed",
+        "evidence": "Reconciled local candidate passes the named gate. Full Node suite contains 345 tests."
+      },
+      {
+        "id": "coverage-gate",
+        "outcome": "passed",
+        "evidence": "Reconciled local candidate passes the named gate. Full Node suite contains 345 tests."
+      },
+      {
+        "id": "native-issue-feed",
+        "outcome": "passed",
+        "evidence": "Reconciled local candidate passes the named gate. Full Node suite contains 345 tests."
+      },
+      {
+        "id": "unit-suite",
+        "outcome": "passed",
+        "evidence": "Reconciled local candidate passes the named gate. Full Node suite contains 345 tests."
+      },
+      {
+        "id": "build",
+        "outcome": "passed",
+        "evidence": "Reconciled local candidate passes the named gate. Full Node suite contains 345 tests."
+      },
+      {
+        "id": "exact-candidate-exports",
+        "outcome": "blocked",
+        "evidence": "Requires exact reconciled branch/PR CI."
+      },
+      {
+        "id": "artifact-readback",
+        "outcome": "blocked",
+        "evidence": "Requires retained successful exact-candidate artifact."
+      },
+      {
+        "id": "live-ui-assets-d1",
+        "outcome": "blocked",
+        "evidence": "Recent exact revision and engine failed mandatory D1 reads. Live Site 286 is independent rollback evidence."
+      }
+    ]
   },
   "publication": {
     "claimedDelivered": false,
-    "qualification": "Exact review audit provenance and GitHub integration are separate from retained Site 286. First-execution result remains unverified.",
+    "qualification": "The source and claim review is distinct from repository integration and live delivery. Site 286 restoration is reference evidence only.",
     "auditProvenanceCommit": "58fd69466373e2550ac4384127949f8a21d7c620",
-    "feedCheckpoint": "vci-7e46b978a18f802669861088d27963938c3588e46d02e59f5b9f0c9d7347478e"
+    "feedCheckpoint": "vci-1d897c793fe2dbe46166038b69088abaa1a5936b4b78154f24e5a06c534cb522",
+    "reconciledGithubBase": "81c8c6ffe8deadc4fe6145f63b35debd6ef74cb0",
+    "sitesGate": {
+      "status": "blocked-prior-exact-engine-live-failure",
+      "revision": "content-5ce2ad8d476cf5807167128a",
+      "engine": "engine-02dbce754b60d44f62f7",
+      "qualification": "Reconciled candidate retains the exact D1 revision and engine whose most recent Site attempt timed out for required D1 reads. The current release delta adds maintenance metadata and tests without changing that runtime path. The cause is unknown. The last verified Site 286 remains the live baseline.",
+      "followUp": {
+        "owner": "version-release-watch",
+        "action": "Correlate the failed runtime’s content API requests with provider/Worker diagnostics and establish a successful exact-engine D1 preflight before retrying Sites. Independently check health, manifest and bundle after any authorized delivery.",
+        "reviewBy": "2026-11-08"
+      }
+    }
   },
   "resources": {
     "elapsedMs": null,

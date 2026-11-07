@@ -3099,8 +3099,9 @@
       "checkedAt": "2026-11-07T11:09:45.815Z",
       "qualification": "Prior published baseline D1, manifest, bundle, bounded reads, write protection and fallback."
     },
-    "automated": "Local Node, sync and build gates are evaluated separately from browser and native export results.",
-    "advisorFixture": "The shared CI fixture-clock repair uses a synthetic historical date. Production overdue behavior is independently tested. Release candidate requires its own native CI."
+    "automated": "Local synchronization, coverage, Advisor, issue-feed checks, 345 Node tests and build run on the reconciled candidate. Native exact-head and integration checks are separate.",
+    "advisorFixture": "The shared CI fixture-clock repair uses a synthetic historical date. Production overdue behavior is independently tested. Release candidate requires its own native CI.",
+    "nativeReadback": "The authorized Release Watch lookup exposed the same saved execution identity and another recorded start time. No matching completion receipt was available. Actual source and assessment clocks remain as recorded."
   },
   "publication": {
     "status": "pending-exact-candidate-validation",
@@ -3114,7 +3115,25 @@
       "revision": "content-75b28a22aa5b85aa5b60a5f9",
       "engine": "engine-af7d1bbe1e74f9391194"
     },
-    "auditProvenanceCommit": "58fd69466373e2550ac4384127949f8a21d7c620"
+    "auditProvenanceCommit": "58fd69466373e2550ac4384127949f8a21d7c620",
+    "reconciledGithubBase": "81c8c6ffe8deadc4fe6145f63b35debd6ef74cb0",
+    "referenceRuntime": {
+      "siteVersion": 286,
+      "deployment": "appgdep_6aef1052aac88191b783b797475884d0",
+      "revision": "content-75b28a22aa5b85aa5b60a5f9",
+      "qualification": "Verified live restoration. The previous candidate Site 287 repeatedly timed out on D1 reads; transport cause unknown. Do not rely on its UI/assets as D1 evidence."
+    },
+    "sitesGate": {
+      "status": "blocked-prior-exact-engine-live-failure",
+      "revision": "content-5ce2ad8d476cf5807167128a",
+      "engine": "engine-02dbce754b60d44f62f7",
+      "qualification": "Reconciled candidate retains the exact D1 revision and engine whose most recent Site attempt timed out for required D1 reads. The current release delta adds maintenance metadata and tests without changing that runtime path. The cause is unknown. The last verified Site 286 remains the live baseline.",
+      "followUp": {
+        "owner": "version-release-watch",
+        "action": "Correlate the failed runtime’s content API requests with provider/Worker diagnostics and establish a successful exact-engine D1 preflight before retrying Sites. Independently check health, manifest and bundle after any authorized delivery.",
+        "reviewBy": "2026-11-08"
+      }
+    }
   },
   "automationCoverage": {
     "runFile": "docs/audits/2026-11-07-version-release-watch-coverage.json"
@@ -3123,9 +3142,9 @@
     "schemaVersion": 1,
     "watchId": "version-release-watch",
     "status": "published",
-    "recordedAt": "2026-11-07T11:23:21.854Z",
+    "recordedAt": "2026-11-07T11:54:22.449Z",
     "reviewDigest": "07917cb1844d63dfc227e1adf45a27ec62f305197353d29b2993bd91dcff9206",
-    "publicationId": "vci-7e46b978a18f802669861088d27963938c3588e46d02e59f5b9f0c9d7347478e",
+    "publicationId": "vci-1d897c793fe2dbe46166038b69088abaa1a5936b4b78154f24e5a06c534cb522",
     "recordKeys": [
       "assessment:vcia-release-20261107-svd-2026-1015-applicability@1",
       "assessment:vcia-release-20261107-sok-32-compatibility-scope@1",
@@ -3156,6 +3175,6 @@
       "vci-app-for-soar-88-onprem-matrix-cell"
     ],
     "deferredConcerns": [],
-    "qualification": "Nine bounded public observations pin this verified immutable Release Watch audit. Commit integration and runtime delivery require separate evidence."
+    "qualification": "Nine Release observations retain exact immutable provenance. The cumulative checkpoint retains all already-published ES and historical records. Repository integration and runtime delivery are separate."
   }
 }
