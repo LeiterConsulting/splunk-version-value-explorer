@@ -61,3 +61,59 @@ A second actual OIDC job (`112441641825`) retained the same head and one generat
 The owner reported all three outstanding report/layout checks completed without issues at 12:57:31 UTC: independent browser reopening of the newly downloaded HTML, native PDF capture and page-by-page visual inspection, and supported narrow-screen viewport emulation of affected routes. The [owner record](../audits/2026-10-07-owner-verification.json) separates this evidence from earlier assistant-performed tests and tool limitations. Exact artifact hashes, page counts, browser/viewport details and actual completion timestamps were not supplied. The reassessed deployed factual/report checkpoint is eligible to advance without a fixed delay.
 
 Current native D1 readback confirms generation one for `content-6dcf491dfeb864140adc2937` / `engine-c5ff569aec1b2f034270`; fresh public diagnostics confirm complete 668-record health, manifest/bundle integrity, bounded queries, rejected public writes and seven fallback adapters. This readback is bootstrap evidence, not an activation/rollback round trip. `VC_ACTIVE_DELIVERY=0` still isolates the prepared reader. Continue with authenticated real-D1 activation, operation-ID retries/stale-generation rejection, rollback and public readback, followed by actual active-reader atomic adoption and whole-bundle fallback agreement. Do not recast the owner's prior report checks as proof of that future runtime transition. The existing delivery checkpoint handoff is updated; all schedules and its disabled/completed state are preserved.
+
+## Private bundled-seed observation (November 7, 2026; not deployed)
+
+`GET /api/publisher/observe-seed` adds a narrow operational observation behind
+exactly the existing publisher authentication, origin and parameter guards. Only
+GET is accepted, with no query parameters or caller-selected identifiers. It uses
+the deployed bundled manifest's revision, engine, schema, digest and expected
+count; it does not accept SQL, filters, credentials or a publication body. Missing,
+wrong and platform-only credentials receive the existing authorization rejection
+before database access. Existing OIDC scope and all other routes are unchanged.
+
+This helps distinguish an unavailable binding, a failed SELECT, unavailable
+projection columns, an absent/incomplete/inconsistent seed, and a metadata/count
+consistent seed without triggering the legacy import. It uses fixed SELECTs only:
+reachability, projection availability, then one statement observing bundled seed
+metadata, bounded seed count and the current engine's head metadata together.
+The preliminary checks are separate observations, not an atomic multi-query
+snapshot or proof of complete migration/index/constraint availability.
+
+The count stops at the trusted expected count plus one (the existing bundle
+contract allows at most 10,000 records). `recordCountOverflow` means the reported
+count is a lower bound, not the actual total. Alternate heads are identified only
+by strict content revision IDs and engine/completion metadata; their records are
+not counted. Stored JSON, payloads, arbitrary text, raw errors, SQL, credentials,
+request headers and user identity are never returned. Responses are `no-store`.
+
+HTTP 200 means **an observation was returned**, including missing or inconsistent
+seed states. `status: observation-returned` and `validation: metadata-and-count-only`
+are not readiness signals. HTTP 503 means the observation was unavailable, with
+an allowlisted phase/reason. Matching metadata and counts do not validate stored
+record bytes, bundle integrity, provenance, factual currency, activation eligibility,
+retry safety or stable hosted state. No timing, rate-limit or timeout-remediation
+claim is made. Existing credential-abuse/JWKS exposure is not solved by this route.
+
+This path never calls `ensureRevision`, `readBundle`, the active reader or a
+publisher mutation. It does not seed, stage, activate, repair, retry, lock or
+cancel anything, regardless of `VC_ACTIVE_DELIVERY`. Public health/content routes
+retain their existing behavior and can still seed on reads; they are not substitutes
+for this no-write observation. The new route is not a public health endpoint.
+
+Local synthetic SQLite tests establish the specified control flow only. The
+November 7 production timeout remains unexplained; production deployment and
+publisher holds, active-reader gates and all schedules remain unchanged. This
+runtime change advances the normal engine fingerprint and requires separate
+exact-candidate CI/export review and an authorized runtime release/rollback plan.
+It cannot observe the currently deployed runtime before that release. No hosted
+request, source upload, deployment or database write is included in this change.
+
+The descriptor always observes only the newly deployed build's own seed and engine,
+not historical v287 or a caller-selected historical revision. It cannot recover the
+missing incident evidence. Other visitor requests can still write through legacy
+seeding after deployment; a no-write observation does not certify a globally
+write-free interval. The observation helper makes no external fetch, while existing
+OIDC authentication may fetch the fixed issuer JWKS before the observation.
+The response explicitly reports `readiness: not-assessed` and
+`integrity: not-validated`, even when seed metadata/counts match.

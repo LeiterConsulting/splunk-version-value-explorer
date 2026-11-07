@@ -118,15 +118,65 @@ export function publisherEvidenceRequest(input, identity, fetcher = (...args) =>
     throw Error('Untrusted evidence origin');
   } };
 }
+// Authenticated metadata observation only. Never seed, load payloads or infer readiness.
+async function observePublisherSeed(db, m) {
+  const out = { status: 'observation-unavailable', database: 'unknown', projection: 'unknown', seed: 'unknown', head: 'unknown', validation: 'metadata-and-count-only', readiness: 'not-assessed', integrity: 'not-validated' };
+  if (!m || !/^content-[a-f0-9]{24}$/.test(m.revision) || !/^engine-[a-f0-9]{20}$/.test(m.engineRevision) ||
+      !/^[a-f0-9]{64}$/.test(m.digest) || m.schemaVersion !== 1 || !Number.isSafeInteger(m.recordCount) || m.recordCount < 1 || m.recordCount > 10000)
+    return { ...out, reason: 'invalid-bundled-descriptor' };
+  Object.assign(out, { revision: m.revision, engineRevision: m.engineRevision, expectedRecordCount: m.recordCount });
+  if (!db || typeof db.prepare !== 'function') return { ...out, reason: 'missing-database-binding' };
+  try { await db.prepare('SELECT 1 AS available').first(); out.database = 'select-succeeded'; }
+  catch { return { ...out, database: 'select-failed', reason: 'database-select-failed' }; }
+  try {
+    // Projection availability is not full migration/constraint/index verification.
+    await db.prepare('SELECT r.id, r.engine, r.schema_version, r.digest, r.record_count, r.completed, p.channel, p.revision_id, c.revision_id FROM content_revisions r, content_publication p, content_records c WHERE 0').first();
+    out.projection = 'available';
+  } catch { return { ...out, projection: 'unavailable', reason: 'projection-unavailable' }; }
+  try {
+    // One statement for seed/head/count; preliminary probes are separate observations.
+    // Only the bundled revision is counted, capped at its trusted count + 1.
+    const row = await db.prepare(`SELECT
+      s.id IS NOT NULL AS seed_exists,
+      CASE WHEN typeof(s.completed) = 'integer' AND s.completed IN (0,1) THEN s.completed ELSE -1 END AS completed,
+      s.engine = ? AND s.schema_version = ? AND s.digest = ? AND s.record_count = ? AS metadata_matches,
+      (SELECT count(*) FROM (SELECT 1 FROM content_records WHERE revision_id = ? LIMIT ?)) AS record_count,
+      p.revision_id IS NOT NULL AS head_exists,
+      CASE WHEN typeof(p.revision_id) = 'text' AND length(p.revision_id) = 32 THEN p.revision_id ELSE NULL END AS head_revision,
+      h.id IS NOT NULL AND h.engine = ? AND h.completed = 1 AS head_metadata_matches
+      FROM (SELECT 1) anchor
+      LEFT JOIN content_revisions s ON s.id = ?
+      LEFT JOIN content_publication p ON p.channel = ?
+      LEFT JOIN content_revisions h ON h.id = p.revision_id`).bind(
+      m.engineRevision, m.schemaVersion, m.digest, m.recordCount, m.revision, m.recordCount + 1,
+      m.engineRevision, m.revision, 'engine:' + m.engineRevision).first();
+    if (!row || !Number.isSafeInteger(row.record_count) || row.record_count < 0 || row.record_count > m.recordCount + 1) throw Error('Invalid observation');
+    out.status = 'observation-returned';
+    out.observedRecordCount = row.record_count;
+    out.recordCountOverflow = row.record_count > m.recordCount;
+    out.seed = !row.seed_exists ? (row.record_count ? 'missing-with-records' : 'missing') :
+      row.metadata_matches !== 1 || row.completed === -1 || out.recordCountOverflow || (row.completed === 1 && row.record_count !== m.recordCount) ? 'inconsistent' :
+      row.completed === 0 ? 'incomplete' : 'marked-complete-count-consistent';
+    const validHead = /^content-[a-f0-9]{24}$/.test(row.head_revision || '');
+    out.head = !row.head_exists ? 'absent' : !validHead || row.head_metadata_matches !== 1 ? 'inconsistent' :
+      row.head_revision === m.revision ? 'bundled-metadata-only' : 'alternate-metadata-only';
+    if (validHead) out.headRevision = row.head_revision;
+    return out;
+  } catch { return { ...out, reason: 'observation-select-failed' }; }
+}
 export async function publisherRequest(request, env, seed, json) {
-  const url = new URL(request.url), routes = ['/api/publisher/head', '/api/publisher/stage', '/api/publisher/bootstrap', '/api/publisher/activate'];
+  const url = new URL(request.url), routes = ['/api/publisher/head', '/api/publisher/stage', '/api/publisher/bootstrap', '/api/publisher/activate', '/api/publisher/observe-seed'];
   const identity = await publisherIdentity(request, env);
   if (!identity || identity.type === 'rejected') return json({ error: 'Publisher authorization required', ...(identity?.reason ? { reason: identity.reason } : {}) }, 401);
   if (!routes.includes(url.pathname)) return json({ error: 'Unknown publisher route' }, 404);
   if (url.search || (request.headers.has('Origin') && request.headers.get('Origin') !== publisherAudience)) return json({ error: 'Invalid publisher request' }, 400);
-  const method = url.pathname.endsWith('/head') ? 'GET' : 'POST';
+  const method = (url.pathname.endsWith('/head') || url.pathname.endsWith('/observe-seed')) ? 'GET' : 'POST';
   if (request.method !== method) return json({ error: 'Unsupported publisher method' }, 405, { Allow: method });
   try {
+    if (url.pathname.endsWith('/observe-seed')) {
+      const observation = await observePublisherSeed(env.DB, seed?.manifest);
+      return json(observation, observation.status === 'observation-returned' ? 200 : 503);
+    }
     const engineRevision = seed.manifest.engineRevision;
     if (method === 'GET') return json({ ...await readPublicationHead(env.DB, engineRevision), engineRevision, activeDelivery: env.VC_ACTIVE_DELIVERY === '1' });
     let input;
