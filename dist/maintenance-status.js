@@ -418,10 +418,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-06T10:36:55.424003Z",
+      "lastAttempt": "2026-11-07T11:17:50.052948Z",
       "lastSuccess": "2026-11-03T11:17:30.674Z",
       "outcome": "blocked",
-      "summary": "Scoped evidence and audit prepared. Remaining on-premises SOAR and historical Forwarder checks and live delivery require separate verification.",
+      "summary": "Completed bounded release claim checks. Direct retrieval gaps and exact SOAR build verification remain open.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -919,9 +919,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Scoped evidence and audit prepared. Remaining on-premises SOAR and historical Forwarder checks and live delivery require separate verification.",
           "scope": "Registered public release sources and eleven registry capabilities. Scoped SVD-2026-1015, App for SOAR 8.8 and HF 10.2 runtime evidence."
+        },
+        {
+          "at": "2026-11-07T11:17:50.052948Z",
+          "outcome": "running",
+          "summary": "Started Version Release Watch evidence review.",
+          "scope": "Release evidence inventory; bounded Prep11, Advisor, SOAR, Forwarders and security review."
+        },
+        {
+          "at": "2026-11-07T11:21:48.391Z",
+          "outcome": "blocked",
+          "summary": "Completed bounded release claim checks. Direct retrieval gaps and exact SOAR build verification remain open.",
+          "scope": "232 inventory URLs attempted. Reviewed eleven participating registry capabilities and separate SOAR and Forwarder evidence."
         }
       ],
-      "scope": "Registered public release sources and eleven registry capabilities. Scoped SVD-2026-1015, App for SOAR 8.8 and HF 10.2 runtime evidence."
+      "scope": "232 inventory URLs attempted. Reviewed eleven participating registry capabilities and separate SOAR and Forwarder evidence."
     },
     {
       "id": "es-editions-watch",

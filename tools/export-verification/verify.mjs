@@ -8,7 +8,7 @@ import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
 import { verifyNavigation } from './navigation.mjs';
 import { verifyRippleScroll } from './ripple-scroll.mjs';
-import { verifyAdvisor, configureAdvisorRoute } from './advisor.mjs';
+import { verifyAdvisor, configureAdvisorRoute, setAdvisorFixtureTime } from './advisor.mjs';
 import { prepareExact, verifyExact } from './exact-releases.mjs';
 import { verifyPrep11Oversized } from './prep11-print.mjs';
 import { verifyAdvisorOversized } from './advisor-print.mjs';
@@ -96,6 +96,7 @@ try {
     await prepareExact(context,route);
     try {
     const page = await context.newPage(), errors = []; page.on('pageerror', e => errors.push(e.message));
+    if (route.id.startsWith('advisor')) await setAdvisorFixtureTime(page);
     // Restrict application CI to its own local Worker; no external source or customer requests.
     await context.route('**/*', r => new URL(r.request().url()).hostname === '127.0.0.1' ? r.continue() : r.abort());
     const routeUrl = new URL('http://127.0.0.1:4173/?' + route.query);

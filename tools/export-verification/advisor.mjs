@@ -5,6 +5,11 @@ import {fileURLToPath} from 'node:url';
 import {chromium} from 'playwright';
 const advisorFixtures=JSON.parse(fs.readFileSync(new URL('./advisor-fixtures.json',import.meta.url),'utf8'));
 
+// Fixture time exercises assessed briefs without extending production review dates.
+export function setAdvisorFixtureTime(page){
+  return page.clock.setFixedTime(new Date(advisorFixtures.asOf));
+}
+
 export async function configureAdvisorRoute(page,route){
   if(!route.id.startsWith('advisor')||route.invalid||route.exportsBlocked)return;
   const fixture=advisorFixtures.cases[route.id];
@@ -16,7 +21,7 @@ export async function configureAdvisorRoute(page,route){
 }
 
 export async function verifyAdvisor(browser,output,base='http://127.0.0.1:4173'){
-  fs.mkdirSync(output,{recursive:true});const receipt={outcome:'passed',cases:[]};
+  fs.mkdirSync(output,{recursive:true});const receipt={outcome:'passed',fixtureAsOf:advisorFixtures.asOf,cases:[]};
   for(const theme of ['default','cisco'])for(const width of [390,768,1220]){
     const id=theme+'-'+width,context=await browser.newContext({viewport:{width,height:900},acceptDownloads:true,reducedMotion:'reduce'}),page=await context.newPage(),errors=[],requests=[];
     page.on('pageerror',error=>errors.push(error.message));page.on('request',request=>requests.push({url:request.url(),navigation:request.isNavigationRequest()}));
@@ -28,6 +33,7 @@ export async function verifyAdvisor(browser,output,base='http://127.0.0.1:4173')
     async function build(){await page.locator('#advisor-build').click();await result().waitFor();}
     async function fit(){const bounds=await page.evaluate(()=>({width:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth}));assert(bounds.scroll<=bounds.width+2,'Page overflow: '+JSON.stringify(bounds));}
     try{
+      await setAdvisorFixtureTime(page);
       await page.goto(themed('/'));await page.locator('.report-toolbar').waitFor();
       if(width<=760)await page.locator('.global-menu-toggle').click();
       await page.locator('[data-destination="advisor"]').click();await page.locator('#advisor-decisions').waitFor();await page.locator('.report-toolbar').waitFor();
@@ -72,10 +78,21 @@ export async function verifyAdvisor(browser,output,base='http://127.0.0.1:4173')
       }
       for(const goal of ['itsi-assistant','ingest-pressure','stay']){await page.goto(themed('/?view=advisor&goal='+goal));await page.locator('#advisor-legacy').waitFor();assert.equal(await result().count(),0);assert(await page.locator('#print-report').isDisabled());}
       if(width===390){await page.evaluate(()=>localStorage.setItem('versioncompass-advisor-profile-v1',JSON.stringify({schemaVersion:1,profile:{goal:'itsi-assistant',itsiVersion:'5.0',saiaVersion:'2.2',mcpVersion:'1.2.1'}})));await page.goto(themed('/?view=advisor'));await page.locator('.advisor-resume').click();await page.locator('#advisor-legacy').waitFor();assert.equal(await result().count(),0);await page.locator('[data-advisor-replacement]').click();await build();assert.equal(await result().getAttribute('data-outcome'),'no_change');}
-      await page.goto(themed('/?view=advisor&goal=itsi-versions'));await page.locator('#advisor-build').waitFor();await page.evaluate(()=>{window.SPLUNK_DATA.guidance.aiAvailability.capabilities.find(row=>row.id==='ai-itsi-subagent').requirements[0]='UNASSESSED_BROWSER_CHANGE';});await build();assert.equal(await result().getAttribute('data-outcome'),'needs_review');assert(!(await result().innerText()).includes('UNASSESSED_BROWSER_CHANGE'));
+      await page.goto(themed('/?view=advisor&goal=itsi-versions'));await page.locator('#advisor-build').waitFor();
+      const reviewDue=await page.evaluate(()=>window.VersionCompassAdvisor.review('itsi-versions').due);
+      assert.match(reviewDue,/^\d{4}-\d{2}-\d{2}$/);
+      await page.clock.setFixedTime(new Date(Date.parse(reviewDue+'T12:00:00Z')+86400000));
+      await build();
+      assert.equal(await result().getAttribute('data-outcome'),'needs_review');
+      assert.match(await result().innerText(),/recorded evidence is overdue/);
+      await setAdvisorFixtureTime(page);
+      await page.evaluate(()=>{window.SPLUNK_DATA.guidance.aiAvailability.capabilities.find(row=>row.id==='ai-itsi-subagent').requirements[0]='UNASSESSED_BROWSER_CHANGE';});
+      await build();
+      assert.equal(await result().getAttribute('data-outcome'),'needs_review');
+      assert(!(await result().innerText()).includes('UNASSESSED_BROWSER_CHANGE'));
       await page.locator('#advisor-clear').click();assert.equal(await page.evaluate(()=>localStorage.getItem('versioncompass-advisor-profile-v1')),null);
       assert(!requests.some(row=>/[?&](?:platformVersion|itsiVersion|saiaVersion|mcpVersion|cloudConnectVersion|profile)=/.test(row.url)),'Private context appeared in a request URL');assert.deepEqual(errors,[]);
-      receipt.cases.push({id,passed:true,invitation:true,keyboard:true,privacy:true,handoff:true,handoffMalformedExpired:width===390,legacyProfileMigration:width===390,localProfiles:true,history:true,legacy:true,snapshot:true,conflicts:true,evidenceChangeFailClosed:true,stickyOffsets:true});
+      receipt.cases.push({id,passed:true,invitation:true,keyboard:true,privacy:true,handoff:true,handoffMalformedExpired:width===390,legacyProfileMigration:width===390,localProfiles:true,history:true,legacy:true,snapshot:true,conflicts:true,evidenceChangeFailClosed:true,overdueEvidenceFailClosed:true,stickyOffsets:true});
     }catch(error){await page.screenshot({path:path.join(output,id+'-failure.png'),fullPage:true});console.error(JSON.stringify({id,url:page.url(),errors}));throw error;}finally{await context.close();}
   }
   fs.writeFileSync(path.join(output,'advisor.json'),JSON.stringify(receipt,null,2)+'\n');return receipt;

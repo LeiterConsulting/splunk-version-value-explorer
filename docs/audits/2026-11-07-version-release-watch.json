@@ -3098,10 +3098,12 @@
       "status": "delivery-checks-passed",
       "checkedAt": "2026-11-07T11:09:45.815Z",
       "qualification": "Prior published baseline D1, manifest, bundle, bounded reads, write protection and fallback."
-    }
+    },
+    "automated": "Local Node, sync and build gates are evaluated separately from browser and native export results.",
+    "advisorFixture": "The shared CI fixture-clock repair uses a synthetic historical date. Production overdue behavior is independently tested. Release candidate requires its own native CI."
   },
   "publication": {
-    "status": "pending-public-provenance",
+    "status": "pending-exact-candidate-validation",
     "priorVerifiedBaseline": {
       "githubMain": "2281d1350f233eca2e62363d8c4ac1e24e7393fc",
       "tree": "275bcb092761cfc2f5382333d64b9ed1452861e6",
@@ -3111,7 +3113,8 @@
       "siteDeployment": "appgdep_6aedc5341e60819182cb58c1b38e6c21",
       "revision": "content-75b28a22aa5b85aa5b60a5f9",
       "engine": "engine-af7d1bbe1e74f9391194"
-    }
+    },
+    "auditProvenanceCommit": "58fd69466373e2550ac4384127949f8a21d7c620"
   },
   "automationCoverage": {
     "runFile": "docs/audits/2026-11-07-version-release-watch-coverage.json"
@@ -3119,11 +3122,21 @@
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "version-release-watch",
-    "status": "pending-public-provenance",
-    "recordedAt": "2026-11-07T11:21:48.566Z",
+    "status": "published",
+    "recordedAt": "2026-11-07T11:23:21.854Z",
     "reviewDigest": "07917cb1844d63dfc227e1adf45a27ec62f305197353d29b2993bd91dcff9206",
-    "publicationId": "vci-aa32c165f85b57cf5770b3a4c2e7235ca7d6947ef63c80aa060c486b3ef5eb4d",
-    "recordKeys": [],
+    "publicationId": "vci-7e46b978a18f802669861088d27963938c3588e46d02e59f5b9f0c9d7347478e",
+    "recordKeys": [
+      "assessment:vcia-release-20261107-svd-2026-1015-applicability@1",
+      "assessment:vcia-release-20261107-sok-32-compatibility-scope@1",
+      "assessment:vcia-release-20261107-saia-cloud-connected-agent-mode-scope@1",
+      "assessment:vcia-release-20261107-saia-agent-runtime-processing-scope@1",
+      "assessment:vcia-release-20261107-itsi-subagent-region@1",
+      "assessment:vcia-release-20261107-es-soc-analyst-version-floor@1",
+      "assessment:vcia-release-20261107-es-88-triage-editions@1",
+      "finding:vci-soar-cmp-88-upgrade-example-destination@1",
+      "assessment:vcia-release-20261107-soar-cmp-88-fixed-issues-label@1"
+    ],
     "notReassessedFindingIds": [
       "vci-soar-cloud-880-release-stage",
       "vci-es-87-connector-builder-editions",
@@ -3142,9 +3155,7 @@
       "vci-es-security-assistant-runtime-ap-routing",
       "vci-app-for-soar-88-onprem-matrix-cell"
     ],
-    "deferredConcerns": [
-      "Pin the November 7 Release Watch audit before appending assessments and read back the exact checkpoint. Version Release Watch, review November 8."
-    ],
-    "qualification": "Explicit bounded claim reassessment and independent verification. Prior history retained."
+    "deferredConcerns": [],
+    "qualification": "Nine bounded public observations pin this verified immutable Release Watch audit. Commit integration and runtime delivery require separate evidence."
   }
 }
