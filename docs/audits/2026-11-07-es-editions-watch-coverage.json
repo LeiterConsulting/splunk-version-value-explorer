@@ -103,11 +103,59 @@
     }
   ],
   "validation": {
-    "checks": []
+    "checks": [
+      {
+        "id": "sync-gates",
+        "outcome": "passed",
+        "evidence": "Current local preparation, checks and full unit/build verification. Native export qualification is separate."
+      },
+      {
+        "id": "advisor-maintenance",
+        "outcome": "passed",
+        "evidence": "Current local preparation, checks and full unit/build verification. Native export qualification is separate."
+      },
+      {
+        "id": "coverage-gate",
+        "outcome": "passed",
+        "evidence": "Current local preparation, checks and full unit/build verification. Native export qualification is separate."
+      },
+      {
+        "id": "native-issue-feed",
+        "outcome": "passed",
+        "evidence": "Current local preparation, checks and full unit/build verification. Native export qualification is separate."
+      },
+      {
+        "id": "unit-suite",
+        "outcome": "passed",
+        "evidence": "Current local preparation, checks and full unit/build verification. Native export qualification is separate."
+      },
+      {
+        "id": "build",
+        "outcome": "passed",
+        "evidence": "Current local preparation, checks and full unit/build verification. Native export qualification is separate."
+      },
+      {
+        "id": "exact-candidate-exports",
+        "outcome": "blocked",
+        "evidence": "Initial exact push and PR runs 42366765273 and 42366824646 failed in the Advisor native fixture before the export matrix. Test-only clock repair submitted; require its own exact-candidate CI."
+      },
+      {
+        "id": "artifact-readback",
+        "outcome": "blocked",
+        "evidence": "Existing live inputs have verified archive readback; repaired candidate requires its own successful archive."
+      },
+      {
+        "id": "live-ui-assets-d1",
+        "outcome": "blocked",
+        "evidence": "Existing Site 286 was verified separately. Candidate has not been deployed."
+      }
+    ]
   },
   "publication": {
     "claimedDelivered": false,
-    "qualification": "Repository issue-feed integration and any Site metadata deployment are distinct. No matching completed first-execution result."
+    "qualification": "Repository issue-feed integration and any Site metadata deployment are distinct. No matching completed first-execution result.",
+    "auditProvenanceCommit": "fd6531a80d3ea236d96a33fc970deb54accfe162",
+    "feedCheckpoint": "vci-4721534b65a1611ab8d1f47474e388d19a43b26530a91aa0561e369c1db53546"
   },
   "resources": {
     "elapsedMs": null,

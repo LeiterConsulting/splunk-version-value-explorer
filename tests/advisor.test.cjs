@@ -1,11 +1,11 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
-const NOW='2026-11-05T18:00:00.000Z';
+const fixtures=JSON.parse(fs.readFileSync('tools/export-verification/advisor-fixtures.json'));
+const NOW=fixtures.asOf;
 function model(){const context={window:{SPLUNK_DATA:{guidance:JSON.parse(fs.readFileSync('content/datasets/guidance.json'))},VersionCompassEnvironmentData:JSON.parse(fs.readFileSync('content/datasets/environment.json'))},URLSearchParams,TextEncoder};for(const file of ['content-hash.js','ai-availability.js','advisor-admission.js','advisor-goals.js','advisor.js','advisor-report.js'])vm.runInNewContext(fs.readFileSync('dist/'+file,'utf8'),context);return context.window;}
 const agent={goal:'agent-mode',deployment:'enterprise',compliance:'commercial',region:'us-east-1',platformVersion:'10.4.0',saiaVersion:'2.3.6',access:'yes'};
 const itsi={goal:'itsi-versions',itsiVersion:'5.0.0',saiaVersion:'2.2.0',mcpVersion:'1.2.1'};
 const evaluate=(a,state,now=NOW)=>a.evaluate(state,{now});
 test('every Advisor export fixture names visible inputs and reaches its intended model outcome before browser execution',()=>{
- const fixtures=JSON.parse(fs.readFileSync('tools/export-verification/advisor-fixtures.json'));
  const routes=JSON.parse(fs.readFileSync('tools/export-verification/routes.json')).filter(r=>r.id.startsWith('advisor')&&!r.invalid&&!r.exportsBlocked);
  assert.deepEqual(Object.keys(fixtures.cases).sort(),routes.map(r=>r.id).sort());
  for(const route of routes){
