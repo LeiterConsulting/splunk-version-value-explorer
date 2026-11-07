@@ -225,24 +225,89 @@ remain reference evidence, never this task's completed review.
 
 `pipeline-status.mjs --tasks /absolute/path/native-snapshot.json` joins an actual
 supported native read to validated retained coverage. The input is
-`{observedAt,tasks:[...]}`: each task supplies the native id, enabled state, retained
-schedule/timing and run_details plus `configurationDigest`. Derive that digest from
-the full actual saved object, sorting top-level keys and excluding only run_details,
-last_run_time, next_run_time and updated_at; SHA-256 the UTF-8 JSON and prefix it
-with `sha256:`. Keep private full snapshots outside the public repository; publish
-only scoped digests and diagnostic receipts. No native API, task or permission is
-introduced by this local diagnostic.
+`{observedAt,tasks:[...]}`. Entries may be actual saved native objects, native get
+responses (`{automation,contextVersion}`), or peek responses (`{automations:[...]}`),
+including their nested `structuredContent` transport wrappers. Wrappers are
+normalized separately; their context versions are not saved-configuration hashes.
+Use the complete saved object with its actual `run_details`, not a hand-picked
+projection or tool-display text. Keep full private snapshots outside this public
+repository. The diagnostic emits hashes and allowlisted status/identity fields,
+not prompts, report text, conversation references or environment details.
 
-The diagnostic compares last_run.id with latest_result.run_id, report identity,
-duplicate output across watches, saved configuration, amendment time, exact task/
-scheduler/registry receipt and complete validated coverage/delivery. Missing or
-incomplete evidence returns nonzero/unverified even when CI is green. Without a
-native snapshot, scheduler evidence is unavailable, not implicitly healthy. Null
-next_run_time across the connector inventory is unknown, not proof of disabled
-dispatch. This does not diagnose scheduler internals or prove future execution.
-The November 4 mismatched Release result and generic Guidance failure remain
-unresolved until actual matching runs supply evidence. The guard does not restart
-an observation window or change an activation flag.
+### Configuration identity
+
+`savedConfigurationDigest(rawNative)` implements the existing receipt algorithm:
+exclude only `run_details`, `last_run_time`, `next_run_time` and `updated_at`; sort
+only the top-level keys; SHA-256 the UTF-8 JSON and prefix it with `sha256:`. Compute
+this before adding any derived fields. It rejects transport wrappers and objects
+that already contain `configurationDigest`. The input adapter also supports the
+older flat snapshot format: it separates that supplied derived field, recomputes
+from the remaining native object, and rejects a mismatch. A caller's claimed digest
+cannot hide a changed prompt, schedule, timezone, timing mode or enabled state.
+
+Missing versus null saved fields, unknown saved fields, nested object ordering and
+changing environment details can change this legacy digest. That is intentional
+compatibility with the retained receipts, not proof of a prompt change. Inspect a
+mismatch before deciding its cause. No recursive sorting, compact projection or
+replacement fingerprint is silently substituted. The observation is not its own
+baseline: expected digests and readback times must come from a separately reviewed
+saved-configuration receipt. This local comparison does not authenticate arbitrary
+JSON or establish unexposed permissions.
+
+### Watches and operational roles
+
+The existing four-watch `readiness` and coverage registry 1.2.0 are unchanged.
+Shared evidence checks bind native task/run identities, configuration, amendment
+readback time and the current attempt/result. Watches still require their own
+matching validated scheduler/registry receipt and complete coverage/delivery.
+A completed operational controller can never supply Prep11/Advisor content
+coverage or activate the pilot.
+
+The separate versioned detection contract in `scripts/lib/operational-roles.cjs`
+registers the GitHub steward, operational auditor and Ripple refresh task. It
+records only task identities, conservative report aliases and separately reviewed
+configuration baselines when available. Initial baselines are null, so their
+configuration remains explicitly unverified; no completed run is invented. Future
+reviewed baselines use `{afterDigest,readbackAt}` in the role's `configuration` field.
+That repository change requires its own review and must not be derived from the
+same observation being checked. No saved automation is edited by this contract.
+
+The output's `operations` section reports configuration, attempt, result and
+notification delivery separately. Notification delivery stays `unknown` because
+these native snapshots provide no independent delivery receipt, even if a report
+says it was sent. `evidence-matched` means the supplied configuration/attempt/result
+evidence matched, not scheduler repair or verified notification delivery. Missing
+roles, every checked task, duplicate/missing input identities, optional tasks and
+unregistered extra tasks are explicit in the inventory. The expired disabled
+checkpoint and November 20 one-time review are nonrecurring optional entries; they
+cannot become watch/role participants or poison the four-watch gate.
+
+Report identity is an anchored claim on the first nonempty line, not a mention of
+a title anywhere in the report. For example, a Release heading may reference ES
+without claiming to be ES. Ripple also accepts the bounded form “Ripple’s November
+7 refresh…” (month/day varies), rather than requiring the saved task title.
+Duplicate report bytes across declared recurring participants are rejected.
+
+A same-run retry can preserve its run ID. Therefore matching IDs alone do not
+suffice: attempt start/completion and result creation/completion timestamps must
+be present, valid and no later than `observedAt`. Completion cannot precede the
+attempt start. The result cannot predate that start, and its completion cannot
+predate the latest recorded attempt completion, even if the original start time
+persists across retries. Creation may legitimately precede run finalization.
+Both scheduled timestamps must be valid and identify the same nominal slot;
+flexible execution may start or finish before that slot, including before a future
+scheduled time at observation. Scheduled time is not an execution timestamp.
+Future observation times are invalid. Failed/incomplete attempts, missing/truncated/
+failure output and `no_update` suppressed output are not accepted success evidence.
+Null `next_run_time` remains unknown, not proof dispatch is disabled.
+
+Missing or incomplete evidence returns nonzero/unverified even when CI is green.
+Without a native snapshot, both watch and operational evidence are unavailable.
+The diagnostic neither fixes upstream scheduling nor runs/retries a task. It has
+no retained fingerprint, deduplication scheduler or checkpoint engine: an unchanged
+snapshot cannot suppress the next evaluation of a newly due coverage follow-up.
+Publisher outcome, content activation, schedules and delivery gates remain
+separate and unchanged.
 
 Report same-run validation failure, missing/pending main checks, publisher rejection,
 engine mismatch, blocked source, overdue coverage, pending feed provenance or

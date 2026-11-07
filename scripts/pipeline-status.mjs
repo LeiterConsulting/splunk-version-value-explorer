@@ -50,6 +50,9 @@ export function watchReadiness(registryVersion, executions, runtime) {
     incompleteWatches: gaps, nativeTaskEvidence: runtime || { status: 'unavailable', qualification: 'No supported native task snapshot supplied; scheduler health and saved configuration are unknown.' },
     claimedDelivered: false };
 }
+export function operationalReadiness(runtime) {
+  return runtime?.operational || { status: 'unavailable', claimedDelivered: false, qualification: 'No supported native task snapshot supplied; operational roles remain unverified and cannot satisfy content coverage.' };
+}
 async function read(url) {
   const token = process.env.VC_GITHUB_EVIDENCE_TOKEN;
   const response = await fetch(url, { redirect: 'error', signal: AbortSignal.timeout(15000), headers: { Accept: 'application/vnd.github+json', 'User-Agent': 'VersionCompass-read-only-pipeline-status', ...(token ? { Authorization: 'Bearer ' + token } : {}) } });
@@ -92,10 +95,10 @@ async function main(args) {
     ledger: JSON.parse(fs.readFileSync('content/automation-amendments.json')),
     runs: coverage.runs.map(r => ({ ...JSON.parse(fs.readFileSync(r.file)), coverageComplete: r.coverageComplete, deliveryComplete: r.deliveryComplete }))
   }) : null;
-  const readiness = watchReadiness(coverage.registryVersion, executions, runtime);
-  console.log(JSON.stringify({ evaluatedAt: new Date().toISOString(), repository, ...result, readiness, coverage: { activation: coverage.activation,
+  const readiness = watchReadiness(coverage.registryVersion, executions, runtime), operations = operationalReadiness(runtime);
+  console.log(JSON.stringify({ evaluatedAt: new Date().toISOString(), repository, ...result, readiness, operations, coverage: { activation: coverage.activation,
     currentSavedExecutions: [...latestByWatch.values()], retainedHistory: coverage.runs.map(({ file, runId, watchId }) => ({ file, runId, watchId })),
     qualification: 'Latest retained saved execution per watch; absent watches and changed registry versions need their own current evidence. Old runs remain history, not current overdue assessments.' } }, null, 2));
-  if (result.validation.status !== 'success' || result.publisher.status !== 'success' || readiness.status !== 'evidence-matched') process.exitCode = 1;
+  if (result.validation.status !== 'success' || result.publisher.status !== 'success' || readiness.status !== 'evidence-matched' || operations.status !== 'evidence-matched') process.exitCode = 1;
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main(process.argv.slice(2)).catch(error => { console.error(error.message); process.exitCode = 1; });
