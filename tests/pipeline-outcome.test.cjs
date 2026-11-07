@@ -39,6 +39,8 @@ test('receipt binding rejects other commits, runs, attempts and absent identity 
     assert.equal(publisherOutcome(commit, run(), e).status, 'mismatched-evidence');
   }
   assert.equal(publisherOutcome(commit, undefined, evidence()).status, 'mismatched-evidence');
+  assert.equal(publisherOutcome(commit, { ...run(), head_sha: 'b'.repeat(40) }, evidence()).status, 'mismatched-evidence');
+  assert.equal(publisherOutcome(commit, { ...run(), path: '.github/workflows/validate.yml' }, evidence()).status, 'mismatched-evidence');
 });
 test('stale run evidence never explains the latest publisher run', async () => {
   const { summarize } = await import('../scripts/pipeline-status.mjs');
@@ -52,6 +54,8 @@ test('partial writes, inconsistent engines and green jobs cannot masquerade as p
     const e = evidence(); change(e);
     assert.equal(publisherOutcome(commit, run(), e).status, 'inconsistent-evidence');
   }
+  const e = evidence(); e.receipt.requiredEngineRevision = [required]; e.receipt.deployedEngineRevision = [required];
+  assert.equal(publisherOutcome(commit, run(), e).status, 'inconsistent-evidence');
   assert.equal(publisherOutcome(commit, { ...run(), conclusion: 'success' }, evidence()).status, 'inconsistent-evidence');
 });
 test('a post-stage engine rejection is a failure, not a no-write runtime hold', async () => {

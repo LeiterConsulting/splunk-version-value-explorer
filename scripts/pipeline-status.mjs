@@ -8,14 +8,15 @@ export function publisherOutcome(main, run, evidence) {
   const unknown = (status, qualification) => ({ status, qualification, claimedDelivered: false });
   if (!evidence) return unknown('unavailable', 'No retained publisher receipt supplied; a failed job alone does not identify a runtime hold.');
   const receipt = evidence.receipt;
-  if (!run || !Number.isSafeInteger(evidence.runId) || evidence.runId <= 0 || evidence.runId !== run.id || !Number.isSafeInteger(evidence.runAttempt) || evidence.runAttempt <= 0 || evidence.runAttempt !== run.run_attempt ||
-      !receipt || receipt.commit !== main || receipt.claimedDelivered !== false || !Number.isFinite(Date.parse(receipt.recordedAt))) {
+  if (!/^[a-f0-9]{40}$/.test(main || '') || !run || run.head_sha !== main || run.path !== '.github/workflows/publish-content.yml' ||
+      !Number.isSafeInteger(evidence.runId) || evidence.runId <= 0 || evidence.runId !== run.id || !Number.isSafeInteger(evidence.runAttempt) || evidence.runAttempt <= 0 || evidence.runAttempt !== run.run_attempt ||
+      !receipt || receipt.commit !== main || receipt.claimedDelivered !== false || typeof receipt.recordedAt !== 'string' || !Number.isFinite(Date.parse(receipt.recordedAt))) {
     return unknown('mismatched-evidence', 'Receipt does not match this exact main commit, publisher run and attempt. Do not use it for recovery.');
   }
   if (run.status !== 'completed') return unknown('pending', 'The matching publisher run has not completed.');
   const engine = /^engine-[a-f0-9]{20}$/;
   const hasEngines = receipt.requiredEngineRevision !== undefined || receipt.deployedEngineRevision !== undefined;
-  const validEngines = !hasEngines || (engine.test(receipt.requiredEngineRevision) && engine.test(receipt.deployedEngineRevision) && receipt.requiredEngineRevision !== receipt.deployedEngineRevision);
+  const validEngines = !hasEngines || (typeof receipt.requiredEngineRevision === 'string' && typeof receipt.deployedEngineRevision === 'string' && engine.test(receipt.requiredEngineRevision) && engine.test(receipt.deployedEngineRevision) && receipt.requiredEngineRevision !== receipt.deployedEngineRevision);
   const preflightHold = run.conclusion === 'failure' && receipt.status === 'held-runtime-deployment-required' && receipt.reason === 'engine-mismatch' &&
     receipt.action === 'runtime-inspection' && receipt.mutationOutcome === 'no-write-at-failed-action' && Array.isArray(receipt.completedActions) && receipt.completedActions.length === 0 && validEngines;
   if (preflightHold) return {
