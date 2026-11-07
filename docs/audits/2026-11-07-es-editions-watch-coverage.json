@@ -136,18 +136,18 @@
       },
       {
         "id": "exact-candidate-exports",
-        "outcome": "blocked",
-        "evidence": "Initial exact push and PR runs 42366765273 and 42366824646 failed in the Advisor native fixture before the export matrix. Test-only clock repair submitted; require its own exact-candidate CI."
+        "outcome": "passed",
+        "evidence": "Exact-main Chromium run 42368616223 and check-soak export binding passed."
       },
       {
         "id": "artifact-readback",
-        "outcome": "blocked",
-        "evidence": "Existing live inputs have verified archive readback; repaired candidate requires its own successful archive."
+        "outcome": "passed",
+        "evidence": "GitHub artifact 13572554858 matched the downloaded ZIP, exact source tree, report fingerprint and page/HTML receipts."
       },
       {
         "id": "live-ui-assets-d1",
         "outcome": "blocked",
-        "evidence": "Existing Site 286 was verified separately. Candidate has not been deployed."
+        "evidence": "Candidate UI and assets passed. Repeated D1 requests timed out. Rollback to Site 286 verified on all required live checks."
       }
     ]
   },
@@ -155,7 +155,19 @@
     "claimedDelivered": false,
     "qualification": "Repository issue-feed integration and any Site metadata deployment are distinct. No matching completed first-execution result.",
     "auditProvenanceCommit": "fd6531a80d3ea236d96a33fc970deb54accfe162",
-    "feedCheckpoint": "vci-4721534b65a1611ab8d1f47474e388d19a43b26530a91aa0561e369c1db53546"
+    "feedCheckpoint": "vci-4721534b65a1611ab8d1f47474e388d19a43b26530a91aa0561e369c1db53546",
+    "repository": {
+      "commit": "81c8c6ffe8deadc4fe6145f63b35debd6ef74cb0",
+      "tree": "4b8a7c774d5f648913e99c4272ac6a977d5f69dc",
+      "issueFeedCheckpoint": "vci-4721534b65a1611ab8d1f47474e388d19a43b26530a91aa0561e369c1db53546"
+    },
+    "runtime": "Site 287 deployed then rolled back; live Site 286 independently reverified.",
+    "firstExecution": "Incomplete. Saved configuration digest and matching completion evidence remain unresolved.",
+    "followUp": {
+      "owner": "es-editions-watch",
+      "action": "Inspect Site 287 Worker request and D1 binding evidence for the timed-out reads, then repeat authenticated publication preflight and live API checks against the exact eligible candidate. Keep Site 286 until new delivery is verified.",
+      "reviewBy": "2026-11-08"
+    }
   },
   "resources": {
     "elapsedMs": null,
