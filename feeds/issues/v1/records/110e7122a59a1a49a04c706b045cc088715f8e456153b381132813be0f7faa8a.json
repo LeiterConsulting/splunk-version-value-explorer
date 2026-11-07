@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "finding",
+  "findingId": "vci-fedramp-moderate-certified-services-display",
+  "revision": 1,
+  "recordedAt": "2026-11-07T13:04:16.886Z",
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/9b74da7169155acecc93881e7319e251abf8f2db/docs/audits/2026-11-07-csp-fedramp-watch.json",
+      "pointer": "/claimChecks/0",
+      "originalLabel": "scope-display-discrepancy"
+    }
+  ],
+  "title": "FedRAMP Moderate Marketplace no longer displays its previously observed Certified Services list",
+  "concernType": "uncertain-claim",
+  "problem": "The rendered Moderate overview showed FedRAMP Certified and N/A under Certified Services after navigation and reload. The November 6 bounded audit retained a named list including Platform, ES, ITSI and SOAR. The rendered High overview still lists Private Connectivity, Platform, ES and ITSI. Current Moderate component scope cannot be re-established from the display alone. The display establishes neither loss nor gain of certification, edition entitlement or customer authorization. High SOAR remains unestablished.",
+  "scope": {
+    "products": [
+      "Splunk Cloud Platform FedRAMP Moderate CSO"
+    ],
+    "versions": [
+      "F1607197917",
+      "FR2314156865 for comparison"
+    ],
+    "editions": null,
+    "deployments": [
+      "US federal offering"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers verifying public Moderate offering component scope"
+    ],
+    "exclusions": [
+      "No certification revocation, component removal, entitlement, deployment, High SOAR scope, or customer authorization is established."
+    ]
+  },
+  "scopeComparison": "A November 7 public display differs from the dated November 6 display. The High listing and the dated vendor audit matrix are separate evidence.",
+  "impact": {
+    "customerScenario": "A reader checking whether the public Moderate offering lists an individual service.",
+    "consequence": "Treat the previously observed Moderate component list as dated and the current display as inconclusive for individual services.",
+    "level": "unknown"
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "The two dated observations establish a public display discrepancy. The reason, duration and current underlying scope are unknown."
+  },
+  "claimIds": [
+    "authorization:marketplace:moderate-high-status"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Current named service scope remains unresolved; recheck the exact public listing."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261107-0-0",
+      "url": "https://www.fedramp.gov/marketplace/products/F1607197917/",
+      "section": "Rendered Overview > Status and Certified Services; fresh independent read and reload",
+      "statement": "The rendered Class C Moderate offering remains FedRAMP Certified and showed N/A under Certified Services.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-07T12:53:08.341Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "6120f05893f00ac24cef8afc26658b69faa5dc7e8a454f1ca4f2eb3deb573fe6",
+        "qualification": "Direct public response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261107-0-1",
+      "url": "https://www.fedramp.gov/marketplace/products/FR2314156865/",
+      "section": "Rendered Overview > Status and four Certified Services",
+      "statement": "The separate Class D High listing still names four services. This does not establish Moderate component scope.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-07T12:53:08.320Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "e985d1cedaa727bac8ad15b6d624e65e2bdfdab1d579bcf3405c063314a88a6a",
+        "qualification": "Direct public response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261107-moderate-prior-list",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/2281d1350f233eca2e62363d8c4ac1e24e7393fc/docs/audits/2026-11-06-csp-fedramp-watch.json",
+      "section": "November 6 review > authorization:marketplace:moderate-high-status",
+      "statement": "The retained November 6 audit observed the rendered Moderate list naming Platform, ES, ITSI, SOAR and other services.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-06",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "The audit URL pins the historical observation. The Marketplace publisher revision is unknown."
+      }
+    }
+  ]
+}

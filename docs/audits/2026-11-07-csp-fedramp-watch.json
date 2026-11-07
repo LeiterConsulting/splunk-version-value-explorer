@@ -1689,7 +1689,54 @@
   ],
   "validation": {
     "browser": "Live exact High Cisco preserved S3 conflict. Region-only retained independent scope; provider-only matched its read-only report. Mismatched AWS/GCP disabled Copy Link and print.",
-    "automation": "Native supported readback showed this scheduler run in progress and a result from a different run. Full API diagnostic timed out before GitHub read; no completion claim."
+    "automation": "Native supported readback showed this scheduler run in progress and a result from a different run. Full API diagnostic timed out before GitHub read; no completion claim.",
+    "checks": [
+      {
+        "id": "sync-gates",
+        "outcome": "passed",
+        "evidence": "Ordered isolated synchronization and all four --check gates passed."
+      },
+      {
+        "id": "unit-suite",
+        "outcome": "passed",
+        "evidence": "Full Node suite passed under maintenance:verify."
+      },
+      {
+        "id": "advisor-maintenance",
+        "outcome": "passed",
+        "evidence": "Advisor maintenance and its --check passed without refreshing admission pins."
+      },
+      {
+        "id": "native-issue-feed",
+        "outcome": "passed",
+        "evidence": "Generated feed, native policy and append-only checks passed locally; exact public candidate readback remains separate."
+      },
+      {
+        "id": "coverage-gate",
+        "outcome": "passed",
+        "evidence": "Registry 1.2.0 validates one assessed-no-change SOC disposition for this watch."
+      },
+      {
+        "id": "build",
+        "outcome": "passed",
+        "evidence": "Production Worker build passed in maintenance:verify."
+      },
+      {
+        "id": "exact-candidate-exports",
+        "outcome": "passed",
+        "evidence": "Report fingerprint matches the successful identical-input November 7 main artifact, workflow 42368616223. The final repository head still has its own CI gate."
+      },
+      {
+        "id": "artifact-readback",
+        "outcome": "passed",
+        "evidence": "ZIP digest and retained per-file receipt digests checked against GitHub provenance for the identical report inputs."
+      },
+      {
+        "id": "live-ui-assets-d1",
+        "outcome": "blocked",
+        "evidence": "The current repository runtime is ahead of the rolled-back live runtime. Fresh public health, manifest and bundle identify D1 Site 286. Live CSP browser/WebMCP journeys on that prior runtime passed their bounded scope. Exact candidate live checks remain open."
+      }
+    ]
   },
   "publication": {
     "state": "pending",
@@ -1702,11 +1749,22 @@
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "csp-fedramp-watch",
-    "status": "pending-public-provenance",
-    "recordedAt": "2026-11-07T13:02:17.176Z",
+    "status": "published",
+    "recordedAt": "2026-11-07T13:04:17.305Z",
     "reviewDigest": "7d50ef5df395047a092b7769f97e85ae320fc4cca405e41e4c05af4c97497309",
-    "publicationId": "vci-4721534b65a1611ab8d1f47474e388d19a43b26530a91aa0561e369c1db53546",
-    "recordKeys": [],
+    "publicationId": "vci-6cd18cc05cb9fc366924305e92ac00a4c36488bdcba0160cc656d1a2b93c6b6c",
+    "recordKeys": [
+      "finding:vci-fedramp-moderate-certified-services-display@1",
+      "assessment:vcia-csp-20261107-cloud-107-release-service-pairing@1",
+      "assessment:vcia-csp-20261107-cloud-s3-restricted-scope@1",
+      "assessment:vcia-csp-20261107-saia-high-runtime-scope@1",
+      "assessment:vcia-csp-20261107-itsi-subagent-region@1",
+      "assessment:vcia-csp-20261107-soar-cloud-880-release-stage@1",
+      "assessment:vcia-csp-20261107-observability-rca-custom-metric-scope@1",
+      "assessment:vcia-csp-20261107-es-soc-analyst-version-floor@1",
+      "assessment:vcia-csp-20261107-es-security-assistant-runtime-default@1",
+      "assessment:vcia-csp-20261107-es-security-assistant-runtime-ap-routing@1"
+    ],
     "notReassessedFindingIds": [
       "vci-es-87-connector-builder-editions",
       "vci-es-88-triage-editions",
@@ -1725,8 +1783,8 @@
       "vci-soar-cmp-88-fixed-issues-label"
     ],
     "deferredConcerns": [
-      "CSP FedRAMP Watch will pin this public audit and append bounded findings, then verify the cumulative checkpoint by November 8."
+      "CSP FedRAMP Watch will recheck the exact Moderate list, and verify any current processor or hosting candidate, by November 8."
     ],
-    "qualification": "Scoped audit provenance must be immutable and public before its new finding and reassessments can be recorded."
+    "qualification": "One new public display finding and nine assessed existing findings pin the exact immutable November 7 audit. No operational workflow state is included in the feed."
   }
 }
