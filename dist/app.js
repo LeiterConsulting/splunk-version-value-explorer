@@ -50,6 +50,9 @@
   const shareStatus = document.getElementById("share-status");
   const printTitle = document.getElementById("print-title");
   const printSubtitle = document.getElementById("print-subtitle");
+  // The generated HTML owns the static shell publication date, not engine code.
+  // Capture it once so repeated renders never append another site suffix.
+  const publicationSubtitle = printSubtitle.textContent + " · versioncompass.com";
   const printCompatibility = document.getElementById("print-compatibility");
 
   const defaults = {
@@ -469,7 +472,7 @@
       journey = activeTrack().label + " " + state.from + " → " + state.to + " · " + platformContext + state.host;
     }
     printTitle.textContent = journey;
-    printSubtitle.textContent = "Site updated November 7, 2026 · versioncompass.com";
+    printSubtitle.textContent = publicationSubtitle;
     document.title = "Version Compass | " + journey;
   }
 
