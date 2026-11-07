@@ -135,10 +135,14 @@ window.VersionCompassSOARData = {
     "fedrampModerate": {
       "title": "FedRAMP Marketplace: Splunk Cloud Platform Moderate",
       "url": "https://www.fedramp.gov/marketplace/products/F1607197917/",
-      "section": "Phase, Status, Certification Profile and Certified Services; Splunk SOAR is named under Other Service(s)",
-      "checked": "2026-10-06",
-      "reviewed": "2026-10-06",
-      "outcome": "confirmed"
+      "section": "Overview > FedRAMP Certified status and Certified Services. The November 6 review observed SOAR in the list. On November 7 the field displayed N/A, leaving current named SOAR component scope unresolved.",
+      "checked": "2026-11-07",
+      "reviewed": "2026-11-07",
+      "outcome": "qualified",
+      "availabilitySummary": {
+        "status": "Restricted service documented; current offering scope unresolved",
+        "detail": "The November 6 Moderate Marketplace list named SOAR. The November 7 listing remained FedRAMP Certified and displayed N/A for Certified Services. Splunk’s separate restricted-environment guide documents AWS GovCloud, FIPS mode, playbook restrictions and native-data migration limits. Feature, tenant, entitlement and individual customer authorization remain separate."
+      }
     },
     "fedrampHigh": {
       "title": "FedRAMP Marketplace: Splunk Cloud Platform High",

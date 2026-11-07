@@ -65,7 +65,7 @@ test('SOAR restricted environments never inherit commercial features or Platform
 });
 test('SOAR Moderate offering evidence and unresolved High scope stay separate',()=>{const a=core().window.VersionCompassSOAR;
  const moderate=a.assess({...a.defaults,deployment:'cloud',compliance:'fr-m'}).availability;
- assert.equal(moderate.status,'Certified offering; conditions apply');assert.deepEqual(Array.from(moderate.src),['fedrampModerate','restricted']);assert.match(moderate.detail,/Feature, tenant, entitlement/);
+ assert.equal(moderate.status,'Restricted service documented; current offering scope unresolved');assert.deepEqual(Array.from(moderate.src),['fedrampModerate','restricted']);assert.match(moderate.detail,/November 6.+November 7.+N\/A.+FIPS mode.+Feature, tenant, entitlement/);
  const high=a.assess({...a.defaults,deployment:'cloud',compliance:'fr-h'}).availability;
  assert.equal(high.status,'Not established');assert.deepEqual(Array.from(high.src),['fedrampHigh','restricted']);assert.match(high.detail,/Absence is not an exclusion claim/);
 });

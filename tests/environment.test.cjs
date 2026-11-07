@@ -20,7 +20,10 @@ test('Ingest Processor retains its Victoria prerequisite and visible Classic res
   }
  }
  const high=env.assess(route({csp:'aws',compliance:'fr-h',experience:'victoria'}));
- assert.equal(high.records.find(r=>r.id==='ingest-high-unknown').availability,'not_established');
+ assert.equal(high.records.find(r=>r.id==='ingest-high-unknown').availability,'conditional');
+ const highClassic=env.assess(route({csp:'aws',compliance:'fr-h',experience:'classic'}));
+ assert.equal(highClassic.records.find(r=>r.id==='ingest-classic-high').availability,'unavailable');
+ assert(!highClassic.records.some(r=>r.id==='ingest-high-unknown'));
  assert.equal(high.records.find(r=>r.id==='s3-high').availability,'conflicting');
  const historical={...route({csp:'aws',region:'us-east-1',experience:'classic'}),from:'8.2.2203',to:'9.2.2406'};
  assert.match(env.assess(historical).scope,/separate from the selected historical/);
@@ -33,7 +36,7 @@ test('provider, region and compliance filters intersect without inferring unavai
  const high=env.assess(route({csp:'aws',region:'us-gov-east-1',compliance:'fr-h'}));
  assert(high.records.length>0);assert(high.records.every(r=>r.provider==='aws'&&r.regions.includes('us-gov-east-1')&&r.regimes.includes('fr-h')));
  assert.equal(high.records.find(r=>r.id==='s3-high').availability,'conflicting');
- assert.equal(high.records.find(r=>r.id==='edge-high-unknown').availability,'not_established');
+ assert.equal(high.records.find(r=>r.id==='edge-high-unknown').availability,'conditional');
  const moderate=env.assess(route({compliance:'fr-m'}));assert(moderate.records.some(r=>r.id==='edge-moderate'));assert(!moderate.records.some(r=>r.id==='s3-high'));
  const moderateS3=moderate.records.find(r=>r.id==='s3-moderate');assert.equal(moderateS3.availability,'conflicting');assert.equal(moderateS3.claims.length,2);
  const missing=env.assess(route({csp:'azure',compliance:'fr-h'}));assert.equal(missing.records.length,0);assert.match(missing.coverageNote,/not an unavailability/);
@@ -43,7 +46,7 @@ test('evidence scope, separate authorization, freshness, and source conflicts re
  for(const r of env.data.records){assert(r.sources.length);assert(r.regions.length);for(const region of r.regions)assert(env.data.regions.some(x=>x.id===region&&x.provider===r.provider));for(const source of r.sources){const s=env.data.sources[source];assert(s);assert(/^https:\/\//.test(s.url));assert(s.checked);assert(s.scope);}assert(r.scope);assert(['documented','not_established'].includes(r.authorization));}
  assert.equal(env.data.sources.compliance.published,'2026-02');
  const conflict=env.data.records.find(r=>r.id==='s3-high');assert.equal(conflict.claims.length,2);assert.equal(new Set(conflict.claims.map(c=>c.source)).size,2);
- const itsi=env.assess(route({compliance:'fr-h'},'itsi'));assert.match(itsi.productNote,/offering level only/);
+ const itsi=env.assess(route({compliance:'fr-h'},'itsi'));assert.match(itsi.productNote,/offering-specific Marketplace evidence and its date/);
  const o=env.assess(route({compliance:'fr-h'},'observability'));assert.equal(o.records.length,0);assert.match(o.productNote,/does not establish/);
  const commercial=env.assess(route({csp:'gcp',region:'gcp-oregon',compliance:'commercial'},'observability'));assert(commercial.records.some(r=>r.realm==='us2'));
 });
@@ -74,9 +77,10 @@ test('exact Marketplace offering scope remains product-specific and qualified',(
  assert(!esHigh.records.some(r=>r.id==='es-fr-m-offering'));
  const itsiModerate=env.assess(route({csp:'aws',compliance:'fr-m'},'itsi'));
  const record=itsiModerate.records.find(r=>r.id==='itsi-fr-m-offering');
- assert(record);assert.equal(record.authorization,'documented');assert.match(record.detail,/offering-level assessment scope/);
+ assert(record);assert.equal(record.authorization,'not_established');assert.match(record.detail,/November 6.+November 7.+N[/]A.+Current named component scope remains unresolved/);
+ assert.equal(esHigh.records.find(r=>r.id==='es-fr-h-offering').authorization,'documented');
  const html=env.body(route({csp:'aws',compliance:'fr-m'},'itsi'),true);
- assert.match(html,/IT Service Intelligence certified service/);assert.match(html,/IT Service Intelligence · AWS/);
+ assert.match(html,/IT Service Intelligence Moderate offering scope/);assert.match(html,/IT Service Intelligence · AWS/);
 });
 test('ES regional corrections preserve Premier scope and do not inherit IL5 into Moderate or High',()=>{
  const brazil=route({region:'sa-east-1',compliance:'commercial'},'es');
