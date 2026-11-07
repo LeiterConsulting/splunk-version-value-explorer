@@ -79,3 +79,17 @@ test('a matching receipt cannot complete a still-running attempt', async () => {
   const { publisherOutcome } = await import('../scripts/pipeline-status.mjs');
   assert.equal(publisherOutcome(commit, { ...run(), status: 'in_progress', conclusion: null }, evidence()).status, 'pending');
 });
+test('a newer green observation cannot certify publication or resolve an earlier failed publisher receipt', async () => {
+  const { summarize } = await import('../scripts/pipeline-status.mjs');
+  const observationRun = { ...run(), id: 43, run_attempt: 1, conclusion: 'success', event: 'workflow_dispatch', display_title: 'Observe bundled seed' };
+  const value = summarize(commit, [run(), observationRun]);
+  assert.equal(value.publisher.runId, 43);
+  assert.equal(value.publisher.status, 'success'); // GitHub job conclusion only.
+  assert.equal(value.publisher.outcome.status, 'unavailable');
+  assert.equal(value.claimedDelivered, false); assert.equal(value.delivery, 'unverified');
+  assert.match(value.publisher.interpretation, /observe-only run performs no publication/);
+  assert.match(value.publisher.interpretation, /Earlier publication failures remain unresolved/);
+  assert.equal(summarize(commit, [run(), observationRun], evidence()).publisher.outcome.status, 'mismatched-evidence');
+  // A label is not evidence and never changes receipt matching.
+  assert.equal(summarize(commit, [{ ...observationRun, display_title: 'Publish verified content' }]).publisher.outcome.status, 'unavailable');
+});

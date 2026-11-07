@@ -1,10 +1,31 @@
 name: Publish verified content
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.mode == 'observe-only' && 'Observe bundled seed' || 'Publish verified content' }}
 on:
   workflow_run:
     workflows: [Validate release metadata and reports]
     types: [completed]
     branches: [main]
   workflow_dispatch:
+    inputs:
+      mode:
+        description: Publish verified content or collect one no-write seed observation
+        type: choice
+        options: [publish, observe-only]
+        default: publish
+        required: true
+      expected_commit:
+        description: Observe-only requires the exact main commit SHA
+        type: string
+      expected_ref:
+        description: Observe-only must use refs/heads/main
+        type: string
+        default: refs/heads/main
+      expected_engine:
+        description: Observe-only requires the engine revision from that commit
+        type: string
+      expected_revision:
+        description: Observe-only requires the bundled content revision from that commit
+        type: string
 permissions:
   actions: read
   contents: read
@@ -24,18 +45,39 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Route publisher mode before any candidate selection
+        id: mode
+        run: node scripts/publisher-workflow-mode.cjs
+      - name: Observe bundled seed without publication
+        if: steps.mode.outputs.mode == 'observe-only'
+        env:
+          VC_OBSERVATION_MODE: ${{ inputs.mode }}
+          VC_OBSERVATION_EXPECTED_COMMIT: ${{ inputs.expected_commit }}
+          VC_OBSERVATION_EXPECTED_REF: ${{ inputs.expected_ref }}
+          VC_OBSERVATION_EXPECTED_ENGINE: ${{ inputs.expected_engine }}
+          VC_OBSERVATION_EXPECTED_REVISION: ${{ inputs.expected_revision }}
+        run: node scripts/observe-seed.mjs
+      - name: Retain sanitized seed observation, including failures
+        if: always() && steps.mode.outputs.mode == 'observe-only' && hashFiles('seed-observation-outcome.json') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: seed-observation-${{ github.run_id }}-${{ github.run_attempt }}
+          path: seed-observation-outcome.json
+          if-no-files-found: error
+          retention-days: 30
       - name: Select the validated candidate without broadening OIDC scope
+        if: steps.mode.outputs.mode == 'publish'
         id: candidate
         run: node scripts/select-publication.cjs
       - name: Publish exact main commit with GitHub OIDC
-        if: steps.candidate.outputs.publish == 'true'
+        if: steps.mode.outputs.mode == 'publish' && steps.candidate.outputs.publish == 'true'
         env:
           VC_GITHUB_EVIDENCE_TOKEN: ${{ github.token }}
         # The service independently verifies main ancestry, completed validation CI,
         # all required steps and exact committed artifacts before writing anything.
         run: node scripts/publish-content.mjs --commit "${{ steps.candidate.outputs.commit }}"
       - name: Retain truthful publisher outcome
-        if: always() && hashFiles('publication-outcome.json') != ''
+        if: always() && steps.mode.outputs.mode == 'publish' && hashFiles('publication-outcome.json') != ''
         uses: actions/upload-artifact@v4
         with:
           name: publisher-outcome-${{ github.run_id }}-${{ github.run_attempt }}

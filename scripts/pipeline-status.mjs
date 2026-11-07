@@ -39,7 +39,7 @@ export function summarize(main, runs, publisherEvidence = null) {
   const state = r => !r ? 'missing' : r.status !== 'completed' ? 'pending' : r.conclusion;
   return { main, validation: { status: state(validation), runId: validation?.id || null, url: validation?.html_url || null },
     publisher: { status: state(publisher), runId: publisher?.id || null, url: publisher?.html_url || null,
-      interpretation: publisher?.conclusion === 'success' ? 'Job passed; inspect its outcome receipt. Staging/already-current can succeed with active delivery off.' : 'Not a successful publisher job.',
+      interpretation: publisher?.conclusion === 'success' ? 'Latest trusted-workflow job passed; inspect its mode and matching receipt. An observe-only run performs no publication; staging/already-current can also succeed with active delivery off. Earlier publication failures remain unresolved by an observation.' : 'Not a successful publisher job.',
       outcome: publisherOutcome(main, publisher, publisherEvidence) },
     claimedDelivered: false, delivery: 'unverified', qualification: 'CI conclusions cannot establish Sites deployment, active D1 visitor delivery, source accuracy or live readback.' };
 }
