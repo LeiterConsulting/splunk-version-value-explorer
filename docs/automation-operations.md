@@ -345,3 +345,21 @@ is an observation, not readiness, integrity or delivery proof. This repository
 implementation is not deployed and does not change the production/publisher hold,
 existing workflows, timers, credentials, active-delivery flag or release gates.
 Do not use legacy public content GET/HEAD routes as no-write diagnostics.
+
+## Bounded rollout observation and verification (November 7)
+
+The existing trusted publisher workflow has a separate manual `observe-only` mode
+with explicit expected main SHA/ref and bundled engine/revision. It skips candidate
+selection and all publication paths, retains a separate sanitized observation
+receipt on failure, and cannot establish readiness or delivery. The default
+`publish` mode and automatic publisher continue unchanged. Read the
+[bounded rollout procedure](bounded-rollout-verification.md) before dispatching;
+implementation does not authorize a run or lift the production hold.
+
+The delivery diagnostic now fails fast and verifies the full bundle and every
+paginated record sequentially with fixed request/time/body limits. It is **not**
+observe-only: valid public content GET/HEAD may initialize/write D1. After a
+critical failure, no later requests are sent and no retry is implied. Client
+abort cannot establish that server initialization stopped. Preserve exact mode,
+run/attempt and receipt identities; a green observe-only workflow is not a
+publisher stage or a successful rollout.

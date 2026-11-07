@@ -117,3 +117,22 @@ write-free interval. The observation helper makes no external fetch, while exist
 OIDC authentication may fetch the fixed issuer JWKS before the observation.
 The response explicitly reports `readiness: not-assessed` and
 `integrity: not-validated`, even when seed metadata/counts match.
+
+## Bounded observation caller and delivery verifier (November 7)
+
+The [bounded rollout procedure](../bounded-rollout-verification.md) adds an explicit
+manual observe-only caller in the already trusted publisher workflow, with exact
+expected main commit/ref and local bundled identities. It uses the same OIDC
+issuer, audience, workflow path and permissions, then exactly one fixed-origin
+GET to the private observation route. Candidate selection, publication, staging,
+bootstrap and activation are excluded. A separate sanitized receipt and summary
+preserve unavailable/incomplete results and `readiness: not-assessed` /
+`integrity: not-validated`; neither a green job nor matching counts establishes
+readiness. The observation route must first exist on the deployed runtime.
+
+The public delivery diagnostic separately stops at its first unsuccessful check,
+with full manifest/bundle identity, complete paginated record parity and exact
+fallback-byte checks. Those public requests may initialize storage, and client
+abort cannot cancel server work. No hosted request or runtime deployment is
+performed by this tooling change. Existing holds, active-reader gates, canonical
+facts and engine/content identities are unchanged.
