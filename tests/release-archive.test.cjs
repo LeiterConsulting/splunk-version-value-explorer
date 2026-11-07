@@ -50,6 +50,7 @@ test('the generator produces a nested latest-note URL and detects stale month in
   const exec = require('node:child_process').execFileSync;
   exec(process.execPath, [path.join(root,'scripts/sync-release-metadata.cjs')]);
   exec(process.execPath, [path.join(root,'scripts/sync-release-metadata.cjs'),'--check']);
+  assert.equal(fs.readFileSync(path.join(root,'dist/app.js'),'utf8'), 'Site updated October 6, 2026 · versioncompass.com', 'publication synchronization never rewrites executable application bytes');
   assert.match(fs.readFileSync(path.join(root,'dist/index.html'),'utf8'), /docs\/releases\/2027\/01\/2027-01-01\.md/);
   assert.match(fs.readFileSync(path.join(root,'dist/guidance-data.js'),'utf8'), /lifecycle: \{ reviewed: "2026-09-01"/);
   write('docs/releases/2027/01/README.md', 'stale');

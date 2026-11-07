@@ -73,3 +73,13 @@ test('monitoring cannot use a stale or PR success as main validation or turn a g
   assert.equal(value.validation.status, 'success'); assert.equal(value.publisher.status, 'success'); assert.equal(value.claimedDelivered, false); assert.equal(value.delivery, 'unverified');
   assert.equal(summarize(a, [run, { ...run, id: 4, conclusion: 'cancelled' }]).validation.status, 'cancelled');
 });
+test('operational role evidence is additive and cannot activate content coverage or change publisher semantics', async () => {
+  const { operationalReadiness, watchReadiness, summarize } = await import('../scripts/pipeline-status.mjs');
+  const operational = { status: 'evidence-matched', roles: [{ roleId: 'github-steward', accepted: true }], claimedDelivered: false };
+  const runtime = { status: 'unverified', operational };
+  assert.equal(operationalReadiness(runtime), operational);
+  assert.equal(watchReadiness('1.2.0', [], runtime).status, 'unverified');
+  assert.equal(watchReadiness('1.2.0', [], runtime).incompleteWatches.length, 4);
+  assert.equal(summarize(a, []).publisher.outcome.status, 'unavailable');
+  assert.equal(summarize(a, []).claimedDelivered, false);
+});
