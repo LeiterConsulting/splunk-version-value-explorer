@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "assessment",
+  "findingId": "vci-cloud-s3-restricted-scope",
+  "assessmentId": "vcia-csp-20261107-cloud-s3-restricted-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-07T13:04:16.886Z",
+  "assessedAt": "2026-11-07T13:01:59.243Z",
+  "outcome": "still-present",
+  "rationale": "The 10.6 and 10.7 regional rows list Moderate and exclude High/IL5. The April changelog adds High/IL5 for relevant 10.3 in both GovCloud regions. The 10.6 standalone S3 guide names Moderate/High/IL5 in its deployment restrictions for a scoped mode. This leaves the current High/IL5 path unresolved, separately from generic Federated Search or the new processor rows.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform"
+    ],
+    "versions": [
+      "10.6 and 10.7 Service Details; relevant 10.3 changelog scope"
+    ],
+    "editions": null,
+    "deployments": [
+      "AWS GovCloud East/West, Moderate, High and IL5"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating the documented deployment or service boundary"
+    ],
+    "exclusions": [
+      "No exact entitlement, tenant rollout, customer authorization or unlisted compatibility is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261107-4-0",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "10.6 > Available regions and region differences > Federated search for Amazon S3",
+      "statement": "The 10.6 and 10.7 regional rows list Moderate and exclude High/IL5. The April changelog adds High/IL5 for relevant 10.3 in both GovCloud regions. The 10.6 standalone S3 guide names Moderate/High/IL5 in its deployment restrictions for a scoped mode. This leaves the current High/IL5 path unresolved, separately from generic Federated Search or the new processor rows.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-07T12:53:08.178Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "1e9d48f4217fcfd94dcbf4984aa48b5b82516996865b9385c857c379e51dc117",
+        "qualification": "Direct public response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261107-4-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "10.7 > Available regions and region differences > Federated search for Amazon S3",
+      "statement": "The 10.6 and 10.7 regional rows list Moderate and exclude High/IL5. The April changelog adds High/IL5 for relevant 10.3 in both GovCloud regions. The 10.6 standalone S3 guide names Moderate/High/IL5 in its deployment restrictions for a scoped mode. This leaves the current High/IL5 path unresolved, separately from generic Federated Search or the new processor rows.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-07T12:53:16.702Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "f7dd17b36bb3b7724b01e3c2d4f9a4163e32e588af365eaad9164f83baabd66d",
+        "qualification": "Direct public response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261107-4-2",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "April 2026 > April 8 > Available region and region differences",
+      "statement": "The 10.6 and 10.7 regional rows list Moderate and exclude High/IL5. The April changelog adds High/IL5 for relevant 10.3 in both GovCloud regions. The 10.6 standalone S3 guide names Moderate/High/IL5 in its deployment restrictions for a scoped mode. This leaves the current High/IL5 path unresolved, separately from generic Federated Search or the new processor rows.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-07T12:53:16.757Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "2c7d408679eaff3c7a9d83f20be1dd054e9f4f7633d4d8ddcfa66a21156e8c54",
+        "qualification": "Direct public response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261107-4-3",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/federated-search/10.6/run-federated-searches-over-amazon-s3-datasets/overview-of-federated-search-for-amazon-s3",
+      "section": "Deployment and regional restrictions for Amazon S3",
+      "statement": "The 10.6 and 10.7 regional rows list Moderate and exclude High/IL5. The April changelog adds High/IL5 for relevant 10.3 in both GovCloud regions. The 10.6 standalone S3 guide names Moderate/High/IL5 in its deployment restrictions for a scoped mode. This leaves the current High/IL5 path unresolved, separately from generic Federated Search or the new processor rows.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-07T12:53:03.967Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "abd9962a88e6d3317e8a27879a8fc652895f38398eb8ced3e73f36da95eab00b",
+        "qualification": "Direct public response bytes; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/9b74da7169155acecc93881e7319e251abf8f2db/docs/audits/2026-11-07-csp-fedramp-watch.json",
+      "pointer": "/claimChecks/4",
+      "originalLabel": "conflict-preserved"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261106-cloud-s3-restricted-scope"
+  ],
+  "remainingConcerns": [
+    "Review the exact retained source sections on the next existing CSP run. Preserve the stated scope and unresolved distinctions."
+  ]
+}
