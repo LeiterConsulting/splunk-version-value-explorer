@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "assessment",
+  "findingId": "vci-app-for-soar-88-onprem-matrix-cell",
+  "reviewedScope": {
+    "products": [
+      "Splunk App for SOAR"
+    ],
+    "versions": [
+      "8.8.0"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed SOAR column"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers comparing documented ES deployments and prerequisites"
+    ],
+    "exclusions": [
+      "Exact native pairing, customer enablement, feature entitlement and customer authorization remain separate."
+    ]
+  },
+  "revision": 1,
+  "recordedAt": "2026-11-07T11:03:56.743Z",
+  "assessmentId": "vcia-es-20261107-app-for-soar-88-onprem-matrix-cell",
+  "assessedAt": "2026-11-07T11:02:16.192Z",
+  "outcome": "still-present",
+  "rationale": "The exact App 8.8.0 table still contains the malformed second SOAR on-premises value 8..0. The distinct SOAR Cloud 8.7.0 cell does not disambiguate it.",
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/fd6531a80d3ea236d96a33fc970deb54accfe162/docs/audits/2026-11-07-es-editions-watch.json",
+      "pointer": "/claimChecks/6",
+      "originalLabel": "still-present"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "es-20261107-5-0",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.8.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "section": "Splunk product compatibility matrix > App 8.8.0 row > SOAR on-premises and Cloud columns",
+      "statement": "The exact App 8.8.0 table still contains the malformed second SOAR on-premises value 8..0. The distinct SOAR Cloud 8.7.0 cell does not disambiguate it.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-07T10:58:47.107Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "8ba971468d0099013f20e9adfda3a8f6ac95dbc40f1d4832131a3fda7a66c94d",
+        "qualification": "Direct public response bytes; publisher revision unknown."
+      }
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-es-exact-20261106-app-for-soar-88-onprem-matrix-cell"
+  ],
+  "remainingConcerns": [
+    "Retain the stated uncertainty and compare the exact sources in the November 8 ES review."
+  ]
+}

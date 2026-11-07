@@ -926,10 +926,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-06T11:29:59.905922Z",
+      "lastAttempt": "2026-11-07T10:56:28.060861Z",
       "lastSuccess": "2026-11-06T11:33:59.772Z",
-      "outcome": "changed",
-      "summary": "Reconciled exact tested ES 8.8.0 App evidence while keeping separate Export and native pairing limits.",
+      "outcome": "blocked",
+      "summary": "Completed bounded ES claim checks. Direct retrieval gaps remain and no new product facts were established.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1355,9 +1355,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Reconciled exact tested ES 8.8.0 App evidence while keeping separate Export and native pairing limits.",
           "scope": "ES Editions registered SOC prerequisite/discrepancy/history and bounded exact App, Export, Automation Builder and licensing scope."
+        },
+        {
+          "at": "2026-11-07T10:56:28.060861Z",
+          "outcome": "running",
+          "summary": "Started ES Editions Watch evidence review.",
+          "scope": "Current and historical ES editions, Agentic SOC prerequisites, and exact SOAR pairing evidence."
+        },
+        {
+          "at": "2026-11-07T11:02:16.192Z",
+          "outcome": "blocked",
+          "summary": "Completed bounded ES claim checks. Direct retrieval gaps remain and no new product facts were established.",
+          "scope": "48 official URLs attempted. Exact App, Export and native pairing were kept separate. Full inventory verification remains incomplete."
         }
       ],
-      "scope": "ES Editions registered SOC prerequisite/discrepancy/history and bounded exact App, Export, Automation Builder and licensing scope."
+      "scope": "48 official URLs attempted. Exact App, Export and native pairing were kept separate. Full inventory verification remains incomplete."
     },
     {
       "id": "version-guidance-audit",
