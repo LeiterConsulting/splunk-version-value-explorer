@@ -106,7 +106,7 @@ test('publication validation rejects partial identities, duplicate records and e
   await assert.rejects(m.validateBundle(duplicate, seed.manifest.engineRevision), /duplicate record ID/);
   await assert.rejects(m.validateBundle(seed, 'engine-' + '0'.repeat(20)), /Engine mismatch/);
 });
-test('content API is read-only, validates filters and reports database failures', async () => {
+test('content API restricts client methods, validates filters and reports database failures', async () => {
   const m = await modules(), db = database(), worker = m.createWorker(seed, { '/index.html': { body: '<h1>VersionCompass</h1>', type: 'text/html' } });
   const get = (pathname, env = { DB: db }, method = 'GET') => worker.fetch(new Request('https://versioncompass.com' + pathname, { method }), env);
   try {

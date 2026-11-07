@@ -335,3 +335,13 @@ elapsed time, calls, tokens and cost as null. No delivery SLA is inferred.
 
 Recovery never authorizes deleting immutable findings, relaxing tests, advancing
 source dates, setting activation flags or modifying repository protections.
+
+### Private seed observation proposal
+
+The authenticated, GET-only `/api/publisher/observe-seed` route is documented in
+[publisher integration](architecture/publisher-integration.md#private-bundled-seed-observation-november-7-2026-not-deployed).
+It provides bounded metadata/count observations without importing content. A 200
+is an observation, not readiness, integrity or delivery proof. This repository
+implementation is not deployed and does not change the production/publisher hold,
+existing workflows, timers, credentials, active-delivery flag or release gates.
+Do not use legacy public content GET/HEAD routes as no-write diagnostics.
