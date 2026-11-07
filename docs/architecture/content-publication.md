@@ -10,7 +10,7 @@ Edit `content/datasets/*.json`, not generated `dist/*-data.js` or `dist/data.js`
 
 Historical payload shapes are preserved in this first increment. The catalog adds a common envelope with identity, kind, dataset, scope, evidence and verification. Source review dates and sections are not promoted into claim verification. Inherited release citations remain inherited citations. Array positions are not permanent claim identities.
 
-GitHub records approved content and executable rules; D1 is a serving projection. Each Worker carries one immutable, validated repo seed revision and imports it idempotently on first use of the API. Content rows are not schema migrations. The final import batch activates a revision only after its record count is verified. Failed imports leave the previous complete revision intact.
+GitHub records approved content and executable rules; D1 is a serving projection. Each Worker carries one immutable, validated repo seed revision and imports it idempotently on first use of the API. Content rows are not schema migrations. After all import batches, the stored records are checked against the expected count and bytes before the revision is marked complete. Initialization then inserts an empty engine channel head with `ON CONFLICT DO NOTHING`; it never replaces an existing head. Failed imports leave the previous complete revision intact.
 
 The publication identity includes the dataset digest and engine revision. A rules-only change therefore gets a new immutable publication without changing factual dataset hashes. The generated Worker is built from tracked sources and is excluded from Git; the packaged build remains tied to its exact source commit.
 
@@ -23,7 +23,49 @@ This increment still publishes content through the existing deployment pipeline.
 - `GET /api/content/records?revision=...&kind=...&dataset=...&offset=...&limit=...`: bounded record queries; maximum limit 200.
 - `GET /api/content/health`: actual D1 readiness. Unavailable storage returns 503, never static success.
 
-Writes, repeated/unknown parameters, invalid identifiers and unavailable revisions are rejected. The browser validates schema, expected revision, engine, record count and SHA-256 digest before assigning any API data. Datasets switch together. A failure or 2.5-second timeout selects the complete bundled adapters. DOM metadata and exported reports distinguish delivery paths. D1 stores no visitor context, profiles, telemetry or comparison histories.
+Client write methods, repeated/unknown parameters, invalid identifiers and unavailable revisions are rejected. The browser validates schema, expected revision, engine, record count and SHA-256 digest before assigning any API data. Datasets switch together. A failure or 2.5-second timeout selects the complete bundled adapters. DOM metadata and exported reports distinguish delivery paths. D1 stores no visitor context, profiles, telemetry or comparison histories.
+
+## Initialization side effects and isolated regression tests
+
+The public API restricts **client methods**, not internal database writes. Both valid
+`GET` and `HEAD` requests to `/api/content/manifest`, `/api/content/bundle`,
+`/api/content/records` and `/api/content/health` call `ensureRevision` before reading
+content. `HEAD` omits the response body only after initialization. Even an explicit
+revision lookup can initialize the deployment seed before reporting that the selected
+revision is unavailable. `VC_ACTIVE_DELIVERY=0` does not disable seed initialization.
+Do not use these routes as no-write readiness probes or assume that diagnostics cannot
+mutate storage. This clarification introduces no endpoint or runtime behavior change.
+
+`worker/content-store.mjs` imports records in batches of 50. Failed imports can leave
+committed partial rows, but incomplete bundles are not served and do not initialize
+a head. Retry replays all batches with conflict-do-nothing, verifies exact records,
+then marks completion and initializes only an empty channel. The module-local WeakMap
+coalesces requests sharing the same database object and revision; it is not a
+cross-isolate lock. Interrupted or lost responses alone do not establish whether a
+write committed. Same-count record corruption in incomplete imports and immutable
+identity collisions fail closed. The completed-revision fast path checks stored bundle
+identity but does not rescan individual content records.
+
+Run `node --test tests/content-seeding.test.cjs` (also included by `npm test`). Its
+17 scenarios generate synthetic records without reading the checked-in content bundle
+or production data. They cover GET/HEAD initialization, early and nineteenth-batch
+failure, transaction rollback, response loss after commit, retry after completion/head
+errors, same-object and distinct-wrapper/module concurrency, existing-head preservation,
+corruption, collisions and an aborted Request signal. Native `node:test` owns result
+accounting; its parent test is reported in addition to the 17 scenarios.
+
+The test imports local Worker source only, stubs fetch before import, counts even
+swallowed network attempts and uses in-memory SQLite. Each batch is a serialized
+SQLite transaction; a post-commit response-loss injection throws **after** commit.
+Concurrency barriers force both initial reads to observe missing state. These
+assumptions demonstrate SQL/control-flow behavior for those schedules, not hosted D1
+transaction scheduling, distributed races, limits, latency or replica consistency.
+Aborting a Request signal while a batch is paused demonstrates that direct local
+invocation continues; it does not model client disconnects or Cloudflare Worker
+termination. Passing local tests supplies no deployed-schema/binding, live-readiness,
+activation/rollback or browser/export evidence and does not authorize deployment or
+enabling active delivery. See [publisher integration](publisher-integration.md) for
+those separate gates.
 
 ## Publication checks
 
