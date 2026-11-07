@@ -8,6 +8,8 @@ if (!['--commit', '--bootstrap'].includes(args[0]) || (args[0] === '--commit' &&
 }
 const commit = args[1], base = 'https://versioncompass.com';
 let action = 'candidate-input', mutation = false;
+let runtimeMismatch;
+const enginePattern = /^engine-[a-f0-9]{20}$/;
 const completedActions = [];
 function actionTarget() {
   return ['stage','head','bootstrap','activate'].includes(action) ? base + '/api/publisher/' + action : action === 'candidate-input' ? 'dist/content-bundle.json' : action === 'credential-acquisition' ? (process.env.GITHUB_ACTIONS === 'true' ? 'GitHub Actions OIDC issuer' : 'hidden stdin') : base + '/content-manifest.json';
@@ -17,7 +19,14 @@ function receipt(result) {
     qualification: 'D1 publisher result only. Sites runtime deployment and live visitor verification require separate evidence.' };
   if (process.env.GITHUB_ACTIONS === 'true') {
     fs.writeFileSync('publication-outcome.json', JSON.stringify(value, null, 2) + '\n');
-    if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, '\nPublisher outcome: **' + value.status + '**\n\n`' + commit + '`\n\n' + value.qualification + '\n');
+    if (process.env.GITHUB_STEP_SUMMARY) {
+      const details = runtimeMismatch ? [
+        'Deployed engine: `' + runtimeMismatch.deployedEngineRevision + '`',
+        'Required engine: `' + runtimeMismatch.requiredEngineRevision + '`',
+        'Use the authorized Sites deployment process for the validated current main runtime before retrying publication.'
+      ] : [];
+      fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, ['\nPublisher outcome: **' + value.status + '**', '`' + commit + '`', ...details, value.qualification, ''].join('\n\n'));
+    }
   }
   console.log(JSON.stringify(value));
 }
@@ -49,14 +58,17 @@ async function credential() {
 try {
   if (process.env.GITHUB_ACTIONS === 'true' && process.env.GITHUB_SHA !== commit) throw Error('Selected commit differs from the workflow OIDC commit; no publication attempted');
   const candidate = { repository: 'LeiterConsulting/splunk-version-value-explorer', commit, bundle: JSON.parse(fs.readFileSync('dist/content-bundle.json', 'utf8')) };
+  const requiredEngineRevision = candidate.bundle.manifest?.engineRevision;
+  if (!enginePattern.test(requiredEngineRevision || '')) throw Error('Candidate engine revision invalid; no publication attempted');
   action = 'runtime-inspection';
   const runtime = await fetch(base + '/content-manifest.json', { redirect: 'error', signal: AbortSignal.timeout(15000) });
   if (!runtime.ok) throw Error('Deployed engine inspection unavailable; no publication attempted');
   const deployed = await runtime.json();
-  if (!/^engine-[a-f0-9]{20}$/.test(deployed.engineRevision || '')) throw Error('Deployed engine inspection invalid; no publication attempted');
-  if (deployed.engineRevision !== candidate.bundle.manifest.engineRevision) {
-    const error = Error('Engine mismatch: candidate requires a separately authorized Sites runtime deployment; no publisher write attempted');
-    error.reason = 'engine-mismatch'; throw error;
+  const deployedEngineRevision = deployed.engineRevision;
+  if (!enginePattern.test(deployedEngineRevision || '')) throw Error('Deployed engine inspection invalid; no publication attempted');
+  if (deployedEngineRevision !== requiredEngineRevision) {
+    runtimeMismatch = { deployedEngineRevision, requiredEngineRevision };
+    throw Error('Engine mismatch: candidate requires a separately authorized Sites runtime deployment; no publisher write attempted');
   }
   completedActions.push(action); action = 'credential-acquisition';
   const token = await credential();
@@ -102,7 +114,9 @@ try {
     }
   }
 } catch (error) {
-  receipt({ status: error.reason === 'engine-mismatch' ? 'held-runtime-deployment-required' : 'failed', reason: /^[a-z0-9-]{1,60}$/.test(error.reason || '') ? error.reason : 'publisher-verification-failed',
+  receipt({ status: runtimeMismatch ? 'held-runtime-deployment-required' : 'failed',
+    reason: runtimeMismatch ? 'engine-mismatch' : /^[a-z0-9-]{1,60}$/.test(error.reason || '') ? error.reason : 'publisher-verification-failed',
+    ...runtimeMismatch,
     mutationOutcome: mutation ? ([401,403].includes(error.status) ? 'denied' : error.status ? 'rejected-completion-unverified' : 'uncertain-read-back-before-retry') : 'no-write-at-failed-action' });
   console.error(error.message); process.exitCode = 1;
 }

@@ -164,8 +164,11 @@ here. Exact-candidate CI must rerun the current complete matrix.
 The publisher retains `publisher-outcome-RUN-ATTEMPT`. Its receipt always leaves
 `claimedDelivered:false`, since the CLI cannot perform the entire live check.
 A successful stage or `already-current` can be green with active delivery off.
-Inspect the returned status, engine, revision and active-delivery flag. Sites
-publication is separate. Preserve `VC_ACTIVE_DELIVERY` until its original real-D1
+Inspect the returned status, engine, revision and active-delivery flag. A
+preflight runtime hold records both the deployed and required engine revisions
+in its receipt and Actions job summary. If the candidate is still current main,
+use the separate authorized Sites runtime deployment process before retrying
+the publisher. Preserve `VC_ACTIVE_DELIVERY` until its original real-D1
 activation/rollback and independent-reader gates are satisfied.
 
 The approved PR #66 implementation is merged and deployed as Sites version 277;
@@ -194,6 +197,24 @@ coverage gaps and overdue follow-ups. GitHub read failure stops the diagnostic;
 do not expand access or infer no failures. Saved-task execution health, exact
 publisher receipts and live checks still require their own readback. No schedule
 is installed by this script; use the existing progress task.
+
+For controller diagnosis, pass `--publisher-outcome /absolute/path/receipt.json`
+with `{runId,runAttempt,receipt}`. The wrapper identities must come from the actual
+publisher run and attempt; `receipt` is the original `publication-outcome.json`
+from its retained `publisher-outcome-RUN-ATTEMPT` artifact. Verify the artifact's
+GitHub digest when downloading it. This local matching check does not authenticate
+an arbitrary JSON file or fetch artifacts on its own. Keep the retained source
+outside the public repository.
+
+The diagnostic binds the receipt to current main and the latest publisher
+run/attempt. A failed job without that receipt remains unexplained. A matching
+`runtime-inspection` engine mismatch with no completed action or write is reported
+as `held-runtime-deployment-required`; it remains a failed publisher job, never
+delivery. A post-stage rejection remains a failure with its mutation uncertainty.
+Older receipts without engine revisions preserve those values as unknown. A
+stale, malformed or contradictory receipt cannot authorize a retry or deployment.
+The controller must separately reconcile actual scheduler results, the approved
+runtime release and live evidence before declaring recovery.
 
 The one-time progress task is intentionally disabled and expired; it is not a
 recurring health monitor. The four existing watch prompts now carry read-only
