@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-editions-ambiguous-link",
+  "reviewedScope": {
+    "products": [
+      "VersionCompass ES Editions"
+    ],
+    "versions": [
+      "Site 286 baseline"
+    ],
+    "editions": [
+      "Essentials / Premier comparison"
+    ],
+    "deployments": [
+      "Live current view and legacy preview alias"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers opening shared edition history links"
+    ],
+    "exclusions": [
+      "Selected production URL behavior only. No vendor entitlement, authorization or compatibility conclusion."
+    ]
+  },
+  "revision": 1,
+  "recordedAt": "2026-11-07T11:03:56.743Z",
+  "assessmentId": "vcia-es-20261107-es-editions-ambiguous-link",
+  "assessedAt": "2026-11-07T11:02:16.192Z",
+  "outcome": "addressed-in-reviewed-scope",
+  "rationale": "Live duplicate release=8.7 and release=8.8 preserved the original input and disabled Copy Link, PDF and saved HTML pending explicit recovery. The Cisco legacy alias separately loaded exact ES 8.7 selected history. This is a scoped live regression for those URLs.",
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/fd6531a80d3ea236d96a33fc970deb54accfe162/docs/audits/2026-11-07-es-editions-watch.json",
+      "pointer": "/validation/browserJourneys",
+      "originalLabel": "addressed-in-reviewed-scope"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "es-20261107-6-0",
+      "url": "https://versioncompass.com/?view=es-editions&release=8.7&release=8.8",
+      "section": "ES Editions Link Recovery > original input and disabled report actions",
+      "statement": "Live duplicate release=8.7 and release=8.8 preserved the original input and disabled Copy Link, PDF and saved HTML pending explicit recovery. The Cisco legacy alias separately loaded exact ES 8.7 selected history. This is a scoped live regression for those URLs.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-07T11:02:16.192Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact publisher revision unavailable."
+      }
+    },
+    {
+      "evidenceId": "es-20261107-6-1",
+      "url": "https://versioncompass.com/?preview=es-editions&release=8.7&perspective=overview&theme=cisco",
+      "section": "Selected ES 8.7 history and Cisco theme",
+      "statement": "Live duplicate release=8.7 and release=8.8 preserved the original input and disabled Copy Link, PDF and saved HTML pending explicit recovery. The Cisco legacy alias separately loaded exact ES 8.7 selected history. This is a scoped live regression for those URLs.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-07T11:02:16.192Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact publisher revision unavailable."
+      }
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-es-editions-20261103-ambiguous-link"
+  ],
+  "remainingConcerns": []
+}

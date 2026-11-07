@@ -469,7 +469,7 @@
       journey = activeTrack().label + " " + state.from + " → " + state.to + " · " + platformContext + state.host;
     }
     printTitle.textContent = journey;
-    printSubtitle.textContent = "Site updated November 6, 2026 · versioncompass.com";
+    printSubtitle.textContent = "Site updated November 7, 2026 · versioncompass.com";
     document.title = "Version Compass | " + journey;
   }
 
