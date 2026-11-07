@@ -134,10 +134,14 @@
     "fedrampModerate": {
       "title": "FedRAMP Marketplace: Splunk Cloud Platform Moderate",
       "url": "https://www.fedramp.gov/marketplace/products/F1607197917/",
-      "section": "Phase, Status, Certification Profile and Certified Services; Splunk SOAR is named under Other Service(s)",
-      "checked": "2026-10-06",
-      "reviewed": "2026-10-06",
-      "outcome": "confirmed"
+      "section": "Overview > FedRAMP Certified status and Certified Services. The November 6 review observed SOAR in the list. On November 7 the field displayed N/A, leaving current named SOAR component scope unresolved.",
+      "checked": "2026-11-07",
+      "reviewed": "2026-11-07",
+      "outcome": "qualified",
+      "availabilitySummary": {
+        "status": "Restricted service documented; current offering scope unresolved",
+        "detail": "The November 6 Moderate Marketplace list named SOAR. The November 7 listing remained FedRAMP Certified and displayed N/A for Certified Services. Splunk’s separate restricted-environment guide documents AWS GovCloud, FIPS mode, playbook restrictions and native-data migration limits. Feature, tenant, entitlement and individual customer authorization remain separate."
+      }
     },
     "fedrampHigh": {
       "title": "FedRAMP Marketplace: Splunk Cloud Platform High",
@@ -618,8 +622,13 @@
       "detail": "The App 8.8.0 row lists ES 8.8.0 or 8.7.0 (ES is optional), Enterprise 10.4.2 or 10.2.2, Cloud Platform 10.5.2605 or 10.4.2604, and SOAR Cloud 8.8.0 or 8.7.0. The on-premises column lists SOAR 8.8.0 and a malformed second value, 8..0. Confirm that second value from a corrected matrix before relying on it. These tested app combinations do not establish Export compatibility, a recommended security patch, an on-premises upgrade path, or tenant availability.",
       "kind": "technical",
       "release": "8.8.0",
-      "src": ["app88"],
-      "deployments": ["cmp", "cloud"],
+      "src": [
+        "app88"
+      ],
+      "deployments": [
+        "cmp",
+        "cloud"
+      ],
       "status": "Validate",
       "verified": "2026-11-06",
       "target": true

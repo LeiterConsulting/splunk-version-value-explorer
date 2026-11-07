@@ -319,6 +319,12 @@ try {
           ...(prep?{paginationPairs,paginationKind:'prep11-containment',paginationCoverage}:{}),
           ...(advisor?{paginationPairs,paginationKind:'advisor-containment',advisorPaginationCoverage}:{}) };
       });
+      if(route.id==='cloud-107-fedramp-high') {
+        for(const qualification of ['Cloud 10.7 Service Details lists Edge Processor for FedRAMP High','Cloud 10.7 Service Details lists Ingest Processor for FedRAMP High','The 10.6 table lists Moderate only','Essentials tier']) assert(normalize(expected.text).includes(qualification), 'High processor qualification missing: '+qualification);
+      }
+      if(route.id==='soar-cloud-fedramp-moderate') {
+        for(const qualification of ['November 6 Moderate Marketplace list named SOAR','N/A for Certified Services','native-data migration limits']) assert(normalize(expected.text).includes(qualification), 'Moderate SOAR qualification missing: '+qualification);
+      }
       if(route.id==='enterprise') expected.paginationPairs=[{heading:'Recommended action',following:'Match the exact package identifier to its release'}];
       if(route.id==='observability-october') expected.paginationPairs=[
         {heading:'Kubernetes persistent-volume metric defaults',following:'Chart 0.162.1 does not explicitly enable these five metrics'},
