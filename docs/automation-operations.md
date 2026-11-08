@@ -358,7 +358,9 @@ The existing trusted publisher workflow has a separate manual `observe-only` mod
 with explicit expected main SHA/ref and bundled engine/revision. It skips candidate
 selection and all publication paths, retains a separate sanitized observation
 receipt on failure, and cannot establish readiness or delivery. The default
-`publish` mode and automatic publisher continue unchanged. Read the
+`publish` mode and automatic publisher are now held before checkout, credentials
+or production requests; see the November 8 repository hold in that procedure.
+The deployed seed is bound separately from the current workflow authorization SHA. Read the
 [bounded rollout procedure](bounded-rollout-verification.md) before dispatching;
 implementation does not authorize a run or lift the production hold.
 
@@ -369,3 +371,9 @@ critical failure, no later requests are sent and no retry is implied. Client
 abort cannot establish that server initialization stopped. Preserve exact mode,
 run/attempt and receipt identities; a green observe-only workflow is not a
 publisher stage or a successful rollout.
+
+The November 8 pre-write hold supersedes the staging behavior described above
+for current repository callers. `held-publication-disabled` means no candidate,
+credential, runtime or D1 request was attempted, not that production is globally
+write-free. The workflow remains disabled. Removing the hold and any eventual
+observation dispatch, staging/bootstrap or activation require separate agreement.

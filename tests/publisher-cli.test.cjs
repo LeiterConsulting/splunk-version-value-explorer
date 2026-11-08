@@ -5,85 +5,56 @@ const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 const { pathToFileURL } = require('node:url');
-const manifest = JSON.parse(fs.readFileSync('dist/content-manifest.json'));
 
-function runCli(t, rejection, deployedEngine = manifest.engineRevision) {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-publisher-cli-'));
-  t.after(() => fs.rmSync(root, { recursive: true, force: true }));
-  const trace = path.join(root, 'trace.json'), fixture = path.join(root, 'transport.mjs');
+function runHeld(t, mode, actions) {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'publisher-hold-'));
+  t.after(() => fs.rmSync(dir, { recursive: true, force: true }));
+  const fixture = path.join(dir, 'guard.mjs'), trace = path.join(dir, 'trace.json');
   fs.writeFileSync(fixture, `
     import fs from 'node:fs';
-    import assert from 'node:assert/strict';
-    const manifest = ${JSON.stringify(manifest)}, rejection = ${JSON.stringify(rejection)}, deployedEngine = ${JSON.stringify(deployedEngine)};
-    const calls = []; let initialized = false;
-    process.on('exit', () => fs.writeFileSync(${JSON.stringify(trace)}, JSON.stringify(calls)));
-    globalThis.fetch = async (url, options) => {
-      assert.equal(new URL(url).origin, 'https://versioncompass.com');
-      assert.equal(options.redirect, 'error');
-      if (new URL(url).pathname === '/content-manifest.json') return Response.json({...manifest,engineRevision:deployedEngine});
-      assert.equal(options.headers.Authorization, 'Bearer ' + 'a'.repeat(64));
-      const route = new URL(url).pathname.split('/').at(-1); calls.push(route);
-      if (route === 'stage') { if (rejection.network) throw Error('Synthetic transport failure'); return Response.json({revision:manifest.revision}); }
-      if (route === 'bootstrap') {
-        const body = JSON.parse(options.body);
-        assert.equal(body.candidate.bundle.manifest.revision, manifest.revision);
-        assert.equal(body.candidate.commit, 'b'.repeat(40));
-        assert.match(body.operationId, /^pub-[a-f0-9]{32}$/);
-        initialized = true; return Response.json({status:'initialized'});
-      }
-      if (route === 'head') return initialized ? Response.json({revision:manifest.revision,generation:1,engineRevision:manifest.engineRevision,activeDelivery:false}) : Response.json({reason:rejection.reason}, {status:rejection.status});
-      throw Error('Unexpected publisher action');
+    const calls = [];
+    globalThis.fetch = async () => { calls.push('network'); throw Error('Unexpected network'); };
+    process.stdin.on = () => { calls.push('stdin'); throw Error('Unexpected credential read'); };
+    const read = fs.readFileSync;
+    fs.readFileSync = (...args) => {
+      if (String(args[0]).includes('content-bundle.json')) { calls.push('candidate'); throw Error('Unexpected candidate read'); }
+      return read(...args);
     };
+    process.on('exit', () => fs.writeFileSync(${JSON.stringify(trace)}, JSON.stringify(calls)));
   `);
-  const result = spawnSync(process.execPath, ['--import', pathToFileURL(fixture).href, 'scripts/publish-content.mjs', '--commit', 'b'.repeat(40)], { input: 'a'.repeat(64) + '\n', encoding: 'utf8', env: { ...process.env, GITHUB_ACTIONS: 'false' } });
-  return { ...result, calls: JSON.parse(fs.readFileSync(trace)) };
+  const result = spawnSync(process.execPath, ['--import', pathToFileURL(fixture).href, path.resolve('scripts/publish-content.mjs'), mode, 'b'.repeat(40)], {
+    cwd: dir, encoding: 'utf8', timeout: 5000,
+    env: { ...process.env, GITHUB_ACTIONS: actions, GITHUB_SHA: 'c'.repeat(40), GITHUB_STEP_SUMMARY: path.join(dir, 'summary.md'),
+      VC_ACTIVE_DELIVERY: '1', VC_PUBLISHER_HOLD: '0', ACTIONS_ID_TOKEN_REQUEST_URL: 'https://test.actions.githubusercontent.com/token', ACTIONS_ID_TOKEN_REQUEST_TOKEN: 'fixture' },
+  });
+  return { ...result, dir, calls: JSON.parse(fs.readFileSync(trace)) };
 }
 
-test('publisher CLI explicitly initializes a fresh engine without requiring public traffic', t => {
-  const result = runCli(t, {status:409, reason:'initial-publication-required'});
-  assert.equal(result.status, 0, result.stderr);
-  assert.deepEqual(result.calls, ['stage', 'head', 'bootstrap', 'head']);
-  const receipt = JSON.parse(result.stdout);
-  assert.equal(receipt.status, 'already-current'); assert.equal(receipt.revision, manifest.revision);
-  assert.equal(receipt.activeDelivery, false); assert.equal(receipt.claimedDelivered, false);
-});
-test('engine changes hold before requesting credentials or performing a publisher write', t => {
-  const result = runCli(t, { status: 409, reason: 'initial-publication-required' }, 'engine-'+'0'.repeat(20));
-  assert.equal(result.status, 1); assert.deepEqual(result.calls, []);
-  const receipt = JSON.parse(result.stdout);
-  assert.equal(receipt.status, 'held-runtime-deployment-required');
-  assert.equal(receipt.action, 'runtime-inspection');
-  assert.equal(receipt.reason, 'engine-mismatch');
-  assert.equal(receipt.mutationOutcome, 'no-write-at-failed-action');
-  assert.equal(receipt.deployedEngineRevision, 'engine-'+'0'.repeat(20));
-  assert.equal(receipt.requiredEngineRevision, manifest.engineRevision);
-  assert.match(result.stderr, /separately authorized Sites runtime deployment/);
-});
-test('an API rejection after staging stays a failure even if it reports an engine mismatch', t => {
-  const result = runCli(t, { status: 409, reason: 'engine-mismatch' });
-  assert.equal(result.status, 1);
-  assert.deepEqual(result.calls, ['stage', 'head']);
-  const receipt = JSON.parse(result.stdout);
-  assert.equal(receipt.status, 'failed');
-  assert.equal(receipt.action, 'head');
-  assert.equal(receipt.reason, 'engine-mismatch');
-  assert.deepEqual(receipt.completedActions, ['runtime-inspection', 'stage']);
-  assert.equal(receipt.requiredEngineRevision, undefined);
-});
-
-test('a publisher POST transport failure stays uncertain and requires readback before retry', t => {
-  const result = runCli(t, { network: true });
-  assert.equal(result.status, 1); assert.deepEqual(result.calls, ['stage']);
-  const receipt = JSON.parse(result.stdout);
-  assert.equal(receipt.action, 'stage'); assert.equal(receipt.mutationOutcome, 'uncertain-read-back-before-retry');
-  assert.deepEqual(receipt.completedActions, ['runtime-inspection']); assert.equal(receipt.claimedDelivered, false);
-});
-
-test('publisher CLI never bootstraps on authentication, verification or existing-head failures', t => {
-  for (const rejection of [{status:401,reason:'initial-publication-required'}, {status:409,reason:'verification-unavailable'}, {status:409,reason:'bootstrap-head-conflict'}]) {
-    const result = runCli(t, rejection);
-    assert.equal(result.status, 1);
-    assert.deepEqual(result.calls, ['stage', 'head']);
-    assert.match(result.stderr, /Publisher head rejected/);
+test('both publication entry points hold before candidate, production or credential access in Actions and locally', t => {
+  for (const mode of ['--commit', '--bootstrap']) for (const actions of ['true', 'false']) {
+    const result = runHeld(t, mode, actions);
+    assert.equal(result.status, 1, result.stderr); assert.deepEqual(result.calls, []);
+    const receipt = JSON.parse(result.stdout);
+    assert.equal(receipt.status, 'held-publication-disabled'); assert.equal(receipt.action, 'pre-write-hold');
+    assert.deepEqual(receipt.completedActions, []); assert.equal(receipt.requests, 0);
+    assert.equal(receipt.mutationAttempted, false); assert.equal(receipt.credentialAcquired, false);
+    assert.equal(receipt.claimedDelivered, false); assert.equal(receipt.mutationOutcome, 'not-attempted');
+    assert.equal(receipt.activeDelivery, undefined); assert.equal(receipt.revision, undefined);
+    assert.equal(fs.existsSync(path.join(result.dir, 'publication-outcome.json')), actions === 'true');
   }
+});
+
+test('workflow hold is before checkout and cannot select a historical triggering writer', t => {
+  const workflow = fs.readFileSync('.github/workflows/publish-content.yml', 'utf8');
+  assert.ok(workflow.indexOf('Hold publication before checkout or credentials') < workflow.indexOf('uses: actions/checkout'));
+  assert.match(workflow, /if: github.event_name != 'workflow_dispatch' \|\| inputs.mode != 'observe-only'/);
+  assert.match(workflow, /ref: \$\{\{ github.sha \}\}/); assert.doesNotMatch(workflow, /ref:.*workflow_run.head_sha/);
+  assert.match(workflow, /if: always\(\) && hashFiles\('publication-outcome.json'\)/);
+  const inline = workflow.match(/node <<'NODE'\n([\s\S]*?)          NODE/)[1].replace(/^          /gm, '');
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'workflow-hold-'));
+  t.after(() => fs.rmSync(dir, { recursive: true, force: true }));
+  const result = spawnSync(process.execPath, ['-e', inline], { cwd: dir, encoding: 'utf8', env: { ...process.env, GITHUB_SHA: 'b'.repeat(40), GITHUB_STEP_SUMMARY: path.join(dir, 'summary.md') } });
+  assert.equal(result.status, 1, result.stderr);
+  const receipt = JSON.parse(fs.readFileSync(path.join(dir, 'publication-outcome.json')));
+  assert.equal(receipt.status, 'held-publication-disabled'); assert.equal(receipt.requests, 0); assert.equal(receipt.mutationAttempted, false);
 });
