@@ -10,8 +10,8 @@
   "execution": {
     "taskId": "6ab2aa014df881918687cc1e30393ea9",
     "schedulerRunId": "bcfd0fa1-6d78-832d-b488-158ddc8a7184",
-    "startedAt": "2026-11-08T19:13:07.066704Z",
-    "qualification": "Supported native saved-task read exposes this active ES Editions Watch scheduler identity. The current latest_result belongs to a prior run, so result matching and first-execution verification remain incomplete.",
+    "startedAt": "2026-11-08T19:59:33.598035Z",
+    "qualification": "Supported native saved-task read exposes this ES Editions Watch scheduler identity and the current retry attempt start. The same run is again in progress after a recorded failed retry, while latest_result still belongs to a prior run; result matching and first-execution verification remain incomplete.",
     "observations": [
       {
         "observedAt": "2026-11-08T19:18:38.940Z",
@@ -22,6 +22,11 @@
         "observedAt": "2026-11-08T19:54:00.000Z",
         "status": "failed-readback",
         "qualification": "Supported native readback now records the same scheduler run ID failed after a retry started 2026-11-08T19:50:33.018458Z and completed 2026-11-08T19:50:36.293955Z. latest_result still belongs to 4081ba9c-eb48-8333-ad00-1de34c2541e5, so no current-run semantic result or first-execution receipt is accepted."
+      },
+      {
+        "observedAt": "2026-11-08T20:02:24.000Z",
+        "status": "retry-in-progress-readback",
+        "qualification": "Supported native readback records the same scheduler run ID in progress again. latest_result still belongs to 4081ba9c-eb48-8333-ad00-1de34c2541e5, so this retry supplies no matching current-run result or first-execution receipt."
       }
     ]
   },
@@ -109,7 +114,7 @@
   "auditBindings": [
     {
       "file": "docs/audits/2026-11-08-es-editions-watch-sources.json",
-      "reviewDigest": "2f845e69ec6f139ef2ebfacf559ebf7e16793cc833cc2e27b4274d9ad8b1587c"
+      "reviewDigest": "ece41f0dab324306c3d0bbfc44ce6b94ea95b1e84b8dffcbf320b73bb7abd33f"
     }
   ],
   "validation": {
@@ -166,12 +171,12 @@
     "qualification": "Semantic coverage is complete; repository audit/feed publication and runtime delivery remain separate.",
     "repository": "Immutable audit is public on branch commit 7ada177aab50e3fec1a776d3c3287fa460cd569c; exact feed follow-up tree 2620c6943a867c00ff67d94ae03517a067f6fe77 passed application CI and artifact readback for integration through pull request 104.",
     "runtime": "No canonical product/report content change. Repository operational revision and maintenance metadata advanced, but the active publication hold was preserved and no new Site deployment was attempted.",
-    "firstExecution": "Failed verification: scheduler run bcfd0fa1-6d78-832d-b488-158ddc8a7184 is recorded failed, while latest_result remains the prior run 4081ba9c-eb48-8333-ad00-1de34c2541e5.",
+    "firstExecution": "Incomplete verification: scheduler run bcfd0fa1-6d78-832d-b488-158ddc8a7184 is again recorded in progress after a failed retry, while latest_result remains the prior run 4081ba9c-eb48-8333-ad00-1de34c2541e5.",
     "followUp": {
       "owner": "es-editions-watch",
       "action": "Reconcile the saved-task scheduler/result routing for bcfd0fa1-6d78-832d-b488-158ddc8a7184 and read back a matching current-run receipt without borrowing the prior result.",
       "reviewBy": "2026-11-09"
     }
   },
-  "reviewDigest": "a70c16c889f9fddfd6d2fb78a0edfe93e2e297d062400521dd88906ddbabebbf"
+  "reviewDigest": "caa023d62aa2bcc80e72d3629341bd78113a5fa9dacbae694b07cc9ef42fcb88"
 }
