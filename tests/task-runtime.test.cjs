@@ -194,3 +194,90 @@ test('green CI or successful controllers cannot substitute for any of the four w
   assert.deepEqual(watchReadiness('1.2.0', f.context.runs, result(f)).incompleteWatches, ['version-release-watch']);
   assert.equal(watchReadiness('1.2.0', f.context.runs, result(f)).status, 'unverified');
 });
+
+test('versioned caller-ownership compatibility preserves full hash and strict-first baseline identity', () => {
+  const legacy = savedConfigurationDigest(task('a', 'title', 0));
+  assert.equal(legacy, 'sha256:d1afc38c9846eb2694f91e86dbb34ef0ea51e06a4adf37a76798ef0bd5d0bbe8');
+  for (const ownership of [false, true]) {
+    const f = fixture(), t = f.snapshot.tasks[0], retained = structuredClone(f.context.ledger);
+    const oldDigest = retained.amendments[0].savedTasks[0].afterDigest;
+    t.is_self_owned_automation = ownership;
+    const full = savedConfigurationDigest(t);
+    assert.notEqual(full, oldDigest);
+    assert.equal(first(f).accepted, true);
+    assert.deepEqual(first(f).configuration.comparison, { method: 'native-caller-ownership-compat-v1', digest: oldDigest });
+    assert.equal(first(f).configuration.digest, full);
+    assert.deepEqual(f.context.ledger, retained);
+    t.configurationDigest = oldDigest;
+    assert(first(f).issues.includes('supplied-configuration-digest-mismatch'));
+    t.configurationDigest = full;
+    assert.equal(first(f).accepted, true);
+    f.context.ledger.amendments[0].savedTasks[0].afterDigest = full;
+    assert.deepEqual(first(f).configuration.comparison, { method: 'legacy-exact-v1', digest: full });
+    delete t.configurationDigest;
+    t.is_self_owned_automation = !ownership;
+    assert(first(f).issues.includes('saved-configuration-not-matched'));
+  }
+  const f = fixture();
+  assert.equal(first(f).configuration.comparison.method, 'legacy-exact-v1');
+});
+test('ownership fallback fails closed for malformed metadata, missing/future/unmatched baselines and incomplete objects', () => {
+  for (const value of ['false', 0, {}, [], null, undefined]) {
+    const f = fixture(); f.snapshot.tasks[0].is_self_owned_automation = value;
+    // Undefined is not JSON-native but must not unlock fallback either.
+    if (value === undefined) f.context.ledger.amendments[0].savedTasks[0].afterDigest = 'sha256:' + '0'.repeat(64);
+    assert(first(f).issues.includes('saved-configuration-not-matched'));
+    assert.equal(first(f).configuration.comparison, null);
+  }
+  for (const mutate of [b => delete b.afterDigest, b => b.afterDigest = 'bad', b => b.afterDigest = 'sha256:' + '0'.repeat(64), b => delete b.readbackAt, b => b.readbackAt = 'bad', b => b.readbackAt = '2099-01-01T00:00:00Z']) {
+    const f = fixture(); f.snapshot.tasks[0].is_self_owned_automation = false;
+    mutate(f.context.ledger.amendments[0].savedTasks[0]);
+    assert.equal(first(f).configuration.status, 'unverified');
+    assert.equal(first(f).configuration.comparison, null);
+  }
+  const f = fixture(); f.snapshot.tasks.forEach(t => t.is_self_owned_automation = false); delete f.context.operational;
+  for (const role of result(f).operational.roles) assert(role.issues.includes('saved-configuration-baseline-unavailable'));
+  delete f.snapshot.tasks[0].environments;
+  assert(first(f).issues.includes('native-saved-configuration-incomplete'));
+});
+test('ownership compatibility does not ignore any other saved field, presence, null or nested order', () => {
+  for (const [key, value] of Object.entries({ id: 'changed', title: 'changed', prompt: 'changed', schedule: 'changed', timing_mode: 'changed', default_timezone: 'UTC', is_enabled: false, environment_selection: 'changed', environments: [], conversation_id: 'changed', unknown: null })) {
+    const f = fixture(); Object.assign(f.snapshot.tasks[0], { is_self_owned_automation: false, [key]: value });
+    assert.equal(first(f).accepted, false, key);
+    if (key !== 'id') assert(first(f).issues.includes('saved-configuration-not-matched'), key);
+  }
+  for (const mutate of [t => delete t.optional, t => t.optional = '', t => t.environments = [{ a: 2, z: 1 }]]) {
+    const f = fixture(), t = f.snapshot.tasks[0]; t.optional = null; t.environments = [{ z: 1, a: 2 }];
+    Object.assign(f.context.ledger.amendments[0].savedTasks[0], baseline(t));
+    t.is_self_owned_automation = true; mutate(t);
+    assert(first(f).issues.includes('saved-configuration-not-matched'));
+  }
+  const f = fixture(), t = f.snapshot.tasks[0]; t.is_self_owned_automation = false;
+  for (const key of ['automation', 'automations', 'structuredContent']) {
+    assert.throws(() => savedConfigurationDigest({ [key]: t }), /Raw native/);
+    assert.throws(() => nativeTasks({ ...t, [key]: t }), /Ambiguous/);
+  }
+});
+test('compatible configuration cannot repair native failure, old results, changed starts, coverage or delivery', () => {
+  const changes = [
+    t => t.run_details.last_run.recorded_status = 'failed',
+    t => t.run_details.latest_result.run_id = 'old',
+    t => t.run_details.last_run.started_at = '2026-11-05T13:01:00.000001Z',
+    t => t.run_details.latest_result.content_truncated = true,
+    t => t.run_details.latest_result.is_failure_message = true,
+    t => t.run_details.latest_result.content_text = 'NO_UPDATE',
+    t => t.run_details.latest_result.content_text = 'ES Editions Watch: other watch',
+    (t, f) => f.context.runs[0].coverageComplete = false,
+    (t, f) => f.context.runs[0].deliveryComplete = false,
+    (t, f) => f.context.runs[0].publication.claimedDelivered = false,
+    (t, f) => f.snapshot.tasks[1].run_details.latest_result.content_text = t.run_details.latest_result.content_text,
+    t => t.run_details.last_run.started_at = '2026-11-03T13:01:00Z'
+  ];
+  for (const mutate of changes) {
+    const f = fixture(), t = f.snapshot.tasks[0]; t.is_self_owned_automation = false; mutate(t, f);
+    const row = first(f);
+    assert.equal(row.configuration.status, 'matched'); assert.equal(row.accepted, false);
+    assert.deepEqual(row.delivery, { status: 'unknown', claimedDelivered: false });
+    assert.equal(result(f).claimedDelivered, false);
+  }
+});

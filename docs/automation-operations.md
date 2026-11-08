@@ -270,6 +270,20 @@ baseline: expected digests and readback times must come from a separately review
 saved-configuration receipt. This local comparison does not authenticate arbitrary
 JSON or establish unexposed permissions.
 
+The explicit `native-caller-ownership-compat-v1` comparison supports the native
+caller-relative boolean `is_self_owned_automation`. Strict full-digest equality
+is tried first (`legacy-exact-v1`). Only with a valid retained expected digest and
+readback time no later than observation may the fallback omit that single boolean
+field and require exact equality to the original expected digest. Missing fields
+use the legacy path; null, strings, numbers and objects cannot unlock fallback.
+All other fields, presence/null distinctions and nested ordering still participate.
+A baseline that includes ownership is not rewritten. The full observed `digest`
+and supplied-digest validation remain unchanged; `comparison` identifies the
+successful method and comparison digest, or is null. Compatibility is not full
+saved-object byte identity. Required fields, readback timing, attempt/result and
+coverage/delivery gates still apply. No observation becomes its own baseline, and
+operational roles without independent baselines remain unverified.
+
 ### Watches and operational roles
 
 The existing four-watch `readiness` and coverage registry 1.2.0 are unchanged.
