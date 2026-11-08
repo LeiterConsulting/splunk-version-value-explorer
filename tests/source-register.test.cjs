@@ -90,6 +90,44 @@ test('every declared Forwarder claim retains an exact source and section mapping
  assert.match(nodeAdvisory.verificationScope,/Visual Exporter is a separate exposure/);
  for(const claimId of ['security.uf','security.hf'])assert(nodeAdvisory.claimReferences.some(ref=>ref.path==='forwarders: forwarders.claimSources.'+claimId&&ref.section===data.sources.nodeOctober.section));
 });
+test('historical receiver and topology citations retain the correct forwarding leg',()=>{
+ const context={window:{},URLSearchParams};
+ vm.createContext(context);
+ for(const file of ['data.js','product-data.js','comparison.js','forwarders-data.js','forwarders.js','source-register.js']){
+  vm.runInContext(fs.readFileSync('dist/'+file,'utf8'),context);
+ }
+ const {VersionCompassForwarders:api,VersionCompassForwarderData:data,VersionCompassSources:register}=context.window;
+ function check(result, topology){
+  const [enterprise,cloud,authorization,routing]=result.claims.slice(1);
+  assert.equal(enterprise.source,'receiver');
+  assert.equal(cloud.source,'cloud');
+  assert.equal(routing.source,'routing');
+  assert.equal(enterprise.status,topology==='edge'?'not_established':'available');
+  assert.equal(cloud.status,topology==='direct'?'conditional':'not_established');
+  assert.equal(authorization.status,'not_established');
+  assert.match(cloud.detail,/directly connected to the stack/);
+  assert.match(routing.detail,/clone data to both destinations or route selected data/);
+ }
+ for(const type of ['uf','hf']){
+  for(const topology of ['direct','intermediate','edge']){
+   check(api.assess({...api.defaults,type,topology,from:'9.4',to:'10.0',destination:'hybrid',receiver:'10.0',cloudReceiver:'10.5'}),topology);
+  }
+ }
+ const broad=api.assess({...api.defaults,from:'9.4',to:'10.0',destination:'hybrid',receiver:'10.0',cloudReceiver:'10.5',topology:'intermediate'});
+ broad.claims[2].status='conditional';
+ assert.throws(()=>check(broad,'intermediate'),/not_established/);
+ const mappings={
+  receiver:['receiver.enterprise','topology.enterprise-intermediate'],
+  cloud:['receiver.cloud','topology.cloud-intermediate'],
+  routing:['topology.multiple-target-groups']
+ };
+ for(const [source,ids] of Object.entries(mappings)){
+  const row=register.sources.find(item=>item.url===data.sources[source].url);
+  for(const id of ids){
+   assert(row?.claimReferences?.some(ref=>ref.path==='forwarders: forwarders.claimSources.'+id&&ref.section===data.sources[source].section),id);
+  }
+ }
+});
 test('borrowed HF 10.2 runtimes preserve historical optional/default and app-owned boundaries',()=>{
  const c={window:{},URLSearchParams};vm.createContext(c);
  for(const f of ['data.js','product-data.js','comparison.js','forwarders-data.js','forwarders.js','source-register.js'])vm.runInContext(fs.readFileSync('dist/'+f,'utf8'),c);

@@ -17,7 +17,7 @@ function fixture() {
   for (const [i, role] of operational.roles.entries()) {
     const native = task(role.taskId, role.reportAliases[0], i + 4); tasks.push(native); role.configuration = baseline(native);
   }
-  const runs = ids.map((id, i) => ({ kind: 'saved-task-execution', watchId: id, registryVersion: '1.2.0', execution: { taskId: 'task-' + i, schedulerRunId: 'run-' + i }, coverageComplete: true, deliveryComplete: true, claimedComplete: true, publication: { claimedDelivered: true } }));
+  const runs = ids.map((id, i) => ({ kind: 'saved-task-execution', watchId: id, registryVersion: '1.2.0', execution: { taskId: 'task-' + i, schedulerRunId: 'run-' + i, startedAt: tasks[i].run_details.last_run.started_at }, coverageComplete: true, deliveryComplete: true, claimedComplete: true, publication: { claimedDelivered: true } }));
   return { snapshot: { observedAt: '2026-11-05T14:00:00Z', tasks }, context: { registry: { registryVersion: '1.2.0' }, ledger, runs, operational } };
 }
 const result = f => inspect(f.snapshot, f.context);
@@ -74,6 +74,19 @@ test('same-run stale result from a prior retry is rejected even with completed s
   t.run_details.last_run.started_at = '2026-11-05T13:01:00Z';
   assert(first(f).issues.includes('result-predates-current-attempt-completion'));
   t.run_details.latest_result.run_id = 'older-run'; assert(first(f).issues.includes('current-run-result-unavailable'));
+});
+test('a reused scheduler ID requires coverage for the actual attempt start', () => {
+  const f = fixture(), execution = f.context.runs[0].execution;
+  const last = f.snapshot.tasks[0].run_details.last_run;
+  last.started_at = '2026-11-05T13:01:00.000002Z';
+  execution.startedAt = '2026-11-05T13:01:00.000001Z';
+  assert.equal(first(f).result.status, 'matched');
+  assert.equal(first(f).accepted, false);
+  assert(first(f).issues.includes('coverage-attempt-start-not-matched'));
+  delete execution.startedAt;
+  assert(first(f).issues.includes('coverage-attempt-start-not-matched'));
+  f.context.runs.push({ ...f.context.runs[0], execution: { ...execution, startedAt: '2026-11-05T08:01:00.000002000-05:00' } });
+  assert.equal(first(f).accepted, true);
 });
 test('failed/incomplete attempts cannot accept older or otherwise matching results', () => {
   for (const status of ['failed', 'running', 'pending', 'cancelled', undefined, 'PRIVATE STATUS']) {
