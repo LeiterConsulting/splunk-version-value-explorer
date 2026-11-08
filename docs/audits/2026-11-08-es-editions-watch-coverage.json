@@ -11,12 +11,17 @@
     "taskId": "6ab2aa014df881918687cc1e30393ea9",
     "schedulerRunId": "f49968d5-88fc-8325-a554-dff92551b670",
     "startedAt": "2026-11-08T11:34:34.561851Z",
-    "qualification": "Authorized saved-task readback identifies this active ES Editions Watch execution. The latest completed result belongs to the prior scheduler run and is not attributed to this run.",
+    "qualification": "Authorized saved-task readback identifies this ES Editions Watch execution. A later readback records the same scheduler run as failed with a matching generic failure result; it does not establish semantic coverage or delivery.",
     "observations": [
       {
         "observedAt": "2026-11-08T11:44:27.921Z",
         "status": "in-progress-readback",
         "qualification": "last_run identifies the current scheduler execution; latest_result does not match it."
+      },
+      {
+        "observedAt": "2026-11-08T12:24:06.685Z",
+        "status": "failed-readback",
+        "qualification": "last_run is failed and latest_result.run_id matches it. The result is the untruncated generic failure message and contains no watch-scoped semantic report; delivery remains unknown."
       }
     ]
   },
@@ -161,10 +166,10 @@
     "qualification": "Semantic coverage is complete; repository audit/feed publication and runtime delivery remain separate.",
     "repository": "PR 97 exact candidate validated; main integration pending",
     "runtime": "No runtime input change or new Site deployment.",
-    "firstExecution": "Incomplete because no matching completed saved-task result is available.",
+    "firstExecution": "Failed verification: the matching scheduler run is recorded failed with only a generic failure result; it supplies no semantic coverage or delivery receipt.",
     "followUp": {
       "owner": "es-editions-watch",
-      "action": "Publish and read back the immutable audit, finish the native feed follow-up, and retain Site 286 until a separately authorized exact runtime candidate passes D1 and live verification.",
+      "action": "Preserve the failed matching run evidence, independently diagnose task/result routing without inventing a receipt, and retain Site 286 until a separately authorized exact runtime candidate passes D1 and live verification.",
       "reviewBy": "2026-11-09"
     }
   },
@@ -174,5 +179,5 @@
     "tokens": null,
     "cost": null
   },
-  "reviewDigest": "05776143cb47dbc1bbdfeba5450894f4ab63fa6ce6d8ad517c10927fb17e9a22"
+  "reviewDigest": "29eff9783c0f71b4a7b34c106e11d9aedf75a6567a637e12f1a23ee1bd7a8a69"
 }
