@@ -49,11 +49,23 @@ function configuration(task, baseline, observedAt) {
   const required = ['id', 'title', 'prompt', 'schedule', 'timing_mode', 'is_enabled', 'default_timezone', 'environment_selection', 'environments'];
   if (required.some(key => !Object.hasOwn(native, key)) || ['id', 'title', 'prompt', 'schedule', 'timing_mode', 'default_timezone'].some(key => typeof native[key] !== 'string') || typeof native.is_enabled !== 'boolean') issues.push('native-saved-configuration-incomplete');
   if (asserted !== undefined && asserted !== actual) issues.push('supplied-configuration-digest-mismatch');
+  let comparison = null;
   if (!validDigest(baseline?.afterDigest)) issues.push('saved-configuration-baseline-unavailable');
-  else if (actual !== baseline.afterDigest) issues.push('saved-configuration-not-matched');
+  else {
+    if (actual === baseline.afterDigest) comparison = { method: 'legacy-exact-v1', digest: actual };
+    else if (Object.hasOwn(native, 'is_self_owned_automation') && typeof native.is_self_owned_automation === 'boolean' &&
+        Number.isFinite(time(baseline.readbackAt)) && time(baseline.readbackAt) <= time(observedAt)) {
+      // Caller-relative transport metadata only. Never change the historical hash,
+      // supplied-digest check, retained baseline or any other saved native field.
+      const { is_self_owned_automation, ...withoutOwnership } = native;
+      const compatible = savedConfigurationDigest(withoutOwnership);
+      if (compatible === baseline.afterDigest) comparison = { method: 'native-caller-ownership-compat-v1', digest: compatible };
+    }
+    if (!comparison) issues.push('saved-configuration-not-matched');
+  }
   if (!Number.isFinite(time(baseline?.readbackAt))) issues.push('saved-configuration-readback-unavailable');
   else if (time(baseline.readbackAt) > time(observedAt)) issues.push('saved-configuration-readback-after-observation');
-  return { status: issues.length ? 'unverified' : 'matched', digest: actual, issues };
+  return { status: issues.length ? 'unverified' : 'matched', digest: actual, comparison, issues };
 }
 function claimIdentity(content, identities) {
   const first = (typeof content === 'string' ? content : '').split('\n').find(line => line.trim()) || '';
