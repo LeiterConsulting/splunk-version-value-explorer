@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-cloud-s3-restricted-scope",
+  "assessmentId": "vcia-csp-20261108-second-cloud-s3-restricted-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-08T20:42:37.266Z",
+  "assessedAt": "2026-11-08T20:40:19.746Z",
+  "outcome": "still-present",
+  "rationale": "The 10.7 regional row still includes Moderate in GovCloud East and West and excludes High and IL5. Its expanded third-party data stores section lists Amazon S3 and excludes Moderate, High and IL5. These passages leave the legacy versus expanded Moderate boundary unresolved. The April 8 change entry describes High and IL5 for relevant 10.3 releases, while the 10.6 and 10.7 regional rows exclude those environments. The existing warnings remain warranted.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform Federated Search for Amazon S3"
+    ],
+    "versions": [
+      "10.6 and 10.7; April 8 10.3 changelog"
+    ],
+    "editions": null,
+    "deployments": [
+      "AWS GovCloud East/West; Moderate, High and IL5"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating the documented decision"
+    ],
+    "exclusions": [
+      "Exact pairings, entitlement, rollout and customer authorization remain separate."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261108-second-0-0",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions and region differences > Federated search for Amazon S3",
+      "statement": "Moderate listed in both AWS GovCloud regions. High and IL5 explicitly excluded.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-08T20:35:02.964Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "8dc7dd7ae0244d78b503ede63a8ff9f1d8e3519a170bf7b294e73bea247d8703",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261108-second-0-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Federated search for third-party data stores > Supported data stores and compliance limitations",
+      "statement": "Amazon S3 is among the stores listed. The expanded path excludes Moderate, High and IL5.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-08T20:35:02.964Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "8dc7dd7ae0244d78b503ede63a8ff9f1d8e3519a170bf7b294e73bea247d8703",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261108-second-0-2",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions and region differences > Federated search for Amazon S3",
+      "statement": "The 10.6 regional row also distinguishes Moderate from High and IL5.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-08T20:34:43.286Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "cc6312c6b2df0a4eb21f3e7a5f8064e3e0598ced7952dab36c622597a0dc3393",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261108-second-0-3",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "8 April 2026 > Available region and region differences",
+      "statement": "High and IL5 entry is expressly scoped to relevant 10.3 versions.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-08T20:35:02.964Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "be2dd97713f2234561cca19310d566b8b49a23cf4f5cf0b12e676bc5a316e231",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/7b0bcba42f60c1401349a429a538cda2f3775fc5/docs/audits/2026-11-08-csp-fedramp-watch-sources.json",
+      "pointer": "/claimChecks/0",
+      "originalLabel": "conflict-preserved"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261108-cloud-s3-restricted-scope"
+  ],
+  "remainingConcerns": [
+    "Reassess scope through the existing CSP FedRAMP Watch."
+  ]
+}

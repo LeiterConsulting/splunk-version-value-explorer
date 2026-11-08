@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-itsi-subagent-region",
+  "assessmentId": "vcia-csp-20261108-second-itsi-subagent-region",
+  "revision": 1,
+  "recordedAt": "2026-11-08T20:42:37.266Z",
+  "assessedAt": "2026-11-08T20:40:19.746Z",
+  "outcome": "unable-to-verify",
+  "rationale": "The assistant guide lists SAIA 2.2.0+, ITSI 5.0.0+ and Splunk MCP Server 1.2.1+ for the ITSI subagent. The base-assistant region list and related-app matrix leave the subagent-specific region and regulated offering scope unresolved.",
+  "reviewedScope": {
+    "products": [
+      "ITSI subagent in Splunk AI Assistant"
+    ],
+    "versions": [
+      "ITSI 5.0.0+, MCP Server 1.2.1+, SAIA 2.3.6 guide"
+    ],
+    "editions": null,
+    "deployments": [
+      "Cloud and customer-managed environments"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating the documented decision"
+    ],
+    "exclusions": [
+      "Exact pairings, entitlement, rollout and customer authorization remain separate."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261108-second-3-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+      "section": "Splunk AI Assistant ITSI subagent and Supported regions",
+      "statement": "Subagent prerequisites are specific, while the available regions section covers the base assistant.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-08T20:34:53.687Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "8f4638ff88575a284dc6cafc5bccde48678b1e16eb0859809eb3abb6ee350edb",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261108-second-3-1",
+      "url": "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/install-and-upgrade/5.0/planning/itsi-compatibility-with-related-apps-and-add-ons",
+      "section": "ITSI 5.0 compatibility with related apps and add-ons",
+      "statement": "Related-app compatibility is scoped to its documented app versions.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-08T20:35:02.964Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "5c920a9b44e0c573ce193a1753382927a48a37895d3e3057da72915130676d87",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/7b0bcba42f60c1401349a429a538cda2f3775fc5/docs/audits/2026-11-08-csp-fedramp-watch-sources.json",
+      "pointer": "/claimChecks/3",
+      "originalLabel": "unable-to-establish-subagent-region"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261108-itsi-subagent-region"
+  ],
+  "remainingConcerns": [
+    "Reassess scope through the existing CSP FedRAMP Watch."
+  ]
+}
