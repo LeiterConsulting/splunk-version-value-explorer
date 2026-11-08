@@ -3206,20 +3206,58 @@
   "validation": {
     "checks": [
       {
+        "id": "sync-gates",
+        "outcome": "passed",
+        "evidence": "Release metadata, content, source register and content revision sync and check completed; runtime outputs are unchanged in this audit/feed candidate."
+      },
+      {
+        "id": "unit-suite",
+        "outcome": "passed",
+        "evidence": "434 Node tests passed for the audit/feed candidate, including the immutable-history rewrite regression above the default subprocess buffer size."
+      },
+      {
+        "id": "advisor-maintenance",
+        "outcome": "passed",
+        "evidence": "Both Advisor maintenance commands passed. The gate reports overdue admission pins; the independent review did not change their admitted dates."
+      },
+      {
+        "id": "native-issue-feed",
+        "outcome": "passed",
+        "evidence": "Native feed, generator check, lineage and record digest gates passed for the new cumulative checkpoint."
+      },
+      {
+        "id": "coverage-gate",
+        "outcome": "passed",
+        "evidence": "Registry 1.2.0 digest and audit binding pass. Ten dispositions are assessed, one Cloud readiness disposition is blocked."
+      },
+      {
+        "id": "build",
+        "outcome": "passed",
+        "evidence": "74 assets and the unchanged 922-record base bundle build successfully."
+      },
+      {
         "id": "exact-candidate-exports",
-        "outcome": "blocked",
-        "evidence": "Successful Chromium artifact verified for the base commit; exact changed runtime evidence remains pending."
+        "outcome": "passed",
+        "evidence": "GitHub validate run 42422260427, job 128553009483, successful Chromium and release-readiness steps. The 202 cases on identical audit/feed report inputs include 152 PDFs, 2,178 verified rendered pages and 152 independently reopened HTML reports in the two-theme matrix. The separate ITSI runtime candidate requires its own receipt."
+      },
+      {
+        "id": "artifact-readback",
+        "outcome": "passed",
+        "evidence": "Export ZIP artifact 13594366003 matched sha256:f3d23996b7c752313fff3ee9e6bca67b6d5aca6ecf76033671ffc51abfc72117. The repo verifier checked all 4,062 retained artifact digests. PDF geometry/text checks are automated."
       },
       {
         "id": "live-ui-assets-d1",
         "outcome": "blocked",
-        "evidence": "Static manifest serves the earlier engine. The exact main publisher receipt stopped at engine mismatch before any writes. Public D1 probes were not initiated on a held rollout."
+        "evidence": "The static manifest serves the previous engine. The exact main publisher receipt stopped before writes on engine mismatch. A production D1 probe was not initiated."
       }
     ]
   },
   "publication": {
     "claimedDelivered": false,
-    "qualification": "Repository audit/feed publication, package candidate and production delivery are separate. The last complete production deployment remains in service. Current candidate D1 verification was held before mutation."
+    "qualification": "Repository audit/feed publication, package candidate and production delivery are separate. The last complete production deployment remains in service. Current candidate D1 verification was held before mutation.",
+    "auditProvenanceCommit": "e1683c57f3c0e52a5565cd32fdd1fb1ea31dee37",
+    "candidateFeedCheckpoint": "vci-1d3596d71b6608bf8835e7ecd569117fd779bcf9c63c976f8c07a94498ec5ce8",
+    "exportBaseline": "b3790ee3a5709f0ee1ccd286271aa3898c7b44e3"
   },
   "automationCoverage": {
     "runFile": "docs/audits/2026-11-08-version-release-watch-coverage.json"
@@ -3227,11 +3265,25 @@
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "version-release-watch",
-    "status": "pending-public-provenance",
-    "recordedAt": "2026-11-08T10:24:58.470Z",
+    "status": "published",
+    "recordedAt": "2026-11-08T10:27:45.843Z",
     "reviewDigest": "f43c4c79aaf9932786b2b91ba52be5f169a8c8938ab8c29268e8345dc0525c1f",
-    "publicationId": "vci-6cd18cc05cb9fc366924305e92ac00a4c36488bdcba0160cc656d1a2b93c6b6c",
-    "recordKeys": [],
+    "publicationId": "vci-1d3596d71b6608bf8835e7ecd569117fd779bcf9c63c976f8c07a94498ec5ce8",
+    "recordKeys": [
+      "assessment:vcia-release-20261108-sok-32-compatibility-scope@1",
+      "assessment:vcia-release-20261108-saia-cloud-connected-agent-mode-scope@1",
+      "assessment:vcia-release-20261108-saia-agent-runtime-processing-scope@1",
+      "assessment:vcia-release-20261108-itsi-subagent-region@1",
+      "assessment:vcia-release-20261108-es-soc-analyst-version-floor@1",
+      "finding:vci-itsi-503-enterprise-102-patch-scope@1",
+      "finding:vci-itsi-503-service-discovery-46607@1",
+      "finding:vci-itsi-503-service-discovery-46608@1",
+      "assessment:vcia-release-20261108-svd-2026-1015-applicability@1",
+      "assessment:vcia-release-20261108-soar-cmp-88-fixed-issues-label@1",
+      "assessment:vcia-release-20261108-soar-cmp-88-upgrade-example-destination@1",
+      "assessment:vcia-release-20261108-cloud-107-release-service-pairing@1",
+      "assessment:vcia-release-20261108-soar-cloud-880-release-stage@1"
+    ],
     "notReassessedFindingIds": [
       "vci-ai-report-source-directory",
       "vci-app-for-soar-88-onprem-matrix-cell",
@@ -3250,9 +3302,7 @@
       "vci-observability-rca-custom-metric-scope",
       "vci-saia-high-runtime-scope"
     ],
-    "deferredConcerns": [
-      "Version Release Watch: publish this exact immutable audit, append the supported issue observations and read back their cumulative snapshot by 2026-11-09."
-    ],
-    "qualification": "New and reassessed issues have scoped public evidence. Immutable audit provenance is pending."
+    "deferredConcerns": [],
+    "qualification": "Scope is this November 8 Release Watch review. The November 7 SOAR example finding retains its original provenance. The new assessment pins this audit. Deployment and downstream action are separately evaluated."
   }
 }

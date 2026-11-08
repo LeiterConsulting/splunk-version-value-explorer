@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-itsi-503-enterprise-102-patch-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-08T10:27:45.578Z",
+  "evidence": [
+    {
+      "evidenceId": "release-20261108-5-0",
+      "url": "https://splunkbase.splunk.com/app/1841",
+      "section": "Default Version; Compatibility",
+      "statement": "Splunkbase lists 5.0.3 dated October 28 and broad platform versions 10.2–10.7. The Enterprise matrix shows ITSI 5.0.x on 10.4.x and Enterprise 10.6.0/10.6.1, while the 10.2.x row says 5.0. The 10.7 Cloud Service Details table gives the managed ITSI 5.0 line; it does not date or certify exact patch rollout.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-08T10:20:43.480Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "559f51e5c245c7d56696db942dbf44e8b23b765d5f5533b147a151f7d19ed36e",
+        "qualification": "Exact public response bytes. Publisher document revision is unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261108-5-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+      "section": "Splunk Enterprise version 10.x > 10.2, 10.4 and 10.6 rows",
+      "statement": "Splunkbase lists 5.0.3 dated October 28 and broad platform versions 10.2–10.7. The Enterprise matrix shows ITSI 5.0.x on 10.4.x and Enterprise 10.6.0/10.6.1, while the 10.2.x row says 5.0. The 10.7 Cloud Service Details table gives the managed ITSI 5.0 line; it does not date or certify exact patch rollout.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-08T10:18:48.608Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "801edbd043542f70f86cb8d8e308e516efd23c2c5993b04ecc3c2ea464c25a5e",
+        "qualification": "Exact public response bytes. Publisher document revision is unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/e1683c57f3c0e52a5565cd32fdd1fb1ea31dee37/docs/audits/2026-11-08-version-release-watch.json",
+      "pointer": "/claimChecks/5",
+      "originalLabel": "confirmed"
+    }
+  ],
+  "kind": "finding",
+  "title": "ITSI 5.0.3 exact Enterprise 10.2 pairing is not established by the public tables",
+  "concernType": "uncertain-claim",
+  "problem": "Splunkbase lists 5.0.3 dated October 28 and broad platform versions 10.2–10.7. The Enterprise matrix shows ITSI 5.0.x on 10.4.x and Enterprise 10.6.0/10.6.1, while the 10.2.x row says 5.0. The 10.7 Cloud Service Details table gives the managed ITSI 5.0 line; it does not date or certify exact patch rollout.",
+  "scope": {
+    "products": [
+      "Splunk IT Service Intelligence"
+    ],
+    "versions": [
+      "5.0.3"
+    ],
+    "editions": null,
+    "deployments": [
+      "Splunkbase package; customer-managed matrix and hosted service are separate"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating this product or feature scope"
+    ],
+    "exclusions": [
+      "Exact tenant rollout, customer authorization, entitlement and unlisted compatibility remain outside this observation."
+    ]
+  },
+  "scopeComparison": "Keep the exact issue or pairing separate from the general release and service listing.",
+  "impact": {
+    "customerScenario": "A customer plans an ITSI 5.0.3 update on a self-managed Enterprise 10.2.x host.",
+    "consequence": "The broad platform listing and the Enterprise matrix do not jointly establish the exact app and host patches.",
+    "level": "unknown"
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "The cited public sections support the qualified issue. The operational extent or exact patch combination is unverified."
+  },
+  "claimIds": [
+    "release.itsi.5.0.3-package"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Review exact scoped evidence or a version-specific upstream correction."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  }
+}

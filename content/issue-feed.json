@@ -17913,6 +17913,1251 @@
       "remainingConcerns": [
         "Review the exact retained source sections on the next existing CSP run. Preserve the stated scope and unresolved distinctions."
       ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "synthetic": false,
+      "kind": "finding",
+      "findingId": "vci-soar-cmp-88-upgrade-example-destination",
+      "revision": 1,
+      "recordedAt": "2026-11-07T11:23:21.391Z",
+      "title": "SOAR unprivileged upgrade example gives two destination versions",
+      "concernType": "contradiction",
+      "problem": "The 8.8.0 unprivileged path example identifies 8.6.0 in its introduction but ends at 8.8.0.",
+      "scope": {
+        "products": [
+          "Splunk SOAR (On-premises)"
+        ],
+        "versions": [
+          "8.8.0 documentation; Phantom 4.6 example"
+        ],
+        "editions": null,
+        "deployments": [
+          "Customer-managed unprivileged upgrade example"
+        ],
+        "regions": null,
+        "audiences": [
+          "Readers evaluating a historical SOAR path"
+        ],
+        "exclusions": [
+          "No target build, known/fixed issue, complete install path or supported deployment combination is inferred."
+        ]
+      },
+      "scopeComparison": "The labels occur inside the same example for a Phantom 4.6 starting point. The route-specific OS and Python bridge steps do not resolve the target label discrepancy.",
+      "impact": {
+        "customerScenario": "Planning an unprivileged upgrade from a legacy Phantom release.",
+        "consequence": "The example alone cannot identify the exact intended target or certify a complete plan.",
+        "level": "unknown"
+      },
+      "confidence": {
+        "level": "not-rated",
+        "rationale": "Both printed destinations were independently observed. The intended target is unknown."
+      },
+      "claimIds": [
+        "release.soar.cmp.8.8.0-unprivileged-example-destination"
+      ],
+      "lifecycle": {
+        "disposition": "active",
+        "reason": "Recheck the exact source for corrected wording and independently verify the complete version and path scope."
+      },
+      "relationships": {
+        "related": [
+          "vci-soar-cmp-88-fixed-issues-label"
+        ],
+        "supersedes": [],
+        "supersededBy": [],
+        "mergedInto": []
+      },
+      "evidence": [
+        {
+          "evidenceId": "release-20261107-7-0",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+          "section": "Example > introductory destination",
+          "statement": "The exact example introduction names 8.6.0 while its final step names 8.8.0. The intended destination, package build and complete install path remain unknown.",
+          "excerpt": null,
+          "role": "observed",
+          "sourceCheckedAt": "2026-11-07",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "unavailable",
+            "value": null,
+            "qualification": "Exact public source section assessed from the publisher’s indexed documentation. Direct body or exact publisher revision unconfirmed."
+          }
+        },
+        {
+          "evidenceId": "release-20261107-7-1",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+          "section": "Example > final upgrade step",
+          "statement": "The exact example introduction names 8.6.0 while its final step names 8.8.0. The intended destination, package build and complete install path remain unknown.",
+          "excerpt": null,
+          "role": "challenging",
+          "sourceCheckedAt": "2026-11-07",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "unavailable",
+            "value": null,
+            "qualification": "Exact public source section assessed from the publisher’s indexed documentation. Direct body or exact publisher revision unconfirmed."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "direct-public-review",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/58fd69466373e2550ac4384127949f8a21d7c620/docs/audits/2026-11-07-version-release-watch.json",
+          "pointer": "/claimChecks/7",
+          "originalLabel": "contradiction-observed"
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "synthetic": false,
+      "findingId": "vci-sok-32-compatibility-scope",
+      "revision": 1,
+      "recordedAt": "2026-11-08T10:27:45.578Z",
+      "evidence": [
+        {
+          "evidenceId": "release-20261108-0-0",
+          "url": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix",
+          "section": "SOK to Splunk Enterprise version compatibility; Upgrade path guidance",
+          "statement": "The 3.2 Help matrix lists SOK 3.2.0, Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0. The September 8 changelog lists Kubernetes 1.32–1.36 and Enterprise 10.6.0. The Help upgrade guidance puts SOK first. Both scope the Queue secret change to Index and Ingestion Separation. The ranges and dates remain in conflict. Confirm the exact version combination before operational use.",
+          "excerpt": null,
+          "role": "observed",
+          "sourceCheckedAt": "2026-11-08T10:18:52.187Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "34f0fac2acafbba9a3878be06687e1870fe4687539972c5ebdf0403c06507cc5",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        },
+        {
+          "evidenceId": "release-20261108-0-1",
+          "url": "https://splunk.github.io/splunk-operator/reference/ChangeLog.html",
+          "section": "3.2.0 (2026-09-08); Breaking Changes; Supported Kubernetes and Splunk versions",
+          "statement": "The 3.2 Help matrix lists SOK 3.2.0, Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0. The September 8 changelog lists Kubernetes 1.32–1.36 and Enterprise 10.6.0. The Help upgrade guidance puts SOK first. Both scope the Queue secret change to Index and Ingestion Separation. The ranges and dates remain in conflict. Confirm the exact version combination before operational use.",
+          "excerpt": null,
+          "role": "challenging",
+          "sourceCheckedAt": "2026-11-08T10:19:03.455Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "26ab5b4459deeb2ae2d6fd8ad0f544e8c7ddbda5d85880e2b6805fffb833908e",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "direct-public-review",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/e1683c57f3c0e52a5565cd32fdd1fb1ea31dee37/docs/audits/2026-11-08-version-release-watch.json",
+          "pointer": "/claimChecks/0",
+          "originalLabel": "still-present"
+        }
+      ],
+      "kind": "assessment",
+      "assessmentId": "vcia-release-20261108-sok-32-compatibility-scope",
+      "assessedAt": "2026-11-08T10:24:58.281Z",
+      "outcome": "still-present",
+      "rationale": "The 3.2 Help matrix lists SOK 3.2.0, Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0. The September 8 changelog lists Kubernetes 1.32–1.36 and Enterprise 10.6.0. The Help upgrade guidance puts SOK first. Both scope the Queue secret change to Index and Ingestion Separation. The ranges and dates remain in conflict. Confirm the exact version combination before operational use.",
+      "reviewedScope": {
+        "products": [
+          "Splunk Operator for Kubernetes"
+        ],
+        "versions": [
+          "3.2.0"
+        ],
+        "editions": null,
+        "deployments": [
+          "Customer-managed Kubernetes"
+        ],
+        "regions": null,
+        "audiences": [
+          "Readers evaluating this product or feature scope"
+        ],
+        "exclusions": [
+          "Exact tenant rollout, customer authorization, entitlement and unlisted compatibility remain outside this observation."
+        ]
+      },
+      "comparedAssessmentIds": [
+        "vcia-release-follow-20261106-sok-32-compatibility-scope"
+      ],
+      "remainingConcerns": [
+        "Review the same version-scoped sources on the next existing watch review. Preserve the unresolved boundary."
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "synthetic": false,
+      "findingId": "vci-saia-cloud-connected-agent-mode-scope",
+      "revision": 1,
+      "recordedAt": "2026-11-08T10:27:45.578Z",
+      "evidence": [
+        {
+          "evidenceId": "release-20261108-1-0",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+          "section": "FedRAMP deployments; supported regions; version compatibility",
+          "statement": "Agent Mode lists Platform 10.1.x+, SAIA 2.1.0+, feature-specific AWS regions and Model Runtime. Cloud Connected setup adds inbound 8089 and certificate requirements. Installation and SAIA-9918 exclude versions 2.2.0–2.3.6; the 2.1.1 workaround omits Agent Mode and 2.4.0 is planned. Model Runtime distinguishes Global and Data zone routing and third-party inference. Treat feature minima, regional scope, runtime processing and current installation usability separately. Limited IL2 base-assistant evidence supplies no regulated Agent Mode conclusion.",
+          "excerpt": null,
+          "role": "observed",
+          "sourceCheckedAt": "2026-11-08T10:18:52.166Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "50247910f01a6a0b50e899b9c622e902b665aa6e31af07f0ede6f1f9e3b0ee33",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        },
+        {
+          "evidenceId": "release-20261108-1-1",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+          "section": "Requirements; features; ITSI subagent; where the assistant runs",
+          "statement": "Agent Mode lists Platform 10.1.x+, SAIA 2.1.0+, feature-specific AWS regions and Model Runtime. Cloud Connected setup adds inbound 8089 and certificate requirements. Installation and SAIA-9918 exclude versions 2.2.0–2.3.6; the 2.1.1 workaround omits Agent Mode and 2.4.0 is planned. Model Runtime distinguishes Global and Data zone routing and third-party inference. Treat feature minima, regional scope, runtime processing and current installation usability separately. Limited IL2 base-assistant evidence supplies no regulated Agent Mode conclusion.",
+          "excerpt": null,
+          "role": "challenging",
+          "sourceCheckedAt": "2026-11-08T10:18:52.162Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "9152f054b51d72439548dd991c92dc1091c1990b984aa9f65b792a360a543a41",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        },
+        {
+          "evidenceId": "release-20261108-1-2",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+          "section": "Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites",
+          "statement": "Agent Mode lists Platform 10.1.x+, SAIA 2.1.0+, feature-specific AWS regions and Model Runtime. Cloud Connected setup adds inbound 8089 and certificate requirements. Installation and SAIA-9918 exclude versions 2.2.0–2.3.6; the 2.1.1 workaround omits Agent Mode and 2.4.0 is planned. Model Runtime distinguishes Global and Data zone routing and third-party inference. Treat feature minima, regional scope, runtime processing and current installation usability separately. Limited IL2 base-assistant evidence supplies no regulated Agent Mode conclusion.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-11-08T10:18:52.175Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "a1888ccb0cdd3fbb4003840fc7b102e4e001710b762e4192dd358099a638fda3",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        },
+        {
+          "evidenceId": "release-20261108-1-3",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+          "section": "Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off",
+          "statement": "Agent Mode lists Platform 10.1.x+, SAIA 2.1.0+, feature-specific AWS regions and Model Runtime. Cloud Connected setup adds inbound 8089 and certificate requirements. Installation and SAIA-9918 exclude versions 2.2.0–2.3.6; the 2.1.1 workaround omits Agent Mode and 2.4.0 is planned. Model Runtime distinguishes Global and Data zone routing and third-party inference. Treat feature minima, regional scope, runtime processing and current installation usability separately. Limited IL2 base-assistant evidence supplies no regulated Agent Mode conclusion.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-11-08T10:18:52.178Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "dafc0dc2bbea6df957f9dac777eeecfd0ddc6aadbbf5fa54c396068d833020c9",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        },
+        {
+          "evidenceId": "release-20261108-1-4",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+          "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data",
+          "statement": "Agent Mode lists Platform 10.1.x+, SAIA 2.1.0+, feature-specific AWS regions and Model Runtime. Cloud Connected setup adds inbound 8089 and certificate requirements. Installation and SAIA-9918 exclude versions 2.2.0–2.3.6; the 2.1.1 workaround omits Agent Mode and 2.4.0 is planned. Model Runtime distinguishes Global and Data zone routing and third-party inference. Treat feature minima, regional scope, runtime processing and current installation usability separately. Limited IL2 base-assistant evidence supplies no regulated Agent Mode conclusion.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-11-08T10:18:36.751Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "60a617a29d9a9729b587725030a0217f3065b3969d97ac55347179a746cbd14d",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        },
+        {
+          "evidenceId": "release-20261108-1-5",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
+          "section": "SAIA-9918 Cloud Connected access and 2.1.1 workaround",
+          "statement": "Agent Mode lists Platform 10.1.x+, SAIA 2.1.0+, feature-specific AWS regions and Model Runtime. Cloud Connected setup adds inbound 8089 and certificate requirements. Installation and SAIA-9918 exclude versions 2.2.0–2.3.6; the 2.1.1 workaround omits Agent Mode and 2.4.0 is planned. Model Runtime distinguishes Global and Data zone routing and third-party inference. Treat feature minima, regional scope, runtime processing and current installation usability separately. Limited IL2 base-assistant evidence supplies no regulated Agent Mode conclusion.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-11-08T10:18:36.780Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "78cac00943426158128cbf451886ef38ed4b88cb8dca06f58e086c9663cc105a",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "direct-public-review",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/e1683c57f3c0e52a5565cd32fdd1fb1ea31dee37/docs/audits/2026-11-08-version-release-watch.json",
+          "pointer": "/claimChecks/1",
+          "originalLabel": "still-present"
+        }
+      ],
+      "kind": "assessment",
+      "assessmentId": "vcia-release-20261108-saia-cloud-connected-agent-mode-scope",
+      "assessedAt": "2026-11-08T10:24:58.281Z",
+      "outcome": "still-present",
+      "rationale": "Agent Mode lists Platform 10.1.x+, SAIA 2.1.0+, feature-specific AWS regions and Model Runtime. Cloud Connected setup adds inbound 8089 and certificate requirements. Installation and SAIA-9918 exclude versions 2.2.0–2.3.6; the 2.1.1 workaround omits Agent Mode and 2.4.0 is planned. Model Runtime distinguishes Global and Data zone routing and third-party inference. Treat feature minima, regional scope, runtime processing and current installation usability separately. Limited IL2 base-assistant evidence supplies no regulated Agent Mode conclusion.",
+      "reviewedScope": {
+        "products": [
+          "Splunk AI Assistant"
+        ],
+        "versions": [
+          "2.1.0–2.4.0 context"
+        ],
+        "editions": null,
+        "deployments": [
+          "Cloud and Cloud Connected customer-managed"
+        ],
+        "regions": null,
+        "audiences": [
+          "Readers evaluating this product or feature scope"
+        ],
+        "exclusions": [
+          "Exact tenant rollout, customer authorization, entitlement and unlisted compatibility remain outside this observation."
+        ]
+      },
+      "comparedAssessmentIds": [
+        "vcia-release-follow-20261106-saia-cloud-connected-agent-mode-scope"
+      ],
+      "remainingConcerns": [
+        "Review the same version-scoped sources on the next existing watch review. Preserve the unresolved boundary."
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "synthetic": false,
+      "findingId": "vci-saia-agent-runtime-processing-scope",
+      "revision": 1,
+      "recordedAt": "2026-11-08T10:27:45.578Z",
+      "evidence": [
+        {
+          "evidenceId": "release-20261108-2-0",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+          "section": "FedRAMP deployments; supported regions; version compatibility",
+          "statement": "Agent Mode lists Platform 10.1.x+, SAIA 2.1.0+, feature-specific AWS regions and Model Runtime. Cloud Connected setup adds inbound 8089 and certificate requirements. Installation and SAIA-9918 exclude versions 2.2.0–2.3.6; the 2.1.1 workaround omits Agent Mode and 2.4.0 is planned. Model Runtime distinguishes Global and Data zone routing and third-party inference. Treat feature minima, regional scope, runtime processing and current installation usability separately. Limited IL2 base-assistant evidence supplies no regulated Agent Mode conclusion.",
+          "excerpt": null,
+          "role": "observed",
+          "sourceCheckedAt": "2026-11-08T10:18:52.166Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "50247910f01a6a0b50e899b9c622e902b665aa6e31af07f0ede6f1f9e3b0ee33",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        },
+        {
+          "evidenceId": "release-20261108-2-1",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+          "section": "Requirements; features; ITSI subagent; where the assistant runs",
+          "statement": "Agent Mode lists Platform 10.1.x+, SAIA 2.1.0+, feature-specific AWS regions and Model Runtime. Cloud Connected setup adds inbound 8089 and certificate requirements. Installation and SAIA-9918 exclude versions 2.2.0–2.3.6; the 2.1.1 workaround omits Agent Mode and 2.4.0 is planned. Model Runtime distinguishes Global and Data zone routing and third-party inference. Treat feature minima, regional scope, runtime processing and current installation usability separately. Limited IL2 base-assistant evidence supplies no regulated Agent Mode conclusion.",
+          "excerpt": null,
+          "role": "challenging",
+          "sourceCheckedAt": "2026-11-08T10:18:52.162Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "9152f054b51d72439548dd991c92dc1091c1990b984aa9f65b792a360a543a41",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        },
+        {
+          "evidenceId": "release-20261108-2-2",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+          "section": "Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites",
+          "statement": "Agent Mode lists Platform 10.1.x+, SAIA 2.1.0+, feature-specific AWS regions and Model Runtime. Cloud Connected setup adds inbound 8089 and certificate requirements. Installation and SAIA-9918 exclude versions 2.2.0–2.3.6; the 2.1.1 workaround omits Agent Mode and 2.4.0 is planned. Model Runtime distinguishes Global and Data zone routing and third-party inference. Treat feature minima, regional scope, runtime processing and current installation usability separately. Limited IL2 base-assistant evidence supplies no regulated Agent Mode conclusion.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-11-08T10:18:52.175Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "a1888ccb0cdd3fbb4003840fc7b102e4e001710b762e4192dd358099a638fda3",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        },
+        {
+          "evidenceId": "release-20261108-2-3",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+          "section": "Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off",
+          "statement": "Agent Mode lists Platform 10.1.x+, SAIA 2.1.0+, feature-specific AWS regions and Model Runtime. Cloud Connected setup adds inbound 8089 and certificate requirements. Installation and SAIA-9918 exclude versions 2.2.0–2.3.6; the 2.1.1 workaround omits Agent Mode and 2.4.0 is planned. Model Runtime distinguishes Global and Data zone routing and third-party inference. Treat feature minima, regional scope, runtime processing and current installation usability separately. Limited IL2 base-assistant evidence supplies no regulated Agent Mode conclusion.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-11-08T10:18:52.178Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "dafc0dc2bbea6df957f9dac777eeecfd0ddc6aadbbf5fa54c396068d833020c9",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        },
+        {
+          "evidenceId": "release-20261108-2-4",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+          "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data",
+          "statement": "Agent Mode lists Platform 10.1.x+, SAIA 2.1.0+, feature-specific AWS regions and Model Runtime. Cloud Connected setup adds inbound 8089 and certificate requirements. Installation and SAIA-9918 exclude versions 2.2.0–2.3.6; the 2.1.1 workaround omits Agent Mode and 2.4.0 is planned. Model Runtime distinguishes Global and Data zone routing and third-party inference. Treat feature minima, regional scope, runtime processing and current installation usability separately. Limited IL2 base-assistant evidence supplies no regulated Agent Mode conclusion.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-11-08T10:18:36.751Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "60a617a29d9a9729b587725030a0217f3065b3969d97ac55347179a746cbd14d",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        },
+        {
+          "evidenceId": "release-20261108-2-5",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
+          "section": "SAIA-9918 Cloud Connected access and 2.1.1 workaround",
+          "statement": "Agent Mode lists Platform 10.1.x+, SAIA 2.1.0+, feature-specific AWS regions and Model Runtime. Cloud Connected setup adds inbound 8089 and certificate requirements. Installation and SAIA-9918 exclude versions 2.2.0–2.3.6; the 2.1.1 workaround omits Agent Mode and 2.4.0 is planned. Model Runtime distinguishes Global and Data zone routing and third-party inference. Treat feature minima, regional scope, runtime processing and current installation usability separately. Limited IL2 base-assistant evidence supplies no regulated Agent Mode conclusion.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-11-08T10:18:36.780Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "78cac00943426158128cbf451886ef38ed4b88cb8dca06f58e086c9663cc105a",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "direct-public-review",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/e1683c57f3c0e52a5565cd32fdd1fb1ea31dee37/docs/audits/2026-11-08-version-release-watch.json",
+          "pointer": "/claimChecks/2",
+          "originalLabel": "still-present"
+        }
+      ],
+      "kind": "assessment",
+      "assessmentId": "vcia-release-20261108-saia-agent-runtime-processing-scope",
+      "assessedAt": "2026-11-08T10:24:58.281Z",
+      "outcome": "still-present",
+      "rationale": "Agent Mode lists Platform 10.1.x+, SAIA 2.1.0+, feature-specific AWS regions and Model Runtime. Cloud Connected setup adds inbound 8089 and certificate requirements. Installation and SAIA-9918 exclude versions 2.2.0–2.3.6; the 2.1.1 workaround omits Agent Mode and 2.4.0 is planned. Model Runtime distinguishes Global and Data zone routing and third-party inference. Treat feature minima, regional scope, runtime processing and current installation usability separately. Limited IL2 base-assistant evidence supplies no regulated Agent Mode conclusion.",
+      "reviewedScope": {
+        "products": [
+          "Splunk AI Assistant"
+        ],
+        "versions": [
+          "2.3.6 versioned guide"
+        ],
+        "editions": null,
+        "deployments": [
+          "Cloud and Cloud Connected customer-managed"
+        ],
+        "regions": null,
+        "audiences": [
+          "Readers evaluating this product or feature scope"
+        ],
+        "exclusions": [
+          "Exact tenant rollout, customer authorization, entitlement and unlisted compatibility remain outside this observation."
+        ]
+      },
+      "comparedAssessmentIds": [
+        "vcia-release-follow-20261106-saia-agent-runtime-processing-scope"
+      ],
+      "remainingConcerns": [
+        "Review the same version-scoped sources on the next existing watch review. Preserve the unresolved boundary."
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "synthetic": false,
+      "findingId": "vci-itsi-subagent-region",
+      "revision": 1,
+      "recordedAt": "2026-11-08T10:27:45.578Z",
+      "evidence": [
+        {
+          "evidenceId": "release-20261108-3-0",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+          "section": "Requirements; features; ITSI subagent; where the assistant runs",
+          "statement": "The ITSI subagent paragraph names ITSI 5.0.0+, Splunk MCP Server 1.2.1+ and SAIA 2.2.0+. The Cloud install page separately sets assistant service, Platform and deployment conditions. A package listing or base-assistant deployment table does not establish subagent rollout, a tested exact combination, or authorization.",
+          "excerpt": null,
+          "role": "observed",
+          "sourceCheckedAt": "2026-11-08T10:18:52.162Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "9152f054b51d72439548dd991c92dc1091c1990b984aa9f65b792a360a543a41",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        },
+        {
+          "evidenceId": "release-20261108-3-1",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+          "section": "FedRAMP deployments; supported regions; version compatibility",
+          "statement": "The ITSI subagent paragraph names ITSI 5.0.0+, Splunk MCP Server 1.2.1+ and SAIA 2.2.0+. The Cloud install page separately sets assistant service, Platform and deployment conditions. A package listing or base-assistant deployment table does not establish subagent rollout, a tested exact combination, or authorization.",
+          "excerpt": null,
+          "role": "challenging",
+          "sourceCheckedAt": "2026-11-08T10:18:52.166Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "50247910f01a6a0b50e899b9c622e902b665aa6e31af07f0ede6f1f9e3b0ee33",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "direct-public-review",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/e1683c57f3c0e52a5565cd32fdd1fb1ea31dee37/docs/audits/2026-11-08-version-release-watch.json",
+          "pointer": "/claimChecks/3",
+          "originalLabel": "still-present"
+        }
+      ],
+      "kind": "assessment",
+      "assessmentId": "vcia-release-20261108-itsi-subagent-region",
+      "assessedAt": "2026-11-08T10:24:58.281Z",
+      "outcome": "still-present",
+      "rationale": "The ITSI subagent paragraph names ITSI 5.0.0+, Splunk MCP Server 1.2.1+ and SAIA 2.2.0+. The Cloud install page separately sets assistant service, Platform and deployment conditions. A package listing or base-assistant deployment table does not establish subagent rollout, a tested exact combination, or authorization.",
+      "reviewedScope": {
+        "products": [
+          "ITSI subagent in Splunk AI Assistant"
+        ],
+        "versions": [
+          "ITSI 5.0.0+ / SAIA 2.2.0+ / MCP Server 1.2.1+"
+        ],
+        "editions": null,
+        "deployments": [
+          "Feature-specific prerequisites"
+        ],
+        "regions": null,
+        "audiences": [
+          "Readers evaluating this product or feature scope"
+        ],
+        "exclusions": [
+          "Exact tenant rollout, customer authorization, entitlement and unlisted compatibility remain outside this observation."
+        ]
+      },
+      "comparedAssessmentIds": [
+        "vcia-csp-20261107-itsi-subagent-region"
+      ],
+      "remainingConcerns": [
+        "Review the same version-scoped sources on the next existing watch review. Preserve the unresolved boundary."
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "synthetic": false,
+      "findingId": "vci-es-soc-analyst-version-floor",
+      "revision": 1,
+      "recordedAt": "2026-11-08T10:27:45.578Z",
+      "evidence": [
+        {
+          "evidenceId": "release-20261108-4-0",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+          "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
+          "statement": "The current combined Triage/Response overview lists Premier Cloud 10.2.x+, ES 8.6+ and paired SOAR. The Cloud task guide uses ES 8.7+, an enabled assistant, eligible existing findings and inherited SOAR permissions. The 8.7 task guide preserves the historical AI SOC Analyst name and scope. CMP overview and task text name Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0. The 8.8 release page now records GA on November 4, while the registry section label retains its earlier Controlled Availability wording. Regional and edition tables remain separate from the task prerequisites. Release participates in prerequisites, discrepancies and historical names. Exact pairings, per-agent rollout, entitlement and customer authorization are excluded. ES Editions Watch owns the disposition of edition-specific evidence.",
+          "excerpt": null,
+          "role": "observed",
+          "sourceCheckedAt": "2026-11-08T10:18:40.588Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "7a55be28f405d513183e1932d9cb417837751fc4d3dad032ba5599932aee7706",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        },
+        {
+          "evidenceId": "release-20261108-4-1",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+          "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions",
+          "statement": "The current combined Triage/Response overview lists Premier Cloud 10.2.x+, ES 8.6+ and paired SOAR. The Cloud task guide uses ES 8.7+, an enabled assistant, eligible existing findings and inherited SOAR permissions. The 8.7 task guide preserves the historical AI SOC Analyst name and scope. CMP overview and task text name Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0. The 8.8 release page now records GA on November 4, while the registry section label retains its earlier Controlled Availability wording. Regional and edition tables remain separate from the task prerequisites. Release participates in prerequisites, discrepancies and historical names. Exact pairings, per-agent rollout, entitlement and customer authorization are excluded. ES Editions Watch owns the disposition of edition-specific evidence.",
+          "excerpt": null,
+          "role": "challenging",
+          "sourceCheckedAt": "2026-11-08T10:18:40.599Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "b260e354aef9c7d7d4416885ae694fa2d9b370917e10f34f648b81c5dc17f21a",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        },
+        {
+          "evidenceId": "release-20261108-4-2",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+          "section": "Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions",
+          "statement": "The current combined Triage/Response overview lists Premier Cloud 10.2.x+, ES 8.6+ and paired SOAR. The Cloud task guide uses ES 8.7+, an enabled assistant, eligible existing findings and inherited SOAR permissions. The 8.7 task guide preserves the historical AI SOC Analyst name and scope. CMP overview and task text name Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0. The 8.8 release page now records GA on November 4, while the registry section label retains its earlier Controlled Availability wording. Regional and edition tables remain separate from the task prerequisites. Release participates in prerequisites, discrepancies and historical names. Exact pairings, per-agent rollout, entitlement and customer authorization are excluded. ES Editions Watch owns the disposition of edition-specific evidence.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-11-08T10:18:39.192Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "de2b4fc3b859b704323a334d21ee30df4003a62e2aead782eeb5e7e8e3d5f689",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        },
+        {
+          "evidenceId": "release-20261108-4-3",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": "ES 8.8 Controlled Availability",
+          "statement": "The current combined Triage/Response overview lists Premier Cloud 10.2.x+, ES 8.6+ and paired SOAR. The Cloud task guide uses ES 8.7+, an enabled assistant, eligible existing findings and inherited SOAR permissions. The 8.7 task guide preserves the historical AI SOC Analyst name and scope. CMP overview and task text name Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0. The 8.8 release page now records GA on November 4, while the registry section label retains its earlier Controlled Availability wording. Regional and edition tables remain separate from the task prerequisites. Release participates in prerequisites, discrepancies and historical names. Exact pairings, per-agent rollout, entitlement and customer authorization are excluded. ES Editions Watch owns the disposition of edition-specific evidence.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-11-08T10:18:44.920Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "dc73b5cb94fab6ef1d80b957c471b00a958312161a1044059696b8384d41f845",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        },
+        {
+          "evidenceId": "release-20261108-4-4",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+          "section": "SOC analyst Triage/Response note; aggregate AI SOC Analyst availability row",
+          "statement": "The current combined Triage/Response overview lists Premier Cloud 10.2.x+, ES 8.6+ and paired SOAR. The Cloud task guide uses ES 8.7+, an enabled assistant, eligible existing findings and inherited SOAR permissions. The 8.7 task guide preserves the historical AI SOC Analyst name and scope. CMP overview and task text name Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0. The 8.8 release page now records GA on November 4, while the registry section label retains its earlier Controlled Availability wording. Regional and edition tables remain separate from the task prerequisites. Release participates in prerequisites, discrepancies and historical names. Exact pairings, per-agent rollout, entitlement and customer authorization are excluded. ES Editions Watch owns the disposition of edition-specific evidence.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-11-08T10:18:40.588Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "7a55be28f405d513183e1932d9cb417837751fc4d3dad032ba5599932aee7706",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        },
+        {
+          "evidenceId": "release-20261108-4-5",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+          "section": "FedRAMP deployments; supported regions; version compatibility",
+          "statement": "The current combined Triage/Response overview lists Premier Cloud 10.2.x+, ES 8.6+ and paired SOAR. The Cloud task guide uses ES 8.7+, an enabled assistant, eligible existing findings and inherited SOAR permissions. The 8.7 task guide preserves the historical AI SOC Analyst name and scope. CMP overview and task text name Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0. The 8.8 release page now records GA on November 4, while the registry section label retains its earlier Controlled Availability wording. Regional and edition tables remain separate from the task prerequisites. Release participates in prerequisites, discrepancies and historical names. Exact pairings, per-agent rollout, entitlement and customer authorization are excluded. ES Editions Watch owns the disposition of edition-specific evidence.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-11-08T10:18:52.166Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "50247910f01a6a0b50e899b9c622e902b665aa6e31af07f0ede6f1f9e3b0ee33",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        },
+        {
+          "evidenceId": "release-20261108-4-6",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+          "section": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility",
+          "statement": "The current combined Triage/Response overview lists Premier Cloud 10.2.x+, ES 8.6+ and paired SOAR. The Cloud task guide uses ES 8.7+, an enabled assistant, eligible existing findings and inherited SOAR permissions. The 8.7 task guide preserves the historical AI SOC Analyst name and scope. CMP overview and task text name Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0. The 8.8 release page now records GA on November 4, while the registry section label retains its earlier Controlled Availability wording. Regional and edition tables remain separate from the task prerequisites. Release participates in prerequisites, discrepancies and historical names. Exact pairings, per-agent rollout, entitlement and customer authorization are excluded. ES Editions Watch owns the disposition of edition-specific evidence.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-11-08T10:18:44.881Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "f3ced6dae06eb04a14ff9e8ef149d098dd1635fd728d973311585a1b736266bb",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        },
+        {
+          "evidenceId": "release-20261108-4-7",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
+          "section": "Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings",
+          "statement": "The current combined Triage/Response overview lists Premier Cloud 10.2.x+, ES 8.6+ and paired SOAR. The Cloud task guide uses ES 8.7+, an enabled assistant, eligible existing findings and inherited SOAR permissions. The 8.7 task guide preserves the historical AI SOC Analyst name and scope. CMP overview and task text name Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0. The 8.8 release page now records GA on November 4, while the registry section label retains its earlier Controlled Availability wording. Regional and edition tables remain separate from the task prerequisites. Release participates in prerequisites, discrepancies and historical names. Exact pairings, per-agent rollout, entitlement and customer authorization are excluded. ES Editions Watch owns the disposition of edition-specific evidence.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-11-08T10:18:40.607Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "3920daa0fa84a0e213bca5466035723edec8e92cca9364f715f5d1742a226019",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "direct-public-review",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/e1683c57f3c0e52a5565cd32fdd1fb1ea31dee37/docs/audits/2026-11-08-version-release-watch.json",
+          "pointer": "/claimChecks/4",
+          "originalLabel": "still-present"
+        }
+      ],
+      "kind": "assessment",
+      "assessmentId": "vcia-release-20261108-es-soc-analyst-version-floor",
+      "assessedAt": "2026-11-08T10:24:58.281Z",
+      "outcome": "still-present",
+      "rationale": "The current combined Triage/Response overview lists Premier Cloud 10.2.x+, ES 8.6+ and paired SOAR. The Cloud task guide uses ES 8.7+, an enabled assistant, eligible existing findings and inherited SOAR permissions. The 8.7 task guide preserves the historical AI SOC Analyst name and scope. CMP overview and task text name Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0. The 8.8 release page now records GA on November 4, while the registry section label retains its earlier Controlled Availability wording. Regional and edition tables remain separate from the task prerequisites. Release participates in prerequisites, discrepancies and historical names. Exact pairings, per-agent rollout, entitlement and customer authorization are excluded. ES Editions Watch owns the disposition of edition-specific evidence.",
+      "reviewedScope": {
+        "products": [
+          "Enterprise Security"
+        ],
+        "versions": [
+          "8.7 and 8.8"
+        ],
+        "editions": null,
+        "deployments": [
+          "Cloud and Cloud Connected customer-managed"
+        ],
+        "regions": null,
+        "audiences": [
+          "Readers evaluating this product or feature scope"
+        ],
+        "exclusions": [
+          "Exact tenant rollout, customer authorization, entitlement and unlisted compatibility remain outside this observation."
+        ]
+      },
+      "comparedAssessmentIds": [
+        "vcia-csp-20261107-es-soc-analyst-version-floor"
+      ],
+      "remainingConcerns": [
+        "Review the same version-scoped sources on the next existing watch review. Preserve the unresolved boundary."
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "synthetic": false,
+      "findingId": "vci-itsi-503-enterprise-102-patch-scope",
+      "revision": 1,
+      "recordedAt": "2026-11-08T10:27:45.578Z",
+      "evidence": [
+        {
+          "evidenceId": "release-20261108-5-0",
+          "url": "https://splunkbase.splunk.com/app/1841",
+          "section": "Default Version; Compatibility",
+          "statement": "Splunkbase lists 5.0.3 dated October 28 and broad platform versions 10.2–10.7. The Enterprise matrix shows ITSI 5.0.x on 10.4.x and Enterprise 10.6.0/10.6.1, while the 10.2.x row says 5.0. The 10.7 Cloud Service Details table gives the managed ITSI 5.0 line; it does not date or certify exact patch rollout.",
+          "excerpt": null,
+          "role": "observed",
+          "sourceCheckedAt": "2026-11-08T10:20:43.480Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "559f51e5c245c7d56696db942dbf44e8b23b765d5f5533b147a151f7d19ed36e",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        },
+        {
+          "evidenceId": "release-20261108-5-1",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+          "section": "Splunk Enterprise version 10.x > 10.2, 10.4 and 10.6 rows",
+          "statement": "Splunkbase lists 5.0.3 dated October 28 and broad platform versions 10.2–10.7. The Enterprise matrix shows ITSI 5.0.x on 10.4.x and Enterprise 10.6.0/10.6.1, while the 10.2.x row says 5.0. The 10.7 Cloud Service Details table gives the managed ITSI 5.0 line; it does not date or certify exact patch rollout.",
+          "excerpt": null,
+          "role": "challenging",
+          "sourceCheckedAt": "2026-11-08T10:18:48.608Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "801edbd043542f70f86cb8d8e308e516efd23c2c5993b04ecc3c2ea464c25a5e",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "direct-public-review",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/e1683c57f3c0e52a5565cd32fdd1fb1ea31dee37/docs/audits/2026-11-08-version-release-watch.json",
+          "pointer": "/claimChecks/5",
+          "originalLabel": "confirmed"
+        }
+      ],
+      "kind": "finding",
+      "title": "ITSI 5.0.3 exact Enterprise 10.2 pairing is not established by the public tables",
+      "concernType": "uncertain-claim",
+      "problem": "Splunkbase lists 5.0.3 dated October 28 and broad platform versions 10.2–10.7. The Enterprise matrix shows ITSI 5.0.x on 10.4.x and Enterprise 10.6.0/10.6.1, while the 10.2.x row says 5.0. The 10.7 Cloud Service Details table gives the managed ITSI 5.0 line; it does not date or certify exact patch rollout.",
+      "scope": {
+        "products": [
+          "Splunk IT Service Intelligence"
+        ],
+        "versions": [
+          "5.0.3"
+        ],
+        "editions": null,
+        "deployments": [
+          "Splunkbase package; customer-managed matrix and hosted service are separate"
+        ],
+        "regions": null,
+        "audiences": [
+          "Readers evaluating this product or feature scope"
+        ],
+        "exclusions": [
+          "Exact tenant rollout, customer authorization, entitlement and unlisted compatibility remain outside this observation."
+        ]
+      },
+      "scopeComparison": "Keep the exact issue or pairing separate from the general release and service listing.",
+      "impact": {
+        "customerScenario": "A customer plans an ITSI 5.0.3 update on a self-managed Enterprise 10.2.x host.",
+        "consequence": "The broad platform listing and the Enterprise matrix do not jointly establish the exact app and host patches.",
+        "level": "unknown"
+      },
+      "confidence": {
+        "level": "not-rated",
+        "rationale": "The cited public sections support the qualified issue. The operational extent or exact patch combination is unverified."
+      },
+      "claimIds": [
+        "release.itsi.5.0.3-package"
+      ],
+      "lifecycle": {
+        "disposition": "active",
+        "reason": "Review exact scoped evidence or a version-specific upstream correction."
+      },
+      "relationships": {
+        "related": [],
+        "mergedInto": [],
+        "supersedes": [],
+        "supersededBy": []
+      }
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "synthetic": false,
+      "findingId": "vci-itsi-503-service-discovery-46607",
+      "revision": 1,
+      "recordedAt": "2026-11-08T10:27:45.578Z",
+      "evidence": [
+        {
+          "evidenceId": "release-20261108-7-0",
+          "url": "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/known-issues-in-splunk-it-service-intelligence",
+          "section": "Service Discovery > ITSI-46607",
+          "statement": "When the catalog returns HTTP 503, the metadata ingestion run is skipped. Discovery can continue using indexed data, but recommendations may lack Content Pack reference context. The date recorded is the official issue filing date. A remediation release or universal rollout is not established.",
+          "excerpt": null,
+          "role": "observed",
+          "sourceCheckedAt": "2026-11-08T10:20:43.479Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "01d943c0e5d08bacd9619c83ca920c2f35c60bc08d788f70c363a688d448580c",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "direct-public-review",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/e1683c57f3c0e52a5565cd32fdd1fb1ea31dee37/docs/audits/2026-11-08-version-release-watch.json",
+          "pointer": "/claimChecks/7",
+          "originalLabel": "observed"
+        }
+      ],
+      "kind": "finding",
+      "title": "ITSI 5.0.3 Service Discovery can omit Content Pack metadata",
+      "concernType": "uncertain-claim",
+      "problem": "When the catalog returns HTTP 503, the metadata ingestion run is skipped. Discovery can continue using indexed data, but recommendations may lack Content Pack reference context. The date recorded is the official issue filing date. A remediation release or universal rollout is not established.",
+      "scope": {
+        "products": [
+          "Splunk IT Service Intelligence"
+        ],
+        "versions": [
+          "5.0.3"
+        ],
+        "editions": null,
+        "deployments": [
+          "ITSI Cloud Service Discovery"
+        ],
+        "regions": null,
+        "audiences": [
+          "Readers evaluating this product or feature scope"
+        ],
+        "exclusions": [
+          "Exact tenant rollout, customer authorization, entitlement and unlisted compatibility remain outside this observation."
+        ]
+      },
+      "scopeComparison": "Keep the exact issue or pairing separate from the general release and service listing.",
+      "impact": {
+        "customerScenario": "An ITSI Cloud administrator uses discovery to draft services while the Content Pack catalog is unavailable.",
+        "consequence": "The draft can lack reference metadata even when discovery continues.",
+        "level": "unknown"
+      },
+      "confidence": {
+        "level": "not-rated",
+        "rationale": "The cited public sections support the qualified issue. The operational extent or exact patch combination is unverified."
+      },
+      "claimIds": [
+        "release.itsi.5.0.3-itsi-46607"
+      ],
+      "lifecycle": {
+        "disposition": "active",
+        "reason": "Review exact scoped evidence or a version-specific upstream correction."
+      },
+      "relationships": {
+        "related": [],
+        "mergedInto": [],
+        "supersedes": [],
+        "supersededBy": []
+      }
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "synthetic": false,
+      "findingId": "vci-itsi-503-service-discovery-46608",
+      "revision": 1,
+      "recordedAt": "2026-11-08T10:27:45.578Z",
+      "evidence": [
+        {
+          "evidenceId": "release-20261108-8-0",
+          "url": "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/known-issues-in-splunk-it-service-intelligence",
+          "section": "Service Discovery > ITSI-46608",
+          "statement": "When all selected indexes lack searchable data during the lookback window, index metadata and dependent recommendations may be unavailable. Ensure relevant searchable data and allow the eligible scheduled summarization run. A refresh setting change does not start a run immediately. The date recorded is the official issue filing date. A remediation release or universal rollout is not established.",
+          "excerpt": null,
+          "role": "observed",
+          "sourceCheckedAt": "2026-11-08T10:20:43.479Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "01d943c0e5d08bacd9619c83ca920c2f35c60bc08d788f70c363a688d448580c",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "direct-public-review",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/e1683c57f3c0e52a5565cd32fdd1fb1ea31dee37/docs/audits/2026-11-08-version-release-watch.json",
+          "pointer": "/claimChecks/8",
+          "originalLabel": "observed"
+        }
+      ],
+      "kind": "finding",
+      "title": "ITSI 5.0.3 Service Discovery can omit index metadata",
+      "concernType": "uncertain-claim",
+      "problem": "When all selected indexes lack searchable data during the lookback window, index metadata and dependent recommendations may be unavailable. Ensure relevant searchable data and allow the eligible scheduled summarization run. A refresh setting change does not start a run immediately. The date recorded is the official issue filing date. A remediation release or universal rollout is not established.",
+      "scope": {
+        "products": [
+          "Splunk IT Service Intelligence"
+        ],
+        "versions": [
+          "5.0.3"
+        ],
+        "editions": null,
+        "deployments": [
+          "ITSI Cloud Service Discovery"
+        ],
+        "regions": null,
+        "audiences": [
+          "Readers evaluating this product or feature scope"
+        ],
+        "exclusions": [
+          "Exact tenant rollout, customer authorization, entitlement and unlisted compatibility remain outside this observation."
+        ]
+      },
+      "scopeComparison": "Keep the exact issue or pairing separate from the general release and service listing.",
+      "impact": {
+        "customerScenario": "An ITSI Cloud administrator selects indexes with no searchable data in the lookback window.",
+        "consequence": "Recommendations that depend on index metadata can be unavailable.",
+        "level": "unknown"
+      },
+      "confidence": {
+        "level": "not-rated",
+        "rationale": "The cited public sections support the qualified issue. The operational extent or exact patch combination is unverified."
+      },
+      "claimIds": [
+        "release.itsi.5.0.3-itsi-46608"
+      ],
+      "lifecycle": {
+        "disposition": "active",
+        "reason": "Review exact scoped evidence or a version-specific upstream correction."
+      },
+      "relationships": {
+        "related": [],
+        "mergedInto": [],
+        "supersedes": [],
+        "supersededBy": []
+      }
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "synthetic": false,
+      "findingId": "vci-svd-2026-1015-applicability",
+      "revision": 1,
+      "recordedAt": "2026-11-08T10:27:45.578Z",
+      "evidence": [
+        {
+          "evidenceId": "release-20261108-9-0",
+          "url": "https://advisory.splunk.com/advisories/SVD-2026-1015",
+          "section": "Affected Products; footnotes; Unaffected Products; November 5 revision",
+          "statement": "Enterprise 10.0 bundled Node.js is affected. Enterprise 9.4 and 10.2+ and Universal Forwarder are outside that bundled runtime exposure. Visual Exporter mitigation is separate. Broker and Observability/Collector rows do not name confirmed exact fixed releases.",
+          "excerpt": null,
+          "role": "observed",
+          "sourceCheckedAt": "2026-11-08T10:18:25.175Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "fc9049c0604db39c6642383e8aa31518c171d6e3a97a8314f47866792394a432",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "direct-public-review",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/e1683c57f3c0e52a5565cd32fdd1fb1ea31dee37/docs/audits/2026-11-08-version-release-watch.json",
+          "pointer": "/claimChecks/9",
+          "originalLabel": "partially-addressed"
+        }
+      ],
+      "kind": "assessment",
+      "assessmentId": "vcia-release-20261108-svd-2026-1015-applicability",
+      "assessedAt": "2026-11-08T10:24:58.281Z",
+      "outcome": "partially-addressed",
+      "rationale": "Enterprise 10.0 bundled Node.js is affected. Enterprise 9.4 and 10.2+ and Universal Forwarder are outside that bundled runtime exposure. Visual Exporter mitigation is separate. Broker and Observability/Collector rows do not name confirmed exact fixed releases.",
+      "reviewedScope": {
+        "products": [
+          "Splunk Enterprise, Universal Forwarder, SOAR Automation Broker and Observability"
+        ],
+        "versions": [
+          "October advisory, November 5 revision"
+        ],
+        "editions": null,
+        "deployments": [
+          "Version- and component-scoped"
+        ],
+        "regions": null,
+        "audiences": [
+          "Readers evaluating this product or feature scope"
+        ],
+        "exclusions": [
+          "Exact tenant rollout, customer authorization, entitlement and unlisted compatibility remain outside this observation."
+        ]
+      },
+      "comparedAssessmentIds": [
+        "vcia-release-follow-20261106-svd-2026-1015-applicability"
+      ],
+      "remainingConcerns": [
+        "Review the same version-scoped sources on the next existing watch review. Preserve the unresolved boundary."
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "synthetic": false,
+      "findingId": "vci-soar-cmp-88-fixed-issues-label",
+      "revision": 1,
+      "recordedAt": "2026-11-08T10:27:45.578Z",
+      "evidence": [
+        {
+          "evidenceId": "release-20261108-10-0",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/fixed-issues-for-splunk-soar-on-premises",
+          "section": "Release 8.8.0 heading and adjacent release label",
+          "statement": "The 8.8.0 heading still describes 8.7.0 in the adjacent line and the retrieved body has no issue rows. The set fixed in 8.8.0 remains unknown.",
+          "excerpt": null,
+          "role": "observed",
+          "sourceCheckedAt": "2026-11-08T10:18:59.859Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "59deb59a088df829a81f8304473f57da9ec8d30a09f0b45bd76a2c3c70c396b9",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "direct-public-review",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/e1683c57f3c0e52a5565cd32fdd1fb1ea31dee37/docs/audits/2026-11-08-version-release-watch.json",
+          "pointer": "/claimChecks/10",
+          "originalLabel": "still-present"
+        }
+      ],
+      "kind": "assessment",
+      "assessmentId": "vcia-release-20261108-soar-cmp-88-fixed-issues-label",
+      "assessedAt": "2026-11-08T10:24:58.281Z",
+      "outcome": "still-present",
+      "rationale": "The 8.8.0 heading still describes 8.7.0 in the adjacent line and the retrieved body has no issue rows. The set fixed in 8.8.0 remains unknown.",
+      "reviewedScope": {
+        "products": [
+          "Splunk SOAR (On-premises)"
+        ],
+        "versions": [
+          "8.8.0"
+        ],
+        "editions": null,
+        "deployments": [
+          "Customer-managed"
+        ],
+        "regions": null,
+        "audiences": [
+          "Readers evaluating this product or feature scope"
+        ],
+        "exclusions": [
+          "Exact tenant rollout, customer authorization, entitlement and unlisted compatibility remain outside this observation."
+        ]
+      },
+      "comparedAssessmentIds": [],
+      "remainingConcerns": [
+        "Review the same version-scoped sources on the next existing watch review. Preserve the unresolved boundary."
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "synthetic": false,
+      "findingId": "vci-soar-cmp-88-upgrade-example-destination",
+      "revision": 1,
+      "recordedAt": "2026-11-08T10:27:45.578Z",
+      "evidence": [
+        {
+          "evidenceId": "release-20261108-11-0",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+          "section": "6.4.1.x row; Example > introductory destination and final step",
+          "statement": "The exact page introduces the example as an upgrade to 8.6.0, then finishes with an 8.8.0 step. It separately requires the 8.5.0 and Python 3.13 bridge from 6.4.1.x. The example cannot settle the intended route or the package build.",
+          "excerpt": null,
+          "role": "observed",
+          "sourceCheckedAt": "2026-11-08T10:21:44.254Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "6f39bc640c07e04c255cf463e0333fcc3327dbb746948cdb17785067827b33ec",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "direct-public-review",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/e1683c57f3c0e52a5565cd32fdd1fb1ea31dee37/docs/audits/2026-11-08-version-release-watch.json",
+          "pointer": "/claimChecks/11",
+          "originalLabel": "contradiction-observed"
+        }
+      ],
+      "kind": "assessment",
+      "assessmentId": "vcia-release-20261108-soar-cmp-88-upgrade-example-destination",
+      "assessedAt": "2026-11-08T10:24:58.281Z",
+      "outcome": "still-present",
+      "rationale": "The exact page introduces the example as an upgrade to 8.6.0, then finishes with an 8.8.0 step. It separately requires the 8.5.0 and Python 3.13 bridge from 6.4.1.x. The example cannot settle the intended route or the package build.",
+      "reviewedScope": {
+        "products": [
+          "Splunk SOAR (On-premises)"
+        ],
+        "versions": [
+          "8.8.0"
+        ],
+        "editions": null,
+        "deployments": [
+          "Phantom 4.6 unprivileged example"
+        ],
+        "regions": null,
+        "audiences": [
+          "Readers evaluating this product or feature scope"
+        ],
+        "exclusions": [
+          "Exact tenant rollout, customer authorization, entitlement and unlisted compatibility remain outside this observation."
+        ]
+      },
+      "comparedAssessmentIds": [],
+      "remainingConcerns": [
+        "Review the same version-scoped sources on the next existing watch review. Preserve the unresolved boundary."
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "synthetic": false,
+      "findingId": "vci-cloud-107-release-service-pairing",
+      "revision": 1,
+      "recordedAt": "2026-11-08T10:27:45.578Z",
+      "evidence": [
+        {
+          "evidenceId": "release-20261108-14-0",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+          "section": "Current Splunk Cloud Platform and Premium App versions",
+          "statement": "The current 10.7 Service Details version table now explicitly lists Platform 10.7, ES 8.7, and ITSI 5.0. The historical 10.6 label in that route is no longer present in this table. Exact stack rollout and patch pairing remain unverified.",
+          "excerpt": null,
+          "role": "observed",
+          "sourceCheckedAt": "2026-11-08T10:18:35.231Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "541e7a74abe5237e5224c489936424992af12121ecbe4c1b5003c33799a9bd77",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "direct-public-review",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/e1683c57f3c0e52a5565cd32fdd1fb1ea31dee37/docs/audits/2026-11-08-version-release-watch.json",
+          "pointer": "/claimChecks/14",
+          "originalLabel": "addressed-in-scope"
+        }
+      ],
+      "kind": "assessment",
+      "assessmentId": "vcia-release-20261108-cloud-107-release-service-pairing",
+      "assessedAt": "2026-11-08T10:24:58.281Z",
+      "outcome": "addressed-in-reviewed-scope",
+      "rationale": "The current 10.7 Service Details version table now explicitly lists Platform 10.7, ES 8.7, and ITSI 5.0. The historical 10.6 label in that route is no longer present in this table. Exact stack rollout and patch pairing remain unverified.",
+      "reviewedScope": {
+        "products": [
+          "Splunk Cloud Platform"
+        ],
+        "versions": [
+          "10.7"
+        ],
+        "editions": null,
+        "deployments": [
+          "Splunk-managed Cloud"
+        ],
+        "regions": null,
+        "audiences": [
+          "Readers evaluating this product or feature scope"
+        ],
+        "exclusions": [
+          "Exact tenant rollout, customer authorization, entitlement and unlisted compatibility remain outside this observation."
+        ]
+      },
+      "comparedAssessmentIds": [
+        "vcia-csp-20261107-cloud-107-release-service-pairing"
+      ],
+      "remainingConcerns": [
+        "Retain the historical observation and verify separately any exact stack, rollout or pairing question."
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "synthetic": false,
+      "findingId": "vci-soar-cloud-880-release-stage",
+      "revision": 1,
+      "recordedAt": "2026-11-08T10:27:45.578Z",
+      "evidence": [
+        {
+          "evidenceId": "release-20261108-15-0",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
+          "section": "November 4, 2026 Release 8.8 > introduction and adjacent Whats new text",
+          "statement": "Both the dated November 4 introduction and adjacent Whats new text now name General Availability. Historical mixed wording remains part of the finding history. Tenant or regulated rollout remains unverified.",
+          "excerpt": null,
+          "role": "observed",
+          "sourceCheckedAt": "2026-11-08T10:18:56.492Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "7e0f23657cbbedbec44a0a416230d8a65a420db20d48412beac89be247e5c559",
+            "qualification": "Exact public response bytes. Publisher document revision is unknown."
+          }
+        }
+      ],
+      "provenance": [
+        {
+          "basis": "direct-public-review",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/e1683c57f3c0e52a5565cd32fdd1fb1ea31dee37/docs/audits/2026-11-08-version-release-watch.json",
+          "pointer": "/claimChecks/15",
+          "originalLabel": "addressed-in-scope"
+        }
+      ],
+      "kind": "assessment",
+      "assessmentId": "vcia-release-20261108-soar-cloud-880-release-stage",
+      "assessedAt": "2026-11-08T10:24:58.281Z",
+      "outcome": "addressed-in-reviewed-scope",
+      "rationale": "Both the dated November 4 introduction and adjacent Whats new text now name General Availability. Historical mixed wording remains part of the finding history. Tenant or regulated rollout remains unverified.",
+      "reviewedScope": {
+        "products": [
+          "Splunk SOAR"
+        ],
+        "versions": [
+          "8.8.0"
+        ],
+        "editions": null,
+        "deployments": [
+          "Splunk-managed Cloud"
+        ],
+        "regions": null,
+        "audiences": [
+          "Readers evaluating this product or feature scope"
+        ],
+        "exclusions": [
+          "Exact tenant rollout, customer authorization, entitlement and unlisted compatibility remain outside this observation."
+        ]
+      },
+      "comparedAssessmentIds": [
+        "vcia-csp-20261107-soar-cloud-880-release-stage"
+      ],
+      "remainingConcerns": [
+        "Retain the historical observation and verify separately any exact stack, rollout or pairing question."
+      ]
     }
   ],
   "publications": [
@@ -22457,6 +23702,276 @@
         "assessment:vcia-csp-20261107-es-soc-analyst-version-floor@1",
         "assessment:vcia-csp-20261107-es-security-assistant-runtime-default@1",
         "assessment:vcia-csp-20261107-es-security-assistant-runtime-ap-routing@1"
+      ]
+    },
+    {
+      "sequence": 32,
+      "publishedAt": "2026-11-08T10:27:45.578Z",
+      "coverage": {
+        "mode": "bounded-pilot",
+        "watchFamilies": [
+          "version-guidance-audit",
+          "version-release-watch",
+          "es-editions-watch",
+          "csp-fedramp-watch"
+        ],
+        "completeness": "Retained prior history, three ITSI 5.0.3 findings, the existing November 7 SOAR example finding with original provenance, and ten bounded Release Watch assessments.",
+        "exclusions": [
+          "Unavailable source bodies and issue-table extraction failures are not emitted as knowledge gaps.",
+          "Ordinary confirmed facts and unresolved questions lacking claim-specific support are not promoted to issues.",
+          "No claim date is advanced beyond the exact published assessment evidence.",
+          "Missing findings or absent new assessments never establish resolution."
+        ],
+        "evidenceThrough": "2026-11-08",
+        "findingIds": [
+          "vci-soar-cloud-880-release-stage",
+          "vci-itsi-subagent-region",
+          "vci-es-87-connector-builder-editions",
+          "vci-es-88-triage-editions",
+          "vci-es-guided-response-enhancement-scope",
+          "vci-es-malware-phishing-version-floor",
+          "vci-app-for-soar-es-pairing",
+          "vci-es-activity-pricing-deployment-scope",
+          "vci-saia-high-runtime-scope",
+          "vci-cloud-s3-restricted-scope",
+          "vci-svd-2026-1015-applicability",
+          "vci-enterprise-kv-106-upgrade-bridge",
+          "vci-cloud-107-release-service-pairing",
+          "vci-observability-rca-custom-metric-scope",
+          "vci-es-soc-analyst-version-floor",
+          "vci-ai-report-source-directory",
+          "vci-sok-32-compatibility-scope",
+          "vci-es-editions-ambiguous-link",
+          "vci-saia-agent-runtime-processing-scope",
+          "vci-saia-cloud-connected-agent-mode-scope",
+          "vci-es-security-assistant-runtime-default",
+          "vci-es-security-assistant-runtime-ap-routing",
+          "vci-app-for-soar-88-onprem-matrix-cell",
+          "vci-soar-cmp-88-fixed-issues-label",
+          "vci-fedramp-moderate-certified-services-display",
+          "vci-soar-cmp-88-upgrade-example-destination",
+          "vci-itsi-503-enterprise-102-patch-scope",
+          "vci-itsi-503-service-discovery-46607",
+          "vci-itsi-503-service-discovery-46608"
+        ],
+        "assessmentDateRange": {
+          "earliest": "2026-10-12",
+          "latest": "2026-11-08"
+        }
+      },
+      "recordKeys": [
+        "finding:vci-soar-cloud-880-release-stage@1",
+        "assessment:vcia-soar-stage-20261029@1",
+        "assessment:vcia-soar-stage-20261030@1",
+        "finding:vci-itsi-subagent-region@1",
+        "assessment:vcia-itsi-region-20261029@1",
+        "assessment:vcia-itsi-region-20261030@1",
+        "finding:vci-es-87-connector-builder-editions@1",
+        "assessment:vcia-es-87-connector-builder-editions-20261029@1",
+        "assessment:vcia-es-87-connector-builder-editions-20261030@1",
+        "finding:vci-es-88-triage-editions@1",
+        "assessment:vcia-es-88-triage-editions-20261029@1",
+        "assessment:vcia-es-88-triage-editions-20261030@1",
+        "finding:vci-es-guided-response-enhancement-scope@1",
+        "assessment:vcia-es-guided-response-enhancement-scope-20261029@1",
+        "assessment:vcia-es-guided-response-enhancement-scope-20261030@1",
+        "finding:vci-es-malware-phishing-version-floor@1",
+        "assessment:vcia-es-malware-phishing-version-floor-20261029@1",
+        "assessment:vcia-es-malware-phishing-version-floor-20261030@1",
+        "finding:vci-app-for-soar-es-pairing@1",
+        "assessment:vcia-app-for-soar-es-pairing-20261029@1",
+        "assessment:vcia-app-for-soar-es-pairing-20261030@1",
+        "finding:vci-es-activity-pricing-deployment-scope@1",
+        "assessment:vcia-es-activity-pricing-deployment-scope-20261029@1",
+        "assessment:vcia-es-activity-pricing-deployment-scope-20261030@1",
+        "finding:vci-saia-high-runtime-scope@1",
+        "assessment:vcia-saia-high-runtime-scope-20261029@1",
+        "assessment:vcia-saia-high-runtime-scope-20261030@1",
+        "finding:vci-cloud-s3-restricted-scope@1",
+        "assessment:vcia-cloud-s3-restricted-scope-20261029@1",
+        "assessment:vcia-cloud-s3-restricted-scope-20261030@1",
+        "finding:vci-svd-2026-1015-applicability@1",
+        "assessment:vcia-svd-2026-1015-applicability-20261029@1",
+        "finding:vci-enterprise-kv-106-upgrade-bridge@1",
+        "assessment:vcia-enterprise-kv-106-upgrade-bridge-20261012@1",
+        "assessment:vcia-enterprise-kv-106-upgrade-bridge-20261025@1",
+        "assessment:vcia-es-87-connector-builder-editions-20261031@1",
+        "assessment:vcia-es-88-triage-editions-20261031@1",
+        "assessment:vcia-es-guided-response-enhancement-scope-20261031@1",
+        "assessment:vcia-es-malware-phishing-version-floor-20261031@1",
+        "assessment:vcia-app-for-soar-es-pairing-20261031@1",
+        "assessment:vcia-es-activity-pricing-deployment-scope-20261031@1",
+        "assessment:vcia-soar-stage-20261031@1",
+        "assessment:vcia-itsi-region-20261031@1",
+        "assessment:vcia-saia-high-runtime-scope-20261031@1",
+        "assessment:vcia-cloud-s3-restricted-scope-20261031@1",
+        "finding:vci-cloud-107-release-service-pairing@1",
+        "assessment:vcia-cloud-107-release-service-pairing-20261101@1",
+        "assessment:vcia-soar-stage-20261101@1",
+        "assessment:vcia-svd-2026-1015-applicability-20261101@1",
+        "assessment:vcia-es-87-connector-builder-editions-20261101@1",
+        "assessment:vcia-es-88-triage-editions-20261101@1",
+        "assessment:vcia-es-guided-response-enhancement-scope-20261101@1",
+        "assessment:vcia-es-malware-phishing-version-floor-20261101@1",
+        "assessment:vcia-es-activity-pricing-deployment-scope-20261101@1",
+        "assessment:vcia-app-for-soar-es-pairing-20261101@1",
+        "assessment:vcia-soar-stage-es-editions-20261101@1",
+        "assessment:vcia-itsi-region-20261101@1",
+        "assessment:vcia-saia-high-runtime-scope-20261101@1",
+        "assessment:vcia-cloud-s3-restricted-scope-20261101@1",
+        "finding:vci-observability-rca-custom-metric-scope@1",
+        "assessment:vcia-observability-rca-custom-metric-scope-20261102@1",
+        "assessment:vcia-cloud-107-release-service-pairing-20261102@1",
+        "assessment:vcia-soar-stage-20261102@1",
+        "assessment:vcia-svd-2026-1015-applicability-20261102@1",
+        "assessment:vcia-itsi-region-20261102@1",
+        "assessment:vcia-saia-high-runtime-scope-20261102@1",
+        "assessment:vcia-cloud-s3-restricted-scope-20261102@1",
+        "assessment:vcia-observability-rca-custom-metric-scope-csp-20261102@1",
+        "assessment:vcia-guidance-20261102-es-88-triage-editions@1",
+        "finding:vci-es-soc-analyst-version-floor@1",
+        "assessment:vcia-guidance-20261102-es-soc-analyst-version-floor@1",
+        "assessment:vcia-guidance-20261102-soar-cloud-880-release-stage@1",
+        "assessment:vcia-guidance-20261102-enterprise-kv-106-upgrade-bridge@1",
+        "assessment:vcia-guidance-20261102-svd-2026-1015-applicability@1",
+        "assessment:vcia-guidance-20261102-cloud-107-release-service-pairing@1",
+        "assessment:vcia-guidance-20261102-itsi-subagent-region@1",
+        "assessment:vcia-guidance-20261102-observability-rca-custom-metric-scope@1",
+        "assessment:vcia-guidance-20261102-app-for-soar-es-pairing@1",
+        "finding:vci-ai-report-source-directory@1",
+        "assessment:vcia-guidance-20261102-ai-report-source-directory@1",
+        "finding:vci-sok-32-compatibility-scope@1",
+        "assessment:vcia-release-20261103-sok32-compatibility-scope@1",
+        "assessment:vcia-es-editions-20261103-es-88-triage-editions@1",
+        "assessment:vcia-es-editions-20261103-es-soc-analyst-version-floor@1",
+        "assessment:vcia-es-editions-20261103-es-87-connector-builder-editions@1",
+        "assessment:vcia-es-editions-20261103-es-guided-response-enhancement-scope@1",
+        "assessment:vcia-es-editions-20261103-es-malware-phishing-version-floor@1",
+        "assessment:vcia-es-editions-20261103-app-for-soar-es-pairing@1",
+        "finding:vci-es-editions-ambiguous-link@1",
+        "assessment:vcia-es-editions-20261103-ambiguous-link@1",
+        "assessment:vcia-itsi-region-20261103@1",
+        "assessment:vcia-saia-high-runtime-scope-20261103@1",
+        "assessment:vcia-cloud-s3-restricted-scope-20261103@1",
+        "assessment:vcia-observability-rca-custom-metric-scope-csp-20261103@1",
+        "finding:vci-saia-agent-runtime-processing-scope@1",
+        "assessment:vcia-manual-coverage-20261103-saia-runtime-processing@1",
+        "assessment:vcia-manual-coverage-20261103-es-soc-version-floor@1",
+        "finding:vci-saia-cloud-connected-agent-mode-scope@1",
+        "assessment:vcia-manual-coverage-20261103-saia-cloud-connected-scope@1",
+        "assessment:vcia-es-editions-20261104-es-87-connector-builder-editions@1",
+        "assessment:vcia-es-editions-20261104-es-88-triage-editions@1",
+        "assessment:vcia-es-editions-20261104-es-guided-response-enhancement-scope@1",
+        "assessment:vcia-es-editions-20261104-es-malware-phishing-version-floor@1",
+        "assessment:vcia-es-editions-20261104-app-for-soar-es-pairing@1",
+        "assessment:vcia-es-editions-20261104-es-soc-analyst-version-floor@1",
+        "assessment:vcia-es-editions-20261104-saia-cloud-connected-agent-mode-scope@1",
+        "assessment:vcia-csp-20261104-itsi-subagent-region@1",
+        "assessment:vcia-csp-20261104-saia-high-runtime-scope@1",
+        "assessment:vcia-csp-20261104-cloud-s3-restricted-scope@1",
+        "assessment:vcia-csp-20261104-observability-rca-custom-metric-scope@1",
+        "assessment:vcia-csp-20261104-soar-cloud-880-release-stage@1",
+        "assessment:vcia-release-20261105-soar-cloud-880-release-stage@1",
+        "assessment:vcia-release-20261105-sok-32-compatibility-scope@1",
+        "assessment:vcia-release-20261105-itsi-subagent-region@1",
+        "assessment:vcia-release-20261105-es-soc-analyst-version-floor@1",
+        "assessment:vcia-release-20261105-saia-agent-runtime-processing-scope@1",
+        "assessment:vcia-release-20261105-saia-cloud-connected-agent-mode-scope@1",
+        "assessment:vcia-es-20261105-es-soc-analyst-version-floor@1",
+        "assessment:vcia-es-20261105-es-88-triage-editions@1",
+        "assessment:vcia-es-20261105-es-87-connector-builder-editions@1",
+        "assessment:vcia-es-20261105-es-guided-response-enhancement-scope@1",
+        "assessment:vcia-es-20261105-app-for-soar-es-pairing@1",
+        "assessment:vcia-csp-20261105-cloud-s3-restricted-scope@1",
+        "assessment:vcia-csp-20261105-saia-high-runtime-scope@1",
+        "assessment:vcia-csp-20261105-itsi-subagent-region@1",
+        "assessment:vcia-csp-20261105-observability-rca-custom-metric-scope@1",
+        "assessment:vcia-csp-20261105-soar-cloud-880-release-stage@1",
+        "assessment:vcia-csp-20261105-es-soc-analyst-version-floor@1",
+        "assessment:vcia-csp-20261105-es-88-triage-editions@1",
+        "finding:vci-es-security-assistant-runtime-default@1",
+        "finding:vci-es-security-assistant-runtime-ap-routing@1",
+        "assessment:vcia-guidance-20261105-svd-2026-1015-applicability@1",
+        "assessment:vcia-guidance-20261105-sok-32-compatibility-scope@1",
+        "assessment:vcia-guidance-20261105-saia-cloud-connected-agent-mode-scope@1",
+        "assessment:vcia-guidance-20261105-saia-agent-runtime-processing-scope@1",
+        "assessment:vcia-guidance-20261105-itsi-subagent-region@1",
+        "assessment:vcia-guidance-20261105-es-soc-analyst-version-floor@1",
+        "assessment:vcia-guidance-20261105-es-88-triage-editions@1",
+        "assessment:vcia-guidance-20261105-soar-cloud-880-release-stage@1",
+        "assessment:vcia-guidance-20261105-cloud-107-release-service-pairing@1",
+        "assessment:vcia-guidance-20261105-app-for-soar-es-pairing@1",
+        "assessment:vcia-release-20261106-svd-2026-1015-applicability@1",
+        "assessment:vcia-release-20261106-app-for-soar-es-pairing@1",
+        "finding:vci-app-for-soar-88-onprem-matrix-cell@1",
+        "assessment:vcia-release-20261106-sok-32-compatibility-scope@1",
+        "assessment:vcia-release-20261106-saia-cloud-connected-agent-mode-scope@1",
+        "assessment:vcia-release-20261106-saia-agent-runtime-processing-scope@1",
+        "assessment:vcia-release-20261106-itsi-subagent-region@1",
+        "assessment:vcia-release-20261106-es-soc-analyst-version-floor@1",
+        "assessment:vcia-release-20261106-es-88-triage-editions@1",
+        "finding:vci-soar-cmp-88-fixed-issues-label@1",
+        "assessment:vcia-release-follow-20261106-svd-2026-1015-applicability@1",
+        "assessment:vcia-release-follow-20261106-sok-32-compatibility-scope@1",
+        "assessment:vcia-release-follow-20261106-saia-cloud-connected-agent-mode-scope@1",
+        "assessment:vcia-release-follow-20261106-saia-agent-runtime-processing-scope@1",
+        "assessment:vcia-release-follow-20261106-itsi-subagent-region@1",
+        "assessment:vcia-release-follow-20261106-es-soc-analyst-version-floor@1",
+        "assessment:vcia-es-20261106-es-soc-analyst-version-floor@1",
+        "assessment:vcia-es-20261106-app-for-soar-es-pairing@1",
+        "assessment:vcia-es-20261106-es-88-triage-editions@1",
+        "assessment:vcia-es-20261106-es-87-connector-builder-editions@1",
+        "assessment:vcia-es-20261106-es-guided-response-enhancement-scope@1",
+        "assessment:vcia-es-20261106-es-malware-phishing-version-floor@1",
+        "assessment:vcia-es-20261106-es-activity-pricing-deployment-scope@1",
+        "assessment:vcia-es-20261106-es-security-assistant-runtime-default@1",
+        "assessment:vcia-es-20261106-es-security-assistant-runtime-ap-routing@1",
+        "assessment:vcia-es-follow-20261106-es-soc-analyst-version-floor@1",
+        "assessment:vcia-es-follow-20261106-app-for-soar-es-pairing@1",
+        "assessment:vcia-es-follow-20261106-app-for-soar-88-onprem-matrix-cell@1",
+        "assessment:vcia-es-exact-20261106-es-soc-analyst-version-floor@1",
+        "assessment:vcia-es-exact-20261106-app-for-soar-es-pairing@1",
+        "assessment:vcia-es-exact-20261106-app-for-soar-88-onprem-matrix-cell@1",
+        "assessment:vcia-csp-20261106-cloud-s3-restricted-scope@1",
+        "assessment:vcia-csp-20261106-cloud-107-release-service-pairing@1",
+        "assessment:vcia-csp-20261106-saia-high-runtime-scope@1",
+        "assessment:vcia-csp-20261106-itsi-subagent-region@1",
+        "assessment:vcia-csp-20261106-soar-cloud-880-release-stage@1",
+        "assessment:vcia-csp-20261106-observability-rca-custom-metric-scope@1",
+        "assessment:vcia-csp-20261106-es-soc-analyst-version-floor@1",
+        "assessment:vcia-csp-20261106-es-security-assistant-runtime-default@1",
+        "assessment:vcia-csp-20261106-es-security-assistant-runtime-ap-routing@1",
+        "assessment:vcia-es-20261107-es-soc-analyst-version-floor@1",
+        "assessment:vcia-es-20261107-app-for-soar-es-pairing@1",
+        "assessment:vcia-es-20261107-es-88-triage-editions@1",
+        "assessment:vcia-es-20261107-es-87-connector-builder-editions@1",
+        "assessment:vcia-es-20261107-es-guided-response-enhancement-scope@1",
+        "assessment:vcia-es-20261107-app-for-soar-88-onprem-matrix-cell@1",
+        "assessment:vcia-es-20261107-es-editions-ambiguous-link@1",
+        "finding:vci-fedramp-moderate-certified-services-display@1",
+        "assessment:vcia-csp-20261107-cloud-107-release-service-pairing@1",
+        "assessment:vcia-csp-20261107-cloud-s3-restricted-scope@1",
+        "assessment:vcia-csp-20261107-saia-high-runtime-scope@1",
+        "assessment:vcia-csp-20261107-itsi-subagent-region@1",
+        "assessment:vcia-csp-20261107-soar-cloud-880-release-stage@1",
+        "assessment:vcia-csp-20261107-observability-rca-custom-metric-scope@1",
+        "assessment:vcia-csp-20261107-es-soc-analyst-version-floor@1",
+        "assessment:vcia-csp-20261107-es-security-assistant-runtime-default@1",
+        "assessment:vcia-csp-20261107-es-security-assistant-runtime-ap-routing@1",
+        "finding:vci-soar-cmp-88-upgrade-example-destination@1",
+        "assessment:vcia-release-20261108-sok-32-compatibility-scope@1",
+        "assessment:vcia-release-20261108-saia-cloud-connected-agent-mode-scope@1",
+        "assessment:vcia-release-20261108-saia-agent-runtime-processing-scope@1",
+        "assessment:vcia-release-20261108-itsi-subagent-region@1",
+        "assessment:vcia-release-20261108-es-soc-analyst-version-floor@1",
+        "finding:vci-itsi-503-enterprise-102-patch-scope@1",
+        "finding:vci-itsi-503-service-discovery-46607@1",
+        "finding:vci-itsi-503-service-discovery-46608@1",
+        "assessment:vcia-release-20261108-svd-2026-1015-applicability@1",
+        "assessment:vcia-release-20261108-soar-cmp-88-fixed-issues-label@1",
+        "assessment:vcia-release-20261108-soar-cmp-88-upgrade-example-destination@1",
+        "assessment:vcia-release-20261108-cloud-107-release-service-pairing@1",
+        "assessment:vcia-release-20261108-soar-cloud-880-release-stage@1"
       ]
     }
   ]

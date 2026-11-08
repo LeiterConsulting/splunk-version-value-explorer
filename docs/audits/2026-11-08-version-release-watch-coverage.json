@@ -455,19 +455,57 @@
   ],
   "publication": {
     "claimedDelivered": false,
-    "qualification": "Repository audit/feed publication, package candidate and production delivery are separate. The last complete production deployment remains in service. Current candidate D1 verification was held before mutation."
+    "qualification": "Repository audit/feed publication, package candidate and production delivery are separate. The last complete production deployment remains in service. Current candidate D1 verification was held before mutation.",
+    "auditProvenanceCommit": "e1683c57f3c0e52a5565cd32fdd1fb1ea31dee37",
+    "candidateFeedCheckpoint": "vci-1d3596d71b6608bf8835e7ecd569117fd779bcf9c63c976f8c07a94498ec5ce8",
+    "exportBaseline": "b3790ee3a5709f0ee1ccd286271aa3898c7b44e3"
   },
   "validation": {
     "checks": [
       {
+        "id": "sync-gates",
+        "outcome": "passed",
+        "evidence": "Release metadata, content, source register and content revision sync and check completed; runtime outputs are unchanged in this audit/feed candidate."
+      },
+      {
+        "id": "unit-suite",
+        "outcome": "passed",
+        "evidence": "434 Node tests passed for the audit/feed candidate, including the immutable-history rewrite regression above the default subprocess buffer size."
+      },
+      {
+        "id": "advisor-maintenance",
+        "outcome": "passed",
+        "evidence": "Both Advisor maintenance commands passed. The gate reports overdue admission pins; the independent review did not change their admitted dates."
+      },
+      {
+        "id": "native-issue-feed",
+        "outcome": "passed",
+        "evidence": "Native feed, generator check, lineage and record digest gates passed for the new cumulative checkpoint."
+      },
+      {
+        "id": "coverage-gate",
+        "outcome": "passed",
+        "evidence": "Registry 1.2.0 digest and audit binding pass. Ten dispositions are assessed, one Cloud readiness disposition is blocked."
+      },
+      {
+        "id": "build",
+        "outcome": "passed",
+        "evidence": "74 assets and the unchanged 922-record base bundle build successfully."
+      },
+      {
         "id": "exact-candidate-exports",
-        "outcome": "blocked",
-        "evidence": "Successful Chromium artifact verified for the base commit; exact changed runtime evidence remains pending."
+        "outcome": "passed",
+        "evidence": "GitHub validate run 42422260427, job 128553009483, successful Chromium and release-readiness steps. The 202 cases on identical audit/feed report inputs include 152 PDFs, 2,178 verified rendered pages and 152 independently reopened HTML reports in the two-theme matrix. The separate ITSI runtime candidate requires its own receipt."
+      },
+      {
+        "id": "artifact-readback",
+        "outcome": "passed",
+        "evidence": "Export ZIP artifact 13594366003 matched sha256:f3d23996b7c752313fff3ee9e6bca67b6d5aca6ecf76033671ffc51abfc72117. The repo verifier checked all 4,062 retained artifact digests. PDF geometry/text checks are automated."
       },
       {
         "id": "live-ui-assets-d1",
         "outcome": "blocked",
-        "evidence": "Static manifest serves the earlier engine. The exact main publisher receipt stopped at engine mismatch before any writes. Public D1 probes were not initiated on a held rollout."
+        "evidence": "The static manifest serves the previous engine. The exact main publisher receipt stopped before writes on engine mismatch. A production D1 probe was not initiated."
       }
     ]
   },
