@@ -27,7 +27,8 @@ Final passing PR heads can hide earlier failed commits. Six earlier failed attem
 on five subsequently successful publisher runs are recorded separately, including
 one `fetch failed` whose mutation outcome was not established by that log.
 
-* Preparation now validates raw UTF-8 JSON, executes ordered generators/checks in
+* Preparation validates raw UTF-8 JSON and recognized source/generated text,
+  executes ordered generators/checks in
   an isolated clone, verifies inputs did not change concurrently, then applies
   prepared output. Failure before application leaves original files unchanged;
   file replacement errors restore the saved preimages. An interrupted process is
@@ -133,11 +134,20 @@ here. Exact-candidate CI must rerun the current complete matrix.
    ```bash
    node scripts/maintenance.cjs --manifest > /tmp/vc-original-inputs.json
    node scripts/verify-transfer.cjs content/issue-feed.json ORIGINAL_SHA256 ORIGINAL_BYTES
+   node scripts/verify-transfer.cjs dist/maintenance-status.js ORIGINAL_SHA256 ORIGINAL_BYTES --text
+   node scripts/verify-transfer.cjs /tmp/candidate.zip ORIGINAL_SHA256 ORIGINAL_BYTES --bytes
    ```
 
-   The last two arguments must come from that original raw file, independently
+   The SHA-256 and byte length must come from that original raw file, independently
    of the destination. A destination-computed hash alone proves nothing about
-   transfer. Stage all generated changes together. Review file paths, hashes,
+   transfer. Verify every transferred file, not only JSON. The default keeps strict
+   UTF-8 JSON parsing; `--text` additionally requires valid UTF-8 for generated
+   JavaScript and other text, while `--bytes` verifies exact binary/archive bytes
+   without interpreting them. These modes do not establish semantic correctness,
+   syntax validity or safe archive contents. Preparation rejects malformed UTF-8
+   in recognized text inputs before a generator can overwrite the evidence.
+   Existing content, revision, feed, coverage and export gates still apply.
+   Stage all generated changes together. Review file paths, hashes,
    qualifications, tests and diff before the commit.
 9. Push the dedicated branch and update the draft PR. Wait for the exact final
    push-head validation and PR integration validation. Any subsequent input edit
