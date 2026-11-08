@@ -938,10 +938,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-07T10:56:28.060861Z",
-      "lastSuccess": "2026-11-06T11:33:59.772Z",
-      "outcome": "blocked",
-      "summary": "Completed bounded ES claim checks. Direct retrieval gaps remain and no new product facts were established.",
+      "lastAttempt": "2026-11-08T11:34:34.561851Z",
+      "lastSuccess": "2026-11-08T12:07:00.000Z",
+      "outcome": "no-change",
+      "summary": "No supported canonical ES edition or prerequisite change; seven existing findings were reassessed and the unresolved documented conflicts remain qualified.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1379,9 +1379,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Completed bounded ES claim checks. Direct retrieval gaps remain and no new product facts were established.",
           "scope": "48 official URLs attempted. Exact App, Export and native pairing were kept separate. Full inventory verification remains incomplete."
+        },
+        {
+          "at": "2026-11-08T11:34:34.561851Z",
+          "outcome": "running",
+          "summary": "November 8 ES Editions Watch review started.",
+          "scope": "Fresh full 48-URL official ES source inventory and bounded highest-consequence editions, SOC workflow, release-stage, App for SOAR and SOAR Export checks."
+        },
+        {
+          "at": "2026-11-08T12:07:00.000Z",
+          "outcome": "no-change",
+          "summary": "No supported canonical ES edition or prerequisite change; seven existing findings were reassessed and the unresolved documented conflicts remain qualified.",
+          "scope": "All 48 maintained official ES URLs attempted (47 direct retrievals); affected and highest-consequence edition, SOC workflow, release-stage, exact App for SOAR and SOAR Export claims assessed."
         }
       ],
-      "scope": "48 official URLs attempted. Exact App, Export and native pairing were kept separate. Full inventory verification remains incomplete."
+      "scope": "All 48 maintained official ES URLs attempted (47 direct retrievals); affected and highest-consequence edition, SOC workflow, release-stage, exact App for SOAR and SOAR Export claims assessed."
     },
     {
       "id": "version-guidance-audit",
