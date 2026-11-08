@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-08T12:38:16.190455Z",
-      "lastSuccess": "2026-11-08T12:46:36.573Z",
+      "lastAttempt": "2026-11-08T20:32:35.791337Z",
+      "lastSuccess": "2026-11-08T20:40:19.746Z",
       "outcome": "no-change",
-      "summary": "Reassessed 15 scoped claim groups. Current Edge and ES Model Runtime article locations recovered. Canonical facts remain unchanged.",
+      "summary": "Reassessed six bounded claim families. Preserved current conflicts and unknowns.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -435,9 +435,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Reassessed 15 scoped claim groups. Current Edge and ES Model Runtime article locations recovered. Canonical facts remain unchanged.",
           "scope": "All 51 inherited official URLs attempted plus two current official article locations. Fifteen bounded claim groups independently assessed. No canonical product fact, source review date, Advisor pin or material cycle advanced."
+        },
+        {
+          "at": "2026-11-08T20:32:35.791337Z",
+          "outcome": "running",
+          "summary": "Started bounded CSP evidence review.",
+          "scope": "Attempted the complete 53-entry maintained official inventory, with 50 directly retrieved and three HTTP 404. Independently reassessed six bounded claim families, including the sole mandatory SOC capability. Other prior claims retain their earlier dates."
+        },
+        {
+          "at": "2026-11-08T20:40:19.746Z",
+          "outcome": "no-change",
+          "summary": "Reassessed six bounded claim families. Preserved current conflicts and unknowns.",
+          "scope": "Attempted the complete 53-entry maintained official inventory, with 50 directly retrieved and three HTTP 404. Independently reassessed six bounded claim families, including the sole mandatory SOC capability. Other prior claims retain their earlier dates."
         }
       ],
-      "scope": "All 51 inherited official URLs attempted plus two current official article locations. Fifteen bounded claim groups independently assessed. No canonical product fact, source review date, Advisor pin or material cycle advanced."
+      "scope": "Attempted the complete 53-entry maintained official inventory, with 50 directly retrieved and three HTTP 404. Independently reassessed six bounded claim families, including the sole mandatory SOC capability. Other prior claims retain their earlier dates."
     },
     {
       "id": "version-release-watch",
