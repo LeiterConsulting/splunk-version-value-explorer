@@ -41,7 +41,8 @@ window.SPLUNK_DATA.guidance = {
     "maintenanceLines": {
       "itsi": {
         "5.0.1": "5.0",
-        "5.0.2": "5.0"
+        "5.0.2": "5.0",
+        "5.0.3": "5.0"
       }
     }
   },

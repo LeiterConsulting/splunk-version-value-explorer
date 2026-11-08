@@ -2189,8 +2189,6 @@ window.VersionCompassSources = {
       "references": [
         "release.cloud.releasesData.10.6.technicalChanges.2.source",
         "release.cloud.releasesData.10.6.requirements.3.3",
-        "release.productTracks.es.cloudServiceSource",
-        "release.productTracks.itsi.cloudServiceSource",
         "environment.sources.service.url",
         "forwarders.sources.cloud.url",
         "content-updates.js",
@@ -2333,6 +2331,8 @@ window.VersionCompassSources = {
       "references": [
         "release.cloud.releasesData.10.7.technicalChanges.4.source",
         "release.cloud.releasesData.10.7.requirements.4.3",
+        "release.productTracks.es.cloudServiceSource",
+        "release.productTracks.itsi.cloudServiceSource",
         "environment.sources.service107.url",
         "content-updates.js",
         "environment: environment.records.61",
@@ -2343,18 +2343,22 @@ window.VersionCompassSources = {
         "2026-11-07"
       ],
       "usage": "In use",
-      "reviewed": "2026-11-01",
+      "reviewed": "2026-11-08",
       "status": "Reviewed",
       "firstRecorded": "2026-11-01",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "Current service pairing is separate from release publication, tenant rollout, entitlement, region and authorization.",
-      "section": "Current version table",
-      "verificationScope": "Confirmed that the current subscription table still lists Splunk Cloud Platform 10.6, Enterprise Security 8.7, ITSI 5.0 and PCI 8.7 even though 10.7 release notes are published. This does not negate the documented 10.7 release or establish deployment on any selected stack.",
+      "section": "Supported versions > Current Splunk Cloud Platform and Premium App versions",
+      "verificationScope": "The current table lists Cloud Platform 10.7, Enterprise Security 8.7, ITSI 5.0 and PCI 8.7. The earlier 10.6 listing is historical. The current row does not establish any selected stack, patch or rollout.",
       "events": [
         {
           "date": "2026-11-01",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-08",
+          "event": "Review status updated: Reviewed · 2026-11-08"
         }
       ]
     },
@@ -5506,8 +5510,10 @@ window.VersionCompassSources = {
         "release.productTracks.es.releasesData.8.8.requirements.1.3",
         "release.productTracks.es.hostRequirements.enterprise.10.6.source",
         "release.productTracks.itsi.compatibilitySource",
+        "release.productTracks.itsi.hostRequirements.enterprise.10.2.source",
         "release.productTracks.itsi.releasesData.4.15.source",
         "release.productTracks.itsi.releasesData.4.17.source",
+        "release.productTracks.itsi.releasesData.5.0.3.requirements.0.3",
         "forwarders.sources.esKv106.url",
         "content-updates.js",
         "forwarders: forwarders.claimSources.technical.hf-es-kv-store-10.6",
@@ -6792,6 +6798,32 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/known-issues-in-splunk-it-service-intelligence",
+      "title": "known issues in splunk it service intelligence",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.itsi.releasesData.5.0.3.requirements.1.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-08",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-08",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/new-features-in-splunk-it-service-intelligence",
       "title": "new features in splunk it service intelligence",
       "areas": [
@@ -6809,7 +6841,9 @@ window.VersionCompassSources = {
         "release.productTracks.itsi.releasesData.5.0.2.source",
         "release.productTracks.itsi.releasesData.5.0.2.technicalChanges.0.source",
         "release.productTracks.itsi.releasesData.5.0.2.technicalChanges.1.source",
-        "release.productTracks.itsi.releasesData.5.0.2.requirements.0.3"
+        "release.productTracks.itsi.releasesData.5.0.2.requirements.0.3",
+        "release.productTracks.itsi.releasesData.5.0.3.features.0.5",
+        "release.productTracks.itsi.releasesData.5.0.3.requirements.2.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -8872,6 +8906,32 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-15",
           "event": "Review status updated: Needs reconciliation · 2026-10-15"
+        }
+      ]
+    },
+    {
+      "url": "https://splunkbase.splunk.com/app/1841",
+      "title": "1841",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.itsi.releasesData.5.0.3.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-11-08",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-08",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Splunkbase compatibility is kept separate from exact customer-managed patch pairing and Splunk-managed Cloud availability.",
+      "section": "Default Version 5.0.3; Compatibility",
+      "verificationScope": "Verified the public Splunkbase 5.0.3 listing dated October 28, 2026 and broad platform versions 10.2–10.7. Exact customer-managed patch pairing, managed stack rollout and authorization remain separate.",
+      "events": [
+        {
+          "date": "2026-11-08",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },

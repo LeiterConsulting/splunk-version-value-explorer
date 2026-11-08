@@ -308,7 +308,6 @@ test('Enterprise Security 8.7 preserves the line selector while exposing the exa
   assert.match(builders.detail, /8\.7\.1/);
   assert.match(builders.detail, /all eligible users/);
   assert(report.readiness.some(item => item.title === 'Confirm Enterprise Security 8.7 edition and eligibility'));
-  assert.match(rt.window.SPLUNK_DATA.productTracks.es.cloudServiceSource, /\/10\.6\/information-about-the-service\/splunk-cloud-platform-service-details$/);
   assert.equal(rt.window.SPLUNK_DATA.productTracks.es.latest, '8.8');
 });
 
@@ -349,7 +348,7 @@ test('September Observability additions preserve SaaS, private-runner, and Cloud
   assert(report.technicalChanges.some(item => item.component === '.NET instrumentation installer verification' && item.to.includes('requires GitHub CLI by default')));
   assert(report.technicalChanges.some(item => item.component === 'Browser RUM navigation configuration' && item.to.includes('deprecated alias')));
   assert(report.breakingChanges.some(item => item.title === 'Provide GitHub CLI for .NET 1.16 installer verification' && item.breaking));
-  assert(report.readiness.some(item => item.title === 'Treat Cloud 10.6 trial onboarding as stack-specific' && item.detail.includes('current service pairing is now 10.6')));
+  assert(report.readiness.some(item => item.title === 'Treat Cloud 10.6 trial onboarding as stack-specific' && item.detail.includes('requires Splunk Cloud Platform 10.6') && item.detail.includes('not a statement of the current service pairing')));
   assert(report.breakingChanges.some(item => item.title === 'Reconcile Node.js semantic conventions' && item.detail.startsWith('Splunk OpenTelemetry Node.js 4.11.0') && !item.detail.includes('chart')));
   assert(report.technicalChanges.some(item => item.component === 'Node.js instrumentation baseline' && item.to.includes('4.12.0') && item.to.includes('Couchbase SDK 4.7+')));
   assert(report.technicalChanges.some(item => item.component === 'Java CPU profiling remote control' && item.to.includes('2.31.3') && item.to.includes('Docker image publishing')));
@@ -364,7 +363,7 @@ test('September Observability additions preserve SaaS, private-runner, and Cloud
   const platformCloud = rt.run('get_catalog', {}).products.find(item => item.id === 'platform').contexts.find(item => item.platform === 'cloud');
   assert(platformCloud.targetReleases.some(item => item.id === '10.6'));
   const cloud106 = rt.run('compare_routes', { routes: [{ product: 'platform', platform: 'cloud', from: '10.5.2605', to: '10.6' }] }).reports[0];
-  assert(cloud106.breakingChanges.some(item => item.title === 'Confirm selected stack and feature scope' && item.detail.includes('identify Cloud 10.6 as the current subscription version')));
+  assert(cloud106.breakingChanges.some(item => item.title === 'Confirm selected stack and feature scope' && item.detail.includes('recorded Cloud 10.6 as the subscription version for that historical observation')));
 });
 
 test('October Observability route preserves SaaS semantics and component release boundaries', async () => {
@@ -476,7 +475,7 @@ test('Fleet configuration and Cloud maintenance remain opt-in and stack scoped',
  const t=r.technicalChanges.find(t=>t.component==='Fleet Management Kubernetes configuration');assert.match(t.to,/0.162.1/);assert.match(t.action,/remoteManagement.enabled=true/);assert.match(t.implication,/ConfigMaps/);
  const cloud=rt.run('compare_routes',{routes:[{product:'platform',platform:'cloud',from:'10.4.2604',to:'10.5.2605'}]}).reports[0];assert(cloud.technicalChanges.some(t=>t.component==='Cloud 10.5 maintenance build'&&t.to.includes('10.5.2605.15')&&t.implication.includes('SPL-319104')&&t.implication.includes('10.5.2605.14')));
  const cloud106=rt.run('compare_routes',{routes:[{product:'platform',platform:'cloud',from:'10.5.2605',to:'10.6'}]}).reports[0],maintenance=cloud106.technicalChanges.find(t=>t.component==='Cloud 10.6 maintenance build');assert(maintenance);assert.match(maintenance.to,/10\.6\.2\.2/);assert.match(maintenance.from,/10\.6\.2\.1/);assert.match(maintenance.implication,/one Critical and one Medium/);assert.match(maintenance.action,/10\.6\.2\.1 and 10\.6\.2\.0/);
- const cloud107=rt.run('compare_routes',{routes:[{product:'platform',platform:'cloud',from:'10.6',to:'10.7'}]}).reports[0];assert(cloud107);assert(cloud107.technicalChanges.some(t=>t.component==='Cloud 10.7 release documentation versus current service pairing'&&t.from.includes('Cloud 10.6')&&t.to.includes('10.7')));assert(cloud107.technicalChanges.some(t=>t.component==='Forwarder-to-indexer application authentication'&&t.implication.includes('does not establish receiver-version compatibility')));
+ const cloud107=rt.run('compare_routes',{routes:[{product:'platform',platform:'cloud',from:'10.6',to:'10.7'}]}).reports[0];assert(cloud107);assert(cloud107.technicalChanges.some(t=>t.component==='Cloud 10.7 release documentation versus current service pairing'&&t.from.includes('Cloud 10.6')&&t.to.includes('Cloud 10.7, Enterprise Security 8.7 and ITSI 5.0')));assert(cloud107.technicalChanges.some(t=>t.component==='Forwarder-to-indexer application authentication'&&t.implication.includes('does not establish receiver-version compatibility')));
  const ent=rt.run('compare_routes',{routes:[{product:'platform',platform:'enterprise',from:'9.4',to:'10.6'}]}).reports[0];assert(!ent.technicalChanges.some(t=>t.component==='Cloud 10.5 maintenance build'));
 });
 test('ES KV warning preserves exact 10.6.0 and 10.6.1.1 maintenance scope',async()=>{
@@ -497,6 +496,25 @@ test('ITSI host pairing preserves the separate cohosted KV Store prerequisite', 
   assert.equal(older.compatibility.status, 'ok');
   const cloud = rt.run('compare_routes', { routes: [{ product: 'itsi', platform: 'cloud', host: '10.5.2605', from: '4.20', to: '5.0.2' }] }).reports[0];
   assert(!cloud.breakingChanges.some(x => x.detail.includes('postgresMigrateOnStartup')));
+});
+
+test('ITSI 5.0.3 retains host and Cloud Service Discovery boundaries', async () => {
+  const rt = await runtime();
+  function report(platform, host) {
+    return rt.run('compare_routes', { routes: [{ product: 'itsi', platform, host, from: '5.0.2', to: '5.0.3' }] }).reports[0];
+  }
+  assert.match(report('enterprise', '10.2').compatibility.title, /Confirm the exact ITSI 5\.0\.3 pairing/);
+  assert.equal(report('enterprise', '10.4').compatibility.status, 'ok');
+  assert.match(report('enterprise', '10.6').compatibility.detail, /postgresMigrateOnStartup=false/);
+  assert.match(report('cloud', '10.6').compatibility.title, /Confirm target availability/);
+  assert(!report('cloud', '10.6').breakingChanges.some(change => change.detail.includes('postgresMigrateOnStartup')));
+  assert.match(report('cloud', '10.7').compatibility.title, /Confirm target availability/);
+  for (const [product, from, to] of [['itsi', '4.21', '5.0'], ['es', '8.6', '8.7']]) {
+    const route = { product, platform: 'cloud', host: '10.7', from, to };
+    const result = rt.run('compare_routes', { routes: [route] }).reports[0].compatibility;
+    assert.match(result.title, /Current managed pairing/);
+    assert.match(result.source, /\/10\.7\/information-about-the-service\/splunk-cloud-platform-service-details$/);
+  }
 });
 
 test('ES 10.6 host pairing requires postponement without transferring it to Cloud or older hosts', async () => {
@@ -617,4 +635,25 @@ test('migration to published Cloud 10.6 does not assert stack availability', asy
   assert(highlights.length>0);
   assert(highlights.every(item=>item.milestone==='Cloud 10.6 published planning milestone'));
   assert(report.breakingChanges.some(item=>/selected stack and feature scope/.test(item.title)));
+});
+
+
+test('Cloud 10.7 readiness reflects current service lines without granting stack availability', async () => {
+  const rt = await runtime();
+  const report = rt.run('compare_routes', { routes: [{ product: 'platform', platform: 'cloud', from: '10.6', to: '10.7' }] }).reports[0];
+  const readiness = report.breakingChanges.find(item => item.title === 'Confirm the selected stack before using Cloud 10.7 guidance');
+  assert(readiness);
+  assert.match(readiness.detail, /Cloud 10\.7, Enterprise Security 8\.7 and ITSI 5\.0/);
+  assert.doesNotMatch(readiness.detail, /still pairs subscriptions with Cloud 10\.6/);
+  for (const boundary of ['exact stack', 'product patch', 'provider', 'region', 'feature', 'entitlement', 'regulated scope', 'before treating 10.7 as deployed or available']) assert(readiness.detail.includes(boundary), boundary);
+  assert.match(readiness.source, /\/10\.7\/information-about-the-service\/splunk-cloud-platform-service-details$/);
+  assert(report.breakingChanges.some(item => item.title === readiness.title && item.breaking));
+  const historical = rt.run('compare_routes', { routes: [{ product: 'platform', platform: 'cloud', from: '10.5.2605', to: '10.6' }] }).reports[0].technicalChanges.find(item => item.component === 'Cloud 10.6 publication versus stack availability');
+  assert(historical);
+  assert.match(historical.action, /historical context/);
+  assert.match(historical.action, /check the current service table/);
+  const historicalBlocker = rt.run('compare_routes', { routes: [{ product: 'platform', platform: 'cloud', from: '10.5.2605', to: '10.6' }] }).reports[0].breakingChanges.find(item => item.title === 'Confirm selected stack and feature scope');
+  assert(historicalBlocker?.breaking);
+  assert.match(historicalBlocker.detail, /historical observation/);
+  assert.match(historicalBlocker.detail, /Check the current service table/);
 });
