@@ -1,9 +1,9 @@
 /* Route manual observations before invoking any publication selector or writer. */
 const fs = require('node:fs');
 function workflowMode(eventName, event) {
-  if (eventName === 'workflow_run') return 'publish';
+  if (eventName === 'workflow_run') return 'held';
   if (eventName !== 'workflow_dispatch' || !['publish', 'observe-only'].includes(event?.inputs?.mode)) throw Error('Invalid publisher workflow mode');
-  return event.inputs.mode;
+  return event.inputs.mode === 'observe-only' ? 'observe-only' : 'held';
 }
 if (require.main === module) {
   try {

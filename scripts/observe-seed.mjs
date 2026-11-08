@@ -17,15 +17,24 @@ const fail = reason => { throw Object.assign(new Error(reason), { safeReason: re
 const object = value => value && typeof value === 'object' && !Array.isArray(value);
 const exactKeys = (value, required, optional = []) => object(value) && required.every(key => Object.hasOwn(value, key)) && Object.keys(value).every(key => required.includes(key) || optional.includes(key));
 
-export function validateContext(env, manifest, checkoutSha) {
+export function validateContext(env, manifest, checkoutSha, deployment, sourceTree) {
   if (env.GITHUB_ACTIONS !== 'true' || env.GITHUB_EVENT_NAME !== 'workflow_dispatch' || env.VC_OBSERVATION_MODE !== 'observe-only' ||
       env.GITHUB_REPOSITORY !== repository || env.GITHUB_REF !== ref || env.GITHUB_REF_TYPE !== 'branch' || env.GITHUB_WORKFLOW_REF !== workflow ||
       env.VC_OBSERVATION_EXPECTED_REF !== ref || !shaPattern.test(env.VC_OBSERVATION_EXPECTED_COMMIT || '') ||
       env.GITHUB_SHA !== env.VC_OBSERVATION_EXPECTED_COMMIT || env.GITHUB_WORKFLOW_SHA !== env.GITHUB_SHA || checkoutSha !== env.GITHUB_SHA) fail('context-rejected');
+  // This reviewed repository record describes the deployed bundle, not current
+  // main's candidate. Historical Git bytes are read locally; no target is probed.
+  if (!exactKeys(deployment, ['schemaVersion', 'repository', 'sourceCommit', 'sourceTree', 'sitesVersion', 'sitesSourceCommit', 'seed']) ||
+      deployment.schemaVersion !== 1 || deployment.repository !== repository || !shaPattern.test(deployment.sourceCommit || '') ||
+      !shaPattern.test(deployment.sourceTree || '') || !shaPattern.test(deployment.sitesSourceCommit || '') ||
+      !Number.isSafeInteger(deployment.sitesVersion) || deployment.sitesVersion < 1 ||
+      sourceTree !== deployment.sourceTree || env.VC_OBSERVATION_EXPECTED_SEED_COMMIT !== deployment.sourceCommit ||
+      !exactKeys(deployment.seed, ['schemaVersion', 'engineRevision', 'revision', 'digest', 'recordCount']) ||
+      !object(manifest) || Object.entries(deployment.seed).some(([key, value]) => manifest[key] !== value)) fail('expected-identity-invalid');
   if (!object(manifest) || manifest.schemaVersion !== 1 || !revisionPattern.test(manifest.revision || '') || !enginePattern.test(manifest.engineRevision || '') ||
       !/^[a-f0-9]{64}$/.test(manifest.digest || '') || !Number.isSafeInteger(manifest.recordCount) || manifest.recordCount < 1 || manifest.recordCount > 10000 ||
       env.VC_OBSERVATION_EXPECTED_ENGINE !== manifest.engineRevision || env.VC_OBSERVATION_EXPECTED_REVISION !== manifest.revision) fail('expected-identity-invalid');
-  return { commit: env.GITHUB_SHA, ref, engineRevision: manifest.engineRevision, revision: manifest.revision, digest: manifest.digest, recordCount: manifest.recordCount };
+  return { commit: env.GITHUB_SHA, ref, seedSourceCommit: deployment.sourceCommit, seedSourceTree: deployment.sourceTree, sitesVersion: deployment.sitesVersion, seedDigestValidation: 'local-source-only', engineRevision: manifest.engineRevision, revision: manifest.revision, digest: manifest.digest, recordCount: manifest.recordCount };
 }
 
 // The production issuer and Worker authenticate the token. This local sanity check
@@ -119,7 +128,7 @@ export function validateObservation(value, expected, status) {
   return Object.fromEntries([...required, ...optional].filter(key => Object.hasOwn(value, key)).map(key => [key, value[key]]));
 }
 
-export async function observeSeed({ env = process.env, manifest, checkoutSha, fetcher = (...args) => globalThis.fetch(...args), now = Date.now, monotonic = () => performance.now(), timeoutMs = 10000 } = {}) {
+export async function observeSeed({ env = process.env, manifest, checkoutSha, deployment, sourceTree, fetcher = (...args) => globalThis.fetch(...args), now = Date.now, monotonic = () => performance.now(), timeoutMs = 10000 } = {}) {
   // Injection can only shorten the fixed request deadline, never expand it.
   if (!Number.isFinite(timeoutMs) || timeoutMs <= 0 || timeoutMs > 10000) timeoutMs = 10000;
   const start = monotonic();
@@ -127,7 +136,7 @@ export async function observeSeed({ env = process.env, manifest, checkoutSha, fe
   const base = { mode: 'observe-only', target: endpoint, readiness: 'not-assessed', integrity: 'not-validated', claimedDelivered: false, mutationAttempted: false,
     qualification: 'Metadata/count observation only. No seed, stage, bootstrap, activation or content API request. No readiness, integrity, provenance or factual-currency claim; other traffic may still initialize D1.' };
   try {
-    expected = validateContext(env, manifest, checkoutSha);
+    expected = validateContext(env, manifest, checkoutSha, deployment, sourceTree);
     action = 'credential-acquisition';
     let url;
     try { url = new URL(env.ACTIONS_ID_TOKEN_REQUEST_URL); } catch { fail('issuer-rejected'); }
@@ -159,12 +168,17 @@ export function writeObservationReceipt(receipt, { output = 'seed-observation-ou
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  let manifest, checkoutSha;
+  let manifest, checkoutSha, deployment, sourceTree;
   try {
-    manifest = JSON.parse(fs.readFileSync('content/publication.json', 'utf8'));
+    deployment = JSON.parse(fs.readFileSync('docs/deployed-seed-observation.json', 'utf8'));
+    // Validate before using a repository record in fixed local Git arguments.
+    if (!shaPattern.test(deployment.sourceCommit || '')) fail('expected-identity-invalid');
+    const git = args => execFileSync('git', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 65536 }).trim();
+    manifest = JSON.parse(git(['show', deployment.sourceCommit + ':content/publication.json']));
+    sourceTree = git(['rev-parse', deployment.sourceCommit + '^{tree}']);
     checkoutSha = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
   } catch { /* Invalid local input is captured by context-validation below. */ }
-  const receipt = await observeSeed({ manifest, checkoutSha });
+  const receipt = await observeSeed({ manifest, checkoutSha, deployment, sourceTree });
   try { writeObservationReceipt(receipt); } catch { console.error('Observation receipt retention failed.'); process.exitCode = 1; }
   console.log(JSON.stringify(receipt));
   if (receipt.status !== 'observation-returned') process.exitCode = 1;
