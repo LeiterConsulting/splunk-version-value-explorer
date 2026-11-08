@@ -8,7 +8,6 @@ const repository = 'LeiterConsulting/splunk-version-value-explorer';
 const origin = 'https://versioncompass.com';
 const ref = 'refs/heads/main';
 const workflow = repository + '/.github/workflows/publish-content.yml@' + ref;
-const endpoint = origin + '/api/publisher/observe-seed';
 const shaPattern = /^[a-f0-9]{40}$(?![\s\S])/;
 const revisionPattern = /^content-[a-f0-9]{24}$(?![\s\S])/;
 const enginePattern = /^engine-[a-f0-9]{20}$(?![\s\S])/;
@@ -17,8 +16,8 @@ const fail = reason => { throw Object.assign(new Error(reason), { safeReason: re
 const object = value => value && typeof value === 'object' && !Array.isArray(value);
 const exactKeys = (value, required, optional = []) => object(value) && required.every(key => Object.hasOwn(value, key)) && Object.keys(value).every(key => required.includes(key) || optional.includes(key));
 
-export function validateContext(env, manifest, checkoutSha, deployment, sourceTree) {
-  if (env.GITHUB_ACTIONS !== 'true' || env.GITHUB_EVENT_NAME !== 'workflow_dispatch' || env.VC_OBSERVATION_MODE !== 'observe-only' ||
+export function validateContext(env, manifest, checkoutSha, deployment, sourceTree, mode = 'observe-only') {
+  if (env.GITHUB_ACTIONS !== 'true' || env.GITHUB_EVENT_NAME !== 'workflow_dispatch' || !['observe-only', 'head-only'].includes(mode) || env.VC_OBSERVATION_MODE !== mode ||
       env.GITHUB_REPOSITORY !== repository || env.GITHUB_REF !== ref || env.GITHUB_REF_TYPE !== 'branch' || env.GITHUB_WORKFLOW_REF !== workflow ||
       env.VC_OBSERVATION_EXPECTED_REF !== ref || !shaPattern.test(env.VC_OBSERVATION_EXPECTED_COMMIT || '') ||
       env.GITHUB_SHA !== env.VC_OBSERVATION_EXPECTED_COMMIT || env.GITHUB_WORKFLOW_SHA !== env.GITHUB_SHA || checkoutSha !== env.GITHUB_SHA) fail('context-rejected');
@@ -128,15 +127,16 @@ export function validateObservation(value, expected, status) {
   return Object.fromEntries([...required, ...optional].filter(key => Object.hasOwn(value, key)).map(key => [key, value[key]]));
 }
 
-export async function observeSeed({ env = process.env, manifest, checkoutSha, deployment, sourceTree, fetcher = (...args) => globalThis.fetch(...args), now = Date.now, monotonic = () => performance.now(), timeoutMs = 10000 } = {}) {
+async function observe({ env = process.env, manifest, checkoutSha, deployment, sourceTree, fetcher = (...args) => globalThis.fetch(...args), now = Date.now, monotonic = () => performance.now(), timeoutMs = 10000 } = {}, mode) {
   // Injection can only shorten the fixed request deadline, never expand it.
   if (!Number.isFinite(timeoutMs) || timeoutMs <= 0 || timeoutMs > 10000) timeoutMs = 10000;
+  const endpoint = origin + (mode === 'head-only' ? '/api/publisher/head' : '/api/publisher/observe-seed');
   const start = monotonic();
   let expected, observation, action = 'context-validation', requests = 0;
-  const base = { mode: 'observe-only', target: endpoint, readiness: 'not-assessed', integrity: 'not-validated', claimedDelivered: false, mutationAttempted: false,
-    qualification: 'Metadata/count observation only. No seed, stage, bootstrap, activation or content API request. No readiness, integrity, provenance or factual-currency claim; other traffic may still initialize D1.' };
+  const base = { mode, target: endpoint, readiness: 'not-assessed', integrity: 'not-validated', claimedDelivered: false, mutationAttempted: false,
+    qualification: mode === 'head-only' ? 'Head metadata only. Seed source/tree/digest/count and Sites version are local reviewed expectations, not observed head provenance or digest. Generation is the maximum event generation, not complete history or provenance verification. No seed, stage, bootstrap, activation or content API request. No readiness, integrity, delivery or activation-eligibility claim.' : 'Metadata/count observation only. No seed, stage, bootstrap, activation or content API request. No readiness, integrity, provenance or factual-currency claim; other traffic may still initialize D1.' };
   try {
-    expected = validateContext(env, manifest, checkoutSha, deployment, sourceTree);
+    expected = validateContext(env, manifest, checkoutSha, deployment, sourceTree, mode);
     action = 'credential-acquisition';
     let url;
     try { url = new URL(env.ACTIONS_ID_TOKEN_REQUEST_URL); } catch { fail('issuer-rejected'); }
@@ -146,10 +146,10 @@ export async function observeSeed({ env = process.env, manifest, checkoutSha, de
     const credential = await requestJSON(url, { Authorization: 'Bearer ' + env.ACTIONS_ID_TOKEN_REQUEST_TOKEN }, 32768, fetcher, timeoutMs, monotonic, start + 20000, () => requests++);
     if (credential.status !== 200) fail('credential-unavailable');
     const token = validateCredential(credential.data?.value, expected, now());
-    action = 'observe-seed';
+    action = mode === 'head-only' ? 'head' : 'observe-seed';
     const response = await requestJSON(endpoint, { Authorization: 'Bearer ' + token, Accept: 'application/json' }, 16384, fetcher, timeoutMs, monotonic, start + 20000, () => requests++);
-    if (![200, 503].includes(response.status)) fail('observation-http-rejected');
-    observation = validateObservation(response.data, expected, response.status);
+    if (!(mode === 'head-only' ? [200] : [200, 503]).includes(response.status)) fail('observation-http-rejected');
+    observation = mode === 'head-only' ? validateHeadObservation(response.data, expected) : validateObservation(response.data, expected, response.status);
     if (monotonic() - start >= 20000) fail('request-timeout');
     if (response.status === 503) fail('observation-unavailable');
     return { ...base, ...expected, status: 'observation-returned', observation, recordedAt: new Date(now()).toISOString(), elapsedMs: Math.round(monotonic() - start), requests };
@@ -157,6 +157,18 @@ export async function observeSeed({ env = process.env, manifest, checkoutSha, de
     return { ...base, ...(expected || {}), status: 'failed', action, reason: allowedErrors.has(error?.safeReason) ? error.safeReason : 'context-rejected', ...(observation ? { observation } : {}), recordedAt: new Date(now()).toISOString(), elapsedMs: Math.round(monotonic() - start), requests };
   }
 }
+
+export function validateHeadObservation(value, expected) {
+  if (!exactKeys(value, ['revision', 'generation', 'engineRevision', 'activeDelivery']) ||
+      !revisionPattern.test(value.revision || '') || !enginePattern.test(value.engineRevision || '') ||
+      !Number.isSafeInteger(value.generation) || value.generation < 0 || typeof value.activeDelivery !== 'boolean') fail('observation-schema-invalid');
+  // The reviewed deployment is held. Changed state stops here without probing
+  // content, bootstrapping or interpreting a MAX(generation) as trusted history.
+  if (value.revision !== expected.revision || value.engineRevision !== expected.engineRevision || value.activeDelivery !== false) fail('observation-identity-mismatch');
+  return { revision: value.revision, generation: value.generation, engineRevision: value.engineRevision, activeDelivery: value.activeDelivery };
+}
+export const observeSeed = options => observe(options, 'observe-only');
+export const observeHead = options => observe(options, 'head-only');
 
 export function writeObservationReceipt(receipt, { output = 'seed-observation-outcome.json', summary = process.env.GITHUB_STEP_SUMMARY } = {}) {
   fs.writeFileSync(output, JSON.stringify(receipt, null, 2) + '\n');
@@ -167,7 +179,7 @@ export function writeObservationReceipt(receipt, { output = 'seed-observation-ou
     'Readiness: **not-assessed**. Integrity: **not-validated**.\n\n' + receipt.qualification + '\n');
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+export function loadObservationInputs() {
   let manifest, checkoutSha, deployment, sourceTree;
   try {
     deployment = JSON.parse(fs.readFileSync('docs/deployed-seed-observation.json', 'utf8'));
@@ -178,6 +190,11 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
     sourceTree = git(['rev-parse', deployment.sourceCommit + '^{tree}']);
     checkoutSha = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
   } catch { /* Invalid local input is captured by context-validation below. */ }
+  return { manifest, checkoutSha, deployment, sourceTree };
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  const { manifest, checkoutSha, deployment, sourceTree } = loadObservationInputs();
   const receipt = await observeSeed({ manifest, checkoutSha, deployment, sourceTree });
   try { writeObservationReceipt(receipt); } catch { console.error('Observation receipt retention failed.'); process.exitCode = 1; }
   console.log(JSON.stringify(receipt));
