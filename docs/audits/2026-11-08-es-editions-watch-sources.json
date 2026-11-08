@@ -552,6 +552,33 @@
       }
     ]
   },
+  "continuation": {
+    "observedAt": "2026-11-08T20:05:21.132Z",
+    "kind": "same-scheduler-run-retry",
+    "sourceChecks": {
+      "checkedAtStart": "2026-11-08T20:02:35.897Z",
+      "checkedAtEnd": "2026-11-08T20:02:50.840Z",
+      "attempted": 48,
+      "directRetrieved": 47,
+      "directNotFound": 1,
+      "inventory": "The same exact 48 public URLs retained in sourceChecks.inventory were attempted again; no URL was added, removed or reinterpreted.",
+      "qualification": "All response bodies changed byte hashes because the publisher emits dynamic page bytes; hash drift alone is not a claim change. The Cloud Connect setup URL still returned 404 directly, while the official indexed section still names Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and SAIA 2.4+ prerequisites. Retrieval remains distinct from assessment."
+    },
+    "claimChecks": {
+      "assessedAt": "2026-11-08T20:04:58.000Z",
+      "claimIds": [
+        "ai-es-soc",
+        "es.connector-builder.edition-conflict",
+        "es.guided-response.enhancement-scope",
+        "soar.app.8.8.onprem-matrix-cell",
+        "soar.export.8.8.0-functionality-tested-scope",
+        "es.editions.current-overview-and-ga",
+        "es.commercial-scope.pricing-ueba-exposure"
+      ],
+      "outcome": "assessed-no-change",
+      "qualification": "Rechecked the exact URL/section families already enumerated in claimChecks. The current agent table still separates Cloud and Cloud Connected prerequisites; the indexed setup section does not establish released SAIA 2.4 support; the 8.7 task floor, first-ten and approximately 200-per-tenant limits, frontier-model requirement, connector/action/asset permissions, edition conflict, Guided Response enhancement ambiguity, malformed App for SOAR cell and exact SOAR Export tested tuples remain separately qualified. This retry produced no distinct issue-feed observation beyond the assessments already published for this same scheduler run."
+    }
+  },
   "claimChecks": [
     {
       "claimId": "ai-es-soc",
@@ -956,9 +983,10 @@
     "taskId": "6ab2aa014df881918687cc1e30393ea9",
     "schedulerRunId": "bcfd0fa1-6d78-832d-b488-158ddc8a7184",
     "startedAt": "2026-11-08T19:13:07.066704Z",
-    "status": "in-progress",
+    "currentAttemptStartedAt": "2026-11-08T19:59:33.598035Z",
+    "status": "retry-in-progress",
     "latestResultMatched": false,
-    "qualification": "Supported native read exposes this run identity. latest_result belongs to a different run, so current result and first-execution verification remain incomplete."
+    "qualification": "Supported native read at 2026-11-08T20:02:24Z exposes the same scheduler run in progress after its recorded failure/retry. latest_result still belongs to a different run, so current result and first-execution verification remain incomplete."
   },
   "automationCoverage": {
     "runFile": "docs/audits/2026-11-08-es-editions-watch-second-review-coverage.json"
@@ -979,8 +1007,8 @@
     "schemaVersion": 1,
     "watchId": "es-editions-watch",
     "status": "published",
-    "recordedAt": "2026-11-08T19:26:12.629Z",
-    "reviewDigest": "2f845e69ec6f139ef2ebfacf559ebf7e16793cc833cc2e27b4274d9ad8b1587c",
+    "recordedAt": "2026-11-08T20:07:35.048Z",
+    "reviewDigest": "ece41f0dab324306c3d0bbfc44ce6b94ea95b1e84b8dffcbf320b73bb7abd33f",
     "publicationId": "vci-1f83fcedadd1a24dadf1e835192152c7268e00401b43e441adfc51496a2ed092",
     "recordKeys": [
       "assessment:vcia-es-20261108-late-soc-version-floor@1",
@@ -1018,6 +1046,6 @@
       "vci-svd-2026-1015-applicability"
     ],
     "deferredConcerns": [],
-    "qualification": "Six distinct scoped reassessments pin the immutable second November 8 ES Editions audit. Canonical product facts and report/runtime inputs remain unchanged."
+    "qualification": "The same scheduler run continued after a retry and reconfirmed the exact 48-source inventory and seven bounded claim families. Its six already-published assessment revisions remain the complete issue-feed output for this run; the continuation produced no distinct new observation or checkpoint."
   }
 }

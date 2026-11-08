@@ -27,6 +27,51 @@ test('raw-byte transfer rejects truncation, transcript prefixes, wrong digests a
     fs.writeFileSync(file, bad); assert.throws(() => verify(file, hash(bytes), bytes.length), /differ/); assert.throws(() => inputManifest(root), /Invalid UTF-8 JSON/);
   }
 });
+test('generated text transfers require exact source bytes and valid UTF-8', t => {
+  const root = fixture(t), file = path.join(root, 'generated.js'), bytes = Buffer.from('window.example = { label: "caf\u00e9 \u2726" };\n');
+  fs.writeFileSync(file, bytes);
+  assert.equal(verify(file, hash(bytes), bytes.length, 'text').status, 'raw-text-bytes-verified');
+  assert.throws(() => verify(file, hash(bytes), bytes.length), SyntaxError);
+  for (const bad of [Buffer.from('Warning: truncated output\n' + bytes), bytes.subarray(0, bytes.length - 1), Buffer.from(bytes.toString().replace('example', 'changed'))]) {
+    fs.writeFileSync(file, bad); assert.throws(() => verify(file, hash(bytes), bytes.length, 'text'), /differ/);
+  }
+  const bad = Buffer.from([0xff, 0xfe, 0x61]); fs.writeFileSync(file, bad);
+  assert.throws(() => verify(file, hash(bad), bad.length, 'text'), /encoded data/);
+  assert.throws(() => inputManifest(root), /Invalid UTF-8 text input: generated.js/);
+});
+test('binary and empty transfers are explicit and never silently replace JSON validation', t => {
+  const root = fixture(t), file = path.join(root, 'archive.zip');
+  for (const bytes of [Buffer.from([0x50, 0x4b, 0xff, 0xfe]), Buffer.alloc(0)]) {
+    fs.writeFileSync(file, bytes);
+    assert.equal(verify(file, hash(bytes), bytes.length, 'bytes').status, 'raw-bytes-verified');
+    assert.throws(() => verify(file, hash(bytes), bytes.length));
+  }
+  assert.equal(verify(file, hash(Buffer.alloc(0)), 0, 'text').status, 'raw-text-bytes-verified');
+  assert.throws(() => verify(file, hash(Buffer.alloc(0)), 0, 'unknown'), /format/);
+  assert.throws(() => verify(file, hash(Buffer.alloc(0)), -1, 'bytes'), /byte length/);
+});
+test('transfer CLI preserves strict JSON default and accepts only explicit text or bytes modes', t => {
+  const root = fixture(t), file = path.join(root, 'generated.js'), bytes = Buffer.from('window.example = true;\n'); fs.writeFileSync(file, bytes);
+  const script = path.resolve(__dirname, '../scripts/verify-transfer.cjs'), args = [script, file, hash(bytes), String(bytes.length)];
+  const json = path.join(root, 'input.json'), jsonBytes = fs.readFileSync(json);
+  assert.equal(JSON.parse(execFileSync(process.execPath, [script, json, hash(jsonBytes), String(jsonBytes.length)])).status, 'raw-json-bytes-verified');
+  assert.equal(JSON.parse(execFileSync(process.execPath, [...args, '--text'])).status, 'raw-text-bytes-verified');
+  assert.equal(JSON.parse(execFileSync(process.execPath, [...args, '--bytes'])).status, 'raw-bytes-verified');
+  for (const suffix of [[], ['--typo'], ['--text', 'extra']]) assert.throws(() => execFileSync(process.execPath, [...args, ...suffix], { stdio: 'pipe' }));
+});
+test('malformed generated text is rejected before isolated generators can repair or bless it', t => {
+  const root = fixture(t), file = path.join(root, 'generated.js'), bytes = Buffer.from([0xff]); fs.writeFileSync(file, bytes);
+  const rewrite = [process.execPath, '-e', 'require("fs").writeFileSync("generated.js", "window.example = true;\\n")'];
+  assert.throws(() => regenerate(root, [rewrite]), /Invalid UTF-8 text input/);
+  assert.deepEqual(fs.readFileSync(file), bytes);
+});
+test('malformed generator output is rejected without applying any generated changes', t => {
+  const root = fixture(t), file = path.join(root, 'generated.js'); fs.writeFileSync(file, 'window.example = true;\n');
+  const before = inputManifest(root);
+  const corrupt = [process.execPath, '-e', 'const fs=require("fs");fs.writeFileSync("generated.js", Buffer.from([255]));fs.writeFileSync("generated.json", "{}\\n")'];
+  assert.throws(() => regenerate(root, [corrupt]), /Invalid UTF-8 text input/);
+  assert.deepEqual(inputManifest(root), before);
+});
 test('failed generation leaves original files intact; successful generation applies validated bytes only', t => {
   const root = fixture(t), before = inputManifest(root);
   const generate = [process.execPath, '-e', 'require("fs").writeFileSync("generated.json",require("fs").readFileSync("input.json"))'];
