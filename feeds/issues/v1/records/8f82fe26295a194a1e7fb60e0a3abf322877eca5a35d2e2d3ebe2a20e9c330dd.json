@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-svd-2026-1015-applicability",
+  "assessmentId": "vcia-guidance-20261108-svd-2026-1015-applicability",
+  "revision": 1,
+  "recordedAt": "2026-11-08T22:05:42.995Z",
+  "assessedAt": "2026-11-08T22:04:05.623Z",
+  "outcome": "partially-addressed",
+  "rationale": "The November 6 advisory lists Enterprise 10.0 bundled Node.js as affected and 9.4 and 10.2+ as unaffected by that runtime issue. UF is unaffected. The 10.2+ upgrade does not address Visual Exporter, which has a separate disable/remove mitigation. SOAR Automation Broker, Observability Cloud and OpenTelemetry Collector are affected with remediation in progress and no fixed build stated here. Synthetic Runner has its own 1.71.0+ recommendation.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise, Forwarders, SOAR and Observability"
+    ],
+    "versions": [
+      "November 6 advisory"
+    ],
+    "editions": null,
+    "deployments": [
+      "Component-specific"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating the documented decision"
+    ],
+    "exclusions": [
+      "No exact unlisted pairing, rollout, entitlement or customer authorization is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261108-0-0",
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1015",
+      "section": "Product Status > Affected and Unaffected Products; November 6 Changelog",
+      "statement": "Remediation rows and component-specific Enterprise footnotes.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-08T21:57:55.654Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "fc9049c0604db39c6642383e8aa31518c171d6e3a97a8314f47866792394a432",
+        "qualification": "Exact public response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/4a005d8a5488a49886750a30a75c13870e38aed7/docs/audits/2026-11-08-version-guidance-audit.json",
+      "pointer": "/claimChecks/0",
+      "originalLabel": "partially-addressed"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261108-late-15"
+  ],
+  "remainingConcerns": [
+    "Reassess through the existing owning watch and independent Guidance Audit."
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-cloud-connected-agent-mode-scope",
+  "assessmentId": "vcia-guidance-20261108-saia-cloud-connected-agent-mode-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-08T22:05:42.995Z",
+  "assessedAt": "2026-11-08T22:04:05.623Z",
+  "outcome": "still-present",
+  "rationale": "The feature guide lists Platform 10.1.x+, app 2.1.0+ generally, its own AWS location list, enabled Model Runtime, administrator enablement and version-scoped Cloud Connected certificate/allowlist requirements. Model Runtime distinguishes zone and Global routing and may select models hosted outside Splunk. The installation guide and SAIA-9918 explicitly rule out Enterprise Cloud Connected for 2.2.0–2.3.6. The 2.1.1 workaround lacks Agent Mode and 2.4.0 remains planned in the checked guide. The limited IL2 variant excludes Agent Mode. A usable Enterprise path and feature-specific data assurances remain unverified.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant"
+    ],
+    "versions": [
+      "2.1.1 and 2.2.0–2.3.6"
+    ],
+    "editions": null,
+    "deployments": [
+      "Enterprise Cloud Connected"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating the documented decision"
+    ],
+    "exclusions": [
+      "No exact unlisted pairing, rollout, entitlement or customer authorization is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261108-2-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "section": "Requirements; Supported regions; Enable and configure Agent Mode as a Cloud Connected customer",
+      "statement": "The general Agent Mode feature path has version, location and runtime gates.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-08T21:58:57.406Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "0342c9b499e22f70c6e69be9a85522a9515e20f5b0b665879c00346ca5a36d01",
+        "qualification": "Exact public response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261108-2-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "Cloud Connected compatibility caution",
+      "statement": "Current installation exclusion and planned 2.4.0.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-08T21:58:25.279Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "da1cd97eda10f736a949b7af13a0aece8751a22b000a230d5ec78fcca7f87d8a",
+        "qualification": "Exact public response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261108-2-2",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
+      "section": "Known issues > SAIA-9918",
+      "statement": "The 2.1.1 workaround does not support Agent Mode.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-08T21:58:25.298Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "f7426f80a5ef0b72d63ab0a487202e1ee6e41dc8190f24746b49fe5640d195cb",
+        "qualification": "Exact public response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/4a005d8a5488a49886750a30a75c13870e38aed7/docs/audits/2026-11-08-version-guidance-audit.json",
+      "pointer": "/claimChecks/2",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261108-late-8"
+  ],
+  "remainingConcerns": [
+    "Reassess through the existing owning watch and independent Guidance Audit."
+  ]
+}
