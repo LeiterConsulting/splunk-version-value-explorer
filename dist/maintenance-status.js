@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-07T12:50:05.488292Z",
-      "lastSuccess": "2026-11-03T12:30:17.094Z",
-      "outcome": "blocked",
-      "summary": "Reviewed regional and authorization evidence. Exact runtime delivery requires a separate verified candidate.",
+      "lastAttempt": "2026-11-08T12:38:16.190455Z",
+      "lastSuccess": "2026-11-08T12:46:36.573Z",
+      "outcome": "no-change",
+      "summary": "Reassessed 15 scoped claim groups. Current Edge and ES Model Runtime article locations recovered. Canonical facts remain unchanged.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -423,9 +423,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Reviewed regional and authorization evidence. Exact runtime delivery requires a separate verified candidate.",
           "scope": "51 public URLs, 17 bounded claim groups and one assessed Registry 1.2.0 SOC disposition. Moderate component listing unresolved."
+        },
+        {
+          "at": "2026-11-08T12:38:16.190455Z",
+          "outcome": "running",
+          "summary": "November 8 CSP public source and claim review started.",
+          "scope": "All 51 inherited official URLs attempted plus two current official article locations. Fifteen bounded claim groups independently assessed. No canonical product fact, source review date, Advisor pin or material cycle advanced."
+        },
+        {
+          "at": "2026-11-08T12:46:36.573Z",
+          "outcome": "no-change",
+          "summary": "Reassessed 15 scoped claim groups. Current Edge and ES Model Runtime article locations recovered. Canonical facts remain unchanged.",
+          "scope": "All 51 inherited official URLs attempted plus two current official article locations. Fifteen bounded claim groups independently assessed. No canonical product fact, source review date, Advisor pin or material cycle advanced."
         }
       ],
-      "scope": "51 public URLs, 17 bounded claim groups and one assessed Registry 1.2.0 SOC disposition. Moderate component listing unresolved."
+      "scope": "All 51 inherited official URLs attempted plus two current official article locations. Fifteen bounded claim groups independently assessed. No canonical product fact, source review date, Advisor pin or material cycle advanced."
     },
     {
       "id": "version-release-watch",

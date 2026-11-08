@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-security-assistant-runtime-default",
+  "assessmentId": "vcia-csp-20261108-es-security-assistant-runtime-default",
+  "revision": 1,
+  "recordedAt": "2026-11-08T12:47:24.863Z",
+  "assessedAt": "2026-11-08T12:46:36.573Z",
+  "outcome": "still-present",
+  "rationale": "The recovered 8.8 article uses both default-on language for ES 8.6+ and opt-in language in its usage section. Administrators can constrain models to Splunk-hosted processing. Exact deployment defaults and processing boundaries still require scoped evidence.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Security Assistant in ES"
+    ],
+    "versions": [
+      "8.8 guide, 8.6+ wording"
+    ],
+    "editions": null,
+    "deployments": [
+      "Model Runtime configuration"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating the documented decision"
+    ],
+    "exclusions": [
+      "No unlisted feature scope, exact pairing, rollout, entitlement or customer authorization is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261108-13-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/model-runtime-in-splunk-security-assistant",
+      "section": "Model Runtime introduction and Using the Model Runtime feature",
+      "statement": "Default and opt-in wording remain present at the current article URL.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-08T12:44:07.944Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "5a4998c1203419b13733e6001e6891033ae825e1c568309ef3b067d236bb8d1d",
+        "qualification": "Direct response bytes; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/fc83c26aab05393cb3a796f6e5f291585209aab8/docs/audits/2026-11-08-csp-fedramp-watch.json",
+      "pointer": "/claimChecks/13",
+      "originalLabel": "documentation-ambiguity"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261107-es-security-assistant-runtime-default"
+  ],
+  "remainingConcerns": [
+    "Retain the documented evidence boundaries and follow up through the existing CSP FedRAMP Watch."
+  ]
+}

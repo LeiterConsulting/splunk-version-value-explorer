@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-high-runtime-scope",
+  "assessmentId": "vcia-csp-20261108-saia-high-runtime-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-08T12:47:24.863Z",
+  "assessedAt": "2026-11-08T12:46:36.573Z",
+  "outcome": "unable-to-verify",
+  "rationale": "The 2.3.6 Cloud install guide describes limited IL2 support from 2.0.0, no Agent Mode, training/fine-tuning off by default and Splunk-hosted-only runtime for the FedRAMP variant. Its region table includes GovCloud entries. The High announcement describes SPL authoring and explanation for eligible stacks. These scopes still leave the exact High app/runtime and tenant eligibility chain unresolved.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant for SPL"
+    ],
+    "versions": [
+      "2.3.6 versioned installation and October 19 announcement"
+    ],
+    "editions": null,
+    "deployments": [
+      "IL2 and High assessed separately"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating the documented decision"
+    ],
+    "exclusions": [
+      "No unlisted feature scope, exact pairing, rollout, entitlement or customer authorization is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261108-7-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "section": "FedRAMP deployments; supported regions",
+      "statement": "IL2 qualification and feature/runtime restrictions are narrower than the general region table.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-08T12:40:46.191Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "a4c91f708ab0949864739d4cf6c4429a21f9cd5fb5b64907b96a0aa3f446ad92",
+        "qualification": "Direct response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261108-7-1",
+      "url": "https://www.splunk.com/en_us/blog/industries/edge-and-ingest-processors-with-spl2-and-splunk-ai-assistant-achieve-fedramp-high.html",
+      "section": "Splunk AI Assistant > FedRAMP High announcement",
+      "statement": "SPL authoring/explanation signal for eligible stacks.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-08T12:40:39.142Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "197b6995d7e3baa0370599ace791179cb6e0eb82ba1272d0ca8231a79d816203",
+        "qualification": "Direct response bytes; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/fc83c26aab05393cb3a796f6e5f291585209aab8/docs/audits/2026-11-08-csp-fedramp-watch.json",
+      "pointer": "/claimChecks/7",
+      "originalLabel": "unable-to-verify-high-runtime-scope"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261107-saia-high-runtime-scope"
+  ],
+  "remainingConcerns": [
+    "Retain the documented evidence boundaries and follow up through the existing CSP FedRAMP Watch."
+  ]
+}

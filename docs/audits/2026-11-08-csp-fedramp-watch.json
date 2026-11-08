@@ -1604,6 +1604,15 @@
       "owner": "csp-fedramp-watch",
       "reviewBy": "2026-11-09",
       "action": "Recheck the current matching result and saved-configuration digest with Guidance Audit. Keep the runtime hold until the authorized matching-engine release has passed live verification."
+    },
+    "basePublisher": {
+      "workflowRunId": 42480818165,
+      "artifactId": 13617541416,
+      "status": "held-runtime-deployment-required",
+      "reason": "engine-mismatch",
+      "mutationOutcome": "no-write-at-failed-action",
+      "deployedEngine": "engine-af7d1bbe1e74f9391194",
+      "requiredEngine": "engine-f7cb050e2600baf63082"
     }
   },
   "automationCoverage": {
@@ -1612,11 +1621,22 @@
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "csp-fedramp-watch",
-    "status": "pending-public-provenance",
-    "recordedAt": "2026-11-08T12:46:36.641Z",
+    "status": "published",
+    "recordedAt": "2026-11-08T12:47:25.002Z",
     "reviewDigest": "ae33c4c4a71ee10a89215d0e64e5f0097ad81ab523f778473e5b6f94e3eb4dc9",
-    "publicationId": "vci-9dd2380c1815805895ae5da5b8b08c6b42315f48414920e86d324a629194be78",
-    "recordKeys": [],
+    "publicationId": "vci-c7ae7c0a4c33834d6ad4007ba1b18836b27c2d2b4a094cde994a0ab61d953695",
+    "recordKeys": [
+      "assessment:vcia-csp-20261108-fedramp-moderate-certified-services-display@1",
+      "assessment:vcia-csp-20261108-cloud-107-release-service-pairing@1",
+      "assessment:vcia-csp-20261108-cloud-s3-restricted-scope@1",
+      "assessment:vcia-csp-20261108-saia-high-runtime-scope@1",
+      "assessment:vcia-csp-20261108-itsi-subagent-region@1",
+      "assessment:vcia-csp-20261108-soar-cloud-880-release-stage@1",
+      "assessment:vcia-csp-20261108-observability-rca-custom-metric-scope@1",
+      "assessment:vcia-csp-20261108-es-soc-analyst-version-floor@1",
+      "assessment:vcia-csp-20261108-es-security-assistant-runtime-default@1",
+      "assessment:vcia-csp-20261108-es-security-assistant-runtime-ap-routing@1"
+    ],
     "notReassessedFindingIds": [
       "vci-ai-report-source-directory",
       "vci-app-for-soar-88-onprem-matrix-cell",
@@ -1638,9 +1658,58 @@
       "vci-sok-32-compatibility-scope",
       "vci-svd-2026-1015-applicability"
     ],
-    "deferredConcerns": [
-      "Bind current scoped reassessments to the immutable public audit commit and verify checkpoint recovery by 2026-11-09."
+    "deferredConcerns": [],
+    "qualification": "Current scoped assessments cite the immutable public CSP audit. Final integration and checkpoint recovery are verified separately."
+  },
+  "validation": {
+    "checks": [
+      {
+        "id": "sync-gates",
+        "outcome": "passed",
+        "evidence": "Isolated ordered sync and all four check gates passed."
+      },
+      {
+        "id": "unit-suite",
+        "outcome": "passed",
+        "evidence": "436 Node tests passed."
+      },
+      {
+        "id": "advisor-maintenance",
+        "outcome": "passed",
+        "evidence": "Structural check passed. The three retained decision review windows remain overdue; no unrelated admission dates were refreshed."
+      },
+      {
+        "id": "native-issue-feed",
+        "outcome": "passed",
+        "evidence": "Native gate and cumulative generation checks passed locally. Exact public replay remains separate."
+      },
+      {
+        "id": "coverage-gate",
+        "outcome": "passed",
+        "evidence": "One registered SOC claim family with eight mapped source IDs validated under registry 1.2.0."
+      },
+      {
+        "id": "build",
+        "outcome": "passed",
+        "evidence": "Worker build passed with 74 assets and 922 records."
+      },
+      {
+        "id": "exact-candidate-exports",
+        "outcome": "pending",
+        "evidence": "Candidate validation remains separate."
+      },
+      {
+        "id": "artifact-readback",
+        "outcome": "pending",
+        "evidence": "Candidate validation remains separate."
+      },
+      {
+        "id": "live-ui-assets-d1",
+        "outcome": "blocked",
+        "evidence": "Existing matching-runtime release hold."
+      }
     ],
-    "qualification": "Scoped current reassessments pending the immutable public audit commit."
+    "visualSourceReview": "Rendered matrix columns, marks and legend inspected. Rendered Marketplace Moderate and High Certified Services displays read separately.",
+    "pipeline": "Native attempt matched by ID and start. Result was from a prior attempt at readback. Configuration digest differed from the retained amendment baseline. Baseline main CI passed independently. The verified publisher receipt for main records a preflight engine mismatch before writes."
   }
 }

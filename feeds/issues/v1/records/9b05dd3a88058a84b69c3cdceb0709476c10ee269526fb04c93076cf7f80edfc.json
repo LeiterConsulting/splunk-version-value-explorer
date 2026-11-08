@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-cloud-s3-restricted-scope",
+  "assessmentId": "vcia-csp-20261108-cloud-s3-restricted-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-08T12:47:24.863Z",
+  "assessedAt": "2026-11-08T12:46:36.573Z",
+  "outcome": "still-present",
+  "rationale": "Both 10.6 and 10.7 regional S3 rows list Moderate and explicitly exclude High and IL5. The April 8 entry adds High and IL5 for relevant 10.3 releases in the two GovCloud regions. The older change entry and current regional rows remain distinct. General Splunk-to-Splunk federation and processor rollout do not resolve the S3 path.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform Federated Search for Amazon S3"
+    ],
+    "versions": [
+      "10.6 and 10.7; April 8 10.3 changelog"
+    ],
+    "editions": null,
+    "deployments": [
+      "AWS GovCloud East/West; Moderate, High and IL5"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating the documented decision"
+    ],
+    "exclusions": [
+      "No unlisted feature scope, exact pairing, rollout, entitlement or customer authorization is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261108-4-0",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions and region differences > Federated search for Amazon S3",
+      "statement": "Moderate listed, High and IL5 excluded.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-08T12:40:56.633Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "83e233f6e3f67cd687b7eb02d0f1446a91c10ca9823a8a81c324fadfcce3d042",
+        "qualification": "Direct response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261108-4-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions and region differences > Federated search for Amazon S3",
+      "statement": "10.6 shows the same regional restriction.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-08T12:40:32.262Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "18adc56d698c530c09c243a75ee06839906f95b52a558acee17772cda58a0d33",
+        "qualification": "Direct response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261108-4-2",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "8 April 2026 > Available region and region differences",
+      "statement": "High and IL5 named for relevant 10.3 releases.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-08T12:40:56.633Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "301e35f9dc2cab0822016ff1d7c2ac00b5bd25aabb65cce9f1d877655dfe4919",
+        "qualification": "Direct response bytes; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/fc83c26aab05393cb3a796f6e5f291585209aab8/docs/audits/2026-11-08-csp-fedramp-watch.json",
+      "pointer": "/claimChecks/4",
+      "originalLabel": "conflict-preserved"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261107-cloud-s3-restricted-scope"
+  ],
+  "remainingConcerns": [
+    "Retain the documented evidence boundaries and follow up through the existing CSP FedRAMP Watch."
+  ]
+}
