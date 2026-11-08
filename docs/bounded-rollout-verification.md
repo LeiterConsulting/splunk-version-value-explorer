@@ -268,3 +268,56 @@ Local checks are not hosted verification. Exact-candidate CI/export artifacts,
 review, authorized deployment, source/version reconciliation and actual live
 readback still have their existing gates. This tooling leaves canonical factual
 dates, admission pins, Worker code and engine/content identities unchanged.
+
+## Offline historical-seed preparation (November 8)
+
+`node scripts/prepare-seed-bootstrap.mjs /absolute/path/local-input.json` prepares
+an existing bootstrap body without a credential, network request or submission.
+The input names `repositoryPath`, `callerCommit`, `mechanism` (`administrative`
+or `github-oidc`), `expectedSeed` and `head`. The reviewed seed pin must contain
+`sourceCommit`, `sourceTree`, `revision`, `engineRevision`, `digest`, `recordCount`.
+The supplied head has exactly `revision`, `engineRevision`, `generation`, and
+`activeDelivery`. Keep operational input/output outside the public repository.
+
+The tool reads only exact local Git objects, never runs historical source, and
+validates the complete seed bundle with the existing core. The separately reviewed
+source/tree and full manifest identity must match. It rejects missing, malformed,
+alternate or delivery-enabled heads; positive generation requires reconciliation,
+not a claim that provenance is complete. Only the matching generation-zero seed
+produces a request. Supplied head evidence can be stale: preparation is not a lock,
+current hosted verification, successful main CI evidence or permission to write.
+
+Current-main OIDC cannot authenticate a different historical candidate. The
+preparer reports `oidc-candidate-commit-mismatch` and the existing administrative
+mechanism, never changes the candidate to newer content or relaxes authentication.
+Administrative preparation returns `prepared-not-authorized`, the exact historical
+candidate and stable commit/bootstrap operation ID. The runtime still checks main
+ancestry, successful CI, exact committed bytes, immutable provenance and the seed.
+No entry point imports or submits this plan, and both publication holds remain
+unconditional. No environment variable or JSON input unlocks them.
+
+This fixes executable preparation and pre-write mismatch detection, not production
+history. Resolving the frozen channel requires separately authorized use of the
+existing administrative credential and one exact-seed bootstrap, followed by
+readback. Credential availability is unknown and is not probed here. Failure or
+response loss must stop for reconciliation, without automatic retries. Even a
+successful bootstrap is history initialization only, never activation or delivery.
+The runtime bootstrap may stage before detecting a concurrent head conflict, so
+local preflight does not guarantee no writes if hosted state changes afterward.
+
+A separately authorized deployment-pinned release can deliver newer public content
+while the active reader stays off. A same-engine release does not replace an
+existing frozen pointer (`ON CONFLICT DO NOTHING`); it does not solve this history
+mismatch. A real engine-changing release creates another channel. Neither an
+artificial fingerprint bump, data rollback/main rewrite, nor an unsafe historical
+workflow rerun is a substitute for repairing this channel. Active-reader rollout
+still needs its own real D1 activation/rollback and browser/export evidence.
+
+Preparation requires a full local clone containing both caller and historical seed
+objects (validation CI uses `fetch-depth: 0`). Missing objects fail closed: Git
+replacement objects, lazy fetch, transport protocols and inherited Git overrides
+are disabled. The tool does not fetch missing history. The existing administrative
+route's GitHub evidence reads can fail on unavailable or rate-limited anonymous
+access; preparation does not establish that those reads or the historical required
+CI evidence will succeed. Do not obtain new credentials or loosen provenance to
+work around such a failure without separate review.

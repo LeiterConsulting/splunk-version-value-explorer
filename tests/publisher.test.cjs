@@ -265,3 +265,43 @@ test('offline advance exercises real CAS activation failure and uncertain commit
     assert.equal(final.generation, outcome === 'batch-failure' ? 1 : 2);
   }
 });
+
+test('prepared frozen historical seed executes only bootstrap in SQLite, preserving immutable provenance and stopping after loss', async t => {
+  const { prepareSeedBootstrap } = await import('../scripts/lib/bootstrap-preparation.mjs');
+  const { bootstrapOnly } = await import('../scripts/lib/publication-orchestration.mjs');
+  const m = await modules();
+  const sourceCommit = 'b3790ee3a5709f0ee1ccd286271aa3898c7b44e3';
+  const frozen = JSON.parse(require('node:child_process').execFileSync('git', ['show', sourceCommit + ':dist/content-bundle.json'], { maxBuffer: 9 * 1024 * 1024 }));
+  const pin = { sourceCommit, sourceTree: 'd649c43aaa67406945a45108419605d4b4c4af9b', ...Object.fromEntries(['revision', 'engineRevision', 'digest', 'recordCount'].map(key => [key, frozen.manifest[key]])) };
+  const plan = await prepareSeedBootstrap({ repositoryPath: process.cwd(), callerCommit: '2aef73e4c2540bda315a306c291fbd780e3c88b5', mechanism: 'administrative', expectedSeed: pin,
+    head: { revision: pin.revision, engineRevision: pin.engineRevision, generation: 0, activeDelivery: false } });
+  assert.equal(plan.status, 'prepared-not-authorized');
+  const frozenEvidence = async url => {
+    if (url.startsWith('https://raw.githubusercontent.com/')) return new Response(JSON.stringify(url.endsWith('/content/publication.json') ? frozen.manifest : frozen));
+    const response = await evidence(url);
+    return new Response((await response.text()).replaceAll(candidate.commit, sourceCommit));
+  };
+  for (const outcome of ['success', 'batch-failure', 'lost-response']) {
+    const db = database(t), calls = [];
+    await m.ensureRevision(db, frozen);
+    // Existing provenance is immutable even when reverified under another commit.
+    db.sql.prepare('INSERT INTO content_publication_provenance VALUES (?, ?, ?, ?, ?)').run(pin.revision, candidate.repository, 'c'.repeat(40), 55, '2026-11-07T00:00:00Z');
+    if (outcome === 'batch-failure') db.fail();
+    const result = await bootstrapOnly({ candidate: plan.request.candidate, expectedCommit: sourceCommit, deployedEngine: pin.engineRevision, deployedSeedRevision: pin.revision,
+      call: async (route, body) => {
+        calls.push(route); assert.equal(route, 'bootstrap'); assert.equal(body.operationId, plan.request.operationId);
+        const value = await m.bootstrapPublication(db, body.candidate, body.operationId, frozen, { fetcher: frozenEvidence });
+        if (outcome === 'lost-response') throw Error('Synthetic response loss after commit');
+        return value;
+      } });
+    assert.deepEqual(calls, ['bootstrap']);
+    assert.equal(result.status, outcome === 'success' ? 'bootstrap-reported' : 'failed');
+    assert.equal(db.sql.prepare('SELECT commit_sha FROM content_publication_provenance').get().commit_sha, 'c'.repeat(40));
+    assert.equal(db.sql.prepare('SELECT COUNT(*) AS n FROM content_publication_events').get().n, outcome === 'batch-failure' ? 0 : 1);
+    assert.equal(db.sql.prepare('SELECT revision_id FROM content_publication').get().revision_id, pin.revision);
+    if (outcome === 'success') {
+      await m.bootstrapPublication(db, plan.request.candidate, plan.request.operationId, frozen, { fetcher: frozenEvidence });
+      assert.equal(db.sql.prepare('SELECT COUNT(*) AS n FROM content_publication_events').get().n, 1);
+    } else assert.equal(result.mutationOutcome, 'uncertain-read-back-before-retry');
+  }
+});
