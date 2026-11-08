@@ -4,8 +4,9 @@
 
 Read docs/automation-operations.md before a watch, pipeline repair or delivery.
 Use npm run maintenance:sync for isolated ordered generation, then maintenance:verify
-before committing. Verify transferred JSON against its original raw-byte manifest;
-never commit tool-display text. Keep exact-head CI/export, D1 stage/activation,
+before committing. Verify every transferred file against its original raw-byte
+manifest, including generated text and binary artifacts; never commit tool-display
+text. Keep exact-head CI/export, D1 stage/activation,
 Sites runtime and live verification distinct. A green publisher job is not delivery
 proof. New semantic reviews from every declared participating watch, including ES
 and CSP, need coverage bindings; pre-repair inputs remain historical. Preserve

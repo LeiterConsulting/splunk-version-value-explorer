@@ -15,6 +15,13 @@ function time(value) {
   if (month < 1 || month > 12 || day < 1 || day > new Date(Date.UTC(year, month, 0)).getUTCDate() || hour > 23 || minute > 59 || second > 59) return NaN;
   return Date.parse(value);
 }
+function sameAttemptStart(left, right) {
+  const start = time(left);
+  if (!Number.isFinite(start) || start !== time(right)) return false;
+  // Date.parse keeps milliseconds. Native attempts can differ below that precision.
+  const fraction = value => (value.match(/\.(\d+)/)?.[1] || '').padEnd(9, '0');
+  return fraction(left) === fraction(right);
+}
 // Unwrap supported native get/peek transports BEFORE inspecting/hashing saved objects.
 // No rendered text parsing, runtime merge, field projection or recursive key sorting.
 function nativeTasks(value, depth = 0) {
@@ -42,11 +49,23 @@ function configuration(task, baseline, observedAt) {
   const required = ['id', 'title', 'prompt', 'schedule', 'timing_mode', 'is_enabled', 'default_timezone', 'environment_selection', 'environments'];
   if (required.some(key => !Object.hasOwn(native, key)) || ['id', 'title', 'prompt', 'schedule', 'timing_mode', 'default_timezone'].some(key => typeof native[key] !== 'string') || typeof native.is_enabled !== 'boolean') issues.push('native-saved-configuration-incomplete');
   if (asserted !== undefined && asserted !== actual) issues.push('supplied-configuration-digest-mismatch');
+  let comparison = null;
   if (!validDigest(baseline?.afterDigest)) issues.push('saved-configuration-baseline-unavailable');
-  else if (actual !== baseline.afterDigest) issues.push('saved-configuration-not-matched');
+  else {
+    if (actual === baseline.afterDigest) comparison = { method: 'legacy-exact-v1', digest: actual };
+    else if (Object.hasOwn(native, 'is_self_owned_automation') && typeof native.is_self_owned_automation === 'boolean' &&
+        Number.isFinite(time(baseline.readbackAt)) && time(baseline.readbackAt) <= time(observedAt)) {
+      // Caller-relative transport metadata only. Never change the historical hash,
+      // supplied-digest check, retained baseline or any other saved native field.
+      const { is_self_owned_automation, ...withoutOwnership } = native;
+      const compatible = savedConfigurationDigest(withoutOwnership);
+      if (compatible === baseline.afterDigest) comparison = { method: 'native-caller-ownership-compat-v1', digest: compatible };
+    }
+    if (!comparison) issues.push('saved-configuration-not-matched');
+  }
   if (!Number.isFinite(time(baseline?.readbackAt))) issues.push('saved-configuration-readback-unavailable');
   else if (time(baseline.readbackAt) > time(observedAt)) issues.push('saved-configuration-readback-after-observation');
-  return { status: issues.length ? 'unverified' : 'matched', digest: actual, issues };
+  return { status: issues.length ? 'unverified' : 'matched', digest: actual, comparison, issues };
 }
 function claimIdentity(content, identities) {
   const first = (typeof content === 'string' ? content : '').split('\n').find(line => line.trim()) || '';
@@ -140,9 +159,11 @@ function inspect(snapshot, { registry, ledger, runs, operational = operationalCo
     const issues = [...config.issues, ...evidence.attempt.issues, ...evidence.result.issues];
     if (task.is_enabled !== true) issues.push('participating-task-disabled');
     if (identity.kind === 'watch') {
-      const proof = runs.find(r => r.kind === 'saved-task-execution' && r.watchId === identity.id && r.registryVersion === registry.registryVersion && r.execution?.taskId === task.id && evidence.attempt.schedulerRunId && r.execution.schedulerRunId === evidence.attempt.schedulerRunId);
-      if (!proof) issues.push('no-matching-current-coverage-receipt');
-      else if (!proof.coverageComplete || !proof.deliveryComplete || !proof.claimedComplete || !proof.publication?.claimedDelivered) issues.push('coverage-or-delivery-incomplete');
+      const matchingRuns = runs.filter(r => r.kind === 'saved-task-execution' && r.watchId === identity.id && r.registryVersion === registry.registryVersion && r.execution?.taskId === task.id && evidence.attempt.schedulerRunId && r.execution.schedulerRunId === evidence.attempt.schedulerRunId);
+      const matchingAttempts = matchingRuns.filter(r => sameAttemptStart(r.execution.startedAt, task.run_details?.last_run?.started_at));
+      if (!matchingRuns.length) issues.push('no-matching-current-coverage-receipt');
+      else if (!matchingAttempts.length) issues.push('coverage-attempt-start-not-matched');
+      else if (!matchingAttempts.some(r => r.coverageComplete && r.deliveryComplete && r.claimedComplete && r.publication?.claimedDelivered)) issues.push('coverage-or-delivery-incomplete');
     }
     return { ...label, taskId: identity.taskId, schedulerRunId: evidence.attempt.schedulerRunId, recordedStatus: evidence.attempt.recordedStatus,
       isEnabled: typeof task.is_enabled === 'boolean' ? task.is_enabled : null, configuration: config, ...evidence, accepted: issues.length === 0, issues };

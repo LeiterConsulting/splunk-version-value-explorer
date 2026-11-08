@@ -27,7 +27,8 @@ Final passing PR heads can hide earlier failed commits. Six earlier failed attem
 on five subsequently successful publisher runs are recorded separately, including
 one `fetch failed` whose mutation outcome was not established by that log.
 
-* Preparation now validates raw UTF-8 JSON, executes ordered generators/checks in
+* Preparation validates raw UTF-8 JSON and recognized source/generated text,
+  executes ordered generators/checks in
   an isolated clone, verifies inputs did not change concurrently, then applies
   prepared output. Failure before application leaves original files unchanged;
   file replacement errors restore the saved preimages. An interrupted process is
@@ -133,11 +134,20 @@ here. Exact-candidate CI must rerun the current complete matrix.
    ```bash
    node scripts/maintenance.cjs --manifest > /tmp/vc-original-inputs.json
    node scripts/verify-transfer.cjs content/issue-feed.json ORIGINAL_SHA256 ORIGINAL_BYTES
+   node scripts/verify-transfer.cjs dist/maintenance-status.js ORIGINAL_SHA256 ORIGINAL_BYTES --text
+   node scripts/verify-transfer.cjs /tmp/candidate.zip ORIGINAL_SHA256 ORIGINAL_BYTES --bytes
    ```
 
-   The last two arguments must come from that original raw file, independently
+   The SHA-256 and byte length must come from that original raw file, independently
    of the destination. A destination-computed hash alone proves nothing about
-   transfer. Stage all generated changes together. Review file paths, hashes,
+   transfer. Verify every transferred file, not only JSON. The default keeps strict
+   UTF-8 JSON parsing; `--text` additionally requires valid UTF-8 for generated
+   JavaScript and other text, while `--bytes` verifies exact binary/archive bytes
+   without interpreting them. These modes do not establish semantic correctness,
+   syntax validity or safe archive contents. Preparation rejects malformed UTF-8
+   in recognized text inputs before a generator can overwrite the evidence.
+   Existing content, revision, feed, coverage and export gates still apply.
+   Stage all generated changes together. Review file paths, hashes,
    qualifications, tests and diff before the commit.
 9. Push the dedicated branch and update the draft PR. Wait for the exact final
    push-head validation and PR integration validation. Any subsequent input edit
@@ -187,6 +197,12 @@ runtime only when authorized, verify source/tree and live checks, then observe t
 actual scheduled executions. Read back saved settings only through authorized
 supported access if prompts are amended. Do not add a timer, widen permissions or
 mark the pilot active merely to complete rollout.
+
+Match a coverage receipt to the recorded attempt start as well as the task,
+registry and scheduler-run identifiers. A repeated identifier can appear with a
+different start. Missing or contradictory starts leave coverage unverified for
+the observed attempt. Keep previous receipts as history and reconcile the
+distinct result, coverage and delivery evidence through the existing watches.
 
 ## Monitoring through the existing progress task
 
@@ -253,6 +269,20 @@ replacement fingerprint is silently substituted. The observation is not its own
 baseline: expected digests and readback times must come from a separately reviewed
 saved-configuration receipt. This local comparison does not authenticate arbitrary
 JSON or establish unexposed permissions.
+
+The explicit `native-caller-ownership-compat-v1` comparison supports the native
+caller-relative boolean `is_self_owned_automation`. Strict full-digest equality
+is tried first (`legacy-exact-v1`). Only with a valid retained expected digest and
+readback time no later than observation may the fallback omit that single boolean
+field and require exact equality to the original expected digest. Missing fields
+use the legacy path; null, strings, numbers and objects cannot unlock fallback.
+All other fields, presence/null distinctions and nested ordering still participate.
+A baseline that includes ownership is not rewritten. The full observed `digest`
+and supplied-digest validation remain unchanged; `comparison` identifies the
+successful method and comparison digest, or is null. Compatibility is not full
+saved-object byte identity. Required fields, readback timing, attempt/result and
+coverage/delivery gates still apply. No observation becomes its own baseline, and
+operational roles without independent baselines remain unverified.
 
 ### Watches and operational roles
 
@@ -352,7 +382,9 @@ The existing trusted publisher workflow has a separate manual `observe-only` mod
 with explicit expected main SHA/ref and bundled engine/revision. It skips candidate
 selection and all publication paths, retains a separate sanitized observation
 receipt on failure, and cannot establish readiness or delivery. The default
-`publish` mode and automatic publisher continue unchanged. Read the
+`publish` mode and automatic publisher are now held before checkout, credentials
+or production requests; see the November 8 repository hold in that procedure.
+The deployed seed is bound separately from the current workflow authorization SHA. Read the
 [bounded rollout procedure](bounded-rollout-verification.md) before dispatching;
 implementation does not authorize a run or lift the production hold.
 
@@ -363,3 +395,9 @@ critical failure, no later requests are sent and no retry is implied. Client
 abort cannot establish that server initialization stopped. Preserve exact mode,
 run/attempt and receipt identities; a green observe-only workflow is not a
 publisher stage or a successful rollout.
+
+The November 8 pre-write hold supersedes the staging behavior described above
+for current repository callers. `held-publication-disabled` means no candidate,
+credential, runtime or D1 request was attempted, not that production is globally
+write-free. The workflow remains disabled. Removing the hold and any eventual
+observation dispatch, staging/bootstrap or activation require separate agreement.

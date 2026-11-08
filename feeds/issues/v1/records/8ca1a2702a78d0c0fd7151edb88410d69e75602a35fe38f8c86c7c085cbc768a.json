@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-sok-32-compatibility-scope",
+  "assessmentId": "vcia-guidance-20261108-sok-32-compatibility-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-08T22:05:42.995Z",
+  "assessedAt": "2026-11-08T22:04:05.623Z",
+  "outcome": "still-present",
+  "rationale": "The 3.2 Help compatibility matrix lists SOK 3.2.0 dated September 24, Kubernetes 1.32–1.37, Enterprise 10.0.12–10.6.0, and SOK-first upgrade ordering. The changelog’s September 8 entry lists Kubernetes 1.32–1.36 and Enterprise 10.6.0. Its Queue secretKeyRef change applies to Index & Ingestion Separation. General Terms acceptance is separately described under 3.0.0.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Operator for Kubernetes"
+    ],
+    "versions": [
+      "3.2.0"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating the documented decision"
+    ],
+    "exclusions": [
+      "No exact unlisted pairing, rollout, entitlement or customer authorization is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261108-1-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix",
+      "section": "SOK to Splunk Enterprise version compatibility; Upgrade path guidance",
+      "statement": "Help matrix lists September 24 and wider ranges.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-08T21:58:57.419Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "addc829a9c77ef3a12d3c168de845e6985903c7a603b28e788bfcc0dcc562f06",
+        "qualification": "Exact public response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261108-1-1",
+      "url": "https://splunk.github.io/splunk-operator/reference/ChangeLog.html",
+      "section": "3.2.0 > Breaking Changes and Supported Versions",
+      "statement": "Changelog lists September 8 and narrower ranges.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-08T21:59:34.063Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "26ab5b4459deeb2ae2d6fd8ad0f544e8c7ddbda5d85880e2b6805fffb833908e",
+        "qualification": "Exact public response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/4a005d8a5488a49886750a30a75c13870e38aed7/docs/audits/2026-11-08-version-guidance-audit.json",
+      "pointer": "/claimChecks/1",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261108-late-1"
+  ],
+  "remainingConcerns": [
+    "Reassess through the existing owning watch and independent Guidance Audit."
+  ]
+}

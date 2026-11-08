@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-app-for-soar-88-onprem-matrix-cell",
+  "assessmentId": "vcia-guidance-20261108-app-for-soar-88-onprem-matrix-cell",
+  "revision": 1,
+  "recordedAt": "2026-11-08T22:05:42.995Z",
+  "assessedAt": "2026-11-08T22:04:05.623Z",
+  "outcome": "still-present",
+  "rationale": "The tested App for SOAR 8.8.0 table displays a malformed second on-premises version, 8..0, next to a valid 8.8.0 entry. The tested table and Splunkbase upgrade visibility have separate scopes. The malformed cell cannot identify an exact pair or be filled with Export’s separate matrix.",
+  "reviewedScope": {
+    "products": [
+      "Splunk App for SOAR"
+    ],
+    "versions": [
+      "8.8.0"
+    ],
+    "editions": null,
+    "deployments": [
+      "SOAR on-premises"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating the documented decision"
+    ],
+    "exclusions": [
+      "No exact unlisted pairing, rollout, entitlement or customer authorization is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261108-5-0",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.8.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "section": "Check prerequisites > tested combinations table",
+      "statement": "The second on-premises value is malformed.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-08T21:59:33.881Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "99d43f67b8b103a919f4b51f42d6f4c731a24f1e644defd2352dd2ec688db2e5",
+        "qualification": "Exact public response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/4a005d8a5488a49886750a30a75c13870e38aed7/docs/audits/2026-11-08-version-guidance-audit.json",
+      "pointer": "/claimChecks/5",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-es-20261108-late-app-soar-matrix-cell"
+  ],
+  "remainingConcerns": [
+    "Reassess through the existing owning watch and independent Guidance Audit."
+  ]
+}

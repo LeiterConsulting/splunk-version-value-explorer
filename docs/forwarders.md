@@ -85,3 +85,12 @@ SVD-2026-1015 lists Splunk Enterprise and Universal Forwarder as **Under Investi
 ## November 5 historical HF section repair
 
 Enterprise 10.4 READ THIS FIRST now heads the KV Store package change “Splunk removed older unsupported MongoDB database engine binaries.” The mapped section still requires KV Store to reach MongoDB 7 or later before upgrading. Rechecked that heading, SHA-1 deprecation versus removal, and the three Windows installer identity branches. Scope stays with the applicable customer-managed Enterprise package. Regression checks exercise the actual HF and UF routes and verify the exact generated citation and assessment date for the repaired section.
+
+## November 8 historical receiving-leg regression
+
+The source-register test exercises direct, intermediate and Edge Processor
+selections for both UF and HF on a historical hybrid comparison. It checks the
+Enterprise receiver matrix, the direct Cloud service rule and the separate
+output-group citation. A negative case rejects applying Cloud-direct evidence
+to an intermediate source leg. Existing borrowed-runtime tests and source dates
+retain their own scope.

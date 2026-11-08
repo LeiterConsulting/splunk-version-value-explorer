@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-itsi-503-service-discovery-46607",
+  "revision": 1,
+  "recordedAt": "2026-11-08T10:27:45.578Z",
+  "evidence": [
+    {
+      "evidenceId": "release-20261108-7-0",
+      "url": "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/known-issues-in-splunk-it-service-intelligence",
+      "section": "Service Discovery > ITSI-46607",
+      "statement": "When the catalog returns HTTP 503, the metadata ingestion run is skipped. Discovery can continue using indexed data, but recommendations may lack Content Pack reference context. The date recorded is the official issue filing date. A remediation release or universal rollout is not established.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-08T10:20:43.479Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "01d943c0e5d08bacd9619c83ca920c2f35c60bc08d788f70c363a688d448580c",
+        "qualification": "Exact public response bytes. Publisher document revision is unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/e1683c57f3c0e52a5565cd32fdd1fb1ea31dee37/docs/audits/2026-11-08-version-release-watch.json",
+      "pointer": "/claimChecks/7",
+      "originalLabel": "observed"
+    }
+  ],
+  "kind": "finding",
+  "title": "ITSI 5.0.3 Service Discovery can omit Content Pack metadata",
+  "concernType": "uncertain-claim",
+  "problem": "When the catalog returns HTTP 503, the metadata ingestion run is skipped. Discovery can continue using indexed data, but recommendations may lack Content Pack reference context. The date recorded is the official issue filing date. A remediation release or universal rollout is not established.",
+  "scope": {
+    "products": [
+      "Splunk IT Service Intelligence"
+    ],
+    "versions": [
+      "5.0.3"
+    ],
+    "editions": null,
+    "deployments": [
+      "ITSI Cloud Service Discovery"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating this product or feature scope"
+    ],
+    "exclusions": [
+      "Exact tenant rollout, customer authorization, entitlement and unlisted compatibility remain outside this observation."
+    ]
+  },
+  "scopeComparison": "Keep the exact issue or pairing separate from the general release and service listing.",
+  "impact": {
+    "customerScenario": "An ITSI Cloud administrator uses discovery to draft services while the Content Pack catalog is unavailable.",
+    "consequence": "The draft can lack reference metadata even when discovery continues.",
+    "level": "unknown"
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "The cited public sections support the qualified issue. The operational extent or exact patch combination is unverified."
+  },
+  "claimIds": [
+    "release.itsi.5.0.3-itsi-46607"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Review exact scoped evidence or a version-specific upstream correction."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  }
+}

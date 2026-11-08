@@ -187,3 +187,81 @@ test('validated snapshot controls stay active while the database reader remains 
     assert.equal(await (await worker.fetch(new Request('https://versioncompass.com/content-client.js'),env)).text(),reader);
   }
 });
+
+test('offline stage-only uses real immutable staging without creating a head or history, including lost response', async t => {
+  const m = await modules(), { stageOnly } = await import('../scripts/lib/publication-orchestration.mjs');
+  for (const outcome of ['success', 'batch-failure', 'lost-response']) {
+    const db = database(t), calls = [];
+    if (outcome === 'batch-failure') db.fail();
+    const result = await stageOnly({ candidate, expectedCommit: candidate.commit, deployedEngine: seed.manifest.engineRevision,
+      call: async (route, body) => {
+        calls.push(route); assert.equal(route, 'stage');
+        const value = await m.stagePublication(db, body, { engineRevision: seed.manifest.engineRevision, fetcher: evidence });
+        if (outcome === 'lost-response') throw Error('Synthetic transport loss after committed stage');
+        return value;
+      } });
+    assert.deepEqual(calls, ['stage']);
+    assert.equal(result.status, outcome === 'success' ? 'staged-only' : 'failed');
+    if (outcome !== 'success') assert.equal(result.mutationOutcome, 'uncertain-read-back-before-retry');
+    assert.equal(db.sql.prepare('SELECT COUNT(*) AS n FROM content_publication').get().n, 0);
+    assert.equal(db.sql.prepare('SELECT COUNT(*) AS n FROM content_publication_events').get().n, 0);
+    if (outcome !== 'batch-failure') assert.equal(db.sql.prepare('SELECT completed FROM content_revisions').get().completed, 1);
+  }
+});
+test('offline explicit bootstrap uses real seed verification and stops on rejected or lost responses without retry', async t => {
+  const m = await modules(), { bootstrapOnly } = await import('../scripts/lib/publication-orchestration.mjs');
+  for (const outcome of ['success', 'batch-failure', 'lost-response']) {
+    const db = database(t), calls = [];
+    if (outcome === 'batch-failure') db.fail();
+    const result = await bootstrapOnly({ candidate, expectedCommit: candidate.commit, deployedEngine: seed.manifest.engineRevision, deployedSeedRevision: seed.manifest.revision,
+      call: async (route, body) => {
+        calls.push(route); assert.equal(route, 'bootstrap');
+        const value = await m.bootstrapPublication(db, body.candidate, body.operationId, seed, { fetcher: evidence });
+        if (outcome === 'lost-response') throw Error('Synthetic response parsing loss after committed bootstrap');
+        return value;
+      } });
+    assert.deepEqual(calls, ['bootstrap']);
+    assert.equal(result.status, outcome === 'success' ? 'bootstrap-reported' : 'failed');
+    if (outcome !== 'success') assert.equal(result.mutationOutcome, 'uncertain-read-back-before-retry');
+    assert.equal(db.sql.prepare('SELECT COUNT(*) AS n FROM content_publication_events').get().n, outcome === 'batch-failure' ? 0 : 1);
+  }
+});
+test('offline advance refuses real missing or generation-zero head before any stage', async t => {
+  const m = await modules(), { advance } = await import('../scripts/lib/publication-orchestration.mjs');
+  for (const legacy of [false, true]) {
+    const db = database(t), calls = [];
+    if (legacy) await m.ensureRevision(db, seed);
+    const changes = db.sql.prepare('SELECT total_changes() AS n').get().n;
+    const result = await advance({ candidate, expectedCommit: candidate.commit, deployedEngine: seed.manifest.engineRevision,
+      call: async route => { calls.push(route); assert.equal(route, 'head'); return { ...await m.readPublicationHead(db, seed.manifest.engineRevision), engineRevision: seed.manifest.engineRevision, activeDelivery: true }; } });
+    assert.equal(result.status, 'failed'); assert.deepEqual(calls, ['head']);
+    assert.equal(db.sql.prepare('SELECT total_changes() AS n').get().n, changes);
+  }
+});
+test('offline advance exercises real CAS activation failure and uncertain committed activation without retries', async t => {
+  const m = await modules(), { advance } = await import('../scripts/lib/publication-orchestration.mjs');
+  const next = clone(seed); next.globals.SPLUNK_DATA.publisherFixture = 'offline-advance';
+  next.manifest.digest = await m.sha256({ schemaVersion: 1, globals: next.globals, catalog: next.catalog });
+  next.manifest.revision = 'content-' + (await m.sha256({ digest: next.manifest.digest, engineRevision: next.manifest.engineRevision, datasetHashes: next.manifest.datasetHashes })).slice(0, 24);
+  const nextEvidence = url => url.startsWith('https://raw.githubusercontent.com/') ? Promise.resolve(new Response(JSON.stringify(url.endsWith('/content/publication.json') ? next.manifest : next))) : evidence(url);
+  for (const outcome of ['success', 'batch-failure', 'lost-response']) {
+    const db = database(t), calls = [];
+    await m.bootstrapPublication(db, candidate, 'pub-' + '7'.repeat(32), seed, { fetcher: evidence });
+    const result = await advance({ candidate: { ...candidate, bundle: next }, expectedCommit: candidate.commit, deployedEngine: seed.manifest.engineRevision,
+      call: async (route, body) => {
+        calls.push(route);
+        if (route === 'head') return { ...await m.readPublicationHead(db, seed.manifest.engineRevision), engineRevision: seed.manifest.engineRevision, activeDelivery: true };
+        if (route === 'stage') return m.stagePublication(db, body, { engineRevision: seed.manifest.engineRevision, fetcher: nextEvidence });
+        assert.equal(route, 'activate'); if (outcome === 'batch-failure') db.fail();
+        const value = await m.activatePublication(db, body, { engineRevision: seed.manifest.engineRevision });
+        if (outcome === 'lost-response') throw Error('Synthetic transport loss after committed activation');
+        return value;
+      } });
+    assert.deepEqual(calls, ['head', 'stage', 'activate']);
+    assert.equal(result.status, outcome === 'success' ? 'activation-reported' : 'failed');
+    if (outcome !== 'success') assert.equal(result.mutationOutcome, 'uncertain-read-back-before-retry');
+    const final = await m.readPublicationHead(db, seed.manifest.engineRevision);
+    assert.equal(final.revision, outcome === 'batch-failure' ? seed.manifest.revision : next.manifest.revision);
+    assert.equal(final.generation, outcome === 'batch-failure' ? 1 : 2);
+  }
+});

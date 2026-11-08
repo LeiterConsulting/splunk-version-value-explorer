@@ -1,0 +1,522 @@
+{
+  "schemaVersion": 1,
+  "registryVersion": "1.2.0",
+  "runId": "release-watch-20261108-follow-through",
+  "watchId": "version-release-watch",
+  "kind": "saved-task-execution",
+  "outcome": "partial",
+  "claimedComplete": false,
+  "execution": {
+    "taskId": "6aa950be0884819196ca3f8ae776f49b",
+    "schedulerRunId": "767eba7f-834c-8333-9ee5-526bddd7f7c1",
+    "startedAt": "2026-11-08T10:57:05.467513Z",
+    "qualification": "Native readback reused the retained scheduler identifier with a different attempt start. This file binds only the later observed attempt. Latest result did not belong to the recorded attempt at readback. Cause unknown.",
+    "observations": [
+      {
+        "observedAt": "2026-11-08T10:59:24.315Z"
+      }
+    ]
+  },
+  "coverage": [
+    {
+      "capabilityId": "prep11.discovery",
+      "disposition": "assessed-no-change",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-08T11:02:34.924501+00:00",
+      "assessedAt": "2026-11-08T11:04:49.687940+00:00",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "qualification": "Exact scoped source-section assessment. No canonical claim or admission pin changed.",
+      "retrievals": [
+        {
+          "sourceId": "prep11enterprise",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T11:00:09.228918+00:00",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6 | Release introduction; upgrade and system-requirement links | HTTP 200 | 2467b7356a46e321ddc63a289fc5b3253c5672d1c15706796c6fd454f89af746"
+        },
+        {
+          "sourceId": "prep11platformnews",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T11:02:34.924501+00:00",
+          "evidence": "https://www.splunk.com/en_us/blog/platform/announcing-splunk-cloud-platform-10-6-and-splunk-enterprise-10-6.html | Keep Apps and Integrations Ready for Updated Versioning | HTTP 200 | f58c8e09be2421c70dbb6beeca4ad59059dd5b93024ff0a65fdcc73fbe39f12b"
+        },
+        {
+          "sourceId": "prep11ainews",
+          "outcome": "retrieved",
+          "retrievedAt": null,
+          "observedOn": "2026-11-08",
+          "evidence": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m09/cisco-delivers-trusted-ai-at-scale-through-new-splunk-advancements.html | Self-managed Splunk AI, accelerated by NVIDIA | Verified exact indexed Cisco section; direct body bytes unverified."
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "prep11.release-scope",
+          "sourceIds": [
+            "prep11enterprise",
+            "prep11platformnews",
+            "prep11ainews"
+          ],
+          "outcome": "assessed-no-change",
+          "assessedAt": "2026-11-08T11:04:49.687940+00:00",
+          "evidence": "Bounded public Splunk/Cisco release and announcement searches found Enterprise 10.6 and 10.6.1 and the adjacent Cisco AI POD announcement. The public sources reviewed did not establish a version-specific Enterprise 11.x release, date, supported upgrade path or deployment requirement.",
+          "qualification": "Release timing, stage, deployment, upgrade/pairing/security and Cloud questions; no universal absence inference."
+        }
+      ]
+    },
+    {
+      "capabilityId": "prep11.operator",
+      "disposition": "assessed-no-change",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-08T11:02:28.606793+00:00",
+      "assessedAt": "2026-11-08T11:04:49.687940+00:00",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "qualification": "Exact scoped source-section assessment. No canonical claim or admission pin changed.",
+      "retrievals": [
+        {
+          "sourceId": "prep11operator",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T11:00:13.008639+00:00",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix | SOK to Splunk Enterprise version compatibility; Upgrade path guidance | HTTP 200 | 1eada4441e848e86c3895bb46c6bd3fc7519804d7ed23111b9f9c092bd03f19a"
+        },
+        {
+          "sourceId": "prep11changelog",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T11:02:28.606793+00:00",
+          "evidence": "https://splunk.github.io/splunk-operator/reference/ChangeLog.html | 3.2.0 (2026-09-08); Breaking Changes; Supported Kubernetes and Splunk versions | HTTP 200 | 26ab5b4459deeb2ae2d6fd8ad0f544e8c7ddbda5d85880e2b6805fffb833908e"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "prep11-operator-baseline",
+          "sourceIds": [
+            "prep11operator",
+            "prep11changelog"
+          ],
+          "outcome": "assessed-no-change",
+          "assessedAt": "2026-11-08T11:04:49.687940+00:00",
+          "evidence": "The Help 3.2.0 compatibility table lists Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0. The September 8 3.2.0 changelog gives Kubernetes 1.32–1.36 and Enterprise 10.6.0. Preserve both scopes and the conditional Queue secret migration for Index and Ingestion Separation. The Help upgrade path puts the Operator first.",
+          "qualification": "Preserve both published scopes. Confirm the exact Kubernetes, Operator and Enterprise combination before using it; neither source certifies 11.x."
+        }
+      ]
+    },
+    {
+      "capabilityId": "prep11.architecture",
+      "disposition": "assessed-no-change",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-08T11:00:13.013025+00:00",
+      "assessedAt": "2026-11-08T11:04:49.687940+00:00",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "qualification": "Exact scoped source-section assessment. No canonical claim or admission pin changed.",
+      "retrievals": [
+        {
+          "sourceId": "prep11architecture",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T11:00:13.013025+00:00",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/splunk-validated-architectures/applied-svas/splunk-operator-for-kubernetes | Deployment Options; Storage Considerations; Application Lifecycle Management / App Framework / Premium Apps; Resilience and Scaling | HTTP 200 | 56b0aed0575c352e0cc91db684b770962c89984327380a9065c994e46a3e3cb3"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "prep11-architecture-baseline",
+          "sourceIds": [
+            "prep11architecture"
+          ],
+          "outcome": "assessed-no-change",
+          "assessedAt": "2026-11-08T11:04:49.687940+00:00",
+          "evidence": "The validated SOK architecture recommends clustered deployment over nonclustered distributed deployment, describes single-site and multisite layouts, and requires SmartStore for production. Local persistent storage, scaling, and failure/recovery design remain separately scoped to SOK.",
+          "qualification": "Current architecture guidance is preparation context. An 11.x topology, sizing or migration requirement is not established."
+        }
+      ]
+    },
+    {
+      "capabilityId": "prep11.app-delivery",
+      "disposition": "assessed-no-change",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-08T11:00:13.013025+00:00",
+      "assessedAt": "2026-11-08T11:04:49.687940+00:00",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "qualification": "Exact scoped source-section assessment. No canonical claim or admission pin changed.",
+      "retrievals": [
+        {
+          "sourceId": "prep11architecture",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T11:00:13.013025+00:00",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/splunk-validated-architectures/applied-svas/splunk-operator-for-kubernetes | Deployment Options; Storage Considerations; Application Lifecycle Management / App Framework / Premium Apps; Resilience and Scaling | HTTP 200 | 56b0aed0575c352e0cc91db684b770962c89984327380a9065c994e46a3e3cb3"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "prep11-app-delivery",
+          "sourceIds": [
+            "prep11architecture"
+          ],
+          "outcome": "assessed-no-change",
+          "assessedAt": "2026-11-08T11:04:49.687940+00:00",
+          "evidence": "Application Lifecycle Management describes declarative app retrieval and staging from external object storage, read-only access, provider-specific authentication, manual removal and administrator responsibility for validating app contents and versions. The Premium Apps subsection has product and topology prerequisites.",
+          "qualification": "App installation and a container image do not prove ES, ITSI, SOAR or third-party compatibility with 11.x."
+        }
+      ]
+    },
+    {
+      "capabilityId": "prep11.workload",
+      "disposition": "assessed-no-change",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-08T11:00:03.408940+00:00",
+      "assessedAt": "2026-11-08T11:04:49.687940+00:00",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "qualification": "Exact scoped source-section assessment. No canonical claim or admission pin changed.",
+      "retrievals": [
+        {
+          "sourceId": "prep11workload",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T11:00:03.408940+00:00",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/administer/manage-workloads/10.6/use-workload-management-on-kubernetes | Workload management modes | HTTP 200 | cdeba59d4459a7a57a9e5afa4de1a340cc926cbadf74c95acbeb4ba9ba6c3d75"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "prep11-workload-baseline",
+          "sourceIds": [
+            "prep11workload"
+          ],
+          "outcome": "assessed-no-change",
+          "assessedAt": "2026-11-08T11:04:49.687940+00:00",
+          "evidence": "The exact Enterprise 10.6 Workload management modes table limits Basic to admission rules. Advanced requires writable CPU and memory cgroup controllers and provides pools, categories and all rule types. The activation section requires deliberate allow_basic=true where Basic fallback is intended; the default is false.",
+          "qualification": "Basic mode does not establish full workload-pool or placement-rule parity. This is current-release behavior, not an 11.x promise."
+        }
+      ]
+    },
+    {
+      "capabilityId": "prep11.cloud-option",
+      "disposition": "blocked",
+      "discoveredAt": null,
+      "retrievedAt": null,
+      "assessedAt": null,
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "qualification": "The exact mapped Lantern readiness article remains blocked by automated access review. No assessment of its staffing, communications or transition-plan sections is recorded.",
+      "retrievals": [
+        {
+          "sourceId": "prep11migration",
+          "outcome": "blocked",
+          "retrievedAt": null,
+          "observedOn": "2026-11-08",
+          "evidence": "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Readiness | Organizational readiness guide: staffing plan, communications plan and post-migration staffing transition plan | Exact source body unavailable in this review."
+        }
+      ],
+      "assessments": [],
+      "followUp": {
+        "owner": "version-release-watch",
+        "action": "Use a supported public retrieval path and assess the exact missing registered sections independently.",
+        "reviewBy": "2026-11-09"
+      }
+    },
+    {
+      "capabilityId": "prep11.context-versioning",
+      "disposition": "assessed-no-change",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-08T11:02:34.924501+00:00",
+      "assessedAt": "2026-11-08T11:04:49.687940+00:00",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "qualification": "Exact scoped source-section assessment. No canonical claim or admission pin changed.",
+      "retrievals": [
+        {
+          "sourceId": "prep11platformnews",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T11:02:34.924501+00:00",
+          "evidence": "https://www.splunk.com/en_us/blog/platform/announcing-splunk-cloud-platform-10-6-and-splunk-enterprise-10-6.html | Keep Apps and Integrations Ready for Updated Versioning | HTTP 200 | f58c8e09be2421c70dbb6beeca4ad59059dd5b93024ff0a65fdcc73fbe39f12b"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "prep11-news-versioning",
+          "sourceIds": [
+            "prep11platformnews"
+          ],
+          "outcome": "assessed-no-change",
+          "assessedAt": "2026-11-08T11:04:49.687940+00:00",
+          "evidence": "The announcement section recommends supported product identification in scripts and automation because a version number alone does not distinguish Enterprise from Cloud. The Enterprise 10.6 release notes separately document the four-segment format. Neither supplies an Enterprise 11.x migration path.",
+          "qualification": "This is published 10.6 guidance and a useful preparation task. It does not announce an 11.x release or a migration path."
+        }
+      ]
+    },
+    {
+      "capabilityId": "prep11.context-ai",
+      "disposition": "assessed-no-change",
+      "discoveredAt": null,
+      "retrievedAt": null,
+      "assessedAt": "2026-11-08T11:04:49.687940+00:00",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "qualification": "Exact scoped source-section assessment. No canonical claim or admission pin changed.",
+      "retrievals": [
+        {
+          "sourceId": "prep11ainews",
+          "outcome": "retrieved",
+          "retrievedAt": null,
+          "observedOn": "2026-11-08",
+          "evidence": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m09/cisco-delivers-trusted-ai-at-scale-through-new-splunk-advancements.html | Self-managed Splunk AI, accelerated by NVIDIA | Verified exact indexed Cisco section; direct body bytes unverified."
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "prep11-news-selfmanaged-ai",
+          "sourceIds": [
+            "prep11ainews"
+          ],
+          "outcome": "assessed-no-change",
+          "assessedAt": "2026-11-08T11:04:49.687940+00:00",
+          "evidence": "The indexed Cisco Newsroom section describes a separately scoped Kubernetes/NVIDIA Cisco AI POD and distinguishes the available assistant from the then-planned Agent Launchpad. It does not establish an Enterprise 11.x requirement or a general release stage.",
+          "qualification": "The statement is specific to self-managed AI and Cisco AI POD for Splunk. It does not establish an 11.x deployment model or confirm later delivery of the named planned feature."
+        }
+      ]
+    },
+    {
+      "capabilityId": "advisor.agent-mode",
+      "disposition": "assessed-no-change",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-08T11:00:13.000175+00:00",
+      "assessedAt": "2026-11-08T11:04:49.687940+00:00",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "qualification": "Exact scoped source-section assessment. No canonical claim or admission pin changed.",
+      "retrievals": [
+        {
+          "sourceId": "aiSaiaInstall",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T11:00:12.990839+00:00",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers | FedRAMP deployments; supported regions; version compatibility | HTTP 200 | a4440980342cab8b565379d455a5ecfd86e592140ed528d7d6a2750715d930bd"
+        },
+        {
+          "sourceId": "aiSaiaAbout",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T11:00:12.964833+00:00",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant | Requirements; features; ITSI subagent; where the assistant runs | HTTP 200 | 6ff72e10ed0511f233d0f5bf119f68cda4cb602a8bf1dabee266d42da25f7cb3"
+        },
+        {
+          "sourceId": "aiSaiaAgentMode",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T11:00:12.997740+00:00",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant | Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites | HTTP 200 | 2c4b03cee2897b3719586dc41aa2d5c33450246b65035522828fa9677de8727f"
+        },
+        {
+          "sourceId": "aiSaiaModelRuntime",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T11:00:13.000175+00:00",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant | Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off | HTTP 200 | 5911c9891c36d01e8dd5a388004503c0245b627d14a8fa7fb1ac263c149e2321"
+        },
+        {
+          "sourceId": "aiSaiaCloudConnected",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T10:59:54.532639+00:00",
+          "evidence": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected | Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data | HTTP 200 | 819f400d708560c652ecfff519e1c50ebd9c65ce60e0d6dc072cdb42b1b05261"
+        },
+        {
+          "sourceId": "aiSaiaKnownIssues",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T10:59:54.532755+00:00",
+          "evidence": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues | SAIA-9918 Cloud Connected access and 2.1.1 workaround | HTTP 200 | 0efcbda463534323956cce22be87b7ab6a08efafb7b8098ab8877fe589c216c5"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "ai-saia-agent",
+          "sourceIds": [
+            "aiSaiaInstall",
+            "aiSaiaAbout",
+            "aiSaiaAgentMode",
+            "aiSaiaModelRuntime",
+            "aiSaiaCloudConnected",
+            "aiSaiaKnownIssues"
+          ],
+          "outcome": "assessed-no-change",
+          "assessedAt": "2026-11-08T11:04:49.687940+00:00",
+          "evidence": "Feature-specific requirements identify Platform 10.1.x+, assistant 2.1.0+, supported AWS service regions and Model Runtime. Cloud Connected installation and SAIA-9918 exclude assistant 2.2.0–2.3.6; the documented 2.1.1 workaround has no Agent Mode and the 2.4.0 restoration remains planned. The feature guide conditions the Cloud Connected route on network and certificate setup. Runtime routing distinguishes Global and Data zone standards and hosted and third-party processing. Limited IL2 base-assistant treatment does not establish regulated Agent Mode.",
+          "qualification": "Feature-specific Platform minimum, Cloud Connected app minimum, AWS AI service locations and Model Runtime requirements, with explicit routing and data-boundary uncertainty. Exclusions: Full app/Platform compatibility, tenant activation, entitlement and regulated authorization are not established. Current Cloud Connected exclusion/feature-guide disagreement and planned future support remain explicit; no positive Enterprise path from a minimum alone."
+        }
+      ]
+    },
+    {
+      "capabilityId": "advisor.itsi-versions",
+      "disposition": "assessed-no-change",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-08T11:00:12.990839+00:00",
+      "assessedAt": "2026-11-08T11:04:49.687940+00:00",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "qualification": "Exact scoped source-section assessment. No canonical claim or admission pin changed.",
+      "retrievals": [
+        {
+          "sourceId": "aiSaiaAbout",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T11:00:12.964833+00:00",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant | Requirements; features; ITSI subagent; where the assistant runs | HTTP 200 | 6ff72e10ed0511f233d0f5bf119f68cda4cb602a8bf1dabee266d42da25f7cb3"
+        },
+        {
+          "sourceId": "aiSaiaInstall",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T11:00:12.990839+00:00",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers | FedRAMP deployments; supported regions; version compatibility | HTTP 200 | a4440980342cab8b565379d455a5ecfd86e592140ed528d7d6a2750715d930bd"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "ai-itsi-subagent",
+          "sourceIds": [
+            "aiSaiaAbout",
+            "aiSaiaInstall"
+          ],
+          "outcome": "assessed-no-change",
+          "assessedAt": "2026-11-08T11:04:49.687940+00:00",
+          "evidence": "The About ITSI subagent paragraph gives ITSI 5.0.0+, assistant 2.2.0+ and MCP Server 1.2.1+. The Cloud installation version and deployment tables are separately scoped. Meeting those floors does not establish an exact pairing, a rollout or authorization.",
+          "qualification": "Three documented version minimums, missing dependencies and the next pairing/enablement questions. Exclusions: Meeting the minimums does not establish a supported complete pairing or subagent-specific regional rollout."
+        }
+      ]
+    },
+    {
+      "capabilityId": "advisor.soc-workflow",
+      "disposition": "assessed-no-change",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-08T11:00:12.990839+00:00",
+      "assessedAt": "2026-11-08T11:04:49.687940+00:00",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "qualification": "Exact scoped source-section assessment. No canonical claim or admission pin changed.",
+      "retrievals": [
+        {
+          "sourceId": "aiEsAgents88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T10:59:58.382574+00:00",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security | Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note | HTTP 200 | c1c11e03ad8e986068bbbbc0eb4f4fcbdb300e585f1e15b39497c1fc19b985a0"
+        },
+        {
+          "sourceId": "aiEsSocTask88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T10:59:58.478981+00:00",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security | Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions | HTTP 200 | b1a1fe182403d88695d1f90ef61534c7cc436b2237143bf3210af06f7f707164"
+        },
+        {
+          "sourceId": "aiEsSocTask87",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T10:59:54.582578+00:00",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security | Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions | HTTP 200 | a761433c30c6e44ddab3869e94feeac886adbae63f532aafc3cef3a35617f67a"
+        },
+        {
+          "sourceId": "aiEsRelease88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T10:59:59.877944+00:00",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security | ES 8.8 Controlled Availability | HTTP 200 | 444214fa78f37af846ac1cf1cdc507dad2b24e8d9dc2cdfc17844aa57333843a"
+        },
+        {
+          "sourceId": "aiEsTriageNote88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T10:59:58.382574+00:00",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security | SOC analyst Triage/Response note; aggregate AI SOC Analyst availability row | HTTP 200 | c1c11e03ad8e986068bbbbc0eb4f4fcbdb300e585f1e15b39497c1fc19b985a0"
+        },
+        {
+          "sourceId": "aiSaiaInstall",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T11:00:12.990839+00:00",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers | FedRAMP deployments; supported regions; version compatibility | HTTP 200 | a4440980342cab8b565379d455a5ecfd86e592140ed528d7d6a2750715d930bd"
+        },
+        {
+          "sourceId": "aiEsRegions88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T10:59:59.859676+00:00",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability | Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility | HTTP 200 | deb4ae189ff930e0c1dfc58e73a9de367dbc816dd78564cbd74b5e8880b90164"
+        },
+        {
+          "sourceId": "aiEsEditions",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T10:59:58.495203+00:00",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions | Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings | HTTP 200 | ea31c234ff6788de2e56ef8cb2491dbb2d5855e8b48506248b68a30b09147a16"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "ai-es-soc",
+          "sourceIds": [
+            "aiEsAgents88",
+            "aiEsSocTask88",
+            "aiEsSocTask87",
+            "aiEsRelease88",
+            "aiEsTriageNote88",
+            "aiSaiaInstall",
+            "aiEsRegions88",
+            "aiEsEditions"
+          ],
+          "outcome": "assessed-no-change",
+          "assessedAt": "2026-11-08T11:04:49.687940+00:00",
+          "evidence": "The 8.8 combined Triage and Response overview gives Cloud Platform 10.2.x+, ES 8.6+ and paired SOAR, while the task prerequisite is ES 8.7+ with eligible existing findings and applicable SOAR permissions. Customer-managed Cloud Connected guidance lists 10.4.x+, ES 8.8+ and Cloud Connect 2.0 with separate assistant availability constraints. The 8.7 task title retains the historical AI SOC Analyst name. The 8.8 release notes record November 4 GA. Edition and regional tables do not establish per-agent rollout, entitlement, exact pairing or authorization.",
+          "qualification": "Assessed deployment-specific prerequisites, the current Cloud version discrepancy and the corrected historical Triage wording. Exclusions: Exact SOAR pairing, agent-specific regional rollout, component entitlement and customer authorization remain separate."
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "checks": [
+      {
+        "id": "exact-candidate-exports",
+        "outcome": "passed",
+        "evidence": "The changed diagnostic, regression and evidence files leave report inputs identical to verified GitHub artifact 13614160712. The separately held report candidate a772127e03d6bdcac5ca7de1c4da27079ca898e2 has its own verified artifact 13614660998."
+      },
+      {
+        "id": "live-ui-assets-d1",
+        "outcome": "blocked",
+        "evidence": "Current-main publisher receipt 42473414203 stopped at runtime engine mismatch before any publisher mutation. Public content API probes can seed D1 and were withheld under the bounded rollout procedure."
+      },
+      {
+        "id": "sync-gates",
+        "outcome": "passed",
+        "evidence": "Ordered generation and the four check gates passed. No canonical, report or deployment input changed."
+      },
+      {
+        "id": "advisor-maintenance",
+        "outcome": "passed",
+        "evidence": "Both maintenance commands passed. Existing overdue pins retain their scoped dates."
+      },
+      {
+        "id": "coverage-gate",
+        "outcome": "passed",
+        "evidence": "Ten of eleven scoped dispositions are assessed. Exact Lantern readiness is blocked."
+      },
+      {
+        "id": "native-issue-feed",
+        "outcome": "passed",
+        "evidence": "Six current assessments and cumulative checkpoint 33 passed feed generation and integrity checks. Prior records are unchanged."
+      },
+      {
+        "id": "unit-suite",
+        "outcome": "passed",
+        "evidence": "436 Node tests passed. Before the diagnostic patch, the new regression accepted a receipt from a different sub-millisecond start. Six UF/HF route cases and negative receiver-scope mutation also passed."
+      },
+      {
+        "id": "build",
+        "outcome": "passed",
+        "evidence": "The unchanged 74-asset, 922-record baseline built successfully."
+      },
+      {
+        "id": "artifact-readback",
+        "outcome": "passed",
+        "evidence": "Replayed repository verification of retained identical report input archive 13614160712 with the artifact digest already verified. Production runtime is separate."
+      }
+    ]
+  },
+  "publication": {
+    "claimedDelivered": false,
+    "qualification": "Repository diagnostic and source evidence only. Separately verified draft report candidate is held for authorized production runtime reconciliation and D1 readback."
+  },
+  "recordedAt": "2026-11-08T11:04:49.767Z",
+  "auditBindings": [
+    {
+      "file": "docs/audits/2026-11-08-version-release-watch-sources.json",
+      "reviewDigest": "58a2f92d126dfdb5a3e320e6638e8788e50697d1cf08319403fa5555ea9ca30d"
+    }
+  ],
+  "reviewDigest": "1888b9773cabbb71f318bb1155f41d079b24241e5a431a2f71218903427f9102"
+}

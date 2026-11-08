@@ -1953,12 +1953,12 @@ window.SPLUNK_DATA = {
           {
             "component": "Cloud 10.6 publication versus stack availability",
             "domain": "Cloud operations",
-            "changeType": "Current service pairing",
+            "changeType": "Historical service pairing",
             "actionLevel": "Required",
             "from": "Cloud 10.6 release notes were published before the current service table changed",
-            "to": "Current Service Details pair subscriptions with Cloud 10.6",
-            "implication": "The current service pairing establishes the supported subscription line, but it does not prove that every selected stack, feature, provider, region or regulated environment has the same rollout or entitlement.",
-            "action": "Use 10.6 as the current service pairing, then confirm the exact stack, provider, region, feature, entitlement and regulated-environment scope before planning.",
+            "to": "The 10.6-version Service Details listed Cloud 10.6 as the subscription line",
+            "implication": "The historical 10.6 service pairing describes that subscription line; it does not establish the current service pairing or prove that every selected stack, feature, provider, region or regulated environment has the same rollout or entitlement.",
+            "action": "Treat the 10.6 pairing as historical context and check the current service table, then confirm the exact stack, provider, region, feature, entitlement and regulated-environment scope before planning.",
             "source": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details"
           },
           {
@@ -2020,7 +2020,7 @@ window.SPLUNK_DATA = {
           ],
           [
             "Confirm selected stack and feature scope",
-            "The 10.6 Service Details identify Cloud 10.6 as the current subscription version. Confirm the selected stack, provider, region, feature, entitlement and regulated-environment scope before treating the service pairing as universal availability.",
+            "The 10.6 Service Details recorded Cloud 10.6 as the subscription version for that historical observation. Check the current service table and confirm the selected stack, provider, region, feature, entitlement and regulated-environment scope before treating a service pairing as universal availability.",
             "Blocker",
             "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
             true

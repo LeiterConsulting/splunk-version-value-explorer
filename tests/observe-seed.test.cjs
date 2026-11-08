@@ -5,7 +5,8 @@ const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 const { workflowMode } = require('../scripts/publisher-workflow-mode.cjs');
-const manifest = JSON.parse(fs.readFileSync('content/publication.json', 'utf8'));
+const deployment = JSON.parse(fs.readFileSync('docs/deployed-seed-observation.json', 'utf8'));
+const manifest = deployment.seed;
 const commit = 'a'.repeat(40), repo = 'LeiterConsulting/splunk-version-value-explorer';
 const origin = 'https://versioncompass.com', endpoint = origin + '/api/publisher/observe-seed';
 const workflow = repo + '/.github/workflows/publish-content.yml@refs/heads/main';
@@ -13,7 +14,7 @@ const now = 1794092400000;
 const modules = () => import('../scripts/observe-seed.mjs');
 function environment() {
   return { GITHUB_ACTIONS: 'true', GITHUB_EVENT_NAME: 'workflow_dispatch', GITHUB_REPOSITORY: repo, GITHUB_REF: 'refs/heads/main', GITHUB_REF_TYPE: 'branch', GITHUB_WORKFLOW_REF: workflow, GITHUB_WORKFLOW_SHA: commit, GITHUB_SHA: commit,
-    VC_OBSERVATION_MODE: 'observe-only', VC_OBSERVATION_EXPECTED_COMMIT: commit, VC_OBSERVATION_EXPECTED_REF: 'refs/heads/main', VC_OBSERVATION_EXPECTED_ENGINE: manifest.engineRevision, VC_OBSERVATION_EXPECTED_REVISION: manifest.revision,
+    VC_OBSERVATION_MODE: 'observe-only', VC_OBSERVATION_EXPECTED_SEED_COMMIT: deployment.sourceCommit, VC_OBSERVATION_EXPECTED_COMMIT: commit, VC_OBSERVATION_EXPECTED_REF: 'refs/heads/main', VC_OBSERVATION_EXPECTED_ENGINE: manifest.engineRevision, VC_OBSERVATION_EXPECTED_REVISION: manifest.revision,
     ACTIONS_ID_TOKEN_REQUEST_URL: 'https://test.actions.githubusercontent.com/token?test=fixture', ACTIONS_ID_TOKEN_REQUEST_TOKEN: 'issuer-request-fixture-token' };
 }
 function token(changes = {}) {
@@ -29,13 +30,13 @@ async function execute({ env = {}, response = complete(), credential = { value: 
     if (handler) return handler(url, init, calls.length);
     return calls.length === 1 ? json(credential) : json(response, status);
   };
-  const receipt = await (await modules()).observeSeed({ env: { ...environment(), ...env }, manifest, checkoutSha: commit, now: () => now, fetcher, ...options });
+  const receipt = await (await modules()).observeSeed({ env: { ...environment(), ...env }, manifest, deployment, sourceTree: deployment.sourceTree, checkoutSha: commit, now: () => now, fetcher, ...options });
   return { receipt, calls };
 }
 
-test('workflow mode is explicit, automatic publisher remains unchanged, observe cannot select or publish', () => {
-  assert.equal(workflowMode('workflow_run', {}), 'publish');
-  assert.equal(workflowMode('workflow_dispatch', { inputs: { mode: 'publish' } }), 'publish');
+test('workflow mode is explicit, automatic publisher is held, observe cannot select or publish', () => {
+  assert.equal(workflowMode('workflow_run', {}), 'held');
+  assert.equal(workflowMode('workflow_dispatch', { inputs: { mode: 'publish' } }), 'held');
   assert.equal(workflowMode('workflow_dispatch', { inputs: { mode: 'observe-only' } }), 'observe-only');
   for (const mode of [undefined, '', 'observe', 'publish; echo private']) assert.throws(() => workflowMode('workflow_dispatch', { inputs: { mode } }));
   assert.throws(() => workflowMode('pull_request', {}));
@@ -66,10 +67,10 @@ test('auth context, mode, SHA, checkout, ref and explicit expected identities fa
     { GITHUB_ACTIONS: 'false' }, { GITHUB_EVENT_NAME: 'workflow_run' }, { GITHUB_REPOSITORY: 'other/repo' }, { GITHUB_REF: 'refs/heads/other' }, { GITHUB_REF_TYPE: 'tag' },
     { GITHUB_WORKFLOW_REF: repo + '/.github/workflows/other.yml@refs/heads/main' }, { GITHUB_WORKFLOW_SHA: 'b'.repeat(40) }, { GITHUB_SHA: 'b'.repeat(40) },
     { VC_OBSERVATION_MODE: 'publish' }, { VC_OBSERVATION_EXPECTED_COMMIT: '' }, { VC_OBSERVATION_EXPECTED_COMMIT: 'a'.repeat(40) + '\n' }, { VC_OBSERVATION_EXPECTED_REF: 'main' },
-    { VC_OBSERVATION_EXPECTED_ENGINE: '' }, { VC_OBSERVATION_EXPECTED_REVISION: 'content-' + 'b'.repeat(24) },
+    { VC_OBSERVATION_EXPECTED_SEED_COMMIT: 'c'.repeat(40) }, { VC_OBSERVATION_EXPECTED_ENGINE: '' }, { VC_OBSERVATION_EXPECTED_REVISION: 'content-' + 'b'.repeat(24) },
   ];
   for (const env of cases) { const { receipt, calls } = await execute({ env }); assert.equal(receipt.status, 'failed', JSON.stringify(env)); assert.equal(calls.length, 0); }
-  for (const options of [{ checkoutSha: 'b'.repeat(40) }, { manifest: { ...manifest, recordCount: 10001 } }, { manifest: {} }]) {
+  for (const options of [{ checkoutSha: 'b'.repeat(40) }, { manifest: { ...manifest, recordCount: 10001 } }, { manifest: {} }, { deployment: {} }, { sourceTree: 'c'.repeat(40) }, { manifest: { ...manifest, digest: 'a'.repeat(64) } }, { deployment: { ...deployment, probe: 'https://other.test' } }]) {
     const result = await execute(options); assert.equal(result.receipt.status, 'failed'); assert.equal(result.calls.length, 0);
   }
 });
@@ -173,5 +174,23 @@ test('observation rejects contradictory seed/head metadata combinations', async 
   for (const [seed, count, head] of [['missing', 0, 'bundled-metadata-only'], ['missing-with-records', 1, 'bundled-metadata-only'], ['incomplete', 25, 'bundled-metadata-only'], ['marked-complete-count-consistent', manifest.recordCount, 'inconsistent']]) {
     const { receipt } = await execute({ response: { ...complete(), seed, observedRecordCount: count, head } });
     assert.equal(receipt.reason, 'observation-schema-invalid'); assert.equal(receipt.observation, undefined);
+  }
+});
+
+test('reviewed deployed seed is distinct from current main content and bound to exact historical source', async () => {
+  const { execFileSync } = require('node:child_process');
+  const historical = JSON.parse(execFileSync('git', ['show', deployment.sourceCommit + ':content/publication.json'], { encoding: 'utf8' }));
+  const tree = execFileSync('git', ['rev-parse', deployment.sourceCommit + '^{tree}'], { encoding: 'utf8' }).trim();
+  assert.equal(tree, deployment.sourceTree);
+  for (const [key, value] of Object.entries(deployment.seed)) assert.equal(historical[key], value);
+  const current = JSON.parse(fs.readFileSync('content/publication.json', 'utf8'));
+  const success = await execute({ manifest: historical, sourceTree: tree });
+  assert.equal(success.receipt.status, 'observation-returned');
+  assert.equal(success.receipt.commit, commit); assert.equal(success.receipt.seedSourceCommit, deployment.sourceCommit);
+  assert.equal(success.receipt.seedDigestValidation, 'local-source-only'); assert.equal(success.receipt.integrity, 'not-validated');
+  if (current.revision !== historical.revision) {
+    const stale = await execute({ manifest: current }); assert.equal(stale.calls.length, 0); assert.equal(stale.receipt.reason, 'expected-identity-invalid');
+    const changedRuntime = await execute({ response: { ...complete(), revision: current.revision } });
+    assert.equal(changedRuntime.receipt.status, 'failed'); assert.equal(changedRuntime.calls.length, 2);
   }
 });

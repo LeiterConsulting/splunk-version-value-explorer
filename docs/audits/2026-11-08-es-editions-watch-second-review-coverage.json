@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "registryVersion": "1.2.0",
+  "runId": "es-editions-20261108-late",
+  "watchId": "es-editions-watch",
+  "kind": "saved-task-execution",
+  "recordedAt": "2026-11-08T19:20:45.998Z",
+  "outcome": "assessed-no-change",
+  "claimedComplete": true,
+  "execution": {
+    "taskId": "6ab2aa014df881918687cc1e30393ea9",
+    "schedulerRunId": "bcfd0fa1-6d78-832d-b488-158ddc8a7184",
+    "startedAt": "2026-11-08T19:59:33.598035Z",
+    "qualification": "Supported native saved-task read exposes this ES Editions Watch scheduler identity and the current retry attempt start. The same run is again in progress after a recorded failed retry, while latest_result still belongs to a prior run; result matching and first-execution verification remain incomplete.",
+    "observations": [
+      {
+        "observedAt": "2026-11-08T19:18:38.940Z",
+        "status": "in-progress-readback",
+        "qualification": "last_run identifies this scheduler execution; latest_result.run_id does not match it."
+      },
+      {
+        "observedAt": "2026-11-08T19:54:00.000Z",
+        "status": "failed-readback",
+        "qualification": "Supported native readback now records the same scheduler run ID failed after a retry started 2026-11-08T19:50:33.018458Z and completed 2026-11-08T19:50:36.293955Z. latest_result still belongs to 4081ba9c-eb48-8333-ad00-1de34c2541e5, so no current-run semantic result or first-execution receipt is accepted."
+      },
+      {
+        "observedAt": "2026-11-08T20:02:24.000Z",
+        "status": "retry-in-progress-readback",
+        "qualification": "Supported native readback records the same scheduler run ID in progress again. latest_result still belongs to 4081ba9c-eb48-8333-ad00-1de34c2541e5, so this retry supplies no matching current-run result or first-execution receipt."
+      }
+    ]
+  },
+  "coverage": [
+    {
+      "capabilityId": "advisor.soc-workflow",
+      "disposition": "assessed-no-change",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-08T19:17:21.578Z",
+      "assessedAt": "2026-11-08T19:20:45.998Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "qualification": "Assessed deployment-specific prerequisites, current Cloud/CMP version discrepancies, edition scope and historical corrections. Exact SOAR pairing, per-agent regional rollout, component entitlement and customer authorization remain excluded.",
+      "retrievals": [
+        {
+          "sourceId": "aiEsAgents88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T19:17:14.945Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security | Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note | sha256 77ab648aa27b6bb70d7a414ea69fa428d7f8105ca920676f91d79088c3fef6e1"
+        },
+        {
+          "sourceId": "aiEsSocTask88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T19:17:15.041Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security | Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions | sha256 04321324b29106e048a322a9e2d50c9ae1cbd82ad0ac4a5d0e571e8201c75908"
+        },
+        {
+          "sourceId": "aiEsSocTask87",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T19:17:09.848Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security | Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions | sha256 b7f9595e0e8bb522c7fe2ccac4a976f1e3851c673ce29f9b7c78d01236d85853"
+        },
+        {
+          "sourceId": "aiEsRelease88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T19:17:15.384Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security | ES 8.8 Controlled Availability | sha256 b0efde3abf3f6b901fbd6f1dcc21e30757acc98bb4a7ecedea9bf687e01721bd"
+        },
+        {
+          "sourceId": "aiEsTriageNote88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T19:17:14.945Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security | SOC analyst Triage/Response note; aggregate AI SOC Analyst availability row | sha256 77ab648aa27b6bb70d7a414ea69fa428d7f8105ca920676f91d79088c3fef6e1"
+        },
+        {
+          "sourceId": "aiSaiaInstall",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T19:17:15.600Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers | FedRAMP deployments; supported regions; version compatibility | sha256 bb1d149c11bb6bdbe515c10c4681a18352f195156b6b24233ddd5773b2863aec"
+        },
+        {
+          "sourceId": "aiEsRegions88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T19:17:15.357Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability | Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility | sha256 f1ca5d039f6cd4bc7d49d047495c315250de8c2013a21eed97b210c074ffd78a"
+        },
+        {
+          "sourceId": "aiEsEditions",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-08T19:17:15.152Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions | Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings | sha256 45c8a07fa99ff01d599523def750705498f4a55a7985a4422d2805c33a8d4b57"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "ai-es-soc",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsAgents88",
+            "aiEsSocTask88",
+            "aiEsSocTask87",
+            "aiEsRelease88",
+            "aiEsTriageNote88",
+            "aiSaiaInstall",
+            "aiEsRegions88",
+            "aiEsEditions"
+          ],
+          "assessedAt": "2026-11-08T19:20:45.998Z",
+          "evidence": "The current aggregate continues to put the Triage and Response workflow in Premier, with Cloud Platform 10.2.x+, ES 8.6+ and paired SOAR for Cloud, and Platform 10.4.x+, ES 8.8+, Cloud Connect 2.0+ for CMP. The task page retains its separate ES 8.7+ Cloud floor, existing-finding prerequisite, first-ten burst and approximately 200-per-tenant daily limits, frontier-model qualification, and connector/action/asset-role permissions. The directly fetched Cloud Connect setup URL remains 404 while indexed official evidence names SAIA 2.4+; current 2.3.6 evidence does not establish that planned path as released support. Exact pairing, per-agent rollout, entitlement and customer authorization remain excluded.",
+          "qualification": "Feature-specific ES workflow evidence only; no inference from base-assistant or hosting scope."
+        }
+      ]
+    }
+  ],
+  "auditBindings": [
+    {
+      "file": "docs/audits/2026-11-08-es-editions-watch-sources.json",
+      "reviewDigest": "ece41f0dab324306c3d0bbfc44ce6b94ea95b1e84b8dffcbf320b73bb7abd33f"
+    }
+  ],
+  "validation": {
+    "checks": [
+      {
+        "id": "sync-gates",
+        "outcome": "passed",
+        "evidence": "Ordered maintenance sync and all four check gates passed; canonical datasets and generated adapters remain unchanged."
+      },
+      {
+        "id": "unit-suite",
+        "outcome": "passed",
+        "evidence": "Full Node suite: 456 passed, 0 failed."
+      },
+      {
+        "id": "advisor-maintenance",
+        "outcome": "passed",
+        "evidence": "Advisor maintenance and --check completed; overdue registered windows remain explicit and were not silently advanced."
+      },
+      {
+        "id": "native-issue-feed",
+        "outcome": "passed",
+        "evidence": "Six distinct ES assessments pin public audit commit 7ada177aab50e3fec1a776d3c3287fa460cd569c at cumulative checkpoint vci-1f83fcedadd1a24dadf1e835192152c7268e00401b43e441adfc51496a2ed092."
+      },
+      {
+        "id": "coverage-gate",
+        "outcome": "passed",
+        "evidence": "Registry 1.2.0 coverage gate passes with exactly one required ES capability and no missing or duplicate disposition."
+      },
+      {
+        "id": "build",
+        "outcome": "passed",
+        "evidence": "Build completed with 74 assets and 922 records: content-2d89d06541c8fb504b2d09da, engine-f7cb050e2600baf63082."
+      },
+      {
+        "id": "exact-candidate-exports",
+        "outcome": "passed",
+        "evidence": "Application CI run 42515181836, job 128836542185, passed for PR head 0479790eacd1af889357e11462522001371aeaee and exact tree 2620c6943a867c00ff67d94ae03517a067f6fe77: 202 route/theme cases, native Chromium PDFs with every page checked, independently reopened offline HTML, both-theme narrow layouts and configured keyboard report-action journeys."
+      },
+      {
+        "id": "artifact-readback",
+        "outcome": "passed",
+        "evidence": "Downloaded artifact 13631920203 matched GitHub SHA-256 ed2024204b4c84913b210e914b58f6a278779e2837c7e6515d94ee6d45e05b40. scripts/export-evidence.cjs verified 4,062 retained artifacts against report fingerprint 8fbd031a1de691b0eed0ba1092e456f981d6002200b290de8a4aaa6bc5e61a58, content-2d89d06541c8fb504b2d09da and engine-f7cb050e2600baf63082; check-soak.cjs --exports returned eligible-to-advance with zero missing, failed or unresolved gates. Representative ES Editions and AI desktop, phone, first-page and final-page images were inspected in both themes without a novel visual defect; this is not a claim of human review of every page."
+      },
+      {
+        "id": "live-ui-assets-d1",
+        "outcome": "blocked",
+        "evidence": "Canonical product/report content is unchanged, but repository operational revision and maintenance metadata advanced. The active publication hold was preserved, so no Site/D1 delivery is claimed and Site version 288 remains the live rollback baseline."
+      }
+    ]
+  },
+  "publication": {
+    "claimedDelivered": false,
+    "qualification": "Semantic coverage is complete; repository audit/feed publication and runtime delivery remain separate.",
+    "repository": "Immutable audit is public on branch commit 7ada177aab50e3fec1a776d3c3287fa460cd569c; exact feed follow-up tree 2620c6943a867c00ff67d94ae03517a067f6fe77 passed application CI and artifact readback for integration through pull request 104.",
+    "runtime": "No canonical product/report content change. Repository operational revision and maintenance metadata advanced, but the active publication hold was preserved and no new Site deployment was attempted.",
+    "firstExecution": "Incomplete verification: scheduler run bcfd0fa1-6d78-832d-b488-158ddc8a7184 is again recorded in progress after a failed retry, while latest_result remains the prior run 4081ba9c-eb48-8333-ad00-1de34c2541e5.",
+    "followUp": {
+      "owner": "es-editions-watch",
+      "action": "Reconcile the saved-task scheduler/result routing for bcfd0fa1-6d78-832d-b488-158ddc8a7184 and read back a matching current-run receipt without borrowing the prior result.",
+      "reviewBy": "2026-11-09"
+    }
+  },
+  "reviewDigest": "caa023d62aa2bcc80e72d3629341bd78113a5fa9dacbae694b07cc9ef42fcb88"
+}

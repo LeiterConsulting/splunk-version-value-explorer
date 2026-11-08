@@ -6,6 +6,39 @@ timeout, establish readiness or lift any production hold. `VC_ACTIVE_DELIVERY`
 remains off. Runtime release, content publication, factual assessment, saved-task
 execution and active-reader activation gates remain separate.
 
+## Repository publication hold (November 8)
+
+The workflow and direct publication CLI now return a failing
+`held-publication-disabled` receipt with zero requests, no acquired credential,
+no mutation attempt and no delivery claim. There is no environment variable or
+manual input that lifts this hold. `VC_ACTIVE_DELIVERY=0` alone is not a write
+barrier: staging/bootstrap write independently of the reader flag. The dead legacy
+writer has been removed from the held CLI. Transport-free offline orchestration
+and substantive failure tests now cover stage, head, bootstrap and activation;
+none is wired into a production entry point. This does not authorize removing the
+hold, initializing or advancing a publisher head.
+
+The inline workflow hold precedes checkout, so delayed validation of an older
+commit cannot select a pre-hold writer. Observation checks out the workflow's
+exact `github.sha`, never `workflow_run.head_sha`, with history for the fixed seed
+binding. The mode router also returns `held` for publish requests. Historical
+workflow attempts created before this repair retain their original executable
+policy and are not retroactively protected. Keep the publisher workflow disabled;
+inspect and resolve any old queued/running attempts before separately authorizing
+any future enablement. Merging this change does not authorize enabling or dispatching
+that workflow, removing the hold, staging, bootstrap, activation or deployment.
+
+The reviewed observation baseline is Sites version 288, Sites source
+`feff279adfb008a506c5bcd2f51a1b99bc259d93`, corresponding to GitHub
+`b3790ee3a5709f0ee1ccd286271aa3898c7b44e3`, tree
+`d649c43aaa67406945a45108419605d4b4c4af9b`. Its 922-record seed is
+`content-4b1fd403042725ca0530e870` / `engine-f7cb050e2600baf63082`.
+The checked-in record retains the exact digest. Main may legitimately contain a
+different candidate on the same engine. Neither source binding nor the owner's
+successful November 8 public-delivery checks establishes current publisher
+head/generation/history, activation eligibility or future hosted state. No
+production or credential request was made to prepare this repository change.
+
 ## One no-write seed observation
 
 The existing trusted `.github/workflows/publish-content.yml` now has an explicit
@@ -20,15 +53,23 @@ For an authorized manual dispatch on `main`, supply:
 
 - `mode`: `observe-only`.
 - `expected_commit`: the exact 40-character main SHA that will run. Read the
-  manifest at that commit, not from a stale checkout or another candidate.
+  workflow at that commit, not a stale checkout or another candidate. This is the
+  authorization commit, not the deployed content identity.
 - `expected_ref`: `refs/heads/main`.
-- `expected_engine`: that commit's `content/publication.json` engine revision.
-- `expected_revision`: that commit's bundled content revision.
+- `expected_seed_commit`: the immutable GitHub source commit in
+  `docs/deployed-seed-observation.json`.
+- `expected_engine`: that reviewed record's seed engine revision.
+- `expected_revision`: that reviewed record's seed content revision.
 
 Inputs enter the script as environment values, not interpolated shell commands.
 Before any network request, it requires Actions, manual dispatch, this repository,
 main branch, the existing workflow path, matching workflow/expected/checkout SHAs,
-and matching explicit engine/revision plus a valid local bundled descriptor.
+and matching explicit seed commit/engine/revision. The checked-in deployment
+record must match the historical source tree and manifest read from local Git
+history at its exact commit. Missing history, malformed records or mismatched
+identities fail before credential acquisition. Current-main content is not silently
+substituted for the deployed seed. Changing this record requires review of actual
+deployment evidence, not copying current main or an observation response.
 An expected SHA that differs from the selected workflow SHA fails closed. This
 binds the selected dispatch commit, not current-main freshness: a queued run or
 rerun may still use its original SHA after main advances. Reconcile current main
@@ -43,8 +84,9 @@ request body or GitHub evidence credential. It never runs candidate selection,
 `publish-content.mjs`, health/content requests, head reads, staging, bootstrap or
 activation. There is no alternate origin, token argument, stdin credential, retry,
 new secret, trust path, permission scope or schedule. Automatic `workflow_run`
-publication and explicit manual `publish` keep their existing selection, engine
-hold and truthful publication receipts.
+publication and explicit manual `publish` are unconditionally held before
+checkout, candidate selection, OIDC or production requests. A direct invocation of
+the publication CLI is independently held before candidate reads or credentials.
 
 Each of the two requests has a 10-second deadline covering headers and the entire
 body, with a 20-second aggregate observation budget and monotonic checks within
@@ -59,7 +101,11 @@ The separate `seed-observation-RUN-ATTEMPT` artifact retains
 `seed-observation-outcome.json` for 30 days, including script failures; the job
 summary also states the outcome. Failures before the script can run, such as
 checkout/setup cancellation, cannot produce a script receipt and are not an
-observation. Inspect the exact run/attempt, commit and both expected identities.
+observation. Inspect the exact run/attempt, authorization commit and deployed seed identities.
+The receipt digest is validated against local historical source only
+(`seedDigestValidation: local-source-only`); the response does not echo or remotely
+validate that digest. The pinned Sites version is a reviewed expectation, not a
+fresh saved-version readback.
 A failed script exits nonzero and retains only allowlisted categories. A valid
 503 retains the validated unavailable phase in the failing receipt. An invalid
 schema or wrong identity is not retained as a trusted observation.
@@ -81,6 +127,67 @@ not resolve an earlier publication failure. Controlled run titles help operators
 distinguish the modes, but titles are not trusted publication evidence. Other traffic may still seed
 D1 during a no-write observation. The workflow retains the existing concurrency
 group, which serializes its own runs but does not lock visitor traffic.
+
+## Separately selected no-write head observation
+
+Manual `mode: head-only` selects `scripts/observe-head.mjs`, never the seed
+observation or publisher. All expected inputs above remain required and bound to
+the reviewed deployment source/tree and historical manifest. The same existing
+workflow/main OIDC identity, issuer, audience, repository/owner IDs, subject,
+event, lifetime and checkout checks apply. Two bounded requests only: issuer
+credential acquisition and one fixed authenticated GET `/api/publisher/head`.
+No arbitrary target, query, SQL, evidence credential, public content request,
+mutation, retry or fallback is available. The workflow remains disabled; adding
+this mode is not permission to enable or dispatch it.
+
+The strict response has exactly `revision`, `generation`, `engineRevision`, and
+`activeDelivery`. Generation must be a nonnegative safe integer; zero is retained
+as metadata, never interpreted as initialized history. This conservative caller
+requires the selected deployed-seed revision/engine and `activeDelivery:false`.
+A legitimate alternate head or enabled delivery state is outside this expectation
+and fails closed; this does not assert that the alternate state is corrupt. Any
+future expectation change requires separate reviewed evidence rather than using
+the observation as its own baseline. HTTP failure, absent head, schema mismatch,
+redirect or timeout stops immediately with no public-content probing or repair.
+
+The separate `head-observation-RUN-ATTEMPT` artifact contains
+`head-observation-outcome.json`, including sanitized failures, for 30 days.
+Deadlines and body limits are identical to seed observation. The result is only
+head metadata: top-level seed source/tree/digest/count and Sites version are local
+reviewed expectations, not observed head provenance or digest. The endpoint
+returns MAX(event generation), not complete event
+history, provenance, record integrity, activation eligibility or delivery proof.
+The receipt keeps readiness not-assessed, integrity not-validated and
+claimedDelivered false. The original seed observation behavior is unchanged.
+
+## Offline orchestration, not a production bypass
+
+`scripts/lib/publication-orchestration.mjs` has no network, credentials, origin,
+CLI or workflow entry point. Its explicit injected adapter is used only by
+synthetic tests. The actual production CLI remains an unconditional failing hold.
+The module separates these plans:
+
+- `stageOnly`: one explicit stage, no head/bootstrap/activate or automatic advance.
+- `bootstrapOnly`: explicit exact-seed plan with a stable commit/action operation
+  ID, never selected implicitly from a missing head or generation zero.
+- `advance`: validate the head before any stage, require positive generation,
+  matching engine and enabled delivery, then stage and compare-and-swap activate.
+  Matching current revisions do not cause staging or bootstrap.
+
+Rejected requests, malformed mutation replies and uncertain outcomes stop all
+later calls, without retries. Outcomes are sanitized and never claim delivery.
+These offline plans are not authorization or a provenance verifier; the unchanged
+Worker still requires authenticated identity, exact candidate/token commit,
+main CI and exact committed bundle bytes, deployment-seed bootstrap and atomic
+activation checks. No synthetic test is real D1 verification.
+
+**Bootstrap remains unresolved:** current-main OIDC cannot initialize the frozen
+historical seed because its candidate must equal the token SHA and exact bundle
+at that SHA, while bootstrap requires the exact deployment seed. This work does
+not relax checks, replay historical workflows, acquire admin secrets, select old
+source under new identity or make a runtime release. Future mechanism and
+operation authorization remain outstanding, separately from active-reader
+activation/rollback and delivery checks. No mandatory soak delay applies.
 
 ## Sequential delivery verification can write storage
 
@@ -151,7 +258,7 @@ unavailable observations, redirects, stalled headers/body, caps, full identities
 corrupt/duplicate/missing pagination and no automatic retry. Run:
 
 ```bash
-node --test tests/observe-seed.test.cjs tests/diagnose-content.test.cjs
+node --test tests/observe-seed.test.cjs tests/observe-head.test.cjs tests/publisher-cli.test.cjs tests/publication-orchestration.test.cjs tests/diagnose-content.test.cjs
 npm run maintenance:sync
 npm run maintenance:verify
 git diff --check

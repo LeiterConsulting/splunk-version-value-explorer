@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-sok-32-compatibility-scope",
+  "assessmentId": "vcia-release-20261108-late-1",
+  "revision": 1,
+  "recordedAt": "2026-11-08T18:45:00.826Z",
+  "assessedAt": "2026-11-08T18:43:05.434Z",
+  "outcome": "still-present",
+  "rationale": "The Help 3.2.0 matrix lists Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0. The 3.2.0 changelog lists Kubernetes 1.32–1.36 and Enterprise 10.6.0. The changelog requires the Queue secretKeyRef migration for prior volume-based Index and Ingestion Separation configurations. The matrix advises upgrading the Operator before Enterprise.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Operator for Kubernetes"
+    ],
+    "versions": [
+      "3.2.0"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed Kubernetes"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating documented release or feature scope"
+    ],
+    "exclusions": [
+      "No unlisted exact pairing, rollout, entitlement or customer authorization established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261108-late-1-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix",
+      "section": "SOK to Splunk Enterprise version compatibility; Upgrade path guidance",
+      "statement": "The Help 3.2.0 matrix lists Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0. The 3.2.0 changelog lists Kubernetes 1.32–1.36 and Enterprise 10.6.0. The changelog requires the Queue secretKeyRef migration for prior volume-based Index and Ingestion Separation configurations. The matrix advises upgrading the Operator before Enterprise.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-08T18:36:26.991Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ff1a466f21915fd8705e7f4a14349cd163b3896834727709735266a7a97cf784",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261108-late-1-1",
+      "url": "https://splunk.github.io/splunk-operator/reference/ChangeLog.html",
+      "section": "3.2.0 (2026-09-08); Breaking Changes; Supported Kubernetes and Splunk versions",
+      "statement": "The Help 3.2.0 matrix lists Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0. The 3.2.0 changelog lists Kubernetes 1.32–1.36 and Enterprise 10.6.0. The changelog requires the Queue secretKeyRef migration for prior volume-based Index and Ingestion Separation configurations. The matrix advises upgrading the Operator before Enterprise.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-08T18:36:43.514Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "26ab5b4459deeb2ae2d6fd8ad0f544e8c7ddbda5d85880e2b6805fffb833908e",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/a7b5743de2e563ef9a41eaed96c95877b577963a/docs/audits/2026-11-08-version-release-watch-sources.json",
+      "pointer": "/subsequentReviews/0/claimChecks/1",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [],
+  "remainingConcerns": [
+    "Retain unresolved exact scope and review when decision-relevant authoritative evidence changes."
+  ]
+}

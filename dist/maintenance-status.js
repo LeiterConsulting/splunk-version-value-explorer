@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-07T12:50:05.488292Z",
-      "lastSuccess": "2026-11-03T12:30:17.094Z",
-      "outcome": "blocked",
-      "summary": "Reviewed regional and authorization evidence. Exact runtime delivery requires a separate verified candidate.",
+      "lastAttempt": "2026-11-08T20:32:35.791337Z",
+      "lastSuccess": "2026-11-08T20:40:19.746Z",
+      "outcome": "no-change",
+      "summary": "Reassessed six bounded claim families. Preserved current conflicts and unknowns.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -423,17 +423,41 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Reviewed regional and authorization evidence. Exact runtime delivery requires a separate verified candidate.",
           "scope": "51 public URLs, 17 bounded claim groups and one assessed Registry 1.2.0 SOC disposition. Moderate component listing unresolved."
+        },
+        {
+          "at": "2026-11-08T12:38:16.190455Z",
+          "outcome": "running",
+          "summary": "November 8 CSP public source and claim review started.",
+          "scope": "All 51 inherited official URLs attempted plus two current official article locations. Fifteen bounded claim groups independently assessed. No canonical product fact, source review date, Advisor pin or material cycle advanced."
+        },
+        {
+          "at": "2026-11-08T12:46:36.573Z",
+          "outcome": "no-change",
+          "summary": "Reassessed 15 scoped claim groups. Current Edge and ES Model Runtime article locations recovered. Canonical facts remain unchanged.",
+          "scope": "All 51 inherited official URLs attempted plus two current official article locations. Fifteen bounded claim groups independently assessed. No canonical product fact, source review date, Advisor pin or material cycle advanced."
+        },
+        {
+          "at": "2026-11-08T20:32:35.791337Z",
+          "outcome": "running",
+          "summary": "Started bounded CSP evidence review.",
+          "scope": "Attempted the complete 53-entry maintained official inventory, with 50 directly retrieved and three HTTP 404. Independently reassessed six bounded claim families, including the sole mandatory SOC capability. Other prior claims retain their earlier dates."
+        },
+        {
+          "at": "2026-11-08T20:40:19.746Z",
+          "outcome": "no-change",
+          "summary": "Reassessed six bounded claim families. Preserved current conflicts and unknowns.",
+          "scope": "Attempted the complete 53-entry maintained official inventory, with 50 directly retrieved and three HTTP 404. Independently reassessed six bounded claim families, including the sole mandatory SOC capability. Other prior claims retain their earlier dates."
         }
       ],
-      "scope": "51 public URLs, 17 bounded claim groups and one assessed Registry 1.2.0 SOC disposition. Moderate component listing unresolved."
+      "scope": "Attempted the complete 53-entry maintained official inventory, with 50 directly retrieved and three HTTP 404. Independently reassessed six bounded claim families, including the sole mandatory SOC capability. Other prior claims retain their earlier dates."
     },
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-08T10:11:43.966312Z",
-      "lastSuccess": "2026-11-03T11:17:30.674Z",
-      "outcome": "blocked",
-      "summary": "Partial source review. Production verification stopped at the engine mismatch.",
+      "lastAttempt": "2026-11-08T18:33:36.032067Z",
+      "lastSuccess": "2026-11-08T18:43:05.434Z",
+      "outcome": "no-change",
+      "summary": "Assessed all eleven registered claim families and recovered the exact Cloud readiness source. New release evidence is retained for a bounded report follow-up.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -933,27 +957,27 @@ window.VersionCompassMaintenance = {
           "scope": "Registered public release sources and eleven registry capabilities. Scoped SVD-2026-1015, App for SOAR 8.8 and HF 10.2 runtime evidence."
         },
         {
-          "at": "2026-11-08T10:11:43.966312Z",
+          "at": "2026-11-08T18:33:36.032067Z",
           "outcome": "running",
-          "summary": "Reviewing public release and route evidence.",
-          "scope": "Release source inventory, Prep11 and Advisor dependencies, ITSI, SOAR and historical Forwarder routes."
+          "summary": "Started a distinct Release Watch review.",
+          "scope": "Maintained release inventory and exact Prep11/Advisor sections plus selected SOAR, Forwarder and security claims."
         },
         {
-          "at": "2026-11-08T10:28:34.045Z",
-          "outcome": "blocked",
-          "summary": "Partial source review. Production verification stopped at the engine mismatch.",
-          "scope": "Registry 1.2.0 assessed ten claim families. Cloud readiness access and exact ITSI candidate export and live checks remain open."
+          "at": "2026-11-08T18:43:05.434Z",
+          "outcome": "no-change",
+          "summary": "Assessed all eleven registered claim families and recovered the exact Cloud readiness source. New release evidence is retained for a bounded report follow-up.",
+          "scope": "Maintained release inventory and exact Prep11/Advisor sections plus selected SOAR, Forwarder and security claims."
         }
       ],
-      "scope": "Registry 1.2.0 assessed ten claim families. Cloud readiness access and exact ITSI candidate export and live checks remain open."
+      "scope": "Maintained release inventory and exact Prep11/Advisor sections plus selected SOAR, Forwarder and security claims."
     },
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-07T10:56:28.060861Z",
-      "lastSuccess": "2026-11-06T11:33:59.772Z",
-      "outcome": "blocked",
-      "summary": "Completed bounded ES claim checks. Direct retrieval gaps remain and no new product facts were established.",
+      "lastAttempt": "2026-11-08T19:13:07.066704Z",
+      "lastSuccess": "2026-11-08T19:22:14.140Z",
+      "outcome": "no-change",
+      "summary": "Completed a distinct ES Editions review with no supported canonical product change; immutable audit and issue-feed publication are tracked separately.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1391,17 +1415,41 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Completed bounded ES claim checks. Direct retrieval gaps remain and no new product facts were established.",
           "scope": "48 official URLs attempted. Exact App, Export and native pairing were kept separate. Full inventory verification remains incomplete."
+        },
+        {
+          "at": "2026-11-08T11:34:34.561851Z",
+          "outcome": "running",
+          "summary": "November 8 ES Editions Watch review started.",
+          "scope": "Fresh full 48-URL official ES source inventory and bounded highest-consequence editions, SOC workflow, release-stage, App for SOAR and SOAR Export checks."
+        },
+        {
+          "at": "2026-11-08T12:07:00.000Z",
+          "outcome": "no-change",
+          "summary": "No supported canonical ES edition or prerequisite change; seven existing findings were reassessed and the unresolved documented conflicts remain qualified.",
+          "scope": "All 48 maintained official ES URLs attempted (47 direct retrievals); affected and highest-consequence edition, SOC workflow, release-stage, exact App for SOAR and SOAR Export claims assessed."
+        },
+        {
+          "at": "2026-11-08T19:13:07.066704Z",
+          "outcome": "running",
+          "summary": "Started a distinct same-day ES Editions source and claim review on fresh main.",
+          "scope": "Complete 48-URL maintained official inventory; registry 1.2.0 SOC capability; bounded highest-consequence edition, prerequisite and pairing claims."
+        },
+        {
+          "at": "2026-11-08T19:22:14.140Z",
+          "outcome": "no-change",
+          "summary": "Completed a distinct ES Editions review with no supported canonical product change; immutable audit and issue-feed publication are tracked separately.",
+          "scope": "48 maintained official URLs; seven claim families; one registry 1.2.0 capability; report/runtime inputs unchanged."
         }
       ],
-      "scope": "48 official URLs attempted. Exact App, Export and native pairing were kept separate. Full inventory verification remains incomplete."
+      "scope": "48 maintained official URLs; seven claim families; one registry 1.2.0 capability; report/runtime inputs unchanged."
     },
     {
       "id": "version-guidance-audit",
       "name": "Version Guidance Audit",
-      "lastAttempt": "2026-11-02T14:04:21.578Z",
-      "lastSuccess": "2026-11-02T14:04:21.669Z",
-      "outcome": "changed",
-      "summary": "Corrected current Triage, Broker HA stage scope and complete AI report source-directory mappings.",
+      "lastAttempt": "2026-11-08T21:56:00.294790Z",
+      "lastSuccess": "2026-11-08T22:04:05.623Z",
+      "outcome": "no-change",
+      "summary": "Assessed bounded Guidance claims and retained remaining historical and delivery gaps.",
       "history": [
         {
           "at": "2026-09-24T12:45:24.855849+00:00",
@@ -1551,9 +1599,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Corrected current Triage, Broker HA stage scope and complete AI report source-directory mappings.",
           "scope": "215 URLs checked, 213 retrieved; 16 bounded claim groups, ten AI capabilities, 18 borrowed HF mappings/900 routes, three genuine before/after repairs; revised exact-candidate export and live delivery separately verified."
+        },
+        {
+          "at": "2026-11-08T21:56:00.294790Z",
+          "outcome": "running",
+          "summary": "Started independent public-source Guidance Audit.",
+          "scope": "Independent bounded Guidance Audit of the current registered public inventory, all eleven mandatory claim families, eight existing findings, and two sampled inherited HF package records. Full historical coverage remains open."
+        },
+        {
+          "at": "2026-11-08T22:04:05.623Z",
+          "outcome": "no-change",
+          "summary": "Assessed bounded Guidance claims and retained remaining historical and delivery gaps.",
+          "scope": "Independent bounded Guidance Audit of the current registered public inventory, all eleven mandatory claim families, eight existing findings, and two sampled inherited HF package records. Full historical coverage remains open."
         }
       ],
-      "scope": "215 URLs checked, 213 retrieved; 16 bounded claim groups, ten AI capabilities, 18 borrowed HF mappings/900 routes, three genuine before/after repairs; revised exact-candidate export and live delivery separately verified."
+      "scope": "Independent bounded Guidance Audit of the current registered public inventory, all eleven mandatory claim families, eight existing findings, and two sampled inherited HF package records. Full historical coverage remains open."
     }
   ]
 };

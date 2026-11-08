@@ -28,7 +28,33 @@ The prepared `client/content-client-active.js` is selected at the existing loade
 
 Before setting the flag, record actual affected browser journeys, both themes/narrow/keyboard checks, PDF pages, independently reopened HTML and screen/export/WebMCP parity; then verify real D1 stage, activation, retry/conflict and rollback plus independent manifest/bundle/records readback. Review WebMCP metadata for the active content identity at that increment. Missing browser tooling is a blocked check, never a pass. The current accelerated policy imposes no 72-hour delay. Reuse the existing watches and progress task without changing their schedules or creating timers.
 
-## Commands
+## Current repository caller hold (November 8)
+
+The [bounded rollout procedure](../bounded-rollout-verification.md) supersedes the
+caller commands below: both publication entry points now fail closed before any
+candidate read, credential or production request. Workflow publication is also
+held inline before checkout, including delayed historical validation triggers.
+The runtime routes and their safeguards are unchanged. No environment flag lifts
+this hold, and this repository change does not enable or dispatch the disabled
+publisher workflow. Later hold removal and production operations need separate
+review and authorization.
+
+Observe-only keeps the exact current workflow/main OIDC identity while binding the
+expected deployed seed independently to a reviewed source commit/tree and its
+historical manifest. It cannot select a host, query, SQL statement or arbitrary
+remote revision. Local seed digest binding is not remote record-integrity proof.
+
+The separate `head-only` caller uses the same reviewed source binding and exact
+workflow identity for one fixed authenticated head GET. It accepts only the
+selected seed revision/engine with delivery off and never follows a mismatch with
+content calls or repair. MAX(event generation) remains metadata, not complete
+history/provenance. See the bounded procedure for its artifact and limitations.
+The held publication CLI no longer retains the old stage-before-head automatic
+bootstrap writer. Explicit transport-free plans are offline-only and cannot
+acquire credentials or call production. Current-main OIDC bootstrap of the frozen
+historical seed remains unresolved under the unchanged exact-commit/seed guards.
+
+## Historical publication commands (currently held)
 
 Read-only preflight: `node scripts/verify-publication.mjs --commit <main-SHA> --engine <actual-deployed-engine>`.
 

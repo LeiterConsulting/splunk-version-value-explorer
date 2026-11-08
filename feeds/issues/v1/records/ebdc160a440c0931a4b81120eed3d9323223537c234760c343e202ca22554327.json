@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "findingId": "vci-enterprise-104-legacy-tls-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-08T18:45:00.826Z",
+  "title": "Enterprise 10.4 TLS removal and temporary opt-in descriptions differ",
+  "concernType": "contradiction",
+  "problem": "The Enterprise 10.4 upgrade section says TLS 1.0 and 1.1 were completely removed. The versioned 10.4 configuration guide says they are off by default and gives a temporary opt-in. The 10.6 upgrade section says the temporary option was also removed. Preserve the historical evidence and do not treat the opt-in as a currently validated route or apply the borrowed Enterprise section to UF.",
+  "scope": {
+    "products": [
+      "Splunk Enterprise and applicable Heavy Forwarder components"
+    ],
+    "versions": [
+      "10.4, with 10.6 context"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed inter-Splunk connections"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating documented release or feature scope"
+    ],
+    "exclusions": [
+      "No unlisted exact pairing, rollout, entitlement or customer authorization established."
+    ]
+  },
+  "scopeComparison": "Both 10.4 Help articles describe legacy inter-component TLS behavior. Preserve the separately versioned 10.6 removal statement.",
+  "impact": {
+    "customerScenario": "Planning a customer-managed Enterprise-package Forwarder upgrade with legacy TLS dependencies.",
+    "consequence": "A presumed legacy TLS path may fail and interrupt forwarding.",
+    "level": "moderate"
+  },
+  "confidence": {
+    "level": "high",
+    "rationale": "Exact scoped official public sections were checked. Actual package behavior or additional tested combinations remain outside the observation."
+  },
+  "claimIds": [
+    "technical.hf.10.4.legacy-tls-protocols"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Current documentation scope is unresolved for the compared decision."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/a7b5743de2e563ef9a41eaed96c95877b577963a/docs/audits/2026-11-08-version-release-watch-sources.json",
+      "pointer": "/subsequentReviews/0/claimChecks/17",
+      "originalLabel": "conflicting-evidence-preserved"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "release-20261108-late-17-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first",
+      "section": "Splunk has removed support for versions 1.0 and 1.1 of the Transport Layer Security (TLS) protocol",
+      "statement": "The Enterprise 10.4 upgrade section says TLS 1.0 and 1.1 were completely removed. The versioned 10.4 configuration guide says they are off by default and gives a temporary opt-in. The 10.6 upgrade section says the temporary option was also removed. Preserve the historical evidence and do not treat the opt-in as a currently validated route or apply the borrowed Enterprise section to UF.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-08T18:36:16.646Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "f8e1d34bfd468adf4bdd597c314caf771b30d13e3e7ab2ba4c1f5e35fc77487a",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261108-late-17-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/manage-users-and-security/10.4/secure-splunk-platform-communications-with-transport-layer-security-certificates/configure-tls-protocol-version-support-for-secure-connections-between-splunk-platform-instances",
+      "section": "Supported SSL and TLS protocol versions; Turn on support for older TLS versions with deprecatedTlsVersionSupport",
+      "statement": "The Enterprise 10.4 upgrade section says TLS 1.0 and 1.1 were completely removed. The versioned 10.4 configuration guide says they are off by default and gives a temporary opt-in. The 10.6 upgrade section says the temporary option was also removed. Preserve the historical evidence and do not treat the opt-in as a currently validated route or apply the borrowed Enterprise section to UF.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-08T18:40:28.414Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "1ee1bb6635d07f2b15e6eb512eefe443d0d7acd04364f71f9e84182f5a820c74",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261108-late-17-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first",
+      "section": "Splunk has removed support for versions 1.0 and 1.1 of the Transport Layer Security (TLS) protocol",
+      "statement": "The Enterprise 10.4 upgrade section says TLS 1.0 and 1.1 were completely removed. The versioned 10.4 configuration guide says they are off by default and gives a temporary opt-in. The 10.6 upgrade section says the temporary option was also removed. Preserve the historical evidence and do not treat the opt-in as a currently validated route or apply the borrowed Enterprise section to UF.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-08T18:36:21.998Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "58aeb7725f9dfaf0779186bc4da7bd82861daf01dbad51283e298a09692cbe35",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    }
+  ]
+}

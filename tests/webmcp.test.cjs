@@ -348,7 +348,7 @@ test('September Observability additions preserve SaaS, private-runner, and Cloud
   assert(report.technicalChanges.some(item => item.component === '.NET instrumentation installer verification' && item.to.includes('requires GitHub CLI by default')));
   assert(report.technicalChanges.some(item => item.component === 'Browser RUM navigation configuration' && item.to.includes('deprecated alias')));
   assert(report.breakingChanges.some(item => item.title === 'Provide GitHub CLI for .NET 1.16 installer verification' && item.breaking));
-  assert(report.readiness.some(item => item.title === 'Treat Cloud 10.6 trial onboarding as stack-specific' && item.detail.includes('current service pairing is now 10.6')));
+  assert(report.readiness.some(item => item.title === 'Treat Cloud 10.6 trial onboarding as stack-specific' && item.detail.includes('requires Splunk Cloud Platform 10.6') && item.detail.includes('not a statement of the current service pairing')));
   assert(report.breakingChanges.some(item => item.title === 'Reconcile Node.js semantic conventions' && item.detail.startsWith('Splunk OpenTelemetry Node.js 4.11.0') && !item.detail.includes('chart')));
   assert(report.technicalChanges.some(item => item.component === 'Node.js instrumentation baseline' && item.to.includes('4.12.0') && item.to.includes('Couchbase SDK 4.7+')));
   assert(report.technicalChanges.some(item => item.component === 'Java CPU profiling remote control' && item.to.includes('2.31.3') && item.to.includes('Docker image publishing')));
@@ -363,7 +363,7 @@ test('September Observability additions preserve SaaS, private-runner, and Cloud
   const platformCloud = rt.run('get_catalog', {}).products.find(item => item.id === 'platform').contexts.find(item => item.platform === 'cloud');
   assert(platformCloud.targetReleases.some(item => item.id === '10.6'));
   const cloud106 = rt.run('compare_routes', { routes: [{ product: 'platform', platform: 'cloud', from: '10.5.2605', to: '10.6' }] }).reports[0];
-  assert(cloud106.breakingChanges.some(item => item.title === 'Confirm selected stack and feature scope' && item.detail.includes('identify Cloud 10.6 as the current subscription version')));
+  assert(cloud106.breakingChanges.some(item => item.title === 'Confirm selected stack and feature scope' && item.detail.includes('recorded Cloud 10.6 as the subscription version for that historical observation')));
 });
 
 test('October Observability route preserves SaaS semantics and component release boundaries', async () => {
@@ -635,4 +635,25 @@ test('migration to published Cloud 10.6 does not assert stack availability', asy
   assert(highlights.length>0);
   assert(highlights.every(item=>item.milestone==='Cloud 10.6 published planning milestone'));
   assert(report.breakingChanges.some(item=>/selected stack and feature scope/.test(item.title)));
+});
+
+
+test('Cloud 10.7 readiness reflects current service lines without granting stack availability', async () => {
+  const rt = await runtime();
+  const report = rt.run('compare_routes', { routes: [{ product: 'platform', platform: 'cloud', from: '10.6', to: '10.7' }] }).reports[0];
+  const readiness = report.breakingChanges.find(item => item.title === 'Confirm the selected stack before using Cloud 10.7 guidance');
+  assert(readiness);
+  assert.match(readiness.detail, /Cloud 10\.7, Enterprise Security 8\.7 and ITSI 5\.0/);
+  assert.doesNotMatch(readiness.detail, /still pairs subscriptions with Cloud 10\.6/);
+  for (const boundary of ['exact stack', 'product patch', 'provider', 'region', 'feature', 'entitlement', 'regulated scope', 'before treating 10.7 as deployed or available']) assert(readiness.detail.includes(boundary), boundary);
+  assert.match(readiness.source, /\/10\.7\/information-about-the-service\/splunk-cloud-platform-service-details$/);
+  assert(report.breakingChanges.some(item => item.title === readiness.title && item.breaking));
+  const historical = rt.run('compare_routes', { routes: [{ product: 'platform', platform: 'cloud', from: '10.5.2605', to: '10.6' }] }).reports[0].technicalChanges.find(item => item.component === 'Cloud 10.6 publication versus stack availability');
+  assert(historical);
+  assert.match(historical.action, /historical context/);
+  assert.match(historical.action, /check the current service table/);
+  const historicalBlocker = rt.run('compare_routes', { routes: [{ product: 'platform', platform: 'cloud', from: '10.5.2605', to: '10.6' }] }).reports[0].breakingChanges.find(item => item.title === 'Confirm selected stack and feature scope');
+  assert(historicalBlocker?.breaking);
+  assert.match(historicalBlocker.detail, /historical observation/);
+  assert.match(historicalBlocker.detail, /Check the current service table/);
 });
