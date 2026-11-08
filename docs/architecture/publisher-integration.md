@@ -44,6 +44,16 @@ expected deployed seed independently to a reviewed source commit/tree and its
 historical manifest. It cannot select a host, query, SQL statement or arbitrary
 remote revision. Local seed digest binding is not remote record-integrity proof.
 
+The separate `head-only` caller uses the same reviewed source binding and exact
+workflow identity for one fixed authenticated head GET. It accepts only the
+selected seed revision/engine with delivery off and never follows a mismatch with
+content calls or repair. MAX(event generation) remains metadata, not complete
+history/provenance. See the bounded procedure for its artifact and limitations.
+The held publication CLI no longer retains the old stage-before-head automatic
+bootstrap writer. Explicit transport-free plans are offline-only and cannot
+acquire credentials or call production. Current-main OIDC bootstrap of the frozen
+historical seed remains unresolved under the unchanged exact-commit/seed guards.
+
 ## Historical publication commands (currently held)
 
 Read-only preflight: `node scripts/verify-publication.mjs --commit <main-SHA> --engine <actual-deployed-engine>`.

@@ -12,11 +12,11 @@ The workflow and direct publication CLI now return a failing
 `held-publication-disabled` receipt with zero requests, no acquired credential,
 no mutation attempt and no delivery claim. There is no environment variable or
 manual input that lifts this hold. `VC_ACTIVE_DELIVERY=0` alone is not a write
-barrier: the retained writer stages before inspecting the head and may bootstrap.
-The old writer and its authentication/provenance gates remain unreachable pending
-separate review. Before hold removal, restore or rework stage/bootstrap/head/activation failure-path
-CLI coverage and review writer ordering and uncertain outcomes. Current tests
-intentionally prove the entry points cannot reach those paths. The retained dead writer is not approved for enablement; this change does not repair, initialize or read a publisher head.
+barrier: staging/bootstrap write independently of the reader flag. The dead legacy
+writer has been removed from the held CLI. Transport-free offline orchestration
+and substantive failure tests now cover stage, head, bootstrap and activation;
+none is wired into a production entry point. This does not authorize removing the
+hold, initializing or advancing a publisher head.
 
 The inline workflow hold precedes checkout, so delayed validation of an older
 commit cannot select a pre-hold writer. Observation checks out the workflow's
@@ -128,6 +128,67 @@ distinguish the modes, but titles are not trusted publication evidence. Other tr
 D1 during a no-write observation. The workflow retains the existing concurrency
 group, which serializes its own runs but does not lock visitor traffic.
 
+## Separately selected no-write head observation
+
+Manual `mode: head-only` selects `scripts/observe-head.mjs`, never the seed
+observation or publisher. All expected inputs above remain required and bound to
+the reviewed deployment source/tree and historical manifest. The same existing
+workflow/main OIDC identity, issuer, audience, repository/owner IDs, subject,
+event, lifetime and checkout checks apply. Two bounded requests only: issuer
+credential acquisition and one fixed authenticated GET `/api/publisher/head`.
+No arbitrary target, query, SQL, evidence credential, public content request,
+mutation, retry or fallback is available. The workflow remains disabled; adding
+this mode is not permission to enable or dispatch it.
+
+The strict response has exactly `revision`, `generation`, `engineRevision`, and
+`activeDelivery`. Generation must be a nonnegative safe integer; zero is retained
+as metadata, never interpreted as initialized history. This conservative caller
+requires the selected deployed-seed revision/engine and `activeDelivery:false`.
+A legitimate alternate head or enabled delivery state is outside this expectation
+and fails closed; this does not assert that the alternate state is corrupt. Any
+future expectation change requires separate reviewed evidence rather than using
+the observation as its own baseline. HTTP failure, absent head, schema mismatch,
+redirect or timeout stops immediately with no public-content probing or repair.
+
+The separate `head-observation-RUN-ATTEMPT` artifact contains
+`head-observation-outcome.json`, including sanitized failures, for 30 days.
+Deadlines and body limits are identical to seed observation. The result is only
+head metadata: top-level seed source/tree/digest/count and Sites version are local
+reviewed expectations, not observed head provenance or digest. The endpoint
+returns MAX(event generation), not complete event
+history, provenance, record integrity, activation eligibility or delivery proof.
+The receipt keeps readiness not-assessed, integrity not-validated and
+claimedDelivered false. The original seed observation behavior is unchanged.
+
+## Offline orchestration, not a production bypass
+
+`scripts/lib/publication-orchestration.mjs` has no network, credentials, origin,
+CLI or workflow entry point. Its explicit injected adapter is used only by
+synthetic tests. The actual production CLI remains an unconditional failing hold.
+The module separates these plans:
+
+- `stageOnly`: one explicit stage, no head/bootstrap/activate or automatic advance.
+- `bootstrapOnly`: explicit exact-seed plan with a stable commit/action operation
+  ID, never selected implicitly from a missing head or generation zero.
+- `advance`: validate the head before any stage, require positive generation,
+  matching engine and enabled delivery, then stage and compare-and-swap activate.
+  Matching current revisions do not cause staging or bootstrap.
+
+Rejected requests, malformed mutation replies and uncertain outcomes stop all
+later calls, without retries. Outcomes are sanitized and never claim delivery.
+These offline plans are not authorization or a provenance verifier; the unchanged
+Worker still requires authenticated identity, exact candidate/token commit,
+main CI and exact committed bundle bytes, deployment-seed bootstrap and atomic
+activation checks. No synthetic test is real D1 verification.
+
+**Bootstrap remains unresolved:** current-main OIDC cannot initialize the frozen
+historical seed because its candidate must equal the token SHA and exact bundle
+at that SHA, while bootstrap requires the exact deployment seed. This work does
+not relax checks, replay historical workflows, acquire admin secrets, select old
+source under new identity or make a runtime release. Future mechanism and
+operation authorization remain outstanding, separately from active-reader
+activation/rollback and delivery checks. No mandatory soak delay applies.
+
 ## Sequential delivery verification can write storage
 
 `node scripts/diagnose-content.cjs https://versioncompass.com/` retains its existing
@@ -197,7 +258,7 @@ unavailable observations, redirects, stalled headers/body, caps, full identities
 corrupt/duplicate/missing pagination and no automatic retry. Run:
 
 ```bash
-node --test tests/observe-seed.test.cjs tests/diagnose-content.test.cjs
+node --test tests/observe-seed.test.cjs tests/observe-head.test.cjs tests/publisher-cli.test.cjs tests/publication-orchestration.test.cjs tests/diagnose-content.test.cjs
 npm run maintenance:sync
 npm run maintenance:verify
 git diff --check

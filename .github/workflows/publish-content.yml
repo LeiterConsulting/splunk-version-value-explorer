@@ -1,5 +1,5 @@
 name: Publish verified content
-run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.mode == 'observe-only' && 'Observe bundled seed' || 'Publish verified content' }}
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.mode == 'observe-only' && 'Observe bundled seed' || github.event_name == 'workflow_dispatch' && inputs.mode == 'head-only' && 'Observe publisher head' || 'Publish verified content' }}
 on:
   workflow_run:
     workflows: [Validate release metadata and reports]
@@ -8,26 +8,26 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: Publish verified content or collect one no-write seed observation
+        description: Publication held; collect one no-write seed or head observation
         type: choice
-        options: [publish, observe-only]
+        options: [publish, observe-only, head-only]
         default: publish
         required: true
       expected_commit:
-        description: Observe-only requires the exact main commit SHA
+        description: Read-only modes require the exact main commit SHA
         type: string
       expected_ref:
-        description: Observe-only must use refs/heads/main
+        description: Read-only modes must use refs/heads/main
         type: string
         default: refs/heads/main
       expected_engine:
-        description: Observe-only requires the engine revision from the reviewed deployed-seed record
+        description: Read-only modes require the engine revision from the reviewed deployed-seed record
         type: string
       expected_revision:
-        description: Observe-only requires the bundled revision from the reviewed deployed-seed record
+        description: Read-only modes require the bundled revision from the reviewed deployed-seed record
         type: string
       expected_seed_commit:
-        description: Observe-only requires the reviewed deployed seed GitHub source commit
+        description: Read-only modes require the reviewed deployed seed GitHub source commit
         type: string
 permissions:
   actions: read
@@ -44,7 +44,7 @@ jobs:
       # This policy executes from the workflow itself, before any repository script.
       # A delayed validation of an older commit cannot check out an older writer.
       - name: Hold publication before checkout or credentials
-        if: github.event_name != 'workflow_dispatch' || inputs.mode != 'observe-only'
+        if: github.event_name != 'workflow_dispatch' || (inputs.mode != 'observe-only' && inputs.mode != 'head-only')
         run: |
           node <<'NODE'
           const fs = require('node:fs');
@@ -84,6 +84,24 @@ jobs:
         with:
           name: seed-observation-${{ github.run_id }}-${{ github.run_attempt }}
           path: seed-observation-outcome.json
+          if-no-files-found: error
+          retention-days: 30
+      - name: Observe publisher head without publication
+        if: steps.mode.outputs.mode == 'head-only'
+        env:
+          VC_OBSERVATION_MODE: ${{ inputs.mode }}
+          VC_OBSERVATION_EXPECTED_COMMIT: ${{ inputs.expected_commit }}
+          VC_OBSERVATION_EXPECTED_REF: ${{ inputs.expected_ref }}
+          VC_OBSERVATION_EXPECTED_SEED_COMMIT: ${{ inputs.expected_seed_commit }}
+          VC_OBSERVATION_EXPECTED_ENGINE: ${{ inputs.expected_engine }}
+          VC_OBSERVATION_EXPECTED_REVISION: ${{ inputs.expected_revision }}
+        run: node scripts/observe-head.mjs
+      - name: Retain sanitized head observation, including failures
+        if: always() && steps.mode.outputs.mode == 'head-only' && hashFiles('head-observation-outcome.json') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: head-observation-${{ github.run_id }}-${{ github.run_attempt }}
+          path: head-observation-outcome.json
           if-no-files-found: error
           retention-days: 30
       - name: Select the validated candidate without broadening OIDC scope
