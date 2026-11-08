@@ -442,10 +442,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-06T10:36:55.424003Z",
-      "lastSuccess": "2026-11-03T11:17:30.674Z",
-      "outcome": "blocked",
-      "summary": "Scoped evidence and audit prepared. Remaining on-premises SOAR and historical Forwarder checks and live delivery require separate verification.",
+      "lastAttempt": "2026-11-08T18:33:36.032067Z",
+      "lastSuccess": "2026-11-08T18:43:05.434Z",
+      "outcome": "no-change",
+      "summary": "Assessed all eleven registered claim families and recovered the exact Cloud readiness source. New release evidence is retained for a bounded report follow-up.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -943,9 +943,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Scoped evidence and audit prepared. Remaining on-premises SOAR and historical Forwarder checks and live delivery require separate verification.",
           "scope": "Registered public release sources and eleven registry capabilities. Scoped SVD-2026-1015, App for SOAR 8.8 and HF 10.2 runtime evidence."
+        },
+        {
+          "at": "2026-11-08T18:33:36.032067Z",
+          "outcome": "running",
+          "summary": "Started a distinct Release Watch review.",
+          "scope": "Maintained release inventory and exact Prep11/Advisor sections plus selected SOAR, Forwarder and security claims."
+        },
+        {
+          "at": "2026-11-08T18:43:05.434Z",
+          "outcome": "no-change",
+          "summary": "Assessed all eleven registered claim families and recovered the exact Cloud readiness source. New release evidence is retained for a bounded report follow-up.",
+          "scope": "Maintained release inventory and exact Prep11/Advisor sections plus selected SOAR, Forwarder and security claims."
         }
       ],
-      "scope": "Registered public release sources and eleven registry capabilities. Scoped SVD-2026-1015, App for SOAR 8.8 and HF 10.2 runtime evidence."
+      "scope": "Maintained release inventory and exact Prep11/Advisor sections plus selected SOAR, Forwarder and security claims."
     },
     {
       "id": "es-editions-watch",

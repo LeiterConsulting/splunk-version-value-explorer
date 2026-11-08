@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-soar-cmp-88-upgrade-example-destination",
+  "assessmentId": "vcia-release-20261108-late-12",
+  "revision": 1,
+  "recordedAt": "2026-11-08T18:45:00.826Z",
+  "assessedAt": "2026-11-08T18:43:05.434Z",
+  "outcome": "still-present",
+  "rationale": "The example introduces 8.6.0 as its destination and ends at 8.8.0. The exact 6.4.1.x row independently routes through 8.5.0 and Python 3.13. The example does not settle the build or the documented path for an unlisted source.",
+  "reviewedScope": {
+    "products": [
+      "Splunk SOAR (On-premises)"
+    ],
+    "versions": [
+      "8.8.0"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed unprivileged upgrade"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating documented release or feature scope"
+    ],
+    "exclusions": [
+      "No unlisted exact pairing, rollout, entitlement or customer authorization established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261108-late-12-0",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+      "section": "Example beginning at Phantom 4.6; 6.4.1.x table row",
+      "statement": "The example introduces 8.6.0 as its destination and ends at 8.8.0. The exact 6.4.1.x row independently routes through 8.5.0 and Python 3.13. The example does not settle the build or the documented path for an unlisted source.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-08T18:36:35.079Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9f53ca9d893d62d7bb4d6afc76dd0745c7e32ba8d4b83b317f754c7c9eec0195",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/a7b5743de2e563ef9a41eaed96c95877b577963a/docs/audits/2026-11-08-version-release-watch-sources.json",
+      "pointer": "/subsequentReviews/0/claimChecks/12",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [],
+  "remainingConcerns": [
+    "Retain unresolved exact scope and review when decision-relevant authoritative evidence changes."
+  ]
+}
