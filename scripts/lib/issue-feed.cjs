@@ -4,6 +4,7 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const { execFileSync } = require('node:child_process');
 const VERSION = '1.0.0';
+const ledgerReadLimit = 16 * 1024 * 1024;
 const outcomes = ['still-present', 'partially-addressed', 'addressed-in-reviewed-scope', 'unable-to-verify', 'not-reassessed'];
 const concernTypes = ['contradiction', 'suspected-error', 'uncertain-claim', 'coverage-gap'];
 const sha256 = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
@@ -135,12 +136,14 @@ function sync(root = process.cwd(), check = false) {
   const ledger = JSON.parse(fs.readFileSync(path.join(root, source)));
   // HEAD covers uncommitted edits; available parents cover a committed candidate
   // that manually rewrote old bytes. CI fetches two generations for this check.
-  let revisions = ['HEAD'];
-  try { revisions.push(...execFileSync('git', ['rev-list', '--parents', '-n', '1', 'HEAD'], { cwd: root, stdio: ['ignore', 'pipe', 'ignore'], encoding: 'utf8' }).trim().split(/\s+/).slice(1)); } catch {}
+  const gitOptions = { cwd: root, stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: ledgerReadLimit };
+  let revisions = [];
+  try { revisions = execFileSync('git', ['rev-list', '--parents', '-n', '1', 'HEAD'], gitOptions).toString().trim().split(/\s+/); } catch {}
   validateLedger(ledger);
   for (const revision of revisions) {
-    let old;
-    try { old = execFileSync('git', ['show', `${revision}:${source}`], { cwd: root, stdio: ['ignore', 'pipe', 'ignore'] }); } catch { continue; }
+    const entry = execFileSync('git', ['ls-tree', revision, '--', source], gitOptions);
+    if (entry.length === 0) continue;
+    const old = execFileSync('git', ['show', `${revision}:${source}`], gitOptions);
     let baseline;
     try { baseline = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(old)); }
     catch {
@@ -153,12 +156,12 @@ function sync(root = process.cwd(), check = false) {
       const repair = repairs?.schemaVersion === 1 && repairs.repairs?.find(r => r.corruptedCommit === commit && r.source === source && r.corruptedSha256 === sha256(old));
       assert(repair && /^[a-f0-9]{40}$/.test(repair.baselineCommit || '') && /^[a-f0-9]{64}$/.test(repair.baselineSha256 || '') && typeof repair.reason === 'string' && repair.reason.trim() && /^docs\/audits\/[a-z0-9-]+\.json$/.test(repair.auditFile || '') && fs.existsSync(path.join(root, repair.auditFile)), 'Malformed immutable ledger at ' + commit + '; an audited byte-pinned repair and full Git history are required');
       assert(git(['rev-parse', commit + '^']) === repair.baselineCommit, 'Repair baseline must be the immediate last-valid parent');
-      const validBytes = execFileSync('git', ['show', repair.baselineCommit + ':' + source], { cwd: root, stdio: ['ignore', 'pipe', 'ignore'], encoding: 'utf8' });
+      const validBytes = execFileSync('git', ['show', repair.baselineCommit + ':' + source], { ...gitOptions, encoding: 'utf8' });
       assert(sha256(validBytes) === repair.baselineSha256, 'Repair baseline byte digest mismatch');
       baseline = JSON.parse(validBytes); validateLedger(baseline);
       const generated = build(ledger).files;
       for (const file of git(['ls-tree', '-r', '--name-only', commit, 'feeds/issues/v1/records', 'feeds/issues/v1/snapshots']).split('\n').filter(Boolean)) {
-        const retained = execFileSync('git', ['show', commit + ':' + file], { cwd: root, stdio: ['ignore', 'pipe', 'ignore'], encoding: 'utf8' });
+        const retained = execFileSync('git', ['show', commit + ':' + file], { ...gitOptions, encoding: 'utf8' });
         assert(generated.get(file.replace(/^feeds\/issues\/v1\//, '')) === retained, 'Repair must retain every immutable published feed object: ' + file);
       }
     }

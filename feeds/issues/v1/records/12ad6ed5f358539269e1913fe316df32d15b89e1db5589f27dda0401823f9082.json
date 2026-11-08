@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "finding",
+  "findingId": "vci-soar-cmp-88-upgrade-example-destination",
+  "revision": 1,
+  "recordedAt": "2026-11-07T11:23:21.391Z",
+  "title": "SOAR unprivileged upgrade example gives two destination versions",
+  "concernType": "contradiction",
+  "problem": "The 8.8.0 unprivileged path example identifies 8.6.0 in its introduction but ends at 8.8.0.",
+  "scope": {
+    "products": [
+      "Splunk SOAR (On-premises)"
+    ],
+    "versions": [
+      "8.8.0 documentation; Phantom 4.6 example"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed unprivileged upgrade example"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating a historical SOAR path"
+    ],
+    "exclusions": [
+      "No target build, known/fixed issue, complete install path or supported deployment combination is inferred."
+    ]
+  },
+  "scopeComparison": "The labels occur inside the same example for a Phantom 4.6 starting point. The route-specific OS and Python bridge steps do not resolve the target label discrepancy.",
+  "impact": {
+    "customerScenario": "Planning an unprivileged upgrade from a legacy Phantom release.",
+    "consequence": "The example alone cannot identify the exact intended target or certify a complete plan.",
+    "level": "unknown"
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "Both printed destinations were independently observed. The intended target is unknown."
+  },
+  "claimIds": [
+    "release.soar.cmp.8.8.0-unprivileged-example-destination"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Recheck the exact source for corrected wording and independently verify the complete version and path scope."
+  },
+  "relationships": {
+    "related": [
+      "vci-soar-cmp-88-fixed-issues-label"
+    ],
+    "supersedes": [],
+    "supersededBy": [],
+    "mergedInto": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261107-7-0",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+      "section": "Example > introductory destination",
+      "statement": "The exact example introduction names 8.6.0 while its final step names 8.8.0. The intended destination, package build and complete install path remain unknown.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-07",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact public source section assessed from the publisher’s indexed documentation. Direct body or exact publisher revision unconfirmed."
+      }
+    },
+    {
+      "evidenceId": "release-20261107-7-1",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+      "section": "Example > final upgrade step",
+      "statement": "The exact example introduction names 8.6.0 while its final step names 8.8.0. The intended destination, package build and complete install path remain unknown.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-07",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact public source section assessed from the publisher’s indexed documentation. Direct body or exact publisher revision unconfirmed."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/58fd69466373e2550ac4384127949f8a21d7c620/docs/audits/2026-11-07-version-release-watch.json",
+      "pointer": "/claimChecks/7",
+      "originalLabel": "contradiction-observed"
+    }
+  ]
+}

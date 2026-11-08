@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-sok-32-compatibility-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-08T10:27:45.578Z",
+  "evidence": [
+    {
+      "evidenceId": "release-20261108-0-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix",
+      "section": "SOK to Splunk Enterprise version compatibility; Upgrade path guidance",
+      "statement": "The 3.2 Help matrix lists SOK 3.2.0, Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0. The September 8 changelog lists Kubernetes 1.32–1.36 and Enterprise 10.6.0. The Help upgrade guidance puts SOK first. Both scope the Queue secret change to Index and Ingestion Separation. The ranges and dates remain in conflict. Confirm the exact version combination before operational use.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-08T10:18:52.187Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "34f0fac2acafbba9a3878be06687e1870fe4687539972c5ebdf0403c06507cc5",
+        "qualification": "Exact public response bytes. Publisher document revision is unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261108-0-1",
+      "url": "https://splunk.github.io/splunk-operator/reference/ChangeLog.html",
+      "section": "3.2.0 (2026-09-08); Breaking Changes; Supported Kubernetes and Splunk versions",
+      "statement": "The 3.2 Help matrix lists SOK 3.2.0, Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0. The September 8 changelog lists Kubernetes 1.32–1.36 and Enterprise 10.6.0. The Help upgrade guidance puts SOK first. Both scope the Queue secret change to Index and Ingestion Separation. The ranges and dates remain in conflict. Confirm the exact version combination before operational use.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-08T10:19:03.455Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "26ab5b4459deeb2ae2d6fd8ad0f544e8c7ddbda5d85880e2b6805fffb833908e",
+        "qualification": "Exact public response bytes. Publisher document revision is unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/e1683c57f3c0e52a5565cd32fdd1fb1ea31dee37/docs/audits/2026-11-08-version-release-watch.json",
+      "pointer": "/claimChecks/0",
+      "originalLabel": "still-present"
+    }
+  ],
+  "kind": "assessment",
+  "assessmentId": "vcia-release-20261108-sok-32-compatibility-scope",
+  "assessedAt": "2026-11-08T10:24:58.281Z",
+  "outcome": "still-present",
+  "rationale": "The 3.2 Help matrix lists SOK 3.2.0, Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0. The September 8 changelog lists Kubernetes 1.32–1.36 and Enterprise 10.6.0. The Help upgrade guidance puts SOK first. Both scope the Queue secret change to Index and Ingestion Separation. The ranges and dates remain in conflict. Confirm the exact version combination before operational use.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Operator for Kubernetes"
+    ],
+    "versions": [
+      "3.2.0"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed Kubernetes"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating this product or feature scope"
+    ],
+    "exclusions": [
+      "Exact tenant rollout, customer authorization, entitlement and unlisted compatibility remain outside this observation."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-release-follow-20261106-sok-32-compatibility-scope"
+  ],
+  "remainingConcerns": [
+    "Review the same version-scoped sources on the next existing watch review. Preserve the unresolved boundary."
+  ]
+}
