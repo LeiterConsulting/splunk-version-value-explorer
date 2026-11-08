@@ -2131,12 +2131,12 @@ window.SPLUNK_DATA = {
           {
             "component": "Cloud 10.7 release documentation versus current service pairing",
             "domain": "Cloud operations",
-            "changeType": "Release documented; rollout unconfirmed",
+            "changeType": "Service pairing documented; rollout unconfirmed",
             "actionLevel": "Required",
-            "from": "Current Service Details pair subscriptions with Cloud 10.6",
-            "to": "Official Cloud 10.7 release notes are published while the current service table still names Cloud 10.6",
-            "implication": "The 10.7 release route is documented, but selected-stack rollout, subscription pairing, provider, region, feature, entitlement and regulated-environment availability are not established by the release page.",
-            "action": "Use the 10.7 route for documented changes only; confirm the exact selected stack and current service pairing before treating a feature or release as available.",
+            "from": "The earlier Service Details table listed Cloud 10.6 with Enterprise Security 8.7 and ITSI 5.0",
+            "to": "The current Service Details table lists Cloud 10.7, Enterprise Security 8.7 and ITSI 5.0",
+            "implication": "The versioned table establishes subscription service lines. It does not establish a selected-stack rollout, exact premium app patch, provider or regional availability, feature entitlement, or regulated authorization.",
+            "action": "Use the documented 10.7 release route and confirm the actual stack, premium app patch, maintenance timing, and feature prerequisites before planning work.",
             "source": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details"
           }
         ],
@@ -2171,7 +2171,7 @@ window.SPLUNK_DATA = {
           ],
           [
             "Confirm the selected stack before using Cloud 10.7 guidance",
-            "Official 10.7 release notes are published, but the current Service Details table still pairs subscriptions with Cloud 10.6. Confirm the exact stack, provider, region, feature, entitlement and regulated scope before treating 10.7 as deployed or available.",
+            "The current Service Details table lists Cloud 10.7, Enterprise Security 8.7 and ITSI 5.0. Confirm the exact stack, product patch, provider, region, feature, entitlement and regulated scope before treating 10.7 as deployed or available.",
             "Blocker",
             "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
             true

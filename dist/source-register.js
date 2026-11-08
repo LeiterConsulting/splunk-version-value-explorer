@@ -2189,8 +2189,6 @@ window.VersionCompassSources = {
       "references": [
         "release.cloud.releasesData.10.6.technicalChanges.2.source",
         "release.cloud.releasesData.10.6.requirements.3.3",
-        "release.productTracks.es.cloudServiceSource",
-        "release.productTracks.itsi.cloudServiceSource",
         "environment.sources.service.url",
         "forwarders.sources.cloud.url",
         "content-updates.js",
@@ -2333,6 +2331,8 @@ window.VersionCompassSources = {
       "references": [
         "release.cloud.releasesData.10.7.technicalChanges.4.source",
         "release.cloud.releasesData.10.7.requirements.4.3",
+        "release.productTracks.es.cloudServiceSource",
+        "release.productTracks.itsi.cloudServiceSource",
         "environment.sources.service107.url",
         "content-updates.js",
         "environment: environment.records.61",
@@ -2343,18 +2343,22 @@ window.VersionCompassSources = {
         "2026-11-07"
       ],
       "usage": "In use",
-      "reviewed": "2026-11-01",
+      "reviewed": "2026-11-08",
       "status": "Reviewed",
       "firstRecorded": "2026-11-01",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "Current service pairing is separate from release publication, tenant rollout, entitlement, region and authorization.",
-      "section": "Current version table",
-      "verificationScope": "Confirmed that the current subscription table still lists Splunk Cloud Platform 10.6, Enterprise Security 8.7, ITSI 5.0 and PCI 8.7 even though 10.7 release notes are published. This does not negate the documented 10.7 release or establish deployment on any selected stack.",
+      "section": "Supported versions > Current Splunk Cloud Platform and Premium App versions",
+      "verificationScope": "The current table lists Cloud Platform 10.7, Enterprise Security 8.7, ITSI 5.0 and PCI 8.7. The earlier 10.6 listing is historical. The current row does not establish any selected stack, patch or rollout.",
       "events": [
         {
           "date": "2026-11-01",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-08",
+          "event": "Review status updated: Reviewed · 2026-11-08"
         }
       ]
     },

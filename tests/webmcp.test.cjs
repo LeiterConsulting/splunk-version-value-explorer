@@ -308,7 +308,6 @@ test('Enterprise Security 8.7 preserves the line selector while exposing the exa
   assert.match(builders.detail, /8\.7\.1/);
   assert.match(builders.detail, /all eligible users/);
   assert(report.readiness.some(item => item.title === 'Confirm Enterprise Security 8.7 edition and eligibility'));
-  assert.match(rt.window.SPLUNK_DATA.productTracks.es.cloudServiceSource, /\/10\.6\/information-about-the-service\/splunk-cloud-platform-service-details$/);
   assert.equal(rt.window.SPLUNK_DATA.productTracks.es.latest, '8.8');
 });
 
@@ -476,7 +475,7 @@ test('Fleet configuration and Cloud maintenance remain opt-in and stack scoped',
  const t=r.technicalChanges.find(t=>t.component==='Fleet Management Kubernetes configuration');assert.match(t.to,/0.162.1/);assert.match(t.action,/remoteManagement.enabled=true/);assert.match(t.implication,/ConfigMaps/);
  const cloud=rt.run('compare_routes',{routes:[{product:'platform',platform:'cloud',from:'10.4.2604',to:'10.5.2605'}]}).reports[0];assert(cloud.technicalChanges.some(t=>t.component==='Cloud 10.5 maintenance build'&&t.to.includes('10.5.2605.15')&&t.implication.includes('SPL-319104')&&t.implication.includes('10.5.2605.14')));
  const cloud106=rt.run('compare_routes',{routes:[{product:'platform',platform:'cloud',from:'10.5.2605',to:'10.6'}]}).reports[0],maintenance=cloud106.technicalChanges.find(t=>t.component==='Cloud 10.6 maintenance build');assert(maintenance);assert.match(maintenance.to,/10\.6\.2\.2/);assert.match(maintenance.from,/10\.6\.2\.1/);assert.match(maintenance.implication,/one Critical and one Medium/);assert.match(maintenance.action,/10\.6\.2\.1 and 10\.6\.2\.0/);
- const cloud107=rt.run('compare_routes',{routes:[{product:'platform',platform:'cloud',from:'10.6',to:'10.7'}]}).reports[0];assert(cloud107);assert(cloud107.technicalChanges.some(t=>t.component==='Cloud 10.7 release documentation versus current service pairing'&&t.from.includes('Cloud 10.6')&&t.to.includes('10.7')));assert(cloud107.technicalChanges.some(t=>t.component==='Forwarder-to-indexer application authentication'&&t.implication.includes('does not establish receiver-version compatibility')));
+ const cloud107=rt.run('compare_routes',{routes:[{product:'platform',platform:'cloud',from:'10.6',to:'10.7'}]}).reports[0];assert(cloud107);assert(cloud107.technicalChanges.some(t=>t.component==='Cloud 10.7 release documentation versus current service pairing'&&t.from.includes('Cloud 10.6')&&t.to.includes('Cloud 10.7, Enterprise Security 8.7 and ITSI 5.0')));assert(cloud107.technicalChanges.some(t=>t.component==='Forwarder-to-indexer application authentication'&&t.implication.includes('does not establish receiver-version compatibility')));
  const ent=rt.run('compare_routes',{routes:[{product:'platform',platform:'enterprise',from:'9.4',to:'10.6'}]}).reports[0];assert(!ent.technicalChanges.some(t=>t.component==='Cloud 10.5 maintenance build'));
 });
 test('ES KV warning preserves exact 10.6.0 and 10.6.1.1 maintenance scope',async()=>{
@@ -509,6 +508,13 @@ test('ITSI 5.0.3 retains host and Cloud Service Discovery boundaries', async () 
   assert.match(report('enterprise', '10.6').compatibility.detail, /postgresMigrateOnStartup=false/);
   assert.match(report('cloud', '10.6').compatibility.title, /Confirm target availability/);
   assert(!report('cloud', '10.6').breakingChanges.some(change => change.detail.includes('postgresMigrateOnStartup')));
+  assert.match(report('cloud', '10.7').compatibility.title, /Confirm target availability/);
+  for (const [product, from, to] of [['itsi', '4.21', '5.0'], ['es', '8.6', '8.7']]) {
+    const route = { product, platform: 'cloud', host: '10.7', from, to };
+    const result = rt.run('compare_routes', { routes: [route] }).reports[0].compatibility;
+    assert.match(result.title, /Current managed pairing/);
+    assert.match(result.source, /\/10\.7\/information-about-the-service\/splunk-cloud-platform-service-details$/);
+  }
 });
 
 test('ES 10.6 host pairing requires postponement without transferring it to Cloud or older hosts', async () => {

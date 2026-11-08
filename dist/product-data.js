@@ -89,9 +89,9 @@ Object.assign(window.SPLUNK_DATA, {
         "8.8"
       ],
       "compatibilitySource": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
-      "cloudServiceSource": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "cloudServiceSource": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
       "cloudCurrent": {
-        "platform": "10.6",
+        "platform": "10.7",
         "product": "8.7"
       },
       "compatibility": {
@@ -712,9 +712,9 @@ Object.assign(window.SPLUNK_DATA, {
         }
       },
       "relatedAppsSource": "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/install-and-upgrade/5.0/planning/itsi-compatibility-with-related-apps-and-add-ons",
-      "cloudServiceSource": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "cloudServiceSource": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
       "cloudCurrent": {
-        "platform": "10.6",
+        "platform": "10.7",
         "product": "5.0"
       },
       "compatibility": {
