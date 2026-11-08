@@ -2,6 +2,7 @@
 const fs = require('node:fs'), os = require('node:os'), path = require('node:path'), crypto = require('node:crypto');
 const { execFileSync, spawnSync } = require('node:child_process');
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
+const textInput = /\.(?:js|cjs|mjs|jsx|ts|tsx|html|css|md|yml|yaml|sql|svg|txt|csv|xml)$/i;
 const generators = ['sync-advisor', 'sync-release-metadata', 'sync-content', 'sync-source-register', 'sync-content-revision', 'sync-issue-feed'];
 const checks = ['sync-release-metadata', 'sync-source-register', 'sync-content-revision', 'sync-content', 'sync-advisor', 'advisor-maintenance', 'sync-issue-feed', 'check-native-issue-feed', 'check-automation-coverage'];
 const command = (id, check = false) => [process.execPath, 'scripts/' + id + '.cjs', ...(check && !id.startsWith('check-') ? ['--check'] : [])];
@@ -20,6 +21,9 @@ function inputManifest(root = process.cwd()) {
     if (file.endsWith('.json')) {
       try { JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes)); }
       catch { throw Error('Invalid UTF-8 JSON input: ' + file + '; retrieve exact bytes, never tool-display text.'); }
+    } else if (textInput.test(file)) {
+      try { new TextDecoder('utf-8', { fatal: true }).decode(bytes); }
+      catch { throw Error('Invalid UTF-8 text input: ' + file + '; retrieve exact bytes, never tool-display text.'); }
     }
     return { file, byteLength: bytes.length, sha256: hash(bytes) };
   });
