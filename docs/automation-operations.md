@@ -188,6 +188,12 @@ actual scheduled executions. Read back saved settings only through authorized
 supported access if prompts are amended. Do not add a timer, widen permissions or
 mark the pilot active merely to complete rollout.
 
+Match a coverage receipt to the recorded attempt start as well as the task,
+registry and scheduler-run identifiers. A repeated identifier can appear with a
+different start. Missing or contradictory starts leave coverage unverified for
+the observed attempt. Keep previous receipts as history and reconcile the
+distinct result, coverage and delivery evidence through the existing watches.
+
 ## Monitoring through the existing progress task
 
 Run `node scripts/pipeline-status.mjs` using existing read access (optionally the
