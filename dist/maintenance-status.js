@@ -962,10 +962,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-08T11:34:34.561851Z",
-      "lastSuccess": "2026-11-08T12:07:00.000Z",
+      "lastAttempt": "2026-11-08T19:13:07.066704Z",
+      "lastSuccess": "2026-11-08T19:22:14.140Z",
       "outcome": "no-change",
-      "summary": "No supported canonical ES edition or prerequisite change; seven existing findings were reassessed and the unresolved documented conflicts remain qualified.",
+      "summary": "Completed a distinct ES Editions review with no supported canonical product change; immutable audit and issue-feed publication are tracked separately.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1415,9 +1415,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "No supported canonical ES edition or prerequisite change; seven existing findings were reassessed and the unresolved documented conflicts remain qualified.",
           "scope": "All 48 maintained official ES URLs attempted (47 direct retrievals); affected and highest-consequence edition, SOC workflow, release-stage, exact App for SOAR and SOAR Export claims assessed."
+        },
+        {
+          "at": "2026-11-08T19:13:07.066704Z",
+          "outcome": "running",
+          "summary": "Started a distinct same-day ES Editions source and claim review on fresh main.",
+          "scope": "Complete 48-URL maintained official inventory; registry 1.2.0 SOC capability; bounded highest-consequence edition, prerequisite and pairing claims."
+        },
+        {
+          "at": "2026-11-08T19:22:14.140Z",
+          "outcome": "no-change",
+          "summary": "Completed a distinct ES Editions review with no supported canonical product change; immutable audit and issue-feed publication are tracked separately.",
+          "scope": "48 maintained official URLs; seven claim families; one registry 1.2.0 capability; report/runtime inputs unchanged."
         }
       ],
-      "scope": "All 48 maintained official ES URLs attempted (47 direct retrievals); affected and highest-consequence edition, SOC workflow, release-stage, exact App for SOAR and SOAR Export claims assessed."
+      "scope": "48 maintained official URLs; seven claim families; one registry 1.2.0 capability; report/runtime inputs unchanged."
     },
     {
       "id": "version-guidance-audit",
