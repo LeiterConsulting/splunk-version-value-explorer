@@ -17,6 +17,11 @@
         "observedAt": "2026-11-08T19:18:38.940Z",
         "status": "in-progress-readback",
         "qualification": "last_run identifies this scheduler execution; latest_result.run_id does not match it."
+      },
+      {
+        "observedAt": "2026-11-08T19:54:00.000Z",
+        "status": "failed-readback",
+        "qualification": "Supported native readback now records the same scheduler run ID failed after a retry started 2026-11-08T19:50:33.018458Z and completed 2026-11-08T19:50:36.293955Z. latest_result still belongs to 4081ba9c-eb48-8333-ad00-1de34c2541e5, so no current-run semantic result or first-execution receipt is accepted."
       }
     ]
   },
@@ -161,12 +166,12 @@
     "qualification": "Semantic coverage is complete; repository audit/feed publication and runtime delivery remain separate.",
     "repository": "Immutable audit is public on branch commit 7ada177aab50e3fec1a776d3c3287fa460cd569c; exact feed follow-up tree 2620c6943a867c00ff67d94ae03517a067f6fe77 passed application CI and artifact readback for integration through pull request 104.",
     "runtime": "No canonical product/report content change. Repository operational revision and maintenance metadata advanced, but the active publication hold was preserved and no new Site deployment was attempted.",
-    "firstExecution": "Incomplete: current scheduler run remains in progress and latest_result does not match it.",
+    "firstExecution": "Failed verification: scheduler run bcfd0fa1-6d78-832d-b488-158ddc8a7184 is recorded failed, while latest_result remains the prior run 4081ba9c-eb48-8333-ad00-1de34c2541e5.",
     "followUp": {
       "owner": "es-editions-watch",
-      "action": "Publish immutable audit/feed evidence, then read back the matching scheduler result without inventing delivery.",
+      "action": "Reconcile the saved-task scheduler/result routing for bcfd0fa1-6d78-832d-b488-158ddc8a7184 and read back a matching current-run receipt without borrowing the prior result.",
       "reviewBy": "2026-11-09"
     }
   },
-  "reviewDigest": "4edb560febba92adcc514599993b498dbf73e2ea1520b462bbb81c0b42ec9ffe"
+  "reviewDigest": "a70c16c889f9fddfd6d2fb78a0edfe93e2e297d062400521dd88906ddbabebbf"
 }
