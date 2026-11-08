@@ -499,6 +499,18 @@ test('ITSI host pairing preserves the separate cohosted KV Store prerequisite', 
   assert(!cloud.breakingChanges.some(x => x.detail.includes('postgresMigrateOnStartup')));
 });
 
+test('ITSI 5.0.3 retains host and Cloud Service Discovery boundaries', async () => {
+  const rt = await runtime();
+  function report(platform, host) {
+    return rt.run('compare_routes', { routes: [{ product: 'itsi', platform, host, from: '5.0.2', to: '5.0.3' }] }).reports[0];
+  }
+  assert.match(report('enterprise', '10.2').compatibility.title, /Confirm the exact ITSI 5\.0\.3 pairing/);
+  assert.equal(report('enterprise', '10.4').compatibility.status, 'ok');
+  assert.match(report('enterprise', '10.6').compatibility.detail, /postgresMigrateOnStartup=false/);
+  assert.match(report('cloud', '10.6').compatibility.title, /Confirm target availability/);
+  assert(!report('cloud', '10.6').breakingChanges.some(change => change.detail.includes('postgresMigrateOnStartup')));
+});
+
 test('ES 10.6 host pairing requires postponement without transferring it to Cloud or older hosts', async () => {
   const rt = await runtime();
   for (const to of ['8.4', '8.5', '8.6', '8.7']) {

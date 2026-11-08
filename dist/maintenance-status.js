@@ -430,10 +430,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-06T10:36:55.424003Z",
+      "lastAttempt": "2026-11-08T10:11:43.966312Z",
       "lastSuccess": "2026-11-03T11:17:30.674Z",
       "outcome": "blocked",
-      "summary": "Scoped evidence and audit prepared. Remaining on-premises SOAR and historical Forwarder checks and live delivery require separate verification.",
+      "summary": "Partial source review. Production verification stopped at the engine mismatch.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -931,9 +931,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Scoped evidence and audit prepared. Remaining on-premises SOAR and historical Forwarder checks and live delivery require separate verification.",
           "scope": "Registered public release sources and eleven registry capabilities. Scoped SVD-2026-1015, App for SOAR 8.8 and HF 10.2 runtime evidence."
+        },
+        {
+          "at": "2026-11-08T10:11:43.966312Z",
+          "outcome": "running",
+          "summary": "Reviewing public release and route evidence.",
+          "scope": "Release source inventory, Prep11 and Advisor dependencies, ITSI, SOAR and historical Forwarder routes."
+        },
+        {
+          "at": "2026-11-08T10:28:34.045Z",
+          "outcome": "blocked",
+          "summary": "Partial source review. Production verification stopped at the engine mismatch.",
+          "scope": "Registry 1.2.0 assessed ten claim families. Cloud readiness access and exact ITSI candidate export and live checks remain open."
         }
       ],
-      "scope": "Registered public release sources and eleven registry capabilities. Scoped SVD-2026-1015, App for SOAR 8.8 and HF 10.2 runtime evidence."
+      "scope": "Registry 1.2.0 assessed ten claim families. Cloud readiness access and exact ITSI candidate export and live checks remain open."
     },
     {
       "id": "es-editions-watch",

@@ -672,7 +672,7 @@
     },
     "itsi": {
       "label": "Splunk IT Service Intelligence",
-      "latest": "5.0.2",
+      "latest": "5.0.3",
       "releases": [
         "4.15",
         "4.17",
@@ -682,7 +682,8 @@
         "4.21",
         "5.0",
         "5.0.1",
-        "5.0.2"
+        "5.0.2",
+        "5.0.3"
       ],
       "compatibilitySource": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
       "hostRequirements": {
@@ -692,11 +693,20 @@
               "4.21",
               "5.0",
               "5.0.1",
-              "5.0.2"
+              "5.0.2",
+              "5.0.3"
             ],
             "title": "Postpone cohosted KV Store migration for ITSI",
             "detail": "The platform matrix lists this pairing, but ITSI 5.0.x and lower cannot use cohosted KV Store 1.0. Before upgrading Enterprise, set postgresMigrateOnStartup=false and verify every cluster member. Platform pairing does not establish database-engine compatibility.",
             "source": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store"
+          },
+          "10.2": {
+            "releases": [
+              "5.0.3"
+            ],
+            "title": "Confirm the exact ITSI 5.0.3 pairing on Enterprise 10.2",
+            "detail": "Splunkbase lists the broad 10.2 platform line for ITSI 5.0.3. The customer-managed matrix lists ITSI 5.0 for Enterprise 10.2.x without an explicit 5.0.x range. Confirm the exact app and Enterprise patches before relying on this pairing.",
+            "source": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix"
           }
         }
       },
@@ -748,6 +758,11 @@
             "10.6"
           ],
           "5.0.2": [
+            "10.2",
+            "10.4",
+            "10.6"
+          ],
+          "5.0.3": [
             "10.2",
             "10.4",
             "10.6"
@@ -1168,6 +1183,43 @@
               "If the deployment uses NEAP actions, custom Episode Event Timeline columns, multiline comments, NATS processing, or HTTPS webhooks, verify the documented 5.0.2 fixes in a representative environment.",
               "Validate",
               "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/fixed-issues-in-splunk-it-service-intelligence",
+              false
+            ]
+          ]
+        },
+        "5.0.3": {
+          "date": "October 28, 2026",
+          "source": "https://splunkbase.splunk.com/app/1841",
+          "features": [
+            [
+              "Cloud Service Discovery and KPI base-search preview",
+              "Service health",
+              "Review a draft service model from indexed data",
+              "The ITSI 5.0 release notes document Cloud Service Discovery for 5.0.3. KPI base search is a preview, off by default, and requires Splunk enablement.",
+              "ITSI Cloud 5.0.3 · KPI base-search preview",
+              "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/new-features-in-splunk-it-service-intelligence"
+            ]
+          ],
+          "requirements": [
+            [
+              "Validate the exact host and managed stack",
+              "Splunkbase lists broad platform versions 10.2–10.7. The customer-managed matrix explicitly lists ITSI 5.0.x for Enterprise 10.4.x and 10.6.0/10.6.1, and lists 5.0 without an explicit patch range for Enterprise 10.2.x. Verify that exact pairing separately. Cloud Service Details list a service line. Verify the exact stack patch and any feature enablement separately.",
+              "Validate",
+              "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+              false
+            ],
+            [
+              "Review Service Discovery inputs and draft recommendations",
+              "ITSI-46607 can omit Content Pack context when the catalog returns HTTP 503. ITSI-46608 can prevent index metadata when the selected indexes have no searchable data in the lookback window. Review context before publishing and allow the eligible summarization run to complete.",
+              "Validate",
+              "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/known-issues-in-splunk-it-service-intelligence",
+              false
+            ],
+            [
+              "Confirm preview enablement before using KPI base searches",
+              "The Cloud 5.0.3 KPI base-search preview is off by default and must be enabled by Splunk. Verify applicable availability and review the draft before publishing.",
+              "Validate",
+              "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/new-features-in-splunk-it-service-intelligence",
               false
             ]
           ]

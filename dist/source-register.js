@@ -5506,8 +5506,10 @@ window.VersionCompassSources = {
         "release.productTracks.es.releasesData.8.8.requirements.1.3",
         "release.productTracks.es.hostRequirements.enterprise.10.6.source",
         "release.productTracks.itsi.compatibilitySource",
+        "release.productTracks.itsi.hostRequirements.enterprise.10.2.source",
         "release.productTracks.itsi.releasesData.4.15.source",
         "release.productTracks.itsi.releasesData.4.17.source",
+        "release.productTracks.itsi.releasesData.5.0.3.requirements.0.3",
         "forwarders.sources.esKv106.url",
         "content-updates.js",
         "forwarders: forwarders.claimSources.technical.hf-es-kv-store-10.6",
@@ -6792,6 +6794,32 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/known-issues-in-splunk-it-service-intelligence",
+      "title": "known issues in splunk it service intelligence",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.itsi.releasesData.5.0.3.requirements.1.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-08",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-08",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/release-notes-and-resources/5.0/release-notes/new-features-in-splunk-it-service-intelligence",
       "title": "new features in splunk it service intelligence",
       "areas": [
@@ -6809,7 +6837,9 @@ window.VersionCompassSources = {
         "release.productTracks.itsi.releasesData.5.0.2.source",
         "release.productTracks.itsi.releasesData.5.0.2.technicalChanges.0.source",
         "release.productTracks.itsi.releasesData.5.0.2.technicalChanges.1.source",
-        "release.productTracks.itsi.releasesData.5.0.2.requirements.0.3"
+        "release.productTracks.itsi.releasesData.5.0.2.requirements.0.3",
+        "release.productTracks.itsi.releasesData.5.0.3.features.0.5",
+        "release.productTracks.itsi.releasesData.5.0.3.requirements.2.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -8872,6 +8902,32 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-15",
           "event": "Review status updated: Needs reconciliation · 2026-10-15"
+        }
+      ]
+    },
+    {
+      "url": "https://splunkbase.splunk.com/app/1841",
+      "title": "1841",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.itsi.releasesData.5.0.3.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-11-08",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-08",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "Splunkbase compatibility is kept separate from exact customer-managed patch pairing and Splunk-managed Cloud availability.",
+      "section": "Default Version 5.0.3; Compatibility",
+      "verificationScope": "Verified the public Splunkbase 5.0.3 listing dated October 28, 2026 and broad platform versions 10.2–10.7. Exact customer-managed patch pairing, managed stack rollout and authorization remain separate.",
+      "events": [
+        {
+          "date": "2026-11-08",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },
