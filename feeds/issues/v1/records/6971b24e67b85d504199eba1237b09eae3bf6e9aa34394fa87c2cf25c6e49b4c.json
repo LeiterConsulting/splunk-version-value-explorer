@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-security-assistant-runtime-ap-routing",
+  "assessmentId": "vcia-csp-20261108-es-security-assistant-runtime-ap-routing",
+  "revision": 1,
+  "recordedAt": "2026-11-08T12:47:24.863Z",
+  "assessedAt": "2026-11-08T12:46:36.573Z",
+  "outcome": "still-present",
+  "rationale": "Both exact articles were retrieved. The 8.6 table labels AWS Mumbai, Seoul, Singapore, Sydney and Tokyo Global, while the current 8.8 article labels those same five Data zone. Both cite ES 8.6 availability. The effective date, selected deployment routing, actual processing destination and authorization remain unresolved.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Security Assistant in ES"
+    ],
+    "versions": [
+      "8.6 guide and 8.8 release guide"
+    ],
+    "editions": null,
+    "deployments": [
+      "AWS Mumbai, Seoul, Singapore, Sydney and Tokyo"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating the documented decision"
+    ],
+    "exclusions": [
+      "No unlisted feature scope, exact pairing, rollout, entitlement or customer authorization is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261108-14-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.6/splunk-enterprise-security-release-notes/model-runtime-in-splunk-ai-assistant-for-security",
+      "section": "Feature availability and region standard > AWS Asia-Pacific",
+      "statement": "Five exact AWS rows read as Global.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-08T12:40:56.634Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b2626d57dd11514dd868b5a7084dcb83b1c0b1b8d75a589845145a759228eae9",
+        "qualification": "Direct response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261108-14-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/model-runtime-in-splunk-security-assistant",
+      "section": "Feature availability and region standard > AWS Asia-Pacific",
+      "statement": "Same five AWS rows read as Data zone.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-08T12:44:07.944Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "5a4998c1203419b13733e6001e6891033ae825e1c568309ef3b067d236bb8d1d",
+        "qualification": "Direct response bytes; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/fc83c26aab05393cb3a796f6e5f291585209aab8/docs/audits/2026-11-08-csp-fedramp-watch.json",
+      "pointer": "/claimChecks/14",
+      "originalLabel": "conflicting-versioned-routing-classifications"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261107-es-security-assistant-runtime-ap-routing"
+  ],
+  "remainingConcerns": [
+    "Retain the documented evidence boundaries and follow up through the existing CSP FedRAMP Watch."
+  ]
+}
