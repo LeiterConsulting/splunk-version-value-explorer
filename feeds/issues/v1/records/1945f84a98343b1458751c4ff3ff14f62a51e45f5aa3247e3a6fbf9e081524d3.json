@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-itsi-subagent-region",
+  "assessmentId": "vcia-release-20261109-itsi-subagent-region",
+  "revision": 1,
+  "recordedAt": "2026-11-09T10:24:48.048Z",
+  "assessedAt": "2026-11-09T10:21:49.241Z",
+  "outcome": "unable-to-verify",
+  "rationale": "The About ITSI subagent section lists ITSI 5.0.0+, MCP Server 1.2.1+ and Splunk AI Assistant 2.2.0+. The Cloud install regions describe the base service. These floors and base service locations do not establish a tested complete stack, subagent rollout or tenant enablement.",
+  "reviewedScope": {
+    "products": [
+      "Splunk IT Service Intelligence",
+      "Splunk AI Assistant",
+      "Splunk MCP Server"
+    ],
+    "versions": [
+      "ITSI 5.0+",
+      "SAIA 2.2+",
+      "MCP Server 1.2.1+"
+    ],
+    "editions": null,
+    "deployments": [
+      "Cloud regional availability not established"
+    ],
+    "regions": null,
+    "audiences": [
+      "Customers evaluating ITSI subagent regional availability"
+    ],
+    "exclusions": [
+      "No tenant availability, entitlement, authorization or deployment suitability is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261109-4-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+      "section": "Requirements; features; ITSI subagent; where the assistant runs",
+      "statement": "The About ITSI subagent section lists ITSI 5.0.0+, MCP Server 1.2.1+ and Splunk AI Assistant 2.2.0+. The Cloud install regions describe the base service. These floors and base service locations do not establish a tested complete stack, subagent rollout or tenant enablement.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-09T10:16:34.967Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "fa7916a1ab97cd6374574405815f61263209f867c0281a554c2c1bf1f3788377",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261109-4-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "section": "FedRAMP deployments; supported regions; version compatibility",
+      "statement": "The About ITSI subagent section lists ITSI 5.0.0+, MCP Server 1.2.1+ and Splunk AI Assistant 2.2.0+. The Cloud install regions describe the base service. These floors and base service locations do not establish a tested complete stack, subagent rollout or tenant enablement.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-09T10:16:35.002Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "c3d61e105c6e612f281dcc72a200004313191ccb4826604fefe26a89aaacb4da",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/73d57d319f216ae0e65bbec968ca4b20e2ad37f4/docs/audits/2026-11-09-version-release-watch-sources.json",
+      "pointer": "/claimChecks/4",
+      "originalLabel": "uncertain-claim"
+    }
+  ],
+  "comparedAssessmentIds": [],
+  "remainingConcerns": [
+    "Find a subagent-specific service-region and rollout source. Base assistant coverage cannot fill it."
+  ]
+}
