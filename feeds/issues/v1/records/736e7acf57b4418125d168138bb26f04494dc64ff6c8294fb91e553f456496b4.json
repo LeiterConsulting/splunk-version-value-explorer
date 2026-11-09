@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-cloud-connected-agent-mode-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-09T13:45:27.286Z",
+  "assessmentId": "vcia-guidance-20261109-saia-cloud-connected-agent-mode-scope",
+  "assessedAt": "2026-11-09T13:43:14.505Z",
+  "outcome": "still-present",
+  "rationale": "The exact Agent Mode page names Platform 10.1.x+, general app 2.1.0+, 15 AWS AI service locations, and enabled Model Runtime. Its Cloud Connected instructions add 8089, scoped IP allowlisting and certificate/stack-address requirements. The Runtime guide lists separate AWS/Azure support, gives Dublin Global and Frankfurt Data zone, and describes possible third-party processing. The install guide and SAIA-9918 exclude Cloud Connected Enterprise for 2.2.0–2.3.6, with a 2.1.1 workaround lacking Agent Mode and 2.4.0 described as planned. Base-assistant install/IL2 and Cloud Connected data-use scope do not establish this feature’s routing, entitlement, authorization or usable Enterprise path.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant"
+    ],
+    "versions": [
+      "2.1.1 and 2.2.0–2.3.6"
+    ],
+    "editions": null,
+    "deployments": [
+      "Enterprise Cloud Connected"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No native Cloud restriction, actual tenant availability, supported future release, entitlement or customer authorization is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261109-1-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "section": "Requirements; Supported regions; Enable and configure Agent Mode as a Cloud Connected customer",
+      "statement": "Exact section used in the scoped comparison above.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-09T13:36:50.946Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "c186631fe83d8efc6617c2f47bb05dd94d3f246ef2722cc6a02ae8565207fc6f",
+        "qualification": "Exact public response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261109-1-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "Cloud Connected compatibility; Activation; How Splunk AI Assistant uses your data",
+      "statement": "Exact section used in the scoped comparison above.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-09T13:36:36.035Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "271cf5b55da2ba9ecae63ef81b3b740a1c48d45b576adfa1f3dae1e0f1531e48",
+        "qualification": "Exact public response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261109-1-2",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
+      "section": "Known issues > SAIA-9918",
+      "statement": "Exact section used in the scoped comparison above.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-09T13:36:36.039Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "c792d3fab6ca63558b26631a1f8368580489c68f2491af97849524c9d081e503",
+        "qualification": "Exact public response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/a5b8fea9768108ebfde315834c1bade1ace485b8/docs/audits/2026-11-09-version-guidance-audit.json",
+      "pointer": "/claimChecks/1",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261109-cloud107-saia-cloud-connected-agent-mode-scope"
+  ],
+  "remainingConcerns": [
+    "Verify a released Enterprise Cloud Connected version and its usable Agent Mode path before advancing guidance."
+  ]
+}

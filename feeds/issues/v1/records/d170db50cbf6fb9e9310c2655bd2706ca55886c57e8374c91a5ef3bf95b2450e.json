@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "findingId": "vci-soar-broker-870245-maintenance-visibility",
+  "revision": 1,
+  "recordedAt": "2026-11-09T13:45:27.286Z",
+  "title": "SOAR Automation Broker patch 8.7.0.245 is missing from the guide’s maintenance evidence",
+  "concernType": "coverage-gap",
+  "problem": "Splunk’s separate Broker notes date 8.7.0.245 to October 9 and explicitly limit its distribution to Docker Hub. The checked canonical SOAR Broker record names Python 3.13 in 8.7 and earlier 8.6.0.536 fixes but omits 8.7.0.245. The 8.8 HA section distinguishes Cloud activation from single-instance on-premises setup. This observation is a gap in the guide’s selected Broker maintenance coverage. It establishes no fixed issue, advisory remediation, SOAR server build or recommendation to install the Broker patch.",
+  "scope": {
+    "products": [
+      "Splunk SOAR Automation Broker / VersionCompass SOAR"
+    ],
+    "versions": [
+      "Broker 8.7.0.245"
+    ],
+    "editions": null,
+    "deployments": [
+      "Docker Hub maintenance release"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Exact unsupported combinations, rollout, entitlement and authorization remain separate."
+    ]
+  },
+  "scopeComparison": "The checked guide covers the Broker runtime and earlier maintenance. The vendor has a separate Docker Hub-only patch note.",
+  "impact": {
+    "level": "low",
+    "customerScenario": "A reader is checking why a maintained Broker patch is absent from a SOAR server download or report.",
+    "consequence": "The current guide does not distinguish this patch’s release channel from the SOAR server channel."
+  },
+  "confidence": {
+    "level": "high",
+    "rationale": "The exact Broker release subsection gives the patch and distribution. The reviewed canonical SOAR Broker maintenance record omits the patch."
+  },
+  "claimIds": [
+    "soar.broker.8.7.0.245-maintenance-visibility"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "The guide’s selected Broker scope does not show the documented maintenance distribution. Release Watch reviews the exact package and unaffected report inputs by November 12, 2026."
+  },
+  "relationships": {
+    "related": [
+      "vci-svd-2026-1015-applicability"
+    ],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261109-19-0",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-automation-broker/splunk-soar-automation-broker-release-notes/whats-new-in-splunk-soar-automation-broker",
+      "section": "Release 8.7.x > Patch release 8.7.0.245; November 4, 2026 Release 8.8 > Automation Broker High Availability",
+      "statement": "Broker release notes list patch 8.7.0.245 on October 9 with Docker Hub-only availability and separate 8.8 HA activation scope.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-09T13:37:01.159Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "2d3cff0f4ada52eaf756ccaa13138930d6841ba73d4b28487d9e4ff5aa28a47a",
+        "qualification": "Exact public response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "coverageSearch": {
+    "question": "Does the maintained SOAR comparison disclose the distribution channel for Broker 8.7.0.245?",
+    "expectedAnswer": "The guide identifies the Broker patch and Docker Hub-only release channel independently of the SOAR server package and advisory status.",
+    "corpusEvidenceIds": [
+      "guidance-20261109-19-0"
+    ],
+    "searchedAt": "2026-11-09T13:43:14.505Z",
+    "limits": "Compared the exact official Broker release section with the Broker maintenance record in content/datasets/soar.json at the audited GitHub baseline."
+  },
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/a5b8fea9768108ebfde315834c1bade1ace485b8/docs/audits/2026-11-09-version-guidance-audit.json",
+      "pointer": "/claimChecks/19",
+      "originalLabel": "new-observation"
+    }
+  ]
+}
