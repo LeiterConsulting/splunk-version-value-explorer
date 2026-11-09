@@ -999,9 +999,9 @@ window.VersionCompassMaintenance = {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
       "lastAttempt": "2026-11-09T11:32:23.000Z",
-      "lastSuccess": "2026-11-08T19:22:14.140Z",
-      "outcome": "running",
-      "summary": "Running the saved ES Editions Watch against fresh main, the saved Site source, the full official ES inventory and registry 1.2.0.",
+      "lastSuccess": "2026-11-09T12:12:36Z",
+      "outcome": "changed",
+      "summary": "Verified the 52-source ES Editions inventory; added exact SOAR Export 8.8 tested tuples, published nine scoped issue-feed reassessments, and retained unresolved edition, entitlement, pairing, pricing and version-floor conflicts. Repository candidate passed functional gates; production Site/D1 delivery remains held.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1469,9 +1469,15 @@ window.VersionCompassMaintenance = {
           "outcome": "running",
           "summary": "Running the saved ES Editions Watch against fresh main, the saved Site source, the full official ES inventory and registry 1.2.0.",
           "scope": "Fresh main/Site reconciliation; 52 official ES, AI and SOAR pairing sources; affected and highest-consequence edition, entitlement, prerequisite, pricing, compatibility and authorization boundaries; exact-candidate validation and task-result integrity."
+        },
+        {
+          "at": "2026-11-09T12:12:36Z",
+          "outcome": "changed",
+          "summary": "Verified the 52-source ES Editions inventory; added exact SOAR Export 8.8 tested tuples, published nine scoped issue-feed reassessments, and retained unresolved edition, entitlement, pairing, pricing and version-floor conflicts. Repository candidate passed functional gates; production Site/D1 delivery remains held.",
+          "scope": "Full 52-URL official ES source inventory; bounded ES 8.8/8.7 edition, AI SOC, SOAR pairing and Export compatibility, pricing and conflict claims; registry 1.2.0 advisor.soc-workflow; exact-candidate browser/PDF/offline-HTML evidence."
         }
       ],
-      "scope": "Fresh main/Site reconciliation; 52 official ES, AI and SOAR pairing sources; affected and highest-consequence edition, entitlement, prerequisite, pricing, compatibility and authorization boundaries; exact-candidate validation and task-result integrity."
+      "scope": "Full 52-URL official ES source inventory; bounded ES 8.8/8.7 edition, AI SOC, SOAR pairing and Export compatibility, pricing and conflict claims; registry 1.2.0 advisor.soc-workflow; exact-candidate browser/PDF/offline-HTML evidence."
     },
     {
       "id": "version-guidance-audit",
