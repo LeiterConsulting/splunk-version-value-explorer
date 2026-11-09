@@ -9,7 +9,7 @@ import { chromium } from 'playwright';
 import { verifyNavigation } from './navigation.mjs';
 import { verifyRippleScroll } from './ripple-scroll.mjs';
 import { verifyAdvisor, configureAdvisorRoute, setAdvisorFixtureTime } from './advisor.mjs';
-import { prepareExact, verifyExact } from './exact-releases.mjs';
+import { prepareReadOnlyTools, verifyExact } from './exact-releases.mjs';
 import { verifyPrep11Oversized } from './prep11-print.mjs';
 import { verifyAdvisorOversized } from './advisor-print.mjs';
 const require = createRequire(import.meta.url), { target, hash, verify } = require('../../scripts/export-evidence.cjs');
@@ -93,7 +93,7 @@ try {
     const id = route.id + '-' + theme, directory = path.join(output, id); fs.mkdirSync(directory);
     const entry = { id, outcome: 'failed' }; receipt.cases.push(entry);
     const context = await browser.newContext({viewport:{width:1440,height:1000},acceptDownloads:true});
-    await prepareExact(context,route);
+    await prepareReadOnlyTools(context,route);
     try {
     const page = await context.newPage(), errors = []; page.on('pageerror', e => errors.push(e.message));
     if (route.id.startsWith('advisor')) await setAdvisorFixtureTime(page);
@@ -112,6 +112,21 @@ try {
     await page.goto(url); await settled(page);
     await configureAdvisorRoute(page,route);
     await verifyExact(page,route,theme);
+    if(route.id==='soar-cloud-88'){
+      await page.waitForFunction(()=>window.__reportTools?.versioncompass_get_current_report);
+      const toolResult=await page.evaluate(()=>{
+        const {versioncompass_get_current_report:current,versioncompass_compare_routes:compare}=window.__reportTools;
+        const selection=window.VersionCompassPage.getSelection(), url=location.href;
+        const selected=current.execute({}), explicit=compare.execute({routes:[selection]});
+        return {readOnly:current.annotations.readOnlyHint&&compare.annotations.readOnlyHint,
+          selected:selected.report?.technical.find(row=>row.id==='export88'),
+          explicit:explicit.reports?.[0]?.technical.find(row=>row.id==='export88'), stable:location.href===url};
+      });
+      assert(toolResult.readOnly&&toolResult.stable&&toolResult.selected,'SOAR Export read-only report unavailable or changed the URL');
+      assert.deepEqual(toolResult.explicit,toolResult.selected);
+      assert((await page.locator('#soar-export88').textContent()).includes(toolResult.selected.detail),'SOAR Export tool and page disagree');
+      entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
+    }
     if(routeUrl.hash) {
       assert.equal(new URL(page.url()).hash,routeUrl.hash,'Shared section anchor was discarded: '+id);
       assert(await page.locator(routeUrl.hash).count()>0,'Shared section anchor has no target: '+id);

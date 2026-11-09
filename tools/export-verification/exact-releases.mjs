@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
-export async function prepareExact(context,route){
- if(!route.id.startsWith('exact-'))return;
- await context.addInitScript(()=>{window.__exactTools={};Object.defineProperty(document,'modelContext',{value:{registerTool(tool,options){window.__exactTools[tool.name]=tool;options.signal.addEventListener('abort',()=>delete window.__exactTools[tool.name]);}}});});
+export async function prepareReadOnlyTools(context,route){
+ if(!route.id.startsWith('exact-')&&route.id!=='soar-cloud-88')return;
+ await context.addInitScript(()=>{window.__reportTools={};Object.defineProperty(document,'modelContext',{value:{registerTool(tool,options){window.__reportTools[tool.name]=tool;options.signal.addEventListener('abort',()=>delete window.__reportTools[tool.name]);}}});});
 }
 export async function verifyExact(page,route,theme){
  if(!route.id.startsWith('exact-'))return;
@@ -31,10 +31,10 @@ export async function verifyExact(page,route,theme){
    });
  });
  await page.emulateMedia({media:null});assert.deepEqual(contrast,[],'Exact-release PDF has low-contrast headings or citations');
- await page.waitForFunction(()=>window.__exactTools?.versioncompass_compare_exact_releases);
- const agent=await page.evaluate(()=>{const a=window.VersionCompassExactReleases,d=window.SPLUNK_DATA.guidance,s=a.read(location.search,d.exactReleases).state,t=window.__exactTools.versioncompass_compare_exact_releases;return {readOnly:t.annotations.readOnlyHint,report:t.execute(a.input(s)),bad:t.execute({...a.input(s),write:true})};});
+ await page.waitForFunction(()=>window.__reportTools?.versioncompass_compare_exact_releases);
+ const agent=await page.evaluate(()=>{const a=window.VersionCompassExactReleases,d=window.SPLUNK_DATA.guidance,s=a.read(location.search,d.exactReleases).state,t=window.__reportTools.versioncompass_compare_exact_releases;return {readOnly:t.annotations.readOnlyHint,report:t.execute(a.input(s)),bad:t.execute({...a.input(s),write:true})};});
  assert.equal(agent.readOnly,true);assert.equal(agent.report.ok,true);assert.deepEqual(agent.report.report,result);assert.equal(agent.bad.ok,false);
  assert.equal(await page.locator('[data-destination="exact-releases"]').getAttribute('aria-current'),'page');
- const before=page.url();await page.reload();await page.waitForFunction(()=>typeof window.VersionCompassBuildSnapshot==='function'&&window.__exactTools?.versioncompass_compare_exact_releases);assert.equal(page.url(),before);
+ const before=page.url();await page.reload();await page.waitForFunction(()=>typeof window.VersionCompassBuildSnapshot==='function'&&window.__reportTools?.versioncompass_compare_exact_releases);assert.equal(page.url(),before);
  assert.equal(await page.evaluate(()=>document.documentElement.classList.contains('theme-cisco')),theme==='cisco');
 }
