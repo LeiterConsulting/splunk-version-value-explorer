@@ -67,7 +67,7 @@
         if(exclusions.includes(region.id))return result('unavailable','The selected ES 8.8 table explicitly excludes this component in '+region.label+'.',['aiEsRegions88']);
         if(!policy.regions.includes(region.id))return result('not_established','The selected service region is not established by this capability’s scoped regional table.',['aiEsRegions88']);
       }else if(provider&&provider!=='aws')return result('not_established','A supported AI service region for this deployment has not been established.');
-      return result('conditional',(region?'Regional evidence matches. ':'Select an exact service region to narrow the evidence. ')+record.condition+' ES 8.8 Controlled Availability access, entitlement and enablement still need confirmation.',['aiEsRegions88']);
+      return result('conditional',(region?'Regional evidence matches. ':'Select an exact service region to narrow the evidence. ')+record.condition+' The ES 8.8 release is General Availability; capability-specific rollout, tenant access, entitlement and enablement still need confirmation.',['aiEsRegions88','aiEsRelease88']);
     }
     if(record.product==='observability'){
       if(state.deployment!=='cloud')return result('unavailable','The cited capability is an Observability Cloud service and does not establish an Enterprise-hosted deployment.');

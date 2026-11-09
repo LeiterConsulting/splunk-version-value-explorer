@@ -51,7 +51,7 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "source-aiEsTriageNote88",
       "ref": "source:aiEsTriageNote88",
-      "sha256": "0424114cd970444c31e936397a6425cb8cdf2520e57ae0d477a87eb57ec7401a",
+      "sha256": "b6de4f935f1d144c59b783ee8433b090815a0991006b02c93872927811a31f53",
       "scope": "November 4 current renamed Triage and Response aggregate row and Premier scope only; historical entitlement and other prerequisite dates remain separate.",
       "sources": [
         "aiEsTriageNote88"
@@ -60,7 +60,7 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "source-aiSaiaAbout",
       "ref": "source:aiSaiaAbout",
-      "sha256": "95032f863788d093e31635db1d332bb009a19ca2a035bac77077d646b0dad160",
+      "sha256": "65523d55d5abd0492689106610013c8566098de805067d1f00df0370e67d9f02",
       "scope": "Requirements; features; ITSI subagent; where the assistant runs",
       "sources": [
         "aiSaiaAbout"
@@ -69,7 +69,7 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "source-aiSaiaInstall",
       "ref": "source:aiSaiaInstall",
-      "sha256": "cc34f75b436632b36a0b6e16518e47f84fadda64c9a0f313bac5adc577115d1a",
+      "sha256": "2928c8e115bcd3b944e98b0b63c82045951cc8f0423bffb04464a0db6cfaf9f8",
       "scope": "FedRAMP deployments; supported regions; version compatibility",
       "sources": [
         "aiSaiaInstall"
@@ -78,7 +78,7 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "source-aiEsAgents88",
       "ref": "source:aiEsAgents88",
-      "sha256": "3752f31f316baba29f9d9a661d28688a0eeb03105b9a1500e6d3c29fba5a25fa",
+      "sha256": "d015380ed7cc6ebd19bca9fec25c3b78b03e6bf5b861585405faf80ae940d3b2",
       "scope": "Exact current 8.8 edition, deployment, version, paired-SOAR, feature-stage, enablement and model rows; separate Cloud Connect setup owns its added dependency chain",
       "sources": [
         "aiEsAgents88"
@@ -87,7 +87,7 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "source-aiEsSocTask88",
       "ref": "source:aiEsSocTask88",
-      "sha256": "9a407077830de3af8df08e4dd68041eb06bc1fd471bc17b8aa700e2ae8bbee11",
+      "sha256": "f6f0185af6fcd15646b13d3975b9ccf7baccdd3a03bdbf611da570ab7c7bba38",
       "scope": "Task-specific ES 8.8 combined Triage and Response Cloud/CMP workflow limits and permissions; exact SOAR version pairing, region and customer authorization remain separate",
       "sources": [
         "aiEsSocTask88"
@@ -96,7 +96,7 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "source-aiEsSocTask87",
       "ref": "source:aiEsSocTask87",
-      "sha256": "148979e75beb380d2fa97c05b5dbcc4da53aa1ee97eebe87936e72832faaef2f",
+      "sha256": "6765cdb5e8b54fd187220d81401db108082a067f9a53f5b653e0001a1e430dae",
       "scope": "Task-specific ES 8.7 Cloud workflow limits and permissions; does not establish the 8.8 CMP path, SOAR version pairing, region or customer authorization",
       "sources": [
         "aiEsSocTask87"
@@ -105,7 +105,7 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "source-aiEsEditions",
       "ref": "source:aiEsEditions",
-      "sha256": "1d5fa40575a02c7a48194a814c6159ee021c26f0198dc41f0ea8036303ce0444",
+      "sha256": "6ab035b49d7d377021b6ed94434a6fa397db61f45749f9ee3d58bc8171571e8a",
       "scope": "Current edition groupings and deployment qualifications; compared with the 8.8 agent table where sources conflict",
       "sources": [
         "aiEsEditions"
@@ -114,7 +114,7 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "source-aiEsRegions88",
       "ref": "source:aiEsRegions88",
-      "sha256": "fe4c45c594bc298127e0c4e762e917b404fdeb60350c17dbbecb88c174f6ff14",
+      "sha256": "30324847035a0d82ee090133a4f895af3515d7871b1d4d911f0da3bc76c33056",
       "scope": "ES 8.8 Essentials component regions independently mapped; Premier and Cloud Connect exceptions, GCP/Azure scope and Security AI Assistant compatibility retained",
       "sources": [
         "aiEsRegions88"
@@ -123,7 +123,7 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "source-aiEsRelease88",
       "ref": "source:aiEsRelease88",
-      "sha256": "b4dbddda5737e6c74e8769140f5091c549ab6000a4b05f07c5e0ebd9ee8c6e5f",
+      "sha256": "be4da5955ca8d5f7f9888bbe9ff094305151e46efef41e403e0ca3050c1eb528",
       "scope": "ES 8.8 release date, release-stage label and edition table",
       "sources": [
         "aiEsRelease88"
@@ -146,7 +146,7 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "ai-itsi-subagent",
       "ref": "capability:ai-itsi-subagent",
-      "sha256": "77f118ee1d9a37bbdd95d9b93c7ad5a3c73241381bc2afedcaff8f4c2d37a6ec",
+      "sha256": "ff1ad1953562240eb4e398b69c2376c61a146aea5215a22898f1e3ef1997d202",
       "scope": "Base assistant regional coverage does not establish subagent-specific rollout.",
       "sources": [
         "aiSaiaAbout",
@@ -224,7 +224,7 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "source-aiSaiaAgentMode",
       "ref": "source:aiSaiaAgentMode",
-      "sha256": "913df0e7b6e2e8231077a04fb7e3b7ac0f8d6d984738947d23ea8497ecb65fc4",
+      "sha256": "ec2b66ad4fb6c858e0268f86ea599c94fd97313d0ae7aff906edbd7d29deb9b3",
       "scope": "Feature-specific AWS locations and Platform 10.1.x+; Cloud Connected app 2.1+; runtime/admin enablement and bidirectional setup. No tenant, entitlement or authorization finding.",
       "sources": [
         "aiSaiaAgentMode"
@@ -233,7 +233,7 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "source-aiSaiaModelRuntime",
       "ref": "source:aiSaiaModelRuntime",
-      "sha256": "5632b9de202983c3d1a9ef1582f5dd64e2aa63e57f6984a945bcf11995ba07b2",
+      "sha256": "46b7f38de26b4ce740cb1f0f26aa7add86a893d0e3bd0c8fdcac7aadef739f73",
       "scope": "Model Runtime requirement for Agent Mode; Data zone versus Global routing; external LLM processing. Runtime support in Azure is not Agent Mode support.",
       "sources": [
         "aiSaiaModelRuntime"
@@ -242,7 +242,7 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "source-aiSaiaCloudConnected",
       "ref": "source:aiSaiaCloudConnected",
-      "sha256": "36f0ae7672fc13016eebac9bb37cb55a3280716759b04329090472d77b89533f",
+      "sha256": "e1e998a57bbbae4995c63b2d3e19b4cbd7802ebbd51be0df4d03ffe44b5a05f7",
       "scope": "Current 2.2.0–2.3.6 Cloud Connected exclusion, 2.1.1 fallback without Agent Mode and planned 2.4.0; broad data assurance remains separate from feature-specific Model Runtime external processing.",
       "sources": [
         "aiSaiaCloudConnected"
@@ -264,7 +264,7 @@ window.VersionCompassAdvisorAdmission = {
       "sources": [
         "aiSaiaKnownIssues"
       ],
-      "sha256": "a84d25f5c03f57a947e389e76b8edf74112e65831f509021c2b270b1ca860147"
+      "sha256": "8d560551cf732d067efa01b2560ebe59efe483481f65ea1cd0cf433b4bdbe156"
     },
     {
       "id": "agentModeCloudConnected",

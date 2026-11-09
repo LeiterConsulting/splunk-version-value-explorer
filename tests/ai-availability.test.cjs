@@ -12,11 +12,11 @@ test('AI catalog preserves named products, exact dependency floors and scoped da
  const itsi=d.capabilities.find(r=>r.product==='itsi');assert.match(itsi.version,/ITSI 5\.0\+.*SAIA 2\.2\+.*MCP Server 1\.2\.1\+/);
  assert(d.capabilities.filter(r=>r.product==='es').every(r=>r.stage.includes('General Availability')));
  for(const r of d.capabilities){assert(r.requirements.length);assert(r.qualification);assert(r.verified);assert(r.scope.product===r.product);for(const id of r.src){const s=a.source(id);assert(s.section);assert(s.checked);assert(s.reviewed);assert.equal(new URL(s.url).hostname,'help.splunk.com');}}
- assert.equal(a.source('aiEsAgents88').reviewed,'2026-11-04');
+ assert.equal(a.source('aiEsAgents88').reviewed,'2026-11-09');
  assert.equal(a.source('aiEsThreatGraph88').reviewed,'2026-10-28');
- assert.equal(a.source('aiEsSocTask87').reviewed,'2026-10-27');
- assert.equal(a.source('aiEsEditions').reviewed,'2026-10-24');
- assert.equal(a.source('aiEsRelease88').reviewed,'2026-11-05');
+ assert.equal(a.source('aiEsSocTask87').reviewed,'2026-11-09');
+ assert.equal(a.source('aiEsEditions').reviewed,'2026-11-09');
+ assert.equal(a.source('aiEsRelease88').reviewed,'2026-11-09');
 });
 
 test('every capability and inherited assessment citation has a positive number and complete report target',()=>{
@@ -151,3 +151,7 @@ test('shared print footer and Cisco environment evidence use route-neutral reada
  assert.match(cisco,/\.theme-cisco \.edition-report \.env-record a[^}]*color:#8bb9ff!important/);
  assert.match(cisco,/\.theme-cisco \.edition-report \.env-evidence[^}]*color:#bac7df!important/);
 });
+
+test('ES release GA text remains separate from capability rollout and tenant entitlement',()=>{const a=model();for(const id of ['ai-es-detection','ai-es-soc','ai-es-sop']){const result=assess(a,id,{region:'us-east-1',edition:'premier'});assert.match(result.detail,/release is General Availability/);assert.doesNotMatch(result.detail,/Controlled Availability/);assert.match(result.detail,/capability-specific rollout, tenant access, entitlement and enablement still need confirmation/);assert(result.src.includes('aiEsRelease88'));assert.equal(result.authorization,'not_established');}});
+
+test('current AI scope uses release GA and preserves component authorization and historical CA',()=>{const ui=fs.readFileSync('dist/ai-availability-ui.js','utf8');assert.match(ui,/ES 8\.8 release is General Availability/);assert.match(ui,/capability rollout, tenant access, enablement and entitlement remain separate/);assert(!ui.includes('ES 8.8 Controlled Availability does not guarantee'));assert.match(fs.readFileSync('content/datasets/products.json','utf8'),/after October 21 Controlled Availability/);});

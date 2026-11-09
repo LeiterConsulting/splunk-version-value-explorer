@@ -2844,10 +2844,11 @@ window.VersionCompassSources = {
         "release.guidance.sources.aiSaiaCloudConnected.url",
         "guidance: guidance.aiAvailability",
         "guidance: guidance.aiAvailability.capabilities.1",
+        "guidance: guidance.aiAvailability.capabilities.2",
         "guidance: guidance.aiAvailability.capabilities.7"
       ],
       "reviews": [
-        "2026-11-03"
+        "2026-11-09"
       ],
       "claimReferences": [
         {
@@ -2859,12 +2860,16 @@ window.VersionCompassSources = {
           "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data"
         },
         {
+          "path": "guidance: guidance.aiAvailability.capabilities.2",
+          "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data"
+        },
+        {
           "path": "guidance: guidance.aiAvailability.capabilities.7",
           "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data"
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-03",
+      "reviewed": "2026-11-09",
       "status": "Reviewed",
       "firstRecorded": "2026-11-03",
       "firstUsed": null,
@@ -2876,6 +2881,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-03",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-09",
+          "event": "Review status updated: Reviewed · 2026-11-09"
         }
       ]
     },
@@ -2888,10 +2897,11 @@ window.VersionCompassSources = {
       "references": [
         "release.guidance.sources.aiSaiaKnownIssues.url",
         "guidance: guidance.aiAvailability",
-        "guidance: guidance.aiAvailability.capabilities.1"
+        "guidance: guidance.aiAvailability.capabilities.1",
+        "guidance: guidance.aiAvailability.capabilities.2"
       ],
       "reviews": [
-        "2026-11-03"
+        "2026-11-09"
       ],
       "claimReferences": [
         {
@@ -2901,10 +2911,14 @@ window.VersionCompassSources = {
         {
           "path": "guidance: guidance.aiAvailability.capabilities.1",
           "section": "SAIA-9918 Cloud Connected access and 2.1.1 workaround"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.2",
+          "section": "SAIA-9918 Cloud Connected access and 2.1.1 workaround"
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-03",
+      "reviewed": "2026-11-09",
       "status": "Reviewed",
       "firstRecorded": "2026-11-03",
       "firstUsed": null,
@@ -2916,6 +2930,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-03",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-09",
+          "event": "Review status updated: Reviewed · 2026-11-09"
         }
       ]
     },
@@ -3234,6 +3252,7 @@ window.VersionCompassSources = {
         "editions: editions.conflicts.1.claims.1"
       ],
       "reviews": [
+        "2026-11-09",
         "2026-10-27"
       ],
       "claimReferences": [
@@ -3531,7 +3550,7 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.7"
       ],
       "reviews": [
-        "2026-11-04"
+        "2026-11-09"
       ],
       "claimReferences": [
         {
@@ -3568,7 +3587,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-04",
+      "reviewed": "2026-11-09",
       "status": "Reviewed",
       "firstRecorded": "2026-10-23",
       "firstUsed": null,
@@ -3600,6 +3619,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-04",
           "event": "Review status updated: Reviewed · 2026-11-04"
+        },
+        {
+          "date": "2026-11-09",
+          "event": "Review status updated: Reviewed · 2026-11-09"
         }
       ]
     },
@@ -3647,7 +3670,7 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.7"
       ],
       "reviews": [
-        "2026-11-04"
+        "2026-11-09"
       ],
       "claimReferences": [
         {
@@ -3660,7 +3683,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-04",
+      "reviewed": "2026-11-09",
       "status": "Reviewed",
       "firstRecorded": "2026-10-31",
       "firstUsed": null,
@@ -3676,6 +3699,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-04",
           "event": "Review status updated: Reviewed · 2026-11-04"
+        },
+        {
+          "date": "2026-11-09",
+          "event": "Review status updated: Reviewed · 2026-11-09"
         }
       ]
     },
@@ -3793,7 +3820,7 @@ window.VersionCompassSources = {
         "editions: editions.workflows.3"
       ],
       "reviews": [
-        "2026-10-24",
+        "2026-11-09",
         "2026-10-01"
       ],
       "claimReferences": [
@@ -4324,7 +4351,7 @@ window.VersionCompassSources = {
         "editions: editions.notes.1"
       ],
       "reviews": [
-        "2026-10-24",
+        "2026-11-09",
         "2026-11-01"
       ],
       "claimReferences": [
@@ -4428,6 +4455,7 @@ window.VersionCompassSources = {
         "editions: editions.highlights.2"
       ],
       "reviews": [
+        "2026-11-09",
         "2026-11-05"
       ],
       "claimReferences": [
@@ -6392,7 +6420,7 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.2"
       ],
       "reviews": [
-        "2026-10-23"
+        "2026-11-09"
       ],
       "claimReferences": [
         {
@@ -6413,7 +6441,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-23",
+      "reviewed": "2026-11-09",
       "status": "Reviewed",
       "firstRecorded": "2026-10-23",
       "firstUsed": null,
@@ -6425,6 +6453,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-23",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-09",
+          "event": "Review status updated: Reviewed · 2026-11-09"
         }
       ]
     },
@@ -6443,7 +6475,7 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.7"
       ],
       "reviews": [
-        "2026-10-23"
+        "2026-11-09"
       ],
       "claimReferences": [
         {
@@ -6468,7 +6500,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-23",
+      "reviewed": "2026-11-09",
       "status": "Reviewed",
       "firstRecorded": "2026-10-23",
       "firstUsed": null,
@@ -6488,6 +6520,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-04",
           "event": "Review status updated: Reviewed · 2026-10-23"
+        },
+        {
+          "date": "2026-11-09",
+          "event": "Review status updated: Reviewed · 2026-11-09"
         }
       ]
     },
@@ -6532,7 +6568,7 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.1"
       ],
       "reviews": [
-        "2026-11-03"
+        "2026-11-09"
       ],
       "claimReferences": [
         {
@@ -6545,7 +6581,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-03",
+      "reviewed": "2026-11-09",
       "status": "Reviewed",
       "firstRecorded": "2026-11-03",
       "firstUsed": null,
@@ -6557,6 +6593,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-03",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-09",
+          "event": "Review status updated: Reviewed · 2026-11-09"
         }
       ]
     },
@@ -6572,7 +6612,7 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.1"
       ],
       "reviews": [
-        "2026-11-03"
+        "2026-11-09"
       ],
       "claimReferences": [
         {
@@ -6585,7 +6625,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-03",
+      "reviewed": "2026-11-09",
       "status": "Reviewed",
       "firstRecorded": "2026-11-03",
       "firstUsed": null,
@@ -6597,6 +6637,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-03",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-09",
+          "event": "Review status updated: Reviewed · 2026-11-09"
         }
       ]
     },

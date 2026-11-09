@@ -7,7 +7,7 @@
     { id: 'es-editions', label: 'ES Editions', href: '/?view=es-editions', group: 'explore', description: 'Compare documented edition scope.' },
     { id: 'ai-availability', label: 'AI Availability', href: '/?view=ai-availability', group: 'explore', description: 'Check requirements and availability.' },
     { id: 'splunk-11', label: '11.x Prep', href: '/?view=splunk-11', group: 'explore', description: 'Review published preparation guidance.' },
-    { id: 'advisor', label: 'Advisor', href: '/?view=advisor', badge: 'Work in progress', description: 'Assessed Splunk documentation for your goal' },
+    { id: 'advisor', label: 'Advisor', href: '/?view=advisor', badge: 'Work in progress', description: 'Create and review a requirement brief with scoped evidence' },
     { id: 'ripple', label: 'Ripple', href: '/ripple', description: 'Cisco exposure intelligence' },
     { id: 'about', label: 'About', href: '/?view=about', description: 'Project, sources and maintenance' }
   ].map(Object.freeze));
@@ -82,7 +82,7 @@
   root.addEventListener('pageshow', () => closeMenu(false));
   document.addEventListener('click', event => {
     const anchor = event.target.closest('a[href]');
-    if (!anchor || url.searchParams.get('theme') !== 'cisco') return;
+    if (!anchor || new URL(root.location.href).searchParams.get('theme') !== 'cisco') return;
     const target = new URL(anchor.href, root.location.href);
     if (target.origin === root.location.origin && !anchor.hasAttribute('download') && !target.hash) { target.searchParams.set('theme', 'cisco'); anchor.href = target.href; }
   });

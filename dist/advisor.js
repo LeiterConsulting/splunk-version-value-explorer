@@ -132,6 +132,10 @@
         if(state.deployment==='enterprise'){
           established('The assessed CMP path requires Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0. ES 8.8 requires the separate Cloud Connect download.',['aiEsAgents88','aiEsSocTask88']);
           check('platformVersion','10.4.0',['aiEsAgents88']);check('esVersion','8.8.0',['aiEsAgents88']);check('cloudConnectVersion','2.0.0',['aiEsAgents88']);
+          const setupId='aiEsCloudConnectAgentic88',setup=ai.source(setupId);
+          r.unresolvedDependencies=[{id:setupId,status:setup?.retrievalStatus||'not_admitted',reason:'The complete current CMP setup chain has not been admitted; numeric comparisons establish only their named prerequisite.'}];
+          if(setup&&!r.sources.some(source=>source.id===setupId))r.sources=[...r.sources,{id:setupId,...setup}];
+          evidence('The current full CMP setup dependency is unresolved'+(setup?.retrievalStatus==='unavailable'?' (setup source retrieval unavailable: 404).':'.'),'The retained November 4 setup assessment is dated context. It does not establish a current usable CMP path; individual numeric minima remain independently comparable.',[setupId]);
         }else if(state.deployment==='cloud'){
           check('platformVersion','10.2.0',['aiEsAgents88','aiEsSocTask88']);
           const aggregate=floor(state.esVersion,'8.6.0'),task=floor(state.esVersion,'8.7.0');
@@ -146,7 +150,8 @@
       }
     }
     const below=r.checks.filter(row=>row.outcome==='below'||row.belowBoth);
-    if(r.conflicts.some(item=>item.affectsDecision)){r.status='conflicting';r.title='Clarify the conflicting workflow requirement';}
+    if(r.unresolvedDependencies?.length){r.status='needs_review';r.title='The complete CMP setup chain needs review';r.summary='The whole CMP workflow remains unresolved because its full setup dependency is not currently admitted. Reported numeric comparisons below do not establish complete readiness.';}
+    else if(r.conflicts.some(item=>item.affectsDecision)){r.status='conflicting';r.title='Clarify the conflicting workflow requirement';}
     else if(below.length){r.status='version_gap';r.title='A documented version gap needs attention';}
     else if(r.missingFacts.length){r.status='needs_facts';r.title='Complete the facts that affect this decision';}
     else if(state.goal==='itsi-versions'){r.status='no_change';r.title='No version gap found for these three minimums';}

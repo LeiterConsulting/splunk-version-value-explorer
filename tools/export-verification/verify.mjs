@@ -12,6 +12,8 @@ import { verifyAdvisor, configureAdvisorRoute, setAdvisorFixtureTime } from './a
 import { prepareReadOnlyTools, verifyExact } from './exact-releases.mjs';
 import { verifyPrep11Oversized } from './prep11-print.mjs';
 import { verifyAdvisorOversized } from './advisor-print.mjs';
+import { verifyRequirementWorkflow } from './requirement-workflow.mjs';
+import { verifyWorkflowIntegration } from './advisor-workflow-integration.mjs';
 const require = createRequire(import.meta.url), { target, hash, verify } = require('../../scripts/export-evidence.cjs');
 if (process.env.SITES_MANAGED_LINUX_CONTAINER === '1') throw Error('Run export verification in dedicated application CI, not managed Sites preview.');
 const root = process.cwd(), output = path.resolve('export-artifacts');
@@ -67,7 +69,8 @@ async function productLabelFit(page) {
 }
 async function keyboardReach(page, locator) {
   // Exercise actual browser Tab navigation, rather than DOM focus simulation.
-  for (let tabs = 0; tabs < 180; tabs++) {
+  const budget=await page.evaluate(()=>document.querySelectorAll('a[href],button,input,select,textarea,[tabindex]').length*2+20);
+  for (let tabs = 0; tabs < budget; tabs++) {
     if (await locator.evaluate(el => el === document.activeElement)) return tabs;
     await page.keyboard.press('Tab');
   }
@@ -88,6 +91,8 @@ try {
   receipt.navigation = await verifyNavigation(browser,path.join(output,'navigation'));
   receipt.rippleScroll = await verifyRippleScroll(browser,path.join(output,'ripple-scroll'));
   receipt.advisor = await verifyAdvisor(browser,path.join(output,'advisor'));
+  receipt.requirementWorkflow = await verifyRequirementWorkflow(browser,path.join(output,'requirement-workflow'));
+  receipt.workflowIntegration = await verifyWorkflowIntegration(browser,path.join(output,'advisor-workflow-integration'));
   const routes = JSON.parse(fs.readFileSync('tools/export-verification/routes.json'));
   for (const route of routes) for (const theme of ['default', 'cisco']) {
     const id = route.id + '-' + theme, directory = path.join(output, id); fs.mkdirSync(directory);
@@ -99,7 +104,7 @@ try {
     if (route.id.startsWith('advisor')) await setAdvisorFixtureTime(page);
     // Restrict application CI to its own local Worker; no external source or customer requests.
     await context.route('**/*', r => new URL(r.request().url()).hostname === '127.0.0.1' ? r.continue() : r.abort());
-    const routeUrl = new URL('http://127.0.0.1:4173/?' + route.query);
+    const routeUrl = new URL('http://127.0.0.1:4173/'+(route.path||'')+'?' + route.query);
     if (theme === 'cisco') routeUrl.searchParams.set('theme','cisco');
     const url = routeUrl.href;
     if(route.id==='ai-overview') {
@@ -110,6 +115,13 @@ try {
       entry.mainNavigation={passed:true};
     }
     await page.goto(url); await settled(page);
+    if(['ai-overview','ai-compare'].includes(route.id)){
+      const scope=await page.locator('#ai-boundaries').innerText();
+      assert.match(scope,/ES 8\.8 release is General Availability/);
+      assert.match(scope,/capability rollout, tenant access, enablement and entitlement remain separate/);
+      assert(!scope.includes('ES 8.8 Controlled Availability'));
+      entry.currentAiScope={passed:true,releaseGA:true,componentAuthorizationSeparate:true};
+    }
     await configureAdvisorRoute(page,route);
     await verifyExact(page,route,theme);
     if(route.id==='forwarder-invalid-enterprise-107'){
@@ -245,11 +257,22 @@ try {
       // Replay the exact pre-repair sizing/nowrap declarations in real Chromium.
       // This is a rendered negative fixture, not a source-code string assertion.
       const legacy=await page.addStyleTag({content:'.product-options strong,.product-options small{min-width:auto!important;max-width:none!important;overflow-wrap:normal!important}.product-options strong{white-space:normal!important}.product-options small{white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}'});
-      const before=await productLabelFit(page);
-      await legacy.evaluate(el=>el.remove());
-      assert(before.length>0,'Legacy label fixture did not reproduce the actual padded-tile defect');
-      assert.equal((await productLabelFit(page)).length,0,'Label layout did not recover after fixture');
-      entry.productLabels.legacyReplay={outcome:'reproduced',violations:before};
+      let before=await productLabelFit(page),probe=null,original=null,replayMode='historical-style-replay';
+      try {
+        if(!before.length){
+          // Native fonts differ across macOS and Linux. Preserve non-reproduction
+          // honestly, then verify the same guard with a controlled oversized word.
+          replayMode='controlled-oversized-label';probe=page.locator('.product-options label > span strong').filter({visible:true}).first();original=await probe.textContent();
+          await probe.evaluate(el=>el.textContent='SYNTHETIC_PRODUCT_LABEL_'+('W'.repeat(90)));
+          before=await productLabelFit(page);
+        }
+        assert(before.length>0,'Rendered label negative did not exercise the detector');
+        const negative=path.join(directory,'label-negative.png');await page.screenshot({path:negative});
+        await legacy.evaluate(el=>el.remove());
+        assert.equal((await productLabelFit(page)).length,0,'Candidate label wrapping did not recover after fixture');
+        entry.productLabels.legacyReplay={outcome:'reproduced',replayMode,violations:before,screen:relative(negative),qualification:replayMode==='controlled-oversized-label'?'Exact historical style did not overflow with this platform font. Controlled oversized label reproduced the guard failure and candidate CSS recovered.':'Historical sizing/nowrap declarations reproduced the defect.'};
+      } finally {if(probe&&original!==null)await probe.evaluate((el,text)=>el.textContent=text,original);await legacy.evaluate(el=>el.remove());}
+      assert.equal((await productLabelFit(page)).length,0,'Original labels did not recover after negative fixture');
     }
     const narrow = await checkLayout(page);
     if(narrow.scroll > narrow.width + 3 || narrow.overflow.length) {

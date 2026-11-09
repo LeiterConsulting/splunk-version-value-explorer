@@ -56,9 +56,11 @@ window.SPLUNK_DATA.guidance = {
       "title": "ES 8.8 current Triage and Response aggregate row",
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
       "section": "Triage and Response agent aggregate availability and compatibility row",
-      "checked": "2026-11-04",
-      "reviewed": "2026-11-04",
-      "scope": "Only the renamed current Triage and Response aggregate row; other agent rows, prerequisites and historical component statements retain their separate dates."
+      "checked": "2026-11-09",
+      "reviewed": "2026-11-09",
+      "scope": "Only the renamed current Triage and Response aggregate row; other agent rows, prerequisites and historical component statements retain their separate dates.",
+      "retrieval": "Official public indexed page sections inspected on 2026-11-09. Direct raw HTTP GET returned403; no raw upstream body digest or live-byte currency is claimed.",
+      "assessmentScope": "Only the renamed current Triage and Response aggregate row; other agent rows, prerequisites and historical component statements retain their separate dates."
     },
     "aiHighAnnouncement20261019": {
       "title": "October 19 Splunk AI Assistant FedRAMP High announcement",
@@ -131,34 +133,41 @@ window.SPLUNK_DATA.guidance = {
       "title": "SAIA 2.3.6 overview and ITSI subagent",
       "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
       "section": "Requirements; features; ITSI subagent; where the assistant runs",
-      "checked": "2026-10-23",
-      "reviewed": "2026-10-23",
-      "scope": "Requirements; features; ITSI subagent; where the assistant runs"
+      "checked": "2026-11-09",
+      "reviewed": "2026-11-09",
+      "scope": "Requirements; features; ITSI subagent; where the assistant runs",
+      "retrieval": "Official public indexed page sections inspected on 2026-11-09. Direct raw HTTP GET returned403; no raw upstream body digest or live-byte currency is claimed.",
+      "assessmentScope": "Requirements; features; ITSI subagent; where the assistant runs"
     },
     "aiSaiaInstall": {
       "title": "SAIA 2.3.6 installation and service regions",
       "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
       "section": "FedRAMP deployments; supported regions; version compatibility",
-      "checked": "2026-10-23",
-      "reviewed": "2026-10-23",
-      "scope": "FedRAMP deployments; supported regions; version compatibility"
+      "checked": "2026-11-09",
+      "reviewed": "2026-11-09",
+      "scope": "FedRAMP deployments; supported regions; version compatibility",
+      "retrieval": "Official public indexed page sections inspected on 2026-11-09. Direct raw HTTP GET returned403; no raw upstream body digest or live-byte currency is claimed.",
+      "assessmentScope": "FedRAMP deployments; supported regions; version compatibility"
     },
     "aiEsRegions88": {
       "title": "ES 8.8 component regions and AI compatibility",
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
       "section": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility",
-      "checked": "2026-10-24",
-      "reviewed": "2026-10-24",
+      "checked": "2026-11-09",
+      "reviewed": "2026-11-09",
       "scope": "ES 8.8 Essentials component regions independently mapped; Premier and Cloud Connect exceptions, GCP/Azure scope and Security AI Assistant compatibility retained",
-      "retrieval": "Direct official page body retrieved October 24; October 23 indexed-only limitation remains historical"
+      "retrieval": "Official public indexed page sections inspected on 2026-11-09. Direct raw HTTP GET returned403; no raw upstream body digest or live-byte currency is claimed.",
+      "assessmentScope": "ES 8.8 Essentials component regions independently mapped; Premier and Cloud Connect exceptions, GCP/Azure scope and Security AI Assistant compatibility retained"
     },
     "aiEsAgents88": {
       "title": "ES 8.8 agent compatibility",
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
       "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note",
-      "checked": "2026-11-04",
-      "reviewed": "2026-11-04",
-      "scope": "Exact current 8.8 edition, deployment, version, paired-SOAR, feature-stage, enablement and model rows; the separately reviewed Cloud Connect setup page owns its added dependency chain"
+      "checked": "2026-11-09",
+      "reviewed": "2026-11-09",
+      "scope": "Exact current 8.8 edition, deployment, version, paired-SOAR, feature-stage, enablement and model rows; the separately reviewed Cloud Connect setup page owns its added dependency chain",
+      "retrieval": "Official public indexed page sections inspected on 2026-11-09. Direct raw HTTP GET returned403; no raw upstream body digest or live-byte currency is claimed.",
+      "assessmentScope": "Exact current 8.8 edition, deployment, version, paired-SOAR, feature-stage, enablement and model rows; the separately reviewed Cloud Connect setup page owns its added dependency chain"
     },
     "aiEsThreatGraph88": {
       "title": "ES 8.8 AI Threat Graph Detection agent",
@@ -172,17 +181,21 @@ window.SPLUNK_DATA.guidance = {
       "title": "ES 8.7 AI SOC analyst workflow",
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
       "section": "Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions",
-      "checked": "2026-10-27",
-      "reviewed": "2026-10-27",
-      "scope": "Task-specific ES 8.7 Cloud workflow limits and permissions; does not establish the 8.8 CMP path, SOAR version pairing, region or customer authorization"
+      "checked": "2026-11-09",
+      "reviewed": "2026-11-09",
+      "scope": "Task-specific ES 8.7 Cloud workflow limits and permissions; does not establish the 8.8 CMP path, SOAR version pairing, region or customer authorization",
+      "retrieval": "Official public indexed page sections inspected on 2026-11-09. Direct raw HTTP GET returned403; no raw upstream body digest or live-byte currency is claimed.",
+      "assessmentScope": "Task-specific ES 8.7 Cloud workflow limits and permissions; does not establish the 8.8 CMP path, SOAR version pairing, region or customer authorization"
     },
     "aiEsSocTask88": {
       "title": "ES 8.8 Triage and Response workflow",
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
       "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions",
-      "checked": "2026-11-04",
-      "reviewed": "2026-11-04",
-      "scope": "Task-specific ES 8.8 combined Triage and Response workflow limits and permissions; exact SOAR version pairing, region and customer authorization remain separate"
+      "checked": "2026-11-09",
+      "reviewed": "2026-11-09",
+      "scope": "Task-specific ES 8.8 combined Triage and Response workflow limits and permissions; exact SOAR version pairing, region and customer authorization remain separate",
+      "retrieval": "Official public indexed page sections inspected on 2026-11-09. Direct raw HTTP GET returned403; no raw upstream body digest or live-byte currency is claimed.",
+      "assessmentScope": "Task-specific ES 8.8 combined Triage and Response workflow limits and permissions; exact SOAR version pairing, region and customer authorization remain separate"
     },
     "aiEsCloudConnectAgentic88": {
       "title": "ES 8.8 Cloud Connect setup for the agentic SOC",
@@ -190,23 +203,34 @@ window.SPLUNK_DATA.guidance = {
       "section": "Platform, ES, Cloud Connect and Splunk AI Assistant floors; installation, service activation and token certificate setup",
       "checked": "2026-11-04",
       "reviewed": "2026-11-04",
-      "scope": "Cloud Connected agentic SOC dependency and setup chain; no edition entitlement, region, SOAR pairing or customer authorization inference"
+      "scope": "Cloud Connected agentic SOC dependency and setup chain; no edition entitlement, region, SOAR pairing or customer authorization inference",
+      "retrievalStatus": "unavailable",
+      "lastAttempt": {
+        "at": "2026-11-09T14:29:11.643768+00:00",
+        "method": "supported-web-open",
+        "outcome": "404-not-found",
+        "scope": "This current setup chain could not be reassessed. Original November4 clocks retained."
+      }
     },
     "aiEsEditions": {
       "title": "ES editions overview",
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
       "section": "Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings",
-      "checked": "2026-10-24",
-      "reviewed": "2026-10-24",
-      "scope": "Current edition groupings and deployment qualifications; compared with the 8.8 agent table where sources conflict"
+      "checked": "2026-11-09",
+      "reviewed": "2026-11-09",
+      "scope": "Current edition groupings and deployment qualifications; compared with the 8.8 agent table where sources conflict",
+      "retrieval": "Official public indexed page sections inspected on 2026-11-09. Direct raw HTTP GET returned403; no raw upstream body digest or live-byte currency is claimed.",
+      "assessmentScope": "Current edition groupings and deployment qualifications; compared with the 8.8 agent table where sources conflict"
     },
     "aiEsRelease88": {
       "title": "ES 8.8 release stage",
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
       "section": "What's new in 8.8.0 / November 4 General Availability and edition table",
-      "checked": "2026-11-05",
-      "reviewed": "2026-11-05",
-      "scope": "ES 8.8 release stage and edition table only. Per-agent release stage, entitlement and rollout remain separate."
+      "checked": "2026-11-09",
+      "reviewed": "2026-11-09",
+      "scope": "ES 8.8 release stage and edition table only. Per-agent release stage, entitlement and rollout remain separate.",
+      "retrieval": "Official public indexed page sections inspected on 2026-11-09. Direct raw HTTP GET returned403; no raw upstream body digest or live-byte currency is claimed.",
+      "assessmentScope": "ES 8.8 release stage and edition table only. Per-agent release stage, entitlement and rollout remain separate."
     },
     "aiObsAssistant": {
       "title": "AI Assistant in Observability Cloud",
@@ -301,36 +325,40 @@ window.SPLUNK_DATA.guidance = {
       "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
       "section": "Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites",
       "scope": "Feature-specific AWS locations and Platform 10.1.x+; Cloud Connected app 2.1+; runtime/admin enablement and bidirectional setup. No tenant, entitlement or authorization finding.",
-      "checked": "2026-11-03",
-      "reviewed": "2026-11-03",
-      "retrieval": "Official indexed page sections assessed; direct HTTPS availability is recorded separately in the follow-up audit. No upstream byte digest inferred from indexed text."
+      "checked": "2026-11-09",
+      "reviewed": "2026-11-09",
+      "retrieval": "Official public indexed page sections inspected on 2026-11-09. Direct raw HTTP GET returned403; no raw upstream body digest or live-byte currency is claimed.",
+      "assessmentScope": "Feature-specific AWS locations and Platform 10.1.x+; Cloud Connected app 2.1+; runtime/admin enablement and bidirectional setup. No tenant, entitlement or authorization finding."
     },
     "aiSaiaModelRuntime": {
       "title": "SAIA 2.3.6 Model Runtime routing and data boundary",
       "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
       "section": "Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off",
       "scope": "Model Runtime requirement for Agent Mode; Data zone versus Global routing; external LLM processing. Runtime support in Azure is not Agent Mode support.",
-      "checked": "2026-11-03",
-      "reviewed": "2026-11-03",
-      "retrieval": "Official indexed page sections assessed; direct HTTPS availability is recorded separately in the follow-up audit. No upstream byte digest inferred from indexed text."
+      "checked": "2026-11-09",
+      "reviewed": "2026-11-09",
+      "retrieval": "Official public indexed page sections inspected on 2026-11-09. Direct raw HTTP GET returned403; no raw upstream body digest or live-byte currency is claimed.",
+      "assessmentScope": "Model Runtime requirement for Agent Mode; Data zone versus Global routing; external LLM processing. Runtime support in Azure is not Agent Mode support."
     },
     "aiSaiaCloudConnected": {
       "title": "SAIA 2.3.6 Cloud Connected setup and data assurance",
       "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
       "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data",
       "scope": "Current 2.2.0–2.3.6 Cloud Connected exclusion, 2.1.1 fallback without Agent Mode and planned 2.4.0; broad data assurance remains separate from feature-specific Model Runtime external processing.",
-      "checked": "2026-11-03",
-      "reviewed": "2026-11-03",
-      "retrieval": "Official indexed page sections assessed; direct HTTPS availability is recorded separately in the follow-up audit. No upstream byte digest inferred from indexed text."
+      "checked": "2026-11-09",
+      "reviewed": "2026-11-09",
+      "retrieval": "Official public indexed page sections inspected on 2026-11-09. Direct raw HTTP GET returned403; no raw upstream body digest or live-byte currency is claimed.",
+      "assessmentScope": "Current 2.2.0–2.3.6 Cloud Connected exclusion, 2.1.1 fallback without Agent Mode and planned 2.4.0; broad data assurance remains separate from feature-specific Model Runtime external processing."
     },
     "aiSaiaKnownIssues": {
       "title": "SAIA 2.3.6 known issues: Cloud Connected SAIA-9918",
       "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
       "section": "SAIA-9918 Cloud Connected access and 2.1.1 workaround",
-      "checked": "2026-11-03",
-      "reviewed": "2026-11-03",
+      "checked": "2026-11-09",
+      "reviewed": "2026-11-09",
       "scope": "The versioned known issue blocks current Cloud Connected access and names a 2.1.1 workaround; no Agent Mode availability or future 2.4 release inferred.",
-      "retrieval": "Official indexed issue row assessed; raw response body/retrieval timestamp unknown."
+      "retrieval": "Official public indexed page sections inspected on 2026-11-09. Direct raw HTTP GET returned403; no raw upstream body digest or live-byte currency is claimed.",
+      "assessmentScope": "The versioned known issue blocks current Cloud Connected access and names a 2.1.1 workaround; no Agent Mode availability or future 2.4 release inferred."
     }
   },
   "preparation11": {
@@ -788,11 +816,13 @@ window.SPLUNK_DATA.guidance = {
           "Required apps, tools and user permissions must be enabled."
         ],
         "runtime": "ITSI integration inside SAIA.",
-        "qualification": "Base assistant regional coverage does not establish subagent-specific rollout.",
+        "qualification": "Base assistant regional coverage does not establish subagent-specific rollout. Current Cloud Connected guidance excludes SAIA 2.2.0–2.3.6; its 2.1.1 workaround is below this subagent’s documented assistant minimum. The minimum comparisons remain independent, but they do not establish a current Cloud Connected pairing.",
         "condition": "The integration and version floors are documented; confirm subagent enablement and regional scope.",
         "src": [
           "aiSaiaAbout",
-          "aiSaiaInstall"
+          "aiSaiaInstall",
+          "aiSaiaCloudConnected",
+          "aiSaiaKnownIssues"
         ]
       },
       {

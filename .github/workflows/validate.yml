@@ -16,6 +16,7 @@ jobs:
           node-version: '22'
       - name: Validate input bytes before generation checks
         run: node scripts/maintenance.cjs --manifest > /tmp/maintenance-inputs.json
+      - run: node scripts/build-advisor-workflow-candidate.cjs --check
       - run: node scripts/sync-release-metadata.cjs --check
       - run: node scripts/sync-source-register.cjs --check
       - run: node scripts/sync-content-revision.cjs --check
@@ -33,6 +34,8 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y poppler-utils
       - run: node tools/export-verification/verify.mjs
         id: exports
+      - name: Validate exact-input exported artifact bytes
+        run: node scripts/export-evidence.cjs export-artifacts > /tmp/validated-export-evidence.json
       - name: Bind rendered exports to release readiness
         run: |
           node -e 'const fs=require("node:fs");const input=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));input.evaluatedAt=new Date().toISOString();fs.writeFileSync(process.argv[2],JSON.stringify(input,null,2)+"\n")' docs/audits/2026-10-10-version-release-watch-soak.json /tmp/version-release-watch-soak.json
@@ -55,6 +58,8 @@ jobs:
             export-artifacts/navigation/
             export-artifacts/ripple-scroll/
             export-artifacts/advisor/
+            export-artifacts/requirement-workflow/
+            export-artifacts/advisor-workflow-integration/
             export-artifacts/advisor-*/
             export-artifacts/cloud-default/desktop.png
             export-artifacts/cloud-default/narrow.png

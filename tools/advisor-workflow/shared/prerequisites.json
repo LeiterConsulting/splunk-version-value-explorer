@@ -1,0 +1,545 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "private-candidate-4",
+  "status": "private-candidate-not-publicly-admitted",
+  "authority": "Candidate typed projection of existing canonical assessed claims, not a second product fact authority.",
+  "origin": {
+    "repository": "LeiterConsulting/splunk-version-value-explorer",
+    "commit": "2df5510ac9ac4f31a0702a174fe996a8aa167d0f",
+    "recordLookup": "guidance.aiAvailability.capabilities by exact stable id; array position is never identity"
+  },
+  "rules": [
+    {
+      "id": "ai-saia-agent",
+      "scope": {
+        "product": "platform",
+        "evidenceVersion": "2.3.6"
+      },
+      "recordId": "ai-saia-agent",
+      "sourceIds": [
+        "aiSaiaInstall",
+        "aiSaiaAbout",
+        "aiSaiaAgentMode",
+        "aiSaiaModelRuntime",
+        "aiSaiaCloudConnected",
+        "aiSaiaKnownIssues"
+      ],
+      "canonicalDependencyHash": "0bdd342150594e259f3d82cfbf2957176316c243460f555c6b17acf186b25db1",
+      "claimAssessed": "2026-11-09",
+      "originalRequirements": [
+        "Platform 10.1.x+ is required by the Agent Mode feature guide.",
+        "The feature guide describes a Cloud Connected SAIA 2.1+ path, but current installation guidance says 2.2.0–2.3.6 lacks Cloud Connected and its 2.1.1 fallback lacks Agent Mode; SAIA-9918 independently records the access issue.",
+        "Model Runtime must be enabled; a Splunk-hosted-only setting does not satisfy the documented Agent Mode runtime choice.",
+        "Cloud Connected setup also requires the documented bidirectional connectivity, regional allowlist and certificate/stack-address configuration.",
+        "The documented limited IL2 FedRAMP assistant excludes Agent Mode.",
+        "Cloud Connected support is planned for SAIA 2.4.0 in late November 2026; a plan does not establish a released supported path."
+      ],
+      "tree": {
+        "id": "agent-root",
+        "label": "Agent Mode scoped prerequisites",
+        "op": "all",
+        "children": [
+          {
+            "id": "platform-floor",
+            "label": "Reported platformVersion minimum 10.1.0",
+            "op": "minimum",
+            "field": "platformVersion",
+            "value": "10.1.0"
+          },
+          {
+            "id": "feature-regions",
+            "label": "Feature-specific Agent Mode AWS location",
+            "op": "listed",
+            "field": "region",
+            "values": [
+              "us-west-2",
+              "us-east-1",
+              "ca-central-1",
+              "eu-central-1",
+              "eu-west-2",
+              "eu-west-3",
+              "eu-south-1",
+              "eu-west-1",
+              "ap-south-1",
+              "ap-northeast-2",
+              "ap-southeast-1",
+              "ap-southeast-2",
+              "ap-northeast-1",
+              "ap-southeast-3",
+              "sa-east-1"
+            ]
+          },
+          {
+            "id": "runtime-enabled",
+            "label": "Model Runtime must be enabled",
+            "op": "equals",
+            "field": "modelRuntime",
+            "value": "enabled"
+          },
+          {
+            "id": "deployment",
+            "label": "Deployment-specific alternatives",
+            "op": "case",
+            "field": "deployment",
+            "branches": {
+              "cloud": {
+                "id": "cloud-activation",
+                "label": "Cloud installation, administrator activation and data routing remain unverified.",
+                "op": "unknown"
+              },
+              "enterprise": {
+                "id": "cmp-compatibility",
+                "label": "Current Cloud Connected compatibility conflict",
+                "op": "conflict",
+                "alternatives": [
+                  {
+                    "label": "Agent Mode feature guide",
+                    "statement": "The feature guide describes a SAIA2.1+ Cloud Connected path.",
+                    "sourceIds": [
+                      "aiSaiaAgentMode"
+                    ]
+                  },
+                  {
+                    "label": "Current installation and known issue",
+                    "statement": "SAIA2.2.0–2.3.6 is excluded; workaround2.1.1 lacks Agent Mode. Planned2.4 is not released support.",
+                    "sourceIds": [
+                      "aiSaiaCloudConnected",
+                      "aiSaiaKnownIssues"
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "pairing-activation",
+            "label": "Exact pairing, activation, routing, permissions and entitlement remain unestablished.",
+            "op": "unknown"
+          }
+        ]
+      },
+      "qualification": "Typed scope assessed 2026-11-09 from qualified official indexed sections. Numeric predicates do not certify full pairing, enablement, regional rollout, licensing or authorization.",
+      "baseSourceIds": [
+        "aiSaiaInstall",
+        "aiSaiaAbout",
+        "aiSaiaAgentMode",
+        "aiSaiaModelRuntime",
+        "aiSaiaCloudConnected",
+        "aiSaiaKnownIssues"
+      ],
+      "canonicalClaimAssessed": "2026-11-03"
+    },
+    {
+      "id": "ai-itsi-subagent",
+      "scope": {
+        "product": "itsi",
+        "evidenceVersion": "5.0"
+      },
+      "recordId": "ai-itsi-subagent",
+      "sourceIds": [
+        "aiSaiaAbout",
+        "aiSaiaInstall",
+        "aiSaiaCloudConnected",
+        "aiSaiaKnownIssues"
+      ],
+      "canonicalDependencyHash": "8492f907643e6c246c51b7aeea96679da501b0d2e86ee744efb8d4e7d66e2939",
+      "claimAssessed": "2026-11-09",
+      "originalRequirements": [
+        "ITSI 5.0.0+, SAIA 2.2.0+, Splunk MCP Server 1.2.1+.",
+        "Required apps, tools and user permissions must be enabled."
+      ],
+      "tree": {
+        "id": "itsi-root",
+        "label": "ITSI dependencies",
+        "op": "all",
+        "children": [
+          {
+            "id": "itsi-minimum",
+            "label": "Reported itsiVersion minimum 5.0.0",
+            "op": "minimum",
+            "field": "itsiVersion",
+            "value": "5.0.0"
+          },
+          {
+            "id": "saia-minimum",
+            "label": "Reported saiaVersion minimum 2.2.0",
+            "op": "minimum",
+            "field": "saiaVersion",
+            "value": "2.2.0"
+          },
+          {
+            "id": "mcp-minimum",
+            "label": "Reported mcpVersion minimum 1.2.1",
+            "op": "minimum",
+            "field": "mcpVersion",
+            "value": "1.2.1"
+          },
+          {
+            "id": "itsi-pairing",
+            "label": "Full pairing, enabled tools/permissions and subagent-specific regional rollout are not established.",
+            "op": "unknown",
+            "field": ""
+          },
+          {
+            "id": "itsi-deployment",
+            "label": "Installation context remains separate from three minima",
+            "op": "case",
+            "field": "deployment",
+            "branches": {
+              "cloud": {
+                "id": "itsi-cloud-scope",
+                "label": "Exact app pairing, enabled tools and subagent regional rollout remain unestablished.",
+                "op": "unknown"
+              },
+              "enterprise": {
+                "id": "itsi-cmp-conflict",
+                "label": "Cloud Connected workaround cannot satisfy the ITSI assistant minimum",
+                "op": "conflict",
+                "alternatives": [
+                  {
+                    "label": "ITSI subagent minimum",
+                    "statement": "The subagent requires SAIA2.2.0 or higher.",
+                    "sourceIds": [
+                      "aiSaiaAbout"
+                    ]
+                  },
+                  {
+                    "label": "Cloud Connected current restriction",
+                    "statement": "SAIA2.2.0–2.3.6 is excluded; the2.1.1 workaround is below that minimum. No supported pairing is inferred.",
+                    "sourceIds": [
+                      "aiSaiaCloudConnected",
+                      "aiSaiaKnownIssues"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "qualification": "Typed scope assessed 2026-11-09 from qualified official indexed sections. Numeric predicates do not certify full pairing, enablement, regional rollout, licensing or authorization.",
+      "baseSourceIds": [
+        "aiSaiaAbout",
+        "aiSaiaInstall",
+        "aiSaiaCloudConnected",
+        "aiSaiaKnownIssues"
+      ],
+      "canonicalClaimAssessed": "2026-10-23"
+    },
+    {
+      "id": "ai-es-detection",
+      "scope": {
+        "product": "es",
+        "evidenceVersion": "8.8"
+      },
+      "recordId": "ai-es-detection",
+      "sourceIds": [
+        "aiEsAgents88",
+        "aiEsRelease88",
+        "aiEsCloudConnectAgentic88"
+      ],
+      "canonicalDependencyHash": "8867cfee5d0115027488f2663cbdf32259bb0d15253e7e6c8cdf80b83a9b9f16",
+      "claimAssessed": "2026-11-09",
+      "originalRequirements": [
+        "Cloud: Platform 10.1.x+.",
+        "CMP: the setup guide requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. Current SAIA guidance only plans 2.4.0 Cloud Connected support for late November 2026; the requirement is not evidence of a released supported path. Earlier ES 8.9+ bundled-Cloud-Connect wording is historical packaging evidence."
+      ],
+      "tree": {
+        "id": "detection-root",
+        "label": "Detection Builder prerequisites",
+        "op": "all",
+        "children": [
+          {
+            "id": "deployment",
+            "label": "Deployment-specific alternatives",
+            "op": "case",
+            "field": "deployment",
+            "branches": {
+              "cloud": {
+                "id": "cloud-floor",
+                "label": "Reported platformVersion minimum 10.1.0",
+                "op": "minimum",
+                "field": "platformVersion",
+                "value": "10.1.0"
+              },
+              "enterprise": {
+                "id": "cmp",
+                "label": "CMP-specific floors",
+                "op": "all",
+                "children": [
+                  {
+                    "id": "cmp-floor",
+                    "label": "Reported platformVersion minimum 10.4.0",
+                    "op": "minimum",
+                    "field": "platformVersion",
+                    "value": "10.4.0"
+                  },
+                  {
+                    "id": "es-minimum",
+                    "label": "Reported esVersion minimum 8.8.0",
+                    "op": "minimum",
+                    "field": "esVersion",
+                    "value": "8.8.0"
+                  },
+                  {
+                    "id": "connect-exact",
+                    "label": "ES 8.8 requires the documented Cloud Connect 2.0 package",
+                    "op": "exact-version",
+                    "field": "cloudConnectVersion",
+                    "value": "2.0.0"
+                  },
+                  {
+                    "id": "ai-es-detection-setup-unavailable",
+                    "label": "The Cloud Connect setup source is currently404. Its retained November4 SAIA2.4+ dependency is historical assessed evidence; a current released CMP setup chain is not established.",
+                    "op": "unknown"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "pairing-activation",
+            "label": "Exact supported pairing, customer activation, permissions and entitlement remain unestablished.",
+            "op": "unknown",
+            "field": ""
+          }
+        ]
+      },
+      "qualification": "Typed scope assessed 2026-11-09 from qualified official indexed sections. Numeric predicates do not certify full pairing, enablement, regional rollout, licensing or authorization.",
+      "unresolvedSourceIdsByDeployment": {
+        "enterprise": [
+          "aiEsCloudConnectAgentic88"
+        ]
+      },
+      "baseSourceIds": [
+        "aiEsAgents88",
+        "aiEsRelease88"
+      ],
+      "canonicalClaimAssessed": "2026-11-04"
+    },
+    {
+      "id": "ai-es-soc",
+      "scope": {
+        "product": "es",
+        "evidenceVersion": "8.8"
+      },
+      "recordId": "ai-es-soc",
+      "sourceIds": [
+        "aiEsAgents88",
+        "aiEsSocTask88",
+        "aiEsSocTask87",
+        "aiEsRelease88",
+        "aiEsTriageNote88",
+        "aiEsCloudConnectAgentic88",
+        "aiSaiaInstall",
+        "aiSaiaCloudConnected"
+      ],
+      "canonicalDependencyHash": "eaf3f5229bfe4754b16adf8aae4c39732f4aedf1443344ecb162c14a8bf8d9c2",
+      "claimAssessed": "2026-11-09",
+      "originalRequirements": [
+        "Premier, paired SOAR and representative enablement.",
+        "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the 8.8 task guide requires ES 8.7+.",
+        "CMP: the setup guide requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. Current SAIA guidance says 2.4.0 Cloud Connected support is planned for late November 2026, so no released supported CMP path is established. Earlier ES 8.9+ bundled-Cloud-Connect wording is historical packaging evidence, not release or rollout evidence.",
+        "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported."
+      ],
+      "tree": {
+        "id": "soc-root",
+        "label": "AI SOC workflow prerequisites",
+        "op": "all",
+        "children": [
+          {
+            "id": "deployment",
+            "label": "Deployment-specific alternatives",
+            "op": "case",
+            "field": "deployment",
+            "branches": {
+              "cloud": {
+                "id": "cloud",
+                "label": "Cloud-specific requirements",
+                "op": "all",
+                "children": [
+                  {
+                    "id": "cloud-floor",
+                    "label": "Reported platformVersion minimum 10.2.0",
+                    "op": "minimum",
+                    "field": "platformVersion",
+                    "value": "10.2.0"
+                  },
+                  {
+                    "id": "cloud-es-conflict",
+                    "label": "Current Cloud ES minimum conflict",
+                    "op": "contradiction",
+                    "alternatives": [
+                      {
+                        "label": "Aggregate ES 8.8 compatibility table",
+                        "minimum": "8.6.0",
+                        "sourceIds": [
+                          "aiEsAgents88"
+                        ]
+                      },
+                      {
+                        "label": "ES 8.8 workflow task guide",
+                        "minimum": "8.7.0",
+                        "sourceIds": [
+                          "aiEsSocTask88"
+                        ]
+                      }
+                    ],
+                    "field": "esVersion",
+                    "qualification": "The source discrepancy remains unresolved even above both minima. The higher number is not silently chosen as a compatibility rule."
+                  }
+                ]
+              },
+              "enterprise": {
+                "id": "cmp",
+                "label": "CMP-specific requirements",
+                "op": "all",
+                "children": [
+                  {
+                    "id": "cmp-floor",
+                    "label": "Reported platformVersion minimum 10.4.0",
+                    "op": "minimum",
+                    "field": "platformVersion",
+                    "value": "10.4.0"
+                  },
+                  {
+                    "id": "es-minimum",
+                    "label": "Reported esVersion minimum 8.8.0",
+                    "op": "minimum",
+                    "field": "esVersion",
+                    "value": "8.8.0"
+                  },
+                  {
+                    "id": "connect-exact",
+                    "label": "ES 8.8 requires separately installed Cloud Connect 2.0",
+                    "op": "exact-version",
+                    "field": "cloudConnectVersion",
+                    "value": "2.0.0"
+                  },
+                  {
+                    "id": "ai-es-soc-setup-unavailable",
+                    "label": "The Cloud Connect setup source is currently404. Its retained November4 SAIA2.4+ dependency is historical assessed evidence; a current released CMP setup chain is not established.",
+                    "op": "unknown"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "soc-edition",
+            "label": "Aggregate SOC workflow is scoped to Premier",
+            "op": "equals",
+            "field": "edition",
+            "value": "premier"
+          },
+          {
+            "id": "soc-model",
+            "label": "SOC task requires frontier models",
+            "op": "equals",
+            "field": "runtimePolicy",
+            "value": "frontier"
+          },
+          {
+            "id": "pairing-activation",
+            "label": "Exact supported pairing, customer activation, permissions and entitlement remain unestablished.",
+            "op": "unknown",
+            "field": ""
+          }
+        ]
+      },
+      "qualification": "Typed scope assessed 2026-11-09 from qualified official indexed sections. Numeric predicates do not certify full pairing, enablement, regional rollout, licensing or authorization.",
+      "unresolvedSourceIdsByDeployment": {
+        "enterprise": [
+          "aiEsCloudConnectAgentic88"
+        ]
+      },
+      "baseSourceIds": [
+        "aiEsAgents88",
+        "aiEsSocTask88",
+        "aiEsSocTask87",
+        "aiEsRelease88",
+        "aiEsTriageNote88",
+        "aiSaiaInstall",
+        "aiSaiaCloudConnected"
+      ],
+      "canonicalClaimAssessed": "2026-11-04"
+    },
+    {
+      "id": "ai-es-sop",
+      "scope": {
+        "product": "es",
+        "evidenceVersion": "8.8"
+      },
+      "recordId": "ai-es-sop",
+      "sourceIds": [
+        "aiEsAgents88",
+        "aiEsRelease88"
+      ],
+      "canonicalDependencyHash": "2448137e2b29f1ca212ffb8ddb5c4d94517299a77e2a0c958c3147a2d1442c02",
+      "claimAssessed": "2026-11-09",
+      "originalRequirements": [
+        "Cloud deployment with Security AI Assistant enabled.",
+        "Response-template view and edit permissions."
+      ],
+      "tree": {
+        "id": "sop-root",
+        "label": "SOP agent prerequisites",
+        "op": "all",
+        "children": [
+          {
+            "id": "cloud-only",
+            "label": "Assessed SOP agent is Cloud only",
+            "op": "equals",
+            "field": "deployment",
+            "value": "cloud"
+          },
+          {
+            "id": "sop-permissions",
+            "label": "Security AI Assistant enablement and response-template view/edit permissions are not verified.",
+            "op": "unknown",
+            "field": ""
+          }
+        ]
+      },
+      "qualification": "Typed scope assessed 2026-11-09 from qualified official indexed sections. Numeric predicates do not certify full pairing, enablement, regional rollout, licensing or authorization.",
+      "baseSourceIds": [
+        "aiEsAgents88",
+        "aiEsRelease88"
+      ],
+      "canonicalClaimAssessed": "2026-10-24"
+    }
+  ],
+  "notEncoded": [
+    {
+      "id": "ai-saia-spl",
+      "reason": "No typed prerequisite rule admitted in this private candidate. Retain unknown and the original qualification."
+    },
+    {
+      "id": "ai-es-assistant",
+      "reason": "No typed prerequisite rule admitted in this private candidate. Retain unknown and the original qualification."
+    },
+    {
+      "id": "ai-es-threat-graph",
+      "reason": "No typed prerequisite rule admitted in this private candidate. Retain unknown and the original qualification."
+    },
+    {
+      "id": "ai-observability-assistant",
+      "reason": "No typed prerequisite rule admitted in this private candidate. Retain unknown and the original qualification."
+    },
+    {
+      "id": "ai-observability-rca",
+      "reason": "No typed prerequisite rule admitted in this private candidate. Retain unknown and the original qualification."
+    }
+  ],
+  "reviewPolicy": {
+    "sourceCheckDays": 14,
+    "claimAssessmentDays": 30
+  },
+  "boundaries": [
+    "No input text or private import can define executable predicates or replace these public facts.",
+    "Alternative deployment paths remain separate; unknown deployment does not select a winning branch.",
+    "Current contradictions survive numerically met thresholds. Unknown and withdrawn evidence never means unavailable.",
+    "Version minima are not compatible pairings, supported targets, release rollouts or license evidence."
+  ],
+  "reviewedAt": "2026-11-09T14:29:11.643768+00:00"
+}

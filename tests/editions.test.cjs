@@ -8,7 +8,8 @@ test('public editions and legacy preview routes load editions; release routes st
  for(const q of ['', '?product=es&platform=enterprise&host=10.4&from=8.6&to=8.7','?preview=no']){const r=router(q);assert.deepEqual(r.loaded,['content-revision.js','source-register.js','evidence.js','report-tools.js','decision-support.js','environment-data.js','environment.js','perspectives.js','data.js','product-data.js','guidance-data.js','comparison.js','guidance.js','release-print.js','app.js','soar-data.js','soar.js','webmcp.js','advisor-handoff.js','navigation.js']);assert.equal(r.head.length,0);}
  const r=router('?preview=es-editions');assert.deepEqual(r.loaded,['content-revision.js','source-register.js','evidence.js','report-tools.js','decision-support.js','environment-data.js','environment.js','perspectives.js','editions-data.js','editions.js','navigation.js']);assert(!r.head.some(x=>x.name==='robots'));
  assert.deepEqual(router('?view=es-editions').loaded,['content-revision.js','source-register.js','evidence.js','report-tools.js','decision-support.js','environment-data.js','environment.js','perspectives.js','editions-data.js','editions.js','navigation.js']);
- for(const q of ['?view=es-editions&view=es-editions','?preview=es-editions&preview=es-editions','?view=advisor&view=es-editions'])assert.deepEqual(router(q).loaded,router('?view=es-editions').loaded);
+ for(const q of ['?view=es-editions&view=es-editions','?preview=es-editions&preview=es-editions'])assert.deepEqual(router(q).loaded,router('?view=es-editions').loaded);
+ assert.deepEqual(router('?view=advisor&view=es-editions').loaded,['advisor-workflow.js'],'Ambiguous Advisor-containing links must reach its fail-closed reader.');
  assert.deepEqual(router('?view=about').loaded,['source-register.js','maintenance-status.js','about.js','navigation.js']);
 });
 test('all evidence records have dated, official HTTPS citations and known edition statuses',()=>{

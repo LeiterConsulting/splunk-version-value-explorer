@@ -30,6 +30,10 @@
     };
     document.body.appendChild(script);
   }
+  if(params.getAll('view').includes('advisor')&&!(window.location.pathname||'/').endsWith('/advisor-guided.html')){
+    document.querySelector('main').innerHTML='<section class="hero"><p role="status">Loading Advisor requirement workflow.</p></section>';
+    load(['advisor-workflow.js']);return;
+  }
   if(preview){load(['content-revision.js','source-register.js','evidence.js','report-tools.js','decision-support.js','environment-data.js','environment.js','perspectives.js','editions-data.js','editions.js','navigation.js']);return;}
   if(params.getAll('view').includes('exact-releases')){
     document.querySelector('main').innerHTML='<section class="hero"><p role="status">Loading exact release pilot.</p></section>';

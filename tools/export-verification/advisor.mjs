@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {chromium} from 'playwright';
+const sourceDates=JSON.parse(fs.readFileSync('content/datasets/guidance.json','utf8')).sources;
 const advisorFixtures=JSON.parse(fs.readFileSync(new URL('./advisor-fixtures.json',import.meta.url),'utf8'));
 
 // Fixture time exercises assessed briefs without extending production review dates.
@@ -27,7 +28,7 @@ export async function verifyAdvisor(browser,output,base='http://127.0.0.1:4173')
     page.on('pageerror',error=>errors.push(error.message));page.on('request',request=>requests.push({url:request.url(),navigation:request.isNavigationRequest()}));
     if(base.includes('127.0.0.1'))await context.route('**/*',route=>new URL(route.request().url()).hostname==='127.0.0.1'?route.continue():route.abort());
     await context.addInitScript(()=>{Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{window.__advisorCopiedLink=text;}}});});
-    const themed=route=>base+route+(theme==='cisco'?(route.includes('?')?'&':'?')+'theme=cisco':'');
+    const themed=route=>base+route.replace('/?view=advisor','/advisor-guided.html?view=advisor')+(theme==='cisco'?(route.includes('?')?'&':'?')+'theme=cisco':'');
     const result=()=>page.locator('#advisor-result .advisor-result');
     async function choose(goal){await page.locator('[data-advisor-goal="'+goal+'"]').click();}
     async function build(){await page.locator('#advisor-build').click();await result().waitFor();}
@@ -36,7 +37,7 @@ export async function verifyAdvisor(browser,output,base='http://127.0.0.1:4173')
       await setAdvisorFixtureTime(page);
       await page.goto(themed('/'));await page.locator('.report-toolbar').waitFor();
       if(width<=760)await page.locator('.global-menu-toggle').click();
-      await page.locator('[data-destination="advisor"]').click();await page.locator('#advisor-decisions').waitFor();await page.locator('.report-toolbar').waitFor();
+      await page.locator('[data-destination="advisor"]').click();await page.waitForFunction(()=>window.__workflowReady);assert.equal(await page.evaluate(()=>WorkflowApp.state().statements.length),0);await page.goto(themed('/?view=advisor'));await page.locator('#advisor-decisions').waitFor();await page.locator('.report-toolbar').waitFor();
       assert.equal(await page.locator('[data-advisor-goal]').count(),3);
       assert.equal(await result().count(),0);assert(await page.locator('#print-report').isDisabled());assert(await page.locator('[data-save-snapshot]').isDisabled());
       assert.match(await page.locator('#advisor-brief-status').innerText(),/Choose a covered decision/);
@@ -51,7 +52,7 @@ export async function verifyAdvisor(browser,output,base='http://127.0.0.1:4173')
       await page.locator('#copy-link').click();const copied=await page.evaluate(()=>window.__advisorCopiedLink);assert.equal(new URL(copied).searchParams.get('platformVersion'),null);assert.equal(new URL(copied).searchParams.get('goal'),'agent-mode');assert(!copied.includes('9.4'));
       await page.locator('#advisor-save').click();assert.match(await page.locator('#advisor-profile-status').innerText(),/saved/);
       const downloadPromise=page.waitForEvent('download');await page.locator('[data-save-snapshot]').click();const download=await downloadPromise;await download.saveAs(path.join(output,id+'-brief.html'));
-      const html=fs.readFileSync(path.join(output,id+'-brief.html'),'utf8');assert(html.includes('9.4')&&html.includes('Self-reported context')&&html.includes('Source checked 2026-10-23'));assert(!/<script\b/i.test(html));
+      const html=fs.readFileSync(path.join(output,id+'-brief.html'),'utf8');assert(html.includes('9.4')&&html.includes('Self-reported context')&&html.includes('Source checked '+sourceDates.aiSaiaAbout.checked));assert(!/<script\b/i.test(html));
       await page.screenshot({path:path.join(output,id+'-gap.png')});
       await page.locator('#advisor-platformVersion').fill('10.4');assert(await page.locator('#print-report').isDisabled());assert(await page.locator('[data-save-snapshot]').isDisabled());assert.equal(await result().count(),0);
       await choose('itsi-versions');assert.equal(await page.locator('#advisor-context-fields input').count(),3);assert.equal(await page.locator('#advisor-region').count(),0);

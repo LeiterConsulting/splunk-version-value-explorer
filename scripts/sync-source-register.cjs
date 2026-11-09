@@ -28,7 +28,9 @@ walk(context.window.VersionCompassEditions,'ES editions','editions');
 walk(context.window.VersionCompassForwarderData,'Splunk Forwarders','forwarders');
 walk(context.window.VersionCompassSOARData,'Splunk SOAR','soar');
 // Include directly embedded official citations as well as data-driven citations.
-for(const f of fs.readdirSync('dist').filter(f=>f.endsWith('.js')&&!['source-register.js','about.js',...files].includes(f))){
+// The generated workflow bundle serializes the canonical records already walked
+// above; crawling its escaped HTML literal would invent backslash-suffixed URLs.
+for(const f of fs.readdirSync('dist').filter(f=>f.endsWith('.js')&&!['source-register.js','about.js','advisor-workflow.js',...files].includes(f))){
  const text=fs.readFileSync('dist/'+f,'utf8');
  for(const m of text.matchAll(/https:\/\/(?:[a-z0-9-]+\.)*(?:splunk\.com|cisco\.com|fedramp\.gov|nist\.gov)\/[^\s"'\x60<>]+/g))add(m[0],{},'Shared guidance',f);
 }

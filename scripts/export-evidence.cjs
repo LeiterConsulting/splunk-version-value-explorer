@@ -5,7 +5,7 @@ const gates = ['html-reopen', 'pdf-rendering', 'themes-and-narrow-screens'];
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 function target(root = process.cwd()) {
   const files = execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard'], { cwd: root, encoding: 'utf8' }).trim().split('\n')
-    .filter(f => /^(dist\/(?:ripple\/)?[^/]+\.(?:html|js|css|json|svg)|client\/.*\.js|worker\/.*\.mjs|content\/(?:advisor-(?:admission|goals)\.json|datasets\/.*\.json|publication\.json)|tools\/export-verification\/[^/]+\.(?:mjs|py|json)|tools\/ripple\/.*\.(?:tsx|ts|css|html|json|svg)|scripts\/(?:export-evidence|sync-advisor|advisor-maintenance|build-ripple|check-ripple)\.cjs)$/.test(f)).sort();
+    .filter(f => /^(dist\/(?:ripple\/)?[^/]+\.(?:html|js|css|json|svg)|client\/.*\.js|worker\/.*\.mjs|content\/(?:advisor-(?:admission|goals)\.json|datasets\/.*\.json|publication\.json)|tools\/export-verification\/[^/]+\.(?:mjs|py|json)|tools\/advisor-workflow\/(?:[^/]+\.(?:cjs|js|css|html|json)|shared\/[^/]+\.json|scripts\/[^/]+\.cjs)|tools\/ripple\/.*\.(?:tsx|ts|css|html|json|svg)|scripts\/(?:export-evidence|sync-advisor|advisor-maintenance|build-advisor-workflow-candidate|build-ripple|check-ripple)\.cjs)$/.test(f)).sort();
   const inputs = [...new Set(files)].map(file => ({ file, sha256: hash(fs.readFileSync(path.join(root, file))) }));
   const manifest = JSON.parse(fs.readFileSync(path.join(root, 'content/publication.json')));
   return { fingerprint: hash(JSON.stringify(inputs)), contentRevision: manifest.revision, engineRevision: manifest.engineRevision, inputs };
@@ -49,6 +49,28 @@ function verify(directory, root = process.cwd()) {
       }
     }
   }
+  const workflow=receipt.requirementWorkflow;
+  const workflowCases=['light','dark','cisco'].flatMap(t=>[320,390,1220].map(w=>t+'-'+w));
+  if(!workflow?.passed || !workflow.synthetic || workflow.customerAcceptance!==false || !workflow.privacy?.passed
+    || workflow.privacy.externalRequests!==0 || !workflow.keyboard?.passed || !workflow.stale?.passed
+    || workflow.cases?.length!==9 || !workflowCases.every(id=>workflow.cases.some(c=>c.id===id&&c.passed&&c.layout?.passed&&c.externalRequests===0&&c.keyboard&&c.imports&&verifiedArtifacts.has(c.screen)))) throw Error('Missing requirement workflow viewport, privacy or keyboard verification');
+  if(workflow.exports?.length!==3 || !['light','dark','cisco'].every(theme=>workflow.exports.some(e=>e.theme===theme&&e.passed&&verifiedArtifacts.has(e.json)
+    && [e.html,e.workspace].every(h=>h?.passed&&h.offlineReopened&&h.networkRequests===0&&h.complete&&verifiedArtifacts.has(h.file))
+    && e.pdf?.passed&&e.pdf.pagination?.length>=20&&e.pdf.pagination.every(p=>p.passed)&&e.pdf.pageCount>0&&e.pdf.pages?.length===e.pdf.pageCount&&e.pdf.pages.every(p=>p.passed&&verifiedArtifacts.has(p.file))
+    && verifiedArtifacts.has(e.pdf.file)&&verifiedArtifacts.has(e.pdf.inspection)))) throw Error('Missing requirement workflow PDF/offline verification');
+  const cmp=workflow.cmpReport;
+  if(!cmp?.passed||!cmp.wholePathNeedsReview||!cmp.independentMinima||!cmp.completeReport||!cmp.citationsResolved||!cmp.sourceDatesRetained||cmp.externalRequests!==0||!verifiedArtifacts.has(cmp.screen)
+    ||![cmp.html,cmp.workspace].every(h=>h?.passed&&h.offlineReopened&&h.networkRequests===0&&h.complete&&verifiedArtifacts.has(h.file))
+    ||!cmp.pdf?.passed||cmp.pdf.pageCount<1||cmp.pdf.pages?.length!==cmp.pdf.pageCount||!cmp.pdf.pages.every(p=>p.passed&&verifiedArtifacts.has(p.file))||!verifiedArtifacts.has(cmp.pdf.file)||!verifiedArtifacts.has(cmp.pdf.inspection))throw Error('Missing requirement workflow whole-CMP report verification');
+  const integrated=receipt.workflowIntegration;
+  if(!integrated?.passed||!integrated.synthetic||integrated.customerAcceptance!==false||integrated.externalRequests!==0
+    ||!integrated.hostScope?.passed||integrated.hostScope.cases?.length!==5||!['claim','environment','missing-scope','withdrawal','missing-source'].every(change=>integrated.hostScope.cases.some(c=>c.change===change&&c.passed&&verifiedArtifacts.has(c.screen)))
+    ||!integrated.hostScope.unrelated?.passed||!integrated.hostScope.unavailable?.passed||!integrated.hostScope.unavailable.nativeBlocked||!integrated.hostScope.unavailable.explicitSnapshotChoice||!verifiedArtifacts.has(integrated.hostScope.unavailable.screen)
+    ||!integrated.hostScope.validatedWithdrawal?.passed||!integrated.hostScope.validatedWithdrawal.hostEvidenceRetained||!integrated.hostScope.validatedWithdrawal.nativeBlocked||!verifiedArtifacts.has(integrated.hostScope.validatedWithdrawal.fixture)||!verifiedArtifacts.has(integrated.hostScope.validatedWithdrawal.screen)
+    ||integrated.cases?.length!==9||!workflowCases.every(id=>integrated.cases.some(c=>c.id===id&&c.passed&&c.nativeRoute&&c.blankDefault&&c.legacyIntent&&c.profileRecovery&&c.history&&c.citationHistory&&c.guideHandoff&&c.guideReturn&&c.editorHistory?.passed&&c.editorHistory.noCrossDraftText&&c.editorHistory.staleDetachedSaveBlocked&&c.editorHistory.twoHeldEditors&&c.layout?.passed&&c.externalRequests===0&&verifiedArtifacts.has(c.screen)))
+    ||integrated.exports?.length!==3||!['light','dark','cisco'].every(theme=>integrated.exports.some(e=>e.theme===theme&&e.passed
+      &&[e.html,e.workspace].every(h=>h?.passed&&h.complete&&h.offlineReopened&&h.externalRequests===0&&verifiedArtifacts.has(h.file))
+      &&e.pdf?.passed&&e.pdf.pageCount>0&&e.pdf.pages?.length===e.pdf.pageCount&&e.pdf.pages.every(p=>p.passed&&verifiedArtifacts.has(p.file))&&verifiedArtifacts.has(e.pdf.file)&&verifiedArtifacts.has(e.pdf.inspection))))throw Error('Missing integrated Advisor route, recovery, history or offline/PDF verification');
   return { receipt, checks: Object.fromEntries(gates.map(g => [g, { outcome: 'passed', checkedAt: receipt.completedAt,
     evidence: { type: 'ci-rendered-export-verification', commit: receipt.commit, tree: receipt.tree, runId: receipt.runId,
       reportFingerprint: expected.fingerprint, artifactDirectory: directory, cases: cases.length,

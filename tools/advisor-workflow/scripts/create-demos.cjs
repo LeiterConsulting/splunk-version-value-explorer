@@ -1,0 +1,2 @@
+// Synthetic test input only. Never bundled into the blank visitor workflow.
+const fs=require("node:fs"),path=require("node:path"),{load}=require("./load-model.cjs");const AT="2026-11-09T14:30:00.000Z";function create(name){return name==="ITSI dependency review"?JSON.parse(fs.readFileSync(path.join(__dirname,"../tests/fixtures/itsi-schema2-before-runtime.json"),"utf8")):load().model.newBrief(name,AT);}module.exports={create,AT};

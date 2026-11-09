@@ -135,3 +135,7 @@ known/unknown/CMP/regulated/changed-evidence decision briefs to native PDF rende
 and independent offline HTML reopening. Landing and unsupported views deliberately
 block exports, without being labelled failed assessments. Retain actual artifacts,
 inspect novel layouts and verify the deployed custom-domain UI, assets and D1.
+
+## Requirement workflow integration candidate
+
+The candidate routes Advisor to a reusable requirement-response workflow while preserving the guided model and explicit legacy/profile recovery. See [the workflow contract](advisor-workflow.md) and [release procedure](advisor-workflow-release.md) for route, history, export, CI and rollback behavior. Local implementation does not establish deployment or activated automation responsibility. The existing publisher hold remains in force.
