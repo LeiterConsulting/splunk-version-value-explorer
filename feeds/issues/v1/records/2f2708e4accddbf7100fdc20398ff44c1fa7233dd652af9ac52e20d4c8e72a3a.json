@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-svd-2026-1015-applicability",
+  "assessmentId": "vcia-release-20261109-svd-2026-1015-applicability",
+  "revision": 1,
+  "recordedAt": "2026-11-09T10:24:48.048Z",
+  "assessedAt": "2026-11-09T10:21:49.241Z",
+  "outcome": "addressed-in-reviewed-scope",
+  "rationale": "The November 6 advisory revision expressly lists Universal Forwarder as unaffected and documents Enterprise package/component remedies. It separately identifies Visual Exporter mitigation; the core patch does not remediate that app. Retain October Under Investigation as historical and do not infer HF app installation, broader fixes or Cloud rollout.",
+  "reviewedScope": {
+    "products": [
+      "Maintained Splunk product families"
+    ],
+    "versions": null,
+    "editions": null,
+    "deployments": null,
+    "regions": null,
+    "audiences": [
+      "Customers and documentation readers evaluating the stated decision"
+    ],
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261109-11-0",
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1015",
+      "section": "Solutions; Visual Exporter mitigation; Unaffected Products; November 6 changelog",
+      "statement": "The November 6 advisory revision expressly lists Universal Forwarder as unaffected and documents Enterprise package/component remedies. It separately identifies Visual Exporter mitigation; the core patch does not remediate that app. Retain October Under Investigation as historical and do not infer HF app installation, broader fixes or Cloud rollout.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-09T10:15:45.686Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "fc9049c0604db39c6642383e8aa31518c171d6e3a97a8314f47866792394a432",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/73d57d319f216ae0e65bbec968ca4b20e2ad37f4/docs/audits/2026-11-09-version-release-watch-sources.json",
+      "pointer": "/claimChecks/11",
+      "originalLabel": "uncertain-claim"
+    }
+  ],
+  "comparedAssessmentIds": [],
+  "remainingConcerns": [
+    "Visual Exporter exposure and mitigation remain component-specific."
+  ]
+}

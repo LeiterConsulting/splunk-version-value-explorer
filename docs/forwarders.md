@@ -94,3 +94,13 @@ Enterprise receiver matrix, the direct Cloud service rule and the separate
 output-group citation. A negative case rejects applying Cloud-direct evidence
 to an intermediate source leg. Existing borrowed-runtime tests and source dates
 retain their own scope.
+
+## November 9 historical 10.4 TLS evidence
+
+The borrowed Heavy Forwarder TLS claim now resolves to the exact sections of both
+Enterprise 10.4 documents. READ THIS FIRST describes removal. The versioned TLS
+configuration guide describes a disabled-by-default, restart-required temporary
+opt-in with known security risks. Keep TLS 1.2 or higher as the inter-Splunk action
+and retain 10.6 removal of the opt-in as a separate fact. The route regression
+rejects dropping the second citation from the register. Other historical claim
+dates retain their original scope.

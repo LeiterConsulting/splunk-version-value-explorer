@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-soar-cmp-88-upgrade-example-destination",
+  "assessmentId": "vcia-release-20261109-soar-cmp-88-upgrade-example-destination",
+  "revision": 1,
+  "recordedAt": "2026-11-09T10:24:48.048Z",
+  "assessedAt": "2026-11-09T10:21:49.241Z",
+  "outcome": "still-present",
+  "rationale": "The unprivileged 8.8.0 example still names 8.6.0 in the introduction and ends at 8.8.0. The table independently keeps 6.4.1.x via 8.5.0 and Python 3.13. This check did not establish an exact supported package for every version or a privileged route.",
+  "reviewedScope": {
+    "products": [
+      "Splunk SOAR (On-premises)"
+    ],
+    "versions": [
+      "8.8.0 documentation; Phantom 4.6 example"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed unprivileged upgrade example"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating a historical SOAR path"
+    ],
+    "exclusions": [
+      "No target build, known/fixed issue, complete install path or supported deployment combination is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261109-7-0",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+      "section": "Example > introductory destination",
+      "statement": "The unprivileged 8.8.0 example still names 8.6.0 in the introduction and ends at 8.8.0. The table independently keeps 6.4.1.x via 8.5.0 and Python 3.13. This check did not establish an exact supported package for every version or a privileged route.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-09T10:16:39.847Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "1aaf9d3718a3dfc53d9825cc8d0b0787275dfd3622ec5830ab3d97048a35f657",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261109-7-1",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+      "section": "Example > final upgrade step",
+      "statement": "The unprivileged 8.8.0 example still names 8.6.0 in the introduction and ends at 8.8.0. The table independently keeps 6.4.1.x via 8.5.0 and Python 3.13. This check did not establish an exact supported package for every version or a privileged route.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-09T10:16:39.847Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "1aaf9d3718a3dfc53d9825cc8d0b0787275dfd3622ec5830ab3d97048a35f657",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/73d57d319f216ae0e65bbec968ca4b20e2ad37f4/docs/audits/2026-11-09-version-release-watch-sources.json",
+      "pointer": "/claimChecks/7",
+      "originalLabel": "contradiction"
+    }
+  ],
+  "comparedAssessmentIds": [],
+  "remainingConcerns": [
+    "Retain the exact version, deployment and scope qualifications pending authoritative reconciliation."
+  ]
+}

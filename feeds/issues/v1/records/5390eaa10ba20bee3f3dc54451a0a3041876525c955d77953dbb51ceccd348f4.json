@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-enterprise-104-legacy-tls-scope",
+  "assessmentId": "vcia-release-20261109-enterprise-104-legacy-tls-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-09T10:24:48.048Z",
+  "assessedAt": "2026-11-09T10:21:49.241Z",
+  "outcome": "still-present",
+  "rationale": "Enterprise 10.4 READ THIS FIRST describes complete removal; the versioned 10.4 TLS guide documents a disabled-by-default, restart-required temporary opt-in. The Enterprise 10.6 upgrade notes remove the opt-in. The candidate maps both 10.4 sections to the original HF claim; TLS 1.2 or higher remains the inter-Splunk action. This does not apply the same behavior to Universal Forwarders.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise and applicable Heavy Forwarder components"
+    ],
+    "versions": [
+      "10.4, with 10.6 context"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed inter-Splunk connections"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating documented release or feature scope"
+    ],
+    "exclusions": [
+      "No unlisted exact pairing, rollout, entitlement or customer authorization established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261109-1-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first",
+      "section": "Splunk has removed support for versions 1.0 and 1.1 of the Transport Layer Security (TLS) protocol",
+      "statement": "Enterprise 10.4 READ THIS FIRST describes complete removal; the versioned 10.4 TLS guide documents a disabled-by-default, restart-required temporary opt-in. The Enterprise 10.6 upgrade notes remove the opt-in. The candidate maps both 10.4 sections to the original HF claim; TLS 1.2 or higher remains the inter-Splunk action. This does not apply the same behavior to Universal Forwarders.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-09T10:16:39.898Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "f178b113ce27fcb6a8786b333b0f858f19356703f0a11ff704c2b2cb50e33c46",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261109-1-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/manage-users-and-security/10.4/secure-splunk-platform-communications-with-transport-layer-security-certificates/configure-tls-protocol-version-support-for-secure-connections-between-splunk-platform-instances",
+      "section": "Supported SSL and TLS protocol versions; Turn on support for older TLS versions with deprecatedTlsVersionSupport",
+      "statement": "Enterprise 10.4 READ THIS FIRST describes complete removal; the versioned 10.4 TLS guide documents a disabled-by-default, restart-required temporary opt-in. The Enterprise 10.6 upgrade notes remove the opt-in. The candidate maps both 10.4 sections to the original HF claim; TLS 1.2 or higher remains the inter-Splunk action. This does not apply the same behavior to Universal Forwarders.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-09T10:16:39.994Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "cb357540f94c24b055ba722a202a1bdfe55f2584616206603cbd64a427016751",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261109-1-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first",
+      "section": "Splunk has removed support for versions 1.0 and 1.1 of the Transport Layer Security (TLS) protocol",
+      "statement": "Enterprise 10.4 READ THIS FIRST describes complete removal; the versioned 10.4 TLS guide documents a disabled-by-default, restart-required temporary opt-in. The Enterprise 10.6 upgrade notes remove the opt-in. The candidate maps both 10.4 sections to the original HF claim; TLS 1.2 or higher remains the inter-Splunk action. This does not apply the same behavior to Universal Forwarders.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-09T10:16:39.926Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "c4a421b31709abad44adf4e9674ac597b4d5eafc20d088ef5657e26a307edc57",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/73d57d319f216ae0e65bbec968ca4b20e2ad37f4/docs/audits/2026-11-09-version-release-watch-sources.json",
+      "pointer": "/claimChecks/1",
+      "originalLabel": "contradiction"
+    }
+  ],
+  "comparedAssessmentIds": [],
+  "remainingConcerns": [
+    "Preserve both 10.4 documents pending authoritative reconciliation. TLS 1.2+ remains the safe inter-Splunk action."
+  ]
+}

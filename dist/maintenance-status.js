@@ -454,10 +454,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-08T18:33:36.032067Z",
+      "lastAttempt": "2026-11-09T10:12:35.874343Z",
       "lastSuccess": "2026-11-08T18:43:05.434Z",
-      "outcome": "no-change",
-      "summary": "Assessed all eleven registered claim families and recovered the exact Cloud readiness source. New release evidence is retained for a bounded report follow-up.",
+      "outcome": "blocked",
+      "summary": "Prepared SOAR Export and historical TLS repairs. Registry claim scope assessed; unresolved source bodies and candidate/live delivery gates remain.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -967,9 +967,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Assessed all eleven registered claim families and recovered the exact Cloud readiness source. New release evidence is retained for a bounded report follow-up.",
           "scope": "Maintained release inventory and exact Prep11/Advisor sections plus selected SOAR, Forwarder and security claims."
+        },
+        {
+          "at": "2026-11-09T10:12:35.874343Z",
+          "outcome": "running",
+          "summary": "Started November 9 scheduled source and claim review.",
+          "scope": "Release products, historical Forwarder citations and registry 1.2.0 Prep11/Advisor scope."
+        },
+        {
+          "at": "2026-11-09T10:22:06Z",
+          "outcome": "blocked",
+          "summary": "Prepared SOAR Export and historical TLS repairs. Registry claim scope assessed; unresolved source bodies and candidate/live delivery gates remain.",
+          "scope": "All maintained source URLs attempted. Bounded Prep11, Advisor, compatibility, SOAR, security and Forwarder sections assessed."
         }
       ],
-      "scope": "Maintained release inventory and exact Prep11/Advisor sections plus selected SOAR, Forwarder and security claims."
+      "scope": "All maintained source URLs attempted. Bounded Prep11, Advisor, compatibility, SOAR, security and Forwarder sections assessed."
     },
     {
       "id": "es-editions-watch",

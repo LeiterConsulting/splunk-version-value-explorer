@@ -141,14 +141,14 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.security.url",
-        "soar: soar.records.25"
+        "soar: soar.records.26"
       ],
       "reviews": [
         "2026-10-01"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.25",
+          "path": "soar: soar.records.26",
           "section": "Solutions; Product Status; CVE-2026-76362 Additional Solution"
         }
       ],
@@ -184,14 +184,14 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.packages.url",
-        "soar: soar.records.25"
+        "soar: soar.records.26"
       ],
       "reviews": [
         "2026-10-01"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.25",
+          "path": "soar: soar.records.26",
           "section": "Description: third-party fixes in 8.6.0 and higher"
         }
       ],
@@ -4958,9 +4958,9 @@ window.VersionCompassSources = {
           "release": "10.4",
           "component": "Legacy TLS protocols",
           "section": "Splunk has removed support for versions 1.0 and 1.1 of the Transport Layer Security (TLS) protocol",
-          "claimVerified": "2026-10-24",
+          "claimVerified": "2026-11-09",
           "outcome": "conflicting-evidence-preserved",
-          "qualification": "Heavy Forwarder uses the Enterprise package. October 24 semantic recheck: READ THIS FIRST says TLS 1.0/1.1 support was completely removed in 10.4, while the current TLS guide says both are off by default and can be temporarily re-enabled with deprecatedTlsVersionSupport. Preserve the conflict. This is not a UF rule, Cloud-managed installation requirement, or deployment approval."
+          "qualification": "Heavy Forwarder uses the Enterprise package. The 10.4 READ THIS FIRST says TLS 1.0/1.1 support was completely removed, while the versioned 10.4 TLS guide says both are off by default and describes a temporary, restart-required opt-in with known security risks. Use TLS 1.2 or higher for inter-Splunk connections. The 10.6 removal of the opt-in is a separate release fact. The conflict does not establish UF applicability, a Cloud-managed requirement, or deployment approval."
         },
         {
           "path": "forwarders: borrowed.technical.hf.10.4.certificate-signatures",
@@ -5227,6 +5227,45 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-09-25",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/manage-users-and-security/10.4/secure-splunk-platform-communications-with-transport-layer-security-certificates/configure-tls-protocol-version-support-for-secure-connections-between-splunk-platform-instances",
+      "title": "configure tls protocol version support for secure connections between splunk platform instances",
+      "areas": [
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "forwarders: borrowed.technical.hf.10.4.legacy-tls-protocols"
+      ],
+      "reviews": [],
+      "claimReferences": [
+        {
+          "path": "forwarders: borrowed.technical.hf.10.4.legacy-tls-protocols",
+          "claimId": "technical.hf.10.4.legacy-tls-protocols",
+          "release": "10.4",
+          "component": "Legacy TLS protocols",
+          "section": "Turn on support for older TLS versions with deprecatedTlsVersionSupport",
+          "claimVerified": "2026-11-09",
+          "outcome": "conflicting-evidence-preserved",
+          "qualification": "Heavy Forwarder uses the Enterprise package. The 10.4 READ THIS FIRST says TLS 1.0/1.1 support was completely removed, while the versioned 10.4 TLS guide says both are off by default and describes a temporary, restart-required opt-in with known security risks. Use TLS 1.2 or higher for inter-Splunk connections. The 10.6 removal of the opt-in is a separate release fact. The conflict does not establish UF applicability, a Cloud-managed requirement, or deployment approval."
+        }
+      ],
+      "conflict": true,
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-11-09",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-09",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -7736,7 +7775,7 @@ window.VersionCompassSources = {
       "references": [
         "soar.sources.requirements86.url",
         "content-updates.js",
-        "soar: soar.records.26",
+        "soar: soar.records.27",
         "soar: soar.targetRequirements.8.6.0"
       ],
       "reviews": [
@@ -7744,7 +7783,7 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.26",
+          "path": "soar: soar.records.27",
           "section": "Supported operating systems; PostgreSQL 15; Elasticsearch versions; bundled UF 10.4.0; container restriction"
         },
         {
@@ -7780,7 +7819,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.sizing86.url",
-        "soar: soar.records.27",
+        "soar: soar.records.28",
         "soar: soar.targetRequirements.8.6.0"
       ],
       "reviews": [
@@ -7788,7 +7827,7 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.27",
+          "path": "soar: soar.records.28",
           "section": "Production CPU, memory, volume sizing, network and system utilities"
         },
         {
@@ -8366,8 +8405,8 @@ window.VersionCompassSources = {
         "soar.sources.exportCloud.url",
         "content-updates.js",
         "editions: editions.notes.1",
-        "soar: soar.records.22",
         "soar: soar.records.23",
+        "soar: soar.records.24",
         "soar: soar.backlog.2"
       ],
       "reviews": [
@@ -8376,11 +8415,11 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.22",
+          "path": "soar: soar.records.23",
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
         },
         {
-          "path": "soar: soar.records.23",
+          "path": "soar: soar.records.24",
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
         },
         {
@@ -8421,8 +8460,8 @@ window.VersionCompassSources = {
         "soar.sources.exportEnterprise.url",
         "content-updates.js",
         "editions: editions.notes.1",
-        "soar: soar.records.22",
         "soar: soar.records.23",
+        "soar: soar.records.24",
         "soar: soar.backlog.2"
       ],
       "reviews": [
@@ -8431,11 +8470,11 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.22",
+          "path": "soar: soar.records.23",
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
         },
         {
-          "path": "soar: soar.records.23",
+          "path": "soar: soar.records.24",
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
         },
         {
@@ -8473,19 +8512,19 @@ window.VersionCompassSources = {
       "references": [
         "soar.sources.export.url",
         "content-updates.js",
-        "soar: soar.records.22",
-        "soar: soar.records.24"
+        "soar: soar.records.23",
+        "soar: soar.records.25"
       ],
       "reviews": [
         "2026-10-15"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.22",
+          "path": "soar: soar.records.23",
           "section": "Welcome to release 8.7.1; Known issues in release 8.7.0 (PAPP-38496); Fixed issues in release 8.7.0 (PAPP-38389)"
         },
         {
-          "path": "soar: soar.records.24",
+          "path": "soar: soar.records.25",
           "section": "Welcome to release 8.7.1; Known issues in release 8.7.0 (PAPP-38496); Fixed issues in release 8.7.0 (PAPP-38389)"
         }
       ],
@@ -8514,6 +8553,113 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-16",
           "event": "Review status updated: Reviewed · 2026-10-16"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+      "title": "SOAR Export 8.8.0 prerequisites on Splunk Cloud Platform",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.export88Cloud.url",
+        "soar: soar.records.22"
+      ],
+      "reviews": [
+        "2026-11-09"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.22",
+          "section": "Required Python version; Splunk product compatibility matrix; Required app"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-09",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-09",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-09",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+      "title": "SOAR Export 8.8.0 prerequisites on Splunk Enterprise",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.export88Enterprise.url",
+        "soar: soar.records.22"
+      ],
+      "reviews": [
+        "2026-11-09"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.22",
+          "section": "Required Python version; Splunk product compatibility matrix; Required app"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-09",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-09",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-09",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
+      "title": "Splunk App for SOAR Export 8.8.0 release notes",
+      "areas": [
+        "Splunk SOAR",
+        "Shared guidance"
+      ],
+      "references": [
+        "soar.sources.export88Release.url",
+        "content-updates.js",
+        "soar: soar.records.22"
+      ],
+      "reviews": [
+        "2026-11-09"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.22",
+          "section": "Welcome to release 8.8.0"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-09",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-09",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-09",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },
@@ -8931,6 +9077,41 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-11-08",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://splunkbase.splunk.com/app/3411",
+      "title": "Splunkbase: Splunk App for SOAR Export",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.exportCatalog.url",
+        "soar: soar.records.22"
+      ],
+      "reviews": [
+        "2026-11-09"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.22",
+          "section": "Default Version; Compatibility; Details on upgrade listings and functionality-tested combinations"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-09",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-09",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-09",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]

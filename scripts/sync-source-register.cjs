@@ -69,6 +69,14 @@ for(const claim of JSON.parse(fs.readFileSync(borrowedFile,'utf8')).claims){
  row.references.push(path);
  row.claimReferences=row.claimReferences||[];
  row.claimReferences.push({path,claimId:claim.claimId,release:claim.release,component:claim.component,section:claim.sections.join('; '),claimVerified:claim.claimVerificationDate,outcome:claim.outcome,qualification:claim.qualification});
+ for(const source of claim.supportingSources||[]){
+  if(source.url===claim.url||!source.section?.trim()||!/^https:\/\/help\.splunk\.com\//.test(source.url))throw Error('Invalid supporting HF source: '+claim.claimId);
+  add(source.url,{},'Splunk Forwarders',path);
+  const supporting=rows.get(source.url);
+  supporting.claimReferences||=[];
+  supporting.claimReferences.push({...row.claimReferences.at(-1),section:source.section});
+  if(claim.outcome==='conflicting-evidence-preserved')supporting.conflict=true;
+ }
 }
 const prior=new Map(previous.sources.map(r=>[r.url,r]));
 const sources=[...rows.values()].map(r=>{
