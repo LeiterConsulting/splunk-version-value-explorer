@@ -104,3 +104,7 @@ opt-in with known security risks. Keep TLS 1.2 or higher as the inter-Splunk act
 and retain 10.6 removal of the opt-in as a separate fact. The route regression
 rejects dropping the second citation from the register. Other historical claim
 dates retain their original scope.
+
+## November 9 Cloud 10.7 receiving-leg scope
+
+The [10.7 Service Details supported-forwarder table](https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#supported-forwarder-versions) lists Cloud 10.7.x with 9.4.x, 10.0.x, 10.2.x, 10.4.x and 10.6.x. The model uses this table for the 10.7 receiving selection and preserves the 10.6 source for earlier rows. The table applies to the forwarder that actually connects to Cloud. An intermediate source route still needs its own outbound-tier assessment. Existing topology, authorization, lifecycle and upgrade-target scope remain separate.

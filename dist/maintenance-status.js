@@ -454,10 +454,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-09T10:12:35.874343Z",
+      "lastAttempt": "2026-11-09T10:58:59.948057Z",
       "lastSuccess": "2026-11-08T18:43:05.434Z",
       "outcome": "blocked",
-      "summary": "Prepared SOAR Export and historical TLS repairs. Registry claim scope assessed; unresolved source bodies and candidate/live delivery gates remain.",
+      "summary": "Prepared the Cloud 10.7 receiving-leg correction. Candidate and production delivery gates remain separate.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -979,9 +979,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Prepared SOAR Export and historical TLS repairs. Registry claim scope assessed; unresolved source bodies and candidate/live delivery gates remain.",
           "scope": "All maintained source URLs attempted. Bounded Prep11, Advisor, compatibility, SOAR, security and Forwarder sections assessed."
+        },
+        {
+          "at": "2026-11-09T10:58:59.948057Z",
+          "outcome": "running",
+          "summary": "Started November 9 receiving-leg follow-up.",
+          "scope": "Maintained release sources, exact registry 1.2.0 claims, Cloud 10.7 receivers and SOAR 8.8 upgrades."
+        },
+        {
+          "at": "2026-11-09T11:03:50Z",
+          "outcome": "blocked",
+          "summary": "Prepared the Cloud 10.7 receiving-leg correction. Candidate and production delivery gates remain separate.",
+          "scope": "Maintained source inventory and bounded release, upgrade, receiver and registry sections."
         }
       ],
-      "scope": "All maintained source URLs attempted. Bounded Prep11, Advisor, compatibility, SOAR, security and Forwarder sections assessed."
+      "scope": "Maintained source inventory and bounded release, upgrade, receiver and registry sections."
     },
     {
       "id": "es-editions-watch",

@@ -12,7 +12,8 @@ const names={uf:'Universal Forwarder',hf:'Heavy Forwarder',cmp:'Splunk Enterpris
 const fields={type:'Forwarder',from:'Current',to:'Target',destination:'Deployment',receiver:'Enterprise receiver',cloudReceiver:'Cloud stack',os:'OS (exact release)',arch:'Architecture',provider:'Cloud provider',topology:'Topology'};
 const evidence=(claim,key)=>{const s=d.sources[key];return s?window.VersionCompassEvidence.html({claim,scope:s.section,urls:[s.url],verified:s.reviewed}):'';};
 const citation=key=>{const s=d.sources[key];return s?'<a href="'+esc(s.url)+'">'+esc(s.title)+'</a> · Checked '+esc(s.reviewed)+' · '+esc(s.section):'';};
-const field=k=>'<label data-forwarder-field="'+k+'"'+(k==='cloudReceiver'?' hidden':'')+'><span class="forwarder-field-label">'+esc(fields[k])+'</span><select data-forwarder="'+k+'">'+api.options[k].map(v=>'<option value="'+esc(v)+'">'+esc(names[v]||v)+'</option>').join('')+'</select></label>';
+const optionsFor=values=>values.map(v=>'<option value="'+esc(v)+'">'+esc(names[v]||v)+'</option>').join('');
+const field=k=>'<label data-forwarder-field="'+k+'"'+(k==='cloudReceiver'?' hidden':'')+'><span class="forwarder-field-label">'+esc(fields[k])+'</span><select data-forwarder="'+k+'">'+optionsFor(api.options[k])+'</select></label>';
 const products=document.querySelector('.product-switcher').outerHTML;
 document.querySelector('main').innerHTML=`<section class="hero forwarder-hero"><div class="eyebrow">SPLUNK FORWARDERS</div><h1>Find your upgrade path</h1><div class="selector-card">${products}<div class="forwarder-primary">${['type','from','to','destination','receiver','cloudReceiver'].map(field).join('')}</div><p class="forwarder-deployment-note" id="forwarder-deployment-note"></p><details class="forwarder-advanced"><summary>Refine for your environment <span id="forwarder-filter-summary">OS, provider, region &amp; topology</span></summary><div class="forwarder-controls">${['os','arch','provider','topology'].map(field).join('')}<label data-forwarder-field="region">Destination region code<input data-forwarder="region" maxlength="50" placeholder="Optional, e.g. us-east-1" aria-describedby="forwarder-scope-note"></label></div><p id="forwarder-scope-note">Splunk Enterprise can be customer-managed on premises or in your cloud. For an intermediate forwarding chain, assess each receiving hop separately. A region alone does not establish feature authorization.</p></details></div><div class="report-actions"><button id="copy-link" type="button">Copy comparison link</button><button id="print-report" type="button">Print / PDF</button><span id="share-status" role="status"></div></div></section><div id="forwarder-warnings" role="alert"></div><div id="results" tabindex="-1"></div><div id="release-report"></div>`;
 document.querySelectorAll('input[name="product"]').forEach(el=>{el.checked=el.value==='forwarders';el.addEventListener('change',()=>{location.href=themed('?product='+el.value);});});
@@ -42,6 +43,9 @@ function fullReport(m){
 }
 function render(){
  model=api.assess(state);const errors=[...linkErrors,...model.errors];
+ const receiverSelect=[...document.querySelectorAll('[data-forwarder]')].find(el=>el.dataset.forwarder==='receiver');
+ receiverSelect.innerHTML=optionsFor(api.receiverOptions(state.destination));
+ receiverSelect.value=state.receiver;
  const hybrid=state.destination==='hybrid',enterprise=state.destination==='cmp';
  document.querySelector('[data-forwarder-field="cloudReceiver"]').hidden=!hybrid;
  for(const k of ['provider','region'])document.querySelector('[data-forwarder-field="'+k+'"]').hidden=enterprise;
@@ -58,7 +62,7 @@ function render(){
  document.title='Version Compass | '+names[state.type]+' '+state.from+' → '+state.to;
  history.replaceState(null,'',themed(api.url(state))+(location.hash||''));
 }
-document.querySelectorAll('[data-forwarder]').forEach(el=>{el.value=state[el.dataset.forwarder]==='unspecified'&&el.tagName==='INPUT'?'':state[el.dataset.forwarder];el.addEventListener('change',()=>{state[el.dataset.forwarder]=el.value.trim()||'unspecified';linkErrors=[];render();});});
+document.querySelectorAll('[data-forwarder]').forEach(el=>{el.value=state[el.dataset.forwarder]==='unspecified'&&el.tagName==='INPUT'?'':state[el.dataset.forwarder];el.addEventListener('change',()=>{state[el.dataset.forwarder]=el.value.trim()||'unspecified';if(el.dataset.forwarder==='destination'&&!api.receiverOptions(state.destination).includes(state.receiver))state.receiver='unspecified';linkErrors=[];render();});});
 window.addEventListener('popstate',()=>{const next=api.read(location.search);Object.assign(state,next.state);linkErrors=next.errors;document.querySelectorAll('[data-forwarder]').forEach(e=>e.value=state[e.dataset.forwarder]==='unspecified'&&e.tagName==='INPUT'?'':state[e.dataset.forwarder]);render();});
 document.getElementById('copy-link').onclick=async()=>{try{await navigator.clipboard.writeText(location.href);document.getElementById('share-status').textContent='Comparison link copied.';}catch{document.getElementById('share-status').textContent='Copy this link: '+location.href;}};
 window.VersionCompassBuildSnapshot=()=>{if(linkErrors.length||model.errors.length)throw Error('Resolve selection warnings first.');return window.VersionCompassReports.decorate('<h1>'+esc(document.title)+'</h1><p>Full selected forwarder report with requirements, route changes, issues, actions and citations.</p>'+fullReport(model));};
