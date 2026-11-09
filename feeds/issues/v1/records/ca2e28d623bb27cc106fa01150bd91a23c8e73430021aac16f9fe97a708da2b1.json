@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-cloud-107-aws-israel-filter",
+  "revision": 1,
+  "recordedAt": "2026-11-09T13:45:27.286Z",
+  "assessmentId": "vcia-guidance-20261109-cloud-107-aws-israel-filter",
+  "assessedAt": "2026-11-09T13:43:14.505Z",
+  "outcome": "still-present",
+  "rationale": "The 10.7 service table lists Middle East (Israel) in the AWS Victoria column and the November 6 change log scopes it to relevant 10.7 versions. The exact main region catalog still has no Israel entry. This is a filter coverage issue limited to new-stack hosting. A candidate adding the region affects the three Advisor region-context dependencies and remains held for scoped revalidation.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform / VersionCompass Cloud Environment"
+    ],
+    "versions": [
+      "10.7"
+    ],
+    "editions": null,
+    "deployments": [
+      "AWS Victoria new stacks"
+    ],
+    "regions": [
+      "Israel (Tel Aviv), AWS Victoria"
+    ],
+    "audiences": null,
+    "exclusions": [
+      "Existing-stack migration, feature availability, premium pairing, historical rollout and regulated authorization remain separate."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261109-9-0",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions and region differences > Victoria Experience > AWS",
+      "statement": "Exact section used in the scoped comparison above.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-09T13:36:36.036Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ac0599891dcb4371660c5d86d6222108546d495b4d87ac66233fa553e1e05ad8",
+        "qualification": "Exact public response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261109-9-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "6 November 2026 > Available regions and region differences",
+      "statement": "Exact section used in the scoped comparison above.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-09T13:36:35.969Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "d99f3279d334cd457d500138bc79596570d0d912d0e57f80ff460fcb3f5e6446",
+        "qualification": "Exact public response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/a5b8fea9768108ebfde315834c1bade1ace485b8/docs/audits/2026-11-09-version-guidance-audit.json",
+      "pointer": "/claimChecks/9",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [],
+  "remainingConcerns": [
+    "Validate the exact region dependency and both-theme exports before admitting the filter option."
+  ]
+}

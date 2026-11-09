@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-itsi-subagent-region",
+  "revision": 1,
+  "recordedAt": "2026-11-09T13:45:27.286Z",
+  "assessmentId": "vcia-guidance-20261109-itsi-subagent-region",
+  "assessedAt": "2026-11-09T13:43:14.505Z",
+  "outcome": "unable-to-verify",
+  "rationale": "The ITSI subagent section and its note require ITSI 5.0.0+, MCP Server 1.2.1+ and SAIA 2.2.0+. The base installation guide supplies separate platform/region and regulated deployment context. The floor comparisons are useful independently, while supported exact tuples, actual enablement and ITSI-subagent rollout remain unestablished.",
+  "reviewedScope": {
+    "products": [
+      "Splunk ITSI"
+    ],
+    "versions": [
+      "ITSI 5.0.0+ / MCP Server 1.2.1+ / SAIA 2.2.0+"
+    ],
+    "editions": null,
+    "deployments": [
+      "Assistant subagent"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No tenant availability, entitlement, authorization or deployment suitability is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261109-3-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+      "section": "Splunk AI Assistant ITSI subagent and version note",
+      "statement": "Exact section used in the scoped comparison above.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-09T13:36:51.082Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "4f42311720f28a967869d8f96fb741d097e14d8a23fb8632785167dee0027f52",
+        "qualification": "Exact public response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261109-3-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "section": "FedRAMP deployments; supported regions; version compatibility",
+      "statement": "Exact section used in the scoped comparison above.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-09T13:36:51.046Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "d61f632f4141306f38cdbe64099295541aacbaba84a49e7164fec91a0c033ab0",
+        "qualification": "Exact public response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/a5b8fea9768108ebfde315834c1bade1ace485b8/docs/audits/2026-11-09-version-guidance-audit.json",
+      "pointer": "/claimChecks/3",
+      "originalLabel": "unable-to-verify"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261109-itsi-subagent-region"
+  ],
+  "remainingConcerns": [
+    "Locate a feature-specific official ITSI subagent regional source. Avoid using the base assistant list."
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-soar-cmp-88-upgrade-example-destination",
+  "revision": 1,
+  "recordedAt": "2026-11-09T13:45:27.286Z",
+  "assessmentId": "vcia-guidance-20261109-soar-cmp-88-upgrade-example-destination",
+  "assessedAt": "2026-11-09T13:43:14.505Z",
+  "outcome": "still-present",
+  "rationale": "The exact unprivileged guide still opens the Phantom 4.6 example with 8.6.0 and ends it at 8.8.0. The independent table gives 6.4.1.x via 8.5.0 and Python 3.13; the preparation overview separately requires conversion of privileged deployments. No exact 8.8 server package is established here, and the 8.8.0_1 documentation suffix is not a build ID.",
+  "reviewedScope": {
+    "products": [
+      "Splunk SOAR (On-premises)"
+    ],
+    "versions": [
+      "8.8.0 documentation"
+    ],
+    "editions": null,
+    "deployments": [
+      "Unprivileged comparison, Phantom example"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No target build, known/fixed issue, complete install path or supported deployment combination is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261109-13-0",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+      "section": "Upgrade path table > 6.4.1.x; Example introduction and final step",
+      "statement": "Exact section used in the scoped comparison above.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-09T13:37:06.499Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "e69e622d812a00ba9f26e1bfc7af8ae3d807e35fbeefcfbe635b3f6cef582e04",
+        "qualification": "Exact public response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261109-13-1",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0_1/upgrade-splunk-soar-on-premises/splunk-soar-on-premises-upgrade-overview-and-prerequisites",
+      "section": "Upgrade overview > Conditional privileged conversion",
+      "statement": "Exact section used in the scoped comparison above.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-09T13:37:06.590Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9948f169d6651b992b07f4dc56abe7e9165bd4b8378c101126dafe4fcf4dc223",
+        "qualification": "Exact public response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261109-13-2",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.8.0_1/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+      "section": "November 4, 2026 Release 8.8",
+      "statement": "Exact section used in the scoped comparison above.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-09T13:37:06.578Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "81f95c882033e42dbbb947313824d85817920ecccd8e7780c846b62b2fbe20ba",
+        "qualification": "Exact public response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/a5b8fea9768108ebfde315834c1bade1ace485b8/docs/audits/2026-11-09-version-guidance-audit.json",
+      "pointer": "/claimChecks/13",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261109-cloud107-soar-cmp-88-upgrade-example-destination"
+  ],
+  "remainingConcerns": [
+    "Confirm the exact supported target/build and separate privileged conversion path."
+  ]
+}

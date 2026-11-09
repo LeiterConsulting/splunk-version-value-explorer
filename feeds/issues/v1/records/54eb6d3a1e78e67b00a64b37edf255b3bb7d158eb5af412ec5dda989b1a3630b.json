@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-svd-2026-1015-applicability",
+  "revision": 1,
+  "recordedAt": "2026-11-09T13:45:27.286Z",
+  "assessmentId": "vcia-guidance-20261109-svd-2026-1015-applicability",
+  "assessedAt": "2026-11-09T13:43:14.505Z",
+  "outcome": "partially-addressed",
+  "rationale": "The advisory lists Enterprise 10.0 bundled Node.js as affected, 9.4 and 10.2+ as unaffected by that component issue, and UF as unaffected. Visual Exporter has a separate disable/remove mitigation. Automation Broker, Observability Cloud and OpenTelemetry Collector remain affected with remediation in progress. Synthetic Runner’s documented 1.71.0+ recommendation applies to that component only.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise, Forwarders, SOAR and Observability"
+    ],
+    "versions": [
+      "November 6 advisory"
+    ],
+    "editions": null,
+    "deployments": [
+      "Component-specific"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261109-17-0",
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1015",
+      "section": "Product Status > Affected and Unaffected Products; November 6 Changelog",
+      "statement": "Exact section used in the scoped comparison above.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-09T13:36:23.119Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "fc9049c0604db39c6642383e8aa31518c171d6e3a97a8314f47866792394a432",
+        "qualification": "Exact public response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/a5b8fea9768108ebfde315834c1bade1ace485b8/docs/audits/2026-11-09-version-guidance-audit.json",
+      "pointer": "/claimChecks/17",
+      "originalLabel": "partially-addressed"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261109-svd-2026-1015-applicability"
+  ],
+  "remainingConcerns": [
+    "Recheck each affected product still in progress separately for an explicit fixed build."
+  ]
+}
