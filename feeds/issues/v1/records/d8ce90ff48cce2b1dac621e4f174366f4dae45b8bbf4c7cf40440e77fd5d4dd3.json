@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "findingId": "vci-cloud-107-aws-israel-filter",
+  "revision": 1,
+  "recordedAt": "2026-11-09T13:14:20.539Z",
+  "title": "Cloud 10.7 AWS Israel is missing from the environment filter",
+  "concernType": "coverage-gap",
+  "problem": "The Cloud 10.7 Victoria new-stack table lists Israel, but the reviewed VersionCompass environment catalog cannot select that location. The proposed catalog change is held after it triggered the existing Advisor region dependency gate.",
+  "scope": {
+    "products": [
+      "Splunk Cloud Platform",
+      "VersionCompass Cloud Environment"
+    ],
+    "versions": [
+      "10.7"
+    ],
+    "editions": null,
+    "deployments": [
+      "Commercial AWS Victoria new stacks"
+    ],
+    "regions": [
+      "Israel (Tel Aviv), il-central-1"
+    ],
+    "audiences": null,
+    "exclusions": [
+      "Existing-stack migration, feature availability, premium pairing, historical rollout and regulated authorization remain separate."
+    ]
+  },
+  "scopeComparison": "The official service documentation covers new Victoria stacks. The gap is in the VersionCompass selector and does not question Splunk service availability.",
+  "impact": {
+    "level": "moderate",
+    "customerScenario": "A reader is evaluating the documented Israel location for a new AWS Victoria stack.",
+    "consequence": "The shared environment filter cannot represent the exact location, so the reader may miss the hosting evidence."
+  },
+  "confidence": {
+    "level": "high",
+    "rationale": "The two exact public Splunk sections agree on the location and version line, and the pinned reviewed dataset lacks an Israel region entry."
+  },
+  "claimIds": [
+    "availability:platform:aws-israel"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Candidate held after testing exposed a shared Advisor dependency. CSP FedRAMP Watch and Guidance Audit review the exact dependency and affected exports by November 10, 2026."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261109-israel-0",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions and region differences > Victoria Experience > AWS",
+      "statement": "Israel appears in the AWS Victoria new-stack column.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-09T13:01:35.786Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b4afd2a458cc2ca321e3f18a605edb1db34a34d21026bc03d3f4737acb5511db",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261109-israel-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "6 November 2026 > Available regions and region differences",
+      "statement": "The Israel addition applies to relevant 10.7 versions.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-09T13:01:35.802Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "37ccfe6739b120b02cf04a57a7cb30105ed672e9ee72dd901b4d21f143d0099d",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "coverageSearch": {
+    "question": "Can the current public environment filter represent the Cloud 10.7 AWS Victoria Israel new-stack row?",
+    "expectedAnswer": "A scoped filter option and source-backed hosting record that leave the other product, feature and authorization decisions independent.",
+    "corpusEvidenceIds": [
+      "csp-20261109-israel-0",
+      "csp-20261109-israel-1"
+    ],
+    "searchedAt": "2026-11-09T13:06:55.279Z",
+    "limits": "Checked exact 10.7 service and change log sections and the environment dataset at the audit baseline commit. No broader service claim was evaluated."
+  },
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/27658d04466b59d5481df4375b20e20c37f3dd1c/docs/audits/2026-11-09-csp-fedramp-watch-sources.json",
+      "pointer": "/claimChecks/0",
+      "originalLabel": "changed"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-fedramp-moderate-certified-services-display",
+  "assessmentId": "vcia-csp-20261109-fedramp-moderate-certified-services-display",
+  "revision": 1,
+  "recordedAt": "2026-11-09T13:08:32.013Z",
+  "assessedAt": "2026-11-09T13:06:55.279Z",
+  "outcome": "still-present",
+  "rationale": "Both exact offerings still show FedRAMP Certified. The Moderate response exposes an empty Certified Services list. The High record lists Private Connectivity, Cloud Platform, ES and ITSI. Moderate named services remain unresolved against the earlier dated observation, and High SOAR scope remains unestablished. Neither record supplies Observability authorization.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform and named Certified Services"
+    ],
+    "versions": [
+      "F1607197917 and FR2314156865"
+    ],
+    "editions": null,
+    "deployments": [
+      "Class C Moderate and Class D High"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No customer authorization, entitlement or rollout is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261109-2-0",
+      "url": "https://www.fedramp.gov/marketplace/products/F1607197917/",
+      "section": "Overview > Status, Class and Certified Services data",
+      "statement": "FedRAMP Certified, Class C, and an empty certified_services array in the public response.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-09T13:01:26.867Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "385b3d08b0af902745f5a4623a1d36484315ee53979d6ed5b79fa9a0e26b6547",
+        "qualification": "Digest of direct response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261109-2-1",
+      "url": "https://www.fedramp.gov/marketplace/products/FR2314156865/",
+      "section": "Overview > Status, Class and Certified Services data",
+      "statement": "FedRAMP Certified, Class D, with four named services.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-09T13:01:26.846Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "7f8a085fa172eae9e1a3078dddf0180cd9092cd9bc581deaa6f6ba624560d936",
+        "qualification": "Digest of direct response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/27658d04466b59d5481df4375b20e20c37f3dd1c/docs/audits/2026-11-09-csp-fedramp-watch-sources.json",
+      "pointer": "/claimChecks/2",
+      "originalLabel": "scope-display-discrepancy"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261108-fedramp-moderate-certified-services-display"
+  ],
+  "remainingConcerns": [
+    "Recheck exact Moderate component display, S3 legacy and expanded scope, subagent-specific ITSI rollout, and recover the ES Cloud Connect setup page. Reconcile a matching task result and production authorization with independent Guidance Audit."
+  ]
+}
