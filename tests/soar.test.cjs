@@ -56,6 +56,19 @@ test('SOAR Export FIPS repair is target-specific and does not invent SOAR or App
  assert(d.records.find(r=>r.id==='export-fips').verified==='2026-10-15');
 });
 
+test('SOAR Export 8.8 keeps the tested combination apart from App and server paths',()=>{
+ const c=core(),a=c.window.VersionCompassSOAR;
+ const selection={...a.defaults,deployment:'cloud',from:'8.7.0',to:'8.8.0'};
+ const report=a.assess(selection);
+ const row=report.technical.find(x=>x.id==='export88');
+ assert.match(row.detail,/Python 3\.13.*CIM 8\.5\.0-1681.*Enterprise 10\.4\.2 or 10\.2\.2.*Cloud Platform 10\.5\.2605 or 10\.4\.2604/);
+ assert.match(row.detail,/optional ES.*upgrade listing purposes/);
+ assert.deepEqual(Array.from(row.src),['export88Release','export88Enterprise','export88Cloud','exportCatalog']);
+ assert(!report.technical.find(x=>x.id==='app88').src.some(id=>id.startsWith('export')));
+ assert(!a.assess({...selection,from:'8.6.0',to:'8.7.0'}).technical.some(x=>x.id==='export88'));
+ assert(!a.targets('cmp').includes('8.8.0'));
+});
+
 test('SOAR restricted environments never inherit commercial features or Platform authorization',()=>{const a=core().window.VersionCompassSOAR;
  for(const compliance of ['fr-m','fr-h']){const r=a.assess({...a.defaults,deployment:'cloud',compliance});assert(r.features.every(x=>x.status==='Not established for selected environment'));assert(r.questions.length);}
  assert.equal(a.assess({...a.defaults,deployment:'cloud',compliance:'fr-h'}).availability.status,'Not established');

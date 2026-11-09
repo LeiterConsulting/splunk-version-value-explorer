@@ -325,6 +325,9 @@ try {
       if(route.id==='soar-cloud-fedramp-moderate') {
         for(const qualification of ['November 6 Moderate Marketplace list named SOAR','N/A for Certified Services','native-data migration limits']) assert(normalize(expected.text).includes(qualification), 'Moderate SOAR qualification missing: '+qualification);
       }
+      if(route.id==='soar-cloud-88') {
+        for(const qualification of ['SOAR Export 8.8.0 functionality-tested combinations','CIM 8.5.0-1681','for upgrade listing purposes']) assert(normalize(expected.text).includes(qualification), 'SOAR Export qualification missing: '+qualification);
+      }
       if(route.id==='enterprise') expected.paginationPairs=[{heading:'Recommended action',following:'Match the exact package identifier to its release'}];
       if(route.id==='observability-october') expected.paginationPairs=[
         {heading:'Kubernetes persistent-volume metric defaults',following:'Chart 0.162.1 does not explicitly enable these five metrics'},

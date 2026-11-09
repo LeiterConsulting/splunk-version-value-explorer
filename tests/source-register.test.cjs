@@ -42,6 +42,10 @@ test('actual UF/HF routes retain sources for steps, receivers, topology and borr
   assert.equal(mapping.url,record.source);
   const row=rows.find(r=>r.url===record.source);
   assert(row?.claimReferences?.some(ref=>ref.claimId===mapping.claimId&&ref.section===mapping.sections.join('; ')&&ref.claimVerified===mapping.claimVerificationDate),'Missing exact borrowed section: '+mapping.claimId);
+  for(const source of mapping.supportingSources||[]){
+   const supporting=rows.find(r=>r.url===source.url);
+   assert(supporting?.claimReferences?.some(ref=>ref.claimId===mapping.claimId&&ref.section===source.section&&ref.claimVerified===mapping.claimVerificationDate),'Missing supporting borrowed section: '+mapping.claimId);
+  }
   seen.add(mapping.claimId);
  }
  for(const type of ['uf','hf'])for(const from of data.releases)for(const to of data.releases){
@@ -66,6 +70,11 @@ test('actual UF/HF routes retain sources for steps, receivers, topology and borr
  const id=mappings.find(m=>m.release===inherited.release&&m.component===inherited.component).claimId;
  damaged.find(r=>r.url===inherited.source).claimReferences=damaged.find(r=>r.url===inherited.source).claimReferences.filter(ref=>ref.claimId!==id);
  assert.throws(()=>verifyBorrowed(inherited,damaged),/Missing exact borrowed section/);
+ const tls=api.assess({...api.defaults,type:'hf',from:'10.2',to:'10.4'}).technical.find(t=>t.component==='Legacy TLS protocols');
+ const tlsMapping=mappings.find(m=>m.claimId==='technical.hf.10.4.legacy-tls-protocols');
+ assert.match(tlsMapping.supportingSources[0].section,/deprecatedTlsVersionSupport/);
+ damaged.find(r=>r.url===tlsMapping.supportingSources[0].url).claimReferences=[];
+ assert.throws(()=>verifyBorrowed(tls,damaged),/Missing supporting borrowed section/);
 });
 test('every declared Forwarder claim retains an exact source and section mapping',()=>{
  const c={window:{}};vm.createContext(c);
