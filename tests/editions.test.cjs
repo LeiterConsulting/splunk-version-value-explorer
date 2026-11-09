@@ -13,7 +13,7 @@ test('public editions and legacy preview routes load editions; release routes st
 });
 test('all evidence records have dated, official HTTPS citations and known edition statuses',()=>{
  assert.equal(data.capabilities.length,21);assert.equal(new Set(data.capabilities.map(x=>x.id)).size,21);
- for(const r of [...data.capabilities,...data.notes,...data.workflows,...data.highlights,...data.conflicts.flatMap(c=>c.claims)]){assert(r.src.length);for(const key of r.src){const s=data.sources[key];assert(s,key);const u=new URL(s.u);assert.equal(u.protocol,'https:');assert(['www.splunk.com','help.splunk.com'].includes(u.hostname));assert.match(s.reviewed,/^\d{4}-\d{2}-\d{2}$/);} }
+ for(const r of [...data.capabilities,...data.notes,...data.workflows,...data.highlights,...data.conflicts.flatMap(c=>c.claims)]){assert(r.src.length);for(const key of r.src){const s=data.sources[key];assert(s,key);const u=new URL(s.u);assert.equal(u.protocol,'https:');assert(['www.splunk.com','help.splunk.com','splunkbase.splunk.com'].includes(u.hostname));assert.match(s.reviewed,/^\d{4}-\d{2}-\d{2}$/);} }
  for(const c of data.capabilities)for(const cell of [c.ess,c.prem])assert(['yes','no','part','review'].includes(cell.v));
  for(const id of ['triage-agent','guided-response']){const c=data.capabilities.find(x=>x.id===id);assert.equal(c.ess.v,'review');assert(c.flag);assert(c.src.length>=2);}
  const connector=data.capabilities.find(x=>x.id==='connector-builder');assert.equal(connector.ess.v,'yes');assert.equal(connector.prem.v,'yes');assert.match(connector.flag,/8\.7 conflict/);
@@ -27,9 +27,11 @@ test('ES editions keeps the tested App for SOAR and SOAR Export rows separate',(
  assert.match(note.details,/App for SOAR 8\.8\.0.*optional ES 8\.8\.0 or 8\.7\.0/);
  assert.match(note.details,/SOAR on-premises 8\.8\.0 plus an unresolved entry printed as 8\.\.0/);
  assert.match(note.details,/App 8\.7\.0 row lists ES 8\.7\.0 or 8\.6\.1/);
+ assert.match(note.details,/SOAR Export 8\.8\.0 functionality-tested rows require Python 3\.13 and CIM 8\.5\.0-1681/);
+ assert.match(note.details,/optional ES 8\.8\.0 or 8\.7\.0/);
  assert.match(note.details,/SOAR Export 8\.7\.1 row lists ES 8\.7\.0 or 8\.6\.0, Python 3\.13 and CIM/);
  assert.match(note.details,/do not establish configured native pairing, feature entitlement or regulated authorization/);
- for(const id of ['appForSoar88','appForSoar87','soarExportEnterprise87','soarExportCloud87']){
+ for(const id of ['appForSoar88','appForSoar87','soarExportEnterprise88','soarExportCloud88','soarExportEnterprise87','soarExportCloud87']){
   assert(note.src.includes(id));
   assert.match(data.sources[id].section,/Splunk product compatibility matrix/);
  }

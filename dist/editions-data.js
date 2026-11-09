@@ -205,6 +205,34 @@ window.VersionCompassEditions = {
       "reviewed": "2026-11-06",
       "section": "Required Python version; Splunk product compatibility matrix, 8.7.1 row; Required app",
       "verificationScope": "Exact optional ES values and the separate Python and CIM prerequisites."
+    },
+    "soarExportRelease88": {
+      "t": "SOAR Export 8.8.0 release notes",
+      "u": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
+      "reviewed": "2026-11-09",
+      "section": "Welcome to release 8.8.0",
+      "verificationScope": "November 4 maintenance-release identity and absence of claimed new features; not a tested pairing matrix."
+    },
+    "soarExportEnterprise88": {
+      "t": "SOAR Export 8.8.0 prerequisites on Enterprise",
+      "u": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+      "reviewed": "2026-11-09",
+      "section": "Required Python version; Splunk product compatibility matrix; Required app",
+      "verificationScope": "Exact optional ES, Enterprise, SOAR, Python and CIM values in the functionality-tested row."
+    },
+    "soarExportCloud88": {
+      "t": "SOAR Export 8.8.0 prerequisites on Cloud Platform",
+      "u": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+      "reviewed": "2026-11-09",
+      "section": "Required Python version; Splunk product compatibility matrix; Required app",
+      "verificationScope": "Exact optional ES, Cloud Platform, SOAR, Python and CIM values in the functionality-tested row."
+    },
+    "soarExportCatalog88": {
+      "t": "Splunkbase: Splunk App for SOAR Export",
+      "u": "https://splunkbase.splunk.com/app/3411",
+      "reviewed": "2026-11-09",
+      "section": "Default Version; Compatibility; Details on upgrade listings and functionality-tested combinations",
+      "verificationScope": "Catalog and upgrade-listing scope only; it does not replace the versioned tested matrices."
     }
   },
   "capabilities": [
@@ -782,10 +810,14 @@ window.VersionCompassEditions = {
         "regions",
         "appForSoar88",
         "appForSoar87",
+        "soarExportRelease88",
+        "soarExportEnterprise88",
+        "soarExportCloud88",
+        "soarExportCatalog88",
         "soarExportEnterprise87",
         "soarExportCloud87"
       ],
-      "details": "The current 8.8 guide preserves distinct SOAR pairing matrices and certificate rules, while the 8.7 guide remains historical evidence. Pairing is unsupported on Enterprise 9.4.0–9.4.2. Review the target-version source for exact SOAR versions, hybrid certificate requirements and government-cloud exclusions. The separate App for SOAR 8.8.0 functionality-tested row lists optional ES 8.8.0 or 8.7.0, Enterprise 10.4.2 or 10.2.2, Cloud Platform 10.5.2605 or 10.4.2604, SOAR Cloud 8.8.0 or 8.7.0, and SOAR on-premises 8.8.0 plus an unresolved entry printed as 8..0. The older App 8.7.0 row lists ES 8.7.0 or 8.6.1. The distinct SOAR Export 8.7.1 row lists ES 8.7.0 or 8.6.0, Python 3.13 and CIM 8.7.0-2335 or 8.5.0-1681. These tested app rows do not establish configured native pairing, feature entitlement or regulated authorization."
+      "details": "The current 8.8 guide preserves distinct SOAR pairing matrices and certificate rules, while the 8.7 guide remains historical evidence. Pairing is unsupported on Enterprise 9.4.0–9.4.2. Review the target-version source for exact SOAR versions, hybrid certificate requirements and government-cloud exclusions. The separate App for SOAR 8.8.0 functionality-tested row lists optional ES 8.8.0 or 8.7.0, Enterprise 10.4.2 or 10.2.2, Cloud Platform 10.5.2605 or 10.4.2604, SOAR Cloud 8.8.0 or 8.7.0, and SOAR on-premises 8.8.0 plus an unresolved entry printed as 8..0. The older App 8.7.0 row lists ES 8.7.0 or 8.6.1. The distinct SOAR Export 8.8.0 functionality-tested rows require Python 3.13 and CIM 8.5.0-1681, list optional ES 8.8.0 or 8.7.0, Enterprise 10.4.2 or 10.2.2, Cloud Platform 10.5.2605 or 10.4.2604, and SOAR Cloud or on-premises 8.8.0 or 8.7.0. Its November 4 release notes describe a maintenance release with no new features; the broader Splunkbase upgrade listing remains catalog scope rather than a substitute for the tested matrices. The SOAR Export 8.7.1 row lists ES 8.7.0 or 8.6.0, Python 3.13 and CIM 8.7.0-2335 or 8.5.0-1681. These tested app rows do not establish configured native pairing, feature entitlement or regulated authorization."
     },
     {
       "id": "assistants",

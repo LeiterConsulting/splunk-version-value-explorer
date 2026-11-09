@@ -8573,12 +8573,17 @@ window.VersionCompassSources = {
     },
     {
       "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
-      "title": "SOAR Export 8.8.0 prerequisites on Splunk Cloud Platform",
+      "title": "SOAR Export 8.8.0 prerequisites on Cloud Platform",
       "areas": [
-        "Splunk SOAR"
+        "ES editions",
+        "Splunk SOAR",
+        "Shared guidance"
       ],
       "references": [
+        "editions.sources.soarExportCloud88.u",
         "soar.sources.export88Cloud.url",
+        "content-updates.js",
+        "editions: editions.notes.1",
         "soar: soar.records.22"
       ],
       "reviews": [
@@ -8608,12 +8613,15 @@ window.VersionCompassSources = {
     },
     {
       "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
-      "title": "SOAR Export 8.8.0 prerequisites on Splunk Enterprise",
+      "title": "SOAR Export 8.8.0 prerequisites on Enterprise",
       "areas": [
+        "ES editions",
         "Splunk SOAR"
       ],
       "references": [
+        "editions.sources.soarExportEnterprise88.u",
         "soar.sources.export88Enterprise.url",
+        "editions: editions.notes.1",
         "soar: soar.records.22"
       ],
       "reviews": [
@@ -8643,14 +8651,17 @@ window.VersionCompassSources = {
     },
     {
       "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
-      "title": "Splunk App for SOAR Export 8.8.0 release notes",
+      "title": "SOAR Export 8.8.0 release notes",
       "areas": [
+        "ES editions",
         "Splunk SOAR",
         "Shared guidance"
       ],
       "references": [
+        "editions.sources.soarExportRelease88.u",
         "soar.sources.export88Release.url",
         "content-updates.js",
+        "editions: editions.notes.1",
         "soar: soar.records.22"
       ],
       "reviews": [
@@ -9100,10 +9111,13 @@ window.VersionCompassSources = {
       "url": "https://splunkbase.splunk.com/app/3411",
       "title": "Splunkbase: Splunk App for SOAR Export",
       "areas": [
+        "ES editions",
         "Splunk SOAR"
       ],
       "references": [
+        "editions.sources.soarExportCatalog88.u",
         "soar.sources.exportCatalog.url",
+        "editions: editions.notes.1",
         "soar: soar.records.22"
       ],
       "reviews": [
