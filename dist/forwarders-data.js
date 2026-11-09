@@ -64,6 +64,12 @@ window.VersionCompassForwarderData = {
       "reviewed": "2026-10-07",
       "section": "Compatibility between forwarders and Splunk Enterprise indexers; forwarder-version / indexer-version table"
     },
+    "cloud107": {
+      "title": "Splunk Cloud Platform 10.7 Service Details: supported forwarder versions",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "reviewed": "2026-11-09",
+      "section": "Supported versions — Supported forwarder versions; 9.4.x, 10.0.x, 10.2.x, 10.4.x and 10.6.x rows naming Cloud 10.7.x; direct connection and Cloud-facing intermediate tier scope"
+    },
     "cloud": {
       "title": "Cloud service details: supported forwarders",
       "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
@@ -157,6 +163,13 @@ window.VersionCompassForwarderData = {
       "reviewed": "2026-10-26"
     }
   },
+  "cloud107ForwarderLines": [
+    "9.4",
+    "10.0",
+    "10.2",
+    "10.4",
+    "10.6"
+  ],
   "claimSources": {
     "technical.hf-kv-store-10.6": {
       "title": "HF 10.6 KV Store database engine",
@@ -196,7 +209,10 @@ window.VersionCompassForwarderData = {
     },
     "receiver.cloud": {
       "title": "Direct Universal and Heavy Forwarder to Cloud stack compatibility",
-      "src": "cloud"
+      "sources": [
+        "cloud",
+        "cloud107"
+      ]
     },
     "topology.enterprise-intermediate": {
       "title": "Intermediate forwarding tier to Enterprise",
@@ -204,7 +220,10 @@ window.VersionCompassForwarderData = {
     },
     "topology.cloud-intermediate": {
       "title": "Cloud-facing intermediate forwarding tier",
-      "src": "cloud"
+      "sources": [
+        "cloud",
+        "cloud107"
+      ]
     },
     "topology.multiple-target-groups": {
       "title": "Hybrid output groups, routing and data cloning",

@@ -2326,6 +2326,7 @@ window.VersionCompassSources = {
       "areas": [
         "Release guide",
         "Cloud environment",
+        "Splunk Forwarders",
         "Shared guidance"
       ],
       "references": [
@@ -2334,13 +2335,27 @@ window.VersionCompassSources = {
         "release.productTracks.es.cloudServiceSource",
         "release.productTracks.itsi.cloudServiceSource",
         "environment.sources.service107.url",
+        "forwarders.sources.cloud107.url",
         "content-updates.js",
         "environment: environment.records.61",
         "environment: environment.records.62",
-        "environment: environment.records.63"
+        "environment: environment.records.63",
+        "forwarders: forwarders.claimSources.receiver.cloud",
+        "forwarders: forwarders.claimSources.topology.cloud-intermediate"
       ],
       "reviews": [
-        "2026-11-07"
+        "2026-11-07",
+        "2026-11-09"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.receiver.cloud",
+          "section": "Supported versions — Supported forwarder versions; 9.4.x, 10.0.x, 10.2.x, 10.4.x and 10.6.x rows naming Cloud 10.7.x; direct connection and Cloud-facing intermediate tier scope"
+        },
+        {
+          "path": "forwarders: forwarders.claimSources.topology.cloud-intermediate",
+          "section": "Supported versions — Supported forwarder versions; 9.4.x, 10.0.x, 10.2.x, 10.4.x and 10.6.x rows naming Cloud 10.7.x; direct connection and Cloud-facing intermediate tier scope"
+        }
       ],
       "usage": "In use",
       "reviewed": "2026-11-08",

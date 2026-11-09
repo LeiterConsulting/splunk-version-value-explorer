@@ -112,6 +112,28 @@ try {
     await page.goto(url); await settled(page);
     await configureAdvisorRoute(page,route);
     await verifyExact(page,route,theme);
+    if(route.id==='forwarder-invalid-enterprise-107'){
+      assert.equal(new URL(page.url()).searchParams.get('receiver'),'10.7');
+      assert(await page.locator('#forwarder-warnings').isVisible());
+      assert(await page.locator('#results').isHidden());
+      assert(await page.evaluate(()=>{try{window.VersionCompassBuildSnapshot();return false;}catch{return true;}}));
+      entry.selectionRecovery={passed:true,originalInputRetained:true,noSubstituteReport:true};
+    }
+    if(route.id.startsWith('forwarder-cloud-107')){
+      await page.waitForFunction(()=>window.__reportTools?.compare_forwarder_routes);
+      const result=await page.evaluate(()=>{
+        const tool=window.__reportTools.compare_forwarder_routes;
+        const state=window.VersionCompassForwarders.read(location.search).state, url=location.href;
+        const {reports:[report],sources}=tool.execute({routes:[state]});
+        const claim=report.claims.find(item=>item.source==='cloud107');
+        return {claim,section:sources.cloud107.section,stable:location.href===url,readOnly:tool.annotations.readOnlyHint};
+      });
+      assert(result.stable&&result.readOnly&&result.claim,'Missing stable Cloud 10.7 read-only report');
+      assert.equal(result.claim.status,route.id.endsWith('intermediate')?'not_established':'conditional');
+      assert.match(result.section,/direct connection/);
+      assert((await page.locator('.forwarder-compatibility').textContent()).includes(result.claim.detail),'Cloud 10.7 screen and tool disagree');
+      entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
+    }
     if(route.id==='soar-cloud-88'){
       await page.waitForFunction(()=>window.__reportTools?.versioncompass_get_current_report);
       const toolResult=await page.evaluate(()=>{

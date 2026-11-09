@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 export async function prepareReadOnlyTools(context,route){
- if(!route.id.startsWith('exact-')&&route.id!=='soar-cloud-88')return;
+ if(!route.id.startsWith('exact-')&&route.id!=='soar-cloud-88'&&!route.id.startsWith('forwarder-cloud-107'))return;
  await context.addInitScript(()=>{window.__reportTools={};Object.defineProperty(document,'modelContext',{value:{registerTool(tool,options){window.__reportTools[tool.name]=tool;options.signal.addEventListener('abort',()=>delete window.__reportTools[tool.name]);}}});});
 }
 export async function verifyExact(page,route,theme){

@@ -48,6 +48,27 @@ test('Enterprise is a first-class deployment and hybrid assesses each receiving 
  assert.equal(a.read('?product=forwarders&destination=cmp').state.cloudReceiver,'10.5');
  assert(!a.url(a.defaults).includes('cloudReceiver='));
 });
+test('Cloud 10.7 is a receiving leg only, with direct commercial evidence',()=>{
+ const a=api();
+ for(const type of ['uf','hf'])for(const to of ['10.0','10.2','10.4','10.6']){
+  const direct={...a.defaults,type,to,destination:'cloud',receiver:'10.7'};
+  const result=a.assess(direct);
+  assert.equal(result.claims[1].status,'conditional');
+  assert.equal(result.claims[1].source,'cloud107');
+  assert.equal(result.claims[2].status,'not_established');
+  assert.deepEqual({...a.read(a.url(direct)).state},direct);
+  for(const topology of ['intermediate','edge'])assert.equal(a.assess({...direct,topology}).claims[1].status,'not_established');
+  for(const destination of ['fr-m','fr-h'])assert.equal(a.assess({...direct,destination}).claims[1].status,'not_established');
+  const hybrid={...direct,destination:'hybrid',receiver:'10.6',cloudReceiver:'10.7'};
+  assert.equal(a.assess(hybrid).claims[1].source,'receiver');
+  assert.equal(a.assess(hybrid).claims[2].source,'cloud107');
+  assert.equal(a.assess(hybrid).claims[2].status,'conditional');
+  assert(a.assess({...hybrid,receiver:'10.7'}).errors.length);
+ }
+ assert(a.read('?product=forwarders&destination=cmp&receiver=10.7').errors.length);
+ assert(!a.receiverOptions('cmp').includes('10.7'));
+ assert(!a.options.to.includes('10.7'));
+});
 test('Forwarders screen reveals the right destination controls and carries hybrid into the snapshot',()=>{
  const elements=new Map(),fields=new Map(),wrappers=new Map(),events={};
  const element=id=>{if(!elements.has(id))elements.set(id,{innerHTML:'',textContent:'',hidden:false,open:false,disabled:false,addEventListener(){},classList:{add(){},remove(){}}});return elements.get(id);};

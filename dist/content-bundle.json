@@ -1,16 +1,16 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-8a6b1f3dd768232e28004eb0",
-    "digest": "e04f48e7220ae056ab7ae606b119e09a0e2a28ea4936b675acb242aa2ecf139d",
-    "engineRevision": "engine-f7cb050e2600baf63082",
+    "revision": "content-24d7e602733a52696fb98397",
+    "digest": "9eab3b0ccc0437367f991c6b99a4f2c78cf72dc00fad3300e3fd6b3ed2325d88",
+    "engineRevision": "engine-7b8785dd011c473766c8",
     "datasetHashes": {
       "platform": "a76c99ea3d75fc6cecc2beff15a9ccd4de460aac5935e741c1ab09388e98c1cb",
       "products": "531ce3ae2df257b754196fc66652e1840309f308c16f9ad3c6fdf72c0660bdf7",
       "guidance": "fcb2b6e88926dac53f03bf13a932c3e2ea246d51f95f596ccd2780c7fb7c8fc6",
       "environment": "5f7e26ca162b0d9a6979858f00e51499e5feaf00c18ac5112d47014403fa7180",
       "editions": "c2cd704fd47d6d068d678394869f71d6f53ecaa3fbc3e967b590e6d82f0d382a",
-      "forwarders": "8c39ce0677a2341ab8fdb0a53a7c45e9ce3093a07408ce78a4b72feb0f938964",
+      "forwarders": "47847215fa288a87c88a68d0077dc37f82abb70d7f862d1cbdfa72357621f12d",
       "soar": "ba8c0e73b661f2822fea08e0af453bd071f7d4dc3e2e6755b02388e05d25c8f7"
     },
     "recordCount": 939,
@@ -10307,6 +10307,12 @@
           "reviewed": "2026-10-07",
           "section": "Compatibility between forwarders and Splunk Enterprise indexers; forwarder-version / indexer-version table"
         },
+        "cloud107": {
+          "title": "Splunk Cloud Platform 10.7 Service Details: supported forwarder versions",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+          "reviewed": "2026-11-09",
+          "section": "Supported versions — Supported forwarder versions; 9.4.x, 10.0.x, 10.2.x, 10.4.x and 10.6.x rows naming Cloud 10.7.x; direct connection and Cloud-facing intermediate tier scope"
+        },
         "cloud": {
           "title": "Cloud service details: supported forwarders",
           "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
@@ -10400,6 +10406,13 @@
           "reviewed": "2026-10-26"
         }
       },
+      "cloud107ForwarderLines": [
+        "9.4",
+        "10.0",
+        "10.2",
+        "10.4",
+        "10.6"
+      ],
       "claimSources": {
         "technical.hf-kv-store-10.6": {
           "title": "HF 10.6 KV Store database engine",
@@ -10439,7 +10452,10 @@
         },
         "receiver.cloud": {
           "title": "Direct Universal and Heavy Forwarder to Cloud stack compatibility",
-          "src": "cloud"
+          "sources": [
+            "cloud",
+            "cloud107"
+          ]
         },
         "topology.enterprise-intermediate": {
           "title": "Intermediate forwarding tier to Enterprise",
@@ -10447,7 +10463,10 @@
         },
         "topology.cloud-intermediate": {
           "title": "Cloud-facing intermediate forwarding tier",
-          "src": "cloud"
+          "sources": [
+            "cloud",
+            "cloud107"
+          ]
         },
         "topology.multiple-target-groups": {
           "title": "Hybrid output groups, routing and data cloning",
@@ -25203,6 +25222,14 @@
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
             "sourceVerified": "2026-10-07",
             "sourceChecked": null
+          },
+          {
+            "sourceId": "source-2e2e157125c5c312bbb7",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+            "section": "Supported versions — Supported forwarder versions; 9.4.x, 10.0.x, 10.2.x, 10.4.x and 10.6.x rows naming Cloud 10.7.x; direct connection and Cloud-facing intermediate tier scope",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-09",
+            "sourceChecked": null
           }
         ],
         "verification": {
@@ -25211,7 +25238,10 @@
         },
         "payload": {
           "title": "Cloud-facing intermediate forwarding tier",
-          "src": "cloud"
+          "sources": [
+            "cloud",
+            "cloud107"
+          ]
         }
       },
       {
@@ -38332,6 +38362,14 @@
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
             "sourceVerified": "2026-10-07",
             "sourceChecked": null
+          },
+          {
+            "sourceId": "source-2e2e157125c5c312bbb7",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+            "section": "Supported versions — Supported forwarder versions; 9.4.x, 10.0.x, 10.2.x, 10.4.x and 10.6.x rows naming Cloud 10.7.x; direct connection and Cloud-facing intermediate tier scope",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-09",
+            "sourceChecked": null
           }
         ],
         "verification": {
@@ -38340,7 +38378,10 @@
         },
         "payload": {
           "title": "Direct Universal and Heavy Forwarder to Cloud stack compatibility",
-          "src": "cloud"
+          "sources": [
+            "cloud",
+            "cloud107"
+          ]
         }
       },
       {
