@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-itsi-subagent-region",
+  "assessmentId": "vcia-csp-20261109-itsi-subagent-region",
+  "revision": 1,
+  "recordedAt": "2026-11-09T13:08:32.013Z",
+  "assessedAt": "2026-11-09T13:06:55.279Z",
+  "outcome": "unable-to-verify",
+  "rationale": "The documented versions are minimums. The base assistant region table and related-app compatibility guide leave subagent rollout, pairing and regulated scope unknown.",
+  "reviewedScope": {
+    "products": [
+      "ITSI subagent in Splunk AI Assistant"
+    ],
+    "versions": [
+      "ITSI 5.0.0+, MCP Server 1.2.1+, SAIA 2.2.0+"
+    ],
+    "editions": null,
+    "deployments": [
+      "Cloud and customer-managed environments"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No customer authorization, entitlement or rollout is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261109-5-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+      "section": "Splunk AI Assistant ITSI subagent; supported regions",
+      "statement": "Separate prerequisite list and base service regions.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-09T13:01:35.627Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "cbddad93f8a41126a34ddd7c321bc66dc45d4ec31a052a079a1c55e0478e3107",
+        "qualification": "Digest of direct response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261109-5-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "section": "Supported regions; FedRAMP deployments",
+      "statement": "Base assistant coverage and limited IL2 support are scoped to the installation guide.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-09T13:01:34.454Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "77ebc15b14d739b7700420ad249a4d067ac40fce7a23b22685f1ef112e5e6de4",
+        "qualification": "Digest of direct response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261109-5-2",
+      "url": "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/install-and-upgrade/5.0/planning/itsi-compatibility-with-related-apps-and-add-ons",
+      "section": "ITSI compatibility with related apps and add-ons",
+      "statement": "The related-app matrix does not establish subagent regional rollout.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-09T13:01:35.746Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "709bb297fe8bc87b26a0035a306cc8fd99305fe40c65f0fb1486f505ece56b06",
+        "qualification": "Digest of direct response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/27658d04466b59d5481df4375b20e20c37f3dd1c/docs/audits/2026-11-09-csp-fedramp-watch-sources.json",
+      "pointer": "/claimChecks/5",
+      "originalLabel": "unable-to-establish-subagent-region"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261109-cloud107-itsi-subagent-region"
+  ],
+  "remainingConcerns": [
+    "Recheck exact Moderate component display, S3 legacy and expanded scope, subagent-specific ITSI rollout, and recover the ES Cloud Connect setup page. Reconcile a matching task result and production authorization with independent Guidance Audit."
+  ]
+}
