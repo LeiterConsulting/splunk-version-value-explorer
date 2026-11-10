@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-soar-cmp-88-upgrade-example-destination",
+  "assessmentId": "vcia-release-review3-20261110-soar-cmp-88-upgrade-example-destination",
+  "revision": 1,
+  "recordedAt": "2026-11-10T11:45:16.149Z",
+  "assessedAt": "2026-11-10T11:44:31.875Z",
+  "outcome": "still-present",
+  "rationale": "The vendor’s November 4 notes describe on-premises 8.8. Its Phantom 4.6 worked example opens with 8.6.0 but ends at 8.8.0. The separate unprivileged table retains the 8.5 and Python 3.13 bridge for listed older releases, plus conditional OS and PostgreSQL work. The overview requires conversion of privileged deployments. The exact 8.8 server build remains open and 8.8.0_1 is a documentation path.",
+  "reviewedScope": {
+    "products": [
+      "Splunk SOAR On-premises"
+    ],
+    "versions": [
+      "8.8.0"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed unprivileged example"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No target build, known/fixed issue, complete install path or supported deployment combination is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-review3-20261110-2-0",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+      "section": "November 4, 2026 Release 8.8",
+      "statement": "Exact supporting section for this scoped assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-10T11:41:45.687Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "0d8fe716eb1083278d25ef6c872097e24a953d123ef06eb75074b92f00182093",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-review3-20261110-2-1",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+      "section": "Upgrade path table; Example introduction and final step",
+      "statement": "Exact supporting section for this scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-10T11:41:37.507Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "d29d6a7220564ccce9bbd9c6bd5727c56d0106918186815946537674c8c3fccc",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-review3-20261110-2-2",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0_1/upgrade-splunk-soar-on-premises/splunk-soar-on-premises-upgrade-overview-and-prerequisites",
+      "section": "Upgrade overview > Conditional privileged conversion",
+      "statement": "Exact supporting section for this scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-10T11:41:37.562Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "407cb9ac2543850c2f24d22100e56872536f808119f256464b2a0ed459b46cc2",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/191adeebf535f89018467ad25f307d59439fcf14/docs/audits/2026-11-10-version-release-watch-review-3-sources.json",
+      "pointer": "/claimChecks/2",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-followthrough-20261110-soar-cmp-88-upgrade-example-destination"
+  ],
+  "remainingConcerns": [
+    "Recover a reconciled 8.8 customer-managed path and exact supported build before adding a selectable target."
+  ]
+}
