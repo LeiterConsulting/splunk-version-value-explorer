@@ -25,6 +25,19 @@ test('SOAR target requirements and exact issue scope survive comparison filterin
  const cloud=a.assess({...a.defaults,deployment:'cloud'});assert(!cloud.issues.some(x=>x.id==='build243'));assert.equal(cloud.routeStatus,'Managed service milestones');assert(!cloud.technical.some(x=>x.id==='os87'));
  const old=a.assess({...a.defaults,from:'8.5.0',to:'8.6.0'});assert(old.issues.some(x=>x.id==='credential86'));assert(old.issues.some(x=>x.id==='security86'&&x.detail.includes('Verify server certificate')));
 });
+test('SOAR Broker patch retains its separate distribution and server version scope',()=>{
+ const a=core().window.VersionCompassSOAR;
+ for(const deployment of ['cmp','cloud']){
+  const report=a.assess({...a.defaults,deployment});
+  const patch=report.technical.find(record=>record.id==='broker870245');
+  assert.match(patch.detail,/October 9, 2026 through Docker Hub only/);
+  assert.match(patch.detail,/no tested compatibility matrix or security remediation claim/);
+  assert.match(report.sources.broker870245.url,/#patch-release-8\.7\.0\.245-0$/);
+  assert(!report.path.includes('8.7.0.245'));
+  assert(!a.targets(deployment).includes('8.7.0.245'));
+  assert(!a.assess({...a.defaults,deployment,from:'8.5.0',to:'8.6.0'}).technical.some(record=>record.id===patch.id));
+ }
+});
 test('SOAR Export uses its recovered prerequisite sources separately from App for SOAR',()=>{
  const c=core(),a=c.window.VersionCompassSOAR;
  for(const deployment of ['cmp','cloud']){

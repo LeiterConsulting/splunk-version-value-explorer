@@ -454,10 +454,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-09T10:58:59.948057Z",
-      "lastSuccess": "2026-11-08T18:43:05.434Z",
-      "outcome": "blocked",
-      "summary": "Prepared the Cloud 10.7 receiving-leg correction. Candidate and production delivery gates remain separate.",
+      "lastAttempt": "2026-11-10T10:33:32.017373Z",
+      "lastSuccess": "2026-11-10T10:40:54.885Z",
+      "outcome": "changed",
+      "summary": "Reviewed the registered families and two report changes for Broker distribution and Visual Exporter mitigation. Production verification is separate.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -991,9 +991,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Prepared the Cloud 10.7 receiving-leg correction. Candidate and production delivery gates remain separate.",
           "scope": "Maintained source inventory and bounded release, upgrade, receiver and registry sections."
+        },
+        {
+          "at": "2026-11-10T10:33:32.017373Z",
+          "outcome": "running",
+          "summary": "Version Release Watch began its November 10 review.",
+          "scope": "Registered Prep11 and Advisor families and bounded SOAR, Forwarder and release evidence from the maintained public source inventory."
+        },
+        {
+          "at": "2026-11-10T10:40:54.885Z",
+          "outcome": "changed",
+          "summary": "Reviewed the registered families and two report changes for Broker distribution and Visual Exporter mitigation. Production verification is separate.",
+          "scope": "Complete maintained official source inventory and eleven registry 1.2.0 claim families, plus bounded changed and consequential SOAR and Forwarder review. No expansion to unsupported exact pairings or rollout."
         }
       ],
-      "scope": "Maintained source inventory and bounded release, upgrade, receiver and registry sections."
+      "scope": "Complete maintained official source inventory and eleven registry 1.2.0 claim families, plus bounded changed and consequential SOAR and Forwarder review. No expansion to unsupported exact pairings or rollout."
     },
     {
       "id": "es-editions-watch",

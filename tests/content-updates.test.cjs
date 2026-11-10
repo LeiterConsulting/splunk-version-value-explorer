@@ -17,7 +17,7 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('cycle 50 adds scoped ES agentic facts and retains prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,58);
+ assert.equal(b.policy.currentCycle,59);
  const ea=b.entries["edition:exposure"];assert.equal(ea.cycle,52);assert(b.active(ea,53));assert(!b.active(ea));
  const soar=b.entries['product:soar:cloud-8.8'];assert.equal(soar.cycle,51);assert(!b.active(soar));assert.match(soar.detail,/November 4 General Availability/);
  const app=b.entries['technical:soar:app88'];assert.equal(app.cycle,53);assert(!b.active(app));

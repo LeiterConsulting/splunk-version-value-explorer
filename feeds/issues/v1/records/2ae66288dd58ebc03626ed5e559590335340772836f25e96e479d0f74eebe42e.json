@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-svd-2026-1015-applicability",
+  "assessmentId": "vcia-release-20261110-svd-2026-1015-applicability",
+  "revision": 1,
+  "recordedAt": "2026-11-10T10:42:31.378Z",
+  "assessedAt": "2026-11-10T10:40:54.885Z",
+  "outcome": "partially-addressed",
+  "rationale": "The November 9 change qualifies disabling Visual Exporter: scheduled dashboard exports may break. The candidate retains that caution on the Enterprise-package HF assessment, not UF. Splunk lists UF as unaffected, Enterprise 10.0 bundled Node.js as affected and 10.2+ as its upgrade mitigation. Visual Exporter exposure is separate. Automation Broker remediation remains in progress, and the Broker patch note supplies no fix claim.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise, Forwarders and affected components"
+    ],
+    "versions": [
+      "November 9 advisory update"
+    ],
+    "editions": null,
+    "deployments": [
+      "Enterprise-package component scope"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261110-1-0",
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1015",
+      "section": "Product Status > Affected Products; Enterprise and Visual Exporter footnotes; Unaffected Products; November 9 Changelog",
+      "statement": "Exact supporting section for this scoped assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-10T10:34:50.007Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "961a7633aa3db0771e9764178f5e1449341855bf37d185c420066c1ac6b55f6a",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/516f256dcabb7f716898cce853ed8e2d792b0987/docs/audits/2026-11-10-version-release-watch-sources.json",
+      "pointer": "/claimChecks/1",
+      "originalLabel": "partially-addressed"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-guidance-20261109-svd-2026-1015-applicability"
+  ],
+  "remainingConcerns": [
+    "Recheck affected component remediation and any explicit Broker fixed build. Confirm exact installed components and dashboard export dependencies before applying the advisory mitigation."
+  ]
+}

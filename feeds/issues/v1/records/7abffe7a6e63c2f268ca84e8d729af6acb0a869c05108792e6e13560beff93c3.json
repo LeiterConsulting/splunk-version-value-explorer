@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-itsi-subagent-region",
+  "assessmentId": "vcia-release-20261110-itsi-subagent-region",
+  "revision": 1,
+  "recordedAt": "2026-11-10T10:42:31.378Z",
+  "assessedAt": "2026-11-10T10:40:54.885Z",
+  "outcome": "unable-to-verify",
+  "rationale": "The About subagent section and note require ITSI 5.0.0+, MCP Server 1.2.1+ and AI Assistant 2.2.0+. The separate Cloud install page covers base assistant service regions and version compatibility. Exact stack pairing, per-subagent rollout and tenant enablement remain open.",
+  "reviewedScope": {
+    "products": [
+      "Splunk ITSI"
+    ],
+    "versions": [
+      "ITSI 5.0.0+ / MCP Server 1.2.1+ / AI Assistant 2.2.0+"
+    ],
+    "editions": null,
+    "deployments": [
+      "AI Assistant subagent"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No tenant availability, entitlement, authorization or deployment suitability is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261110-10-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+      "section": "Splunk AI Assistant ITSI subagent and version note",
+      "statement": "Exact supporting section for this scoped assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-10T10:35:14.839Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "47be26da9eef893fa45aabafdcb0327f2fe1df72befe8ada186c3d8d79f2be9e",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261110-10-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "section": "Supported regions; version compatibility",
+      "statement": "Exact supporting section for this scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-10T10:35:14.775Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "33368bfd21a6de269319cebce68f6ab7bb5cac1151439f89cc8ab546f55a6322",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/516f256dcabb7f716898cce853ed8e2d792b0987/docs/audits/2026-11-10-version-release-watch-sources.json",
+      "pointer": "/claimChecks/10",
+      "originalLabel": "unable-to-verify"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-guidance-20261109-itsi-subagent-region"
+  ],
+  "remainingConcerns": [
+    "Obtain an official source describing ITSI subagent rollout at the exact service scope."
+  ]
+}

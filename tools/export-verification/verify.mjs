@@ -134,19 +134,20 @@ try {
       assert((await page.locator('.forwarder-compatibility').textContent()).includes(result.claim.detail),'Cloud 10.7 screen and tool disagree');
       entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
     }
-    if(route.id==='soar-cloud-88'){
+    if(['soar','soar-cloud','soar-cloud-88'].includes(route.id)){
+      const recordId=route.id==='soar-cloud-88'?'export88':'broker870245';
       await page.waitForFunction(()=>window.__reportTools?.versioncompass_get_current_report);
-      const toolResult=await page.evaluate(()=>{
+      const toolResult=await page.evaluate(id=>{
         const {versioncompass_get_current_report:current,versioncompass_compare_routes:compare}=window.__reportTools;
         const selection=window.VersionCompassPage.getSelection(), url=location.href;
         const selected=current.execute({}), explicit=compare.execute({routes:[selection]});
         return {readOnly:current.annotations.readOnlyHint&&compare.annotations.readOnlyHint,
-          selected:selected.report?.technical.find(row=>row.id==='export88'),
-          explicit:explicit.reports?.[0]?.technical.find(row=>row.id==='export88'), stable:location.href===url};
-      });
-      assert(toolResult.readOnly&&toolResult.stable&&toolResult.selected,'SOAR Export read-only report unavailable or changed the URL');
+          selected:selected.report?.technical.find(row=>row.id===id),
+          explicit:explicit.reports?.[0]?.technical.find(row=>row.id===id), stable:location.href===url};
+      },recordId);
+      assert(toolResult.readOnly&&toolResult.stable&&toolResult.selected,'SOAR read-only report unavailable or changed the URL: '+recordId);
       assert.deepEqual(toolResult.explicit,toolResult.selected);
-      assert((await page.locator('#soar-export88').textContent()).includes(toolResult.selected.detail),'SOAR Export tool and page disagree');
+      assert((await page.locator('#soar-'+recordId).textContent()).includes(toolResult.selected.detail),'SOAR tool and page disagree: '+recordId);
       entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
     }
     if(routeUrl.hash) {
@@ -365,6 +366,10 @@ try {
       if(route.id==='soar-cloud-88') {
         for(const qualification of ['SOAR Export 8.8.0 functionality-tested combinations','CIM 8.5.0-1681','for upgrade listing purposes']) assert(normalize(expected.text).includes(qualification), 'SOAR Export qualification missing: '+qualification);
       }
+      if(['soar','soar-cloud','soar-legacy-cloud'].includes(route.id)){
+        for(const qualification of ['Automation Broker 8.7.0.245 distribution','October 9, 2026 through Docker Hub only','no tested compatibility matrix or security remediation claim']) assert(normalize(expected.text).includes(qualification), 'SOAR Broker qualification missing: '+qualification);
+      }
+      if(route.id==='hf-hybrid') assert(normalize(expected.text).includes('disabling it may break scheduled dashboard exports'),'Heavy Forwarder mitigation qualification missing');
       if(route.id==='enterprise') expected.paginationPairs=[{heading:'Recommended action',following:'Match the exact package identifier to its release'}];
       if(route.id==='observability-october') expected.paginationPairs=[
         {heading:'Kubernetes persistent-volume metric defaults',following:'Chart 0.162.1 does not explicitly enable these five metrics'},
