@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-soar-broker-870245-maintenance-visibility",
+  "assessmentId": "vcia-release-followthrough-20261110-soar-broker-870245-maintenance-visibility",
+  "revision": 1,
+  "recordedAt": "2026-11-10T11:10:45.368Z",
+  "assessedAt": "2026-11-10T11:09:47.807Z",
+  "outcome": "addressed-in-reviewed-scope",
+  "rationale": "The official patch section states October 9, 2026 and Docker Hub only. The candidate adds a separate Broker integration record to Cloud and CMP 8.7 comparisons, with its exact citation. It does not add an installable SOAR server target, connector compatibility, or a security remediation claim. This addresses report-source coverage only. Production delivery remains separate.",
+  "reviewedScope": {
+    "products": [
+      "Splunk SOAR Automation Broker"
+    ],
+    "versions": [
+      "8.7.0.245"
+    ],
+    "editions": null,
+    "deployments": [
+      "Docker Hub maintenance release"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Exact unsupported combinations, rollout, entitlement and authorization remain separate."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261110-0-0",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-automation-broker/splunk-soar-automation-broker-release-notes/whats-new-in-splunk-soar-automation-broker#patch-release-8.7.0.245-0",
+      "section": "Release 8.7.x > Patch release 8.7.0.245",
+      "statement": "Exact supporting section for this scoped assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-10T11:07:54.078Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "672641c3f8313f0798b350aad4102152daa20f231d81e12cbbd57c78f6edf6dd",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/f175779b746ef8d1f8e20aed8613d1a077ed14dc/docs/audits/2026-11-10-version-release-watch.json",
+      "pointer": "/claimChecks/0",
+      "originalLabel": "addressed-in-reviewed-scope"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261110-soar-broker-870245-maintenance-visibility"
+  ],
+  "remainingConcerns": []
+}

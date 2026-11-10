@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-869d65661594a0702a6ef3ff",
-    "digest": "50fc2c9f4d0850a772ee353ec4b4dae0eda2b49da4d47b9a79ea890f36699ae0",
+    "revision": "content-1ed9c0cebc3960e18f70b2ea",
+    "digest": "1ef8bd3b94aad9499e70db129eeab6698a81fb02b3e4b9c5bfe4307689ac7591",
     "engineRevision": "engine-7b8785dd011c473766c8",
     "datasetHashes": {
       "platform": "a76c99ea3d75fc6cecc2beff15a9ccd4de460aac5935e741c1ab09388e98c1cb",
       "products": "531ce3ae2df257b754196fc66652e1840309f308c16f9ad3c6fdf72c0660bdf7",
-      "guidance": "fcb2b6e88926dac53f03bf13a932c3e2ea246d51f95f596ccd2780c7fb7c8fc6",
+      "guidance": "bc6a0bbd245bb95e310a3c366c431a79efdd6aadfc857fac8f39842c1372d486",
       "environment": "5f7e26ca162b0d9a6979858f00e51499e5feaf00c18ac5112d47014403fa7180",
       "editions": "113e6a4ce2d13091dcef021e86fbc6178ebafc9d8eca81b5fed7a7c9e906a21a",
-      "forwarders": "47847215fa288a87c88a68d0077dc37f82abb70d7f862d1cbdfa72357621f12d",
-      "soar": "ba8c0e73b661f2822fea08e0af453bd071f7d4dc3e2e6755b02388e05d25c8f7"
+      "forwarders": "2e576bacdb00669c17422a585fd98cf4c43ff9b3ab33fee7d7dd629b832f3d52",
+      "soar": "6094dc06c94a559264ddd5ac3f1bc6db36e56ffe45a5460a934b9691a55e545a"
     },
-    "recordCount": 939,
+    "recordCount": 941,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -5236,7 +5236,7 @@
         }
       },
       "guidance": {
-        "reviewed": "2026-11-09",
+        "reviewed": "2026-11-10",
         "lifecycle": {
           "source": "https://www.splunk.com/en_us/legal/splunk-software-support-policy.html",
           "reviewed": "2026-10-01",
@@ -10426,9 +10426,9 @@
         "nodeOctober": {
           "title": "Node.js product status · SVD-2026-1015",
           "url": "https://advisory.splunk.com/advisories/SVD-2026-1015",
-          "checked": "2026-11-06",
-          "reviewed": "2026-11-06",
-          "section": "Product Status — Affected Products and Enterprise / Visual Exporter footnotes; Unaffected Products; November 5 changelog"
+          "checked": "2026-11-10",
+          "reviewed": "2026-11-10",
+          "section": "Product Status — Affected Products and Enterprise / Visual Exporter footnotes; Unaffected Products; November 9 changelog"
         },
         "esKv106": {
           "title": "10.6 customer-managed ES and KV Store boundary",
@@ -10803,7 +10803,7 @@
           "types": [
             "hf"
           ],
-          "detail": "Splunk identifies the bundled Enterprise 10.0 Node.js runtime as affected and recommends 10.2 or later for that component. Its November 5 advisory lists Enterprise 9.4 and 10.2 or later as unaffected by the bundled-runtime issue. Visual Exporter is a separate exposure across Enterprise versions. Splunk lists disabling or removing the app as a possible mitigation. Check the exact installed Heavy Forwarder components and apps before applying either action."
+          "detail": "Splunk identifies the bundled Enterprise 10.0 Node.js runtime as affected and recommends 10.2 or later for that component. Enterprise 9.4 and 10.2 or later are listed as unaffected by the bundled-runtime issue. Visual Exporter is a separate exposure across Enterprise versions. Splunk lists disabling or removing the app as a possible mitigation and warns that disabling it may break scheduled dashboard exports. Check the exact installed Heavy Forwarder components and apps before applying either action."
         },
         "october21": {
           "title": "October 21 Enterprise security advisory",
@@ -11024,6 +11024,14 @@
           "section": "September 2 release 8.7; Python 3.13 only; 8.6.0.536 fixes",
           "checked": "2026-10-01",
           "reviewed": "2026-10-01",
+          "outcome": "confirmed"
+        },
+        "broker870245": {
+          "title": "Automation Broker patch 8.7.0.245",
+          "url": "https://help.splunk.com/en/splunk-soar/splunk-automation-broker/splunk-soar-automation-broker-release-notes/whats-new-in-splunk-soar-automation-broker#patch-release-8.7.0.245-0",
+          "section": "Release 8.7.x > Patch release 8.7.0.245",
+          "checked": "2026-11-10",
+          "reviewed": "2026-11-10",
           "outcome": "confirmed"
         },
         "app": {
@@ -11481,6 +11489,23 @@
           ],
           "status": "Required",
           "verified": "2026-10-01",
+          "target": true
+        },
+        {
+          "id": "broker870245",
+          "title": "Automation Broker 8.7.0.245 distribution",
+          "detail": "Splunk released Automation Broker 8.7.0.245 on October 9, 2026 through Docker Hub only. Verify the Broker version, connector and asset requirements separately from the SOAR server upgrade. The patch note supplies no tested compatibility matrix or security remediation claim.",
+          "kind": "technical",
+          "release": "8.7.0",
+          "src": [
+            "broker870245"
+          ],
+          "deployments": [
+            "cmp",
+            "cloud"
+          ],
+          "status": "Review",
+          "verified": "2026-11-10",
           "target": true
         },
         {
@@ -12208,6 +12233,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise"
+      },
+      {
+        "id": "source-3d0b3925336ffd88d2c2",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-soar/splunk-automation-broker/splunk-soar-automation-broker-release-notes/whats-new-in-splunk-soar-automation-broker#patch-release-8.7.0.245-0"
       },
       {
         "id": "source-3e740d213b7b619cc6f1",
@@ -17186,10 +17217,10 @@
           {
             "sourceId": "source-501a2d0e7c0a502cf7e0",
             "url": "https://advisory.splunk.com/advisories/SVD-2026-1015",
-            "section": "Product Status — Affected Products and Enterprise / Visual Exporter footnotes; Unaffected Products; November 5 changelog",
+            "section": "Product Status — Affected Products and Enterprise / Visual Exporter footnotes; Unaffected Products; November 9 changelog",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-11-06",
-            "sourceChecked": "2026-11-06"
+            "sourceVerified": "2026-11-10",
+            "sourceChecked": "2026-11-10"
           }
         ],
         "verification": {
@@ -18133,7 +18164,7 @@
           "types": [
             "hf"
           ],
-          "detail": "Splunk identifies the bundled Enterprise 10.0 Node.js runtime as affected and recommends 10.2 or later for that component. Its November 5 advisory lists Enterprise 9.4 and 10.2 or later as unaffected by the bundled-runtime issue. Visual Exporter is a separate exposure across Enterprise versions. Splunk lists disabling or removing the app as a possible mitigation. Check the exact installed Heavy Forwarder components and apps before applying either action."
+          "detail": "Splunk identifies the bundled Enterprise 10.0 Node.js runtime as affected and recommends 10.2 or later for that component. Enterprise 9.4 and 10.2 or later are listed as unaffected by the bundled-runtime issue. Visual Exporter is a separate exposure across Enterprise versions. Splunk lists disabling or removing the app as a possible mitigation and warns that disabling it may break scheduled dashboard exports. Check the exact installed Heavy Forwarder components and apps before applying either action."
         }
       },
       {
@@ -28776,6 +28807,83 @@
         ]
       },
       {
+        "id": "vc-a84609fe1f5325a0550d",
+        "kind": "technical",
+        "dataset": "soar",
+        "scope": {
+          "regions": {
+            "aws": [
+              "Oregon",
+              "Virginia",
+              "London",
+              "Dublin",
+              "Frankfurt",
+              "Milan",
+              "Paris",
+              "Mumbai",
+              "Seoul",
+              "Singapore",
+              "Sydney",
+              "Tokyo",
+              "Canada Central",
+              "Canada West"
+            ],
+            "gcp": [
+              "Iowa",
+              "London",
+              "Dammam",
+              "Belgium",
+              "Frankfurt",
+              "Singapore",
+              "Sydney",
+              "Montreal"
+            ],
+            "azure": [
+              "Phoenix",
+              "Virginia",
+              "London",
+              "Tokyo"
+            ]
+          },
+          "release": "8.7.0",
+          "deployments": [
+            "cmp",
+            "cloud"
+          ]
+        },
+        "evidence": [
+          {
+            "sourceId": "source-3d0b3925336ffd88d2c2",
+            "url": "https://help.splunk.com/en/splunk-soar/splunk-automation-broker/splunk-soar-automation-broker-release-notes/whats-new-in-splunk-soar-automation-broker#patch-release-8.7.0.245-0",
+            "section": "Release 8.7.x > Patch release 8.7.0.245",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-10",
+            "sourceChecked": "2026-11-10"
+          }
+        ],
+        "verification": {
+          "date": "2026-11-10",
+          "outcome": "Recorded in original claim"
+        },
+        "payload": {
+          "id": "broker870245",
+          "title": "Automation Broker 8.7.0.245 distribution",
+          "detail": "Splunk released Automation Broker 8.7.0.245 on October 9, 2026 through Docker Hub only. Verify the Broker version, connector and asset requirements separately from the SOAR server upgrade. The patch note supplies no tested compatibility matrix or security remediation claim.",
+          "kind": "technical",
+          "release": "8.7.0",
+          "src": [
+            "broker870245"
+          ],
+          "deployments": [
+            "cmp",
+            "cloud"
+          ],
+          "status": "Review",
+          "verified": "2026-11-10",
+          "target": true
+        }
+      },
+      {
         "id": "vc-a86658462d58c06215b4",
         "kind": "feature",
         "dataset": "platform",
@@ -37024,10 +37132,10 @@
           {
             "sourceId": "source-501a2d0e7c0a502cf7e0",
             "url": "https://advisory.splunk.com/advisories/SVD-2026-1015",
-            "section": "Product Status — Affected Products and Enterprise / Visual Exporter footnotes; Unaffected Products; November 5 changelog",
+            "section": "Product Status — Affected Products and Enterprise / Visual Exporter footnotes; Unaffected Products; November 9 changelog",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-11-06",
-            "sourceChecked": "2026-11-06"
+            "sourceVerified": "2026-11-10",
+            "sourceChecked": "2026-11-10"
           }
         ],
         "verification": {

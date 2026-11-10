@@ -141,14 +141,14 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.security.url",
-        "soar: soar.records.26"
+        "soar: soar.records.27"
       ],
       "reviews": [
         "2026-10-01"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.26",
+          "path": "soar: soar.records.27",
           "section": "Solutions; Product Status; CVE-2026-76362 Additional Solution"
         }
       ],
@@ -184,14 +184,14 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.packages.url",
-        "soar: soar.records.26"
+        "soar: soar.records.27"
       ],
       "reviews": [
         "2026-10-01"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.26",
+          "path": "soar: soar.records.27",
           "section": "Description: third-party fixes in 8.6.0 and higher"
         }
       ],
@@ -570,16 +570,16 @@ window.VersionCompassSources = {
         "forwarders: forwarders.claimSources.security.hf"
       ],
       "reviews": [
-        "2026-11-06"
+        "2026-11-10"
       ],
       "claimReferences": [
         {
           "path": "forwarders: forwarders.claimSources.security.uf",
-          "section": "Product Status — Affected Products and Enterprise / Visual Exporter footnotes; Unaffected Products; November 5 changelog"
+          "section": "Product Status — Affected Products and Enterprise / Visual Exporter footnotes; Unaffected Products; November 9 changelog"
         },
         {
           "path": "forwarders: forwarders.claimSources.security.hf",
-          "section": "Product Status — Affected Products and Enterprise / Visual Exporter footnotes; Unaffected Products; November 5 changelog"
+          "section": "Product Status — Affected Products and Enterprise / Visual Exporter footnotes; Unaffected Products; November 9 changelog"
         }
       ],
       "usage": "In use",
@@ -7790,7 +7790,7 @@ window.VersionCompassSources = {
       "references": [
         "soar.sources.requirements86.url",
         "content-updates.js",
-        "soar: soar.records.27",
+        "soar: soar.records.28",
         "soar: soar.targetRequirements.8.6.0"
       ],
       "reviews": [
@@ -7798,7 +7798,7 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.27",
+          "path": "soar: soar.records.28",
           "section": "Supported operating systems; PostgreSQL 15; Elasticsearch versions; bundled UF 10.4.0; container restriction"
         },
         {
@@ -7834,7 +7834,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.sizing86.url",
-        "soar: soar.records.28",
+        "soar: soar.records.29",
         "soar: soar.targetRequirements.8.6.0"
       ],
       "reviews": [
@@ -7842,7 +7842,7 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.28",
+          "path": "soar: soar.records.29",
           "section": "Production CPU, memory, volume sizing, network and system utilities"
         },
         {
@@ -8420,8 +8420,8 @@ window.VersionCompassSources = {
         "soar.sources.exportCloud.url",
         "content-updates.js",
         "editions: editions.notes.1",
-        "soar: soar.records.23",
         "soar: soar.records.24",
+        "soar: soar.records.25",
         "soar: soar.backlog.2"
       ],
       "reviews": [
@@ -8430,11 +8430,11 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.23",
+          "path": "soar: soar.records.24",
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
         },
         {
-          "path": "soar: soar.records.24",
+          "path": "soar: soar.records.25",
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
         },
         {
@@ -8475,8 +8475,8 @@ window.VersionCompassSources = {
         "soar.sources.exportEnterprise.url",
         "content-updates.js",
         "editions: editions.notes.1",
-        "soar: soar.records.23",
         "soar: soar.records.24",
+        "soar: soar.records.25",
         "soar: soar.backlog.2"
       ],
       "reviews": [
@@ -8485,11 +8485,11 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.23",
+          "path": "soar: soar.records.24",
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
         },
         {
-          "path": "soar: soar.records.24",
+          "path": "soar: soar.records.25",
           "section": "Required Python version; Splunk product compatibility matrix; Required app; Required user privileges and ports"
         },
         {
@@ -8527,19 +8527,19 @@ window.VersionCompassSources = {
       "references": [
         "soar.sources.export.url",
         "content-updates.js",
-        "soar: soar.records.23",
-        "soar: soar.records.25"
+        "soar: soar.records.24",
+        "soar: soar.records.26"
       ],
       "reviews": [
         "2026-10-15"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.23",
+          "path": "soar: soar.records.24",
           "section": "Welcome to release 8.7.1; Known issues in release 8.7.0 (PAPP-38496); Fixed issues in release 8.7.0 (PAPP-38389)"
         },
         {
-          "path": "soar: soar.records.25",
+          "path": "soar: soar.records.26",
           "section": "Welcome to release 8.7.1; Known issues in release 8.7.0 (PAPP-38496); Fixed issues in release 8.7.0 (PAPP-38389)"
         }
       ],
@@ -8584,14 +8584,14 @@ window.VersionCompassSources = {
         "soar.sources.export88Cloud.url",
         "content-updates.js",
         "editions: editions.notes.1",
-        "soar: soar.records.22"
+        "soar: soar.records.23"
       ],
       "reviews": [
         "2026-11-09"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.22",
+          "path": "soar: soar.records.23",
           "section": "Required Python version; Splunk product compatibility matrix; Required app"
         }
       ],
@@ -8622,14 +8622,14 @@ window.VersionCompassSources = {
         "editions.sources.soarExportEnterprise88.u",
         "soar.sources.export88Enterprise.url",
         "editions: editions.notes.1",
-        "soar: soar.records.22"
+        "soar: soar.records.23"
       ],
       "reviews": [
         "2026-11-09"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.22",
+          "path": "soar: soar.records.23",
           "section": "Required Python version; Splunk product compatibility matrix; Required app"
         }
       ],
@@ -8662,14 +8662,14 @@ window.VersionCompassSources = {
         "soar.sources.export88Release.url",
         "content-updates.js",
         "editions: editions.notes.1",
-        "soar: soar.records.22"
+        "soar: soar.records.23"
       ],
       "reviews": [
         "2026-11-09"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.22",
+          "path": "soar: soar.records.23",
           "section": "Welcome to release 8.8.0"
         }
       ],
@@ -8700,7 +8700,7 @@ window.VersionCompassSources = {
         "editions.sources.appForSoar87.u",
         "soar.sources.app.url",
         "editions: editions.notes.1",
-        "soar: soar.records.21"
+        "soar: soar.records.22"
       ],
       "reviews": [
         "2026-11-06",
@@ -8708,7 +8708,7 @@ window.VersionCompassSources = {
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.21",
+          "path": "soar: soar.records.22",
           "section": "8.7.0 compatibility table; /rest/audit footnote"
         }
       ],
@@ -8754,14 +8754,14 @@ window.VersionCompassSources = {
         "content-updates.js",
         "editions: editions.capabilities.12",
         "editions: editions.notes.1",
-        "soar: soar.records.20"
+        "soar: soar.records.21"
       ],
       "reviews": [
         "2026-11-06"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.20",
+          "path": "soar: soar.records.21",
           "section": "Required user privileges and ports; Splunk product compatibility matrix — App 8.8.0 row"
         }
       ],
@@ -8821,6 +8821,43 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-automation-broker/splunk-soar-automation-broker-release-notes/whats-new-in-splunk-soar-automation-broker#patch-release-8.7.0.245-0",
+      "title": "Automation Broker patch 8.7.0.245",
+      "areas": [
+        "Splunk SOAR",
+        "Shared guidance"
+      ],
+      "references": [
+        "soar.sources.broker870245.url",
+        "content-updates.js",
+        "soar: soar.records.20"
+      ],
+      "reviews": [
+        "2026-11-10"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.20",
+          "section": "Release 8.7.x > Patch release 8.7.0.245"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-10",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-10",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-10",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },
@@ -9118,14 +9155,14 @@ window.VersionCompassSources = {
         "editions.sources.soarExportCatalog88.u",
         "soar.sources.exportCatalog.url",
         "editions: editions.notes.1",
-        "soar: soar.records.22"
+        "soar: soar.records.23"
       ],
       "reviews": [
         "2026-11-09"
       ],
       "claimReferences": [
         {
-          "path": "soar: soar.records.22",
+          "path": "soar: soar.records.23",
           "section": "Default Version; Compatibility; Details on upgrade listings and functionality-tested combinations"
         }
       ],

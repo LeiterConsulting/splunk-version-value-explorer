@@ -1,0 +1,120 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-soc-analyst-version-floor",
+  "assessmentId": "vcia-release-followthrough-20261110-es-soc-analyst-version-floor",
+  "revision": 1,
+  "recordedAt": "2026-11-10T11:10:45.368Z",
+  "assessedAt": "2026-11-10T11:09:47.807Z",
+  "outcome": "still-present",
+  "rationale": "The ES 8.8 aggregate Premier Triage and Response row lists Cloud Platform 10.2.x+, ES 8.6+ and paired SOAR. The task instead gives 10.2+/ES 8.7+, enablement, a paired SOAR instance and inherited connector/action/asset permissions. The 8.7 Cloud task supplies historical SOC Analyst wording. CMP’s separate task lists Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0. The exact setup URL returns 404 directly. Splunk’s indexed prerequisites specify Cloud Connect 2.0 or higher and SAIA 2.4 or higher. The current SAIA installation and known-issue evidence describe Cloud Connected 2.4.0 support as planned, so usability remains unverified. The November 4 product GA and the distinct Essentials, Premier and Cloud Connect regional tables do not establish usable CMP setup, exact pairing, rollout, entitlement or customer authorization.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "8.7 and 8.8"
+    ],
+    "editions": null,
+    "deployments": [
+      "Cloud and Cloud Connected CMP"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "CMP has its separate Platform 10.4+/ES 8.8+/Cloud Connect 2.0 chain; no lower-floor eligibility, tenant rollout, entitlement, pairing or authorization is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261110-11-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Compatibility information > Triage and Response",
+      "statement": "Exact supporting section for this scoped assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-10T11:07:22.148Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "92498ad317445ce5a816501d4b227988c6f0ad005b9942b5ceb5a7a4c0c410e1",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261110-11-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "section": "Prerequisites; response permissions",
+      "statement": "Exact supporting section for this scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-10T11:07:22.201Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "bf2426c7fcc803328faa6c4887824480087a98d57cc4a247e9ef9a604f4145c3",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261110-11-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "section": "Prerequisites to use the AI SOC analyst agent",
+      "statement": "Exact supporting section for this scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-10T11:07:21.972Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "808a136e67b22a09a3a2332ed1698b07628bbf691f74bd20059af32bc0169811",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261110-11-3",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "November 4 General Availability",
+      "statement": "Exact supporting section for this scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-10T11:07:26.121Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ad440512418ace203d27afab4c520bfdb70270c24caab4d8f73b9b9a4c3aa712",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261110-11-4",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "Essentials, Premier and Cloud Connect regional tables",
+      "statement": "Exact supporting section for this scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-10T11:07:26.094Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "edb68349d9a4be5d0c4c46e7c4014adea30cb7538babd1635d0b04ff7d44ae5c",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/f175779b746ef8d1f8e20aed8613d1a077ed14dc/docs/audits/2026-11-10-version-release-watch.json",
+      "pointer": "/claimChecks/11",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261110-es-soc-analyst-version-floor"
+  ],
+  "remainingConcerns": [
+    "Reconcile the Cloud version discrepancy and recover the exact CMP Cloud Connect setup section."
+  ]
+}

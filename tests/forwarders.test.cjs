@@ -10,6 +10,7 @@ test('Node.js advisory keeps UF and Enterprise package conclusions separate',()=
  assert.doesNotMatch(uf.detail,/Visual Exporter|10\.2|Fixed versions/);
  assert.match(hf.detail,/Enterprise 10\.0 Node\.js runtime as affected/);
  assert.match(hf.detail,/Visual Exporter is a separate exposure/);
+ assert.match(hf.detail,/disabling it may break scheduled dashboard exports/);
  assert.doesNotMatch(hf.detail,/Fixed versions on this route/);
 });
 test('UF bridges follow UF evidence, HF reuses Enterprise path',()=>{const a=api();assert.equal(a.assess(a.defaults).path.join(','),'9.4,10.0,10.4');assert.equal(a.assess({...a.defaults,to:'10.2'}).path.join(','),'9.4,10.0,10.2');assert.equal(a.assess({...a.defaults,type:'hf',to:'10.2'}).path.join(','),'9.4,10.2');});

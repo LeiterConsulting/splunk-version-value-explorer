@@ -151,9 +151,9 @@ window.VersionCompassForwarderData = {
     "nodeOctober": {
       "title": "Node.js product status · SVD-2026-1015",
       "url": "https://advisory.splunk.com/advisories/SVD-2026-1015",
-      "checked": "2026-11-06",
-      "reviewed": "2026-11-06",
-      "section": "Product Status — Affected Products and Enterprise / Visual Exporter footnotes; Unaffected Products; November 5 changelog"
+      "checked": "2026-11-10",
+      "reviewed": "2026-11-10",
+      "section": "Product Status — Affected Products and Enterprise / Visual Exporter footnotes; Unaffected Products; November 9 changelog"
     },
     "esKv106": {
       "title": "10.6 customer-managed ES and KV Store boundary",
@@ -528,7 +528,7 @@ window.VersionCompassForwarderData = {
       "types": [
         "hf"
       ],
-      "detail": "Splunk identifies the bundled Enterprise 10.0 Node.js runtime as affected and recommends 10.2 or later for that component. Its November 5 advisory lists Enterprise 9.4 and 10.2 or later as unaffected by the bundled-runtime issue. Visual Exporter is a separate exposure across Enterprise versions. Splunk lists disabling or removing the app as a possible mitigation. Check the exact installed Heavy Forwarder components and apps before applying either action."
+      "detail": "Splunk identifies the bundled Enterprise 10.0 Node.js runtime as affected and recommends 10.2 or later for that component. Enterprise 9.4 and 10.2 or later are listed as unaffected by the bundled-runtime issue. Visual Exporter is a separate exposure across Enterprise versions. Splunk lists disabling or removing the app as a possible mitigation and warns that disabling it may break scheduled dashboard exports. Check the exact installed Heavy Forwarder components and apps before applying either action."
     },
     "october21": {
       "title": "October 21 Enterprise security advisory",

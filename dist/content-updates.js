@@ -1,7 +1,7 @@
 /* Editorial change provenance. Cycles advance only with material factual updates. */
 (function(){
 'use strict';
-const policy={currentCycle:58,retentionCycles:2};
+const policy={currentCycle:59,retentionCycles:2};
 const note25='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-25.md';
 const note26='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-26.md';
 const note30='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-30.md';
@@ -256,6 +256,7 @@ entries['technical:forwarders:Cloud 10.7 receiver compatibility']={kind:'new',cy
 entries['technical:soar:export88']={kind:'new',cycle:56,date:'2026-11-09',version:'Splunk App for SOAR Export 8.8.0',detail:'Added the scoped tested combinations and Python 3.13 prerequisite, separate from Splunkbase upgrade listings and App for SOAR.',source:'https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/introduction-and-overview/splunk-app-for-soar-export-release-notes',sourceDate:'2026-11-04',note:'https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/11/2026-11-09.md'};
 const labels={new:'New',updated:'Updated',deprecated:'Deprecated',removed:'Removed',corrected:'Corrected'};
 const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+entries['technical:soar:broker870245']={kind:'new',cycle:59,date:'2026-11-10',version:'Splunk SOAR Automation Broker 8.7.0.245',detail:'Added the separately documented Docker Hub release channel. Broker and SOAR server compatibility remain separate.',source:'https://help.splunk.com/en/splunk-soar/splunk-automation-broker/splunk-soar-automation-broker-release-notes/whats-new-in-splunk-soar-automation-broker#patch-release-8.7.0.245-0',sourceDate:'2026-10-09',note:'https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/11/2026-11-10.md'};
 function active(entry,cycle=policy.currentCycle){return !!entry&&cycle>=entry.cycle&&cycle-entry.cycle<policy.retentionCycles;}
 function applicable(entry,record){return !entry?.milestones||entry.milestones.includes(record?.milestone);}
 function html(key,record){const e=entries[key];if(!active(e)||!applicable(e,record))return '';const text='Guide change '+e.date+' · '+e.version+' · '+e.detail+(e.sourceDate?' Source dated '+e.sourceDate+'.':' Source publication date unknown.');return '<span class="content-change content-change-'+e.kind+'"><button type="button" class="content-change-marker" aria-label="'+esc(labels[e.kind]+'. '+text)+'">'+labels[e.kind]+'</button><span class="content-change-popover" role="tooltip"><strong>'+esc(e.kind==='new'?'New to this guide':labels[e.kind])+'</strong><br>'+esc(text)+' <a href="'+esc(e.source)+'" target="_blank" rel="noopener noreferrer">Official source</a> · <a href="'+esc(e.note||note25)+'" target="_blank" rel="noopener noreferrer">Change log</a></span><span class="content-change-print"> — '+esc(labels[e.kind]+': '+text)+'</span></span>';}
