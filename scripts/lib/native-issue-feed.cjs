@@ -9,7 +9,7 @@ const assert = (value, message) => { if (!value) throw Error(message); };
 const hash = value => crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const strings = value => Array.isArray(value) && value.every(x => typeof x === 'string' && x.trim());
 function watchFor(file) {
-  return watches.find(watch => new RegExp(`^docs/audits/\\d{4}-\\d{2}-\\d{2}-${watch}(?:-sources)?\\.json$`).test(file)) || null;
+  return watches.find(watch => new RegExp(`^docs/audits/\\d{4}-\\d{2}-\\d{2}-${watch}(?:-sources|-review-[1-9]\\d*-sources)?\\.json$`).test(file)) || null;
 }
 function reviewDigest(audit) {
   // Publication receipts can advance after the review without manufacturing a
