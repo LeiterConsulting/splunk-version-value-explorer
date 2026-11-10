@@ -17,11 +17,11 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('cycle 50 adds scoped ES agentic facts and retains prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,59);
+ assert.equal(b.policy.currentCycle,60);
  const ea=b.entries["edition:exposure"];assert.equal(ea.cycle,52);assert(b.active(ea,53));assert(!b.active(ea));
  const soar=b.entries['product:soar:cloud-8.8'];assert.equal(soar.cycle,51);assert(!b.active(soar));assert.match(soar.detail,/November 4 General Availability/);
  const app=b.entries['technical:soar:app88'];assert.equal(app.cycle,53);assert(!b.active(app));
- const pairing=b.entries['edition:soar'];assert.equal(pairing.cycle,58);assert(b.active(pairing));assert.match(pairing.detail,/Export 8\.8\.0 functionality-tested/);assert.match(pairing.detail,/native pairing, feature entitlement and regulated authorization separate/);
+ const pairing=b.entries['edition:soar'];assert.equal(pairing.cycle,58);assert(b.active(pairing,59));assert(!b.active(pairing));assert.match(pairing.detail,/Export 8\.8\.0 functionality-tested/);assert.match(pairing.detail,/native pairing, feature entitlement and regulated authorization separate/);
  const export88=b.entries['technical:soar:export88'];assert.equal(export88.cycle,56);assert(b.active(export88,57));assert(!b.active(export88));assert.equal(export88.sourceDate,'2026-11-04');
  const earlierPairing=b.entries['edition-history:soar:cycle28'];assert.equal(earlierPairing.recordKey,'edition:soar');assert(!b.active(earlierPairing));
  for(const key of ['prep11:prep11-workload-baseline','prep11:prep11-cloud-option']){assert.equal(b.entries[key].cycle,49);assert(b.active(b.entries[key],50));assert(!b.active(b.entries[key]));assert.equal(b.entries[key].sourceDate,null);}
@@ -34,7 +34,8 @@ test('cycle 50 adds scoped ES agentic facts and retains prior cycle provenance',
  const aiCycle37=b.entries['ai-history:catalog:cycle37'];assert.equal(aiCycle37.recordKey,'ai:catalog');assert.equal(aiCycle37.cycle,37);assert(!b.active(aiCycle37));assert.match(aiCycle37.detail,/Threat Graph Detection/);
  const soc=b.entries['edition:ai-soc-analyst'];assert.equal(soc.cycle,50);assert(b.active(soc,51));assert.match(soc.detail,/Triage and Response agent identity/);assert.match(soc.detail,/Splunk AI Assistant 2\.4/);
  const socCycle42=b.entries['edition-history:ai-soc-analyst:cycle42'];assert.equal(socCycle42.recordKey,'edition:ai-soc-analyst');assert.equal(socCycle42.cycle,42);assert(!b.active(socCycle42));assert.match(socCycle42.detail,/dependency packaging/);
- for(const key of ['edition:connector-builder','edition:malware-reversing','edition:licensing']){const e=b.entries[key];assert.equal(e.cycle,45);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-31\.md/);}
+ for(const key of ['edition:connector-builder','edition:malware-reversing','edition-history:licensing:cycle45']){const e=b.entries[key];assert.equal(e.cycle,45);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-31\.md/);}
+ const licensing=b.entries['edition:licensing'];assert(b.active(licensing));assert.equal(licensing.sourceDate,null);assert.match(licensing.detail,/Cloud Connected Premier trial/);
  {const e=b.entries['edition:cloud-connect'];assert.equal(e.cycle,50);assert(b.active(e,51));assert.match(e.detail,/planned/);assert.match(e.note,/2026\/11\/2026-11-04\.md/);}
  const socPrior=b.entries['edition-history:ai-soc-analyst:cycle40'];assert.equal(socPrior.recordKey,'edition:ai-soc-analyst');assert(!b.active(socPrior));assert.match(socPrior.detail,/throughput.*model.*permission/);
  const aiAssistant=b.entries['edition:ai-assistant'];assert.equal(aiAssistant.cycle,50);assert(b.active(aiAssistant,51));assert.match(aiAssistant.detail,/2\.4 Cloud Connected support as planned/);

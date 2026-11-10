@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "findingId": "vci-es-premier-trial-cloud-connected-display",
+  "revision": 1,
+  "recordedAt": "2026-11-10T11:34:48.996Z",
+  "title": "ES Premier trial can display Essentials in Cloud Connected environments",
+  "concernType": "coverage-gap",
+  "problem": "The ES 8.8 licensing guide describes a Cloud Connected Premier trial displaying Essentials even while Cloud Connected features continue functioning. The prior VersionCompass ES licensing detail omitted the display qualification.",
+  "scope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "8.8"
+    ],
+    "editions": [
+      "Premier trial"
+    ],
+    "deployments": [
+      "Cloud Connected customer-managed"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Individual contract entitlement, native SOAR pairing, service authorization, and broader feature access remain separate."
+    ]
+  },
+  "scopeComparison": "The display is described for the Cloud Connected Premier trial. Paid contract and runtime qualifications have separate scope.",
+  "impact": {
+    "level": "moderate",
+    "customerScenario": "A reader is evaluating a Cloud Connected Premier trial whose interface displays Essentials.",
+    "consequence": "The displayed tier can be mistaken for a license or pairing failure."
+  },
+  "confidence": {
+    "level": "high",
+    "rationale": "The directly reviewed 8.8 trial section explicitly describes the behavior, and the pinned baseline licensing detail omitted it."
+  },
+  "claimIds": [
+    "editions.licensing.es88-trials"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Retained source coverage observation. The proposed report correction and live delivery are verified separately."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-followthrough-20261110-9-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.8/introduction/licensing-for-splunk-enterprise-security",
+      "section": "Trial license to evaluate Splunk Enterprise Security > Trial terms, expiration and Cloud Connected Premier trial display",
+      "statement": "Exact supporting section in the scoped assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-10T11:29:56.562Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "0e0a5156ede63290fce8154249a1bb6304b6c737d07db7793e08d9866af39095",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "coverageSearch": {
+    "question": "Does the ES Editions licensing report explain the Essentials display during a Cloud Connected Premier trial?",
+    "expectedAnswer": "A qualified note keeps UI display, active trial features and paid entitlement separate.",
+    "corpusEvidenceIds": [
+      "es-followthrough-20261110-9-0"
+    ],
+    "searchedAt": "2026-11-10T11:32:25.646Z",
+    "limits": "Reviewed the exact ES 8.8 licensing trial section and the licensing details in current main before the candidate change."
+  },
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/5ec8cb2e6209a75acf0ff8933ccda83a3e46c802/docs/audits/2026-11-10-es-editions-watch-sources.json",
+      "pointer": "/claimChecks/9",
+      "originalLabel": "new-observation"
+    }
+  ]
+}
