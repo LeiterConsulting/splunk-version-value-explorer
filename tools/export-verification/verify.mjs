@@ -9,7 +9,7 @@ import { chromium } from 'playwright';
 import { verifyNavigation } from './navigation.mjs';
 import { verifyRippleScroll } from './ripple-scroll.mjs';
 import { verifyAdvisor, configureAdvisorRoute, setAdvisorFixtureTime } from './advisor.mjs';
-import { prepareReadOnlyTools, verifyExact } from './exact-releases.mjs';
+import { prepareReadOnlyTools, soarReadOnlyRecord, verifyExact } from './exact-releases.mjs';
 import { verifyPrep11Oversized } from './prep11-print.mjs';
 import { verifyAdvisorOversized } from './advisor-print.mjs';
 const require = createRequire(import.meta.url), { target, hash, verify } = require('../../scripts/export-evidence.cjs');
@@ -134,8 +134,8 @@ try {
       assert((await page.locator('.forwarder-compatibility').textContent()).includes(result.claim.detail),'Cloud 10.7 screen and tool disagree');
       entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
     }
-    if(['soar','soar-cloud','soar-cloud-88'].includes(route.id)){
-      const recordId=route.id==='soar-cloud-88'?'export88':'broker870245';
+    const recordId=soarReadOnlyRecord(route);
+    if(recordId){
       await page.waitForFunction(()=>window.__reportTools?.versioncompass_get_current_report);
       const toolResult=await page.evaluate(id=>{
         const {versioncompass_get_current_report:current,versioncompass_compare_routes:compare}=window.__reportTools;

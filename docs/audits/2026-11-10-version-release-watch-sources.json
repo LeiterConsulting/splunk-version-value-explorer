@@ -3318,7 +3318,27 @@
     "advisor": "Both commands passed. All three admission windows remain overdue. No pins, review dates or regional records were advanced.",
     "local": "Ordered sync and validation run on candidate.",
     "browser": "Exact-head native artifact required before merge; current report changes exercised on existing routes.",
-    "production": "No write-capable production content calls. Hold remains in force."
+    "production": "No write-capable production content calls. Hold remains in force.",
+    "failedCandidate": {
+      "head": "c3d58d2dfb004111490f05554b36b792cac56509",
+      "tree": "4df9dba98c240be46c22ec24bf402f17d041eb4d",
+      "runId": 42801585294,
+      "jobId": 129780313234,
+      "failedStep": "Run node tools/export-verification/verify.mjs",
+      "archiveId": 13756817631,
+      "archiveSha256": "7352376264bbc25dc9bb5df517bf0ef8f622bc0e742ad86a37c39ef085e69182",
+      "readBackAt": "2026-11-10T10:56:20.859Z",
+      "casesPassed": 214,
+      "casesFailed": [
+        "soar-default",
+        "soar-cisco",
+        "soar-cloud-default",
+        "soar-cloud-cisco"
+      ],
+      "cause": "The new SOAR checks expected read-only tool registration on routes omitted by the CI harness preparation. The shared route mapping now supplies registration for both checks. Corrected exact-head native validation is pending.",
+      "reviewBy": "2026-11-11",
+      "owner": "version-release-watch"
+    }
   },
   "publication": {
     "claimedDelivered": false,
