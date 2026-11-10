@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-malware-phishing-version-floor",
+  "assessmentId": "vcia-es-20261110-es-malware-phishing-version-floor",
+  "revision": 1,
+  "recordedAt": "2026-11-10T11:02:41.606Z",
+  "assessedAt": "2026-11-10T11:00:21.671Z",
+  "outcome": "still-present",
+  "rationale": "The aggregate 8.8 compatibility row still lists ES 8.5+, while the detailed task requires ES 8.6+, Platform 10.2.x+ and paired SOAR. Keep both floors visible, with the task-specific prerequisites for this workflow.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "8.8"
+    ],
+    "editions": null,
+    "deployments": [
+      "Premier Cloud with paired SOAR"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-20261110-6-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Malware Reversing and Phishing compatibility row",
+      "statement": "Exact supporting section in the scoped assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-10T10:57:18.214Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "1a0160ff9e80643a6d1562f4dd2bcfe75e78aeaceac8c877674b9863f3eed932",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-20261110-6-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/analyze-scripts-using-the-ai-powered-malware-reversing-agent-and-phishing-analysis-agent-in-splunk-enterprise-security",
+      "section": "Task version and pairing prerequisites",
+      "statement": "Exact supporting section in the scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-10T10:57:18.212Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "e498b3e111e281a93ed0109b6742a5b738094e0361fc4ffdd395fb4f6529eb0e",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/ff2d4e670f4cdbb066262782cf604dac899cd6e1/docs/audits/2026-11-10-es-editions-watch.json",
+      "pointer": "/claimChecks/6",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-es-20261109-es-malware-phishing-version-floor"
+  ],
+  "remainingConcerns": [
+    "Recheck the task-specific floor against the aggregate version claim and paired SOAR requirements."
+  ]
+}
