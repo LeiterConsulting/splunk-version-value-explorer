@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-cloud-107-aws-israel-filter",
+  "assessmentId": "vcia-csp-20261110-cloud-107-aws-israel-filter",
+  "revision": 1,
+  "recordedAt": "2026-11-10T12:52:21.940Z",
+  "assessedAt": "2026-11-10T12:50:41.612Z",
+  "outcome": "still-present",
+  "rationale": "Current AWS Victoria new-stack hosting includes Israel and the November 6 log scopes it to relevant 10.7 versions. The committed Environment filter still lacks the Israel option. The previous bounded candidate failed the shared Advisor environment pin, so no report change is proposed here without that integration check. Hosting does not establish feature support, migration, pairing or authorization.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform"
+    ],
+    "versions": [
+      "10.7"
+    ],
+    "editions": null,
+    "deployments": [
+      "Commercial AWS Victoria, new stacks"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Existing-stack migration, feature availability, premium pairing, historical rollout and regulated authorization remain separate."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261110-8-0",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions and region differences > Victoria Experience > AWS",
+      "statement": "Supporting section for this scoped assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-10T12:44:18.324Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "436299fddcfab3e3226c404936b873bb73a8786eb00c4e6dcefa66b421e8630b",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261110-8-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "6 November 2026 > Available regions and region differences",
+      "statement": "Supporting section for this scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-10T12:44:18.268Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "d7de3710e516d81b29f4b4c8ff730b8e91e5f5e15049aa1a34cc3ef5ab6a2467",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/1fa29aa7db05ce848b590a4ac0947be253f3a1cb/docs/audits/2026-11-10-csp-fedramp-watch-sources.json",
+      "pointer": "/claimChecks/8",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-guidance-20261109-cloud-107-aws-israel-filter"
+  ],
+  "remainingConcerns": [
+    "Reconcile affected Advisor admissions and test the documented hosting option before a filter release."
+  ]
+}

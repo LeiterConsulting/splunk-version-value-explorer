@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-08T20:32:35.791337Z",
-      "lastSuccess": "2026-11-08T20:40:19.746Z",
+      "lastAttempt": "2026-11-10T12:43:01.107075Z",
+      "lastSuccess": "2026-11-10T12:50:41.612Z",
       "outcome": "no-change",
-      "summary": "Reassessed six bounded claim families. Preserved current conflicts and unknowns.",
+      "summary": "Reviewed the CSP inventory and bounded high-consequence claims. No canonical product facts changed. Marketplace and S3 scope differences remain documented.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -447,9 +447,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Reassessed six bounded claim families. Preserved current conflicts and unknowns.",
           "scope": "Attempted the complete 53-entry maintained official inventory, with 50 directly retrieved and three HTTP 404. Independently reassessed six bounded claim families, including the sole mandatory SOC capability. Other prior claims retain their earlier dates."
+        },
+        {
+          "at": "2026-11-10T12:43:01.107075Z",
+          "outcome": "running",
+          "summary": "CSP FedRAMP Watch began the November 10 public evidence review.",
+          "scope": "Complete maintained CSP source inventory and bounded Cloud Platform, Marketplace, visual US Public Sector, ES region, SOC, ITSI subagent and SOAR reviews. One registered 1.2.0 SOC capability."
+        },
+        {
+          "at": "2026-11-10T12:50:41.612Z",
+          "outcome": "no-change",
+          "summary": "Reviewed the CSP inventory and bounded high-consequence claims. No canonical product facts changed. Marketplace and S3 scope differences remain documented.",
+          "scope": "Complete maintained CSP source inventory and bounded Cloud Platform, Marketplace, visual US Public Sector, ES region, SOC, ITSI subagent and SOAR reviews. One registered 1.2.0 SOC capability."
         }
       ],
-      "scope": "Attempted the complete 53-entry maintained official inventory, with 50 directly retrieved and three HTTP 404. Independently reassessed six bounded claim families, including the sole mandatory SOC capability. Other prior claims retain their earlier dates."
+      "scope": "Complete maintained CSP source inventory and bounded Cloud Platform, Marketplace, visual US Public Sector, ES region, SOC, ITSI subagent and SOAR reviews. One registered 1.2.0 SOC capability."
     },
     {
       "id": "version-release-watch",
