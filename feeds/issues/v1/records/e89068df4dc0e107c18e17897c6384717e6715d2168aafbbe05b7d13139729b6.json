@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-87-connector-builder-editions",
+  "assessmentId": "vcia-es-followthrough-20261110-es-87-connector-builder-editions",
+  "revision": 1,
+  "recordedAt": "2026-11-10T11:34:48.996Z",
+  "assessedAt": "2026-11-10T11:32:25.646Z",
+  "outcome": "still-present",
+  "rationale": "The 8.7 aggregate lists both editions, while 8.7.1 release history lists Premier and describes eligible-user activation. The 8.8 aggregate also lists both editions on Cloud with paired SOAR and ES 8.7+. The detailed task’s platform, user and SOAR permissions do not retroactively resolve the 8.7 entitlement conflict.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "8.7 and 8.8"
+    ],
+    "editions": null,
+    "deployments": [
+      "Cloud with paired SOAR"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-followthrough-20261110-4-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Connector Builder availability row",
+      "statement": "Exact supporting section in the scoped assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-10T11:29:51.022Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "a5a357c4d4ec36ae5c3c76bf7784d0a52b1316171c0ef16a8ac93b54d7908d69",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-followthrough-20261110-4-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "8.7.1 Connector Builder edition and eligible-user wording",
+      "statement": "Exact supporting section in the scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-10T11:29:51.114Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "1386cbdb3fde208893823947c40978d180799c0f5a5f8bbca47bf7b7b136ff4f",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-followthrough-20261110-4-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Connector Builder availability row",
+      "statement": "Exact supporting section in the scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-10T11:29:51.211Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "32ef39215cc9e1a577185f2b39738dd460a81566adf7c4d7d18a35e8b24bd451",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-followthrough-20261110-4-3",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/automation-with-playbooks/configure-splunk-soar-apps-in-splunk-enterprise-security",
+      "section": "Connector Builder requirements and permissions",
+      "statement": "Exact supporting section in the scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-10T11:29:51.154Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "520dfe24b0e25b341d0f5e0013c3d3437c51405a0946e603cd77997054ba1e28",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/5ec8cb2e6209a75acf0ff8933ccda83a3e46c802/docs/audits/2026-11-10-es-editions-watch-sources.json",
+      "pointer": "/claimChecks/4",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-es-20261110-es-87-connector-builder-editions"
+  ],
+  "remainingConcerns": [
+    "Preserve and recheck the 8.7 aggregate versus 8.7.1 edition conflict."
+  ]
+}
