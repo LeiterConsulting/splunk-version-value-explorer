@@ -454,10 +454,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-10T10:33:32.017373Z",
-      "lastSuccess": "2026-11-10T10:40:54.885Z",
-      "outcome": "changed",
-      "summary": "Reviewed the registered families and two report changes for Broker distribution and Visual Exporter mitigation. Production verification is separate.",
+      "lastAttempt": "2026-11-10T11:05:38.154763Z",
+      "lastSuccess": "2026-11-10T11:09:47.807Z",
+      "outcome": "no-change",
+      "summary": "Independently rechecked all eleven registered families and the bounded Broker, Visual Exporter, SOAR and Forwarder evidence. Retained existing factual review dates and separate production status.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1003,9 +1003,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Reviewed the registered families and two report changes for Broker distribution and Visual Exporter mitigation. Production verification is separate.",
           "scope": "Complete maintained official source inventory and eleven registry 1.2.0 claim families, plus bounded changed and consequential SOAR and Forwarder review. No expansion to unsupported exact pairings or rollout."
+        },
+        {
+          "at": "2026-11-10T11:05:38.154763Z",
+          "outcome": "running",
+          "summary": "Checking the complete maintained official inventory and reviewing affected release and upgrade claims.",
+          "scope": "Version Release Watch product scope and eleven coverage registry 1.2.0 capabilities."
+        },
+        {
+          "at": "2026-11-10T11:09:47.807Z",
+          "outcome": "no-change",
+          "summary": "Independently rechecked all eleven registered families and the bounded Broker, Visual Exporter, SOAR and Forwarder evidence. Retained existing factual review dates and separate production status.",
+          "scope": "Independent reassessment for the currently observed attempt. Complete maintained inventory and all eleven registered claim families, plus bounded SOAR, Forwarder and security review. Earlier candidate changes were rechecked without advancing their original factual dates."
         }
       ],
-      "scope": "Complete maintained official source inventory and eleven registry 1.2.0 claim families, plus bounded changed and consequential SOAR and Forwarder review. No expansion to unsupported exact pairings or rollout."
+      "scope": "Independent reassessment for the currently observed attempt. Complete maintained inventory and all eleven registered claim families, plus bounded SOAR, Forwarder and security review. Earlier candidate changes were rechecked without advancing their original factual dates."
     },
     {
       "id": "es-editions-watch",
