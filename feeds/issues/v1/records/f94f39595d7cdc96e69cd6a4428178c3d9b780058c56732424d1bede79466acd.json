@@ -1,0 +1,120 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-soc-analyst-version-floor",
+  "assessmentId": "vcia-release-review3-20261110-es-soc-analyst-version-floor",
+  "revision": 1,
+  "recordedAt": "2026-11-10T11:45:16.149Z",
+  "assessedAt": "2026-11-10T11:44:31.875Z",
+  "outcome": "still-present",
+  "rationale": "The ES 8.8 aggregate Premier Triage and Response row lists Cloud Platform 10.2.x+, ES 8.6+ and paired SOAR. The task instead gives 10.2+/ES 8.7+, enablement, a paired SOAR instance and inherited connector/action/asset permissions. The 8.7 Cloud task supplies historical SOC Analyst wording. CMP’s separate task lists Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0. The exact setup URL returns 404 directly. Splunk’s indexed prerequisites specify Cloud Connect 2.0 or higher and SAIA 2.4 or higher. The current SAIA installation and known-issue evidence describe Cloud Connected 2.4.0 support as planned, so usability remains unverified. The November 4 product GA and the distinct Essentials, Premier and Cloud Connect regional tables do not establish usable CMP setup, exact pairing, rollout, entitlement or customer authorization.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "8.7 and 8.8"
+    ],
+    "editions": null,
+    "deployments": [
+      "Cloud and Cloud Connected CMP"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "CMP has its separate Platform 10.4+/ES 8.8+/Cloud Connect 2.0 chain; no lower-floor eligibility, tenant rollout, entitlement, pairing or authorization is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-review3-20261110-11-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Compatibility information > Triage and Response",
+      "statement": "Exact supporting section for this scoped assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-10T11:41:11.087Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ffa6d92a00e2fe6f29d2503bd48a317f212afc17fb54b2b914a751738e3a25cf",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-review3-20261110-11-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "section": "Prerequisites; response permissions",
+      "statement": "Exact supporting section for this scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-10T11:41:11.257Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "715e6a6f22849f023738a5110752c942457f5b0ee639c950a0d0123f90dc6be5",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-review3-20261110-11-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "section": "Prerequisites to use the AI SOC analyst agent",
+      "statement": "Exact supporting section for this scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-10T11:41:11.073Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b6219a630a260a5aabc67b7d62f24918fccb2343f4d7c41a4b8bb21c78dfe772",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-review3-20261110-11-3",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "November 4 General Availability",
+      "statement": "Exact supporting section for this scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-10T11:41:18.050Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "37b6ef76e9a1bb3d4d2dce5ac9a55ea30013da8777a3b50541654730f752fb3a",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-review3-20261110-11-4",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "Essentials, Premier and Cloud Connect regional tables",
+      "statement": "Exact supporting section for this scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-10T11:41:18.065Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "5e001a961ccf233c2007d068731afe7c94763245a509de2a62b903d9eb5e7553",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/191adeebf535f89018467ad25f307d59439fcf14/docs/audits/2026-11-10-version-release-watch-review-3-sources.json",
+      "pointer": "/claimChecks/11",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-followthrough-20261110-es-soc-analyst-version-floor"
+  ],
+  "remainingConcerns": [
+    "Reconcile the Cloud version discrepancy and recover the exact CMP Cloud Connect setup section."
+  ]
+}

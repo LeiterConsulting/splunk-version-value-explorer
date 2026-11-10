@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-agent-runtime-processing-scope",
+  "assessmentId": "vcia-release-review3-20261110-saia-agent-runtime-processing-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-10T11:45:16.149Z",
+  "assessedAt": "2026-11-10T11:44:31.875Z",
+  "outcome": "still-present",
+  "rationale": "Agent Mode requires Model Runtime and lists AWS locations. The Model Runtime table separately assigns Global routing to Dublin and Data zone to Frankfurt. Possible external model processing cannot be reconciled into a residency guarantee from broader Cloud Connected data-use wording.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant"
+    ],
+    "versions": [
+      "2.3.6"
+    ],
+    "editions": null,
+    "deployments": [
+      "Feature-specific Agent Mode and Model Runtime"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No customer authorization, actual tenant routing, residency guarantee, regulated approval or exact app/Platform pairing is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-review3-20261110-9-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "section": "Requirements and supported AWS locations",
+      "statement": "Exact supporting section for this scoped assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-10T11:41:27.518Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ce13915f55bc59680265a85fef7bb0caf7460a46bc4991c03c4e5ac81c67a819",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-review3-20261110-9-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+      "section": "Feature availability and region standard; Using the Model Runtime feature",
+      "statement": "Exact supporting section for this scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-10T11:41:27.407Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "8339b48ed3b15909d5416ffe016251dc713ad258e2e506bc364b24f4ff6ff7f0",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-review3-20261110-9-2",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "How Splunk AI Assistant uses your data",
+      "statement": "Exact supporting section for this scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-10T11:41:11.118Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "75704b096e17c19353f3ce77e8cbe7182d6b54d58eb6ce3aeeb666fbc81299d8",
+        "qualification": "Direct response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/191adeebf535f89018467ad25f307d59439fcf14/docs/audits/2026-11-10-version-release-watch-review-3-sources.json",
+      "pointer": "/claimChecks/9",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-followthrough-20261110-saia-agent-runtime-processing-scope"
+  ],
+  "remainingConcerns": [
+    "Recheck actual feature-specific processing and routing separately from base assistant regions."
+  ]
+}

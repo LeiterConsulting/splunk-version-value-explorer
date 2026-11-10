@@ -454,8 +454,8 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-10T11:05:38.154763Z",
-      "lastSuccess": "2026-11-10T11:09:47.807Z",
+      "lastAttempt": "2026-11-10T11:40:23.475963Z",
+      "lastSuccess": "2026-11-10T11:44:31.875Z",
       "outcome": "no-change",
       "summary": "Independently rechecked all eleven registered families and the bounded Broker, Visual Exporter, SOAR and Forwarder evidence. Retained existing factual review dates and separate production status.",
       "history": [
@@ -1015,9 +1015,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Independently rechecked all eleven registered families and the bounded Broker, Visual Exporter, SOAR and Forwarder evidence. Retained existing factual review dates and separate production status.",
           "scope": "Independent reassessment for the currently observed attempt. Complete maintained inventory and all eleven registered claim families, plus bounded SOAR, Forwarder and security review. Earlier candidate changes were rechecked without advancing their original factual dates."
+        },
+        {
+          "at": "2026-11-10T11:40:23.475963Z",
+          "outcome": "running",
+          "summary": "Checking the complete maintained inventory and the current release, security and upgrade evidence.",
+          "scope": "Version Release Watch owned product scope and eleven registered capabilities."
+        },
+        {
+          "at": "2026-11-10T11:44:31.875Z",
+          "outcome": "no-change",
+          "summary": "Independently rechecked all eleven registered families and the bounded Broker, Visual Exporter, SOAR and Forwarder evidence. Retained existing factual review dates and separate production status.",
+          "scope": "Independent reassessment for the currently observed attempt. Complete maintained inventory and all eleven registered claim families, plus bounded SOAR, Forwarder and security review. The merged Broker and Visual Exporter wording was rechecked without advancing its original factual dates."
         }
       ],
-      "scope": "Independent reassessment for the currently observed attempt. Complete maintained inventory and all eleven registered claim families, plus bounded SOAR, Forwarder and security review. Earlier candidate changes were rechecked without advancing their original factual dates."
+      "scope": "Independent reassessment for the currently observed attempt. Complete maintained inventory and all eleven registered claim families, plus bounded SOAR, Forwarder and security review. The merged Broker and Visual Exporter wording was rechecked without advancing its original factual dates."
     },
     {
       "id": "es-editions-watch",

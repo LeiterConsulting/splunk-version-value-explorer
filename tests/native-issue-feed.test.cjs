@@ -67,5 +67,10 @@ test('CI rejects a changed watch audit without a feed outcome', () => {
     assert.throws(() => check(root), /Missing native/);
     const declared = audit(); declared.claimChecks = changed.claimChecks; declared.issueFeed.reviewDigest = reviewDigest(declared); write(file, declared);
     assert.equal(check(root).checkedAuditOutcomes.length, 1);
+    const continuation = 'docs/audits/2026-10-30-es-editions-watch-review-3-sources.json';
+    write(continuation, changed);
+    assert.throws(() => check(root), /Missing native/);
+    write(continuation, declared);
+    assert.deepEqual(check(root).checkedAuditOutcomes.map(outcome => outcome.file).sort(), [file, continuation].sort());
   } finally { fs.rmSync(root, { recursive: true, force: true }); }
 });

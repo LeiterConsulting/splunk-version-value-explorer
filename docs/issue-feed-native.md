@@ -113,6 +113,11 @@ structural and publication-accountability check; it cannot certify claim truth,
 independent judgment or successful consumer action. The reviewer must perform
 those evidence checks and the consumer owns its own verification decisions.
 
+When a date already has both watch audit paths, use
+`docs/audits/DATE-WATCH-review-N-sources.json` for a distinct source review.
+Choose the next unused positive review number for that date and watch. Bind its
+own coverage and feed declarations, and keep the earlier audits at their paths.
+
 Native enablement reuses the four existing review tasks. Their prompts explicitly
 require this process; schedules, timing modes and enabled states remain unchanged.
 No new timer is created. Feed-only repository work does not imply a Site runtime
