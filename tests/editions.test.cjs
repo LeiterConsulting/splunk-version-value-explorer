@@ -179,3 +179,14 @@ test('SOAR product entry works while the normal comparison scripts are still loa
  vm.runInNewContext(read('dist/site-router.js'),{document,URLSearchParams,window:{location,VersionCompassTheme:{href:u=>u+'&theme=cisco'}}});
  let stopped=false;inputs[0].change({stopImmediatePropagation(){stopped=true;}});assert(stopped);assert.equal(location.href,'?product=soar&theme=cisco');assert.equal(inputs[2].change,undefined);
 });
+
+test('Cloud Connected Premier trial display is qualified in the licensing disclosure and complete snapshot',()=>{
+ const note=data.notes.find(n=>n.id==='licensing');
+ const phrase='the UI shows Essentials while Cloud Connected features continue to function during the trial';
+ assert(note.details.includes(phrase));
+ assert(note.src.includes('licensing88'));
+ const route=runtime('?view=es-editions&release=8.8&theme=cisco');
+ assert(route.html.includes(phrase));
+ assert(route.snapshot().includes(phrase));
+ assert(route.details.every(detail=>!detail.open));
+});

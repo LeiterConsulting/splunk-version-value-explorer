@@ -1022,10 +1022,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-09T11:32:23.000Z",
-      "lastSuccess": "2026-11-09T12:12:36Z",
+      "lastAttempt": "2026-11-10T11:29:08.418438Z",
+      "lastSuccess": "2026-11-10T11:32:25.646Z",
       "outcome": "changed",
-      "summary": "Verified the 52-source ES Editions inventory; added exact SOAR Export 8.8 tested tuples, published nine scoped issue-feed reassessments, and retained unresolved edition, entitlement, pairing, pricing and version-floor conflicts. Repository candidate passed functional gates; production Site/D1 delivery remains held.",
+      "summary": "Completed the scoped ES review and added the Cloud Connected Premier trial display qualification to the licensing detail. Production status is separate.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1499,9 +1499,33 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Verified the 52-source ES Editions inventory; added exact SOAR Export 8.8 tested tuples, published nine scoped issue-feed reassessments, and retained unresolved edition, entitlement, pairing, pricing and version-floor conflicts. Repository candidate passed functional gates; production Site/D1 delivery remains held.",
           "scope": "Full 52-URL official ES source inventory; bounded ES 8.8/8.7 edition, AI SOC, SOAR pairing and Export compatibility, pricing and conflict claims; registry 1.2.0 advisor.soc-workflow; exact-candidate browser/PDF/offline-HTML evidence."
+        },
+        {
+          "at": "2026-11-10T10:56:16.344426Z",
+          "outcome": "running",
+          "summary": "ES Editions Watch began the November 10 public evidence review.",
+          "scope": "ES Essentials/Premier, versioned agent and workflow prerequisites, native SOAR pairing versus App and Export rows, licensing and commercial evidence. One participating registered capability under 1.2.0."
+        },
+        {
+          "at": "2026-11-10T11:00:21.671Z",
+          "outcome": "no-change",
+          "summary": "Completed the bounded editions review. Source disagreements and the direct Cloud Connect gap remain visible.",
+          "scope": "ES Essentials/Premier, versioned agent and workflow prerequisites, native SOAR pairing versus App and Export rows, licensing and commercial evidence. One participating registered capability under 1.2.0."
+        },
+        {
+          "at": "2026-11-10T11:29:08.418438Z",
+          "outcome": "running",
+          "summary": "ES Editions Watch began the November 10 public evidence review.",
+          "scope": "ES Essentials/Premier, versioned agent and workflow prerequisites, native SOAR pairing versus App and Export rows, licensing and commercial evidence. One participating registered capability under 1.2.0."
+        },
+        {
+          "at": "2026-11-10T11:32:25.646Z",
+          "outcome": "changed",
+          "summary": "Completed the scoped ES review and added the Cloud Connected Premier trial display qualification to the licensing detail. Production status is separate.",
+          "scope": "ES Essentials/Premier, versioned agent and workflow prerequisites, native SOAR pairing versus App and Export rows, licensing and commercial evidence. One participating registered capability under 1.2.0."
         }
       ],
-      "scope": "Full 52-URL official ES source inventory; bounded ES 8.8/8.7 edition, AI SOC, SOAR pairing and Export compatibility, pricing and conflict claims; registry 1.2.0 advisor.soc-workflow; exact-candidate browser/PDF/offline-HTML evidence."
+      "scope": "ES Essentials/Premier, versioned agent and workflow prerequisites, native SOAR pairing versus App and Export rows, licensing and commercial evidence. One participating registered capability under 1.2.0."
     },
     {
       "id": "version-guidance-audit",

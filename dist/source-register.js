@@ -4687,10 +4687,10 @@ window.VersionCompassSources = {
         "editions: editions.notes.3"
       ],
       "reviews": [
-        "2026-10-31"
+        "2026-11-10"
       ],
       "usage": "In use",
-      "reviewed": "2026-10-31",
+      "reviewed": "2026-11-10",
       "status": "Reviewed",
       "firstRecorded": "2026-10-31",
       "firstUsed": null,
@@ -4702,6 +4702,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-31",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-10",
+          "event": "Review status updated: Reviewed · 2026-11-10"
         }
       ]
     },

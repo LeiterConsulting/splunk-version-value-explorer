@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-activity-pricing-deployment-scope",
+  "assessmentId": "vcia-es-followthrough-20261110-es-activity-pricing-deployment-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-10T11:34:48.996Z",
+  "assessedAt": "2026-11-10T11:32:25.646Z",
+  "outcome": "still-present",
+  "rationale": "The pricing page lists activity-based, workload and ingest options, while the detailed activity-based FAQ names Splunk Cloud Platform. This does not establish self-managed eligibility or revise contract terms.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "Current public pricing"
+    ],
+    "editions": null,
+    "deployments": [
+      "Cloud and self-managed"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-followthrough-20261110-8-0",
+      "url": "https://www.splunk.com/en_us/products/pricing.html",
+      "section": "Splunk Enterprise Security pricing options",
+      "statement": "Exact supporting section in the scoped assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-10T11:30:01.687Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "59c1f75a783107af0c232981bfbb18dcd3a1ac6749015f2d10612c9b1f2eb56e",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-followthrough-20261110-8-1",
+      "url": "https://www.splunk.com/en_us/products/pricing/pricing-models.html",
+      "section": "Activity-based pricing FAQ > Availability",
+      "statement": "Exact supporting section in the scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-10T11:30:01.502Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "1cb334ff212ef31d3d4bfb0b033193be0ad1cc4f61b5bed3657c4472ea3f1062",
+        "qualification": "Direct public response bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/5ec8cb2e6209a75acf0ff8933ccda83a3e46c802/docs/audits/2026-11-10-es-editions-watch-sources.json",
+      "pointer": "/claimChecks/8",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-es-20261110-es-activity-pricing-deployment-scope"
+  ],
+  "remainingConcerns": [
+    "Check authoritative self-managed licensing alongside the Cloud-specific pricing FAQ."
+  ]
+}
