@@ -4767,9 +4767,9 @@ window.VersionCompassSources = {
           "release": "10.0",
           "component": "FIPS cryptographic module",
           "section": "Key points for upgrading to version 10.0 — FIPS-mode module requirements and dedicated migration link",
-          "claimVerified": "2026-10-21",
+          "claimVerified": "2026-11-11",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. October 21 bounded semantic recheck: the 10.0 source introduces a FIPS 140-3-compliant module only for FIPS-mode instances and sends those deployments to a dedicated prerequisite and migration procedure. This is not a transparent switch, a UF rule, FedRAMP authorization or a claim that every HF runs in FIPS mode."
+          "qualification": "Heavy Forwarder uses the Enterprise package. The 10.0 source introduces a FIPS 140-3-compliant module for FIPS-mode instances. The linked procedure separates the version upgrade from FIPS module migration and verifies forwarding before migrating the indexing tier. Scope is the FIPS-mode Enterprise package. UF applicability and regulated authorization remain separate."
         },
         {
           "path": "forwarders: borrowed.technical.hf.10.0.legacy-tls-protocols",
@@ -4794,6 +4794,44 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-09-25",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.0/upgrade-or-migrate-splunk-enterprise/upgrade-and-migrate-your-fips-mode-deployments",
+      "title": "upgrade and migrate your fips mode deployments",
+      "areas": [
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "forwarders: borrowed.technical.hf.10.0.fips-cryptographic-module"
+      ],
+      "reviews": [],
+      "claimReferences": [
+        {
+          "path": "forwarders: borrowed.technical.hf.10.0.fips-cryptographic-module",
+          "claimId": "technical.hf.10.0.fips-cryptographic-module",
+          "release": "10.0",
+          "component": "FIPS cryptographic module",
+          "section": "Phase 2: How to Migrate Splunk Enterprise from FIPS 140-2 mode to FIPS 140-3 mode; Procedure for Migrating Splunk Enterprise from FIPS 140-2 mode to FIPS 140-3 mode > Migrate the forwarding tier from FIPS 140-2 to FIPS 140-3",
+          "claimVerified": "2026-11-11",
+          "outcome": "supporting-section-confirmed",
+          "qualification": "Heavy Forwarder uses the Enterprise package. The 10.0 source introduces a FIPS 140-3-compliant module for FIPS-mode instances. The linked procedure separates the version upgrade from FIPS module migration and verifies forwarding before migrating the indexing tier. Scope is the FIPS-mode Enterprise package. UF applicability and regulated authorization remain separate."
+        }
+      ],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-11",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-11",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]

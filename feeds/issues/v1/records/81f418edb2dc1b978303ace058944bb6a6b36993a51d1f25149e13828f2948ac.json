@@ -1,0 +1,196 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "findingId": "vci-uf-remote-upgrader-route-coverage",
+  "revision": 1,
+  "recordedAt": "2026-11-11T10:16:23.509Z",
+  "concernType": "coverage-gap",
+  "title": "Forwarder comparisons omit the Remote Upgrader management boundary",
+  "problem": "The comparison provides UF version steps, OS/package information and receiver checks. It does not explain the separate host-installed Remote Upgrader or the customer-managed deployment server that can distribute packages in a Cloud-facing deployment.",
+  "scope": {
+    "products": [
+      "Splunk Universal Forwarder"
+    ],
+    "versions": [
+      "10.6 guides; documented source and signed-package floors"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed Linux and Windows; Cloud-facing deployments"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No particular OS/version path, customer entitlement, Cloud-native deployment-server capability or regulated authorization is inferred."
+    ]
+  },
+  "impact": {
+    "customerScenario": "Planning centralized UF package upgrades for Linux or Windows hosts that report to Splunk Enterprise or Splunk Cloud Platform.",
+    "consequence": "Operators can mistake a Cloud receiver support result or deployment-server content distribution for evidence that a specific package upgrade can be automated.",
+    "level": "moderate"
+  },
+  "confidence": {
+    "level": "high",
+    "rationale": "Compared the existing VersionCompass UF report model with exact official Agent Management, Remote Upgrader and Cloud service sections."
+  },
+  "claimIds": [
+    "forwarders.uf.remote-upgrader-coverage"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "The repository guide has an initial scope note. Exact route-specific automation guidance is not yet part of the comparison."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "coverageSearch": {
+    "question": "Which customer-managed component installs signed UF packages and what limits the supported Linux and Windows paths?",
+    "expectedAnswer": "Separate deployment-server distribution from installation by the host upgrader, then show the selected OS/package and UF upgrade-path qualifications.",
+    "corpusEvidenceIds": [
+      "release-20261111-0-0",
+      "release-20261111-0-1",
+      "release-20261111-0-2",
+      "release-20261111-0-3",
+      "release-20261111-0-4",
+      "release-20261111-0-5",
+      "release-20261111-0-6",
+      "release-20261111-0-7"
+    ],
+    "searchedAt": "2026-11-11T10:14:59.636Z",
+    "limits": "Reviewed the existing report, Enterprise 10.6 Agent Management, the versioned Remote Upgrader guides and current Cloud management descriptions. No tenant-specific management support was evaluated."
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261111-0-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/update-your-deployment/10.6/agent-management/about-agent-management",
+      "section": "What is agent management?; Remote Upgrader",
+      "statement": "Exact section for the scoped assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-11T10:10:47.688Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9007e5a32ea1ab29e30550b95357481ae3e3daa9609e9254524fc358f4201408",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261111-0-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/forward-and-process-data/splunk-remote-upgrader-for-linux-universal-forwarders/10.6/about-the-splunk-remote-upgrader-for-linux-universal-forwarders/supported-universal-forwarder-versions",
+      "section": "Supported universal forwarder versions",
+      "statement": "Exact section for the scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T10:10:47.637Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ae4dc850dac28e48a9465a7389396c367a1c0a64504ba59816aef3b85852defd",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261111-0-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise/forward-and-process-data/splunk-remote-upgrader-for-linux-universal-forwarders/10.6/about-the-splunk-remote-upgrader-for-linux-universal-forwarders/prerequisites",
+      "section": "Prerequisites",
+      "statement": "Exact section for the scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T10:10:47.701Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "a501c0d5ceb8be7390f797a76dda6c5b2d452f08d198ccfa806426e38b29b66d",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261111-0-3",
+      "url": "https://help.splunk.com/en/data-management/forward-data/splunk-remote-upgrader-for-windows-universal-forwarders/10.6/about/prerequisites",
+      "section": "Prerequisites > versioning; supported Windows 64-bit versions",
+      "statement": "Exact section for the scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T10:10:47.802Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "803157fb637f5a34c8e709400f438a7c500181696249887a213559818781fd6f",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261111-0-4",
+      "url": "https://help.splunk.com/en/splunk-enterprise/forward-and-process-data/splunk-remote-upgrader-for-linux-universal-forwarders/10.6/quickstart-guide/quickstart-guide",
+      "section": "Upgrade universal forwarders using deployment server and the remote upgrader",
+      "statement": "Exact section for the scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T10:10:47.697Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "66be5365861b6e4462c23ec83b00466969ffd0f2811dcd66228b741cace7e7e0",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261111-0-5",
+      "url": "https://help.splunk.com/en/data-management/forward-data/splunk-remote-upgrader-for-windows-universal-forwarders/10.6/use-the-remote-upgrader/upgrade-universal-forwarders-using-the-deployment-server",
+      "section": "Upgrade universal forwarders using the deployment server",
+      "statement": "Exact section for the scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T10:10:47.708Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "cc74ecfddd3771dfc2fe6c81202e6ad06fc4eb68af47b3ecc98e33f07d5b7b64",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261111-0-6",
+      "url": "https://help.splunk.com/en/data-management/splunk-validated-architectures/splunk-cloud-platform/splunk-cloud-platform-experiences",
+      "section": "Limitations > customer-managed components",
+      "statement": "Exact section for the scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T10:10:47.782Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "43b554d2d722608daba54929210c2594f0a9de0758e8f2348b50410b3cf9e880",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261111-0-7",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-manual/10.6/get-data-into-splunk-cloud-platform/introduction-to-getting-data-in",
+      "section": "Fundamental concepts > deployment server",
+      "statement": "Exact section for the scoped assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T10:10:47.759Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "39b1919b64573787d713c0a82c7bc057ef5ee1ad234cf2ce37b2f4afae86dc5f",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/d866f4f82182936d4500eb5af6635d4986be8425/docs/audits/2026-11-11-version-release-watch-sources.json",
+      "pointer": "/claimChecks/0",
+      "originalLabel": "still-present"
+    }
+  ]
+}

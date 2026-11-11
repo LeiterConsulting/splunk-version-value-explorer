@@ -169,7 +169,10 @@ test('borrowed HF 10.0 FIPS and TLS records preserve conditional migration and d
   assert(fips&&tls);
   assert.match(fips.from,/FIPS 140-2 deployment baseline/);assert.match(fips.to,/FIPS 140-3-compliant module is available/);assert.match(fips.implication,/FIPS-mode deployments/);
   assert.equal(tls.from,'SSLv3 and TLS 1.0/1.1 remain supported');assert.match(tls.to,/remain available but are deprecated/);assert.match(tls.action,/before 10.4/);
-  for(const id of ['technical.hf.10.0.fips-cryptographic-module','technical.hf.10.0.legacy-tls-protocols'])assert(c.window.VersionCompassSources.sources.some(s=>s.claimReferences?.some(r=>r.claimId===id&&r.claimVerified==='2026-10-21'&&r.section)));
+  const sources=c.window.VersionCompassSources.sources;
+  const fipsProcedure=sources.find(s=>s.url.endsWith('/upgrade-and-migrate-your-fips-mode-deployments'));
+  assert(fipsProcedure?.claimReferences?.some(r=>r.claimId==='technical.hf.10.0.fips-cryptographic-module'&&r.claimVerified==='2026-11-11'&&r.section.includes('Migrate the forwarding tier from FIPS 140-2 to FIPS 140-3')));
+  assert(sources.some(s=>s.claimReferences?.some(r=>r.claimId==='technical.hf.10.0.legacy-tls-protocols'&&r.claimVerified==='2026-10-21'&&r.section)));
  }
  const records=api.assess({...api.defaults,type:'hf',from:'9.4',to:'10.0'}).technical;check(records);
  const broadened=JSON.parse(JSON.stringify(records));broadened.find(r=>r.component==='FIPS cryptographic module').implication='Every Heavy Forwarder must migrate its cryptographic module';assert.throws(()=>check(broadened),/FIPS-mode deployments/);
