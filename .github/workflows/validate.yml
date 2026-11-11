@@ -28,6 +28,8 @@ jobs:
       - run: node --test tests/*.test.cjs
       - run: node scripts/build-worker.cjs
       - run: npm ci --prefix tools/export-verification
+      - name: Use direct official Ubuntu HTTPS package transport
+        run: sudo --preserve-env=GITHUB_ACTIONS node scripts/ci-ubuntu-transport.cjs --apply
       - run: tools/export-verification/node_modules/.bin/playwright install --with-deps chromium
       - name: Install PDF page renderer
         run: sudo apt-get update && sudo apt-get install -y poppler-utils
