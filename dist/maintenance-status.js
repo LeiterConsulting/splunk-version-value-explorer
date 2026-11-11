@@ -1058,10 +1058,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-09T11:32:23.000Z",
-      "lastSuccess": "2026-11-09T12:12:36Z",
+      "lastAttempt": "2026-11-11T10:55:51.999673Z",
+      "lastSuccess": "2026-11-11T11:04:31.997Z",
       "outcome": "changed",
-      "summary": "Verified the 52-source ES Editions inventory; added exact SOAR Export 8.8 tested tuples, published nine scoped issue-feed reassessments, and retained unresolved edition, entitlement, pairing, pricing and version-floor conflicts. Repository candidate passed functional gates; production Site/D1 delivery remains held.",
+      "summary": "Added the TAXII documentation discrepancy and preserved separate native-feed and TIM Cloud scopes.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1535,9 +1535,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Verified the 52-source ES Editions inventory; added exact SOAR Export 8.8 tested tuples, published nine scoped issue-feed reassessments, and retained unresolved edition, entitlement, pairing, pricing and version-floor conflicts. Repository candidate passed functional gates; production Site/D1 delivery remains held.",
           "scope": "Full 52-URL official ES source inventory; bounded ES 8.8/8.7 edition, AI SOC, SOAR pairing and Export compatibility, pricing and conflict claims; registry 1.2.0 advisor.soc-workflow; exact-candidate browser/PDF/offline-HTML evidence."
+        },
+        {
+          "at": "2026-11-11T10:55:51.999673Z",
+          "outcome": "running",
+          "summary": "Started the November 11 ES Editions public evidence review.",
+          "scope": "ES Editions, ES-specific SOC, Automation Builder, native TAXII and TIM Cloud, licensing and tested App for SOAR and Export scope. The source inventory is complete for the maintained ES watch; claim assessments are bounded."
+        },
+        {
+          "at": "2026-11-11T11:04:31.997Z",
+          "outcome": "changed",
+          "summary": "Added the TAXII documentation discrepancy and preserved separate native-feed and TIM Cloud scopes.",
+          "scope": "ES Editions, ES-specific SOC, Automation Builder, native TAXII and TIM Cloud, licensing and tested App for SOAR and Export scope. The source inventory is complete for the maintained ES watch; claim assessments are bounded."
         }
       ],
-      "scope": "Full 52-URL official ES source inventory; bounded ES 8.8/8.7 edition, AI SOC, SOAR pairing and Export compatibility, pricing and conflict claims; registry 1.2.0 advisor.soc-workflow; exact-candidate browser/PDF/offline-HTML evidence."
+      "scope": "ES Editions, ES-specific SOC, Automation Builder, native TAXII and TIM Cloud, licensing and tested App for SOAR and Export scope. The source inventory is complete for the maintained ES watch; claim assessments are bounded."
     },
     {
       "id": "version-guidance-audit",

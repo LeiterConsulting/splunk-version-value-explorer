@@ -46,7 +46,7 @@ test('task-level prerequisites and pricing uncertainty remain explicit without c
  assert.equal(data.sources.socTask.reviewed,'2026-10-27');
  assert.match(cap('malware-reversing').desc,/8\.5\+.*10\.2\+.*8\.6\+/);
  for(const id of ['ai-soc-analyst','malware-reversing']){assert.equal(cap(id).ess.v,'no');assert.match(cap(id).flag,/discrepancy|different Cloud ES minimums/);}
- assert.equal(data.conflicts.length,6);
+ assert.equal(data.conflicts.length,7);
  for(const id of ['soc-version','malware-version','activity-pricing'])assert.equal(data.conflicts.find(c=>c.id===id).claims.length,2);
  assert.match(data.notes.find(n=>n.id==='pricing').text,/eligibility unclear/);
  assert(!cap('soar').desc.includes('offered with user-seat pricing'));
@@ -111,6 +111,19 @@ test('explanations and both sides of source questions remain visible without ope
  for(const w of data.workflows)for(const id of w.ids)assert(data.capabilities.some(c=>c.id===id));
  const changed=runtime('?preview=es-editions&filter=changed');assert.equal(changed.rows.get('detection-builder').hidden,false);
 });
+test('TAXII protocol evidence keeps the TIM Cloud authentication scope separate',()=>{
+ const r=runtime('?preview=es-editions&release=8.8');
+ const c=data.conflicts.find(row=>row.id==='taxii-protocol-scope');
+ assert.equal(c.claims.length,3);
+ assert.match(c.claims[0].text,/2\.0 and 2\.1/);
+ assert.match(c.claims[1].text,/repeats TAXII 2\.0/);
+ assert.match(c.claims[2].text,/TIM Cloud TAXII2 sources/);
+ const start=r.html.indexOf('<div class="edition-report"');
+ assert(r.html.slice(0,start).includes(c.meaning));
+ assert(r.html.slice(start).includes(c.meaning));
+ for(const id of c.claims.flatMap(claim=>claim.src))assert(r.html.slice(start).includes('id="report-ref-'+id+'"'));
+});
+
 test('print report keeps all evidence and tracks selected history independently of filters',()=>{
  const r=runtime('?preview=es-editions&filter=review&release=8.4');
  const report=r.html.slice(r.html.indexOf('<div class="edition-report"'));

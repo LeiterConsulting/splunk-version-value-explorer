@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-aeda9867b925b18032020d9b",
-    "digest": "eb09700ccfcb5bf79f77a22c70e00397033862c35bf8a7d9f2e9ee0a5f58879e",
+    "revision": "content-a63b18c47de627b8e33a0de2",
+    "digest": "6ef16fc12558c19bb487516f4068baa35b93c47ce355f151bbca3de23394d23b",
     "engineRevision": "engine-7b8785dd011c473766c8",
     "datasetHashes": {
       "platform": "a76c99ea3d75fc6cecc2beff15a9ccd4de460aac5935e741c1ab09388e98c1cb",
       "products": "531ce3ae2df257b754196fc66652e1840309f308c16f9ad3c6fdf72c0660bdf7",
       "guidance": "e7a1ffb72a85b2f01ec49c6d8b85a0fb87c60f6dd0e7c69e2c54d9732fecf564",
       "environment": "5f7e26ca162b0d9a6979858f00e51499e5feaf00c18ac5112d47014403fa7180",
-      "editions": "113e6a4ce2d13091dcef021e86fbc6178ebafc9d8eca81b5fed7a7c9e906a21a",
+      "editions": "cac0473b52fa1a6e8c956210f961ad840950652c7732b2d9b81363f82683d787",
       "forwarders": "2e576bacdb00669c17422a585fd98cf4c43ff9b3ab33fee7d7dd629b832f3d52",
       "soar": "6094dc06c94a559264ddd5ac3f1bc6db36e56ffe45a5460a934b9691a55e545a"
     },
-    "recordCount": 941,
+    "recordCount": 944,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -9428,6 +9428,27 @@
           "reviewed": "2026-11-09",
           "section": "Default Version; Compatibility; Details on upgrade listings and functionality-tested combinations",
           "verificationScope": "Catalog and upgrade-listing scope only; it does not replace the versioned tested matrices."
+        },
+        "taxii88Compatibility": {
+          "t": "ES 8.8 TAXII compatibility wording",
+          "u": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security#ariaid-title5",
+          "reviewed": "2026-11-11",
+          "section": "Compatibility and support",
+          "verificationScope": "The current compatibility paragraph repeats TAXII 2.0. This records its wording without treating the duplicate as a supported-version list."
+        },
+        "taxii82Release": {
+          "t": "ES 8.2 native TAXII 2 feed introduction",
+          "u": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.2/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "reviewed": "2026-11-11",
+          "section": "What's new in 8.2.0 > Adding a TAXII 2 threat intelligence feed",
+          "verificationScope": "Historical release note names TAXII 2.0 and 2.1 for ES 8.2 and later and links the native feed task."
+        },
+        "taxii88Native": {
+          "t": "ES 8.8 native threat intelligence feed guide",
+          "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/threat-intelligence/add-new-threat-intelligence-sources-in-splunk-enterprise-security",
+          "reviewed": "2026-11-11",
+          "section": "Scope note; Add a TAXII 2 feed; STIX parsing",
+          "verificationScope": "The task applies to native threat intelligence. The STIX parsing versions describe the payload format."
         }
       },
       "capabilities": [
@@ -10183,6 +10204,34 @@
           ],
           "meaning": "An enhancement grouping does not establish that the underlying feature became Premier-only. The sources cover different versions and scopes; 8.7 Essentials applicability remains unresolved.",
           "question": "Ask which 8.7 Guided Response capabilities are available in Essentials, and which enhancements require Premier."
+        },
+        {
+          "id": "taxii-protocol-scope",
+          "kind": "Protocol version and deployment scope",
+          "title": "Which TAXII protocol versions are supported?",
+          "claims": [
+            {
+              "src": [
+                "taxii82Release"
+              ],
+              "text": "The ES 8.2 release notes list TAXII 2.0 and 2.1 for ES 8.2 and later and link to the native feed task."
+            },
+            {
+              "src": [
+                "taxii88Compatibility"
+              ],
+              "text": "The ES 8.8 compatibility paragraph repeats TAXII 2.0 where it describes the supported versions."
+            },
+            {
+              "src": [
+                "taxii88Native",
+                "rn88"
+              ],
+              "text": "The ES 8.8 task covers native threat intelligence. The separate 8.8 release highlight adds certificate, API key and bearer token authentication for TIM Cloud TAXII2 sources."
+            }
+          ],
+          "meaning": "Native TAXII feed protocol versions, STIX document parsing and TIM Cloud connector authentication are separate. The duplicate version leaves the current exact protocol list uncertain.",
+          "question": "Confirm the TAXII protocol version for the exact native feed or TIM Cloud connector before planning a change."
         }
       ],
       "workflows": [
@@ -11923,6 +11972,12 @@
         "url": "https://advisory.splunk.com/advisories/SVD-2026-1012"
       },
       {
+        "id": "source-0d63b84739cecc296ab9",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security#ariaid-title5"
+      },
+      {
         "id": "source-0dc4e0db3ee4479ef566",
         "kind": "source",
         "dataset": "sources",
@@ -12857,6 +12912,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/automation-with-playbooks/configure-splunk-soar-apps-in-splunk-enterprise-security"
+      },
+      {
+        "id": "source-b9a92c6c57eab86b1c72",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/threat-intelligence/add-new-threat-intelligence-sources-in-splunk-enterprise-security"
       },
       {
         "id": "source-bc3dfc66c49755585232",
@@ -17162,6 +17223,47 @@
           "Catch defects before rollout",
           "Programmatically validate configuration changes earlier in the delivery lifecycle."
         ]
+      },
+      {
+        "id": "vc-30e480377763790d1205",
+        "kind": "Protocol version and deployment scope",
+        "dataset": "editions",
+        "scope": {
+          "release": "8.8"
+        },
+        "evidence": [],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": {
+          "id": "taxii-protocol-scope",
+          "kind": "Protocol version and deployment scope",
+          "title": "Which TAXII protocol versions are supported?",
+          "claims": [
+            {
+              "src": [
+                "taxii82Release"
+              ],
+              "text": "The ES 8.2 release notes list TAXII 2.0 and 2.1 for ES 8.2 and later and link to the native feed task."
+            },
+            {
+              "src": [
+                "taxii88Compatibility"
+              ],
+              "text": "The ES 8.8 compatibility paragraph repeats TAXII 2.0 where it describes the supported versions."
+            },
+            {
+              "src": [
+                "taxii88Native",
+                "rn88"
+              ],
+              "text": "The ES 8.8 task covers native threat intelligence. The separate 8.8 release highlight adds certificate, API key and bearer token authentication for TIM Cloud TAXII2 sources."
+            }
+          ],
+          "meaning": "Native TAXII feed protocol versions, STIX document parsing and TIM Cloud connector authentication are separate. The duplicate version leaves the current exact protocol list uncertain.",
+          "question": "Confirm the TAXII protocol version for the exact native feed or TIM Cloud connector before planning a change."
+        }
       },
       {
         "id": "vc-313541695b422c9007b4",

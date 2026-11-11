@@ -197,6 +197,11 @@ try {
         if(route.id==='prep11-shared')assert.equal(await page.locator('#prep11-count').innerText(),'1 of 5 preparation areas');
       }
     }
+    if(route.id==='editions'){
+      const taxii=page.locator('#edition-conflicts .edition-conflict').filter({hasText:'Which TAXII protocol versions are supported?'});
+      assert(await taxii.isVisible());
+      assert((await taxii.textContent()).includes('The duplicate version leaves the current exact protocol list uncertain.'));
+    }
     if(route.id.startsWith('editions-') && route.invalid) {
       assert(await page.getByRole('heading',{name:'Choose the intended history release',exact:true}).isVisible());
       assert.equal(await page.evaluate(()=>location.search),new URL(url).search);
@@ -368,6 +373,9 @@ try {
       }
       if(['soar','soar-cloud','soar-legacy-cloud'].includes(route.id)){
         for(const qualification of ['Automation Broker 8.7.0.245 distribution','October 9, 2026 through Docker Hub only','no tested compatibility matrix or security remediation claim']) assert(normalize(expected.text).includes(qualification), 'SOAR Broker qualification missing: '+qualification);
+      }
+      if(route.id==='editions'){
+        for(const text of ['Which TAXII protocol versions are supported?','The duplicate version leaves the current exact protocol list uncertain.','TIM Cloud TAXII2 sources'])assert(normalize(expected.text).includes(text),'Missing scoped TAXII report evidence');
       }
       if(route.id==='hf-hybrid') assert(normalize(expected.text).includes('disabling it may break scheduled dashboard exports'),'Heavy Forwarder mitigation qualification missing');
       if(route.id==='enterprise') expected.paginationPairs=[{heading:'Recommended action',following:'Match the exact package identifier to its release'}];
