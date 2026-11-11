@@ -466,10 +466,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-11T10:39:01.466131Z",
-      "lastSuccess": "2026-11-11T10:45:06.341Z",
+      "lastAttempt": "2026-11-11T11:13:40.583488Z",
+      "lastSuccess": "2026-11-11T11:20:47.676Z",
       "outcome": "changed",
-      "summary": "Recorded exact Windows Server 2012 R2 target-package scope and reassessed the highest-consequence source conflicts.",
+      "summary": "Added the exact Cloud 10.6.2.3 and 10.7.0.5 maintenance rows and reassessed the bounded release evidence.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1063,9 +1063,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Recorded exact Windows Server 2012 R2 target-package scope and reassessed the highest-consequence source conflicts.",
           "scope": "Release-owned official source inventory, all eleven registered Prep11 and Advisor claim families, bounded Windows Forwarder package and receiver scope, and two exact SOAR 8.8 documentation discrepancies."
+        },
+        {
+          "at": "2026-11-11T11:13:40.583488Z",
+          "outcome": "running",
+          "summary": "Started the third November 11 public release evidence review.",
+          "scope": "Release-owned official source inventory, all eleven registered Prep11 and Advisor claim families, current exact Cloud 10.6.2.3 and 10.7.0.5 patch rows, bounded historical HF citation and receiver scope, and exact SOAR and security follow-up."
+        },
+        {
+          "at": "2026-11-11T11:20:47.676Z",
+          "outcome": "changed",
+          "summary": "Added the exact Cloud 10.6.2.3 and 10.7.0.5 maintenance rows and reassessed the bounded release evidence.",
+          "scope": "Release-owned official source inventory, all eleven registered Prep11 and Advisor claim families, current exact Cloud 10.6.2.3 and 10.7.0.5 patch rows, bounded historical HF citation and receiver scope, and exact SOAR and security follow-up."
         }
       ],
-      "scope": "Release-owned official source inventory, all eleven registered Prep11 and Advisor claim families, bounded Windows Forwarder package and receiver scope, and two exact SOAR 8.8 documentation discrepancies."
+      "scope": "Release-owned official source inventory, all eleven registered Prep11 and Advisor claim families, current exact Cloud 10.6.2.3 and 10.7.0.5 patch rows, bounded historical HF citation and receiver scope, and exact SOAR and security follow-up."
     },
     {
       "id": "es-editions-watch",
