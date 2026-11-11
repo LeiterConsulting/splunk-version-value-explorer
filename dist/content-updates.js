@@ -1,7 +1,7 @@
 /* Editorial change provenance. Cycles advance only with material factual updates. */
 (function(){
 'use strict';
-const policy={currentCycle:61,retentionCycles:2};
+const policy={currentCycle:62,retentionCycles:2};
 const note25='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-25.md';
 const note26='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-26.md';
 const note30='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-30.md';
@@ -257,6 +257,8 @@ entries['technical:soar:export88']={kind:'new',cycle:56,date:'2026-11-09',versio
 const labels={new:'New',updated:'Updated',deprecated:'Deprecated',removed:'Removed',corrected:'Corrected'};
 const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 entries['technical:soar:broker870245']={kind:'new',cycle:59,date:'2026-11-10',version:'Splunk SOAR Automation Broker 8.7.0.245',detail:'Added the separately documented Docker Hub release channel. Broker and SOAR server compatibility remain separate.',source:'https://help.splunk.com/en/splunk-soar/splunk-automation-broker/splunk-soar-automation-broker-release-notes/whats-new-in-splunk-soar-automation-broker#patch-release-8.7.0.245-0',sourceDate:'2026-10-09',note:'https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/11/2026-11-10.md'};
+entries['technical:platform:Cloud 10.6.2.3 maintenance patch']={kind:'new',cycle:62,date:'2026-11-11',version:'Splunk Cloud Platform 10.6.2.3',detail:'Added the exact published maintenance row and preliminary security counts. Selected-stack rollout remains unestablished.',source:'https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.6.2.3-0',sourceDate:'2026-11-06',note:'https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/11/2026-11-11.md'};
+entries['technical:platform:Cloud 10.7.0.5 maintenance patch']={kind:'new',cycle:62,date:'2026-11-11',version:'Splunk Cloud Platform 10.7.0.5',detail:'Added the exact published maintenance row and preliminary security counts. Selected-stack rollout remains unestablished.',source:'https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.7.0.5-0',sourceDate:'2026-11-04',note:'https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/11/2026-11-11.md'};
 entries['edition:tim']={kind:'updated',cycle:61,date:'2026-11-11',version:'ES 8.2 and 8.8 · TAXII evidence',detail:'Added a source question for the duplicate TAXII version and kept native feed protocol scope separate from TIM Cloud authentication.',source:'https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security#ariaid-title5',sourceDate:null,note:'https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/11/2026-11-11.md'};
 function active(entry,cycle=policy.currentCycle){return !!entry&&cycle>=entry.cycle&&cycle-entry.cycle<policy.retentionCycles;}
 function applicable(entry,record){return !entry?.milestones||entry.milestones.includes(record?.milestone);}

@@ -657,3 +657,21 @@ test('Cloud 10.7 readiness reflects current service lines without granting stack
   assert.match(historicalBlocker.detail, /historical observation/);
   assert.match(historicalBlocker.detail, /Check the current service table/);
 });
+
+test('Cloud maintenance builds keep exact issue and security scope on their own routes', async () => {
+  const rt = await runtime();
+  const routes = [
+    { product: 'platform', platform: 'cloud', from: '10.5.2605', to: '10.6' },
+    { product: 'platform', platform: 'cloud', from: '10.6', to: '10.7' }
+  ];
+  const reports = rt.run('compare_routes', { routes }).reports;
+  const builds = ['10.6.2.3', '10.7.0.5'];
+  for (const [i, report] of reports.entries()) {
+    const patch = report.technicalChanges.find(item => item.component === 'Cloud ' + builds[i] + ' maintenance patch');
+    assert(patch);
+    assert(patch.source.endsWith('#' + builds[i] + '-0'));
+    assert.match(patch.implication, /selected-stack rollout.*unestablished/);
+    assert.match(patch.implication, i === 0 ? /three preliminary Medium.*SPL-320209/ : /one preliminary Critical.*SPL-319573/);
+    assert(!report.technicalChanges.some(item => item.component === 'Cloud ' + builds[1-i] + ' maintenance patch'));
+  }
+});

@@ -149,6 +149,24 @@ try {
       assert((await page.locator('.forwarder-compatibility').textContent()).includes(result.os.detail));
       entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
     }
+    if(['cloud','cloud-107'].includes(route.id)){
+      const build=route.id==='cloud'?'10.6.2.3':'10.7.0.5';
+      await page.waitForFunction(()=>window.__reportTools?.versioncompass_get_current_report);
+      const result=await page.evaluate(version=>{
+        const {versioncompass_get_current_report:current,versioncompass_compare_routes:compare}=window.__reportTools;
+        const {product,platform,from,to}=window.VersionCompassPage.getSelection(), url=location.href;
+        const component='Cloud '+version+' maintenance patch';
+        return {readOnly:current.annotations.readOnlyHint&&compare.annotations.readOnlyHint,
+          current:current.execute({}).report?.technicalChanges.find(row=>row.component===component),
+          explicit:compare.execute({routes:[{product,platform,from,to}]}).reports?.[0]?.technicalChanges.find(row=>row.component===component),
+          stable:location.href===url};
+      },build);
+      assert(result.readOnly&&result.stable&&result.current,'Missing read-only Cloud maintenance row');
+      assert.deepEqual(result.explicit,result.current);
+      assert.equal(result.current.source.endsWith('#'+build+'-0'),true);
+      assert((await page.locator('#technical-content').textContent()).includes(result.current.component));
+      entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
+    }
     const recordId=soarReadOnlyRecord(route);
     if(recordId){
       await page.waitForFunction(()=>window.__reportTools?.versioncompass_get_current_report);
@@ -377,6 +395,11 @@ try {
           ...(prep?{paginationPairs,paginationKind:'prep11-containment',paginationCoverage}:{}),
           ...(advisor?{paginationPairs,paginationKind:'advisor-containment',advisorPaginationCoverage}:{}) };
       });
+      if(['cloud','cloud-107'].includes(route.id)){
+        const build=route.id==='cloud'?'10.6.2.3':'10.7.0.5';
+        for(const text of ['Cloud '+build+' maintenance patch','selected-stack rollout','preliminary'])
+          assert(normalize(expected.text).includes(text),'Missing scoped Cloud maintenance export evidence');
+      }
       if(route.id==='cloud-107-fedramp-high') {
         for(const qualification of ['Cloud 10.7 Service Details lists Edge Processor for FedRAMP High','Cloud 10.7 Service Details lists Ingest Processor for FedRAMP High','The 10.6 table lists Moderate only','Essentials tier']) assert(normalize(expected.text).includes(qualification), 'High processor qualification missing: '+qualification);
       }

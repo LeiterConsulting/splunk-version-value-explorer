@@ -1994,6 +1994,18 @@ window.SPLUNK_DATA = {
             "implication": "Deprecation is not removal, but continuing investment increases future migration work.",
             "action": "Inventory affected dashboards and plan supported replacements while retaining current behavior until Splunk documents removal.",
             "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new"
+          },
+          {
+            "component": "Cloud 10.6.2.3 maintenance patch",
+            "domain": "Cloud operations",
+            "changeType": "Maintenance release published",
+            "actionLevel": "Review",
+            "from": "Cloud 10.6.2.2, published October 30, remains a distinct patch.",
+            "to": "The Cloud maintenance feed lists 10.6.2.3, published November 6, 2026.",
+            "implication": "The exact 10.6.2.3 row lists three preliminary Medium security fixes. Its listed fixes include SPL-319855 for REST SPL serialization, SPL-318579 for high disk pressure, and SPL-320209 for search startup after the 10.6 upgrade. Publication leaves selected-stack rollout and Enterprise or Forwarder applicability unestablished.",
+            "action": "Confirm the stack runs 10.6.2.3 before relying on these fixes. Recheck search startup and disk-pressure behavior where applicable. Consult Splunk Product Security for definitive advisory scope.",
+            "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.6.2.3-0",
+            "verified": "2026-11-11"
           }
         ],
         "requirements": [
@@ -2138,6 +2150,18 @@ window.SPLUNK_DATA = {
             "implication": "The versioned table establishes subscription service lines. It does not establish a selected-stack rollout, exact premium app patch, provider or regional availability, feature entitlement, or regulated authorization.",
             "action": "Use the documented 10.7 release route and confirm the actual stack, premium app patch, maintenance timing, and feature prerequisites before planning work.",
             "source": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details"
+          },
+          {
+            "component": "Cloud 10.7.0.5 maintenance patch",
+            "domain": "Cloud operations",
+            "changeType": "Maintenance release published",
+            "actionLevel": "Review",
+            "from": "The 10.7 feature and Service Details documents describe the release line.",
+            "to": "The Cloud maintenance feed lists 10.7.0.5, published November 4, 2026.",
+            "implication": "The exact 10.7.0.5 row lists one preliminary Critical and one preliminary Medium security fix. Its listed fixes include SPL-319104 for Canadian time zones, SPL-319853 for REST SPL serialization, SPL-318579 for high disk pressure, and SPL-319573 for a false clock warning and session deletion. Publication leaves selected-stack rollout and Enterprise or Forwarder applicability unestablished.",
+            "action": "Confirm the stack runs 10.7.0.5 before relying on these fixes. Recheck the affected time-zone and session workflows. Consult Splunk Product Security for definitive advisory scope.",
+            "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.7.0.5-0",
+            "verified": "2026-11-11"
           }
         ],
         "requirements": [

@@ -149,8 +149,9 @@ test('borrowed HF 10.2 runtimes preserve historical optional/default and app-own
   assert.match(node.to,/bundled Node\.js runtime is removed/);assert.match(node.action,/application-owned runtime/);
   for(const [record,id] of [[python,'technical.hf.10.2.python-runtimes'],[node,'technical.hf.10.2.embedded-nodejs-runtime']]){
    const ref=register.sources.find(s=>s.url===record.source)?.claimReferences?.find(r=>r.claimId===id);
-   assert(ref?.section&&ref.claimVerified===(record===node?'2026-11-06':'2026-10-18'),'Exact bounded runtime mapping and verification date retained');
+   assert(ref?.section&&ref.claimVerified===(record===node?'2026-11-06':'2026-11-11'),'Exact bounded runtime mapping and verification date retained');
    if(record===node)assert.match(ref.section,/The Node\.js JavaScript runtime environment has been removed/);
+   else assert.match(ref.section,/Key points for upgrading to version 10\.2.*Splunk Web.*Splunk daemon/);
   }
  }
  check(api.assess({...api.defaults,type:'hf',from:'10.0',to:'10.2'}).technical);

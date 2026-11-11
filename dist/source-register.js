@@ -2711,6 +2711,62 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.6.2.3-0",
+      "title": "splunk cloud platform maintenance patch release information",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.cloud.releasesData.10.6.technicalChanges.6.source",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-11-11",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-11",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "10.6.2.3 > Publication Date, Security Fixes, Search issues and Uncategorized issues",
+      "verificationScope": "November 6 Cloud 10.6.2.3 row: preliminary three Medium fixes and SPL-319855, SPL-318579 and SPL-320209. No selected-stack rollout, definitive advisory applicability or customer-managed package fix is inferred.",
+      "events": [
+        {
+          "date": "2026-11-11",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.7.0.5-0",
+      "title": "splunk cloud platform maintenance patch release information",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.cloud.releasesData.10.7.technicalChanges.5.source",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-11-11",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-11",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "10.7.0.5 > Publication Date, Security Fixes, Splunk Web and interface issues, Search issues and Uncategorized issues",
+      "verificationScope": "November 4 Cloud 10.7.0.5 row: preliminary one Critical and one Medium fix plus SPL-319104, SPL-319853, SPL-318579 and SPL-319573. No selected-stack rollout, definitive advisory applicability or customer-managed package fix is inferred.",
+      "events": [
+        {
+          "date": "2026-11-11",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new",
       "title": "whats new",
       "areas": [
@@ -2743,6 +2799,38 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.7.0.5-0",
+      "title": "splunk cloud platform maintenance patch release information",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.cloud.releasesData.10.7.technicalChanges.4.source",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "Retired",
+      "reviewed": "2026-11-11",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-11",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "10.7.0.5 > Publication Date, Security Fixes, Splunk Web and interface issues, Search issues and Uncategorized issues",
+      "verificationScope": "November 4 Cloud 10.7.0.5 row: preliminary one Critical and one Medium fix plus SPL-319104, SPL-319853, SPL-318579 and SPL-319573. No selected-stack rollout, definitive advisory applicability or customer-managed package fix is inferred.",
+      "events": [
+        {
+          "date": "2026-11-11",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-11",
+          "event": "No longer cited in the maintained datasets"
         }
       ]
     },
@@ -4950,10 +5038,10 @@ window.VersionCompassSources = {
           "claimId": "technical.hf.10.2.python-runtimes",
           "release": "10.2",
           "component": "Python runtimes",
-          "section": "The Splunk platform uses version 3.13 of the Python runtime environment on Splunk Web; The Splunk daemon and its associated components can now use version 3.13 of the Python interpreter, version 3.9 is still available",
-          "claimVerified": "2026-10-18",
+          "section": "Key points for upgrading to version 10.2 — Python runtime defaults and opt-in; The Splunk platform uses version 3.13 of the Python runtime environment on Splunk Web; The Splunk daemon and its associated components can now use version 3.13 of the Python interpreter, version 3.9 is still available",
+          "claimVerified": "2026-11-11",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval. October 18 bounded semantic recheck: Splunk Web 3.13 is distinct from splunkd 3.9 default and optional 3.13 in the 10.2 source; later 10.4 default changes remain separate."
+          "qualification": "The three 10.2 sections agree on the historical Enterprise-package scope. The October 18 recheck remains in the maintenance history. November 11 exact-section recheck: Splunk Web 3.13 is distinct from splunkd 3.9 default and optional 3.13 in the 10.2 source; later 10.4 default changes remain separate."
         },
         {
           "path": "forwarders: borrowed.technical.hf.10.2.embedded-nodejs-runtime",
