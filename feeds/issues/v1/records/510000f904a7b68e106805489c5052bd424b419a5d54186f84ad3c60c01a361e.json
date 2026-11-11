@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-cloud-connected-agent-mode-scope",
+  "assessmentId": "vcia-release-20261111-review2-saia-cloud-connected-agent-mode-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-11T10:46:00.255Z",
+  "assessedAt": "2026-11-11T10:45:06.341Z",
+  "outcome": "still-present",
+  "rationale": "The 2.3.6 Agent Mode guide gives Platform 10.1.x+, general app 2.1.0+, supported AWS locations, Model Runtime enablement and separate Cloud Connected certificate prerequisites. The runtime table gives Data zone for Frankfurt and Global for Dublin and allows external model processing. Cloud Connected installation and SAIA-9918 exclude 2.2.0–2.3.6, provide 2.1.1 without Agent Mode and plan 2.4.0. A usable CMP Agent Mode path remains unestablished. Base-assistant and limited IL2 wording do not establish this feature.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant"
+    ],
+    "versions": [
+      "2.1.1 / 2.2.0–2.3.6"
+    ],
+    "editions": null,
+    "deployments": [
+      "Enterprise Cloud Connected"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No native Cloud restriction, actual tenant availability, supported future release, entitlement or customer authorization is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261111-review2-5-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "section": "Requirements; Supported regions; Cloud Connected setup",
+      "statement": "Exact section for the scoped assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-11T10:40:08.389Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "f60bb0c11f391a21c8f60e858925af2b37d477b4335715dc16b4c663861f6f3b",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261111-review2-5-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "Cloud Connected compatibility; Activation",
+      "statement": "Exact section for the scoped assessment.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-11T10:39:56.928Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "2ee3f1ed78f58a00dd0ad600c1691f3afff1cd62659a2c8a709ca2e8158f7db6",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261111-review2-5-2",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
+      "section": "Known issues > SAIA-9918",
+      "statement": "Exact section for the scoped assessment.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-11T10:39:57.044Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "f76d82c85cc8e238d94cce16b1fd8abe6b0417d4ffbbba75cbfb48fa4feaab4e",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/cda3c3f20e87abcafe46e248d9b8eb9caf81816d/docs/audits/2026-11-11-version-release-watch-review-2-sources.json",
+      "pointer": "/claimChecks/5",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261111-saia-cloud-connected-agent-mode-scope"
+  ],
+  "remainingConcerns": [
+    "Check the next official Cloud Connected support matrix for the Agent Mode conflict and a feature-specific ITSI subagent rollout table. Track Agent Observability in exact release and service documentation. Review by November 12."
+  ]
+}

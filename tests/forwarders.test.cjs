@@ -18,6 +18,21 @@ test('10.6 preserves separate UF, HF and receiver evidence',()=>{const a=api();a
 test('compatibility never grants authorization or certificate renewal',()=>{const a=api();for(const destination of ['fr-m','fr-h']){const m=a.assess({...a.defaults,destination});assert.equal(m.claims[1].status,'not_established');assert.equal(m.claims[2].status,'not_established');assert.equal(m.features[0].status,'unavailable');}assert.equal(a.renewal({...a.defaults,destination:'cloud',provider:'aws',region:'us-east-1'}).status,'conditional');for(const v of [{region:'ap-south-1'},{topology:'intermediate'},{topology:'edge'},{provider:'azure'}])assert.equal(a.renewal({...a.defaults,destination:'cloud',provider:'aws',...v}).status,'unavailable');});
 test('exact OS, missing evidence and app runtime scopes stay distinct',()=>{const a=api();assert.equal(a.assess({...a.defaults,type:'hf',os:'macOS 26',arch:'arm64'}).os.status,'unavailable');assert.equal(a.assess({...a.defaults,os:'macOS 26',arch:'arm64'}).os.status,'available');assert.equal(a.assess({...a.defaults,to:'10.0',os:'Ubuntu 24.04',arch:'x86_64'}).os.status,'not_established');assert.equal(a.assess(a.defaults).technical.length,0);assert(a.assess({...a.defaults,type:'hf'}).technical.some(t=>/Python/.test(t.component)));});
 test('10.6 OS rows preserve exact package and conditional scope',()=>{const a=api();assert.equal(a.assess({...a.defaults,from:'10.4',to:'10.6',os:'Ubuntu 26.04',arch:'x86_64'}).os.status,'available');assert.equal(a.assess({...a.defaults,type:'hf',from:'10.4',to:'10.6',os:'RHEL 9',arch:'arm64'}).os.status,'unavailable');assert.equal(a.assess({...a.defaults,from:'10.4',to:'10.6',os:'Windows Server 2016',arch:'x86_64'}).os.status,'conditional');});
+test('Windows Server 2012 R2 retains explicit target package exclusions',()=>{
+ const a=api();
+ for(const [to,source] of [['10.4','os'],['10.6','os106']])for(const type of ['uf','hf']){
+  const selection={...a.defaults,type,to,os:'Windows Server 2012 R2',arch:'x86_64'};
+  const read=a.read(a.url(selection));
+  assert.equal(read.errors.length,0);
+  assert.equal(read.state.os,selection.os);
+  const result=a.assess(read.state);
+  assert.equal(result.os.status,'unavailable');
+  assert.equal(result.os.source,source);
+  assert.match(result.os.detail,/omits Windows Server 2012 R2/);
+  assert(result.risks.includes(result.os));
+ }
+ assert.equal(a.assess({...a.defaults,to:'10.2',os:'Windows Server 2012 R2',arch:'x86_64'}).os.status,'not_established');
+});
 test('all selections round-trip, invalid and repeated inputs are explicit',()=>{const a=api(),s={...a.defaults,destination:'cloud',provider:'aws',region:'us-east-1',os:'Ubuntu 24.04',arch:'x86_64'};assert.equal(JSON.stringify(a.read(a.url(s)).state),JSON.stringify(s));assert(a.read('?type=alien&type=uf').errors.length);assert(a.assess({...s,from:'10.4',to:'9.4'}).errors.length);assert(a.assess({...s,to:'10.4.999'}).errors.length);});
 test('Cloud receiver table preserves omitted 10.4 pairing for forwarder 10.0',()=>{const a=api();assert.equal(a.assess({...a.defaults,to:'10.0',destination:'cloud',receiver:'10.4'}).claims[1].status,'not_established');assert.equal(a.assess({...a.defaults,to:'10.0',destination:'cloud',receiver:'10.5'}).claims[1].status,'conditional');});
 test('10.6 forwarders use only the exact newly published receiver-table rows',()=>{

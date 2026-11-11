@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-uf-remote-upgrader-route-coverage",
+  "assessmentId": "vcia-release-20261111-review2-uf-remote-upgrader-route-coverage",
+  "revision": 1,
+  "recordedAt": "2026-11-11T10:46:00.255Z",
+  "assessedAt": "2026-11-11T10:45:06.341Z",
+  "outcome": "partially-addressed",
+  "rationale": "The Remote Upgrader prerequisite table names Windows Server 2012 R2 for its own host. The exact 10.4 and 10.6 Windows package matrices both omit it and explicitly say unlisted operating-system and architecture combinations are unavailable. The comparison now records that exclusion for both UF and HF. The 2016 row differs by release: 10.4 lists availability for UF and 10.6 lists planned removal for UF. Both leave the Enterprise package cell blank. Fleet workflow and unlisted older target versions remain open.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Universal Forwarder and Enterprise package / Heavy Forwarder"
+    ],
+    "versions": [
+      "10.4 and 10.6 target packages; Remote Upgrader 10.6"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed Windows Server 2012 R2 x86-64, including the selected Cloud-facing UF example"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No particular OS/version path, customer entitlement, Cloud-native deployment-server capability or regulated authorization is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261111-review2-0-0",
+      "url": "https://help.splunk.com/en/data-management/forward-data/splunk-remote-upgrader-for-windows-universal-forwarders/10.6/about/prerequisites",
+      "section": "Prerequisites > supported 64-bit Windows versions and signature/version conventions",
+      "statement": "Windows Server 2012 R2 is listed for Remote Upgrader.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-11T10:40:22.328Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "74144aa3779a914967c6812b4f3e37c55a94cc7039f856e5333820e5f4b94459",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261111-review2-0-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/plan-your-splunk-enterprise-installation/system-requirements-for-use-of-splunk-enterprise-on-premises",
+      "section": "Available operating systems and architectures > Windows operating systems",
+      "statement": "10.4 omits Windows Server 2012 R2 for both packages.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T10:40:00.809Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ef2eabaa513b1d298a05b07881f025baf3de806b44f4924a1fcd474e1b6071f1",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261111-review2-0-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/plan-your-splunk-enterprise-installation/system-requirements-for-use-of-splunk-enterprise-on-premises",
+      "section": "Available operating systems and architectures > Windows operating systems",
+      "statement": "10.6 omits Windows Server 2012 R2 for both packages and flags 2016 UF for planned removal.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T10:40:04.809Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "0a4f8bfb4d1e64dc84a2ece8b426335def473d3c8fcdaf44572724e03fdece27",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/cda3c3f20e87abcafe46e248d9b8eb9caf81816d/docs/audits/2026-11-11-version-release-watch-review-2-sources.json",
+      "pointer": "/claimChecks/0",
+      "originalLabel": "partially-addressed"
+    }
+  ],
+  "comparedAssessmentIds": [],
+  "remainingConcerns": [
+    "Confirm the next release-specific UF OS intersection and a supported comparison model for fleet upgrades. Retry the 8.1.14 and 8.2.12 Enterprise release note URLs and the 8.8 ES Cloud Connect task URL. Reconcile the exact SOAR 8.8 build, worked example and fixed-issue rows. Review by November 12."
+  ]
+}

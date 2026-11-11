@@ -134,6 +134,21 @@ try {
       assert((await page.locator('.forwarder-compatibility').textContent()).includes(result.claim.detail),'Cloud 10.7 screen and tool disagree');
       entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
     }
+    if(route.id==='forwarder-windows-2012-r2'){
+      await page.waitForFunction(()=>window.__reportTools?.compare_forwarder_routes);
+      const result=await page.evaluate(()=>{
+        const tool=window.__reportTools.compare_forwarder_routes;
+        const url=location.href, selection=window.VersionCompassForwarders.read(location.search).state;
+        const {reports:[report]}=tool.execute({routes:[selection]});
+        return {os:report.os,stable:location.href===url,readOnly:tool.annotations.readOnlyHint};
+      });
+      assert(result.stable&&result.readOnly);
+      assert.equal(result.os.status,'unavailable');
+      assert.equal(result.os.source,'os106');
+      assert(await page.locator('.forwarder-compatibility .forwarder-fact').filter({hasText:'OS and architecture'}).locator('.status-unavailable').isVisible());
+      assert((await page.locator('.forwarder-compatibility').textContent()).includes(result.os.detail));
+      entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
+    }
     const recordId=soarReadOnlyRecord(route);
     if(recordId){
       await page.waitForFunction(()=>window.__reportTools?.versioncompass_get_current_report);
@@ -369,6 +384,7 @@ try {
       if(['soar','soar-cloud','soar-legacy-cloud'].includes(route.id)){
         for(const qualification of ['Automation Broker 8.7.0.245 distribution','October 9, 2026 through Docker Hub only','no tested compatibility matrix or security remediation claim']) assert(normalize(expected.text).includes(qualification), 'SOAR Broker qualification missing: '+qualification);
       }
+      if(route.id==='forwarder-windows-2012-r2') assert(normalize(expected.text).includes('The Splunk 10.6 Windows package matrix omits Windows Server 2012 R2.'),'Windows target-package qualification missing from export');
       if(route.id==='hf-hybrid') assert(normalize(expected.text).includes('disabling it may break scheduled dashboard exports'),'Heavy Forwarder mitigation qualification missing');
       if(route.id==='enterprise') expected.paginationPairs=[{heading:'Recommended action',following:'Match the exact package identifier to its release'}];
       if(route.id==='observability-october') expected.paginationPairs=[

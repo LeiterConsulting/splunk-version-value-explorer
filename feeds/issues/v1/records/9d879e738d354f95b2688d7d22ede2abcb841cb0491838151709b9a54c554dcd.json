@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-soar-cmp-88-upgrade-example-destination",
+  "assessmentId": "vcia-release-20261111-review2-soar-cmp-88-upgrade-example-destination",
+  "revision": 1,
+  "recordedAt": "2026-11-11T10:46:00.255Z",
+  "assessedAt": "2026-11-11T10:45:06.341Z",
+  "outcome": "still-present",
+  "rationale": "The exact 8.8.0 and 8.8.0_1 unprivileged guide examples still open with destination 8.6.0 and end at 8.8.0. The table continues to scope conditional OS and PostgreSQL transitions and the Python 3.13 bridge. The documented guide suffix supplies no installable build.",
+  "reviewedScope": {
+    "products": [
+      "Splunk SOAR On-premises"
+    ],
+    "versions": [
+      "8.8.0"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed unprivileged example"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No target build, known/fixed issue, complete install path or supported deployment combination is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261111-review2-2-0",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+      "section": "November 4, 2026 Release 8.8",
+      "statement": "Exact section for the scoped assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-11T10:40:22.252Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "be327fed6a265401f06a2b0df9ee38bdd5f34c269e7b2a5c5d6095ef5f93fa45",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261111-review2-2-1",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+      "section": "Upgrade path table; Example introduction and final step",
+      "statement": "Exact section for the scoped assessment.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-11T10:40:13.958Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "f02c89df0f64f98203f444c95179e4edeb50356377c31f87dffd39947f9f820a",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261111-review2-2-2",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0_1/upgrade-splunk-soar-on-premises/splunk-soar-on-premises-upgrade-overview-and-prerequisites",
+      "section": "Upgrade overview > Conditional privileged conversion",
+      "statement": "Exact section for the scoped assessment.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-11T10:40:14.017Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "62570b96255f1881a4dffe33d004da086c293c5719cc571cade537657469d6ac",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261111-review2-2-3",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0_1/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+      "section": "Example upgrade for an unprivileged deployment > introductory and final versions",
+      "statement": "Exact section for the scoped assessment.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-11T10:40:26.424Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ddd56a142cbd932f0d83c5ff687bed27d976576b7ea8f55d01e3bf60d87e095c",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/cda3c3f20e87abcafe46e248d9b8eb9caf81816d/docs/audits/2026-11-11-version-release-watch-review-2-sources.json",
+      "pointer": "/claimChecks/2",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261111-soar-cmp-88-upgrade-example-destination"
+  ],
+  "remainingConcerns": [
+    "Confirm the next release-specific UF OS intersection and a supported comparison model for fleet upgrades. Retry the 8.1.14 and 8.2.12 Enterprise release note URLs and the 8.8 ES Cloud Connect task URL. Reconcile the exact SOAR 8.8 build, worked example and fixed-issue rows. Review by November 12."
+  ]
+}
