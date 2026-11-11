@@ -3764,6 +3764,36 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/threat-intelligence/add-new-threat-intelligence-sources-in-splunk-enterprise-security",
+      "title": "ES 8.8 native threat intelligence feed guide",
+      "areas": [
+        "ES editions"
+      ],
+      "references": [
+        "editions.sources.taxii88Native.u",
+        "editions: editions.conflicts.6.claims.2"
+      ],
+      "reviews": [
+        "2026-11-11"
+      ],
+      "conflict": true,
+      "usage": "In use",
+      "reviewed": "2026-11-11",
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-11-11",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-11",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
       "title": "ES editions overview",
       "areas": [
@@ -3943,15 +3973,21 @@ window.VersionCompassSources = {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.2/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
       "title": "release notes for splunk enterprise security",
       "areas": [
-        "Release guide"
+        "Release guide",
+        "ES editions"
       ],
       "references": [
-        "release.productTracks.es.releasesData.8.2.source"
+        "release.productTracks.es.releasesData.8.2.source",
+        "editions.sources.taxii82Release.u",
+        "editions: editions.conflicts.6.claims.0"
       ],
-      "reviews": [],
+      "reviews": [
+        "2026-11-11"
+      ],
+      "conflict": true,
       "usage": "In use",
-      "reviewed": null,
-      "status": "Review date unknown",
+      "reviewed": "2026-11-11",
+      "status": "Needs reconciliation",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
@@ -3962,6 +3998,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-25",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-11",
+          "event": "Review status updated: Needs reconciliation · 2026-11-11"
         }
       ]
     },
@@ -4423,6 +4463,7 @@ window.VersionCompassSources = {
         "editions: editions.capabilities.13",
         "editions: editions.history.8.8",
         "editions: editions.notes.5",
+        "editions: editions.conflicts.6.claims.2",
         "editions: editions.highlights.0",
         "editions: editions.highlights.1",
         "editions: editions.highlights.2"
@@ -4456,9 +4497,10 @@ window.VersionCompassSources = {
           "section": "What's new in 8.8.0 / November 4 General Availability and edition table"
         }
       ],
+      "conflict": true,
       "usage": "In use",
       "reviewed": "2026-10-22",
-      "status": "Reviewed",
+      "status": "Needs reconciliation",
       "firstRecorded": "2026-10-22",
       "firstUsed": null,
       "outdatedAsOf": null,
@@ -4468,6 +4510,42 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-10-22",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-11",
+          "event": "Review status updated: Needs reconciliation · 2026-10-22"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security#ariaid-title5",
+      "title": "ES 8.8 TAXII compatibility wording",
+      "areas": [
+        "ES editions",
+        "Shared guidance"
+      ],
+      "references": [
+        "editions.sources.taxii88Compatibility.u",
+        "content-updates.js",
+        "editions: editions.conflicts.6.claims.1"
+      ],
+      "reviews": [
+        "2026-11-11"
+      ],
+      "conflict": true,
+      "usage": "In use",
+      "reviewed": "2026-11-11",
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-11-11",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-11",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]

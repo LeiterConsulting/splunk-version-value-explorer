@@ -1,0 +1,165 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-soc-analyst-version-floor",
+  "assessmentId": "vcia-es-20261111-es-soc-analyst-version-floor",
+  "revision": 1,
+  "recordedAt": "2026-11-11T11:06:31.355Z",
+  "assessedAt": "2026-11-11T11:04:31.997Z",
+  "outcome": "still-present",
+  "rationale": "The current 8.8 aggregate Premier Cloud row gives Platform 10.2.x+, ES 8.6+ and paired SOAR. The 8.8 task gives Platform 10.2+, ES 8.7+, enabled assistant and paired SOAR. The task also retains eligible existing findings, the first ten per detection burst, approximately 200 per tenant daily, frontier models and inherited SOAR connector/action/asset permissions. The 8.7 task retains its historical AI SOC Analyst identity. Cloud Connected CMP lists Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0; the current ES overview calls for SAIA 2.4+, while the Cloud Connected 2.3.6 installation guide and SAIA-9918 still exclude 2.2.0–2.3.6 and offer 2.1.1 without Agent Mode. The public planned 2.4 path remains unestablished. The ES regional table and release stage do not establish exact SOAR pairing, per-agent rollout, component entitlement or customer authorization.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "ES 8.7 and 8.8; SAIA 2.3.6"
+    ],
+    "editions": null,
+    "deployments": [
+      "Cloud and Cloud Connected CMP"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "CMP has its separate Platform 10.4+/ES 8.8+/Cloud Connect 2.0 chain; no lower-floor eligibility, tenant rollout, entitlement, pairing or authorization is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-editions-20261111-1-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Compatibility information > Triage and Response agent",
+      "statement": "Scoped supporting section for this assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-11T10:57:58.392Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9f9a1718bdf7877e3d7cae323db629e6406013919119e8e8f10c50fe8d7a06a9",
+        "qualification": "Direct response digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-editions-20261111-1-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
+      "section": "Prerequisites; finding limits; model, connector and asset permissions",
+      "statement": "Scoped supporting section for this assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T10:57:58.301Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "e78f50189d7e746e8dd290baf9f71b0105d6b5b623474c7628eee1374376aa0a",
+        "qualification": "Direct response digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-editions-20261111-1-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "section": "Historical AI SOC Analyst prerequisites and limits",
+      "statement": "Scoped supporting section for this assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T10:57:58.385Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "541eb1350d4cfed6c430cfce2c9f6750fd0b50c7e96968df752d7f3945edb283",
+        "qualification": "Direct response digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-editions-20261111-1-3",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/ai-assistant-overview",
+      "section": "AI Assistant overview > 2.4 download prerequisite",
+      "statement": "Scoped supporting section for this assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T10:57:58.311Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "83d6b6bc426131ebda2e1d9a31dda8f9472f9dd6e1a09c85059866a8e8f2ba80",
+        "qualification": "Direct response digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-editions-20261111-1-4",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "Cloud Connected installation compatibility; workaround",
+      "statement": "Scoped supporting section for this assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T10:57:53.380Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "3d48dcc5a56b109954827fbe5c10dd3b830473757ab653629085a0b604d0eeeb",
+        "qualification": "Direct response digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-editions-20261111-1-5",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
+      "section": "Known issues > SAIA-9918",
+      "statement": "Scoped supporting section for this assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T10:57:53.168Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "1fe6b33dbf8c5026f3e6f6f953c7fa2285b301061a5a59166ecdfd997e7ec30e",
+        "qualification": "Direct response digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-editions-20261111-1-6",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "Essentials, Premier and Cloud Connect regional tables",
+      "statement": "Scoped supporting section for this assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T10:58:08.525Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "97bed8cab3ad0960867d12f0c328b63ac5b3ace86b4f002239abbb3cd082d605",
+        "qualification": "Direct response digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-editions-20261111-1-7",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "November 4 General Availability and edition table",
+      "statement": "Scoped supporting section for this assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T10:58:08.289Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "4e6e601ca65f73acd7203e34c9ae1ffbbd39dae803954fdcf5c15415e4887df7",
+        "qualification": "Direct response digest; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/dd2be4527f7a68407b5d316ee73f9e0e1e6e3205/docs/audits/2026-11-11-es-editions-watch-sources.json",
+      "pointer": "/claimChecks/1",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261111-es-soc-analyst-version-floor"
+  ],
+  "remainingConcerns": [
+    "Recheck the disputed source sections in the existing ES Editions Watch by November 12. Preserve the recorded scope pending authoritative clarification."
+  ]
+}

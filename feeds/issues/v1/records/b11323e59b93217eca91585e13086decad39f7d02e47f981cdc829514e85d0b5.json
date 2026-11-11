@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-app-for-soar-es-pairing",
+  "assessmentId": "vcia-es-20261111-review2-app-for-soar-es-pairing",
+  "revision": 1,
+  "recordedAt": "2026-11-11T11:32:41.842Z",
+  "assessedAt": "2026-11-11T11:31:55.245Z",
+  "outcome": "partially-addressed",
+  "rationale": "The 8.8.0 App matrix explicitly lists optional ES 8.8.0 and 8.7.0 with exact host and SOAR columns. The 8.7.0 App row remains historical. These tested tuples do not establish native pairing or later release support.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "App for SOAR 8.7.0 and 8.8.0; ES 8.7.0 and 8.8.0"
+    ],
+    "editions": null,
+    "deployments": [
+      "Exact tested optional ES tuples"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-editions-20261111-review2-4-0",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.8.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "section": "Splunk product compatibility matrix > 8.8.0 row",
+      "statement": "Scoped supporting section for this assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-11T11:30:00.905Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "a1095962acf1e1a85f124b27a8bbd8a6f74d229ebf45094175efa9d14b2a4551",
+        "qualification": "Direct response digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-editions-20261111-review2-4-1",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.7.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "section": "Splunk product compatibility matrix > 8.7.0 row",
+      "statement": "Scoped supporting section for this assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T11:30:00.915Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "68443a233575d4c637cd3633ee73cd5908f1922241645c5bcae4376ac2f112cc",
+        "qualification": "Direct response digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-editions-20261111-review2-4-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/automation-with-playbooks/configure-splunk-soar-apps-in-splunk-enterprise-security",
+      "section": "Configure Splunk SOAR apps; pairing prerequisite",
+      "statement": "Scoped supporting section for this assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T11:29:41.725Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "8f6e743a9ed7546bee8531727df719dbb8118e1027140018a67deb9b93cb7f7e",
+        "qualification": "Direct response digest; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/058ad8f336b479010d12cfc85ae5932245107492/docs/audits/2026-11-11-es-editions-watch-review-2-sources.json",
+      "pointer": "/claimChecks/4",
+      "originalLabel": "partially-addressed"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-es-20261111-app-for-soar-es-pairing"
+  ],
+  "remainingConcerns": [
+    "Recheck the precise native TAXII version wording and corresponding TIM Cloud connector documentation. Preserve uncertainty until the publisher resolves the duplicated release note. Review by November 12."
+  ]
+}
