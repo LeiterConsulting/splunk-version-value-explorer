@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-taxii-protocol-version-scope",
+  "assessmentId": "vcia-es-20261111-review2-es-taxii-protocol-version-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-11T11:32:41.842Z",
+  "assessedAt": "2026-11-11T11:31:55.245Z",
+  "outcome": "still-present",
+  "rationale": "The ES 8.2 feature row names TAXII 2.0 and 2.1 for ES 8.2 and later and points to the native feed task. The compatibility section on that same 8.2 page instead lists 1.0 and 1.1. The ES 8.8 compatibility paragraph duplicates 2.0. The 8.8 task expressly covers native threat intelligence and separately discusses STIX parsing. The 8.8 TIM Cloud highlight adds connector authentication options. The exact current minor protocol list remains uncertain; both published statements are preserved.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "ES 8.2 introduction and current ES 8.8"
+    ],
+    "editions": null,
+    "deployments": [
+      "Native threat intelligence and separate TIM Cloud connector"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No current TAXII 2.1 support or removal is inferred. TIM Cloud authentication and STIX document parsing do not establish the native TAXII protocol version."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-editions-20261111-review2-0-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.2/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "What's new in 8.2.0 > Adding a TAXII 2 threat intelligence feed; Compatibility and support",
+      "statement": "Scoped supporting section for this assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-11T11:30:08.152Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "7a6b40ab7324ebe304254453773a6a5b1de92cd8f50f786d1aecd19ae72ee2bb",
+        "qualification": "Direct response digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-editions-20261111-review2-0-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security#ariaid-title5",
+      "section": "Compatibility and support",
+      "statement": "Scoped supporting section for this assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T11:30:08.145Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "7fa904afe85a34071832bd17d6832d11db9422a0017660c8c9fc03d36b3d2cea",
+        "qualification": "Direct response digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-editions-20261111-review2-0-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/threat-intelligence/add-new-threat-intelligence-sources-in-splunk-enterprise-security",
+      "section": "Scope note; Add a TAXII 2 feed; STIX parsing",
+      "statement": "Scoped supporting section for this assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T11:30:08.201Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "bef2ba23dd8b88409612593d33f18df6b6f6d2417caf028a44b9ffb5e4cb3a6c",
+        "qualification": "Direct response digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-editions-20261111-review2-0-3",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "What’s new in 8.8.0 > Additional authentication support for TAXII2 data sources",
+      "statement": "Scoped supporting section for this assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T11:29:46.073Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "293b7466ea830c15badc7576d9e61c1d58cd2958f805e8eaa714623675677d92",
+        "qualification": "Direct response digest; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/058ad8f336b479010d12cfc85ae5932245107492/docs/audits/2026-11-11-es-editions-watch-review-2-sources.json",
+      "pointer": "/claimChecks/0",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [],
+  "remainingConcerns": [
+    "Recheck the precise native TAXII version wording and corresponding TIM Cloud connector documentation. Preserve uncertainty until the publisher resolves the duplicated release note. Review by November 12."
+  ]
+}

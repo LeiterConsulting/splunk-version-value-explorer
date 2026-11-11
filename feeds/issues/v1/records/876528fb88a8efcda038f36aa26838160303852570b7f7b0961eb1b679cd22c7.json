@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-app-for-soar-88-onprem-matrix-cell",
+  "assessmentId": "vcia-es-20261111-review2-app-for-soar-88-onprem-matrix-cell",
+  "revision": 1,
+  "recordedAt": "2026-11-11T11:32:41.842Z",
+  "assessedAt": "2026-11-11T11:31:55.245Z",
+  "outcome": "still-present",
+  "rationale": "The on-premises column explicitly gives 8.8.0 and prints the second entry as 8..0. Other columns and the separate Export table do not repair that literal.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "App for SOAR 8.8.0"
+    ],
+    "editions": null,
+    "deployments": [
+      "SOAR on-premises tested matrix"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No additional deployment, version, entitlement, authorization or fix is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-editions-20261111-review2-5-0",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.8.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "section": "Splunk product compatibility matrix > on-premises column in 8.8.0 row",
+      "statement": "Scoped supporting section for this assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-11T11:30:00.905Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "a1095962acf1e1a85f124b27a8bbd8a6f74d229ebf45094175efa9d14b2a4551",
+        "qualification": "Direct response digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-editions-20261111-review2-5-1",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+      "section": "Separate SOAR Export 8.8.0 matrix",
+      "statement": "Scoped supporting section for this assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T11:29:55.728Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "fec5caa9a42c9ed53611ef76439a0b4ee83c5d3a0a39bb4065f77ddf870c60ad",
+        "qualification": "Direct response digest; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/058ad8f336b479010d12cfc85ae5932245107492/docs/audits/2026-11-11-es-editions-watch-review-2-sources.json",
+      "pointer": "/claimChecks/5",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-es-20261111-app-for-soar-88-onprem-matrix-cell"
+  ],
+  "remainingConcerns": [
+    "Recheck the precise native TAXII version wording and corresponding TIM Cloud connector documentation. Preserve uncertainty until the publisher resolves the duplicated release note. Review by November 12."
+  ]
+}

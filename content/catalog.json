@@ -68,6 +68,12 @@
       "url": "https://advisory.splunk.com/advisories/SVD-2026-1012"
     },
     {
+      "id": "source-0d63b84739cecc296ab9",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security#ariaid-title5"
+    },
+    {
       "id": "source-0dc4e0db3ee4479ef566",
       "kind": "source",
       "dataset": "sources",
@@ -1002,6 +1008,12 @@
       "kind": "source",
       "dataset": "sources",
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/automation-with-playbooks/configure-splunk-soar-apps-in-splunk-enterprise-security"
+    },
+    {
+      "id": "source-b9a92c6c57eab86b1c72",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/threat-intelligence/add-new-threat-intelligence-sources-in-splunk-enterprise-security"
     },
     {
       "id": "source-bc3dfc66c49755585232",
@@ -5307,6 +5319,47 @@
         "Catch defects before rollout",
         "Programmatically validate configuration changes earlier in the delivery lifecycle."
       ]
+    },
+    {
+      "id": "vc-30e480377763790d1205",
+      "kind": "Protocol version and deployment scope",
+      "dataset": "editions",
+      "scope": {
+        "release": "8.8"
+      },
+      "evidence": [],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": {
+        "id": "taxii-protocol-scope",
+        "kind": "Protocol version and deployment scope",
+        "title": "Which TAXII protocol versions are supported?",
+        "claims": [
+          {
+            "src": [
+              "taxii82Release"
+            ],
+            "text": "The ES 8.2 release notes list TAXII 2.0 and 2.1 for ES 8.2 and later and link to the native feed task. The compatibility paragraph on that same page names TAXII 1.0 and 1.1."
+          },
+          {
+            "src": [
+              "taxii88Compatibility"
+            ],
+            "text": "The ES 8.8 compatibility paragraph repeats TAXII 2.0 where it describes the supported versions."
+          },
+          {
+            "src": [
+              "taxii88Native",
+              "rn88"
+            ],
+            "text": "The ES 8.8 task covers native threat intelligence. The separate 8.8 release highlight adds certificate, API key and bearer token authentication for TIM Cloud TAXII2 sources."
+          }
+        ],
+        "meaning": "Native TAXII feed protocol versions, STIX document parsing and TIM Cloud connector authentication are separate. The duplicate version leaves the current exact protocol list uncertain.",
+        "question": "Confirm the TAXII protocol version for the exact native feed or TIM Cloud connector before planning a change."
+      }
     },
     {
       "id": "vc-313541695b422c9007b4",
