@@ -466,10 +466,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-10T11:40:23.475963Z",
-      "lastSuccess": "2026-11-10T11:44:31.875Z",
-      "outcome": "no-change",
-      "summary": "Independently rechecked all eleven registered families and the bounded Broker, Visual Exporter, SOAR and Forwarder evidence. Retained existing factual review dates and separate production status.",
+      "lastAttempt": "2026-11-11T10:06:12.736998Z",
+      "lastSuccess": "2026-11-11T10:14:59.636Z",
+      "outcome": "changed",
+      "summary": "Added the historical HF FIPS supporting citation and bounded UF fleet-upgrade guidance.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1039,9 +1039,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Independently rechecked all eleven registered families and the bounded Broker, Visual Exporter, SOAR and Forwarder evidence. Retained existing factual review dates and separate production status.",
           "scope": "Independent reassessment for the currently observed attempt. Complete maintained inventory and all eleven registered claim families, plus bounded SOAR, Forwarder and security review. The merged Broker and Visual Exporter wording was rechecked without advancing its original factual dates."
+        },
+        {
+          "at": "2026-11-11T10:06:12.736998Z",
+          "outcome": "running",
+          "summary": "Started the November 11 public release evidence review.",
+          "scope": "Release-owned official source inventory, all eleven registered Prep11 and Advisor claim families, bounded Forwarder receiver and historical FIPS scope, current SOAR and security evidence, and Agent Observability discovery."
+        },
+        {
+          "at": "2026-11-11T10:14:59.636Z",
+          "outcome": "changed",
+          "summary": "Added the historical HF FIPS supporting citation and bounded UF fleet-upgrade guidance.",
+          "scope": "Release-owned official source inventory, all eleven registered Prep11 and Advisor claim families, bounded Forwarder receiver and historical FIPS scope, current SOAR and security evidence, and Agent Observability discovery."
         }
       ],
-      "scope": "Independent reassessment for the currently observed attempt. Complete maintained inventory and all eleven registered claim families, plus bounded SOAR, Forwarder and security review. The merged Broker and Visual Exporter wording was rechecked without advancing its original factual dates."
+      "scope": "Release-owned official source inventory, all eleven registered Prep11 and Advisor claim families, bounded Forwarder receiver and historical FIPS scope, current SOAR and security evidence, and Agent Observability discovery."
     },
     {
       "id": "es-editions-watch",
