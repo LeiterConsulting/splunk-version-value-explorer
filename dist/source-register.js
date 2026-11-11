@@ -5041,7 +5041,7 @@ window.VersionCompassSources = {
           "section": "Key points for upgrading to version 10.2 — Python runtime defaults and opt-in; The Splunk platform uses version 3.13 of the Python runtime environment on Splunk Web; The Splunk daemon and its associated components can now use version 3.13 of the Python interpreter, version 3.9 is still available",
           "claimVerified": "2026-11-11",
           "outcome": "supporting-section-confirmed",
-          "qualification": "The three 10.2 sections agree on the historical Enterprise-package scope. The October 18 recheck remains in the maintenance history. November 11 exact-section recheck: Splunk Web 3.13 is distinct from splunkd 3.9 default and optional 3.13 in the 10.2 source; later 10.4 default changes remain separate."
+          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval. October 18 bounded semantic recheck: Splunk Web 3.13 is distinct from splunkd 3.9 default and optional 3.13 in the 10.2 source; later 10.4 default changes remain separate. The November 11 review also checked the exact 10.2 upgrade summary against the separate Web and splunkd sections."
         },
         {
           "path": "forwarders: borrowed.technical.hf.10.2.embedded-nodejs-runtime",
