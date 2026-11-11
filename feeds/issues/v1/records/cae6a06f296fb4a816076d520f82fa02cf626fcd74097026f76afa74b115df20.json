@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-sok-32-compatibility-scope",
+  "assessmentId": "vcia-release-20261111-review2-sok-32-compatibility-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-11T10:46:00.255Z",
+  "assessedAt": "2026-11-11T10:45:06.341Z",
+  "outcome": "still-present",
+  "rationale": "Help 3.2.0 dates the release September 24 and lists Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0. The September 8 upstream 3.2.0 entry lists Kubernetes 1.32–1.36 and Enterprise 10.6.0. Both retain the Queue secretKeyRef change. The Help upgrade guidance sequences SOK before Enterprise.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Operator for Kubernetes"
+    ],
+    "versions": [
+      "3.2.0"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No universal Kubernetes maximum, Enterprise 11.x compatibility, app pairing, Cloud availability or authorization is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261111-review2-4-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix",
+      "section": "SOK to Splunk Enterprise version compatibility; Upgrade path guidance",
+      "statement": "Exact section for the scoped assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-11T10:40:08.472Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ce993844244645146f1e425152fd292994eac501232fe55c8b0bc444cc805733",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261111-review2-4-1",
+      "url": "https://splunk.github.io/splunk-operator/reference/ChangeLog.html",
+      "section": "3.2.0 > Breaking Changes and Supported Versions",
+      "statement": "Exact section for the scoped assessment.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-11T10:40:21.016Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "26ab5b4459deeb2ae2d6fd8ad0f544e8c7ddbda5d85880e2b6805fffb833908e",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/cda3c3f20e87abcafe46e248d9b8eb9caf81816d/docs/audits/2026-11-11-version-release-watch-review-2-sources.json",
+      "pointer": "/claimChecks/4",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261111-sok-32-compatibility-scope"
+  ],
+  "remainingConcerns": [
+    "Confirm the next release-specific UF OS intersection and a supported comparison model for fleet upgrades. Retry the 8.1.14 and 8.2.12 Enterprise release note URLs and the 8.8 ES Cloud Connect task URL. Reconcile the exact SOAR 8.8 build, worked example and fixed-issue rows. Review by November 12."
+  ]
+}

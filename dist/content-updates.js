@@ -1,7 +1,7 @@
 /* Editorial change provenance. Cycles advance only with material factual updates. */
 (function(){
 'use strict';
-const policy={currentCycle:59,retentionCycles:2};
+const policy={currentCycle:60,retentionCycles:2};
 const note25='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-25.md';
 const note26='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-26.md';
 const note30='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-30.md';

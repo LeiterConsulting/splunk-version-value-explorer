@@ -7,7 +7,7 @@ const soarReadOnlyRecords = new Map([
 export const soarReadOnlyRecord = route => soarReadOnlyRecords.get(route.id);
 
 export async function prepareReadOnlyTools(context,route){
- if(!route.id.startsWith('exact-')&&!soarReadOnlyRecord(route)&&!route.id.startsWith('forwarder-cloud-107'))return;
+ if(!route.id.startsWith('exact-')&&!soarReadOnlyRecord(route)&&!route.id.startsWith('forwarder-cloud-107')&&route.id!=='forwarder-windows-2012-r2')return;
  await context.addInitScript(()=>{window.__reportTools={};Object.defineProperty(document,'modelContext',{value:{registerTool(tool,options){window.__reportTools[tool.name]=tool;options.signal.addEventListener('abort',()=>delete window.__reportTools[tool.name]);}}});});
 }
 export async function verifyExact(page,route,theme){

@@ -17,11 +17,11 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('cycle 50 adds scoped ES agentic facts and retains prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,59);
+ assert.equal(b.policy.currentCycle,60);
  const ea=b.entries["edition:exposure"];assert.equal(ea.cycle,52);assert(b.active(ea,53));assert(!b.active(ea));
  const soar=b.entries['product:soar:cloud-8.8'];assert.equal(soar.cycle,51);assert(!b.active(soar));assert.match(soar.detail,/November 4 General Availability/);
  const app=b.entries['technical:soar:app88'];assert.equal(app.cycle,53);assert(!b.active(app));
- const pairing=b.entries['edition:soar'];assert.equal(pairing.cycle,58);assert(b.active(pairing));assert.match(pairing.detail,/Export 8\.8\.0 functionality-tested/);assert.match(pairing.detail,/native pairing, feature entitlement and regulated authorization separate/);
+ const pairing=b.entries['edition:soar'];assert.equal(pairing.cycle,58);assert(b.active(pairing,59));assert(!b.active(pairing));assert.match(pairing.detail,/Export 8\.8\.0 functionality-tested/);assert.match(pairing.detail,/native pairing, feature entitlement and regulated authorization separate/);
  const export88=b.entries['technical:soar:export88'];assert.equal(export88.cycle,56);assert(b.active(export88,57));assert(!b.active(export88));assert.equal(export88.sourceDate,'2026-11-04');
  const earlierPairing=b.entries['edition-history:soar:cycle28'];assert.equal(earlierPairing.recordKey,'edition:soar');assert(!b.active(earlierPairing));
  for(const key of ['prep11:prep11-workload-baseline','prep11:prep11-cloud-option']){assert.equal(b.entries[key].cycle,49);assert(b.active(b.entries[key],50));assert(!b.active(b.entries[key]));assert.equal(b.entries[key].sourceDate,null);}

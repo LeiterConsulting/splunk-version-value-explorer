@@ -361,6 +361,13 @@ window.VersionCompassForwarderData = {
       "available"
     ],
     [
+      "Windows Server 2012 R2",
+      "x86_64",
+      "unavailable",
+      "unavailable",
+      "The Splunk 10.4 Windows package matrix omits Windows Server 2012 R2. Splunk says software is unavailable for unlisted OS and architecture combinations. The Remote Upgrader lists its own supported hosts."
+    ],
+    [
       "Windows Server 2016",
       "x86_64",
       "available",
@@ -463,6 +470,13 @@ window.VersionCompassForwarderData = {
       "x86_64",
       "available",
       "available"
+    ],
+    [
+      "Windows Server 2012 R2",
+      "x86_64",
+      "unavailable",
+      "unavailable",
+      "The Splunk 10.6 Windows package matrix omits Windows Server 2012 R2. Splunk says software is unavailable for unlisted OS and architecture combinations. The Remote Upgrader lists its own supported hosts."
     ],
     [
       "Windows Server 2016",
