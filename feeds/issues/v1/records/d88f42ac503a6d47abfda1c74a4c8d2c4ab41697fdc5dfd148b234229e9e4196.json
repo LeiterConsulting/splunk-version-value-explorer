@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-fedramp-moderate-certified-services-display",
+  "assessmentId": "vcia-csp-20261111-fedramp-moderate-certified-services-display",
+  "revision": 1,
+  "recordedAt": "2026-11-11T12:30:29.423Z",
+  "assessedAt": "2026-11-11T12:28:38.525Z",
+  "outcome": "still-present",
+  "rationale": "The rendered exact Moderate listing remains FedRAMP Certified. The Certified Services field now says no certified services were attested in the FRC-CSO-PKG JSON. This supersedes the previously observed N/A display as a current observation. Preserve the November 6 named-service list and the later N/A display as dated history. The High package still lists Private Connectivity, Splunk Cloud Platform, Splunk Enterprise Security and Splunk IT Service Intelligence. The current Moderate component scope and High SOAR scope remain unresolved. The display establishes neither a certification change nor an Observability authorization.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform exact Marketplace offerings"
+    ],
+    "versions": [
+      "F1607197917 and FR2314156865"
+    ],
+    "editions": null,
+    "deployments": [
+      "FedRAMP Class C Moderate and Class D High"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No certification revocation, component removal, entitlement, deployment, High SOAR scope, or customer authorization is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261111-1-0",
+      "url": "https://www.fedramp.gov/marketplace/products/F1607197917/",
+      "section": "Rendered Overview > Status, Certification Profile and Certified Services",
+      "statement": "Rendered field states that no certified services were attested in the FRC-CSO-PKG JSON.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-11T12:28:38.525Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact revision of rendered or officially indexed evidence is unavailable. The commit-pinned audit retains the scoped observation."
+      }
+    },
+    {
+      "evidenceId": "csp-20261111-1-1",
+      "url": "https://www.fedramp.gov/marketplace/products/FR2314156865/",
+      "section": "Rendered Overview > Status, Certification Profile and Certified Services",
+      "statement": "Read the rendered High package status, class and four named certified services.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T12:28:38.525Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact revision of rendered or officially indexed evidence is unavailable. The commit-pinned audit retains the scoped observation."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/045856c6152501a92141bf866d647c5d240dfbbf/docs/audits/2026-11-11-csp-fedramp-watch-sources.json",
+      "pointer": "/claimChecks/1",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261110-fedramp-moderate-certified-services-display"
+  ],
+  "remainingConcerns": [
+    "Recheck the Moderate package named-service display and compare the two S3 service sections with the version-specific change log. Preserve unresolved SOAR High and independent Observability scope. Review by November 12."
+  ]
+}

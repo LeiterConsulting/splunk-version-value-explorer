@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-10T12:43:01.107075Z",
+      "lastAttempt": "2026-11-11T12:19:58.336454Z",
       "lastSuccess": "2026-11-10T12:50:41.612Z",
-      "outcome": "no-change",
-      "summary": "Reviewed the CSP inventory and bounded high-consequence claims. No canonical product facts changed. Marketplace and S3 scope differences remain documented.",
+      "outcome": "blocked",
+      "summary": "Bounded source review complete. The registered SOC historical stage section remains unverified. Recorded the changed Moderate Marketplace display without modifying runtime claims.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -459,9 +459,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Reviewed the CSP inventory and bounded high-consequence claims. No canonical product facts changed. Marketplace and S3 scope differences remain documented.",
           "scope": "Complete maintained CSP source inventory and bounded Cloud Platform, Marketplace, visual US Public Sector, ES region, SOC, ITSI subagent and SOAR reviews. One registered 1.2.0 SOC capability."
+        },
+        {
+          "at": "2026-11-11T12:19:58.336454Z",
+          "outcome": "running",
+          "summary": "Started the November 11 CSP FedRAMP public-evidence review.",
+          "scope": "CSP and restricted environments: full maintained public URL inventory and bounded marketplace, visual matrix, S3, ES regional, ITSI subagent, managed SOAR, SOC prerequisites and Observability claim assessments."
+        },
+        {
+          "at": "2026-11-11T12:28:38.525Z",
+          "outcome": "blocked",
+          "summary": "Bounded source review complete. The registered SOC historical stage section remains unverified. Recorded the changed Moderate Marketplace display without modifying runtime claims.",
+          "scope": "CSP and restricted environments: full maintained public URL inventory and bounded marketplace, visual matrix, S3, ES regional, ITSI subagent, managed SOAR, SOC prerequisites and Observability claim assessments."
         }
       ],
-      "scope": "Complete maintained CSP source inventory and bounded Cloud Platform, Marketplace, visual US Public Sector, ES region, SOC, ITSI subagent and SOAR reviews. One registered 1.2.0 SOC capability."
+      "scope": "CSP and restricted environments: full maintained public URL inventory and bounded marketplace, visual matrix, S3, ES regional, ITSI subagent, managed SOAR, SOC prerequisites and Observability claim assessments."
     },
     {
       "id": "version-release-watch",
