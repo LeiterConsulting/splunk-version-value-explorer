@@ -1069,14 +1069,14 @@
       "product": "Splunk Cloud Platform",
       "version": "10.7",
       "environment": "AWS Victoria, new stacks in Israel",
-      "assessment": "The 10.7 Service Details lists Israel as Tel Aviv (il-central-1) for new Victoria Experience stacks. The exact existing filter catalog still lacks that selection. The source does not establish Classic, retrospective rollout, premium-product coverage, AI service-region coverage or authorization. The filter candidate needs reconciliation with shared Advisor regional dependencies.",
-      "assessedAt": "2026-11-12T12:28:42.638Z",
+      "assessment": "The exact Cloud 10.7 Service Details AWS Victoria Experience row lists Middle East (Israel) in the regional table for new stacks. The November 6 change log scopes the added AWS Israel availability to relevant 10.7 versions. Neither Splunk section supplies a city or AWS region code for that row. The current filter still lacks an Israel selection, and the shared Advisor regional dependencies need reconciliation before adding one. No Classic or retrospective rollout, premium-product or AI coverage, or authorization is inferred.",
+      "assessedAt": "2026-11-12T12:35:21.580Z",
       "evidence": [
         {
           "evidenceId": "csp-20261112-38-85ebf61",
           "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
-          "section": "Available regions and region differences > AWS new Victoria Experience regions",
-          "statement": "Exact Israel line and new-stack scope.",
+          "section": "Available regions and region differences > global regions for new stacks > Victoria Experience > AWS",
+          "statement": "The exact AWS Victoria row displays Middle East (Israel), without a city or provider code.",
           "excerpt": null,
           "role": "observed",
           "sourceCheckedAt": "2026-11-12T12:22:49.375Z",
@@ -1085,6 +1085,21 @@
             "type": "sha256",
             "value": "2a250a07558a0157365dc3bbc7e52fde925e427c8fc42ac2e078050d7f3d1353",
             "qualification": "Exact response digest; publisher revision unknown."
+          }
+        },
+        {
+          "evidenceId": "csp-20261112-israel-change-log",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log",
+          "section": "6 November 2026 > Available regions and region differences > AWS Israel",
+          "statement": "The entry adds AWS Israel availability for relevant Cloud 10.7 versions.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-11-12T12:22:49.393Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "93678b6c4d652e30b590df2b508550d63a3e6a4f5db0921b7bf22f95272bcd82",
+            "qualification": "Direct response digest; publisher revision unknown."
           }
         }
       ]
@@ -1171,12 +1186,7 @@
   ],
   "publication": {
     "claimedDelivered": false,
-    "qualification": "Repository candidate only. The November 8 pre-write hold applies to new production deployment, UI and D1 checks.",
-    "feed": {
-      "checkpoint": "vci-961a99593fa887d4d0560370973dd2bc03523addd547e54f88e2081767d54897",
-      "observationCount": 6,
-      "immutableAuditCommit": "4e9091de128dae05898fc641ea44de96106880a8"
-    }
+    "qualification": "Repository candidate only. The November 8 pre-write hold applies to new production deployment, UI and D1 checks."
   },
   "automationCoverage": {
     "runFile": "docs/audits/2026-11-12-csp-fedramp-watch-coverage.json"
@@ -1184,18 +1194,11 @@
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "csp-fedramp-watch",
-    "status": "published",
-    "recordedAt": "2026-11-12T12:30:25.753Z",
-    "reviewDigest": "75caac0d09817f84d5c2b268d96a76b6041d580b8c29ecc9b983bb121baf89e2",
-    "publicationId": "vci-961a99593fa887d4d0560370973dd2bc03523addd547e54f88e2081767d54897",
-    "recordKeys": [
-      "assessment:vcia-csp-20261112-fedramp-moderate-certified-services-display@1",
-      "assessment:vcia-csp-20261112-cloud-s3-restricted-scope@1",
-      "assessment:vcia-csp-20261112-itsi-subagent-region@1",
-      "assessment:vcia-csp-20261112-soar-cloud-880-release-stage@1",
-      "assessment:vcia-csp-20261112-es-soc-analyst-version-floor@1",
-      "assessment:vcia-csp-20261112-cloud-107-aws-israel-filter@1"
-    ],
+    "status": "pending-public-provenance",
+    "recordedAt": "2026-11-12T12:35:21.590Z",
+    "reviewDigest": "68ee7a2ebaafdcd6dd22738ff29015a93ae9d1e9b324ee4e98a92086fe6378e4",
+    "publicationId": "vci-9133146ef44bd095a37a43c32e1b1ba2edab3a6e5cadff0750860ae95eb44374",
+    "recordKeys": [],
     "notReassessedFindingIds": [
       "vci-es-87-connector-builder-editions",
       "vci-es-88-triage-editions",
@@ -1229,11 +1232,8 @@
       "vci-es-editions-taxii-pdf-heading-split"
     ],
     "deferredConcerns": [
-      "csp-fedramp-watch by 2026-11-13: Recheck the exact Moderate field, authoritative S3 service-table clarification, ITSI subagent-specific regional rollout and the AWS Israel Advisor dependencies without borrowing authorization.",
-      "es-editions-watch by 2026-11-13: Recover an official retained historical ES 8.8 Controlled Availability section and the exact Cloud Connect setup section, or document reconciliation of the registry mapping. Preserve original dates.",
-      "version-guidance-audit by 2026-11-13: Independently reconcile the historical ES 8.8 Controlled Availability section with the currently retrievable GA page and compare the exact current result and delivery evidence.",
-      "csp-fedramp-watch by 2026-11-13: Retry the four unavailable public URLs and retain version-specific historical SOAR Cloud service dates and restricted migration limits; preserve the prior verified live Site while production remains held."
+      "csp-fedramp-watch by 2026-11-12: transfer corrected exact public audit provenance before appending the six scoped assessments."
     ],
-    "qualification": "Six assessments bind to the exact public November 12 audit commit. Delivery requires GitHub main integration and independent recovery readback."
+    "qualification": "The Israel comparison retains only the geographic label and deployment scope the exact Splunk row publishes."
   }
 }
