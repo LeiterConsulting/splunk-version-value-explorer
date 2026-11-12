@@ -2711,6 +2711,34 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.4.2604.18-0",
+      "title": "splunk cloud platform maintenance patch release information",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.cloud.releasesData.10.4.2604.technicalChanges.5.source",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-11-12",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-12",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "10.4.2604.18 > Publication Date, Security Fixes and Uncategorized issues",
+      "verificationScope": "November 6 Cloud 10.4.2604.18 row: three preliminary Medium security fixes, plus SPL-314840, SPL-316497 and SPL-316559. The SPL-314840 description references Enterprise 10.4.2 and UF clients. The Cloud patch row does not establish a separate customer-managed fix, selected-stack rollout or definitive advisory applicability.",
+      "events": [
+        {
+          "date": "2026-11-12",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.6.2.3-0",
       "title": "splunk cloud platform maintenance patch release information",
       "areas": [

@@ -680,3 +680,21 @@ test('Cloud maintenance builds keep exact issue and security scope on their own 
     assert.match(card, /<strong>Claim last verified:<\/strong> 2026-11-11/);
   }
 });
+
+test('Cloud 10.4.2604.18 is a dated stack patch with no customer-managed package inference', async () => {
+  const route = { product: 'platform', platform: 'cloud', from: '10.2.2510', to: '10.4.2604' };
+  const selected = await runtime({ selection: route });
+  const report = selected.run('compare_routes', { routes: [route] }).reports[0];
+  const patch = report.technicalChanges.find(item => item.component === 'Cloud 10.4.2604.18 maintenance patch');
+  assert.equal(patch.verified, '2026-11-12');
+  assert(patch.source.endsWith('#10.4.2604.18-0'));
+  assert.match(patch.to, /November 6, 2026/);
+  assert.match(patch.implication, /three preliminary Medium.*SPL-314840.*SPL-316497.*SPL-316559/);
+  assert.match(patch.implication, /customer-managed Enterprise or Forwarder package applicability unestablished/);
+  assert(report.technicalChanges.some(item => item.component === 'Cloud 10.4 maintenance build' && item.to.includes('10.4.2604.15')));
+  const enterprise = selected.run('compare_routes', { routes: [{ ...route, platform: 'enterprise', from: '10.2', to: '10.4' }] }).reports[0];
+  assert(!enterprise.technicalChanges.some(item => item.component === patch.component));
+  await selected.dispatch('DOMContentLoaded');
+  const card = selected.elements.get('technical-content').innerHTML.split('<article class="technical-item">').find(html => html.includes(patch.component));
+  assert.match(card, /<strong>Claim last verified:<\/strong> 2026-11-12/);
+});

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-agent-runtime-processing-scope",
+  "assessmentId": "vcia-release-20261112-review2-saia-agent-runtime-processing-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-12T11:29:21.009Z",
+  "assessedAt": "2026-11-12T11:28:01.551Z",
+  "outcome": "still-present",
+  "rationale": "Frankfurt Data zone and Dublin Global in the Model Runtime table remain separate from the Agent Mode supported-regions list. The feature asks for enabling Model Runtime, and the broad model selection may include models hosted outside the Cloud Platform. Region labels do not supply residency, processing or authorization guarantees.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant"
+    ],
+    "versions": [
+      "2.3.6 guidance"
+    ],
+    "editions": null,
+    "deployments": [
+      "Model Runtime and Agent Mode; EU scope"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No customer authorization, actual tenant routing, residency guarantee, regulated approval or exact app/Platform pairing is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261112-review2-157-b4fd88b",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+      "section": "Model Runtime > Supported regions; Feature availability and region standard",
+      "statement": "Frankfurt Data zone and Dublin Global.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-12T11:25:26.921Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b3c1a671e4dba7a11599e78ffa1f5163edcf1740b76bb288948927acd8b5d311",
+        "qualification": "Exact response digest. Publisher document revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261112-review2-156-fa4fcb1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "section": "Agent Mode > Requirements and Supported regions",
+      "statement": "Runtime and external processing qualification.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-12T11:25:26.938Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "c129e7c526c032ef48f2a2ff8f08baaf3e1a46d25506db2c417ba1269f675abd",
+        "qualification": "Exact response digest. Publisher document revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/56b31a72da8e05d10dc85cbccbb2e0ec228ac2ff/docs/audits/2026-11-12-version-release-watch-review-2-sources.json",
+      "pointer": "/claimChecks/8",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "Recheck feature-specific Cloud Connected Agent Mode and ITSI regional rollout sources. Verify exact-main workflow evidence and repository feed recovery for this review. Review by November 12."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261112-saia-agent-runtime-processing-scope"
+  ]
+}
