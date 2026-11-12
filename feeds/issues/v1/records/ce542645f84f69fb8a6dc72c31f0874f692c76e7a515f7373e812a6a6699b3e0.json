@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-agent-runtime-processing-scope",
+  "assessmentId": "vcia-release-20261111-review3-saia-agent-runtime-processing-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-11T11:21:27.703Z",
+  "assessedAt": "2026-11-11T11:20:47.676Z",
+  "outcome": "still-present",
+  "rationale": "The Agent Mode guide requires Model Runtime. The runtime table assigns Data zone to Frankfurt and Global to Dublin and describes possible external processing. Broader Cloud Connected data-use language supplies no residency guarantee for the feature.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant"
+    ],
+    "versions": [
+      "2.3.6"
+    ],
+    "editions": null,
+    "deployments": [
+      "Feature-specific Agent Mode and Model Runtime"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No customer authorization, actual tenant routing, residency guarantee, regulated approval or exact app/Platform pairing is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261111-review3-8-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "section": "Requirements and supported AWS locations",
+      "statement": "Exact section for the scoped assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-11T11:16:12.896Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "4c1cad3f947f1c13945187c17f9d3a68e0125162add0b490f1b0b3ac75070045",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261111-review3-8-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+      "section": "Feature availability and region standard; Using the Model Runtime feature",
+      "statement": "Exact section for the scoped assessment.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-11T11:16:12.946Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "6b0c720314650dc29df6439a36383fc250e11abf98ddca6afe343e6a55366d5e",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261111-review3-8-2",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "How Splunk AI Assistant uses your data",
+      "statement": "Exact section for the scoped assessment.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-11T11:15:26.180Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "e4099d81e95623a1cd9541ed760660e7daf0e20d95e4a8c6080fbe5ec68bdbf1",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/2228e049950e4f54d7e40d4efef044e9d1c7b014/docs/audits/2026-11-11-version-release-watch-review-3-sources.json",
+      "pointer": "/claimChecks/8",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261111-review2-saia-agent-runtime-processing-scope"
+  ],
+  "remainingConcerns": [
+    "Check the next official Cloud Connected support matrix for the Agent Mode conflict and a feature-specific ITSI subagent rollout table. Track Agent Observability in exact release and service documentation. Review by November 12."
+  ]
+}

@@ -17,7 +17,7 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('cycle 50 adds scoped ES agentic facts and retains prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,61);
+ assert.equal(b.policy.currentCycle,62);
  const ea=b.entries["edition:exposure"];assert.equal(ea.cycle,52);assert(b.active(ea,53));assert(!b.active(ea));
  const soar=b.entries['product:soar:cloud-8.8'];assert.equal(soar.cycle,51);assert(!b.active(soar));assert.match(soar.detail,/November 4 General Availability/);
  const app=b.entries['technical:soar:app88'];assert.equal(app.cycle,53);assert(!b.active(app));
@@ -66,6 +66,10 @@ test('cycle 50 adds scoped ES agentic facts and retains prior cycle provenance',
  for(const key of ['environment:acs-fr-m','environment:acs-fr-h']){const e=b.entries[key];assert.equal(e.cycle,18);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-10\.md/);}
  assert(!b.active(b.entries['feature:observability:Browser RUM 3.2']));
  const cloudMaintenance=b.entries['technical:platform:Cloud 10.6 maintenance build'];assert.equal(cloudMaintenance.cycle,46);assert(!b.active(cloudMaintenance));assert.equal(cloudMaintenance.version,'Splunk Cloud Platform 10.6.2.2');assert.match(cloudMaintenance.note,/2026\/11\/2026-11-01\.md/);
+ for(const build of ['10.6.2.3','10.7.0.5']){
+  const patch=b.entries['technical:platform:Cloud '+build+' maintenance patch'];
+  assert.equal(patch.cycle,62);assert(b.active(patch));assert(patch.source.endsWith('#'+build+'-0'));
+ }
  const cloudMaintenancePrior=b.entries['technical-history:platform:Cloud 10.6 maintenance build:2026-10-23-cycle31'];assert.equal(cloudMaintenancePrior.recordKey,'technical:platform:Cloud 10.6 maintenance build');assert.equal(cloudMaintenancePrior.version,'Splunk Cloud Platform 10.6.2.0');assert(!b.active(cloudMaintenancePrior));
  const cloud105=b.entries['technical:platform:Cloud 10.5 maintenance build'];assert.equal(cloud105.cycle,46);assert(!b.active(cloud105));assert.equal(cloud105.version,'Cloud 10.5.2605.15');assert.match(cloud105.note,/2026\/11\/2026-11-01\.md/);
  for(const key of ['feature:platform:Machine Data Lake multi-search-head workflows','feature:platform:Continuous Machine Data Lake promotions','feature:platform:Catalog-managed datasets and connections','feature:platform:Custom SMTP','feature:platform:Application-layer forwarder authentication','technical:platform:Federated provider names','technical:platform:Cloud app Python runtime','technical:platform:Forwarder-to-indexer application authentication','technical:platform:Custom SMTP delivery','technical:platform:Cloud 10.7 release documentation versus current service pairing']){const e=b.entries[key];assert.equal(e.cycle,46);assert(!b.active(e));assert.match(e.note,/2026\/11\/2026-11-01\.md/);}

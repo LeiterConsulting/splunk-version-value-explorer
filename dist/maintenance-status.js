@@ -478,10 +478,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-11T10:39:01.466131Z",
-      "lastSuccess": "2026-11-11T10:45:06.341Z",
+      "lastAttempt": "2026-11-11T14:13:32.699091Z",
+      "lastSuccess": "2026-11-11T14:21:55.848Z",
       "outcome": "changed",
-      "summary": "Recorded exact Windows Server 2012 R2 target-package scope and reassessed the highest-consequence source conflicts.",
+      "summary": "Confirmed two exact Cloud maintenance rows and strengthened the historical HF 10.2 Python section mapping. Registry SOC history remains partial.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1075,9 +1075,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Recorded exact Windows Server 2012 R2 target-package scope and reassessed the highest-consequence source conflicts.",
           "scope": "Release-owned official source inventory, all eleven registered Prep11 and Advisor claim families, bounded Windows Forwarder package and receiver scope, and two exact SOAR 8.8 documentation discrepancies."
+        },
+        {
+          "at": "2026-11-11T14:13:32.699091Z",
+          "outcome": "running",
+          "summary": "Started the public November 11 release and source review.",
+          "scope": "Complete maintained public URL change inventory. Bounded Cloud maintenance, historical Forwarder, SOAR issue-label, Prep11 and Advisor claims. The historical SOC release-stage scope is partial."
+        },
+        {
+          "at": "2026-11-11T14:21:55.848Z",
+          "outcome": "changed",
+          "summary": "Confirmed two exact Cloud maintenance rows and strengthened the historical HF 10.2 Python section mapping. Registry SOC history remains partial.",
+          "scope": "Complete maintained public URL change inventory. Bounded Cloud maintenance, historical Forwarder, SOAR issue-label, Prep11 and Advisor claims. The historical SOC release-stage scope is partial."
         }
       ],
-      "scope": "Release-owned official source inventory, all eleven registered Prep11 and Advisor claim families, bounded Windows Forwarder package and receiver scope, and two exact SOAR 8.8 documentation discrepancies."
+      "scope": "Complete maintained public URL change inventory. Bounded Cloud maintenance, historical Forwarder, SOAR issue-label, Prep11 and Advisor claims. The historical SOC release-stage scope is partial."
     },
     {
       "id": "es-editions-watch",

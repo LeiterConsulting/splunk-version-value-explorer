@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-agent-runtime-processing-scope",
+  "assessmentId": "vcia-release-20261111-review4-saia-agent-runtime-processing-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-11T14:23:38.537Z",
+  "assessedAt": "2026-11-11T14:21:55.848Z",
+  "outcome": "still-present",
+  "rationale": "The 2.3.6 feature guide gives Platform 10.1.x+, supported AWS locations, Model Runtime enablement and separate Cloud Connected certificate prerequisites. The feature-specific runtime table gives Data zone for Frankfurt and Global for Dublin and describes optional external processing outside the platform boundary. Current Cloud Connected installation and SAIA-9918 exclude 2.2.0–2.3.6, document 2.1.1 without Agent Mode and plan 2.4.0. Base assistant regions and limited IL2 support do not settle Agent Mode rollout, and the documented CMP minimum does not establish a currently usable path.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant Agent Mode"
+    ],
+    "versions": [
+      "2.3.6"
+    ],
+    "editions": null,
+    "deployments": [
+      "Feature-specific runtime and AWS service locations"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No customer authorization, actual tenant routing, residency guarantee, regulated approval or exact app/Platform pairing is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261111-review4-157-635a8c6",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+      "section": "Feature availability and region standard > Frankfurt and Dublin; Using Model Runtime",
+      "statement": "Scoped supporting section for this assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-11T14:16:38.277Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "2141b1fce6ddda1a90e18425fa3b03164aedd6ed27d1b9e7cddca20cafda5925",
+        "qualification": "Exact direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261111-review4-156-3539ad4",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "section": "Requirements > Enable Model Runtime and Supported regions",
+      "statement": "Scoped supporting section for this assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-11T14:16:38.605Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "09133731df53ba3391eaba6bac696d4e2bdb230486e267ab99b9b9243bcc7a8c",
+        "qualification": "Exact direct response digest. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/690d8df95c42a6552bad38e2edf8605712e3c1ab/docs/audits/2026-11-11-version-release-watch-review-4-sources.json",
+      "pointer": "/claimChecks/7",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261111-review3-saia-agent-runtime-processing-scope"
+  ],
+  "remainingConcerns": [
+    "Recheck feature-specific Cloud Connected Agent Mode and ITSI regional rollout sources. Verify exact-main workflow evidence and repository feed recovery for this review. Review by November 12."
+  ]
+}
