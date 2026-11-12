@@ -1,7 +1,7 @@
 /* Editorial change provenance. Cycles advance only with material factual updates. */
 (function(){
 'use strict';
-const policy={currentCycle:64,retentionCycles:2};
+const policy={currentCycle:65,retentionCycles:2};
 const note25='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-25.md';
 const note26='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-26.md';
 const note30='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-30.md';
@@ -262,6 +262,16 @@ entries['technical:platform:Cloud 10.7.0.5 maintenance patch']={kind:'new',cycle
 entries['edition:tim']={kind:'updated',cycle:61,date:'2026-11-11',version:'ES 8.2 and 8.8 · TAXII evidence',detail:'Added a source question for the duplicate TAXII version and kept native feed protocol scope separate from TIM Cloud authentication.',source:'https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security#ariaid-title5',sourceDate:null,note:'https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/11/2026-11-11.md'};
 entries['technical:platform:Cloud 10.4.2604.18 maintenance patch']={milestones:['Cloud 10.4.2604'],kind:'new',cycle:63,date:'2026-11-12',version:'Splunk Cloud Platform 10.4.2604.18',detail:'Added the November 6 Cloud patch and preliminary security counts. Stack rollout and customer-managed package applicability remain separate.',source:"https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.4.2604.18-0",sourceDate:'2026-11-06',note:'https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/11/2026-11-12.md'};
 entries['technical:platform:Cloud 10.5.2605.16 maintenance patch']={"milestones":["Cloud 10.5.2605"],"kind":"new","cycle":64,"date":"2026-11-12","version":"Splunk Cloud Platform 10.5.2605.16","detail":"Added the November 6 Cloud patch with its REST serialization, disk-pressure and session sweep fixes. Check the selected stack build and use definitive advisories for security applicability.","source":"https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.5.2605.16-0","sourceDate":"2026-11-06","note":"https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/11/2026-11-12.md"};
+const marketplaceNote='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/11/2026-11-12.md';
+for(const [key,history] of [
+ ['environment:es-fr-m-offering','environment-history:es-fr-m-offering:cycle55'],
+ ['environment:itsi-fr-m-offering','environment-history:itsi-fr-m-offering:cycle55'],
+ ['product:soar:fedramp-moderate-offering','product-history:soar:fedramp-moderate-offering:cycle55']
+]){
+ const previous=entries[key];
+ entries[history]={...previous,recordKey:key};
+ entries[key]={...previous,cycle:65,date:'2026-11-12',detail:'Recorded the exact current Marketplace display. The offering remains FedRAMP Certified, and the public field shows no certified services attested in the package JSON. Earlier named-component evidence remains dated.',sourceDate:null,note:marketplaceNote};
+}
 function active(entry,cycle=policy.currentCycle){return !!entry&&cycle>=entry.cycle&&cycle-entry.cycle<policy.retentionCycles;}
 function applicable(entry,record){return !entry?.milestones||entry.milestones.includes(record?.milestone);}
 function html(key,record){const e=entries[key];if(!active(e)||!applicable(e,record))return '';const text='Guide change '+e.date+' · '+e.version+' · '+e.detail+(e.sourceDate?' Source dated '+e.sourceDate+'.':' Source publication date unknown.');return '<span class="content-change content-change-'+e.kind+'"><button type="button" class="content-change-marker" aria-label="'+esc(labels[e.kind]+'. '+text)+'">'+labels[e.kind]+'</button><span class="content-change-popover" role="tooltip"><strong>'+esc(e.kind==='new'?'New to this guide':labels[e.kind])+'</strong><br>'+esc(text)+' <a href="'+esc(e.source)+'" target="_blank" rel="noopener noreferrer">Official source</a> · <a href="'+esc(e.note||note25)+'" target="_blank" rel="noopener noreferrer">Change log</a></span><span class="content-change-print"> — '+esc(labels[e.kind]+': '+text)+'</span></span>';}

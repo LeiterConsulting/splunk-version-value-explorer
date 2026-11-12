@@ -25,6 +25,8 @@ let serverLog = ''; server.stdout.on('data', b => serverLog += b); server.stderr
 let browser;
 const relative = file => path.relative(output, file);
 const normalize = s => s.replace(/\s+/g, ' ').trim();
+const marketplaceCases = {'es-hybrid-moderate':'es-fr-m-offering','itsi-fedramp-moderate':'itsi-fr-m-offering'};
+const marketplaceScope = 'reports no certified services attested in the package JSON';
 const cloudPatchCases = {
   'cloud-105-patch': { build: '10.5.2605.16', claimDate: '2026-11-12' },
   'cloud-104-patch': { build: '10.4.2604.18', claimDate: '2026-11-12' },
@@ -153,6 +155,21 @@ try {
       assert.equal(result.os.source,'os106');
       assert(await page.locator('.forwarder-compatibility .forwarder-fact').filter({hasText:'OS and architecture'}).locator('.status-unavailable').isVisible());
       assert((await page.locator('.forwarder-compatibility').textContent()).includes(result.os.detail));
+      entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
+    }
+    const marketplaceRecord=marketplaceCases[route.id];
+    if(marketplaceRecord){
+      await page.waitForFunction(()=>window.__reportTools?.versioncompass_get_current_report);
+      const result=await page.evaluate(id=>{
+        const tool=window.__reportTools.versioncompass_get_current_report, url=location.href;
+        const record=tool.execute({}).report?.environment?.records.find(row=>row.id===id);
+        return {record,readOnly:tool.annotations.readOnlyHint,stable:location.href===url};
+      },marketplaceRecord);
+      assert(result.readOnly&&result.stable&&result.record,'Missing scoped read-only Marketplace record');
+      assert.equal(result.record.authorization,'not_established');
+      assert(result.record.detail.includes(marketplaceScope));
+      const card=page.locator('.env-record').filter({hasText:result.record.feature});
+      assert((await card.first().textContent()).includes(result.record.detail));
       entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
     }
     const cloudPatch=cloudPatchCases[route.id];
@@ -416,8 +433,9 @@ try {
       if(route.id==='cloud-107-fedramp-high') {
         for(const qualification of ['Cloud 10.7 Service Details lists Edge Processor for FedRAMP High','Cloud 10.7 Service Details lists Ingest Processor for FedRAMP High','The 10.6 table lists Moderate only','Essentials tier']) assert(normalize(expected.text).includes(qualification), 'High processor qualification missing: '+qualification);
       }
+      if(marketplaceRecord) expected.requiredText=[marketplaceScope,'Current named component scope remains unresolved'];
       if(route.id==='soar-cloud-fedramp-moderate') {
-        for(const qualification of ['November 6 Moderate Marketplace list named SOAR','N/A for Certified Services','native-data migration limits']) assert(normalize(expected.text).includes(qualification), 'Moderate SOAR qualification missing: '+qualification);
+        for(const qualification of ['November 6 Moderate Marketplace list named SOAR','Certified Services displayed N/A',marketplaceScope,'native-data migration limits']) assert(normalize(expected.text).includes(qualification), 'Moderate SOAR qualification missing: '+qualification);
       }
       if(route.id==='soar-cloud-88') {
         for(const qualification of ['SOAR Export 8.8.0 functionality-tested combinations','CIM 8.5.0-1681','for upgrade listing purposes']) assert(normalize(expected.text).includes(qualification), 'SOAR Export qualification missing: '+qualification);
