@@ -478,10 +478,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-11T14:13:32.699091Z",
+      "lastAttempt": "2026-11-12T10:51:44.138231Z",
       "lastSuccess": "2026-11-11T14:21:55.848Z",
-      "outcome": "changed",
-      "summary": "Confirmed two exact Cloud maintenance rows and strengthened the historical HF 10.2 Python section mapping. Registry SOC history remains partial.",
+      "outcome": "blocked",
+      "summary": "Current release review completed in bounded scope; historical SOC evidence and production delivery remain open.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1087,17 +1087,29 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Confirmed two exact Cloud maintenance rows and strengthened the historical HF 10.2 Python section mapping. Registry SOC history remains partial.",
           "scope": "Complete maintained public URL change inventory. Bounded Cloud maintenance, historical Forwarder, SOAR issue-label, Prep11 and Advisor claims. The historical SOC release-stage scope is partial."
+        },
+        {
+          "at": "2026-11-12T10:51:44.138231Z",
+          "outcome": "running",
+          "summary": "Checking official release and route evidence.",
+          "scope": "Version Release Watch inventory and registry 1.2.0."
+        },
+        {
+          "at": "2026-11-12T11:03:23.542Z",
+          "outcome": "blocked",
+          "summary": "Current release review completed in bounded scope; historical SOC evidence and production delivery remain open.",
+          "scope": "Cloud patch rows, historical UF/HF sources, SOAR/AI issues and ten assessed registry capabilities. Historical ES 8.8 CA scope is incomplete."
         }
       ],
-      "scope": "Complete maintained public URL change inventory. Bounded Cloud maintenance, historical Forwarder, SOAR issue-label, Prep11 and Advisor claims. The historical SOC release-stage scope is partial."
+      "scope": "Cloud patch rows, historical UF/HF sources, SOAR/AI issues and ten assessed registry capabilities. Historical ES 8.8 CA scope is incomplete."
     },
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-11T11:28:02.060736Z",
+      "lastAttempt": "2026-11-12T11:04:24.977471Z",
       "lastSuccess": "2026-11-11T11:31:55.245Z",
-      "outcome": "changed",
-      "summary": "Retained the earlier ES TAXII observation and added the different compatibility statement on the same 8.2 release page.",
+      "outcome": "blocked",
+      "summary": "Bounded ES review complete. The mapped historical SOC release evidence remains unverified.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1595,9 +1607,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Retained the earlier ES TAXII observation and added the different compatibility statement on the same 8.2 release page.",
           "scope": "ES Editions, ES-specific SOC, Automation Builder, native TAXII and TIM Cloud, licensing and tested App for SOAR and Export scope. The source inventory covers the maintained ES watch and the discovered exact 8.8 known/fixed issue pages; claim assessments are bounded."
+        },
+        {
+          "at": "2026-11-12T11:04:24.977471Z",
+          "outcome": "running",
+          "summary": "Reviewing current ES edition and workflow evidence.",
+          "scope": "ES Editions Watch sources and the registry 1.2.0 SOC capability."
+        },
+        {
+          "at": "2026-11-12T11:11:41.742Z",
+          "outcome": "blocked",
+          "summary": "Bounded ES review complete. The mapped historical SOC release evidence remains unverified.",
+          "scope": "Current editions, licensing, TAXII, SOAR integration and SOC prerequisites reviewed. ES 8.8 historical Controlled Availability coverage remains incomplete."
         }
       ],
-      "scope": "ES Editions, ES-specific SOC, Automation Builder, native TAXII and TIM Cloud, licensing and tested App for SOAR and Export scope. The source inventory covers the maintained ES watch and the discovered exact 8.8 known/fixed issue pages; claim assessments are bounded."
+      "scope": "Current editions, licensing, TAXII, SOAR integration and SOC prerequisites reviewed. ES 8.8 historical Controlled Availability coverage remains incomplete."
     },
     {
       "id": "version-guidance-audit",

@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-soc-analyst-version-floor",
+  "assessmentId": "vcia-release-20261112-es-soc-analyst-version-floor",
+  "revision": 1,
+  "recordedAt": "2026-11-12T11:07:26.267Z",
+  "assessedAt": "2026-11-12T11:03:23.542Z",
+  "outcome": "still-present",
+  "rationale": "The 8.8 aggregate Premier Triage and Response row lists Cloud Platform 10.2.x+, ES 8.6+ and paired SOAR. The detailed Cloud workflow requires Platform 10.2+, ES 8.7+, enabled assistant, paired SOAR, an eligible existing finding, burst and daily limits and connector/action/asset permissions and frontier model guidance. The 8.7 guide retains historical naming. The detailed CMP prerequisites list Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0. The exact release notes now show November 4 GA; the mapped historical CA section and exact CMP setup URL could not be verified. Edition and regional sections remain scoped; exact pairing, per-agent rollout, entitlement and authorization are excluded.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security Agentic SOC"
+    ],
+    "versions": [
+      "ES 8.7/8.8 sources"
+    ],
+    "editions": null,
+    "deployments": [
+      "Cloud and Cloud Connected CMP"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "CMP has its separate Platform 10.4+/ES 8.8+/Cloud Connect 2.0 chain; no lower-floor eligibility, tenant rollout, entitlement, pairing or authorization is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261112-91-aec0ce8",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Agentic AI offerings > Triage and Response row",
+      "statement": "Aggregate Cloud floor ES 8.6+, paired SOAR and separate CMP floor.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-12T10:53:51.461Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "10aeba5eaa2fc16ad729206d632f70e6f3d15ca24ec1e2e4f09faebe4a1e2050",
+        "qualification": "Exact response digest. Publisher document revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261112-93-b609d18",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "section": "Use SOC agent > Prerequisites, findings limits and permissions",
+      "statement": "Detailed Cloud ES 8.7+ floor; CMP, enablement and permission qualifications.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-12T10:53:51.529Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9c755dcc706e01cb501233d6d35db53cd54f2c2cf9336d652c43a8f40d361da7",
+        "qualification": "Exact response digest. Publisher document revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261112-85-dc33a99",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "section": "Historical AI SOC Analyst workflow > Prerequisites",
+      "statement": "Retains historical 8.7 title and scope.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-12T10:53:47.565Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9beca23b304c29082fe87a28fe0abd657dc4587b9c006b761e8767a49909bcb2",
+        "qualification": "Exact response digest. Publisher document revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261112-110-7a73ad3",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "What’s new in release 8.8.x > November 4 General Availability",
+      "statement": "Current GA; earlier mapped CA unavailable.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-12T10:53:54.810Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "441a0054291992a4e4f597246c352e4636569e9fd60eb565c8f3e4f92930d1f4",
+        "qualification": "Exact response digest. Publisher document revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/faa58b9112d93039d261c21839876e114669e347/docs/audits/2026-11-12-version-release-watch-sources.json",
+      "pointer": "/claimChecks/8",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "Independently reconcile the missing mapped SOC Controlled Availability section, the native result for this exact attempt and production delivery evidence. Review by November 12."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261111-review4-es-soc-analyst-version-floor"
+  ]
+}

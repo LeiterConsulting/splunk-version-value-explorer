@@ -164,7 +164,9 @@ try {
       assert(result.readOnly&&result.stable&&result.current,'Missing read-only Cloud maintenance row');
       assert.deepEqual(result.explicit,result.current);
       assert.equal(result.current.source.endsWith('#'+build+'-0'),true);
-      assert((await page.locator('#technical-content').textContent()).includes(result.current.component));
+      const card=page.locator('#technical-content .technical-item').filter({has:page.locator('h4').filter({hasText:result.current.component})});
+      const context=await card.locator('.evidence-context').textContent();
+      assert(context.includes('Claim last verified: '+result.current.verified),'Screen evidence lost the canonical claim date');
       entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
     }
     const recordId=soarReadOnlyRecord(route);
@@ -399,6 +401,7 @@ try {
         const build=route.id==='cloud'?'10.6.2.3':'10.7.0.5';
         for(const text of ['Cloud '+build+' maintenance patch','selected-stack rollout','preliminary'])
           assert(normalize(expected.text).includes(text),'Missing scoped Cloud maintenance export evidence');
+        expected.requiredText=['Claim last verified: 2026-11-11'];
       }
       if(route.id==='cloud-107-fedramp-high') {
         for(const qualification of ['Cloud 10.7 Service Details lists Edge Processor for FedRAMP High','Cloud 10.7 Service Details lists Ingest Processor for FedRAMP High','The 10.6 table lists Moderate only','Essentials tier']) assert(normalize(expected.text).includes(qualification), 'High processor qualification missing: '+qualification);
