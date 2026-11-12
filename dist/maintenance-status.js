@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-11T12:19:58.336454Z",
+      "lastAttempt": "2026-11-12T12:21:25.996355Z",
       "lastSuccess": "2026-11-10T12:50:41.612Z",
       "outcome": "blocked",
-      "summary": "Bounded source review complete. The registered SOC historical stage section remains unverified. Recorded the changed Moderate Marketplace display without modifying runtime claims.",
+      "summary": "Updated the Moderate Marketplace display. Historical SOC scope and production delivery remain incomplete.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -471,9 +471,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Bounded source review complete. The registered SOC historical stage section remains unverified. Recorded the changed Moderate Marketplace display without modifying runtime claims.",
           "scope": "CSP and restricted environments: full maintained public URL inventory and bounded marketplace, visual matrix, S3, ES regional, ITSI subagent, managed SOAR, SOC prerequisites and Observability claim assessments."
+        },
+        {
+          "at": "2026-11-12T12:21:25.996355Z",
+          "outcome": "running",
+          "summary": "Checking the regional and regulated official evidence inventory.",
+          "scope": "CSP FedRAMP Watch and its registry 1.2.0 SOC responsibility."
+        },
+        {
+          "at": "2026-11-12T12:28:42.638Z",
+          "outcome": "blocked",
+          "summary": "Updated the Moderate Marketplace display. Historical SOC scope and production delivery remain incomplete.",
+          "scope": "Exact Marketplace offerings, selected visual matrix rows, S3 conflicts, AI regions, SOAR and Observability; partial SOC decision."
         }
       ],
-      "scope": "CSP and restricted environments: full maintained public URL inventory and bounded marketplace, visual matrix, S3, ES regional, ITSI subagent, managed SOAR, SOC prerequisites and Observability claim assessments."
+      "scope": "Exact Marketplace offerings, selected visual matrix rows, S3 conflicts, AI regions, SOAR and Observability; partial SOC decision."
     },
     {
       "id": "version-release-watch",

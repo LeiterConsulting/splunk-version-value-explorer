@@ -77,7 +77,7 @@ test('exact Marketplace offering scope remains product-specific and qualified',(
  assert(!esHigh.records.some(r=>r.id==='es-fr-m-offering'));
  const itsiModerate=env.assess(route({csp:'aws',compliance:'fr-m'},'itsi'));
  const record=itsiModerate.records.find(r=>r.id==='itsi-fr-m-offering');
- assert(record);assert.equal(record.authorization,'not_established');assert.match(record.detail,/November 6.+November 7.+N[/]A.+Current named component scope remains unresolved/);
+ assert(record);assert.equal(record.authorization,'not_established');assert.match(record.detail,/November 6.+November 7.+N[/]A.+November 12.+no certified services attested.+Current named component scope remains unresolved/);
  assert.equal(esHigh.records.find(r=>r.id==='es-fr-h-offering').authorization,'documented');
  const html=env.body(route({csp:'aws',compliance:'fr-m'},'itsi'),true);
  assert.match(html,/IT Service Intelligence Moderate offering scope/);assert.match(html,/IT Service Intelligence · AWS/);

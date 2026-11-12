@@ -261,9 +261,9 @@ window.VersionCompassEnvironmentData = {
     "moderate": {
       "title": "FedRAMP Marketplace: Cloud Platform Moderate",
       "url": "https://www.fedramp.gov/marketplace/products/F1607197917/",
-      "published": "2019-10-11",
-      "scope": "Overview > offering status and Certified Services display. November 7 shows FedRAMP Certified and N/A for the component list; November 6 observations are retained as dated evidence.",
-      "checked": "2026-11-07"
+      "published": null,
+      "scope": "Overview > offering status and Certified Services. The offering shows certified since October 11, 2019. On November 12 it remained FedRAMP Certified and displayed no certified services attested in the package JSON. The dated November 6 list and November 7 N/A display remain historical.",
+      "checked": "2026-11-12"
     },
     "victoria": {
       "title": "Victoria Experience High announcement",
@@ -577,13 +577,13 @@ window.VersionCompassEnvironmentData = {
       ],
       "availability": "not_established",
       "authorization": "not_established",
-      "detail": "The November 6 review observed Splunk Enterprise Security in the exact Moderate Marketplace Certified Services list. On November 7 the offering still displayed FedRAMP Certified, but Certified Services displayed N/A. Current named component scope remains unresolved. Edition, feature, entitlement, pairing, rollout and customer authorization remain separate.",
+      "detail": "The November 6 Moderate Marketplace list named Splunk Enterprise Security. On November 7 Certified Services displayed N/A. The November 12 listing remains FedRAMP Certified and reports no certified services attested in the package JSON. Current named component scope remains unresolved. Edition, feature, entitlement, pairing, rollout and customer authorization remain separate.",
       "sources": [
         "moderate",
         "service"
       ],
-      "checked": "2026-11-07",
-      "scope": "November 6 dated component listing and November 7 current public display; no change to underlying certification inferred"
+      "checked": "2026-11-12",
+      "scope": "Exact Moderate offering Overview and current Certified Services display, with dated November 6 and November 7 observations. Component scope remains unresolved."
     },
     {
       "id": "es-fr-h-offering",
@@ -621,13 +621,13 @@ window.VersionCompassEnvironmentData = {
       ],
       "availability": "not_established",
       "authorization": "not_established",
-      "detail": "The November 6 review observed Splunk IT Service Intelligence in the exact Moderate Marketplace Certified Services list. On November 7 the offering still displayed FedRAMP Certified, but Certified Services displayed N/A. Current named component scope remains unresolved. Edition, feature, entitlement, pairing, rollout and customer authorization remain separate.",
+      "detail": "The November 6 Moderate Marketplace list named Splunk IT Service Intelligence. On November 7 Certified Services displayed N/A. The November 12 listing remains FedRAMP Certified and reports no certified services attested in the package JSON. Current named component scope remains unresolved. Edition, feature, entitlement, pairing, rollout and customer authorization remain separate.",
       "sources": [
         "moderate",
         "service"
       ],
-      "checked": "2026-11-07",
-      "scope": "November 6 dated component listing and November 7 current public display; no change to underlying certification inferred"
+      "checked": "2026-11-12",
+      "scope": "Exact Moderate offering Overview and current Certified Services display, with dated November 6 and November 7 observations. Component scope remains unresolved."
     },
     {
       "id": "itsi-fr-h-offering",

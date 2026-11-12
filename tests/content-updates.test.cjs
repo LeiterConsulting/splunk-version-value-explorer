@@ -17,9 +17,9 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('material cycle preserves scoped release evidence and prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,64);
+ assert.equal(b.policy.currentCycle,65);
  const cloud104=b.entries['technical:platform:Cloud 10.4.2604.18 maintenance patch'];
- assert.equal(cloud104.cycle,63);assert.equal(cloud104.sourceDate,'2026-11-06');assert(b.active(cloud104));
+ assert.equal(cloud104.cycle,63);assert.equal(cloud104.sourceDate,'2026-11-06');assert(b.active(cloud104,64));assert(!b.active(cloud104));
  const cloud105Patch=b.entries['technical:platform:Cloud 10.5.2605.16 maintenance patch'];
  assert.equal(cloud105Patch.cycle,64);assert.equal(cloud105Patch.sourceDate,'2026-11-06');assert(b.active(cloud105Patch));
  const ea=b.entries["edition:exposure"];assert.equal(ea.cycle,52);assert(b.active(ea,53));assert(!b.active(ea));
@@ -84,7 +84,8 @@ test('material cycle preserves scoped release evidence and prior cycle provenanc
  for(const key of ['feature:observability:Python instrumentation 2.13.3','technical:observability:Python 2.13.3 auto-instrumentation images and dependency floors','technical:observability:Python PostgreSQL query-to-trace correlation']){const e=b.entries[key];assert.equal(e.cycle,44);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-30\.md/);assert.match(e.version,/2\.13\.3/);}
  for(const key of ['environment:s3-moderate','environment:machine-data-lake-aws','environment:machine-data-lake-gov','environment:machine-data-lake-gcp','environment:machine-data-lake-azure']){const e=b.entries[key];assert.equal(e.cycle,15);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-09\.md/);}
  for(const key of ['compatibility:es:cloud-current','compatibility:itsi:cloud-current','technical:forwarders:10.6 receiver compatibility','technical:forwarders:Cloud 10.6 receiver compatibility','technical:platform:Cloud 10.6 publication versus stack availability']){const e=b.entries[key];assert.equal(e.cycle,14);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-07\.md/);}
- const offerings=b.entries['environment:es-fr-m-offering'];assert(b.active(offerings,56));assert(!b.active(offerings));assert.equal(offerings.cycle,55);
+ const offerings=b.entries['environment:es-fr-m-offering'];assert(b.active(offerings));assert.equal(offerings.cycle,65);
+ const priorOffering=b.entries['environment-history:es-fr-m-offering:cycle55'];assert(b.active(priorOffering,56));assert(!b.active(priorOffering));assert.equal(priorOffering.recordKey,'environment:es-fr-m-offering');
  const kv=b.entries['technical:platform:KV Store database engine'];assert(!b.active(kv));assert.equal(kv.cycle,19);assert.match(kv.detail,/ES-specific/);assert.equal(b.entries['technical-history:platform:KV Store database engine:2026-10-01-cycle5'].recordKey,'technical:platform:KV Store database engine');assert.equal(b.entries['technical-history:platform:KV Store database engine:2026-10-01-cycle6'].cycle,6);
  for(const key of ['feature:observability:Stricter APM not-equal tag filtering','technical:observability:APM not-equal tag filters','feature:observability:Java instrumentation 2.32','feature:observability:Node.js instrumentation 4.12.1','technical:observability:Node.js instrumentation baseline']){const e=b.entries[key];assert.equal(e.cycle,20);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-13\.md/);}
  for(const key of ['technical:platform:Cloud 10.4 maintenance build','feature:observability:Kubernetes chart 0.162.1','technical:observability:Light Prometheus Receiver feature gate','technical:observability:Kubernetes OpAMP Bridge identity','feature-history:observability:Python instrumentation 2.13.2:2026-10-14-cycle21','technical:observability:Python OpAMP client dependency']){const e=b.entries[key];assert.equal(e.cycle,21);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-14\.md/);}
