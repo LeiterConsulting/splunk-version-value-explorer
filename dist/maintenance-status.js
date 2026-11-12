@@ -478,10 +478,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-12T10:51:44.138231Z",
+      "lastAttempt": "2026-11-12T11:23:51.780788Z",
       "lastSuccess": "2026-11-11T14:21:55.848Z",
       "outcome": "blocked",
-      "summary": "Current release review completed in bounded scope; historical SOC evidence and production delivery remain open.",
+      "summary": "Recorded the Cloud 10.4.2604.18 patch and bounded release review. Historical SOC evidence and production delivery remain open.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1099,9 +1099,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Current release review completed in bounded scope; historical SOC evidence and production delivery remain open.",
           "scope": "Cloud patch rows, historical UF/HF sources, SOAR/AI issues and ten assessed registry capabilities. Historical ES 8.8 CA scope is incomplete."
+        },
+        {
+          "at": "2026-11-12T11:23:51.780788Z",
+          "outcome": "running",
+          "summary": "Checking official release and route evidence.",
+          "scope": "Version Release Watch inventory and registry 1.2.0."
+        },
+        {
+          "at": "2026-11-12T11:28:01.551Z",
+          "outcome": "blocked",
+          "summary": "Recorded the Cloud 10.4.2604.18 patch and bounded release review. Historical SOC evidence and production delivery remain open.",
+          "scope": "Cloud patch rows, Enterprise receiver and HF runtime sources, SOAR/AI issues and ten assessed registry capabilities. Historical ES 8.8 CA scope is incomplete."
         }
       ],
-      "scope": "Cloud patch rows, historical UF/HF sources, SOAR/AI issues and ten assessed registry capabilities. Historical ES 8.8 CA scope is incomplete."
+      "scope": "Cloud patch rows, Enterprise receiver and HF runtime sources, SOAR/AI issues and ten assessed registry capabilities. Historical ES 8.8 CA scope is incomplete."
     },
     {
       "id": "es-editions-watch",

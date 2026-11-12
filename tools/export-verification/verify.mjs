@@ -25,6 +25,11 @@ let serverLog = ''; server.stdout.on('data', b => serverLog += b); server.stderr
 let browser;
 const relative = file => path.relative(output, file);
 const normalize = s => s.replace(/\s+/g, ' ').trim();
+const cloudPatchCases = {
+  'cloud-104-patch': { build: '10.4.2604.18', claimDate: '2026-11-12' },
+  'cloud': { build: '10.6.2.3', claimDate: '2026-11-11' },
+  'cloud-107': { build: '10.7.0.5', claimDate: '2026-11-11' }
+};
 function paginationFailures(content,pairs) {
   const script='import sys,json\nsys.path.insert(0,"tools/export-verification")\nfrom pagination import inspect\ndata=json.load(sys.stdin)\nfailures=[]\nfor pair in data["pairs"]:\n try:\n  inspect(data["content"],[pair])\n except AssertionError:\n  failures.append(pair)\nprint(json.dumps(failures))\n';
   return JSON.parse(execFileSync('python3',['-B','-c',script],{input:JSON.stringify({content,pairs}),encoding:'utf8'}));
@@ -149,8 +154,9 @@ try {
       assert((await page.locator('.forwarder-compatibility').textContent()).includes(result.os.detail));
       entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
     }
-    if(['cloud','cloud-107'].includes(route.id)){
-      const build=route.id==='cloud'?'10.6.2.3':'10.7.0.5';
+    const cloudPatch=cloudPatchCases[route.id];
+    if(cloudPatch){
+      const {build,claimDate}=cloudPatch;
       await page.waitForFunction(()=>window.__reportTools?.versioncompass_get_current_report);
       const result=await page.evaluate(version=>{
         const {versioncompass_get_current_report:current,versioncompass_compare_routes:compare}=window.__reportTools;
@@ -164,6 +170,7 @@ try {
       assert(result.readOnly&&result.stable&&result.current,'Missing read-only Cloud maintenance row');
       assert.deepEqual(result.explicit,result.current);
       assert.equal(result.current.source.endsWith('#'+build+'-0'),true);
+      assert.equal(result.current.verified,claimDate);
       const card=page.locator('#technical-content .technical-item').filter({has:page.locator('h4').filter({hasText:result.current.component})});
       const context=await card.locator('.evidence-context').textContent();
       assert(context.includes('Claim last verified: '+result.current.verified),'Screen evidence lost the canonical claim date');
@@ -397,11 +404,12 @@ try {
           ...(prep?{paginationPairs,paginationKind:'prep11-containment',paginationCoverage}:{}),
           ...(advisor?{paginationPairs,paginationKind:'advisor-containment',advisorPaginationCoverage}:{}) };
       });
-      if(['cloud','cloud-107'].includes(route.id)){
-        const build=route.id==='cloud'?'10.6.2.3':'10.7.0.5';
+      if(cloudPatch){
+        const {build,claimDate}=cloudPatch;
         for(const text of ['Cloud '+build+' maintenance patch','selected-stack rollout','preliminary'])
           assert(normalize(expected.text).includes(text),'Missing scoped Cloud maintenance export evidence');
-        expected.requiredText=['Claim last verified: 2026-11-11'];
+        expected.requiredText=['Claim last verified: '+claimDate];
+        if(build==='10.4.2604.18') expected.requiredText.push('SPL-314840','SPL-316497','SPL-316559','customer-managed Enterprise or Forwarder package applicability unestablished');
       }
       if(route.id==='cloud-107-fedramp-high') {
         for(const qualification of ['Cloud 10.7 Service Details lists Edge Processor for FedRAMP High','Cloud 10.7 Service Details lists Ingest Processor for FedRAMP High','The 10.6 table lists Moderate only','Essentials tier']) assert(normalize(expected.text).includes(qualification), 'High processor qualification missing: '+qualification);

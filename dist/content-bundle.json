@@ -1,11 +1,11 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-46c8bfa29e7efb866e822eb1",
-    "digest": "dffdd3d04dc103c60921032f316dc6b652c0022100dabfdedb3de484a425b062",
+    "revision": "content-db39e4fe01527a8c81b83bc9",
+    "digest": "f3f779a2c098876d75700ef83247a6e83efa11603661064d143b6c256daa8ab2",
     "engineRevision": "engine-e03141acfc7a321309a7",
     "datasetHashes": {
-      "platform": "fee11a9b13352017a06c6a3212959497a1783235e0b5674b919e04381cf9e7a0",
+      "platform": "bba18d7773eeff7f892c7a8c76f45a1c36b6f1fbfe0e332e4215c36b1551117f",
       "products": "531ce3ae2df257b754196fc66652e1840309f308c16f9ad3c6fdf72c0660bdf7",
       "guidance": "60312b0a45a1a0a0dbce2ffba52fcc0e6458dab958b6f01f8d88def8de395fae",
       "environment": "5f7e26ca162b0d9a6979858f00e51499e5feaf00c18ac5112d47014403fa7180",
@@ -13,7 +13,7 @@
       "forwarders": "f992e8bad9c60ac1b7577987233bceb0b40a3111f209305655dc552850166991",
       "soar": "6094dc06c94a559264ddd5ac3f1bc6db36e56ffe45a5460a934b9691a55e545a"
     },
-    "recordCount": 946,
+    "recordCount": 947,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -1795,6 +1795,18 @@
                 "implication": "The maintenance build fixes Universal Forwarder package shutdown during upgrade and lists additional indexer, SAML, authentication-observability, and Google Cloud KMS corrections. Publication does not prove that a selected stack has received the build or that every listed issue applies to it.",
                 "action": "Confirm the selected stack's exact four-segment version before relying on a 10.4.2604.15 fix, then retest the affected workflow after rollout.",
                 "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information"
+              },
+              {
+                "component": "Cloud 10.4.2604.18 maintenance patch",
+                "domain": "Cloud operations",
+                "changeType": "Maintenance release published",
+                "actionLevel": "Review",
+                "from": "Cloud 10.4.2604.15, published October 12, remains a distinct maintenance build.",
+                "to": "The Cloud maintenance feed lists 10.4.2604.18, published November 6, 2026.",
+                "implication": "The exact 10.4.2604.18 row lists three preliminary Medium security fixes. Its listed fixes include SPL-314840 for mass app uninstall, SPL-316497 for RFS bundle replication timing, and SPL-316559 for stale KV Store configuration. The SPL-314840 description references Enterprise 10.4.2 and UF clients. This Cloud row leaves selected-stack rollout and customer-managed Enterprise or Forwarder package applicability unestablished.",
+                "action": "Confirm the stack runs 10.4.2604.18 before relying on these fixes. Check the applicable app distribution and KV Store workflows. Use Splunk Product Security for definitive advisory scope.",
+                "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.4.2604.18-0",
+                "verified": "2026-11-12"
               }
             ],
             "requirements": [
@@ -13304,6 +13316,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.0-read-this-first"
+      },
+      {
+        "id": "source-f94df24e341c0fab70b0",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.4.2604.18-0"
       },
       {
         "id": "source-fb7f047b0d1cd500f7cb",

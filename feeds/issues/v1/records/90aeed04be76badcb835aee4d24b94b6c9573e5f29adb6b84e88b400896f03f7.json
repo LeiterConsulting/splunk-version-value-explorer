@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-sok-32-compatibility-scope",
+  "assessmentId": "vcia-release-20261112-review2-sok-32-compatibility-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-12T11:29:21.009Z",
+  "assessedAt": "2026-11-12T11:28:01.551Z",
+  "outcome": "still-present",
+  "rationale": "The 3.2.0 Help matrix lists September 24, Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0. The upstream September 8 change log lists Kubernetes 1.32–1.36 and Enterprise 10.6.0. Both identify the Queue secretKeyRef change; Help sequences SOK before Enterprise. Preserve both exact ranges and dates.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Operator for Kubernetes"
+    ],
+    "versions": [
+      "3.2.0"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed Enterprise"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No universal Kubernetes maximum, Enterprise 11.x compatibility, app pairing, Cloud availability or authorization is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261112-review2-158-ba4eaac",
+      "url": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix",
+      "section": "SOK to Splunk Enterprise version compatibility; Upgrade path guidance",
+      "statement": "Help matrix range, date and SOK-first upgrade order.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-12T11:25:26.989Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "d9a4e8b4cc1f200935f0908b0c584ed154fd51414de669bd313cde076961c0e0",
+        "qualification": "Exact response digest. Publisher document revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261112-review2-220-1aecf74",
+      "url": "https://splunk.github.io/splunk-operator/reference/ChangeLog.html",
+      "section": "3.2.0 (2026-09-08) > Breaking Changes; Supported Kubernetes and Splunk versions",
+      "statement": "Upstream range and release date remain distinct.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-12T11:25:52.189Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "26ab5b4459deeb2ae2d6fd8ad0f544e8c7ddbda5d85880e2b6805fffb833908e",
+        "qualification": "Exact response digest. Publisher document revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/56b31a72da8e05d10dc85cbccbb2e0ec228ac2ff/docs/audits/2026-11-12-version-release-watch-review-2-sources.json",
+      "pointer": "/claimChecks/6",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "Check current and prior Cloud patch rows against definitive Product Security advisories, retry unavailable historical release, Splunkbase and Export pages, and reconcile remaining SOAR 8.8 destination and historical Forwarder mappings. Review by November 12."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261112-sok-32-compatibility-scope"
+  ]
+}

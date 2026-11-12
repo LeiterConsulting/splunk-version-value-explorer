@@ -1727,6 +1727,18 @@ window.SPLUNK_DATA = {
             "implication": "The maintenance build fixes Universal Forwarder package shutdown during upgrade and lists additional indexer, SAML, authentication-observability, and Google Cloud KMS corrections. Publication does not prove that a selected stack has received the build or that every listed issue applies to it.",
             "action": "Confirm the selected stack's exact four-segment version before relying on a 10.4.2604.15 fix, then retest the affected workflow after rollout.",
             "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information"
+          },
+          {
+            "component": "Cloud 10.4.2604.18 maintenance patch",
+            "domain": "Cloud operations",
+            "changeType": "Maintenance release published",
+            "actionLevel": "Review",
+            "from": "Cloud 10.4.2604.15, published October 12, remains a distinct maintenance build.",
+            "to": "The Cloud maintenance feed lists 10.4.2604.18, published November 6, 2026.",
+            "implication": "The exact 10.4.2604.18 row lists three preliminary Medium security fixes. Its listed fixes include SPL-314840 for mass app uninstall, SPL-316497 for RFS bundle replication timing, and SPL-316559 for stale KV Store configuration. The SPL-314840 description references Enterprise 10.4.2 and UF clients. This Cloud row leaves selected-stack rollout and customer-managed Enterprise or Forwarder package applicability unestablished.",
+            "action": "Confirm the stack runs 10.4.2604.18 before relying on these fixes. Check the applicable app distribution and KV Store workflows. Use Splunk Product Security for definitive advisory scope.",
+            "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.4.2604.18-0",
+            "verified": "2026-11-12"
           }
         ],
         "requirements": [
