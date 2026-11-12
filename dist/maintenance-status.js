@@ -478,10 +478,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-11T14:13:32.699091Z",
+      "lastAttempt": "2026-11-12T10:51:44.138231Z",
       "lastSuccess": "2026-11-11T14:21:55.848Z",
-      "outcome": "changed",
-      "summary": "Confirmed two exact Cloud maintenance rows and strengthened the historical HF 10.2 Python section mapping. Registry SOC history remains partial.",
+      "outcome": "blocked",
+      "summary": "Current release review completed in bounded scope; historical SOC evidence and production delivery remain open.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1087,9 +1087,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Confirmed two exact Cloud maintenance rows and strengthened the historical HF 10.2 Python section mapping. Registry SOC history remains partial.",
           "scope": "Complete maintained public URL change inventory. Bounded Cloud maintenance, historical Forwarder, SOAR issue-label, Prep11 and Advisor claims. The historical SOC release-stage scope is partial."
+        },
+        {
+          "at": "2026-11-12T10:51:44.138231Z",
+          "outcome": "running",
+          "summary": "Checking official release and route evidence.",
+          "scope": "Version Release Watch inventory and registry 1.2.0."
+        },
+        {
+          "at": "2026-11-12T11:03:23.542Z",
+          "outcome": "blocked",
+          "summary": "Current release review completed in bounded scope; historical SOC evidence and production delivery remain open.",
+          "scope": "Cloud patch rows, historical UF/HF sources, SOAR/AI issues and ten assessed registry capabilities. Historical ES 8.8 CA scope is incomplete."
         }
       ],
-      "scope": "Complete maintained public URL change inventory. Bounded Cloud maintenance, historical Forwarder, SOAR issue-label, Prep11 and Advisor claims. The historical SOC release-stage scope is partial."
+      "scope": "Cloud patch rows, historical UF/HF sources, SOAR/AI issues and ten assessed registry capabilities. Historical ES 8.8 CA scope is incomplete."
     },
     {
       "id": "es-editions-watch",

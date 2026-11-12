@@ -33,7 +33,7 @@ async function runtime({ support = true, failure = false, selection = routes[0],
   const badgeUrl = read('dist/index.html').match(/class="reviewed" href="([^"]+)"/)[1];
   const badge = { href: badgeUrl };
   const document = {
-    getElementById: element, documentElement: element('html'), title: '',
+    getElementById: element, documentElement: element('html'), title: '', addEventListener() {},
     querySelectorAll: selector => selector === 'input[name="product"]' ? products : selector === 'input[name="platform"]' ? platforms : selector === '[data-platform-option]' ? labels : [],
     querySelector: selector => {
       if (selector === 'a.reviewed') return badge;
@@ -51,7 +51,7 @@ async function runtime({ support = true, failure = false, selection = routes[0],
   const window = { location: { search: '?' + new URLSearchParams(selection), hash, href: 'https://versioncompass.com/?' + new URLSearchParams(selection) + hash }, history: { replaceState: (_a, _b, url) => { const next=new URL(url,'https://versioncompass.com/'); window.location.search = next.search; window.location.hash=next.hash; window.location.href = next.href; } },
     addEventListener: (type, fn) => { (events[type] ||= []).push(fn); }, setTimeout: fn => fn(), print: () => {} };
   const context = vm.createContext({ window, document, navigator: {}, URL, URLSearchParams, AbortController, console: { warn: () => {} } });
-  for (const file of ['environment-data.js','environment.js','data.js', 'product-data.js', 'guidance-data.js', 'comparison.js', 'guidance.js', 'release-print.js', 'app.js', 'webmcp.js']) vm.runInContext(file==='app.js'&&appSource!==null?appSource:read('dist/' + file), context, { filename: file });
+  for (const file of ['environment-data.js','environment.js','data.js', 'product-data.js', 'guidance-data.js', 'comparison.js', 'guidance.js', 'evidence.js', 'release-print.js', 'app.js', 'webmcp.js']) vm.runInContext(file==='app.js'&&appSource!==null?appSource:read('dist/' + file), context, { filename: file });
   await tick();
   return { window, document, elements, registered, context, badge, events, registrations: () => registrations,
     run: (name, input) => plain(registered.get('versioncompass_' + name).execute(input)),
@@ -673,5 +673,10 @@ test('Cloud maintenance builds keep exact issue and security scope on their own 
     assert.match(patch.implication, /selected-stack rollout.*unestablished/);
     assert.match(patch.implication, i === 0 ? /three preliminary Medium.*SPL-320209/ : /one preliminary Critical.*SPL-319573/);
     assert(!report.technicalChanges.some(item => item.component === 'Cloud ' + builds[1-i] + ' maintenance patch'));
+    assert.equal(patch.verified, '2026-11-11');
+    const selected = await runtime({ selection: routes[i] });
+    await selected.dispatch('DOMContentLoaded');
+    const card = selected.elements.get('technical-content').innerHTML.split('<article class="technical-item">').find(html => html.includes(patch.component));
+    assert.match(card, /<strong>Claim last verified:<\/strong> 2026-11-11/);
   }
 });
