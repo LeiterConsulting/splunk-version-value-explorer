@@ -88,8 +88,15 @@ async function publisherBody(request) {
 }
 export async function bootstrapPublication(db, candidate, operationId, seed, options = {}) {
   if (!/^pub-[a-f0-9]{32}$/.test(operationId || '') || candidate?.bundle?.manifest?.revision !== seed.manifest.revision) throw Error('Bootstrap requires the deployment seed');
-  await stagePublication(db, candidate, { ...options, engineRevision: seed.manifest.engineRevision });
   const channel = 'engine:' + seed.manifest.engineRevision, revision = seed.manifest.revision;
+  // Fail before staging on a known incompatible legacy or managed pointer.
+  // Read the raw pointer: a completeness join could hide an incomplete head.
+  // This is not a lock; the transactional no-overwrite checks below still apply
+  // when another writer changes the head after this read. Such a race may stage
+  // verified content before returning a conflict and requires readback.
+  const existing = await db.prepare('SELECT revision_id FROM content_publication WHERE channel = ?').bind(channel).first();
+  if (existing && existing.revision_id !== revision) throw Error('Bootstrap conflicts with the existing publication');
+  await stagePublication(db, candidate, { ...options, engineRevision: seed.manifest.engineRevision });
   const provenance = await db.prepare('SELECT commit_sha FROM content_publication_provenance WHERE revision_id = ? AND repository = ?').bind(revision, REPOSITORY).first();
   await db.batch([
     db.prepare('INSERT INTO content_publication (channel, revision_id) SELECT ?, id FROM content_revisions WHERE id = ? AND completed = 1 ON CONFLICT(channel) DO NOTHING').bind(channel, revision),
