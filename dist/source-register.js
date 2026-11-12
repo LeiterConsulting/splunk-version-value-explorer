@@ -9498,17 +9498,17 @@ window.VersionCompassSources = {
         "environment: environment.records.12"
       ],
       "reviews": [
-        "2026-11-07"
+        "2026-11-12"
       ],
       "usage": "In use",
-      "reviewed": "2026-10-09",
+      "reviewed": "2026-11-12",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "Offering-level status is distinct from feature-specific availability and customer authorization decisions.",
-      "section": "Status and Certification Profile — package F1607197917",
-      "verificationScope": "Confirmed the exact Moderate offering remains Ongoing Certification, FedRAMP Certified, Class C (Moderate), certified since October 11, 2019, with Certified Services Platform, Private Connectivity, Federated Search, Ingest Actions, KV Store, Enterprise Security, IT Service Intelligence and SOAR. This does not authorize every feature, edition, pairing or customer deployment.",
+      "section": "Overview > Status, Certification Profile and Certified Services — package F1607197917",
+      "verificationScope": "The current exact Class C offering remains FedRAMP Certified, with October 11, 2019 certification shown separately. On November 12 Certified Services reports no attested services in the package JSON. The earlier named list (including ES, ITSI and SOAR) and later N/A display remain dated historical observations. Current named component scope and individual authorization remain unresolved.",
       "events": [
         {
           "date": "2026-09-25",
@@ -9545,6 +9545,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-09",
           "event": "Review status updated: Reviewed · 2026-10-09"
+        },
+        {
+          "date": "2026-11-12",
+          "event": "Review status updated: Reviewed · 2026-11-12"
         }
       ]
     },
