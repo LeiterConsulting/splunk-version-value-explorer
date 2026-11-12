@@ -2,7 +2,7 @@
   "date": "2026-11-12",
   "maintenanceId": "version-guidance-audit",
   "startedAt": "2026-11-12T13:28:36.872069Z",
-  "assessedAt": "2026-11-12T13:36:36.517Z",
+  "assessedAt": "2026-11-12T13:38:34.751Z",
   "outcome": "partial",
   "scope": "Independent registered Prep11 and Advisor capability assessment, plus bounded cross-product Forwarder, Cloud receiving-leg, SOAR, compatibility and advisory claims. No factual dataset or report behavior change.",
   "baseline": {
@@ -20,9 +20,9 @@
     "qualification": "Native version/deployment and independent static seed byte agreement were checked. Exact saved Sites source tree and production UI/D1 remain separate."
   },
   "inventory": {
-    "attempted": 277,
-    "directRetrieved": 268,
-    "qualification": "Union of prior Guidance audit, current Release, ES and CSP watch inventories and exact active registry URLs. Byte comparison is transport evidence. An independently read indexed Cisco Newsroom section is qualified separately."
+    "attempted": 280,
+    "directRetrieved": 271,
+    "qualification": "Union of earlier Guidance and current Release, ES and CSP inventories plus exact active registry and generated source-register locators. Two fragment locators were verified in their shared retrieved HTTP response. Transport evidence does not certify claims; Cisco indexed evidence is separate."
   },
   "sources": [
     {
@@ -3071,6 +3071,42 @@
       "previousSha256": "255fbc64016e532c72d99e3a8f62bbc8697a6a6dc09810862fc3fd4b2af2b823",
       "comparison": "different-bytes",
       "outcome": "retrieved"
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.4.2604.18-0",
+      "checkedAt": "2026-11-12T13:33:27.025Z",
+      "status": 200,
+      "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.4.2604.18-0",
+      "bytes": 986881,
+      "sha256": "0bde7684005b2ccb41ab00c671d997b266e260dd15dcc9eec87b574545508a9a",
+      "previousSha256": null,
+      "comparison": "shared-body-anchor-checked",
+      "outcome": "retrieved",
+      "qualification": "Fragment verified in the retrieved original 10.6 maintenance page response."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.5.2605.16-0",
+      "checkedAt": "2026-11-12T13:33:27.025Z",
+      "status": 200,
+      "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.5.2605.16-0",
+      "bytes": 986881,
+      "sha256": "0bde7684005b2ccb41ab00c671d997b266e260dd15dcc9eec87b574545508a9a",
+      "previousSha256": null,
+      "comparison": "shared-body-anchor-checked",
+      "outcome": "retrieved",
+      "qualification": "Fragment verified in the retrieved original 10.6 maintenance page response."
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.7.0.5-0",
+      "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.7.0.5-0",
+      "status": 200,
+      "checkedAt": "2026-11-12T13:37:56.563210840Z",
+      "bytes": 986881,
+      "sha256": "5121dfe7f19c0b43124b66cfaf180135f7330b841022cd28498cc7c43dd35c81",
+      "previousSha256": null,
+      "comparison": "exact-anchor-checked",
+      "outcome": "retrieved",
+      "qualification": "Exact anchor present in response."
     }
   ],
   "claimChecks": [
@@ -3634,6 +3670,48 @@
           }
         }
       ]
+    },
+    {
+      "claimId": "release.soar.export.8.8.0-functionality-tested-scope",
+      "findingId": "vci-soar-export-88-tested-pairing-scope",
+      "outcome": "addressed-in-reviewed-scope",
+      "product": "Splunk App for SOAR Export",
+      "version": "8.8.0",
+      "environment": "Enterprise and Cloud Platform",
+      "assessedAt": "2026-11-12T13:38:34.751Z",
+      "assessment": "The separate Enterprise and Cloud Export prerequisite rows agree on Python 3.13, CIM 8.5.0-1681, Enterprise 10.4.2 and 10.2.2, Cloud 10.5.2605 and 10.4.2604, and optional ES and SOAR 8.8.0 and 8.7.0. The functionality-tested Export row does not complete the separate App for SOAR matrix, grant native pairing, or establish a security-safe patch floor.",
+      "evidence": [
+        {
+          "evidenceId": "guidance-20261112-export-0",
+          "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+          "section": "Check prerequisites > Python runtime and compatibility matrix, 8.8.0 functionality-tested row",
+          "statement": "Exact Export prerequisite row for the indicated deployment.",
+          "excerpt": null,
+          "role": "observed",
+          "sourceCheckedAt": "2026-11-12T13:34:35.085Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "fe8a1d7f4d49b8a33023b87b0948acd832548b50cd4de45b8f7e06962af9ba6b",
+            "qualification": "Exact public response bytes; publisher revision unknown."
+          }
+        },
+        {
+          "evidenceId": "guidance-20261112-export-1",
+          "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+          "section": "Check prerequisites > Python runtime and compatibility matrix, 8.8.0 functionality-tested row",
+          "statement": "Exact Export prerequisite row for the indicated deployment.",
+          "excerpt": null,
+          "role": "context",
+          "sourceCheckedAt": "2026-11-12T13:34:35.039Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "25f7dc099c3db207a7c18b717ae1eaaca5d5d8921545dcd88297eeecf7d882ed",
+            "qualification": "Exact public response bytes; publisher revision unknown."
+          }
+        }
+      ]
     }
   ],
   "followUp": [
@@ -3684,8 +3762,8 @@
     "schemaVersion": 1,
     "watchId": "version-guidance-audit",
     "status": "pending-public-provenance",
-    "recordedAt": "2026-11-12T13:36:36.712Z",
-    "reviewDigest": "9ba8e608addb6d7669d10dfc9f8304602b50a0db76eb0b177b07134a947e7f1a",
+    "recordedAt": "2026-11-12T13:38:34.892Z",
+    "reviewDigest": "33409937ef4cfa2cb43f2fd6faecbe8c5d9efc599f55ba95e13bf307ab141965",
     "publicationId": "vci-6fae04f6c55354867375402a32c81f02933d68a6e507bcba309011f59a6638d8",
     "recordKeys": [],
     "notReassessedFindingIds": [
@@ -3708,7 +3786,6 @@
       "vci-itsi-503-enterprise-102-patch-scope",
       "vci-itsi-503-service-discovery-46607",
       "vci-itsi-503-service-discovery-46608",
-      "vci-soar-export-88-tested-pairing-scope",
       "vci-cloud-107-aws-israel-filter",
       "vci-uf-remote-upgrader-route-coverage",
       "vci-es-taxii-protocol-version-scope",
