@@ -1118,7 +1118,7 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-12T11:04:24.977471Z",
+      "lastAttempt": "2026-11-12T11:36:35.253006Z",
       "lastSuccess": "2026-11-11T11:31:55.245Z",
       "outcome": "blocked",
       "summary": "Bounded ES review complete. The mapped historical SOC release evidence remains unverified.",
@@ -1631,9 +1631,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Bounded ES review complete. The mapped historical SOC release evidence remains unverified.",
           "scope": "Current editions, licensing, TAXII, SOAR integration and SOC prerequisites reviewed. ES 8.8 historical Controlled Availability coverage remains incomplete."
+        },
+        {
+          "at": "2026-11-12T11:36:35.253006Z",
+          "outcome": "running",
+          "summary": "Reviewing current ES edition and workflow evidence.",
+          "scope": "ES Editions Watch sources and the registry 1.2.0 SOC capability."
+        },
+        {
+          "at": "2026-11-12T11:39:25.382Z",
+          "outcome": "blocked",
+          "summary": "Bounded ES review complete. The mapped historical SOC release evidence remains unverified.",
+          "scope": "Current editions, licensing, TAXII, SOAR integration and SOC prerequisites reviewed; the ES print repair is scoped to decision questions. ES 8.8 historical Controlled Availability coverage remains incomplete."
         }
       ],
-      "scope": "Current editions, licensing, TAXII, SOAR integration and SOC prerequisites reviewed. ES 8.8 historical Controlled Availability coverage remains incomplete."
+      "scope": "Current editions, licensing, TAXII, SOAR integration and SOC prerequisites reviewed; the ES print repair is scoped to decision questions. ES 8.8 historical Controlled Availability coverage remains incomplete."
     },
     {
       "id": "version-guidance-audit",

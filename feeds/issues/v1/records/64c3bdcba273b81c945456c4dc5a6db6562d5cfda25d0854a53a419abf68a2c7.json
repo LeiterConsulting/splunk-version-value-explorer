@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-soar-export-88-tested-pairing-scope",
+  "assessmentId": "vcia-es-20261112-review2-soar-export-88-tested-pairing-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-12T11:40:33.574Z",
+  "assessedAt": "2026-11-12T11:39:25.382Z",
+  "outcome": "partially-addressed",
+  "rationale": "The two Export prerequisite guides agree on Python 3.13, CIM 8.5.0-1681, optional ES 8.8.0 or 8.7.0, Enterprise 10.4.2 or 10.2.2, Cloud Platform 10.5.2605 or 10.4.2604, and SOAR 8.8.0 or 8.7.0 for Cloud and on-premises. The prerequisite text says other catalog versions are listed for upgrade purposes. The November 4 release is maintenance. These rows do not establish App for SOAR compatibility or native ES pairing.",
+  "reviewedScope": {
+    "products": [
+      "Splunk App for SOAR Export"
+    ],
+    "versions": [
+      "8.8.0"
+    ],
+    "editions": null,
+    "deployments": [
+      "Cloud Platform and Enterprise functionality-tested combinations"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No unlisted exact pairing, rollout, entitlement or customer authorization established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-20261112-review2-40-64db8e5",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+      "section": "Required Python version; Splunk product compatibility matrix; Required app",
+      "statement": "Cloud prerequisite and tested tuple.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-12T11:37:14.049Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "3b3540a9646662459a48db9c7f8e3dae5d52f4f2e376d5bc45806f85a6c85cba",
+        "qualification": "Exact direct response digest. Publisher document revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-20261112-review2-41-64db8e5",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+      "section": "Required Python version; Splunk product compatibility matrix; Required app",
+      "statement": "Enterprise prerequisite and tested tuple.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-12T11:37:14.130Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "8dcfc0edd7f5c15001c1b47c5fa4013eff33b9615de508b951fb8e83eb4b7b45",
+        "qualification": "Exact direct response digest. Publisher document revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-20261112-review2-42-851aa77",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
+      "section": "Welcome to release 8.8.0",
+      "statement": "November 4 maintenance release.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-12T11:37:14.126Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "8996915679515948672531b65fa0cf4af0b668f09f0ffa17ec7a886b96889825",
+        "qualification": "Exact direct response digest. Publisher document revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/083e99e780917067003ded9a923c48bf16711587/docs/audits/2026-11-12-es-editions-watch-review-2-sources.json",
+      "pointer": "/claimChecks/7",
+      "originalLabel": "partially-addressed"
+    }
+  ],
+  "remainingConcerns": [
+    "Recheck the precise native TAXII version wording and corresponding TIM Cloud connector documentation. Preserve uncertainty until the publisher resolves the duplicated release note. Review by November 12."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-es-20261112-soar-export-88-tested-pairing-scope"
+  ]
+}
