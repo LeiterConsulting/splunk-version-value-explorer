@@ -478,10 +478,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-12T11:23:51.780788Z",
+      "lastAttempt": "2026-11-12T11:58:06.155020Z",
       "lastSuccess": "2026-11-11T14:21:55.848Z",
       "outcome": "blocked",
-      "summary": "Recorded the Cloud 10.4.2604.18 patch and bounded release review. Historical SOC evidence and production delivery remain open.",
+      "summary": "Recorded the Cloud 10.5.2605.16 patch and bounded release review. Historical SOC evidence and production delivery remain open.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1110,6 +1110,18 @@ window.VersionCompassMaintenance = {
           "at": "2026-11-12T11:28:01.551Z",
           "outcome": "blocked",
           "summary": "Recorded the Cloud 10.4.2604.18 patch and bounded release review. Historical SOC evidence and production delivery remain open.",
+          "scope": "Cloud patch rows, Enterprise receiver and HF runtime sources, SOAR/AI issues and ten assessed registry capabilities. Historical ES 8.8 CA scope is incomplete."
+        },
+        {
+          "at": "2026-11-12T11:58:06.155020Z",
+          "outcome": "running",
+          "summary": "Checking official release and route evidence.",
+          "scope": "Version Release Watch inventory and registry 1.2.0."
+        },
+        {
+          "at": "2026-11-12T12:04:21.695Z",
+          "outcome": "blocked",
+          "summary": "Recorded the Cloud 10.5.2605.16 patch and bounded release review. Historical SOC evidence and production delivery remain open.",
           "scope": "Cloud patch rows, Enterprise receiver and HF runtime sources, SOAR/AI issues and ten assessed registry capabilities. Historical ES 8.8 CA scope is incomplete."
         }
       ],
