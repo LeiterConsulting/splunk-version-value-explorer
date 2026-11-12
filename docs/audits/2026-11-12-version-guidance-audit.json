@@ -3753,7 +3753,12 @@
   },
   "publication": {
     "claimedDelivered": false,
-    "qualification": "Repository review candidate. Existing production pre-write hold applies to Site save/deploy and D1-capable live checks."
+    "qualification": "Repository review candidate. Existing production pre-write hold applies to Site save/deploy and D1-capable live checks.",
+    "feed": {
+      "checkpoint": "vci-a3d1971407fe39064cddbbc10401821a4177d994807c3578f4ab429000e42232",
+      "observationCount": 13,
+      "immutableAuditCommit": "8fa5039465c59a17089a173112a0dc5deefd8b97"
+    }
   },
   "automationCoverage": {
     "runFile": "docs/audits/2026-11-12-version-guidance-audit-coverage.json"
@@ -3761,11 +3766,25 @@
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "version-guidance-audit",
-    "status": "pending-public-provenance",
-    "recordedAt": "2026-11-12T13:38:34.892Z",
+    "status": "published",
+    "recordedAt": "2026-11-12T13:39:17.954Z",
     "reviewDigest": "33409937ef4cfa2cb43f2fd6faecbe8c5d9efc599f55ba95e13bf307ab141965",
-    "publicationId": "vci-6fae04f6c55354867375402a32c81f02933d68a6e507bcba309011f59a6638d8",
-    "recordKeys": [],
+    "publicationId": "vci-a3d1971407fe39064cddbbc10401821a4177d994807c3578f4ab429000e42232",
+    "recordKeys": [
+      "assessment:vcia-guidance-20261112-sok-32-compatibility-scope@1",
+      "assessment:vcia-guidance-20261112-saia-cloud-connected-agent-mode-scope@1",
+      "assessment:vcia-guidance-20261112-saia-agent-runtime-processing-scope@1",
+      "assessment:vcia-guidance-20261112-itsi-subagent-region@1",
+      "assessment:vcia-guidance-20261112-es-soc-analyst-version-floor@1",
+      "assessment:vcia-guidance-20261112-enterprise-104-legacy-tls-scope@1",
+      "assessment:vcia-guidance-20261112-app-for-soar-88-onprem-matrix-cell@1",
+      "assessment:vcia-guidance-20261112-soar-cmp-88-fixed-issues-label@1",
+      "assessment:vcia-guidance-20261112-soar-cmp-88-upgrade-example-destination@1",
+      "assessment:vcia-guidance-20261112-soar-cloud-880-release-stage@1",
+      "assessment:vcia-guidance-20261112-soar-broker-870245-maintenance-visibility@1",
+      "assessment:vcia-guidance-20261112-svd-2026-1015-applicability@1",
+      "assessment:vcia-guidance-20261112-soar-export-88-tested-pairing-scope@1"
+    ],
     "notReassessedFindingIds": [
       "vci-es-87-connector-builder-editions",
       "vci-es-88-triage-editions",
@@ -3797,6 +3816,82 @@
       "version-guidance-audit by 2026-11-16: Independently reconcile the matching native result, current-version coverage, unavailable official pages and the exact current-main validation receipt. Verify hosted UI/D1 only after the separately authorized production hold is resolved.",
       "csp-fedramp-watch by 2026-11-16: Revisit affirmative SOAR High scope and the Cloud 10.7 S3 service-table/change-log disagreement. Keep the existing qualification and Marketplace history."
     ],
-    "qualification": "Scoped assessed observations require exact public audit provenance before feed integration."
+    "qualification": "Thirteen assessments bind to the exact public November 12 audit commit. Delivery requires GitHub main integration and independent recovery readback."
+  },
+  "validation": {
+    "local": {
+      "outcome": "passed",
+      "observedAt": "2026-11-12T13:41:17.645Z",
+      "tests": 492,
+      "build": "passed",
+      "forwarderAndSoarTargetedTests": 42,
+      "checks": [
+        "Ordered sync and four drift gates",
+        "Advisor maintenance and check",
+        "Native feed declaration and immutable ledger",
+        "Registry 1.2.0 structural coverage"
+      ]
+    },
+    "reconciledMain": {
+      "commit": "df255de632f20c67f705de97444e40f6020555d1",
+      "tree": "aad1b62eb542fadb16e7848ec24197c0c8c2ae96",
+      "scope": "Concurrent PR 140 changed bootstrap tooling and related tests; the audit preserved those edits. Explicit manual bootstrap requires separate authorization and exact runtime proof."
+    },
+    "readOnlyDiagnostic": {
+      "observedAt": "2026-11-12T13:40:17.624Z",
+      "validation": "pending",
+      "publisher": "missing",
+      "watches": [
+        {
+          "watchId": "version-release-watch",
+          "configuration": "matched",
+          "attempt": "unverified",
+          "result": "unverified",
+          "issues": [
+            "recorded-run-failed",
+            "result-lacks-own-watch-identity",
+            "result-not-success-evidence",
+            "coverage-or-delivery-incomplete"
+          ]
+        },
+        {
+          "watchId": "version-guidance-audit",
+          "configuration": "matched",
+          "attempt": "unverified",
+          "result": "unverified",
+          "issues": [
+            "recorded-run-not-completed",
+            "run-completion-time-unavailable",
+            "current-run-result-unavailable",
+            "coverage-or-delivery-incomplete"
+          ]
+        },
+        {
+          "watchId": "es-editions-watch",
+          "configuration": "matched",
+          "attempt": "completed",
+          "result": "matched",
+          "issues": [
+            "coverage-or-delivery-incomplete"
+          ]
+        },
+        {
+          "watchId": "csp-fedramp-watch",
+          "configuration": "matched",
+          "attempt": "completed",
+          "result": "matched",
+          "issues": [
+            "coverage-or-delivery-incomplete"
+          ]
+        }
+      ]
+    },
+    "existingProductionStatic": {
+      "outcome": "passed",
+      "qualification": "Three static responses matched the identified GitHub seed byte-for-byte and the independently validated bundle matches its committed manifest. Native Site 291 success confirmed; complete saved source tree and production UI/D1 are unverified."
+    },
+    "candidateExports": {
+      "outcome": "pending"
+    }
   }
 }

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-enterprise-104-legacy-tls-scope",
+  "assessmentId": "vcia-guidance-20261112-enterprise-104-legacy-tls-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-12T13:39:17.748Z",
+  "assessedAt": "2026-11-12T13:36:36.517Z",
+  "outcome": "still-present",
+  "rationale": "READ THIS FIRST describes TLS 1.0/1.1 as removed. The separate 10.4 protocol guide documents a default-off legacy exception with restart and a security warning. The generated HF section retains both sources and keeps the scope on the borrowed Enterprise package. The vendor wording discrepancy is still present.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Heavy Forwarder"
+    ],
+    "versions": [
+      "10.4"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed Enterprise package"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No unlisted exact pairing, rollout, entitlement or customer authorization established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261112-5-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first",
+      "section": "READ THIS FIRST > Deprecated or removed features > TLS 1.0 and TLS 1.1",
+      "statement": "Exact reviewed section supporting the bounded assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-12T13:33:48.222Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9a095483cec7556c53883f1c0d63df5b6827b89da013e33599a788fd3eab06da",
+        "qualification": "Exact response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261112-5-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/manage-users-and-security/10.4/secure-splunk-platform-communications-with-transport-layer-security-certificates/configure-tls-protocol-version-support-for-secure-connections-between-splunk-platform-instances",
+      "section": "Supported TLS protocol versions; Configure TLS 1.0 and TLS 1.1 support",
+      "statement": "Exact reviewed section supporting the bounded assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-12T13:34:35.032Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ddc8ddb2815d0c461fa29f417d427bc1e7970296aedb2a606dc8f3c21c3e4b5f",
+        "qualification": "Exact response bytes; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/8fa5039465c59a17089a173112a0dc5deefd8b97/docs/audits/2026-11-12-version-guidance-audit.json",
+      "pointer": "/claimChecks/5",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "Confirm release-specific UF OS and architecture intersections and a supported comparison model for fleet upgrades. Retry the two exact historical Enterprise note URLs and reconcile the SOAR 8.8 build, worked example and fixed-issue rows. Review by November 12."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261111-enterprise-104-legacy-tls-scope"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-agent-runtime-processing-scope",
+  "assessmentId": "vcia-guidance-20261112-saia-agent-runtime-processing-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-12T13:39:17.748Z",
+  "assessedAt": "2026-11-12T13:36:36.517Z",
+  "outcome": "still-present",
+  "rationale": "The runtime standard distinguishes Frankfurt Data zone from Dublin Global. The feature guide requires Model Runtime and allows selecting models outside Splunk Cloud Platform. Base Cloud Connected data handling and an AWS service location do not establish the specific processing or residency path.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant"
+    ],
+    "versions": [
+      "2.3.6"
+    ],
+    "editions": null,
+    "deployments": [
+      "Agent Mode and Model Runtime"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No customer authorization, actual tenant routing, residency guarantee, regulated approval or exact app/Platform pairing is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261112-2-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "section": "Requirements; Supported regions; Enable and configure Agent Mode as a Cloud Connected customer",
+      "statement": "Exact reviewed section supporting the bounded assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-12T13:34:01.469Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "424e3005695c71b740dcb6e8f931af94c19550fc9b66e726a8518756ad4f58c4",
+        "qualification": "Exact response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261112-2-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+      "section": "Feature availability and region standard; Using the Model Runtime feature",
+      "statement": "Exact reviewed section supporting the bounded assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-12T13:34:01.435Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "7a3a022b00d0adc90f43574ca41ecdc9237f8617d17628da65e2abee32152fda",
+        "qualification": "Exact response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261112-2-2",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "Cloud Connected compatibility; Activation; How Splunk AI Assistant uses your data",
+      "statement": "Exact reviewed section supporting the bounded assessment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-12T13:33:26.906Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "0000c64f4121f88c8f60275794da94573d4f5bd63b1165b4e717217b1e515fec",
+        "qualification": "Exact response bytes; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/8fa5039465c59a17089a173112a0dc5deefd8b97/docs/audits/2026-11-12-version-guidance-audit.json",
+      "pointer": "/claimChecks/2",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "Recheck feature-specific Cloud Connected Agent Mode and ITSI regional rollout sources. Verify exact-main workflow evidence and repository feed recovery for this review. Review by November 12."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261112-review3-saia-agent-runtime-processing-scope"
+  ]
+}

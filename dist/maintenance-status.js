@@ -1686,10 +1686,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-guidance-audit",
       "name": "Version Guidance Audit",
-      "lastAttempt": "2026-11-08T21:56:00.294790Z",
+      "lastAttempt": "2026-11-12T13:28:36.872069Z",
       "lastSuccess": "2026-11-08T22:04:05.623Z",
-      "outcome": "no-change",
-      "summary": "Assessed bounded Guidance claims and retained remaining historical and delivery gaps.",
+      "outcome": "blocked",
+      "summary": "Completed scoped independent evidence review. Historical SOC and live production verification remain open.",
       "history": [
         {
           "at": "2026-09-24T12:45:24.855849+00:00",
@@ -1851,9 +1851,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Assessed bounded Guidance claims and retained remaining historical and delivery gaps.",
           "scope": "Independent bounded Guidance Audit of the current registered public inventory, all eleven mandatory claim families, eight existing findings, and two sampled inherited HF package records. Full historical coverage remains open."
+        },
+        {
+          "at": "2026-11-12T13:28:36.872069Z",
+          "outcome": "running",
+          "summary": "Independently reviewing exact public claims and integrated routes.",
+          "scope": "Guidance Audit with all registry 1.2.0 dispositions."
+        },
+        {
+          "at": "2026-11-12T13:36:36.517Z",
+          "outcome": "blocked",
+          "summary": "Completed scoped independent evidence review. Historical SOC and live production verification remain open.",
+          "scope": "Registered Prep11 and Advisor scope, selected Forwarder and SOAR sections, public issue-feed reassessments and runtime evidence."
         }
       ],
-      "scope": "Independent bounded Guidance Audit of the current registered public inventory, all eleven mandatory claim families, eight existing findings, and two sampled inherited HF package records. Full historical coverage remains open."
+      "scope": "Registered Prep11 and Advisor scope, selected Forwarder and SOAR sections, public issue-feed reassessments and runtime evidence."
     }
   ]
 };
