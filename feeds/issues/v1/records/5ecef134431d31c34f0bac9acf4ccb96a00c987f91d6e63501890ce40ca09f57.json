@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "findingId": "vci-es-editions-taxii-pdf-heading-split",
+  "revision": 1,
+  "recordedAt": "2026-11-12T11:40:33.574Z",
+  "title": "The ES Editions PDF separates the TAXII summary heading from its qualification",
+  "concernType": "suspected-error",
+  "problem": "The first TAXII question is printed at the foot of page 2 and its decision qualification begins on page 3 in both themes of the checked baseline.",
+  "scope": {
+    "products": [
+      "VersionCompass ES Editions"
+    ],
+    "versions": [
+      "November 12 baseline tree 51f56572b92c3a0b004c65bd9793f75dbee2997b"
+    ],
+    "editions": [
+      "Essentials / Premier comparison"
+    ],
+    "deployments": [
+      "Native PDF, default and Cisco theme"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Presentation-only. The detailed TAXII question and numbered citations remain readable. No vendor protocol, edition, entitlement or compatibility inference."
+    ]
+  },
+  "impact": {
+    "customerScenario": "Read the compact decision context in a printed ES Editions report.",
+    "consequence": "A page break separates a question from its qualification, requiring the reader to turn the page.",
+    "level": "low"
+  },
+  "confidence": {
+    "level": "high",
+    "rationale": "Both retained PDFs independently reproduce the same first-occurrence split. The detailed source question is intact."
+  },
+  "claimIds": [
+    "es-editions.taxii.pdf-heading-split"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Retain the verified historical output observation. Candidate and production verification are tracked separately."
+  },
+  "relationships": {
+    "related": [
+      "vci-es-taxii-protocol-version-scope"
+    ],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-20261112-taxii-baseline-heading",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/actions/runs/43207348715/job/131145772505",
+      "section": "Retained editions-default and editions-cisco report PDFs, pages 2–3",
+      "statement": "First TAXII question heading and its qualification split in both themes. The occurrence-specific regression fails on both retained baseline PDFs.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-12T11:39:25.382Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "503b0efbcb7cdd0fd215401e0c059bb0e00dba5309744e8f520e9e162be60491",
+        "qualification": "Exact retained application-CI archive digest for the validated baseline tree. This is a VersionCompass report observation."
+      }
+    },
+    {
+      "evidenceId": "es-20261112-taxii-detailed-citations",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/actions/runs/43207348715/job/131145772505",
+      "section": "Retained editions-default and editions-cisco report PDFs, page 45",
+      "statement": "The detailed TAXII source question and numbered citations remain readable. The issue is limited to pagination in the decision summary.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-12T11:39:25.382Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "503b0efbcb7cdd0fd215401e0c059bb0e00dba5309744e8f520e9e162be60491",
+        "qualification": "Exact retained application-CI archive digest for the validated baseline tree. This is a VersionCompass report observation."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/083e99e780917067003ded9a923c48bf16711587/docs/audits/2026-11-12-es-editions-watch-review-2-sources.json",
+      "pointer": "/claimChecks/11",
+      "originalLabel": "reproduced-in-verified-baseline"
+    }
+  ]
+}
