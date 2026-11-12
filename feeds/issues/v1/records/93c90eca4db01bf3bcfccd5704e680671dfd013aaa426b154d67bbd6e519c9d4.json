@@ -1,0 +1,120 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-soc-analyst-version-floor",
+  "assessmentId": "vcia-csp-20261112-r2-es-soc-analyst-version-floor",
+  "revision": 1,
+  "recordedAt": "2026-11-12T13:03:36.341Z",
+  "assessedAt": "2026-11-12T13:01:25.312Z",
+  "outcome": "still-present",
+  "rationale": "The 8.8 aggregate Premier Triage and Response row lists Cloud Platform 10.2.x+, ES 8.6+ and paired SOAR; the detailed Cloud task requires Platform 10.2+, ES 8.7+, the enabled assistant and paired SOAR. The detailed task uses existing triaged findings and qualifies first-ten burst and about 200 daily tenant limits, frontier models and connector/action/asset permissions. The 8.7 task retains the older AI SOC Analyst wording. Both the mapped detailed task and the current explicitly titled Triage and Response task list Platform 10.4.x+, ES 8.8+ and Cloud Connect app 2.0 for Cloud Connected customer-managed deployment. The standalone setup URL returned HTTP 404; its index result was excluded from assessment. The current release page states November 4 General Availability; its mapped historical Controlled Availability section is unavailable. The edition, Cloud Connect and SAIA region tables provide their own scoped context. Exact SOAR pairing, agent-specific regional rollout, entitlement and customer authorization are excluded from this decision.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security Agentic SOC"
+    ],
+    "versions": [
+      "8.7 and 8.8 public guides"
+    ],
+    "editions": null,
+    "deployments": [
+      "Cloud and customer-managed Cloud Connect"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "CMP has its separate Platform 10.4+/ES 8.8+/Cloud Connect 2.0 chain; no lower-floor eligibility, tenant rollout, entitlement, pairing or authorization is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261112-r2-25-96c6f6b",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Agentic AI offerings > Triage and Response row and Triage note",
+      "statement": "Aggregate Cloud floor and corrected grouping.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-12T12:55:24.744Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b9f449b87b2156b42d2648a7d5dc23f32a898103c9bea9a361b911e34ceb2e9b",
+        "qualification": "Exact response digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261112-r2-26-f07ace0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "section": "Use SOC agent > Prerequisites, findings limits, models and permissions",
+      "statement": "Detailed Cloud and CMP prerequisites.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-12T12:55:24.758Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "02eda502c3742a6045a7c019e2d346ac68fdcaafee0030d3de9117da75cfb439",
+        "qualification": "Exact response digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261112-r2-7-35d1a1a",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
+      "section": "Setting up the Triage and Response agents > Prerequisites",
+      "statement": "Current explicitly titled task independently confirms the CMP prerequisites.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-12T12:55:14.943Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "44e6877d403917c42f2c138a0c4abbf0123fb28f4553b7eeea9661615086ddc5",
+        "qualification": "Exact response digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261112-r2-27-7d4203f",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "section": "Historical AI SOC Analyst task > Prerequisites",
+      "statement": "Earlier naming and scope.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-12T12:55:24.730Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "e463ef37c470eee8f768e1149f177c444bee2f4a635d90c40c81154baa8b6a5c",
+        "qualification": "Exact response digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261112-r2-28-4571c18",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "What’s new in 8.8 > November 4 General Availability",
+      "statement": "Current GA; original historical CA section unavailable.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-12T12:55:24.769Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b2180a7f497a184fe76bfe380ee9e03a0b1caf12490dc7ef8fa8e3695e38a2e8",
+        "qualification": "Exact response digest; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/ea46451c6158ba925b23fb688299e1d8ea21223d/docs/audits/2026-11-12-csp-fedramp-watch-review-2-sources.json",
+      "pointer": "/claimChecks/7",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "Independently reconcile the missing mapped SOC Controlled Availability section, the native result for this exact attempt and production delivery evidence. Review by November 12."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261112-es-soc-analyst-version-floor"
+  ]
+}
