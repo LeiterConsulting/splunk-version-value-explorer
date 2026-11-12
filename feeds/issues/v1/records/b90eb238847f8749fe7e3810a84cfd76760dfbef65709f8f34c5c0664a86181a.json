@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-soar-export-88-tested-pairing-scope",
+  "assessmentId": "vcia-guidance-20261112-soar-export-88-tested-pairing-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-12T13:39:17.748Z",
+  "assessedAt": "2026-11-12T13:38:34.751Z",
+  "outcome": "addressed-in-reviewed-scope",
+  "rationale": "The separate Enterprise and Cloud Export prerequisite rows agree on Python 3.13, CIM 8.5.0-1681, Enterprise 10.4.2 and 10.2.2, Cloud 10.5.2605 and 10.4.2604, and optional ES and SOAR 8.8.0 and 8.7.0. The functionality-tested Export row does not complete the separate App for SOAR matrix, grant native pairing, or establish a security-safe patch floor.",
+  "reviewedScope": {
+    "products": [
+      "Splunk App for SOAR Export"
+    ],
+    "versions": [
+      "8.8.0"
+    ],
+    "editions": null,
+    "deployments": [
+      "Enterprise and Cloud Platform"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No unlisted exact pairing, rollout, entitlement or customer authorization established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261112-export-0",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+      "section": "Check prerequisites > Python runtime and compatibility matrix, 8.8.0 functionality-tested row",
+      "statement": "Exact Export prerequisite row for the indicated deployment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-12T13:34:35.085Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "fe8a1d7f4d49b8a33023b87b0948acd832548b50cd4de45b8f7e06962af9ba6b",
+        "qualification": "Exact public response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261112-export-1",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+      "section": "Check prerequisites > Python runtime and compatibility matrix, 8.8.0 functionality-tested row",
+      "statement": "Exact Export prerequisite row for the indicated deployment.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-12T13:34:35.039Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "25f7dc099c3db207a7c18b717ae1eaaca5d5d8921545dcd88297eeecf7d882ed",
+        "qualification": "Exact public response bytes; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/8fa5039465c59a17089a173112a0dc5deefd8b97/docs/audits/2026-11-12-version-guidance-audit.json",
+      "pointer": "/claimChecks/13",
+      "originalLabel": "addressed-in-reviewed-scope"
+    }
+  ],
+  "remainingConcerns": [
+    "Recheck the precise native TAXII version wording and corresponding TIM Cloud connector documentation. Preserve uncertainty until the publisher resolves the duplicated release note. Review by November 12."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-es-20261112-review2-soar-export-88-tested-pairing-scope"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-svd-2026-1015-applicability",
+  "assessmentId": "vcia-guidance-20261112-svd-2026-1015-applicability",
+  "revision": 1,
+  "recordedAt": "2026-11-12T13:39:17.748Z",
+  "assessedAt": "2026-11-12T13:36:36.517Z",
+  "outcome": "partially-addressed",
+  "rationale": "The current advisory separately scopes the bundled Enterprise Node.js runtime and Visual Exporter. Universal Forwarder is listed as unaffected. Observability Cloud, OpenTelemetry Collector and Automation Broker remain separate affected scopes with remediation in progress. No universal upgraded package or Broker fix follows.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise, UF, Broker and Observability"
+    ],
+    "versions": [
+      "Exact advisory scopes"
+    ],
+    "editions": null,
+    "deployments": [
+      "Bundled runtime and separate components"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261112-12-0",
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1015",
+      "section": "Affected Products; Remediation Information; Unaffected Products",
+      "statement": "Exact reviewed section supporting the bounded assessment.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-12T13:32:58.277Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "961a7633aa3db0771e9764178f5e1449341855bf37d185c420066c1ac6b55f6a",
+        "qualification": "Exact response bytes; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/8fa5039465c59a17089a173112a0dc5deefd8b97/docs/audits/2026-11-12-version-guidance-audit.json",
+      "pointer": "/claimChecks/12",
+      "originalLabel": "partially-addressed"
+    }
+  ],
+  "remainingConcerns": [
+    "Check definitive Product Security detail for Cloud 10.6.2.3 and 10.7.0.5 while keeping selected-stack availability unknown. Confirm the next release-specific UF OS intersection and a supported comparison model for fleet upgrades. Retry the 8.1.14 and 8.2.12 Enterprise release note URLs and the 8.8 ES Cloud Connect task URL. Reconcile the exact SOAR 8.8 build, worked example and fixed-issue rows. Review by November 12."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261111-review3-svd-2026-1015-applicability"
+  ]
+}
