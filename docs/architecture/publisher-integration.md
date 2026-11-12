@@ -162,3 +162,18 @@ fallback-byte checks. Those public requests may initialize storage, and client
 abort cannot cancel server work. No hosted request or runtime deployment is
 performed by this tooling change. Existing holds, active-reader gates, canonical
 facts and engine/content identities are unchanged.
+
+## Bootstrap conflict preflight
+
+Bootstrap reads the raw engine-channel pointer before staging. An existing pointer
+that differs from the deployment seed is rejected before repository retrieval,
+staging or provenance writes, including an incomplete or dangling pointer that a
+completed-revision join would hide. Read failures stop rather than imply absence.
+A missing or matching pointer follows the existing verification and initialization
+path. This does not authorize migrating a legacy head or changing managed history.
+
+The preflight is not a lock. A concurrent pointer change after the read can still
+leave independently verified staging/provenance before the existing transactional
+no-overwrite checks report a conflict. Inspect actual state before retrying; do not
+interpret a conflict or client timeout as proof that no writes occurred. Existing
+workflow holds, exact-seed/CI/authentication guards and active-delivery gates remain.

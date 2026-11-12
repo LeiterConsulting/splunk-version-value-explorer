@@ -265,3 +265,59 @@ test('offline advance exercises real CAS activation failure and uncertain commit
     assert.equal(final.generation, outcome === 'batch-failure' ? 1 : 2);
   }
 });
+
+test('known conflicting complete or incomplete raw pointers reject before staging', async t => {
+  const m = await modules();
+  for (const complete of [0, 1]) {
+    const db = database(t), other = clone(seed);
+    other.globals.SPLUNK_DATA.publisherFixture = 'preflight-conflict';
+    other.manifest.digest = await m.sha256({schemaVersion:1,globals:other.globals,catalog:other.catalog});
+    other.manifest.revision = 'content-' + (await m.sha256({digest:other.manifest.digest,engineRevision:other.manifest.engineRevision,datasetHashes:other.manifest.datasetHashes})).slice(0,24);
+    await m.ensureRevision(db, other);
+    db.sql.prepare('UPDATE content_revisions SET completed = ?').run(complete);
+    if (complete) {
+      db.sql.prepare('INSERT INTO content_publication_provenance VALUES (?, ?, ?, ?, ?)').run(other.manifest.revision, candidate.repository, candidate.commit, 77, '2026-01-01T00:00:00Z');
+      db.sql.prepare('INSERT INTO content_publication_events VALUES (?, ?, ?, ?, ?, ?, ?, ?)').run('pub-'+'0'.repeat(32), 'engine:'+seed.manifest.engineRevision, 1, other.manifest.revision, other.manifest.revision, candidate.commit, 'publish', '2026-01-01T00:00:00Z');
+    }
+    const before = db.sql.prepare('SELECT * FROM content_revisions').all();
+    const eventsBefore = db.sql.prepare('SELECT * FROM content_publication_events').all();
+    const provenanceBefore = db.sql.prepare('SELECT * FROM content_publication_provenance').all();
+    let requests = 0;
+    await assert.rejects(m.bootstrapPublication(db, candidate, 'pub-'+'6'.repeat(32), seed, {fetcher:async()=>{requests++;throw Error('must not stage')}}), /Bootstrap conflicts/);
+    assert.equal(requests, 0);
+    assert.deepEqual(db.sql.prepare('SELECT * FROM content_revisions').all(), before);
+    assert.deepEqual(db.sql.prepare('SELECT * FROM content_publication_provenance').all(), provenanceBefore);
+    assert.deepEqual(db.sql.prepare('SELECT * FROM content_publication_events').all(), eventsBefore);
+    assert.equal(db.sql.prepare('SELECT revision_id FROM content_publication').get().revision_id, other.manifest.revision);
+  }
+});
+test('dangling raw pointer is not hidden by completeness joins', async t => {
+  const m = await modules(), db = database(t), missing = 'content-'+'9'.repeat(24);
+  db.sql.exec('PRAGMA foreign_keys = OFF');
+  db.sql.prepare('INSERT INTO content_publication VALUES (?,?)').run('engine:'+seed.manifest.engineRevision, missing);
+  db.sql.exec('PRAGMA foreign_keys = ON');
+  await assert.rejects(m.bootstrapPublication(db,candidate,'pub-'+'7'.repeat(32),seed,{fetcher:()=>{throw Error('must not stage')}}),/Bootstrap conflicts/);
+  assert.equal(db.sql.prepare('SELECT COUNT(*) n FROM content_revisions').get().n,0);
+});
+test('bootstrap raw-pointer read failure stops before repository or database writes',async()=>{
+  const m=await modules();let reads=0;
+  const db={prepare(query){assert.equal(query,'SELECT revision_id FROM content_publication WHERE channel = ?');return {bind(){return {async first(){reads++;throw Error('read unavailable')}}}}}};
+  await assert.rejects(m.bootstrapPublication(db,candidate,'pub-'+'8'.repeat(32),seed,{fetcher:()=>{throw Error('must not stage')}}),/read unavailable/);
+  assert.equal(reads,1);
+});
+test('empty engine bootstrap still verifies and initializes generation one',async t=>{
+  const m=await modules(),db=database(t);
+  const result=await m.bootstrapPublication(db,candidate,'pub-'+'9'.repeat(32),seed,{fetcher:evidence});
+  assert.equal(result.generation,1);assert.equal(result.revision,seed.manifest.revision);
+});
+test('concurrent pointer after preflight is never overwritten and may retain verified staging',async t=>{
+  const m=await modules(),db=database(t),other=clone(seed);
+  other.globals.SPLUNK_DATA.publisherFixture='racing-head';
+  other.manifest.digest=await m.sha256({schemaVersion:1,globals:other.globals,catalog:other.catalog});
+  other.manifest.revision='content-'+(await m.sha256({digest:other.manifest.digest,engineRevision:other.manifest.engineRevision,datasetHashes:other.manifest.datasetHashes})).slice(0,24);
+  let raced=false;
+  await assert.rejects(m.bootstrapPublication(db,candidate,'pub-'+'a'.repeat(32),seed,{fetcher:async(url,opts)=>{if(!raced){raced=true;await m.ensureRevision(db,other);}return evidence(url,opts)}}),/Bootstrap conflicts/);
+  assert.equal(db.sql.prepare('SELECT revision_id FROM content_publication').get().revision_id,other.manifest.revision);
+  assert.equal(db.sql.prepare('SELECT COUNT(*) n FROM content_publication_events').get().n,0);
+  assert.equal(db.sql.prepare('SELECT COUNT(*) n FROM content_publication_provenance WHERE revision_id = ?').get(seed.manifest.revision).n,1);
+});
