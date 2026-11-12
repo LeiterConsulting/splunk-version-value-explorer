@@ -15,8 +15,8 @@
     "liveStaticRevision": "content-a17eb9ea1cc2d0f41db05647"
   },
   "inventory": {
-    "attempted": 261,
-    "directRetrieved": 255,
+    "attempted": 262,
+    "directRetrieved": 256,
     "qualification": "Union of the retained Release Watch official inventory and three explicit discovery/supplement sources. The direct Cisco September announcement returned a shell, but its exact public indexed text was assessed. The ES historical CA section and unavailable sources retain explicit limits. Raw response digest changes can include presentation metadata; no semantic conclusion follows from a digest alone."
   },
   "discovery": {
@@ -2895,6 +2895,17 @@
       "previousSha256": "9d890d62bf0730b9918eff2055167c2682e093f02c4baf3c11e49fb584fe97a8",
       "comparison": "different-bytes",
       "outcome": "retrieved"
+    },
+    {
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1101",
+      "checkedAt": "2026-11-12T11:05:18.320Z",
+      "status": 200,
+      "finalUrl": "https://advisory.splunk.com/advisories/SVD-2026-1101",
+      "bytes": 5729,
+      "sha256": "6e6ac4845c4ed6d3193b7c44d667e26cb11a2d331dc697bfe0344aae2bad032c",
+      "previousSha256": null,
+      "comparison": "new-source",
+      "outcome": "retrieved"
     }
   ],
   "claimChecks": [
@@ -3386,6 +3397,33 @@
           }
         }
       ]
+    },
+    {
+      "claimId": "security.svd-2026-1101.advance-notice",
+      "findingId": null,
+      "outcome": "verified-change",
+      "product": "Splunk Platform and listed premium products/apps",
+      "version": "Exact product/version list in SVD-2026-1101",
+      "environment": "Public Splunk PSIRT informational notice",
+      "assessment": "Splunk PSIRT’s November 11 informational notice schedules detailed advisories for November 18. It names Enterprise and UF 10.6.1, 10.4.5, 10.2.9 and 9.4.17; ES 8.7.0; SOAR 8.8.0 and SOAR connectors; Stream 8.1.7; and AI Assistant 2.0.0. These are the products and versions named by the advance notice. Exact CVEs, exposure ranges, connector names, Cloud patch equivalence and stack rollout require separate evidence.",
+      "assessedAt": "2026-11-12T11:05:18.320Z",
+      "evidence": [
+        {
+          "evidenceId": "release-20261112-svd-2026-1101-description",
+          "url": "https://advisory.splunk.com/advisories/SVD-2026-1101",
+          "section": "Published and Last Updated; Description",
+          "statement": "Splunk PSIRT’s November 11 informational notice schedules detailed advisories for November 18. It names Enterprise and UF 10.6.1, 10.4.5, 10.2.9 and 9.4.17; ES 8.7.0; SOAR 8.8.0 and SOAR connectors; Stream 8.1.7; and AI Assistant 2.0.0. These are the products and versions named by the advance notice. Exact CVEs, exposure ranges, connector names, Cloud patch equivalence and stack rollout require separate evidence.",
+          "excerpt": null,
+          "role": "observed",
+          "sourceCheckedAt": "2026-11-12T11:05:18.320Z",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "6e6ac4845c4ed6d3193b7c44d667e26cb11a2d331dc697bfe0344aae2bad032c",
+            "qualification": "Exact response digest; publisher revision unknown."
+          }
+        }
+      ]
     }
   ],
   "followUp": [
@@ -3413,6 +3451,11 @@
       "owner": "version-guidance-audit",
       "reviewBy": "2026-11-13",
       "action": "Independently rerun the pipeline diagnostic with supported native readback, reconcile the exact scheduler run against latest result and verify repository and production receipts separately under the pre-write hold."
+    },
+    {
+      "owner": "version-release-watch",
+      "reviewBy": "2026-11-18",
+      "action": "On publication of the November detailed advisories, verify exact CVEs, affected builds, named connectors and remedies before any claim or badge update."
     }
   ],
   "publication": {
@@ -3426,8 +3469,8 @@
     "schemaVersion": 1,
     "watchId": "version-release-watch",
     "status": "pending-public-provenance",
-    "recordedAt": "2026-11-12T11:03:23.612Z",
-    "reviewDigest": "f9af17793991c6301cd396058c07aa79bd0c090af33216b7cc622a6b81565b5e",
+    "recordedAt": "2026-11-12T11:05:18.331Z",
+    "reviewDigest": "4ee1a4ab8ff05814c572339f0696aabce4676237be1a0824b0bc9e031426ddf8",
     "publicationId": "vci-414406757335bc99bd07deb674eee0d09c795bf52033f29031d9fa9a70aa0a2d",
     "recordKeys": [],
     "notReassessedFindingIds": [
