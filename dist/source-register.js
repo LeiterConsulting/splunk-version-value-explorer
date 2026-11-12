@@ -2671,7 +2671,7 @@ window.VersionCompassSources = {
       "references": [
         "release.cloud.releasesData.10.4.2604.technicalChanges.4.source",
         "release.cloud.releasesData.10.4.2604.requirements.4.3",
-        "release.cloud.releasesData.10.5.2605.technicalChanges.3.source",
+        "release.cloud.releasesData.10.5.2605.technicalChanges.4.source",
         "release.cloud.releasesData.10.5.2605.requirements.3.3",
         "release.cloud.releasesData.10.6.technicalChanges.4.source",
         "release.cloud.releasesData.10.6.requirements.6.3",
@@ -2731,6 +2731,34 @@ window.VersionCompassSources = {
       "reason": "",
       "section": "10.4.2604.18 > Publication Date, Security Fixes and Uncategorized issues",
       "verificationScope": "November 6 Cloud 10.4.2604.18 row: three preliminary Medium security fixes, plus SPL-314840, SPL-316497 and SPL-316559. The SPL-314840 description references Enterprise 10.4.2 and UF clients. The Cloud patch row does not establish a separate customer-managed fix, selected-stack rollout or definitive advisory applicability.",
+      "events": [
+        {
+          "date": "2026-11-12",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.5.2605.16-0",
+      "title": "splunk cloud platform maintenance patch release information",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.cloud.releasesData.10.5.2605.technicalChanges.3.source",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-11-12",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-12",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "10.5.2605.16 > Publication Date, Search issues and Uncategorized issues",
+      "verificationScope": "November 6 Cloud 10.5.2605.16 row, including SPL-319852, SPL-318579 and SPL-319572. The row has no preliminary security count. Selected-stack rollout, definitive security applicability and customer-managed package applicability remain unestablished.",
       "events": [
         {
           "date": "2026-11-12",

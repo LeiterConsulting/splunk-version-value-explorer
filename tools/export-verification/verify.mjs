@@ -26,6 +26,7 @@ let browser;
 const relative = file => path.relative(output, file);
 const normalize = s => s.replace(/\s+/g, ' ').trim();
 const cloudPatchCases = {
+  'cloud-105-patch': { build: '10.5.2605.16', claimDate: '2026-11-12' },
   'cloud-104-patch': { build: '10.4.2604.18', claimDate: '2026-11-12' },
   'cloud': { build: '10.6.2.3', claimDate: '2026-11-11' },
   'cloud-107': { build: '10.7.0.5', claimDate: '2026-11-11' }
@@ -409,6 +410,7 @@ try {
         for(const text of ['Cloud '+build+' maintenance patch','selected-stack rollout','preliminary'])
           assert(normalize(expected.text).includes(text),'Missing scoped Cloud maintenance export evidence');
         expected.requiredText=['Claim last verified: '+claimDate];
+        if(build==='10.5.2605.16') expected.requiredText.push('SPL-319852','SPL-318579','SPL-319572','no preliminary security counts','customer-managed Enterprise or Forwarder package applicability unestablished');
         if(build==='10.4.2604.18') expected.requiredText.push('SPL-314840','SPL-316497','SPL-316559','customer-managed Enterprise or Forwarder package applicability unestablished');
       }
       if(route.id==='cloud-107-fedramp-high') {
