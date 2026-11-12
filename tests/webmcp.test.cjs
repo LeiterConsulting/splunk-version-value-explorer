@@ -716,3 +716,18 @@ test('Cloud 10.5.2605.16 preserves separate exact build, fix and security scopes
   const card = selected.elements.get('technical-content').innerHTML.split('<article class="technical-item">').find(html => html.includes(patch.component));
   assert.match(card, /<strong>Claim last verified:<\/strong> 2026-11-12/);
 });
+
+test('WebMCP retains legacy application identity and reports active or fallback dataset identity separately', async () => {
+ const rt = await runtime(); rt.window.VersionCompassRevision = { id: 'vc-legacy-fixture' };
+ for (const status of ['database', 'bundled-fallback', 'loading']) {
+  rt.window.VersionCompassContent = { status, revision: status === 'loading' ? null : 'content-' + 'a'.repeat(24), engineRevision: status === 'loading' ? null : 'engine-' + 'b'.repeat(20) };
+  const metadata = rt.run('get_catalog', {}).metadata;
+  assert.equal(metadata.contentRevision, 'vc-legacy-fixture');
+  assert.equal(metadata.datasetRevision, rt.window.VersionCompassContent.revision);
+  assert.equal(metadata.engineRevision, rt.window.VersionCompassContent.engineRevision);
+  assert.equal(metadata.delivery, status);
+ }
+ delete rt.window.VersionCompassContent;
+ const metadata = rt.run('get_catalog', {}).metadata;
+ assert.equal(metadata.datasetRevision, null); assert.equal(metadata.engineRevision, null); assert.equal(metadata.delivery, null);
+});

@@ -32,7 +32,10 @@
       schemaVersion: "1.3",
       site: "https://versioncompass.com",
       reviewedDate: date ? date[1] : null, // Legacy publication-date alias.
-      contentRevision: window.VersionCompassRevision?.id || null,
+      contentRevision: window.VersionCompassRevision?.id || null, // Legacy static application revision.
+      datasetRevision: window.VersionCompassContent?.revision || null,
+      engineRevision: window.VersionCompassContent?.engineRevision || null,
+      delivery: window.VersionCompassContent?.status || null,
       siteUpdatedDate: date ? date[1] : null,
       dateSemantics: "reviewedDate is a legacy alias for siteUpdatedDate, not source verification. Source and claim dates are independent.",
       releaseNotesUrl: releaseNotesUrl,
