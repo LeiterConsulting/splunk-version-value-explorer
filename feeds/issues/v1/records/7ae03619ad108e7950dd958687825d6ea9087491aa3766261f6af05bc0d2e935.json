@@ -1,0 +1,120 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-cloud-s3-restricted-scope",
+  "assessmentId": "vcia-csp-20261112-r2-cloud-s3-restricted-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-12T13:03:36.341Z",
+  "assessedAt": "2026-11-12T13:01:25.312Z",
+  "outcome": "still-present",
+  "rationale": "The 10.6 and 10.7 AWS regional S3 rows list Moderate and exclude High and IL5. The expanded third-party search section names AWS S3 as a data store and excludes Moderate, High and IL5. The April 8 change entry says High and IL5 were added for relevant 10.3 releases. The February matrix visually marks Moderate and leaves High and IL5 blank for the distinct S3 row. The version and feature-scope disagreements remain unresolved.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform Federated Search for Amazon S3"
+    ],
+    "versions": [
+      "10.6 and 10.7; April 8 change for relevant 10.3 versions"
+    ],
+    "editions": null,
+    "deployments": [
+      "AWS GovCloud and DoD IL5"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261112-r2-38-1b4d1c1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions and region differences > Federated Search for Amazon S3",
+      "statement": "Current 10.7 regional availability and restrictions.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-12T12:55:28.456Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "c08991ac24172306801d7afd938f6df4254eba008faefc77cc25c8e33e94fb7d",
+        "qualification": "Exact response digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261112-r2-38-7bd9278",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Federated search for third-party data stores > Requirements and supported stores",
+      "statement": "Expanded feature names S3 and lists separate exclusions.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-12T12:55:28.456Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "c08991ac24172306801d7afd938f6df4254eba008faefc77cc25c8e33e94fb7d",
+        "qualification": "Exact response digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261112-r2-10-2494688",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions and region differences > Federated search for Amazon S3",
+      "statement": "Versioned 10.6 scope.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-12T12:55:15.003Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "e1cd0e600b62a1541922cff9b6d5220efbdfb82efa1a0b9f464fbcbd84deb4dc",
+        "qualification": "Exact response digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261112-r2-39-f1d91bc",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "8 April 2026 > Federated Search for Amazon S3",
+      "statement": "Retain the stated relevant 10.3 applicability.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-12T12:55:28.451Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "1f991731467bdc06cbaff40b3db2aa3007ae20454b7d73481244a376fc6b6bdf",
+        "qualification": "Exact response digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261112-r2-16-948937e",
+      "url": "https://www.splunk.com/en_us/about-splunk/splunk-data-security-and-privacy/compliance-at-splunk.html",
+      "section": "US Public Sector > column headings, Federated Search S3 row and legend",
+      "statement": "Rendered February matrix uses checks for audit scope. Blank High and IL5 cells remain unknown.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-12T12:55:21.156Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Rendered public evidence independently inspected; the publisher revision is unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/ea46451c6158ba925b23fb688299e1d8ea21223d/docs/audits/2026-11-12-csp-fedramp-watch-review-2-sources.json",
+      "pointer": "/claimChecks/1",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "Recheck the Moderate package named-service display and compare the two S3 service sections with the version-specific change log. Preserve unresolved SOAR High and independent Observability scope. Review by November 12."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261112-cloud-s3-restricted-scope"
+  ]
+}

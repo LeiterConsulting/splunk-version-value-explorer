@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-12T12:21:25.996355Z",
+      "lastAttempt": "2026-11-12T12:53:37.911571Z",
       "lastSuccess": "2026-11-10T12:50:41.612Z",
       "outcome": "blocked",
-      "summary": "Updated the Moderate Marketplace display. Historical SOC scope and production delivery remain incomplete.",
+      "summary": "Reviewed exact Marketplace offerings and the public matrix. Historical SOC scope and production verification remain incomplete.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -483,9 +483,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Updated the Moderate Marketplace display. Historical SOC scope and production delivery remain incomplete.",
           "scope": "Exact Marketplace offerings, selected visual matrix rows, S3 conflicts, AI regions, SOAR and Observability; partial SOC decision."
+        },
+        {
+          "at": "2026-11-12T12:53:37.911571Z",
+          "outcome": "running",
+          "summary": "Checking current regional and regulated official sources.",
+          "scope": "CSP FedRAMP Watch and registry 1.2.0 SOC participation."
+        },
+        {
+          "at": "2026-11-12T13:01:25.312Z",
+          "outcome": "blocked",
+          "summary": "Reviewed exact Marketplace offerings and the public matrix. Historical SOC scope and production verification remain incomplete.",
+          "scope": "55 official source checks and bounded Marketplace, visual matrix, S3, AI regional, restricted SOAR, Observability and Advisor SOC assessments."
         }
       ],
-      "scope": "Exact Marketplace offerings, selected visual matrix rows, S3 conflicts, AI regions, SOAR and Observability; partial SOC decision."
+      "scope": "55 official source checks and bounded Marketplace, visual matrix, S3, AI regional, restricted SOAR, Observability and Advisor SOC assessments."
     },
     {
       "id": "version-release-watch",

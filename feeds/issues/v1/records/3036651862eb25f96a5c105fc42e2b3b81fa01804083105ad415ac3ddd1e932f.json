@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-cloud-107-aws-israel-filter",
+  "assessmentId": "vcia-csp-20261112-r2-cloud-107-aws-israel-filter",
+  "revision": 1,
+  "recordedAt": "2026-11-12T13:03:36.341Z",
+  "assessedAt": "2026-11-12T13:01:25.312Z",
+  "outcome": "still-present",
+  "rationale": "The 10.7 Service Details lists Middle East (Israel) for new AWS Victoria Experience stacks. That exact source line does not identify a city or provider region code. The exact existing filter catalog still lacks that selection. The source does not establish Classic, retrospective rollout, premium-product coverage, AI service-region coverage or authorization. The filter candidate needs reconciliation with shared Advisor regional dependencies.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform"
+    ],
+    "versions": [
+      "10.7"
+    ],
+    "editions": null,
+    "deployments": [
+      "AWS Victoria, new stacks in Israel"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Existing-stack migration, feature availability, premium pairing, historical rollout and regulated authorization remain separate."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261112-r2-38-85ebf61",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions and region differences > AWS new Victoria Experience regions",
+      "statement": "Exact Israel line and new-stack scope.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-12T12:55:28.456Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "c08991ac24172306801d7afd938f6df4254eba008faefc77cc25c8e33e94fb7d",
+        "qualification": "Exact response digest; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/ea46451c6158ba925b23fb688299e1d8ea21223d/docs/audits/2026-11-12-csp-fedramp-watch-review-2-sources.json",
+      "pointer": "/claimChecks/8",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "Retry the four unavailable exact URLs, obtain feature-specific ITSI regional evidence, and validate the Israel hosting-only option with the shared Advisor environment dependency and exact links before modifying guidance. Review by November 12."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261112-cloud-107-aws-israel-filter"
+  ]
+}
