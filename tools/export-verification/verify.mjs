@@ -9,7 +9,7 @@ import { chromium } from 'playwright';
 import { verifyNavigation } from './navigation.mjs';
 import { verifyRippleScroll } from './ripple-scroll.mjs';
 import { verifyAdvisor, configureAdvisorRoute, setAdvisorFixtureTime } from './advisor.mjs';
-import { prepareReadOnlyTools, soarReadOnlyRecord, esMaintenanceRoute, verifyExact } from './exact-releases.mjs';
+import { prepareReadOnlyTools, soarReadOnlyRecord, esMaintenanceRoute, regulatedS3Route, verifyExact } from './exact-releases.mjs';
 import { verifyPrep11Oversized } from './prep11-print.mjs';
 import { verifyAdvisorOversized } from './advisor-print.mjs';
 const require = createRequire(import.meta.url), { target, hash, verify } = require('../../scripts/export-evidence.cjs');
@@ -171,6 +171,27 @@ try {
       assert.deepEqual(result.ids,israelMatched?['victoria-aws-israel']:[]);
       assert((await page.locator(israelMatched?'.env-record':'.env-selection + p + p').first().textContent()).includes(israelText));
       entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
+    }
+    if (regulatedS3Route(route)) {
+      await page.waitForFunction(() => window.__reportTools?.versioncompass_get_current_report);
+      const expectedId = route.id === 'cloud-fedramp-moderate' ? 's3-moderate' : 's3-high';
+      const result = await page.evaluate(id => {
+        const tool = window.__reportTools.versioncompass_get_current_report;
+        const url = location.href;
+        const record = tool.execute({}).report?.environment?.records.find(row => row.id === id);
+        return {record, readOnly:tool.annotations.readOnlyHint, stable:location.href === url};
+      }, expectedId);
+      assert(result.readOnly && result.stable && result.record, 'Missing read-only regulated S3 record');
+      assert.equal(result.record.availability, 'conflicting');
+      assert.equal(result.record.authorization, 'not_established');
+      const expectedSources = ['s3Regional106', 's3Guide106', expectedId === 's3-moderate' ? 's3ThirdParty106' : 's3AprilChange'];
+      assert.deepEqual(result.record.sources, expectedSources);
+      const card = page.locator('.env-record').filter({hasText:result.record.feature}).first();
+      assert((await card.textContent()).includes(result.record.detail));
+      for (const {url} of result.record.citations) {
+        assert(await card.locator('a[href="' + url + '"]').count(), 'Screen report lost regulated S3 citation');
+      }
+      entry.readOnlyReport = {passed:true, browserHarness:true, stableSelection:true};
     }
     const marketplaceRecord=marketplaceCases[route.id];
     if(marketplaceRecord){
@@ -466,7 +487,7 @@ try {
         expected.requiredText=['Israel (Tel Aviv)',israelText];
         if(israelMatched) expected.requiredText.push('Victoria Experience > AWS > Middle East (Israel)','AWS Israel addition for relevant Cloud 10.7 versions','Service endpoints > Israel (Tel Aviv) and il-central-1');
       }
-      if(['cloud-fedramp-moderate','cloud-fedramp-high','cloud-107-fedramp-high'].includes(route.id)) {
+      if(regulatedS3Route(route)) {
         expected.requiredText=['Cloud 10.6 Amazon S3 federated search product restrictions','The Cloud 10.6 product guide excludes FedRAMP Moderate, FedRAMP High, and DoD IL5 deployments.'];
         if(route.id!=='cloud-fedramp-moderate') expected.requiredText.push('The April 8 change log lists High and IL5 in both GovCloud regions for relevant Cloud 10.3 versions.');
       }
