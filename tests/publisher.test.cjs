@@ -392,3 +392,88 @@ test('completed seed bootstrap verifies all rows without replaying record insert
  batches=0;await assert.rejects(m.bootstrapPublication(db,candidate,'pub-'+'a'.repeat(32),seed,{fetcher:evidence}),/corrupt staged records/);
  assert.equal(batches,0);
 });
+
+async function batchFixture(m){
+ const bundle=clone(seed);bundle.globals.SPLUNK_DATA.publisherFixture='isolated bounded staging only';
+ bundle.manifest.digest=await m.sha256({schemaVersion:1,globals:bundle.globals,catalog:bundle.catalog});
+ bundle.manifest.revision='content-'+(await m.sha256({digest:bundle.manifest.digest,engineRevision:bundle.manifest.engineRevision,datasetHashes:bundle.manifest.datasetHashes})).slice(0,24);
+ const c={...candidate,bundle};
+ const fetcher=async url=>url.endsWith('/content/publication.json')?new Response(JSON.stringify(bundle.manifest)):url.endsWith('/dist/content-bundle.json')?new Response(JSON.stringify(bundle)):evidence(url);
+ return{c,fetcher};
+}
+test('non-seed staging is bounded, immutable, fully verified before provenance, and idempotent without head/history',async t=>{
+ const m=await modules(),db=database(t),{c,fetcher}=await batchFixture(m);let r;
+ const batch=db.batch;db.batch=async rows=>{assert(rows.length<=50);return batch(rows);};
+ for(let i=0;i<Math.ceil(c.bundle.manifest.recordCount/50);i++){
+  r=await m.stagePublisherBatch(db,c,seed,{fetcher});assert.equal(r.present,Math.min((i+1)*50,c.bundle.manifest.recordCount));
+  if(r.missing){assert.equal(r.status,'partial');assert.equal(r.provenance,null);assert.equal(db.sql.prepare('SELECT count(*) n FROM content_publication_provenance').get().n,0);}
+ }
+ assert.equal(r.status,'complete');assert.equal(r.provenance.commit,c.commit);assert.equal(r.provenance.workflowRun,77);
+ r=await m.stagePublisherBatch(db,c,seed,{fetcher});assert.equal(r.status,'already-complete');assert.equal(r.attemptedRows,0);
+ for(const table of ['content_publication','content_publication_events'])assert.equal(db.sql.prepare('SELECT count(*) n FROM '+table).get().n,0);
+});
+test('candidate batch rejects wrong engine, exact bytes and failed CI before database writes',async t=>{
+ const m=await modules(),db=database(t),{c,fetcher}=await batchFixture(m);
+ const changed=clone(c);changed.bundle.manifest.engineRevision='engine-'+'0'.repeat(20);
+ for(const [value,read] of [[changed,fetcher],[c,evidence],[c,async url=>url.includes('/actions/runs?')?new Response(JSON.stringify({workflow_runs:[]})):fetcher(url)]]){
+ await assert.rejects(m.stagePublisherBatch(db,value,seed,{fetcher:read}));assert.equal(db.sql.prepare('SELECT count(*) n FROM content_revisions').get().n,0);}
+});
+test('candidate corruption, extras and orphan projection fail without any new database writes',async t=>{
+ const m=await modules();for(const mode of ['corrupt','extra','orphan']){
+ const db=database(t),{c,fetcher}=await batchFixture(m);await m.stagePublisherBatch(db,c,seed,{fetcher});
+ if(mode==='corrupt')db.sql.exec("UPDATE content_records SET payload_json='{}' WHERE rowid=1");
+ if(mode==='extra')db.sql.prepare('INSERT INTO content_records VALUES(?,?,?,?,?)').run(c.bundle.manifest.revision,'unknown','fixture','platform','{}');
+ if(mode==='orphan')db.sql.exec('PRAGMA foreign_keys=OFF; DELETE FROM content_revisions');
+ const before=db.sql.prepare('SELECT total_changes() n').get().n;await assert.rejects(m.stagePublisherBatch(db,c,seed,{fetcher}));assert.equal(db.sql.prepare('SELECT total_changes() n').get().n,before);}
+});
+test('lost candidate batch response remains unbound; explicit next request resumes missing rows only',async t=>{
+ const m=await modules(),db=database(t),{c,fetcher}=await batchFixture(m),batch=db.batch;let lose=true;
+ db.batch=async rows=>{const result=await batch(rows);if(lose){lose=false;throw Error('synthetic lost response');}return result;};
+ await assert.rejects(m.stagePublisherBatch(db,c,seed,{fetcher}));assert.equal(db.sql.prepare('SELECT count(*) n FROM content_records').get().n,50);
+ assert.equal(db.sql.prepare('SELECT count(*) n FROM content_publication_provenance').get().n,0);
+ const r=await m.stagePublisherBatch(db,c,seed,{fetcher});assert.equal(r.present,100);assert.equal(r.attemptedRows,50);
+});
+test('concurrent exact batches converge; conflicting provenance is rejected without overwrite',async t=>{
+ const m=await modules(),db=database(t),{c,fetcher}=await batchFixture(m),batch=db.batch;let queue=Promise.resolve();
+ db.batch=rows=>{const p=queue.then(()=>batch(rows));queue=p.catch(()=>{});return p;};
+ await Promise.all([m.stagePublisherBatch(db,c,seed,{fetcher}),m.stagePublisherBatch(db,c,seed,{fetcher})]);
+ assert([50,100].includes(db.sql.prepare('SELECT count(*) n FROM content_records').get().n));
+ db.sql.prepare('INSERT INTO content_publication_provenance VALUES(?,?,?,?,?)').run(c.bundle.manifest.revision,c.repository,'c'.repeat(40),77,'synthetic');
+ const before=db.sql.prepare('SELECT total_changes() n').get().n;await assert.rejects(m.stagePublisherBatch(db,c,seed,{fetcher}),/provenance conflict/);assert.equal(db.sql.prepare('SELECT total_changes() n').get().n,before);
+});
+test('candidate batch HTTP requires manual signed OIDC and matching commit, never static or automatic identity',async t=>{
+ const m=await modules(),db=database(t),{c,fetcher}=await batchFixture(m),worker=m.createWorker(seed,{}),original=globalThis.fetch;
+ const manual=await signedToken({event_name:'workflow_dispatch'}),automatic=await signedToken();
+ globalThis.fetch=async url=>url.includes('/.well-known/jwks')?new Response(JSON.stringify(manual.jwks)):fetcher(url);
+ try{
+ const req=(token,value=c)=>new Request('https://versioncompass.com/api/publisher/stage-batch',{method:'POST',headers:{Authorization:'Bearer '+token,'Content-Type':'application/json'},body:JSON.stringify({publication:{candidate:value},evidenceCredential:'ghs_'+'e'.repeat(36)})});
+ const env={DB:db,VC_PUBLISHER_OIDC:'1',VC_PUBLISHER_TOKEN:admin};
+ assert.equal((await worker.fetch(req(admin),env)).status,403);assert.equal((await worker.fetch(req(automatic.token),env)).status,403);
+ assert.equal((await worker.fetch(req(manual.token,{...c,commit:'c'.repeat(40)}),env)).status,403);
+ assert.equal(db.sql.prepare('SELECT count(*) n FROM content_revisions').get().n,0);
+ const r=await worker.fetch(req(manual.token),env);assert.equal(r.status,200);const body=await r.json();assert.equal(body.present,50);assert.equal(body.provenance,null);assert.equal(Object.keys(body).length,8);
+ }finally{globalThis.fetch=original;}
+});
+test('completion/provenance lost response is reconciled by explicit call, never false delivery or head writes',async t=>{
+ const m=await modules(),db=database(t),{c,fetcher}=await batchFixture(m);
+ await m.stageBundledRevision(db,c.bundle);const prepare=db.prepare;let lose=true;
+ db.prepare=q=>{const stmt=prepare(q);if(!q.startsWith('INSERT INTO content_publication_provenance'))return stmt;return{bind(...args){const bound=stmt.bind(...args);return{async run(){const out=await bound.run();if(lose){lose=false;throw Error('synthetic lost provenance response');}return out;}};}};};
+ await assert.rejects(m.stagePublisherBatch(db,c,seed,{fetcher}));
+ assert.equal(db.sql.prepare('SELECT count(*) n FROM content_publication_provenance').get().n,1);
+ const r=await m.stagePublisherBatch(db,c,seed,{fetcher});assert.equal(r.status,'already-complete');assert.equal(r.attemptedRows,0);assert.equal(r.provenance.commit,c.commit);
+ assert.equal(db.sql.prepare('SELECT count(*) n FROM content_publication_events').get().n,0);
+ db.sql.exec("UPDATE content_records SET payload_json='{}' WHERE rowid=1");const before=db.sql.prepare('SELECT total_changes() n').get().n;
+ await assert.rejects(m.stagePublisherBatch(db,c,seed,{fetcher}),/mismatch/);assert.equal(db.sql.prepare('SELECT total_changes() n').get().n,before);
+});
+test('failed provenance write and malformed retained run never report successful staging',async t=>{
+ const m=await modules();for(const mode of ['write-failed','invalid-run']){
+ const db=database(t),{c,fetcher}=await batchFixture(m);await m.stageBundledRevision(db,c.bundle);const prepare=db.prepare;
+ db.prepare=q=>{
+  if(mode==='write-failed'&&q.startsWith('INSERT INTO content_publication_provenance'))return{bind(){return{run:async()=>({success:false})};}};
+  if(mode==='invalid-run'&&q.startsWith('SELECT repository, commit_sha, workflow_run'))return{bind(){return{first:async()=>({repository:c.repository,commit_sha:c.commit,workflow_run:0})};}};
+  return prepare(q);
+ };
+ const before=db.sql.prepare('SELECT total_changes() n').get().n;await assert.rejects(m.stagePublisherBatch(db,c,seed,{fetcher}),/provenance/);assert.equal(db.sql.prepare('SELECT total_changes() n').get().n,before);
+ assert.equal(db.sql.prepare('SELECT count(*) n FROM content_publication_events').get().n,0);
+ }
+});

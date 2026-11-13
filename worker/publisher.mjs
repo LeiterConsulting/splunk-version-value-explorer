@@ -92,6 +92,24 @@ export async function resumePublisherSeed(db,candidate,seed,options={}){
  await verifyRepositoryPublication(candidate,{...options,engineRevision:seed.manifest.engineRevision});
  return resumeSeedBatch(db,seed);
 }
+// One manually authorized candidate batch. This never changes a publication head.
+export async function stagePublisherBatch(db,candidate,seed,options={}){
+ const {bundle,provenance}=await verifyRepositoryPublication(candidate,{...options,engineRevision:seed.manifest.engineRevision});
+ const revision=bundle.manifest.revision;
+ const proof=()=>db.prepare('SELECT repository, commit_sha, workflow_run FROM content_publication_provenance WHERE revision_id = ?').bind(revision).first();
+ const prior=await proof();
+ // Preserve first provenance rather than silently attributing it to another commit.
+ if(prior&&(prior.repository!==provenance.repository||prior.commit_sha!==provenance.commit||!Number.isSafeInteger(prior.workflow_run)||prior.workflow_run<1))throw Error('Candidate provenance conflict');
+ const progress=await resumeSeedBatch(db,bundle);
+ if(progress.status==='partial')return {...progress,provenance:null};
+ // Preparation has verified every immutable row. Only now bind the independently
+ // verified repository evidence. A lost response is uncertain, never auto-retried.
+ const write=await db.prepare('INSERT INTO content_publication_provenance (revision_id, repository, commit_sha, workflow_run, verified_at) VALUES (?, ?, ?, ?, ?) ON CONFLICT(revision_id) DO NOTHING').bind(revision,provenance.repository,provenance.commit,provenance.workflowRun,new Date().toISOString()).run();
+ if(!write||write.success===false)throw Error('Candidate provenance uncertain');
+ const stored=await proof();
+ if(!stored||stored.repository!==provenance.repository||stored.commit_sha!==provenance.commit||!Number.isSafeInteger(stored.workflow_run)||stored.workflow_run<1)throw Error('Candidate provenance conflict');
+ return {...progress,provenance:{repository:stored.repository,commit:stored.commit_sha,workflowRun:stored.workflow_run}};
+}
 export async function bootstrapPublication(db, candidate, operationId, seed, options = {}) {
   if (!/^pub-[a-f0-9]{32}$/.test(operationId || '') || candidate?.bundle?.manifest?.revision !== seed.manifest.revision) throw Error('Bootstrap requires the deployment seed');
   const channel = 'engine:' + seed.manifest.engineRevision, revision = seed.manifest.revision;
@@ -178,10 +196,10 @@ async function observePublisherSeed(db, m) {
   } catch { return { ...out, reason: 'observation-select-failed' }; }
 }
 export async function publisherRequest(request, env, seed, json) {
-  const url = new URL(request.url), routes = ['/api/publisher/head', '/api/publisher/stage', '/api/publisher/bootstrap', '/api/publisher/activate', '/api/publisher/observe-seed', '/api/publisher/resume-seed'];
+  const url = new URL(request.url), routes = ['/api/publisher/head', '/api/publisher/stage', '/api/publisher/bootstrap', '/api/publisher/activate', '/api/publisher/observe-seed', '/api/publisher/resume-seed', '/api/publisher/stage-batch'];
   const identity = await publisherIdentity(request, env);
   if (!identity || identity.type === 'rejected') return json({ error: 'Publisher authorization required', ...(identity?.reason ? { reason: identity.reason } : {}) }, 401);
-  if(url.pathname.endsWith('/resume-seed')&&(identity.type!=='github-oidc'||identity.eventName!=='workflow_dispatch'))return json({error:'GitHub OIDC required for controlled seed resume'},403);
+  if((url.pathname.endsWith('/resume-seed')||url.pathname.endsWith('/stage-batch'))&&(identity.type!=='github-oidc'||identity.eventName!=='workflow_dispatch'))return json({error:'GitHub OIDC required for controlled seed resume'},403);
   if (!routes.includes(url.pathname)) return json({ error: 'Unknown publisher route' }, 404);
   if (url.search || (request.headers.has('Origin') && request.headers.get('Origin') !== publisherAudience)) return json({ error: 'Invalid publisher request' }, 400);
   const method = (url.pathname.endsWith('/head') || url.pathname.endsWith('/observe-seed')) ? 'GET' : 'POST';
@@ -208,8 +226,12 @@ export async function publisherRequest(request, env, seed, json) {
       }
       return json(await activatePublication(env.DB, input, { engineRevision }));
     }
-    const candidate = (url.pathname.endsWith('/bootstrap') || url.pathname.endsWith('/resume-seed')) ? input.candidate : input;
+    const candidate = (url.pathname.endsWith('/bootstrap') || url.pathname.endsWith('/resume-seed') || url.pathname.endsWith('/stage-batch')) ? input.candidate : input;
     if (identity.commit && candidate?.commit !== identity.commit) return json({ error: 'Publisher commit mismatch' }, 403);
+    if(url.pathname.endsWith('/stage-batch')){
+      if(Object.keys(input).length!==1||!Object.hasOwn(input,'candidate'))return json({error:'Invalid stage batch fields'},400);
+      return json(await stagePublisherBatch(env.DB,candidate,seed,{fetcher:evidence.fetcher}));
+    }
     if (url.pathname.endsWith('/resume-seed')) {
       if(Object.keys(input).length!==1||!Object.hasOwn(input,'candidate'))return json({error:'Invalid resume fields'},400);
       return json(await resumePublisherSeed(env.DB,candidate,seed,{fetcher:evidence.fetcher}));
