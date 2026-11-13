@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-itsi-subagent-region",
+  "revision": 1,
+  "recordedAt": "2026-11-13T13:00:38.800Z",
+  "evidence": [
+    {
+      "evidenceId": "csp-20261113-32-73e2780c",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+      "section": "Splunk AI Assistant ITSI subagent",
+      "statement": "Three exact software floors.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-13T12:50:27.893Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "5c5abe4d9e2c9c1c57e72c39aa34e4d8b8c68ec180206699e0104cc97ac50da0",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261113-29-ec6b5f6f",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "section": "Supported regions; Splunk AI Assistant for FedRAMP deployments",
+      "statement": "Base assistant regions and limited IL2 qualifications only.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-13T12:50:27.898Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9a42f1bb498e63cfb0cf926ee73a92aea5085cd8354b2ecc38dd6b0ac98642e4",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261113-16-13cc2436",
+      "url": "https://www.splunk.com/en_us/about-splunk/splunk-data-security-and-privacy/compliance-at-splunk.html",
+      "section": "US Public Sector > ITSI - AI Assistant",
+      "statement": "No affirmative Moderate or High mark in the inspected feature row.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-13T12:50:49.125Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "2b39db16bb54462e4aada9e9ef717a3ba27df8e837e9f501ba5172f47e24d62d",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/42a6141ae593070d7a592f451bb5a529844992d2/docs/audits/2026-11-13-csp-fedramp-watch-sources.json",
+      "pointer": "/claimChecks/4",
+      "originalLabel": "inconclusive"
+    }
+  ],
+  "kind": "assessment",
+  "assessmentId": "vcia-csp-20261113-itsi-subagent-region",
+  "assessedAt": "2026-11-13T12:58:51.251Z",
+  "outcome": "unable-to-verify",
+  "rationale": "The ITSI subagent About section lists SAIA 2.2.0+, ITSI 5.0.0+ and MCP Server 1.2.1+. The 2.3.6 Cloud install guide lists base assistant commercial regions and limited IL2 support, excluding Agent Mode from that IL2 variant. Neither section names subagent-specific regions. The separate empty ITSI AI Assistant cells do not establish a current exclusion.",
+  "reviewedScope": {
+    "products": [
+      "ITSI and Splunk AI Assistant"
+    ],
+    "versions": [
+      "ITSI 5.0.0+, MCP Server 1.2.1+, SAIA 2.2.0+"
+    ],
+    "editions": null,
+    "deployments": [
+      "Cloud ITSI subagent"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No tenant availability, entitlement, authorization or deployment suitability is established."
+    ]
+  },
+  "remainingConcerns": [
+    "Recheck feature-specific Cloud Connected Agent Mode and ITSI regional rollout sources. Verify exact-main workflow evidence and repository feed recovery for this review. Review by November 12."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261113-review2-itsi-subagent-region"
+  ]
+}

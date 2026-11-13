@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-12T12:53:37.911571Z",
+      "lastAttempt": "2026-11-13T13:23:36.915525Z",
       "lastSuccess": "2026-11-10T12:50:41.612Z",
       "outcome": "blocked",
-      "summary": "Reviewed exact Marketplace offerings and the public matrix. Historical SOC scope and production verification remain incomplete.",
+      "summary": "Recovered exact 10.6 S3 restriction evidence. Historical SOC scope and production delivery remain incomplete.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -495,17 +495,41 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Reviewed exact Marketplace offerings and the public matrix. Historical SOC scope and production verification remain incomplete.",
           "scope": "55 official source checks and bounded Marketplace, visual matrix, S3, AI regional, restricted SOAR, Observability and Advisor SOC assessments."
+        },
+        {
+          "at": "2026-11-13T12:48:46.107012Z",
+          "outcome": "running",
+          "summary": "Checking CSP source inventory and registered SOC evidence.",
+          "scope": "Current CSP, SOAR, ES SOC, Marketplace and Observability source sections."
+        },
+        {
+          "at": "2026-11-13T12:58:51.251Z",
+          "outcome": "blocked",
+          "summary": "Verified AWS Israel Victoria new-stack scope. Historical SOC evidence and production delivery remain incomplete.",
+          "scope": "Current CSP, SOAR, ES SOC, Marketplace and Observability source sections."
+        },
+        {
+          "at": "2026-11-13T13:23:36.915525Z",
+          "outcome": "running",
+          "summary": "Rechecking exact CSP sources and registered SOC evidence.",
+          "scope": "CSP, SOAR, ES SOC, Model Runtime, Marketplace and public-sector evidence."
+        },
+        {
+          "at": "2026-11-13T13:29:37.571Z",
+          "outcome": "blocked",
+          "summary": "Recovered exact 10.6 S3 restriction evidence. Historical SOC scope and production delivery remain incomplete.",
+          "scope": "CSP, SOAR, ES SOC, Model Runtime, Marketplace and public-sector evidence."
         }
       ],
-      "scope": "55 official source checks and bounded Marketplace, visual matrix, S3, AI regional, restricted SOAR, Observability and Advisor SOC assessments."
+      "scope": "CSP, SOAR, ES SOC, Model Runtime, Marketplace and public-sector evidence."
     },
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-12T11:58:06.155020Z",
+      "lastAttempt": "2026-11-13T11:14:43.196266Z",
       "lastSuccess": "2026-11-11T14:21:55.848Z",
       "outcome": "blocked",
-      "summary": "Recorded the Cloud 10.5.2605.16 patch and bounded release review. Historical SOC evidence and production delivery remain open.",
+      "summary": "Rechecked release evidence and added the ES 8.8 upgrade-order caveat. Historical SOC scope and production verification remain open.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1147,17 +1171,41 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Recorded the Cloud 10.5.2605.16 patch and bounded release review. Historical SOC evidence and production delivery remain open.",
           "scope": "Cloud patch rows, Enterprise receiver and HF runtime sources, SOAR/AI issues and ten assessed registry capabilities. Historical ES 8.8 CA scope is incomplete."
+        },
+        {
+          "at": "2026-11-13T10:42:11.674917Z",
+          "outcome": "running",
+          "summary": "Checking exact public release sources.",
+          "scope": "Release Watch and registry 1.2.0."
+        },
+        {
+          "at": "2026-11-13T10:50:04.128Z",
+          "outcome": "blocked",
+          "summary": "Recorded Cloud maintenance and the Enterprise 10.6 TLS conflict. Historical SOC scope and production verification remain open.",
+          "scope": "Three Cloud builds, bounded Forwarder and SOAR evidence, and 11 registry dispositions."
+        },
+        {
+          "at": "2026-11-13T11:14:43.196266Z",
+          "outcome": "running",
+          "summary": "Checking exact public release sources.",
+          "scope": "Release Watch and registry 1.2.0."
+        },
+        {
+          "at": "2026-11-13T11:18:51.414Z",
+          "outcome": "blocked",
+          "summary": "Rechecked release evidence and added the ES 8.8 upgrade-order caveat. Historical SOC scope and production verification remain open.",
+          "scope": "ES 8.8 sequencing, bounded Cloud, Forwarder and SOAR evidence, and 11 registry dispositions."
         }
       ],
-      "scope": "Cloud patch rows, Enterprise receiver and HF runtime sources, SOAR/AI issues and ten assessed registry capabilities. Historical ES 8.8 CA scope is incomplete."
+      "scope": "ES 8.8 sequencing, bounded Cloud, Forwarder and SOAR evidence, and 11 registry dispositions."
     },
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-12T11:36:35.253006Z",
+      "lastAttempt": "2026-11-13T12:10:57.163300Z",
       "lastSuccess": "2026-11-11T11:31:55.245Z",
       "outcome": "blocked",
-      "summary": "Bounded ES review complete. The mapped historical SOC release evidence remains unverified.",
+      "summary": "Verified the ES 8.8 Response agent rerun limit. Historical Controlled Availability and production delivery remain open.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1679,9 +1727,45 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Bounded ES review complete. The mapped historical SOC release evidence remains unverified.",
           "scope": "Current editions, licensing, TAXII, SOAR integration and SOC prerequisites reviewed; the ES print repair is scoped to decision questions. ES 8.8 historical Controlled Availability coverage remains incomplete."
+        },
+        {
+          "at": "2026-11-13T11:04:01.400194Z",
+          "outcome": "running",
+          "summary": "Checking official ES editions and agent evidence.",
+          "scope": "59 official source URLs, 12 scoped claim assessments and one deferred SOC disposition."
+        },
+        {
+          "at": "2026-11-13T11:09:41.806Z",
+          "outcome": "blocked",
+          "summary": "Current evidence reassessed. Historical SOC and production verification remain incomplete.",
+          "scope": "59 official source URLs, 12 scoped claim assessments and one deferred SOC disposition."
+        },
+        {
+          "at": "2026-11-13T11:36:32.231380Z",
+          "outcome": "running",
+          "summary": "Checking official ES editions and agent evidence.",
+          "scope": "59 official source URLs, 12 scoped claim assessments and one deferred SOC disposition."
+        },
+        {
+          "at": "2026-11-13T11:38:22.881Z",
+          "outcome": "blocked",
+          "summary": "Current evidence reassessed. Historical SOC and production verification remain incomplete.",
+          "scope": "59 official source URLs, 12 scoped claim assessments and one deferred SOC disposition."
+        },
+        {
+          "at": "2026-11-13T12:10:57.163300Z",
+          "outcome": "running",
+          "summary": "Checking current ES Editions and AI prerequisites.",
+          "scope": "ES Editions and registry 1.2.0 SOC workflow."
+        },
+        {
+          "at": "2026-11-13T12:15:04.995Z",
+          "outcome": "blocked",
+          "summary": "Verified the ES 8.8 Response agent rerun limit. Historical Controlled Availability and production delivery remain open.",
+          "scope": "Current edition, Cloud Connect, SOAR and AI task sections, with bounded historical gaps."
         }
       ],
-      "scope": "Current editions, licensing, TAXII, SOAR integration and SOC prerequisites reviewed; the ES print repair is scoped to decision questions. ES 8.8 historical Controlled Availability coverage remains incomplete."
+      "scope": "Current edition, Cloud Connect, SOAR and AI task sections, with bounded historical gaps."
     },
     {
       "id": "version-guidance-audit",

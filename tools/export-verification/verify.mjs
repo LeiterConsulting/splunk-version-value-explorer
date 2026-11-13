@@ -9,7 +9,7 @@ import { chromium } from 'playwright';
 import { verifyNavigation } from './navigation.mjs';
 import { verifyRippleScroll } from './ripple-scroll.mjs';
 import { verifyAdvisor, configureAdvisorRoute, setAdvisorFixtureTime } from './advisor.mjs';
-import { prepareReadOnlyTools, soarReadOnlyRecord, verifyExact } from './exact-releases.mjs';
+import { prepareReadOnlyTools, soarReadOnlyRecord, esMaintenanceRoute, verifyExact } from './exact-releases.mjs';
 import { verifyPrep11Oversized } from './prep11-print.mjs';
 import { verifyAdvisorOversized } from './advisor-print.mjs';
 const require = createRequire(import.meta.url), { target, hash, verify } = require('../../scripts/export-evidence.cjs');
@@ -28,10 +28,10 @@ const normalize = s => s.replace(/\s+/g, ' ').trim();
 const marketplaceCases = {'es-hybrid-moderate':'es-fr-m-offering','itsi-fedramp-moderate':'itsi-fr-m-offering'};
 const marketplaceScope = 'reports no certified services attested in the package JSON';
 const cloudPatchCases = {
-  'cloud-105-patch': { build: '10.5.2605.16', claimDate: '2026-11-12' },
+  'cloud-105-patch': { build: '10.5.2605.17', claimDate: '2026-11-13', details: ['SPL-313132','SPL-320054','one High and one Medium'] },
   'cloud-104-patch': { build: '10.4.2604.18', claimDate: '2026-11-12' },
-  'cloud': { build: '10.6.2.3', claimDate: '2026-11-11' },
-  'cloud-107': { build: '10.7.0.5', claimDate: '2026-11-11' }
+  'cloud': { build: '10.6.2.4', claimDate: '2026-11-13', details: ['SPL-320966','SPL-320991','two High and one Medium'] },
+  'cloud-107': { build: '10.7.0.6', claimDate: '2026-11-13', details: ['SPL-320989','SPL-320210','three Medium'] }
 };
 function paginationFailures(content,pairs) {
   const script='import sys,json\nsys.path.insert(0,"tools/export-verification")\nfrom pagination import inspect\ndata=json.load(sys.stdin)\nfailures=[]\nfor pair in data["pairs"]:\n try:\n  inspect(data["content"],[pair])\n except AssertionError:\n  failures.append(pair)\nprint(json.dumps(failures))\n';
@@ -157,6 +157,21 @@ try {
       assert((await page.locator('.forwarder-compatibility').textContent()).includes(result.os.detail));
       entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
     }
+    const israelRoute=route.id.startsWith('cloud-107-aws-israel');
+    const israelMatched=route.id==='cloud-107-aws-israel';
+    const israelText=israelMatched?'new Victoria stacks':'No supporting record is established for this combination';
+    if(israelRoute){
+      await page.waitForFunction(()=>window.__reportTools?.versioncompass_get_current_report);
+      const result=await page.evaluate(()=>{
+        const tool=window.__reportTools.versioncompass_get_current_report, url=location.href;
+        const environment=tool.execute({}).report?.environment;
+        return {ids:environment?.records.map(row=>row.id),readOnly:tool.annotations.readOnlyHint,stable:location.href===url};
+      });
+      assert(result.readOnly&&result.stable,'Cloud Environment read-only report must preserve the link');
+      assert.deepEqual(result.ids,israelMatched?['victoria-aws-israel']:[]);
+      assert((await page.locator(israelMatched?'.env-record':'.env-selection + p + p').first().textContent()).includes(israelText));
+      entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
+    }
     const marketplaceRecord=marketplaceCases[route.id];
     if(marketplaceRecord){
       await page.waitForFunction(()=>window.__reportTools?.versioncompass_get_current_report);
@@ -192,6 +207,23 @@ try {
       const card=page.locator('#technical-content .technical-item').filter({has:page.locator('h4').filter({hasText:result.current.component})});
       const context=await card.locator('.evidence-context').textContent();
       assert(context.includes('Claim last verified: '+result.current.verified),'Screen evidence lost the canonical claim date');
+      entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
+    }
+    if(esMaintenanceRoute(route)){
+      await page.waitForFunction(()=>window.__reportTools?.versioncompass_get_current_report);
+      const result=await page.evaluate(()=>{
+        const {versioncompass_get_current_report:current,versioncompass_compare_routes:compare}=window.__reportTools;
+        const {product,platform,host,from,to}=window.VersionCompassPage.getSelection(), url=location.href;
+        const component='ES 8.8 Mission Control migration window';
+        const get=report=>report?.technicalChanges.find(item=>item.component===component);
+        return {current:get(current.execute({}).report),explicit:get(compare.execute({routes:[{product,platform,host,from,to}]}).reports?.[0]),
+          readOnly:current.annotations.readOnlyHint&&compare.annotations.readOnlyHint,stable:location.href===url};
+      });
+      assert(result.readOnly&&result.stable&&result.current,'Missing read-only ES upgrade timing');
+      assert.deepEqual(result.explicit,result.current);
+      assert.equal(result.current.verified,'2026-11-13');
+      const card=page.locator('#technical-content .technical-item').filter({has:page.locator('h4').filter({hasText:result.current.component})});
+      assert((await card.textContent()).includes(result.current.implication));
       entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
     }
     const recordId=soarReadOnlyRecord(route);
@@ -427,8 +459,12 @@ try {
         for(const text of ['Cloud '+build+' maintenance patch','selected-stack rollout','preliminary'])
           assert(normalize(expected.text).includes(text),'Missing scoped Cloud maintenance export evidence');
         expected.requiredText=['Claim last verified: '+claimDate];
-        if(build==='10.5.2605.16') expected.requiredText.push('SPL-319852','SPL-318579','SPL-319572','no preliminary security counts','customer-managed Enterprise or Forwarder package applicability unestablished');
+        if(cloudPatch.details) expected.requiredText.push(...cloudPatch.details,'customer-managed Enterprise or Forwarder package applicability remain unestablished');
         if(build==='10.4.2604.18') expected.requiredText.push('SPL-314840','SPL-316497','SPL-316559','customer-managed Enterprise or Forwarder package applicability unestablished');
+      }
+      if(israelRoute) {
+        expected.requiredText=['Israel (Tel Aviv)',israelText];
+        if(israelMatched) expected.requiredText.push('Victoria Experience > AWS > Middle East (Israel)','AWS Israel addition for relevant Cloud 10.7 versions','Service endpoints > Israel (Tel Aviv) and il-central-1');
       }
       if(route.id==='cloud-107-fedramp-high') {
         for(const qualification of ['Cloud 10.7 Service Details lists Edge Processor for FedRAMP High','Cloud 10.7 Service Details lists Ingest Processor for FedRAMP High','The 10.6 table lists Moderate only','Essentials tier']) assert(normalize(expected.text).includes(qualification), 'High processor qualification missing: '+qualification);
@@ -444,17 +480,29 @@ try {
         for(const qualification of ['Automation Broker 8.7.0.245 distribution','October 9, 2026 through Docker Hub only','no tested compatibility matrix or security remediation claim']) assert(normalize(expected.text).includes(qualification), 'SOAR Broker qualification missing: '+qualification);
       }
       if(route.id==='forwarder-windows-2012-r2') assert(normalize(expected.text).includes('The Splunk 10.6 Windows package matrix omits Windows Server 2012 R2.'),'Windows target-package qualification missing from export');
+      if (route.id === 'editions' || route.id === 'ai-es-premier-triage-note') {
+        assert(normalize(expected.text).includes('the Response agent cannot rerun or process findings added after it has already processed the investigation'), 'The exact ES 8.8 Response limitation is missing from export');
+      }
       if(route.id==='editions'){
         for(const text of ['Which TAXII protocol versions are supported?','The duplicate version leaves the current exact protocol list uncertain.','TIM Cloud TAXII2 sources','same page names TAXII 1.0 and 1.1'])assert(normalize(expected.text).includes(text),'Missing scoped TAXII report evidence');
         expected.paginationPairs=[{heading:'Which TAXII protocol versions are supported?',following:'Decision affected: Native TAXII feed protocol versions',headingOccurrence:1}];
       }
       if(route.id==='hf-hybrid') assert(normalize(expected.text).includes('disabling it may break scheduled dashboard exports'),'Heavy Forwarder mitigation qualification missing');
+      if(esMaintenanceRoute(route)) {
+        expected.requiredText=['ES 8.8 Mission Control migration window','If Platform 10.6 or later is already installed','five additional minutes per GB','after ES 8.8, the guide says this migration runs in the background','on-premises search-head upgrade guide','Splunk coordinates managed Cloud upgrades.'];
+        for(const phrase of expected.requiredText) assert(normalize(expected.text).includes(phrase),'Missing ES upgrade timing qualification: '+phrase);
+      }
       if(route.id==='enterprise') expected.paginationPairs=[{heading:'Recommended action',following:'Match the exact package identifier to its release'}];
       if(route.id==='observability-october') expected.paginationPairs=[
         {heading:'Kubernetes persistent-volume metric defaults',following:'Chart 0.162.1 does not explicitly enable these five metrics'},
         {heading:'Kubernetes histogram bucket merging',following:'Earlier chart pipelines do not add transform/limit_histogram_buckets'}
       ];
-      if(route.id==='hf-inherited-runtime') expected.paginationPairs=[{heading:'Embedded Node.js runtime · 10.2',following:'Apps that assume Node.js is supplied by the platform will no longer run.'}];
+      const tlsGuideSelector = 'a[href$="/configure-tls-protocol-version-support-for-secure-connections-between-splunk-platform-instances"]';
+      if(route.id==='hf-inherited-runtime') {
+        expected.paginationPairs=[{heading:'Embedded Node.js runtime · 10.2',following:'Apps that assume Node.js is supplied by the platform will no longer run.'}];
+        expected.requiredText=['The versioned 10.6 TLS configuration guide still documents the earlier switch.','Validate TLS 1.2 or 1.3','Configuration guide'];
+        assert.equal(await page.locator('.forwarder-technical '+tlsGuideSelector).count(),1);
+      }
       if(route.id==='soar-cloud-86-export-fips') expected.paginationPairs=[{heading:'Requirements and integrations',following:'Automation runtime'}];
       const printTabs = await keyboardReach(page, print);
       const save = page.locator('.report-toolbar [data-save-snapshot]').first();
@@ -474,6 +522,7 @@ try {
       const reopenedText = normalize(await reopened.locator('body').textContent());
       assert(reopenedText.includes(normalize(expected.text)), 'Saved HTML lost report content');
       assert.equal(await reopened.locator('script,iframe,object,embed').count(), 0);
+      if(route.id==='hf-inherited-runtime') assert.equal(await reopened.locator('.forwarder-technical '+tlsGuideSelector).count(),1);
       const citationFailures=await reopened.evaluate(()=>[...document.querySelectorAll('a[href^="#ai-ref-"]')].filter(a=>a.textContent.trim()==='[0]'||!document.getElementById(a.getAttribute('href').slice(1))).map(a=>({label:a.textContent,href:a.getAttribute('href')})));
       assert.deepEqual(citationFailures,[], 'Downloaded AI report has an unnumbered or missing source target');
       assert.equal(requests.length, 0, 'Offline HTML attempted network requests');

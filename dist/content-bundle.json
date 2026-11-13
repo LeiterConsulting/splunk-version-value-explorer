@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-32bf2857a31cafa0c4f0ad07",
-    "digest": "90724152168c84de71c7dbd70c052b80b2346b60a18481056b06d479c72787a0",
-    "engineRevision": "engine-870537c594485e5c4ae3",
+    "revision": "content-187d9661764be146bd3e457d",
+    "digest": "e58380ac69f05bbb662d1bc605a61f559b61eac00ffa0a8f3c8a638e7d700a85",
+    "engineRevision": "engine-e594579d9797035f6e84",
     "datasetHashes": {
-      "platform": "8c8eef817e30413f9718e81c650201afb9c9574810b538d45b6c68633708dc7f",
-      "products": "531ce3ae2df257b754196fc66652e1840309f308c16f9ad3c6fdf72c0660bdf7",
-      "guidance": "60312b0a45a1a0a0dbce2ffba52fcc0e6458dab958b6f01f8d88def8de395fae",
-      "environment": "d30df851f1b62b7ee3486ccb174fc8a6170b635333d13dd08db9e6e538ab1b15",
-      "editions": "28439000d58422c47c967188a00a7ab3891aea5a1e6be5b5869a9caabd23fa7a",
+      "platform": "c75dbad3ceab9dfbb87c50e3f3ccde5b9e0bd9277421423490ac3a8dccfeee96",
+      "products": "854fe986e92c6a88dc3d76eb70c392f0f4ca38417b34c53443eecd4015ba5df4",
+      "guidance": "9486a2fd67eb6d06fbfbdd5a6cffa0cbb403a5af8fd053a10bf155038632a460",
+      "environment": "f815ab13f3acc9098a9356eef85e0a7c7f2307335a3ded45a22ca99d64d9b53a",
+      "editions": "e86a85c7c0342508ef6f15092eab4833ea79be59c0d32b014f6f0e9a790ee1c9",
       "forwarders": "f992e8bad9c60ac1b7577987233bceb0b40a3111f209305655dc552850166991",
       "soar": "0a95273ec36589b59fe74ff2ded1d383c1f8278427449dea3d06dc9e23ddebd4"
     },
-    "recordCount": 948,
+    "recordCount": 956,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -1301,10 +1301,11 @@
                 "changeType": "Removed",
                 "actionLevel": "Required",
                 "from": "Earlier documentation differs on removal versus temporary enablement",
-                "to": "10.6 disallows TLS 1.0/1.1 for inter-Splunk connections; no temporary override",
-                "implication": "Connections still requiring legacy TLS cannot be restored with the earlier temporary switch.",
-                "action": "Validate TLS 1.2 or 1.3 on each inter-Splunk connection before upgrading. The unresolved 10.4 timing conflict remains separate.",
-                "source": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first"
+                "to": "Enterprise 10.6 READ THIS FIRST says the temporary TLS 1.0/1.1 option was removed",
+                "implication": "The versioned 10.6 TLS configuration guide still documents the earlier switch. The published instructions conflict. Plan the upgrade without relying on the legacy override.",
+                "action": "Validate TLS 1.2 or 1.3 on each inter-Splunk connection before upgrading. Resolve any legacy dependency with Splunk before proceeding.",
+                "source": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first",
+                "supportingSource": "https://help.splunk.com/en/splunk-enterprise/administer/manage-users-and-security/10.6/secure-splunk-platform-communications-with-transport-layer-security-certificates/configure-tls-protocol-version-support-for-secure-connections-between-splunk-platform-instances"
               },
               {
                 "component": "Federated Search provider floor",
@@ -1392,7 +1393,7 @@
               ],
               [
                 "Migrate inter-Splunk connections to TLS 1.2+",
-                "10.6 does not support TLS 1.0/1.1 or a temporary re-enable switch. Validate every component connection before upgrading.",
+                "READ THIS FIRST says the temporary option was removed; the versioned TLS configuration guide still documents it. Validate TLS 1.2 or 1.3 on every component connection before upgrading and plan without relying on the override.",
                 "Blocker",
                 "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first",
                 true
@@ -1935,6 +1936,18 @@
                 "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.5.2605/splunk-cloud-platform-release-notes/whats-new"
               },
               {
+                "component": "Cloud 10.5.2605.17 maintenance patch",
+                "domain": "Managed-service maintenance",
+                "changeType": "Patch published",
+                "actionLevel": "Review",
+                "from": "Cloud 10.5.2605.16 remains a separate maintenance build.",
+                "to": "Cloud 10.5.2605.17 was published November 12, 2026.",
+                "implication": "The row lists preliminary security counts of one High and one Medium. Selected fixes include SPL-313132 for host names missing from a certificate-authority alert, SPL-320054 for recurring Blackbox Exporter Web authentication errors, and SPL-321107 for KVService collection-cache preparation. Selected-stack rollout and customer-managed Enterprise or Forwarder package applicability remain unestablished.",
+                "action": "Check the selected stack build before relying on the alert, Web authentication or KVService changes. Use definitive Splunk Product Security advisories for security applicability.",
+                "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.5.2605.17-0",
+                "verified": "2026-11-13"
+              },
+              {
                 "component": "Cloud 10.5.2605.16 maintenance patch",
                 "domain": "Managed-service maintenance",
                 "changeType": "Patch published",
@@ -2086,6 +2099,18 @@
                 "implication": "Deprecation is not removal, but continuing investment increases future migration work.",
                 "action": "Inventory affected dashboards and plan supported replacements while retaining current behavior until Splunk documents removal.",
                 "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new"
+              },
+              {
+                "component": "Cloud 10.6.2.4 maintenance patch",
+                "domain": "Managed-service maintenance",
+                "changeType": "Patch published",
+                "actionLevel": "Review",
+                "from": "Cloud 10.6.2.3 remains a separate maintenance build.",
+                "to": "Cloud 10.6.2.4 was published November 12, 2026.",
+                "implication": "The row lists preliminary security counts of two High and one Medium. Selected fixes include SPL-320966 for Manage Apps UI assets, SPL-320991 for field extraction permissions, and SPL-321109 for KVService collection-cache preparation. Selected-stack rollout and customer-managed Enterprise or Forwarder package applicability remain unestablished.",
+                "action": "Check the selected stack build and retest the applicable app-management or field-extraction workflow. Use definitive Splunk Product Security advisories for security applicability.",
+                "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.6.2.4-0",
+                "verified": "2026-11-13"
               },
               {
                 "component": "Cloud 10.6.2.3 maintenance patch",
@@ -2242,6 +2267,18 @@
                 "implication": "The versioned table establishes subscription service lines. It does not establish a selected-stack rollout, exact premium app patch, provider or regional availability, feature entitlement, or regulated authorization.",
                 "action": "Use the documented 10.7 release route and confirm the actual stack, premium app patch, maintenance timing, and feature prerequisites before planning work.",
                 "source": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details"
+              },
+              {
+                "component": "Cloud 10.7.0.6 maintenance patch",
+                "domain": "Managed-service maintenance",
+                "changeType": "Patch published",
+                "actionLevel": "Review",
+                "from": "Cloud 10.7.0.5 remains a separate maintenance build.",
+                "to": "Cloud 10.7.0.6 was published November 12, 2026.",
+                "implication": "The row lists preliminary security counts of three Medium. Selected fixes include SPL-320989 for private search macro owner URL encoding, SPL-320210 for search startup, and SPL-320992 for field extraction permissions. Selected-stack rollout and customer-managed Enterprise or Forwarder package applicability remain unestablished.",
+                "action": "Check the selected stack build and retest the applicable macro, search startup or field-extraction workflow. Use definitive Splunk Product Security advisories for security applicability.",
+                "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.7.0.6-0",
+                "verified": "2026-11-13"
               },
               {
                 "component": "Cloud 10.7.0.5 maintenance patch",
@@ -3145,6 +3182,18 @@
                 ]
               ],
               "technicalChanges": [
+                {
+                  "component": "ES 8.8 Mission Control migration window",
+                  "domain": "Upgrade sequencing",
+                  "changeType": "Maintenance planning",
+                  "actionLevel": "Review",
+                  "from": "In the on-premises search-head upgrade guide, this migration does not extend the ES 8.8 upgrade window on Platform 10.5 or lower.",
+                  "to": "If Platform 10.6 or later is already installed, upgrading ES to 8.8 extends the maintenance window for the Mission Control incidents migration from KV Store to PostgreSQL.",
+                  "implication": "Splunk estimates about five additional minutes per GB for the missioncontrol.mc_incidents collection. Volume, record count and environment can extend the estimate. Expect analyst queue interruptions and possible intermittent ES unavailability. If Platform is upgraded to 10.6 or later after ES 8.8, the guide says this migration runs in the background.",
+                  "action": "Estimate the collection size, allow time for analyst queue disruption and confirm the exact supported host and ES patches before choosing an upgrade order. Splunk coordinates managed Cloud upgrades. Confirm the actual window with Splunk.",
+                  "source": "https://help.splunk.com/en/splunk-enterprise-security-8/install/8.8/upgrading/upgrade-splunk-enterprise-security",
+                  "verified": "2026-11-13"
+                },
                 {
                   "component": "ES-SOAR hybrid certificate trust",
                   "domain": "SOAR pairing & certificates",
@@ -5284,7 +5333,7 @@
         }
       },
       "guidance": {
-        "reviewed": "2026-11-12",
+        "reviewed": "2026-11-13",
         "lifecycle": {
           "source": "https://www.splunk.com/en_us/legal/splunk-software-support-policy.html",
           "reviewed": "2026-10-01",
@@ -6243,7 +6292,8 @@
                 "Premier, paired SOAR and representative enablement.",
                 "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the 8.8 task guide requires ES 8.7+.",
                 "CMP: the setup guide requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. Current SAIA guidance says 2.4.0 Cloud Connected support is planned for late November 2026, so no released supported CMP path is established. Earlier ES 8.9+ bundled-Cloud-Connect wording is historical packaging evidence, not release or rollout evidence.",
-                "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported."
+                "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported.",
+                "In ES 8.8, the Response agent cannot rerun or process findings added after it has already processed the investigation."
               ],
               "runtime": "Agentic SOC services; the 8.8 task guide says the Splunk-hosted model option does not apply to this workflow. Paired SOAR has independent compatibility.",
               "qualification": "The current aggregate row and task guide name the combined Triage and Response workflow under Premier while retaining AI SOC analyst terminology inside the workflow. The current documentation no longer explicitly assigns Triage to Essentials. The earlier Essentials statement remains historical evidence, while exact subcomponent entitlement remains unestablished. Connector/action inheritance and the es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence. The CMP dependency chain is documented but its required SAIA 2.4 Cloud Connected release remains planned rather than available in current SAIA guidance.",
@@ -7272,6 +7322,11 @@
           "provider": "aws"
         },
         {
+          "id": "il-central-1",
+          "label": "Israel (Tel Aviv)",
+          "provider": "aws"
+        },
+        {
           "id": "sa-east-1",
           "label": "São Paulo",
           "provider": "aws"
@@ -7483,6 +7538,27 @@
           "published": null,
           "scope": "November 6, 2026 > Available regions and region differences; applies to relevant Cloud 10.7 versions.",
           "checked": "2026-11-07"
+        },
+        "service107Israel": {
+          "title": "Cloud Platform 10.7 new-stack regional availability",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#id_599802a1_7358_493f_851f_15dfde0fbe0e--en__Available_regions_and_region_differences",
+          "published": null,
+          "scope": "Available regions and region differences > Victoria Experience > AWS > Middle East (Israel), for new stacks.",
+          "checked": "2026-11-13"
+        },
+        "awsIsrael": {
+          "title": "AWS Region name and identifier for Israel (Tel Aviv)",
+          "url": "https://docs.aws.amazon.com/general/latest/gr/ec2-service.html",
+          "published": null,
+          "scope": "Service endpoints > Israel (Tel Aviv) and il-central-1. Provider naming only.",
+          "checked": "2026-11-13"
+        },
+        "changes107Israel": {
+          "title": "November 6 Cloud Platform 10.7 AWS Israel change entry",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log#6-november-2026-0",
+          "published": "2026-11-06",
+          "scope": "6 November 2026 > Available regions and region differences > AWS Israel addition for relevant Cloud 10.7 versions.",
+          "checked": "2026-11-13"
         }
       },
       "records": [
@@ -7519,6 +7595,29 @@
           ],
           "checked": "2026-10-07",
           "scope": "Current service guidance; not a historical availability guarantee",
+          "experience": "victoria"
+        },
+        {
+          "id": "victoria-aws-israel",
+          "product": "platform",
+          "feature": "Victoria Experience",
+          "provider": "aws",
+          "regions": [
+            "il-central-1"
+          ],
+          "regimes": [
+            "commercial"
+          ],
+          "availability": "available",
+          "authorization": "not_established",
+          "detail": "The Cloud Platform 10.7 service table lists AWS Israel for new Victoria stacks. The November 6 change log scopes the addition to relevant 10.7 versions. Availability for earlier releases, existing-stack migration, other products and customer authorization remain unestablished by this row.",
+          "sources": [
+            "service107Israel",
+            "changes107Israel",
+            "awsIsrael"
+          ],
+          "checked": "2026-11-13",
+          "scope": "New commercial Victoria stacks in AWS Israel, as listed for relevant Cloud Platform 10.7 versions.",
           "experience": "victoria"
         },
         {
@@ -9940,7 +10039,7 @@
             "v": "yes",
             "n": "Cloud and Cloud Connected CMP; rep-enabled"
           },
-          "desc": "Assists investigation and response. The current 8.8 documentation names the combined Triage and Response agents while retaining AI SOC analyst terminology inside the workflow. The aggregate row documents Premier on Cloud and Cloud Connected CMP, paired SOAR and representative enablement. Cloud requires platform 10.2+ and ES 8.6+; the task guide separately requires ES 8.7+. CMP requires platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. The current SAIA 2.3.6 installation guidance says Cloud Connected support is only planned for 2.4.0 in late November 2026, so the ES prerequisite does not yet establish a released supported CMP path. Earlier ES 8.9+ bundled-Cloud-Connect wording is historical packaging evidence, not release evidence. The task guide also requires connector and investigation permissions and a finding with AI triage results; it limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day, with frontier models only.",
+          "desc": "Assists investigation and response. The current 8.8 documentation names the combined Triage and Response agents while retaining AI SOC analyst terminology inside the workflow. The aggregate row documents Premier on Cloud and Cloud Connected CMP, paired SOAR and representative enablement. Cloud requires platform 10.2+ and ES 8.6+; the task guide separately requires ES 8.7+. CMP requires platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. The current SAIA 2.3.6 installation guidance says Cloud Connected support is only planned for 2.4.0 in late November 2026, so the ES prerequisite does not yet establish a released supported CMP path. Earlier ES 8.9+ bundled-Cloud-Connect wording is historical packaging evidence, not release evidence. The task guide also requires connector and investigation permissions and a finding with AI triage results; it limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day, with frontier models only. In ES 8.8, the Response agent cannot rerun or process findings added after it has already processed the investigation.",
           "flag": "The 8.8 aggregate table and task guide retain different Cloud ES minimums. The task guide also requires inherited SOAR connector permissions and the es_soar_integration_user_role for granular asset access; these permission boundaries do not establish compatible SOAR pairing. The CMP path has its own higher platform, ES and Cloud Connect floors, and its required SAIA 2.4 dependency remains planned rather than released in the current SAIA guidance.",
           "src": [
             "agentic88",
@@ -12214,6 +12313,12 @@
         "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.2/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security"
       },
       {
+        "id": "source-2a25c86dd80b656517ff",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.6.2.4-0"
+      },
+      {
         "id": "source-2b7b561d102ca08738b0",
         "kind": "source",
         "dataset": "sources",
@@ -12260,6 +12365,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://advisory.splunk.com/advisories/SVD-2026-0404"
+      },
+      {
+        "id": "source-2ffb76e46dc2821c1ec4",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/install/8.8/upgrading/upgrade-splunk-enterprise-security"
       },
       {
         "id": "source-306251180c9410524222",
@@ -12320,6 +12431,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-cloud-platform/forward-and-process-data/universal-forwarder-manual/10.0/configure-the-universal-forwarder/enable-a-receiver-for-the-splunk-cloud-platform"
+      },
+      {
+        "id": "source-377be508dcf6661dff16",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.5.2605.17-0"
       },
       {
         "id": "source-38b36544bc0c010962c1",
@@ -12464,6 +12581,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector"
+      },
+      {
+        "id": "source-554f86f1946a43550e26",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.7.0.6-0"
       },
       {
         "id": "source-559bb70feefef2142ae7",
@@ -12856,6 +12979,18 @@
         "url": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.7/introduction/access-splunk-cloud-connect-in-splunk-enterprise-security-to-access-cloud-extensions"
       },
       {
+        "id": "source-9e9033cbf74a6eeeaa24",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log#6-november-2026-0"
+      },
+      {
+        "id": "source-9f7551976c1c94308f66",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://docs.aws.amazon.com/general/latest/gr/ec2-service.html"
+      },
+      {
         "id": "source-a4b22ed4024fa0c247ca",
         "kind": "source",
         "dataset": "sources",
@@ -13126,6 +13261,12 @@
         "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.1.2507/splunk-cloud-platform-release-notes/whats-new"
       },
       {
+        "id": "source-cf1772cf77ad69833cff",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-enterprise/administer/manage-users-and-security/10.6/secure-splunk-platform-communications-with-transport-layer-security-certificates/configure-tls-protocol-version-support-for-secure-connections-between-splunk-platform-instances"
+      },
+      {
         "id": "source-d03b8722952f9ae8b5fd",
         "kind": "source",
         "dataset": "sources",
@@ -13262,6 +13403,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://splunkbase.splunk.com/app/3411"
+      },
+      {
+        "id": "source-e88b33ef7718fd619252",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#id_599802a1_7358_493f_851f_15dfde0fbe0e--en__Available_regions_and_region_differences"
       },
       {
         "id": "source-e9d6dfb5bb271e501cfc",
@@ -20306,7 +20453,8 @@
                 "Premier, paired SOAR and representative enablement.",
                 "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the 8.8 task guide requires ES 8.7+.",
                 "CMP: the setup guide requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. Current SAIA guidance says 2.4.0 Cloud Connected support is planned for late November 2026, so no released supported CMP path is established. Earlier ES 8.9+ bundled-Cloud-Connect wording is historical packaging evidence, not release or rollout evidence.",
-                "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported."
+                "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported.",
+                "In ES 8.8, the Response agent cannot rerun or process findings added after it has already processed the investigation."
               ],
               "runtime": "Agentic SOC services; the 8.8 task guide says the Splunk-hosted model option does not apply to this workflow. Paired SOAR has independent compatibility.",
               "qualification": "The current aggregate row and task guide name the combined Triage and Response workflow under Premier while retaining AI SOC analyst terminology inside the workflow. The current documentation no longer explicitly assigns Triage to Essentials. The earlier Essentials statement remains historical evidence, while exact subcomponent entitlement remains unestablished. Connector/action inheritance and the es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence. The CMP dependency chain is documented but its required SAIA 2.4 Cloud Connected release remains planned rather than available in current SAIA guidance.",
@@ -23358,7 +23506,7 @@
         },
         "payload": [
           "Migrate inter-Splunk connections to TLS 1.2+",
-          "10.6 does not support TLS 1.0/1.1 or a temporary re-enable switch. Validate every component connection before upgrading.",
+          "READ THIS FIRST says the temporary option was removed; the versioned TLS configuration guide still documents it. Validate TLS 1.2 or 1.3 on every component connection before upgrading and plan without relying on the override.",
           "Blocker",
           "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first",
           true
@@ -31221,7 +31369,8 @@
             "Premier, paired SOAR and representative enablement.",
             "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the 8.8 task guide requires ES 8.7+.",
             "CMP: the setup guide requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. Current SAIA guidance says 2.4.0 Cloud Connected support is planned for late November 2026, so no released supported CMP path is established. Earlier ES 8.9+ bundled-Cloud-Connect wording is historical packaging evidence, not release or rollout evidence.",
-            "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported."
+            "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported.",
+            "In ES 8.8, the Response agent cannot rerun or process findings added after it has already processed the investigation."
           ],
           "runtime": "Agentic SOC services; the 8.8 task guide says the Splunk-hosted model option does not apply to this workflow. Paired SOAR has independent compatibility.",
           "qualification": "The current aggregate row and task guide name the combined Triage and Response workflow under Premier while retaining AI SOC analyst terminology inside the workflow. The current documentation no longer explicitly assigns Triage to Essentials. The earlier Essentials statement remains historical evidence, while exact subcomponent entitlement remains unestablished. Connector/action inheritance and the es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence. The CMP dependency chain is documented but its required SAIA 2.4 Cloud Connected release remains planned rather than available in current SAIA guidance.",
@@ -34385,7 +34534,8 @@
                 "Premier, paired SOAR and representative enablement.",
                 "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the 8.8 task guide requires ES 8.7+.",
                 "CMP: the setup guide requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. Current SAIA guidance says 2.4.0 Cloud Connected support is planned for late November 2026, so no released supported CMP path is established. Earlier ES 8.9+ bundled-Cloud-Connect wording is historical packaging evidence, not release or rollout evidence.",
-                "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported."
+                "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported.",
+                "In ES 8.8, the Response agent cannot rerun or process findings added after it has already processed the investigation."
               ],
               "runtime": "Agentic SOC services; the 8.8 task guide says the Splunk-hosted model option does not apply to this workflow. Paired SOAR has independent compatibility.",
               "qualification": "The current aggregate row and task guide name the combined Triage and Response workflow under Premier while retaining AI SOC analyst terminology inside the workflow. The current documentation no longer explicitly assigns Triage to Essentials. The earlier Essentials statement remains historical evidence, while exact subcomponent entitlement remains unestablished. Connector/action inheritance and the es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence. The CMP dependency chain is documented but its required SAIA 2.4 Cloud Connected release remains planned rather than available in current SAIA guidance.",
@@ -35353,7 +35503,7 @@
             "v": "yes",
             "n": "Cloud and Cloud Connected CMP; rep-enabled"
           },
-          "desc": "Assists investigation and response. The current 8.8 documentation names the combined Triage and Response agents while retaining AI SOC analyst terminology inside the workflow. The aggregate row documents Premier on Cloud and Cloud Connected CMP, paired SOAR and representative enablement. Cloud requires platform 10.2+ and ES 8.6+; the task guide separately requires ES 8.7+. CMP requires platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. The current SAIA 2.3.6 installation guidance says Cloud Connected support is only planned for 2.4.0 in late November 2026, so the ES prerequisite does not yet establish a released supported CMP path. Earlier ES 8.9+ bundled-Cloud-Connect wording is historical packaging evidence, not release evidence. The task guide also requires connector and investigation permissions and a finding with AI triage results; it limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day, with frontier models only.",
+          "desc": "Assists investigation and response. The current 8.8 documentation names the combined Triage and Response agents while retaining AI SOC analyst terminology inside the workflow. The aggregate row documents Premier on Cloud and Cloud Connected CMP, paired SOAR and representative enablement. Cloud requires platform 10.2+ and ES 8.6+; the task guide separately requires ES 8.7+. CMP requires platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. The current SAIA 2.3.6 installation guidance says Cloud Connected support is only planned for 2.4.0 in late November 2026, so the ES prerequisite does not yet establish a released supported CMP path. Earlier ES 8.9+ bundled-Cloud-Connect wording is historical packaging evidence, not release evidence. The task guide also requires connector and investigation permissions and a finding with AI triage results; it limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day, with frontier models only. In ES 8.8, the Response agent cannot rerun or process findings added after it has already processed the investigation.",
           "flag": "The 8.8 aggregate table and task guide retain different Cloud ES minimums. The task guide also requires inherited SOAR connector permissions and the es_soar_integration_user_role for granular asset access; these permission boundaries do not establish compatible SOAR pairing. The CMP path has its own higher platform, ES and Cloud Connect floors, and its required SAIA 2.4 dependency remains planned rather than released in the current SAIA guidance.",
           "src": [
             "agentic88",
@@ -35946,7 +36096,8 @@
             "Premier, paired SOAR and representative enablement.",
             "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the 8.8 task guide requires ES 8.7+.",
             "CMP: the setup guide requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. Current SAIA guidance says 2.4.0 Cloud Connected support is planned for late November 2026, so no released supported CMP path is established. Earlier ES 8.9+ bundled-Cloud-Connect wording is historical packaging evidence, not release or rollout evidence.",
-            "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported."
+            "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported.",
+            "In ES 8.8, the Response agent cannot rerun or process findings added after it has already processed the investigation."
           ],
           "runtime": "Agentic SOC services; the 8.8 task guide says the Splunk-hosted model option does not apply to this workflow. Paired SOAR has independent compatibility.",
           "qualification": "The current aggregate row and task guide name the combined Triage and Response workflow under Premier while retaining AI SOC analyst terminology inside the workflow. The current documentation no longer explicitly assigns Triage to Essentials. The earlier Essentials statement remains historical evidence, while exact subcomponent entitlement remains unestablished. Connector/action inheritance and the es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence. The CMP dependency chain is documented but its required SAIA 2.4 Cloud Connected release remains planned rather than available in current SAIA guidance.",

@@ -253,10 +253,16 @@
       "sections": [
         "Splunk has removed support for versions 1.0 and 1.1 of the Transport Layer Security (TLS) protocol"
       ],
-      "sourceCheckDate": "2026-10-24",
-      "claimVerificationDate": "2026-10-24",
-      "outcome": "supporting-section-confirmed",
-      "qualification": "Heavy Forwarder uses the Enterprise package. October 24 semantic recheck: the 10.6 READ THIS FIRST section says TLS 1.0/1.1 support was removed in 10.4 and that 10.6 removes the temporary re-enable option; migrate inter-Splunk connections to TLS 1.2 or higher. This does not establish UF applicability, Cloud-managed scope, every app-owned connection, or deployment approval."
+      "sourceCheckDate": "2026-11-13",
+      "claimVerificationDate": "2026-11-13",
+      "outcome": "conflicting-evidence-preserved",
+      "qualification": "Heavy Forwarder uses the customer-managed Enterprise package. The 10.6 upgrade notice says the temporary TLS 1.0/1.1 option was removed. The separate 10.6 configuration guide still documents the opt-in. Retain the published conflict and validate TLS 1.2 or 1.3 before upgrading. Do not rely on the legacy setting or infer UF, Cloud-managed or app-owned runtime applicability.",
+      "supportingSources": [
+        {
+          "url": "https://help.splunk.com/en/splunk-enterprise/administer/manage-users-and-security/10.6/secure-splunk-platform-communications-with-transport-layer-security-certificates/configure-tls-protocol-version-support-for-secure-connections-between-splunk-platform-instances",
+          "section": "Supported SSL and TLS protocol versions; Turn on support for older TLS versions with deprecatedTlsVersionSupport"
+        }
+      ]
     },
     {
       "claimId": "technical.hf.10.6.kv-store-source-version-prerequisite",

@@ -156,8 +156,8 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "ai-es-soc",
       "ref": "capability:ai-es-soc",
-      "sha256": "dc61c59d3e9cfb256823c35342c12063974a271b8e8d6838902850fee803ae04",
-      "scope": "November 4 scoped workflow reconciliation: current documentation names Triage and Response under Premier; the earlier Essentials statement remains historical. Cloud/CMP prerequisites, the unreleased planned SAIA 2.4 dependency, pairing and permissions remain independently qualified.",
+      "sha256": "7bcd91a2aefa31ba0f2855232ef1d35fec47b144d32b128e20fab4d9a021ea3e",
+      "scope": "November 4 scoped workflow reconciliation: current documentation names Triage and Response under Premier; the earlier Essentials statement remains historical. Cloud/CMP prerequisites, the unreleased planned SAIA 2.4 dependency, pairing and permissions remain independently qualified. November 13 adds only the exact ES 8.8 Response rerun and later-added-finding limits from the existing versioned task. Original source and claim dates for the other scope are retained.",
       "sources": [
         "aiEsAgents88",
         "aiEsSocTask88",
@@ -217,7 +217,7 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "region-context",
       "ref": "environment:regions",
-      "sha256": "abcda3f495ae35fda7e68d583a4c8320e1e28aceb8ea37f310acf633ab1961b9",
+      "sha256": "4e80f8f02f1e2144d7dc86e8a1ac87dd910ade62ddf8bc987691feac3da079f7",
       "scope": "Location/provider identifiers only. This is not feature or authorization evidence.",
       "sources": []
     },

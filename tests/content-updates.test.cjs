@@ -17,11 +17,18 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('material cycle preserves scoped release evidence and prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,65);
+ assert.equal(b.policy.currentCycle,69);
+ const israel=b.entries['environment:victoria-aws-israel'];assert.equal(israel.cycle,69);assert.equal(israel.sourceDate,'2026-11-06');assert(b.active(israel));
+ const esWindow=b.entries["technical:es:ES 8.8 Mission Control migration window"];
+ assert.equal(esWindow.cycle,67);assert(b.active(esWindow,68));assert(!b.active(esWindow));assert.equal(esWindow.sourceDate,null);
  const cloud104=b.entries['technical:platform:Cloud 10.4.2604.18 maintenance patch'];
  assert.equal(cloud104.cycle,63);assert.equal(cloud104.sourceDate,'2026-11-06');assert(b.active(cloud104,64));assert(!b.active(cloud104));
  const cloud105Patch=b.entries['technical:platform:Cloud 10.5.2605.16 maintenance patch'];
- assert.equal(cloud105Patch.cycle,64);assert.equal(cloud105Patch.sourceDate,'2026-11-06');assert(b.active(cloud105Patch));
+ assert.equal(cloud105Patch.cycle,64);assert.equal(cloud105Patch.sourceDate,'2026-11-06');assert(b.active(cloud105Patch,65));assert(!b.active(cloud105Patch));
+ for (const build of ['10.5.2605.17','10.6.2.4','10.7.0.6']) {
+  const patch=b.entries['technical:platform:Cloud '+build+' maintenance patch'];
+  assert.equal(patch.cycle,66);assert.equal(patch.sourceDate,'2026-11-12');assert(b.active(patch,67));assert(!b.active(patch));assert(patch.source.endsWith('#'+build+'-0'));
+ }
  const ea=b.entries["edition:exposure"];assert.equal(ea.cycle,52);assert(b.active(ea,53));assert(!b.active(ea));
  const soar=b.entries['product:soar:cloud-8.8'];assert.equal(soar.cycle,51);assert(!b.active(soar));assert.match(soar.detail,/November 4 General Availability/);
  const app=b.entries['technical:soar:app88'];assert.equal(app.cycle,53);assert(!b.active(app));
@@ -36,7 +43,8 @@ test('material cycle preserves scoped release evidence and prior cycle provenanc
  const aiCycle42=b.entries['ai-history:catalog:cycle42'];assert.equal(aiCycle42.recordKey,'ai:catalog');assert.equal(aiCycle42.cycle,42);assert(!b.active(aiCycle42));assert.match(aiCycle42.detail,/separate Cloud Connect 2\.0 download/);assert.match(aiCycle42.detail,/does not establish an ES 8\.9 release/);
  const aiCycle40=b.entries['ai-history:catalog:cycle40'];assert.equal(aiCycle40.recordKey,'ai:catalog');assert.equal(aiCycle40.cycle,40);assert(!b.active(aiCycle40));assert.match(aiCycle40.detail,/first 10 findings/);
  const aiCycle37=b.entries['ai-history:catalog:cycle37'];assert.equal(aiCycle37.recordKey,'ai:catalog');assert.equal(aiCycle37.cycle,37);assert(!b.active(aiCycle37));assert.match(aiCycle37.detail,/Threat Graph Detection/);
- const soc=b.entries['edition:ai-soc-analyst'];assert.equal(soc.cycle,50);assert(b.active(soc,51));assert.match(soc.detail,/Triage and Response agent identity/);assert.match(soc.detail,/Splunk AI Assistant 2\.4/);
+ const soc=b.entries['edition:ai-soc-analyst'];assert.equal(soc.cycle,68);assert(b.active(soc));assert.match(soc.detail,/cannot rerun/);
+ const socHistory=b.entries['edition-history:ai-soc-analyst:cycle50'];assert.equal(socHistory.cycle,50);assert(b.active(socHistory,51));assert.match(socHistory.detail,/Splunk AI Assistant 2\.4/);
  const socCycle42=b.entries['edition-history:ai-soc-analyst:cycle42'];assert.equal(socCycle42.recordKey,'edition:ai-soc-analyst');assert.equal(socCycle42.cycle,42);assert(!b.active(socCycle42));assert.match(socCycle42.detail,/dependency packaging/);
  for(const key of ['edition:connector-builder','edition:malware-reversing','edition:licensing']){const e=b.entries[key];assert.equal(e.cycle,45);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-31\.md/);}
  {const e=b.entries['edition:cloud-connect'];assert.equal(e.cycle,50);assert(b.active(e,51));assert.match(e.detail,/planned/);assert.match(e.note,/2026\/11\/2026-11-04\.md/);}
@@ -84,7 +92,7 @@ test('material cycle preserves scoped release evidence and prior cycle provenanc
  for(const key of ['feature:observability:Python instrumentation 2.13.3','technical:observability:Python 2.13.3 auto-instrumentation images and dependency floors','technical:observability:Python PostgreSQL query-to-trace correlation']){const e=b.entries[key];assert.equal(e.cycle,44);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-30\.md/);assert.match(e.version,/2\.13\.3/);}
  for(const key of ['environment:s3-moderate','environment:machine-data-lake-aws','environment:machine-data-lake-gov','environment:machine-data-lake-gcp','environment:machine-data-lake-azure']){const e=b.entries[key];assert.equal(e.cycle,15);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-09\.md/);}
  for(const key of ['compatibility:es:cloud-current','compatibility:itsi:cloud-current','technical:forwarders:10.6 receiver compatibility','technical:forwarders:Cloud 10.6 receiver compatibility','technical:platform:Cloud 10.6 publication versus stack availability']){const e=b.entries[key];assert.equal(e.cycle,14);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-07\.md/);}
- const offerings=b.entries['environment:es-fr-m-offering'];assert(b.active(offerings));assert.equal(offerings.cycle,65);
+ const offerings=b.entries['environment:es-fr-m-offering'];assert(b.active(offerings,66));assert(!b.active(offerings));assert.equal(offerings.cycle,65);
  const priorOffering=b.entries['environment-history:es-fr-m-offering:cycle55'];assert(b.active(priorOffering,56));assert(!b.active(priorOffering));assert.equal(priorOffering.recordKey,'environment:es-fr-m-offering');
  const kv=b.entries['technical:platform:KV Store database engine'];assert(!b.active(kv));assert.equal(kv.cycle,19);assert.match(kv.detail,/ES-specific/);assert.equal(b.entries['technical-history:platform:KV Store database engine:2026-10-01-cycle5'].recordKey,'technical:platform:KV Store database engine');assert.equal(b.entries['technical-history:platform:KV Store database engine:2026-10-01-cycle6'].cycle,6);
  for(const key of ['feature:observability:Stricter APM not-equal tag filtering','technical:observability:APM not-equal tag filters','feature:observability:Java instrumentation 2.32','feature:observability:Node.js instrumentation 4.12.1','technical:observability:Node.js instrumentation baseline']){const e=b.entries[key];assert.equal(e.cycle,20);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-13\.md/);}
