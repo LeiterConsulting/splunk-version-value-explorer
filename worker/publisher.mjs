@@ -192,7 +192,8 @@ export async function publisherRequest(request, env, seed, json) {
     try { evidence = publisherEvidenceRequest(input, identity); input = evidence.input; }
     catch { return json({ error: 'Invalid workflow evidence credential' }, 400); }
     if (url.pathname.endsWith('/activate')) {
-      if (env.VC_ACTIVE_DELIVERY !== '1') return json({ error: 'Active delivery awaits the required browser and export verification' }, 423);
+      // Reader enablement alone never grants authenticated publication activation.
+      if (env.VC_ACTIVE_DELIVERY !== '1' || env.VC_PUBLISHER_ACTIVATION !== '1') return json({ error: 'Publication activation is disabled pending independent release approval' }, 423);
       if (identity.type === 'github-oidc') {
         if (input.intent !== 'publish') return json({ error: 'Rollback requires maintenance authorization' }, 403);
         const bundle = await readBundle(env.DB, input.revision);
