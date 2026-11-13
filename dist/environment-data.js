@@ -327,7 +327,7 @@ window.VersionCompassEnvironmentData = {
     },
     "service107Israel": {
       "title": "Cloud Platform 10.7 new-stack regional availability",
-      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#id_599802a1_7358_493f_851f_15dfde0fbe0e--en__Available_regions_and_region_differences",
       "published": null,
       "scope": "Available regions and region differences > Victoria Experience > AWS > Middle East (Israel), for new stacks.",
       "checked": "2026-11-13"
@@ -337,6 +337,13 @@ window.VersionCompassEnvironmentData = {
       "url": "https://docs.aws.amazon.com/general/latest/gr/ec2-service.html",
       "published": null,
       "scope": "Service endpoints > Israel (Tel Aviv) and il-central-1. Provider naming only.",
+      "checked": "2026-11-13"
+    },
+    "changes107Israel": {
+      "title": "November 6 Cloud Platform 10.7 AWS Israel change entry",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log#6-november-2026-0",
+      "published": "2026-11-06",
+      "scope": "6 November 2026 > Available regions and region differences > AWS Israel addition for relevant Cloud 10.7 versions.",
       "checked": "2026-11-13"
     }
   },
@@ -392,7 +399,7 @@ window.VersionCompassEnvironmentData = {
       "detail": "The Cloud Platform 10.7 service table lists AWS Israel for new Victoria stacks. The November 6 change log scopes the addition to relevant 10.7 versions. Availability for earlier releases, existing-stack migration, other products and customer authorization remain unestablished by this row.",
       "sources": [
         "service107Israel",
-        "changes107",
+        "changes107Israel",
         "awsIsrael"
       ],
       "checked": "2026-11-13",

@@ -462,7 +462,10 @@ try {
         if(cloudPatch.details) expected.requiredText.push(...cloudPatch.details,'customer-managed Enterprise or Forwarder package applicability remain unestablished');
         if(build==='10.4.2604.18') expected.requiredText.push('SPL-314840','SPL-316497','SPL-316559','customer-managed Enterprise or Forwarder package applicability unestablished');
       }
-      if(israelRoute) expected.requiredText=['Israel (Tel Aviv)',israelText];
+      if(israelRoute) {
+        expected.requiredText=['Israel (Tel Aviv)',israelText];
+        if(israelMatched) expected.requiredText.push('Victoria Experience > AWS > Middle East (Israel)','AWS Israel addition for relevant Cloud 10.7 versions','Service endpoints > Israel (Tel Aviv) and il-central-1');
+      }
       if(route.id==='cloud-107-fedramp-high') {
         for(const qualification of ['Cloud 10.7 Service Details lists Edge Processor for FedRAMP High','Cloud 10.7 Service Details lists Ingest Processor for FedRAMP High','The 10.6 table lists Moderate only','Essentials tier']) assert(normalize(expected.text).includes(qualification), 'High processor qualification missing: '+qualification);
       }

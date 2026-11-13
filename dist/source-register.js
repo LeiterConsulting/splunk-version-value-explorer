@@ -662,12 +662,16 @@ window.VersionCompassSources = {
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "section": "Service endpoints > Israel (Tel Aviv) and il-central-1. Provider naming only.",
+      "verificationScope": "Official indexed AWS service-endpoints table checked for region identity only; the direct page body was unavailable.",
       "events": [
         {
           "date": "2026-11-13",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-13",
+          "event": "Review status updated: Reviewed · 2026-11-13"
         }
       ]
     },
@@ -2364,10 +2368,8 @@ window.VersionCompassSources = {
         "release.productTracks.es.cloudServiceSource",
         "release.productTracks.itsi.cloudServiceSource",
         "environment.sources.service107.url",
-        "environment.sources.service107Israel.url",
         "forwarders.sources.cloud107.url",
         "content-updates.js",
-        "environment: environment.records.1",
         "environment: environment.records.62",
         "environment: environment.records.63",
         "environment: environment.records.64",
@@ -2376,7 +2378,6 @@ window.VersionCompassSources = {
       ],
       "reviews": [
         "2026-11-07",
-        "2026-11-13",
         "2026-11-09"
       ],
       "claimReferences": [
@@ -2410,6 +2411,35 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#id_599802a1_7358_493f_851f_15dfde0fbe0e--en__Available_regions_and_region_differences",
+      "title": "Cloud Platform 10.7 new-stack regional availability",
+      "areas": [
+        "Cloud environment"
+      ],
+      "references": [
+        "environment.sources.service107Israel.url",
+        "environment: environment.records.1"
+      ],
+      "reviews": [
+        "2026-11-13"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-13",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-13",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Available regions and region differences > Victoria Experience > AWS > Middle East (Israel), for new stacks.",
+      "verificationScope": "Only the documented 10.7 AWS Israel new-stack scope was assessed for this annotation.",
+      "events": [
+        {
+          "date": "2026-11-13",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log",
       "title": "Cloud Platform 10.7 service description change log",
       "areas": [
@@ -2419,7 +2449,6 @@ window.VersionCompassSources = {
       "references": [
         "environment.sources.changes107.url",
         "content-updates.js",
-        "environment: environment.records.1",
         "environment: environment.records.62",
         "environment: environment.records.63"
       ],
@@ -2438,6 +2467,35 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-11-07",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log#6-november-2026-0",
+      "title": "November 6 Cloud Platform 10.7 AWS Israel change entry",
+      "areas": [
+        "Cloud environment"
+      ],
+      "references": [
+        "environment.sources.changes107Israel.url",
+        "environment: environment.records.1"
+      ],
+      "reviews": [
+        "2026-11-13"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-13",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-13",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "6 November 2026 > Available regions and region differences > AWS Israel addition for relevant Cloud 10.7 versions.",
+      "verificationScope": "Only the documented 10.7 AWS Israel new-stack scope was assessed for this annotation.",
+      "events": [
+        {
+          "date": "2026-11-13",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
