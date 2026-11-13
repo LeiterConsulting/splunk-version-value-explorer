@@ -207,7 +207,7 @@ try {
       assert(result.readOnly&&result.stable&&result.current,'Missing read-only ES upgrade timing');
       assert.deepEqual(result.explicit,result.current);
       assert.equal(result.current.verified,'2026-11-13');
-      const card=page.locator('.technical-item').filter({has:page.getByRole('heading',{name:/ES 8.8 Mission Control migration window/})});
+      const card=page.locator('#technical-content .technical-item').filter({has:page.locator('h4').filter({hasText:result.current.component})});
       assert((await card.textContent()).includes(result.current.implication));
       entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
     }
