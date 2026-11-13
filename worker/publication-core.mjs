@@ -162,9 +162,11 @@ export async function stagePublication(db, candidate, options) {
   // All network, CI, identity and content checks finish before any database write.
   await db.prepare('INSERT INTO content_revisions (id, engine, schema_version, digest, manifest_json, bundle_json, record_count, completed) VALUES (?, ?, ?, ?, ?, ?, ?, 0) ON CONFLICT(id) DO NOTHING')
     .bind(m.revision, m.engineRevision, m.schemaVersion, m.digest, JSON.stringify(m), bytes, m.recordCount).run();
-  const stored = await db.prepare('SELECT bundle_json, manifest_json FROM content_revisions WHERE id = ?').bind(m.revision).first();
+  const stored = await db.prepare('SELECT bundle_json, manifest_json, completed FROM content_revisions WHERE id = ?').bind(m.revision).first();
   requireValue(stored?.bundle_json === bytes && stored.manifest_json === JSON.stringify(m), 'Immutable revision collision');
-  for (let offset = 0; offset < bundle.catalog.records.length; offset += 50) {
+  // A completed exact revision still requires full row verification below,
+  // but must not replay every INSERT batch during bootstrap/provenance binding.
+  for (let offset = 0; stored.completed !== 1 && offset < bundle.catalog.records.length; offset += 50) {
     await db.batch(bundle.catalog.records.slice(offset, offset + 50).map(row => db.prepare('INSERT INTO content_records (revision_id, record_id, kind, dataset, payload_json) VALUES (?, ?, ?, ?, ?) ON CONFLICT(revision_id, record_id) DO NOTHING')
       .bind(m.revision, row.id, row.kind, row.dataset, JSON.stringify(row))));
   }

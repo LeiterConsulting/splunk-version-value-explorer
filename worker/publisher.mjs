@@ -53,7 +53,7 @@ export async function verifyPublisherOIDC(token, { fetcher = (...args) => global
   try { verified = await crypto.subtle.verify('RSASSA-PKCS1-v1_5', key, publisherBase64(parts[2]), new TextEncoder().encode(parts[0] + '.' + parts[1])); }
   catch { throw Error('Signature verification unavailable'); }
   if (!verified) throw Error('Invalid signature');
-  return { type: 'github-oidc', commit: claims.sha };
+  return { type: 'github-oidc', commit: claims.sha, eventName: claims.event_name };
 }
 async function publisherIdentity(request, env) {
   const authorization = request.headers.get('Authorization') || '';
@@ -85,6 +85,12 @@ async function publisherBody(request) {
   const bytes = new Uint8Array(size); let offset = 0;
   for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.length; }
   return JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes));
+}
+export async function resumePublisherSeed(db,candidate,seed,options={}){
+ // Only the deployed immutable seed, never an arbitrary or historical candidate.
+ if(JSON.stringify(candidate?.bundle)!==JSON.stringify(seed))throw Error('Resume requires the deployment seed');
+ await verifyRepositoryPublication(candidate,{...options,engineRevision:seed.manifest.engineRevision});
+ return resumeSeedBatch(db,seed);
 }
 export async function bootstrapPublication(db, candidate, operationId, seed, options = {}) {
   if (!/^pub-[a-f0-9]{32}$/.test(operationId || '') || candidate?.bundle?.manifest?.revision !== seed.manifest.revision) throw Error('Bootstrap requires the deployment seed');
@@ -172,9 +178,10 @@ async function observePublisherSeed(db, m) {
   } catch { return { ...out, reason: 'observation-select-failed' }; }
 }
 export async function publisherRequest(request, env, seed, json) {
-  const url = new URL(request.url), routes = ['/api/publisher/head', '/api/publisher/stage', '/api/publisher/bootstrap', '/api/publisher/activate', '/api/publisher/observe-seed'];
+  const url = new URL(request.url), routes = ['/api/publisher/head', '/api/publisher/stage', '/api/publisher/bootstrap', '/api/publisher/activate', '/api/publisher/observe-seed', '/api/publisher/resume-seed'];
   const identity = await publisherIdentity(request, env);
   if (!identity || identity.type === 'rejected') return json({ error: 'Publisher authorization required', ...(identity?.reason ? { reason: identity.reason } : {}) }, 401);
+  if(url.pathname.endsWith('/resume-seed')&&(identity.type!=='github-oidc'||identity.eventName!=='workflow_dispatch'))return json({error:'GitHub OIDC required for controlled seed resume'},403);
   if (!routes.includes(url.pathname)) return json({ error: 'Unknown publisher route' }, 404);
   if (url.search || (request.headers.has('Origin') && request.headers.get('Origin') !== publisherAudience)) return json({ error: 'Invalid publisher request' }, 400);
   const method = (url.pathname.endsWith('/head') || url.pathname.endsWith('/observe-seed')) ? 'GET' : 'POST';
@@ -201,8 +208,12 @@ export async function publisherRequest(request, env, seed, json) {
       }
       return json(await activatePublication(env.DB, input, { engineRevision }));
     }
-    const candidate = url.pathname.endsWith('/bootstrap') ? input.candidate : input;
+    const candidate = (url.pathname.endsWith('/bootstrap') || url.pathname.endsWith('/resume-seed')) ? input.candidate : input;
     if (identity.commit && candidate?.commit !== identity.commit) return json({ error: 'Publisher commit mismatch' }, 403);
+    if (url.pathname.endsWith('/resume-seed')) {
+      if(Object.keys(input).length!==1||!Object.hasOwn(input,'candidate'))return json({error:'Invalid resume fields'},400);
+      return json(await resumePublisherSeed(env.DB,candidate,seed,{fetcher:evidence.fetcher}));
+    }
     if (url.pathname.endsWith('/bootstrap')) {
       if (Object.keys(input).length !== 2 || !Object.hasOwn(input, 'candidate') || !Object.hasOwn(input, 'operationId')) return json({ error: 'Invalid bootstrap fields' }, 400);
       return json(await bootstrapPublication(env.DB, candidate, input.operationId, seed, { fetcher: evidence.fetcher }));

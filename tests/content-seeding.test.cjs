@@ -151,16 +151,13 @@ test('synthetic bundled seed initialization (local SQLite, not hosted D1)', { ti
   });
   const m = await modules();
   // Await subtests serially: fetch stubbing and fault injection are file-local.
-  for (const method of ['GET', 'HEAD']) await t.test(method + ' initializes empty storage', async t => {
+  for (const method of ['GET', 'HEAD']) await t.test(method + ' reports cold storage without initializing', async t => {
     const d = database(t), seed = syntheticSeed();
     const worker = m.createWorker(seed, {}, { rippleFetch: globalThis.fetch });
     const response = await worker.fetch(new Request('https://fixture.invalid/api/content/health', { method }), { DB: d.db, VC_ACTIVE_DELIVERY: '0' });
-    assert.equal(response.status, 200);
-    assert.equal(d.count(), 101);
-    assert.equal(d.batches, 3);
-    assert.equal(d.completed(seed.manifest.revision), 1);
-    assert.equal(d.head(), seed.manifest.revision);
-    if (method === 'HEAD') assert.equal(await response.text(), '');
+    assert.equal(response.status,503);
+    assert.equal(d.count(),0);assert.equal(d.batches,0);
+    assert.equal(d.completed(seed.manifest.revision),undefined);assert.equal(d.head(),undefined);
   });
 
   const interruptions = [
@@ -253,20 +250,9 @@ test('synthetic bundled seed initialization (local SQLite, not hosted D1)', { ti
     assert.equal(d.head(), head);
   });
 
-  await t.test('aborted Request.signal does not cancel direct local invocation', async t => {
-    const d = database(t), seed = syntheticSeed();
-    const gate = { entered: deferred(), release: deferred() };
-    d.gate = gate;
-    const controller = new AbortController();
-    const request = new Request('https://fixture.invalid/api/content/health', { signal: controller.signal });
-    const pending = m.createWorker(seed, {}, { rippleFetch: globalThis.fetch }).fetch(request, { DB: d.db, VC_ACTIVE_DELIVERY: '0' });
-    await gate.entered.promise;
-    controller.abort();
-    gate.release.resolve();
-    const response = await pending;
-    assert.equal(request.signal.aborted, true);
-    assert.equal(response.status, 200);
-    assert.equal(d.count(), 101);
-    assert.equal(d.head(), seed.manifest.revision);
+  await t.test('aborted public readiness does not initiate writes',async t=>{
+    const d=database(t),seed=syntheticSeed(),controller=new AbortController();controller.abort();
+    const response=await m.createWorker(seed,{}).fetch(new Request('https://fixture.invalid/api/content/health',{signal:controller.signal}),{DB:d.db,VC_ACTIVE_DELIVERY:'0'});
+    assert.equal(response.status,503);assert.equal(d.batches,0);assert.equal(d.count(),0);
   });
 });
