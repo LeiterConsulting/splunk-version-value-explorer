@@ -47,7 +47,7 @@ test('both publication entry points hold before candidate, production or credent
 test('workflow hold is before checkout and cannot select a historical triggering writer', t => {
   const workflow = fs.readFileSync('.github/workflows/publish-content.yml', 'utf8');
   assert.ok(workflow.indexOf('Hold publication before checkout or credentials') < workflow.indexOf('uses: actions/checkout'));
-  assert.match(workflow, /if: github.event_name != 'workflow_dispatch' \|\| \(inputs.mode != 'observe-only' && inputs.mode != 'head-only' && inputs.mode != 'bootstrap-only' && inputs.mode != 'resume-only'\)/);
+  assert.match(workflow, /if: github.event_name != 'workflow_dispatch' \|\| \(inputs.mode != 'observe-only' && inputs.mode != 'head-only' && inputs.mode != 'bootstrap-only' && inputs.mode != 'resume-only' && inputs.mode != 'stage-only' && inputs.mode != 'current-head-only'\)/);
   assert.match(workflow, /ref: \$\{\{ github.sha \}\}/); assert.doesNotMatch(workflow, /ref:.*workflow_run.head_sha/);
   assert.match(workflow, /if: always\(\) && hashFiles\('publication-outcome.json'\)/);
   const inline = workflow.match(/node <<'NODE'\n([\s\S]*?)          NODE/)[1].replace(/^          /gm, '');

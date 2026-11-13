@@ -130,13 +130,15 @@ export function validateObservation(value, expected, status) {
 async function observe({ env = process.env, manifest, checkoutSha, deployment, sourceTree, fetcher = (...args) => globalThis.fetch(...args), now = Date.now, monotonic = () => performance.now(), timeoutMs = 10000 } = {}, mode) {
   // Injection can only shorten the fixed request deadline, never expand it.
   if (!Number.isFinite(timeoutMs) || timeoutMs <= 0 || timeoutMs > 10000) timeoutMs = 10000;
-  const endpoint = origin + (mode === 'head-only' ? '/api/publisher/head' : '/api/publisher/observe-seed');
+  const headMode = ['head-only','current-head-only'].includes(mode);
+  const endpoint = origin + (headMode ? '/api/publisher/head' : '/api/publisher/observe-seed');
   const start = monotonic();
   let expected, observation, action = 'context-validation', requests = 0;
   const base = { mode, target: endpoint, readiness: 'not-assessed', integrity: 'not-validated', claimedDelivered: false, mutationAttempted: false,
-    qualification: mode === 'head-only' ? 'Head metadata only. Seed source/tree/digest/count and Sites version are local reviewed expectations, not observed head provenance or digest. Generation is the maximum event generation, not complete history or provenance verification. No seed, stage, bootstrap, activation or content API request. No readiness, integrity, delivery or activation-eligibility claim.' : 'Metadata/count observation only. No seed, stage, bootstrap, activation or content API request. No readiness, integrity, provenance or factual-currency claim; other traffic may still initialize D1.' };
+    qualification: headMode ? 'Head metadata only. Seed source/tree/digest/count and Sites version are local reviewed expectations, not observed head provenance or digest. Generation is the maximum event generation, not complete history or provenance verification. No seed, stage, bootstrap, activation or content API request. No readiness, integrity, delivery or activation-eligibility claim.' : 'Metadata/count observation only. No seed, stage, bootstrap, activation or content API request. No readiness, integrity, provenance or factual-currency claim; other traffic may still initialize D1.' };
   try {
-    expected = validateContext(env, manifest, checkoutSha, deployment, sourceTree, mode);
+    expected = validateContext(mode==='current-head-only'?{...env,VC_OBSERVATION_MODE:'head-only'}:env, manifest, checkoutSha, deployment, sourceTree, mode==='current-head-only'?'head-only':mode);
+    if(mode==='current-head-only'){if(env.VC_OBSERVATION_MODE!==mode||!revisionPattern.test(env.VC_OBSERVATION_EXPECTED_HEAD_REVISION||''))fail('expected-identity-invalid');expected={...expected,expectedHeadRevision:env.VC_OBSERVATION_EXPECTED_HEAD_REVISION};}
     action = 'credential-acquisition';
     let url;
     try { url = new URL(env.ACTIONS_ID_TOKEN_REQUEST_URL); } catch { fail('issuer-rejected'); }
@@ -146,10 +148,10 @@ async function observe({ env = process.env, manifest, checkoutSha, deployment, s
     const credential = await requestJSON(url, { Authorization: 'Bearer ' + env.ACTIONS_ID_TOKEN_REQUEST_TOKEN }, 32768, fetcher, timeoutMs, monotonic, start + 20000, () => requests++);
     if (credential.status !== 200) fail('credential-unavailable');
     const token = validateCredential(credential.data?.value, expected, now());
-    action = mode === 'head-only' ? 'head' : 'observe-seed';
+    action = headMode ? 'head' : 'observe-seed';
     const response = await requestJSON(endpoint, { Authorization: 'Bearer ' + token, Accept: 'application/json' }, 16384, fetcher, timeoutMs, monotonic, start + 20000, () => requests++);
-    if (!(mode === 'head-only' ? [200] : [200, 503]).includes(response.status)) fail('observation-http-rejected');
-    observation = mode === 'head-only' ? validateHeadObservation(response.data, expected) : validateObservation(response.data, expected, response.status);
+    if (!(headMode ? [200] : [200, 503]).includes(response.status)) fail('observation-http-rejected');
+    observation = headMode ? validateHeadObservation(response.data, expected, mode==='current-head-only') : validateObservation(response.data, expected, response.status);
     if (monotonic() - start >= 20000) fail('request-timeout');
     if (response.status === 503) fail('observation-unavailable');
     return { ...base, ...expected, status: 'observation-returned', observation, recordedAt: new Date(now()).toISOString(), elapsedMs: Math.round(monotonic() - start), requests };
@@ -158,17 +160,18 @@ async function observe({ env = process.env, manifest, checkoutSha, deployment, s
   }
 }
 
-export function validateHeadObservation(value, expected) {
+export function validateHeadObservation(value, expected, current = false) {
   if (!exactKeys(value, ['revision', 'generation', 'engineRevision', 'activeDelivery']) ||
       !revisionPattern.test(value.revision || '') || !enginePattern.test(value.engineRevision || '') ||
       !Number.isSafeInteger(value.generation) || value.generation < 0 || typeof value.activeDelivery !== 'boolean') fail('observation-schema-invalid');
   // The reviewed deployment is held. Changed state stops here without probing
   // content, bootstrapping or interpreting a MAX(generation) as trusted history.
-  if (value.revision !== expected.revision || value.engineRevision !== expected.engineRevision || value.activeDelivery !== false) fail('observation-identity-mismatch');
+  if (value.revision !== (current?expected.expectedHeadRevision:expected.revision) || value.engineRevision !== expected.engineRevision || (!current && value.activeDelivery !== false)) fail('observation-identity-mismatch');
   return { revision: value.revision, generation: value.generation, engineRevision: value.engineRevision, activeDelivery: value.activeDelivery };
 }
 export const observeSeed = options => observe(options, 'observe-only');
 export const observeHead = options => observe(options, 'head-only');
+export const observeCurrentHead = options => observe(options, 'current-head-only');
 
 export function writeObservationReceipt(receipt, { output = 'seed-observation-outcome.json', summary = process.env.GITHUB_STEP_SUMMARY } = {}) {
   fs.writeFileSync(output, JSON.stringify(receipt, null, 2) + '\n');
