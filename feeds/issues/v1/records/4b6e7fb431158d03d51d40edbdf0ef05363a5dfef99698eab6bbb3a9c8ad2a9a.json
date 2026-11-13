@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-es-security-assistant-runtime-ap-routing",
+  "revision": 1,
+  "recordedAt": "2026-11-13T13:30:52.620Z",
+  "evidence": [
+    {
+      "evidenceId": "csp-20261113-r2-44-c8a2e996",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.6/splunk-enterprise-security-release-notes/model-runtime-in-splunk-ai-assistant-for-security",
+      "section": "Supported regions > Model Runtime > five AWS Asia-Pacific rows",
+      "statement": "Global routing classification in the exact ES 8.6 guide.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-13T13:25:27.489Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "c2e2485241e10a2c65bbfdecae94a0492fec3cc63622c3809c941273a3c0810f",
+        "qualification": "Direct response digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261113-r2-51-c8a2e996",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/model-runtime-in-splunk-security-assistant",
+      "section": "Supported regions > Model Runtime > five AWS Asia-Pacific rows",
+      "statement": "Data zone classification in exact ES 8.8 guide.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-13T13:25:38.080Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "264a3616beb6f4d198eb8c772784a674c3b3550dafe9a5e5dc057f1563050d05",
+        "qualification": "Direct response digest; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/6c2f64f0b0b812c60e281ebc2fbb302c71db9e16/docs/audits/2026-11-13-csp-fedramp-watch-review-2-sources.json",
+      "pointer": "/claimChecks/8",
+      "originalLabel": "still-present"
+    }
+  ],
+  "kind": "assessment",
+  "assessmentId": "vcia-csp-20261113-r2-es-security-assistant-runtime-ap-routing",
+  "assessedAt": "2026-11-13T13:29:37.571Z",
+  "outcome": "still-present",
+  "rationale": "The 8.6 table classifies AWS Mumbai, Seoul, Singapore, Sydney and Tokyo as Global. The current 8.8 table calls the same five locations Data zone, with both tables assigning availability as of ES 8.6. Global and Data zone have different routing guarantees. Effective transition date and individual deployment routing remain unresolved.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Security Assistant in ES"
+    ],
+    "versions": [
+      "8.6 guide and 8.8 release guide"
+    ],
+    "editions": null,
+    "deployments": [
+      "AWS Mumbai, Seoul, Singapore, Sydney and Tokyo"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating the documented decision"
+    ],
+    "exclusions": [
+      "No unlisted feature scope, exact pairing, rollout, entitlement or customer authorization is established."
+    ]
+  },
+  "remainingConcerns": [
+    "Retain the documented evidence boundaries and follow up through the existing CSP FedRAMP Watch."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261108-es-security-assistant-runtime-ap-routing"
+  ]
+}

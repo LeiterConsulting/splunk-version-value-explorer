@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-13T12:48:46.107012Z",
+      "lastAttempt": "2026-11-13T13:23:36.915525Z",
       "lastSuccess": "2026-11-10T12:50:41.612Z",
       "outcome": "blocked",
-      "summary": "Verified AWS Israel Victoria new-stack scope. Historical SOC evidence and production delivery remain incomplete.",
+      "summary": "Recovered exact 10.6 S3 restriction evidence. Historical SOC scope and production delivery remain incomplete.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -507,9 +507,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Verified AWS Israel Victoria new-stack scope. Historical SOC evidence and production delivery remain incomplete.",
           "scope": "Current CSP, SOAR, ES SOC, Marketplace and Observability source sections."
+        },
+        {
+          "at": "2026-11-13T13:23:36.915525Z",
+          "outcome": "running",
+          "summary": "Rechecking exact CSP sources and registered SOC evidence.",
+          "scope": "CSP, SOAR, ES SOC, Model Runtime, Marketplace and public-sector evidence."
+        },
+        {
+          "at": "2026-11-13T13:29:37.571Z",
+          "outcome": "blocked",
+          "summary": "Recovered exact 10.6 S3 restriction evidence. Historical SOC scope and production delivery remain incomplete.",
+          "scope": "CSP, SOAR, ES SOC, Model Runtime, Marketplace and public-sector evidence."
         }
       ],
-      "scope": "Current CSP, SOAR, ES SOC, Marketplace and Observability source sections."
+      "scope": "CSP, SOAR, ES SOC, Model Runtime, Marketplace and public-sector evidence."
     },
     {
       "id": "version-release-watch",
