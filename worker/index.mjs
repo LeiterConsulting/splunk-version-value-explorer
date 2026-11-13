@@ -81,7 +81,8 @@ export function createWorker(seed, assets, { rippleFetch = (...args) => globalTh
         const offset = Number(params.get('offset') || '0'), limit = Number(params.get('limit') || '100');
         if (![offset, limit].every(Number.isSafeInteger) || offset < 0 || limit < 1 || limit > 200 || (kind && !/^[a-z-]{1,40}$/.test(kind)) || (dataset && !['platform','products','guidance','environment','editions','forwarders','soar','sources'].includes(dataset))) return json({ error: 'Invalid record filter or pagination' }, 400);
         try {
-          await ensureRevision(env.DB, seed);
+          // Readiness never imports or repairs a seed. Controlled authenticated
+          // initialization is separate; missing/incomplete storage fails closed.
           // Opt in only after affected browser/export evidence is recorded. Explicit
           // revision reads remain compatible with existing deployment-pinned clients.
           if (!params.has('revision') && env.VC_ACTIVE_DELIVERY === '1') {
@@ -91,7 +92,10 @@ export function createWorker(seed, assets, { rippleFetch = (...args) => globalTh
             revision = head.revision;
           }
           const bundle = await readBundle(env.DB, revision);
-          if (!bundle) return json({ error: 'Published revision not available', requestedRevision: revision }, 404);
+          if (!bundle) return json({ error: 'Published revision not ready', requestedRevision: revision }, revision === seed.manifest.revision ? 503 : 404);
+          await validateBundle(bundle,bundle.manifest?.engineRevision);
+          if(bundle.manifest.revision!==revision)throw Error('Stored revision identity mismatch');
+          if(revision===seed.manifest.revision&&JSON.stringify(bundle)!==JSON.stringify(seed))throw Error('Stored deployment seed mismatch');
           if ((params.has('engine') || !params.has('revision')) && bundle.manifest.engineRevision !== engine) return json({ error: 'Revision belongs to another engine' }, 409);
           const extra = { 'X-VersionCompass-Content': revision, 'X-VersionCompass-Engine': bundle.manifest.engineRevision };
           if (request.method === 'HEAD') return new Response(null, { status: 200, headers: { ...headers, ...extra } });

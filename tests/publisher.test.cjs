@@ -111,7 +111,7 @@ test('GitHub publisher identity verifies RSA signature and exact immutable workf
   const m = await modules(), { token, jwks } = await signedToken();
   let called = 0;
   const fetcher = async (url, options) => { called++; assert.equal(url, 'https://token.actions.githubusercontent.com/.well-known/jwks'); assert.equal(options.redirect, 'manual'); assert.equal(options.headers, undefined); return new Response(JSON.stringify(jwks)); };
-  assert.deepEqual(await m.verifyPublisherOIDC(token, { fetcher }), { type: 'github-oidc', commit: candidate.commit }); assert.equal(called, 1);
+  assert.deepEqual(await m.verifyPublisherOIDC(token, { fetcher }), { type: 'github-oidc', commit: candidate.commit, eventName: 'workflow_run' }); assert.equal(called, 1);
   for (const changed of [{ repository_id: '1' }, { repository_owner_id: '1' }, { repository: 'other/repo' }, { aud: 'https://other.example' }, { workflow_ref: 'other' }, { ref: 'refs/pull/10/merge' }, { sub: 'repo:any:environment:prod' }, { exp: 1 }, { event_name: 'pull_request' }, { runner_environment: 'self-hosted' }, { repository_visibility: 'private' }, { sha: 'main' }]) {
     const bad = await signedToken(changed); await assert.rejects(m.verifyPublisherOIDC(bad.token, { fetcher }), /identity/);
   }
@@ -353,4 +353,42 @@ test('missing or nonliteral publisher enablement cannot inherit reader activatio
   const response=await worker.fetch(new Request('https://versioncompass.com/api/publisher/activate',{method:'POST',headers:{Authorization:'Bearer '+admin,'Content-Type':'application/json'},body:'{}'}),{VC_PUBLISHER_TOKEN:admin,VC_ACTIVE_DELIVERY:'1',VC_PUBLISHER_ACTIVATION:value,DB:{prepare(){throw Error('Must not access DB');}}});
   assert.equal(response.status,423);
  }
+});
+test('controlled resume accepts only exact deployment seed and repository evidence before bounded writes',async t=>{
+ const m=await modules(),db=database(t);
+ const other=clone(seed);other.manifest.revision='content-'+'0'.repeat(24);
+ await assert.rejects(m.resumePublisherSeed(db,{...candidate,bundle:other},seed,{fetcher:evidence}),/deployment seed/);
+ assert.equal(db.sql.prepare('SELECT count(*) n FROM content_revisions').get().n,0);
+ await assert.rejects(m.resumePublisherSeed(db,candidate,seed,{fetcher:async()=>{throw Error('Offline unavailable');}}));
+ assert.equal(db.sql.prepare('SELECT count(*) n FROM content_revisions').get().n,0);
+ const first=await m.resumePublisherSeed(db,candidate,seed,{fetcher:evidence});
+ assert.equal(first.status,'partial');assert.equal(first.present,50);assert.equal(first.attemptedRows,50);
+ assert.equal(db.sql.prepare('SELECT count(*) n FROM content_publication').get().n,0);
+ assert.equal(db.sql.prepare('SELECT count(*) n FROM content_publication_provenance').get().n,0);
+ assert.equal(db.sql.prepare('SELECT count(*) n FROM content_publication_events').get().n,0);
+ const worker=m.createWorker(seed,{});
+ assert.equal((await worker.fetch(new Request('https://versioncompass.com/api/publisher/resume-seed',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({candidate})}),{DB:db})).status,401);
+ const corrupt={prepare(){throw Error('must not write');}};
+ assert.equal((await worker.fetch(new Request('https://versioncompass.com/api/publisher/resume-seed',{method:'POST',headers:{Authorization:'Bearer '+admin,'Content-Type':'application/json'},body:JSON.stringify({candidate,extra:true})}),{DB:corrupt,VC_PUBLISHER_TOKEN:admin})).status,403);
+});
+test('resume HTTP transport accepts manual OIDC only, keeps automatic identities out',async t=>{
+ const m=await modules(),db=database(t),worker=m.createWorker(seed,{}),original=globalThis.fetch;
+ const manual=await signedToken({event_name:'workflow_dispatch'}),automatic=await signedToken();
+ globalThis.fetch=async url=>url.includes('/.well-known/jwks')?new Response(JSON.stringify(manual.jwks)):evidence(url);
+ try{
+ const req=token=>new Request('https://versioncompass.com/api/publisher/resume-seed',{method:'POST',headers:{Authorization:'Bearer '+token,'Content-Type':'application/json'},body:JSON.stringify({publication:{candidate},evidenceCredential:'ghs_'+'e'.repeat(36)})});
+ const env={DB:db,VC_PUBLISHER_OIDC:'1'};
+ assert.equal((await worker.fetch(req(automatic.token),env)).status,403);
+ assert.equal(db.sql.prepare('SELECT count(*) n FROM content_revisions').get().n,0);
+ const r=await worker.fetch(req(manual.token),env);assert.equal(r.status,200);assert.equal((await r.json()).present,50);
+ }finally{globalThis.fetch=original;}
+});
+test('completed seed bootstrap verifies all rows without replaying record insertion batches',async t=>{
+ const m=await modules(),db=database(t);await m.stageBundledRevision(db,seed);
+ const batch=db.batch;let batches=0;db.batch=async rows=>{batches++;return batch(rows);};
+ const result=await m.bootstrapPublication(db,candidate,'pub-'+'9'.repeat(32),seed,{fetcher:evidence});
+ assert.equal(result.generation,1);assert.equal(batches,2); // provenance/completion + head/event only
+ db.sql.prepare("UPDATE content_records SET payload_json='{}' WHERE revision_id=? AND record_id=?").run(seed.manifest.revision,seed.catalog.records[0].id);
+ batches=0;await assert.rejects(m.bootstrapPublication(db,candidate,'pub-'+'a'.repeat(32),seed,{fetcher:evidence}),/corrupt staged records/);
+ assert.equal(batches,0);
 });

@@ -116,10 +116,21 @@ test('content API restricts client methods, validates filters and reports databa
     assert.equal((await get('/api/content/records?limit=201')).status, 400);
     assert.equal((await get('/api/content/records?kind=claim&kind=source')).status, 400);
     assert.equal((await get('/api/content/records?unknown=value')).status, 400);
+    assert.equal((await get('/api/content/bundle')).status,503);
+    assert.equal(db.sql.prepare('SELECT COUNT(*) n FROM content_revisions').get().n,0);
+    await m.ensureRevision(db,seed); // Explicit setup, never a public GET side effect.
     const response = await get('/api/content/bundle'); assert.deepEqual(await response.json(), seed);
     assert.equal(response.headers.get('X-VersionCompass-Content'), seed.manifest.revision);
     assert.equal((await get('/api/content/bundle?revision=content-' + '0'.repeat(24))).status, 404);
     assert.equal((await get('/api/content/health', {})).status, 503);
+    const alias='content-'+'f'.repeat(24);
+    db.sql.prepare('INSERT INTO content_revisions SELECT ?,engine,schema_version,digest,manifest_json,bundle_json,record_count,completed FROM content_revisions WHERE id=?').run(alias,seed.manifest.revision);
+    assert.equal((await get('/api/content/bundle?revision='+alias)).status,503);
+    db.sql.prepare("UPDATE content_revisions SET bundle_json='{}' WHERE id=?").run(seed.manifest.revision);
+    const writes=db.sql.prepare('SELECT total_changes() n').get().n;
+    assert.equal((await get('/api/content/health')).status,503);
+    assert.equal(db.sql.prepare('SELECT total_changes() n').get().n,writes);
+
   } finally { db.sql.close(); }
 });
 async function client(bundle, { fail = false, expected = seed.manifest } = {}) {
