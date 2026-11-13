@@ -378,7 +378,7 @@ test('September Observability additions preserve SaaS, private-runner, and Cloud
 test('October Observability route preserves SaaS semantics and component release boundaries', async () => {
   const rt = await runtime();
   const report = rt.run('compare_routes', { routes: [{ product: 'observability', platform: 'cloud', host: '10.6', from: 'Sep 2026', to: 'Oct 2026' }] }).reports[0];
-  assert.equal(rt.window.SPLUNK_DATA.productTracks.observability.latest, 'Oct 2026');
+  assert.equal(rt.window.SPLUNK_DATA.productTracks.observability.latest, 'Nov 2026');
   for (const title of ['Stricter APM not-equal tag filtering', 'Java instrumentation 2.33', 'Node.js instrumentation 4.12.1', 'Kubernetes chart 0.162.1', 'Python instrumentation 2.13.3', 'Collector 0.163.1 security and input patch', 'Application-scoped call graph exclusions', 'Broader parentless-span MetricSets', 'Metric chart baselines', 'IBM MQ built-in dashboards', 'Multi-trace AI comparisons']) {
     assert(report.features.some(item => item.title === title), title);
   }
@@ -422,6 +422,20 @@ test('October Observability route preserves SaaS semantics and component release
   assert.match(metricSets.to, /any span.kind/);
   assert.match(metricSets.implication, /cardinality/);
   assert(report.breakingChanges.some(item => item.title === 'Confirm and validate broader parentless-span MetricSets' && item.detail.includes('Controlled Availability')));
+});
+
+test('November Observability preserves milestone access and separately versioned agents', async () => {
+  const rt = await runtime();
+  const route = { product: 'observability', platform: 'cloud', host: '10.6', from: 'Oct 2026', to: 'Nov 2026' };
+  const report = rt.run('compare_routes', { routes: [route] }).reports[0];
+  const a2a = report.features.find(feature => feature.title === 'Agent-to-Agent access for Observability AI Assistant');
+  assert.match(a2a.milestone, /Select customers/);
+  assert.match(a2a.detail, /authorization unestablished/);
+  const dotnet = report.features.find(feature => feature.title === 'Secure Application for supported dual-mode .NET apps');
+  assert.match(dotnet.detail, /26\.9/);
+  assert.match(dotnet.detail, /excludes GCP/);
+  assert(report.technicalChanges.some(change => change.component === 'Mobile RUM metrics agent floors' && change.to.includes('React Native 1.0.1')));
+  assert(!report.features.some(feature => feature.title === 'Multi-trace AI comparisons'));
 });
 
 test('Collector 0.163 stays separate from the Kubernetes chart and retains scoped breaking changes',async()=>{

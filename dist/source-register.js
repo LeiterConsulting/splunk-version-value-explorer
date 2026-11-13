@@ -7474,6 +7474,32 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/instrument-front-end-applications/instrument-mobile-and-web-applications-for-splunk-real-user-monitoring-rum/instrument-mobile-applications-for-splunk-rum",
+      "title": "instrument mobile applications for splunk rum",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Nov 2026.technicalChanges.0.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-13",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-13",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/manage-otel-agents-and-collectors/remote-configuration-of-opentelemetry-collectors/opamp-bridge-for-collectors-on-kubernetes/enable-the-opamp-bridge-for-kubernetes",
       "title": "enable the opamp bridge for kubernetes",
       "areas": [
@@ -7680,6 +7706,44 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-09-25",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026",
+      "title": "november 2026",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Nov 2026.source",
+        "release.productTracks.observability.releasesData.Nov 2026.features.0.5",
+        "release.productTracks.observability.releasesData.Nov 2026.features.1.5",
+        "release.productTracks.observability.releasesData.Nov 2026.features.2.5",
+        "release.productTracks.observability.releasesData.Nov 2026.features.3.5",
+        "release.productTracks.observability.releasesData.Nov 2026.features.4.5",
+        "release.productTracks.observability.releasesData.Nov 2026.features.5.5",
+        "release.productTracks.observability.releasesData.Nov 2026.features.6.5",
+        "release.productTracks.observability.releasesData.Nov 2026.features.7.5",
+        "release.productTracks.observability.releasesData.Nov 2026.requirements.0.3",
+        "release.productTracks.observability.releasesData.Nov 2026.requirements.1.3",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-11-13",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-13",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "What’s new > November 12, 2026 release rows",
+      "verificationScope": "Rolling Observability Cloud milestone. Verified listed mobile RUM, Secure Application, select-customer A2A, Digital Experience Analytics, Log Observer, catalog and host-based edition scopes. Account entitlement, exact realm, authorization and separately installed component prerequisites remain independent.",
+      "events": [
+        {
+          "date": "2026-11-13",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]

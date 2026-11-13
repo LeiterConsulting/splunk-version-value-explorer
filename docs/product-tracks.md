@@ -87,3 +87,7 @@ The October 12 paragraph above is historical: the KV migration guide was revised
 ## November 2 Collector scope
 
 Standalone Collector 0.164.0 was published October 30. Its maintained record covers the removed `splunk_inputs` receiver and `splunk_outputs` exporter, the `splunkconf` replacement path, the narrower fluent-forward default change, named Smart Agent monitor migration, selected telemetry/checkpoint changes and corrected exporter retries. The Kubernetes chart remains 0.163.1 and packages Collector 0.163.1 until separately versioned chart evidence changes. Neither component publication establishes Observability Cloud rollout, realm access, entitlement, authorization or universal backend compatibility.
+
+## November 12 Observability Cloud milestone
+
+The November milestone adds mobile RUM troubleshooting, Secure Application changes, select-customer A2A access, cross-environment journeys, log summaries, a capability catalog, and host-based Essentials and Premier editions. A2A eligibility, exact customer and realm scope, regulated authorization, and the separately versioned dual-mode .NET instrumentation remain scoped independently. [November release notes](https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026)
