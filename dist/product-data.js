@@ -598,6 +598,18 @@ Object.assign(window.SPLUNK_DATA, {
           ],
           "technicalChanges": [
             {
+              "component": "ES 8.8 Mission Control migration window",
+              "domain": "Upgrade sequencing",
+              "changeType": "Maintenance planning",
+              "actionLevel": "Review",
+              "from": "In the on-premises search-head upgrade guide, this migration does not extend the ES 8.8 upgrade window on Platform 10.5 or lower.",
+              "to": "If Platform 10.6 or later is already installed, upgrading ES to 8.8 extends the maintenance window for the Mission Control incidents migration from KV Store to PostgreSQL.",
+              "implication": "Splunk estimates about five additional minutes per GB for the missioncontrol.mc_incidents collection. Volume, record count and environment can extend the estimate. Expect analyst queue interruptions and possible intermittent ES unavailability. If Platform is upgraded to 10.6 or later after ES 8.8, the guide says this migration runs in the background.",
+              "action": "Estimate the collection size, allow time for analyst queue disruption and confirm the exact supported host and ES patches before choosing an upgrade order. Splunk coordinates managed Cloud upgrades. Confirm the actual window with Splunk.",
+              "source": "https://help.splunk.com/en/splunk-enterprise-security-8/install/8.8/upgrading/upgrade-splunk-enterprise-security",
+              "verified": "2026-11-13"
+            },
+            {
               "component": "ES-SOAR hybrid certificate trust",
               "domain": "SOAR pairing & certificates",
               "changeType": "Trust option expanded",

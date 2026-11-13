@@ -4146,6 +4146,42 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/install/8.8/upgrading/upgrade-splunk-enterprise-security",
+      "title": "upgrade splunk enterprise security",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.productTracks.es.releasesData.8.8.technicalChanges.0.source",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-11-13",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-13",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Version-specific upgrade notes > Upgrading to version 8.8 and higher > Maintenance window is extended",
+      "verificationScope": "On-premises search-head upgrade guidance for Mission Control migration timing and estimated added maintenance when Platform 10.6 or later is already installed. The documented later Platform upgrade runs this migration in the background. Verify exact supported host patches and managed service scheduling separately.",
+      "events": [
+        {
+          "date": "2026-11-13",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-13",
+          "event": "Review status updated: Reviewed · 2026-11-13"
+        },
+        {
+          "date": "2026-11-13",
+          "event": "Review status updated: Reviewed · 2026-11-13"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.0/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
       "title": "release notes for splunk enterprise security",
       "areas": [
@@ -4582,7 +4618,7 @@ window.VersionCompassSources = {
         "Shared guidance"
       ],
       "references": [
-        "release.productTracks.es.releasesData.8.8.technicalChanges.0.source",
+        "release.productTracks.es.releasesData.8.8.technicalChanges.1.source",
         "release.guidance.sources.aiEsRegions88.url",
         "editions.sources.regions88.u",
         "content-updates.js",
