@@ -449,6 +449,10 @@ try {
         expected.paginationPairs=[{heading:'Which TAXII protocol versions are supported?',following:'Decision affected: Native TAXII feed protocol versions',headingOccurrence:1}];
       }
       if(route.id==='hf-hybrid') assert(normalize(expected.text).includes('disabling it may break scheduled dashboard exports'),'Heavy Forwarder mitigation qualification missing');
+      if(['es-88-controlled-availability-enterprise','es-88-controlled-availability-cloud','es-88-exact-matrix-host'].includes(route.id)) {
+        expected.requiredText=['ES 8.8 Mission Control migration window','If Platform 10.6 or later is already installed','five additional minutes per GB','after ES 8.8, the guide says this migration runs in the background','For a managed Cloud stack, confirm timing with Splunk.'];
+        for(const phrase of expected.requiredText) assert(normalize(expected.text).includes(phrase),'Missing ES upgrade timing qualification: '+phrase);
+      }
       if(route.id==='enterprise') expected.paginationPairs=[{heading:'Recommended action',following:'Match the exact package identifier to its release'}];
       if(route.id==='observability-october') expected.paginationPairs=[
         {heading:'Kubernetes persistent-volume metric defaults',following:'Chart 0.162.1 does not explicitly enable these five metrics'},

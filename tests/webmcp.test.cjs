@@ -330,6 +330,14 @@ test('Enterprise Security 8.8 GA preserves feature access and exact matrix scope
   const cloud = rt.run('compare_routes', { routes: [{ product: 'es', platform: 'cloud', host: '10.6', from: '8.7', to: '8.8' }] }).reports[0];
   assert.equal(cloud.compatibility.status, 'warning');
   assert.match(cloud.compatibility.detail, /published but not yet the managed Cloud pairing/);
+  for (const report of [enterprise, unsupported, cloud]) {
+    const timing = report.technicalChanges.find(item => item.component === 'ES 8.8 Mission Control migration window');
+    assert.match(timing.from, /Platform 10\.5 or lower/);
+    assert.match(timing.to, /Platform 10\.6 or later is already installed/);
+    assert.match(timing.implication, /five additional minutes per GB/);
+    assert.match(timing.implication, /after ES 8\.8.*background/);
+    assert.match(timing.action, /managed Cloud stack, confirm timing with Splunk/);
+  }
 });
 
 test('September Observability additions preserve SaaS, private-runner, and Cloud-route boundaries', async () => {

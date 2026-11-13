@@ -4146,6 +4146,34 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/install/8.8/upgrading/upgrade-splunk-enterprise-security",
+      "title": "upgrade splunk enterprise security",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.productTracks.es.releasesData.8.8.technicalChanges.0.source",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-13",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-13",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.0/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
       "title": "release notes for splunk enterprise security",
       "areas": [
@@ -4582,7 +4610,7 @@ window.VersionCompassSources = {
         "Shared guidance"
       ],
       "references": [
-        "release.productTracks.es.releasesData.8.8.technicalChanges.0.source",
+        "release.productTracks.es.releasesData.8.8.technicalChanges.1.source",
         "release.guidance.sources.aiEsRegions88.url",
         "editions.sources.regions88.u",
         "content-updates.js",
