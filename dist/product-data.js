@@ -2840,7 +2840,7 @@ Object.assign(window.SPLUNK_DATA, {
               "Validate Secure Application dual-mode .NET instrumentation",
               "The service release names supported .NET applications with the AppDynamics .NET Agent in dual mode. Confirm the app runtime, platform and agent release independently.",
               "Validate",
-              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026",
+              "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-security/set-up-secure-application/set-up-manual-instrumentation/do-language-specific-steps",
               false
             ]
           ]

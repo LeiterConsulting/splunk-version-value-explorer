@@ -194,6 +194,26 @@ try {
       assert(context.includes('Claim last verified: '+result.current.verified),'Screen evidence lost the canonical claim date');
       entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
     }
+    if (route.id === 'observability-november') {
+      await page.waitForFunction(() => window.__reportTools?.versioncompass_get_current_report);
+      const result = await page.evaluate(() => {
+        const { versioncompass_get_current_report: current, versioncompass_compare_routes: compare } = window.__reportTools;
+        const { product, platform, host, from, to } = window.VersionCompassPage.getSelection();
+        const url = location.href;
+        const find = report => report?.features.find(feature => feature.title === 'Agent-to-Agent access for Observability AI Assistant');
+        return {
+          current: find(current.execute({}).report),
+          explicit: find(compare.execute({ routes: [{ product, platform, host, from, to }] }).reports?.[0]),
+          readOnly: current.annotations.readOnlyHint && compare.annotations.readOnlyHint,
+          stable: location.href === url
+        };
+      });
+      assert(result.readOnly && result.stable && result.current, 'Missing stable read-only November Observability milestone');
+      assert.deepEqual(result.explicit, result.current);
+      assert.match(result.current.milestone, /Select customers/);
+      assert(normalize(await page.locator('#results').textContent()).includes(normalize(result.current.detail)));
+      entry.readOnlyReport = { passed: true, browserHarness: true, stableSelection: true };
+    }
     if(esMaintenanceRoute(route)){
       await page.waitForFunction(()=>window.__reportTools?.versioncompass_get_current_report);
       const result=await page.evaluate(()=>{
@@ -471,6 +491,18 @@ try {
         for(const phrase of expected.requiredText) assert(normalize(expected.text).includes(phrase),'Missing ES upgrade timing qualification: '+phrase);
       }
       if(route.id==='enterprise') expected.paginationPairs=[{heading:'Recommended action',following:'Match the exact package identifier to its release'}];
+      if (route.id === 'observability-november') {
+        expected.requiredText = [
+          'Agent-to-Agent access for Observability AI Assistant',
+          'Select customers',
+          'AppDynamics .NET Agent 26.9',
+          'excludes GCP',
+          'Android 2.2.2',
+          'Flutter 1.0.2',
+          'Observability Cloud host-based editions'
+        ];
+        for (const phrase of expected.requiredText) assert(normalize(expected.text).includes(phrase), 'Missing November Observability qualification: ' + phrase);
+      }
       if(route.id==='observability-october') expected.paginationPairs=[
         {heading:'Kubernetes persistent-volume metric defaults',following:'Chart 0.162.1 does not explicitly enable these five metrics'},
         {heading:'Kubernetes histogram bucket merging',following:'Earlier chart pipelines do not add transform/limit_histogram_buckets'}

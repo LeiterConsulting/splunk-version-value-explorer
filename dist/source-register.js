@@ -7553,6 +7553,32 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-security/set-up-secure-application/set-up-manual-instrumentation/do-language-specific-steps",
+      "title": "do language specific steps",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Nov 2026.requirements.1.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-13",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-13",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/april-2026",
       "title": "april 2026",
       "areas": [
@@ -7728,7 +7754,6 @@ window.VersionCompassSources = {
         "release.productTracks.observability.releasesData.Nov 2026.features.6.5",
         "release.productTracks.observability.releasesData.Nov 2026.features.7.5",
         "release.productTracks.observability.releasesData.Nov 2026.requirements.0.3",
-        "release.productTracks.observability.releasesData.Nov 2026.requirements.1.3",
         "content-updates.js"
       ],
       "reviews": [],
