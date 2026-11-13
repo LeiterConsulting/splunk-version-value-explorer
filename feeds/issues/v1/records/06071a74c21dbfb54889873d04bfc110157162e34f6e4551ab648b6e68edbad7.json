@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-es-88-response-agent-rerun-coverage",
+  "revision": 1,
+  "recordedAt": "2026-11-13T12:16:13.398Z",
+  "evidence": [
+    {
+      "evidenceId": "es-20261113-review3-response-rerun",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
+      "section": "Analyze the findings using the Response agent > ES 8.8 rerun note",
+      "statement": "The ES 8.8 Response agent does not rerun or process findings added after the investigation was processed.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-13T12:12:15.740Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "5ec02afce472776014443a5dfb7c93187daac336d514b19281286ac8c884d7c8",
+        "qualification": "Exact direct response bytes; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/a8300ced14d767eb7567cc79e648dad11b3bf0ed/docs/audits/2026-11-13-es-editions-watch-review-3-sources.json",
+      "pointer": "/claimChecks/11",
+      "originalLabel": "still-present"
+    }
+  ],
+  "kind": "finding",
+  "title": "ES 8.8 Response agent does not rerun for newly added findings",
+  "concernType": "uncertain-claim",
+  "problem": "The exact ES 8.8 task says the Response agent cannot rerun and does not pick up findings added to a processed investigation. This is a documented operational limitation, separate from the older Triage existing-finding limit, Guided Response entitlement and exact SOAR pairing.",
+  "scope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "8.8"
+    ],
+    "editions": null,
+    "deployments": [
+      "Triage and Response workflow"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Actual package behavior and broader product or authorization scope remain unverified."
+    ]
+  },
+  "impact": {
+    "level": "moderate",
+    "customerScenario": "An analyst adds findings to an investigation that ES 8.8 Response already processed.",
+    "consequence": "The new findings do not receive a second Response pass under the documented behavior."
+  },
+  "confidence": {
+    "level": "high",
+    "rationale": "The directly reviewed ES 8.8 task guide describes both limits explicitly. No behavior was inferred for other releases."
+  },
+  "claimIds": [
+    "es.88.response-agent.rerun-scope"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "The exact versioned task still lists the limitation."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  }
+}

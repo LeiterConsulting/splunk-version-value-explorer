@@ -461,6 +461,9 @@ try {
         for(const qualification of ['Automation Broker 8.7.0.245 distribution','October 9, 2026 through Docker Hub only','no tested compatibility matrix or security remediation claim']) assert(normalize(expected.text).includes(qualification), 'SOAR Broker qualification missing: '+qualification);
       }
       if(route.id==='forwarder-windows-2012-r2') assert(normalize(expected.text).includes('The Splunk 10.6 Windows package matrix omits Windows Server 2012 R2.'),'Windows target-package qualification missing from export');
+      if (route.id === 'editions' || route.id === 'ai-es-premier-triage-note') {
+        assert(normalize(expected.text).includes('the Response agent cannot rerun or process findings added after it has already processed the investigation'), 'The exact ES 8.8 Response limitation is missing from export');
+      }
       if(route.id==='editions'){
         for(const text of ['Which TAXII protocol versions are supported?','The duplicate version leaves the current exact protocol list uncertain.','TIM Cloud TAXII2 sources','same page names TAXII 1.0 and 1.1'])assert(normalize(expected.text).includes(text),'Missing scoped TAXII report evidence');
         expected.paginationPairs=[{heading:'Which TAXII protocol versions are supported?',following:'Decision affected: Native TAXII feed protocol versions',headingOccurrence:1}];

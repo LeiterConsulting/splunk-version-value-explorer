@@ -96,6 +96,14 @@ test('history recovery preserves ambiguous and mismatched environment inputs for
  const recovered=runtime('?'+p);assert.equal(recovered.elements.get('edition-print').disabled,true);assert.throws(()=>recovered.snapshot(),/environment/i);
 });
 
+test('ES 8.8 Response rerun limitation stays with the combined workflow',()=>{
+ const soc=data.capabilities.find(c=>c.id==='ai-soc-analyst');
+ const guided=data.capabilities.find(c=>c.id==='guided-response');
+ assert.match(soc.desc,/In ES 8\.8, the Response agent cannot rerun or process findings added/);
+ assert(soc.src.includes('socTask88'));
+ assert(!guided.desc.includes('cannot rerun'));
+});
+
 test('ES 8.8 GA preserves edition-specific release history and the October CA milestone',()=>{
  assert.equal(data.release,'8.8');assert.equal(data.releaseStage,'General Availability');assert.equal(data.sources.rn88.reviewed,'2026-11-05');
  assert(data.history['8.8'].e.includes('Detection Rerun'));assert(data.history['8.8'].p.includes('Automation Broker High Availability'));

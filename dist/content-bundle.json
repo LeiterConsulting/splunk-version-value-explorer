@@ -1,15 +1,15 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-33b5a9a28d86720b82252a35",
-    "digest": "a3a48c6645461c3e61ad5b34488000f135d9a36a34c69027c2f4fff4a200c27c",
-    "engineRevision": "engine-b1538b2a48d11bc359cd",
+    "revision": "content-8710a3927c6e30a1f020e02d",
+    "digest": "e46f87a2b04f10698c4fe6b904254d5f07f7fbfa193d29b9bbd408a3f67dcd9f",
+    "engineRevision": "engine-9094096f3793862f72eb",
     "datasetHashes": {
       "platform": "c75dbad3ceab9dfbb87c50e3f3ccde5b9e0bd9277421423490ac3a8dccfeee96",
       "products": "854fe986e92c6a88dc3d76eb70c392f0f4ca38417b34c53443eecd4015ba5df4",
-      "guidance": "4a7264084d20871430b3d0c30d269166d30749e5578f10ffd01d7c858b317925",
+      "guidance": "9486a2fd67eb6d06fbfbdd5a6cffa0cbb403a5af8fd053a10bf155038632a460",
       "environment": "d30df851f1b62b7ee3486ccb174fc8a6170b635333d13dd08db9e6e538ab1b15",
-      "editions": "28439000d58422c47c967188a00a7ab3891aea5a1e6be5b5869a9caabd23fa7a",
+      "editions": "e86a85c7c0342508ef6f15092eab4833ea79be59c0d32b014f6f0e9a790ee1c9",
       "forwarders": "f992e8bad9c60ac1b7577987233bceb0b40a3111f209305655dc552850166991",
       "soar": "0a95273ec36589b59fe74ff2ded1d383c1f8278427449dea3d06dc9e23ddebd4"
     },
@@ -6292,7 +6292,8 @@
                 "Premier, paired SOAR and representative enablement.",
                 "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the 8.8 task guide requires ES 8.7+.",
                 "CMP: the setup guide requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. Current SAIA guidance says 2.4.0 Cloud Connected support is planned for late November 2026, so no released supported CMP path is established. Earlier ES 8.9+ bundled-Cloud-Connect wording is historical packaging evidence, not release or rollout evidence.",
-                "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported."
+                "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported.",
+                "In ES 8.8, the Response agent cannot rerun or process findings added after it has already processed the investigation."
               ],
               "runtime": "Agentic SOC services; the 8.8 task guide says the Splunk-hosted model option does not apply to this workflow. Paired SOAR has independent compatibility.",
               "qualification": "The current aggregate row and task guide name the combined Triage and Response workflow under Premier while retaining AI SOC analyst terminology inside the workflow. The current documentation no longer explicitly assigns Triage to Essentials. The earlier Essentials statement remains historical evidence, while exact subcomponent entitlement remains unestablished. Connector/action inheritance and the es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence. The CMP dependency chain is documented but its required SAIA 2.4 Cloud Connected release remains planned rather than available in current SAIA guidance.",
@@ -9989,7 +9990,7 @@
             "v": "yes",
             "n": "Cloud and Cloud Connected CMP; rep-enabled"
           },
-          "desc": "Assists investigation and response. The current 8.8 documentation names the combined Triage and Response agents while retaining AI SOC analyst terminology inside the workflow. The aggregate row documents Premier on Cloud and Cloud Connected CMP, paired SOAR and representative enablement. Cloud requires platform 10.2+ and ES 8.6+; the task guide separately requires ES 8.7+. CMP requires platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. The current SAIA 2.3.6 installation guidance says Cloud Connected support is only planned for 2.4.0 in late November 2026, so the ES prerequisite does not yet establish a released supported CMP path. Earlier ES 8.9+ bundled-Cloud-Connect wording is historical packaging evidence, not release evidence. The task guide also requires connector and investigation permissions and a finding with AI triage results; it limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day, with frontier models only.",
+          "desc": "Assists investigation and response. The current 8.8 documentation names the combined Triage and Response agents while retaining AI SOC analyst terminology inside the workflow. The aggregate row documents Premier on Cloud and Cloud Connected CMP, paired SOAR and representative enablement. Cloud requires platform 10.2+ and ES 8.6+; the task guide separately requires ES 8.7+. CMP requires platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. The current SAIA 2.3.6 installation guidance says Cloud Connected support is only planned for 2.4.0 in late November 2026, so the ES prerequisite does not yet establish a released supported CMP path. Earlier ES 8.9+ bundled-Cloud-Connect wording is historical packaging evidence, not release evidence. The task guide also requires connector and investigation permissions and a finding with AI triage results; it limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day, with frontier models only. In ES 8.8, the Response agent cannot rerun or process findings added after it has already processed the investigation.",
           "flag": "The 8.8 aggregate table and task guide retain different Cloud ES minimums. The task guide also requires inherited SOAR connector permissions and the es_soar_integration_user_role for granular asset access; these permission boundaries do not establish compatible SOAR pairing. The CMP path has its own higher platform, ES and Cloud Connect floors, and its required SAIA 2.4 dependency remains planned rather than released in the current SAIA guidance.",
           "src": [
             "agentic88",
@@ -20385,7 +20386,8 @@
                 "Premier, paired SOAR and representative enablement.",
                 "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the 8.8 task guide requires ES 8.7+.",
                 "CMP: the setup guide requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. Current SAIA guidance says 2.4.0 Cloud Connected support is planned for late November 2026, so no released supported CMP path is established. Earlier ES 8.9+ bundled-Cloud-Connect wording is historical packaging evidence, not release or rollout evidence.",
-                "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported."
+                "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported.",
+                "In ES 8.8, the Response agent cannot rerun or process findings added after it has already processed the investigation."
               ],
               "runtime": "Agentic SOC services; the 8.8 task guide says the Splunk-hosted model option does not apply to this workflow. Paired SOAR has independent compatibility.",
               "qualification": "The current aggregate row and task guide name the combined Triage and Response workflow under Premier while retaining AI SOC analyst terminology inside the workflow. The current documentation no longer explicitly assigns Triage to Essentials. The earlier Essentials statement remains historical evidence, while exact subcomponent entitlement remains unestablished. Connector/action inheritance and the es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence. The CMP dependency chain is documented but its required SAIA 2.4 Cloud Connected release remains planned rather than available in current SAIA guidance.",
@@ -31300,7 +31302,8 @@
             "Premier, paired SOAR and representative enablement.",
             "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the 8.8 task guide requires ES 8.7+.",
             "CMP: the setup guide requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. Current SAIA guidance says 2.4.0 Cloud Connected support is planned for late November 2026, so no released supported CMP path is established. Earlier ES 8.9+ bundled-Cloud-Connect wording is historical packaging evidence, not release or rollout evidence.",
-            "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported."
+            "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported.",
+            "In ES 8.8, the Response agent cannot rerun or process findings added after it has already processed the investigation."
           ],
           "runtime": "Agentic SOC services; the 8.8 task guide says the Splunk-hosted model option does not apply to this workflow. Paired SOAR has independent compatibility.",
           "qualification": "The current aggregate row and task guide name the combined Triage and Response workflow under Premier while retaining AI SOC analyst terminology inside the workflow. The current documentation no longer explicitly assigns Triage to Essentials. The earlier Essentials statement remains historical evidence, while exact subcomponent entitlement remains unestablished. Connector/action inheritance and the es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence. The CMP dependency chain is documented but its required SAIA 2.4 Cloud Connected release remains planned rather than available in current SAIA guidance.",
@@ -34464,7 +34467,8 @@
                 "Premier, paired SOAR and representative enablement.",
                 "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the 8.8 task guide requires ES 8.7+.",
                 "CMP: the setup guide requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. Current SAIA guidance says 2.4.0 Cloud Connected support is planned for late November 2026, so no released supported CMP path is established. Earlier ES 8.9+ bundled-Cloud-Connect wording is historical packaging evidence, not release or rollout evidence.",
-                "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported."
+                "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported.",
+                "In ES 8.8, the Response agent cannot rerun or process findings added after it has already processed the investigation."
               ],
               "runtime": "Agentic SOC services; the 8.8 task guide says the Splunk-hosted model option does not apply to this workflow. Paired SOAR has independent compatibility.",
               "qualification": "The current aggregate row and task guide name the combined Triage and Response workflow under Premier while retaining AI SOC analyst terminology inside the workflow. The current documentation no longer explicitly assigns Triage to Essentials. The earlier Essentials statement remains historical evidence, while exact subcomponent entitlement remains unestablished. Connector/action inheritance and the es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence. The CMP dependency chain is documented but its required SAIA 2.4 Cloud Connected release remains planned rather than available in current SAIA guidance.",
@@ -35432,7 +35436,7 @@
             "v": "yes",
             "n": "Cloud and Cloud Connected CMP; rep-enabled"
           },
-          "desc": "Assists investigation and response. The current 8.8 documentation names the combined Triage and Response agents while retaining AI SOC analyst terminology inside the workflow. The aggregate row documents Premier on Cloud and Cloud Connected CMP, paired SOAR and representative enablement. Cloud requires platform 10.2+ and ES 8.6+; the task guide separately requires ES 8.7+. CMP requires platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. The current SAIA 2.3.6 installation guidance says Cloud Connected support is only planned for 2.4.0 in late November 2026, so the ES prerequisite does not yet establish a released supported CMP path. Earlier ES 8.9+ bundled-Cloud-Connect wording is historical packaging evidence, not release evidence. The task guide also requires connector and investigation permissions and a finding with AI triage results; it limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day, with frontier models only.",
+          "desc": "Assists investigation and response. The current 8.8 documentation names the combined Triage and Response agents while retaining AI SOC analyst terminology inside the workflow. The aggregate row documents Premier on Cloud and Cloud Connected CMP, paired SOAR and representative enablement. Cloud requires platform 10.2+ and ES 8.6+; the task guide separately requires ES 8.7+. CMP requires platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. The current SAIA 2.3.6 installation guidance says Cloud Connected support is only planned for 2.4.0 in late November 2026, so the ES prerequisite does not yet establish a released supported CMP path. Earlier ES 8.9+ bundled-Cloud-Connect wording is historical packaging evidence, not release evidence. The task guide also requires connector and investigation permissions and a finding with AI triage results; it limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day, with frontier models only. In ES 8.8, the Response agent cannot rerun or process findings added after it has already processed the investigation.",
           "flag": "The 8.8 aggregate table and task guide retain different Cloud ES minimums. The task guide also requires inherited SOAR connector permissions and the es_soar_integration_user_role for granular asset access; these permission boundaries do not establish compatible SOAR pairing. The CMP path has its own higher platform, ES and Cloud Connect floors, and its required SAIA 2.4 dependency remains planned rather than released in the current SAIA guidance.",
           "src": [
             "agentic88",
@@ -36025,7 +36029,8 @@
             "Premier, paired SOAR and representative enablement.",
             "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the 8.8 task guide requires ES 8.7+.",
             "CMP: the setup guide requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. Current SAIA guidance says 2.4.0 Cloud Connected support is planned for late November 2026, so no released supported CMP path is established. Earlier ES 8.9+ bundled-Cloud-Connect wording is historical packaging evidence, not release or rollout evidence.",
-            "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported."
+            "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported.",
+            "In ES 8.8, the Response agent cannot rerun or process findings added after it has already processed the investigation."
           ],
           "runtime": "Agentic SOC services; the 8.8 task guide says the Splunk-hosted model option does not apply to this workflow. Paired SOAR has independent compatibility.",
           "qualification": "The current aggregate row and task guide name the combined Triage and Response workflow under Premier while retaining AI SOC analyst terminology inside the workflow. The current documentation no longer explicitly assigns Triage to Essentials. The earlier Essentials statement remains historical evidence, while exact subcomponent entitlement remains unestablished. Connector/action inheritance and the es_soar_integration_user_role requirement are task-specific authorization boundaries, not pairing evidence. The CMP dependency chain is documented but its required SAIA 2.4 Cloud Connected release remains planned rather than available in current SAIA guidance.",
