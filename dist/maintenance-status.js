@@ -1154,10 +1154,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-12T11:36:35.253006Z",
+      "lastAttempt": "2026-11-13T11:04:01.400194Z",
       "lastSuccess": "2026-11-11T11:31:55.245Z",
       "outcome": "blocked",
-      "summary": "Bounded ES review complete. The mapped historical SOC release evidence remains unverified.",
+      "summary": "Reassessed ES editions, agent prerequisites and SOAR pairing evidence. Historical SOC evidence remains incomplete.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1679,9 +1679,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Bounded ES review complete. The mapped historical SOC release evidence remains unverified.",
           "scope": "Current editions, licensing, TAXII, SOAR integration and SOC prerequisites reviewed; the ES print repair is scoped to decision questions. ES 8.8 historical Controlled Availability coverage remains incomplete."
+        },
+        {
+          "at": "2026-11-13T11:04:01.400194Z",
+          "outcome": "running",
+          "summary": "Checking official ES editions and agent sources.",
+          "scope": "ES Editions Watch and the registry 1.2.0 SOC capability."
+        },
+        {
+          "at": "2026-11-13T11:10:32.160Z",
+          "outcome": "blocked",
+          "summary": "Reassessed ES editions, agent prerequisites and SOAR pairing evidence. Historical SOC evidence remains incomplete.",
+          "scope": "59 source URLs, 12 claim assessments and one deferred SOC disposition."
         }
       ],
-      "scope": "Current editions, licensing, TAXII, SOAR integration and SOC prerequisites reviewed; the ES print repair is scoped to decision questions. ES 8.8 historical Controlled Availability coverage remains incomplete."
+      "scope": "59 source URLs, 12 claim assessments and one deferred SOC disposition."
     },
     {
       "id": "version-guidance-audit",
