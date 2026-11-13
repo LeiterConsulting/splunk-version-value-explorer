@@ -466,6 +466,10 @@ try {
         expected.requiredText=['Israel (Tel Aviv)',israelText];
         if(israelMatched) expected.requiredText.push('Victoria Experience > AWS > Middle East (Israel)','AWS Israel addition for relevant Cloud 10.7 versions','Service endpoints > Israel (Tel Aviv) and il-central-1');
       }
+      if(['cloud-fedramp-moderate','cloud-fedramp-high','cloud-107-fedramp-high'].includes(route.id)) {
+        expected.requiredText=['Cloud 10.6 Amazon S3 federated search product restrictions','The Cloud 10.6 product guide excludes FedRAMP Moderate, FedRAMP High, and DoD IL5 deployments.'];
+        if(route.id!=='cloud-fedramp-moderate') expected.requiredText.push('The April 8 change log lists High and IL5 in both GovCloud regions for relevant Cloud 10.3 versions.');
+      }
       if(route.id==='cloud-107-fedramp-high') {
         for(const qualification of ['Cloud 10.7 Service Details lists Edge Processor for FedRAMP High','Cloud 10.7 Service Details lists Ingest Processor for FedRAMP High','The 10.6 table lists Moderate only','Essentials tier']) assert(normalize(expected.text).includes(qualification), 'High processor qualification missing: '+qualification);
       }

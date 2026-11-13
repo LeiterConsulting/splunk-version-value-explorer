@@ -2248,8 +2248,6 @@ window.VersionCompassSources = {
         "environment: environment.records.23",
         "environment: environment.records.24",
         "environment: environment.records.25",
-        "environment: environment.records.26",
-        "environment: environment.records.27",
         "environment: environment.records.28",
         "environment: environment.records.29",
         "environment: environment.records.30",
@@ -2271,7 +2269,6 @@ window.VersionCompassSources = {
         "2026-10-21",
         "2026-10-07"
       ],
-      "conflict": true,
       "claimReferences": [
         {
           "path": "forwarders: forwarders.claimSources.receiver.cloud",
@@ -2284,7 +2281,7 @@ window.VersionCompassSources = {
       ],
       "usage": "In use",
       "reviewed": "2026-10-09",
-      "status": "Needs reconciliation",
+      "status": "Reviewed",
       "firstRecorded": "2026-10-02",
       "firstUsed": null,
       "outdatedAsOf": null,
@@ -2307,6 +2304,71 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-09",
           "event": "Review status updated: Needs reconciliation · 2026-10-09"
+        },
+        {
+          "date": "2026-11-13",
+          "event": "Review status updated: Reviewed · 2026-10-09"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details#federated-search-for-third-party-data-stores-0",
+      "title": "Cloud 10.6 third-party federated search restrictions",
+      "areas": [
+        "Cloud environment"
+      ],
+      "references": [
+        "environment.sources.s3ThirdParty106.url",
+        "environment: environment.records.26"
+      ],
+      "reviews": [
+        "2026-11-13"
+      ],
+      "conflict": true,
+      "usage": "In use",
+      "reviewed": "2026-11-13",
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-11-13",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Search > Federated search for third-party data stores > Requirements and restrictions",
+      "verificationScope": "Scoped evidence for Amazon S3 federation. The maintained regional table, product restrictions and historical change entry remain separate.",
+      "events": [
+        {
+          "date": "2026-11-13",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details#id_599802a1_7358_493f_851f_15dfde0fbe0e--en__Available_regions_and_region_differences",
+      "title": "Cloud 10.6 regional availability for Amazon S3 federation",
+      "areas": [
+        "Cloud environment"
+      ],
+      "references": [
+        "environment.sources.s3Regional106.url",
+        "environment: environment.records.26",
+        "environment: environment.records.27"
+      ],
+      "reviews": [
+        "2026-11-13"
+      ],
+      "conflict": true,
+      "usage": "In use",
+      "reviewed": "2026-11-13",
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-11-13",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Available regions and region differences > Federated search for Amazon S3",
+      "verificationScope": "Scoped evidence for Amazon S3 federation. The maintained regional table, product restrictions and historical change entry remain separate.",
+      "events": [
+        {
+          "date": "2026-11-13",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },
@@ -2323,7 +2385,6 @@ window.VersionCompassSources = {
         "environment: environment.records.16",
         "environment: environment.records.20",
         "environment: environment.records.22",
-        "environment: environment.records.27",
         "environment: environment.records.30",
         "environment: environment.records.31",
         "environment: environment.records.32",
@@ -2332,10 +2393,9 @@ window.VersionCompassSources = {
       "reviews": [
         "2026-10-22"
       ],
-      "conflict": true,
       "usage": "In use",
       "reviewed": "2026-10-09",
-      "status": "Needs reconciliation",
+      "status": "Reviewed",
       "firstRecorded": "2026-10-02",
       "firstUsed": null,
       "outdatedAsOf": null,
@@ -2350,6 +2410,40 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-09",
           "event": "Review status updated: Needs reconciliation · 2026-10-09"
+        },
+        {
+          "date": "2026-11-13",
+          "event": "Review status updated: Reviewed · 2026-10-09"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log#8-april-2026-0",
+      "title": "April 8 Amazon S3 federation change entry",
+      "areas": [
+        "Cloud environment"
+      ],
+      "references": [
+        "environment.sources.s3AprilChange.url",
+        "environment: environment.records.27"
+      ],
+      "reviews": [
+        "2026-11-13"
+      ],
+      "conflict": true,
+      "usage": "In use",
+      "reviewed": "2026-11-13",
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-11-13",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "8 April 2026 > AWS GovCloud High and IL5 for relevant 10.3 versions",
+      "verificationScope": "Scoped evidence for Amazon S3 federation. The maintained regional table, product restrictions and historical change entry remain separate.",
+      "events": [
+        {
+          "date": "2026-11-13",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },
@@ -3149,6 +3243,39 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-09-25",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/federated-search/10.6/run-federated-searches-over-amazon-s3-datasets/overview-of-federated-search-for-amazon-s3#restrictions-0",
+      "title": "Cloud 10.6 Amazon S3 federated search product restrictions",
+      "areas": [
+        "Cloud environment",
+        "Shared guidance"
+      ],
+      "references": [
+        "environment.sources.s3Guide106.url",
+        "content-updates.js",
+        "environment: environment.records.26",
+        "environment: environment.records.27"
+      ],
+      "reviews": [
+        "2026-11-13"
+      ],
+      "conflict": true,
+      "usage": "In use",
+      "reviewed": "2026-11-13",
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-11-13",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Overview of Federated Search for Amazon S3 > Restrictions",
+      "verificationScope": "Scoped evidence for Amazon S3 federation. The maintained regional table, product restrictions and historical change entry remain separate.",
+      "events": [
+        {
+          "date": "2026-11-13",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]

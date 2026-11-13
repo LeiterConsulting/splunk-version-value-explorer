@@ -17,7 +17,8 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('material cycle preserves scoped release evidence and prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,69);
+ assert.equal(b.policy.currentCycle,70);
+ for(const scope of ['moderate','high']){const s3=b.entries['environment:s3-'+scope];assert.equal(s3.cycle,70);assert(b.active(s3));assert(s3.source.endsWith('#restrictions-0'));}
  const israel=b.entries['environment:victoria-aws-israel'];assert.equal(israel.cycle,69);assert.equal(israel.sourceDate,'2026-11-06');assert(b.active(israel));
  const esWindow=b.entries["technical:es:ES 8.8 Mission Control migration window"];
  assert.equal(esWindow.cycle,67);assert(b.active(esWindow,68));assert(!b.active(esWindow));assert.equal(esWindow.sourceDate,null);
@@ -43,7 +44,7 @@ test('material cycle preserves scoped release evidence and prior cycle provenanc
  const aiCycle42=b.entries['ai-history:catalog:cycle42'];assert.equal(aiCycle42.recordKey,'ai:catalog');assert.equal(aiCycle42.cycle,42);assert(!b.active(aiCycle42));assert.match(aiCycle42.detail,/separate Cloud Connect 2\.0 download/);assert.match(aiCycle42.detail,/does not establish an ES 8\.9 release/);
  const aiCycle40=b.entries['ai-history:catalog:cycle40'];assert.equal(aiCycle40.recordKey,'ai:catalog');assert.equal(aiCycle40.cycle,40);assert(!b.active(aiCycle40));assert.match(aiCycle40.detail,/first 10 findings/);
  const aiCycle37=b.entries['ai-history:catalog:cycle37'];assert.equal(aiCycle37.recordKey,'ai:catalog');assert.equal(aiCycle37.cycle,37);assert(!b.active(aiCycle37));assert.match(aiCycle37.detail,/Threat Graph Detection/);
- const soc=b.entries['edition:ai-soc-analyst'];assert.equal(soc.cycle,68);assert(b.active(soc));assert.match(soc.detail,/cannot rerun/);
+ const soc=b.entries['edition:ai-soc-analyst'];assert.equal(soc.cycle,68);assert(b.active(soc,69));assert(!b.active(soc));assert.match(soc.detail,/cannot rerun/);
  const socHistory=b.entries['edition-history:ai-soc-analyst:cycle50'];assert.equal(socHistory.cycle,50);assert(b.active(socHistory,51));assert.match(socHistory.detail,/Splunk AI Assistant 2\.4/);
  const socCycle42=b.entries['edition-history:ai-soc-analyst:cycle42'];assert.equal(socCycle42.recordKey,'edition:ai-soc-analyst');assert.equal(socCycle42.cycle,42);assert(!b.active(socCycle42));assert.match(socCycle42.detail,/dependency packaging/);
  for(const key of ['edition:connector-builder','edition:malware-reversing','edition:licensing']){const e=b.entries[key];assert.equal(e.cycle,45);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-31\.md/);}
@@ -90,7 +91,7 @@ test('material cycle preserves scoped release evidence and prior cycle provenanc
  const maintenance=b.entries['technical:platform:Enterprise 10.4 maintenance target'];assert(!b.active(maintenance));assert.equal(maintenance.kind,'updated');
  const detector=b.entries['feature:observability:Detector Optimization'];assert(!b.active(detector));assert.equal(detector.kind,'new');
  for(const key of ['feature:observability:Python instrumentation 2.13.3','technical:observability:Python 2.13.3 auto-instrumentation images and dependency floors','technical:observability:Python PostgreSQL query-to-trace correlation']){const e=b.entries[key];assert.equal(e.cycle,44);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-30\.md/);assert.match(e.version,/2\.13\.3/);}
- for(const key of ['environment:s3-moderate','environment:machine-data-lake-aws','environment:machine-data-lake-gov','environment:machine-data-lake-gcp','environment:machine-data-lake-azure']){const e=b.entries[key];assert.equal(e.cycle,15);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-09\.md/);}
+ for(const key of ['environment-history:s3-moderate:cycle15','environment:machine-data-lake-aws','environment:machine-data-lake-gov','environment:machine-data-lake-gcp','environment:machine-data-lake-azure']){const e=b.entries[key];assert.equal(e.cycle,15);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-09\.md/);}
  for(const key of ['compatibility:es:cloud-current','compatibility:itsi:cloud-current','technical:forwarders:10.6 receiver compatibility','technical:forwarders:Cloud 10.6 receiver compatibility','technical:platform:Cloud 10.6 publication versus stack availability']){const e=b.entries[key];assert.equal(e.cycle,14);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-07\.md/);}
  const offerings=b.entries['environment:es-fr-m-offering'];assert(b.active(offerings,66));assert(!b.active(offerings));assert.equal(offerings.cycle,65);
  const priorOffering=b.entries['environment-history:es-fr-m-offering:cycle55'];assert(b.active(priorOffering,56));assert(!b.active(priorOffering));assert.equal(priorOffering.recordKey,'environment:es-fr-m-offering');

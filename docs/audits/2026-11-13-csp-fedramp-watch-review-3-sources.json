@@ -1379,7 +1379,12 @@
   ],
   "publication": {
     "claimedDelivered": false,
-    "qualification": "Separate registry coverage, repository integration, Sites and live D1. Production pre-write hold remains in force."
+    "qualification": "Separate registry coverage, repository integration, Sites and live D1. Production pre-write hold remains in force.",
+    "feed": {
+      "checkpoint": "vci-1687538eb05fb26ca89753b7140e7f10d4dc2a3187f8f3e70b2fd031a031f2c8",
+      "observationCount": 8,
+      "immutableAuditCommit": "d65c275a2280a366f8eae815ebf4c4af43343f84"
+    }
   },
   "automationCoverage": {
     "runFile": "docs/audits/2026-11-13-csp-fedramp-watch-review-3-coverage.json"
@@ -1387,11 +1392,20 @@
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "csp-fedramp-watch",
-    "status": "pending-public-provenance",
-    "recordedAt": "2026-11-13T14:05:50.516Z",
+    "status": "published",
+    "recordedAt": "2026-11-13T14:08:29.163Z",
     "reviewDigest": "79e1fad6d029df6e7a6f57b1394a621cb8cbf0093eaef3a4bfe3dba41dcbc33d",
-    "publicationId": "vci-21b1ac35e93242356d165fec3eedb02901a128e3a179a6f4c55cf9ee826182a4",
-    "recordKeys": [],
+    "publicationId": "vci-1687538eb05fb26ca89753b7140e7f10d4dc2a3187f8f3e70b2fd031a031f2c8",
+    "recordKeys": [
+      "assessment:vcia-csp-20261113-r3-cloud-s3-restricted-scope@1",
+      "assessment:vcia-csp-20261113-r3-fedramp-moderate-certified-services-display@1",
+      "assessment:vcia-csp-20261113-r3-es-soc-analyst-version-floor@1",
+      "assessment:vcia-csp-20261113-r3-itsi-subagent-region@1",
+      "assessment:vcia-csp-20261113-r3-soar-cloud-880-release-stage@1",
+      "assessment:vcia-csp-20261113-r3-es-security-assistant-runtime-ap-routing@1",
+      "assessment:vcia-csp-20261113-r3-es-security-assistant-runtime-default@1",
+      "assessment:vcia-csp-20261113-r3-o11y-secure-app-dotnet-dual-mode-realms@1"
+    ],
     "notReassessedFindingIds": [
       "vci-es-87-connector-builder-editions",
       "vci-es-88-triage-editions",
@@ -1431,6 +1445,21 @@
       "version-guidance-audit by 2026-11-16 Compare the matching native result to the later attempt start, independently reassess SOC sources, and keep coverage distinct from validated repository and live delivery.",
       "version-release-watch by 2026-11-14 Check exact .NET Secure Application milestone realm boundary, while leaving current hosted scope and authorization independent."
     ],
-    "qualification": "Eight scoped reassessments require the immutable public audit commit."
+    "qualification": "Exact assessed findings and reassessments use commit-pinned public evidence. GitHub main integration and recovery are checked separately."
+  },
+  "validation": {
+    "existingSiteStatic": {
+      "outcome": "passed",
+      "verifiedAt": "2026-11-13T14:03:24.770Z",
+      "revision": "content-8344e542dec404d4d07ef231",
+      "engine": "engine-1d0378267fdc69818546",
+      "records": 948,
+      "digest": "90724152168c84de71c7dbd70c052b80b2346b60a18481056b06d479c72787a0",
+      "qualification": "Manifest, bundle and revision script matched exact Sites 294 source. Independent bundle validation agreed with its publication manifest. Visitor UI and D1 were held."
+    },
+    "candidateExports": {
+      "outcome": "pending",
+      "qualification": "The versioned S3 conflict citations and report wording change report input bytes. Dedicated CI and independent artifact readback remain pending for the follow-up."
+    }
   }
 }
