@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "revision": 1,
+  "recordedAt": "2026-11-13T12:05:08.471Z",
+  "findingId": "vci-observability-november-edition-guide-link",
+  "title": "November Observability release notes link to an unavailable edition guide",
+  "concernType": "uncertain-claim",
+  "problem": "The host-based Essentials and Premier release row links to a document path that returned HTTP 404 during this review. The release row provides its own scope. The linked guide could not be used to confirm exact limits or subscription scope.",
+  "scope": {
+    "products": [
+      "Splunk Observability Cloud"
+    ],
+    "versions": [
+      "November 12 service milestone"
+    ],
+    "editions": null,
+    "deployments": [
+      "Host-based Essentials and Premier"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Exact subscription terms, customer authorization and broader release applicability remain unverified."
+    ]
+  },
+  "impact": {
+    "level": "moderate",
+    "customerScenario": "A reader compares the host-based Essentials and Premier plans using the detail link in the release notes.",
+    "consequence": "The linked detail page did not provide a basis for verifying exact plan limits or subscription-specific scope."
+  },
+  "confidence": {
+    "level": "high",
+    "rationale": "The release-note anchor and exact direct HTTP 404 were observed. Other public access routes and the scope of the document itself remain unknown."
+  },
+  "claimIds": [
+    "observability.nov26.host-editions"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "The exact public source leaves a material qualification to verify."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261113-review3-26-0",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026",
+      "section": "What’s new > Splunk Observability Cloud editions",
+      "statement": "The release gives both editions Observability Logs, AI-assisted troubleshooting and Agent Observability. Premier adds named capabilities and a higher monthly span allowance. Exact limits, offering-specific authorization and entitlement require separate sources. The linked edition guide was not retrievable in this run.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-13T11:56:05.648Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "75dc0e3c06c0525af8b4debf183871f4570280ea6d68990d1faaa23fca91fadb",
+        "qualification": "Exact public response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261113-observability-edition-guide",
+      "url": "https://help.splunk.com/en/db/organizations/splunk/repositories/portal-production/content/documents/ObservabilityCloud/get-started/c_splunk_o11y_cloud_essentials_premier_editions.dita",
+      "section": "Linked Essentials and Premier editions guide",
+      "statement": "Exact public link returned HTTP 404. The response was not the source document.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-13T11:56:05.472Z",
+      "availability": "unavailable",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Only a 404 response was retrieved."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/c4cac222fad315c4ac993615341ab99929471b11/docs/audits/2026-11-13-version-release-watch-review-3-sources.json",
+      "pointer": "/claimChecks/26",
+      "originalLabel": "verified-change"
+    }
+  ]
+}

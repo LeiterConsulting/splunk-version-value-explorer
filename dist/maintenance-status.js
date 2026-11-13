@@ -502,10 +502,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-13T11:14:43.196266Z",
+      "lastAttempt": "2026-11-13T11:48:49.274778Z",
       "lastSuccess": "2026-11-11T14:21:55.848Z",
       "outcome": "blocked",
-      "summary": "Rechecked release evidence and added the ES 8.8 upgrade-order caveat. Historical SOC scope and production verification remain open.",
+      "summary": "Verified the November 12 Observability Cloud milestone and rechecked ES 8.8 sequencing, Forwarder and SOAR evidence. Historical SOC and production verification remain open.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1171,9 +1171,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Rechecked release evidence and added the ES 8.8 upgrade-order caveat. Historical SOC scope and production verification remain open.",
           "scope": "ES 8.8 sequencing, bounded Cloud, Forwarder and SOAR evidence, and 11 registry dispositions."
+        },
+        {
+          "at": "2026-11-13T11:48:49.274778Z",
+          "outcome": "running",
+          "summary": "Checking exact public release sources.",
+          "scope": "Release Watch and registry 1.2.0."
+        },
+        {
+          "at": "2026-11-13T11:58:20.917Z",
+          "outcome": "blocked",
+          "summary": "Verified the November 12 Observability Cloud milestone and rechecked ES 8.8 sequencing, Forwarder and SOAR evidence. Historical SOC and production verification remain open.",
+          "scope": "November Observability, ES 8.8 sequencing, bounded Cloud, Forwarder and SOAR evidence, and 11 registry dispositions."
         }
       ],
-      "scope": "ES 8.8 sequencing, bounded Cloud, Forwarder and SOAR evidence, and 11 registry dispositions."
+      "scope": "November Observability, ES 8.8 sequencing, bounded Cloud, Forwarder and SOAR evidence, and 11 registry dispositions."
     },
     {
       "id": "es-editions-watch",

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "revision": 1,
+  "recordedAt": "2026-11-13T12:05:08.471Z",
+  "findingId": "vci-observability-a2a-selected-customer-scope",
+  "title": "Observability AI Assistant A2A eligibility remains unspecified",
+  "concernType": "uncertain-claim",
+  "problem": "The November 12 release row limits A2A access to select customers and gives no exact eligible realms, editions or authorization scope.",
+  "scope": {
+    "products": [
+      "Splunk Observability AI Assistant"
+    ],
+    "versions": [
+      "November 12 service milestone"
+    ],
+    "editions": null,
+    "deployments": [
+      "Select customers"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Exact subscription terms, customer authorization and broader release applicability remain unverified."
+    ]
+  },
+  "impact": {
+    "level": "moderate",
+    "customerScenario": "A reader is planning an external integration for a particular Observability Cloud realm and subscription.",
+    "consequence": "The release row establishes the capability and its limited launch scope. It leaves this customer’s eligibility unestablished."
+  },
+  "confidence": {
+    "level": "high",
+    "rationale": "The exact November release row explicitly limits access to select customers. No broad exclusion or entitlement was inferred."
+  },
+  "claimIds": [
+    "observability.nov26.a2a-access"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "The exact public source leaves a material qualification to verify."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261113-review3-25-0",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026",
+      "section": "What’s new > A2A Access for AI Assistant",
+      "statement": "A2A delegates investigations for eligible customers. Exact eligible realms, customer entitlement, edition and authorization remain unestablished. No customer data or new VersionCompass tool is involved.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-13T11:56:05.648Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "75dc0e3c06c0525af8b4debf183871f4570280ea6d68990d1faaa23fca91fadb",
+        "qualification": "Exact public response bytes; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/c4cac222fad315c4ac993615341ab99929471b11/docs/audits/2026-11-13-version-release-watch-review-3-sources.json",
+      "pointer": "/claimChecks/25",
+      "originalLabel": "verified-change"
+    }
+  ]
+}

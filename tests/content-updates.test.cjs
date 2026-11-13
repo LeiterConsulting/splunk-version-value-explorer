@@ -17,7 +17,11 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('material cycle preserves scoped release evidence and prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,67);
+ assert.equal(b.policy.currentCycle,68);
+ const a2aKey='feature:observability:Agent-to-Agent access for Observability AI Assistant';
+ const a2a=b.entries[a2aKey];assert.equal(a2a.cycle,68);assert.equal(a2a.sourceDate,'2026-11-12');
+ assert(b.html(a2aKey,{milestone:'Select customers · November 12, 2026'}));
+ assert.equal(b.html(a2aKey,{milestone:'October 2026'}),'');
  const esWindow=b.entries["technical:es:ES 8.8 Mission Control migration window"];
  assert.equal(esWindow.cycle,67);assert(b.active(esWindow));assert.equal(esWindow.sourceDate,null);
  const cloud104=b.entries['technical:platform:Cloud 10.4.2604.18 maintenance patch'];
@@ -26,7 +30,7 @@ test('material cycle preserves scoped release evidence and prior cycle provenanc
  assert.equal(cloud105Patch.cycle,64);assert.equal(cloud105Patch.sourceDate,'2026-11-06');assert(b.active(cloud105Patch,65));assert(!b.active(cloud105Patch));
  for (const build of ['10.5.2605.17','10.6.2.4','10.7.0.6']) {
   const patch=b.entries['technical:platform:Cloud '+build+' maintenance patch'];
-  assert.equal(patch.cycle,66);assert.equal(patch.sourceDate,'2026-11-12');assert(b.active(patch));assert(!b.active(patch,68));assert(patch.source.endsWith('#'+build+'-0'));
+  assert.equal(patch.cycle,66);assert.equal(patch.sourceDate,'2026-11-12');assert(b.active(patch,67));assert(!b.active(patch));assert(patch.source.endsWith('#'+build+'-0'));
  }
  const ea=b.entries["edition:exposure"];assert.equal(ea.cycle,52);assert(b.active(ea,53));assert(!b.active(ea));
  const soar=b.entries['product:soar:cloud-8.8'];assert.equal(soar.cycle,51);assert(!b.active(soar));assert.match(soar.detail,/November 4 General Availability/);

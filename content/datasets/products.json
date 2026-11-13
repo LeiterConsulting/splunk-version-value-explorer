@@ -1240,7 +1240,7 @@
     },
     "observability": {
       "label": "Splunk Observability Cloud",
-      "latest": "Oct 2026",
+      "latest": "Nov 2026",
       "releases": [
         "Nov 2024",
         "Mar 2025",
@@ -1249,7 +1249,8 @@
         "Apr 2026",
         "Jul 2026",
         "Sep 2026",
-        "Oct 2026"
+        "Oct 2026",
+        "Nov 2026"
       ],
       "releaseOverview": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/release-notes-overview",
       "collectorSource": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector",
@@ -2739,6 +2740,106 @@
               "Use chart 0.162.1 or later and the documented OpAMP Bridge enablement, realm and access-token setup. Templates/groups can update ConfigMaps and roll workloads; verify permissions, scope and staged rollout. Chart 0.163.1 packages Collector 0.163.1; validate its separate migration and security/input changes before adopting that package.",
               "Validate",
               "https://help.splunk.com/en/splunk-observability-cloud/manage-data/manage-otel-agents-and-collectors/remote-configuration-of-opentelemetry-collectors/opamp-bridge-for-collectors-on-kubernetes/enable-the-opamp-bridge-for-kubernetes",
+              false
+            ]
+          ]
+        },
+        "Nov 2026": {
+          "date": "November 2026",
+          "source": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026",
+          "features": [
+            [
+              "Mobile RUM metrics and troubleshooting",
+              "Digital experience",
+              "Review mobile sessions and regressions with related evidence",
+              "The release adds default mobile RUM metrics, related troubleshooting data in session details, regression and before/after context for mobile errors, and correlation with APM Logs in span details. For the latest mobile metrics, the instrumentation guide lists minimum versions Android 2.2.2, iOS/iPadOS 2.2.3, React Native 1.0.1 and Flutter 1.0.2.",
+              "Rolling-service milestone · November 12, 2026",
+              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026"
+            ],
+            [
+              "Secure Application vulnerability triage",
+              "APM & troubleshooting",
+              "Review runtime exposure, severity and notifications",
+              "Secure Application adds configurable notifications for selected severities or runtime reachability, CVSS 4.0 details for vulnerabilities and libraries, and an AI Assistant view for library exposure, breaking-change risk, runtime vulnerabilities and detected attacks. Availability depends on the documented product and instrumentation scope.",
+              "Rolling-service milestone · November 12, 2026",
+              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026"
+            ],
+            [
+              "Secure Application for supported dual-mode .NET apps",
+              "Telemetry & OpenTelemetry",
+              "Validate the application runtime and dual-mode agent",
+              "The milestone documents runtime-vulnerability detection for supported .NET applications using the Splunk AppDynamics .NET Agent in dual mode. The setup guide specifies AppDynamics .NET Agent 26.9, .NET 8–10, one supported combined-agent installation and one security signal path. It limits this capability to active AWS realms with Secure Application and excludes GCP. The release covers vulnerability and library context.",
+              "Rolling-service milestone · November 12, 2026",
+              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026"
+            ],
+            [
+              "Agent-to-Agent access for Observability AI Assistant",
+              "APM & troubleshooting",
+              "Confirm eligibility before integrating external agents",
+              "Select customers can delegate investigations through A2A and receive a text result with a likely cause, supporting evidence, unknowns and next steps. The announcement leaves exact realm, edition, entitlement and customer authorization unestablished.",
+              "Select customers · November 12, 2026",
+              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026"
+            ],
+            [
+              "Cross-environment business journeys",
+              "Digital experience",
+              "Review correlation IDs for journey discovery",
+              "Digital Experience Analytics adds creation or auto-discovery of business journeys spanning environments with correlation IDs configured in Tag Classification.",
+              "Rolling-service milestone · November 12, 2026",
+              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026"
+            ],
+            [
+              "Log Observer summaries",
+              "APM & troubleshooting",
+              "Inspect summaries alongside the underlying events",
+              "The release describes summarizing the current Log Explorer search and opening the underlying events for investigation. Confirm access to the relevant log integration and data.",
+              "Rolling-service milestone · November 12, 2026",
+              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026"
+            ],
+            [
+              "Observability Cloud capability catalog",
+              "Usage & governance",
+              "Find and pin accessible capabilities",
+              "The catalog is enabled by default and supports capability search, descriptions, product links and Home shortcuts for capabilities the user can access.",
+              "Rolling-service milestone · November 12, 2026",
+              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026"
+            ],
+            [
+              "Observability Cloud host-based editions",
+              "Usage & governance",
+              "Check Essentials and Premier coverage against the actual subscription",
+              "Both host-based editions include Observability Logs, AI-assisted troubleshooting and Agent Observability. Premier adds Database Monitoring, Secure Application, Synthetic Monitoring, RUM, Digital Experience Analytics, Business Journeys and AI Agent Evaluation, with a higher monthly Agent Observability span allowance. The release entry establishes no selected-account entitlement or regulated authorization.",
+              "Rolling-service milestone · November 12, 2026",
+              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026"
+            ]
+          ],
+          "technicalChanges": [
+            {
+              "component": "Mobile RUM metrics agent floors",
+              "domain": "Customer-managed instrumentation",
+              "changeType": "Default metrics expanded",
+              "actionLevel": "Validate",
+              "from": "Earlier mobile agent versions have their own supported metrics",
+              "to": "Latest metrics require Android 2.2.2, iOS/iPadOS 2.2.3, React Native 1.0.1 or Flutter 1.0.2 for the selected integration",
+              "implication": "The service milestone does not upgrade an installed mobile agent.",
+              "action": "Confirm the mobile instrumentation version and validate representative telemetry.",
+              "source": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/instrument-front-end-applications/instrument-mobile-and-web-applications-for-splunk-real-user-monitoring-rum/instrument-mobile-applications-for-splunk-rum",
+              "verified": "2026-11-13"
+            }
+          ],
+          "requirements": [
+            [
+              "Confirm access to Observability AI Assistant A2A",
+              "The release limits A2A to select customers. Confirm your eligibility, supported realm and access requirements with Splunk before planning the integration.",
+              "Validate",
+              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026",
+              false
+            ],
+            [
+              "Validate Secure Application dual-mode .NET instrumentation",
+              "The service release names supported .NET applications with the AppDynamics .NET Agent in dual mode. Confirm the app runtime, platform and agent release independently.",
+              "Validate",
+              "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-security/set-up-secure-application/set-up-manual-instrumentation/do-language-specific-steps",
               false
             ]
           ]
