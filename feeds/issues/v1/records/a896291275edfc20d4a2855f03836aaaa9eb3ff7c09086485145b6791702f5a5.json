@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-app-for-soar-es-pairing",
+  "revision": 1,
+  "recordedAt": "2026-11-13T11:41:43.700Z",
+  "evidence": [
+    {
+      "evidenceId": "es-20261113-review2-44-230b21d",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.8.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "section": "Splunk product compatibility matrix > 8.8.0 row",
+      "statement": "Current tested App tuple and optional ES versions.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-13T11:37:24.216Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "c356f474a4de880826afdb6989bfce1fcd57186636d6a4a69dc6e9611d0aa60e",
+        "qualification": "Direct response digest. Publisher document revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-20261113-review2-43-13093e0",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.7.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "section": "Splunk product compatibility matrix > 8.7.0 row",
+      "statement": "Historical tested App tuple.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-13T11:37:24.236Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "095fead03cd73208c313a7703245f0ca135f1614443862fde4ab6e7aca51cad7",
+        "qualification": "Direct response digest. Publisher document revision unknown."
+      }
+    },
+    {
+      "evidenceId": "es-20261113-review2-18-e85ca62",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/automation-with-playbooks/configure-splunk-soar-apps-in-splunk-enterprise-security",
+      "section": "Configure Splunk SOAR apps > pairing prerequisites",
+      "statement": "Separate configured pairing prerequisite.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-13T11:37:14.719Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "444f9a2de0f46ebb34b16b555fa1887402a94bff91a77d3995412e2a6df1d18c",
+        "qualification": "Direct response digest. Publisher document revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/26c6277543f3f658b75f069f162a9e6782f92e6e/docs/audits/2026-11-13-es-editions-watch-review-2-sources.json",
+      "pointer": "/claimChecks/5",
+      "originalLabel": "partially-addressed"
+    }
+  ],
+  "kind": "assessment",
+  "assessmentId": "vcia-es-20261113-review2-app-for-soar-es-pairing",
+  "assessedAt": "2026-11-13T11:38:22.881Z",
+  "outcome": "partially-addressed",
+  "rationale": "The 8.8.0 App matrix lists optional ES 8.8.0 and 8.7.0, Enterprise 10.4.2 and 10.2.2, Cloud Platform 10.5.2605 and 10.4.2604, and SOAR Cloud 8.8.0 and 8.7.0. The 8.7.0 App matrix is historical. The ES configuration guide independently requires a paired deployment. The App compatibility table leaves the second on-premises SOAR version malformed and cannot establish native pairing.",
+  "reviewedScope": {
+    "products": [
+      "Splunk App for SOAR"
+    ],
+    "versions": [
+      "8.8.0 and 8.7.0"
+    ],
+    "editions": null,
+    "deployments": [
+      "Published tested combination rows; ES pairing separate"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "remainingConcerns": [
+    "Recheck the precise native TAXII version wording and corresponding TIM Cloud connector documentation. Preserve uncertainty until the publisher resolves the duplicated release note. Review by November 12."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-es-20261113-app-for-soar-es-pairing"
+  ]
+}
