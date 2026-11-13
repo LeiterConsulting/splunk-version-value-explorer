@@ -1178,10 +1178,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-13T11:36:32.231380Z",
+      "lastAttempt": "2026-11-13T12:10:57.163300Z",
       "lastSuccess": "2026-11-11T11:31:55.245Z",
       "outcome": "blocked",
-      "summary": "Current evidence reassessed. Historical SOC and production verification remain incomplete.",
+      "summary": "Verified the ES 8.8 Response agent rerun limit. Historical Controlled Availability and production delivery remain open.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1727,9 +1727,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Current evidence reassessed. Historical SOC and production verification remain incomplete.",
           "scope": "59 official source URLs, 12 scoped claim assessments and one deferred SOC disposition."
+        },
+        {
+          "at": "2026-11-13T12:10:57.163300Z",
+          "outcome": "running",
+          "summary": "Checking current ES Editions and AI prerequisites.",
+          "scope": "ES Editions and registry 1.2.0 SOC workflow."
+        },
+        {
+          "at": "2026-11-13T12:15:04.995Z",
+          "outcome": "blocked",
+          "summary": "Verified the ES 8.8 Response agent rerun limit. Historical Controlled Availability and production delivery remain open.",
+          "scope": "Current edition, Cloud Connect, SOAR and AI task sections, with bounded historical gaps."
         }
       ],
-      "scope": "59 official source URLs, 12 scoped claim assessments and one deferred SOC disposition."
+      "scope": "Current edition, Cloud Connect, SOAR and AI task sections, with bounded historical gaps."
     },
     {
       "id": "version-guidance-audit",
