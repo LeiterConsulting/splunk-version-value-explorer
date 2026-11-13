@@ -4002,7 +4002,12 @@
   ],
   "publication": {
     "claimedDelivered": false,
-    "qualification": "GitHub candidate and Site 294 static baseline are separate. Production save/deployment, UI and D1 remain subject to the existing hold."
+    "qualification": "GitHub candidate and Site 294 static baseline are separate. Production save/deployment, UI and D1 remain subject to the existing hold.",
+    "feed": {
+      "checkpoint": "vci-05d6c368b183f8e14fb8bb4cae4dd838270606a9c609e0b3ada058f2afd05f5b",
+      "observationCount": 14,
+      "immutableAuditCommit": "b1b08bae332f811faea150462ab9bb8ae3a98e29"
+    }
   },
   "automationCoverage": {
     "runFile": "docs/audits/2026-11-13-version-release-watch-coverage.json"
@@ -4010,11 +4015,26 @@
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "version-release-watch",
-    "status": "pending-public-provenance",
-    "recordedAt": "2026-11-13T10:50:04.290Z",
+    "status": "published",
+    "recordedAt": "2026-11-13T10:51:33.291Z",
     "reviewDigest": "2b578436f8dd7e50b82ec048d35b6d9ae301714553ce4707a8fe5ff7b6a4d723",
-    "publicationId": "vci-a3d1971407fe39064cddbbc10401821a4177d994807c3578f4ab429000e42232",
-    "recordKeys": [],
+    "publicationId": "vci-05d6c368b183f8e14fb8bb4cae4dd838270606a9c609e0b3ada058f2afd05f5b",
+    "recordKeys": [
+      "finding:vci-enterprise-106-legacy-tls-override-conflict@1",
+      "assessment:vcia-release-20261113-enterprise-106-legacy-tls-override-conflict@1",
+      "assessment:vcia-release-20261113-enterprise-104-legacy-tls-scope@1",
+      "assessment:vcia-release-20261113-sok-32-compatibility-scope@1",
+      "assessment:vcia-release-20261113-saia-cloud-connected-agent-mode-scope@1",
+      "assessment:vcia-release-20261113-saia-agent-runtime-processing-scope@1",
+      "assessment:vcia-release-20261113-itsi-subagent-region@1",
+      "assessment:vcia-release-20261113-es-soc-analyst-version-floor@1",
+      "assessment:vcia-release-20261113-soar-cmp-88-fixed-issues-label@1",
+      "assessment:vcia-release-20261113-soar-cmp-88-upgrade-example-destination@1",
+      "assessment:vcia-release-20261113-soar-cloud-880-release-stage@1",
+      "assessment:vcia-release-20261113-app-for-soar-88-onprem-matrix-cell@1",
+      "assessment:vcia-release-20261113-soar-export-88-tested-pairing-scope@1",
+      "assessment:vcia-release-20261113-soar-broker-870245-maintenance-visibility@1"
+    ],
     "notReassessedFindingIds": [
       "vci-es-87-connector-builder-editions",
       "vci-es-88-triage-editions",
@@ -4047,6 +4067,50 @@
       "version-guidance-audit by 2026-11-16: Independently confirm the 10.6 TLS conflict and compare the native result, attempt start and registry 1.2.0 coverage and delivery evidence.",
       "version-release-watch by 2026-11-18: Read the announced definitive Splunk PSIRT advisories and reconcile exact package and stack applicability by product."
     ],
-    "qualification": "One new finding and scoped reassessments require the immutable public audit commit."
+    "qualification": "Exact assessed findings and reassessments use commit-pinned public evidence. GitHub main integration and recovery are checked separately."
+  },
+  "validation": {
+    "checks": [
+      {
+        "id": "canonical-sync",
+        "outcome": "passed",
+        "evidence": "Ran the four ordered syncs and all --check gates. Repeated content and revision generation to converge because the source register is an engine input."
+      },
+      {
+        "id": "advisor",
+        "outcome": "passed",
+        "evidence": "Advisor baseline and dependency check in npm run maintenance:verify."
+      },
+      {
+        "id": "coverage",
+        "outcome": "passed",
+        "evidence": "Registry 1.2.0 and audit binding validation. Ten complete dispositions and one deferred SOC disposition."
+      },
+      {
+        "id": "native-issue-feed",
+        "outcome": "passed",
+        "evidence": "Native sync/check validated checkpoint 64 locally; committed recovery tracked separately."
+      },
+      {
+        "id": "unit",
+        "outcome": "passed",
+        "evidence": "510 Node tests, including 900 Forwarder comparison-route combinations and negative missing-source fixtures."
+      },
+      {
+        "id": "build",
+        "outcome": "passed",
+        "evidence": "npm run build, 952 records, content-eca8de7f3721f5278d24194d."
+      },
+      {
+        "id": "exact-candidate-export",
+        "outcome": "pending",
+        "evidence": "Dedicated Application CI PDF, independently reopened HTML, keyboard, and phone checks pending."
+      },
+      {
+        "id": "export-artifact-readback",
+        "outcome": "pending",
+        "evidence": "Candidate artifact provenance, SHA-256, and receipt verification pending."
+      }
+    ]
   }
 }

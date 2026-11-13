@@ -75,6 +75,17 @@ test('actual UF/HF routes retain sources for steps, receivers, topology and borr
  assert.match(tlsMapping.supportingSources[0].section,/deprecatedTlsVersionSupport/);
  damaged.find(r=>r.url===tlsMapping.supportingSources[0].url).claimReferences=[];
  assert.throws(()=>verifyBorrowed(tls,damaged),/Missing supporting borrowed section/);
+ const tls106=api.assess({...api.defaults,type:'hf',from:'10.4',to:'10.6'}).technical.find(t=>t.component==='Legacy TLS protocols');
+ assert.match(tls106.implication,/versioned 10\.6 TLS configuration guide still documents/);
+ assert.match(tls106.action,/TLS 1\.2 or 1\.3/);
+ const mapping106=mappings.find(m=>m.claimId==='technical.hf.10.6.legacy-tls-protocols');
+ assert.equal(mapping106.outcome,'conflicting-evidence-preserved');
+ assert.match(mapping106.supportingSources[0].url,/\/10\.6\//);
+ assert.equal(tls106.supportingSource,mapping106.supportingSources[0].url);
+ assert.match(mapping106.supportingSources[0].section,/Supported SSL and TLS protocol versions/);
+ const omitted106=register.sources.filter(row=>row.url!==mapping106.supportingSources[0].url);
+ assert.throws(()=>verifyBorrowed(tls106,omitted106),/Missing supporting borrowed section/);
+ assert.equal(api.assess({...api.defaults,type:'uf',from:'10.4',to:'10.6'}).technical.length,0);
 });
 test('every declared Forwarder claim retains an exact source and section mapping',()=>{
  const c={window:{}};vm.createContext(c);
