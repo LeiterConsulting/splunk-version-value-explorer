@@ -321,3 +321,36 @@ test('concurrent pointer after preflight is never overwritten and may retain ver
   assert.equal(db.sql.prepare('SELECT COUNT(*) n FROM content_publication_events').get().n,0);
   assert.equal(db.sql.prepare('SELECT COUNT(*) n FROM content_publication_provenance WHERE revision_id = ?').get(seed.manifest.revision).n,1);
 });
+test('reader and publisher switches require separate explicit enablement; head schema unchanged', async t => {
+  const m=await modules();
+  for(const reader of ['0','1'])for(const publisher of ['0','1']){
+    const db=database(t);await m.bootstrapPublication(db,candidate,'pub-'+'6'.repeat(32),seed,{fetcher:evidence});
+    const next=clone(seed);next.globals.SPLUNK_DATA.switchFixture='synthetic';next.manifest.digest=await m.sha256({schemaVersion:1,globals:next.globals,catalog:next.catalog});next.manifest.revision='content-'+(await m.sha256({digest:next.manifest.digest,engineRevision:next.manifest.engineRevision,datasetHashes:next.manifest.datasetHashes})).slice(0,24);
+    await m.ensureRevision(db,next);db.sql.prepare('INSERT INTO content_publication_provenance VALUES (?, ?, ?, ?, ?)').run(next.manifest.revision,candidate.repository,candidate.commit,77,new Date().toISOString());
+    const worker=m.createWorker(seed,{
+      '/content-manifest.json':{body:JSON.stringify(seed.manifest),type:'application/json'},
+      '/content-client.js':{body:'bundled-loader',type:'text/javascript'},
+      '/content-client-active.js':{body:'active-loader',type:'text/javascript'}});
+    const env={DB:db,VC_PUBLISHER_TOKEN:admin,VC_ACTIVE_DELIVERY:reader,VC_PUBLISHER_ACTIVATION:publisher};
+    const call=(path,options={})=>worker.fetch(new Request('https://versioncompass.com'+path,options),env);
+    const head=await(await call('/api/publisher/head',{headers:{Authorization:'Bearer '+admin}})).json();
+    assert.deepEqual(Object.keys(head).sort(),['activeDelivery','engineRevision','generation','revision']);
+    assert.equal(head.activeDelivery,reader==='1');assert.equal(head.generation,1);
+    assert.equal(await(await call('/content-client.js')).text(),reader==='1'?'active-loader':'bundled-loader');
+    assert.equal((await call('/content-manifest.json')).headers.get('X-VersionCompass-Active-Delivery'),reader==='1'?'1':null);
+    const before=db.sql.prepare('SELECT total_changes() AS n').get().n;
+    const response=await call('/api/publisher/activate',{method:'POST',headers:{Authorization:'Bearer '+admin,'Content-Type':'application/json'},body:JSON.stringify({operationId:'pub-'+'7'.repeat(32),revision:next.manifest.revision,expectedRevision:seed.manifest.revision,expectedGeneration:1,intent:'publish'})});
+    assert.equal(response.status,reader==='1'&&publisher==='1'?200:423);
+    if(reader==='1'&&publisher==='1'){assert.equal((await response.json()).applied.generation,2);}
+    else {assert.equal(db.sql.prepare('SELECT total_changes() AS n').get().n,before);assert.equal((await m.readPublicationHead(db,seed.manifest.engineRevision)).generation,1);}
+    assert.equal((await call('/api/publisher/head')).status,401);
+    assert.equal((await call('/api/publisher/unknown',{headers:{Authorization:'Bearer '+admin}})).status,404);
+  }
+});
+test('missing or nonliteral publisher enablement cannot inherit reader activation',async()=>{
+ const worker=(await modules()).createWorker(seed,{});
+ for(const value of[undefined,null,true,1,'true','01','1 ','']){
+  const response=await worker.fetch(new Request('https://versioncompass.com/api/publisher/activate',{method:'POST',headers:{Authorization:'Bearer '+admin,'Content-Type':'application/json'},body:'{}'}),{VC_PUBLISHER_TOKEN:admin,VC_ACTIVE_DELIVERY:'1',VC_PUBLISHER_ACTIVATION:value,DB:{prepare(){throw Error('Must not access DB');}}});
+  assert.equal(response.status,423);
+ }
+});
