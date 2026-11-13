@@ -4158,18 +4158,22 @@ window.VersionCompassSources = {
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": null,
-      "status": "Review date unknown",
+      "reviewed": "2026-11-13",
+      "status": "Reviewed",
       "firstRecorded": "2026-11-13",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
-      "section": "",
-      "verificationScope": "",
+      "section": "Version-specific upgrade notes > Upgrading to version 8.8 and higher > Maintenance window is extended",
+      "verificationScope": "Mission Control incidents migration timing and estimated added maintenance when Platform 10.6 or later is already installed. The documented later Platform upgrade runs this migration in the background. Verify exact supported host patches and managed service scheduling separately.",
       "events": [
         {
           "date": "2026-11-13",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-13",
+          "event": "Review status updated: Reviewed · 2026-11-13"
         }
       ]
     },
