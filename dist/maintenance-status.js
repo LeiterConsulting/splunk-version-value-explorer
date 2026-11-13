@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-12T12:53:37.911571Z",
+      "lastAttempt": "2026-11-13T12:48:46.107012Z",
       "lastSuccess": "2026-11-10T12:50:41.612Z",
       "outcome": "blocked",
-      "summary": "Reviewed exact Marketplace offerings and the public matrix. Historical SOC scope and production verification remain incomplete.",
+      "summary": "Verified AWS Israel Victoria new-stack scope. Historical SOC evidence and production delivery remain incomplete.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -495,9 +495,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Reviewed exact Marketplace offerings and the public matrix. Historical SOC scope and production verification remain incomplete.",
           "scope": "55 official source checks and bounded Marketplace, visual matrix, S3, AI regional, restricted SOAR, Observability and Advisor SOC assessments."
+        },
+        {
+          "at": "2026-11-13T12:48:46.107012Z",
+          "outcome": "running",
+          "summary": "Checking CSP source inventory and registered SOC evidence.",
+          "scope": "Current CSP, SOAR, ES SOC, Marketplace and Observability source sections."
+        },
+        {
+          "at": "2026-11-13T12:58:51.251Z",
+          "outcome": "blocked",
+          "summary": "Verified AWS Israel Victoria new-stack scope. Historical SOC evidence and production delivery remain incomplete.",
+          "scope": "Current CSP, SOAR, ES SOC, Marketplace and Observability source sections."
         }
       ],
-      "scope": "55 official source checks and bounded Marketplace, visual matrix, S3, AI regional, restricted SOAR, Observability and Advisor SOC assessments."
+      "scope": "Current CSP, SOAR, ES SOC, Marketplace and Observability source sections."
     },
     {
       "id": "version-release-watch",

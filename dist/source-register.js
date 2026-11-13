@@ -612,12 +612,12 @@ window.VersionCompassSources = {
       "references": [
         "environment.sources.agentSaas.url",
         "content-updates.js",
-        "environment: environment.records.65",
         "environment: environment.records.66",
         "environment: environment.records.67",
         "environment: environment.records.68",
         "environment: environment.records.69",
-        "environment: environment.records.70"
+        "environment: environment.records.70",
+        "environment: environment.records.71"
       ],
       "reviews": [
         "2026-10-21"
@@ -639,6 +639,35 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-21",
           "event": "Review status updated: Reviewed · 2026-10-21"
+        }
+      ]
+    },
+    {
+      "url": "https://docs.aws.amazon.com/general/latest/gr/ec2-service.html",
+      "title": "AWS Region name and identifier for Israel (Tel Aviv)",
+      "areas": [
+        "Cloud environment"
+      ],
+      "references": [
+        "environment.sources.awsIsrael.url",
+        "environment: environment.records.1"
+      ],
+      "reviews": [
+        "2026-11-13"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-13",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-13",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-13",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },
@@ -1748,7 +1777,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "environment.sources.acsMaintenance.url",
-        "environment: environment.records.9"
+        "environment: environment.records.10"
       ],
       "reviews": [
         "2026-10-10"
@@ -1779,8 +1808,8 @@ window.VersionCompassSources = {
       "references": [
         "environment.sources.acs.url",
         "content-updates.js",
-        "environment: environment.records.8",
-        "environment: environment.records.9"
+        "environment: environment.records.9",
+        "environment: environment.records.10"
       ],
       "reviews": [
         "2026-10-10"
@@ -2193,14 +2222,13 @@ window.VersionCompassSources = {
         "forwarders.sources.cloud.url",
         "content-updates.js",
         "environment: environment.records.0",
-        "environment: environment.records.1",
         "environment: environment.records.2",
         "environment: environment.records.3",
         "environment: environment.records.4",
         "environment: environment.records.5",
         "environment: environment.records.6",
         "environment: environment.records.7",
-        "environment: environment.records.10",
+        "environment: environment.records.8",
         "environment: environment.records.11",
         "environment: environment.records.12",
         "environment: environment.records.13",
@@ -2228,9 +2256,10 @@ window.VersionCompassSources = {
         "environment: environment.records.35",
         "environment: environment.records.36",
         "environment: environment.records.37",
-        "environment: environment.records.61",
+        "environment: environment.records.38",
         "environment: environment.records.62",
-        "environment: environment.records.64",
+        "environment: environment.records.63",
+        "environment: environment.records.65",
         "forwarders: forwarders.claimSources.receiver.cloud",
         "forwarders: forwarders.claimSources.topology.cloud-intermediate"
       ],
@@ -2287,14 +2316,14 @@ window.VersionCompassSources = {
       "references": [
         "environment.sources.changes.url",
         "content-updates.js",
-        "environment: environment.records.15",
-        "environment: environment.records.19",
-        "environment: environment.records.21",
-        "environment: environment.records.26",
-        "environment: environment.records.29",
+        "environment: environment.records.16",
+        "environment: environment.records.20",
+        "environment: environment.records.22",
+        "environment: environment.records.27",
         "environment: environment.records.30",
         "environment: environment.records.31",
-        "environment: environment.records.32"
+        "environment: environment.records.32",
+        "environment: environment.records.33"
       ],
       "reviews": [
         "2026-10-22"
@@ -2335,16 +2364,19 @@ window.VersionCompassSources = {
         "release.productTracks.es.cloudServiceSource",
         "release.productTracks.itsi.cloudServiceSource",
         "environment.sources.service107.url",
+        "environment.sources.service107Israel.url",
         "forwarders.sources.cloud107.url",
         "content-updates.js",
-        "environment: environment.records.61",
+        "environment: environment.records.1",
         "environment: environment.records.62",
         "environment: environment.records.63",
+        "environment: environment.records.64",
         "forwarders: forwarders.claimSources.receiver.cloud",
         "forwarders: forwarders.claimSources.topology.cloud-intermediate"
       ],
       "reviews": [
         "2026-11-07",
+        "2026-11-13",
         "2026-11-09"
       ],
       "claimReferences": [
@@ -2387,8 +2419,9 @@ window.VersionCompassSources = {
       "references": [
         "environment.sources.changes107.url",
         "content-updates.js",
-        "environment: environment.records.61",
-        "environment: environment.records.62"
+        "environment: environment.records.1",
+        "environment: environment.records.62",
+        "environment: environment.records.63"
       ],
       "reviews": [
         "2026-11-07"
@@ -2419,12 +2452,12 @@ window.VersionCompassSources = {
       "references": [
         "environment.sources.ingest.url",
         "content-updates.js",
-        "environment: environment.records.18",
         "environment: environment.records.19",
         "environment: environment.records.20",
         "environment: environment.records.21",
-        "environment: environment.records.62",
-        "environment: environment.records.63"
+        "environment: environment.records.22",
+        "environment: environment.records.63",
+        "environment: environment.records.64"
       ],
       "reviews": [
         "2026-10-10"
@@ -2640,7 +2673,7 @@ window.VersionCompassSources = {
       "references": [
         "environment.sources.acsRelease.url",
         "content-updates.js",
-        "environment: environment.records.9"
+        "environment: environment.records.10"
       ],
       "reviews": [
         "2026-10-10"
@@ -4392,7 +4425,6 @@ window.VersionCompassSources = {
         "environment.sources.es.url",
         "editions.sources.regions.u",
         "content-updates.js",
-        "environment: environment.records.38",
         "environment: environment.records.39",
         "environment: environment.records.40",
         "environment: environment.records.41",
@@ -4405,6 +4437,7 @@ window.VersionCompassSources = {
         "environment: environment.records.48",
         "environment: environment.records.49",
         "environment: environment.records.50",
+        "environment: environment.records.51",
         "editions: editions.capabilities.12",
         "editions: editions.capabilities.14",
         "editions: editions.capabilities.18",
@@ -6719,7 +6752,7 @@ window.VersionCompassSources = {
       "references": [
         "environment.sources.assistantInstall.url",
         "content-updates.js",
-        "environment: environment.records.64"
+        "environment: environment.records.65"
       ],
       "reviews": [
         "2026-10-21"
@@ -7390,7 +7423,6 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability",
         "guidance: guidance.aiAvailability.capabilities.8",
         "guidance: guidance.aiAvailability.capabilities.9",
-        "environment: environment.records.51",
         "environment: environment.records.52",
         "environment: environment.records.53",
         "environment: environment.records.54",
@@ -7400,12 +7432,13 @@ window.VersionCompassSources = {
         "environment: environment.records.58",
         "environment: environment.records.59",
         "environment: environment.records.60",
-        "environment: environment.records.65",
+        "environment: environment.records.61",
         "environment: environment.records.66",
         "environment: environment.records.67",
         "environment: environment.records.68",
         "environment: environment.records.69",
-        "environment: environment.records.70"
+        "environment: environment.records.70",
+        "environment: environment.records.71"
       ],
       "reviews": [
         "2026-10-24",
@@ -9654,9 +9687,9 @@ window.VersionCompassSources = {
         "environment.sources.moderate.url",
         "soar.sources.fedrampModerate.url",
         "content-updates.js",
-        "environment: environment.records.6",
-        "environment: environment.records.10",
-        "environment: environment.records.12"
+        "environment: environment.records.7",
+        "environment: environment.records.11",
+        "environment: environment.records.13"
       ],
       "reviews": [
         "2026-11-12"
@@ -9725,9 +9758,9 @@ window.VersionCompassSources = {
         "environment.sources.high.url",
         "soar.sources.fedrampHigh.url",
         "content-updates.js",
-        "environment: environment.records.7",
-        "environment: environment.records.11",
-        "environment: environment.records.13",
+        "environment: environment.records.8",
+        "environment: environment.records.12",
+        "environment: environment.records.14",
         "soar: soar.backlog.3"
       ],
       "reviews": [
@@ -9796,9 +9829,9 @@ window.VersionCompassSources = {
       ],
       "references": [
         "environment.sources.compliance.url",
-        "environment: environment.records.61",
         "environment: environment.records.62",
-        "environment: environment.records.64"
+        "environment: environment.records.63",
+        "environment: environment.records.65"
       ],
       "reviews": [
         "2026-10-10"
@@ -9864,9 +9897,9 @@ window.VersionCompassSources = {
         "environment.sources.highAnnouncement20261019.url",
         "content-updates.js",
         "guidance: guidance.aiAvailability",
-        "environment: environment.records.61",
         "environment: environment.records.62",
-        "environment: environment.records.64"
+        "environment: environment.records.63",
+        "environment: environment.records.65"
       ],
       "reviews": [
         "2026-10-26"
@@ -9901,7 +9934,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "environment.sources.esmoderate.url",
-        "environment: environment.records.50"
+        "environment: environment.records.51"
       ],
       "reviews": [
         "2026-10-10"
@@ -9962,7 +9995,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "environment.sources.victoria.url",
-        "environment: environment.records.5"
+        "environment: environment.records.6"
       ],
       "reviews": [
         "2026-10-10"

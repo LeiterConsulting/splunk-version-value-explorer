@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-8710a3927c6e30a1f020e02d",
-    "digest": "e46f87a2b04f10698c4fe6b904254d5f07f7fbfa193d29b9bbd408a3f67dcd9f",
-    "engineRevision": "engine-9094096f3793862f72eb",
+    "revision": "content-e9cc0dd65f3d77f48806c97e",
+    "digest": "5f28c6be7dca4235562d1ac085d3b0cc3e996d8fd3c4ff654dc56fea1691d5e0",
+    "engineRevision": "engine-866a5a67925522db8587",
     "datasetHashes": {
       "platform": "c75dbad3ceab9dfbb87c50e3f3ccde5b9e0bd9277421423490ac3a8dccfeee96",
       "products": "854fe986e92c6a88dc3d76eb70c392f0f4ca38417b34c53443eecd4015ba5df4",
       "guidance": "9486a2fd67eb6d06fbfbdd5a6cffa0cbb403a5af8fd053a10bf155038632a460",
-      "environment": "d30df851f1b62b7ee3486ccb174fc8a6170b635333d13dd08db9e6e538ab1b15",
+      "environment": "1984ca5201478285278d7a4f3c6eb5060b5374475fff1ba31adab0f87da5aa6d",
       "editions": "e86a85c7c0342508ef6f15092eab4833ea79be59c0d32b014f6f0e9a790ee1c9",
       "forwarders": "f992e8bad9c60ac1b7577987233bceb0b40a3111f209305655dc552850166991",
       "soar": "0a95273ec36589b59fe74ff2ded1d383c1f8278427449dea3d06dc9e23ddebd4"
     },
-    "recordCount": 953,
+    "recordCount": 954,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -7322,6 +7322,11 @@
           "provider": "aws"
         },
         {
+          "id": "il-central-1",
+          "label": "Israel (Tel Aviv)",
+          "provider": "aws"
+        },
+        {
           "id": "sa-east-1",
           "label": "São Paulo",
           "provider": "aws"
@@ -7533,6 +7538,20 @@
           "published": null,
           "scope": "November 6, 2026 > Available regions and region differences; applies to relevant Cloud 10.7 versions.",
           "checked": "2026-11-07"
+        },
+        "service107Israel": {
+          "title": "Cloud Platform 10.7 new-stack regional availability",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+          "published": null,
+          "scope": "Available regions and region differences > Victoria Experience > AWS > Middle East (Israel), for new stacks.",
+          "checked": "2026-11-13"
+        },
+        "awsIsrael": {
+          "title": "AWS Region name and identifier for Israel (Tel Aviv)",
+          "url": "https://docs.aws.amazon.com/general/latest/gr/ec2-service.html",
+          "published": null,
+          "scope": "Service endpoints > Israel (Tel Aviv) and il-central-1. Provider naming only.",
+          "checked": "2026-11-13"
         }
       },
       "records": [
@@ -7569,6 +7588,29 @@
           ],
           "checked": "2026-10-07",
           "scope": "Current service guidance; not a historical availability guarantee",
+          "experience": "victoria"
+        },
+        {
+          "id": "victoria-aws-israel",
+          "product": "platform",
+          "feature": "Victoria Experience",
+          "provider": "aws",
+          "regions": [
+            "il-central-1"
+          ],
+          "regimes": [
+            "commercial"
+          ],
+          "availability": "available",
+          "authorization": "not_established",
+          "detail": "The Cloud Platform 10.7 service table lists AWS Israel for new Victoria stacks. The November 6 change log scopes the addition to relevant 10.7 versions. Availability for earlier releases, existing-stack migration, other products and customer authorization remain unestablished by this row.",
+          "sources": [
+            "service107Israel",
+            "changes107",
+            "awsIsrael"
+          ],
+          "checked": "2026-11-13",
+          "scope": "New commercial Victoria stacks in AWS Israel, as listed for relevant Cloud Platform 10.7 versions.",
           "experience": "victoria"
         },
         {
@@ -12928,6 +12970,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.7/introduction/access-splunk-cloud-connect-in-splunk-enterprise-security-to-access-cloud-extensions"
+      },
+      {
+        "id": "source-9f7551976c1c94308f66",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://docs.aws.amazon.com/general/latest/gr/ec2-service.html"
       },
       {
         "id": "source-a4b22ed4024fa0c247ca",

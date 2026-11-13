@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-cloud-107-aws-israel-filter",
+  "revision": 1,
+  "recordedAt": "2026-11-13T13:00:38.800Z",
+  "evidence": [
+    {
+      "evidenceId": "csp-20261113-38-c80b3e8a",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions and region differences > Victoria Experience > AWS > new stacks",
+      "statement": "Middle East (Israel) listed for new stacks.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-13T12:50:28.315Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "235470f0f02407cf8943d0731d97054af0292c24b7b8fe3437ac3a48d66463a0",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261113-39-af63da56",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "6 November 2026 > AWS Israel addition",
+      "statement": "All relevant Cloud 10.7 versions.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-13T12:50:27.984Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9352fe0cca7db5e9b3afeb1ece176c450fff509d0b5cefec5e48b26ddea1de1a",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261113-57-1d848d52",
+      "url": "https://docs.aws.amazon.com/general/latest/gr/ec2-service.html",
+      "section": "Service endpoints > Israel (Tel Aviv)",
+      "statement": "AWS region code il-central-1 from indexed official table.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-13",
+      "availability": "not-recorded",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact official indexed section assessed. Direct source revision unavailable."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/42a6141ae593070d7a592f451bb5a529844992d2/docs/audits/2026-11-13-csp-fedramp-watch-sources.json",
+      "pointer": "/claimChecks/8",
+      "originalLabel": "partially-addressed"
+    }
+  ],
+  "kind": "assessment",
+  "assessmentId": "vcia-csp-20261113-cloud-107-aws-israel-filter",
+  "assessedAt": "2026-11-13T12:58:51.251Z",
+  "outcome": "partially-addressed",
+  "rationale": "The 10.7 new-stack Victoria table names Middle East (Israel) in AWS, and the November 6 change log scopes this to relevant 10.7 versions. The AWS service endpoint table independently identifies Israel (Tel Aviv), il-central-1. The exact candidate adds the missing filter with a separate commercial Victoria record and updates only the Advisor location identifier digest. Production delivery remains unverified. Earlier releases, Classic, existing-stack migration, other products and authorization remain unestablished.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform"
+    ],
+    "versions": [
+      "10.7"
+    ],
+    "editions": null,
+    "deployments": [
+      "AWS Victoria, new stacks in Israel"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Existing-stack migration, feature availability, premium pairing, historical rollout and regulated authorization remain separate."
+    ]
+  },
+  "remainingConcerns": [
+    "Retry the four unavailable exact URLs, obtain feature-specific ITSI regional evidence, and validate the Israel hosting-only option with the shared Advisor environment dependency and exact links before modifying guidance. Review by November 12."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261112-r2-cloud-107-aws-israel-filter"
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-cloud-s3-restricted-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-13T13:00:38.800Z",
+  "evidence": [
+    {
+      "evidenceId": "csp-20261113-38-1b4d1c1e",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions and region differences > Federated Search for Amazon S3",
+      "statement": "Both GovCloud regions named for Moderate; High and IL5 explicitly excluded.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-13T12:50:28.315Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "235470f0f02407cf8943d0731d97054af0292c24b7b8fe3437ac3a48d66463a0",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261113-38-7bd92784",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Federated search for third-party data stores > Requirements and supported stores",
+      "statement": "Amazon S3 is named; restricted-scope exclusions include Moderate, High and IL5.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-13T12:50:28.315Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "235470f0f02407cf8943d0731d97054af0292c24b7b8fe3437ac3a48d66463a0",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261113-39-f1d91bca",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "8 April 2026 > Federated Search for Amazon S3",
+      "statement": "Changelog describes High and IL5 for relevant 10.3 versions.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-13T12:50:27.984Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9352fe0cca7db5e9b3afeb1ece176c450fff509d0b5cefec5e48b26ddea1de1a",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261113-16-9f0e927b",
+      "url": "https://www.splunk.com/en_us/about-splunk/splunk-data-security-and-privacy/compliance-at-splunk.html",
+      "section": "US Public Sector > Federated Search S3 and legend",
+      "statement": "Moderate mark with empty High and IL5 cells.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-13T12:50:49.125Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "2b39db16bb54462e4aada9e9ef717a3ba27df8e837e9f501ba5172f47e24d62d",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/42a6141ae593070d7a592f451bb5a529844992d2/docs/audits/2026-11-13-csp-fedramp-watch-sources.json",
+      "pointer": "/claimChecks/1",
+      "originalLabel": "still-present"
+    }
+  ],
+  "kind": "assessment",
+  "assessmentId": "vcia-csp-20261113-cloud-s3-restricted-scope",
+  "assessedAt": "2026-11-13T12:58:51.251Z",
+  "outcome": "still-present",
+  "rationale": "Directly retrieved 10.7 AWS regional table includes Moderate and excludes High and IL5. Its expanded third-party store section names Amazon S3 but excludes Moderate, High and IL5. The April 8 changelog says High and IL5 were added for relevant 10.3 releases. The visual matrix has a Moderate check and empty High and IL5 S3 cells. The exact 10.6 table was index-only on this run. Version and feature scope remain unresolved.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform Federated Search for Amazon S3"
+    ],
+    "versions": [
+      "10.6 and 10.7; April 8 change for relevant 10.3 versions"
+    ],
+    "editions": null,
+    "deployments": [
+      "AWS GovCloud and DoD IL5"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "remainingConcerns": [
+    "Recheck the Moderate package named-service display and compare the two S3 service sections with the version-specific change log. Preserve unresolved SOAR High and independent Observability scope. Review by November 12."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261112-r2-cloud-s3-restricted-scope"
+  ]
+}

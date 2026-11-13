@@ -19,6 +19,8 @@ The controls appear in Cloud and migration Release Guide journeys, Observability
 
 ## Evidence and its limits
 
+The Cloud 10.7 Service Details table lists AWS Middle East (Israel) for new Victoria stacks. The November 6 change log scopes the addition to relevant 10.7 versions. The filter uses the AWS region identifier `il-central-1`, and its evidence row is scoped to new commercial Victoria stacks. Existing-stack migration, earlier releases, feature availability, and authorization have separate evidence.
+
 Availability is recorded as documented available, available with conditions, documented unavailable, not established, or conflicting guidance. Offering authorization is a separate field. A FedRAMP listing does not establish that every component, AI capability, app, edition, or deployment pairing is in scope. Installability and FIPS-related app tags are also not authorization evidence. Missing cells, absent records, and unparsed compliance icons never become negative claims.
 
 Records retain product, provider, explicit regions, compliance environment, experience or realm where applicable, source scope, review date, and source publication date when known. Current service evidence is displayed separately from the selected historical release interval; it does not assert when a feature first became available in a location. Release compatibility and lifecycle guidance continue to have their own evidence and meaning.

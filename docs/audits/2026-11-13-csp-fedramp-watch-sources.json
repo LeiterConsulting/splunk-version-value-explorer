@@ -1323,7 +1323,12 @@
   ],
   "publication": {
     "claimedDelivered": false,
-    "qualification": "Repository candidate only. Production pre-write hold remains in force."
+    "qualification": "Repository candidate only. Production pre-write hold remains in force.",
+    "feed": {
+      "checkpoint": "vci-4f85e1bc4df2c11f00c6445617fd8d59aebac4e241cedc0709db6af22b649ae0",
+      "observationCount": 7,
+      "immutableAuditCommit": "42a6141ae593070d7a592f451bb5a529844992d2"
+    }
   },
   "automationCoverage": {
     "runFile": "docs/audits/2026-11-13-csp-fedramp-watch-coverage.json"
@@ -1331,11 +1336,19 @@
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "csp-fedramp-watch",
-    "status": "pending-public-provenance",
-    "recordedAt": "2026-11-13T12:58:51.379Z",
+    "status": "published",
+    "recordedAt": "2026-11-13T13:00:39.222Z",
     "reviewDigest": "93b107c2ac4b1e8a70cb301c11c8e9496a79b5f7918a517ef2f4730305d79bde",
-    "publicationId": "vci-2cf30936ba9f979b4bf90b981fc57b57aef678336f9ae44fc42dd28ede60ce5e",
-    "recordKeys": [],
+    "publicationId": "vci-4f85e1bc4df2c11f00c6445617fd8d59aebac4e241cedc0709db6af22b649ae0",
+    "recordKeys": [
+      "assessment:vcia-csp-20261113-fedramp-moderate-certified-services-display@1",
+      "assessment:vcia-csp-20261113-cloud-s3-restricted-scope@1",
+      "assessment:vcia-csp-20261113-itsi-subagent-region@1",
+      "assessment:vcia-csp-20261113-soar-cloud-880-release-stage@1",
+      "assessment:vcia-csp-20261113-es-soc-analyst-version-floor@1",
+      "assessment:vcia-csp-20261113-cloud-107-aws-israel-filter@1",
+      "finding:vci-o11y-secure-app-dotnet-dual-mode-realms@1"
+    ],
     "notReassessedFindingIds": [
       "vci-es-87-connector-builder-editions",
       "vci-es-88-triage-editions",
@@ -1376,6 +1389,21 @@
       "version-guidance-audit by 2026-11-16 Independently reassess the historical SOC section and reconcile saved-task last_run, latest_result and current registry receipt before any pilot activation.",
       "version-release-watch by 2026-11-14 Keep the November 12 .NET vulnerability milestone scoped to eligible AWS Secure Application realms; preserve GCP, second signal path and runtime attack exclusions."
     ],
-    "qualification": "Six scoped reassessments and the .NET realm qualification require the public audit commit."
+    "qualification": "Exact assessed findings and reassessments use commit-pinned public evidence. GitHub main integration and recovery are checked separately."
+  },
+  "validation": {
+    "existingSiteStatic": {
+      "outcome": "passed",
+      "verifiedAt": "2026-11-13T12:58:51.823Z",
+      "revision": "content-8344e542dec404d4d07ef231",
+      "engine": "engine-1d0378267fdc69818546",
+      "records": 948,
+      "digest": "90724152168c84de71c7dbd70c052b80b2346b60a18481056b06d479c72787a0",
+      "qualification": "Manifest, bundle and revision script matched exact Sites 294 source. Independent bundle validation agreed with its publication manifest. Visitor UI and D1 were held."
+    },
+    "candidateExports": {
+      "outcome": "pending",
+      "qualification": "Exact report inputs changed. Dedicated application CI receipt and artifact readback required."
+    }
   }
 }
