@@ -9,7 +9,7 @@ import { chromium } from 'playwright';
 import { verifyNavigation } from './navigation.mjs';
 import { verifyRippleScroll } from './ripple-scroll.mjs';
 import { verifyAdvisor, configureAdvisorRoute, setAdvisorFixtureTime } from './advisor.mjs';
-import { prepareReadOnlyTools, soarReadOnlyRecord, verifyExact } from './exact-releases.mjs';
+import { prepareReadOnlyTools, soarReadOnlyRecord, esMaintenanceRoute, verifyExact } from './exact-releases.mjs';
 import { verifyPrep11Oversized } from './prep11-print.mjs';
 import { verifyAdvisorOversized } from './advisor-print.mjs';
 const require = createRequire(import.meta.url), { target, hash, verify } = require('../../scripts/export-evidence.cjs');
@@ -192,6 +192,23 @@ try {
       const card=page.locator('#technical-content .technical-item').filter({has:page.locator('h4').filter({hasText:result.current.component})});
       const context=await card.locator('.evidence-context').textContent();
       assert(context.includes('Claim last verified: '+result.current.verified),'Screen evidence lost the canonical claim date');
+      entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
+    }
+    if(esMaintenanceRoute(route)){
+      await page.waitForFunction(()=>window.__reportTools?.versioncompass_get_current_report);
+      const result=await page.evaluate(()=>{
+        const {versioncompass_get_current_report:current,versioncompass_compare_routes:compare}=window.__reportTools;
+        const {product,platform,host,from,to}=window.VersionCompassPage.getSelection(), url=location.href;
+        const component='ES 8.8 Mission Control migration window';
+        const get=report=>report?.technicalChanges.find(item=>item.component===component);
+        return {current:get(current.execute({}).report),explicit:get(compare.execute({routes:[{product,platform,host,from,to}]}).reports?.[0]),
+          readOnly:current.annotations.readOnlyHint&&compare.annotations.readOnlyHint,stable:location.href===url};
+      });
+      assert(result.readOnly&&result.stable&&result.current,'Missing read-only ES upgrade timing');
+      assert.deepEqual(result.explicit,result.current);
+      assert.equal(result.current.verified,'2026-11-13');
+      const card=page.locator('#technical-content .technical-item').filter({has:page.locator('h4').filter({hasText:result.current.component})});
+      assert((await card.textContent()).includes(result.current.implication));
       entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
     }
     const recordId=soarReadOnlyRecord(route);
@@ -449,6 +466,10 @@ try {
         expected.paginationPairs=[{heading:'Which TAXII protocol versions are supported?',following:'Decision affected: Native TAXII feed protocol versions',headingOccurrence:1}];
       }
       if(route.id==='hf-hybrid') assert(normalize(expected.text).includes('disabling it may break scheduled dashboard exports'),'Heavy Forwarder mitigation qualification missing');
+      if(esMaintenanceRoute(route)) {
+        expected.requiredText=['ES 8.8 Mission Control migration window','If Platform 10.6 or later is already installed','five additional minutes per GB','after ES 8.8, the guide says this migration runs in the background','on-premises search-head upgrade guide','Splunk coordinates managed Cloud upgrades.'];
+        for(const phrase of expected.requiredText) assert(normalize(expected.text).includes(phrase),'Missing ES upgrade timing qualification: '+phrase);
+      }
       if(route.id==='enterprise') expected.paginationPairs=[{heading:'Recommended action',following:'Match the exact package identifier to its release'}];
       if(route.id==='observability-october') expected.paginationPairs=[
         {heading:'Kubernetes persistent-volume metric defaults',following:'Chart 0.162.1 does not explicitly enable these five metrics'},

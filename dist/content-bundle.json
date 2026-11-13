@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-eca8de7f3721f5278d24194d",
-    "digest": "acdadf64b4bc0687761163c4e651aa44dd000846885d9f13a47bb8140cd9944d",
-    "engineRevision": "engine-e7695213ca9614d651a2",
+    "revision": "content-33b5a9a28d86720b82252a35",
+    "digest": "a3a48c6645461c3e61ad5b34488000f135d9a36a34c69027c2f4fff4a200c27c",
+    "engineRevision": "engine-b1538b2a48d11bc359cd",
     "datasetHashes": {
       "platform": "c75dbad3ceab9dfbb87c50e3f3ccde5b9e0bd9277421423490ac3a8dccfeee96",
-      "products": "531ce3ae2df257b754196fc66652e1840309f308c16f9ad3c6fdf72c0660bdf7",
+      "products": "854fe986e92c6a88dc3d76eb70c392f0f4ca38417b34c53443eecd4015ba5df4",
       "guidance": "4a7264084d20871430b3d0c30d269166d30749e5578f10ffd01d7c858b317925",
       "environment": "d30df851f1b62b7ee3486ccb174fc8a6170b635333d13dd08db9e6e538ab1b15",
       "editions": "28439000d58422c47c967188a00a7ab3891aea5a1e6be5b5869a9caabd23fa7a",
       "forwarders": "f992e8bad9c60ac1b7577987233bceb0b40a3111f209305655dc552850166991",
       "soar": "0a95273ec36589b59fe74ff2ded1d383c1f8278427449dea3d06dc9e23ddebd4"
     },
-    "recordCount": 952,
+    "recordCount": 953,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -3182,6 +3182,18 @@
                 ]
               ],
               "technicalChanges": [
+                {
+                  "component": "ES 8.8 Mission Control migration window",
+                  "domain": "Upgrade sequencing",
+                  "changeType": "Maintenance planning",
+                  "actionLevel": "Review",
+                  "from": "In the on-premises search-head upgrade guide, this migration does not extend the ES 8.8 upgrade window on Platform 10.5 or lower.",
+                  "to": "If Platform 10.6 or later is already installed, upgrading ES to 8.8 extends the maintenance window for the Mission Control incidents migration from KV Store to PostgreSQL.",
+                  "implication": "Splunk estimates about five additional minutes per GB for the missioncontrol.mc_incidents collection. Volume, record count and environment can extend the estimate. Expect analyst queue interruptions and possible intermittent ES unavailability. If Platform is upgraded to 10.6 or later after ES 8.8, the guide says this migration runs in the background.",
+                  "action": "Estimate the collection size, allow time for analyst queue disruption and confirm the exact supported host and ES patches before choosing an upgrade order. Splunk coordinates managed Cloud upgrades. Confirm the actual window with Splunk.",
+                  "source": "https://help.splunk.com/en/splunk-enterprise-security-8/install/8.8/upgrading/upgrade-splunk-enterprise-security",
+                  "verified": "2026-11-13"
+                },
                 {
                   "component": "ES-SOAR hybrid certificate trust",
                   "domain": "SOAR pairing & certificates",
@@ -12303,6 +12315,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://advisory.splunk.com/advisories/SVD-2026-0404"
+      },
+      {
+        "id": "source-2ffb76e46dc2821c1ec4",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/install/8.8/upgrading/upgrade-splunk-enterprise-security"
       },
       {
         "id": "source-306251180c9410524222",

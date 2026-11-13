@@ -502,10 +502,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-13T10:42:11.674917Z",
+      "lastAttempt": "2026-11-13T11:14:43.196266Z",
       "lastSuccess": "2026-11-11T14:21:55.848Z",
       "outcome": "blocked",
-      "summary": "Recorded Cloud maintenance and the Enterprise 10.6 TLS conflict. Historical SOC scope and production verification remain open.",
+      "summary": "Rechecked release evidence and added the ES 8.8 upgrade-order caveat. Historical SOC scope and production verification remain open.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1159,17 +1159,29 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Recorded Cloud maintenance and the Enterprise 10.6 TLS conflict. Historical SOC scope and production verification remain open.",
           "scope": "Three Cloud builds, bounded Forwarder and SOAR evidence, and 11 registry dispositions."
+        },
+        {
+          "at": "2026-11-13T11:14:43.196266Z",
+          "outcome": "running",
+          "summary": "Checking exact public release sources.",
+          "scope": "Release Watch and registry 1.2.0."
+        },
+        {
+          "at": "2026-11-13T11:18:51.414Z",
+          "outcome": "blocked",
+          "summary": "Rechecked release evidence and added the ES 8.8 upgrade-order caveat. Historical SOC scope and production verification remain open.",
+          "scope": "ES 8.8 sequencing, bounded Cloud, Forwarder and SOAR evidence, and 11 registry dispositions."
         }
       ],
-      "scope": "Three Cloud builds, bounded Forwarder and SOAR evidence, and 11 registry dispositions."
+      "scope": "ES 8.8 sequencing, bounded Cloud, Forwarder and SOAR evidence, and 11 registry dispositions."
     },
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-12T11:36:35.253006Z",
+      "lastAttempt": "2026-11-13T11:36:32.231380Z",
       "lastSuccess": "2026-11-11T11:31:55.245Z",
       "outcome": "blocked",
-      "summary": "Bounded ES review complete. The mapped historical SOC release evidence remains unverified.",
+      "summary": "Current evidence reassessed. Historical SOC and production verification remain incomplete.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1691,9 +1703,33 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Bounded ES review complete. The mapped historical SOC release evidence remains unverified.",
           "scope": "Current editions, licensing, TAXII, SOAR integration and SOC prerequisites reviewed; the ES print repair is scoped to decision questions. ES 8.8 historical Controlled Availability coverage remains incomplete."
+        },
+        {
+          "at": "2026-11-13T11:04:01.400194Z",
+          "outcome": "running",
+          "summary": "Checking official ES editions and agent evidence.",
+          "scope": "59 official source URLs, 12 scoped claim assessments and one deferred SOC disposition."
+        },
+        {
+          "at": "2026-11-13T11:09:41.806Z",
+          "outcome": "blocked",
+          "summary": "Current evidence reassessed. Historical SOC and production verification remain incomplete.",
+          "scope": "59 official source URLs, 12 scoped claim assessments and one deferred SOC disposition."
+        },
+        {
+          "at": "2026-11-13T11:36:32.231380Z",
+          "outcome": "running",
+          "summary": "Checking official ES editions and agent evidence.",
+          "scope": "59 official source URLs, 12 scoped claim assessments and one deferred SOC disposition."
+        },
+        {
+          "at": "2026-11-13T11:38:22.881Z",
+          "outcome": "blocked",
+          "summary": "Current evidence reassessed. Historical SOC and production verification remain incomplete.",
+          "scope": "59 official source URLs, 12 scoped claim assessments and one deferred SOC disposition."
         }
       ],
-      "scope": "Current editions, licensing, TAXII, SOAR integration and SOC prerequisites reviewed; the ES print repair is scoped to decision questions. ES 8.8 historical Controlled Availability coverage remains incomplete."
+      "scope": "59 official source URLs, 12 scoped claim assessments and one deferred SOC disposition."
     },
     {
       "id": "version-guidance-audit",
