@@ -17,9 +17,10 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('material cycle preserves scoped release evidence and prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,68);
+ assert.equal(b.policy.currentCycle,69);
+ const israel=b.entries['environment:victoria-aws-israel'];assert.equal(israel.cycle,69);assert.equal(israel.sourceDate,'2026-11-06');assert(b.active(israel));
  const esWindow=b.entries["technical:es:ES 8.8 Mission Control migration window"];
- assert.equal(esWindow.cycle,67);assert(b.active(esWindow));assert.equal(esWindow.sourceDate,null);
+ assert.equal(esWindow.cycle,67);assert(b.active(esWindow,68));assert(!b.active(esWindow));assert.equal(esWindow.sourceDate,null);
  const cloud104=b.entries['technical:platform:Cloud 10.4.2604.18 maintenance patch'];
  assert.equal(cloud104.cycle,63);assert.equal(cloud104.sourceDate,'2026-11-06');assert(b.active(cloud104,64));assert(!b.active(cloud104));
  const cloud105Patch=b.entries['technical:platform:Cloud 10.5.2605.16 maintenance patch'];

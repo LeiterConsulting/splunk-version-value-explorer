@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-o11y-secure-app-dotnet-dual-mode-realms",
+  "revision": 1,
+  "recordedAt": "2026-11-13T13:00:38.800Z",
+  "evidence": [
+    {
+      "evidenceId": "csp-20261113-55-339f8ae0",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026",
+      "section": "November 2026 > Secure Application > November 12, 2026",
+      "statement": "Dual-mode .NET runtime vulnerability milestone.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-13T12:50:38.439Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "8aafb7b59ed2ed4bedc5bdbfd1a4486596008c9161fd4fa25912bcaf801b0f41",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261113-56-ef7a2aab",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-security/set-up-secure-application/set-up-manual-instrumentation/do-language-specific-steps",
+      "section": "Do language-specific steps > .NET combined agent in dual mode > Realm availability, Security signal path and Detection scope",
+      "statement": "Eligible active AWS realms only; explicit GCP exclusion and restricted telemetry/detection scope.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-13T12:50:35.671Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "f5b90bf730c7098d8f5d11237f5c65646cb4bda8f33c78472b93e73d2cf1c700",
+        "qualification": "Direct response digest. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/42a6141ae593070d7a592f451bb5a529844992d2/docs/audits/2026-11-13-csp-fedramp-watch-sources.json",
+      "pointer": "/claimChecks/10",
+      "originalLabel": "verified-source-signal"
+    }
+  ],
+  "kind": "finding",
+  "title": "Secure Application .NET dual-mode vulnerability detection has a realm qualification",
+  "concernType": "uncertain-claim",
+  "problem": "November 12 adds runtime vulnerability detection for supported .NET dual-mode applications. The language guide limits it to active AWS realms with Secure Application and explicitly excludes GCP. .NET 8, 9 and 10 and one security signal path are documented, without exact AWS realm IDs, attack-detection support or authorization. Coordinate the report presentation with Release Watch.",
+  "scope": {
+    "products": [
+      "Splunk Observability Cloud Secure Application"
+    ],
+    "versions": [
+      ".NET Agent 26.9"
+    ],
+    "editions": null,
+    "deployments": [
+      "AppDynamics .NET Agent in dual mode"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Actual tenant behavior and broader product and authorization scope remain unverified."
+    ]
+  },
+  "impact": {
+    "level": "moderate",
+    "customerScenario": "A team plans to use the November 12 .NET dual-mode security milestone in an Observability realm.",
+    "consequence": "The language guide excludes GCP and restricts AWS to active realms where Secure Application is available. The specific AWS realm must be verified."
+  },
+  "confidence": {
+    "level": "high",
+    "rationale": "The official language guide explicitly states both realm conditions."
+  },
+  "claimIds": [
+    "availability:o11y:secure-application-dotnet-dual-mode-realm"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "The scope remains relevant to deployment planning."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  }
+}

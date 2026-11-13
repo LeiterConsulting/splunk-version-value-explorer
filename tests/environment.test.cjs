@@ -142,3 +142,19 @@ test('limited AI Assistant IL2 evidence does not become universal Moderate or Hi
   assert(row.sources.includes('assistantInstall'));
  }
 });
+
+test('AWS Israel matches only the documented commercial Victoria new-stack row',()=>{
+ const environment={csp:'aws',region:'il-central-1',compliance:'commercial',experience:'victoria'};
+ const selected={...route(environment),from:'10.6',to:'10.7'};
+ const result=env.assess(selected);
+ assert.deepEqual(Array.from(result.records,r=>r.id),['victoria-aws-israel']);
+ assert.equal(result.records[0].authorization,'not_established');
+ assert.match(result.records[0].detail,/relevant 10\.7 versions/);
+ assert.match(env.body(selected,true),/Existing-stack migration|existing-stack migration/);
+ assert.match(env.body({...selected,to:'10.6'},true),/separate from the selected historical/);
+ assert.equal(env.read('?'+env.append(new URLSearchParams(),environment)).errors.length,0);
+ assert(env.read('?csp=gcp&region=il-central-1').errors.length);
+ for (const override of [{compliance:'fr-m'},{compliance:'fr-h'},{experience:'classic'}]) {
+  assert.equal(env.assess({...selected,environment:{...environment,...override}}).records.length,0);
+ }
+});

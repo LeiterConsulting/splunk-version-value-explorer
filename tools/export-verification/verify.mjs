@@ -157,6 +157,21 @@ try {
       assert((await page.locator('.forwarder-compatibility').textContent()).includes(result.os.detail));
       entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
     }
+    const israelRoute=route.id.startsWith('cloud-107-aws-israel');
+    const israelMatched=route.id==='cloud-107-aws-israel';
+    const israelText=israelMatched?'new Victoria stacks':'No supporting record is established for this combination';
+    if(israelRoute){
+      await page.waitForFunction(()=>window.__reportTools?.versioncompass_get_current_report);
+      const result=await page.evaluate(()=>{
+        const tool=window.__reportTools.versioncompass_get_current_report, url=location.href;
+        const environment=tool.execute({}).report?.environment;
+        return {ids:environment?.records.map(row=>row.id),readOnly:tool.annotations.readOnlyHint,stable:location.href===url};
+      });
+      assert(result.readOnly&&result.stable,'Cloud Environment read-only report must preserve the link');
+      assert.deepEqual(result.ids,israelMatched?['victoria-aws-israel']:[]);
+      assert((await page.locator(israelMatched?'.env-record':'.env-selection + p + p').first().textContent()).includes(israelText));
+      entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
+    }
     const marketplaceRecord=marketplaceCases[route.id];
     if(marketplaceRecord){
       await page.waitForFunction(()=>window.__reportTools?.versioncompass_get_current_report);
@@ -446,6 +461,10 @@ try {
         expected.requiredText=['Claim last verified: '+claimDate];
         if(cloudPatch.details) expected.requiredText.push(...cloudPatch.details,'customer-managed Enterprise or Forwarder package applicability remain unestablished');
         if(build==='10.4.2604.18') expected.requiredText.push('SPL-314840','SPL-316497','SPL-316559','customer-managed Enterprise or Forwarder package applicability unestablished');
+      }
+      if(israelRoute) {
+        expected.requiredText=['Israel (Tel Aviv)',israelText];
+        if(israelMatched) expected.requiredText.push('Victoria Experience > AWS > Middle East (Israel)','AWS Israel addition for relevant Cloud 10.7 versions','Service endpoints > Israel (Tel Aviv) and il-central-1');
       }
       if(route.id==='cloud-107-fedramp-high') {
         for(const qualification of ['Cloud 10.7 Service Details lists Edge Processor for FedRAMP High','Cloud 10.7 Service Details lists Ingest Processor for FedRAMP High','The 10.6 table lists Moderate only','Essentials tier']) assert(normalize(expected.text).includes(qualification), 'High processor qualification missing: '+qualification);
