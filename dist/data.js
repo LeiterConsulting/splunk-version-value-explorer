@@ -1233,10 +1233,11 @@ window.SPLUNK_DATA = {
             "changeType": "Removed",
             "actionLevel": "Required",
             "from": "Earlier documentation differs on removal versus temporary enablement",
-            "to": "10.6 disallows TLS 1.0/1.1 for inter-Splunk connections; no temporary override",
-            "implication": "Connections still requiring legacy TLS cannot be restored with the earlier temporary switch.",
-            "action": "Validate TLS 1.2 or 1.3 on each inter-Splunk connection before upgrading. The unresolved 10.4 timing conflict remains separate.",
-            "source": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first"
+            "to": "Enterprise 10.6 READ THIS FIRST says the temporary TLS 1.0/1.1 option was removed",
+            "implication": "The versioned 10.6 TLS configuration guide still documents the earlier switch. The published instructions conflict. Plan the upgrade without relying on the legacy override.",
+            "action": "Validate TLS 1.2 or 1.3 on each inter-Splunk connection before upgrading. Resolve any legacy dependency with Splunk before proceeding.",
+            "source": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first",
+            "supportingSource": "https://help.splunk.com/en/splunk-enterprise/administer/manage-users-and-security/10.6/secure-splunk-platform-communications-with-transport-layer-security-certificates/configure-tls-protocol-version-support-for-secure-connections-between-splunk-platform-instances"
           },
           {
             "component": "Federated Search provider floor",
@@ -1324,7 +1325,7 @@ window.SPLUNK_DATA = {
           ],
           [
             "Migrate inter-Splunk connections to TLS 1.2+",
-            "10.6 does not support TLS 1.0/1.1 or a temporary re-enable switch. Validate every component connection before upgrading.",
+            "READ THIS FIRST says the temporary option was removed; the versioned TLS configuration guide still documents it. Validate TLS 1.2 or 1.3 on every component connection before upgrading and plan without relying on the override.",
             "Blocker",
             "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first",
             true
@@ -1867,6 +1868,18 @@ window.SPLUNK_DATA = {
             "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.5.2605/splunk-cloud-platform-release-notes/whats-new"
           },
           {
+            "component": "Cloud 10.5.2605.17 maintenance patch",
+            "domain": "Managed-service maintenance",
+            "changeType": "Patch published",
+            "actionLevel": "Review",
+            "from": "Cloud 10.5.2605.16 remains a separate maintenance build.",
+            "to": "Cloud 10.5.2605.17 was published November 12, 2026.",
+            "implication": "The row lists preliminary security counts of one High and one Medium. Selected fixes include SPL-313132 for host names missing from a certificate-authority alert, SPL-320054 for recurring Blackbox Exporter Web authentication errors, and SPL-321107 for KVService collection-cache preparation. Selected-stack rollout and customer-managed Enterprise or Forwarder package applicability remain unestablished.",
+            "action": "Check the selected stack build before relying on the alert, Web authentication or KVService changes. Use definitive Splunk Product Security advisories for security applicability.",
+            "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.5.2605.17-0",
+            "verified": "2026-11-13"
+          },
+          {
             "component": "Cloud 10.5.2605.16 maintenance patch",
             "domain": "Managed-service maintenance",
             "changeType": "Patch published",
@@ -2018,6 +2031,18 @@ window.SPLUNK_DATA = {
             "implication": "Deprecation is not removal, but continuing investment increases future migration work.",
             "action": "Inventory affected dashboards and plan supported replacements while retaining current behavior until Splunk documents removal.",
             "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/whats-new"
+          },
+          {
+            "component": "Cloud 10.6.2.4 maintenance patch",
+            "domain": "Managed-service maintenance",
+            "changeType": "Patch published",
+            "actionLevel": "Review",
+            "from": "Cloud 10.6.2.3 remains a separate maintenance build.",
+            "to": "Cloud 10.6.2.4 was published November 12, 2026.",
+            "implication": "The row lists preliminary security counts of two High and one Medium. Selected fixes include SPL-320966 for Manage Apps UI assets, SPL-320991 for field extraction permissions, and SPL-321109 for KVService collection-cache preparation. Selected-stack rollout and customer-managed Enterprise or Forwarder package applicability remain unestablished.",
+            "action": "Check the selected stack build and retest the applicable app-management or field-extraction workflow. Use definitive Splunk Product Security advisories for security applicability.",
+            "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.6.2.4-0",
+            "verified": "2026-11-13"
           },
           {
             "component": "Cloud 10.6.2.3 maintenance patch",
@@ -2174,6 +2199,18 @@ window.SPLUNK_DATA = {
             "implication": "The versioned table establishes subscription service lines. It does not establish a selected-stack rollout, exact premium app patch, provider or regional availability, feature entitlement, or regulated authorization.",
             "action": "Use the documented 10.7 release route and confirm the actual stack, premium app patch, maintenance timing, and feature prerequisites before planning work.",
             "source": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details"
+          },
+          {
+            "component": "Cloud 10.7.0.6 maintenance patch",
+            "domain": "Managed-service maintenance",
+            "changeType": "Patch published",
+            "actionLevel": "Review",
+            "from": "Cloud 10.7.0.5 remains a separate maintenance build.",
+            "to": "Cloud 10.7.0.6 was published November 12, 2026.",
+            "implication": "The row lists preliminary security counts of three Medium. Selected fixes include SPL-320989 for private search macro owner URL encoding, SPL-320210 for search startup, and SPL-320992 for field extraction permissions. Selected-stack rollout and customer-managed Enterprise or Forwarder package applicability remain unestablished.",
+            "action": "Check the selected stack build and retest the applicable macro, search startup or field-extraction workflow. Use definitive Splunk Product Security advisories for security applicability.",
+            "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.7.0.6-0",
+            "verified": "2026-11-13"
           },
           {
             "component": "Cloud 10.7.0.5 maintenance patch",

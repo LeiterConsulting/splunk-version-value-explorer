@@ -2671,7 +2671,7 @@ window.VersionCompassSources = {
       "references": [
         "release.cloud.releasesData.10.4.2604.technicalChanges.4.source",
         "release.cloud.releasesData.10.4.2604.requirements.4.3",
-        "release.cloud.releasesData.10.5.2605.technicalChanges.4.source",
+        "release.cloud.releasesData.10.5.2605.technicalChanges.5.source",
         "release.cloud.releasesData.10.5.2605.requirements.3.3",
         "release.cloud.releasesData.10.6.technicalChanges.4.source",
         "release.cloud.releasesData.10.6.requirements.6.3",
@@ -2746,7 +2746,7 @@ window.VersionCompassSources = {
         "Shared guidance"
       ],
       "references": [
-        "release.cloud.releasesData.10.5.2605.technicalChanges.3.source",
+        "release.cloud.releasesData.10.5.2605.technicalChanges.4.source",
         "content-updates.js"
       ],
       "reviews": [],
@@ -2767,6 +2767,34 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.5.2605.17-0",
+      "title": "splunk cloud platform maintenance patch release information",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.cloud.releasesData.10.5.2605.technicalChanges.3.source",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-13",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-13",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.6.2.3-0",
       "title": "splunk cloud platform maintenance patch release information",
       "areas": [
@@ -2774,7 +2802,7 @@ window.VersionCompassSources = {
         "Shared guidance"
       ],
       "references": [
-        "release.cloud.releasesData.10.6.technicalChanges.6.source",
+        "release.cloud.releasesData.10.6.technicalChanges.7.source",
         "content-updates.js"
       ],
       "reviews": [],
@@ -2795,6 +2823,34 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.6.2.4-0",
+      "title": "splunk cloud platform maintenance patch release information",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.cloud.releasesData.10.6.technicalChanges.6.source",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-13",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-13",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.7.0.5-0",
       "title": "splunk cloud platform maintenance patch release information",
       "areas": [
@@ -2802,7 +2858,7 @@ window.VersionCompassSources = {
         "Shared guidance"
       ],
       "references": [
-        "release.cloud.releasesData.10.7.technicalChanges.5.source",
+        "release.cloud.releasesData.10.7.technicalChanges.6.source",
         "content-updates.js"
       ],
       "reviews": [],
@@ -2818,6 +2874,34 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-11-11",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.7.0.6-0",
+      "title": "splunk cloud platform maintenance patch release information",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.cloud.releasesData.10.7.technicalChanges.5.source",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-13",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-13",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -5546,6 +5630,47 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/manage-users-and-security/10.6/secure-splunk-platform-communications-with-transport-layer-security-certificates/configure-tls-protocol-version-support-for-secure-connections-between-splunk-platform-instances",
+      "title": "configure tls protocol version support for secure connections between splunk platform instances",
+      "areas": [
+        "Release guide",
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "release.enterprise.releasesData.10.6.technicalChanges.3.supportingSource",
+        "forwarders: borrowed.technical.hf.10.6.legacy-tls-protocols"
+      ],
+      "reviews": [],
+      "claimReferences": [
+        {
+          "path": "forwarders: borrowed.technical.hf.10.6.legacy-tls-protocols",
+          "claimId": "technical.hf.10.6.legacy-tls-protocols",
+          "release": "10.6",
+          "component": "Legacy TLS protocols",
+          "section": "Supported SSL and TLS protocol versions; Turn on support for older TLS versions with deprecatedTlsVersionSupport",
+          "claimVerified": "2026-11-13",
+          "outcome": "conflicting-evidence-preserved",
+          "qualification": "Heavy Forwarder uses the customer-managed Enterprise package. The 10.6 upgrade notice says the temporary TLS 1.0/1.1 option was removed. The separate 10.6 configuration guide still documents the opt-in. Retain the published conflict and validate TLS 1.2 or 1.3 before upgrading. Do not rely on the legacy setting or infer UF, Cloud-managed or app-owned runtime applicability."
+        }
+      ],
+      "conflict": true,
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-11-13",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-13",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-enterprise/administer/manage-workloads/10.6/use-workload-management-on-kubernetes",
       "title": "Enterprise 10.6 workload management on Kubernetes",
       "areas": [
@@ -5698,9 +5823,9 @@ window.VersionCompassSources = {
           "release": "10.6",
           "component": "Legacy TLS protocols",
           "section": "Splunk has removed support for versions 1.0 and 1.1 of the Transport Layer Security (TLS) protocol",
-          "claimVerified": "2026-10-24",
-          "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. October 24 semantic recheck: the 10.6 READ THIS FIRST section says TLS 1.0/1.1 support was removed in 10.4 and that 10.6 removes the temporary re-enable option; migrate inter-Splunk connections to TLS 1.2 or higher. This does not establish UF applicability, Cloud-managed scope, every app-owned connection, or deployment approval."
+          "claimVerified": "2026-11-13",
+          "outcome": "conflicting-evidence-preserved",
+          "qualification": "Heavy Forwarder uses the customer-managed Enterprise package. The 10.6 upgrade notice says the temporary TLS 1.0/1.1 option was removed. The separate 10.6 configuration guide still documents the opt-in. Retain the published conflict and validate TLS 1.2 or 1.3 before upgrading. Do not rely on the legacy setting or infer UF, Cloud-managed or app-owned runtime applicability."
         }
       ],
       "usage": "In use",

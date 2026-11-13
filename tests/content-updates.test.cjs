@@ -17,11 +17,15 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('material cycle preserves scoped release evidence and prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,65);
+ assert.equal(b.policy.currentCycle,66);
  const cloud104=b.entries['technical:platform:Cloud 10.4.2604.18 maintenance patch'];
  assert.equal(cloud104.cycle,63);assert.equal(cloud104.sourceDate,'2026-11-06');assert(b.active(cloud104,64));assert(!b.active(cloud104));
  const cloud105Patch=b.entries['technical:platform:Cloud 10.5.2605.16 maintenance patch'];
- assert.equal(cloud105Patch.cycle,64);assert.equal(cloud105Patch.sourceDate,'2026-11-06');assert(b.active(cloud105Patch));
+ assert.equal(cloud105Patch.cycle,64);assert.equal(cloud105Patch.sourceDate,'2026-11-06');assert(b.active(cloud105Patch,65));assert(!b.active(cloud105Patch));
+ for (const build of ['10.5.2605.17','10.6.2.4','10.7.0.6']) {
+  const patch=b.entries['technical:platform:Cloud '+build+' maintenance patch'];
+  assert.equal(patch.cycle,66);assert.equal(patch.sourceDate,'2026-11-12');assert(b.active(patch));assert(!b.active(patch,68));assert(patch.source.endsWith('#'+build+'-0'));
+ }
  const ea=b.entries["edition:exposure"];assert.equal(ea.cycle,52);assert(b.active(ea,53));assert(!b.active(ea));
  const soar=b.entries['product:soar:cloud-8.8'];assert.equal(soar.cycle,51);assert(!b.active(soar));assert.match(soar.detail,/November 4 General Availability/);
  const app=b.entries['technical:soar:app88'];assert.equal(app.cycle,53);assert(!b.active(app));

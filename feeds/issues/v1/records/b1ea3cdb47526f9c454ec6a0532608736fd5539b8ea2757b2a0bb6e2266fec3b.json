@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-enterprise-104-legacy-tls-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-13T10:51:33.002Z",
+  "evidence": [
+    {
+      "evidenceId": "release-20261113-1-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first",
+      "section": "Splunk has removed support for versions 1.0 and 1.1 of the Transport Layer Security (TLS) protocol",
+      "statement": "The 10.4 upgrade notice describes removal; the 10.4 configuration guide gives a default-off temporary opt-in. The newly mapped 10.6 conflict remains separate.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-13T10:44:33.553Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "e22271f021acf801ecf7681e28dd5569e80358dcb6b52a0c8d051b2112ea8c50",
+        "qualification": "Exact public response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261113-1-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/manage-users-and-security/10.4/secure-splunk-platform-communications-with-transport-layer-security-certificates/configure-tls-protocol-version-support-for-secure-connections-between-splunk-platform-instances",
+      "section": "Supported SSL and TLS protocol versions; Turn on support for older TLS versions with deprecatedTlsVersionSupport",
+      "statement": "The 10.4 upgrade notice describes removal; the 10.4 configuration guide gives a default-off temporary opt-in. The newly mapped 10.6 conflict remains separate.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-13T10:45:18.577Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "c2d4830da992f40b6db78382d1006b5afdf378305ae9e61f76b70d600b46c83f",
+        "qualification": "Exact public response bytes; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/b1b08bae332f811faea150462ab9bb8ae3a98e29/docs/audits/2026-11-13-version-release-watch-sources.json",
+      "pointer": "/claimChecks/1",
+      "originalLabel": "still-present"
+    }
+  ],
+  "kind": "assessment",
+  "assessmentId": "vcia-release-20261113-enterprise-104-legacy-tls-scope",
+  "assessedAt": "2026-11-13T10:50:04.128Z",
+  "outcome": "still-present",
+  "rationale": "The 10.4 upgrade notice describes removal; the 10.4 configuration guide gives a default-off temporary opt-in. The newly mapped 10.6 conflict remains separate.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise and applicable Heavy Forwarder"
+    ],
+    "versions": [
+      "10.4"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed inter-Splunk connections"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No unlisted exact pairing, rollout, entitlement or customer authorization established."
+    ]
+  },
+  "remainingConcerns": [
+    "Confirm release-specific UF OS and architecture intersections and a supported comparison model for fleet upgrades. Retry the two exact historical Enterprise note URLs and reconcile the SOAR 8.8 build, worked example and fixed-issue rows. Review by November 12."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-guidance-20261112-enterprise-104-legacy-tls-scope"
+  ]
+}
