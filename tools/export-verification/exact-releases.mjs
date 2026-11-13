@@ -7,8 +7,10 @@ const soarReadOnlyRecords = new Map([
 export const soarReadOnlyRecord = route => soarReadOnlyRecords.get(route.id);
 export const esMaintenanceRoute = route => ['es-88-controlled-availability-enterprise','es-88-controlled-availability-cloud','es-88-exact-matrix-host'].includes(route.id);
 
+export const regulatedS3Route = route => ['cloud-fedramp-moderate', 'cloud-fedramp-high', 'cloud-107-fedramp-high'].includes(route.id);
+
 export async function prepareReadOnlyTools(context,route){
- if(!route.id.startsWith('exact-')&&!soarReadOnlyRecord(route)&&!esMaintenanceRoute(route)&&!route.id.startsWith('forwarder-cloud-107')&&!route.id.startsWith('cloud-107-aws-israel')&&!['forwarder-windows-2012-r2','cloud','cloud-107','cloud-104-patch','cloud-105-patch','es-hybrid-moderate','itsi-fedramp-moderate'].includes(route.id))return;
+ if(!route.id.startsWith('exact-')&&!soarReadOnlyRecord(route)&&!esMaintenanceRoute(route)&&!regulatedS3Route(route)&&!route.id.startsWith('forwarder-cloud-107')&&!route.id.startsWith('cloud-107-aws-israel')&&!['forwarder-windows-2012-r2','cloud','cloud-107','cloud-104-patch','cloud-105-patch','es-hybrid-moderate','itsi-fedramp-moderate'].includes(route.id))return;
  await context.addInitScript(()=>{window.__reportTools={};Object.defineProperty(document,'modelContext',{value:{registerTool(tool,options){window.__reportTools[tool.name]=tool;options.signal.addEventListener('abort',()=>delete window.__reportTools[tool.name]);}}});});
 }
 export async function verifyExact(page,route,theme){

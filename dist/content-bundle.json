@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-187d9661764be146bd3e457d",
-    "digest": "e58380ac69f05bbb662d1bc605a61f559b61eac00ffa0a8f3c8a638e7d700a85",
-    "engineRevision": "engine-e594579d9797035f6e84",
+    "revision": "content-08aa5c50e300649a743a2ead",
+    "digest": "549bd12cd440393cd41337fc14c98d7a4abe670e5ab4da14ea1354394824f7df",
+    "engineRevision": "engine-0fa80e0baa9209d96f61",
     "datasetHashes": {
       "platform": "c75dbad3ceab9dfbb87c50e3f3ccde5b9e0bd9277421423490ac3a8dccfeee96",
       "products": "854fe986e92c6a88dc3d76eb70c392f0f4ca38417b34c53443eecd4015ba5df4",
       "guidance": "9486a2fd67eb6d06fbfbdd5a6cffa0cbb403a5af8fd053a10bf155038632a460",
-      "environment": "f815ab13f3acc9098a9356eef85e0a7c7f2307335a3ded45a22ca99d64d9b53a",
+      "environment": "e758b33f13f79b230db39f37c9360aa7ab6a1de43e35765dea0b4a39261a3e38",
       "editions": "e86a85c7c0342508ef6f15092eab4833ea79be59c0d32b014f6f0e9a790ee1c9",
       "forwarders": "f992e8bad9c60ac1b7577987233bceb0b40a3111f209305655dc552850166991",
       "soar": "0a95273ec36589b59fe74ff2ded1d383c1f8278427449dea3d06dc9e23ddebd4"
     },
-    "recordCount": 956,
+    "recordCount": 960,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -7559,6 +7559,34 @@
           "published": "2026-11-06",
           "scope": "6 November 2026 > Available regions and region differences > AWS Israel addition for relevant Cloud 10.7 versions.",
           "checked": "2026-11-13"
+        },
+        "s3Regional106": {
+          "title": "Cloud 10.6 regional availability for Amazon S3 federation",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details#id_599802a1_7358_493f_851f_15dfde0fbe0e--en__Available_regions_and_region_differences",
+          "published": null,
+          "scope": "Available regions and region differences > Federated search for Amazon S3",
+          "checked": "2026-11-13"
+        },
+        "s3ThirdParty106": {
+          "title": "Cloud 10.6 third-party federated search restrictions",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details#federated-search-for-third-party-data-stores-0",
+          "published": null,
+          "scope": "Search > Federated search for third-party data stores > Requirements and restrictions",
+          "checked": "2026-11-13"
+        },
+        "s3Guide106": {
+          "title": "Cloud 10.6 Amazon S3 federated search product restrictions",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/search/federated-search/10.6/run-federated-searches-over-amazon-s3-datasets/overview-of-federated-search-for-amazon-s3#restrictions-0",
+          "published": null,
+          "scope": "Overview of Federated Search for Amazon S3 > Restrictions",
+          "checked": "2026-11-13"
+        },
+        "s3AprilChange": {
+          "title": "April 8 Amazon S3 federation change entry",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log#8-april-2026-0",
+          "published": "2026-04-08",
+          "scope": "8 April 2026 > AWS GovCloud High and IL5 for relevant 10.3 versions",
+          "checked": "2026-11-13"
         }
       },
       "records": [
@@ -8245,20 +8273,26 @@
           ],
           "availability": "conflicting",
           "authorization": "not_established",
-          "detail": "The regional table includes Moderate in both GovCloud regions, while the third-party federated-search section excludes Moderate. The relationship between legacy S3 federation and the expanded third-party-search scope is not established; confirm before planning.",
+          "detail": "The Cloud 10.6 regional table includes Moderate in both GovCloud regions. The product guide and expanded third-party search section exclude Moderate. Confirm which scope applies before planning.",
           "sources": [
-            "service"
+            "s3Regional106",
+            "s3Guide106",
+            "s3ThirdParty106"
           ],
-          "checked": "2026-10-09",
-          "scope": "Current 10.6 service guidance; not a historical rollout, entitlement or authorization guarantee",
+          "checked": "2026-11-13",
+          "scope": "Cloud 10.6 service and product restrictions, with any cited historical version scope retained. Entitlement, rollout and authorization remain unestablished.",
           "claims": [
             {
               "text": "The current availability table includes FedRAMP Moderate in both GovCloud regions.",
-              "source": "service"
+              "source": "s3Regional106"
+            },
+            {
+              "text": "The Cloud 10.6 product guide excludes FedRAMP Moderate, FedRAMP High, and DoD IL5 deployments.",
+              "source": "s3Guide106"
             },
             {
               "text": "The third-party federated-search section names Amazon S3 as a supported store but says that scope is not currently available in FedRAMP Moderate.",
-              "source": "service"
+              "source": "s3ThirdParty106"
             }
           ]
         },
@@ -8276,22 +8310,27 @@
           ],
           "availability": "conflicting",
           "authorization": "not_established",
-          "detail": "High is excluded in the service table; the April 8 change log adds High availability. Confirm before planning.",
+          "detail": "The Cloud 10.6 regional table and product guide exclude High and IL5. The April 8 change log lists High and IL5 for relevant Cloud 10.3 versions in both GovCloud regions. Confirm which scope applies before planning.",
           "sources": [
-            "service",
-            "changes"
+            "s3Regional106",
+            "s3Guide106",
+            "s3AprilChange"
           ],
-          "checked": "2026-10-09",
-          "scope": "Current service guidance; not a historical availability guarantee",
+          "checked": "2026-11-13",
+          "scope": "Cloud 10.6 service and product restrictions, with any cited historical version scope retained. Entitlement, rollout and authorization remain unestablished.",
           "effective": "2026-04-08",
           "claims": [
             {
-              "text": "The 10.6 Service Details page's current availability table excludes High.",
-              "source": "service"
+              "text": "The Cloud 10.6 regional table excludes FedRAMP High and DoD IL5.",
+              "source": "s3Regional106"
             },
             {
-              "text": "April 8 change log adds High in both GovCloud regions for relevant 10.3 versions.",
-              "source": "changes"
+              "text": "The Cloud 10.6 product guide excludes FedRAMP Moderate, FedRAMP High, and DoD IL5 deployments.",
+              "source": "s3Guide106"
+            },
+            {
+              "text": "The April 8 change log lists High and IL5 in both GovCloud regions for relevant Cloud 10.3 versions.",
+              "source": "s3AprilChange"
             }
           ]
         },
@@ -12145,6 +12184,12 @@
         "url": "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Readiness"
       },
       {
+        "id": "source-0e203f7517f319124a65",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details#federated-search-for-third-party-data-stores-0"
+      },
+      {
         "id": "source-1041cb57e15424d9749c",
         "kind": "source",
         "dataset": "sources",
@@ -12437,6 +12482,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.5.2605.17-0"
+      },
+      {
+        "id": "source-37cb8f984ec03265bedf",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details#id_599802a1_7358_493f_851f_15dfde0fbe0e--en__Available_regions_and_region_differences"
       },
       {
         "id": "source-38b36544bc0c010962c1",
@@ -13465,6 +13516,12 @@
         "url": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.8/introduction/licensing-for-splunk-enterprise-security"
       },
       {
+        "id": "source-f2c1ea171c23a581ef20",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-cloud-platform/search/federated-search/10.6/run-federated-searches-over-amazon-s3-datasets/overview-of-federated-search-for-amazon-s3#restrictions-0"
+      },
+      {
         "id": "source-f3283f29b8be9881ff77",
         "kind": "source",
         "dataset": "sources",
@@ -13481,6 +13538,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.0/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.0-read-this-first"
+      },
+      {
+        "id": "source-f75eef1d33a0be1cd513",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log#8-april-2026-0"
       },
       {
         "id": "source-f94df24e341c0fab70b0",

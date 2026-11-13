@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-13T13:23:36.915525Z",
+      "lastAttempt": "2026-11-13T14:01:49.184111Z",
       "lastSuccess": "2026-11-10T12:50:41.612Z",
       "outcome": "blocked",
-      "summary": "Recovered exact 10.6 S3 restriction evidence. Historical SOC scope and production delivery remain incomplete.",
+      "summary": "Prepared exact S3 restriction citations. Historical SOC scope and production delivery remain incomplete.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -518,6 +518,18 @@ window.VersionCompassMaintenance = {
           "at": "2026-11-13T13:29:37.571Z",
           "outcome": "blocked",
           "summary": "Recovered exact 10.6 S3 restriction evidence. Historical SOC scope and production delivery remain incomplete.",
+          "scope": "CSP, SOAR, ES SOC, Model Runtime, Marketplace and public-sector evidence."
+        },
+        {
+          "at": "2026-11-13T14:01:49.184111Z",
+          "outcome": "running",
+          "summary": "Rechecking exact CSP sources and registered SOC evidence.",
+          "scope": "CSP, SOAR, ES SOC, Model Runtime, Marketplace and public-sector evidence."
+        },
+        {
+          "at": "2026-11-13T14:05:50.295Z",
+          "outcome": "blocked",
+          "summary": "Prepared exact S3 restriction citations. Historical SOC scope and production delivery remain incomplete.",
           "scope": "CSP, SOAR, ES SOC, Model Runtime, Marketplace and public-sector evidence."
         }
       ],

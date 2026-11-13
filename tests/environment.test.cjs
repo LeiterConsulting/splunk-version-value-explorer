@@ -38,14 +38,14 @@ test('provider, region and compliance filters intersect without inferring unavai
  assert.equal(high.records.find(r=>r.id==='s3-high').availability,'conflicting');
  assert.equal(high.records.find(r=>r.id==='edge-high-unknown').availability,'conditional');
  const moderate=env.assess(route({compliance:'fr-m'}));assert(moderate.records.some(r=>r.id==='edge-moderate'));assert(!moderate.records.some(r=>r.id==='s3-high'));
- const moderateS3=moderate.records.find(r=>r.id==='s3-moderate');assert.equal(moderateS3.availability,'conflicting');assert.equal(moderateS3.claims.length,2);
+ const moderateS3=moderate.records.find(r=>r.id==='s3-moderate');assert.equal(moderateS3.availability,'conflicting');assert.equal(moderateS3.claims.length,3);assert(moderateS3.sources.includes("s3Guide106"));
  const missing=env.assess(route({csp:'azure',compliance:'fr-h'}));assert.equal(missing.records.length,0);assert.match(missing.coverageNote,/not an unavailability/);
  const region=env.assess(route({region:'gcp-oregon'},'es'));assert.equal(region.records.find(r=>r.id==='soar-oregon').availability,'unavailable');assert(!region.records.some(r=>r.id==='es-base-gcp'));
 });
 test('evidence scope, separate authorization, freshness, and source conflicts remain explicit',()=>{
  for(const r of env.data.records){assert(r.sources.length);assert(r.regions.length);for(const region of r.regions)assert(env.data.regions.some(x=>x.id===region&&x.provider===r.provider));for(const source of r.sources){const s=env.data.sources[source];assert(s);assert(/^https:\/\//.test(s.url));assert(s.checked);assert(s.scope);}assert(r.scope);assert(['documented','not_established'].includes(r.authorization));}
  assert.equal(env.data.sources.compliance.published,'2026-02');
- const conflict=env.data.records.find(r=>r.id==='s3-high');assert.equal(conflict.claims.length,2);assert.equal(new Set(conflict.claims.map(c=>c.source)).size,2);
+ const conflict=env.data.records.find(r=>r.id==='s3-high');assert.equal(conflict.claims.length,3);assert.equal(new Set(conflict.claims.map(c=>c.source)).size,3);assert(conflict.sources.includes("s3AprilChange"));
  const itsi=env.assess(route({compliance:'fr-h'},'itsi'));assert.match(itsi.productNote,/offering-specific Marketplace evidence and its date/);
  const o=env.assess(route({compliance:'fr-h'},'observability'));assert.equal(o.records.length,0);assert.match(o.productNote,/does not establish/);
  const commercial=env.assess(route({csp:'gcp',region:'gcp-oregon',compliance:'commercial'},'observability'));assert(commercial.records.some(r=>r.realm==='us2'));

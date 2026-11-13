@@ -345,6 +345,34 @@ window.VersionCompassEnvironmentData = {
       "published": "2026-11-06",
       "scope": "6 November 2026 > Available regions and region differences > AWS Israel addition for relevant Cloud 10.7 versions.",
       "checked": "2026-11-13"
+    },
+    "s3Regional106": {
+      "title": "Cloud 10.6 regional availability for Amazon S3 federation",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details#id_599802a1_7358_493f_851f_15dfde0fbe0e--en__Available_regions_and_region_differences",
+      "published": null,
+      "scope": "Available regions and region differences > Federated search for Amazon S3",
+      "checked": "2026-11-13"
+    },
+    "s3ThirdParty106": {
+      "title": "Cloud 10.6 third-party federated search restrictions",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details#federated-search-for-third-party-data-stores-0",
+      "published": null,
+      "scope": "Search > Federated search for third-party data stores > Requirements and restrictions",
+      "checked": "2026-11-13"
+    },
+    "s3Guide106": {
+      "title": "Cloud 10.6 Amazon S3 federated search product restrictions",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/federated-search/10.6/run-federated-searches-over-amazon-s3-datasets/overview-of-federated-search-for-amazon-s3#restrictions-0",
+      "published": null,
+      "scope": "Overview of Federated Search for Amazon S3 > Restrictions",
+      "checked": "2026-11-13"
+    },
+    "s3AprilChange": {
+      "title": "April 8 Amazon S3 federation change entry",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log#8-april-2026-0",
+      "published": "2026-04-08",
+      "scope": "8 April 2026 > AWS GovCloud High and IL5 for relevant 10.3 versions",
+      "checked": "2026-11-13"
     }
   },
   "records": [
@@ -1031,20 +1059,26 @@ window.VersionCompassEnvironmentData = {
       ],
       "availability": "conflicting",
       "authorization": "not_established",
-      "detail": "The regional table includes Moderate in both GovCloud regions, while the third-party federated-search section excludes Moderate. The relationship between legacy S3 federation and the expanded third-party-search scope is not established; confirm before planning.",
+      "detail": "The Cloud 10.6 regional table includes Moderate in both GovCloud regions. The product guide and expanded third-party search section exclude Moderate. Confirm which scope applies before planning.",
       "sources": [
-        "service"
+        "s3Regional106",
+        "s3Guide106",
+        "s3ThirdParty106"
       ],
-      "checked": "2026-10-09",
-      "scope": "Current 10.6 service guidance; not a historical rollout, entitlement or authorization guarantee",
+      "checked": "2026-11-13",
+      "scope": "Cloud 10.6 service and product restrictions, with any cited historical version scope retained. Entitlement, rollout and authorization remain unestablished.",
       "claims": [
         {
           "text": "The current availability table includes FedRAMP Moderate in both GovCloud regions.",
-          "source": "service"
+          "source": "s3Regional106"
+        },
+        {
+          "text": "The Cloud 10.6 product guide excludes FedRAMP Moderate, FedRAMP High, and DoD IL5 deployments.",
+          "source": "s3Guide106"
         },
         {
           "text": "The third-party federated-search section names Amazon S3 as a supported store but says that scope is not currently available in FedRAMP Moderate.",
-          "source": "service"
+          "source": "s3ThirdParty106"
         }
       ]
     },
@@ -1062,22 +1096,27 @@ window.VersionCompassEnvironmentData = {
       ],
       "availability": "conflicting",
       "authorization": "not_established",
-      "detail": "High is excluded in the service table; the April 8 change log adds High availability. Confirm before planning.",
+      "detail": "The Cloud 10.6 regional table and product guide exclude High and IL5. The April 8 change log lists High and IL5 for relevant Cloud 10.3 versions in both GovCloud regions. Confirm which scope applies before planning.",
       "sources": [
-        "service",
-        "changes"
+        "s3Regional106",
+        "s3Guide106",
+        "s3AprilChange"
       ],
-      "checked": "2026-10-09",
-      "scope": "Current service guidance; not a historical availability guarantee",
+      "checked": "2026-11-13",
+      "scope": "Cloud 10.6 service and product restrictions, with any cited historical version scope retained. Entitlement, rollout and authorization remain unestablished.",
       "effective": "2026-04-08",
       "claims": [
         {
-          "text": "The 10.6 Service Details page's current availability table excludes High.",
-          "source": "service"
+          "text": "The Cloud 10.6 regional table excludes FedRAMP High and DoD IL5.",
+          "source": "s3Regional106"
         },
         {
-          "text": "April 8 change log adds High in both GovCloud regions for relevant 10.3 versions.",
-          "source": "changes"
+          "text": "The Cloud 10.6 product guide excludes FedRAMP Moderate, FedRAMP High, and DoD IL5 deployments.",
+          "source": "s3Guide106"
+        },
+        {
+          "text": "The April 8 change log lists High and IL5 in both GovCloud regions for relevant Cloud 10.3 versions.",
+          "source": "s3AprilChange"
         }
       ]
     },
