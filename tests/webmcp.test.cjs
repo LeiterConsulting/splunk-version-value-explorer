@@ -336,7 +336,8 @@ test('Enterprise Security 8.8 GA preserves feature access and exact matrix scope
     assert.match(timing.to, /Platform 10\.6 or later is already installed/);
     assert.match(timing.implication, /five additional minutes per GB/);
     assert.match(timing.implication, /after ES 8\.8.*background/);
-    assert.match(timing.action, /managed Cloud stack, confirm timing with Splunk/);
+    assert.match(timing.from, /on-premises search-head upgrade guide/);
+    assert.match(timing.action, /Splunk coordinates managed Cloud upgrades/);
   }
 });
 

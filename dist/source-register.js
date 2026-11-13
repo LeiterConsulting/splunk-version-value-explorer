@@ -4165,11 +4165,15 @@ window.VersionCompassSources = {
       "outdatedAsOf": null,
       "reason": "",
       "section": "Version-specific upgrade notes > Upgrading to version 8.8 and higher > Maintenance window is extended",
-      "verificationScope": "Mission Control incidents migration timing and estimated added maintenance when Platform 10.6 or later is already installed. The documented later Platform upgrade runs this migration in the background. Verify exact supported host patches and managed service scheduling separately.",
+      "verificationScope": "On-premises search-head upgrade guidance for Mission Control migration timing and estimated added maintenance when Platform 10.6 or later is already installed. The documented later Platform upgrade runs this migration in the background. Verify exact supported host patches and managed service scheduling separately.",
       "events": [
         {
           "date": "2026-11-13",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-13",
+          "event": "Review status updated: Reviewed · 2026-11-13"
         },
         {
           "date": "2026-11-13",
