@@ -1,0 +1,462 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:versioncompass:coordination:v1",
+  "title": "Offline coordination records; not authorization or completion",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/claimState"
+    },
+    {
+      "$ref": "#/$defs/observerReceipt"
+    }
+  ],
+  "$defs": {
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "repository": {
+          "const": "LeiterConsulting/splunk-version-value-explorer"
+        },
+        "prNumber": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "head": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "expectedMain": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "expectedIntegrationTree": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "registryVersion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "reviewDigests": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^sha256:[a-f0-9]{64}$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "requiredScopes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "reportFingerprint": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "contentRevision": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "engineRevision": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        }
+      },
+      "required": [
+        "id",
+        "repository",
+        "prNumber",
+        "head",
+        "expectedMain",
+        "expectedIntegrationTree",
+        "registryVersion",
+        "reviewDigests",
+        "requiredScopes",
+        "reportFingerprint",
+        "contentRevision",
+        "engineRevision"
+      ]
+    },
+    "claimState": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaVersion": {
+          "const": "vc-coordination-v1"
+        },
+        "recordKind": {
+          "const": "public-claim-state"
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "epoch": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "previousCommit": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "status": {
+          "enum": [
+            "idle",
+            "claimed",
+            "intent",
+            "executing",
+            "observing",
+            "verifying",
+            "uncertain",
+            "settled"
+          ]
+        },
+        "claimId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ownerRole": {
+          "anyOf": [
+            {
+              "enum": [
+                "version-release-watch",
+                "es-editions-watch",
+                "csp-fedramp-watch",
+                "version-guidance-audit",
+                "explicit-user-authorized-recovery"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "invocationBindingDigest": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^sha256:[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "authorizationEvidenceDigest": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^sha256:[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "resourceSet": {
+          "const": "versioncompass-main-and-sites"
+        },
+        "candidate": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/candidate"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "lastObservedAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,3})?Z$"
+        },
+        "attentionAfter": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,3})?Z$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "pendingAction": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "actionId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160
+                },
+                "kind": {
+                  "enum": [
+                    "merge",
+                    "sites-source-push",
+                    "sites-save",
+                    "sites-deploy",
+                    "authorized-rollback"
+                  ]
+                },
+                "preconditionDigest": {
+                  "type": "string",
+                  "pattern": "^sha256:[a-f0-9]{64}$"
+                },
+                "intentAt": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,3})?Z$"
+                },
+                "outcome": {
+                  "enum": [
+                    "intent-recorded",
+                    "request-in-flight",
+                    "unknown",
+                    "observed-succeeded",
+                    "observed-failed"
+                  ]
+                },
+                "outcomeEvidenceDigest": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^sha256:[a-f0-9]{64}$"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "actionId",
+                "kind",
+                "preconditionDigest",
+                "intentAt",
+                "outcome",
+                "outcomeEvidenceDigest"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "lastOutcome": {
+          "anyOf": [
+            {
+              "enum": [
+                "delivered",
+                "integrated-only",
+                "no-material-release",
+                "held-verification-failed",
+                "superseded-before-write",
+                "abandoned-before-write",
+                "recovered-known-outcome"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evidenceDigests": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^sha256:[a-f0-9]{64}$"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "recordKind",
+        "sequence",
+        "epoch",
+        "previousCommit",
+        "status",
+        "claimId",
+        "ownerRole",
+        "invocationBindingDigest",
+        "authorizationEvidenceDigest",
+        "resourceSet",
+        "candidate",
+        "lastObservedAt",
+        "attentionAfter",
+        "pendingAction",
+        "lastOutcome",
+        "evidenceDigests"
+      ]
+    },
+    "observerReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaVersion": {
+          "const": "vc-coordination-v1"
+        },
+        "recordKind": {
+          "const": "observer-work"
+        },
+        "exampleOnly": {
+          "type": "boolean"
+        },
+        "observerRole": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "localInvocationId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "trigger": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "enum": [
+                "explicit-user-request",
+                "scheduler-notification",
+                "existing-monitor-observation"
+              ]
+            },
+            "nativeRunId": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "nativeStartedAt": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,3})?Z$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "nativeRunId",
+            "nativeStartedAt"
+          ]
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,3})?Z$"
+        },
+        "sourceCommit": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "sourceTree": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "nativeSnapshotDigest": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "workArtifactDigests": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^sha256:[a-f0-9]{64}$"
+          },
+          "minItems": 1
+        },
+        "workOutcome": {
+          "enum": [
+            "completed-read-only-check",
+            "partial",
+            "blocked",
+            "failed"
+          ]
+        },
+        "nativeCompletion": {
+          "const": "unverified"
+        },
+        "notificationDelivery": {
+          "const": "unknown"
+        },
+        "configurationBaselineStatus": {
+          "enum": [
+            "unavailable",
+            "proposed-independent-review-pending",
+            "matched-approved-baseline",
+            "mismatched-approved-baseline"
+          ]
+        },
+        "claimedDelivered": {
+          "const": false
+        },
+        "qualification": {
+          "type": "string",
+          "maxLength": 800
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "recordKind",
+        "exampleOnly",
+        "observerRole",
+        "localInvocationId",
+        "trigger",
+        "observedAt",
+        "sourceCommit",
+        "sourceTree",
+        "nativeSnapshotDigest",
+        "workArtifactDigests",
+        "workOutcome",
+        "nativeCompletion",
+        "notificationDelivery",
+        "configurationBaselineStatus",
+        "claimedDelivered",
+        "qualification"
+      ]
+    }
+  },
+  "$comment": "Structural contract only. Local validator additionally requires UTC Z timestamps with at most three fractional digits, explicit freshness, binding consistency and conservative adapter-unavailable holds. Schema validity never grants a write."
+}
