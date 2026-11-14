@@ -1,5 +1,9 @@
 # Automation operations and recovery
 
+Read [current release control](release-control.md) first for current public-read
+semantics and the inactive release-binding increment. Historical incident
+mechanics below do not establish present hosted state or release authority.
+
 This is the operating procedure for the four existing watches and the existing
 progress task. The [constitution](automation-constitution.md) owns accuracy,
 authority and coverage. Repository changes, saved-task configuration, content
@@ -371,10 +375,11 @@ source dates, setting activation flags or modifying repository protections.
 The authenticated, GET-only `/api/publisher/observe-seed` route is documented in
 [publisher integration](architecture/publisher-integration.md#private-bundled-seed-observation-november-7-2026-not-deployed).
 It provides bounded metadata/count observations without importing content. A 200
-is an observation, not readiness, integrity or delivery proof. This repository
-implementation is not deployed and does not change the production/publisher hold,
-existing workflows, timers, credentials, active-delivery flag or release gates.
-Do not use legacy public content GET/HEAD routes as no-write diagnostics.
+is an observation, not readiness, integrity or delivery proof. The original
+proposal did not establish deployment. Check exact current source/deployment
+rather than inferring hosted status from this historical checkpoint. Current
+public content GET/HEAD is read-only; legacy runtime behavior must be identified
+before applying this statement to an older deployed version.
 
 ## Bounded rollout observation and verification (November 7)
 
@@ -388,13 +393,13 @@ The deployed seed is bound separately from the current workflow authorization SH
 [bounded rollout procedure](bounded-rollout-verification.md) before dispatching;
 implementation does not authorize a run or lift the production hold.
 
-The delivery diagnostic now fails fast and verifies the full bundle and every
-paginated record sequentially with fixed request/time/body limits. It is **not**
-observe-only: valid public content GET/HEAD may initialize/write D1. After a
-critical failure, no later requests are sent and no retry is implied. Client
-abort cannot establish that server initialization stopped. Preserve exact mode,
-run/attempt and receipt identities; a green observe-only workflow is not a
-publisher stage or a successful rollout.
+The delivery diagnostic fails fast and verifies the full bundle and every
+paginated record sequentially with fixed request/time/body limits. Current
+public GET/HEAD does not initialize/write D1. Older runtimes did initialize on
+reads; establish the deployed runtime before applying current semantics. After
+a critical failure, no later requests are sent and no retry is implied. Preserve
+exact mode, run/attempt and receipt identities; a green observe-only workflow is
+not a publisher stage or a successful rollout.
 
 The November 8 pre-write hold supersedes the staging behavior described above
 for current repository callers. `held-publication-disabled` means no candidate,

@@ -1,6 +1,15 @@
 # Content publication and database delivery
 
-## Authority and current increment
+## Current behavior and historical scope
+
+Current public GET/HEAD is read-only and does not initialize D1. Use
+[release control](../release-control.md) and
+[controlled seed preparation](../controlled-seed-preparation.md) for current
+procedures. The first-use import and initialization sections below describe the
+October 5 implementation and retained legacy-module tests, not the current Worker.
+Do not infer current deployed behavior or settings from this historical increment.
+
+## Authority and historical October 5 increment
 
 The October 15 future-release page uses the bounded `preparation11` content set and prefixed source catalog inside the existing canonical `guidance.json` dataset. It therefore shares the complete atomic bundle and generated guidance adapter without expanding the publication schema or public agent tools. See [preparation scope](../prep11.md).
 
@@ -10,7 +19,7 @@ Edit `content/datasets/*.json`, not generated `dist/*-data.js` or `dist/data.js`
 
 Historical payload shapes are preserved in this first increment. The catalog adds a common envelope with identity, kind, dataset, scope, evidence and verification. Source review dates and sections are not promoted into claim verification. Inherited release citations remain inherited citations. Array positions are not permanent claim identities.
 
-GitHub records approved content and executable rules; D1 is a serving projection. Each Worker carries one immutable, validated repo seed revision and imports it idempotently on first use of the API. Content rows are not schema migrations. After all import batches, the stored records are checked against the expected count and bytes before the revision is marked complete. Initialization then inserts an empty engine channel head with `ON CONFLICT DO NOTHING`; it never replaces an existing head. Failed imports leave the previous complete revision intact.
+GitHub records approved content and executable rules; D1 is a serving projection. In the historical October 5 runtime, each Worker carried one immutable, validated repo seed revision and imported it idempotently on first use of the API. Content rows are not schema migrations. After all import batches, the stored records are checked against the expected count and bytes before the revision is marked complete. Initialization then inserts an empty engine channel head with `ON CONFLICT DO NOTHING`; it never replaces an existing head. Failed imports leave the previous complete revision intact.
 
 The publication identity includes the dataset digest and engine revision. A rules-only change therefore gets a new immutable publication without changing factual dataset hashes. The generated Worker is built from tracked sources and is excluded from Git; the packaged build remains tied to its exact source commit.
 
@@ -25,9 +34,9 @@ This increment still publishes content through the existing deployment pipeline.
 
 Client write methods, repeated/unknown parameters, invalid identifiers and unavailable revisions are rejected. The browser validates schema, expected revision, engine, record count and SHA-256 digest before assigning any API data. Datasets switch together. A failure or 2.5-second timeout selects the complete bundled adapters. DOM metadata and exported reports distinguish delivery paths. D1 stores no visitor context, profiles, telemetry or comparison histories.
 
-## Initialization side effects and isolated regression tests
+## Historical initialization side effects and isolated regression tests
 
-The public API restricts **client methods**, not internal database writes. Both valid
+The historical public API restricted **client methods**, not internal database writes. In that runtime both valid
 `GET` and `HEAD` requests to `/api/content/manifest`, `/api/content/bundle`,
 `/api/content/records` and `/api/content/health` call `ensureRevision` before reading
 content. `HEAD` omits the response body only after initialization. Even an explicit
