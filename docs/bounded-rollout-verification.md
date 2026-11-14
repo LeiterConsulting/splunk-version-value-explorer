@@ -1,9 +1,15 @@
 # Bounded rollout observation and delivery verification
 
+Read [current release control](release-control.md) and
+[controlled seed preparation](controlled-seed-preparation.md) first. Historical
+November 7–8 baselines below are retained evidence, not a claim about current
+deployment, reader state or unresolved bootstrap status. Current public GET/HEAD
+is read-only; it never imports a missing deployment seed.
+
 This is local/CI tooling for a separately authorized release. Adding it does not
 run a workflow, publish content, deploy Sites, repair D1, resolve the November 7
-timeout, establish readiness or lift any production hold. `VC_ACTIVE_DELIVERY`
-remains off. Runtime release, content publication, factual assessment, saved-task
+timeout, establish readiness or lift any production hold. The original checkpoint left `VC_ACTIVE_DELIVERY`
+off; current hosted settings must be read independently. Runtime release, content publication, factual assessment, saved-task
 execution and active-reader activation gates remain separate.
 
 ## Repository publication hold (November 8)
@@ -124,9 +130,10 @@ or green conclusion cannot distinguish this mode. The current pipeline diagnosti
 already leaves delivery unverified; inspect mode and the separate artifact rather
 than interpreting a green run as a successful stage. A newer observe-only run does
 not resolve an earlier publication failure. Controlled run titles help operators
-distinguish the modes, but titles are not trusted publication evidence. Other traffic may still seed
-D1 during a no-write observation. The workflow retains the existing concurrency
-group, which serializes its own runs but does not lock visitor traffic.
+distinguish the modes, but titles are not trusted publication evidence. Other
+authorized publisher operations may still write D1 during an observation. Current
+public reads do not seed D1. The workflow concurrency group serializes its own
+runs, not independent Sites deployments or other authorized writers.
 
 ## Separately selected no-write head observation
 
@@ -181,7 +188,7 @@ Worker still requires authenticated identity, exact candidate/token commit,
 main CI and exact committed bundle bytes, deployment-seed bootstrap and atomic
 activation checks. No synthetic test is real D1 verification.
 
-**Bootstrap remains unresolved:** current-main OIDC cannot initialize the frozen
+**Historical November 8 bootstrap constraint:** current-main OIDC cannot initialize the frozen
 historical seed because its candidate must equal the token SHA and exact bundle
 at that SHA, while bootstrap requires the exact deployment seed. This work does
 not relax checks, replay historical workflows, acquire admin secrets, select old
@@ -189,7 +196,7 @@ source under new identity or make a runtime release. Future mechanism and
 operation authorization remain outstanding, separately from active-reader
 activation/rollback and delivery checks. No mandatory soak delay applies.
 
-## Sequential delivery verification can write storage
+## Sequential delivery verification and runtime-specific semantics
 
 `node scripts/diagnose-content.cjs https://versioncompass.com/` retains its existing
 CLI and six evidence check names. The URL must be supplied deliberately for an
@@ -198,12 +205,12 @@ origins remain supported. All request paths are generated locally, capped at 512
 characters and restricted to the same origin and known content/fallback routes.
 No response-supplied link is followed and no credentials are sent.
 
-**This is not observe-only.** Valid content GET **and HEAD** can call
-`ensureRevision` and initialize/write D1 before responding, including when active
-delivery is off. The script uses valid GETs. Running it against production needs
-the applicable release/verification authority; do not use it as an innocent
-preflight while production is held. Client timeout/abort does not cancel server
-initialization or prove whether storage work completed.
+Current public content GET/HEAD does not call `ensureRevision` or write D1.
+The historical runtime did initialize on reads, even with active delivery off.
+Establish the exact deployed source before treating this diagnostic as read-only
+against a legacy target. Running it against production still needs applicable
+verification authority. A client timeout is not evidence that an independently
+authorized server-side operation stopped or completed.
 
 The verifier makes no parallel request, retry or warm-up. It stops all subsequent
 requests after the first unsuccessful check, including timeout, transport error,
@@ -222,7 +229,7 @@ request paths and timings, never raw response bodies/errors or credentials.
 
 Checks, in order:
 
-1. Exact static manifest first, before a content API can initialize D1. Then D1
+1. Exact static manifest first, to identify the deployed bundle. Then D1
    health must match expected revision, engine, storage and count.
 2. Exact full live manifest, including all dataset hashes and policy fields.
 3. Exact full bundle manifest, recomputed whole globals/catalog digest, catalog
@@ -232,8 +239,8 @@ Checks, in order:
    terminal page to detect extras. No sampled-only success. Then the bounded SOAR
    filter and invalid limit/offset/dataset/revision/engine, duplicate and unknown
    parameter guards.
-5. POST to the public manifest must reject with 405. This method guard does not
-   mean valid GET/HEAD are free of database writes.
+5. POST to the public manifest must reject with 405. Current GET/HEAD read-only
+   behavior is separately enforced by the Worker; a 405 alone does not prove it.
 6. All seven fallback adapters must match the local generated bytes by SHA-256.
    A generated-file marker alone is insufficient.
 
