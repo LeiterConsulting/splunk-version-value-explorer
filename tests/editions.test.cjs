@@ -201,3 +201,17 @@ test('SOAR product entry works while the normal comparison scripts are still loa
  vm.runInNewContext(read('dist/site-router.js'),{document,URLSearchParams,window:{location,VersionCompassTheme:{href:u=>u+'&theme=cisco'}}});
  let stopped=false;inputs[0].change({stopImmediatePropagation(){stopped=true;}});assert(stopped);assert.equal(location.href,'?product=soar&theme=cisco');assert.equal(inputs[2].change,undefined);
 });
+
+test('Automation Builder keeps the documented global settings prerequisite in the screen and saved report', () => {
+ const capability = data.capabilities.find(record => record.id === 'automation-builder');
+ const prerequisite = 'a check that agents are turned on in the organization’s global AI settings';
+ assert(capability.desc.includes(prerequisite));
+ assert.match(capability.desc, /Cloud Platform 10\.1\+/);
+ assert.match(capability.desc, /excludes FedRAMP SOAR stacks/);
+ assert.equal(new URL(data.sources.automationTask.u).hash, '#before-you-begin-0');
+ for (const search of ['?view=es-editions', '?preview=es-editions&theme=cisco&release=8.7']) {
+  const report = runtime(search);
+  assert(report.html.includes(prerequisite));
+  assert(report.snapshot().includes(prerequisite));
+ }
+});

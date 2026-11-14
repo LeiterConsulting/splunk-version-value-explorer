@@ -1226,10 +1226,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-13T12:10:57.163300Z",
+      "lastAttempt": "2026-11-14T11:00:31.206154Z",
       "lastSuccess": "2026-11-11T11:31:55.245Z",
       "outcome": "blocked",
-      "summary": "Verified the ES 8.8 Response agent rerun limit. Historical Controlled Availability and production delivery remain open.",
+      "summary": "Prepared the Automation Builder prerequisite correction. Exact SOC history, registry locator reconciliation and production delivery remain incomplete.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1787,9 +1787,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Verified the ES 8.8 Response agent rerun limit. Historical Controlled Availability and production delivery remain open.",
           "scope": "Current edition, Cloud Connect, SOAR and AI task sections, with bounded historical gaps."
+        },
+        {
+          "at": "2026-11-14T11:00:31.206154Z",
+          "outcome": "running",
+          "summary": "Checking official ES Editions evidence.",
+          "scope": "ES editions and agent prerequisites, Advisor SOC, ES-specific SOAR matrices and pricing."
+        },
+        {
+          "at": "2026-11-14T11:07:10.572Z",
+          "outcome": "blocked",
+          "summary": "Prepared the Automation Builder prerequisite correction. Exact SOC history, registry locator reconciliation and production delivery remain incomplete.",
+          "scope": "ES editions and agent prerequisites, Advisor SOC, ES-specific SOAR matrices and pricing."
         }
       ],
-      "scope": "Current edition, Cloud Connect, SOAR and AI task sections, with bounded historical gaps."
+      "scope": "ES editions and agent prerequisites, Advisor SOC, ES-specific SOAR matrices and pricing."
     },
     {
       "id": "version-guidance-audit",

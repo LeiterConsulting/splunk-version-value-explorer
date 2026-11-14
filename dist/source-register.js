@@ -8213,7 +8213,7 @@ window.VersionCompassSources = {
       "reviews": [
         "2026-10-01"
       ],
-      "usage": "In use",
+      "usage": "Retired",
       "reviewed": "2026-10-01",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
@@ -8250,6 +8250,41 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-11-14",
+          "event": "No longer cited in the maintained datasets"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/develop-apps/build-playbooks/use-the-automation-builder-agent-to-build-and-understand-playbooks#before-you-begin-0",
+      "title": "SOAR Cloud Automation Builder task guide",
+      "areas": [
+        "ES editions",
+        "Shared guidance"
+      ],
+      "references": [
+        "editions.sources.automationTask.u",
+        "content-updates.js",
+        "editions: editions.capabilities.18"
+      ],
+      "reviews": [
+        "2026-11-14"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-14",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-14",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-14",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },
