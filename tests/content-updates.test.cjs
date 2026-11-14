@@ -17,7 +17,9 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('material cycle preserves scoped release evidence and prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,69);
+ assert.equal(b.policy.currentCycle,70);
+ const notice=b.entries["technical:forwarders:November 18 advisory advance notice · SVD-2026-1101"];
+ assert.equal(notice.sourceDate,"2026-11-11");assert(b.active(notice));
  const israel=b.entries['environment:victoria-aws-israel'];assert.equal(israel.cycle,69);assert.equal(israel.sourceDate,'2026-11-06');assert(b.active(israel));
  const esWindow=b.entries["technical:es:ES 8.8 Mission Control migration window"];
  assert.equal(esWindow.cycle,67);assert(b.active(esWindow,68));assert(!b.active(esWindow));assert.equal(esWindow.sourceDate,null);
@@ -43,7 +45,7 @@ test('material cycle preserves scoped release evidence and prior cycle provenanc
  const aiCycle42=b.entries['ai-history:catalog:cycle42'];assert.equal(aiCycle42.recordKey,'ai:catalog');assert.equal(aiCycle42.cycle,42);assert(!b.active(aiCycle42));assert.match(aiCycle42.detail,/separate Cloud Connect 2\.0 download/);assert.match(aiCycle42.detail,/does not establish an ES 8\.9 release/);
  const aiCycle40=b.entries['ai-history:catalog:cycle40'];assert.equal(aiCycle40.recordKey,'ai:catalog');assert.equal(aiCycle40.cycle,40);assert(!b.active(aiCycle40));assert.match(aiCycle40.detail,/first 10 findings/);
  const aiCycle37=b.entries['ai-history:catalog:cycle37'];assert.equal(aiCycle37.recordKey,'ai:catalog');assert.equal(aiCycle37.cycle,37);assert(!b.active(aiCycle37));assert.match(aiCycle37.detail,/Threat Graph Detection/);
- const soc=b.entries['edition:ai-soc-analyst'];assert.equal(soc.cycle,68);assert(b.active(soc));assert.match(soc.detail,/cannot rerun/);
+ const soc=b.entries['edition:ai-soc-analyst'];assert.equal(soc.cycle,68);assert(b.active(soc,69));assert(!b.active(soc));assert.match(soc.detail,/cannot rerun/);
  const socHistory=b.entries['edition-history:ai-soc-analyst:cycle50'];assert.equal(socHistory.cycle,50);assert(b.active(socHistory,51));assert.match(socHistory.detail,/Splunk AI Assistant 2\.4/);
  const socCycle42=b.entries['edition-history:ai-soc-analyst:cycle42'];assert.equal(socCycle42.recordKey,'edition:ai-soc-analyst');assert.equal(socCycle42.cycle,42);assert(!b.active(socCycle42));assert.match(socCycle42.detail,/dependency packaging/);
  for(const key of ['edition:connector-builder','edition:malware-reversing','edition:licensing']){const e=b.entries[key];assert.equal(e.cycle,45);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-31\.md/);}

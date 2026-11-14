@@ -487,6 +487,12 @@ try {
         for(const text of ['Which TAXII protocol versions are supported?','The duplicate version leaves the current exact protocol list uncertain.','TIM Cloud TAXII2 sources','same page names TAXII 1.0 and 1.1'])assert(normalize(expected.text).includes(text),'Missing scoped TAXII report evidence');
         expected.paginationPairs=[{heading:'Which TAXII protocol versions are supported?',following:'Decision affected: Native TAXII feed protocol versions',headingOccurrence:1}];
       }
+      if (['uf-security-notice', 'hf-hybrid'].includes(route.id)) {
+        expected.requiredText=['SVD-2026-1101','10.6.1, 10.4.5, 10.2.9, 10.0.12 and 9.4.17','CVE-level applicability, component exposure, and receiver compatibility require separate evidence.'];
+        if(route.id==='uf-security-notice')expected.requiredText.push('Enterprise 10.4.5, released October 30, 2026','Enterprise 10.4.4 remains the October 21 advisory-specific fixed floor.');
+        const notice = page.locator('.forwarder-actions').getByText('November 18 advisory advance notice', {exact:false}).first();
+        assert(await notice.isVisible(), 'Missing advance notice on the selected Forwarder page');
+      }
       if(route.id==='hf-hybrid') assert(normalize(expected.text).includes('disabling it may break scheduled dashboard exports'),'Heavy Forwarder mitigation qualification missing');
       if(esMaintenanceRoute(route)) {
         expected.requiredText=['ES 8.8 Mission Control migration window','If Platform 10.6 or later is already installed','five additional minutes per GB','after ES 8.8, the guide says this migration runs in the background','on-premises search-head upgrade guide','Splunk coordinates managed Cloud upgrades.'];

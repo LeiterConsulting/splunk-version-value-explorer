@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-sok-32-compatibility-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-14T10:30:53.438Z",
+  "evidence": [
+    {
+      "evidenceId": "release-20261114-vci-sok-32-compatibility-scope-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix",
+      "section": "SOK to Splunk Enterprise version compatibility; Upgrade path guidance",
+      "statement": "Help lists SOK 3.2 with Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0 with Operator-first sequencing. Project changelog 3.2.0 instead lists 1.32–1.36 and restricts the queue secret reference change to Index & Ingestion Separation.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-14T10:20:39.321Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "703cc3ed890e92504d2779c81897d098af43f136cf1510e6ec61d4e947ecf477",
+        "qualification": "Exact public response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261114-vci-sok-32-compatibility-scope-1",
+      "url": "https://splunk.github.io/splunk-operator/reference/ChangeLog.html",
+      "section": "3.2.0; Breaking Changes; Supported Kubernetes and Splunk versions",
+      "statement": "Help lists SOK 3.2 with Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0 with Operator-first sequencing. Project changelog 3.2.0 instead lists 1.32–1.36 and restricts the queue secret reference change to Index & Ingestion Separation.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-14T10:20:57.210Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "26ab5b4459deeb2ae2d6fd8ad0f544e8c7ddbda5d85880e2b6805fffb833908e",
+        "qualification": "Exact public response bytes; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/ecd66838eef159cf1013d0bee313d567f6175d5d/docs/audits/2026-11-14-version-release-watch-sources.json",
+      "pointer": "/claimChecks/5",
+      "originalLabel": "still-present"
+    }
+  ],
+  "kind": "assessment",
+  "assessmentId": "vcia-release-20261114-sok-32-compatibility-scope",
+  "assessedAt": "2026-11-14T10:27:57.309Z",
+  "outcome": "still-present",
+  "rationale": "Help lists SOK 3.2 with Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0 with Operator-first sequencing. Project changelog 3.2.0 instead lists 1.32–1.36 and restricts the queue secret reference change to Index & Ingestion Separation.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Operator for Kubernetes"
+    ],
+    "versions": [
+      "3.2.0"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No universal Kubernetes maximum, Enterprise 11.x compatibility, app pairing, Cloud availability or authorization is established."
+    ]
+  },
+  "remainingConcerns": [
+    "Check current and prior Cloud patch rows against definitive Product Security advisories, retry unavailable historical release, Splunkbase and Export pages, and reconcile remaining SOAR 8.8 destination and historical Forwarder mappings. Review by November 12."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261113-review2-sok-32-compatibility-scope"
+  ]
+}

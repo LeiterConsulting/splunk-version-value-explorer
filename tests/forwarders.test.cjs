@@ -113,3 +113,18 @@ test('Forwarders screen reveals the right destination controls and carries hybri
  assert.equal(receiverLabel.textContent,'Cloud stack');assert(!element('results').innerHTML.includes('Splunk Enterprise receiver'));
  assert.match(window.VersionCompassBuildSnapshot(),/Cloud stack: 10.4/);
 });
+
+test('November advance notice is separate from advisory patch floors and receiver evidence',()=>{
+ const a=api();
+ for(const type of ['uf','hf']){
+  const report=a.assess({...a.defaults,type,from:'10.0',to:'10.4',destination:'hybrid',receiver:'10.4',cloudReceiver:'10.7'});
+  assert.match(report.risks.find(r=>r.source==='maintenance').detail,/Enterprise 10\.4\.5, released October 30, 2026/);
+  assert.match(report.risks.find(r=>r.source==='maintenance').detail,/10\.4\.4 remains the October 21 advisory-specific fixed floor/);
+  const notice=report.risks.find(r=>r.source==='novemberAdvance');
+  assert.match(notice.detail,/10\.6\.1, 10\.4\.5, 10\.2\.9, 10\.0\.12 and 9\.4\.17/);
+  assert.match(notice.detail,/November 18, 2026/);
+  assert.match(notice.detail,/CVE-level applicability, component exposure, and receiver compatibility require separate evidence/);
+  assert.equal(report.security.source,type==='uf'?'ufSecurity':'hfSecurity');
+  assert(!report.claims.some(r=>r.source==='novemberAdvance'));
+ }
+});

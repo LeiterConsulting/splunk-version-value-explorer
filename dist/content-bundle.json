@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-dd617dcae89aebf0f13eb1cc",
-    "digest": "e58380ac69f05bbb662d1bc605a61f559b61eac00ffa0a8f3c8a638e7d700a85",
-    "engineRevision": "engine-32915fce033af0b36a08",
+    "revision": "content-ff8e529b967ba3370bb079cb",
+    "digest": "ade7e2cdfa47359d772fcf886c66698479eebcd399393ed94fed78470dc8284a",
+    "engineRevision": "engine-e65731cade0ee7d65fe7",
     "datasetHashes": {
       "platform": "c75dbad3ceab9dfbb87c50e3f3ccde5b9e0bd9277421423490ac3a8dccfeee96",
       "products": "854fe986e92c6a88dc3d76eb70c392f0f4ca38417b34c53443eecd4015ba5df4",
-      "guidance": "9486a2fd67eb6d06fbfbdd5a6cffa0cbb403a5af8fd053a10bf155038632a460",
+      "guidance": "9d9853ac18264f5811d02960b3f4785eeec5a5a3917f0d16de838311ab35a7f6",
       "environment": "f815ab13f3acc9098a9356eef85e0a7c7f2307335a3ded45a22ca99d64d9b53a",
       "editions": "e86a85c7c0342508ef6f15092eab4833ea79be59c0d32b014f6f0e9a790ee1c9",
-      "forwarders": "f992e8bad9c60ac1b7577987233bceb0b40a3111f209305655dc552850166991",
+      "forwarders": "9c173f9bbbed8ce8b3e6844194495d032bc72905b07ca6e9ad3786debb122a4c",
       "soar": "0a95273ec36589b59fe74ff2ded1d383c1f8278427449dea3d06dc9e23ddebd4"
     },
-    "recordCount": 956,
+    "recordCount": 959,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -5333,7 +5333,7 @@
         }
       },
       "guidance": {
-        "reviewed": "2026-11-13",
+        "reviewed": "2026-11-14",
         "lifecycle": {
           "source": "https://www.splunk.com/en_us/legal/splunk-software-support-policy.html",
           "reviewed": "2026-10-01",
@@ -10580,8 +10580,8 @@
         "maintenance": {
           "title": "Splunk Enterprise 10.4 maintenance releases",
           "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4",
-          "reviewed": "2026-09-30",
-          "section": "What's new in 10.4.2, 10.4.3 and 10.4.4"
+          "reviewed": "2026-11-14",
+          "section": "What's new in 10.4.2, 10.4.3, 10.4.4 and 10.4.5"
         },
         "known": {
           "title": "UF 10.4 known issue directory",
@@ -10632,6 +10632,14 @@
           "section": "Splunk Enterprise version 10.x: 10.6.0 cohosted KV Store 1.0 footnote; 10.6.1 / exact 10.6.1.1-and-higher qualification",
           "checked": "2026-10-26",
           "reviewed": "2026-10-26"
+        },
+        "novemberAdvance": {
+          "title": "November 18 Splunk security advisory advance notice",
+          "url": "https://advisory.splunk.com/advisories/SVD-2026-1101",
+          "published": "2026-11-11",
+          "checked": "2026-11-14",
+          "reviewed": "2026-11-14",
+          "section": "Description — Splunk Enterprise and Universal Forwarder versions; November 12 changelog correction for 10.0.12"
         }
       },
       "cloud107ForwarderLines": [
@@ -10749,6 +10757,10 @@
         "technical.hf-es-kv-store-10.6": {
           "title": "HF Enterprise-package KV Store with ES dependency",
           "src": "esKv106"
+        },
+        "security.november-advance-notice": {
+          "title": "November advance notice for Enterprise and Universal Forwarder",
+          "src": "novemberAdvance"
         }
       },
       "ufEdges": {
@@ -11028,6 +11040,15 @@
             "10.4": "10.4.4"
           },
           "detail": "SVD-2026-1007 identifies the listed Enterprise versions as fixed and all earlier maintenance versions on those lines as affected. For 10.0, 10.2 and 10.4 instances using Edge Processor package downloads, prepare existing instances, enable package-download authentication and restart after upgrade. This Enterprise-package evidence applies to Heavy Forwarders only where the component exists; it does not establish a Universal Forwarder fix, Cloud rollout, receiver pairing, entitlement or authorization."
+        },
+        "novemberAdvance": {
+          "title": "November 18 advisory advance notice · SVD-2026-1101",
+          "source": "novemberAdvance",
+          "types": [
+            "uf",
+            "hf"
+          ],
+          "detail": "Splunk’s advance notice names Enterprise and Universal Forwarder 10.6.1, 10.4.5, 10.2.9, 10.0.12 and 9.4.17. It schedules details for November 18, 2026. The listed builds are advance remediation targets. CVE-level applicability, component exposure, and receiver compatibility require separate evidence. For Heavy Forwarder, check the applicable Enterprise package and installed components."
         }
       },
       "hfComponents": [
@@ -12905,6 +12926,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/9.2/whats-new/welcome-to-splunk-enterprise-9.2"
+      },
+      {
+        "id": "source-86c935dffc89e4341546",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://advisory.splunk.com/advisories/SVD-2026-1101"
       },
       {
         "id": "source-875b45b117e8a96ef413",
@@ -16775,9 +16802,9 @@
           {
             "sourceId": "source-813d73059717d55b8469",
             "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4",
-            "section": "What's new in 10.4.2, 10.4.3 and 10.4.4",
+            "section": "What's new in 10.4.2, 10.4.3, 10.4.4 and 10.4.5",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-09-30",
+            "sourceVerified": "2026-11-14",
             "sourceChecked": null
           },
           {
@@ -26915,6 +26942,30 @@
         ]
       },
       {
+        "id": "vc-8c7d0f1a073d41063415",
+        "kind": "claim",
+        "dataset": "forwarders",
+        "scope": {},
+        "evidence": [
+          {
+            "sourceId": "source-86c935dffc89e4341546",
+            "url": "https://advisory.splunk.com/advisories/SVD-2026-1101",
+            "section": "Description — Splunk Enterprise and Universal Forwarder versions; November 12 changelog correction for 10.0.12",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-14",
+            "sourceChecked": "2026-11-14"
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": {
+          "title": "November advance notice for Enterprise and Universal Forwarder",
+          "src": "novemberAdvance"
+        }
+      },
+      {
         "id": "vc-8cf517553c112d205562",
         "kind": "operatingBenefit",
         "dataset": "platform",
@@ -27540,6 +27591,26 @@
           "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.31.3",
           false
         ]
+      },
+      {
+        "id": "vc-94b0c04777823f7e831f",
+        "kind": "claim",
+        "dataset": "forwarders",
+        "scope": {},
+        "evidence": [],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": {
+          "title": "November 18 advisory advance notice · SVD-2026-1101",
+          "source": "novemberAdvance",
+          "types": [
+            "uf",
+            "hf"
+          ],
+          "detail": "Splunk’s advance notice names Enterprise and Universal Forwarder 10.6.1, 10.4.5, 10.2.9, 10.0.12 and 9.4.17. It schedules details for November 18, 2026. The listed builds are advance remediation targets. CVE-level applicability, component exposure, and receiver compatibility require separate evidence. For Heavy Forwarder, check the applicable Enterprise package and installed components."
+        }
       },
       {
         "id": "vc-94d0a5d5f6bc3425bbf5",

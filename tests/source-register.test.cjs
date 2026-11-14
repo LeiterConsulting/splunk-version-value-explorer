@@ -203,7 +203,10 @@ test('borrowed HF Python 3.9 and Fishbucket records preserve app and downgrade b
   assert.match(python.action,/Confirm every Python-dependent app and integration supports Python 3\.9/);
   assert.match(fishbucket.action,/No migration is required/);
   assert.match(fishbucket.implication,/unsupported downgrade can lose newer checkpoints and re-ingest data/);
-  for(const id of ['technical.hf.10.0.python-application-runtime','technical.hf.10.2.fishbucket-checkpoint-store'])assert(c.window.VersionCompassSources.sources.some(s=>s.claimReferences?.some(r=>r.claimId===id&&r.claimVerified==='2026-10-22')));
+  const sources=c.window.VersionCompassSources.sources;
+  assert(sources.some(s=>s.claimReferences?.some(r=>r.claimId==='technical.hf.10.0.python-application-runtime'&&r.claimVerified==='2026-10-22')));
+  const exact=sources.find(s=>s.url.endsWith('#the-splunk-fishbucket-database-back-end-has-been-replaced-0'));
+  assert(exact?.claimReferences?.some(r=>r.claimId==='technical.hf.10.2.fishbucket-checkpoint-store'&&r.claimVerified==='2026-11-14'&&r.section.includes('unsupported downgrade')));
  }
  const records=api.assess({...api.defaults,type:'hf',from:'9.4',to:'10.2'}).technical;check(records);
  const universal=JSON.parse(JSON.stringify(records));universal.find(r=>r.component==='Python application runtime').action='Every app and runtime is compatible with Python 3.9';assert.throws(()=>check(universal),/Confirm every Python-dependent app/);
