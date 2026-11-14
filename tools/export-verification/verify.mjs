@@ -127,6 +127,19 @@ try {
       assert(await page.evaluate(()=>{try{window.VersionCompassBuildSnapshot();return false;}catch{return true;}}));
       entry.selectionRecovery={passed:true,originalInputRetained:true,noSubstituteReport:true};
     }
+    if (['uf-security-notice','hf-hybrid'].includes(route.id)) {
+      await page.waitForFunction(() => window.__reportTools?.compare_forwarder_routes);
+      const checked = await page.evaluate(() => {
+        const tool = window.__reportTools.compare_forwarder_routes, url = location.href;
+        const state = window.VersionCompassForwarders.read(location.search).state;
+        const {reports:[report],sources} = tool.execute({routes:[state]});
+        return {notice:report.risks.find(r=>r.source==='novemberAdvance'), url:sources.novemberAdvance.url, stable:location.href===url, readOnly:tool.annotations.readOnlyHint};
+      });
+      assert(checked.notice && checked.stable && checked.readOnly);
+      assert(checked.url.endsWith('/SVD-2026-1101'));
+      assert((await page.locator('.forwarder-actions').textContent()).includes(checked.notice.detail));
+      entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
+    }
     if(route.id.startsWith('forwarder-cloud-107')){
       await page.waitForFunction(()=>window.__reportTools?.compare_forwarder_routes);
       const result=await page.evaluate(()=>{
@@ -487,11 +500,18 @@ try {
         for(const text of ['Which TAXII protocol versions are supported?','The duplicate version leaves the current exact protocol list uncertain.','TIM Cloud TAXII2 sources','same page names TAXII 1.0 and 1.1'])assert(normalize(expected.text).includes(text),'Missing scoped TAXII report evidence');
         expected.paginationPairs=[{heading:'Which TAXII protocol versions are supported?',following:'Decision affected: Native TAXII feed protocol versions',headingOccurrence:1}];
       }
+      if (['uf-security-notice', 'hf-hybrid'].includes(route.id)) {
+        expected.requiredText=['SVD-2026-1101','10.6.1, 10.4.5, 10.2.9, 10.0.12 and 9.4.17','CVE-level applicability, component exposure, and receiver compatibility require separate evidence.'];
+        if(route.id==='uf-security-notice')expected.requiredText.push('Enterprise 10.4.5, released October 30, 2026','Enterprise 10.4.4 remains the October 21 advisory-specific fixed floor.');
+        const notice = page.locator('.forwarder-actions').getByText('November 18 advisory advance notice', {exact:false}).first();
+        assert(await notice.isVisible(), 'Missing advance notice on the selected Forwarder page');
+      }
       if(route.id==='hf-hybrid') assert(normalize(expected.text).includes('disabling it may break scheduled dashboard exports'),'Heavy Forwarder mitigation qualification missing');
       if(esMaintenanceRoute(route)) {
         expected.requiredText=['ES 8.8 Mission Control migration window','If Platform 10.6 or later is already installed','five additional minutes per GB','after ES 8.8, the guide says this migration runs in the background','on-premises search-head upgrade guide','Splunk coordinates managed Cloud upgrades.'];
         for(const phrase of expected.requiredText) assert(normalize(expected.text).includes(phrase),'Missing ES upgrade timing qualification: '+phrase);
       }
+      if(route.id==='enterprise') expected.requiredText=['Splunk Enterprise 10.4.5 was released October 30, 2026.','Version 10.4.4 remains the October 21 advisory-specific floor.'];
       if(route.id==='enterprise') expected.paginationPairs=[{heading:'Recommended action',following:'Match the exact package identifier to its release'}];
       if(route.id==='observability-october') expected.paginationPairs=[
         {heading:'Kubernetes persistent-volume metric defaults',following:'Chart 0.162.1 does not explicitly enable these five metrics'},

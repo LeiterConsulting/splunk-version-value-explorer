@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-enterprise-106-legacy-tls-override-conflict",
+  "revision": 1,
+  "recordedAt": "2026-11-14T10:30:53.438Z",
+  "evidence": [
+    {
+      "evidenceId": "release-20261114-vci-enterprise-106-legacy-tls-override-conflict-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first",
+      "section": "Splunk has removed support for versions 1.0 and 1.1 of TLS",
+      "statement": "The versioned 10.6 upgrade notice removes TLS 1.0/1.1 support. The versioned communications guide still provides the earlier temporary setting. Preserve the conflict and validate TLS 1.2 or 1.3 on the affected links.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-14T10:20:34.157Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "42fa42f03e460d248781cb283e6376399346302c367d92f2aa7dbc217a27d70d",
+        "qualification": "Exact public response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261114-vci-enterprise-106-legacy-tls-override-conflict-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/manage-users-and-security/10.6/secure-splunk-platform-communications-with-transport-layer-security-certificates/configure-tls-protocol-version-support-for-secure-connections-between-splunk-platform-instances",
+      "section": "Supported SSL and TLS protocol versions; Turn on support for older TLS versions",
+      "statement": "The versioned 10.6 upgrade notice removes TLS 1.0/1.1 support. The versioned communications guide still provides the earlier temporary setting. Preserve the conflict and validate TLS 1.2 or 1.3 on the affected links.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-14T10:21:12.657Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "5fd554047596c846cfd8b68a016c756512829f75b23c33a89fab405e41b1af8d",
+        "qualification": "Exact public response bytes; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/ecd66838eef159cf1013d0bee313d567f6175d5d/docs/audits/2026-11-14-version-release-watch-sources.json",
+      "pointer": "/claimChecks/3",
+      "originalLabel": "still-present"
+    }
+  ],
+  "kind": "assessment",
+  "assessmentId": "vcia-release-20261114-enterprise-106-legacy-tls-override-conflict",
+  "assessedAt": "2026-11-14T10:27:57.309Z",
+  "outcome": "still-present",
+  "rationale": "The versioned 10.6 upgrade notice removes TLS 1.0/1.1 support. The versioned communications guide still provides the earlier temporary setting. Preserve the conflict and validate TLS 1.2 or 1.3 on the affected links.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise and applicable Heavy Forwarder"
+    ],
+    "versions": [
+      "10.6"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed inter-Splunk connections"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Actual package behavior and broader product or authorization scope remain unverified."
+    ]
+  },
+  "remainingConcerns": [
+    "Confirm effective component behavior with Splunk and preserve source-specific scope."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261113-review2-enterprise-106-legacy-tls-override-conflict"
+  ]
+}

@@ -1,7 +1,7 @@
 /* Editorial change provenance. Cycles advance only with material factual updates. */
 (function(){
 'use strict';
-const policy={currentCycle:69,retentionCycles:2};
+const policy={currentCycle:70,retentionCycles:2};
 const note25='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-25.md';
 const note26='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-26.md';
 const note30='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-30.md';
@@ -278,6 +278,7 @@ for(const [key,history] of [
  entries[history]={...previous,recordKey:key};
  entries[key]={...previous,cycle:65,date:'2026-11-12',detail:'Recorded the exact current Marketplace display. The offering remains FedRAMP Certified, and the public field shows no certified services attested in the package JSON. Earlier named-component evidence remains dated.',sourceDate:null,note:marketplaceNote};
 }
+entries["technical:forwarders:November 18 advisory advance notice · SVD-2026-1101"]={"kind":"new","cycle":70,"date":"2026-11-14","version":"SVD-2026-1101","detail":"Added the advance UF and Enterprise notice with its exact listed builds.","source":"https://advisory.splunk.com/advisories/SVD-2026-1101","sourceDate":"2026-11-11","note":"https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/11/2026-11-14.md"};
 function active(entry,cycle=policy.currentCycle){return !!entry&&cycle>=entry.cycle&&cycle-entry.cycle<policy.retentionCycles;}
 function applicable(entry,record){return !entry?.milestones||entry.milestones.includes(record?.milestone);}
 function html(key,record){const e=entries[key];if(!active(e)||!applicable(e,record))return '';const text='Guide change '+e.date+' · '+e.version+' · '+e.detail+(e.sourceDate?' Source dated '+e.sourceDate+'.':' Source publication date unknown.');return '<span class="content-change content-change-'+e.kind+'"><button type="button" class="content-change-marker" aria-label="'+esc(labels[e.kind]+'. '+text)+'">'+labels[e.kind]+'</button><span class="content-change-popover" role="tooltip"><strong>'+esc(e.kind==='new'?'New to this guide':labels[e.kind])+'</strong><br>'+esc(text)+' <a href="'+esc(e.source)+'" target="_blank" rel="noopener noreferrer">Official source</a> · <a href="'+esc(e.note||note25)+'" target="_blank" rel="noopener noreferrer">Change log</a></span><span class="content-change-print"> — '+esc(labels[e.kind]+': '+text)+'</span></span>';}

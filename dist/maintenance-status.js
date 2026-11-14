@@ -526,10 +526,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-13T11:14:43.196266Z",
+      "lastAttempt": "2026-11-14T10:17:55.824714Z",
       "lastSuccess": "2026-11-11T14:21:55.848Z",
       "outcome": "blocked",
-      "summary": "Rechecked release evidence and added the ES 8.8 upgrade-order caveat. Historical SOC scope and production verification remain open.",
+      "summary": "Prepared Forwarder notice and citation improvements. Three registry evidence scopes and production delivery remain incomplete.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1195,9 +1195,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Rechecked release evidence and added the ES 8.8 upgrade-order caveat. Historical SOC scope and production verification remain open.",
           "scope": "ES 8.8 sequencing, bounded Cloud, Forwarder and SOAR evidence, and 11 registry dispositions."
+        },
+        {
+          "at": "2026-11-14T10:17:55.824714Z",
+          "outcome": "running",
+          "summary": "Rechecking official release and Forwarder evidence.",
+          "scope": "Public release inventory, Forwarder notice and historical Fishbucket, SOAR, Prep11 and Advisor."
+        },
+        {
+          "at": "2026-11-14T10:27:57.309Z",
+          "outcome": "blocked",
+          "summary": "Prepared Forwarder notice and citation improvements. Three registry evidence scopes and production delivery remain incomplete.",
+          "scope": "Public release inventory, Forwarder notice and historical Fishbucket, SOAR, Prep11 and Advisor."
         }
       ],
-      "scope": "ES 8.8 sequencing, bounded Cloud, Forwarder and SOAR evidence, and 11 registry dispositions."
+      "scope": "Public release inventory, Forwarder notice and historical Fishbucket, SOAR, Prep11 and Advisor."
     },
     {
       "id": "es-editions-watch",

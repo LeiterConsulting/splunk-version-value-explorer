@@ -326,7 +326,6 @@ window.VersionCompassSources = {
         "release.enterprise.releasesData.10.2.requirements.0.3",
         "release.enterprise.releasesData.10.4.technicalChanges.0.source",
         "release.enterprise.releasesData.10.4.technicalChanges.3.source",
-        "release.enterprise.releasesData.10.4.technicalChanges.4.source",
         "release.enterprise.releasesData.10.4.requirements.0.3",
         "release.enterprise.releasesData.10.4.requirements.1.3",
         "release.guidance.sources.exactSecurity.url",
@@ -599,6 +598,43 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-06",
           "event": "Review status updated: Reviewed · 2026-11-06"
+        }
+      ]
+    },
+    {
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1101",
+      "title": "November 18 Splunk security advisory advance notice",
+      "areas": [
+        "Splunk Forwarders",
+        "Shared guidance"
+      ],
+      "references": [
+        "forwarders.sources.novemberAdvance.url",
+        "content-updates.js",
+        "forwarders: forwarders.claimSources.security.november-advance-notice"
+      ],
+      "reviews": [
+        "2026-11-14"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.security.november-advance-notice",
+          "section": "Description — Splunk Enterprise and Universal Forwarder versions; November 12 changelog correction for 10.0.12"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-14",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-14",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-14",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },
@@ -5336,7 +5372,7 @@ window.VersionCompassSources = {
           "release": "10.2",
           "component": "Fishbucket checkpoint store",
           "section": "The Splunk Fishbucket database back end has been replaced",
-          "claimVerified": "2026-10-22",
+          "claimVerified": "2026-11-14",
           "outcome": "supporting-section-confirmed",
           "qualification": "Heavy Forwarder uses the Enterprise package. October 22 bounded semantic recheck: the replacement backend reads legacy checkpoints and writes new checkpoints without an explicit or implicit migration. An unsupported downgrade can miss newer checkpoints and cause reingestion or duplicate data. This does not establish UF applicability, checkpoint loss during a supported upgrade, or a supported rollback path."
         }
@@ -5358,6 +5394,44 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-28",
           "event": "Review status updated: Reviewed · 2026-09-28"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.2/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.2-read-this-first#the-splunk-fishbucket-database-back-end-has-been-replaced-0",
+      "title": "about upgrading to 10.2 read this first",
+      "areas": [
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "forwarders: borrowed.technical.hf.10.2.fishbucket-checkpoint-store"
+      ],
+      "reviews": [],
+      "claimReferences": [
+        {
+          "path": "forwarders: borrowed.technical.hf.10.2.fishbucket-checkpoint-store",
+          "claimId": "technical.hf.10.2.fishbucket-checkpoint-store",
+          "release": "10.2",
+          "component": "Fishbucket checkpoint store",
+          "section": "The Splunk Fishbucket database back end has been replaced — legacy checkpoint reads, new writes and unsupported downgrade behavior",
+          "claimVerified": "2026-11-14",
+          "outcome": "supporting-section-confirmed",
+          "qualification": "Heavy Forwarder uses the Enterprise package. October 22 bounded semantic recheck: the replacement backend reads legacy checkpoints and writes new checkpoints without an explicit or implicit migration. An unsupported downgrade can miss newer checkpoints and cause reingestion or duplicate data. This does not establish UF applicability, checkpoint loss during a supported upgrade, or a supported rollback path."
+        }
+      ],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-14",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-14",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },
@@ -6336,7 +6410,7 @@ window.VersionCompassSources = {
       ],
       "reviews": [
         "2026-11-02",
-        "2026-09-30"
+        "2026-11-14"
       ],
       "claimReferences": [
         {
@@ -6385,7 +6459,7 @@ window.VersionCompassSources = {
         },
         {
           "path": "forwarders: forwarders.claimSources.maintenance.10.4",
-          "section": "What's new in 10.4.2, 10.4.3 and 10.4.4"
+          "section": "What's new in 10.4.2, 10.4.3, 10.4.4 and 10.4.5"
         },
         {
           "path": "forwarders: borrowed.technical.hf.10.4.python-application-runtime",
@@ -6433,6 +6507,32 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-02",
           "event": "Review status updated: Needs reconciliation · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4#ariaid-title8",
+      "title": "welcome to splunk enterprise 10.4",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.enterprise.releasesData.10.4.technicalChanges.4.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-14",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-14",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },

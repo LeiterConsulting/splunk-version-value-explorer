@@ -998,7 +998,7 @@
             "changeType": "Minimum fixed version established",
             "actionLevel": "Required",
             "from": "Splunk Enterprise 10.4.0 through 10.4.3",
-            "to": "10.4.4 is the October 21 fixed version and current published maintenance target",
+            "to": "10.4.4 is the October 21 advisory-specific fixed version",
             "implication": "The October 21 Enterprise advisories supersede the earlier 10.4.3 floor and include vulnerability-, hardening- and package-specific remediation.",
             "action": "Target 10.4.4 or later, never use 10.4.2, review SVD-2026-1007, -1008 and -1009, and complete required component configuration and restart steps.",
             "source": "https://advisory.splunk.com/advisories/SVD-2026-1007"
@@ -1009,10 +1009,10 @@
             "changeType": "Maintenance target updated",
             "actionLevel": "Required",
             "from": "Splunk Enterprise 10.4.2",
-            "to": "Splunk Enterprise 10.4.4 is the current maintenance release and October 21 fixed version",
+            "to": "Splunk Enterprise 10.4.5 was released October 30, 2026. Version 10.4.4 remains the October 21 advisory-specific floor.",
             "implication": "Version 10.4.2 can block tcpout forwarding pipelines when acknowledgements are enabled, and the October 21 advisories now identify 10.4.0 through 10.4.3 as affected. The earlier 10.4.3 operational floor is no longer a security-safe fallback.",
-            "action": "Target 10.4.4 or later for new upgrade work, do not use 10.4.2, and validate acknowledged forwarding plus the applicable October advisory actions before production rollout.",
-            "source": "https://advisory.splunk.com/advisories/SVD-2026-1007"
+            "action": "Validate Enterprise 10.4.5 against package, app and receiving requirements before choosing a target. Avoid 10.4.2 for acknowledged forwarding and complete the applicable October advisory actions.",
+            "source": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4#ariaid-title8"
           },
           {
             "component": "Python application runtime",
@@ -1113,7 +1113,7 @@
           ],
           [
             "Target Enterprise 10.4.4",
-            "Splunk Enterprise 10.4.4 is the current published maintenance release and the October 21 fixed version. Do not use 10.4.2 because tcpout with useACK=true can block forwarding pipelines, and do not treat 10.4.3 as a security-safe fallback because SVD-2026-1007 identifies it as affected.",
+            "Splunk Enterprise 10.4.4 is the October 21 advisory-specific fixed floor. Review later maintenance releases separately. Do not use 10.4.2 because tcpout with useACK=true can block forwarding pipelines, and do not treat 10.4.3 as a security-safe fallback because SVD-2026-1007 identifies it as affected.",
             "Blocker",
             "https://advisory.splunk.com/advisories/SVD-2026-1007",
             true

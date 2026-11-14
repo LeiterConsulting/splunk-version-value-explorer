@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-forwarder-104-stale-maintenance-wording",
+  "revision": 1,
+  "recordedAt": "2026-11-14T10:30:53.438Z",
+  "evidence": [
+    {
+      "evidenceId": "release-20261114-forwarder-104",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4",
+      "section": "What is new in 10.4.2, 10.4.3, 10.4.4 and 10.4.5",
+      "statement": "Forwarder comparisons targeting 10.4 described Enterprise 10.4.4 as current after the official Enterprise release notes documented 10.4.5 on October 30. The repaired report distinguishes that later Enterprise release, the October 21 advisory-specific 10.4.4 floor, and the separate 10.4.2 useACK blockage fixed in 10.4.3. It does not infer receiver, UF exact-package or CVE applicability from the Enterprise release row.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-14T10:20:34.282Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "11a1ed85c23d20913d05936ba9057af8b8763cc1ef19a37cb82002ec78114115",
+        "qualification": "Exact public response bytes; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/ecd66838eef159cf1013d0bee313d567f6175d5d/docs/audits/2026-11-14-version-release-watch-sources.json",
+      "pointer": "/claimChecks/15",
+      "originalLabel": "addressed-in-reviewed-scope"
+    }
+  ],
+  "kind": "finding",
+  "title": "Forwarder 10.4 guidance used a stale Enterprise maintenance statement",
+  "concernType": "uncertain-claim",
+  "problem": "Forwarder comparisons targeting 10.4 described Enterprise 10.4.4 as current after the official Enterprise release notes documented 10.4.5 on October 30. The repaired report distinguishes that later Enterprise release, the October 21 advisory-specific 10.4.4 floor, and the separate 10.4.2 useACK blockage fixed in 10.4.3. It does not infer receiver, UF exact-package or CVE applicability from the Enterprise release row.",
+  "scope": {
+    "products": [
+      "Splunk Forwarders and Splunk Enterprise"
+    ],
+    "versions": [
+      "10.4.2–10.4.5"
+    ],
+    "editions": null,
+    "deployments": [
+      "Forwarder comparisons targeting customer-managed Enterprise 10.4"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Actual selected deployment, receiver support and CVE applicability remain independent."
+    ]
+  },
+  "impact": {
+    "level": "moderate",
+    "customerScenario": "A team selects a Forwarder route targeting the Enterprise 10.4 line.",
+    "consequence": "The older report can lead readers to conflate the October 21 advisory floor with the later Enterprise maintenance release."
+  },
+  "confidence": {
+    "level": "high",
+    "rationale": "The exact Enterprise 10.4 release note dates 10.4.5, and the earlier main report preserved 10.4.4 as current."
+  },
+  "claimIds": [
+    "forwarders.10.4.maintenance-context"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Retain the observed discrepancy and verify the report correction independently."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  }
+}
