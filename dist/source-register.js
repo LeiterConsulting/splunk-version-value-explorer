@@ -326,7 +326,6 @@ window.VersionCompassSources = {
         "release.enterprise.releasesData.10.2.requirements.0.3",
         "release.enterprise.releasesData.10.4.technicalChanges.0.source",
         "release.enterprise.releasesData.10.4.technicalChanges.3.source",
-        "release.enterprise.releasesData.10.4.technicalChanges.4.source",
         "release.enterprise.releasesData.10.4.requirements.0.3",
         "release.enterprise.releasesData.10.4.requirements.1.3",
         "release.guidance.sources.exactSecurity.url",
@@ -6508,6 +6507,32 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-02",
           "event": "Review status updated: Needs reconciliation · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4#ariaid-title8",
+      "title": "welcome to splunk enterprise 10.4",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.enterprise.releasesData.10.4.technicalChanges.4.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-14",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-14",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },

@@ -289,9 +289,10 @@ test('Enterprise 10.4 exposes the exact maintenance floor without becoming a Clo
   const enterprise = rt.run('compare_routes', { routes: [{ product: 'platform', platform: 'enterprise', from: '10.2', to: '10.4' }] }).reports[0];
   const maintenance = enterprise.technicalChanges.find(item => item.component === 'Enterprise 10.4 maintenance target');
   assert.equal(maintenance.from, 'Splunk Enterprise 10.4.2');
-  assert.match(maintenance.to, /10\.4\.4 is the current maintenance release and October 21 fixed version/);
+  assert.match(maintenance.to, /10\.4\.5 was released October 30, 2026.*10\.4\.4 remains the October 21 advisory-specific floor/);
   assert.match(maintenance.implication, /10\.4\.3.*no longer a security-safe fallback/);
-  assert.match(maintenance.source, /SVD-2026-1007$/);
+  assert.match(maintenance.source, /welcome-to-splunk-enterprise-10\.4#ariaid-title8$/);
+  assert.match(enterprise.technicalChanges.find(item => item.component === 'Enterprise 10.4 October security floor').source, /SVD-2026-1007$/);
   assert(enterprise.breakingChanges.some(item => item.title === 'Target Enterprise 10.4.4' && item.breaking));
   const cloud = rt.run('compare_routes', { routes: [{ product: 'platform', platform: 'cloud', from: '10.4.2604', to: '10.5.2605' }] }).reports[0];
   assert(!cloud.technicalChanges.some(item => item.component === 'Enterprise 10.4 maintenance target'));

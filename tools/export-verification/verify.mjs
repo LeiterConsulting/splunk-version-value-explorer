@@ -127,6 +127,19 @@ try {
       assert(await page.evaluate(()=>{try{window.VersionCompassBuildSnapshot();return false;}catch{return true;}}));
       entry.selectionRecovery={passed:true,originalInputRetained:true,noSubstituteReport:true};
     }
+    if (['uf-security-notice','hf-hybrid'].includes(route.id)) {
+      await page.waitForFunction(() => window.__reportTools?.compare_forwarder_routes);
+      const checked = await page.evaluate(() => {
+        const tool = window.__reportTools.compare_forwarder_routes, url = location.href;
+        const state = window.VersionCompassForwarders.read(location.search).state;
+        const {reports:[report],sources} = tool.execute({routes:[state]});
+        return {notice:report.risks.find(r=>r.source==='novemberAdvance'), url:sources.novemberAdvance.url, stable:location.href===url, readOnly:tool.annotations.readOnlyHint};
+      });
+      assert(checked.notice && checked.stable && checked.readOnly);
+      assert(checked.url.endsWith('/SVD-2026-1101'));
+      assert((await page.locator('.forwarder-actions').textContent()).includes(checked.notice.detail));
+      entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
+    }
     if(route.id.startsWith('forwarder-cloud-107')){
       await page.waitForFunction(()=>window.__reportTools?.compare_forwarder_routes);
       const result=await page.evaluate(()=>{
@@ -498,6 +511,7 @@ try {
         expected.requiredText=['ES 8.8 Mission Control migration window','If Platform 10.6 or later is already installed','five additional minutes per GB','after ES 8.8, the guide says this migration runs in the background','on-premises search-head upgrade guide','Splunk coordinates managed Cloud upgrades.'];
         for(const phrase of expected.requiredText) assert(normalize(expected.text).includes(phrase),'Missing ES upgrade timing qualification: '+phrase);
       }
+      if(route.id==='enterprise') expected.requiredText=['Splunk Enterprise 10.4.5 was released October 30, 2026.','Version 10.4.4 remains the October 21 advisory-specific floor.'];
       if(route.id==='enterprise') expected.paginationPairs=[{heading:'Recommended action',following:'Match the exact package identifier to its release'}];
       if(route.id==='observability-october') expected.paginationPairs=[
         {heading:'Kubernetes persistent-volume metric defaults',following:'Chart 0.162.1 does not explicitly enable these five metrics'},
