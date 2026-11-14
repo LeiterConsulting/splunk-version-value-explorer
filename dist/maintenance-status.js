@@ -526,10 +526,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-14T10:17:55.824714Z",
+      "lastAttempt": "2026-11-14T10:50:35.673777Z",
       "lastSuccess": "2026-11-11T14:21:55.848Z",
       "outcome": "blocked",
-      "summary": "Prepared Forwarder notice and citation improvements. Three registry evidence scopes and production delivery remain incomplete.",
+      "summary": "Prepared exact inherited HF Python source links. Three registry evidence scopes and production delivery remain incomplete.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1207,9 +1207,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Prepared Forwarder notice and citation improvements. Three registry evidence scopes and production delivery remain incomplete.",
           "scope": "Public release inventory, Forwarder notice and historical Fishbucket, SOAR, Prep11 and Advisor."
+        },
+        {
+          "at": "2026-11-14T10:50:35.673777Z",
+          "outcome": "running",
+          "summary": "Rechecking official release and Forwarder evidence.",
+          "scope": "Public release inventory, inherited HF Python links, receiver/topology, SOAR, Prep11 and Advisor."
+        },
+        {
+          "at": "2026-11-14T10:53:51.050Z",
+          "outcome": "blocked",
+          "summary": "Prepared exact inherited HF Python source links. Three registry evidence scopes and production delivery remain incomplete.",
+          "scope": "Public release inventory, inherited HF Python links, receiver/topology, SOAR, Prep11 and Advisor."
         }
       ],
-      "scope": "Public release inventory, Forwarder notice and historical Fishbucket, SOAR, Prep11 and Advisor."
+      "scope": "Public release inventory, inherited HF Python links, receiver/topology, SOAR, Prep11 and Advisor."
     },
     {
       "id": "es-editions-watch",
