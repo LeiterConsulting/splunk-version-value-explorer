@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-fedramp-moderate-certified-services-display",
+  "revision": 1,
+  "recordedAt": "2026-11-14T12:51:12.132Z",
+  "evidence": [
+    {
+      "evidenceId": "csp-20261114-1-0",
+      "url": "https://www.fedramp.gov/marketplace/products/F1607197917/",
+      "section": "Overview > Status, Certification Profile, Certified Since and package certified_services",
+      "statement": "Class C status and empty service list coexist.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-14T12:40:36.248Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b459ec1d61f84cd16738be4c650e0a5dda2f13e9fa115bcd69bbd6ff6fd49e66",
+        "qualification": "Direct HTTP response digest when available. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261114-1-1",
+      "url": "https://www.fedramp.gov/marketplace/products/FR2314156865/",
+      "section": "Overview > Status, Certification Profile and package certified_services",
+      "statement": "Class D and exact four named services.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-14T12:40:36.229Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "d944956374a9e1ab1c223086672c626a87d0857597209322f37f78574c7c6895",
+        "qualification": "Direct HTTP response digest when available. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261114-1-2",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/administer-soar-cloud/introduction-to-splunk-soar-cloud/splunk-soar-cloud-in-restricted-environments",
+      "section": "Splunk SOAR (Cloud) FedRAMP Moderate",
+      "statement": "Separate SOAR Moderate guide scopes the hosted service.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-14T12:40:27.488Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "da2cbb2df42440d596b44cf0096ae5f94632abc5706abc6781fc834f50001bea",
+        "qualification": "Direct HTTP response digest when available. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/d5f9d3673753f6c5464830770a0f8f9139ba7703/docs/audits/2026-11-14-csp-fedramp-watch-sources.json",
+      "pointer": "/claimChecks/1",
+      "originalLabel": "still-present"
+    }
+  ],
+  "kind": "assessment",
+  "assessmentId": "vcia-csp-20261114-fedramp-moderate-certified-services-display",
+  "assessedAt": "2026-11-14T12:49:02.696Z",
+  "outcome": "still-present",
+  "rationale": "Moderate is Class C Certified since October 11, 2019, and public package data contains an empty certified_services array. High is Class D Certified since September 13, 2024, listing Private Connectivity, Cloud Platform, Enterprise Security and ITSI. The earlier named Moderate service list stays historical. Missing SOAR from the current lists leaves the named offering scope unresolved. The SOAR Moderate product guide has separate service restrictions.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform"
+    ],
+    "versions": [
+      "Marketplace F1607197917 and FR2314156865"
+    ],
+    "editions": null,
+    "deployments": [
+      "FedRAMP Moderate and High"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "The exact scope in cited public evidence governs. No tenant access, entitlement or authorization is inferred."
+    ]
+  },
+  "remainingConcerns": [
+    "Confirm the unresolved distinction detailed in this assessment using the exact official source scope."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261113-r2-fedramp-moderate-certified-services-display"
+  ]
+}
