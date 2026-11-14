@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-fedramp-moderate-certified-services-display",
+  "revision": 1,
+  "recordedAt": "2026-11-14T13:15:01.969Z",
+  "evidence": [
+    {
+      "evidenceId": "csp-20261114-retry-1-0",
+      "url": "https://www.fedramp.gov/marketplace/products/F1607197917/",
+      "section": "Overview > Status, Certification Profile, Certified Since and package certified_services",
+      "statement": "Class C status and empty service list coexist.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-14T13:11:29.593Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b459ec1d61f84cd16738be4c650e0a5dda2f13e9fa115bcd69bbd6ff6fd49e66",
+        "qualification": "Direct HTTP response digest when available. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261114-retry-1-1",
+      "url": "https://www.fedramp.gov/marketplace/products/FR2314156865/",
+      "section": "Overview > Status, Certification Profile and package certified_services",
+      "statement": "Class D and exact four named services.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-14T13:11:29.505Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "d944956374a9e1ab1c223086672c626a87d0857597209322f37f78574c7c6895",
+        "qualification": "Direct HTTP response digest when available. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/6a9bf059e3f42ce3d9523c57d4fba6cd3b6f2b58/docs/audits/2026-11-14-csp-fedramp-watch-review-2-sources.json",
+      "pointer": "/claimChecks/1",
+      "originalLabel": "still-present"
+    }
+  ],
+  "kind": "assessment",
+  "assessmentId": "vcia-csp-20261114-retry-fedramp-moderate-certified-services-display",
+  "assessedAt": "2026-11-14T13:13:52.474Z",
+  "outcome": "still-present",
+  "rationale": "The directly returned public package data still shows an empty certified-services array for Moderate F1607197917. Its page retains Certified Class C status with the October 11, 2019 date. The separate High record FR2314156865 remains Class D and names Private Connectivity, Cloud Platform, Enterprise Security and ITSI. Current named SOAR scope stays unresolved.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform"
+    ],
+    "versions": [
+      "Marketplace F1607197917 and FR2314156865"
+    ],
+    "editions": null,
+    "deployments": [
+      "FedRAMP Moderate and High"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "The exact scope in cited public evidence governs. No tenant access, entitlement or authorization is inferred."
+    ]
+  },
+  "remainingConcerns": [
+    "Confirm the unresolved distinction detailed in this assessment using the exact official source scope."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261114-fedramp-moderate-certified-services-display"
+  ]
+}

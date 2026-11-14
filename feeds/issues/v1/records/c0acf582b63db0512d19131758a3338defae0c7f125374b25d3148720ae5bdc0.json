@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-cloud-s3-restricted-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-14T13:15:01.969Z",
+  "evidence": [
+    {
+      "evidenceId": "csp-20261114-retry-0-0",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/federated-search/10.6/run-federated-searches-over-amazon-s3-datasets/overview-of-federated-search-for-amazon-s3",
+      "section": "Restrictions > Cloud Platform deployments",
+      "statement": "Explicit Moderate, High and IL5 restrictions.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-14T13:11:21.053Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "542e641b359efc5237f2f89c3df00c1997a10a132e0cd9237428592a5bb50569",
+        "qualification": "Direct HTTP response digest when available. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261114-retry-0-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions and region differences > Federated search for Amazon S3",
+      "statement": "AWS includes Moderate in both GovCloud regions and explicitly excludes High and IL5.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-14T13:11:57.515Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "7a2f21e3d175e2c29ec3fe547e666b693ac9a1fab669a84eac37d5a140e72a49",
+        "qualification": "Direct HTTP response digest when available. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261114-retry-0-2",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "8 April 2026 > Available region and region differences",
+      "statement": "High and IL5 availability added for relevant Cloud Platform 10.3 versions.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-14T13:11:57.491Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9f6f493c5a020375e43cb15fe9d9751238742b723a81588820cbce68aea62782",
+        "qualification": "Direct HTTP response digest when available. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/6a9bf059e3f42ce3d9523c57d4fba6cd3b6f2b58/docs/audits/2026-11-14-csp-fedramp-watch-review-2-sources.json",
+      "pointer": "/claimChecks/0",
+      "originalLabel": "still-present"
+    }
+  ],
+  "kind": "assessment",
+  "assessmentId": "vcia-csp-20261114-retry-cloud-s3-restricted-scope",
+  "assessedAt": "2026-11-14T13:13:52.474Z",
+  "outcome": "still-present",
+  "rationale": "The 10.6 S3 product-specific restriction still excludes Moderate, High and IL5. The 10.7 regional table includes Moderate in both AWS GovCloud regions and explicitly excludes High and IL5, while the April 8 change log lists added High and IL5 availability for relevant 10.3 releases. Keep the separate version scopes and the unresolved discrepancy.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform Federated Search for Amazon S3"
+    ],
+    "versions": [
+      "10.6 and 10.7 plus the April 8 10.3 change"
+    ],
+    "editions": null,
+    "deployments": [
+      "AWS GovCloud, Moderate, High and DoD IL5"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "The exact scope in cited public evidence governs. No tenant access, entitlement or authorization is inferred."
+    ]
+  },
+  "remainingConcerns": [
+    "Confirm the unresolved distinction detailed in this assessment using the exact official source scope."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261114-cloud-s3-restricted-scope"
+  ]
+}
