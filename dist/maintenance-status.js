@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-13T13:23:36.915525Z",
+      "lastAttempt": "2026-11-14T12:36:51.168153Z",
       "lastSuccess": "2026-11-10T12:50:41.612Z",
       "outcome": "blocked",
-      "summary": "Recovered exact 10.6 S3 restriction evidence. Historical SOC scope and production delivery remain incomplete.",
+      "summary": "Recorded a scoped UAE service-disruption observation. Exact SOC history and locator coverage and live D1 verification remain incomplete.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -519,9 +519,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Recovered exact 10.6 S3 restriction evidence. Historical SOC scope and production delivery remain incomplete.",
           "scope": "CSP, SOAR, ES SOC, Model Runtime, Marketplace and public-sector evidence."
+        },
+        {
+          "at": "2026-11-14T12:36:51.168153Z",
+          "outcome": "running",
+          "summary": "Started the bounded CSP source and claim review.",
+          "scope": "Public CSP inventory, visual matrix, bounded S3, Marketplace, SOAR, Observability and ES SOC review."
+        },
+        {
+          "at": "2026-11-14T12:52:50.570Z",
+          "outcome": "blocked",
+          "summary": "Recorded a scoped UAE service-disruption observation. Exact SOC history and locator coverage and live D1 verification remain incomplete.",
+          "scope": "Public CSP inventory, visual matrix, bounded S3, Marketplace, SOAR, Observability and ES SOC review."
         }
       ],
-      "scope": "CSP, SOAR, ES SOC, Model Runtime, Marketplace and public-sector evidence."
+      "scope": "Public CSP inventory, visual matrix, bounded S3, Marketplace, SOAR, Observability and ES SOC review."
     },
     {
       "id": "version-release-watch",

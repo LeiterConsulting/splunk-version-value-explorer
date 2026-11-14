@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-o11y-secure-app-dotnet-dual-mode-realms",
+  "revision": 1,
+  "recordedAt": "2026-11-14T12:51:12.132Z",
+  "evidence": [
+    {
+      "evidenceId": "csp-20261114-9-0",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026",
+      "section": "November 12 > Splunk Secure Application",
+      "statement": "Dated dual-mode runtime vulnerability detection milestone.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-14T12:41:07.940Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "70e4cb29587eeb7832405431b70444924bda71123e612435bdf058a9341255e0",
+        "qualification": "Direct HTTP response digest when available. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261114-9-1",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-security/set-up-secure-application/set-up-manual-instrumentation/do-language-specific-steps",
+      "section": "Do language-specific steps > .NET combined agent > Realm availability",
+      "statement": "Active AWS realm condition and explicit GCP exclusion.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-14T12:41:07.959Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "cf7c5d0fc459d94638bec94b2beaeb97dca3f180bc689ca9cb34ef34ff1029f1",
+        "qualification": "Direct HTTP response digest when available. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261114-9-2",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
+      "section": "Available regions or realms > Available components per region or realm",
+      "statement": "Service realm directory is independent from Secure Application feature scope.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-14T12:40:44.151Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "12dbf35d9fd402c80ed06f6f22c3f987dddea532ac7283c065d5f3aaa91aa946",
+        "qualification": "Direct HTTP response digest when available. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261114-9-3",
+      "url": "https://www.splunk.com/en_us/blog/industries/splunks-path-towards-achieving-fedramp-moderate-authorization-for-splunk-observability.html",
+      "section": "Splunk’s Path Towards Achieving FedRAMP Moderate Authorization for Splunk Observability",
+      "statement": "Historical announcement of pursuit.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-14T12:45:30.354Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "bbc78a1047e10178a0d7b14058712731d7ba5067a6941339f3d9f12306d6602d",
+        "qualification": "Direct HTTP response digest when available. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/d5f9d3673753f6c5464830770a0f8f9139ba7703/docs/audits/2026-11-14-csp-fedramp-watch-sources.json",
+      "pointer": "/claimChecks/9",
+      "originalLabel": "still-present"
+    }
+  ],
+  "kind": "assessment",
+  "assessmentId": "vcia-csp-20261114-o11y-secure-app-dotnet-dual-mode-realms",
+  "assessedAt": "2026-11-14T12:49:02.696Z",
+  "outcome": "still-present",
+  "rationale": "The release note is a vulnerability-detection milestone. The language guide requires one supported AppDynamics dual-mode installation and one security signal path, scopes it to active AWS realms with Secure Application and excludes GCP. It does not enumerate exact AWS realm IDs or establish authorization. The current Observability service realm mapping and February compliance rows remain separate evidence. An official historical announcement describes pursuing Moderate rather than an awarded offering.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Observability Cloud Secure Application"
+    ],
+    "versions": [
+      "November 12 milestone; .NET Agent 26.9"
+    ],
+    "editions": null,
+    "deployments": [
+      "Active AWS realms with Secure Application"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "The exact scope in cited public evidence governs. No tenant access, entitlement or authorization is inferred."
+    ]
+  },
+  "remainingConcerns": [
+    "Confirm the unresolved distinction detailed in this assessment using the exact official source scope."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261113-r2-o11y-secure-app-dotnet-dual-mode-realms"
+  ]
+}
