@@ -1564,7 +1564,12 @@
   ],
   "publication": {
     "claimedDelivered": false,
-    "qualification": "Repository candidate and feed require exact validation and immutable provenance. Separate production gates apply."
+    "qualification": "Repository candidate and feed require exact validation and immutable provenance. Separate production gates apply.",
+    "feed": {
+      "checkpoint": "vci-e64b6794557bf079923c589b91211736b10c1a75f26ccc88c342dc08fcc83be9",
+      "observationCount": 13,
+      "immutableAuditCommit": "7e5662bd8383a37cc25de475917d03d76a9b47e9"
+    }
   },
   "automationCoverage": {
     "runFile": "docs/audits/2026-11-14-es-editions-watch-coverage.json"
@@ -1572,11 +1577,25 @@
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "es-editions-watch",
-    "status": "pending-public-provenance",
-    "recordedAt": "2026-11-14T11:07:10.719Z",
+    "status": "published",
+    "recordedAt": "2026-11-14T11:09:09.140Z",
     "reviewDigest": "e15c9543edb8faed4d65f5834f824055a470d3334db1a47b74d93e79eca4d475",
-    "publicationId": "vci-15c9ce97c0b66467f1688a581ea4fbe22670826d21887c7d19f8399acd938867",
-    "recordKeys": [],
+    "publicationId": "vci-e64b6794557bf079923c589b91211736b10c1a75f26ccc88c342dc08fcc83be9",
+    "recordKeys": [
+      "assessment:vcia-es-20261114-es-soc-analyst-version-floor@1",
+      "assessment:vcia-es-20261114-es-88-triage-editions@1",
+      "assessment:vcia-es-20261114-es-87-connector-builder-editions@1",
+      "assessment:vcia-es-20261114-es-guided-response-enhancement-scope@1",
+      "assessment:vcia-es-20261114-es-malware-phishing-version-floor@1",
+      "assessment:vcia-es-20261114-app-for-soar-es-pairing@1",
+      "assessment:vcia-es-20261114-app-for-soar-88-onprem-matrix-cell@1",
+      "assessment:vcia-es-20261114-soar-export-88-tested-pairing-scope@1",
+      "assessment:vcia-es-20261114-es-activity-pricing-deployment-scope@1",
+      "assessment:vcia-es-20261114-es-taxii-protocol-version-scope@1",
+      "assessment:vcia-es-20261114-es-88-response-agent-rerun-coverage@1",
+      "finding:vci-es-88-soc-source-locators@1",
+      "assessment:vcia-es-20261114-es-88-soc-source-locators@1"
+    ],
     "notReassessedFindingIds": [
       "vci-soar-cloud-880-release-stage",
       "vci-itsi-subagent-region",
@@ -1613,6 +1632,21 @@
       "version-guidance-audit by 2026-11-16: Independently verify the replacement SOC source mappings, exact historical scope and native result to matching coverage and delivery receipt.",
       "es-editions-watch by 2026-11-15: Check the seven unavailable inventory URLs, prioritize the exact agentic SOC Cloud Connect setup page and read back this run’s CI and feed outputs."
     ],
-    "qualification": "Bounded public source and claim assessments require immutable audit provenance."
+    "qualification": "Records are bound to the exact public audit commit. GitHub integration and committed readback are separate."
+  },
+  "validation": {
+    "existingStaticSite": {
+      "outcome": "passed",
+      "version": 297,
+      "deployment": "appgdep_6af7f9967b9081918a2200d5fe5c9d6c",
+      "revision": "content-dd617dcae89aebf0f13eb1cc",
+      "engine": "engine-32915fce033af0b36a08",
+      "records": 956,
+      "qualification": "Static manifest, revision script and bundle match the saved Sites source. Bundle integrity checked independently. This receipt covers the existing static deployment."
+    },
+    "candidateExports": {
+      "outcome": "pending",
+      "qualification": "Updated ES Editions report requires exact Chromium CI and independent artifact readback."
+    }
   }
 }
