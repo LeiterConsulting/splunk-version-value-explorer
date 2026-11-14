@@ -105,8 +105,10 @@ window.VersionCompassEditions = {
     },
     "automationTask": {
       "t": "SOAR Cloud Automation Builder task guide",
-      "u": "https://help.splunk.com/en/splunk-soar/soar-cloud/develop-apps/build-playbooks/use-the-automation-builder-agent-to-build-and-understand-playbooks",
-      "reviewed": "2026-10-01"
+      "u": "https://help.splunk.com/en/splunk-soar/soar-cloud/develop-apps/build-playbooks/use-the-automation-builder-agent-to-build-and-understand-playbooks#before-you-begin-0",
+      "reviewed": "2026-11-14",
+      "section": "Before you begin",
+      "verificationScope": "Cloud Platform and ES version floors, SOAR Cloud pairing, Splunk user account, global agent settings and FedRAMP SOAR stack exclusion."
     },
     "connectorTask": {
       "t": "Connector Builder prerequisites (ES 8.7)",
@@ -650,7 +652,7 @@ window.VersionCompassEditions = {
         "n": "Cloud; paired SOAR required"
       },
       "flag": "Premier includes SOAR, but still requires a supported, configured pairing. Buying a standalone SOAR license alone does not establish that this prerequisite is met.",
-      "desc": "Builds and explains playbooks. Both editions, Cloud only; ES 8.6+ and paired SOAR Cloud. The task guide additionally requires Cloud Platform 10.1+ and a Splunk user account, and excludes FedRAMP SOAR stacks. ES 8.7 improves context handling.",
+      "desc": "Builds and explains playbooks. Both editions, Cloud only; ES 8.6+ and paired SOAR Cloud. The task guide additionally requires Cloud Platform 10.1+, a Splunk user account and a check that agents are turned on in the organization’s global AI settings. It excludes FedRAMP SOAR stacks. ES 8.7 improves context handling.",
       "src": [
         "agentic88",
         "agentic",
