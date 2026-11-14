@@ -1,5 +1,5 @@
 name: Publish verified content
-run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.mode == 'observe-only' && 'Observe bundled seed' || github.event_name == 'workflow_dispatch' && inputs.mode == 'head-only' && 'Observe publisher head' || github.event_name == 'workflow_dispatch' && inputs.mode == 'bootstrap-only' && 'Bootstrap reviewed seed (D1 write)' || github.event_name == 'workflow_dispatch' && inputs.mode == 'resume-only' && 'Prepare bundled seed batch (D1 write)' || github.event_name == 'workflow_dispatch' && inputs.mode == 'stage-only' && 'Stage candidate batch (D1 write)' || github.event_name == 'workflow_dispatch' && inputs.mode == 'current-head-only' && 'Observe current publisher head' || 'Publish verified content' }}
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.mode == 'recover-seed-only' && 'Prepare bounded seed batches (D1 writes, no head)' || github.event_name == 'workflow_dispatch' && inputs.mode == 'observe-only' && 'Observe bundled seed' || github.event_name == 'workflow_dispatch' && inputs.mode == 'head-only' && 'Observe publisher head' || github.event_name == 'workflow_dispatch' && inputs.mode == 'bootstrap-only' && 'Bootstrap reviewed seed (D1 write)' || github.event_name == 'workflow_dispatch' && inputs.mode == 'resume-only' && 'Prepare bundled seed batch (D1 write)' || github.event_name == 'workflow_dispatch' && inputs.mode == 'stage-only' && 'Stage candidate batch (D1 write)' || github.event_name == 'workflow_dispatch' && inputs.mode == 'current-head-only' && 'Observe current publisher head' || 'Publish verified content' }}
 on:
   workflow_run:
     workflows: [Validate release metadata and reports]
@@ -10,9 +10,17 @@ on:
       mode:
         description: Publish held; observations are read-only; bootstrap-only writes reviewed seed/history to D1 without activation; resume-only writes one seed batch without head/history; stage-only writes one candidate batch/provenance without head/history
         type: choice
-        options: [publish, observe-only, head-only, bootstrap-only, resume-only, stage-only, current-head-only]
+        options: [publish, recover-seed-only, observe-only, head-only, bootstrap-only, resume-only, stage-only, current-head-only]
         default: publish
         required: true
+      recovery_initial_present:
+        description: Recovery-only exact independently observed starting row count; changed count stops before writing
+        type: string
+        default: '50'
+      recovery_max_batches:
+        description: Recovery-only authorized maximum sequential calls (1-20); never bootstrap; attempt 1 only
+        type: string
+        default: '19'
       expected_commit:
         description: Observation, bootstrap and resume modes require the exact main commit SHA
         type: string
@@ -50,7 +58,7 @@ jobs:
       # This policy executes from the workflow itself, before any repository script.
       # A delayed validation of an older commit cannot check out an older writer.
       - name: Hold publication before checkout or credentials
-        if: github.event_name != 'workflow_dispatch' || (inputs.mode != 'observe-only' && inputs.mode != 'head-only' && inputs.mode != 'bootstrap-only' && inputs.mode != 'resume-only' && inputs.mode != 'stage-only' && inputs.mode != 'current-head-only')
+        if: github.event_name != 'workflow_dispatch' || (inputs.mode != 'recover-seed-only' && inputs.mode != 'observe-only' && inputs.mode != 'head-only' && inputs.mode != 'bootstrap-only' && inputs.mode != 'resume-only' && inputs.mode != 'stage-only' && inputs.mode != 'current-head-only')
         run: |
           node <<'NODE'
           const fs = require('node:fs');
@@ -74,6 +82,28 @@ jobs:
       - name: Route publisher mode before any candidate selection
         id: mode
         run: node scripts/publisher-workflow-mode.cjs
+      - name: Prepare bounded seed batches with independent count readback
+        if: steps.mode.outputs.mode == 'recover-seed-only'
+        timeout-minutes: 17
+        env:
+          VC_RECOVERY_MODE: ${{ inputs.mode }}
+          VC_RECOVERY_INITIAL_PRESENT: ${{ inputs.recovery_initial_present }}
+          VC_RECOVERY_MAX_BATCHES: ${{ inputs.recovery_max_batches }}
+          VC_RESUME_EXPECTED_COMMIT: ${{ inputs.expected_commit }}
+          VC_RESUME_EXPECTED_REF: ${{ inputs.expected_ref }}
+          VC_RESUME_EXPECTED_SEED_COMMIT: ${{ inputs.expected_seed_commit }}
+          VC_RESUME_EXPECTED_ENGINE: ${{ inputs.expected_engine }}
+          VC_RESUME_EXPECTED_REVISION: ${{ inputs.expected_revision }}
+          VC_GITHUB_EVIDENCE_TOKEN: ${{ github.token }}
+        run: node scripts/recover-seed.mjs
+      - name: Retain immutable bounded recovery receipts including failures
+        if: always() && steps.mode.outputs.mode == 'recover-seed-only'
+        uses: actions/upload-artifact@v4
+        with:
+          name: seed-recovery-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/vc-seed-recovery/
+          if-no-files-found: error
+          retention-days: 30
       - name: Stage one exact candidate batch without publication
         if: steps.mode.outputs.mode == 'stage-only'
         env:
