@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "registryVersion": "1.2.0",
+  "runId": "csp-fedramp-watch-20261114-review-2",
+  "watchId": "csp-fedramp-watch",
+  "kind": "saved-task-execution",
+  "outcome": "partial",
+  "claimedComplete": false,
+  "execution": {
+    "taskId": "6ab54b477dc88191873e8abb9c735bf7",
+    "schedulerRunId": "f18939f8-69d8-8332-be28-c4b96a5013cd",
+    "startedAt": "2026-11-14T13:10:00.791234Z",
+    "observations": [
+      {
+        "observedAt": "2026-11-14T13:10:34.523Z",
+        "status": "in_progress"
+      }
+    ],
+    "qualification": "Same scheduler ID with a later native attempt start. The available result refers to a different scheduler ID."
+  },
+  "recordedAt": "2026-11-14T13:13:52.474Z",
+  "resources": {
+    "elapsedMs": null,
+    "toolCalls": null,
+    "tokens": null,
+    "cost": null
+  },
+  "coverage": [
+    {
+      "capabilityId": "advisor.soc-workflow",
+      "disposition": "deferred",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-14T13:11:21.122Z",
+      "assessedAt": "2026-11-14T13:13:52.474Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "qualification": "Assessed deployment-specific prerequisites, the current Cloud version discrepancy and the corrected historical Triage wording. Exclusions: Exact SOAR pairing, agent-specific regional rollout, component entitlement and customer authorization remain separate. Three exact locator mappings are retired and the exact historical Controlled Availability section is missing.",
+      "retrievals": [
+        {
+          "sourceId": "aiEsAgents88",
+          "outcome": "blocked",
+          "retrievedAt": null,
+          "observedOn": "2026-11-14",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security | Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note | HTTP 404"
+        },
+        {
+          "sourceId": "aiEsSocTask88",
+          "outcome": "blocked",
+          "retrievedAt": null,
+          "observedOn": "2026-11-14",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security | Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions | HTTP 404"
+        },
+        {
+          "sourceId": "aiEsSocTask87",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-14T13:11:39.819Z",
+          "observedOn": "2026-11-14",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security | Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions | HTTP 200"
+        },
+        {
+          "sourceId": "aiEsRelease88",
+          "outcome": "blocked",
+          "retrievedAt": "2026-11-14T13:11:39.836Z",
+          "observedOn": "2026-11-14",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security | ES 8.8 Controlled Availability | HTTP 200 Current GA available; historical CA not recovered."
+        },
+        {
+          "sourceId": "aiEsTriageNote88",
+          "outcome": "blocked",
+          "retrievedAt": null,
+          "observedOn": "2026-11-14",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security | SOC analyst Triage/Response note; aggregate AI SOC Analyst availability row | HTTP 404"
+        },
+        {
+          "sourceId": "aiSaiaInstall",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-14T13:11:39.779Z",
+          "observedOn": "2026-11-14",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers | FedRAMP deployments; supported regions; version compatibility | HTTP 200"
+        },
+        {
+          "sourceId": "aiEsRegions88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-14T13:11:39.820Z",
+          "observedOn": "2026-11-14",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability | Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility | HTTP 200"
+        },
+        {
+          "sourceId": "aiEsEditions",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-14T13:11:46.399Z",
+          "observedOn": "2026-11-14",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions | Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings | HTTP 200"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "ai-es-soc",
+          "outcome": "unable-to-verify",
+          "sourceIds": [
+            "aiEsAgents88",
+            "aiEsSocTask88",
+            "aiEsSocTask87",
+            "aiEsRelease88",
+            "aiEsTriageNote88",
+            "aiSaiaInstall",
+            "aiEsRegions88",
+            "aiEsEditions"
+          ],
+          "assessedAt": "2026-11-14T13:13:52.474Z",
+          "evidence": "The current Cloud aggregate table continues to give ES 8.6+ and the detailed current task gives ES 8.7+. The current task retains assistant enablement, paired SOAR, investigation visibility and the existing triaged finding condition. CMP lists Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0. The exact 2.3.6 Enterprise installation and SAIA-9918 sections both say 2.2.0–2.3.6 do not support Cloud Connected installation and describe 2.4.0 as planned. The indexed SOC setup prerequisite states SAIA 2.4+; its direct URL remains unavailable. Neither the English nor alternate-locale 8.8 notes retrieved in this attempt establishes the historical October CA wording. Current GA and historical CA remain separate, and the current Premier description does not restore the old Essentials wording.",
+          "qualification": "Assessed deployment-specific prerequisites, the current Cloud version discrepancy and the corrected historical Triage wording. Exclusions: Exact SOAR pairing, agent-specific regional rollout, component entitlement and customer authorization remain separate."
+        }
+      ],
+      "followUp": {
+        "owner": "es-editions-watch",
+        "reviewBy": "2026-11-16",
+        "action": "Recover the exact October ES 8.8 Controlled Availability section and reconcile the three retired registry mappings in the versioned process."
+      }
+    }
+  ],
+  "auditBindings": [
+    {
+      "file": "docs/audits/2026-11-14-csp-fedramp-watch-review-2-sources.json",
+      "reviewDigest": "f9d9b2e0bd73a447e27eec07993ce17199b50b7796488cfce00e82805eb254db"
+    }
+  ],
+  "validation": {
+    "checks": [
+      {
+        "id": "live-ui-assets-d1",
+        "outcome": "blocked",
+        "evidence": "Existing public static bundle matches. Live D1 health returned HTTP 503."
+      }
+    ]
+  },
+  "publication": {
+    "claimedDelivered": false,
+    "followUp": {
+      "owner": "version-guidance-audit",
+      "reviewBy": "2026-11-16",
+      "action": "Independently check the source boundaries and require native result identity and this attempt’s start to match the retained coverage."
+    }
+  },
+  "reviewDigest": "8d2ba5ffdd28115d0123a7f5f5be9abb6c76b6d1da120edf481499b1f069be34"
+}
