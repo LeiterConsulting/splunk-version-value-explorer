@@ -5342,7 +5342,7 @@ window.VersionCompassSources = {
           "release": "10.2",
           "component": "Python runtimes",
           "section": "Key points for upgrading to version 10.2 — Python runtime defaults and opt-in; The Splunk platform uses version 3.13 of the Python runtime environment on Splunk Web; The Splunk daemon and its associated components can now use version 3.13 of the Python interpreter, version 3.9 is still available",
-          "claimVerified": "2026-11-11",
+          "claimVerified": "2026-11-14",
           "outcome": "supporting-section-confirmed",
           "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval. October 18 bounded semantic recheck: Splunk Web 3.13 is distinct from splunkd 3.9 default and optional 3.13 in the 10.2 source; later 10.4 default changes remain separate. The November 11 review also checked the exact 10.2 upgrade summary against the separate Web and splunkd sections."
         },
@@ -5398,6 +5398,44 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.2/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.2-read-this-first#the-splunk-daemon-and-its-associated-components-can-now-use-version-3.13-of-the-python-interpreter-version-3.9-is-still-available-0",
+      "title": "about upgrading to 10.2 read this first",
+      "areas": [
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "forwarders: borrowed.technical.hf.10.2.python-runtimes"
+      ],
+      "reviews": [],
+      "claimReferences": [
+        {
+          "path": "forwarders: borrowed.technical.hf.10.2.python-runtimes",
+          "claimId": "technical.hf.10.2.python-runtimes",
+          "release": "10.2",
+          "component": "Python runtimes",
+          "section": "The Splunk daemon and its associated components can now use version 3.13 of the Python interpreter, version 3.9 is still available",
+          "claimVerified": "2026-11-14",
+          "outcome": "supporting-section-confirmed",
+          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval. October 18 bounded semantic recheck: Splunk Web 3.13 is distinct from splunkd 3.9 default and optional 3.13 in the 10.2 source; later 10.4 default changes remain separate. The November 11 review also checked the exact 10.2 upgrade summary against the separate Web and splunkd sections."
+        }
+      ],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-14",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-14",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.2/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.2-read-this-first#the-splunk-fishbucket-database-back-end-has-been-replaced-0",
       "title": "about upgrading to 10.2 read this first",
       "areas": [
@@ -5417,6 +5455,44 @@ window.VersionCompassSources = {
           "claimVerified": "2026-11-14",
           "outcome": "supporting-section-confirmed",
           "qualification": "Heavy Forwarder uses the Enterprise package. October 22 bounded semantic recheck: the replacement backend reads legacy checkpoints and writes new checkpoints without an explicit or implicit migration. An unsupported downgrade can miss newer checkpoints and cause reingestion or duplicate data. This does not establish UF applicability, checkpoint loss during a supported upgrade, or a supported rollback path."
+        }
+      ],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-14",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-14",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.2/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.2-read-this-first#the-splunk-platform-uses-version-3.13-of-the-python-runtime-environment-on-splunk-web-0",
+      "title": "about upgrading to 10.2 read this first",
+      "areas": [
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "forwarders: borrowed.technical.hf.10.2.python-runtimes"
+      ],
+      "reviews": [],
+      "claimReferences": [
+        {
+          "path": "forwarders: borrowed.technical.hf.10.2.python-runtimes",
+          "claimId": "technical.hf.10.2.python-runtimes",
+          "release": "10.2",
+          "component": "Python runtimes",
+          "section": "The Splunk platform uses version 3.13 of the Python runtime environment on Splunk Web",
+          "claimVerified": "2026-11-14",
+          "outcome": "supporting-section-confirmed",
+          "qualification": "Heavy Forwarder uses the Enterprise package. This mapping verifies the cited section for the existing record, not UF applicability, every installed app, or a deployment approval. October 18 bounded semantic recheck: Splunk Web 3.13 is distinct from splunkd 3.9 default and optional 3.13 in the 10.2 source; later 10.4 default changes remain separate. The November 11 review also checked the exact 10.2 upgrade summary against the separate Web and splunkd sections."
         }
       ],
       "usage": "In use",
