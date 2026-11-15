@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "assessment",
+  "findingId": "vci-sok-32-compatibility-scope",
+  "assessmentId": "vcia-release-20261115-sok-32-compatibility-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-15T10:36:30.050Z",
+  "assessedAt": "2026-11-15T10:34:32.807Z",
+  "outcome": "still-present",
+  "rationale": "Help matrix 3.2.0 lists Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0 and directs Operator-first upgrades. Project ChangeLog 3.2.0 lists Kubernetes 1.32–1.36 and limits the Queue secretKeyRef change to Index & Ingestion Separation. Preserve the discrepancy and exact source scopes.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Operator for Kubernetes"
+    ],
+    "versions": [
+      "3.2.0"
+    ],
+    "deployments": [
+      "Customer-managed"
+    ],
+    "editions": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No Enterprise 11.x, exact Kubernetes support outside the compared ranges, Cloud availability or authorization."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "vcia-release-20261115-sok-32-compatibility-scope-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix",
+      "section": "SOK to Splunk Enterprise version compatibility; Upgrade path guidance",
+      "statement": "Help matrix 3.2.0 lists Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0 and directs Operator-first upgrades. Project ChangeLog 3.2.0 lists Kubernetes 1.32–1.36 and limits the Queue secretKeyRef change to Index & Ingestion Separation. Preserve the discrepancy and exact source scopes.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-15T10:26:32.133Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "91d48e06e3745bab690f23d5e81d18cc993ac38fb9f699261822e31b73ed02b1",
+        "qualification": "Exact retrieved public response bytes; source publisher revision is unknown."
+      }
+    },
+    {
+      "evidenceId": "vcia-release-20261115-sok-32-compatibility-scope-1",
+      "url": "https://splunk.github.io/splunk-operator/reference/ChangeLog.html",
+      "section": "3.2.0; Breaking Changes; Supported Kubernetes and Splunk versions",
+      "statement": "Help matrix 3.2.0 lists Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0 and directs Operator-first upgrades. Project ChangeLog 3.2.0 lists Kubernetes 1.32–1.36 and limits the Queue secretKeyRef change to Index & Ingestion Separation. Preserve the discrepancy and exact source scopes.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-15T10:27:07.562Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "26ab5b4459deeb2ae2d6fd8ad0f544e8c7ddbda5d85880e2b6805fffb833908e",
+        "qualification": "Exact retrieved public response bytes; source publisher revision is unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/32e56a9b9417c272e937fd1c8d3cae3b06485942/docs/audits/2026-11-15-version-release-watch-sources.json",
+      "pointer": "/claimChecks/1",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "No Enterprise 11.x, exact Kubernetes support outside the compared ranges, Cloud availability or authorization.",
+    "Review current official sections again by November 16 with the existing scope owner."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261114-r2-sok-32-compatibility-scope"
+  ]
+}
