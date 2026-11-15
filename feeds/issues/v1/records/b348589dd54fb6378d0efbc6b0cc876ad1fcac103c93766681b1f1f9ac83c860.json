@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "assessment",
+  "findingId": "vci-cloud-s3-restricted-scope",
+  "assessmentId": "vcia-csp-20261115-cloud-s3-restricted-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-15T12:15:33.827Z",
+  "assessedAt": "2026-11-15T12:14:38.270Z",
+  "outcome": "still-present",
+  "rationale": "The 10.6 S3 feature guide excludes Moderate, High and IL5. The 10.7 regional table names Moderate for both AWS GovCloud regions and excludes High and IL5. The April 8 change log records added High and IL5 for relevant 10.3 releases. The February matrix has a Moderate mark and blank High/IL5 cells. The 10.7 assertion does not erase the historical change log or support a universal High conclusion.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform Federated Search for Amazon S3"
+    ],
+    "versions": [
+      "10.3 change log, 10.6 feature guide and 10.7 service table"
+    ],
+    "editions": null,
+    "deployments": [
+      "AWS GovCloud Moderate, High and IL5"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No tenant rollout, entitlement or customer authorization is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261115-0-0",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/federated-search/10.6/run-federated-searches-over-amazon-s3-datasets/overview-of-federated-search-for-amazon-s3",
+      "section": "Restrictions > unsupported deployments",
+      "statement": "The 10.6 S3 feature guide excludes Moderate, High and IL5. The 10.7 regional table names Moderate for both AWS GovCloud regions and excludes High and IL5. The April 8 change log records added High and IL5 for relevant 10.3 releases. The February matrix has a Moderate mark and blank High/IL5 cells. The 10.7 assertion does not erase the historical change log or support a universal High conclusion.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-15T12:08:20.016Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "f179abb7479f8756cc6e90847f2cb2d784c7b3afd1c613ec6445d71e868cd0d2",
+        "qualification": "Direct public response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261115-0-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions and region differences > Federated search for Amazon S3",
+      "statement": "The 10.6 S3 feature guide excludes Moderate, High and IL5. The 10.7 regional table names Moderate for both AWS GovCloud regions and excludes High and IL5. The April 8 change log records added High and IL5 for relevant 10.3 releases. The February matrix has a Moderate mark and blank High/IL5 cells. The 10.7 assertion does not erase the historical change log or support a universal High conclusion.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-15T12:08:39.715Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "8c7b5266fd5dce10b1aa073a120200bad8a01ea19bcdc50cbf988eb79a0f0a81",
+        "qualification": "Direct public response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261115-0-2",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "8 April 2026 > 10.3 regional changes",
+      "statement": "The 10.6 S3 feature guide excludes Moderate, High and IL5. The 10.7 regional table names Moderate for both AWS GovCloud regions and excludes High and IL5. The April 8 change log records added High and IL5 for relevant 10.3 releases. The February matrix has a Moderate mark and blank High/IL5 cells. The 10.7 assertion does not erase the historical change log or support a universal High conclusion.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-15T12:08:39.777Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ec384a4ac64a7bff2710aa65658c57db5441382747214a76120d55c8a32a6304",
+        "qualification": "Direct public response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261115-0-3",
+      "url": "https://www.splunk.com/en_us/about-splunk/splunk-data-security-and-privacy/compliance-at-splunk.html",
+      "section": "US Public Sector > Federated Search S3 and legend",
+      "statement": "The 10.6 S3 feature guide excludes Moderate, High and IL5. The 10.7 regional table names Moderate for both AWS GovCloud regions and excludes High and IL5. The April 8 change log records added High and IL5 for relevant 10.3 releases. The February matrix has a Moderate mark and blank High/IL5 cells. The 10.7 assertion does not erase the historical change log or support a universal High conclusion.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-15T12:08:27.681Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "1802ed58ca314ada28d60b4f32c8e6c74f994d1d4a1e1443926c701941b4a3dc",
+        "qualification": "Direct public response digest. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/f40a5cab319874e5655f441df3de93597d6907c0/docs/audits/2026-11-15-csp-fedramp-watch-sources.json",
+      "pointer": "/claimChecks/0",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "Recheck the five historical unavailable locators, the AWS 200 error body, both S3 scopes and Marketplace certified-services records. Preserve version and offering boundaries."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261114-retry-cloud-s3-restricted-scope"
+  ]
+}

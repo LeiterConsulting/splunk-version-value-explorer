@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-14T12:36:51.168153Z",
+      "lastAttempt": "2026-11-15T12:06:05.062465Z",
       "lastSuccess": "2026-11-10T12:50:41.612Z",
       "outcome": "blocked",
-      "summary": "Recorded a scoped UAE service-disruption observation. Exact SOC history and locator coverage and live D1 verification remain incomplete.",
+      "summary": "Assessed current regulated evidence. Exact SOC history and D1 health verification remain incomplete.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -531,9 +531,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Recorded a scoped UAE service-disruption observation. Exact SOC history and locator coverage and live D1 verification remain incomplete.",
           "scope": "Public CSP inventory, visual matrix, bounded S3, Marketplace, SOAR, Observability and ES SOC review."
+        },
+        {
+          "at": "2026-11-15T12:06:05.062465Z",
+          "outcome": "running",
+          "summary": "Reviewing the current public CSP evidence.",
+          "scope": "71 carried-forward URLs and nine source/claim families covering S3, Marketplace, SOAR and Observability boundaries, and Advisor SOC."
+        },
+        {
+          "at": "2026-11-15T12:14:38.270Z",
+          "outcome": "blocked",
+          "summary": "Assessed current regulated evidence. Exact SOC history and D1 health verification remain incomplete.",
+          "scope": "71 carried-forward URLs and nine source/claim families covering S3, Marketplace, SOAR and Observability boundaries, and Advisor SOC."
         }
       ],
-      "scope": "Public CSP inventory, visual matrix, bounded S3, Marketplace, SOAR, Observability and ES SOC review."
+      "scope": "71 carried-forward URLs and nine source/claim families covering S3, Marketplace, SOAR and Observability boundaries, and Advisor SOC."
     },
     {
       "id": "version-release-watch",
