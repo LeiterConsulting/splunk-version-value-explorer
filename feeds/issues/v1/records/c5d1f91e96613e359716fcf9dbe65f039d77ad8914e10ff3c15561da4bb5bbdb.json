@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "assessment",
+  "findingId": "vci-o11y-secure-app-dotnet-dual-mode-realms",
+  "assessmentId": "vcia-release-20261115-o11y-secure-app-dotnet-dual-mode-realms",
+  "revision": 1,
+  "recordedAt": "2026-11-15T10:36:30.050Z",
+  "assessedAt": "2026-11-15T10:34:32.807Z",
+  "outcome": "still-present",
+  "rationale": "The November release row names .NET dual-mode runtime vulnerability detection. The language-specific guide requires one supported AppDynamics .NET Agent 26.9 dual-mode installation and no duplicate profiler, qualifies coverage to active AWS realms with Secure Application, and explicitly excludes GCP realms. Entitlement and customer authorization are separate.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Observability Cloud Secure Application / AppDynamics .NET Agent"
+    ],
+    "versions": [
+      "26.9 dual mode; November 12 milestone"
+    ],
+    "deployments": [
+      "Supported applications and active AWS Secure Application realms"
+    ],
+    "editions": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No realm-wide or regulated authorization and no generic .NET support is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "vcia-release-20261115-o11y-secure-app-dotnet-dual-mode-realms-0",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026",
+      "section": "November 12 Secure Application .NET row",
+      "statement": "The November release row names .NET dual-mode runtime vulnerability detection. The language-specific guide requires one supported AppDynamics .NET Agent 26.9 dual-mode installation and no duplicate profiler, qualifies coverage to active AWS realms with Secure Application, and explicitly excludes GCP realms. Entitlement and customer authorization are separate.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-15T10:33:35.574Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "211a10ecbfe81ac5a55bceccc66b08fd776af8d09d23ca8054aea465cbcf6784",
+        "qualification": "Exact retrieved public response bytes; source publisher revision is unknown."
+      }
+    },
+    {
+      "evidenceId": "vcia-release-20261115-o11y-secure-app-dotnet-dual-mode-realms-1",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-security/set-up-secure-application/set-up-manual-instrumentation/do-language-specific-steps",
+      "section": "Support for .NET combined agent; Requirements; Realm availability",
+      "statement": "The November release row names .NET dual-mode runtime vulnerability detection. The language-specific guide requires one supported AppDynamics .NET Agent 26.9 dual-mode installation and no duplicate profiler, qualifies coverage to active AWS realms with Secure Application, and explicitly excludes GCP realms. Entitlement and customer authorization are separate.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-15T10:33:35.579Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "48ed2c53a16f31d72ce6488db8614700640521f4bb8f02958fa7c672c2c010c7",
+        "qualification": "Exact retrieved public response bytes; source publisher revision is unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/32e56a9b9417c272e937fd1c8d3cae3b06485942/docs/audits/2026-11-15-version-release-watch-sources.json",
+      "pointer": "/claimChecks/15",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "No realm-wide or regulated authorization and no generic .NET support is established.",
+    "Review current official sections again by November 16 with the existing scope owner."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261114-o11y-secure-app-dotnet-dual-mode-realms"
+  ]
+}

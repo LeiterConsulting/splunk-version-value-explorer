@@ -538,10 +538,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-14T10:50:35.673777Z",
+      "lastAttempt": "2026-11-15T10:21:38.786289Z",
       "lastSuccess": "2026-11-11T14:21:55.848Z",
       "outcome": "blocked",
-      "summary": "Prepared exact inherited HF Python source links. Three registry evidence scopes and production delivery remain incomplete.",
+      "summary": "Scoped research and one Forwarder citation repair completed. Historical SOC evidence and exact-candidate release verification remain open.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1231,9 +1231,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Prepared exact inherited HF Python source links. Three registry evidence scopes and production delivery remain incomplete.",
           "scope": "Public release inventory, inherited HF Python links, receiver/topology, SOAR, Prep11 and Advisor."
+        },
+        {
+          "at": "2026-11-15T10:21:38.786289Z",
+          "outcome": "running",
+          "summary": "Started the Release Watch official-inventory review.",
+          "scope": "Official full release inventory check; bounded highest-consequence existing Forwarder, Cloud patch, SOAR and exact Prep11/Advisor claims."
+        },
+        {
+          "at": "2026-11-15T10:33:51.916Z",
+          "outcome": "blocked",
+          "summary": "Scoped research and one Forwarder citation repair completed. Historical SOC evidence and exact-candidate release verification remain open.",
+          "scope": "Official full release inventory check; bounded highest-consequence existing Forwarder, Cloud patch, SOAR and exact Prep11/Advisor claims."
         }
       ],
-      "scope": "Public release inventory, inherited HF Python links, receiver/topology, SOAR, Prep11 and Advisor."
+      "scope": "Official full release inventory check; bounded highest-consequence existing Forwarder, Cloud patch, SOAR and exact Prep11/Advisor claims."
     },
     {
       "id": "es-editions-watch",

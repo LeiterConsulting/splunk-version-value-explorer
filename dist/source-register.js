@@ -5352,9 +5352,9 @@ window.VersionCompassSources = {
           "release": "10.2",
           "component": "Embedded Node.js runtime",
           "section": "The Node.js JavaScript runtime environment has been removed",
-          "claimVerified": "2026-11-06",
+          "claimVerified": "2026-11-15",
           "outcome": "supporting-section-confirmed",
-          "qualification": "November 6 semantic recheck: the Enterprise 10.2 section removes bundled Node.js and requires Node.js-dependent apps to carry their own runtime. Heavy Forwarder inherits only the applicable Enterprise-package scope. Visual Exporter is assessed independently in SVD-2026-1015. No UF runtime, Cloud-managed installation requirement or app-owned vulnerability conclusion is inferred."
+          "qualification": "The Enterprise 10.2 section removes bundled Node.js and requires Node.js-dependent apps to carry their own runtime. Heavy Forwarder inherits only the applicable Enterprise-package scope. Visual Exporter is assessed independently in SVD-2026-1015. No UF runtime, Cloud-managed installation requirement or app-owned vulnerability conclusion is inferred."
         },
         {
           "path": "forwarders: borrowed.technical.hf.10.2.unix-service-identity",
@@ -5394,6 +5394,44 @@ window.VersionCompassSources = {
         {
           "date": "2026-09-28",
           "event": "Review status updated: Reviewed · 2026-09-28"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.2/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.2-read-this-first#the-node.js-javascript-runtime-environment-has-been-removed-0",
+      "title": "about upgrading to 10.2 read this first",
+      "areas": [
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "forwarders: borrowed.technical.hf.10.2.embedded-nodejs-runtime"
+      ],
+      "reviews": [],
+      "claimReferences": [
+        {
+          "path": "forwarders: borrowed.technical.hf.10.2.embedded-nodejs-runtime",
+          "claimId": "technical.hf.10.2.embedded-nodejs-runtime",
+          "release": "10.2",
+          "component": "Embedded Node.js runtime",
+          "section": "The Node.js JavaScript runtime environment has been removed",
+          "claimVerified": "2026-11-15",
+          "outcome": "supporting-section-confirmed",
+          "qualification": "The Enterprise 10.2 section removes bundled Node.js and requires Node.js-dependent apps to carry their own runtime. Heavy Forwarder inherits only the applicable Enterprise-package scope. Visual Exporter is assessed independently in SVD-2026-1015. No UF runtime, Cloud-managed installation requirement or app-owned vulnerability conclusion is inferred."
+        }
+      ],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-15",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-15",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },
