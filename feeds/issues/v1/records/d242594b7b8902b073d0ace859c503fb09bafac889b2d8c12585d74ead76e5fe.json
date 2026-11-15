@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "assessment",
+  "findingId": "vci-es-88-response-agent-rerun-coverage",
+  "assessmentId": "vcia-es-20261115-es-88-response-agent-rerun-coverage",
+  "revision": 1,
+  "recordedAt": "2026-11-15T11:25:00.000Z",
+  "assessedAt": "2026-11-15T11:17:58.825Z",
+  "outcome": "addressed-in-reviewed-scope",
+  "rationale": "The current ES 8.8 task explicitly states that Response cannot rerun and does not pick up findings added after an investigation was processed. This is a distinct limit from Triage analyzing existing findings. Both canonical reports already carry the Response qualification.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "8.8"
+    ],
+    "deployments": [
+      "Triage and Response workflow"
+    ],
+    "editions": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Limited to ES 8.8 Response agent in an already processed investigation."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-20261115-es-88-response-agent-rerun-scope-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
+      "section": "Specify SOAR connectors to enrich findings using the Response agent > ES 8.8 rerun note",
+      "statement": "The current ES 8.8 task explicitly states that Response cannot rerun and does not pick up findings added after an investigation was processed. This is a distinct limit from Triage analyzing existing findings. Both canonical reports already carry the Response qualification.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-15T11:08:45.736Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "e4f28dc269bedcb6c253a4097390694498a7d6b4d52d605b1110d4e6f89ac417",
+        "qualification": "Public response bytes; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/35f3a060ed6485cb0d965aacabf87e9519e434f7/docs/audits/2026-11-15-es-editions-watch-sources.json",
+      "pointer": "/claimChecks/8",
+      "originalLabel": "addressed-in-reviewed-scope"
+    }
+  ],
+  "remainingConcerns": [
+    "Limited to ES 8.8 Response agent in an already processed investigation.",
+    "Review current official sections again by November 16 with the existing scope owner."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261115-es-88-response-agent-rerun-coverage"
+  ]
+}
