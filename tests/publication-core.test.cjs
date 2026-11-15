@@ -266,3 +266,87 @@ test('read-only preflight CLI rejects malformed arguments before accessing artif
   const result = require('node:child_process').spawnSync(process.execPath, [path.join(__dirname, '../scripts/verify-publication.mjs'), '--commit', 'main'], { encoding: 'utf8' });
   assert.equal(result.status, 1); assert.match(result.stderr, /Usage:/); assert.equal(result.stdout, '');
 });
+
+async function fenceFixture(t,stopped=0){
+ const fixture=await prepared(t),{db,a,b}=fixture;
+ db.sql.exec(fs.readFileSync('tools/release-coordination/database-fence-reference.sql','utf8'));
+ db.sql.prepare('INSERT INTO release_admission VALUES(?,?,?,?,?,?,?,?,?,?,?,?)').run('engine:'+engine,'pub-'+ '9'.repeat(32),'owner-a',1,b.manifest.revision,b.manifest.digest,commit,a.manifest.revision,0,'publish','admitted',stopped);
+ return fixture;
+}
+function insertFencedEvent(db,a,b,owner='owner-a',epoch=1){db.sql.prepare('INSERT INTO content_publication_events(operation_id,channel,generation,from_revision,to_revision,provenance_commit,intent,created_at,writer_operation,writer_owner,writer_epoch) VALUES(?,?,?,?,?,?,?,?,?,?,?)').run('pub-'+ '9'.repeat(32),'engine:'+engine,1,a.manifest.revision,b.manifest.revision,commit,'publish','synthetic', 'pub-'+ '9'.repeat(32),owner,epoch)}
+test('reference event statement atomically promotes and consumes admission',async t=>{const {db,a,b,m}=await fenceFixture(t);insertFencedEvent(db,a,b);assert.equal((await m.readPublicationHead(db,engine)).revision,b.manifest.revision);assert.equal(db.sql.prepare('SELECT state FROM release_admission').get().state,'consumed');assert.throws(()=>insertFencedEvent(db,a,b),/fence-/)});
+for(const wrong of ['stopped','owner','epoch'])test('reference blocks '+wrong+' at actual SQL mutation',async t=>{const {db,a,b,m}=await fenceFixture(t,wrong==='stopped'?1:0);assert.throws(()=>insertFencedEvent(db,a,b,wrong==='owner'?'owner-b':'owner-a',wrong==='epoch'?2:1),/fence-/);assert.equal((await m.readPublicationHead(db,engine)).revision,a.manifest.revision);assert.equal(db.sql.prepare('SELECT COUNT(*) AS n FROM content_publication_events').get().n,0)});
+test('reference failure after head write rolls back event head and consumption',async t=>{const {db,a,b,m}=await fenceFixture(t);db.sql.exec("CREATE TRIGGER injected_failure BEFORE UPDATE ON release_admission WHEN NEW.state='consumed' BEGIN SELECT RAISE(ABORT,'injected'); END");assert.throws(()=>insertFencedEvent(db,a,b),/injected/);assert.equal((await m.readPublicationHead(db,engine)).revision,a.manifest.revision);assert.equal(db.sql.prepare('SELECT COUNT(*) AS n FROM content_publication_events').get().n,0);assert.equal(db.sql.prepare('SELECT state FROM release_admission').get().state,'admitted')});
+test('reference denies legacy actual activation and direct old-row deletion/replacement',async t=>{const {db,a,b,m}=await fenceFixture(t);await assert.rejects(m.activatePublication(db,action(1,a,b),{engineRevision:engine}),/fence-/);for(const table of ['content_revisions','content_records','content_publication_provenance','content_publication_events','content_publication']){if(table==='content_publication_events')continue;assert.throws(()=>db.sql.exec('DELETE FROM '+table),/fence-/);assert.throws(()=>db.sql.exec('INSERT OR REPLACE INTO '+table+' SELECT * FROM '+table+' LIMIT 1'),/fence-/)}assert.equal((await m.readPublicationHead(db,engine)).revision,a.manifest.revision)});
+test('reference old rows cannot be rewritten or replaced, including history and head',async t=>{const {db,a,b}=await fenceFixture(t);insertFencedEvent(db,a,b);for(const table of ['content_revisions','content_records','content_publication_provenance','content_publication_events','content_publication']){assert.throws(()=>db.sql.exec('DELETE FROM '+table),/fence-/);assert.throws(()=>db.sql.exec('INSERT OR REPLACE INTO '+table+' SELECT * FROM '+table+' LIMIT 1'),/fence-/);assert.throws(()=>db.sql.exec("UPDATE "+table+" SET writer_owner='owner-b'"),/fence-/)}});
+test('reference wrong target and stopped transition cannot consume admission',async t=>{const {db,a,b,c,m}=await fenceFixture(t);assert.throws(()=>insertFencedEvent(db,a,c),/fence-/);db.sql.exec('UPDATE release_admission SET stopped=1');assert.throws(()=>insertFencedEvent(db,a,b),/fence-/);assert.equal(db.sql.prepare('SELECT state FROM release_admission').get().state,'admitted');assert.equal((await m.readPublicationHead(db,engine)).revision,a.manifest.revision)});
+test('reference rejects hidden rowid REPLACE collision with new natural key and valid stamps',async t=>{const {db,b}=await fenceFixture(t);db.sql.exec("UPDATE release_admission SET state='preparing'");const old=db.sql.prepare('SELECT rowid AS rid,* FROM content_records LIMIT 1').get();db.sql.exec('PRAGMA recursive_triggers=OFF');assert.throws(()=>db.sql.prepare('INSERT OR REPLACE INTO content_records(rowid,revision_id,record_id,kind,dataset,payload_json,writer_operation,writer_owner,writer_epoch) VALUES(?,?,?,?,?,?,?,?,?)').run(old.rid,b.manifest.revision,'new-record','claim','platform','{}','pub-'+'9'.repeat(32),'owner-a',1),/fence-/);assert.equal(db.sql.prepare('SELECT record_id FROM content_records WHERE rowid=?').get(old.rid).record_id,old.record_id)});
+test('reference rejects UPDATE OR REPLACE hidden rowid collision on valid completion',async t=>{
+ const {db,a}=await fenceFixture(t); const fresh=await bundle(99), m=fresh.manifest, op='pub-'+'9'.repeat(32);
+ db.sql.exec('PRAGMA recursive_triggers=OFF');
+ db.sql.prepare("UPDATE release_admission SET state='preparing',target_revision=?,target_digest=?").run(m.revision,m.digest);
+ db.sql.prepare('INSERT INTO content_revisions(id,engine,schema_version,digest,manifest_json,bundle_json,record_count,completed,writer_operation,writer_owner,writer_epoch) VALUES(?,?,?,?,?,?,?,0,?,?,?)').run(m.revision,engine,1,m.digest,JSON.stringify(m),JSON.stringify(fresh),m.recordCount,op,'owner-a',1);
+ const old=db.sql.prepare('SELECT rowid AS rid FROM content_revisions WHERE id=?').get(a.manifest.revision);
+ assert.throws(()=>db.sql.prepare('UPDATE OR REPLACE content_revisions SET rowid=?,completed=1,writer_operation=?,writer_owner=?,writer_epoch=? WHERE id=?').run(old.rid,op,'owner-a',1,m.revision),/fence-/);
+ assert.equal(db.sql.prepare('SELECT id FROM content_revisions WHERE rowid=?').get(old.rid).id,a.manifest.revision);
+ assert.equal(db.sql.prepare('SELECT completed FROM content_revisions WHERE id=?').get(m.revision).completed,0);
+});
+test('inactive stamped preparation validates bytes, completes atomically and reconciles repeats',async t=>{
+ const {db}=await fenceFixture(t), fresh=await bundle(99), m=fresh.manifest;
+ db.sql.prepare("UPDATE release_admission SET state='preparing',target_revision=?,target_digest=?").run(m.revision,m.digest);
+ const {prepareFencedBatch}=await import('../tools/release-coordination/fenced-preparation-reference.mjs');
+ const identity={operationId:'pub-'+'9'.repeat(32),owner:'owner-a',epoch:1};
+ const provenance={repository:(await core()).REPOSITORY,commit,workflowRun:7};
+ const result=await prepareFencedBatch(db,fresh,identity,provenance);
+ assert.equal(result.status,'prepared');assert.equal(result.count,2);
+ assert.equal((await prepareFencedBatch(db,fresh,identity,provenance)).writes,0);
+ const corrupt=clone(fresh);corrupt.catalog.records[1].payload.number=777;
+ await assert.rejects(prepareFencedBatch(db,corrupt,identity,provenance));
+ db.sql.exec('UPDATE release_admission SET stopped=1');
+ await assert.rejects(prepareFencedBatch(db,fresh,identity,provenance),/admission mismatch/);
+});
+test('stamped preparation refuses ambiguous batch result and reconciles committed rows on next call',async t=>{
+ const {db}=await fenceFixture(t), fresh=await bundle(100), m=fresh.manifest;
+ db.sql.prepare("UPDATE release_admission SET state='preparing',target_revision=?,target_digest=?").run(m.revision,m.digest);
+ const {prepareFencedBatch}=await import('../tools/release-coordination/fenced-preparation-reference.mjs');
+ const identity={operationId:'pub-'+'9'.repeat(32),owner:'owner-a',epoch:1};
+ const provenance={repository:(await core()).REPOSITORY,commit,workflowRun:7};
+ const realBatch=db.batch.bind(db);db.batch=async statements=>{await realBatch(statements);return undefined};
+ await assert.rejects(prepareFencedBatch(db,fresh,identity,provenance),/outcome uncertain/);
+ db.batch=realBatch;
+ const recovered=await prepareFencedBatch(db,fresh,identity,provenance);assert.equal(recovered.status,'prepared');assert.equal(recovered.writes,0);
+});
+test('stamped preparation rolls back provenance when completion fails',async t=>{
+ const {db}=await fenceFixture(t), fresh=await bundle(101), m=fresh.manifest;
+ db.sql.prepare("UPDATE release_admission SET state='preparing',target_revision=?,target_digest=?").run(m.revision,m.digest);
+ db.sql.exec("CREATE TRIGGER reject_completion BEFORE UPDATE ON content_revisions WHEN NEW.completed=1 BEGIN SELECT RAISE(ABORT,'injected-completion'); END");
+ const {prepareFencedBatch}=await import('../tools/release-coordination/fenced-preparation-reference.mjs');
+ await assert.rejects(prepareFencedBatch(db,fresh,{operationId:'pub-'+'9'.repeat(32),owner:'owner-a',epoch:1},{repository:(await core()).REPOSITORY,commit,workflowRun:7}),/injected-completion/);
+ assert.equal(db.sql.prepare('SELECT completed FROM content_revisions WHERE id=?').get(m.revision).completed,0);
+ assert.equal(db.sql.prepare('SELECT COUNT(*) AS n FROM content_publication_provenance WHERE revision_id=?').get(m.revision).n,0);
+});
+async function largeFencedFixture(t) {
+ const fixture=await fenceFixture(t), fresh=await bundle(201), m=await core();
+ const template=fresh.catalog.records[1];
+ fresh.catalog.records=[fresh.catalog.records[0],...Array.from({length:104},(_,i)=>({...clone(template),id:'vc-'+i.toString(16).padStart(20,'0')}))];
+ fresh.manifest.recordCount=fresh.catalog.records.length;
+ fresh.manifest.digest=await m.sha256({schemaVersion:1,globals:fresh.globals,catalog:fresh.catalog});
+ fresh.manifest.revision='content-'+(await m.sha256({digest:fresh.manifest.digest,engineRevision:engine,datasetHashes:fresh.manifest.datasetHashes})).slice(0,24);
+ fixture.db.sql.prepare("UPDATE release_admission SET state='preparing',target_revision=?,target_digest=?").run(fresh.manifest.revision,fresh.manifest.digest);
+ return {...fixture,fresh,identity:{operationId:'pub-'+'9'.repeat(32),owner:'owner-a',epoch:1},provenance:{repository:m.REPOSITORY,commit,workflowRun:7},prepare:(await import('../tools/release-coordination/fenced-preparation-reference.mjs')).prepareFencedBatch};
+}
+test('stamped preparation needs three bounded calls for 105 records',async t=>{
+ const {db,fresh,identity,provenance,prepare}=await largeFencedFixture(t);
+ const results=[];for(let i=0;i<3;i++)results.push(await prepare(db,fresh,identity,provenance));
+ assert.deepEqual(results.map(r=>r.count),[50,100,105]);assert.deepEqual(results.map(r=>r.writes),[50,50,5]);
+ assert.deepEqual(results.map(r=>r.status),['preparing','preparing','prepared']);
+ assert.equal(db.sql.prepare('SELECT state FROM release_admission').get().state,'preparing');
+});
+for(const race of ['stop','epoch'])test('stamped batch atomically rejects '+race+' after successful preflight',async t=>{
+ const {db,fresh,identity,provenance,prepare}=await largeFencedFixture(t);
+ await prepare(db,fresh,identity,provenance);
+ db.beforeNextBatch(()=>db.sql.exec(race==='stop'?'UPDATE release_admission SET stopped=1':'UPDATE release_admission SET epoch=2'));
+ await assert.rejects(prepare(db,fresh,identity,provenance),/fence-/);
+ assert.equal(db.sql.prepare('SELECT COUNT(*) AS n FROM content_records WHERE revision_id=?').get(fresh.manifest.revision).n,50);
+ assert.equal(db.sql.prepare('SELECT completed FROM content_revisions WHERE id=?').get(fresh.manifest.revision).completed,0);
+});
