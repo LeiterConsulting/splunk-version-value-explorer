@@ -1250,10 +1250,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-14T11:00:31.206154Z",
-      "lastSuccess": "2026-11-11T11:31:55.245Z",
-      "outcome": "blocked",
-      "summary": "Prepared the Automation Builder prerequisite correction. Exact SOC history, registry locator reconciliation and production delivery remain incomplete.",
+      "lastAttempt": "2026-11-15T11:03:00.000Z",
+      "lastSuccess": "2026-11-15T11:24:00.000Z",
+      "outcome": "no-change",
+      "summary": "Current claims preserved; two official English source redirects recovered and historical scope remains incomplete.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1823,9 +1823,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Prepared the Automation Builder prerequisite correction. Exact SOC history, registry locator reconciliation and production delivery remain incomplete.",
           "scope": "ES editions and agent prerequisites, Advisor SOC, ES-specific SOAR matrices and pricing."
+        },
+        {
+          "at": "2026-11-15T11:03:00.000Z",
+          "outcome": "running",
+          "summary": "Reviewing the ES Editions public inventory and bounded high-consequence claims.",
+          "scope": "62 official URLs; ten edition, prerequisite, pricing and SOAR-pairing claims."
+        },
+        {
+          "at": "2026-11-15T11:24:00.000Z",
+          "outcome": "no-change",
+          "summary": "Current claims preserved; two official English source redirects recovered and historical scope remains incomplete.",
+          "scope": "62 URLs checked, 59 usable; ten claims assessed; no canonical product fact changed."
         }
       ],
-      "scope": "ES editions and agent prerequisites, Advisor SOC, ES-specific SOAR matrices and pricing."
+      "scope": "62 URLs checked, 59 usable; ten claims assessed; no canonical product fact changed."
     },
     {
       "id": "version-guidance-audit",
