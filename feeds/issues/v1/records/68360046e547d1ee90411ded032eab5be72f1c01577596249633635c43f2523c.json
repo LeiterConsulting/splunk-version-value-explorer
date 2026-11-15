@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "assessment",
+  "findingId": "vci-es-88-premier-uae-service-disruption",
+  "assessmentId": "vcia-csp-20261115-es-88-premier-uae-service-disruption",
+  "revision": 1,
+  "recordedAt": "2026-11-15T12:15:33.827Z",
+  "assessedAt": "2026-11-15T12:14:38.270Z",
+  "outcome": "still-present",
+  "rationale": "Both the English and Japanese Premier tables retain the AWS-service disruption marker. They identify neither impacted services nor a start or restoration date. No component rollout or permanent exclusion follows.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security Premier"
+    ],
+    "versions": [
+      "8.8 regional documentation"
+    ],
+    "editions": null,
+    "deployments": [
+      "AWS me-central-1 (UAE)"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No tenant rollout, entitlement or customer authorization is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261115-3-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "Premier Edition regional availability > me-central-1",
+      "statement": "Both the English and Japanese Premier tables retain the AWS-service disruption marker. They identify neither impacted services nor a start or restoration date. No component rollout or permanent exclusion follows.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-15T12:08:33.645Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "beb2954a93e6461a10239bf22de20bb9b2383703d12a339b299fe4ebd0085dc6",
+        "qualification": "Direct public response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261115-3-1",
+      "url": "https://help.splunk.com/ja-jp/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "Premier Edition regional availability > me-central-1",
+      "statement": "Both the English and Japanese Premier tables retain the AWS-service disruption marker. They identify neither impacted services nor a start or restoration date. No component rollout or permanent exclusion follows.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-15T12:08:59.217Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "0e0a246af3bd4b03a2c7b1391ace8df87b18f72b76ef967be613044502c7be0c",
+        "qualification": "Direct public response digest. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/f40a5cab319874e5655f441df3de93597d6907c0/docs/audits/2026-11-15-csp-fedramp-watch-sources.json",
+      "pointer": "/claimChecks/3",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "Recheck the five historical unavailable locators, the AWS 200 error body, both S3 scopes and Marketplace certified-services records. Preserve version and offering boundaries."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261114-retry-es-88-premier-uae-service-disruption"
+  ]
+}
