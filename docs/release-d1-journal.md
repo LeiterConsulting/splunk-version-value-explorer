@@ -2,10 +2,8 @@
 
 This is a capability qualification slice, not a publisher or operational service.
 No production schema migration, Worker route, workflow, secret, permission, or
-activation is added. The module is outside the production Worker build. It uses
-the existing reviewed journal transition validator through an explicit trusted
-caller callback; a real Worker-portable transition validator remains integration
-work. No flag in supplied JSON grants authentication or release authority.
+activation is added. The module is outside the production Worker build. It statically imports the portable semantic replay validator, with differential
+tests against the existing reviewed local replay. Callers cannot replace it. No flag in supplied JSON grants authentication or release authority.
 
 ## Actual D1 API path
 
@@ -33,7 +31,8 @@ Normal Node tests cover contract failures with synthetic bindings. Separately,
 `qualify-d1-journal.cjs` exercises the actual D1 binding in official Miniflare,
 including a concurrent single-winner append, wrong-project/stale inputs, sticky
 denial, runtime restart, a real committed write followed by an injected transport
-failure, and tampered-chain rejection. Synthetic binding tests are not emulator
+failure, tampered-chain rejection, and execution of portable replay and a journal append inside actual local
+workerd. Eleven additional differential cases cover valid and invalid transitions. Synthetic binding tests are not emulator
 checks; emulator checks are not remote production verification.
 
 Use an isolated scratch installation of pinned `miniflare@4.20260730.0`, then run:
@@ -47,7 +46,7 @@ productionActionAllowed false. It does not claim cross-region consistency testin
 power-loss guarantees or production privilege isolation.
 
 A deployable adapter still requires a supported isolated hosted test, authenticated
-request admission, actual runtime-compatible transition validation, bounded schema
+request admission, bounded schema
 migration approval, and independent full live readback. Existing denied operations
 must not be retried or bypassed to supply these capabilities. Current bundled
 service and publication holds remain unchanged.
