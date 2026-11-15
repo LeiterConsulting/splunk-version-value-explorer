@@ -104,3 +104,21 @@ main and existing publication core before building a trusted write adapter.
 Run `node --test tests/release-binding.test.cjs`. Fixtures are synthetic and these
 checks are structural only. Existing maintenance, publication, coverage, feed,
 export and integration gates remain unchanged.
+
+## Explicit absent-head review snapshots (offline schema 2)
+
+Schema 1 remains unchanged: its positive generation represents an existing head.
+Schema 2 replaces `expectedLive.generation` with `publicationHead`, either exactly
+`{"status":"absent"}` or `{status:"present", generation:<positive integer>, identity:<full identity>}`.
+The existing `expectedLive.identity` identifies the deployed seed, not a fabricated
+active head. A present head has its own complete identity and must share the deployed
+engine. Unknown, failed or incomplete observations must not be encoded as absent.
+
+An absent head always produces `absent-head-recovery-review`, including when the
+runtime archive is unchanged. This is not bootstrap permission or a readiness result.
+A fresh independently obtained observation must establish absence; the offline module
+does not authenticate it. Head appearance/disappearance, generation, identity,
+archive and control drift all hold. No publication endpoint, CAS, provenance gate,
+OIDC policy, workflow or activation behavior changes. Existing rollback-byte and
+ownership requirements remain; missing evidence cannot be replaced with a generation
+borrowed from another engine. No trusted observation or mutation adapter is installed.

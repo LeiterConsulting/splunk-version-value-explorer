@@ -36,10 +36,24 @@ function artifact(value) {
   hex(value.archiveSha256, 64, 'archive-hash'); integer(value.archiveBytes, 'archive-bytes');
   hex(value.reportInputsSha256, 64, 'report-inputs'); identity(value.identity);
 }
-function live(value) {
-  keys(value, ['artifactSha256','identity','generation','readerEnabled','publisherEnabled'], 'live');
+function live(value, version = 1) {
+  keys(value, ['artifactSha256','identity',version === 1 ? 'generation' : 'publicationHead','readerEnabled','publisherEnabled'], 'live');
   hex(value.artifactSha256, 64, 'live-artifact'); identity(value.identity);
-  integer(value.generation, 'generation');
+  if (version === 1) integer(value.generation, 'generation');
+  else {
+    const head = value.publicationHead;
+    // Inspect descriptors before reading status; unknown is never absence.
+    if (!plain(head)) fail('invalid-publication-head');
+    const status = Object.getOwnPropertyDescriptor(head, 'status');
+    if (!status || !Object.hasOwn(status, 'value')) fail('invalid-publication-head');
+    if (status.value === 'absent') keys(head, ['status'], 'publication-head');
+    else if (status.value === 'present') {
+      keys(head, ['status','generation','identity'], 'publication-head');
+      integer(head.generation, 'generation'); identity(head.identity);
+      if (head.identity.engineRevision !== value.identity.engineRevision) fail('head-engine-mismatch');
+      if (head.identity.contentRevision === value.identity.contentRevision && canonical(head.identity) !== canonical(value.identity)) fail('revision-identity-conflict');
+    } else fail('invalid-publication-head');
+  }
   for (const key of ['readerEnabled','publisherEnabled']) if (typeof value[key] !== 'boolean') fail('invalid-controls');
 }
 function canonical(value) {
@@ -54,8 +68,8 @@ function frozen(value) {
 }
 function validate(input) {
   keys(input, ['schemaVersion','repository','candidate','validation','expectedLive','rollback'], 'release-input');
-  if (input.schemaVersion !== 1 || input.repository !== REPOSITORY) fail('invalid-repository-or-version');
-  artifact(input.candidate); artifact(input.rollback); live(input.expectedLive);
+  if (![1,2].includes(input.schemaVersion) || input.repository !== REPOSITORY) fail('invalid-repository-or-version');
+  artifact(input.candidate); artifact(input.rollback); live(input.expectedLive, input.schemaVersion);
   const v = input.validation;
   keys(v, ['commit','tree','runId','runAttempt','exportSha256','reportInputsSha256'], 'validation');
   hex(v.commit, 40, 'validation-commit'); hex(v.tree, 40, 'validation-tree');
@@ -66,6 +80,8 @@ function validate(input) {
   // Identity collisions are not an alternate delivery mode.
   const a=input.candidate.identity, b=input.expectedLive.identity;
   if (a.contentRevision === b.contentRevision && canonical(a) !== canonical(b)) fail('revision-identity-conflict');
+  const head = input.schemaVersion === 2 && input.expectedLive.publicationHead;
+  if (head && head.status === 'present' && a.contentRevision === head.identity.contentRevision && canonical(a) !== canonical(head.identity)) fail('revision-identity-conflict');
 }
 function createBinding(input) {
   validate(input);
@@ -77,10 +93,11 @@ function createBinding(input) {
   const sameIdentity = canonical(snapshot.candidate.identity) === canonical(snapshot.expectedLive.identity);
   if (sameArtifact && !sameIdentity) fail('artifact-identity-conflict');
   return frozen({
-    schemaVersion: 1,
+    schemaVersion: snapshot.schemaVersion,
     releaseId: 'release-' + digest(snapshot.candidate),
     bindingId: 'binding-' + digest(snapshot),
-    route: sameArtifact ? 'no-runtime-change-review' : 'runtime-transition-review',
+    route: snapshot.schemaVersion === 2 && snapshot.expectedLive.publicationHead.status === 'absent'
+      ? 'absent-head-recovery-review' : sameArtifact ? 'no-runtime-change-review' : 'runtime-transition-review',
     input: snapshot,
     authority: 'unverified', ownership: 'unverified', provenance: 'unverified',
     claimedDelivered: false,
@@ -92,7 +109,7 @@ function compareLive(binding, observedLive) {
   keys(binding,['schemaVersion','releaseId','bindingId','route','input','authority','ownership','provenance','claimedDelivered','qualification'],'binding');
   const rebuilt=createBinding(binding.input);
   if(canonical(rebuilt)!==canonical(binding)) fail('binding-tampered');
-  live(observedLive);
+  live(observedLive, binding.input.schemaVersion);
   const matches=canonical(observedLive)===canonical(binding.input.expectedLive);
   return frozen({status: matches ? 'snapshot-matches-review-required' : 'held-live-drift',
     bindingId:binding.bindingId, claimedDelivered:false, authority:'unverified', ownership:'unverified'});
