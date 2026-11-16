@@ -1890,10 +1890,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-guidance-audit",
       "name": "Version Guidance Audit",
-      "lastAttempt": "2026-11-12T13:28:36.872069Z",
+      "lastAttempt": "2026-11-16T14:05:09.122392Z",
       "lastSuccess": "2026-11-08T22:04:05.623Z",
       "outcome": "blocked",
-      "summary": "Completed scoped independent evidence review. Historical SOC and live production verification remain open.",
+      "summary": "Scoped claims assessed; historical ES 8.8 evidence and first-execution verification remain incomplete.",
       "history": [
         {
           "at": "2026-09-24T12:45:24.855849+00:00",
@@ -2067,9 +2067,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Completed scoped independent evidence review. Historical SOC and live production verification remain open.",
           "scope": "Registered Prep11 and Advisor scope, selected Forwarder and SOAR sections, public issue-feed reassessments and runtime evidence."
+        },
+        {
+          "at": "2026-11-16T14:05:09.122392Z",
+          "outcome": "running",
+          "summary": "Independent source and claim review started.",
+          "scope": "316 official locators, 11 registry dispositions and the named high-consequence claims."
+        },
+        {
+          "at": "2026-11-16T14:14:27.502Z",
+          "outcome": "blocked",
+          "summary": "Scoped claims assessed; historical ES 8.8 evidence and first-execution verification remain incomplete.",
+          "scope": "316 official locators, 11 registry dispositions and the named high-consequence claims."
         }
       ],
-      "scope": "Registered Prep11 and Advisor scope, selected Forwarder and SOAR sections, public issue-feed reassessments and runtime evidence."
+      "scope": "316 official locators, 11 registry dispositions and the named high-consequence claims."
     }
   ]
 };

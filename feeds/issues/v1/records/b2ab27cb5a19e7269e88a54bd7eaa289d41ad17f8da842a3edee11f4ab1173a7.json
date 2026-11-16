@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "assessment",
+  "findingId": "vci-saia-agent-runtime-processing-scope",
+  "assessmentId": "vcia-guidance-20261116-saia-agent-runtime-processing-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-16T14:14:26.674Z",
+  "assessedAt": "2026-11-16T14:12:43.041Z",
+  "outcome": "still-present",
+  "rationale": "Frankfurt remains Data zone and Dublin Global in the feature/region table. The runtime processing section describes conditional use of an external third-party endpoint beyond the Splunk platform data boundary. Region label and model placement remain distinct.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant"
+    ],
+    "versions": [
+      "2.3.6"
+    ],
+    "deployments": [
+      "Splunk Enterprise Cloud Connected and Model Runtime"
+    ],
+    "editions": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No exact per-request processing location, customer authorization or data-residency commitment is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "vcia-guidance-20261116-saia-agent-runtime-processing-scope-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+      "section": "Feature availability and region standard; Using Model Runtime",
+      "statement": "Frankfurt remains Data zone and Dublin Global in the feature/region table. The runtime processing section describes conditional use of an external third-party endpoint beyond the Splunk platform data boundary. Region label and model placement remain distinct.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-16T14:06:56.216Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "fca112d1edbb98cee0bb84ce6ea2876e72efffe307e11389121381dee6aa0565",
+        "qualification": "Retrieved body digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "vcia-guidance-20261116-saia-agent-runtime-processing-scope-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+      "section": "Where the assistant runs",
+      "statement": "Frankfurt remains Data zone and Dublin Global in the feature/region table. The runtime processing section describes conditional use of an external third-party endpoint beyond the Splunk platform data boundary. Region label and model placement remain distinct.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-16T14:06:55.952Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ba635dcaae7ca5cd6a03bf8e8bc8e96ea1fb51bee83cbac767c7455b420a4917",
+        "qualification": "Retrieved body digest; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/13f8ee0203d83f16dfb3b5d55bd34fa526ca911f/docs/audits/2026-11-16-version-guidance-audit.json",
+      "pointer": "/claimChecks/2",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "No exact per-request processing location, customer authorization or data-residency commitment is established.",
+    "See dated follow-up in the pinned review."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261116-saia-agent-runtime-processing-scope"
+  ]
+}
