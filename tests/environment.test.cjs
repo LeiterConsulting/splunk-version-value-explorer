@@ -51,7 +51,8 @@ test('evidence scope, separate authorization, freshness, and source conflicts re
  assert.equal(conflict.authorization,'not_established');
  assert.match(conflict.claims[1].text,/10\.7.*excludes High and DoD IL5/);
  assert.match(conflict.claims[2].text,/April 8.*relevant 10\.3/);
- assert.match(env.data.sources.s3Service107.url,/\/10\.7\/.*--en__Available_regions_and_region_differences$/);
+ assert.match(env.data.sources.s3Service107.url,/\/10\.7\/.*#ariaid-title4$/);
+ assert.notEqual(env.data.sources.s3Service107.url,env.data.sources.service107Israel.url);
  assert.match(env.data.sources.s3Changes103.url,/#8-april-2026-0$/);
  const itsi=env.assess(route({compliance:'fr-h'},'itsi'));assert.match(itsi.productNote,/offering-specific Marketplace evidence and its date/);
  const o=env.assess(route({compliance:'fr-h'},'observability'));assert.equal(o.records.length,0);assert.match(o.productNote,/does not establish/);

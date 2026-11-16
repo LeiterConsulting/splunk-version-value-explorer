@@ -2459,7 +2459,7 @@ window.VersionCompassSources = {
       ]
     },
     {
-      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#id_599802a1_7358_493f_851f_15dfde0fbe0e--en__Available_regions_and_region_differences",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#ariaid-title4",
       "title": "Cloud Platform 10.7 regional table for Federated Search for Amazon S3",
       "areas": [
         "Cloud environment",
@@ -2467,19 +2467,45 @@ window.VersionCompassSources = {
       ],
       "references": [
         "environment.sources.s3Service107.url",
-        "environment.sources.service107Israel.url",
         "content-updates.js",
-        "environment: environment.records.1",
         "environment: environment.records.27"
       ],
       "reviews": [
-        "2026-11-16",
-        "2026-11-13"
+        "2026-11-16"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-11-13",
+      "reviewed": "2026-11-16",
       "status": "Needs reconciliation",
+      "firstRecorded": "2026-11-16",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-16",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#id_599802a1_7358_493f_851f_15dfde0fbe0e--en__Available_regions_and_region_differences",
+      "title": "Cloud Platform 10.7 new-stack regional availability",
+      "areas": [
+        "Cloud environment"
+      ],
+      "references": [
+        "environment.sources.service107Israel.url",
+        "environment: environment.records.1"
+      ],
+      "reviews": [
+        "2026-11-13"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-13",
+      "status": "Reviewed",
       "firstRecorded": "2026-11-13",
       "firstUsed": null,
       "outdatedAsOf": null,
@@ -2494,6 +2520,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-16",
           "event": "Review status updated: Needs reconciliation · 2026-11-13"
+        },
+        {
+          "date": "2026-11-16",
+          "event": "Review status updated: Reviewed · 2026-11-13"
         }
       ]
     },
