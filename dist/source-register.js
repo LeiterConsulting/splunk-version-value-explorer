@@ -2252,14 +2252,12 @@ window.VersionCompassSources = {
       "areas": [
         "Release guide",
         "Cloud environment",
-        "Splunk Forwarders",
         "Shared guidance"
       ],
       "references": [
         "release.cloud.releasesData.10.6.technicalChanges.2.source",
         "release.cloud.releasesData.10.6.requirements.3.3",
         "environment.sources.service.url",
-        "forwarders.sources.cloud.url",
         "content-updates.js",
         "environment: environment.records.0",
         "environment: environment.records.2",
@@ -2299,25 +2297,12 @@ window.VersionCompassSources = {
         "environment: environment.records.38",
         "environment: environment.records.62",
         "environment: environment.records.63",
-        "environment: environment.records.65",
-        "forwarders: forwarders.claimSources.receiver.cloud",
-        "forwarders: forwarders.claimSources.topology.cloud-intermediate"
+        "environment: environment.records.65"
       ],
       "reviews": [
-        "2026-10-21",
-        "2026-10-07"
+        "2026-10-21"
       ],
       "conflict": true,
-      "claimReferences": [
-        {
-          "path": "forwarders: forwarders.claimSources.receiver.cloud",
-          "section": "Current Splunk Cloud Platform and Premium App versions; Supported forwarder versions"
-        },
-        {
-          "path": "forwarders: forwarders.claimSources.topology.cloud-intermediate",
-          "section": "Current Splunk Cloud Platform and Premium App versions; Supported forwarder versions"
-        }
-      ],
       "usage": "In use",
       "reviewed": "2026-10-09",
       "status": "Needs reconciliation",
@@ -2343,6 +2328,46 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-09",
           "event": "Review status updated: Needs reconciliation · 2026-10-09"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details#supported-forwarder-versions-0",
+      "title": "Cloud service details: supported forwarders",
+      "areas": [
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "forwarders.sources.cloud.url",
+        "forwarders: forwarders.claimSources.receiver.cloud",
+        "forwarders: forwarders.claimSources.topology.cloud-intermediate"
+      ],
+      "reviews": [
+        "2026-11-16"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.receiver.cloud",
+          "section": "Supported forwarder versions; version table and direct-to-stack or Cloud-facing intermediate tier qualification"
+        },
+        {
+          "path": "forwarders: forwarders.claimSources.topology.cloud-intermediate",
+          "section": "Supported forwarder versions; version table and direct-to-stack or Cloud-facing intermediate tier qualification"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-16",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-16",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-16",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },
@@ -2395,7 +2420,6 @@ window.VersionCompassSources = {
       "areas": [
         "Release guide",
         "Cloud environment",
-        "Splunk Forwarders",
         "Shared guidance"
       ],
       "references": [
@@ -2404,27 +2428,13 @@ window.VersionCompassSources = {
         "release.productTracks.es.cloudServiceSource",
         "release.productTracks.itsi.cloudServiceSource",
         "environment.sources.service107.url",
-        "forwarders.sources.cloud107.url",
         "content-updates.js",
         "environment: environment.records.62",
         "environment: environment.records.63",
-        "environment: environment.records.64",
-        "forwarders: forwarders.claimSources.receiver.cloud",
-        "forwarders: forwarders.claimSources.topology.cloud-intermediate"
+        "environment: environment.records.64"
       ],
       "reviews": [
-        "2026-11-07",
-        "2026-11-09"
-      ],
-      "claimReferences": [
-        {
-          "path": "forwarders: forwarders.claimSources.receiver.cloud",
-          "section": "Supported versions — Supported forwarder versions; 9.4.x, 10.0.x, 10.2.x, 10.4.x and 10.6.x rows naming Cloud 10.7.x; direct connection and Cloud-facing intermediate tier scope"
-        },
-        {
-          "path": "forwarders: forwarders.claimSources.topology.cloud-intermediate",
-          "section": "Supported versions — Supported forwarder versions; 9.4.x, 10.0.x, 10.2.x, 10.4.x and 10.6.x rows naming Cloud 10.7.x; direct connection and Cloud-facing intermediate tier scope"
-        }
+        "2026-11-07"
       ],
       "usage": "In use",
       "reviewed": "2026-11-08",
@@ -2471,6 +2481,46 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-11-13",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#supported-forwarder-versions-0",
+      "title": "Splunk Cloud Platform 10.7 Service Details: supported forwarder versions",
+      "areas": [
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "forwarders.sources.cloud107.url",
+        "forwarders: forwarders.claimSources.receiver.cloud",
+        "forwarders: forwarders.claimSources.topology.cloud-intermediate"
+      ],
+      "reviews": [
+        "2026-11-16"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.receiver.cloud",
+          "section": "Supported versions — Supported forwarder versions; 9.4.x, 10.0.x, 10.2.x, 10.4.x and 10.6.x rows naming Cloud 10.7.x; direct connection and Cloud-facing intermediate tier scope"
+        },
+        {
+          "path": "forwarders: forwarders.claimSources.topology.cloud-intermediate",
+          "section": "Supported versions — Supported forwarder versions; 9.4.x, 10.0.x, 10.2.x, 10.4.x and 10.6.x rows naming Cloud 10.7.x; direct connection and Cloud-facing intermediate tier scope"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-16",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-16",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-16",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -6205,30 +6255,14 @@ window.VersionCompassSources = {
     },
     {
       "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers",
-      "title": "Forwarder / Enterprise indexer compatibility",
+      "title": "compatibility between forwarders and splunk enterprise indexers",
       "areas": [
-        "Splunk Forwarders",
         "Shared guidance"
       ],
       "references": [
-        "forwarders.sources.receiver.url",
-        "content-updates.js",
-        "forwarders: forwarders.claimSources.receiver.enterprise",
-        "forwarders: forwarders.claimSources.topology.enterprise-intermediate"
+        "content-updates.js"
       ],
-      "reviews": [
-        "2026-10-07"
-      ],
-      "claimReferences": [
-        {
-          "path": "forwarders: forwarders.claimSources.receiver.enterprise",
-          "section": "Compatibility between forwarders and Splunk Enterprise indexers; forwarder-version / indexer-version table"
-        },
-        {
-          "path": "forwarders: forwarders.claimSources.topology.enterprise-intermediate",
-          "section": "Compatibility between forwarders and Splunk Enterprise indexers; forwarder-version / indexer-version table"
-        }
-      ],
+      "reviews": [],
       "usage": "In use",
       "reviewed": "2026-09-28",
       "status": "Reviewed",
@@ -6246,6 +6280,46 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-09-28"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers#ariaid-title2",
+      "title": "Forwarder / Enterprise indexer compatibility",
+      "areas": [
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "forwarders.sources.receiver.url",
+        "forwarders: forwarders.claimSources.receiver.enterprise",
+        "forwarders: forwarders.claimSources.topology.enterprise-intermediate"
+      ],
+      "reviews": [
+        "2026-11-16"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.receiver.enterprise",
+          "section": "Determine forwarder-indexer compatibility; direct-to-indexer and intermediate-tier scope; forwarder-version / indexer-version table"
+        },
+        {
+          "path": "forwarders: forwarders.claimSources.topology.enterprise-intermediate",
+          "section": "Determine forwarder-indexer compatibility; direct-to-indexer and intermediate-tier scope; forwarder-version / indexer-version table"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-16",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-16",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-16",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },

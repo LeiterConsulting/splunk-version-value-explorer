@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "assessment",
+  "findingId": "vci-soar-cmp-88-upgrade-example-destination",
+  "assessmentId": "vcia-release-20261116-soar-cmp-88-upgrade-example-destination",
+  "revision": 1,
+  "recordedAt": "2026-11-16T11:07:17.222Z",
+  "assessedAt": "2026-11-16T11:05:34.941Z",
+  "outcome": "still-present",
+  "rationale": "The example introduction still names an 8.6.0 destination while the final step and current version table end at 8.8.0. The bridge and Python 3.13 step remain conditional on source version as documented; retain conditional OS and PostgreSQL transitions.",
+  "reviewedScope": {
+    "products": [
+      "Splunk SOAR (On-premises)"
+    ],
+    "versions": [
+      "8.8.0, pre-7.0 bridge via 8.5.0"
+    ],
+    "deployments": [
+      "Unprivileged customer-managed"
+    ],
+    "editions": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "The example does not replace version-specific tables and conditional bridge prerequisites."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "vcia-release-20261116-soar-cmp-88-upgrade-example-destination-0",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations#example-0",
+      "section": "Upgrade path table; Example",
+      "statement": "The example introduction still names an 8.6.0 destination while the final step and current version table end at 8.8.0. The bridge and Python 3.13 step remain conditional on source version as documented; retain conditional OS and PostgreSQL transitions.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-16T10:58:31.807Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9eb898d2d13e58deb886562eb4ba926cc4fd761c0280b6d245384b7f6ba3089a",
+        "qualification": "Digest of retrieved public response bytes; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/94116bf8d83c6b03e3e3051c840f970ab5c26081/docs/audits/2026-11-16-version-release-watch-sources.json",
+      "pointer": "/claimChecks/7",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "The example does not replace version-specific tables and conditional bridge prerequisites.",
+    "version-release-watch by 2026-11-18: Check the SOAR On-premises example destination against the exact route and conditional bridges."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261115-soar-cmp-88-upgrade-example-destination"
+  ]
+}

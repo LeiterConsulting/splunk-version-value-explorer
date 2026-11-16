@@ -139,6 +139,7 @@ test('historical receiver and topology citations retain the correct forwarding l
  const mappings={
   receiver:['receiver.enterprise','topology.enterprise-intermediate'],
   cloud:['receiver.cloud','topology.cloud-intermediate'],
+  cloud107:['receiver.cloud','topology.cloud-intermediate'],
   routing:['topology.multiple-target-groups']
  };
  for(const [source,ids] of Object.entries(mappings)){
@@ -146,6 +147,18 @@ test('historical receiver and topology citations retain the correct forwarding l
   for(const id of ids){
    assert(row?.claimReferences?.some(ref=>ref.path==='forwarders: forwarders.claimSources.'+id&&ref.section===data.sources[source].section),id);
   }
+ }
+ assert.equal(new URL(data.sources.receiver.url).hash,'#ariaid-title2');
+ for(const key of ['cloud','cloud107'])assert.equal(new URL(data.sources[key].url).hash,'#supported-forwarder-versions-0');
+ for(const type of ['uf','hf']){
+  const route={...api.defaults,type,from:'9.4',to:'10.0',destination:'hybrid',receiver:'10.0',cloudReceiver:'10.7'};
+  const direct=api.assess({...route,topology:'direct'});
+  assert.equal(direct.claims[1].source,'receiver');
+  assert.equal(direct.claims[2].source,'cloud107');
+  assert.equal(direct.claims[2].status,'conditional');
+  const intermediate=api.assess({...route,topology:'intermediate'});
+  assert.equal(intermediate.claims[2].source,'cloud107');
+  assert.equal(intermediate.claims[2].status,'not_established');
  }
 });
 test('borrowed HF 10.2 runtimes preserve historical optional/default and app-owned boundaries',()=>{

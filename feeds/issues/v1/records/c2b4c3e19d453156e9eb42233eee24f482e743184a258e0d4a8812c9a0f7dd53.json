@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "assessment",
+  "findingId": "vci-sok-32-compatibility-scope",
+  "assessmentId": "vcia-release-20261116-sok-32-compatibility-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-16T11:07:17.222Z",
+  "assessedAt": "2026-11-16T11:05:34.941Z",
+  "outcome": "still-present",
+  "rationale": "The 3.2.0 compatibility matrix lists Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0. The 3.2.0 changelog stops at Kubernetes 1.36. Keep both sources and the Queue secret change; seek exact release/container evidence before equating the ranges.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Operator for Kubernetes"
+    ],
+    "versions": [
+      "3.2.0"
+    ],
+    "deployments": [
+      "Customer-managed Kubernetes"
+    ],
+    "editions": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No Enterprise 11.x, exact Kubernetes support outside the compared ranges, Cloud availability or authorization."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "vcia-release-20261116-sok-32-compatibility-scope-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix",
+      "section": "Splunk Operator for Kubernetes compatibility matrix, 3.2.0 row",
+      "statement": "The 3.2.0 compatibility matrix lists Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0. The 3.2.0 changelog stops at Kubernetes 1.36. Keep both sources and the Queue secret change; seek exact release/container evidence before equating the ranges.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-16T10:58:17.561Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "26dc35f0895e2e6133f25bf83bb2ad4876fdc54bd858019edd2256dd497b00b0",
+        "qualification": "Digest of retrieved public response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "vcia-release-20261116-sok-32-compatibility-scope-1",
+      "url": "https://splunk.github.io/splunk-operator/reference/ChangeLog.html#320-2026-09-08",
+      "section": "3.2.0 (2026-09-08), Compatible Platforms",
+      "statement": "The 3.2.0 compatibility matrix lists Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0. The 3.2.0 changelog stops at Kubernetes 1.36. Keep both sources and the Queue secret change; seek exact release/container evidence before equating the ranges.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-16T10:58:45.219Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "26ab5b4459deeb2ae2d6fd8ad0f544e8c7ddbda5d85880e2b6805fffb833908e",
+        "qualification": "Digest of retrieved public response bytes; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/94116bf8d83c6b03e3e3051c840f970ab5c26081/docs/audits/2026-11-16-version-release-watch-sources.json",
+      "pointer": "/claimChecks/0",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "No Enterprise 11.x, exact Kubernetes support outside the compared ranges, Cloud availability or authorization.",
+    "version-release-watch by 2026-11-18: Recheck the 3.2.0 matrix and changelog for a resolved Kubernetes range."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261115-sok-32-compatibility-scope"
+  ]
+}
