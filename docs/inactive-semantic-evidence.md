@@ -82,7 +82,9 @@ is introduced here to disguise those missing facts.
 ## Tests
 
 `node --test tests/semantic-evidence.test.cjs` reads actual retained records and
-isolated temporary Git fixtures. Tests cover positive scoped continuity using an
+isolated temporary Git fixtures pinned to retained November 16 commit
+`2858c6255c5c2b5ac879c35bbe560d31117ba3b9` (full Git history required).
+The fixed test clock does not constrain moving-main acquisition. Tests cover positive scoped continuity using an
 explicitly synthetic baseline, time-based expiry, changed claims, invalid/latest
 records and ties, separately preserved baseline bytes, hostile file types, future
 records, binding drift and caller authority flags. Synthetic fixtures are not new
