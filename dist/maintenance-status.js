@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-15T12:06:05.062465Z",
+      "lastAttempt": "2026-11-16T12:17:06.451379Z",
       "lastSuccess": "2026-11-10T12:50:41.612Z",
       "outcome": "blocked",
-      "summary": "Assessed current regulated evidence. Exact SOC history and D1 health verification remain incomplete.",
+      "summary": "Versioned S3 evidence corrected. Historical SOC evidence and first-execution verification remain incomplete.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -543,9 +543,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Assessed current regulated evidence. Exact SOC history and D1 health verification remain incomplete.",
           "scope": "71 carried-forward URLs and nine source/claim families covering S3, Marketplace, SOAR and Observability boundaries, and Advisor SOC."
+        },
+        {
+          "at": "2026-11-16T12:17:06.451379Z",
+          "outcome": "running",
+          "summary": "CSP sources and bounded claims under review.",
+          "scope": "Complete carried CSP inventory, ten scoped assessments and the governed SOC coverage slice."
+        },
+        {
+          "at": "2026-11-16T12:25:14.856Z",
+          "outcome": "blocked",
+          "summary": "Versioned S3 evidence corrected. Historical SOC evidence and first-execution verification remain incomplete.",
+          "scope": "Complete carried CSP inventory, ten scoped assessments and the governed SOC coverage slice."
         }
       ],
-      "scope": "71 carried-forward URLs and nine source/claim families covering S3, Marketplace, SOAR and Observability boundaries, and Advisor SOC."
+      "scope": "Complete carried CSP inventory, ten scoped assessments and the governed SOC coverage slice."
     },
     {
       "id": "version-release-watch",
