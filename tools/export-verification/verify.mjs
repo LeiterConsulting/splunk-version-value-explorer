@@ -481,6 +481,12 @@ try {
       }
       if(route.id==='cloud-107-fedramp-high') {
         for(const qualification of ['Cloud 10.7 Service Details lists Edge Processor for FedRAMP High','Cloud 10.7 Service Details lists Ingest Processor for FedRAMP High','The 10.6 table lists Moderate only','Essentials tier']) assert(normalize(expected.text).includes(qualification), 'High processor qualification missing: '+qualification);
+        const s3 = [
+          'The 10.7 regional service table also excludes High and DoD IL5 in both AWS GovCloud regions.',
+          'The April 8 change log adds High and DoD IL5 in both AWS GovCloud regions for relevant 10.3 versions.'
+        ];
+        for (const claim of s3) assert(normalize(expected.text).includes(claim), 'Missing versioned S3 conflict: '+claim);
+        expected.requiredText = (expected.requiredText || []).concat(s3);
       }
       if(marketplaceRecord) expected.requiredText=[marketplaceScope,'Current named component scope remains unresolved'];
       if(route.id==='soar-cloud-fedramp-moderate') {

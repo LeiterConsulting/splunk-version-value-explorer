@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-f950ea7eeecad3f4df6cd86f",
-    "digest": "1604b483db0a9cded9dd8d2d2a9d451f8e76c86fc353f737a9fe796e913e7189",
-    "engineRevision": "engine-c0825f547012a5c7b41a",
+    "revision": "content-2a0a05145673a4a3650f5289",
+    "digest": "bfa2ef69357ae9bdd26b41bb7501dbb2d611b0b2ff3325343e06448a39500f65",
+    "engineRevision": "engine-1757a6f3068aa692b3f8",
     "datasetHashes": {
       "platform": "d8ecc00a5db1d798d02131ae39f984905374fafbad562b0425134aca86b77e7a",
       "products": "854fe986e92c6a88dc3d76eb70c392f0f4ca38417b34c53443eecd4015ba5df4",
       "guidance": "593c31eb222ff2e07d14a5cff4341704e5f8f224dde642e696edf31eb21e28ab",
-      "environment": "f815ab13f3acc9098a9356eef85e0a7c7f2307335a3ded45a22ca99d64d9b53a",
+      "environment": "7235fd3a4937f808f3980f84b70e5a3d43a26ce115f9ee7bfe8bad09a6ba51aa",
       "editions": "fadaf0df55a136d5f9408ee380164a959b89c6782450d888eb0d7aed8b35fd25",
       "forwarders": "55f923dfe6d202f841353e89aca56bdf89ae2847eee48969663b1753cc9ff0af",
       "soar": "0a95273ec36589b59fe74ff2ded1d383c1f8278427449dea3d06dc9e23ddebd4"
     },
-    "recordCount": 962,
+    "recordCount": 963,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -7539,6 +7539,20 @@
           "scope": "November 6, 2026 > Available regions and region differences; applies to relevant Cloud 10.7 versions.",
           "checked": "2026-11-07"
         },
+        "s3Service107": {
+          "title": "Cloud Platform 10.7 regional table for Federated Search for Amazon S3",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#id_599802a1_7358_493f_851f_15dfde0fbe0e--en__Available_regions_and_region_differences",
+          "published": null,
+          "scope": "Available regions and region differences > Federated search for Amazon S3; both AWS GovCloud regions; Moderate inclusion and High/IL5 exclusion in this table.",
+          "checked": "2026-11-16"
+        },
+        "s3Changes103": {
+          "title": "April 8 Cloud service-description change log for Federated Search for Amazon S3",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log#8-april-2026-0",
+          "published": "2026-04-08",
+          "scope": "8 April 2026 > Available region and region differences; added High and DoD IL5 availability in both AWS GovCloud regions for relevant Cloud Platform 10.3 versions.",
+          "checked": "2026-11-16"
+        },
         "service107Israel": {
           "title": "Cloud Platform 10.7 new-stack regional availability",
           "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#id_599802a1_7358_493f_851f_15dfde0fbe0e--en__Available_regions_and_region_differences",
@@ -8276,13 +8290,14 @@
           ],
           "availability": "conflicting",
           "authorization": "not_established",
-          "detail": "High is excluded in the service table; the April 8 change log adds High availability. Confirm before planning.",
+          "detail": "The Cloud Platform 10.6 and 10.7 service tables exclude High. The April 8, 2026 change log lists High for relevant 10.3 versions. Confirm the exact service scope before planning.",
           "sources": [
             "service",
-            "changes"
+            "s3Service107",
+            "s3Changes103"
           ],
-          "checked": "2026-10-09",
-          "scope": "Current service guidance; not a historical availability guarantee",
+          "checked": "2026-11-16",
+          "scope": "Both AWS GovCloud regions; separate Cloud Platform 10.6 and 10.7 service tables and version-scoped 10.3 history",
           "effective": "2026-04-08",
           "claims": [
             {
@@ -8290,8 +8305,12 @@
               "source": "service"
             },
             {
-              "text": "April 8 change log adds High in both GovCloud regions for relevant 10.3 versions.",
-              "source": "changes"
+              "text": "The 10.7 regional service table also excludes High and DoD IL5 in both AWS GovCloud regions.",
+              "source": "s3Service107"
+            },
+            {
+              "text": "The April 8 change log adds High and DoD IL5 in both AWS GovCloud regions for relevant 10.3 versions.",
+              "source": "s3Changes103"
             }
           ]
         },
@@ -13288,6 +13307,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.7.0/splunk-soar-on-premises-release-notes/compatibility-with-related-splunk-products"
+      },
+      {
+        "id": "source-cbf0a9a482d92d1dea54",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log#8-april-2026-0"
       },
       {
         "id": "source-cdcba39a08f58f21916e",
