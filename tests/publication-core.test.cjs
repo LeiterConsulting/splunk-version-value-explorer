@@ -350,3 +350,60 @@ for(const race of ['stop','epoch'])test('stamped batch atomically rejects '+race
  assert.equal(db.sql.prepare('SELECT COUNT(*) AS n FROM content_records WHERE revision_id=?').get(fresh.manifest.revision).n,50);
  assert.equal(db.sql.prepare('SELECT completed FROM content_revisions WHERE id=?').get(fresh.manifest.revision).completed,0);
 });
+test('inactive stamped promotion integrates integrity validation and same-operation reconciliation',async t=>{
+ const {db,a,b}=await fenceFixture(t), op='pub-'+'9'.repeat(32);
+ const {promoteFenced}=await import('../tools/release-coordination/fenced-promotion-reference.mjs');
+ const request={...action(1,a,b),operationId:op}, identity={operationId:op,owner:'owner-a',epoch:1};
+ assert.equal((await promoteFenced(db,request,identity,{engineRevision:engine})).status,'applied');
+ assert.equal((await promoteFenced(db,request,identity,{engineRevision:engine})).status,'already-applied');
+ assert.equal(db.sql.prepare('SELECT COUNT(*) AS n FROM content_publication_events').get().n,1);
+ await assert.rejects(promoteFenced(db,request,{...identity,owner:'owner-b'},{engineRevision:engine}),/admission mismatch/);
+});
+for(const change of ['stop','epoch'])test('stamped promotion guards '+change+' immediately before atomic event',async t=>{
+ const {db,a,b,m}=await fenceFixture(t), op='pub-'+'9'.repeat(32), original=db.prepare.bind(db);
+ db.prepare=q=>{const statement=original(q);if(!q.startsWith('INSERT INTO content_publication_events'))return statement;return {bind:(...args)=>{const bound=statement.bind(...args);return {...bound,run:async()=>{db.sql.exec(change==='stop'?'UPDATE release_admission SET stopped=1':'UPDATE release_admission SET epoch=2');return bound.run()}}}}};
+ const {promoteFenced}=await import('../tools/release-coordination/fenced-promotion-reference.mjs');
+ await assert.rejects(promoteFenced(db,{...action(1,a,b),operationId:op},{operationId:op,owner:'owner-a',epoch:1},{engineRevision:engine}),/fence-/);
+ assert.equal((await m.readPublicationHead(db,engine)).revision,a.manifest.revision);
+ assert.equal(db.sql.prepare('SELECT COUNT(*) AS n FROM content_publication_events').get().n,0);
+});
+test('stamped promotion reconciles committed event after response loss without inserting again',async t=>{
+ const {db,a,b}=await fenceFixture(t), op='pub-'+'9'.repeat(32), original=db.prepare.bind(db);
+ let writes=0;db.prepare=q=>{const statement=original(q);if(!q.startsWith('INSERT INTO content_publication_events'))return statement;return {bind:(...args)=>{const bound=statement.bind(...args);return {...bound,run:async()=>{writes++;await bound.run();throw Error('injected-response-loss')}}}}};
+ const {promoteFenced}=await import('../tools/release-coordination/fenced-promotion-reference.mjs');
+ const request={...action(1,a,b),operationId:op},identity={operationId:op,owner:'owner-a',epoch:1};
+ await assert.rejects(promoteFenced(db,request,identity,{engineRevision:engine}),/response-loss/);
+ assert.equal((await promoteFenced(db,request,identity,{engineRevision:engine})).status,'already-applied');assert.equal(writes,1);
+});
+test('stamped promotion fails closed if current admission was replaced after commit',async t=>{
+ const {db,a,b}=await fenceFixture(t),op='pub-'+'9'.repeat(32);
+ const {promoteFenced}=await import('../tools/release-coordination/fenced-promotion-reference.mjs');
+ const request={...action(1,a,b),operationId:op},identity={operationId:op,owner:'owner-a',epoch:1};
+ await promoteFenced(db,request,identity,{engineRevision:engine});
+ db.sql.prepare('UPDATE release_admission SET operation_id=?').run('pub-'+'8'.repeat(32));
+ await assert.rejects(promoteFenced(db,request,identity,{engineRevision:engine}),/admission mismatch/);
+ assert.equal(db.sql.prepare('SELECT COUNT(*) AS n FROM content_publication_events').get().n,1);
+});
+for(const corruption of ['count','schema','digest','payload','provenance'])test('stamped promotion rejects corrupt '+corruption+' before event insertion',async t=>{
+ const {db,a,b}=await prepared(t),rev=b.manifest.revision,op='pub-'+'9'.repeat(32);
+ if(corruption==='count')db.sql.prepare('DELETE FROM content_records WHERE revision_id=? AND record_id=?').run(rev,b.catalog.records[0].id);
+ if(corruption==='schema')db.sql.prepare('UPDATE content_revisions SET schema_version=2 WHERE id=?').run(rev);
+ if(corruption==='digest')db.sql.prepare("UPDATE content_revisions SET digest=? WHERE id=?").run('f'.repeat(64),rev);
+ if(corruption==='payload')db.sql.prepare("UPDATE content_records SET payload_json='{}' WHERE revision_id=?").run(rev);
+ if(corruption==='provenance')db.sql.prepare('UPDATE content_publication_provenance SET commit_sha=? WHERE revision_id=?').run('f'.repeat(40),rev);
+ db.sql.exec(fs.readFileSync('tools/release-coordination/database-fence-reference.sql','utf8'));
+ db.sql.prepare('INSERT INTO release_admission VALUES(?,?,?,?,?,?,?,?,?,?,?,?)').run('engine:'+engine,op,'owner-a',1,rev,b.manifest.digest,commit,a.manifest.revision,0,'publish','admitted',0);
+ const {promoteFenced}=await import('../tools/release-coordination/fenced-promotion-reference.mjs');
+ await assert.rejects(promoteFenced(db,{...action(1,a,b),operationId:op},{operationId:op,owner:'owner-a',epoch:1},{engineRevision:engine}));
+ assert.equal(db.sql.prepare('SELECT COUNT(*) AS n FROM content_publication_events').get().n,0);
+});
+for(const scenario of ['legal-rollback','rollback-never-active','publish-formerly-active'])test('stamped promotion enforces '+scenario,async t=>{
+ const {db,a,b,c}=await fenceFixture(t),op='pub-'+'9'.repeat(32),next='pub-'+'8'.repeat(32);
+ const {promoteFenced}=await import('../tools/release-coordination/fenced-promotion-reference.mjs');
+ await promoteFenced(db,{...action(1,a,b),operationId:op},{operationId:op,owner:'owner-a',epoch:1},{engineRevision:engine});
+ const target=scenario==='rollback-never-active'?c:a,intent=scenario==='publish-formerly-active'?'publish':'rollback';
+ db.sql.prepare("UPDATE release_admission SET operation_id=?,epoch=2,target_revision=?,target_digest=?,expected_revision=?,expected_generation=1,mode=?,state='admitted'").run(next,target.manifest.revision,target.manifest.digest,b.manifest.revision,intent);
+ const request={...action(2,b,target,1,intent),operationId:next},identity={operationId:next,owner:'owner-a',epoch:2};
+ if(scenario==='legal-rollback'){const r=await promoteFenced(db,request,identity,{engineRevision:engine});assert.equal(r.current.revision,a.manifest.revision);assert.equal(r.deliveryVerified,false)}
+ else await assert.rejects(promoteFenced(db,request,identity,{engineRevision:engine}),/fence-/);
+});
