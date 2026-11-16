@@ -76,3 +76,21 @@ noncanonical types, replay/REPLACE/rowid collisions, history rollback and
 preexisting unsealed admitted/stamped-event baselines. Synthetic fixtures are
 not real evidence or hosted D1 qualification. No live database, controls,
 workflow, credentials or publishing behavior changed.
+
+### Inactive D1 expression-depth compatibility correction
+
+The initial reference's long left-associated identity conjunctions exceed the
+workerd/D1 expression-tree depth limit of 100 when trigger programs are prepared.
+Six pure conjunctions now use balanced grouping. Every comparison, operator,
+constant and leaf order is unchanged; only grouping parentheses were added.
+SQL three-valued `AND` remains associative for these side-effect-free comparisons.
+This is a source correction beyond main `b181790e64eca42123daa568a4c3a7a156e74035`,
+not evidence that the original source ran successfully on D1.
+
+`node --test tests/admission-seal-depth.test.cjs` runs a Python SQLite regression
+with `SQLITE_LIMIT_EXPR_DEPTH=100`: the original unbalanced negative control must
+fail with expression-depth overflow, while the corrected reference rejects an
+unsealed transition and completes sealed absent-head bootstrap and consumption.
+Existing adversarial seal/core tests remain required. Real workerd qualification
+is separately recorded by the isolated harness; this local correction installs
+no migration or runtime route and authorizes no production write.
