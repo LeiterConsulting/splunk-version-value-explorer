@@ -2384,7 +2384,6 @@ window.VersionCompassSources = {
         "environment: environment.records.16",
         "environment: environment.records.20",
         "environment: environment.records.22",
-        "environment: environment.records.27",
         "environment: environment.records.30",
         "environment: environment.records.31",
         "environment: environment.records.32",
@@ -2393,10 +2392,9 @@ window.VersionCompassSources = {
       "reviews": [
         "2026-10-22"
       ],
-      "conflict": true,
       "usage": "In use",
       "reviewed": "2026-10-09",
-      "status": "Needs reconciliation",
+      "status": "Reviewed",
       "firstRecorded": "2026-10-02",
       "firstUsed": null,
       "outdatedAsOf": null,
@@ -2411,6 +2409,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-09",
           "event": "Review status updated: Needs reconciliation · 2026-10-09"
+        },
+        {
+          "date": "2026-11-16",
+          "event": "Review status updated: Reviewed · 2026-10-09"
         }
       ]
     },
@@ -2457,6 +2459,38 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#ariaid-title4",
+      "title": "Cloud Platform 10.7 regional table for Federated Search for Amazon S3",
+      "areas": [
+        "Cloud environment",
+        "Shared guidance"
+      ],
+      "references": [
+        "environment.sources.s3Service107.url",
+        "content-updates.js",
+        "environment: environment.records.27"
+      ],
+      "reviews": [
+        "2026-11-16"
+      ],
+      "conflict": true,
+      "usage": "In use",
+      "reviewed": "2026-11-16",
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-11-16",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-16",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#id_599802a1_7358_493f_851f_15dfde0fbe0e--en__Available_regions_and_region_differences",
       "title": "Cloud Platform 10.7 new-stack regional availability",
       "areas": [
@@ -2482,6 +2516,14 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-13",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-16",
+          "event": "Review status updated: Needs reconciliation · 2026-11-13"
+        },
+        {
+          "date": "2026-11-16",
+          "event": "Review status updated: Reviewed · 2026-11-13"
         }
       ]
     },
@@ -2582,6 +2624,36 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-11-13",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log#8-april-2026-0",
+      "title": "April 8 Cloud service-description change log for Federated Search for Amazon S3",
+      "areas": [
+        "Cloud environment"
+      ],
+      "references": [
+        "environment.sources.s3Changes103.url",
+        "environment: environment.records.27"
+      ],
+      "reviews": [
+        "2026-11-16"
+      ],
+      "conflict": true,
+      "usage": "In use",
+      "reviewed": "2026-11-16",
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-11-16",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-16",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]

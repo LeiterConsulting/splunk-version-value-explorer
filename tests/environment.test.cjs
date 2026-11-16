@@ -45,7 +45,15 @@ test('provider, region and compliance filters intersect without inferring unavai
 test('evidence scope, separate authorization, freshness, and source conflicts remain explicit',()=>{
  for(const r of env.data.records){assert(r.sources.length);assert(r.regions.length);for(const region of r.regions)assert(env.data.regions.some(x=>x.id===region&&x.provider===r.provider));for(const source of r.sources){const s=env.data.sources[source];assert(s);assert(/^https:\/\//.test(s.url));assert(s.checked);assert(s.scope);}assert(r.scope);assert(['documented','not_established'].includes(r.authorization));}
  assert.equal(env.data.sources.compliance.published,'2026-02');
- const conflict=env.data.records.find(r=>r.id==='s3-high');assert.equal(conflict.claims.length,2);assert.equal(new Set(conflict.claims.map(c=>c.source)).size,2);
+ const conflict=env.data.records.find(r=>r.id==='s3-high');
+ assert.deepEqual(Array.from(conflict.claims,c=>c.source),['service','s3Service107','s3Changes103']);
+ assert.equal(conflict.availability,'conflicting');
+ assert.equal(conflict.authorization,'not_established');
+ assert.match(conflict.claims[1].text,/10\.7.*excludes High and DoD IL5/);
+ assert.match(conflict.claims[2].text,/April 8.*relevant 10\.3/);
+ assert.match(env.data.sources.s3Service107.url,/\/10\.7\/.*#ariaid-title4$/);
+ assert.notEqual(env.data.sources.s3Service107.url,env.data.sources.service107Israel.url);
+ assert.match(env.data.sources.s3Changes103.url,/#8-april-2026-0$/);
  const itsi=env.assess(route({compliance:'fr-h'},'itsi'));assert.match(itsi.productNote,/offering-specific Marketplace evidence and its date/);
  const o=env.assess(route({compliance:'fr-h'},'observability'));assert.equal(o.records.length,0);assert.match(o.productNote,/does not establish/);
  const commercial=env.assess(route({csp:'gcp',region:'gcp-oregon',compliance:'commercial'},'observability'));assert(commercial.records.some(r=>r.realm==='us2'));
@@ -57,10 +65,10 @@ test('malformed and duplicated environment inputs never become verified defaults
  assert(!env.assess({product:'platform',platform:'enterprise',environment:{csp:'aws'}}).active);
  const invalid=env.assess({...route({}),environmentErrors:['Unrecognized region']});assert.equal(invalid.records.length,0);assert.match(env.body({...route({}),environmentErrors:['Unrecognized region']}),/needs review/);
 });
-test('regional feature notes and print retain every matching record and both conflict citations',()=>{
+test('regional feature notes and print retain every matching record and all conflict citations',()=>{
  const state=route({csp:'aws',region:'us-gov-east-1',compliance:'fr-h'}),a=env.assess(state),html=env.body(state,true);
  assert(!html.includes('<details'));for(const r of a.records)assert(html.includes(r.feature));
- for(const s of ['service','changes'])assert(html.includes(env.data.sources[s].url));
+ for(const s of ['service','s3Service107','s3Changes103'])assert(html.includes(env.data.sources[s].url));
  assert.match(env.annotation(state,{title:'Federated search for Amazon S3'}),/Conflicting guidance/);
  const es=route({csp:'azure',region:'azure-london',compliance:'commercial'},'es');assert.match(env.annotation(es,{title:'UEBA'}),/Documented unavailable/);
  assert.match(env.annotation(es,{title:'SOAR'}),/Cloud · Not established/);

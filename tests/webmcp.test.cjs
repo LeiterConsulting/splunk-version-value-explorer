@@ -627,12 +627,17 @@ test('environment selection survives page, read-only report, share URL and print
  const rt=await runtime({selection});
  const current=rt.run('get_current_report',{});assert.equal(current.ok,true);
  const report=current.report;assert.equal(report.environment.selection.region,selection.region);
- assert.equal(report.environment.records.find(r=>r.id==='s3-high').availability,'conflicting');
+ const conflict=report.environment.records.find(r=>r.id==='s3-high');
+ assert.equal(conflict.availability,'conflicting');
+ assert.equal(conflict.authorization,'not_established');
+ const s3Citations=conflict.citations.filter(c=>['s3Service107','s3Changes103'].includes(c.key));
+ assert.equal(s3Citations.length,2);
  const link=new URL(report.reportUrl);for(const k of ['csp','region','compliance'])assert.equal(link.searchParams.get(k),selection[k]);
  const before=rt.window.location.href;
  const compact=rt.run('compare_routes',{routes:[{...routes[1],environment:{csp:'azure',compliance:'fr-h'}}],include:[]});
  assert.equal(compact.ok,true);assert.equal(compact.reports[0].environment.records.length,0);assert.match(compact.reports[0].environment.coverageNote,/not an unavailability/);assert.equal(rt.window.location.href,before);
  await rt.dispatch('beforeprint');const html=rt.elements.get('release-report').innerHTML;assert.match(html,/Cloud environment/);assert.match(html,/Conflicting guidance/);assert.match(html,/February 2026/);
+ for(const citation of s3Citations)assert(html.includes(citation.url));
  assert.equal(rt.run('compare_routes',{routes:[{...routes[1],environment:{csp:'aws',region:'gcp-oregon'}}]}).ok,false);
  const invalid=await runtime({selection:{...routes[1],csp:'invalid'}});assert.equal(invalid.run('get_current_report',{}).ok,false);assert.equal(invalid.elements.get('copy-link').disabled,true);
 });
