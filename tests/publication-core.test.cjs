@@ -407,3 +407,61 @@ for(const scenario of ['legal-rollback','rollback-never-active','publish-formerl
  if(scenario==='legal-rollback'){const r=await promoteFenced(db,request,identity,{engineRevision:engine});assert.equal(r.current.revision,a.manifest.revision);assert.equal(r.deliveryVerified,false)}
  else await assert.rejects(promoteFenced(db,request,identity,{engineRevision:engine}),/fence-/);
 });
+async function archivedFixture(t){const f=await fenceFixture(t);f.db.sql.exec(fs.readFileSync('tools/release-coordination/admission-history-reference.sql','utf8'));return f}
+test('retained decisions reconcile prior consumed operation after successor publication without writes',async t=>{
+ const {db,a,b,c}=await archivedFixture(t),op='pub-'+'9'.repeat(32),next='pub-'+'8'.repeat(32);
+ const {promoteFenced}=await import('../tools/release-coordination/fenced-promotion-reference.mjs');
+ const {reconcileRetainedPromotion}=await import('../tools/release-coordination/retained-admission.mjs');
+ const request={...action(1,a,b),operationId:op},identity={operationId:op,owner:'owner-a',epoch:1};
+ await promoteFenced(db,request,identity,{engineRevision:engine});
+ db.sql.prepare("UPDATE release_admission SET operation_id=?,epoch=2,target_revision=?,target_digest=?,expected_revision=?,expected_generation=1,state='preparing'").run(next,c.manifest.revision,c.manifest.digest,b.manifest.revision);
+ db.sql.exec("UPDATE release_admission SET state='admitted'");
+ await promoteFenced(db,{...action(2,b,c,1),operationId:next},{operationId:next,owner:'owner-a',epoch:2},{engineRevision:engine});
+ const before=db.sql.prepare('SELECT COUNT(*) AS n FROM release_admission_states').get().n;
+ const r=await reconcileRetainedPromotion(db,request,identity,engine);
+ assert.equal(r.applied.revision,b.manifest.revision);assert.equal(r.current.revision,c.manifest.revision);assert.equal(r.productionActionAllowed,false);
+ assert.equal(db.sql.prepare('SELECT COUNT(*) AS n FROM release_admission_states').get().n,before);
+ await assert.rejects(reconcileRetainedPromotion(db,request,{...identity,owner:'other'},engine),/mismatch/);
+});
+test('retained history rolls back with failed atomic publication consumption',async t=>{
+ const {db,a,b}=await archivedFixture(t);const before=db.sql.prepare('SELECT COUNT(*) AS n FROM release_admission_states').get().n;
+ db.sql.exec("CREATE TRIGGER injected_history_failure BEFORE INSERT ON release_admission_states WHEN NEW.state='consumed' BEGIN SELECT RAISE(ABORT,'history-failure'); END");
+ assert.throws(()=>insertFencedEvent(db,a,b),/history-failure/);
+ assert.equal(db.sql.prepare('SELECT COUNT(*) AS n FROM release_admission_states').get().n,before);
+ assert.equal(db.sql.prepare('SELECT COUNT(*) AS n FROM content_publication_events').get().n,0);
+ assert.equal(db.sql.prepare('SELECT revision_id FROM content_publication').get().revision_id,a.manifest.revision);
+});
+test('retained history and stopped admission cannot be erased or reset',async t=>{
+ const {db}=await archivedFixture(t);db.sql.exec('UPDATE release_admission SET stopped=1');
+ assert.throws(()=>db.sql.exec('UPDATE release_admission SET stopped=0'),/immutable-admission/);
+ assert.throws(()=>db.sql.exec("UPDATE release_admission SET operation_id='pub-88888888888888888888888888888888',epoch=2,state='preparing',stopped=0"),/successor-rejected/);
+ for(const table of ['release_admission_decisions','release_admission_states']){
+ assert.throws(()=>db.sql.exec('DELETE FROM '+table),/immutable/);
+ assert.throws(()=>db.sql.exec('INSERT OR REPLACE INTO '+table+' SELECT * FROM '+table+' LIMIT 1'),/immutable/);
+ }
+ assert.throws(()=>db.sql.exec("UPDATE release_admission_decisions SET owner='other'"),/immutable/);
+ assert.throws(()=>db.sql.exec("UPDATE release_admission_states SET stopped=0"),/immutable/);
+});
+test('retained lifecycle refuses fabricated consumption without atomic event/head',async t=>{
+ const {db}=await archivedFixture(t);
+ assert.throws(()=>db.sql.exec("UPDATE release_admission SET state='consumed'"),/consumption-event-required/);
+ assert.equal(db.sql.prepare('SELECT state FROM release_admission').get().state,'admitted');
+ assert.equal(db.sql.prepare('SELECT COUNT(*) AS n FROM release_admission_states').get().n,1);
+});
+for(const state of ['admitted','consumed'])test('retained reconciliation rejects '+state+' observation without publication event',async t=>{
+ const {db,a,b}=await archivedFixture(t),op='pub-'+'9'.repeat(32);
+ if(state==='consumed')db.sql.prepare('INSERT INTO release_admission_states(operation_id,state,stopped) VALUES(?,?,0)').run(op,state);
+ const {reconcileRetainedPromotion}=await import('../tools/release-coordination/retained-admission.mjs');
+ await assert.rejects(reconcileRetainedPromotion(db,{...action(1,a,b),operationId:op},{operationId:op,owner:'owner-a',epoch:1},engine),/mismatch/);
+});
+test('retained reconciliation refuses legacy snapshot with wrong target digest despite exact event',async t=>{
+ const {db,a,b}=await fenceFixture(t),op='pub-'+'9'.repeat(32);insertFencedEvent(db,a,b);
+ db.sql.prepare('UPDATE release_admission SET target_digest=?').run('f'.repeat(64));
+ db.sql.exec(fs.readFileSync('tools/release-coordination/admission-history-reference.sql','utf8'));
+ const {reconcileRetainedPromotion}=await import('../tools/release-coordination/retained-admission.mjs');
+ await assert.rejects(reconcileRetainedPromotion(db,{...action(1,a,b),operationId:op},{operationId:op,owner:'owner-a',epoch:1},engine),/target mismatch/);
+});
+test('new admission after history installation must begin preparing',async t=>{
+ const {db}=await archivedFixture(t);
+ assert.throws(()=>db.sql.prepare('INSERT INTO release_admission VALUES(?,?,?,?,?,?,?,?,?,?,?,?)').run('engine:'+'engine-'+'f'.repeat(20),'pub-'+'7'.repeat(32),'owner-b',1,'content-'+'f'.repeat(24),'f'.repeat(64),commit,null,0,'bootstrap','consumed',0),/initial-preparing-required/);
+});
