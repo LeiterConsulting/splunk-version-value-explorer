@@ -1,10 +1,15 @@
 name: Validate release metadata and reports
 on: [push, pull_request]
+permissions:
+  contents: read
 concurrency:
   group: versioncompass-validation-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   validate:
+    outputs:
+      export-artifact-id: ${{ steps.export_upload.outputs.artifact-id }}
+      export-artifact-digest: ${{ steps.export_upload.outputs.artifact-digest }}
     runs-on: ubuntu-24.04 # Playwright 1.56.1 rejects Ubuntu 26.04.
     timeout-minutes: 20
     steps:
@@ -26,6 +31,7 @@ jobs:
       - run: node scripts/check-native-issue-feed.cjs
       - run: node scripts/check-automation-coverage.cjs
       - run: node --test tests/*.test.cjs
+      - run: PYTHONPATH=scripts python3 -m unittest discover -s tests -p 'test_*attestation*.py'
       - run: node scripts/build-worker.cjs
       - run: npm ci --prefix tools/export-verification
       - name: Use direct official Ubuntu HTTPS package transport
@@ -40,6 +46,7 @@ jobs:
           node -e 'const fs=require("node:fs");const input=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));input.evaluatedAt=new Date().toISOString();fs.writeFileSync(process.argv[2],JSON.stringify(input,null,2)+"\n")' docs/audits/2026-10-10-version-release-watch-soak.json /tmp/version-release-watch-soak.json
           node scripts/check-soak.cjs /tmp/version-release-watch-soak.json --exports export-artifacts
       - name: Retain candidate export evidence
+        id: export_upload
         if: always() && steps.exports.outcome != 'skipped' && steps.exports.outcome != ''
         uses: actions/upload-artifact@v4
         with:
@@ -86,5 +93,51 @@ jobs:
             export-artifacts/ai-overview-cisco/
             export-artifacts/ai-compare-default/
             export-artifacts/ai-compare-cisco/
+          if-no-files-found: error
+          retention-days: 30
+
+  attest-export:
+    needs: validate
+    if: >-
+      github.event_name == 'push' && github.ref == 'refs/heads/main' &&
+      github.repository == 'LeiterConsulting/splunk-version-value-explorer' &&
+      github.run_attempt == 1 && needs.validate.result == 'success'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      actions: read
+      id-token: write
+      attestations: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Acquire original export bytes and bind successful exact attempt
+        id: original
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VC_ARTIFACT_ID: ${{ needs.validate.outputs.export-artifact-id }}
+          VC_ARTIFACT_DIGEST: ${{ needs.validate.outputs.export-artifact-digest }}
+        run: timeout 600s python3 scripts/prepare_export_attestation.py
+      - name: Sign the original ZIP and exact payload binding
+        id: attest
+        uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6
+        with:
+          subject-name: github-artifact:LeiterConsulting/splunk-version-value-explorer/${{ needs.validate.outputs.export-artifact-id }}
+          subject-digest: sha256:${{ steps.original.outputs.zip-sha256 }}
+          predicate-type: https://versioncompass.com/attestations/export-upload/v1
+          predicate-path: ${{ runner.temp }}/vc-export-attestation/predicate.json
+          push-to-registry: false
+          create-storage-record: false
+      - name: Retain signed bundle and byte binding
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: export-attestation-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ steps.attest.outputs.bundle-path }}
+            ${{ runner.temp }}/vc-export-attestation/predicate.json
+            ${{ runner.temp }}/vc-export-attestation/payload-manifest.json
           if-no-files-found: error
           retention-days: 30
