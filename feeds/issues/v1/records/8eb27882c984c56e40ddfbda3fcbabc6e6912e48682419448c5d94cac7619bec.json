@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "assessment",
+  "findingId": "vci-es-88-response-agent-rerun-coverage",
+  "assessmentId": "vcia-es-20261116-es-88-response-agent-rerun-coverage",
+  "revision": 1,
+  "recordedAt": "2026-11-16T11:11:57.122Z",
+  "assessedAt": "2026-11-16T11:10:58.067Z",
+  "outcome": "addressed-in-reviewed-scope",
+  "rationale": "The 8.8 task Response enrichment section explicitly says Response cannot rerun processed investigations or include findings added afterward. Separately, the Triage analysis section is limited to existing findings, with documented finding exclusions.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "8.8"
+    ],
+    "deployments": [
+      "Triage and Response workflow"
+    ],
+    "editions": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Limited to ES 8.8 Response agent in an already processed investigation."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "vcia-es-20261116-es-88-response-agent-rerun-coverage-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
+      "section": "Specify SOAR connectors to enrich findings using the Response agent > ES 8.8 rerun note",
+      "statement": "The 8.8 task Response enrichment section explicitly says Response cannot rerun processed investigations or include findings added afterward. Separately, the Triage analysis section is limited to existing findings, with documented finding exclusions.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-16T11:08:12.251Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "89fd67cf470bebcb94fc8654030837950b7e0e78b87c90d6877017b886eb9262",
+        "qualification": "Exact retrieved public response bytes; upstream document revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/a86fe6e86c0a4e658062a0677ac6f91c33e19837/docs/audits/2026-11-16-es-editions-watch-sources.json",
+      "pointer": "/claimChecks/8",
+      "originalLabel": "addressed-in-reviewed-scope"
+    }
+  ],
+  "remainingConcerns": [
+    "Limited to ES 8.8 Response agent in an already processed investigation.",
+    "es-editions-watch by 2026-11-17: Retry the exact October 8.8 Controlled Availability source and original Triage wording. Recheck the standalone and locale-specific task paths, released Cloud Connected support and exact paired version tables."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-es-20261115-es-88-response-agent-rerun-coverage"
+  ]
+}
