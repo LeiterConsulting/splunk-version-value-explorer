@@ -195,7 +195,36 @@ async function observePublisherSeed(db, m) {
     return out;
   } catch { return { ...out, reason: 'observation-select-failed' }; }
 }
+// Real read-only commissioning boundary. No DB handle is passed or accessed.
+async function commissioningIdentity(request, env, seed, json) {
+  const url = new URL(request.url);
+  if (request.method !== 'GET') return json({error:'Commissioning observation requires GET'},405,{Allow:'GET'});
+  if (url.origin !== publisherAudience || url.search || request.body || (request.headers.has('Origin') && request.headers.get('Origin') !== publisherAudience)) return json({error:'Invalid commissioning request'},400);
+  if (env.VC_PUBLISHER_OIDC !== '1' || env.VC_ACTIVE_DELIVERY !== '0' || env.VC_PUBLISHER_ACTIVATION !== '0') return json({error:'Read-only commissioning controls required'},423);
+  const authorization=request.headers.get('Authorization')||'';
+  if (!authorization.startsWith('Bearer ') || authorization.length>16007) return json({error:'Publisher OIDC required'},401);
+  const token=authorization.slice(7);
+  const controller=new AbortController(); let timer;
+  try {
+    const identity=await Promise.race([
+      verifyPublisherOIDC(token,{fetcher:(url,options)=>globalThis.fetch(url,{...options,signal:controller.signal})}),
+      new Promise((_,reject)=>{timer=setTimeout(()=>{controller.abort();reject(Error('timeout'));},12000);})
+    ]);
+    // Decode only the exact string whose signature and fixed scope just verified.
+    const claims=JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(publisherBase64(token.split('.')[1])));
+    const decimal=x=>typeof x==='string'&&/^[1-9][0-9]{0,19}$/.test(x);
+    if(typeof identity.commit!=='string'||!/^[a-f0-9]{40}$/.test(identity.commit)||identity.eventName!=='workflow_dispatch'||!decimal(claims.run_id)||!decimal(claims.run_attempt)||typeof claims.workflow_sha!=='string'||!/^[a-f0-9]{40}$/.test(claims.workflow_sha))throw Error('identity');
+    const m=seed?.manifest;
+    if(typeof m?.engineRevision!=='string'||typeof m?.revision!=='string'||typeof m?.digest!=='string'||!/^engine-[a-f0-9]{20}$/.test(m?.engineRevision)||!/^content-[a-f0-9]{24}$/.test(m?.revision)||!/^[a-f0-9]{64}$/.test(m?.digest))throw Error('runtime');
+    return json({schemaVersion:1,status:'signed-identity-observed',identity:{repository:REPOSITORY,commit:identity.commit,eventName:identity.eventName,runId:claims.run_id,runAttempt:claims.run_attempt,workflowSha:claims.workflow_sha},runtime:{engineRevision:m.engineRevision,contentRevision:m.revision,digest:m.digest},controls:{reader:false,publisher:false},claimsSignatureVerified:true,serviceRunVerified:false,artifactUploadAttemptVerified:false,admission:'held',databaseAccessed:false,mutationAttempted:false,productionActionAllowed:false,deliveryVerified:false});
+  } catch {
+    // Never include raw JWT, issuer response, exception text or environment values.
+    return json({error:'Commissioning identity unavailable',admission:'held',mutationAttempted:false},401);
+  } finally {clearTimeout(timer);controller.abort();}
+}
+
 export async function publisherRequest(request, env, seed, json) {
+  if (new URL(request.url).pathname === '/api/publisher/commissioning-identity') return commissioningIdentity(request,env,seed,json);
   const url = new URL(request.url), routes = ['/api/publisher/head', '/api/publisher/stage', '/api/publisher/bootstrap', '/api/publisher/activate', '/api/publisher/observe-seed', '/api/publisher/resume-seed', '/api/publisher/stage-batch'];
   const identity = await publisherIdentity(request, env);
   if (!identity || identity.type === 'rejected') return json({ error: 'Publisher authorization required', ...(identity?.reason ? { reason: identity.reason } : {}) }, 401);
