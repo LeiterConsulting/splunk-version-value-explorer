@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "assessment",
+  "findingId": "vci-saia-cloud-connected-agent-mode-scope",
+  "assessmentId": "vcia-release-20261116-saia-cloud-connected-agent-mode-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-16T11:07:17.222Z",
+  "assessedAt": "2026-11-16T11:05:34.941Z",
+  "outcome": "still-present",
+  "rationale": "The Agent Mode requirements identify supported AWS regions, Platform 10.1.x+, Model Runtime and optional admin enablement. The Cloud Connected setup section adds callback and certificate requirements. The install path and SAIA-9918 rule out 2.2.0–2.3.6 and the 2.1.1 fallback omits Agent Mode. 2.4.0 is described as planned. Runtime data-zone/global AWS routing and possible Azure OpenAI processing outside the platform boundary remain distinct from the base installation guide’s no-third-party statement. The assistant Cloud install table and About deployment descriptions give context only.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant"
+    ],
+    "versions": [
+      "2.1.1; 2.2.0–2.3.6; planned 2.4.0"
+    ],
+    "deployments": [
+      "Splunk Enterprise Cloud Connected"
+    ],
+    "editions": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No supported Cloud Connected 2.4.0 release or tenant availability is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "vcia-release-20261116-saia-cloud-connected-agent-mode-scope-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "section": "Requirements and Enable and configure Agent Mode as a Cloud Connected customer",
+      "statement": "The Agent Mode requirements identify supported AWS regions, Platform 10.1.x+, Model Runtime and optional admin enablement. The Cloud Connected setup section adds callback and certificate requirements. The install path and SAIA-9918 rule out 2.2.0–2.3.6 and the 2.1.1 fallback omits Agent Mode. 2.4.0 is described as planned. Runtime data-zone/global AWS routing and possible Azure OpenAI processing outside the platform boundary remain distinct from the base installation guide’s no-third-party statement. The assistant Cloud install table and About deployment descriptions give context only.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-16T10:58:17.594Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "2f3bb3092977cf29453811e5b5d4813ac6e3b99d54f74325837494c9b9034663",
+        "qualification": "Digest of retrieved public response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "vcia-release-20261116-saia-cloud-connected-agent-mode-scope-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected#cloud-connected-compatibility-0",
+      "section": "Cloud Connected compatibility",
+      "statement": "The Agent Mode requirements identify supported AWS regions, Platform 10.1.x+, Model Runtime and optional admin enablement. The Cloud Connected setup section adds callback and certificate requirements. The install path and SAIA-9918 rule out 2.2.0–2.3.6 and the 2.1.1 fallback omits Agent Mode. 2.4.0 is described as planned. Runtime data-zone/global AWS routing and possible Azure OpenAI processing outside the platform boundary remain distinct from the base installation guide’s no-third-party statement. The assistant Cloud install table and About deployment descriptions give context only.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-16T10:57:27.599Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "a07d644dbd7729d270aa9b90d742623a6398b41d69fba3fabb264ea3f44c4416",
+        "qualification": "Digest of retrieved public response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "vcia-release-20261116-saia-cloud-connected-agent-mode-scope-2",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
+      "section": "SAIA-9918",
+      "statement": "The Agent Mode requirements identify supported AWS regions, Platform 10.1.x+, Model Runtime and optional admin enablement. The Cloud Connected setup section adds callback and certificate requirements. The install path and SAIA-9918 rule out 2.2.0–2.3.6 and the 2.1.1 fallback omits Agent Mode. 2.4.0 is described as planned. Runtime data-zone/global AWS routing and possible Azure OpenAI processing outside the platform boundary remain distinct from the base installation guide’s no-third-party statement. The assistant Cloud install table and About deployment descriptions give context only.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-16T10:57:27.474Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b1bd81caa4f1a62a5b8329d0a1e6a8bac652ca613ca01d25ef13738a51ef3c48",
+        "qualification": "Digest of retrieved public response bytes; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/94116bf8d83c6b03e3e3051c840f970ab5c26081/docs/audits/2026-11-16-version-release-watch-sources.json",
+      "pointer": "/claimChecks/1",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "No supported Cloud Connected 2.4.0 release or tenant availability is established.",
+    "version-release-watch by 2026-11-18: Recheck the released 2.4.0 installation guide, feature guide and known issues for a usable Cloud Connected Agent Mode path."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261115-saia-cloud-connected-agent-mode-scope"
+  ]
+}

@@ -550,10 +550,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-15T10:21:38.786289Z",
+      "lastAttempt": "2026-11-16T10:54:30.699430Z",
       "lastSuccess": "2026-11-11T14:21:55.848Z",
       "outcome": "blocked",
-      "summary": "Scoped research and one Forwarder citation repair completed. Historical SOC evidence and exact-candidate release verification remain open.",
+      "summary": "Three historical receiver citations were verified. Historical SOC evidence, native first-execution verification and release delivery remain incomplete.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1255,9 +1255,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Scoped research and one Forwarder citation repair completed. Historical SOC evidence and exact-candidate release verification remain open.",
           "scope": "Official full release inventory check; bounded highest-consequence existing Forwarder, Cloud patch, SOAR and exact Prep11/Advisor claims."
+        },
+        {
+          "at": "2026-11-16T10:54:30.699430Z",
+          "outcome": "running",
+          "summary": "Public source and claim review started.",
+          "scope": "Public release discovery, Prep11, Advisor, exact Forwarder receiver citations and bounded SOAR claims."
+        },
+        {
+          "at": "2026-11-16T11:34:03.307Z",
+          "outcome": "blocked",
+          "summary": "Three historical receiver citations were verified. Historical SOC evidence, native first-execution verification and release delivery remain incomplete.",
+          "scope": "Public release discovery, Prep11, Advisor, exact Forwarder receiver citations and bounded SOAR claims."
         }
       ],
-      "scope": "Official full release inventory check; bounded highest-consequence existing Forwarder, Cloud patch, SOAR and exact Prep11/Advisor claims."
+      "scope": "Public release discovery, Prep11, Advisor, exact Forwarder receiver citations and bounded SOAR claims."
     },
     {
       "id": "es-editions-watch",

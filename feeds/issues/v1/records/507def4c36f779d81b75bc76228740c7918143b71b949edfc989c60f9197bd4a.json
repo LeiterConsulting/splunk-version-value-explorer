@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "assessment",
+  "findingId": "vci-saia-agent-runtime-processing-scope",
+  "assessmentId": "vcia-release-20261116-saia-agent-runtime-processing-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-16T11:07:17.222Z",
+  "assessedAt": "2026-11-16T11:05:34.941Z",
+  "outcome": "still-present",
+  "rationale": "The Cloud Connected base installation data paragraph says proprietary inference does not send data to third-party services. Agent Mode requires Model Runtime, whose feature guide describes external Azure OpenAI processing beyond the Splunk platform data boundary and region-standard routing. Preserve the distinction and uncertainty for optional runtime use.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant"
+    ],
+    "versions": [
+      "2.3.6"
+    ],
+    "deployments": [
+      "Splunk Enterprise Cloud Connected and Model Runtime"
+    ],
+    "editions": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No exact per-request processing location, customer authorization or data-residency commitment is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "vcia-release-20261116-saia-agent-runtime-processing-scope-0",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "Data sent from the customer managed environment; proprietary model",
+      "statement": "The Cloud Connected base installation data paragraph says proprietary inference does not send data to third-party services. Agent Mode requires Model Runtime, whose feature guide describes external Azure OpenAI processing beyond the Splunk platform data boundary and region-standard routing. Preserve the distinction and uncertainty for optional runtime use.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-16T10:57:27.599Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "a07d644dbd7729d270aa9b90d742623a6398b41d69fba3fabb264ea3f44c4416",
+        "qualification": "Digest of retrieved public response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "vcia-release-20261116-saia-agent-runtime-processing-scope-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "section": "Requirements, Model Runtime",
+      "statement": "The Cloud Connected base installation data paragraph says proprietary inference does not send data to third-party services. Agent Mode requires Model Runtime, whose feature guide describes external Azure OpenAI processing beyond the Splunk platform data boundary and region-standard routing. Preserve the distinction and uncertainty for optional runtime use.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-16T10:58:17.594Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "2f3bb3092977cf29453811e5b5d4813ac6e3b99d54f74325837494c9b9034663",
+        "qualification": "Digest of retrieved public response bytes; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "vcia-release-20261116-saia-agent-runtime-processing-scope-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+      "section": "Model Runtime feature availability and region standard; Using the Model Runtime feature",
+      "statement": "The Cloud Connected base installation data paragraph says proprietary inference does not send data to third-party services. Agent Mode requires Model Runtime, whose feature guide describes external Azure OpenAI processing beyond the Splunk platform data boundary and region-standard routing. Preserve the distinction and uncertainty for optional runtime use.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-16T10:58:17.574Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "1d780d59c26c8ec3a699da378099b1e27d7931ac6cc20dfa80cd486bbbe7a6e8",
+        "qualification": "Digest of retrieved public response bytes; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/94116bf8d83c6b03e3e3051c840f970ab5c26081/docs/audits/2026-11-16-version-release-watch-sources.json",
+      "pointer": "/claimChecks/2",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "No exact per-request processing location, customer authorization or data-residency commitment is established.",
+    "version-release-watch by 2026-11-18: Recheck Model Runtime and the Cloud Connected installation notes for an explicit processing-boundary correction."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261115-saia-agent-runtime-processing-scope"
+  ]
+}
