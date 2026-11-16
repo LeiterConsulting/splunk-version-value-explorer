@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "findingId": "vci-o11y-november-saas-milestone-coverage",
+  "revision": 1,
+  "recordedAt": "2026-11-16T14:14:26.674Z",
+  "title": "November Observability SaaS milestone is missing from the Release Guide",
+  "concernType": "coverage-gap",
+  "problem": "The Release Guide ends at October 2026. It omits the November 12 SaaS changes even though Splunk published a dated milestone with a select-customer qualification for A2A.",
+  "scope": {
+    "products": [
+      "Splunk Observability Cloud"
+    ],
+    "versions": [
+      "November 2026"
+    ],
+    "editions": null,
+    "deployments": [
+      "Managed SaaS"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers comparing managed-service releases"
+    ],
+    "exclusions": [
+      "No universal A2A access, installation path, edition entitlement, region rollout or authorization is established."
+    ]
+  },
+  "scopeComparison": "The bounded catalog was read on its observed public main commit. The cited monthly notes cover a later managed-service milestone.",
+  "impact": {
+    "customerScenario": "A reader comparing October with November Observability changes.",
+    "consequence": "The reader cannot compare the changes or see the documented A2A access boundary in that comparison.",
+    "level": "unknown"
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "Direct release notes and the public catalog were checked independently."
+  },
+  "claimIds": [
+    "observability.november-2026-saas-milestone"
+  ],
+  "coverageSearch": {
+    "question": "Can I compare October and November managed-service changes and confirm the documented A2A audience?",
+    "expectedAnswer": "A dated November milestone with cloud scope and a select-customer A2A qualifier.",
+    "corpusEvidenceIds": [
+      "guidance-20261116-10-0"
+    ],
+    "searchedAt": "2026-11-16T14:12:43.041Z",
+    "limits": "The November release-notes body and the October-ended catalog on the pinned baseline only. No universal customer access, entitlement or technical installation inference."
+  },
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Awaiting Release Watch assessment and selection."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261116-10-0",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026",
+      "section": "What’s new > A2A Access for AI Assistant; November 12 rows",
+      "statement": "The November 12 release notes include A2A investigation access for select customers, plus APM, RUM and other service changes. The Release Guide catalog on the reviewed commit ends in October and cannot compare a November milestone. A separate searchable copy displayed an Essentials/Premier release-note row not present in the directly retrieved body; do not derive entitlement, rollout, authorization or an installable version from either publication.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-16T14:08:09.263Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "bcacb8dda969da5202dbe7449943987e45c0f0340b6d674fd1760f72a95c8806",
+        "qualification": "Retrieved body digest; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/13f8ee0203d83f16dfb3b5d55bd34fa526ca911f/docs/audits/2026-11-16-version-guidance-audit.json",
+      "pointer": "/claimChecks/10",
+      "originalLabel": "new-finding"
+    }
+  ]
+}
