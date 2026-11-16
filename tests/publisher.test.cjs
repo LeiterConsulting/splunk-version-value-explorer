@@ -477,3 +477,42 @@ test('failed provenance write and malformed retained run never report successful
  assert.equal(db.sql.prepare('SELECT count(*) n FROM content_publication_events').get().n,0);
  }
 });
+test('real commissioning route verifies signed identity, redacts secrets and never accesses DB',async()=>{
+ const m=await modules(),worker=m.createWorker(seed,{}),original=globalThis.fetch;
+ const f=await signedToken({event_name:'workflow_dispatch',run_id:'43784154650',run_attempt:'1',workflow_sha:'c'.repeat(40)});
+ let calls=0;globalThis.fetch=async(url,options)=>{calls++;assert.equal(url,'https://token.actions.githubusercontent.com/.well-known/jwks');assert.equal(options.redirect,'manual');assert(!options.headers?.Authorization);return Response.json(f.jwks)};
+ const env={VC_PUBLISHER_OIDC:'1',VC_ACTIVE_DELIVERY:'0',VC_PUBLISHER_ACTIVATION:'0',get DB(){throw Error('DB accessed')}};
+ try{
+ const response=await worker.fetch(new Request('https://versioncompass.com/api/publisher/commissioning-identity',{headers:{Authorization:'Bearer '+f.token}}),env);
+ assert.equal(response.status,200);assert.equal(response.headers.get('Cache-Control'),'no-store');const text=await response.text(),r=JSON.parse(text);
+ assert.equal(r.identity.runId,'43784154650');assert.equal(r.claimsSignatureVerified,true);assert.equal(r.admission,'held');assert.equal(r.databaseAccessed,false);assert.equal(r.productionActionAllowed,false);assert(!text.includes(f.token));assert(!text.includes('Bearer'));assert.equal(calls,1);
+ }finally{globalThis.fetch=original}
+});
+test('commissioning route rejects maintenance credential, invalid claims and control/request drift without writes',async()=>{
+ const m=await modules(),worker=m.createWorker(seed,{}),original=globalThis.fetch,env={VC_PUBLISHER_OIDC:'1',VC_ACTIVE_DELIVERY:'0',VC_PUBLISHER_ACTIVATION:'0',VC_PUBLISHER_TOKEN:admin,get DB(){throw Error('DB accessed')}};
+ const f=await signedToken({event_name:'workflow_dispatch',run_id:'1',run_attempt:'1',workflow_sha:'c'.repeat(40)});
+ globalThis.fetch=async()=>Response.json(f.jwks);
+ try{
+ for(const [path,options,change,status] of [
+ ['/api/publisher/commissioning-identity',{headers:{Authorization:'Bearer '+admin}},{},401],
+ ['/api/publisher/commissioning-identity?owner=other',{headers:{Authorization:'Bearer '+f.token}},{},400],
+ ['/api/publisher/commissioning-identity',{method:'POST',headers:{Authorization:'Bearer '+f.token}},{},405],
+ ['/api/publisher/commissioning-identity',{headers:{Authorization:'Bearer '+f.token,Origin:'https://other.example'}},{},400],
+ ['/api/publisher/commissioning-identity',{headers:{Authorization:'Bearer '+f.token}},{VC_ACTIVE_DELIVERY:'1'},423]
+ ])assert.equal((await worker.fetch(new Request('https://versioncompass.com'+path,options),Object.assign(Object.create(env),change))).status,status);
+ for(const changes of [{run_id:'01'},{run_attempt:1},{workflow_sha:'bad'},{workflow_sha:['c'.repeat(40)]},{workflow_sha:1},{workflow_sha:{}},{sha:['b'.repeat(40)]},{event_name:'workflow_run'},{aud:'other'}]){
+ const bad=await signedToken({event_name:'workflow_dispatch',run_id:'1',run_attempt:'1',workflow_sha:'c'.repeat(40),...changes});
+ const response=await worker.fetch(new Request('https://versioncompass.com/api/publisher/commissioning-identity',{headers:{Authorization:'Bearer '+bad.token}}),env);assert.equal(response.status,401);assert(!(await response.text()).includes(bad.token));
+ }
+ }finally{globalThis.fetch=original}
+});
+for(const phase of ['fetch','body'])test('commissioning deadline bounds stalled '+phase+' and redacts failure',async()=>{
+ const m=await modules(),worker=m.createWorker(seed,{}),f=await signedToken({event_name:'workflow_dispatch',run_id:'1',run_attempt:'1',workflow_sha:'c'.repeat(40)});
+ const originalFetch=globalThis.fetch,originalTimer=globalThis.setTimeout;let aborted=false;
+ globalThis.setTimeout=(fn,ms,...args)=>originalTimer(fn,ms===12000?25:ms,...args);
+ globalThis.fetch=async(url,{signal})=>phase==='fetch'?new Promise((resolve,reject)=>signal.addEventListener('abort',()=>{aborted=true;reject(Error('PRIVATE-ISSUER-DETAIL'))},{once:true})):new Response(new ReadableStream({start(controller){signal.addEventListener('abort',()=>{aborted=true;controller.error(Error('PRIVATE-ISSUER-DETAIL'))},{once:true})}}));
+ try{
+ const response=await worker.fetch(new Request('https://versioncompass.com/api/publisher/commissioning-identity',{headers:{Authorization:'Bearer '+f.token}}),{VC_PUBLISHER_OIDC:'1',VC_ACTIVE_DELIVERY:'0',VC_PUBLISHER_ACTIVATION:'0',get DB(){throw Error('DB accessed')}});
+ assert.equal(response.status,401);assert(aborted);const body=await response.text();assert(!body.includes(f.token));assert(!body.includes('PRIVATE-ISSUER-DETAIL'));assert.equal(JSON.parse(body).admission,'held');
+ }finally{globalThis.fetch=originalFetch;globalThis.setTimeout=originalTimer}
+});
