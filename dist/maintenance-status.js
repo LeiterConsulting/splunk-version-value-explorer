@@ -1262,10 +1262,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-15T11:03:00.000Z",
+      "lastAttempt": "2026-11-16T11:07:16.450524Z",
       "lastSuccess": "2026-11-15T11:24:00.000Z",
-      "outcome": "no-change",
-      "summary": "Current claims preserved; two official English source redirects recovered and historical scope remains incomplete.",
+      "outcome": "blocked",
+      "summary": "Current claims assessed. Exact historical Controlled Availability and original Triage wording remain unavailable; first execution is unverified.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1847,9 +1847,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Current claims preserved; two official English source redirects recovered and historical scope remains incomplete.",
           "scope": "62 URLs checked, 59 usable; ten claims assessed; no canonical product fact changed."
+        },
+        {
+          "at": "2026-11-16T11:07:16.450524Z",
+          "outcome": "running",
+          "summary": "Public evidence review started.",
+          "scope": "ES Editions evidence inventory, ten scoped edition, prerequisite, pairing and licensing claims, and Advisor SOC history."
+        },
+        {
+          "at": "2026-11-16T11:11:57.879Z",
+          "outcome": "blocked",
+          "summary": "Current claims assessed. Exact historical Controlled Availability and original Triage wording remain unavailable; first execution is unverified.",
+          "scope": "ES Editions evidence inventory, ten scoped edition, prerequisite, pairing and licensing claims, and Advisor SOC history."
         }
       ],
-      "scope": "62 URLs checked, 59 usable; ten claims assessed; no canonical product fact changed."
+      "scope": "ES Editions evidence inventory, ten scoped edition, prerequisite, pairing and licensing claims, and Advisor SOC history."
     },
     {
       "id": "version-guidance-audit",
