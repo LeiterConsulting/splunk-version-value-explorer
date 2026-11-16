@@ -27,19 +27,7 @@ export async function promoteFenced(db, action, identity, { engineRevision } = {
     return {status:'already-applied', applied:{revision:existing.to_revision,generation:existing.generation}, current:await readPublicationHead(db,engineRevision), deliveryVerified:false,productionActionAllowed:false};
   }
   check(admission.state === 'admitted' && admission.stopped === 0, 'Promotion not admitted');
-  const row = await db.prepare('SELECT * FROM content_revisions WHERE id=?').bind(action.revision).first();
-  check(row?.completed === 1, 'Complete target required');
-  const bundle = await validateBundle(JSON.parse(row.bundle_json),engineRevision), m = bundle.manifest;
-  check(m.revision === action.revision && m.digest === admission.target_digest && row.digest === m.digest &&
-    row.manifest_json === JSON.stringify(m) && row.engine === engineRevision && row.schema_version === m.schemaVersion && row.record_count === m.recordCount,
-    'Stored target identity mismatch');
-  const provenance = await db.prepare('SELECT * FROM content_publication_provenance WHERE revision_id=?').bind(action.revision).first();
-  check(provenance?.repository === REPOSITORY && provenance.commit_sha === admission.target_commit, 'Target provenance mismatch');
-  const {results} = await db.prepare('SELECT record_id,kind,dataset,payload_json FROM content_records WHERE revision_id=? LIMIT ?').bind(action.revision,m.recordCount+1).all();
-  const expected = new Map(bundle.catalog.records.map(r=>[r.id,r]));
-  check(Array.isArray(results) && results.length === m.recordCount && new Set(results.map(r=>r.record_id)).size === results.length && results.every(r=>{
-    const e=expected.get(r.record_id);return e && r.kind===e.kind && r.dataset===e.dataset && r.payload_json===JSON.stringify(e);
-  }), 'Target record integrity failed');
+  await inspectFencedTarget(db, action.revision, admission, engineRevision);
   const current = await readPublicationHead(db,engineRevision);
   check(current.revision===action.expectedRevision && current.generation===action.expectedGeneration,'Stale publication expectation');
   // SQL guards repeat head/generation/history/ownership/stop checks atomically.
@@ -51,4 +39,22 @@ export async function promoteFenced(db, action, identity, { engineRevision } = {
   const after=await db.prepare('SELECT state FROM release_admission WHERE operation_id=?').bind(action.operationId).first();
   check(exactEvent(event) && after?.state==='consumed','Promotion outcome uncertain');
   return {status:'applied',applied:{revision:event.to_revision,generation:event.generation},current:await readPublicationHead(db,engineRevision),deliveryVerified:false,productionActionAllowed:false};
+}
+
+// Shared canonical target/row inspection; no write or admission authority.
+export async function inspectFencedTarget(db, revision, admission, engineRevision) {
+  const row = await db.prepare('SELECT * FROM content_revisions WHERE id=?').bind(revision).first();
+  check(row?.completed === 1, 'Complete target required');
+  const bundle = await validateBundle(JSON.parse(row.bundle_json),engineRevision), m = bundle.manifest;
+  check(m.revision === revision && m.digest === admission.target_digest && row.digest === m.digest &&
+    row.manifest_json === JSON.stringify(m) && row.engine === engineRevision && row.schema_version === m.schemaVersion && row.record_count === m.recordCount,
+    'Stored target identity mismatch');
+  const provenance = await db.prepare('SELECT * FROM content_publication_provenance WHERE revision_id=?').bind(revision).first();
+  check(provenance?.repository === REPOSITORY && provenance.commit_sha === admission.target_commit, 'Target provenance mismatch');
+  const {results} = await db.prepare('SELECT record_id,kind,dataset,payload_json FROM content_records WHERE revision_id=? LIMIT ?').bind(revision,m.recordCount+1).all();
+  const expected = new Map(bundle.catalog.records.map(r=>[r.id,r]));
+  check(Array.isArray(results) && results.length === m.recordCount && new Set(results.map(r=>r.record_id)).size === results.length && results.every(r=>{
+    const e=expected.get(r.record_id);return e && r.kind===e.kind && r.dataset===e.dataset && r.payload_json===JSON.stringify(e);
+  }), 'Target record integrity failed');
+  return {bundle, provenance};
 }

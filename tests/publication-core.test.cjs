@@ -465,3 +465,65 @@ test('new admission after history installation must begin preparing',async t=>{
  const {db}=await archivedFixture(t);
  assert.throws(()=>db.sql.prepare('INSERT INTO release_admission VALUES(?,?,?,?,?,?,?,?,?,?,?,?)').run('engine:'+'engine-'+'f'.repeat(20),'pub-'+'7'.repeat(32),'owner-b',1,'content-'+'f'.repeat(24),'f'.repeat(64),commit,null,0,'bootstrap','consumed',0),/initial-preparing-required/);
 });
+
+async function sealedBootstrapFixture(t,{corruption=null,legacyHeads=0}={}) {
+ const db=await database(t),b=await bundle(77),c=await bundle(78),m=await core();await stage(db,b);await stage(db,c);
+ if(corruption==='payload')db.sql.prepare("UPDATE content_records SET payload_json='{}' WHERE revision_id=? AND kind='claim'").run(b.manifest.revision);
+ if(corruption==='count')db.sql.prepare("DELETE FROM content_records WHERE revision_id=? AND kind='claim'").run(b.manifest.revision);
+ for(let i=0;i<legacyHeads;i++)db.sql.prepare('INSERT INTO content_publication VALUES(?,?)').run('engine:engine-'+i.toString(16).padStart(20,'0'),b.manifest.revision);
+ for(const file of ['database-fence-reference.sql','admission-history-reference.sql','admission-seal-reference.sql'])db.sql.exec(fs.readFileSync('tools/release-coordination/'+file,'utf8'));
+ const op='pub-'+'9'.repeat(32),identity={operationId:op,owner:'owner-a',epoch:1};
+ db.sql.prepare('INSERT INTO release_admission VALUES(?,?,?,?,?,?,?,?,?,?,?,?)').run('engine:'+engine,op,identity.owner,1,b.manifest.revision,b.manifest.digest,commit,null,0,'bootstrap','preparing',0);
+ db.sql.prepare('INSERT INTO release_admission_bindings SELECT operation_id,channel,owner,epoch,target_revision,target_digest,target_commit,expected_revision,expected_generation,mode,?,?,?,? FROM release_admission').run(...['1','2','3','4'].map(x=>x.repeat(64)));
+ db.sql.prepare('INSERT INTO release_admission_seals VALUES(?,?,?,?,?,?,?)').run(op,identity.owner,1,...['1','2','3','4'].map(x=>x.repeat(64)));
+ const request={operationId:op,revision:b.manifest.revision,expectedHead:'absent',expectedGeneration:0,intent:'bootstrap'};
+ return {db,b,c,m,identity,request,...await import('../tools/release-coordination/fenced-bootstrap-reference.mjs')};
+}
+function interceptBootstrapInsert(db,fn){const original=db.prepare;db.prepare=q=>{const p=original(q);if(!q.startsWith('INSERT INTO content_publication_events'))return p;return {bind(...args){const bound=p.bind(...args);return {...bound,run:()=>fn(bound)}}}};}
+test('explicit sealed bootstrap reuses canonical target checks and atomically consumes with history',async t=>{
+ const {db,request,identity,bootstrapFenced,reconcileRetainedBootstrap,b}=await sealedBootstrapFixture(t,{legacyHeads:77});
+ const before=db.sql.prepare('SELECT * FROM content_publication ORDER BY channel').all();
+ const r=await bootstrapFenced(db,request,identity,{engineRevision:engine});assert.equal(r.status,'applied');assert.equal(r.applied.revision,b.manifest.revision);assert.equal(r.applied.generation,1);assert.equal(r.productionActionAllowed,false);assert.equal(r.deliveryVerified,false);
+ assert.equal(db.sql.prepare('SELECT COUNT(*) n FROM content_publication').get().n,78);for(const x of before)assert.deepEqual(db.sql.prepare('SELECT channel,revision_id,writer_operation,writer_owner,writer_epoch FROM content_publication WHERE channel=?').get(x.channel),x);
+ assert.deepEqual(db.sql.prepare('SELECT state FROM release_admission_states ORDER BY sequence').all().map(x=>x.state),['preparing','admitted','consumed']);
+ assert.equal((await reconcileRetainedBootstrap(db,request,identity,{engineRevision:engine})).status,'historically-applied');
+ await assert.rejects(bootstrapFenced(db,request,identity,{engineRevision:engine}),/not current/);assert.equal(db.sql.prepare('SELECT COUNT(*) n FROM content_publication_events').get().n,1);
+});
+for(const patch of [{expectedHead:'unknown'},{expectedHead:null},{expectedGeneration:1},{intent:'publish'},{extra:true},{operationId:'pub-'+'9'.repeat(32)+'\n'}])test('bootstrap exact absent-head contract rejects '+JSON.stringify(patch),async t=>{const f=await sealedBootstrapFixture(t);await assert.rejects(f.bootstrapFenced(f.db,{...f.request,...patch},f.identity,{engineRevision:engine}));assert.equal(f.db.sql.prepare('SELECT COUNT(*) n FROM content_publication_events').get().n,0);});
+for(const corruption of ['payload','count'])test('bootstrap rejects full target '+corruption+' corruption before write',async t=>{const f=await sealedBootstrapFixture(t,{corruption});await assert.rejects(f.bootstrapFenced(f.db,f.request,f.identity,{engineRevision:engine}),/integrity/);assert.equal(f.db.sql.prepare('SELECT COUNT(*) n FROM content_publication_events').get().n,0);});
+test('bootstrap stop race is repeated atomically by real SQL trigger',async t=>{const f=await sealedBootstrapFixture(t);interceptBootstrapInsert(f.db,b=>{f.db.sql.exec('UPDATE release_admission SET stopped=1');return b.run()});await assert.rejects(f.bootstrapFenced(f.db,f.request,f.identity,{engineRevision:engine}),/seal|fence/);assert.equal(f.db.sql.prepare('SELECT COUNT(*) n FROM content_publication').get().n,0);assert.equal(f.db.sql.prepare('SELECT state FROM release_admission').get().state,'admitted');});
+test('bootstrap history failure rolls back event head and consumption',async t=>{const f=await sealedBootstrapFixture(t);f.db.sql.exec("CREATE TRIGGER injected_bootstrap_history_failure BEFORE INSERT ON release_admission_states WHEN NEW.state='consumed' BEGIN SELECT RAISE(ABORT,'history-failure'); END");await assert.rejects(f.bootstrapFenced(f.db,f.request,f.identity,{engineRevision:engine}),/history-failure/);for(const table of ['content_publication','content_publication_events'])assert.equal(f.db.sql.prepare('SELECT COUNT(*) n FROM '+table).get().n,0);assert.equal(f.db.sql.prepare('SELECT state FROM release_admission').get().state,'admitted');});
+test('bootstrap lost response does not retry and reconciles retained exact operation read-only',async t=>{const f=await sealedBootstrapFixture(t);let writes=0;interceptBootstrapInsert(f.db,async b=>{writes++;await b.run();throw Error('response-lost')});await assert.rejects(f.bootstrapFenced(f.db,f.request,f.identity,{engineRevision:engine}),/response-lost/);const r=await f.reconcileRetainedBootstrap(f.db,f.request,f.identity,{engineRevision:engine});assert.equal(r.status,'historically-applied');assert.equal(writes,1);assert.equal(f.db.sql.prepare('SELECT COUNT(*) n FROM content_publication_events').get().n,1);});
+test('bootstrap read failure is not head absence',async t=>{const f=await sealedBootstrapFixture(t),orig=f.db.prepare;f.db.prepare=q=>q.startsWith('SELECT channel,revision_id FROM content_publication')?{bind(){return {first(){throw Error('head-read-failed')}}}}:orig(q);await assert.rejects(f.bootstrapFenced(f.db,f.request,f.identity,{engineRevision:engine}),/head-read-failed/);assert.equal(f.db.sql.prepare('SELECT COUNT(*) n FROM content_publication_events').get().n,0);});
+test('bootstrap undefined head observation is not absence',async t=>{const f=await sealedBootstrapFixture(t),orig=f.db.prepare;f.db.prepare=q=>q.startsWith('SELECT channel,revision_id FROM content_publication')?{bind(){return {first(){return undefined}}}}:orig(q);await assert.rejects(f.bootstrapFenced(f.db,f.request,f.identity,{engineRevision:engine}),/unknown/);assert.equal(f.db.sql.prepare('SELECT COUNT(*) n FROM content_publication_events').get().n,0);});
+test('retained bootstrap reconciliation preserves historical result after a sealed successor',async t=>{
+ const f=await sealedBootstrapFixture(t);await f.bootstrapFenced(f.db,f.request,f.identity,{engineRevision:engine});
+ const next='pub-'+'8'.repeat(32);f.db.sql.prepare("UPDATE release_admission SET operation_id=?,epoch=2,target_revision=?,target_digest=?,expected_revision=?,expected_generation=1,mode='publish',state='preparing'").run(next,f.c.manifest.revision,f.c.manifest.digest,f.b.manifest.revision);
+ f.db.sql.prepare('INSERT INTO release_admission_bindings SELECT operation_id,channel,owner,epoch,target_revision,target_digest,target_commit,expected_revision,expected_generation,mode,?,?,?,? FROM release_admission').run(...['5','6','7','8'].map(x=>x.repeat(64)));
+ f.db.sql.prepare('INSERT INTO release_admission_seals VALUES(?,?,?,?,?,?,?)').run(next,'owner-a',2,...['5','6','7','8'].map(x=>x.repeat(64)));
+ const {promoteFenced}=await import('../tools/release-coordination/fenced-promotion-reference.mjs');await promoteFenced(f.db,{operationId:next,revision:f.c.manifest.revision,expectedRevision:f.b.manifest.revision,expectedGeneration:1,intent:'publish'},{operationId:next,owner:'owner-a',epoch:2},{engineRevision:engine});
+ const before=f.db.sql.prepare('SELECT COUNT(*) n FROM release_admission_states').get().n;
+ const r=await f.reconcileRetainedBootstrap(f.db,f.request,f.identity,{engineRevision:engine});assert.equal(r.applied.revision,f.b.manifest.revision);assert.equal(r.applied.generation,1);assert.equal(r.current.revision,f.c.manifest.revision);assert.equal(r.current.generation,2);assert.equal(f.db.sql.prepare('SELECT COUNT(*) n FROM release_admission_states').get().n,before);
+});
+test('bootstrap present raw head cannot be treated as absent',async t=>{const f=await sealedBootstrapFixture(t),orig=f.db.prepare;f.db.prepare=q=>q.startsWith('SELECT channel,revision_id FROM content_publication')?{bind(){return {first(){return {channel:'engine:'+engine,revision_id:'malformed'}}}}}:orig(q);await assert.rejects(f.bootstrapFenced(f.db,f.request,f.identity,{engineRevision:engine}),/present/);assert.equal(f.db.sql.prepare('SELECT COUNT(*) n FROM content_publication_events').get().n,0);});
+test('bootstrap requires exact sealed owner and retained identity',async t=>{const f=await sealedBootstrapFixture(t);for(const patch of [{owner:'other'},{epoch:2},{extra:true}])await assert.rejects(f.bootstrapFenced(f.db,f.request,{...f.identity,...patch},{engineRevision:engine}));assert.equal(f.db.sql.prepare('SELECT COUNT(*) n FROM content_publication_events').get().n,0);});
+for(const scenario of ['missing-seal','wrong-seal-hash','wrong-retained-target','wrong-binding-policy'])test('bootstrap rejects '+scenario+' before mutation',async t=>{
+ const f=await sealedBootstrapFixture(t),orig=f.db.prepare;
+ f.db.prepare=q=>{
+  const p=orig(q);
+  const match=scenario.includes('seal')?q.startsWith('SELECT * FROM release_admission_seals'):scenario==='wrong-retained-target'?q.startsWith('SELECT d.*,s.state'):q.startsWith('SELECT * FROM release_admission_bindings');
+  if(!match)return p;
+  return {bind(...args){
+   const b=p.bind(...args);
+   return {...b,first:async()=>{
+    const v=await b.first();
+    if(scenario==='missing-seal')return null;
+    const change=scenario==='wrong-retained-target'?{target_revision:'content-'+'f'.repeat(24)}:scenario==='wrong-binding-policy'?{policy_sha256:'f'.repeat(64)}:{evidence_set_sha256:'f'.repeat(64)};
+    return {...v,...change};
+   }};
+  }};
+ };
+ await assert.rejects(f.bootstrapFenced(f.db,f.request,f.identity,{engineRevision:engine}),/mismatch/);assert.equal(f.db.sql.prepare('SELECT COUNT(*) n FROM content_publication_events').get().n,0);
+});
+for(const observation of [undefined,{operation_id:'unexpected'}])test('bootstrap unknown/present raw event history is not absence '+String(observation),async t=>{const f=await sealedBootstrapFixture(t),orig=f.db.prepare;f.db.prepare=q=>q.startsWith('SELECT operation_id FROM content_publication_events WHERE channel')?{bind(){return {first(){return observation}}}}:orig(q);await assert.rejects(f.bootstrapFenced(f.db,f.request,f.identity,{engineRevision:engine}),/unknown/);assert.equal(f.db.sql.prepare('SELECT COUNT(*) n FROM content_publication_events').get().n,0);});
+test('bootstrap retained readback rejects conflicting event after uncertain response',async t=>{const f=await sealedBootstrapFixture(t);await f.bootstrapFenced(f.db,f.request,f.identity,{engineRevision:engine});const orig=f.db.prepare;f.db.prepare=q=>{const p=orig(q);if(!q.startsWith('SELECT * FROM content_publication_events WHERE operation_id'))return p;return {bind(...args){const b=p.bind(...args);return {...b,first:async()=>({...await b.first(),generation:2})}}}};await assert.rejects(f.reconcileRetainedBootstrap(f.db,f.request,f.identity,{engineRevision:engine}),/event mismatch/);});
