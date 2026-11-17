@@ -19,6 +19,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Install locked Worker build dependencies without lifecycle scripts
+        run: npm ci --ignore-scripts --no-audit --no-fund
       - name: Validate input bytes before generation checks
         run: node scripts/maintenance.cjs --manifest > /tmp/maintenance-inputs.json
       - run: node scripts/sync-release-metadata.cjs --check

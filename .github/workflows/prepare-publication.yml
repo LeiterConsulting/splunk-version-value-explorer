@@ -32,6 +32,8 @@ jobs:
           node-version: '22'
       - name: Validate literal publication inputs
         run: node -e 'if (!/^[a-f0-9]{40}$/.test(process.env.CANDIDATE_COMMIT) || !/^content-[a-f0-9]{24}$/.test(process.env.EXPECTED_CONTENT_REVISION)) throw Error("Full commit and expected revision required")'
+      - name: Install locked Worker build dependencies without lifecycle scripts
+        run: npm ci --ignore-scripts --no-audit --no-fund
       - run: node scripts/maintenance.cjs --check
       - run: node scripts/sync-release-metadata.cjs --check
       - run: node scripts/sync-content.cjs --check

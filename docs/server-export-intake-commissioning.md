@@ -4,7 +4,8 @@ Run 44013305500 proved the real export producer on main 47ee3f9, with the
 publisher job skipped and the workflow disabled afterward. It did not call an
 intake or create admission. This increment prepares an actual sender/receiver
 boundary around the existing protected intake; it does not add another evidence
-validator. Neither new module is imported by a Worker build or workflow.
+validator. The original PR202 modules were not imported by a Worker build or workflow.
+The subsequent local runtime integration is described below and remains undeployed.
 
 ## Smallest server boundary
 
@@ -98,3 +99,32 @@ or dispatch is changed by this candidate.
 - [Token expiration and revocation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)
 - [GitHub Actions billing and usage](https://docs.github.com/en/actions/concepts/billing-and-usage)
 - [Sites runtime settings and responsibilities](https://help.openai.com/en/articles/20001339-creating-and-using-chatgpt-sites)
+
+## Local runtime integration candidate (not deployed)
+
+The subsequent local candidate wraps the built legacy Worker with
+`worker/export-intake-entry.mjs`. Only the exact intake pathname is intercepted;
+all other requests preserve the established handler. A lazily read configuration
+object exposes six required bindings and excludes DB, assets, seed and storage.
+Disabled controls cannot read the server credential or make outbound requests.
+
+The pinned esbuild bundle preserves the existing legacy globals in one virtual
+entry while resolving the actual intake ESM graph in separate module scope. The
+metafile must contain exactly the expected inputs, one output and no external
+imports. Packaging and dependency inputs are part of engine identity. Local Node
+WebCrypto/decompression tests are not proof of Cloudflare runtime support or
+identity/header handling at the host.
+
+Before deployment retain the exact current Sites saved version, matching source
+and Worker archive, production environment revision and independent data baseline.
+The restored private v13 test from November17 is not a rollback rehearsal for this
+new engine. Preserve the public audience and existing runtime. Rehearse the exact
+restore package in the approved isolated setting with intake disabled and no new
+credential; compare full data against the baseline. Do not fabricate a second
+content revision or activate/stage to make a rollback test pass. There is no
+production rollback or deployment authorization implied by this local candidate.
+
+Validation, qualification-only and preparation workflow source now installs root
+locked dependencies with `npm ci --ignore-scripts --no-audit --no-fund` before
+tests/build. This executes no lifecycle scripts and adds no permissions, triggers
+or requesting intake job. Workflow enablement/dispatch remains unchanged.

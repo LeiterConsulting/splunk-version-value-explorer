@@ -297,6 +297,8 @@ jobs:
           echo "98cb101ad87dbbd3f6b2f2bfcbd43197ccd07643140121d8a9cfaa91eadbc24e  $destination/gh.tar.gz" | sha256sum --check --strict
           tar -xzf "$destination/gh.tar.gz" -C "$destination" gh_2.104.0_linux_amd64/bin/gh
           echo "fca7ac8a8386e3ad65c9a96a96cbf272d1dcc4f76de174dae91d54e50729e240  $destination/gh_2.104.0_linux_amd64/bin/gh" | sha256sum --check --strict
+      - name: Install locked Worker build dependencies without lifecycle scripts
+        run: npm ci --ignore-scripts --no-audit --no-fund
       - name: Build exact checkout before report input comparison
         run: node scripts/build-worker.cjs
       - name: Qualify original signed exports against fresh exact-main service evidence

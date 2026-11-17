@@ -20,8 +20,8 @@ test('inactive controls missing secret malformed policy and raw failures always 
  }
  const f=await fixture(),r=await(await route).exportIntakeRequest(new Request(endpoint,{method:'POST',headers:{Authorization:'Bearer '+f.token}}),configured(f),{fetcher:async()=>{throw Error('SERVER_ONLY '+f.token)},clock:()=>NOW});const text=await r.text();assert.equal(r.status,409);assert(!text.includes('SERVER_ONLY'));assert(!text.includes(f.token));
 });
-test('wrapper remains outside active Worker and workflow and has no persistence capabilities',()=>{
- for(const p of ['worker/index.mjs','worker/publisher.mjs','scripts/build-worker.cjs','.github/workflows/publish-content.yml'])assert(!fs.readFileSync(p,'utf8').includes('export-intake-route'));
+test('wrapper delegates no persistence and remains outside legacy publisher and workflow',()=>{
+ for(const p of ['worker/index.mjs','worker/publisher.mjs','.github/workflows/publish-content.yml'])assert(!fs.readFileSync(p,'utf8').includes('export-intake-route'));
  const s=fs.readFileSync('tools/release-coordination/export-intake-route.mjs','utf8');assert.doesNotMatch(s,/env\.DB|console\.|localStorage|issuer-cas|\.put\(|\.prepare\(/);
 });
 test('actual sender to wrapper to authenticated intake remains held, without job token or DB',async()=>{
