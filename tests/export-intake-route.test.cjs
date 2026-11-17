@@ -36,3 +36,7 @@ test('actual sender to wrapper to authenticated intake remains held, without job
  }});
  assert.equal(result.status,'protected-export-evidence-acquired');assert.equal(result.admission,'held');assert.equal(result.productionActionAllowed,false);assert.equal(result.deliveryVerified,false);assert.equal(clientCalls.length,2);assert.equal(f.calls.length,24);assert(!JSON.stringify(result).includes(f.token));assert(!JSON.stringify(result).includes('SERVER_ONLY'));
 });
+test('empty HTTP body streams accepted but nonempty or stalled streams bounded before configuration',async()=>{
+ const f=await fixture();for(const body of ['',new Blob([]).stream()]){const r=await(await route).exportIntakeRequest(new Request(endpoint,{method:'POST',headers:{Authorization:'Bearer '+f.token,'Content-Length':'0'},body,duplex:'half'}),configured(f),{fetcher:f.fetcher,clock:()=>NOW});assert.equal((await r.json()).status,'protected-export-evidence-acquired')}
+ const keepAlive=setTimeout(()=>{},1800);try{const guard=new Proxy({},{get(){throw Error('configuration must not be read')}});for(const body of ['x',new ReadableStream({start(){}})]){const started=Date.now();const r=await(await route).exportIntakeRequest(new Request(endpoint,{method:'POST',headers:{Authorization:'Bearer '+f.token,'Content-Length':'0'},body,duplex:'half'}),guard);assert.equal(r.status,400);assert(Date.now()-started<1800)}}finally{clearTimeout(keepAlive)}
+});

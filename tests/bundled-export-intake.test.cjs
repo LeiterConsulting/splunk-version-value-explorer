@@ -40,3 +40,7 @@ test('fresh build jobs install locked dependencies with lifecycle scripts disabl
   if(p.includes('publish-content')){assert(install>s.indexOf('run: node scripts/export-qualification-workflow.cjs'));const q=s.slice(s.indexOf('  qualify-exports:'));assert(!q.includes('id-token: write'));assert(!q.includes('request-export-intake.mjs'));}
  }
 });
+test('built host module exposes only default handler and accepts empty HTTP streams',async()=>{
+ const m=await import('data:text/javascript;base64,'+fs.readFileSync('dist/server/index.js').toString('base64'));assert.deepEqual(Object.keys(m),['default']);
+ const f=await fixture(),r=await request(f,{init:{body:'',headers:{Authorization:'Bearer '+f.token,'Content-Length':'0'}}});assert.equal((await r.json()).status,'protected-export-evidence-acquired');
+});
