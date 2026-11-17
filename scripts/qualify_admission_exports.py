@@ -1,5 +1,5 @@
-"""Inactive runner producer: original export evidence only, never admission authority.
-No workflow imports this script. No OIDC acquisition, HTTP mutations or D1 access.
+"""Runner producer: original export evidence only, never admission authority.
+Manual qualification-only workflow integration; no OIDC, HTTP mutations or D1.
 """
 import argparse, hashlib, json, os, pathlib, re, resource, shutil, signal, subprocess, sys, tempfile, time, zipfile
 from prepare_export_attestation import Acquisition, REPO, WORKFLOW, require

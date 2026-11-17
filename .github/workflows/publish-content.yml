@@ -1,5 +1,5 @@
 name: Publish verified content
-run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.mode == 'commissioning-only' && 'Observe authenticated publisher identity (no database)' || github.event_name == 'workflow_dispatch' && inputs.mode == 'recover-seed-only' && 'Prepare bounded seed batches (D1 writes, no head)' || github.event_name == 'workflow_dispatch' && inputs.mode == 'observe-only' && 'Observe bundled seed' || github.event_name == 'workflow_dispatch' && inputs.mode == 'head-only' && 'Observe publisher head' || github.event_name == 'workflow_dispatch' && inputs.mode == 'bootstrap-only' && 'Bootstrap reviewed seed (D1 write)' || github.event_name == 'workflow_dispatch' && inputs.mode == 'resume-only' && 'Prepare bundled seed batch (D1 write)' || github.event_name == 'workflow_dispatch' && inputs.mode == 'stage-only' && 'Stage candidate batch (D1 write)' || github.event_name == 'workflow_dispatch' && inputs.mode == 'current-head-only' && 'Observe current publisher head' || 'Publish verified content' }}
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.mode == 'qualify-exports-only' && 'Qualify original export evidence (no publisher request)' || github.event_name == 'workflow_dispatch' && inputs.mode == 'commissioning-only' && 'Observe authenticated publisher identity (no database)' || github.event_name == 'workflow_dispatch' && inputs.mode == 'recover-seed-only' && 'Prepare bounded seed batches (D1 writes, no head)' || github.event_name == 'workflow_dispatch' && inputs.mode == 'observe-only' && 'Observe bundled seed' || github.event_name == 'workflow_dispatch' && inputs.mode == 'head-only' && 'Observe publisher head' || github.event_name == 'workflow_dispatch' && inputs.mode == 'bootstrap-only' && 'Bootstrap reviewed seed (D1 write)' || github.event_name == 'workflow_dispatch' && inputs.mode == 'resume-only' && 'Prepare bundled seed batch (D1 write)' || github.event_name == 'workflow_dispatch' && inputs.mode == 'stage-only' && 'Stage candidate batch (D1 write)' || github.event_name == 'workflow_dispatch' && inputs.mode == 'current-head-only' && 'Observe current publisher head' || 'Publish verified content' }}
 on:
   workflow_run:
     workflows: [Validate release metadata and reports]
@@ -10,9 +10,12 @@ on:
       mode:
         description: Publish held; observations are read-only; bootstrap-only writes reviewed seed/history to D1 without activation; resume-only writes one seed batch without head/history; stage-only writes one candidate batch/provenance without head/history
         type: choice
-        options: [publish, commissioning-only, recover-seed-only, observe-only, head-only, bootstrap-only, resume-only, stage-only, current-head-only]
+        options: [publish, qualify-exports-only, commissioning-only, recover-seed-only, observe-only, head-only, bootstrap-only, resume-only, stage-only, current-head-only]
         default: publish
         required: true
+      validation_run:
+        description: Qualification-only exact successful main validation run ID, attempt 1
+        type: string
       recovery_initial_present:
         description: Recovery-only exact independently observed starting row count; changed count stops before writing
         type: string
@@ -52,7 +55,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   publish:
-    if: github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push' && github.event.workflow_run.head_repository.full_name == github.repository)
+    if: (github.event_name == 'workflow_dispatch' && inputs.mode != 'qualify-exports-only') || (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push' && github.event.workflow_run.head_repository.full_name == github.repository)
     runs-on: ubuntu-latest
     steps:
       # This policy executes from the workflow itself, before any repository script.
@@ -253,4 +256,73 @@ jobs:
           name: publisher-outcome-${{ github.run_id }}-${{ github.run_attempt }}
           path: publication-outcome.json
           if-no-files-found: error
+          retention-days: 30
+
+  qualify-exports:
+    # Read-only commissioning of the existing producer. Not an admission request.
+    if: >-
+      github.event_name == 'workflow_dispatch' && inputs.mode == 'qualify-exports-only' &&
+      github.repository == 'LeiterConsulting/splunk-version-value-explorer' &&
+      github.ref == 'refs/heads/main' && github.run_attempt == 1
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Bind manual qualification inputs before acquisition
+        env:
+          VC_QUALIFICATION_MODE: ${{ inputs.mode }}
+          VC_QUALIFICATION_COMMIT: ${{ inputs.expected_commit }}
+          VC_QUALIFICATION_REF: ${{ inputs.expected_ref }}
+          VC_VALIDATION_RUN: ${{ inputs.validation_run }}
+        run: node scripts/export-qualification-workflow.cjs
+      - name: Install exact reviewed offline verifier
+        shell: bash
+        run: |
+          set -euo pipefail
+          destination="$RUNNER_TEMP/vc-pinned-verifier"
+          mkdir "$destination"
+          curl --fail --location --proto '=https' --tlsv1.2 --max-time 120 \
+            https://github.com/cli/cli/releases/download/v2.104.0/gh_2.104.0_linux_amd64.tar.gz \
+            --output "$destination/gh.tar.gz"
+          echo "98cb101ad87dbbd3f6b2f2bfcbd43197ccd07643140121d8a9cfaa91eadbc24e  $destination/gh.tar.gz" | sha256sum --check --strict
+          tar -xzf "$destination/gh.tar.gz" -C "$destination" gh_2.104.0_linux_amd64/bin/gh
+          echo "fca7ac8a8386e3ad65c9a96a96cbf272d1dcc4f76de174dae91d54e50729e240  $destination/gh_2.104.0_linux_amd64/bin/gh" | sha256sum --check --strict
+      - name: Build exact checkout before report input comparison
+        run: node scripts/build-worker.cjs
+      - name: Qualify original signed exports against fresh exact-main service evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VC_VALIDATION_RUN: ${{ inputs.validation_run }}
+        run: >-
+          python3 scripts/qualify_admission_exports.py
+          --validation-run "$VC_VALIDATION_RUN"
+          --gh "$RUNNER_TEMP/vc-pinned-verifier/gh_2.104.0_linux_amd64/bin/gh"
+          --node "$(command -v node)"
+          --output "$RUNNER_TEMP/vc-export-qualification"
+      - name: Retain fixed original-export qualification
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qualification-${{ github.run_id }}-1
+          path: ${{ runner.temp }}/vc-export-qualification/qualification.json
+          if-no-files-found: error
+          retention-days: 30
+      - name: Retain original acquisition audit including partial failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qualification-audit-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/vc-export-qualification/*.json
+            ${{ runner.temp }}/vc-export-qualification/*.zip
+          if-no-files-found: ignore
           retention-days: 30

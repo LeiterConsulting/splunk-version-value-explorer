@@ -129,7 +129,9 @@ or delivered state follows from this document.
 
 ## Inactive original-export producer
 
-`scripts/qualify_admission_exports.py` is not imported by any workflow. It uses
+`scripts/qualify_admission_exports.py` is now invoked only by the proposed manual
+qualification-only job in the existing disabled publisher workflow. This source
+integration does not enable or dispatch it; see [commissioning scope](export-qualification-commissioning.md). It uses
 server/workflow-selected validation run and local paths, validates the publisher
 runner context and clean exact checkout, independently acquires validation run/
 attempt/jobs and original export/signature artifacts, invokes the pinned verifier
