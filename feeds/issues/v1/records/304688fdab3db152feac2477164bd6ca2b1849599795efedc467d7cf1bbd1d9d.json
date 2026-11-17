@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "findingId": "vci-o11y-database-monitoring-us2-conflict",
+  "revision": 1,
+  "recordedAt": "2026-11-17T13:07:00.948Z",
+  "title": "Database Monitoring us2 realm conflicts with its Google Cloud region column",
+  "concernType": "contradiction",
+  "problem": "The current US Database Monitoring row lists us2 in the realm column and None in the Google Cloud regions column. The realm equivalence table maps us2 to Google Cloud Oregon (us-west1). The prior reviewed table omitted us2 in this component row. Treat the two current cells as conflicting guidance for Database Monitoring in Google Cloud Oregon. APM and Agent Observability have separate component rows. Tenant enablement, entitlement, historical rollout and FedRAMP authorization remain separate.",
+  "scope": {
+    "products": [
+      "Splunk Observability Cloud Database Monitoring"
+    ],
+    "versions": [
+      "November 16 service-description revision"
+    ],
+    "editions": null,
+    "deployments": [
+      "Commercial Google Cloud"
+    ],
+    "regions": [
+      "Google Cloud Oregon (us-west1) / us2"
+    ],
+    "audiences": [
+      "Readers planning Observability Cloud component coverage"
+    ],
+    "exclusions": [
+      "No inferred tenant rollout, entitlement, historical availability or regulated authorization."
+    ]
+  },
+  "scopeComparison": "Both cells are in the same current US Database Monitoring row. The separate realm mapping identifies the provider and region for us2.",
+  "impact": {
+    "customerScenario": "Scoping Database Monitoring in Google Cloud Oregon.",
+    "consequence": "Planning from either cell alone risks assuming unsupported deployment coverage or excluding a usable realm.",
+    "level": "moderate"
+  },
+  "confidence": {
+    "level": "high",
+    "rationale": "Direct publisher table checked. The observation establishes the documentation conflict and leaves actual availability unresolved."
+  },
+  "claimIds": [
+    "o11y-db-us2"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Current publisher cells conflict."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/2f0659a6f3fb99b0f7539ef27c8d657619818388/docs/audits/2026-11-17-csp-fedramp-watch-sources.json",
+      "pointer": "/claimChecks/9",
+      "originalLabel": "conflicting-evidence-preserved"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "csp-20261117-9-0",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
+      "section": "Realm to region equivalence > us2",
+      "statement": "The realm equivalence table maps us2 to Google Cloud Oregon (us-west1).",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-17T12:57:44.290Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "50a050e412c02cb6a9ac26b95269567a4d75d78fee69db5f8a001fb9c3690507",
+        "qualification": "Direct public response digest. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "csp-20261117-9-1",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
+      "section": "Available components per region or realm > Database Monitoring > US: realm us2 and Google Cloud regions None",
+      "statement": "The US Database Monitoring row includes us2 in its realm column and gives None as its Google Cloud region entry.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-17T12:57:44.290Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "50a050e412c02cb6a9ac26b95269567a4d75d78fee69db5f8a001fb9c3690507",
+        "qualification": "Direct public response digest. Publisher revision unknown."
+      }
+    }
+  ]
+}

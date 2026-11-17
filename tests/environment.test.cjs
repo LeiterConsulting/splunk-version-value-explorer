@@ -79,6 +79,16 @@ test('regional exclusions do not become global unavailability badges',()=>{
  assert.equal(env.availability(broad,{title:'Agentic SOC'})[0].status,'not_established');
  assert.equal(env.availability(scoped,{title:'Agentic SOC'})[0].status,'unavailable');
 });
+test('Database Monitoring retains both conflicting us2 table cells in the scoped comparison',()=>{
+ const state=route({csp:'gcp',region:'gcp-oregon',compliance:'commercial'},'observability');
+ const database=env.assess(state).records.find(r=>r.id==='o11y-db-us2');
+ assert.equal(database.availability,'conflicting');
+ assert.equal(database.authorization,'not_established');
+ assert.match(database.claims[0].text,/us2.*None under Google Cloud regions/);
+ assert.match(database.claims[1].text,/us2 to Google Cloud Oregon/);
+ const html=env.body(state,true);
+ for(const source of ['o11yDatabaseRegions','o11yRealmUs2'])assert(html.includes(env.data.sources[source].url));
+});
 test('exact Marketplace offering scope remains product-specific and qualified',()=>{
  const esHigh=env.assess(route({csp:'aws',compliance:'fr-h'},'es'));
  assert(esHigh.records.some(r=>r.id==='es-fr-h-offering'));

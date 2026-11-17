@@ -7862,7 +7862,6 @@ window.VersionCompassSources = {
         "environment: environment.records.58",
         "environment: environment.records.59",
         "environment: environment.records.60",
-        "environment: environment.records.61",
         "environment: environment.records.66",
         "environment: environment.records.67",
         "environment: environment.records.68",
@@ -7933,6 +7932,68 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-09",
           "event": "Review status updated: Reviewed · 2026-10-09"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description#available-components-per-region-or-realm-0",
+      "title": "Observability Cloud Database Monitoring component table",
+      "areas": [
+        "Cloud environment",
+        "Shared guidance"
+      ],
+      "references": [
+        "environment.sources.o11yDatabaseRegions.url",
+        "content-updates.js",
+        "environment: environment.records.61"
+      ],
+      "reviews": [
+        "2026-11-17"
+      ],
+      "conflict": true,
+      "usage": "In use",
+      "reviewed": "2026-11-17",
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-11-17",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-17",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description#realm-to-region-equivalence-0",
+      "title": "Observability Cloud realm-to-region mapping",
+      "areas": [
+        "Cloud environment"
+      ],
+      "references": [
+        "environment.sources.o11yRealmUs2.url",
+        "environment: environment.records.61"
+      ],
+      "reviews": [
+        "2026-11-17"
+      ],
+      "conflict": true,
+      "usage": "In use",
+      "reviewed": "2026-11-17",
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-11-17",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-17",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },

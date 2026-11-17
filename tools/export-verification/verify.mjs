@@ -489,6 +489,10 @@ try {
         expected.requiredText = (expected.requiredText || []).concat(s3);
       }
       if(marketplaceRecord) expected.requiredText=[marketplaceScope,'Current named component scope remains unresolved'];
+      if(route.id==='observability-agent-gcp') {
+        expected.requiredText=['The Database Monitoring row lists us2 and says None for Google Cloud regions.','The realm table maps us2 to Google Cloud Oregon.'];
+        for(const phrase of expected.requiredText) assert(normalize(expected.text).includes(phrase),'Missing Database Monitoring regional conflict: '+phrase);
+      }
       if(route.id==='soar-cloud-fedramp-moderate') {
         for(const qualification of ['November 6 Moderate Marketplace list named SOAR','Certified Services displayed N/A',marketplaceScope,'native-data migration limits']) assert(normalize(expected.text).includes(qualification), 'Moderate SOAR qualification missing: '+qualification);
       }

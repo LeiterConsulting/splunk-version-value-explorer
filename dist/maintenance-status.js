@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-16T12:17:06.451379Z",
+      "lastAttempt": "2026-11-17T12:55:50.046086Z",
       "lastSuccess": "2026-11-10T12:50:41.612Z",
       "outcome": "blocked",
-      "summary": "Versioned S3 evidence corrected. Historical SOC evidence and first-execution verification remain incomplete.",
+      "summary": "Database Monitoring regional conflict qualified. Historical SOC scope and live verification remain incomplete.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -555,9 +555,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Versioned S3 evidence corrected. Historical SOC evidence and first-execution verification remain incomplete.",
           "scope": "Complete carried CSP inventory, ten scoped assessments and the governed SOC coverage slice."
+        },
+        {
+          "at": "2026-11-17T12:55:50.046086Z",
+          "outcome": "running",
+          "summary": "CSP FedRAMP source and claim review began.",
+          "scope": "CSP FedRAMP current and versioned regional, offering, ES SOC prerequisites and restricted SOAR evidence. Database Monitoring US realm/provider correction."
+        },
+        {
+          "at": "2026-11-17T13:07:05.310Z",
+          "outcome": "blocked",
+          "summary": "Database Monitoring regional conflict qualified. Historical SOC scope and live verification remain incomplete.",
+          "scope": "CSP FedRAMP current and versioned regional, offering, ES SOC prerequisites and restricted SOAR evidence. Database Monitoring US realm/provider correction."
         }
       ],
-      "scope": "Complete carried CSP inventory, ten scoped assessments and the governed SOC coverage slice."
+      "scope": "CSP FedRAMP current and versioned regional, offering, ES SOC prerequisites and restricted SOAR evidence. Database Monitoring US realm/provider correction."
     },
     {
       "id": "version-release-watch",

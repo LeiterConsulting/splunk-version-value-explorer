@@ -358,6 +358,20 @@
       "published": "2026-11-06",
       "scope": "6 November 2026 > Available regions and region differences > AWS Israel addition for relevant Cloud 10.7 versions.",
       "checked": "2026-11-13"
+    },
+    "o11yRealmUs2": {
+      "title": "Observability Cloud realm-to-region mapping",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description#realm-to-region-equivalence-0",
+      "published": null,
+      "scope": "Realm to region equivalence > us2 > Google Cloud Oregon (us-west1)",
+      "checked": "2026-11-17"
+    },
+    "o11yDatabaseRegions": {
+      "title": "Observability Cloud Database Monitoring component table",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description#available-components-per-region-or-realm-0",
+      "published": null,
+      "scope": "Available components per region or realm > Database Monitoring > US realm and provider columns",
+      "checked": "2026-11-17"
     }
   },
   "records": [
@@ -1901,15 +1915,26 @@
       "regimes": [
         "commercial"
       ],
-      "availability": "unavailable",
+      "availability": "conflicting",
       "authorization": "not_established",
-      "detail": "The service table lists no Google Cloud region for Database Monitoring.",
+      "detail": "The Database Monitoring row lists us2 and says None for Google Cloud regions. The realm table maps us2 to Google Cloud Oregon. Confirm actual Database Monitoring availability for that realm before planning.",
       "sources": [
-        "o11y"
+        "o11yDatabaseRegions",
+        "o11yRealmUs2"
       ],
-      "checked": "2026-10-06",
-      "scope": "Current service guidance; not a historical availability guarantee",
-      "realm": "us2"
+      "checked": "2026-11-17",
+      "scope": "Current commercial Database Monitoring guidance in Google Cloud Oregon. Actual availability, entitlement and authorization remain unresolved.",
+      "realm": "us2",
+      "claims": [
+        {
+          "text": "The Database Monitoring US row includes us2 in the realm column and lists None under Google Cloud regions.",
+          "source": "o11yDatabaseRegions"
+        },
+        {
+          "text": "The realm equivalence table maps us2 to Google Cloud Oregon (us-west1).",
+          "source": "o11yRealmUs2"
+        }
+      ]
     },
     {
       "id": "edge-high-unknown",
