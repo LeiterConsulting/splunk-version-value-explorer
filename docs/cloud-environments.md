@@ -56,6 +56,10 @@ For a similar site, the transferable principle is to model independent dimension
 
 Automated tests exercise filter intersections, source references, uncertainty, malformed links, shared report behavior, and input contracts. They do not certify upstream accuracy, browser layout, or PDF pagination. Rendered and native-browser checks should be identified separately when performed.
 
+## November 17 Database Monitoring region discrepancy
+
+The November 17 review found conflicting US Database Monitoring columns in the current Observability Cloud service description. The component row lists `us2` while its Google Cloud regions cell says `None`. The separate realm table maps `us2` to Google Cloud Oregon (`us-west1`). The comparison retains both cells and leaves actual availability unresolved for that scope. APM and Agent Observability have their own rows. No tenant enablement, entitlement, historical rollout or regulated authorization follows. [Component table](https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description#available-components-per-region-or-realm-0) · [Realm mapping](https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description#realm-to-region-equivalence-0)
+
 ## October 21 bounded regional additions
 
 Agent Observability uses its own current SaaS table: us0, us1, eu0, au0 and jp0, with access confirmed separately. The table explicitly lists no Google Cloud region; general APM coverage must not be inherited. Luna-3 is unavailable in jp0 even though the Agent Observability service is listed there. Unlisted AWS realms remain unknown. Neither the table nor Platform authorization establishes Agent Observability FedRAMP authorization or a historical rollout date.
