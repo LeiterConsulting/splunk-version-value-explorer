@@ -116,25 +116,44 @@ test('content API restricts client methods, validates filters and reports databa
     assert.equal((await get('/api/content/records?limit=201')).status, 400);
     assert.equal((await get('/api/content/records?kind=claim&kind=source')).status, 400);
     assert.equal((await get('/api/content/records?unknown=value')).status, 400);
-    assert.equal((await get('/api/content/bundle')).status,503);
+    assert.deepEqual(await (await get('/api/content/bundle')).json(), seed);
     assert.equal(db.sql.prepare('SELECT COUNT(*) n FROM content_revisions').get().n,0);
     await m.ensureRevision(db,seed); // Explicit setup, never a public GET side effect.
     const response = await get('/api/content/bundle'); assert.deepEqual(await response.json(), seed);
     assert.equal(response.headers.get('X-VersionCompass-Content'), seed.manifest.revision);
     assert.equal((await get('/api/content/bundle?revision=content-' + '0'.repeat(24))).status, 404);
-    assert.equal((await get('/api/content/health', {})).status, 503);
+    const noDatabase = { prepare() { assert.fail('Bundled reads must not query D1'); } };
+    const bundled = { DB: noDatabase, VC_ACTIVE_DELIVERY: '0' };
+    const pin = 'revision=' + seed.manifest.revision + '&engine=' + seed.manifest.engineRevision;
+    assert.deepEqual(await (await get('/api/content/health?' + pin, bundled)).json(), {
+      status: 'ready', storage: 'bundled', revision: seed.manifest.revision,
+      engineRevision: seed.manifest.engineRevision, recordCount: seed.manifest.recordCount,
+    });
+    assert.deepEqual(await (await get('/api/content/manifest', bundled)).json(), seed.manifest);
+    const head = await get('/api/content/bundle?' + pin, bundled, 'HEAD');
+    assert.equal(head.status, 200);
+    assert.equal(head.headers.get('X-VersionCompass-Content'), seed.manifest.revision);
+    assert.equal(head.headers.get('X-VersionCompass-Storage'), 'bundled');
+    assert.equal(await head.text(), '');
+    const query = '/api/content/records?' + pin + '&dataset=soar&kind=' +
+      seed.catalog.records.find(row => row.dataset === 'soar').kind + '&offset=1&limit=2';
+    const databaseRecords = await get(query, { DB: db, VC_ACTIVE_DELIVERY: '1' });
+    assert.equal(databaseRecords.status, 200);
+    assert.deepEqual(await (await get(query, bundled)).json(), await databaseRecords.json());
+    assert.equal((await get('/api/content/health', { VC_ACTIVE_DELIVERY: '1' })).status, 503);
     const alias='content-'+'f'.repeat(24);
     db.sql.prepare('INSERT INTO content_revisions SELECT ?,engine,schema_version,digest,manifest_json,bundle_json,record_count,completed FROM content_revisions WHERE id=?').run(alias,seed.manifest.revision);
     assert.equal((await get('/api/content/bundle?revision='+alias)).status,503);
     db.sql.prepare("UPDATE content_revisions SET bundle_json='{}' WHERE id=?").run(seed.manifest.revision);
     const writes=db.sql.prepare('SELECT total_changes() n').get().n;
-    assert.equal((await get('/api/content/health')).status,503);
+    assert.equal((await get('/api/content/health?' + pin, { DB: db, VC_ACTIVE_DELIVERY: '1' })).status,503);
+    assert.equal((await get('/api/content/health?' + pin, { DB: db, VC_ACTIVE_DELIVERY: '0' })).status,200);
     assert.equal(db.sql.prepare('SELECT total_changes() n').get().n,writes);
 
   } finally { db.sql.close(); }
 });
-async function client(bundle, { fail = false, expected = seed.manifest } = {}) {
-  const c = { window: {}, document: { documentElement: { dataset: {} } }, AbortController, TextEncoder, Uint8Array, crypto: crypto.webcrypto, setTimeout, clearTimeout, fetch: async url => ({ ok: !fail, json: async () => url === 'content-manifest.json' ? expected : bundle }) };
+async function client(bundle, { fail = false, expected = seed.manifest, storage } = {}) {
+  const c = { window: {}, document: { documentElement: { dataset: {} } }, AbortController, TextEncoder, Uint8Array, crypto: crypto.webcrypto, setTimeout, clearTimeout, fetch: async url => ({ ok: !fail, headers: new Headers(storage ? { 'X-VersionCompass-Storage': storage } : {}), json: async () => url === 'content-manifest.json' ? expected : bundle }) };
   vm.runInNewContext(fs.readFileSync('dist/content-client.js', 'utf8'), c);
   const loaded = await c.window.VersionCompassContent.load(); return { c, loaded };
 }
@@ -144,6 +163,10 @@ test('HTTP preview integrity checks agree with independent SHA-256 for Unicode a
 });
 test('client only adopts a complete pinned revision and falls back without partial assignment', async () => {
   const good = await client(seed); assert.equal(good.loaded, true); assert.deepEqual(clone(good.c.window.SPLUNK_DATA), seed.globals.SPLUNK_DATA);
+  const bundled = await client(seed, { storage: 'bundled' });
+  assert.equal(bundled.loaded, true);
+  assert.equal(bundled.c.window.VersionCompassContent.status, 'bundled');
+  assert.equal(bundled.c.document.documentElement.dataset.contentDelivery, 'bundled');
   for (const mutation of [b => b.manifest.engineRevision = 'wrong-engine', b => b.globals.SPLUNK_DATA.enterprise.latest = 'unsupported', b => b.catalog.records.pop(), b => b.globals.extra = JSON.parse('{"__proto__":{}}')]) {
     const tampered = clone(seed); mutation(tampered); const bad = await client(tampered);
     assert.equal(bad.loaded, false); assert.equal(bad.c.window.SPLUNK_DATA, undefined); assert.equal(bad.c.window.VersionCompassContent.status, 'bundled-fallback');

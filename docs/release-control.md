@@ -2,10 +2,12 @@
 
 ## Current repository behavior
 
-Public content GET/HEAD is read-only in current `worker/index.mjs`: it never
-initializes the deployment seed. Missing/incomplete or incompatible D1 returns
-unavailable; bundled fallback remains distinct from database readiness. Historical
-GET-triggered import descriptions are not instructions for this runtime. See
+Public content GET/HEAD is read-only. With `VC_ACTIVE_DELIVERY` off, the exact
+deployed revision is served from the saved Sites package. Its health reports
+`storage: bundled`. Explicit historical reads and active delivery still require
+D1 and report `storage: d1` when healthy. Check the full deployed bundle with
+`node scripts/diagnose-content.cjs https://versioncompass.com --storage=bundled`.
+See
 [controlled seed preparation](controlled-seed-preparation.md) for bounded,
 authenticated seed writes and separate bootstrap/head evidence.
 

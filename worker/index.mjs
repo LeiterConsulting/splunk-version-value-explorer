@@ -3,6 +3,7 @@ export function createWorker(seed, assets, { rippleFetch = (...args) => globalTh
   const headers = { 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'strict-origin-when-cross-origin' };
   const json = (body, status = 200, extra = {}) => new Response(JSON.stringify(body), { status, headers: { ...headers, 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', ...extra } });
   const rippleHeaders = { 'X-Robots-Tag': 'noindex, nofollow' };
+  let bundledRecords;
   const rippleJson = (request, body, status = 200, extra = {}) => {
     const response = json(body, status, { ...rippleHeaders, ...extra });
     return request.method === 'HEAD' ? new Response(null, response) : response;
@@ -81,27 +82,39 @@ export function createWorker(seed, assets, { rippleFetch = (...args) => globalTh
         const offset = Number(params.get('offset') || '0'), limit = Number(params.get('limit') || '100');
         if (![offset, limit].every(Number.isSafeInteger) || offset < 0 || limit < 1 || limit > 200 || (kind && !/^[a-z-]{1,40}$/.test(kind)) || (dataset && !['platform','products','guidance','environment','editions','forwarders','soar','sources'].includes(dataset))) return json({ error: 'Invalid record filter or pagination' }, 400);
         try {
-          // Readiness never imports or repairs a seed. Controlled authenticated
-          // initialization is separate; missing/incomplete storage fails closed.
-          // Opt in only after affected browser/export evidence is recorded. Explicit
-          // revision reads remain compatible with existing deployment-pinned clients.
-          if (!params.has('revision') && env.VC_ACTIVE_DELIVERY === '1') {
+          const activeDelivery = env.VC_ACTIVE_DELIVERY === '1';
+          if (!params.has('revision') && activeDelivery) {
             const head = await readPublicationHead(env.DB, engine);
             const proof = await env.DB.prepare('SELECT revision_id FROM content_publication_provenance WHERE revision_id = ? AND repository = ?').bind(head.revision, REPOSITORY).first();
             if (head.generation < 1 || !proof) throw Error('Verified publisher head required');
             revision = head.revision;
           }
-          const bundle = await readBundle(env.DB, revision);
-          if (!bundle) return json({ error: 'Published revision not ready', requestedRevision: revision }, revision === seed.manifest.revision ? 503 : 404);
-          await validateBundle(bundle,bundle.manifest?.engineRevision);
-          if(bundle.manifest.revision!==revision)throw Error('Stored revision identity mismatch');
-          if(revision===seed.manifest.revision&&JSON.stringify(bundle)!==JSON.stringify(seed))throw Error('Stored deployment seed mismatch');
+          // The saved deployment owns its exact revision in bundled delivery.
+          // Historical and independently active reads still require D1.
+          const bundled = !activeDelivery && revision === seed.manifest.revision;
+          let bundle = seed;
+          if (!bundled) {
+            bundle = await readBundle(env.DB, revision);
+            if (!bundle) return json({ error: 'Published revision not ready', requestedRevision: revision }, revision === seed.manifest.revision ? 503 : 404);
+            await validateBundle(bundle, bundle.manifest?.engineRevision);
+            if (bundle.manifest.revision !== revision) throw Error('Stored revision identity mismatch');
+            if (revision === seed.manifest.revision && JSON.stringify(bundle) !== JSON.stringify(seed)) throw Error('Stored deployment seed mismatch');
+          }
           if ((params.has('engine') || !params.has('revision')) && bundle.manifest.engineRevision !== engine) return json({ error: 'Revision belongs to another engine' }, 409);
-          const extra = { 'X-VersionCompass-Content': revision, 'X-VersionCompass-Engine': bundle.manifest.engineRevision };
+          const storage = bundled ? 'bundled' : 'd1';
+          const extra = { 'X-VersionCompass-Content': revision, 'X-VersionCompass-Engine': bundle.manifest.engineRevision, 'X-VersionCompass-Storage': storage };
           if (request.method === 'HEAD') return new Response(null, { status: 200, headers: { ...headers, ...extra } });
-          if (url.pathname.endsWith('/health')) return json({ status: 'ready', storage: 'd1', revision, engineRevision: bundle.manifest.engineRevision, recordCount: bundle.manifest.recordCount }, 200, extra);
+          if (url.pathname.endsWith('/health')) return json({ status: 'ready', storage, revision, engineRevision: bundle.manifest.engineRevision, recordCount: bundle.manifest.recordCount }, 200, extra);
           if (url.pathname.endsWith('/manifest')) return json(bundle.manifest, 200, extra);
-          if (url.pathname.endsWith('/records')) return json({ revision, offset, limit, records: await readRecords(env.DB, revision, kind, dataset, offset, limit) }, 200, extra);
+          if (url.pathname.endsWith('/records')) {
+            if (bundled) {
+              // Match the archive's SQLite ORDER BY record_id for these ASCII IDs.
+              bundledRecords ??= [...seed.catalog.records].sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
+              const records = bundledRecords.filter(row => (kind === null || row.kind === kind) && (dataset === null || row.dataset === dataset));
+              return json({ revision, offset, limit, records: records.slice(offset, offset + limit) }, 200, extra);
+            }
+            return json({ revision, offset, limit, records: await readRecords(env.DB, revision, kind, dataset, offset, limit) }, 200, extra);
+          }
           return json(bundle, 200, extra);
         } catch {
           return json({ error: 'Content database unavailable; published bundled content remains available', revision: seed.manifest.revision }, 503);
