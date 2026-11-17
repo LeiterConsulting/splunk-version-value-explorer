@@ -47,8 +47,20 @@ function validateRegistry(registry, root = process.cwd(), historical = false) {
     }
     assert(Array.isArray(c.claimFamilies) && strings(c.claimFamilies.map(f => f.id)), 'Missing assessed claim families: ' + c.id);
     for (const f of c.claimFamilies) {
-      assert(text(f.scope) && (historical || pointer(read(root, 'content/datasets/' + f.dataset + '.json'), f.pointer) !== undefined), 'Unresolved claim scope: ' + f.id);
+      const record = historical ? undefined : pointer(f.dataset === 'guidance' ? guidance : read(root, 'content/datasets/' + f.dataset + '.json'), f.pointer);
+      assert(text(f.scope) && (historical || record !== undefined), 'Unresolved claim scope: ' + f.id);
+      if (!historical && f.recordId) assert(record?.id === f.recordId, 'Claim points to a different canonical record: ' + f.id);
       assert(strings(f.sourceIds) && f.sourceIds.every(id => c.sources.some(s => s.id === id)), 'Claim without mapped sources: ' + f.id);
+    }
+  }
+  if (!historical && registry.requiredClaimInventories) {
+    for (const inventory of registry.requiredClaimInventories) {
+      const records = pointer(guidance, inventory.pointer);
+      const families = registry.capabilities.filter(c => c.id.startsWith(inventory.capabilityPrefix)).flatMap(c => c.claimFamilies);
+      assert(Array.isArray(records) && records.length > 0, 'Missing required claim inventory: ' + inventory.pointer);
+      for (const [index, record] of records.entries()) {
+        assert(families.some(f => f.dataset === 'guidance' && f.recordId === record.id && f.pointer === inventory.pointer + '/' + index), 'Unregistered canonical claim: ' + record.id);
+      }
     }
   }
   return registry;

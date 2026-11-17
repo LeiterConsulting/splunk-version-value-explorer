@@ -17,15 +17,28 @@ function copyHistoricalFixture(file, root) {
   else fs.copyFileSync(file,path.join(root,file));
 }
 const bind = run => { run.reviewDigest = reviewDigest(run); return run; };
-test('current source contract retains feature-specific Agent Mode evidence and existing CSP SOC responsibility',()=>{
+test('current source contract preserves 1.2.0 ownership and retains earlier execution history',()=>{
  const current=JSON.parse(fs.readFileSync('content/automation-coverage.json'));
- assert.equal(current.registryVersion,'1.2.0');assert.equal(current.activation,'pending-first-executions');validateRegistry(current);
+ const previous=JSON.parse(fs.readFileSync('content/automation-registries/1.2.0.json'));
+ assert.equal(current.registryVersion,'1.3.0');assert.equal(current.activation,'pending-first-executions');validateRegistry(current);
+ assert.deepEqual(current.capabilities.slice(0, previous.capabilities.length), previous.capabilities);
  const agent=current.capabilities.find(c=>c.id==='advisor.agent-mode');
  for(const id of ['aiSaiaAgentMode','aiSaiaModelRuntime','aiSaiaCloudConnected'])assert(agent.claimFamilies[0].sourceIds.includes(id));
  const soc=current.capabilities.find(c=>c.id==='advisor.soc-workflow');assert.equal(soc.primaryOwner,'es-editions-watch');assert(soc.participatingWatches.includes('csp-fedramp-watch'));
  assert.match(soc.claimFamilies[0].scope,/customer authorization remain separate/);
- assert.deepEqual(JSON.parse(fs.readFileSync('content/automation-registries/1.2.0.json')),current);
+ assert.deepEqual(JSON.parse(fs.readFileSync('content/automation-registries/1.3.0.json')),current);
  assert.equal(validateRun(original,current).gaps.length,5); // Historical implementation outcome is not relabeled.
+});
+test('new daily coverage rejects omitted canonical records and misdirected pointers', () => {
+  const current = JSON.parse(fs.readFileSync('content/automation-coverage.json'));
+  for (const id of ['exact.branch-security', 'ai.es-capabilities']) {
+    const missing = structuredClone(current);
+    missing.capabilities = missing.capabilities.filter(c => c.id !== id);
+    assert.throws(() => validateRegistry(missing), /Unregistered canonical claim/);
+  }
+  const agent = current.capabilities.find(c => c.id === 'ai.saia-itsi').claimFamilies.find(f => f.id === 'ai-saia-agent');
+  agent.pointer = '/aiAvailability/capabilities/0';
+  assert.throws(() => validateRegistry(current), /different canonical record: ai-saia-agent/);
 });
 test('pilot covers Prep11 and all three Advisor decisions with separate primary and independent ownership', () => {
   assert.equal(validateRegistry(registry).capabilities.length, 11);
