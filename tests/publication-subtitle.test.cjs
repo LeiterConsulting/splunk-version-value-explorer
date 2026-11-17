@@ -37,7 +37,7 @@ test('a publication date advances content identity without changing engine bytes
   const { execFileSync } = require('node:child_process');
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-publication-date-'));
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));
-  for (const dir of ['scripts', 'dist', 'content/datasets', 'worker', 'client', 'docs/releases']) {
+  for (const dir of ['scripts', 'dist', 'content/datasets', 'worker', 'client', 'docs/releases', 'tools/release-coordination', 'package.json', 'package-lock.json']) {
     fs.mkdirSync(path.dirname(path.join(root, dir)), { recursive: true });
     fs.cpSync(dir, path.join(root, dir), { recursive: true });
   }

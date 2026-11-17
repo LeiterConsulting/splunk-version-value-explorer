@@ -1,4 +1,4 @@
-/* INACTIVE transport integration. Not mounted in any Worker/build/workflow.
+/* Default-off transport integration. Runtime activation requires explicit configuration.
  * Only server-owned runtime configuration enters the existing real intake.
  * No DB handle, admission constructor, persistent storage or logging. */
 import {createProtectedExportIntake} from './protected-export-intake.mjs';
