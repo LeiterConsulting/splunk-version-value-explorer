@@ -503,6 +503,8 @@ try {
         assert(normalize(expected.text).includes('the Response agent cannot rerun or process findings added after it has already processed the investigation'), 'The exact ES 8.8 Response limitation is missing from export');
       }
       if(route.id==='editions'){
+        expected.requiredText=['standalone agentic SOC setup link returned 404 on November 17','publisher-indexed text'];
+        for(const phrase of expected.requiredText) assert(normalize(expected.text).includes(phrase),'Missing ES Cloud Connect source qualification: '+phrase);
         for(const text of ['Which TAXII protocol versions are supported?','The duplicate version leaves the current exact protocol list uncertain.','TIM Cloud TAXII2 sources','same page names TAXII 1.0 and 1.1'])assert(normalize(expected.text).includes(text),'Missing scoped TAXII report evidence');
         expected.paginationPairs=[{heading:'Which TAXII protocol versions are supported?',following:'Decision affected: Native TAXII feed protocol versions',headingOccurrence:1}];
       }

@@ -215,3 +215,15 @@ test('Automation Builder keeps the documented global settings prerequisite in th
   assert(report.snapshot().includes(prerequisite));
  }
 });
+
+test('Cloud Connect guidance distinguishes the unavailable standalone setup link from current workflow evidence',()=>{
+ const note=data.notes.find(x=>x.id==='cloud-connect');
+ assert.match(data.sources.cloudcxAgentic88.t,/direct link unavailable/);
+ assert.match(note.details,/returned 404 on November 17/);
+ assert.match(note.details,/publisher-indexed text/);
+ for(const id of ['cloudcx88','socTask88','saiaCloudConnected']) assert(note.src.includes(id),id);
+ assert.match(note.text,/does not establish a released supported path/);
+ const html=runtime("?view=es-editions&theme=cisco").snapshot();
+ assert.match(html,/standalone agentic SOC setup link returned 404 on November 17/);
+ assert(html.includes(data.sources.socTask88.u));
+});

@@ -1203,7 +1203,50 @@
   "automationCoverage": {
     "runFile": "docs/audits/2026-11-17-es-editions-watch-coverage.json"
   },
-  "validation": {},
+  "validation": {
+    "checks": [
+      {
+        "id": "sync-gates",
+        "outcome": "passed",
+        "evidence": "Ordered synchronization and full candidate local verification passed; current Advisor pins were preserved."
+      },
+      {
+        "id": "advisor-maintenance",
+        "outcome": "passed",
+        "evidence": "Ordered synchronization and full candidate local verification passed; current Advisor pins were preserved."
+      },
+      {
+        "id": "coverage-gate",
+        "outcome": "passed",
+        "evidence": "Ordered synchronization and full candidate local verification passed; current Advisor pins were preserved."
+      },
+      {
+        "id": "native-issue-feed",
+        "outcome": "passed",
+        "evidence": "Ordered synchronization and full candidate local verification passed; current Advisor pins were preserved."
+      },
+      {
+        "id": "unit-suite",
+        "outcome": "passed",
+        "evidence": "Ordered synchronization and full candidate local verification passed; current Advisor pins were preserved."
+      },
+      {
+        "id": "build",
+        "outcome": "passed",
+        "evidence": "Ordered synchronization and full candidate local verification passed; current Advisor pins were preserved."
+      },
+      {
+        "id": "exact-candidate-exports",
+        "outcome": "pending",
+        "evidence": "Dedicated application CI and exact artifact readback are separate."
+      },
+      {
+        "id": "live-ui-assets-d1",
+        "outcome": "blocked",
+        "evidence": "Existing Site 300 static manifest and bundle were verified separately. Public D1 health, manifest and bundle returned HTTP 503."
+      }
+    ]
+  },
   "publication": {
     "claimedDelivered": false,
     "qualification": "Candidate integration and production release are separate."
@@ -1211,11 +1254,18 @@
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "es-editions-watch",
-    "status": "pending-public-provenance",
-    "recordedAt": "2026-11-17T11:09:30.944Z",
+    "status": "published",
+    "recordedAt": "2026-11-17T11:10:31.518Z",
     "reviewDigest": "31b0ea1137a4b880ffa717a3de510044e8f5ab400adcc0cb63095765012df4c6",
-    "publicationId": "vci-8eda3240b88fe71b3ce7e60809b86f3dbb99d9b1632591327096a657711be77a",
-    "recordKeys": [],
+    "publicationId": "vci-5427169c951af5a150b9e78e2a3588efc5a1f66744db1a8454863835d504c687",
+    "recordKeys": [
+      "assessment:vcia-es-20261117-es-soc-analyst-version-floor@1",
+      "assessment:vcia-es-20261117-es-88-soc-source-locators@1",
+      "assessment:vcia-es-20261117-es-87-connector-builder-editions@1",
+      "assessment:vcia-es-20261117-es-guided-response-enhancement-scope@1",
+      "assessment:vcia-es-20261117-app-for-soar-88-onprem-matrix-cell@1",
+      "assessment:vcia-es-20261117-es-88-response-agent-rerun-coverage@1"
+    ],
     "notReassessedFindingIds": [
       "vci-soar-cloud-880-release-stage",
       "vci-itsi-subagent-region",
@@ -1255,9 +1305,7 @@
       "vci-es-88-premier-uae-service-disruption",
       "vci-o11y-november-saas-milestone-coverage"
     ],
-    "deferredConcerns": [
-      "ES Editions Watch will bind the feed observations to this public audit commit by November 18."
-    ],
+    "deferredConcerns": [],
     "qualification": "Exact scoped ES reassessments. No claim of production deployment, automated closure or general entitlement."
   }
 }
