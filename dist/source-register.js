@@ -3952,6 +3952,14 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-04",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-17",
+          "event": "Review status updated: Reviewed · 2026-11-17"
+        },
+        {
+          "date": "2026-11-17",
+          "event": "Review status updated: Reviewed · 2026-11-04"
         }
       ]
     },
@@ -3967,6 +3975,7 @@ window.VersionCompassSources = {
         "content-updates.js",
         "editions: editions.capabilities.15",
         "editions: editions.capabilities.20",
+        "editions: editions.notes.0",
         "editions: editions.conflicts.1.claims.1"
       ],
       "reviews": [
@@ -5244,6 +5253,8 @@ window.VersionCompassSources = {
       "references": [
         "editions.sources.cloudcx88.u",
         "content-updates.js",
+        "editions: editions.capabilities.5",
+        "editions: editions.capabilities.9",
         "editions: editions.notes.0"
       ],
       "reviews": [
@@ -7371,7 +7382,8 @@ window.VersionCompassSources = {
       ],
       "references": [
         "editions.sources.saiaCloudConnected.u",
-        "editions: editions.capabilities.20"
+        "editions: editions.capabilities.20",
+        "editions: editions.notes.0"
       ],
       "reviews": [
         "2026-11-04"

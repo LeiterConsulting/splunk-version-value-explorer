@@ -1286,10 +1286,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-16T11:07:16.450524Z",
+      "lastAttempt": "2026-11-17T11:04:13.648858Z",
       "lastSuccess": "2026-11-15T11:24:00.000Z",
       "outcome": "blocked",
-      "summary": "Current claims assessed. Exact historical Controlled Availability and original Triage wording remain unavailable; first execution is unverified.",
+      "summary": "Scoped citation repair prepared; historical SOC scope and first-execution verification remain open.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1883,9 +1883,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Current claims assessed. Exact historical Controlled Availability and original Triage wording remain unavailable; first execution is unverified.",
           "scope": "ES Editions evidence inventory, ten scoped edition, prerequisite, pairing and licensing claims, and Advisor SOC history."
+        },
+        {
+          "at": "2026-11-17T11:04:13.648858Z",
+          "outcome": "running",
+          "summary": "Independent ES edition and prerequisite review started.",
+          "scope": "ES edition history, current Cloud and CMP prerequisites, scoped SOAR matrix and source-locator reviews."
+        },
+        {
+          "at": "2026-11-17T11:10:32.218Z",
+          "outcome": "blocked",
+          "summary": "Scoped citation repair prepared; historical SOC scope and first-execution verification remain open.",
+          "scope": "ES edition history, current Cloud and CMP prerequisites, scoped SOAR matrix and source-locator reviews."
         }
       ],
-      "scope": "ES Editions evidence inventory, ten scoped edition, prerequisite, pairing and licensing claims, and Advisor SOC history."
+      "scope": "ES edition history, current Cloud and CMP prerequisites, scoped SOAR matrix and source-locator reviews."
     },
     {
       "id": "version-guidance-audit",
