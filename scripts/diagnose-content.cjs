@@ -1,4 +1,4 @@
-/* Sequential, bounded delivery checks. Public content GETs can initialize/write D1. */
+/* Sequential, bounded checks for the public content delivery APIs. */
 const fs = require('node:fs'), crypto = require('node:crypto');
 const { isDeepStrictEqual } = require('node:util');
 const { performance } = require('node:perf_hooks');
@@ -9,9 +9,10 @@ function fault(message, failureType = 'verification-failed', extra = {}) { retur
 function assert(condition, message) { if (!condition) throw fault(message); }
 function bounded(value, maximum) { assert(Number.isInteger(value) && value > 0 && value <= maximum, 'Invalid diagnostic budget'); return value; }
 
-async function diagnoseContent({ baseUrl = 'http://127.0.0.1:4173/', expected, fetchImpl = globalThis.fetch, now = () => performance.now(), progress = () => {}, requestMs = LIMITS.requestMs, totalMs = LIMITS.totalMs, maxRequests = LIMITS.maxRequests, expectedAdapters = Object.fromEntries(ADAPTERS.map(file => [file, fs.readFileSync('dist/' + file)])) } = {}) {
+async function diagnoseContent({ baseUrl = 'http://127.0.0.1:4173/', expected, expectedStorage = 'd1', fetchImpl = globalThis.fetch, now = () => performance.now(), progress = () => {}, requestMs = LIMITS.requestMs, totalMs = LIMITS.totalMs, maxRequests = LIMITS.maxRequests, expectedAdapters = Object.fromEntries(ADAPTERS.map(file => [file, fs.readFileSync('dist/' + file)])) } = {}) {
   const base = new URL(baseUrl);
   assert(['http:', 'https:'].includes(base.protocol) && !base.username && !base.password, 'Use an HTTP(S) site URL without credentials');
+  assert(['d1', 'bundled'].includes(expectedStorage), 'Invalid expected delivery storage');
   bounded(requestMs, LIMITS.requestMs); bounded(totalMs, LIMITS.totalMs); bounded(maxRequests, LIMITS.maxRequests);
   assert(expected?.schemaVersion === 1 && /^content-[a-f0-9]{24}$/.test(expected.revision) && /^engine-[a-f0-9]{20}$/.test(expected.engineRevision) && /^[a-f0-9]{64}$/.test(expected.digest) && Number.isSafeInteger(expected.recordCount) && expected.recordCount > 0 && expected.recordCount <= LIMITS.maxRecords, 'Invalid expected publication identity');
   const checks = {}, findings = [], started = now();
@@ -100,17 +101,17 @@ async function diagnoseContent({ baseUrl = 'http://127.0.0.1:4173/', expected, f
       halted = true;
       const blocked = ['transport-unavailable','service-unavailable','budget-exhausted'].includes(error.failureType);
       checks[name] = { outcome: blocked ? 'blocked' : 'failed', failureType: error.failureType || 'verification-failed', evidence: error instanceof DiagnosticError ? error.message : 'Invalid response structure', ...(error.request ? { request: error.request } : {}), ...(error.errorName ? { errorName: error.errorName } : {}) };
-      findings.push({ observed: name + ': ' + checks[name].evidence, impact: 'Delivery verification stopped; subsequent requests were not sent', recommendedChange: blocked ? 'Hold further public checks and inspect matching Worker evidence. Client abort does not cancel server initialization; do not automatically retry.' : recommendation, reversible: true, checksPassed: false, resolved: false });
+      findings.push({ observed: name + ': ' + checks[name].evidence, impact: 'Delivery verification stopped; subsequent requests were not sent', recommendedChange: blocked ? 'Hold further public checks and inspect matching Worker evidence before retrying.' : recommendation, reversible: true, checksPassed: false, resolved: false });
     }
     checks[name].checkedAt = new Date().toISOString(); checks[name].elapsedMs = Math.max(0, now() - time);
     progress({ check: name, outcome: checks[name].outcome, elapsedMs: checks[name].elapsedMs });
   }
   await check('database-health', async () => {
-    assert(isDeepStrictEqual(await request('/content-manifest.json'), expected), 'Static manifest differs from repo publication; public initialization not attempted');
+    assert(isDeepStrictEqual(await request('/content-manifest.json'), expected), 'Static manifest differs from repository publication');
     const h = await request('/api/content/health');
-    assert(h.status === 'ready' && h.storage === 'd1' && h.revision === expected.revision && h.engineRevision === expected.engineRevision && h.recordCount === expected.recordCount, 'Storage, revision, engine or count mismatch');
-    return { status: 'ready', storage: 'd1', revision: expected.revision, engineRevision: expected.engineRevision, recordCount: expected.recordCount };
-  }, 'Check D1 binding and schema without triggering another public initialization.');
+    assert(h.status === 'ready' && h.storage === expectedStorage && h.revision === expected.revision && h.engineRevision === expected.engineRevision && h.recordCount === expected.recordCount, 'Storage, revision, engine or count mismatch');
+    return { status: 'ready', storage: h.storage, revision: expected.revision, engineRevision: expected.engineRevision, recordCount: expected.recordCount };
+  }, 'Check the live deployment identity and expected storage path.');
   await check('live-manifest', async () => {
     assert(isDeepStrictEqual(await request('/api/content/manifest'), expected), 'Live manifest differs from repo publication');
     return expected;
@@ -149,7 +150,7 @@ async function diagnoseContent({ baseUrl = 'http://127.0.0.1:4173/', expected, f
   }, 'Repair record parity or query validation before continuing delivery.');
   await check('read-only-api', async () => {
     await request('/api/content/manifest', { method: 'POST', status: 405, format: 'none' });
-    return 'POST rejected with 405; GET/HEAD can still initialize/write D1';
+    return 'POST rejected with 405';
   }, 'Restore the read-only method guard before exposing the content service.');
   await check('bundled-fallback-assets', async () => {
     for (const file of ADAPTERS) {
@@ -158,12 +159,13 @@ async function diagnoseContent({ baseUrl = 'http://127.0.0.1:4173/', expected, f
     }
     return 'All seven fallback adapters match local generated byte digests';
   }, 'Rebuild the seven adapters from canonical datasets and package them with the client.');
-  return { evaluatedAt: new Date().toISOString(), target: base.origin, expectedRevision: expected.revision, status: halted ? 'issues-detected' : 'delivery-checks-passed', checks, findings, budget: { requests, maxRequests, requestMs, totalMs, elapsedMs: Math.max(0, now() - started) }, limitations: ['Public content GET/HEAD requests can initialize/write D1; client abort does not cancel server work.', 'No automatic retry, warm-up, deployment or activation is performed.', 'Sequential observations are not an atomic database snapshot.', 'Browser journeys, actual HTML reopening and native PDF rendering require separate evidence.'] };
+  return { evaluatedAt: new Date().toISOString(), target: base.origin, expectedRevision: expected.revision, status: halted ? 'issues-detected' : 'delivery-checks-passed', checks, findings, budget: { requests, maxRequests, requestMs, totalMs, elapsedMs: Math.max(0, now() - started) }, limitations: ['Public checks are read-only. Bundled health reports availability of the deployed package only.', 'No automatic retry, warm-up, deployment or activation is performed.', 'Sequential observations are not an atomic database snapshot.', 'Browser journeys, actual HTML reopening and native PDF rendering require separate evidence.'] };
 }
 module.exports = { diagnoseContent, LIMITS };
 if (require.main === module) (async () => {
-  assert(process.argv.length <= 3 && !(process.argv[2] || '').startsWith('--'), 'Usage: node scripts/diagnose-content.cjs [HTTP(S)-site-URL]');
-  const report = await diagnoseContent({ baseUrl: process.argv[2], expected: JSON.parse(fs.readFileSync('content/publication.json', 'utf8')), progress: value => console.error(JSON.stringify(value)) });
+  const [baseUrl, storage, ...extra] = process.argv.slice(2);
+  assert(!extra.length && !(baseUrl || '').startsWith('--') && (storage === undefined || /^--storage=(d1|bundled)$/.test(storage)), 'Usage: node scripts/diagnose-content.cjs [HTTP(S)-site-URL] [--storage=d1|bundled]');
+  const report = await diagnoseContent({ baseUrl, expectedStorage: storage?.slice('--storage='.length), expected: JSON.parse(fs.readFileSync('content/publication.json', 'utf8')), progress: value => console.error(JSON.stringify(value)) });
   console.log(JSON.stringify(report, null, 2));
   if (report.status !== 'delivery-checks-passed') process.exitCode = 2;
 })().catch(() => { console.error('Diagnostic could not start: check local publication, URL and arguments'); process.exitCode = 1; });

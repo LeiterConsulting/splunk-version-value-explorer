@@ -41,7 +41,15 @@ test('all six evidence keys retained; complete expected records verified sequent
   assert.equal(result.checks['bounded-record-query'].evidence.pages, Math.ceil(expected.recordCount/200)+1);
   assert.equal(f.calls.length, 4 + Math.ceil(expected.recordCount/200)+1 + 8 + 1 + 7);
   assert.equal(progress.length,12);
-  assert.match(result.limitations[0], /write D1/);
+  assert.match(result.limitations[0], /read-only/);
+});
+test('bundled health is accepted only when verifying bundled delivery', async () => {
+  const f = fixture(url => url.pathname.endsWith('/health') ? Response.json({
+    status: 'ready', storage: 'bundled', revision: expected.revision,
+    engineRevision: expected.engineRevision, recordCount: expected.recordCount,
+  }) : undefined);
+  assert.equal((await f.run()).checks['database-health'].outcome, 'failed');
+  assert.equal((await f.run({ expectedStorage: 'bundled' })).status, 'delivery-checks-passed');
 });
 test('header deadline aborts and halts without overlap or retry even when fetch ignores abort', async () => {
   const f = fixture(()=>new Promise(()=>{}));
@@ -67,7 +75,7 @@ test('transport errors and 503 stop immediately and never leak raw errors or bod
     assert.equal(result.checks['database-health'].outcome,'blocked');
     assert.equal(f.calls.length,1);
     assert.doesNotMatch(JSON.stringify(result),/SECRET/);
-    assert.match(result.findings[0].recommendedChange,/do not automatically retry/);
+    assert.match(result.findings[0].recommendedChange,/inspect matching Worker evidence before retrying/);
   }
 });
 test('redirects rejected before consuming body, no cross-origin follow', async () => {
@@ -170,7 +178,7 @@ test('body byte cap stops oversized responses without retaining response data', 
   assert.match(result.checks['database-health'].evidence,/body exceeds/);
   assert.equal(f.calls.length,1);
 });
-test('static manifest mismatch halts before any content API can initialize D1', async () => {
+test('static manifest mismatch halts before requesting the content API', async () => {
   const f=fixture(url=>url.pathname==='/content-manifest.json'?Response.json({...expected,engineRevision:'engine-00000000000000000000'}):undefined);
   const result=await f.run();
   assert.equal(result.checks['database-health'].outcome,'failed');

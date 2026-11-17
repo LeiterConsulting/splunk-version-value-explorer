@@ -151,11 +151,11 @@ test('synthetic bundled seed initialization (local SQLite, not hosted D1)', { ti
   });
   const m = await modules();
   // Await subtests serially: fetch stubbing and fault injection are file-local.
-  for (const method of ['GET', 'HEAD']) await t.test(method + ' reports cold storage without initializing', async t => {
+  for (const method of ['GET', 'HEAD']) await t.test(method + ' serves the bundled revision without initializing cold storage', async t => {
     const d = database(t), seed = syntheticSeed();
     const worker = m.createWorker(seed, {}, { rippleFetch: globalThis.fetch });
     const response = await worker.fetch(new Request('https://fixture.invalid/api/content/health', { method }), { DB: d.db, VC_ACTIVE_DELIVERY: '0' });
-    assert.equal(response.status,503);
+    assert.equal(response.status,200);
     assert.equal(d.count(),0);assert.equal(d.batches,0);
     assert.equal(d.completed(seed.manifest.revision),undefined);assert.equal(d.head(),undefined);
   });
@@ -253,6 +253,6 @@ test('synthetic bundled seed initialization (local SQLite, not hosted D1)', { ti
   await t.test('aborted public readiness does not initiate writes',async t=>{
     const d=database(t),seed=syntheticSeed(),controller=new AbortController();controller.abort();
     const response=await m.createWorker(seed,{}).fetch(new Request('https://fixture.invalid/api/content/health',{signal:controller.signal}),{DB:d.db,VC_ACTIVE_DELIVERY:'0'});
-    assert.equal(response.status,503);assert.equal(d.batches,0);assert.equal(d.count(),0);
+    assert.equal(response.status,200);assert.equal(d.batches,0);assert.equal(d.count(),0);
   });
 });

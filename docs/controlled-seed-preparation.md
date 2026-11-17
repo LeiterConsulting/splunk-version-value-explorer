@@ -1,9 +1,9 @@
 # Controlled bounded deployment-seed preparation
 
-Public content GET/HEAD no longer initializes or repairs D1. Missing or incomplete
-bundled seed returns unavailable while static bundled assets remain usable.
-Unpinned active delivery still requires its verified publisher head/provenance.
-This changes readiness semantics deliberately: probing health is not a write.
+Public content GET/HEAD never initializes or repairs D1. The deployed package
+serves its exact revision while active delivery is off. Health identifies that
+storage as `bundled`. D1-backed requests still require complete storage.
+Unpinned active delivery requires its verified publisher head and provenance.
 
 The manual resume-only workflow mode prepares only the exact currently deployed
 bundle, bound to the reviewed deployment record and current validated main
