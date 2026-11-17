@@ -17,6 +17,45 @@ successful workflow nor this document enables automatic publication. Saved task
 settings, actual active controls and live deployment must be read independently;
 repository documentation is not evidence of their current state.
 
+## Scheduled Sites packages
+
+The 10:30 a.m. Eastern `Maintain VersionCompass GitHub` steward is the sole
+production publisher for the public Site. The existing watches continue source
+assessment, issue-feed work and authorized GitHub integration. Guidance Audit
+keeps independent assessment and read-only live checks. The noon operational
+audit independently checks delivery and missed work.
+
+1. Select one exact GitHub main commit and bind its tree to a successful main
+   push of the validation workflow and its original export evidence. Verify the
+   artifact digest and the extracted report evidence against that checkout.
+2. Reconcile the publicly served manifest, latest native release, Sites source
+   head and environment before writing. Keep the last verified native version
+   available for rollback. If the selected tree is already live, verify it and
+   report no change. If a prior attempt has an uncertain outcome, reconcile its
+   actual source, save and deployment before doing any further promotion.
+3. Build the entire package with the existing Site identity and binding. Start
+   the Sites mirror from the source commit of the observed live version. Make
+   the release commit a direct child of that baseline. An attempt-specific
+   commit identity and a normal fast-forward-only push mean two attempts from
+   the same baseline cannot both claim different source commits. Reconcile a
+   rejected push with the native source and release state. This source guard
+   serializes cooperating steward attempts. Site administrators still have
+   their independent product permissions.
+4. Save the matching archive and check the saved source and deployment identity.
+   Promote only that exact saved version with bundled delivery selected. Verify
+   both public hostnames, the exact content bundle, landing review date, Ripple
+   and a representative archived D1 read. An out-of-band runtime or database
+   change requires separate coordination. Keep the historical D1 binding and the
+   disabled D1 publisher out of the scheduled package promotion path.
+5. Record the main commit and tree, validation run and artifact digest, saved
+   version, deployment ID and public readback. If a new package regresses,
+   reconcile the active deployment and restore the recorded prior version.
+   A held, failed or no-change run has its own outcome.
+
+The private scheduler exercises qualify build, source sync, save and deploy.
+Public release qualification requires an actual scheduled steward occurrence
+and independent public readback.
+
 ## Target release boundary
 
 Parallel source assessment and candidate PR work feed one serialized runtime/data
