@@ -21,7 +21,7 @@ export function validateContext(env,manifest,checkoutSha){
  if(!object(manifest)||manifest.schemaVersion!==1||!match(manifest.engineRevision,/^engine-[a-f0-9]{20}$(?![\s\S])/ )||!match(manifest.revision,/^content-[a-f0-9]{24}$(?![\s\S])/ )||!match(manifest.digest,/^[a-f0-9]{64}$(?![\s\S])/ )||manifest.engineRevision!==env.VC_COMMISSION_EXPECTED_ENGINE||manifest.revision!==env.VC_COMMISSION_EXPECTED_REVISION)fail('context-rejected');
  return {commit:env.GITHUB_SHA,workflowSha:env.GITHUB_WORKFLOW_SHA,runId:env.GITHUB_RUN_ID,runAttempt:env.GITHUB_RUN_ATTEMPT,engineRevision:manifest.engineRevision,contentRevision:manifest.revision,digest:manifest.digest};
 }
-function credential(token,e,now){
+export function credential(token,e,now){
  if(!match(token,/^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$(?![\s\S])/ )||token.length>16000)fail('credential-unavailable');
  let c;try{c=JSON.parse(Buffer.from(token.split('.')[1],'base64url').toString('utf8'));}catch{fail('credential-context-rejected');}
  const t=Math.floor(now/1000);
@@ -36,7 +36,7 @@ export function validateObservation(v,e){
 }
 // A single deadline spans headers and all body bytes, including non-cooperative
 // test transports. Aborting/cancelling the client does not cancel server work.
-async function requestJSON(url, headers, maxBytes, fetcher, timeoutMs, monotonic, totalDeadline, onRequest) {
+export async function requestJSON(url, headers, maxBytes, fetcher, timeoutMs, monotonic, totalDeadline, onRequest, method = 'GET') {
   const deadlineAt = Math.min(monotonic() + timeoutMs, totalDeadline);
   const controller = new AbortController();
   let reader, timer;
@@ -44,7 +44,7 @@ async function requestJSON(url, headers, maxBytes, fetcher, timeoutMs, monotonic
   checkDeadline();
   const operation = (async () => {
     checkDeadline(); onRequest();
-    const response = await fetcher(url, { method: 'GET', headers, redirect: 'manual', signal: controller.signal });
+    const response = await fetcher(url, { method, headers, redirect: 'manual', signal: controller.signal });
     if (controller.signal.aborted || monotonic() >= deadlineAt) { try { Promise.resolve(response.body?.cancel()).catch(() => {}); } catch {} fail('request-timeout'); }
     if (response.redirected || response.status >= 300 && response.status < 400 || response.url && response.url !== String(url)) fail('redirect-rejected');
     const declaredLength = response.headers.get('content-length');
