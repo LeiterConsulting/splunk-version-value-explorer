@@ -40,6 +40,33 @@ test('new daily coverage rejects omitted canonical records and misdirected point
   agent.pointer = '/aiAvailability/capabilities/0';
   assert.throws(() => validateRegistry(current), /different canonical record: ai-saia-agent/);
 });
+test('the recorder binds ES and CSP receipts only to their own audits under the current registry', t => {
+  const current = JSON.parse(fs.readFileSync('content/automation-coverage.json'));
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-record-coverage-'));
+  t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  for (const file of ['content/advisor-goals.json', 'content/datasets/guidance.json']) copyHistoricalFixture(file, root);
+  fs.writeFileSync(path.join(root, 'content/automation-coverage.json'), JSON.stringify(current));
+  fs.mkdirSync(path.join(root, 'docs/audits'), { recursive: true });
+  const record = (run, auditFile, runFile) => execFileSync(process.execPath, [path.resolve('scripts/record-automation-coverage.cjs'), '--run', runFile, '--audit', auditFile], { cwd: root, input: JSON.stringify(run), stdio: ['pipe', 'pipe', 'pipe'] });
+  for (const watchId of ['es-editions-watch', 'csp-fedramp-watch']) {
+    const auditFile = 'docs/audits/2026-11-17-' + watchId + '.json';
+    const runFile = 'docs/audits/2026-11-17-' + watchId + '-coverage.json';
+    const run = {
+      schemaVersion: 1, registryVersion: current.registryVersion, kind: 'saved-task-execution', watchId,
+      runId: 'synthetic-' + watchId, outcome: 'partial', claimedComplete: false, publication: { claimedDelivered: false },
+      coverage: current.capabilities.filter(c => c.participatingWatches.includes(watchId)).map(c => ({
+        capabilityId: c.id, disposition: 'deferred', qualification: 'Synthetic deferred review.',
+        discoveredAt: null, retrievedAt: null, assessedAt: null, publishedAt: null, liveVerifiedAt: null,
+        retrievals: [], assessments: [], followUp: { owner: watchId, action: 'Fixture only.', reviewBy: '2026-11-18' },
+      })),
+    };
+    fs.writeFileSync(path.join(root, auditFile), JSON.stringify({ scope: 'Synthetic participating watch audit' }));
+    assert.throws(() => record({ ...run, registryVersion: '1.2.0' }, auditFile, runFile), /current coverage registry/);
+    assert.throws(() => record({ ...run, watchId: 'version-release-watch' }, auditFile, runFile), /actual saved-task execution/);
+    assert.equal(JSON.parse(record(run, auditFile, runFile)).watchId, watchId);
+    assert.equal(JSON.parse(fs.readFileSync(path.join(root, auditFile))).automationCoverage.runFile, runFile);
+  }
+});
 test('pilot covers Prep11 and all three Advisor decisions with separate primary and independent ownership', () => {
   assert.equal(validateRegistry(registry).capabilities.length, 11);
   assert.equal(check().activation, 'pending-first-executions');
