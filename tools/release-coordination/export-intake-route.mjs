@@ -2,7 +2,7 @@
  * Only server-owned runtime configuration enters the existing real intake.
  * No DB handle, admission constructor, persistent storage or logging. */
 import {createProtectedExportIntake} from './protected-export-intake.mjs';
-import {strictJSON} from './qualification-artifact.mjs';
+import {strictJSON,readBounded} from './qualification-artifact.mjs';
 const ORIGIN='https://versioncompass.com',PATH='/api/publisher/export-qualification';
 const response=(status,value)=>Response.json(value,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
 const held=status=>response(status,{status:'protected-intake-held',admission:'held',productionActionAllowed:false});
@@ -11,7 +11,10 @@ export async function exportIntakeRequest(request,env,{fetcher=(...args)=>global
   const u=new URL(request.url);
   if(u.origin!==ORIGIN||u.pathname!==PATH||u.search||u.hash)return held(404);
   if(request.method!=='POST')return response(405,{status:'method-rejected',admission:'held',productionActionAllowed:false});
-  if(request.headers.has('origin')||request.body!==null||(request.headers.has('content-length')&&request.headers.get('content-length')!=='0'))return held(400);
+  if(request.headers.has('origin')||(request.headers.has('content-length')&&request.headers.get('content-length')!=='0'))return held(400);
+  // Workers may expose a stream for an empty HTTP POST. Check actual bytes,
+  // never stream presence or Content-Length alone; bound even a stalled stream.
+  try{await readBounded(request.body??new Blob([]).stream(),0,AbortSignal.timeout(1000));}catch{return held(400)}
   // Never accept a GitHub read credential from an HTTP caller. Only the separate
   // server secret is used. The sender forwards OIDC in Authorization, nothing else.
   for(const name of ['x-github-token','x-github-read-token','x-vc-github-token'])if(request.headers.has(name))return held(400);

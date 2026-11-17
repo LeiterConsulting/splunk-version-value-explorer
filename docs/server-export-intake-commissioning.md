@@ -128,3 +128,26 @@ Validation, qualification-only and preparation workflow source now installs root
 locked dependencies with `npm ci --ignore-scripts --no-audit --no-fund` before
 tests/build. This executes no lifecycle scripts and adds no permissions, triggers
 or requesting intake job. Workflow enablement/dispatch remains unchanged.
+
+## Actual Worker runtime findings
+
+A scratch Miniflare/workerd run of exact main6c6c0dd exposed invalid named constant
+exports at the host entry, before any requests. A diagnostic-only wrapper then
+showed that an empty HTTP POST can expose a non-null body stream. Neither the
+initial run nor that diagnostic wrapper qualifies the original deployment.
+
+The correction uses a real internal legacy-core ESM module and an outer
+**default-only** handler export, with the exact virtual/real dependency closure
+checked by the bundler. The body boundary now reads at most zero actual bytes
+with a one-second deadline before configuration; Content-Length alone is not
+trusted. Tests preserve rejection of nonempty and stalled streams. Signed test
+identities are synthetic and network responses are simulated; no real credential
+or admission authority is created by local runtime tests.
+
+The corrected exact bundle was executed locally with Miniflare4.20260730.0 and
+workerd1.20260730.1: default-off made zero outbound calls; synthetic signed stored
+and deflated artifacts were acquired while admission stayed held; expired
+identity and main drift were rejected. All outbound requests were intercepted by
+synthetic service fixtures, no DB was bound and no Sites deployment occurred.
+This establishes the tested local runtime behavior, not live host forwarding,
+network permissions, secrets or restore readiness.
