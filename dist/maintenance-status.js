@@ -562,10 +562,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-16T10:54:30.699430Z",
+      "lastAttempt": "2026-11-17T10:55:35.525899Z",
       "lastSuccess": "2026-11-11T14:21:55.848Z",
       "outcome": "blocked",
-      "summary": "Three historical receiver citations were verified. Historical SOC evidence, native first-execution verification and release delivery remain incomplete.",
+      "summary": "November SaaS milestone prepared; historical SOC scope and first-execution evidence remain incomplete.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1279,9 +1279,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Three historical receiver citations were verified. Historical SOC evidence, native first-execution verification and release delivery remain incomplete.",
           "scope": "Public release discovery, Prep11, Advisor, exact Forwarder receiver citations and bounded SOAR claims."
+        },
+        {
+          "at": "2026-11-17T10:55:35.525899Z",
+          "outcome": "running",
+          "summary": "Release source and claim review started.",
+          "scope": "November Observability managed SaaS and bounded Prep11, Advisor, SOAR and security review."
+        },
+        {
+          "at": "2026-11-17T11:03:11.055Z",
+          "outcome": "blocked",
+          "summary": "November SaaS milestone prepared; historical SOC scope and first-execution evidence remain incomplete.",
+          "scope": "November Observability managed SaaS and bounded Prep11, Advisor, SOAR and security review."
         }
       ],
-      "scope": "Public release discovery, Prep11, Advisor, exact Forwarder receiver citations and bounded SOAR claims."
+      "scope": "November Observability managed SaaS and bounded Prep11, Advisor, SOAR and security review."
     },
     {
       "id": "es-editions-watch",

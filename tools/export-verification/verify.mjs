@@ -519,6 +519,10 @@ try {
       }
       if(route.id==='enterprise') expected.requiredText=['Splunk Enterprise 10.4.5 was released October 30, 2026.','Version 10.4.4 remains the October 21 advisory-specific floor.'];
       if(route.id==='enterprise') expected.paginationPairs=[{heading:'Recommended action',following:'Match the exact package identifier to its release'}];
+      if(route.id==='observability-november') {
+        expected.requiredText=['A2A investigation delegation','select customers only','Verify tenant access before planning A2A'];
+        for(const phrase of expected.requiredText) assert(normalize(expected.text).includes(phrase),'Missing November Observability qualification: '+phrase);
+      }
       if(route.id==='observability-october') expected.paginationPairs=[
         {heading:'Kubernetes persistent-volume metric defaults',following:'Chart 0.162.1 does not explicitly enable these five metrics'},
         {heading:'Kubernetes histogram bucket merging',following:'Earlier chart pipelines do not add transform/limit_histogram_buckets'}
