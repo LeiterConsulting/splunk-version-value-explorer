@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-agent-runtime-processing-scope",
+  "assessmentId": "vcia-release-20261117-saia-agent-runtime-processing-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-17T11:03:09.891Z",
+  "assessedAt": "2026-11-17T11:01:27.963Z",
+  "outcome": "still-present",
+  "rationale": "Frankfurt remains Data zone and Dublin Global; using Model Runtime can conditionally send a prompt to a third-party endpoint outside the Splunk platform boundary. Region labels alone do not establish model placement.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant"
+    ],
+    "versions": [
+      "2.3.6"
+    ],
+    "deployments": [
+      "Splunk Enterprise Cloud Connected and Model Runtime"
+    ],
+    "editions": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No exact per-request processing location, customer authorization or data-residency commitment is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "vcia-release-20261117-saia-agent-runtime-processing-scope-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+      "section": "Feature availability and region standard; Using Model Runtime",
+      "statement": "Frankfurt remains Data zone and Dublin Global; using Model Runtime can conditionally send a prompt to a third-party endpoint outside the Splunk platform boundary. Region labels alone do not establish model placement.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-17T10:57:15.856Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "491283d0a7431b0b4a2a9dadfa5fe91a2179f7bb7e5840a7e540fe5c0dc0d10d",
+        "qualification": "Response-body digest; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/f3802c8da1679f4827fdc98a55fedc6d886cae42/docs/audits/2026-11-17-version-release-watch-sources.json",
+      "pointer": "/claimChecks/3",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-guidance-20261116-saia-agent-runtime-processing-scope"
+  ],
+  "remainingConcerns": [
+    "No exact per-request processing location, customer authorization or data-residency commitment is established.",
+    "See bounded follow-up in the pinned audit."
+  ]
+}

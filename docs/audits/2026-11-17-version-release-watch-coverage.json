@@ -15,9 +15,14 @@
       {
         "observedAt": "2026-11-17T10:58:55.286Z",
         "status": "in_progress"
+      },
+      {
+        "observedAt": "2026-11-17T11:30:05.593Z",
+        "status": "in_progress",
+        "attemptStartedAt": "2026-11-17T11:27:45.754354Z"
       }
     ],
-    "qualification": "Current native attempt in progress; the latest result did not match at readback."
+    "qualification": "Two attempts of the same native run were observed in progress. No result matching this run was exposed at readback. Earlier source and claim clocks are retained."
   },
   "coverage": [
     {
@@ -475,7 +480,18 @@
     }
   ],
   "validation": {
-    "checks": []
+    "checks": [
+      {
+        "id": "exact-candidate-exports",
+        "outcome": "pending",
+        "evidence": "Public repository candidate CI and artifact readback pending."
+      },
+      {
+        "id": "live-ui-assets-d1",
+        "outcome": "blocked",
+        "evidence": "Prior static manifest and bundle verified. D1 health, manifest and bundle returned 503."
+      }
+    ]
   },
   "publication": {
     "claimedDelivered": false,
@@ -490,5 +506,5 @@
     "tokens": null,
     "cost": null
   },
-  "reviewDigest": "0933ef8b8ac8c30b972386d118422c7c016fb9d8f102778c5d9f1c7fe3baf752"
+  "reviewDigest": "74982991ee61c8d29689337c7922dfdf0e3056dba7fabf73121576e2ef0fb7fd"
 }

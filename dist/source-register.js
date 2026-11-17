@@ -8136,6 +8136,38 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026",
+      "title": "november 2026",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Nov 2026.source",
+        "release.productTracks.observability.releasesData.Nov 2026.features.0.5",
+        "release.productTracks.observability.releasesData.Nov 2026.features.1.5",
+        "release.productTracks.observability.releasesData.Nov 2026.features.2.5",
+        "release.productTracks.observability.releasesData.Nov 2026.requirements.0.3",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-17",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-17",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/october-2026",
       "title": "october 2026",
       "areas": [
@@ -8333,6 +8365,32 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-10-24",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/connect-your-agent-to-the-observability-ai-assistant",
+      "title": "connect your agent to the observability ai assistant",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Nov 2026.technicalChanges.0.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-17",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-17",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]

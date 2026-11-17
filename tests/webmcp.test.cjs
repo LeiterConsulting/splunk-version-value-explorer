@@ -379,7 +379,7 @@ test('September Observability additions preserve SaaS, private-runner, and Cloud
 test('October Observability route preserves SaaS semantics and component release boundaries', async () => {
   const rt = await runtime();
   const report = rt.run('compare_routes', { routes: [{ product: 'observability', platform: 'cloud', host: '10.6', from: 'Sep 2026', to: 'Oct 2026' }] }).reports[0];
-  assert.equal(rt.window.SPLUNK_DATA.productTracks.observability.latest, 'Oct 2026');
+  assert(report.features.every(item => item.title !== 'A2A investigation delegation'));
   for (const title of ['Stricter APM not-equal tag filtering', 'Java instrumentation 2.33', 'Node.js instrumentation 4.12.1', 'Kubernetes chart 0.162.1', 'Python instrumentation 2.13.3', 'Collector 0.163.1 security and input patch', 'Application-scoped call graph exclusions', 'Broader parentless-span MetricSets', 'Metric chart baselines', 'IBM MQ built-in dashboards', 'Multi-trace AI comparisons']) {
     assert(report.features.some(item => item.title === title), title);
   }
@@ -745,4 +745,18 @@ test('WebMCP retains legacy application identity and reports active or fallback 
  delete rt.window.VersionCompassContent;
  const metadata = rt.run('get_catalog', {}).metadata;
  assert.equal(metadata.datasetRevision, null); assert.equal(metadata.engineRevision, null); assert.equal(metadata.delivery, null);
+});
+
+test('November Observability route exposes limited SaaS A2A access without a Collector upgrade', async () => {
+  const rt = await runtime();
+  const track = rt.window.SPLUNK_DATA.productTracks.observability;
+  assert.equal(track.latest, 'Nov 2026');
+  const report = rt.run('compare_routes', { routes: [{ product: 'observability', platform: 'cloud', host: '10.6', from: 'Oct 2026', to: 'Nov 2026' }] }).reports[0];
+  const a2a = report.features.find(item => item.title === 'A2A investigation delegation');
+  assert.match(a2a.detail, /select customers only/);
+  assert.match(a2a.milestone, /Managed SaaS/);
+  assert.equal(a2a.source, 'https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026');
+  assert.match(report.technicalChanges.find(item => item.component === 'Observability AI Assistant A2A access').implication, /does not establish tenant entitlement.*Collector update/);
+  assert(report.readiness.some(item => item.title === 'Verify tenant access before planning A2A' && !item.breaking));
+  assert(report.features.every(item => !/Collector 0\.163/.test(item.title)));
 });

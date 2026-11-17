@@ -1241,7 +1241,7 @@ Object.assign(window.SPLUNK_DATA, {
     },
     "observability": {
       "label": "Splunk Observability Cloud",
-      "latest": "Oct 2026",
+      "latest": "Nov 2026",
       "releases": [
         "Nov 2024",
         "Mar 2025",
@@ -1250,7 +1250,8 @@ Object.assign(window.SPLUNK_DATA, {
         "Apr 2026",
         "Jul 2026",
         "Sep 2026",
-        "Oct 2026"
+        "Oct 2026",
+        "Nov 2026"
       ],
       "releaseOverview": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/release-notes-overview",
       "collectorSource": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector",
@@ -2740,6 +2741,58 @@ Object.assign(window.SPLUNK_DATA, {
               "Use chart 0.162.1 or later and the documented OpAMP Bridge enablement, realm and access-token setup. Templates/groups can update ConfigMaps and roll workloads; verify permissions, scope and staged rollout. Chart 0.163.1 packages Collector 0.163.1; validate its separate migration and security/input changes before adopting that package.",
               "Validate",
               "https://help.splunk.com/en/splunk-observability-cloud/manage-data/manage-otel-agents-and-collectors/remote-configuration-of-opentelemetry-collectors/opamp-bridge-for-collectors-on-kubernetes/enable-the-opamp-bridge-for-kubernetes",
+              false
+            ]
+          ]
+        },
+        "Nov 2026": {
+          "date": "November 2026",
+          "source": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026",
+          "features": [
+            [
+              "A2A investigation delegation",
+              "Automation & AI",
+              "Delegate a managed Observability investigation",
+              "Splunk documents A2A access for select customers only. An eligible customer-owned agent can delegate an Observability investigation and receive a likely cause, evidence, unknowns, and next steps.",
+              "Managed SaaS · November 12, 2026",
+              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026"
+            ],
+            [
+              "APM Span analyzer",
+              "APM & troubleshooting",
+              "Inspect spans and latency across services",
+              "Search, filter, and group individual spans and compare counts, error counts, and latency percentiles.",
+              "Managed SaaS · November 12, 2026",
+              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026"
+            ],
+            [
+              "Search and pin capabilities",
+              "Dashboards & experience",
+              "Find capabilities and pin accessible shortcuts",
+              "Search the capability catalog and pin accessible shortcuts on Home. Default catalog enablement does not grant access to the underlying capability.",
+              "Managed SaaS · November 12, 2026",
+              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026"
+            ]
+          ],
+          "technicalChanges": [
+            {
+              "component": "Observability AI Assistant A2A access",
+              "domain": "Managed service",
+              "changeType": "Delegated investigation interface",
+              "actionLevel": "Review",
+              "from": "Individual tool access and customer-composed workflows remain distinct from delegation to the assistant",
+              "to": "A2A delegates an investigation to the Splunk Observability AI Assistant for select customers only",
+              "implication": "The assistant returns a text investigation result with evidence and unknowns. This milestone does not establish tenant entitlement, region rollout, regulated authorization, or a customer-managed Collector update.",
+              "action": "Confirm tenant access and the supported investigation workflow before relying on A2A. Use the documented MCP path when direct access to individual tools is required.",
+              "source": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/connect-your-agent-to-the-observability-ai-assistant"
+            }
+          ],
+          "requirements": [
+            [
+              "Verify tenant access before planning A2A",
+              "November 12 documents a managed SaaS milestone with access for select customers only. Confirm tenant access and supported investigation scope separately. No Collector or instrumentation version is established by this milestone.",
+              "Validate",
+              "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026",
               false
             ]
           ]

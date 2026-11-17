@@ -17,12 +17,16 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('material cycle preserves scoped release evidence and prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,72);
+ assert.equal(b.policy.currentCycle,73);
+ const delegation=b.entries['feature:observability:A2A investigation delegation'];
+ assert.equal(delegation.cycle,73);assert.equal(delegation.sourceDate,'2026-11-12');
+ assert(b.active(delegation));assert(b.active(delegation,74));assert(!b.active(delegation,75));
+ assert.match(delegation.detail,/select customers/);
  const s3=b.entries['environment:s3-high'];
  assert.equal(s3.cycle,72);assert(b.active(s3));assert(b.active(s3,73));assert(!b.active(s3,74));
  assert.match(s3.detail,/10\.7.*10\.6.*10\.3/);
  const automation=b.entries["edition:automation-builder"];
- assert.equal(automation.cycle,71);assert(b.active(automation));assert(b.active(automation,72));assert(!b.active(automation,73));
+ assert.equal(automation.cycle,71);assert(!b.active(automation));assert(b.active(automation,72));assert(!b.active(automation,73));
  assert.match(automation.source,/#before-you-begin-0$/);
  const notice=b.entries["technical:forwarders:November 18 advisory advance notice · SVD-2026-1101"];
  assert.equal(notice.sourceDate,"2026-11-11");assert(b.active(notice,71));assert(!b.active(notice));

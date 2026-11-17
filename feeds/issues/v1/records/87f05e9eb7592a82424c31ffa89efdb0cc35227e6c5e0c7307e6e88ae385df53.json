@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-cloud-connected-agent-mode-scope",
+  "assessmentId": "vcia-release-20261117-saia-cloud-connected-agent-mode-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-17T11:03:09.891Z",
+  "assessedAt": "2026-11-17T11:01:27.963Z",
+  "outcome": "still-present",
+  "rationale": "The feature guide gives Platform 10.1.x+, supported AWS service locations and enabled Model Runtime, with Cloud Connected certificate and callback prerequisites. The installation guide and SAIA-9918 exclude SAIA 2.2.0–2.3.6 on that path; 2.1.1 lacks Agent Mode in the workaround and 2.4.0 remains planned. The Runtime table separates Frankfurt Data zone from Dublin Global and documents conditional external processing. These sources establish no usable CMP Agent Mode path or authorization.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant"
+    ],
+    "versions": [
+      "2.1.1; 2.2.0–2.3.6; planned 2.4.0"
+    ],
+    "deployments": [
+      "Splunk Enterprise Cloud Connected"
+    ],
+    "editions": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No supported Cloud Connected 2.4.0 release or tenant availability is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "vcia-release-20261117-saia-cloud-connected-agent-mode-scope-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "section": "Requirements and Cloud Connected configuration",
+      "statement": "The feature guide gives Platform 10.1.x+, supported AWS service locations and enabled Model Runtime, with Cloud Connected certificate and callback prerequisites. The installation guide and SAIA-9918 exclude SAIA 2.2.0–2.3.6 on that path; 2.1.1 lacks Agent Mode in the workaround and 2.4.0 remains planned. The Runtime table separates Frankfurt Data zone from Dublin Global and documents conditional external processing. These sources establish no usable CMP Agent Mode path or authorization.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-17T10:57:15.819Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "be365e3ed7b9997409ea6ca66d2e45e0578228bb0e4209d82925fd2fdcffb42b",
+        "qualification": "Response-body digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "vcia-release-20261117-saia-cloud-connected-agent-mode-scope-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "Cloud Connected compatibility",
+      "statement": "The feature guide gives Platform 10.1.x+, supported AWS service locations and enabled Model Runtime, with Cloud Connected certificate and callback prerequisites. The installation guide and SAIA-9918 exclude SAIA 2.2.0–2.3.6 on that path; 2.1.1 lacks Agent Mode in the workaround and 2.4.0 remains planned. The Runtime table separates Frankfurt Data zone from Dublin Global and documents conditional external processing. These sources establish no usable CMP Agent Mode path or authorization.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-17T10:57:15.753Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "fda3849050a5224d28e20c3afce936f4da85aaea098342d6edb6c3559897b5a7",
+        "qualification": "Response-body digest; publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "vcia-release-20261117-saia-cloud-connected-agent-mode-scope-2",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
+      "section": "SAIA-9918",
+      "statement": "The feature guide gives Platform 10.1.x+, supported AWS service locations and enabled Model Runtime, with Cloud Connected certificate and callback prerequisites. The installation guide and SAIA-9918 exclude SAIA 2.2.0–2.3.6 on that path; 2.1.1 lacks Agent Mode in the workaround and 2.4.0 remains planned. The Runtime table separates Frankfurt Data zone from Dublin Global and documents conditional external processing. These sources establish no usable CMP Agent Mode path or authorization.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-17T10:57:15.847Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "a67d58dd9bd137e6a28f548a45bff81cb25c3208f85d87b671898c41dc7f03c0",
+        "qualification": "Response-body digest; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/f3802c8da1679f4827fdc98a55fedc6d886cae42/docs/audits/2026-11-17-version-release-watch-sources.json",
+      "pointer": "/claimChecks/2",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-guidance-20261116-saia-cloud-connected-agent-mode-scope"
+  ],
+  "remainingConcerns": [
+    "No supported Cloud Connected 2.4.0 release or tenant availability is established.",
+    "See bounded follow-up in the pinned audit."
+  ]
+}
