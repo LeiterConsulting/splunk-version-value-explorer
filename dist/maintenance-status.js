@@ -1310,10 +1310,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-17T11:04:13.648858Z",
+      "lastAttempt": "2026-11-18T11:02:08.263859Z",
       "lastSuccess": "2026-11-15T11:24:00.000Z",
       "outcome": "blocked",
-      "summary": "Scoped citation repair prepared; historical SOC scope and first-execution verification remain open.",
+      "summary": "Two AI claim families passed bounded no-change assessment; three AI families and the SOC workflow remain incomplete because the registered stand-alone CMP setup is unavailable and SAIA 2.4 support remains planned.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1919,9 +1919,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Scoped citation repair prepared; historical SOC scope and first-execution verification remain open.",
           "scope": "ES edition history, current Cloud and CMP prerequisites, scoped SOAR matrix and source-locator reviews."
+        },
+        {
+          "at": "2026-11-18T11:02:08.263859Z",
+          "outcome": "running",
+          "summary": "Reviewing the complete ES Editions, daily AI availability and exact SOAR compatibility scope from fresh main and the current public Site.",
+          "scope": "Sixty-six official public sources; registry 1.3.0 advisor.soc-workflow and ai.es-capabilities; exact edition, deployment, version, prerequisite, model, permissions, pairing and historical boundaries."
+        },
+        {
+          "at": "2026-11-18T11:16:12.085Z",
+          "outcome": "blocked",
+          "summary": "Two AI claim families passed bounded no-change assessment; three AI families and the SOC workflow remain incomplete because the registered stand-alone CMP setup is unavailable and SAIA 2.4 support remains planned.",
+          "scope": "All 66 public ES/AI/SOAR inventory URLs; current SOP and Threat Graph claims assessed no-change; Assistant, Detection Builder and Triage/Response claims assessed with explicit source, compatibility, entitlement and authorization gaps."
         }
       ],
-      "scope": "ES edition history, current Cloud and CMP prerequisites, scoped SOAR matrix and source-locator reviews."
+      "scope": "All 66 public ES/AI/SOAR inventory URLs; current SOP and Threat Graph claims assessed no-change; Assistant, Detection Builder and Triage/Response claims assessed with explicit source, compatibility, entitlement and authorization gaps."
     },
     {
       "id": "version-guidance-audit",
