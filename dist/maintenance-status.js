@@ -574,10 +574,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-16T10:54:30.699430Z",
+      "lastAttempt": "2026-11-18T10:12:32.429098Z",
       "lastSuccess": "2026-11-11T14:21:55.848Z",
       "outcome": "blocked",
-      "summary": "Three historical receiver citations were verified. Historical SOC evidence, native first-execution verification and release delivery remain incomplete.",
+      "summary": "Registry 1.3.0 review is partial. Selected exact-release scope assessed; remaining source and live gates tracked.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1291,9 +1291,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Three historical receiver citations were verified. Historical SOC evidence, native first-execution verification and release delivery remain incomplete.",
           "scope": "Public release discovery, Prep11, Advisor, exact Forwarder receiver citations and bounded SOAR claims."
+        },
+        {
+          "at": "2026-11-18T10:12:32.429098Z",
+          "outcome": "running",
+          "summary": "Release Watch source and scoped claim review began.",
+          "scope": "Registry 1.3.0 Release Watch accounting, exact-release selected endpoints, SAIA/ITSI prerequisites, Observability conflict and November security discovery."
+        },
+        {
+          "at": "2026-11-18T10:19:56.849Z",
+          "outcome": "blocked",
+          "summary": "Registry 1.3.0 review is partial. Selected exact-release scope assessed; remaining source and live gates tracked.",
+          "scope": "Registry 1.3.0 Release Watch accounting, exact-release selected endpoints, SAIA/ITSI prerequisites, Observability conflict and November security discovery."
         }
       ],
-      "scope": "Public release discovery, Prep11, Advisor, exact Forwarder receiver citations and bounded SOAR claims."
+      "scope": "Registry 1.3.0 Release Watch accounting, exact-release selected endpoints, SAIA/ITSI prerequisites, Observability conflict and November security discovery."
     },
     {
       "id": "es-editions-watch",
