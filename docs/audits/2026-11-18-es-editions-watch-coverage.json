@@ -267,33 +267,33 @@
     "checks": [
       {
         "id": "sync-gates",
-        "outcome": "pending",
-        "evidence": "Ordered synchronization and check gates have not yet been bound to the candidate."
+        "outcome": "passed",
+        "evidence": "sync-release-metadata, sync-content, sync-source-register and sync-content-revision ran in order; all four --check gates passed against content-22e286a75261d53d3bbaed73 / engine-42d56b4b767d076d1f1b (7 datasets, 966 records)."
       },
       {
         "id": "advisor-maintenance",
-        "outcome": "pending",
-        "evidence": "Advisor maintenance gate pending candidate validation."
+        "outcome": "passed",
+        "evidence": "node scripts/advisor-maintenance.cjs --check passed; the registered Advisor decisions remain machine-valid while the assessed SOC discrepancy stays deferred."
       },
       {
         "id": "coverage-gate",
-        "outcome": "pending",
-        "evidence": "Registry 1.3.0 coverage gate pending candidate validation."
+        "outcome": "passed",
+        "evidence": "node scripts/check-automation-coverage.cjs passed against registry 1.3.0 with exactly two participating ES capability outcomes, both explicitly deferred."
       },
       {
         "id": "native-issue-feed",
-        "outcome": "pending",
-        "evidence": "Public audit provenance must precede the feed checkpoint."
+        "outcome": "passed",
+        "evidence": "Eight distinct assessments were pinned to public precursor commit ed7619cee4aa4bb876050466d9a0cc492c49b0db; sync-issue-feed --check and check-native-issue-feed passed for publication vci-c442fb7b2e146b114260413a39a7e4128f78acfb66c0fdffdb64641e92295845."
       },
       {
         "id": "unit-suite",
-        "outcome": "pending",
-        "evidence": "Full Node suite pending candidate validation."
+        "outcome": "passed",
+        "evidence": "npm test passed 925/925 tests with zero failures."
       },
       {
         "id": "build",
-        "outcome": "pending",
-        "evidence": "Build pending candidate validation."
+        "outcome": "passed",
+        "evidence": "npm run build produced 74 assets for content-22e286a75261d53d3bbaed73 / engine-42d56b4b767d076d1f1b."
       },
       {
         "id": "exact-candidate-exports",
