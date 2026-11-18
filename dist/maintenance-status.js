@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-17T12:55:50.046086Z",
+      "lastAttempt": "2026-11-18T12:16:45.127089Z",
       "lastSuccess": "2026-11-10T12:50:41.612Z",
       "outcome": "blocked",
-      "summary": "Database Monitoring regional conflict qualified. Historical SOC scope and live verification remain incomplete.",
+      "summary": "Public documentation access blocked complete regional claim review; four registry dispositions retained as blocked.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -567,9 +567,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Database Monitoring regional conflict qualified. Historical SOC scope and live verification remain incomplete.",
           "scope": "CSP FedRAMP current and versioned regional, offering, ES SOC prerequisites and restricted SOAR evidence. Database Monitoring US realm/provider correction."
+        },
+        {
+          "at": "2026-11-18T12:16:45.127089Z",
+          "outcome": "running",
+          "summary": "Checking official regional inventory and registry 1.3.0 obligations.",
+          "scope": "73 inventory requests; partial indexed fallback; no product facts, claim dates or material cycle advanced."
+        },
+        {
+          "at": "2026-11-18T12:28:41.135Z",
+          "outcome": "blocked",
+          "summary": "Public documentation access blocked complete regional claim review; four registry dispositions retained as blocked.",
+          "scope": "73 inventory requests; partial indexed fallback; no product facts, claim dates or material cycle advanced."
         }
       ],
-      "scope": "CSP FedRAMP current and versioned regional, offering, ES SOC prerequisites and restricted SOAR evidence. Database Monitoring US realm/provider correction."
+      "scope": "73 inventory requests; partial indexed fallback; no product facts, claim dates or material cycle advanced."
     },
     {
       "id": "version-release-watch",
