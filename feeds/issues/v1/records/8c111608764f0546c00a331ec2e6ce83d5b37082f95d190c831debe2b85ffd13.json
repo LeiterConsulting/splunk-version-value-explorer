@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-cloud-connected-agent-mode-scope",
+  "assessmentId": "vcia-release-20261118-saia-cloud-connected-agent-mode-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-18T10:19:53.777Z",
+  "assessedAt": "2026-11-18T10:18:16.461Z",
+  "outcome": "still-present",
+  "rationale": "The Agent Mode feature guide requires Platform 10.1.x+, a supported AWS location, enabled Model Runtime, and Cloud Connected certificate/callback configuration. The 2.3.6 installation guide still plans 2.4.0 support, excludes 2.2.0–2.3.6, and its 2.1.1 fallback lacks Agent Mode. The current feature minimum does not establish a usable Enterprise Cloud Connected path. A complete fresh runtime routing assessment was not completed.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant"
+    ],
+    "versions": [
+      "2.1.1; 2.2.0–2.3.6; planned 2.4.0"
+    ],
+    "deployments": [
+      "Splunk Enterprise Cloud Connected"
+    ],
+    "editions": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No supported Cloud Connected 2.4.0 release or tenant availability is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release18-aisaiaagentmode-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "section": "Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites",
+      "statement": "The Agent Mode feature guide requires Platform 10.1.x+, a supported AWS location, enabled Model Runtime, and Cloud Connected certificate/callback configuration. The 2.3.6 installation guide still plans 2.4.0 support, excludes 2.2.0–2.3.6, and its 2.1.1 fallback lacks Agent Mode. The current feature minimum does not establish a usable Enterprise Cloud Connected path. A complete fresh runtime routing assessment was not completed.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-18T10:15:23.558Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "c69b5a44a400322e3b0e3f43e79ef2c46507457e80fadaf3eb271aada49ae218",
+        "qualification": "Direct public bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release18-aisaiacloudconnected-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data",
+      "statement": "The Agent Mode feature guide requires Platform 10.1.x+, a supported AWS location, enabled Model Runtime, and Cloud Connected certificate/callback configuration. The 2.3.6 installation guide still plans 2.4.0 support, excludes 2.2.0–2.3.6, and its 2.1.1 fallback lacks Agent Mode. The current feature minimum does not establish a usable Enterprise Cloud Connected path. A complete fresh runtime routing assessment was not completed.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-18T10:15:07.390Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "40a685ee08ca496947b5f13f97a93c42f4e64bfd1e219d74d5edaa8c5af910cf",
+        "qualification": "Direct public bytes. Publisher revision unknown."
+      }
+    },
+    {
+      "evidenceId": "release18-aisaiaknownissues-2",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
+      "section": "SAIA-9918 Cloud Connected access and 2.1.1 workaround",
+      "statement": "The Agent Mode feature guide requires Platform 10.1.x+, a supported AWS location, enabled Model Runtime, and Cloud Connected certificate/callback configuration. The 2.3.6 installation guide still plans 2.4.0 support, excludes 2.2.0–2.3.6, and its 2.1.1 fallback lacks Agent Mode. The current feature minimum does not establish a usable Enterprise Cloud Connected path. A complete fresh runtime routing assessment was not completed.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-18T10:15:07.137Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "22a305f1f29e4a2b4cc599fe990b76c38fd9a912b153ec12bd407cc9753ca769",
+        "qualification": "Direct public bytes. Publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/afa67fd3848879809fbf2518121d91bbcdbc4f4b/docs/audits/2026-11-18-version-release-watch-sources.json",
+      "pointer": "/claimChecks/1",
+      "originalLabel": "still-present"
+    }
+  ],
+  "comparedAssessmentIds": [
+    "vcia-guidance-20261116-saia-cloud-connected-agent-mode-scope"
+  ],
+  "remainingConcerns": [
+    "No supported Cloud Connected 2.4.0 release or tenant availability is established.",
+    "Complete the bounded follow-up under the original evidence owner by November 19."
+  ]
+}
