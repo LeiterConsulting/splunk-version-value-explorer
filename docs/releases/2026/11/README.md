@@ -2,6 +2,7 @@
 
 [2026](../README.md) · [All years](../../README.md)
 
+- [November 19, 2026](2026-11-19.md)
 - [November 18, 2026](2026-11-18.md)
 - [November 17, 2026](2026-11-17.md)
 - [November 16, 2026](2026-11-16.md)

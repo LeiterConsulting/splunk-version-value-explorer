@@ -574,10 +574,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-18T10:12:32.429098Z",
+      "lastAttempt": "2026-11-19T10:20:30.317500Z",
       "lastSuccess": "2026-11-11T14:21:55.848Z",
       "outcome": "blocked",
-      "summary": "Registry 1.3.0 review is partial. Selected exact-release scope assessed; remaining source and live gates tracked.",
+      "summary": "Three exact scopes assessed no-change; sixteen scopes remain incomplete. November 18 advisories discovered for priority CVE review.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1303,9 +1303,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Registry 1.3.0 review is partial. Selected exact-release scope assessed; remaining source and live gates tracked.",
           "scope": "Registry 1.3.0 Release Watch accounting, exact-release selected endpoints, SAIA/ITSI prerequisites, Observability conflict and November security discovery."
+        },
+        {
+          "at": "2026-11-19T10:20:30.317500Z",
+          "outcome": "running",
+          "summary": "Checking release inventory and all registry 1.3.0 scopes.",
+          "scope": "Full inventory attempted; exact capabilities, historical branch security and UF receiver acknowledgement reviewed. No canonical facts, claim dates or material cycle advanced."
+        },
+        {
+          "at": "2026-11-19T10:27:54.835Z",
+          "outcome": "blocked",
+          "summary": "Three exact scopes assessed no-change; sixteen scopes remain incomplete. November 18 advisories discovered for priority CVE review.",
+          "scope": "Full inventory attempted; exact capabilities, historical branch security and UF receiver acknowledgement reviewed. No canonical facts, claim dates or material cycle advanced."
         }
       ],
-      "scope": "Registry 1.3.0 Release Watch accounting, exact-release selected endpoints, SAIA/ITSI prerequisites, Observability conflict and November security discovery."
+      "scope": "Full inventory attempted; exact capabilities, historical branch security and UF receiver acknowledgement reviewed. No canonical facts, claim dates or material cycle advanced."
     },
     {
       "id": "es-editions-watch",
