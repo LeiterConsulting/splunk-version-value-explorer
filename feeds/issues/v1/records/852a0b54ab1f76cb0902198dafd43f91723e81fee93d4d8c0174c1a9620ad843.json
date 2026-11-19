@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-88-ai-regional-mapping-discrepancy",
+  "assessmentId": "vcia-guidance-20261119-es-88-ai-regional-mapping-discrepancy",
+  "revision": 1,
+  "recordedAt": "2026-11-19T13:21:27.057Z",
+  "assessedAt": "2026-11-19T13:18:52.690Z",
+  "outcome": "still-present",
+  "rationale": "Independently compared all three current regional tables: Essentials excludes assistant/Agentic SOC in Calgary, Stockholm and GovCloud; Premier differs from Cloud Connect at Montréal/Calgary. Milan/São Paulo rows no longer name an assistant exception, while canonical assistantExcluded retains them. Preserve unknown feature/runtime relationship and Cloud-only GCP/Azure restrictions; no CMP GovCloud or entitlement inference.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security AI Availability"
+    ],
+    "versions": [
+      "ES 8.8 current public regional tables"
+    ],
+    "editions": [
+      "Essentials",
+      "Premier"
+    ],
+    "deployments": [
+      "Cloud",
+      "Cloud Connected"
+    ],
+    "regions": [
+      "Milan",
+      "São Paulo",
+      "Montréal",
+      "Calgary"
+    ],
+    "audiences": null,
+    "exclusions": [
+      "No feature rollout, entitlement, runtime placement or customer authorization is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261119-10-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "Complete Essentials/Premier/Cloud Connect tables; Cloud GCP/Azure exclusions",
+      "statement": "Independently compared all three current regional tables: Essentials excludes assistant/Agentic SOC in Calgary, Stockholm and GovCloud; Premier differs from Cloud Connect at Montréal/Calgary. Milan/São Paulo rows no longer name an assistant exception, while canonical assistantExcluded retains them. Preserve unknown feature/runtime relationship and Cloud-only GCP/Azure restrictions; no CMP GovCloud or entitlement inference.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-19T13:14:32.241Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "e324f0fb0602697d9f20358960e0d3f6221a54cc1e88ade767ba5529de832395",
+        "qualification": "Fresh direct public body digest; source publication/effective dates are not inferred."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261119-10-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
+      "section": "Complete Essentials/Premier/Cloud Connect tables; Cloud GCP/Azure exclusions",
+      "statement": "Independently compared all three current regional tables: Essentials excludes assistant/Agentic SOC in Calgary, Stockholm and GovCloud; Premier differs from Cloud Connect at Montréal/Calgary. Milan/São Paulo rows no longer name an assistant exception, while canonical assistantExcluded retains them. Preserve unknown feature/runtime relationship and Cloud-only GCP/Azure restrictions; no CMP GovCloud or entitlement inference.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-19T13:14:31.261Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b4146835bedee3825c8b798b3637f26fdcfc31d2da556a0789cf3aec95597f26",
+        "qualification": "Fresh direct public body digest; source publication/effective dates are not inferred."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/1720f07a7473912dd84ac090a5140d776818de35/docs/audits/2026-11-19-version-guidance-audit.json",
+      "pointer": "/claimChecks/10",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "version-guidance-audit by 2026-11-20: Finish exact current-version support, historical/unknown scope and independent output/live verification; retain original qualifications."
+  ],
+  "comparedAssessmentIds": []
+}

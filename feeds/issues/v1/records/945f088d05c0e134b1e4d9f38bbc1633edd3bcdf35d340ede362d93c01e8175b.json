@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-enterprise-104-legacy-tls-scope",
+  "assessmentId": "vcia-guidance-20261119-enterprise-104-legacy-tls-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-19T13:21:27.057Z",
+  "assessedAt": "2026-11-19T13:18:52.690Z",
+  "outcome": "still-present",
+  "rationale": "10.4 READ THIS FIRST says TLS 1.0/1.1 completely removed; release notes say disabled by default but retained for migration. Preserve both claims and 10.6 later scope; no automatic source winner or upgrade edge is inferred. Full historical endpoint/parity scope remains incomplete.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise and applicable Heavy Forwarder"
+    ],
+    "versions": [
+      "10.4"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed inter-Splunk connections"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No unlisted exact pairing, rollout, entitlement or customer authorization established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261119-5-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first",
+      "section": "READ THIS FIRST TLS removal; release-note legacy TLS row",
+      "statement": "10.4 READ THIS FIRST says TLS 1.0/1.1 completely removed; release notes say disabled by default but retained for migration. Preserve both claims and 10.6 later scope; no automatic source winner or upgrade edge is inferred. Full historical endpoint/parity scope remains incomplete.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-19T13:14:33.420Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "2490c8b7c08154b3b4c5a037ea48d728054f50b4bef73352051bff57bcf45bc3",
+        "qualification": "Fresh direct public body digest; source publication/effective dates are not inferred."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261119-5-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4",
+      "section": "READ THIS FIRST TLS removal; release-note legacy TLS row",
+      "statement": "10.4 READ THIS FIRST says TLS 1.0/1.1 completely removed; release notes say disabled by default but retained for migration. Preserve both claims and 10.6 later scope; no automatic source winner or upgrade edge is inferred. Full historical endpoint/parity scope remains incomplete.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-19T13:14:34.795Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ba74dd5903ee0b5cd67bc533dc3ffef842dc6f943cfc8b5a8ddb15d6d05a4f2e",
+        "qualification": "Fresh direct public body digest; source publication/effective dates are not inferred."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/1720f07a7473912dd84ac090a5140d776818de35/docs/audits/2026-11-19-version-guidance-audit.json",
+      "pointer": "/claimChecks/5",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "version-guidance-audit by 2026-11-20: Finish exact current-version support, historical/unknown scope and independent output/live verification; retain original qualifications."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261118-enterprise-104-legacy-tls-scope"
+  ]
+}

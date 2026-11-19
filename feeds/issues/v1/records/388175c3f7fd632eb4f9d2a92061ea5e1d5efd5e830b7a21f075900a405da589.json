@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-sok-32-compatibility-scope",
+  "assessmentId": "vcia-guidance-20261119-sok-32-compatibility-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-19T13:21:27.057Z",
+  "assessedAt": "2026-11-19T13:18:52.690Z",
+  "outcome": "still-present",
+  "rationale": "Help lists September 24, Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0; linked project changelog lists September 8, Kubernetes 1.32–1.36 and Enterprise 10.6.0. Neither establishes 11.x support.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Operator for Kubernetes"
+    ],
+    "versions": [
+      "3.2.0"
+    ],
+    "deployments": [
+      "Customer-managed Kubernetes"
+    ],
+    "editions": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No Enterprise 11.x, exact Kubernetes support outside the compared ranges, Cloud availability or authorization."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261119-0-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix",
+      "section": "SOK to Enterprise matrix and 3.2.0 Supported Versions/Breaking Changes",
+      "statement": "Help lists September 24, Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0; linked project changelog lists September 8, Kubernetes 1.32–1.36 and Enterprise 10.6.0. Neither establishes 11.x support.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-19T13:14:35.828Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "0b5302646594011ca0033bdb38c45069b44ca636e3aad71c6b983e180c8ebb38",
+        "qualification": "Fresh direct public body digest; source publication/effective dates are not inferred."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261119-0-1",
+      "url": "https://splunk.github.io/splunk-operator/reference/ChangeLog.html",
+      "section": "SOK to Enterprise matrix and 3.2.0 Supported Versions/Breaking Changes",
+      "statement": "Help lists September 24, Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0; linked project changelog lists September 8, Kubernetes 1.32–1.36 and Enterprise 10.6.0. Neither establishes 11.x support.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-19T13:14:50.725Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "26ab5b4459deeb2ae2d6fd8ad0f544e8c7ddbda5d85880e2b6805fffb833908e",
+        "qualification": "Fresh direct public body digest; source publication/effective dates are not inferred."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/1720f07a7473912dd84ac090a5140d776818de35/docs/audits/2026-11-19-version-guidance-audit.json",
+      "pointer": "/claimChecks/0",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "version-guidance-audit by 2026-11-20: Finish exact current-version support, historical/unknown scope and independent output/live verification; retain original qualifications."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-guidance-20261116-sok-32-compatibility-scope"
+  ]
+}
