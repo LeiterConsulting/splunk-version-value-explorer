@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "assessment",
+  "findingId": "vci-cloud-s3-restricted-scope",
+  "assessmentId": "vcia-csp-20261119-cloud-s3-restricted-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-19T12:47:23.656Z",
+  "assessedAt": "2026-11-19T12:42:51.537Z",
+  "outcome": "still-present",
+  "rationale": "Preserve both feature/version conflicts. Exact 10.3 source is unavailable; no inferred rollout or authorization.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform Federated Search for Amazon S3"
+    ],
+    "versions": [
+      "10.3 change log, 10.6 feature guide and 10.7 service table"
+    ],
+    "editions": null,
+    "deployments": [
+      "AWS GovCloud Moderate, High and IL5"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No tenant rollout, entitlement or customer authorization is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261119-5-0",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/federated-search/10.6/run-federated-searches-over-amazon-s3-datasets/overview-of-federated-search-for-amazon-s3",
+      "section": "10.6 Unsupported deployments; 10.7 Available regions; April 8 change-log entry",
+      "statement": "10.6 feature guide excludes restricted environments; 10.7 service row includes Moderate but excludes High/IL5; historical change log describes High/IL5 support for relevant 10.3 versions.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-19T12:39:22.237Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "91b2252f54ae96a516770a07aaace8ae0410df37185c75ffb957fb5edc14b439",
+        "qualification": "Direct public response digest; publisher revision is not inferred."
+      }
+    },
+    {
+      "evidenceId": "csp-20261119-5-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "10.6 Unsupported deployments; 10.7 Available regions; April 8 change-log entry",
+      "statement": "10.6 feature guide excludes restricted environments; 10.7 service row includes Moderate but excludes High/IL5; historical change log describes High/IL5 support for relevant 10.3 versions.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-19T12:39:44.396Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9735fa1528286fd2e719e35397ed5eae48520dd97402a5dd4dbad603106444b4",
+        "qualification": "Direct public response digest; publisher revision is not inferred."
+      }
+    },
+    {
+      "evidenceId": "csp-20261119-5-2",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "10.6 Unsupported deployments; 10.7 Available regions; April 8 change-log entry",
+      "statement": "10.6 feature guide excludes restricted environments; 10.7 service row includes Moderate but excludes High/IL5; historical change log describes High/IL5 support for relevant 10.3 versions.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-19T12:39:44.462Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "0ad25448f0cc40ea441c28026de7638d4287a4c36143d142b96948ba2b8287f4",
+        "qualification": "Direct public response digest; publisher revision is not inferred."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/d85c6730f71d49dc3293f0292f1381c611a238bc/docs/audits/2026-11-19-csp-fedramp-watch-sources.json",
+      "pointer": "/claimChecks/5",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "csp-fedramp-watch by 2026-11-20: Assess exact SAIA 2.4.0 regional/runtime and Cloud Connected sections; reconcile ES 8.8 Milan/São Paulo mapping against feature runtime evidence; coordinate dependency discovery with Release Watch and entitlement with ES Editions Watch."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261117-cloud-s3-restricted-scope"
+  ]
+}
