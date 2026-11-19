@@ -1974,10 +1974,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-guidance-audit",
       "name": "Version Guidance Audit",
-      "lastAttempt": "2026-11-16T14:05:09.122392Z",
+      "lastAttempt": "2026-11-19T13:12:41.564297Z",
       "lastSuccess": "2026-11-08T22:04:05.623Z",
       "outcome": "blocked",
-      "summary": "Scoped claims assessed; historical ES 8.8 evidence and first-execution verification remain incomplete.",
+      "summary": "Six bounded capability reviews passed; seventeen scopes and current live identity remain incomplete.",
       "history": [
         {
           "at": "2026-09-24T12:45:24.855849+00:00",
@@ -2163,9 +2163,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Scoped claims assessed; historical ES 8.8 evidence and first-execution verification remain incomplete.",
           "scope": "316 official locators, 11 registry dispositions and the named high-consequence claims."
+        },
+        {
+          "at": "2026-11-19T13:12:41.564297Z",
+          "outcome": "running",
+          "summary": "Independent Guidance source/claim and live read-only review started.",
+          "scope": "Independent registry 1.3.0, historical mapping regression and read-only live checks"
+        },
+        {
+          "at": "2026-11-19T13:18:52.690Z",
+          "outcome": "blocked",
+          "summary": "Six bounded capability reviews passed; seventeen scopes and current live identity remain incomplete.",
+          "scope": "Independent registry 1.3.0, historical mapping regression and read-only live checks"
         }
       ],
-      "scope": "316 official locators, 11 registry dispositions and the named high-consequence claims."
+      "scope": "Independent registry 1.3.0, historical mapping regression and read-only live checks"
     }
   ]
 };
