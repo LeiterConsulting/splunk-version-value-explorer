@@ -1662,7 +1662,7 @@
       {
         "id": "native-issue-feed",
         "outcome": "passed",
-        "evidence": "sync-issue-feed --check and check-native-issue-feed passed with the audit explicitly pending immutable public provenance; no feed publication is claimed yet."
+        "evidence": "Eight distinct assessments are pinned to immutable public precursor commit 57f1e3bfab6a7b0e1ef657166aa08c0d264a57c0; sync-issue-feed --check and check-native-issue-feed passed for publication vci-bd5c128ef79e120c08ee39c6b0142e48bfdfbf32b5ac0cb2f4aef25c474619e5."
       },
       {
         "id": "unit-suite",
@@ -1676,13 +1676,18 @@
       },
       {
         "id": "exact-candidate-exports",
-        "outcome": "pending",
-        "evidence": "Dedicated application CI has not yet completed for the exact GitHub candidate."
+        "outcome": "passed",
+        "evidence": "Dedicated application CI run 44513707101 job 135524151032 passed for exact report-input commit 1d569106ac1e8d83009d1b0cd284184261e3ebe8 and tree d208825b344d3c19e758db122210e8933c78cc45: 226 default/Cisco route cases, 174 native PDFs with 2,516 rendered pages, 174 independent offline HTML reopens, and 174 keyboard/narrow journeys."
       },
       {
         "id": "artifact-readback",
-        "outcome": "pending",
-        "evidence": "Exact-candidate export artifact has not yet been downloaded and checked."
+        "outcome": "passed",
+        "evidence": "Downloaded artifact 14525117175 matched sha256:65a142ed860e23f9ed081288a3fb9cf8caf3cb74c8b60e53894a9b639b0679ba; scripts/export-evidence.cjs verified fingerprint 94801513dca4d8433f48942d083112b0136e8c3f2c3e04db53df8cfaa6dcb03d. check-soak.cjs --exports bound the artifact and correctly held only the coordinator-owned live-revision gate. Separate bounded inspection of ES Editions and AI desktop, phone, offline-HTML and final-PDF images found no novel clipping or content loss; this is not all-page human review."
+      },
+      {
+        "id": "pipeline-status-native-tasks",
+        "outcome": "blocked",
+        "evidence": "scripts/pipeline-status.mjs retained this registry 1.3.0 ES run with both deferred gaps, but no supported --tasks native snapshot or publisher receipt was available. Task evidence remains unverified and activation remains pending-first-executions; CI success is not substituted."
       },
       {
         "id": "live-ui-assets-d1",
@@ -1695,32 +1700,50 @@
     "claimedDelivered": false,
     "qualification": "Repository candidate integration and production release are separate. This watch performs no Sites or D1 mutation.",
     "candidateReceipt": {
-      "reportInputCommit": null,
-      "reportInputTree": null,
-      "exportArtifactId": null,
-      "exportArtifactDigest": null,
-      "reportFingerprint": null,
+      "reportInputCommit": "1d569106ac1e8d83009d1b0cd284184261e3ebe8",
+      "reportInputTree": "d208825b344d3c19e758db122210e8933c78cc45",
+      "publicAuditCommit": "57f1e3bfab6a7b0e1ef657166aa08c0d264a57c0",
+      "publicAuditTree": "d208825b344d3c19e758db122210e8933c78cc45",
+      "workflowRun": 44513707101,
+      "workflowJob": 135524151032,
+      "exportArtifactId": 14525117175,
+      "exportArtifactDigest": "sha256:65a142ed860e23f9ed081288a3fb9cf8caf3cb74c8b60e53894a9b639b0679ba",
+      "visualArtifactId": 14524832689,
+      "visualArtifactDigest": "sha256:a8a4f17d9be787651b77b984351187176ad2bb36ff6122890460bb553950c395",
+      "reportFingerprint": "94801513dca4d8433f48942d083112b0136e8c3f2c3e04db53df8cfaa6dcb03d",
+      "exportCases": 226,
+      "nativePdfs": 174,
+      "renderedPdfPages": 2516,
+      "offlineHtmlReopens": 174,
       "engineRevision": "engine-42d56b4b767d076d1f1b",
       "contentRevision": "content-88390a54707ff767664379be",
       "assessedScope": "Full 66-URL inventory; twelve bounded assessments including all five daily ES AI families. No canonical product fact change was supported.",
       "incompleteScope": "Five exact locators remain unavailable; Cloud Connected SAIA support, the ES 8.6 versus 8.7 SOC floor, exact pairing, entitlement and regional/regulated authorization remain unresolved.",
       "unresolvedGates": [
-        "Public precursor provenance",
-        "Native issue-feed follow-up",
-        "Exact-candidate CI exports and artifact readback",
+        "Native issue-feed follow-up repository integration and readback",
         "Coordinator selection and coordinator-owned live delivery"
       ],
+      "issueFeedPublicationId": "vci-bd5c128ef79e120c08ee39c6b0142e48bfdfbf32b5ac0cb2f4aef25c474619e5",
       "releaseCoordinatorTask": "Automation_440f270a74e48191a770bb15ef4748a0"
     }
   },
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "es-editions-watch",
-    "status": "pending-public-provenance",
-    "recordedAt": "2026-11-19T11:10:08.331Z",
+    "status": "published",
+    "recordedAt": "2026-11-19T11:39:15.077Z",
     "reviewDigest": "643e5cf0f8d9b8514158aef5c7f263214e5dac7f166d31e339b8a0756ccba5fd",
-    "publicationId": "vci-c442fb7b2e146b114260413a39a7e4128f78acfb66c0fdffdb64641e92295845",
-    "recordKeys": [],
+    "publicationId": "vci-bd5c128ef79e120c08ee39c6b0142e48bfdfbf32b5ac0cb2f4aef25c474619e5",
+    "recordKeys": [
+      "assessment:vcia-es-20261119-es-soc-analyst-version-floor@1",
+      "assessment:vcia-es-20261119-es-88-soc-source-locators@1",
+      "assessment:vcia-es-20261119-es-88-triage-editions@1",
+      "assessment:vcia-es-20261119-es-87-connector-builder-editions@1",
+      "assessment:vcia-es-20261119-es-guided-response-enhancement-scope@1",
+      "assessment:vcia-es-20261119-app-for-soar-es-pairing@1",
+      "assessment:vcia-es-20261119-app-for-soar-88-onprem-matrix-cell@1",
+      "assessment:vcia-es-20261119-es-88-response-agent-rerun-coverage@1"
+    ],
     "notReassessedFindingIds": [
       "vci-ai-report-source-directory",
       "vci-cloud-107-aws-israel-filter",
@@ -1759,9 +1782,7 @@
       "vci-svd-2026-1015-applicability",
       "vci-uf-remote-upgrader-route-coverage"
     ],
-    "deferredConcerns": [
-      "Publish the finalized audit through the authorized GitHub path, then append exact public-commit-pinned assessments for the findings actually reassessed and publish/read back the cumulative checkpoint."
-    ],
-    "qualification": "Today’s claim review reassessed bounded ES findings, but immutable public audit provenance does not exist yet. No issue-feed delivery is claimed."
+    "deferredConcerns": [],
+    "qualification": "Eight bounded ES finding reassessments are pinned to immutable public precursor commit 57f1e3bfab6a7b0e1ef657166aa08c0d264a57c0. No automatic closure, general entitlement, regional authorization or runtime delivery is claimed."
   }
 }
