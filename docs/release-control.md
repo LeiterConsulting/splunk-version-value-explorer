@@ -56,6 +56,22 @@ The private scheduler exercises qualify build, source sync, save and deploy.
 Public release qualification requires an actual scheduled steward occurrence
 and independent public readback.
 
+### November 19 main validation interruption
+
+Guidance [PR #217](https://github.com/LeiterConsulting/splunk-version-value-explorer/pull/217)
+passed candidate validation. Its merged main commit `30c7125` failed during
+Chromium dependency installation after the Ubuntu package index requests lost
+their connections. The first main attempt ran no native report renders and
+produced no original export artifact or attestation. [Failed main run](https://github.com/LeiterConsulting/splunk-version-value-explorer/actions/runs/44535263562)
+
+The steward still uses its existing admission rules. Candidate exports can
+help isolate a setup failure. A publishable GitHub input must have its own
+successful first main attempt, original rendered evidence and attestation.
+Record the setup failure and separate it from the source coverage outcome.
+Reconcile the frozen tree with the latest main source before checking a new
+qualification. Keep the previous verified Sites package available when an
+eligible candidate has not completed the required checks.
+
 ## Target release boundary
 
 Parallel source assessment and candidate PR work feed one serialized runtime/data
