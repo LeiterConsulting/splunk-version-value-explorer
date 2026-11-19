@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-agent-runtime-processing-scope",
+  "assessmentId": "vcia-guidance-20261119-saia-agent-runtime-processing-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-19T13:21:27.057Z",
+  "assessedAt": "2026-11-19T13:18:52.690Z",
+  "outcome": "still-present",
+  "rationale": "Agent Mode requires Platform 10.1+, its own fifteen AWS regions and the Model Runtime choice that may use external models. Model Runtime separately lists Azure and Global/Data zone routing. Cloud Connected broadly says no third-party processing. Preserve source-specific processing scopes; base-region coverage does not grant Agent Mode or residency.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant"
+    ],
+    "versions": [
+      "2.3.6"
+    ],
+    "deployments": [
+      "Splunk Enterprise Cloud Connected and Model Runtime"
+    ],
+    "editions": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No exact per-request processing location, customer authorization or data-residency commitment is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "guidance-20261119-7-0",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "Agent Mode AWS regions/runtime choice; Model Runtime region standards; Cloud Connected data wording",
+      "statement": "Agent Mode requires Platform 10.1+, its own fifteen AWS regions and the Model Runtime choice that may use external models. Model Runtime separately lists Azure and Global/Data zone routing. Cloud Connected broadly says no third-party processing. Preserve source-specific processing scopes; base-region coverage does not grant Agent Mode or residency.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-19T13:14:29.789Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "c34e2ba437f2bddd3c1445ac402e6005c1d7fd89ae285e319ed1523c933f96bd",
+        "qualification": "Fresh direct public body digest; source publication/effective dates are not inferred."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261119-7-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "section": "Agent Mode AWS regions/runtime choice; Model Runtime region standards; Cloud Connected data wording",
+      "statement": "Agent Mode requires Platform 10.1+, its own fifteen AWS regions and the Model Runtime choice that may use external models. Model Runtime separately lists Azure and Global/Data zone routing. Cloud Connected broadly says no third-party processing. Preserve source-specific processing scopes; base-region coverage does not grant Agent Mode or residency.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-19T13:14:35.696Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "f6a14d590d7f2f1bb31ad85584610de29ef19a47cb20e4472cc6cbac52846cee",
+        "qualification": "Fresh direct public body digest; source publication/effective dates are not inferred."
+      }
+    },
+    {
+      "evidenceId": "guidance-20261119-7-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+      "section": "Agent Mode AWS regions/runtime choice; Model Runtime region standards; Cloud Connected data wording",
+      "statement": "Agent Mode requires Platform 10.1+, its own fifteen AWS regions and the Model Runtime choice that may use external models. Model Runtime separately lists Azure and Global/Data zone routing. Cloud Connected broadly says no third-party processing. Preserve source-specific processing scopes; base-region coverage does not grant Agent Mode or residency.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-19T13:14:35.740Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b2496e03095a31cc84cb9b5d34881f4ba5235c867869fc199dd61bc97dd427d7",
+        "qualification": "Fresh direct public body digest; source publication/effective dates are not inferred."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/1720f07a7473912dd84ac090a5140d776818de35/docs/audits/2026-11-19-version-guidance-audit.json",
+      "pointer": "/claimChecks/7",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "version-guidance-audit by 2026-11-20: Finish exact current-version support, historical/unknown scope and independent output/live verification; retain original qualifications."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261119-saia-agent-runtime-processing-scope"
+  ]
+}
