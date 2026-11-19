@@ -1322,10 +1322,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-18T11:02:08.263859Z",
-      "lastSuccess": "2026-11-15T11:24:00.000Z",
-      "outcome": "blocked",
-      "summary": "Two AI claim families passed bounded no-change assessment; three AI families and the SOC workflow remain incomplete because the registered stand-alone CMP setup is unavailable and SAIA 2.4 support remains planned.",
+      "lastAttempt": "2026-11-19T11:01:30.153438Z",
+      "lastSuccess": "2026-11-19T11:17:03.213Z",
+      "outcome": "no-change",
+      "summary": "Assessed all five daily ES AI families and highest-consequence edition, prerequisite and pairing boundaries; no supported canonical product-fact change.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1943,9 +1943,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Two AI claim families passed bounded no-change assessment; three AI families and the SOC workflow remain incomplete because the registered stand-alone CMP setup is unavailable and SAIA 2.4 support remains planned.",
           "scope": "All 66 public ES/AI/SOAR inventory URLs; current SOP and Threat Graph claims assessed no-change; Assistant, Detection Builder and Triage/Response claims assessed with explicit source, compatibility, entitlement and authorization gaps."
+        },
+        {
+          "at": "2026-11-19T11:01:30.153438Z",
+          "outcome": "running",
+          "summary": "Reviewing the full ES editions inventory and registry 1.3.0 AI capability scope.",
+          "scope": "Full 66-URL public inventory plus advisor.soc-workflow and all five ai.es-capabilities families; GitHub-only handoff boundary."
+        },
+        {
+          "at": "2026-11-19T11:17:03.213Z",
+          "outcome": "no-change",
+          "summary": "Assessed all five daily ES AI families and highest-consequence edition, prerequisite and pairing boundaries; no supported canonical product-fact change.",
+          "scope": "Full 66-URL inventory, advisor.soc-workflow and ai.es-capabilities under registry 1.3.0; five locators and documented conflicts remain finite follow-up."
         }
       ],
-      "scope": "All 66 public ES/AI/SOAR inventory URLs; current SOP and Threat Graph claims assessed no-change; Assistant, Detection Builder and Triage/Response claims assessed with explicit source, compatibility, entitlement and authorization gaps."
+      "scope": "Full 66-URL inventory, advisor.soc-workflow and ai.es-capabilities under registry 1.3.0; five locators and documented conflicts remain finite follow-up."
     },
     {
       "id": "version-guidance-audit",
