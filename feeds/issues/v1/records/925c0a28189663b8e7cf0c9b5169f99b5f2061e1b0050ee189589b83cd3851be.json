@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "assessment",
+  "findingId": "vci-o11y-database-monitoring-us2-conflict",
+  "assessmentId": "vcia-csp-20261119-o11y-database-monitoring-us2-conflict",
+  "revision": 1,
+  "recordedAt": "2026-11-19T12:47:23.656Z",
+  "assessedAt": "2026-11-19T12:42:51.537Z",
+  "outcome": "still-present",
+  "rationale": "The canonical mapped nine realms remain supported within this bounded comparison. us3 remains unresolved; do not map it to a neighboring region. Database Monitoring US still includes us2 but Google Cloud None, conflicting with the us2 GCP Oregon mapping. Offering authorization and organization enablement remain separate.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Observability Cloud Database Monitoring"
+    ],
+    "versions": [
+      "November 16 service-description revision"
+    ],
+    "editions": null,
+    "deployments": [
+      "Commercial Google Cloud"
+    ],
+    "regions": [
+      "Google Cloud Oregon (us-west1) / us2"
+    ],
+    "audiences": [
+      "Readers planning Observability Cloud component coverage"
+    ],
+    "exclusions": [
+      "No inferred tenant rollout, entitlement, historical availability or regulated authorization."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261119-3-0",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
+      "section": "Assistant availability; troubleshooting-agent availability; realm-to-region equivalence; Database Monitoring US row",
+      "statement": "Assistant lists AWS excluding GovCloud and GCP, including us3. The service table maps nine realms but no us3. Troubleshooting is separately limited to non-Governmental realms and supported default metrics; custom metrics unsupported and remediation Kubernetes-specific.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-19T12:39:29.130Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "4c3d6901e3dacc77fc1c4fb3cb8039ac4ad6d7bc616e814442f516c9429ccaa3",
+        "qualification": "Direct public response digest; publisher revision is not inferred."
+      }
+    },
+    {
+      "evidenceId": "csp-20261119-3-1",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/ai-assistant-in-observability-cloud",
+      "section": "Assistant availability; troubleshooting-agent availability; realm-to-region equivalence; Database Monitoring US row",
+      "statement": "Assistant lists AWS excluding GovCloud and GCP, including us3. The service table maps nine realms but no us3. Troubleshooting is separately limited to non-Governmental realms and supported default metrics; custom metrics unsupported and remediation Kubernetes-specific.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-19T12:39:39.154Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "392c630d4a32771f5237918576c6d7198d954b3813c798b26a5d1d57f7878ead",
+        "qualification": "Direct public response digest; publisher revision is not inferred."
+      }
+    },
+    {
+      "evidenceId": "csp-20261119-3-2",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan",
+      "section": "Assistant availability; troubleshooting-agent availability; realm-to-region equivalence; Database Monitoring US row",
+      "statement": "Assistant lists AWS excluding GovCloud and GCP, including us3. The service table maps nine realms but no us3. Troubleshooting is separately limited to non-Governmental realms and supported default metrics; custom metrics unsupported and remediation Kubernetes-specific.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-19T12:39:39.210Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "157d3bb65a032255711ace75e48226e4b2981eb2b5938a5595011474fb889639",
+        "qualification": "Direct public response digest; publisher revision is not inferred."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/d85c6730f71d49dc3293f0292f1381c611a238bc/docs/audits/2026-11-19-csp-fedramp-watch-sources.json",
+      "pointer": "/claimChecks/3",
+      "originalLabel": "partial"
+    }
+  ],
+  "remainingConcerns": [
+    "csp-fedramp-watch by 2026-11-20: Assess exact SAIA 2.4.0 regional/runtime and Cloud Connected sections; reconcile ES 8.8 Milan/São Paulo mapping against feature runtime evidence; coordinate dependency discovery with Release Watch and entitlement with ES Editions Watch."
+  ],
+  "comparedAssessmentIds": []
+}

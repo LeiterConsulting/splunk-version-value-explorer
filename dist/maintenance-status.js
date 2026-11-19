@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-17T12:55:50.046086Z",
+      "lastAttempt": "2026-11-19T12:37:10.635871Z",
       "lastSuccess": "2026-11-10T12:50:41.612Z",
       "outcome": "blocked",
-      "summary": "Database Monitoring regional conflict qualified. Historical SOC scope and live verification remain incomplete.",
+      "summary": "Access recovered; regional/SAIA version reconciliation and complete coverage remain open.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -567,9 +567,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Database Monitoring regional conflict qualified. Historical SOC scope and live verification remain incomplete.",
           "scope": "CSP FedRAMP current and versioned regional, offering, ES SOC prerequisites and restricted SOAR evidence. Database Monitoring US realm/provider correction."
+        },
+        {
+          "at": "2026-11-19T12:37:10.635871Z",
+          "outcome": "running",
+          "summary": "Source-access diagnostic and bounded regional review started.",
+          "scope": "CSP official inventory and registry 1.3.0 regional scope"
+        },
+        {
+          "at": "2026-11-19T12:42:51.537Z",
+          "outcome": "blocked",
+          "summary": "Access recovered; regional/SAIA version reconciliation and complete coverage remain open.",
+          "scope": "73 URL inventory; independent bounded AI/SOC/S3 assessment; all four capability outcomes incomplete"
         }
       ],
-      "scope": "CSP FedRAMP current and versioned regional, offering, ES SOC prerequisites and restricted SOAR evidence. Database Monitoring US realm/provider correction."
+      "scope": "73 URL inventory; independent bounded AI/SOC/S3 assessment; all four capability outcomes incomplete"
     },
     {
       "id": "version-release-watch",

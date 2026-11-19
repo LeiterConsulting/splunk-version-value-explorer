@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "assessment",
+  "findingId": "vci-es-88-premier-uae-service-disruption",
+  "assessmentId": "vcia-csp-20261119-es-88-premier-uae-service-disruption",
+  "revision": 1,
+  "recordedAt": "2026-11-19T12:47:23.656Z",
+  "assessedAt": "2026-11-19T12:42:51.537Z",
+  "outcome": "still-present",
+  "rationale": "Current 8.8 tables have no named Security AI Assistant exception for Milan or São Paulo, while canonical esEssentials/esPremier/esCloudConnect assistantExcluded retains both. This is a candidate mapping discrepancy, not proof of feature rollout or grounds to remove qualifiers without reconciling the assistant runtime and full dependency chain. UAE AWS-services-disrupted row remains in Premier. No CMP GovCloud inference.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security Premier"
+    ],
+    "versions": [
+      "8.8 regional documentation"
+    ],
+    "editions": null,
+    "deployments": [
+      "AWS me-central-1 (UAE)"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No tenant rollout, entitlement or customer authorization is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261119-2-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "Complete Essentials, Premier and Cloud Connect tables; GCP/Azure availability; assistant compatibility",
+      "statement": "Essentials lists Calgary, Stockholm and both GovCloud regions as AI Assistant/Agentic SOC exceptions. Premier lists Calgary and GovCloud exceptions; Montréal has no named exception. Cloud Connect lists Montréal assistant exception and no Calgary exception. Cloud GCP/Azure permits ES and SOAR only with SOAR unavailable in GCP US West.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-19T12:39:39.035Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "c1d04d463b4c9febee310f80c8ab7e77c783bc18889214a458763afcbf8c2169",
+        "qualification": "Direct public response digest; publisher revision is not inferred."
+      }
+    },
+    {
+      "evidenceId": "csp-20261119-2-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
+      "section": "Complete Essentials, Premier and Cloud Connect tables; GCP/Azure availability; assistant compatibility",
+      "statement": "Essentials lists Calgary, Stockholm and both GovCloud regions as AI Assistant/Agentic SOC exceptions. Premier lists Calgary and GovCloud exceptions; Montréal has no named exception. Cloud Connect lists Montréal assistant exception and no Calgary exception. Cloud GCP/Azure permits ES and SOAR only with SOAR unavailable in GCP US West.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-19T12:39:39.126Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "1f6425260db16a2688a0379d83df01784a431fdb9029789163d05b7adac7f3e3",
+        "qualification": "Direct public response digest; publisher revision is not inferred."
+      }
+    },
+    {
+      "evidenceId": "csp-20261119-2-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "Complete Essentials, Premier and Cloud Connect tables; GCP/Azure availability; assistant compatibility",
+      "statement": "Essentials lists Calgary, Stockholm and both GovCloud regions as AI Assistant/Agentic SOC exceptions. Premier lists Calgary and GovCloud exceptions; Montréal has no named exception. Cloud Connect lists Montréal assistant exception and no Calgary exception. Cloud GCP/Azure permits ES and SOAR only with SOAR unavailable in GCP US West.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-19T12:39:49.277Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "722cf0a3a02cf6c1a55db6cf8b6cd5b1f6514de83965affd92c635ac8ffdd2e3",
+        "qualification": "Direct public response digest; publisher revision is not inferred."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/d85c6730f71d49dc3293f0292f1381c611a238bc/docs/audits/2026-11-19-csp-fedramp-watch-sources.json",
+      "pointer": "/claimChecks/2",
+      "originalLabel": "partial"
+    }
+  ],
+  "remainingConcerns": [
+    "csp-fedramp-watch by 2026-11-20: Assess exact SAIA 2.4.0 regional/runtime and Cloud Connected sections; reconcile ES 8.8 Milan/São Paulo mapping against feature runtime evidence; coordinate dependency discovery with Release Watch and entitlement with ES Editions Watch."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261117-es-88-premier-uae-service-disruption"
+  ]
+}

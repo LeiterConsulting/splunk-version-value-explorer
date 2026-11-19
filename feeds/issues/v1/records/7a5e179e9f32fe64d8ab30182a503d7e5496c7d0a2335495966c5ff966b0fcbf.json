@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "findingId": "vci-es-88-ai-regional-mapping-discrepancy",
+  "revision": 1,
+  "recordedAt": "2026-11-19T12:47:23.656Z",
+  "title": "Current ES 8.8 regional exceptions differ from canonical AI mapping",
+  "concernType": "uncertain-claim",
+  "problem": "Current 8.8 tables have no named Security AI Assistant exception for Milan or São Paulo, while canonical esEssentials/esPremier/esCloudConnect assistantExcluded retains both. This is a candidate mapping discrepancy, not proof of feature rollout or grounds to remove qualifiers without reconciling the assistant runtime and full dependency chain. UAE AWS-services-disrupted row remains in Premier. No CMP GovCloud inference.",
+  "scope": {
+    "products": [
+      "Splunk Enterprise Security AI Availability"
+    ],
+    "versions": [
+      "ES 8.8 current public regional tables"
+    ],
+    "editions": [
+      "Essentials",
+      "Premier"
+    ],
+    "deployments": [
+      "Cloud",
+      "Cloud Connected"
+    ],
+    "regions": [
+      "Milan",
+      "São Paulo",
+      "Montréal",
+      "Calgary"
+    ],
+    "audiences": null,
+    "exclusions": [
+      "No feature rollout, entitlement, runtime placement or customer authorization is established."
+    ]
+  },
+  "scopeComparison": "Exact current 8.8 regional tables versus the existing canonical assistantExcluded mappings; historical 8.7 and feature runtime exclusions remain separate.",
+  "impact": {
+    "customerScenario": "Planning ES AI capability region eligibility.",
+    "consequence": "Canonical exclusions may overstate current table restrictions, but removing them before feature/runtime reconciliation could overstate availability.",
+    "level": "moderate"
+  },
+  "confidence": {
+    "level": "high",
+    "rationale": "Direct current regional table comparison establishes a mapping discrepancy; feature support remains unresolved."
+  },
+  "claimIds": [
+    "es-essentials-ai-regions",
+    "es-premier-ai-regions",
+    "es-cloud-connect-ai-regions"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Current canonical mapping requires reconciliation with the exact regional table and feature runtime scope."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/d85c6730f71d49dc3293f0292f1381c611a238bc/docs/audits/2026-11-19-csp-fedramp-watch-sources.json",
+      "pointer": "/claimChecks/2",
+      "originalLabel": "partial"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "csp-20261119-2-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "Complete Essentials, Premier and Cloud Connect tables; GCP/Azure availability; assistant compatibility",
+      "statement": "Essentials lists Calgary, Stockholm and both GovCloud regions as AI Assistant/Agentic SOC exceptions. Premier lists Calgary and GovCloud exceptions; Montréal has no named exception. Cloud Connect lists Montréal assistant exception and no Calgary exception. Cloud GCP/Azure permits ES and SOAR only with SOAR unavailable in GCP US West.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-19T12:39:39.035Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "c1d04d463b4c9febee310f80c8ab7e77c783bc18889214a458763afcbf8c2169",
+        "qualification": "Direct public response digest; publisher revision is not inferred."
+      }
+    },
+    {
+      "evidenceId": "csp-20261119-2-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
+      "section": "Complete Essentials, Premier and Cloud Connect tables; GCP/Azure availability; assistant compatibility",
+      "statement": "Essentials lists Calgary, Stockholm and both GovCloud regions as AI Assistant/Agentic SOC exceptions. Premier lists Calgary and GovCloud exceptions; Montréal has no named exception. Cloud Connect lists Montréal assistant exception and no Calgary exception. Cloud GCP/Azure permits ES and SOAR only with SOAR unavailable in GCP US West.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-19T12:39:39.126Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "1f6425260db16a2688a0379d83df01784a431fdb9029789163d05b7adac7f3e3",
+        "qualification": "Direct public response digest; publisher revision is not inferred."
+      }
+    },
+    {
+      "evidenceId": "csp-20261119-2-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "Complete Essentials, Premier and Cloud Connect tables; GCP/Azure availability; assistant compatibility",
+      "statement": "Essentials lists Calgary, Stockholm and both GovCloud regions as AI Assistant/Agentic SOC exceptions. Premier lists Calgary and GovCloud exceptions; Montréal has no named exception. Cloud Connect lists Montréal assistant exception and no Calgary exception. Cloud GCP/Azure permits ES and SOAR only with SOAR unavailable in GCP US West.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-19T12:39:49.277Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "722cf0a3a02cf6c1a55db6cf8b6cd5b1f6514de83965affd92c635ac8ffdd2e3",
+        "qualification": "Direct public response digest; publisher revision is not inferred."
+      }
+    }
+  ]
+}
