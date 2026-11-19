@@ -18,6 +18,8 @@ Each future announcement needs a stable ID, exact public source/section, source 
 
 Version Release Watch owns discovery and current source/claim updates. Guidance Audit checks coverage and cross-route consistency. ES Editions Watch supplies edition-specific qualifications; CSP FedRAMP Watch supplies product/region/authorization evidence. Existing schedules and timing modes remain unchanged; no new task is needed.
 
+Each daily Release Watch starts with the [eight section-level reviews](daily-surface-reviews.md#11x-prep-first-pass) and records their separate results in its dated public coverage receipt.
+
 The page's filters affect the screen. PDF and saved HTML contain all maintained updates, preparation areas, open questions and numbered citations, with the current screen selection described. Saved HTML freezes its report, not its external sources. URLs preserve area, update type, search, Cisco theme and meaningful anchors. Ambiguous or comparison-shaped prep URLs retain original input, block exports and offer explicit recovery.
 
 Comparison perspective hooks must leave Prep11 destination URLs intact, including

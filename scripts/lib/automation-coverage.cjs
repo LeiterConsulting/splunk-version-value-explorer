@@ -16,6 +16,9 @@ function pointer(value, location) {
   assert(typeof location === 'string' && location.startsWith('/'), 'Claim needs a JSON pointer');
   return location.slice(1).split('/').reduce((v, part) => v?.[part.replace(/~1/g, '/').replace(/~0/g, '~')], value);
 }
+function mappedSource(dataset, source) {
+  return source.urlPointer === undefined ? dataset.sources?.[source.id] : pointer(dataset, source.urlPointer);
+}
 function validateRegistry(registry, root = process.cwd(), historical = false) {
   assert(registry.schemaVersion === 1 && /^\d+\.\d+\.\d+$/.test(registry.registryVersion), 'Invalid coverage registry version');
   assert(registry.activation === 'pending-first-executions' || registry.activation === 'active', 'Invalid activation state');
@@ -40,8 +43,13 @@ function validateRegistry(registry, root = process.cwd(), historical = false) {
     assert(owners.has(c.escalation.owner) && text(c.escalation.trigger) && text(c.escalation.action), 'Missing escalation: ' + c.id);
     assert(Array.isArray(c.sources) && strings(c.sources.map(s => s.id)), 'Missing source ownership: ' + c.id);
     for (const s of c.sources) {
-      const canonical = read(root, 'content/datasets/' + s.dataset + '.json').sources?.[s.id];
-      assert((historical || canonical && canonical.url === s.url) && text(s.section), 'Missing/stale canonical public source: ' + s.id);
+      if (!historical) {
+        const dataset = read(root, 'content/datasets/' + s.dataset + '.json');
+        const mapped = mappedSource(dataset, s);
+        const canonicalUrl = s.urlPointer === undefined ? mapped?.url : mapped;
+        assert(canonicalUrl === s.url, 'Missing/stale canonical public source: ' + s.id);
+      }
+      assert(text(s.section), 'Missing public source section: ' + s.id);
       const url = new URL(s.url);
       assert(url.protocol === 'https:' && !url.username && !url.password && registry.publicSourceHosts.includes(url.hostname), 'Non-public source: ' + s.id);
     }
@@ -208,4 +216,4 @@ function check(root = process.cwd()) {
   }
   return { registryVersion: registry.registryVersion, activation: registry.activation, runs: results };
 }
-module.exports = { statuses, clocks, pointer, reviewDigest, resolveRegistry, validateRegistry, validateRun, validateAmendments, check };
+module.exports = { statuses, clocks, pointer, mappedSource, reviewDigest, resolveRegistry, validateRegistry, validateRun, validateAmendments, check };
