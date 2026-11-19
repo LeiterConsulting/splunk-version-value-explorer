@@ -1,0 +1,81 @@
+# Daily public surface reviews
+
+The coverage registry adds **17 individually reported scopes** for the Release
+Guide, ES Editions and Cloud Environment. It retains the eight 11.x Prep checks
+and all earlier obligations. The public record for each run is the existing
+dated `docs/audits/*-coverage.json` receipt, linked to its review inputs. Search
+the [audit directory](audits/) for the date and assigned watch. A completed
+source review can conclude that the published guidance needs no change.
+
+| Eastern schedule | Existing task | Primary daily scopes |
+| --- | --- | --- |
+| 05:00 | Version Release Watch | Eight 11.x Prep checks first, then nine Release Guide paths: Enterprise, Cloud, Enterprise-to-Cloud, ES, ITSI, Observability, SOAR, Universal Forwarder and Heavy Forwarder. |
+| 06:00 | ES Editions Watch | Edition and licensing, release history and entitlement changes, deployment and regional prerequisites, and feature and workflow dependencies. |
+| 07:00 | CSP FedRAMP Watch | Provider and region, Classic/Victoria and service controls, FedRAMP Moderate/High, and premium services and Observability realms. |
+| 08:00 Monday/Thursday | Version Guidance Audit | Independent review of scope, evidence, contradictions, and report and citation parity for changed claims. |
+| Noon | Audit VersionCompass and Ripple | Read-only reconciliation of the due primary-owner rows, linked receipts, and publication evidence. |
+
+The 10:30 a.m. Eastern Sites-linked steward remains the sole public Site
+publisher. Watches record and integrate evidence through the existing GitHub
+process. Candidate qualification and public readback follow
+[release control](release-control.md). Issue-feed changes use the existing
+contract and provenance gates.
+
+## 11.x Prep first pass
+
+Start with the eight `prep11.*` rows and the exact sections in the
+[coverage registry](../content/automation-coverage.json) before the broad
+source sweep. Use [the page's evidence rules](prep11.md) to compare each source
+section with the current claim.
+
+1. **Announcement discovery.** Check the mapped official release and announcement
+   channels for explicit Enterprise 11.x statements. Record the channels and
+   search boundary. Require a directly retrieved public source for a new
+   future requirement.
+2. **Operator compatibility.** Compare the official Help matrix and linked change
+   log. Retain both tuples, their dates, and any contradiction.
+3. **Architecture and recovery.** Review the storage, resilience, and recovery
+   guidance in the applicable architecture.
+4. **App delivery.** Assess the App Framework and Premium Apps sections
+   independently, even when the same document supplies the architecture check.
+5. **Workload controls.** Check the exact 10.6 Basic and Advanced modes, including
+   prerequisites, fallback behavior, and supported operations for each mode.
+6. **Cloud alternative.** Assess the staffing, communication, and transition
+   sections of the Cloud readiness guide.
+7. **Version detection.** Check the version-format changes and the exact action
+   documented for apps and integrations.
+8. **AI infrastructure context.** Check the product, deployment, and
+   release-stage scope in the Cisco AI POD announcement.
+
+Use exact official indexed sections when the available evidence supports that
+specific review. Retain the retrieval method and any direct-access failure.
+Search snippets, status codes and digests alone do not substantiate assessments.
+Preserve current-release context separately from any future announcement.
+Explicitly defer a missing source or assessment and finish the other rows.
+
+## What a receipt proves
+
+- Record every due row with its exact scope, official URL and section, supported
+  claim assessment, and actual check times. Compare the mapped baseline with the
+  current official release notices, lifecycle, advisories and compatibility
+  discovery where applicable. Assess changed and due scope within each named
+  path. Cite changed sections and exact applicability, including branch, package,
+  entitlement, experience, provider, or region where relevant.
+- Use the existing `changed`, `assessed-no-change`, `deferred`, `blocked`,
+  or `failed` dispositions as supported. List the precise unchecked scope,
+  accountable owner, next action and review date for each gap. Retain prior
+  evidence dates and any public qualifications when the evidence is incomplete.
+- Use `scripts/record-automation-coverage.cjs` and the existing
+  [writer procedure](automation-operations.md#daily-writer-procedure). Link the
+  watch's own scheduler attempt, bind its review inputs, and include a public
+  receipt even if no site fact changes. A changed review still follows the
+  normal issue-feed and candidate-validation gates.
+- The noon audit joins the due tasks for the Eastern run date to their own
+  receipts. List each row as completed, incomplete, or missing. Link each
+  receipt and call out late or mismatched outcomes. Report independent Guidance,
+  GitHub integration, steward selection and live verification with their own
+  evidence. Reconcile late receipts using their original clocks.
+
+Prompt readback happened November 19. First matching scheduled executions
+under the new registry and their delivery evidence are pending in the
+[amendment ledger](../content/automation-amendments.json).
