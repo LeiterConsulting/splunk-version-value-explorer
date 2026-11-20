@@ -870,7 +870,7 @@ window.VersionCompassEditions = {
         "socTask88",
         "saiaCloudConnected"
       ],
-      "details": "The general Cloud Connect guide requires access to *api.scs.splunk.com:443 and *auth.scs.splunk.com:443, or proxy configuration. Proxy settings affect the whole platform. Full access requires cloud_connection_product_get, license_read and license_edit; the first two allow read-only connection status. The agentic SOC setup page and the current SAIA 2.4.0 installer were directly retrieved on November 20. Together they establish the versioned installation chain, not universal feature rollout, edition entitlement, exact SOAR pairing, regulated authorization or customer enablement."
+      "details": "The general Cloud Connect guide requires access to *api.scs.splunk.com:443 and *auth.scs.splunk.com:443, or proxy configuration. Proxy settings affect the whole platform. Full access requires cloud_connection_product_get, license_read and license_edit; the first two allow read-only connection status. The standalone agentic SOC setup link returned 404 on November 17. Its prerequisites were then readable only in publisher-indexed text. The agentic SOC setup page and the current SAIA 2.4.0 installer were directly retrieved on November 20. Together they establish the versioned installation chain, not universal feature rollout, edition entitlement, exact SOAR pairing, regulated authorization or customer enablement."
     },
     {
       "id": "availability",
