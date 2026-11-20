@@ -75,11 +75,17 @@ async function productLabelFit(page) {
 }
 async function keyboardReach(page, locator) {
   // Exercise actual browser Tab navigation, rather than DOM focus simulation.
-  for (let tabs = 0; tabs < 180; tabs++) {
+  // Comparison reports can legitimately contain more than 180 cited links.
+  // Bound the journey to the rendered focus order so a finite, reachable
+  // action passes while a focus trap or missing action still fails.
+  const focusable = await page.evaluate(() => [...document.querySelectorAll('a[href],button,input,select,textarea,[tabindex]')]
+    .filter(el => !el.disabled && el.tabIndex >= 0 && el.checkVisibility({visibilityProperty:true,opacityProperty:true})).length);
+  const limit = Math.max(180, focusable + 2);
+  for (let tabs = 0; tabs < limit; tabs++) {
     if (await locator.evaluate(el => el === document.activeElement)) return tabs;
     await page.keyboard.press('Tab');
   }
-  throw Error('Report action is unreachable with Tab');
+  throw Error(`Report action is unreachable with Tab after ${limit} rendered focus steps`);
 }
 async function visibleDecisionLabels(page) {
   return page.evaluate(() => [...document.querySelectorAll('.decision-details>summary .decision-expand-label,.decision-details>summary .decision-collapse-label')]

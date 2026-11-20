@@ -15,7 +15,8 @@ test('all evidence records have dated, official HTTPS citations and known editio
  assert.equal(data.capabilities.length,21);assert.equal(new Set(data.capabilities.map(x=>x.id)).size,21);
  for(const r of [...data.capabilities,...data.notes,...data.workflows,...data.highlights,...data.conflicts.flatMap(c=>c.claims)]){assert(r.src.length);for(const key of r.src){const s=data.sources[key];assert(s,key);const u=new URL(s.u);assert.equal(u.protocol,'https:');assert(['www.splunk.com','help.splunk.com','splunkbase.splunk.com'].includes(u.hostname));assert.match(s.reviewed,/^\d{4}-\d{2}-\d{2}$/);} }
  for(const c of data.capabilities)for(const cell of [c.ess,c.prem])assert(['yes','no','part','review'].includes(cell.v));
- for(const id of ['triage-agent','guided-response']){const c=data.capabilities.find(x=>x.id===id);assert.equal(c.ess.v,'review');assert(c.flag);assert(c.src.length>=2);}
+ const triage=data.capabilities.find(x=>x.id==='triage-agent');assert.equal(triage.ess.v,'no');assert.equal(triage.prem.v,'yes');assert(triage.flag);assert(triage.src.length>=2);
+ const guided=data.capabilities.find(x=>x.id==='guided-response');assert.equal(guided.ess.v,'review');assert(guided.flag);assert(guided.src.length>=2);
  const connector=data.capabilities.find(x=>x.id==='connector-builder');assert.equal(connector.ess.v,'yes');assert.equal(connector.prem.v,'yes');assert.match(connector.flag,/8\.7 conflict/);
  const threat=data.capabilities.find(x=>x.id==='threat-graph-detection');assert.equal(threat.ess.v,'no');assert.equal(threat.prem.v,'part');assert.match(threat.flag,/alpha feature/);assert.match(threat.desc,/one million/);
  const detection=data.capabilities.find(x=>x.id==='detection-builder');assert.match(detection.ess.n,/Cloud Connected CMP/);assert.match(detection.desc,/Cloud Connect 2\.0/);
@@ -70,8 +71,8 @@ test('ambiguous or unsupported edition history links keep original input and blo
 });
 test('search, filters, history URLs, copy links and print restoration work without leaking preview tools',async()=>{
  const r=runtime();assert.equal(r.elements.get('edition-count').textContent,'21 of 21 capabilities');assert(r.details.every(x=>!x.open));
- const filter=r.elements.get('edition-filter');filter.value='review';filter.listeners.change();assert.equal([...r.rows.values()].filter(x=>!x.hidden).length,2);
- const q=r.elements.get('edition-search');q.value='Triage';q.listeners.input();assert.equal([...r.rows.values()].filter(x=>!x.hidden).length,1);
+ const filter=r.elements.get('edition-filter');filter.value='review';filter.listeners.change();assert.equal([...r.rows.values()].filter(x=>!x.hidden).length,1);
+ const q=r.elements.get('edition-search');q.value='Guided';q.listeners.input();assert.equal([...r.rows.values()].filter(x=>!x.hidden).length,1);
  q.value='zzzzz';q.listeners.input();assert.equal(r.elements.get('edition-empty').hidden,false);
  q.value='';q.listeners.input();const release=r.elements.get('edition-history');release.value='8.4';release.listeners.change();assert(r.elements.get('edition-timeline').innerHTML.includes('Cisco Talos'));
  await r.elements.get('edition-copy').listeners.click();assert.match(r.copied,/view=es-editions&filter=review&release=8.4/);
@@ -99,13 +100,13 @@ test('history recovery preserves ambiguous and mismatched environment inputs for
 test('ES 8.8 Response rerun limitation stays with the combined workflow',()=>{
  const soc=data.capabilities.find(c=>c.id==='ai-soc-analyst');
  const guided=data.capabilities.find(c=>c.id==='guided-response');
- assert.match(soc.desc,/In ES 8\.8, the Response agent cannot rerun or process findings added/);
+ assert.match(soc.desc,/In ES 8\.8, the Autonomous Response agent cannot rerun or process findings added/);
  assert(soc.src.includes('socTask88'));
  assert(!guided.desc.includes('cannot rerun'));
 });
 
 test('ES 8.8 GA preserves edition-specific release history and the October CA milestone',()=>{
- assert.equal(data.release,'8.8');assert.equal(data.releaseStage,'General Availability');assert.equal(data.sources.rn88.reviewed,'2026-11-05');
+ assert.equal(data.release,'8.8');assert.equal(data.releaseStage,'General Availability');assert.equal(data.sources.rn88.reviewed,'2026-11-20');
  assert(data.history['8.8'].e.includes('Detection Rerun'));assert(data.history['8.8'].p.includes('Automation Broker High Availability'));
  assert.match(data.history['8.8'].qualification,/Controlled Availability/);assert.match(data.history['8.8'].qualification,/pairing/);
  const r=runtime('?view=es-editions&release=8.8');assert(r.html.includes('General Availability'));assert(r.elements.get('edition-timeline').innerHTML.includes('Detection Rerun'));assert(r.elements.get('edition-timeline').innerHTML.includes('Automation Broker High Availability'));
@@ -156,19 +157,19 @@ test('Connector Builder applies the 8.8 both-edition row while preserving the 8.
 
 test('current Triage note stops asserting Essentials while retaining historical uncertainty in reports',()=>{
  const triage=data.capabilities.find(c=>c.id==='triage-agent');
- assert.equal(triage.ess.v,'review');
- assert.match(triage.flag,/no longer explicitly assigns Triage to Essentials/);
+ assert.equal(triage.ess.v,'no');
+ assert.match(triage.flag,/separate Premier component/);
  assert.match(triage.flag,/historical/);
  const question=data.conflicts.find(c=>c.id==='triage-edition-88');
  assert.match(question.claims[0].text,/current.*Premier/);
  assert.match(question.meaning,/earlier.*Essentials/);
  const ai=JSON.parse(read('content/datasets/guidance.json')).aiAvailability.capabilities.find(c=>c.id==='ai-es-soc');
  assert.deepEqual(ai.editions,['premier']);
- assert.match(ai.qualification,/no longer explicitly assigns Triage to Essentials/);
+ assert.match(ai.qualification,/no longer assigns Triage to Essentials/);
  assert(!ai.qualification.includes('A separate 8.8 note assigns the Triage component to Essentials'));
  const r=runtime('?view=es-editions&filter=review&release=8.8');
  const html=r.snapshot();assert(html.includes(triage.flag));assert(html.includes(question.meaning));
- assert.match(html,/no longer explicitly assigns Triage to Essentials/);
+ assert.match(html,/earlier explicit Essentials statement remains historical evidence/);
 });
 
 test('editions shares and navigation retain the optional theme',async()=>{
@@ -216,14 +217,14 @@ test('Automation Builder keeps the documented global settings prerequisite in th
  }
 });
 
-test('Cloud Connect guidance distinguishes the unavailable standalone setup link from current workflow evidence',()=>{
+test('Cloud Connect guidance distinguishes the current install path from feature rollout and authorization',()=>{
  const note=data.notes.find(x=>x.id==='cloud-connect');
- assert.match(data.sources.cloudcxAgentic88.t,/direct link unavailable/);
- assert.match(note.details,/returned 404 on November 17/);
- assert.match(note.details,/publisher-indexed text/);
+ assert.match(data.sources.cloudcxAgentic88.t,/Cloud Connect setup for the agentic SOC/);
+ assert.match(note.details,/directly retrieved on November 20/);
+ assert.match(note.details,/establish the versioned installation chain/);
  for(const id of ['cloudcx88','socTask88','saiaCloudConnected']) assert(note.src.includes(id),id);
- assert.match(note.text,/does not establish a released supported path/);
+ assert.match(note.text,/current SAIA 2\.4\.0 installer documents that Cloud Connect path/);
  const html=runtime("?view=es-editions&theme=cisco").snapshot();
- assert.match(html,/standalone agentic SOC setup link returned 404 on November 17/);
+ assert.match(html,/agentic SOC setup page and the current SAIA 2\.4\.0 installer were directly retrieved on November 20/);
  assert(html.includes(data.sources.socTask88.u));
 });

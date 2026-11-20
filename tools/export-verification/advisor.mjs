@@ -58,9 +58,9 @@ export async function verifyAdvisor(browser,output,base='http://127.0.0.1:4173')
       for(const [field,value]of [['itsiVersion','5.0.0'],['saiaVersion','2.2.0'],['mcpVersion','1.2.1']])await page.locator('#advisor-'+field).fill(value);
       await build();assert.equal(await result().getAttribute('data-outcome'),'no_change');assert.match(await result().innerText(),/regional rollout/);
       await choose('soc-workflow');for(const [field,value]of [['deployment','cloud'],['compliance','commercial'],['edition','premier']])await page.locator('#advisor-'+field).selectOption(value);
-      await page.locator('#advisor-platformVersion').fill('10.4');await page.locator('#advisor-esVersion').fill('8.8');await page.locator('#advisor-access').selectOption('yes');await build();assert.equal(await result().getAttribute('data-outcome'),'conflicting');
-      assert.match(await result().innerText(),/current ES 8.8 workflow task guide/);
-      await page.locator('#advisor-result').getByText('Historical wording already corrected',{exact:true}).click();assert.match(await result().innerText(),/earlier Essentials wording is historical/);
+      await page.locator('#advisor-platformVersion').fill('10.4');await page.locator('#advisor-esVersion').fill('8.8');await page.locator('#advisor-access').selectOption('yes');await build();assert.equal(await result().getAttribute('data-outcome'),'needs_review');
+      assert.match(await result().innerText(),/recorded evidence is overdue or missing a review date/);
+      assert.match(await result().innerText(),/Request a scoped evidence review/);
       await page.locator('.report-navigator button[data-target="advisor-results"]').click();
       const offset=await page.evaluate(()=>({top:document.getElementById('advisor-results').getBoundingClientRect().top,edge:document.querySelector('.report-navigator').getBoundingClientRect().bottom}));assert(offset.top>=offset.edge-2,'Brief hidden under sticky chrome');
       await fit();await page.screenshot({path:path.join(output,id+'-conflict.png'),fullPage:true});

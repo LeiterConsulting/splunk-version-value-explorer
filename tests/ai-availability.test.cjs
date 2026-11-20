@@ -10,13 +10,14 @@ function assess(a,id,extra={}){return a.assess(a.data().capabilities.find(r=>r.i
 test('AI catalog preserves named products, exact dependency floors and scoped dates',()=>{
  const a=model(),d=a.data();assert.equal(d.capabilities.length,10);
  const itsi=d.capabilities.find(r=>r.product==='itsi');assert.match(itsi.version,/ITSI 5\.0\+.*SAIA 2\.2\+.*MCP Server 1\.2\.1\+/);
- assert(d.capabilities.filter(r=>r.product==='es').every(r=>r.stage.includes('General Availability')));
+ assert(d.capabilities.filter(r=>r.product==='es'&&r.id!=='ai-es-soc').every(r=>r.stage.includes('General Availability')));
+ assert.match(d.capabilities.find(r=>r.id==='ai-es-soc').stage,/Autonomous Response Controlled Availability/);
  for(const r of d.capabilities){assert(r.requirements.length);assert(r.qualification);assert(r.verified);assert(r.scope.product===r.product);for(const id of r.src){const s=a.source(id);assert(s.section);assert(s.checked);assert(s.reviewed);assert.equal(new URL(s.url).hostname,'help.splunk.com');}}
- assert.equal(a.source('aiEsAgents88').reviewed,'2026-11-04');
- assert.equal(a.source('aiEsThreatGraph88').reviewed,'2026-10-28');
+ assert.equal(a.source('aiEsAgents88').reviewed,'2026-11-20');
+ assert.equal(a.source('aiEsThreatGraph88').reviewed,'2026-11-20');
  assert.equal(a.source('aiEsSocTask87').reviewed,'2026-10-27');
- assert.equal(a.source('aiEsEditions').reviewed,'2026-10-24');
- assert.equal(a.source('aiEsRelease88').reviewed,'2026-11-05');
+ assert.equal(a.source('aiEsEditions').reviewed,'2026-11-20');
+ assert.equal(a.source('aiEsRelease88').reviewed,'2026-11-20');
 });
 
 test('every capability and inherited assessment citation has a positive number and complete report target',()=>{
@@ -105,8 +106,8 @@ test('ES component and prerequisite differences prevent broad AI availability cl
  assert.equal(assess(a,'ai-es-threat-graph',{edition:'essentials'}).availability,'unavailable');
  assert.equal(assess(a,'ai-es-threat-graph',{deployment:'enterprise',edition:'premier'}).availability,'unavailable');
  const threat=assess(a,'ai-es-threat-graph',{edition:'premier'});assert.equal(threat.availability,'conditional');assert.match(threat.detail,/representative enablement/);
- const soc=a.data().capabilities.find(x=>x.id==='ai-es-soc');assert.equal(soc.verified,'2026-11-04');assert(soc.requirements.some(x=>/first 10.*approximately 200.*frontier models/i.test(x)));assert(soc.requirements.some(x=>/SAIA guidance.*planned.*no released supported CMP path/i.test(x)));assert.match(soc.qualification,/es_soar_integration_user_role/);assert.match(soc.qualification,/SAIA 2\.4.*planned rather than available/);
- const detection=a.data().capabilities.find(x=>x.id==='ai-es-detection');assert.equal(detection.verified,'2026-11-04');assert(detection.requirements.some(x=>/SAIA guidance only plans 2\.4\.0.*not evidence of a released supported path/i.test(x)));
+ const soc=a.data().capabilities.find(x=>x.id==='ai-es-soc');assert.equal(soc.verified,'2026-11-20');assert(soc.requirements.some(x=>/first 10.*approximately 200.*frontier models/i.test(x)));assert(soc.requirements.some(x=>/current SAIA 2\.4\.0 installer documents.*Cloud Connect app path/i.test(x)));assert.match(soc.qualification,/es_soar_integration_user_role/);assert.match(soc.qualification,/Cloud-only availability cell conflicts with a CMP compatibility bullet/);
+ const detection=a.data().capabilities.find(x=>x.id==='ai-es-detection');assert.equal(detection.verified,'2026-11-20');assert(detection.requirements.some(x=>/current SAIA 2\.4\.0 installer adds.*paid-license/i.test(x)));
 });
 test('ES GovCloud Cloud exclusion does not become CMP or universal offering authorization',()=>{
  const a=model();assert.equal(assess(a,'ai-es-assistant',{region:'us-gov-east-1',compliance:'fr-m'}).availability,'unavailable');

@@ -9,21 +9,23 @@ window.VersionCompassEditions = {
     "triageNote88": {
       "t": "ES 8.8 current Triage and Response aggregate row",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
-      "reviewed": "2026-11-04",
-      "section": "Triage and Response agent aggregate availability and compatibility row",
-      "verificationScope": "Only the renamed current Triage and Response aggregate row was reverified November 4; other agent rows and historical component statements retain their separate dates and scope."
+      "reviewed": "2026-11-20",
+      "section": "Triage and Autonomous Response agent availability and compatibility rows",
+      "verificationScope": "Current component-specific edition, deployment, version, paired-SOAR and release-stage rows. The Triage row and Controlled Availability Autonomous Response row are assessed separately."
     },
     "rn88": {
       "t": "ES 8.8 release notes",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
-      "reviewed": "2026-11-05",
+      "reviewed": "2026-11-20",
       "section": "What's new in 8.8.0; November 4 GA and edition table",
       "verificationScope": "Release milestone, edition table and Exposure Analytics rows. Capability-specific entitlement, rollout, pairing and authorization retain separate evidence."
     },
     "rn87": {
       "t": "ES 8.7 release notes",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
-      "reviewed": "2026-10-01"
+      "reviewed": "2026-11-20",
+      "section": "8.7 release milestones and edition table",
+      "verificationScope": "Historical 8.7 milestone and edition statements; later 8.8 documentation is not applied retrospectively."
     },
     "matrix": {
       "t": "ES 8.7 Editions Cloud Capability Matrix",
@@ -33,12 +35,16 @@ window.VersionCompassEditions = {
     "matrix88": {
       "t": "ES 8.8 Editions Cloud Capability Matrix",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/splunk-enterprise-security-editions-cloud-capability-matrix",
-      "reviewed": "2026-11-01"
+      "reviewed": "2026-11-20",
+      "section": "ES 8.2 through 8.8 edition capability rows",
+      "verificationScope": "Version-specific Essentials and Premier capability history; matrix grouping is not independent entitlement or dependency evidence."
     },
     "editions": {
       "t": "Overview of ES Editions",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
-      "reviewed": "2026-10-01"
+      "reviewed": "2026-11-20",
+      "section": "Edition definitions and capability groups",
+      "verificationScope": "Current Essentials and Premier groupings; feature-specific deployment, version, pairing, stage and enablement remain separate."
     },
     "conf26": {
       "t": ".conf26 Agentic SOC announcement",
@@ -53,12 +59,16 @@ window.VersionCompassEditions = {
     "agentic88": {
       "t": "Agentic AI offerings in ES 8.8",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
-      "reviewed": "2026-11-04"
+      "reviewed": "2026-11-20",
+      "section": "Compatibility information for AI agents in Splunk Enterprise Security",
+      "verificationScope": "Current per-agent edition, deployment, version, paired-SOAR and stage rows, including separate Triage and Controlled Availability Autonomous Response entries."
     },
     "threatGraph88": {
       "t": "AI Threat Graph Detection agent prerequisites (ES 8.8)",
-      "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
-      "reviewed": "2026-10-28"
+      "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
+      "reviewed": "2026-11-20",
+      "section": "Alpha notice; prerequisites; enable/test controls",
+      "verificationScope": "Alpha, Premier Cloud, ES 8.8+, representative enablement, risk-based detection and approximately one-million-event prerequisites."
     },
     "cloudcx": {
       "t": "Access Splunk Cloud Connect in ES",
@@ -68,13 +78,16 @@ window.VersionCompassEditions = {
     "cloudcx88": {
       "t": "Access Splunk Cloud Connect in ES 8.8",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.8/introduction/access-splunk-cloud-connect-in-splunk-enterprise-security-to-access-cloud-extensions",
-      "reviewed": "2026-10-31"
+      "reviewed": "2026-11-20",
+      "section": "Cloud Connect access, capabilities, domains, proxy, tenant provisioning and authentication",
+      "verificationScope": "General ES Cloud Connect administration; it does not by itself establish a feature's edition, region, entitlement or authorization."
     },
     "cloudcxAgentic88": {
-      "t": "ES 8.8 standalone agentic SOC setup (direct link unavailable)",
+      "t": "ES 8.8 Cloud Connect setup for the agentic SOC",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/set-up-splunk-cloud-connect-to-use-the-agentic-soc",
-      "reviewed": "2026-11-04",
-      "section": "Agentic SOC prerequisites, Cloud Connect and SAIA installation, service activation and token certificate setup"
+      "reviewed": "2026-11-20",
+      "section": "Agentic SOC prerequisites; Cloud Connect and SAIA installation; service activation; token certificate setup",
+      "verificationScope": "Direct public body retrieved. Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and SAIA 2.4+ prerequisites; exact entitlement, region, pairing and authorization remain separate."
     },
     "aiassist": {
       "t": "AI Assistant overview (ES)",
@@ -89,14 +102,23 @@ window.VersionCompassEditions = {
     "saiaCloudConnected": {
       "t": "Splunk AI Assistant 2.3.6 Cloud Connected compatibility",
       "u": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
-      "reviewed": "2026-11-04",
+      "reviewed": "2026-11-20",
       "section": "Cloud Connected compatibility and version compatibility",
-      "verificationScope": "Versions 2.2.0 through 2.3.6 are unsupported for Cloud Connected; 2.1.1 is a non-Agent-Mode fallback; 2.4.0 support is planned for late November 2026 and is not treated as released."
+      "verificationScope": "Version-specific 2.3.6 page: 2.2.0 through 2.3.6 are unsupported for Cloud Connected, 2.1.1 is a non-Agent-Mode fallback, and 2.4.0 is described as planned. The separate current 2.4.0 installer now documents that released path; this older page is retained as historical version scope."
+    },
+    "saiaCloudConnect240": {
+      "t": "Splunk AI Assistant 2.4.0 Cloud Connect installation",
+      "u": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-splunk-cloud-connect",
+      "reviewed": "2026-11-20",
+      "section": "Prerequisites; Version compatibility; Installation steps; What data leaves your environment",
+      "verificationScope": "SAIA 2.4.0+, Cloud Connect 2.0.0+ and Enterprise 10.4+ path, including paid-license, fresh-setup, network, certificate, permission, email, commercial-region and data-processing qualifications. ES edition, agent stage, SOAR pairing and authorization remain separate."
     },
     "pricing": {
       "t": "Splunk pricing — Enterprise Security and SOAR",
       "u": "https://www.splunk.com/en_us/products/pricing.html",
-      "reviewed": "2026-10-01"
+      "reviewed": "2026-11-20",
+      "section": "Enterprise Security and SOAR pricing models",
+      "verificationScope": "Public pricing-model descriptions only; no customer price, contract or deployment entitlement inferred."
     },
     "pricingModels": {
       "t": "Splunk pricing models and eligibility FAQ",
@@ -118,7 +140,16 @@ window.VersionCompassEditions = {
     "connectorTask88": {
       "t": "Connector Builder prerequisites (ES 8.8)",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/automation-with-playbooks/configure-splunk-soar-apps-in-splunk-enterprise-security",
-      "reviewed": "2026-11-04"
+      "reviewed": "2026-11-20",
+      "section": "Connector Builder compatibility, Cloud pairing and SOAR app/asset permissions",
+      "verificationScope": "Current ES 8.8 Connector Builder task scope; edition grouping, exact SOAR pairing and customer authorization remain separate."
+    },
+    "autonomousResponse88": {
+      "t": "Autonomous Response agent prerequisites and access (ES 8.8)",
+      "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/identify-and-run-the-soar-response-actions-on-findings-using-the-autonomous-response-agent-in-splunk-enterprise-security",
+      "reviewed": "2026-11-20",
+      "section": "Controlled Availability notice; Role access; Prerequisites; connector and response limitations",
+      "verificationScope": "Controlled Availability component stage, Cloud availability statement, deployment floors, paired SOAR, frontier-model, inherited connector and granular asset-role requirements."
     },
     "socTask": {
       "t": "AI SOC Analyst workflow prerequisites (ES 8.7)",
@@ -128,7 +159,9 @@ window.VersionCompassEditions = {
     "socTask88": {
       "t": "Triage and Response agent workflow prerequisites (ES 8.8)",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
-      "reviewed": "2026-11-04"
+      "reviewed": "2026-11-20",
+      "section": "Prerequisites; analysis limits; connector and permission controls; response limitations",
+      "verificationScope": "Current combined workflow prerequisites and limits. Component release stage, table minimum discrepancy, exact SOAR pairing, region, entitlement and authorization remain separate."
     },
     "malwareTask": {
       "t": "Malware Reversing and Phishing task guide (ES 8.7)",
@@ -143,7 +176,9 @@ window.VersionCompassEditions = {
     "ueba": {
       "t": "Splunk UEBA product page",
       "u": "https://www.splunk.com/en_us/products/user-and-entity-behavior-analytics.html",
-      "reviewed": "2026-10-01"
+      "reviewed": "2026-11-20",
+      "section": "UEBA capability overview",
+      "verificationScope": "Public UEBA capability description only; exact ES edition, deployment, version and SOAR pairing retain the compatibility-table evidence."
     },
     "ea": {
       "t": "Exposure Analytics product page",
@@ -153,12 +188,16 @@ window.VersionCompassEditions = {
     "licensing": {
       "t": "ES licensing and trials (8.7 documentation)",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.7/introduction/licensing-for-splunk-enterprise-security",
-      "reviewed": "2026-10-10"
+      "reviewed": "2026-11-20",
+      "section": "License requirements, Essentials and Premier trials, trial expiration and paid-license behavior",
+      "verificationScope": "Public edition-license and trial behavior only; pricing models, capability entitlement and customer contracts remain separate."
     },
     "licensing88": {
       "t": "ES licensing and trials (8.8 documentation)",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.8/introduction/licensing-for-splunk-enterprise-security",
-      "reviewed": "2026-10-31"
+      "reviewed": "2026-11-20",
+      "section": "Licensing terms and capacity usage; trial license terms; Cloud Connected trial behavior",
+      "verificationScope": "Current license measurements and 30-day Essentials/90-day Premier trial behavior; no customer-specific price or deployment authorization inferred."
     },
     "regions": {
       "t": "ES 8.7 compatibility and regional availability",
@@ -168,7 +207,9 @@ window.VersionCompassEditions = {
     "regions88": {
       "t": "ES 8.8 compatibility and regional availability",
       "u": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
-      "reviewed": "2026-11-01"
+      "reviewed": "2026-11-20",
+      "section": "Edition regional tables; Cloud Connect; GCP/Azure; AI Assistant and UEBA compatibility",
+      "verificationScope": "Current version, edition, deployment and region rows. Feature availability is not offering authorization."
     },
     "guided": {
       "t": "Guided Response prerequisites (8.6 documentation)",
@@ -183,7 +224,7 @@ window.VersionCompassEditions = {
     "appForSoar88": {
       "t": "App for SOAR 8.8.0 tested compatibility",
       "u": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.8.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
-      "reviewed": "2026-11-06",
+      "reviewed": "2026-11-20",
       "section": "Splunk product compatibility matrix, 8.8.0 row; Required user privileges and ports",
       "verificationScope": "Exact ES, host and SOAR values, including the malformed on-premises cell."
     },
@@ -211,21 +252,21 @@ window.VersionCompassEditions = {
     "soarExportRelease88": {
       "t": "SOAR Export 8.8.0 release notes",
       "u": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
-      "reviewed": "2026-11-09",
+      "reviewed": "2026-11-20",
       "section": "Welcome to release 8.8.0",
       "verificationScope": "November 4 maintenance-release identity and absence of claimed new features; not a tested pairing matrix."
     },
     "soarExportEnterprise88": {
       "t": "SOAR Export 8.8.0 prerequisites on Enterprise",
       "u": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
-      "reviewed": "2026-11-09",
+      "reviewed": "2026-11-20",
       "section": "Required Python version; Splunk product compatibility matrix; Required app",
       "verificationScope": "Exact optional ES, Enterprise, SOAR, Python and CIM values in the functionality-tested row."
     },
     "soarExportCloud88": {
       "t": "SOAR Export 8.8.0 prerequisites on Cloud Platform",
       "u": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
-      "reviewed": "2026-11-09",
+      "reviewed": "2026-11-20",
       "section": "Required Python version; Splunk product compatibility matrix; Required app",
       "verificationScope": "Exact optional ES, Cloud Platform, SOAR, Python and CIM values in the functionality-tested row."
     },
@@ -375,7 +416,7 @@ window.VersionCompassEditions = {
         "v": "yes",
         "n": "Cloud; on-prem via Cloud Connect"
       },
-      "flag": "The editions overview limits Essentials to Cloud, where available, and lists Premier access through Cloud Connect. The current 8.8 setup guide requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+ for the agentic SOC path, while current SAIA 2.3.6 guidance says that Cloud Connected support is planned for 2.4.0 in late November 2026. The prerequisite therefore does not establish a released supported path. An earlier 8.8 page said ES 8.9+ would contain Cloud Connect 2.0+; the current page no longer carries that wording, so it remains historical packaging evidence rather than proof that ES 8.9 is released or available. The general administration page does not establish an Essentials on-premises entitlement.",
+      "flag": "The editions overview limits Essentials to Cloud, where available, and lists Premier access through Cloud Connect. The ES 8.8 setup and current SAIA 2.4.0 installation guides now document the Cloud Connected path: Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. SAIA 2.4.0 additionally requires a qualifying paid license, fresh setup, supported AWS commercial region, outbound HTTPS, STC/OAuth certificate setup, named administrator capabilities and license-contact-domain email verification. This establishes a documented installation path, not an Essentials on-premises entitlement, universal region, customer enablement or authorization. The still-published SAIA 2.3.6 page retains its earlier planned-release wording as historical version-specific guidance.",
       "desc": "The assistant embedded in ES, distinct from the separately versioned Splunk AI Assistant platform app.",
       "src": [
         "editions",
@@ -384,9 +425,10 @@ window.VersionCompassEditions = {
         "cloudcx",
         "agentic88",
         "cloudcxAgentic88",
-        "cloudcx88"
+        "cloudcx88",
+        "saiaCloudConnect240"
       ],
-      "reviewed": "2026-11-04"
+      "reviewed": "2026-11-20"
     },
     {
       "id": "mcp",
@@ -458,16 +500,17 @@ window.VersionCompassEditions = {
         "v": "yes",
         "n": "Cloud and Cloud Connected CMP"
       },
-      "desc": "Assists detection authoring and troubleshooting. Cloud requires Splunk Platform 10.1.x+. The current Cloud Connected CMP setup requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+, but current SAIA guidance only plans 2.4.0 Cloud Connected support for late November 2026; this dependency chain is not evidence of an available supported path. An earlier 8.8 page's ES 8.9+ bundled-Cloud-Connect wording is retained only as historical packaging evidence, not an ES 8.9 release or rollout. Edition inclusion and deployment prerequisites remain separate from regional rollout and customer enablement.",
+      "desc": "Assists event-based detection authoring and troubleshooting; the 8.8 guide says it is turned off for finding-based detections. Cloud requires Platform 10.1.x+ and ES 8.6+. The documented Cloud Connected CMP path requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. The current SAIA 2.4.0 installer supplies that Cloud Connect path with additional license, network, certificate, administrator, email and supported-commercial-region conditions. Edition inclusion and installation prerequisites remain separate from regional rollout, entitlement, feature enablement and customer authorization.",
       "src": [
         "agentic88",
         "agentic",
         "rn87",
         "rn88",
         "cloudcxAgentic88",
-        "cloudcx88"
+        "cloudcx88",
+        "saiaCloudConnect240"
       ],
-      "reviewed": "2026-11-04",
+      "reviewed": "2026-11-20",
       "tag": "updated"
     },
     {
@@ -489,7 +532,7 @@ window.VersionCompassEditions = {
         "threatGraph88",
         "rn88"
       ],
-      "reviewed": "2026-10-26"
+      "reviewed": "2026-11-20"
     },
     {
       "id": "sop-agent",
@@ -505,9 +548,9 @@ window.VersionCompassEditions = {
       },
       "desc": "Converts an existing SOP to a response plan. Cloud only; requires the ES AI Assistant and permission to view and edit response templates.",
       "src": [
-        "agentic"
+        "agentic88"
       ],
-      "reviewed": "2026-10-01"
+      "reviewed": "2026-11-20"
     },
     {
       "id": "soar",
@@ -578,15 +621,14 @@ window.VersionCompassEditions = {
       "name": "Triage Agent",
       "lane": "Agentic SOC Workforce",
       "ess": {
-        "v": "review",
-        "n": "8.8 component scope unestablished"
+        "v": "no"
       },
       "prem": {
-        "v": "part",
-        "n": "Cloud; verify 8.8 component scope"
+        "v": "yes",
+        "n": "8.8 Cloud and Cloud Connected CMP; paired SOAR"
       },
-      "flag": "The current 8.8 aggregate row and task guide name a combined Triage and Response workflow under Premier and no longer explicitly assigns Triage to Essentials. The editions overview also groups Triage under Premier. The earlier Essentials statement remains a historical conflict, not current entitlement evidence. Confirm the exact component, deployment and enablement scope.",
-      "desc": "Investigates queued findings and presents a disposition, rationale and suggested next steps. The current 8.8 task guide documents the combined Triage and Response workflow; the older 8.6 Triage setup remains historical evidence and does not establish current Essentials entitlement.",
+      "flag": "The current 8.8 agent table now names Triage as a separate Premier component for Cloud and Cloud Connected CMP with paired SOAR. The earlier explicit Essentials statement remains historical evidence and is not applied to the current row. Deployment prerequisites, exact SOAR pairing, enablement, region and authorization remain separate.",
+      "desc": "Investigates queued findings and presents a disposition, rationale and suggested next steps. The 8.8 table and task guide now distinguish the Triage component from the Controlled Availability Autonomous Response component; the older 8.6 Triage setup remains historical evidence.",
       "src": [
         "agentic88",
         "triageNote88",
@@ -595,7 +637,7 @@ window.VersionCompassEditions = {
         "matrix",
         "triage"
       ],
-      "reviewed": "2026-11-04"
+      "reviewed": "2026-11-20"
     },
     {
       "id": "guided-response",
@@ -691,7 +733,7 @@ window.VersionCompassEditions = {
     },
     {
       "id": "ai-soc-analyst",
-      "name": "Triage and Response Agents (AI SOC Analyst)",
+      "name": "Triage and Autonomous Response agents (AI SOC workflow)",
       "lane": "Agentic SOC Workforce",
       "tag": "new",
       "ess": {
@@ -699,10 +741,10 @@ window.VersionCompassEditions = {
       },
       "prem": {
         "v": "yes",
-        "n": "Cloud and Cloud Connected CMP; rep-enabled"
+        "n": "Triage: Cloud and Cloud Connected CMP; Autonomous Response: CA, Cloud only"
       },
-      "desc": "Assists investigation and response. The current 8.8 documentation names the combined Triage and Response agents while retaining AI SOC analyst terminology inside the workflow. The aggregate row documents Premier on Cloud and Cloud Connected CMP, paired SOAR and representative enablement. Cloud requires platform 10.2+ and ES 8.6+; the task guide separately requires ES 8.7+. CMP requires platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. The current SAIA 2.3.6 installation guidance says Cloud Connected support is only planned for 2.4.0 in late November 2026, so the ES prerequisite does not yet establish a released supported CMP path. Earlier ES 8.9+ bundled-Cloud-Connect wording is historical packaging evidence, not release evidence. The task guide also requires connector and investigation permissions and a finding with AI triage results; it limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day, with frontier models only. In ES 8.8, the Response agent cannot rerun or process findings added after it has already processed the investigation.",
-      "flag": "The 8.8 aggregate table and task guide retain different Cloud ES minimums. The task guide also requires inherited SOAR connector permissions and the es_soar_integration_user_role for granular asset access; these permission boundaries do not establish compatible SOAR pairing. The CMP path has its own higher platform, ES and Cloud Connect floors, and its required SAIA 2.4 dependency remains planned rather than released in the current SAIA guidance.",
+      "desc": "Assists investigation and response. The current 8.8 table separates the Triage agent from the Autonomous Response agent. Triage is Premier on Cloud and Cloud Connected CMP; Autonomous Response is explicitly Controlled Availability and its availability column says Cloud only. Both retain paired-SOAR and deployment-specific floors. Cloud compatibility lists Platform 10.2+ and ES 8.6+, while the task guide separately requires ES 8.7+. CMP requires Platform 10.4+, ES 8.8+ and Cloud Connect 2.0+; the current SAIA 2.4.0 installer documents the associated Cloud Connected app path and its additional setup conditions. The task guide requires connector and investigation permissions and a finding with AI triage results; it limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day, with frontier models only. In ES 8.8, the Autonomous Response agent cannot rerun or process findings added after it has already processed the investigation.",
+      "flag": "Product 8.8 General Availability does not make Autonomous Response generally available: the current agent table and task page label that component Controlled Availability. The same table says Autonomous Response is Cloud only but includes a Cloud Connected CMP prerequisite bullet, so CMP response availability remains conflicting. The aggregate table and task guide also retain different Cloud ES minimums. Inherited SOAR connector permissions and the es_soar_integration_user_role for granular asset access do not establish compatible SOAR pairing, entitlement, region or customer authorization.",
       "src": [
         "agentic88",
         "agentic",
@@ -710,9 +752,11 @@ window.VersionCompassEditions = {
         "cloudcxAgentic88",
         "saiaCloudConnected",
         "socTask88",
-        "socTask"
+        "socTask",
+        "saiaCloudConnect240",
+        "autonomousResponse88"
       ],
-      "reviewed": "2026-11-04"
+      "reviewed": "2026-11-20"
     }
   ],
   "history": {
@@ -815,7 +859,7 @@ window.VersionCompassEditions = {
     {
       "id": "cloud-connect",
       "title": "Cloud Connect and on-premises scope",
-      "text": "Detection Studio and TIM use Cloud Connect for on-premises access. The editions overview lists the ES AI Assistant through Cloud Connect under Premier. For the current ES 8.8 agentic SOC path on Cloud Connected CMP, the setup guide requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. Current SAIA guidance only plans 2.4.0 Cloud Connected support for late November 2026, so the requirement does not establish a released supported path. Earlier ES 8.9+ bundled-Cloud-Connect wording remains historical packaging evidence and does not establish an ES 8.9 release, rollout or entitlement. Cloud Connect supports private cloud and on-premises deployments; it does not turn Cloud-only agents into on-premises features.",
+      "text": "Detection Studio and TIM use Cloud Connect for on-premises access. The editions overview lists the ES AI Assistant through Cloud Connect under Premier. For the current ES 8.8 agentic SOC path on Cloud Connected CMP, the setup guide requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. The current SAIA 2.4.0 installer documents that Cloud Connect path with additional paid-license, fresh-setup, network, certificate, administrator, verified-email and supported-commercial-region conditions. Earlier ES 8.9+ bundled-Cloud-Connect wording remains historical packaging evidence and does not establish an ES 8.9 release, rollout or entitlement. Cloud Connect supports private cloud and on-premises deployments; it does not turn Cloud-only agents into on-premises features.",
       "src": [
         "editions",
         "cloudcx88",
@@ -826,7 +870,7 @@ window.VersionCompassEditions = {
         "socTask88",
         "saiaCloudConnected"
       ],
-      "details": "The general Cloud Connect guide requires access to *api.scs.splunk.com:443 and *auth.scs.splunk.com:443, or proxy configuration. Proxy settings affect the whole platform. Full access requires cloud_connection_product_get, license_read and license_edit; the first two allow read-only connection status. The standalone agentic SOC setup link returned 404 on November 17. Its prerequisites were readable in publisher-indexed text. The current ES 8.8 workflow and general Cloud Connect guides provide separate prerequisite and connection evidence; neither confirms released SAIA 2.4 Cloud Connected support."
+      "details": "The general Cloud Connect guide requires access to *api.scs.splunk.com:443 and *auth.scs.splunk.com:443, or proxy configuration. Proxy settings affect the whole platform. Full access requires cloud_connection_product_get, license_read and license_edit; the first two allow read-only connection status. The standalone agentic SOC setup link returned 404 on November 17. Its prerequisites were then readable only in publisher-indexed text. The agentic SOC setup page and the current SAIA 2.4.0 installer were directly retrieved on November 20. Together they establish the versioned installation chain, not universal feature rollout, edition entitlement, exact SOAR pairing, regulated authorization or customer enablement."
     },
     {
       "id": "availability",
@@ -897,7 +941,7 @@ window.VersionCompassEditions = {
           "src": [
             "triageNote88"
           ],
-          "text": "The current 8.8 agent note describes Triage and Response within the SOC analyst agent and names Premier, without explicitly assigning Triage to Essentials. The aggregate AI SOC Analyst row is Premier."
+          "text": "The current 8.8 agent table lists Triage as a separate Premier component for Cloud and Cloud Connected CMP, with paired SOAR and deployment-specific floors."
         },
         {
           "src": [
@@ -906,8 +950,8 @@ window.VersionCompassEditions = {
           "text": "The current editions overview lists Triage Agent in the Premier agent group."
         }
       ],
-      "meaning": "The earlier explicit Essentials statement is retained in historical audits and issue assessments. It is absent from the current note, so the former direct-conflict description is partially addressed. This does not independently settle every Triage subcomponent entitlement or authorize Essentials use.",
-      "question": "Confirm the exact 8.8 Triage experience, edition and enablement scope for the target deployment."
+      "meaning": "The current 8.8 source resolves the current edition row to Premier while the earlier explicit Essentials statement remains historical evidence. This does not apply the 8.8 correction retrospectively or establish pairing, enablement, region or authorization.",
+      "question": "Confirm the target ES version, Premier entitlement, deployment prerequisites, paired SOAR and enablement scope."
     },
     {
       "id": "soc-version",
@@ -1064,7 +1108,7 @@ window.VersionCompassEditions = {
     },
     {
       "title": "Investigate and respond",
-      "text": "Triage helps assess incoming findings; Guided Response helps run SOAR actions. AI SOC Analyst uses investigation and response-plan context. The earlier explicit Essentials statement is historical; the current 8.8 note names Premier, while exact Triage subcomponent entitlement remains unestablished. Check each agent’s edition, deployment, enablement and pairing requirements before treating this as an available end-to-end workflow.",
+      "text": "Triage helps assess incoming findings; Guided Response helps run SOAR actions; Autonomous Response is a separate Controlled Availability component. The earlier explicit Triage Essentials statement remains historical, while the current 8.8 table assigns Triage to Premier on Cloud and Cloud Connected CMP. Check each component’s edition, stage, deployment, enablement and pairing requirements before treating this as an available end-to-end workflow.",
       "ids": [
         "triage-agent",
         "guided-response",

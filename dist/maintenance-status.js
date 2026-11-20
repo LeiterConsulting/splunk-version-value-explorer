@@ -1346,10 +1346,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-19T11:01:30.153438Z",
-      "lastSuccess": "2026-11-19T11:17:03.213Z",
-      "outcome": "no-change",
-      "summary": "Assessed all five daily ES AI families and highest-consequence edition, prerequisite and pairing boundaries; no supported canonical product-fact change.",
+      "lastAttempt": "2026-11-20T11:02:26.095573Z",
+      "lastSuccess": "2026-11-20T11:34:42.837Z",
+      "outcome": "changed",
+      "summary": "Six registry 1.4.0 ES scopes assessed; current Triage and Autonomous Response boundaries and the SAIA 2.4 Cloud Connect path recorded.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1979,9 +1979,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Assessed all five daily ES AI families and highest-consequence edition, prerequisite and pairing boundaries; no supported canonical product-fact change.",
           "scope": "Full 66-URL inventory, advisor.soc-workflow and ai.es-capabilities under registry 1.3.0; five locators and documented conflicts remain finite follow-up."
+        },
+        {
+          "at": "2026-11-20T11:02:26.095573Z",
+          "outcome": "running",
+          "summary": "Reviewing the full ES Editions inventory and registry 1.4.0 daily edition and AI capability scope.",
+          "scope": "73 public URLs; all six ES registry capabilities; four ES Editions daily rows; five named ES AI capabilities; coordinator-only runtime boundary."
+        },
+        {
+          "at": "2026-11-20T11:34:42.837Z",
+          "outcome": "changed",
+          "summary": "Six registry 1.4.0 ES scopes assessed; current Triage and Autonomous Response boundaries and the SAIA 2.4 Cloud Connect path recorded.",
+          "scope": "73 official URLs, four daily ES rows, five named ES AI capabilities, Advisor SOC evidence and bounded issue-feed reassessments; production delivery excluded."
         }
       ],
-      "scope": "Full 66-URL inventory, advisor.soc-workflow and ai.es-capabilities under registry 1.3.0; five locators and documented conflicts remain finite follow-up."
+      "scope": "73 official URLs, four daily ES rows, five named ES AI capabilities, Advisor SOC evidence and bounded issue-feed reassessments; production delivery excluded."
     },
     {
       "id": "version-guidance-audit",
