@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-88-response-agent-rerun-coverage",
+  "assessmentId": "vcia-es-20261120-es-88-response-agent-rerun-coverage",
+  "revision": 1,
+  "recordedAt": "2026-11-20T11:46:33.894Z",
+  "assessedAt": "2026-11-20T11:18:30.000Z",
+  "outcome": "addressed-in-reviewed-scope",
+  "rationale": "The ES 8.8 workflow record now explicitly preserves that Autonomous Response cannot rerun or process findings added after it has already processed the investigation. Controlled Availability and the unresolved Cloud-only/CMP scope remain visible.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security Autonomous Response"
+    ],
+    "versions": [
+      "ES 8.8"
+    ],
+    "editions": [
+      "Premier"
+    ],
+    "deployments": [
+      "Cloud; CMP scope conflicting"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No general availability, entitlement, exact SOAR pairing or authorization is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-20261120-3-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
+      "section": "Response rerun and later-added-finding limitation",
+      "statement": "The ES 8.8 workflow record now explicitly preserves that Autonomous Response cannot rerun or process findings added after it has already processed the investigation. Controlled Availability and the unresolved Cloud-only/CMP scope remain visible.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-20T11:16:55.087Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "461a1a49c8ff3be96902ccff9ce1a8a905c2ec7e3921b9bbf8f3465e457dd107",
+        "qualification": "Fresh direct public body digest; source publication and effective dates are not inferred."
+      }
+    },
+    {
+      "evidenceId": "es-20261120-3-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/identify-and-run-the-soar-response-actions-on-findings-using-the-autonomous-response-agent-in-splunk-enterprise-security",
+      "section": "Controlled Availability and component prerequisites",
+      "statement": "The ES 8.8 workflow record now explicitly preserves that Autonomous Response cannot rerun or process findings added after it has already processed the investigation. Controlled Availability and the unresolved Cloud-only/CMP scope remain visible.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-20T11:17:00.461Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ca30ff713589e510eee79ab3ebc608061dd626cb50c667a4f038bff7a314fe43",
+        "qualification": "Fresh direct public body digest; source publication and effective dates are not inferred."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/353aadf1d9c481804413becf549766b16de7ca8c/docs/audits/2026-11-20-es-editions-watch-sources.json",
+      "pointer": "/claimChecks/8",
+      "originalLabel": "addressed-in-reviewed-scope"
+    }
+  ],
+  "remainingConcerns": [
+    "Retain Controlled Availability and the Cloud-only/CMP conflict until authoritative resolution."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-es-20261119-es-88-response-agent-rerun-coverage"
+  ]
+}
