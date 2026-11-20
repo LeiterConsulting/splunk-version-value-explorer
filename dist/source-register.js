@@ -3353,6 +3353,14 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-03",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-20",
+          "event": "Review status updated: Reviewed · 2026-11-20"
+        },
+        {
+          "date": "2026-11-20",
+          "event": "Review status updated: Reviewed · 2026-11-03"
         }
       ]
     },
@@ -3392,6 +3400,61 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-11-03",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-splunk-cloud-connect",
+      "title": "SAIA 2.4.0 Cloud Connect installation and compatibility",
+      "areas": [
+        "Release guide",
+        "ES editions"
+      ],
+      "references": [
+        "release.guidance.sources.aiSaiaCloudConnected240.url",
+        "editions.sources.saiaCloudConnect240.u",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.3",
+        "guidance: guidance.aiAvailability.capabilities.4",
+        "guidance: guidance.aiAvailability.capabilities.7",
+        "editions: editions.capabilities.5",
+        "editions: editions.capabilities.9",
+        "editions: editions.capabilities.20"
+      ],
+      "reviews": [
+        "2026-11-20"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Prerequisites; Version compatibility; Installation steps; What data leaves your environment"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.3",
+          "section": "Prerequisites; Version compatibility; Installation steps; What data leaves your environment"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.4",
+          "section": "Prerequisites; Version compatibility; Installation steps; What data leaves your environment"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.7",
+          "section": "Prerequisites; Version compatibility; Installation steps; What data leaves your environment"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-20",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-20",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-20",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -3520,7 +3583,6 @@ window.VersionCompassSources = {
         "editions.sources.agentic.u",
         "editions: editions.capabilities.1",
         "editions: editions.capabilities.9",
-        "editions: editions.capabilities.11",
         "editions: editions.capabilities.17",
         "editions: editions.capabilities.18",
         "editions: editions.capabilities.19",
@@ -3833,6 +3895,7 @@ window.VersionCompassSources = {
         "editions: editions.capabilities.5",
         "editions: editions.capabilities.9",
         "editions: editions.capabilities.10",
+        "editions: editions.capabilities.11",
         "editions: editions.capabilities.15",
         "editions: editions.capabilities.16",
         "editions: editions.capabilities.17",
@@ -3847,11 +3910,11 @@ window.VersionCompassSources = {
         "editions: editions.workflows.1"
       ],
       "reviews": [
-        "2026-11-04"
+        "2026-11-20"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-11-04",
+      "reviewed": "2026-11-20",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-11-04",
       "firstUsed": null,
@@ -3863,6 +3926,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-04",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-20",
+          "event": "Review status updated: Needs reconciliation · 2026-11-20"
         }
       ]
     },
@@ -3919,7 +3986,7 @@ window.VersionCompassSources = {
         "editions: editions.notes.0"
       ],
       "reviews": [
-        "2026-11-04"
+        "2026-11-20"
       ],
       "claimReferences": [
         {
@@ -3940,7 +4007,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-04",
+      "reviewed": "2026-11-20",
       "status": "Reviewed",
       "firstRecorded": "2026-11-04",
       "firstUsed": null,
@@ -3960,6 +4027,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-17",
           "event": "Review status updated: Reviewed · 2026-11-04"
+        },
+        {
+          "date": "2026-11-20",
+          "event": "Review status updated: Reviewed · 2026-11-20"
         }
       ]
     },
@@ -3979,11 +4050,11 @@ window.VersionCompassSources = {
         "editions: editions.conflicts.1.claims.1"
       ],
       "reviews": [
-        "2026-11-04"
+        "2026-11-20"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-11-04",
+      "reviewed": "2026-11-20",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-11-04",
       "firstUsed": null,
@@ -3995,12 +4066,88 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-04",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-20",
+          "event": "Review status updated: Needs reconciliation · 2026-11-20"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/identify-and-run-the-soar-response-actions-on-findings-using-the-autonomous-response-agent-in-splunk-enterprise-security",
+      "title": "ES 8.8 Autonomous Response agent",
+      "areas": [
+        "Release guide",
+        "ES editions"
+      ],
+      "references": [
+        "release.guidance.sources.aiEsAutonomousResponse88.url",
+        "editions.sources.autonomousResponse88.u",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.7",
+        "editions: editions.capabilities.20"
+      ],
+      "reviews": [
+        "2026-11-20"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Controlled Availability notice; Role access; Prerequisites; connector and response limitations"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.7",
+          "section": "Controlled Availability notice; Role access; Prerequisites; connector and response limitations"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-20",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-20",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-20",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
+      "title": "AI Threat Graph Detection agent prerequisites (ES 8.8)",
+      "areas": [
+        "ES editions"
+      ],
+      "references": [
+        "editions.sources.threatGraph88.u",
+        "editions: editions.capabilities.10"
+      ],
+      "reviews": [
+        "2026-11-20"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-20",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-20",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-20",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },
     {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
-      "title": "ES 8.8 current Triage and Response aggregate row",
+      "title": "ES 8.8 current Triage and Autonomous Response rows",
       "areas": [
         "Release guide",
         "Shared guidance"
@@ -4017,44 +4164,44 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.7"
       ],
       "reviews": [
-        "2026-11-04"
+        "2026-11-20"
       ],
       "claimReferences": [
         {
           "path": "guidance: guidance.aiAvailability",
-          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note"
+          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage, Autonomous Response, Guided Response, Malware/Phishing and SOP agents; agentic chat model note"
         },
         {
           "path": "guidance: guidance.aiAvailability",
-          "section": "Triage and Response agent aggregate availability and compatibility row"
+          "section": "Triage and Autonomous Response agent availability and compatibility rows"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.3",
-          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note"
+          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage, Autonomous Response, Guided Response, Malware/Phishing and SOP agents; agentic chat model note"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.4",
-          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note"
+          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage, Autonomous Response, Guided Response, Malware/Phishing and SOP agents; agentic chat model note"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.5",
-          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note"
+          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage, Autonomous Response, Guided Response, Malware/Phishing and SOP agents; agentic chat model note"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.6",
-          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note"
+          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage, Autonomous Response, Guided Response, Malware/Phishing and SOP agents; agentic chat model note"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.7",
-          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note"
+          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage, Autonomous Response, Guided Response, Malware/Phishing and SOP agents; agentic chat model note"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.7",
-          "section": "Triage and Response agent aggregate availability and compatibility row"
+          "section": "Triage and Autonomous Response agent availability and compatibility rows"
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-04",
+      "reviewed": "2026-11-20",
       "status": "Reviewed",
       "firstRecorded": "2026-10-23",
       "firstUsed": null,
@@ -4086,6 +4233,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-04",
           "event": "Review status updated: Reviewed · 2026-11-04"
+        },
+        {
+          "date": "2026-11-20",
+          "event": "Review status updated: Reviewed · 2026-11-20"
         }
       ]
     },
@@ -4133,20 +4284,20 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.7"
       ],
       "reviews": [
-        "2026-11-04"
+        "2026-11-20"
       ],
       "claimReferences": [
         {
           "path": "guidance: guidance.aiAvailability",
-          "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions"
+          "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions; response rerun limit"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.7",
-          "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions"
+          "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions; response rerun limit"
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-04",
+      "reviewed": "2026-11-20",
       "status": "Reviewed",
       "firstRecorded": "2026-10-31",
       "firstUsed": null,
@@ -4162,6 +4313,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-04",
           "event": "Review status updated: Reviewed · 2026-11-04"
+        },
+        {
+          "date": "2026-11-20",
+          "event": "Review status updated: Reviewed · 2026-11-20"
         }
       ]
     },
@@ -4170,19 +4325,16 @@ window.VersionCompassSources = {
       "title": "ES 8.8 AI Threat Graph Detection agent",
       "areas": [
         "Release guide",
-        "ES editions",
         "Shared guidance"
       ],
       "references": [
         "release.guidance.sources.aiEsThreatGraph88.url",
-        "editions.sources.threatGraph88.u",
         "content-updates.js",
         "guidance: guidance.aiAvailability",
-        "guidance: guidance.aiAvailability.capabilities.6",
-        "editions: editions.capabilities.10"
+        "guidance: guidance.aiAvailability.capabilities.6"
       ],
       "reviews": [
-        "2026-10-28"
+        "2026-11-20"
       ],
       "claimReferences": [
         {
@@ -4195,7 +4347,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-28",
+      "reviewed": "2026-11-20",
       "status": "Reviewed",
       "firstRecorded": "2026-10-26",
       "firstUsed": null,
@@ -4211,6 +4363,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-28",
           "event": "Review status updated: Reviewed · 2026-10-28"
+        },
+        {
+          "date": "2026-11-20",
+          "event": "Review status updated: Reviewed · 2026-11-20"
         }
       ]
     },
@@ -4227,10 +4383,10 @@ window.VersionCompassSources = {
         "editions: editions.capabilities.19"
       ],
       "reviews": [
-        "2026-11-04"
+        "2026-11-20"
       ],
       "usage": "In use",
-      "reviewed": "2026-11-04",
+      "reviewed": "2026-11-20",
       "status": "Reviewed",
       "firstRecorded": "2026-10-31",
       "firstUsed": null,
@@ -4246,6 +4402,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-04",
           "event": "Review status updated: Reviewed · 2026-11-04"
+        },
+        {
+          "date": "2026-11-20",
+          "event": "Review status updated: Reviewed · 2026-11-20"
         }
       ]
     },
@@ -4309,8 +4469,7 @@ window.VersionCompassSources = {
         "editions: editions.workflows.3"
       ],
       "reviews": [
-        "2026-10-24",
-        "2026-10-01"
+        "2026-11-20"
       ],
       "claimReferences": [
         {
@@ -4751,7 +4910,7 @@ window.VersionCompassSources = {
         "editions: editions.workflows.1"
       ],
       "reviews": [
-        "2026-10-01"
+        "2026-11-20"
       ],
       "conflict": true,
       "usage": "In use",
@@ -4886,8 +5045,7 @@ window.VersionCompassSources = {
         "editions: editions.notes.1"
       ],
       "reviews": [
-        "2026-10-24",
-        "2026-11-01"
+        "2026-11-20"
       ],
       "claimReferences": [
         {
@@ -4991,7 +5149,7 @@ window.VersionCompassSources = {
         "editions: editions.highlights.2"
       ],
       "reviews": [
-        "2026-11-05"
+        "2026-11-20"
       ],
       "claimReferences": [
         {
@@ -5083,7 +5241,7 @@ window.VersionCompassSources = {
         "editions: editions.history.8.8"
       ],
       "reviews": [
-        "2026-11-01"
+        "2026-11-20"
       ],
       "usage": "In use",
       "reviewed": "2026-11-01",
@@ -5225,7 +5383,7 @@ window.VersionCompassSources = {
         "editions: editions.notes.3"
       ],
       "reviews": [
-        "2026-10-10"
+        "2026-11-20"
       ],
       "usage": "In use",
       "reviewed": "2026-10-10",
@@ -5258,10 +5416,10 @@ window.VersionCompassSources = {
         "editions: editions.notes.0"
       ],
       "reviews": [
-        "2026-10-31"
+        "2026-11-20"
       ],
       "usage": "In use",
-      "reviewed": "2026-10-31",
+      "reviewed": "2026-11-20",
       "status": "Reviewed",
       "firstRecorded": "2026-10-31",
       "firstUsed": null,
@@ -5273,6 +5431,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-31",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-20",
+          "event": "Review status updated: Reviewed · 2026-11-20"
         }
       ]
     },
@@ -5289,10 +5451,10 @@ window.VersionCompassSources = {
         "editions: editions.notes.3"
       ],
       "reviews": [
-        "2026-10-31"
+        "2026-11-20"
       ],
       "usage": "In use",
-      "reviewed": "2026-10-31",
+      "reviewed": "2026-11-20",
       "status": "Reviewed",
       "firstRecorded": "2026-10-31",
       "firstUsed": null,
@@ -5304,6 +5466,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-31",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-20",
+          "event": "Review status updated: Reviewed · 2026-11-20"
         }
       ]
     },
@@ -7386,10 +7552,10 @@ window.VersionCompassSources = {
         "editions: editions.notes.0"
       ],
       "reviews": [
-        "2026-11-04"
+        "2026-11-20"
       ],
       "usage": "In use",
-      "reviewed": "2026-11-04",
+      "reviewed": "2026-11-20",
       "status": "Reviewed",
       "firstRecorded": "2026-11-04",
       "firstUsed": null,
@@ -7401,6 +7567,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-04",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-20",
+          "event": "Review status updated: Reviewed · 2026-11-20"
         }
       ]
     },
@@ -9567,7 +9737,8 @@ window.VersionCompassSources = {
         "soar: soar.records.23"
       ],
       "reviews": [
-        "2026-11-09"
+        "2026-11-09",
+        "2026-11-20"
       ],
       "claimReferences": [
         {
@@ -9576,7 +9747,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-09",
+      "reviewed": "2026-11-20",
       "status": "Reviewed",
       "firstRecorded": "2026-11-09",
       "firstUsed": null,
@@ -9588,6 +9759,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-09",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-20",
+          "event": "Review status updated: Reviewed · 2026-11-20"
         }
       ]
     },
@@ -9605,7 +9780,8 @@ window.VersionCompassSources = {
         "soar: soar.records.23"
       ],
       "reviews": [
-        "2026-11-09"
+        "2026-11-09",
+        "2026-11-20"
       ],
       "claimReferences": [
         {
@@ -9614,7 +9790,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-09",
+      "reviewed": "2026-11-20",
       "status": "Reviewed",
       "firstRecorded": "2026-11-09",
       "firstUsed": null,
@@ -9626,6 +9802,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-09",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-20",
+          "event": "Review status updated: Reviewed · 2026-11-20"
         }
       ]
     },
@@ -9645,7 +9825,8 @@ window.VersionCompassSources = {
         "soar: soar.records.23"
       ],
       "reviews": [
-        "2026-11-09"
+        "2026-11-09",
+        "2026-11-20"
       ],
       "claimReferences": [
         {
@@ -9654,7 +9835,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-09",
+      "reviewed": "2026-11-20",
       "status": "Reviewed",
       "firstRecorded": "2026-11-09",
       "firstUsed": null,
@@ -9666,6 +9847,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-09",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-20",
+          "event": "Review status updated: Reviewed · 2026-11-20"
         }
       ]
     },
@@ -9737,7 +9922,8 @@ window.VersionCompassSources = {
         "soar: soar.records.21"
       ],
       "reviews": [
-        "2026-11-06"
+        "2026-11-06",
+        "2026-11-20"
       ],
       "claimReferences": [
         {
@@ -9746,7 +9932,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-06",
+      "reviewed": "2026-11-20",
       "status": "Reviewed",
       "firstRecorded": "2026-11-06",
       "firstUsed": null,
@@ -9758,6 +9944,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-06",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-20",
+          "event": "Review status updated: Reviewed · 2026-11-20"
         }
       ]
     },
@@ -10802,7 +10992,7 @@ window.VersionCompassSources = {
         "editions: editions.conflicts.3.claims.0"
       ],
       "reviews": [
-        "2026-10-01"
+        "2026-11-20"
       ],
       "conflict": true,
       "usage": "In use",
@@ -10920,7 +11110,7 @@ window.VersionCompassSources = {
         "editions: editions.workflows.2"
       ],
       "reviews": [
-        "2026-10-01"
+        "2026-11-20"
       ],
       "usage": "In use",
       "reviewed": "2026-10-01",
