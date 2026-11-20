@@ -586,10 +586,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-19T10:20:30.317500Z",
+      "lastAttempt": "2026-11-20T10:03:08.259259Z",
       "lastSuccess": "2026-11-11T14:21:55.848Z",
       "outcome": "blocked",
-      "summary": "Three exact scopes assessed no-change; sixteen scopes remain incomplete. November 18 advisories discovered for priority CVE review.",
+      "summary": "Eight Prep11 and two exact scopes assessed; eighteen scopes remain incomplete. SAIA2.4 Cloud Connect installer discovered.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1327,9 +1327,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Three exact scopes assessed no-change; sixteen scopes remain incomplete. November 18 advisories discovered for priority CVE review.",
           "scope": "Full inventory attempted; exact capabilities, historical branch security and UF receiver acknowledgement reviewed. No canonical facts, claim dates or material cycle advanced."
+        },
+        {
+          "at": "2026-11-20T10:03:08.259259Z",
+          "outcome": "running",
+          "summary": "Reviewing Prep11 first and current registry 1.4.0 scopes.",
+          "scope": "Prep11 eight claim families plus bounded exact branch-security/UF and changed-source discovery; nine Release Guide tracks explicitly disposed under registry 1.4.0."
+        },
+        {
+          "at": "2026-11-20T10:09:06.997Z",
+          "outcome": "blocked",
+          "summary": "Eight Prep11 and two exact scopes assessed; eighteen scopes remain incomplete. SAIA2.4 Cloud Connect installer discovered.",
+          "scope": "Prep11 eight claim families plus bounded exact branch-security/UF and changed-source discovery; nine Release Guide tracks explicitly disposed under registry 1.4.0."
         }
       ],
-      "scope": "Full inventory attempted; exact capabilities, historical branch security and UF receiver acknowledgement reviewed. No canonical facts, claim dates or material cycle advanced."
+      "scope": "Prep11 eight claim families plus bounded exact branch-security/UF and changed-source discovery; nine Release Guide tracks explicitly disposed under registry 1.4.0."
     },
     {
       "id": "es-editions-watch",
