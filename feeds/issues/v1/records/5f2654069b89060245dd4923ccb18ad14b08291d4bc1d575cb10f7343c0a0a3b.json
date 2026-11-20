@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-sok-32-compatibility-scope",
+  "assessmentId": "vcia-release-20261120-sok-32-compatibility-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-20T10:15:43.387Z",
+  "assessedAt": "2026-11-20T10:09:06.997Z",
+  "outcome": "still-present",
+  "rationale": "Help 3.2 matrix and 3.2.0 changelog still disagree on Kubernetes maximum, Enterprise scope and release date. Preserve both exact tuples; neither establishes 11.x.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Operator for Kubernetes"
+    ],
+    "versions": [
+      "3.2.0"
+    ],
+    "deployments": [
+      "Customer-managed Kubernetes"
+    ],
+    "editions": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No Enterprise 11.x, exact Kubernetes support outside the compared ranges, Cloud availability or authorization."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261120-sok-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix",
+      "section": "SOK3.2 matrix; changelog3.2.0 Supported Kubernetes/Splunk Version and heading",
+      "statement": "Help 3.2 matrix and 3.2.0 changelog still disagree on Kubernetes maximum, Enterprise scope and release date. Preserve both exact tuples; neither establishes 11.x.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": null,
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact official indexed body assessed on2026-11-20; indexed response publisher revision, body digest and exact retrieval second unknown. Direct failure retained in audit."
+      }
+    },
+    {
+      "evidenceId": "release-20261120-sok-1",
+      "url": "https://splunk.github.io/splunk-operator/reference/ChangeLog.html",
+      "section": "SOK3.2 matrix; changelog3.2.0 Supported Kubernetes/Splunk Version and heading",
+      "statement": "Retained second side/version supports the qualified comparison; no adjacent version or availability inference.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": null,
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact official indexed body assessed on2026-11-20; indexed response publisher revision, body digest and exact retrieval second unknown. Direct failure retained in audit."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/cc7595029ff1a779bbbbfe92a7d18147ffddb290/docs/audits/2026-11-20-version-release-watch-sources.json",
+      "pointer": "/boundedAssessments/prep11.operator",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "version-release-watch by2026-11-21: reconcile exact current dependencies and source conflicts; preserve historical scope."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-guidance-20261119-sok-32-compatibility-scope"
+  ]
+}

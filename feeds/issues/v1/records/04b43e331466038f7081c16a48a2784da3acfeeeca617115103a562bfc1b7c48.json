@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-cloud-connected-agent-mode-scope",
+  "assessmentId": "vcia-release-20261120-saia-cloud-connected-agent-mode-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-20T10:15:43.387Z",
+  "assessedAt": "2026-11-20T10:09:06.997Z",
+  "outcome": "partially-addressed",
+  "rationale": "The exact2.4.0 installer now documents a Cloud Connect2.0.0+/Enterprise10.4+ setup chain, fresh setup, outbound443 and STC/capability prerequisites. Historical2.3.6 exclusion remains version-scoped. Complete Agent Mode/runtime, ITSI and regional compatibility are not established by this installer.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant"
+    ],
+    "versions": [
+      "2.1.1; 2.2.0–2.3.6; planned 2.4.0"
+    ],
+    "deployments": [
+      "Splunk Enterprise Cloud Connected"
+    ],
+    "editions": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No supported Cloud Connected 2.4.0 release or tenant availability is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261120-saia-0",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-splunk-cloud-connect",
+      "section": "2.4.0 Prerequisites/Version compatibility/Installation steps;2.3.6 Cloud Connected compatibility",
+      "statement": "The exact2.4.0 installer now documents a Cloud Connect2.0.0+/Enterprise10.4+ setup chain, fresh setup, outbound443 and STC/capability prerequisites. Historical2.3.6 exclusion remains version-scoped. Complete Agent Mode/runtime, ITSI and regional compatibility are not established by this installer.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": null,
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact official indexed body assessed on2026-11-20; indexed response publisher revision, body digest and exact retrieval second unknown. Direct failure retained in audit."
+      }
+    },
+    {
+      "evidenceId": "release-20261120-saia-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "2.4.0 Prerequisites/Version compatibility/Installation steps;2.3.6 Cloud Connected compatibility",
+      "statement": "Retained second side/version supports the qualified comparison; no adjacent version or availability inference.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": null,
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact official indexed body assessed on2026-11-20; indexed response publisher revision, body digest and exact retrieval second unknown. Direct failure retained in audit."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/cc7595029ff1a779bbbbfe92a7d18147ffddb290/docs/audits/2026-11-20-version-release-watch-sources.json",
+      "pointer": "/partialAssessments/0",
+      "originalLabel": "partially-addressed"
+    }
+  ],
+  "remainingConcerns": [
+    "version-release-watch by2026-11-21: reconcile exact current dependencies and source conflicts; preserve historical scope."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-guidance-20261119-saia-cloud-connected-agent-mode-scope"
+  ]
+}
