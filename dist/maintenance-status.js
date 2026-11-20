@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-20T12:38:00Z",
+      "lastAttempt": "2026-11-20T12:59:56.606919Z",
       "lastSuccess": "2026-11-10T12:50:41.612Z",
       "outcome": "blocked",
-      "summary": "Partial review: six capabilities assessed no-change; two exact-current-version families and concurrent issue-feed append remain incomplete.",
+      "summary": "Partial later review: provider-region assessed no-change; seven families require their own remaining section assessments.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -591,9 +591,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Partial review: six capabilities assessed no-change; two exact-current-version families and concurrent issue-feed append remain incomplete.",
           "scope": "All eight CSP registry 1.4.0 capabilities declared; production delivery not attempted."
+        },
+        {
+          "at": "2026-11-20T12:59:56.606919Z",
+          "outcome": "running",
+          "summary": "Running later independent CSP review and exact task/result reconciliation.",
+          "scope": "73-URL inventory, provider-region assessment, SAIA 2.4 discovery and eight registry 1.4.0 dispositions."
+        },
+        {
+          "at": "2026-11-20T13:04:41Z",
+          "outcome": "blocked",
+          "summary": "Partial later review: provider-region assessed no-change; seven families require their own remaining section assessments.",
+          "scope": "67 substantive source bodies and six blocked paths; earlier same-day receipts retained separately; native feed concurrency and production selection remain open."
         }
       ],
-      "scope": "All eight CSP registry 1.4.0 capabilities declared; production delivery not attempted."
+      "scope": "67 substantive source bodies and six blocked paths; earlier same-day receipts retained separately; native feed concurrency and production selection remain open."
     },
     {
       "id": "version-release-watch",
