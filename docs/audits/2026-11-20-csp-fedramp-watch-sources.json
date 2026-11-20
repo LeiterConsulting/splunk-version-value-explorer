@@ -224,8 +224,13 @@
       },
       {
         "id": "exact-candidate-exports",
-        "outcome": "pending",
-        "evidence": "The required maintenance outcome changes the generated content revision. Exact-candidate CI export evidence and artifact readback are required before repository integration."
+        "outcome": "passed",
+        "evidence": "GitHub run 44737688061 checked PR head e3a463f4130c7d5b7d1ecf8372ed2544880ea941 through merge commit ca39d472a1624b779e3af73ca373debf2ff91ddc at tree 57127ff2b049a5f4f3b61d153c8fb79549d3f645. All 226 route/theme cases passed native Chromium PDF, offline HTML and narrow-screen gates."
+      },
+      {
+        "id": "artifact-readback",
+        "outcome": "passed",
+        "evidence": "Downloaded artifact 14628934371 independently matched sha256:7b5e2b3b64b17058cb239d9e8daf53b0e024f0850c8dbbeefc354c198f7ff3ea. scripts/export-evidence.cjs verified 4,615 retained artifacts and fingerprint dbe51639774b9dcb2a9bc336f5db72907b649aedf11469ad49305433cae66d41; check-soak.cjs --exports returned eligible-to-advance with no missing, failed or unresolved gate. Automated retained-image checks are not described as human visual inspection."
       },
       {
         "id": "live-ui-assets-d1",
@@ -237,7 +242,27 @@
   "publication": {
     "claimedDelivered": false,
     "coordinator": "Automation_440f270a74e48191a770bb15ef4748a0",
-    "qualification": "Repository integration and production delivery are separate. This watch performs no Sites/D1 mutation."
+    "qualification": "Repository integration and production delivery are separate. This watch performs no Sites/D1 mutation.",
+    "candidateReceipt": {
+      "headCommit": "e3a463f4130c7d5b7d1ecf8372ed2544880ea941",
+      "validatedCommit": "ca39d472a1624b779e3af73ca373debf2ff91ddc",
+      "validatedTree": "57127ff2b049a5f4f3b61d153c8fb79549d3f645",
+      "reportFingerprint": "dbe51639774b9dcb2a9bc336f5db72907b649aedf11469ad49305433cae66d41",
+      "contentIdentity": "content-c069256e558c2b2a33c8cb80",
+      "engineIdentity": "engine-26fb3778ff5accd1f861",
+      "exportRunId": 44737688061,
+      "exportArtifactId": 14628934371,
+      "exportArtifactSha256": "7b5e2b3b64b17058cb239d9e8daf53b0e024f0850c8dbbeefc354c198f7ff3ea",
+      "visualArtifactId": 14628909327,
+      "visualArtifactSha256": "880748fee470ad06958e389a7f1f653bc7140c1554ed1b4c926a520c34d761bc",
+      "assessedScope": "Six registry 1.4.0 CSP capabilities: AI regional ES, AI regional Observability, provider/region, Classic/Victoria and service controls, FedRAMP Moderate/High, and premium services/Observability realms.",
+      "incompleteScope": "Exact current SAIA 2.4 Agent Mode, Model Runtime and ITSI subagent regional evidence; complete primary-owner SOC workflow source/version reconciliation; distinct issue-feed append after the concurrent feed checkpoint.",
+      "unresolvedGates": [
+        "Two capability dispositions remain deferred to November 21",
+        "Native issue-feed publication is blocked behind PR #222",
+        "Coordinator selection and production live verification"
+      ]
+    }
   },
   "automationCoverage": {
     "runFile": "docs/audits/2026-11-20-csp-fedramp-watch-coverage.json"
