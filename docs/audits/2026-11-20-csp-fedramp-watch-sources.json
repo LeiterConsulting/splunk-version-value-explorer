@@ -1,0 +1,322 @@
+{
+  "date": "2026-11-20",
+  "maintenanceId": "csp-fedramp-watch",
+  "registryVersion": "1.4.0",
+  "startedAt": "2026-11-20T12:26:57Z",
+  "assessedAt": "2026-11-20T12:29:09Z",
+  "execution": {
+    "taskId": "6ab54b477dc88191873e8abb9c735bf7",
+    "schedulerRunId": null,
+    "qualification": "The active saved-task context identifies this watch, but no supported native scheduler-run identifier was exposed. No Actions identifier or prior run identity is substituted."
+  },
+  "baseline": {
+    "commit": "77639d55b2d62d861e70c8636e337203572d79e2",
+    "tree": "1bbf9686f074a338842ebeb6af2800d5ab0633ca"
+  },
+  "scope": "Independent November 20 review of all eight registry 1.4.0 CSP capabilities: four Cloud Environment surface rows, three AI regional rows and the supporting SOC workflow row.",
+  "outcome": "partial",
+  "sourceChecks": [
+    {
+      "sourceId": "service107",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions and region differences; compliance and certifications; regulated subscription table",
+      "retrievedAt": "2026-11-20T12:28:00Z",
+      "outcome": "retrieved-and-assessed",
+      "evidence": "Current 10.7 body directly retrieved. Victoria includes AWS Israel and AWS GovCloud Moderate/High; Edge and Ingest Processor list both Moderate and High; Classic, ACS/CMC, S3, Machine Data Lake and AI Assistant rows retain distinct boundaries."
+    },
+    {
+      "sourceId": "changes107",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "6 November 2026 provider, processor, Israel and topology entries",
+      "retrievedAt": "2026-11-20T12:27:30Z",
+      "outcome": "retrieved-and-assessed",
+      "evidence": "The dated entries scope FedRAMP High processor availability and AWS Israel to relevant 10.7 versions; they do not establish retrospective rollout."
+    },
+    {
+      "sourceId": "regions88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "Essentials, Premier and Cloud Connect regional tables; GCP/Azure; AI Assistant and SOAR compatibility",
+      "retrievedAt": "2026-11-20T12:27:30Z",
+      "outcome": "retrieved-and-assessed",
+      "evidence": "Edition and deployment tables remain distinct. GovCloud rows name feature exceptions; Cloud Connect has its own Montréal/Calgary and component exceptions; GCP/Azure do not inherit other components."
+    },
+    {
+      "sourceId": "o11yService",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
+      "section": "Realm-to-region equivalence; available components per region or realm",
+      "retrievedAt": "2026-11-20T12:27:30Z",
+      "outcome": "retrieved-and-assessed",
+      "evidence": "us2 still maps to Google Cloud Oregon while Database Monitoring lists us2 with Google Cloud None. The conflict remains unresolved; nearby service rows are not substituted."
+    },
+    {
+      "sourceId": "aiObsAssistant",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/ai-assistant-in-observability-cloud",
+      "section": "Availability; supported realms; product areas; access and data use",
+      "retrievedAt": "2026-11-20T12:27:30Z",
+      "outcome": "retrieved-and-assessed",
+      "evidence": "Assistant is documented for all AWS except GovCloud and GCP realms and names us3 without a realm-to-region mapping in the service description."
+    },
+    {
+      "sourceId": "aiObsRca",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan",
+      "section": "Availability; supported alerts/metrics; opt-in and remediation limitations",
+      "retrievedAt": "2026-11-20T12:27:30Z",
+      "outcome": "retrieved-and-assessed",
+      "evidence": "Troubleshooting remains all non-Governmental realms, representative-interest access, default-metric scope and organization opt-in; this is not equivalent to base assistant access."
+    },
+    {
+      "sourceId": "moderate-high",
+      "url": "https://www.fedramp.gov/marketplace/products/F1607197917/",
+      "section": "Moderate offering status, phase, class and certification date; compared with FR2314156865 High",
+      "retrievedAt": "2026-11-20T12:28:30Z",
+      "outcome": "retrieved-and-assessed",
+      "evidence": "Moderate remains FedRAMP Certified, Ongoing Certification, Class C, certified since October 11, 2019; High remains a separate Class D offering certified since September 13, 2024. Offering certification does not establish every feature or customer authorization."
+    },
+    {
+      "sourceId": "saia240-and-feature-evidence",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-splunk-cloud-connect",
+      "section": "Cloud Connect prerequisites, commercial-region selection and version matrix; compared with Agent Mode and Model Runtime region sections",
+      "retrievedAt": "2026-11-20T12:28:45Z",
+      "outcome": "partial",
+      "evidence": "The 2.4.0 installer establishes a commercial AWS Cloud Connect setup and exact 2.4.0/2.0.0/10.4.x floors. The available Agent Mode result was version 2.1.0 and the current Model Runtime result was 2.3.6; no exact 2.4 feature-region section was retrieved, so feature inheritance remains unverified."
+    }
+  ],
+  "claimChecks": [
+    {
+      "capabilityId": "cloud-environment.regions",
+      "disposition": "assessed-no-change",
+      "claimFamilies": [
+        "cloud-environment.regions"
+      ],
+      "sourceIds": [
+        "service107",
+        "changes107"
+      ],
+      "assessment": "Provider/region evidence still supports the canonical 10.7 boundaries, including AWS Israel only for current Victoria new-stack scope and no inferred historical rollout."
+    },
+    {
+      "capabilityId": "cloud-environment.experience",
+      "disposition": "assessed-no-change",
+      "claimFamilies": [
+        "cloud-environment.experience"
+      ],
+      "sourceIds": [
+        "service107",
+        "acs",
+        "acsMaintenance",
+        "ingest"
+      ],
+      "assessment": "Classic/Victoria, ACS/CMC and Ingest Processor boundaries remain distinct. Ingest Processor requires Victoria and a provisioned tenant; maintenance-window documentation still excludes High operations."
+    },
+    {
+      "capabilityId": "cloud-environment.fedramp",
+      "disposition": "assessed-no-change",
+      "claimFamilies": [
+        "cloud-environment.fedramp"
+      ],
+      "sourceIds": [
+        "moderate",
+        "high",
+        "service107",
+        "highAnnouncement20261019"
+      ],
+      "assessment": "Both Marketplace offerings remain separately certified. Current 10.7 and the October announcement support High processor and SPL-assistant scope without authorizing adjacent products, editions or customer use."
+    },
+    {
+      "capabilityId": "cloud-environment.product-services",
+      "disposition": "assessed-no-change",
+      "claimFamilies": [
+        "cloud-environment.product-services"
+      ],
+      "sourceIds": [
+        "service107",
+        "regions88",
+        "o11yService"
+      ],
+      "assessment": "ES, SOAR and Observability evidence remains service-specific. The us2 Database Monitoring provider conflict stays explicit and SOAR High remains unestablished."
+    },
+    {
+      "capabilityId": "ai.regional-es",
+      "disposition": "assessed-no-change",
+      "claimFamilies": [
+        "es-essentials-ai-regions",
+        "es-premier-ai-regions",
+        "es-cloud-connect-ai-regions"
+      ],
+      "sourceIds": [
+        "regions88"
+      ],
+      "assessment": "Essentials, Premier and Cloud Connect tables remain independently scoped; GovCloud and Canadian exceptions do not establish offering authorization or CMP GovCloud access."
+    },
+    {
+      "capabilityId": "ai.regional-observability",
+      "disposition": "assessed-no-change",
+      "claimFamilies": [
+        "observability-ai-regions",
+        "observability-ai-realm-conflict"
+      ],
+      "sourceIds": [
+        "aiObsAssistant",
+        "aiObsRca",
+        "o11yService"
+      ],
+      "assessment": "Assistant and troubleshooting eligibility remain separate. us3 is still unmapped and non-Governmental availability does not establish a regulated offering."
+    },
+    {
+      "capabilityId": "ai.regional-platform",
+      "disposition": "deferred",
+      "claimFamilies": [
+        "saia-spl-service-regions",
+        "ai-service-region-mappings",
+        "ai-regulated-boundaries",
+        "saia-agent-service-regions",
+        "saia-agent-cloud-connected",
+        "itsi-subagent-regional-qualification"
+      ],
+      "sourceIds": [
+        "saia240-and-feature-evidence"
+      ],
+      "reason": "SAIA 2.4 Cloud Connect installation is current, but exact 2.4 Agent Mode, Model Runtime and ITSI-subagent feature-region sections were not retrieved in this run.",
+      "owner": "csp-fedramp-watch",
+      "nextAction": "Retrieve the exact 2.4 feature pages and compare each named region, runtime placement and ITSI subagent condition without inheriting base-assistant coverage.",
+      "reviewBy": "2026-11-21"
+    },
+    {
+      "capabilityId": "advisor.soc-workflow",
+      "disposition": "deferred",
+      "claimFamilies": [
+        "ai-es-soc"
+      ],
+      "sourceIds": [
+        "regions88"
+      ],
+      "reason": "The regional table was assessed, but the registered deployment/version discrepancy and corrected historical wording require the primary ES owner’s complete mapped source set.",
+      "owner": "es-editions-watch",
+      "nextAction": "Reconcile this CSP regional result with the November 20 ES candidate without borrowing its task identity or exact pairing/entitlement scope.",
+      "reviewBy": "2026-11-21"
+    }
+  ],
+  "unassessedScope": [
+    {
+      "id": "saia-2.4-feature-regions",
+      "owner": "csp-fedramp-watch",
+      "action": "Retrieve and assess exact 2.4 Agent Mode, Model Runtime and ITSI subagent regional sections.",
+      "reviewBy": "2026-11-21"
+    },
+    {
+      "id": "soc-workflow-full-mapped-family",
+      "owner": "es-editions-watch",
+      "action": "Complete primary-owner reconciliation of deployment/version discrepancy and historical wording.",
+      "reviewBy": "2026-11-21"
+    }
+  ],
+  "validation": {
+    "checks": [
+      {
+        "id": "source-and-claim-assessment",
+        "outcome": "passed",
+        "evidence": "Eight registry rows declared; six assessed-no-change and two finite deferrals."
+      },
+      {
+        "id": "repository-gates",
+        "outcome": "passed",
+        "evidence": "Ordered maintenance sync generated no canonical changes. After installing the locked dependencies, the full maintenance verification, coverage and native-feed declarations, 926 Node tests, Worker build and git diff check passed. The initial dependency-free attempt is retained separately as 918 passing and eight build-backed failures caused by missing esbuild."
+      },
+      {
+        "id": "exact-candidate-exports",
+        "outcome": "passed",
+        "evidence": "GitHub run 44737688061 checked PR head e3a463f4130c7d5b7d1ecf8372ed2544880ea941 through merge commit ca39d472a1624b779e3af73ca373debf2ff91ddc at tree 57127ff2b049a5f4f3b61d153c8fb79549d3f645. All 226 route/theme cases passed native Chromium PDF, offline HTML and narrow-screen gates."
+      },
+      {
+        "id": "artifact-readback",
+        "outcome": "passed",
+        "evidence": "Downloaded artifact 14628934371 independently matched sha256:7b5e2b3b64b17058cb239d9e8daf53b0e024f0850c8dbbeefc354c198f7ff3ea. scripts/export-evidence.cjs verified 4,615 retained artifacts and fingerprint dbe51639774b9dcb2a9bc336f5db72907b649aedf11469ad49305433cae66d41; check-soak.cjs --exports returned eligible-to-advance with no missing, failed or unresolved gate. Automated retained-image checks are not described as human visual inspection."
+      },
+      {
+        "id": "live-ui-assets-d1",
+        "outcome": "blocked",
+        "evidence": "Coordinator-owned production delivery was not attempted by this watch."
+      }
+    ]
+  },
+  "publication": {
+    "claimedDelivered": false,
+    "coordinator": "Automation_440f270a74e48191a770bb15ef4748a0",
+    "qualification": "Repository integration and production delivery are separate. This watch performs no Sites/D1 mutation.",
+    "candidateReceipt": {
+      "headCommit": "e3a463f4130c7d5b7d1ecf8372ed2544880ea941",
+      "validatedCommit": "ca39d472a1624b779e3af73ca373debf2ff91ddc",
+      "validatedTree": "57127ff2b049a5f4f3b61d153c8fb79549d3f645",
+      "reportFingerprint": "dbe51639774b9dcb2a9bc336f5db72907b649aedf11469ad49305433cae66d41",
+      "contentIdentity": "content-c069256e558c2b2a33c8cb80",
+      "engineIdentity": "engine-26fb3778ff5accd1f861",
+      "exportRunId": 44737688061,
+      "exportArtifactId": 14628934371,
+      "exportArtifactSha256": "7b5e2b3b64b17058cb239d9e8daf53b0e024f0850c8dbbeefc354c198f7ff3ea",
+      "visualArtifactId": 14628909327,
+      "visualArtifactSha256": "880748fee470ad06958e389a7f1f653bc7140c1554ed1b4c926a520c34d761bc",
+      "assessedScope": "Six registry 1.4.0 CSP capabilities: AI regional ES, AI regional Observability, provider/region, Classic/Victoria and service controls, FedRAMP Moderate/High, and premium services/Observability realms.",
+      "incompleteScope": "Exact current SAIA 2.4 Agent Mode, Model Runtime and ITSI subagent regional evidence; complete primary-owner SOC workflow source/version reconciliation; distinct issue-feed append after the concurrent feed checkpoint.",
+      "unresolvedGates": [
+        "Two capability dispositions remain deferred to November 21",
+        "Native issue-feed publication is blocked behind PR #222",
+        "Coordinator selection and production live verification"
+      ]
+    }
+  },
+  "automationCoverage": {
+    "runFile": "docs/audits/2026-11-20-csp-fedramp-watch-coverage.json"
+  },
+  "issueFeed": {
+    "schemaVersion": 1,
+    "watchId": "csp-fedramp-watch",
+    "status": "blocked",
+    "recordedAt": "2026-11-20T12:30:53.099Z",
+    "reviewDigest": "c4284dff83236fa6082fd71b6b0fbda006cf1aa8ddcae23d19dad36a4414b284",
+    "publicationId": "vci-7ecfebb8690eb8128bbf41138a06fda8f04b8dcd0938221b0cb36b71e4c06d5d",
+    "recordKeys": [],
+    "notReassessedFindingIds": [
+      "vci-soar-cloud-880-release-stage",
+      "vci-es-87-connector-builder-editions",
+      "vci-es-88-triage-editions",
+      "vci-es-guided-response-enhancement-scope",
+      "vci-es-malware-phishing-version-floor",
+      "vci-app-for-soar-es-pairing",
+      "vci-es-activity-pricing-deployment-scope",
+      "vci-svd-2026-1015-applicability",
+      "vci-enterprise-kv-106-upgrade-bridge",
+      "vci-cloud-107-release-service-pairing",
+      "vci-observability-rca-custom-metric-scope",
+      "vci-es-soc-analyst-version-floor",
+      "vci-ai-report-source-directory",
+      "vci-sok-32-compatibility-scope",
+      "vci-es-editions-ambiguous-link",
+      "vci-saia-cloud-connected-agent-mode-scope",
+      "vci-es-security-assistant-runtime-default",
+      "vci-es-security-assistant-runtime-ap-routing",
+      "vci-app-for-soar-88-onprem-matrix-cell",
+      "vci-soar-cmp-88-fixed-issues-label",
+      "vci-soar-cmp-88-upgrade-example-destination",
+      "vci-itsi-503-enterprise-102-patch-scope",
+      "vci-itsi-503-service-discovery-46607",
+      "vci-itsi-503-service-discovery-46608",
+      "vci-enterprise-104-legacy-tls-scope",
+      "vci-soar-export-88-tested-pairing-scope",
+      "vci-cloud-107-aws-israel-filter",
+      "vci-soar-broker-870245-maintenance-visibility",
+      "vci-uf-remote-upgrader-route-coverage",
+      "vci-es-taxii-protocol-version-scope",
+      "vci-es-editions-taxii-pdf-heading-split",
+      "vci-enterprise-106-legacy-tls-override-conflict",
+      "vci-es-88-response-agent-rerun-coverage",
+      "vci-o11y-secure-app-dotnet-dual-mode-realms",
+      "vci-forwarder-104-stale-maintenance-wording",
+      "vci-es-88-soc-source-locators",
+      "vci-o11y-november-saas-milestone-coverage"
+    ],
+    "deferredConcerns": [
+      "Native feed append is held behind concurrent issue-feed PR #222; csp-fedramp-watch must rebase the distinct November 20 reassessments after that immutable checkpoint is integrated, by 2026-11-21."
+    ],
+    "qualification": "Eight existing findings overlap the bounded CSP review, but no new revisions are claimed while the shared append-only feed has a concurrent in-flight candidate. Repository audit publication may proceed as partial; feed delivery remains blocked."
+  }
+}
