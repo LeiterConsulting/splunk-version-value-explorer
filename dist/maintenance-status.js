@@ -622,10 +622,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-21T11:07:59.758800Z",
-      "lastSuccess": "2026-11-21T10:50:06.877Z",
-      "outcome": "blocked",
-      "summary": "Partial continuation:21 prior scoped judgments reused; seven capability gaps retained; validated candidate226 integrated, release selection queued.",
+      "lastAttempt": "2026-11-21T19:31:38.353Z",
+      "lastSuccess": "2026-11-21T19:40:05.303Z",
+      "outcome": "changed",
+      "summary": "Prepared four qualified November Observability records, two independently checked HF mappings and five scoped feed reassessments.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1399,9 +1399,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Partial continuation:21 prior scoped judgments reused; seven capability gaps retained; validated candidate226 integrated, release selection queued.",
           "scope": "Same exposed run ID/later observed start retained separately; original assessments/dates preserved. Protected Prep11/Release acquisition before full298-source inventory; no fresh semantic or live delivery claim."
+        },
+        {
+          "at": "2026-11-21T19:31:38.353Z",
+          "outcome": "running",
+          "summary": "Continuing the protected daily review and preparing a bounded November Observability candidate.",
+          "scope": "Eight Prep11 and nine Release Guide dispositions; Exact/AI/Advisor follow-up; official inventory; two scoped historical HF mappings. Native recorded attempt remains separately qualified."
+        },
+        {
+          "at": "2026-11-21T19:40:05.303Z",
+          "outcome": "changed",
+          "summary": "Prepared four qualified November Observability records, two independently checked HF mappings and five scoped feed reassessments.",
+          "scope": "Bounded candidate review only. Registry1.4 records28 dispositions with seven incomplete scopes. GitHub validation/integration and sole-coordinator runtime delivery remain separate."
         }
       ],
-      "scope": "Same exposed run ID/later observed start retained separately; original assessments/dates preserved. Protected Prep11/Release acquisition before full298-source inventory; no fresh semantic or live delivery claim."
+      "scope": "Bounded candidate review only. Registry1.4 records28 dispositions with seven incomplete scopes. GitHub validation/integration and sole-coordinator runtime delivery remain separate."
     },
     {
       "id": "es-editions-watch",

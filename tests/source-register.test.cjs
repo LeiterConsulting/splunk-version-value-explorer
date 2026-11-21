@@ -247,7 +247,7 @@ test('borrowed HF Unix identity and Python 3.13 records preserve default, overri
   assert.match(unix.to,/blocked by default/);assert.match(unix.action,/least-privileged service account/);
   assert.match(python.to,/Python 3\.13 becomes the default interpreter with Python 3\.9 available as a fallback/);
   assert.match(python.action,/test representative workflows with the 3\.13 default/);
-  for(const id of ['technical.hf.10.2.unix-service-identity','technical.hf.10.4.python-application-runtime'])assert(c.window.VersionCompassSources.sources.some(s=>s.claimReferences?.some(r=>r.claimId===id&&r.claimVerified==='2026-10-22'&&r.section)));
+  for(const id of ['technical.hf.10.2.unix-service-identity','technical.hf.10.4.python-application-runtime'])assert(c.window.VersionCompassSources.sources.some(s=>s.claimReferences?.some(r=>r.claimId===id&&r.claimVerified===(id==='technical.hf.10.4.python-application-runtime'?'2026-11-21':'2026-10-22')&&r.section)));
  }
  const records=api.assess({...api.defaults,type:'hf',from:'10.0',to:'10.4'}).technical;check(records);
  const rootAllowed=JSON.parse(JSON.stringify(records));rootAllowed.find(r=>r.component==='Unix service identity').to='Running as root remains enabled by default';assert.throws(()=>check(rootAllowed),/blocked by default/);
@@ -285,7 +285,7 @@ test('borrowed HF KV Store prerequisites and TLS precedence reject reversed or w
   assert.match(media.to,/engine 7 or later is required/);assert.match(media.action,/before starting the 10.4 upgrade/);
   assert.match(tls.from,/ignored in favor of sslConfig/);assert.equal(tls.to,'TLS settings in the kvstore stanza take precedence');
   assert(c.window.VersionCompassSources.sources.some(s=>s.claimReferences?.some(r=>r.claimId==='technical.hf.10.4.kv-store-binaries'&&r.claimVerified==='2026-11-05'&&r.section==='Splunk removed older unsupported MongoDB database engine binaries')));
-  assert(c.window.VersionCompassSources.sources.some(s=>s.claimReferences?.some(r=>r.claimId==='technical.hf.10.4.kv-store-tls-configuration'&&r.claimVerified==='2026-10-20'&&r.section)));
+  assert(c.window.VersionCompassSources.sources.some(s=>s.claimReferences?.some(r=>r.claimId==='technical.hf.10.4.kv-store-tls-configuration'&&r.claimVerified==='2026-11-21'&&r.section)));
  }
  const records=api.assess({...api.defaults,type:'hf',from:'10.2',to:'10.4'}).technical;check(records);
  const reversed=JSON.parse(JSON.stringify(records));reversed.find(r=>r.component==='KV Store TLS configuration').to='sslConfig always takes precedence';assert.throws(()=>check(reversed),/kvstore stanza take precedence/);

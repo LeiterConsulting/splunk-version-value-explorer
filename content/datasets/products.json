@@ -1240,7 +1240,7 @@
     },
     "observability": {
       "label": "Splunk Observability Cloud",
-      "latest": "Oct 2026",
+      "latest": "Nov 2026",
       "releases": [
         "Nov 2024",
         "Mar 2025",
@@ -1249,7 +1249,8 @@
         "Apr 2026",
         "Jul 2026",
         "Sep 2026",
-        "Oct 2026"
+        "Oct 2026",
+        "Nov 2026"
       ],
       "releaseOverview": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/release-notes-overview",
       "collectorSource": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector",
@@ -2739,6 +2740,75 @@
               "Use chart 0.162.1 or later and the documented OpAMP Bridge enablement, realm and access-token setup. Templates/groups can update ConfigMaps and roll workloads; verify permissions, scope and staged rollout. Chart 0.163.1 packages Collector 0.163.1; validate its separate migration and security/input changes before adopting that package.",
               "Validate",
               "https://help.splunk.com/en/splunk-observability-cloud/manage-data/manage-otel-agents-and-collectors/remote-configuration-of-opentelemetry-collectors/opamp-bridge-for-collectors-on-kubernetes/enable-the-opamp-bridge-for-kubernetes",
+              false
+            ]
+          ]
+        },
+        "Nov 2026": {
+          "date": "November 2026",
+          "source": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026",
+          "features": [
+            [
+              "Span analyzer",
+              "APM & troubleshooting",
+              "Compare individual span latency and errors",
+              "Search, filter and group spans in Trace data explorer, including historical comparisons and live incoming spans.",
+              "Rolling-service milestone · November 12, 2026",
+              "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/search-spans-with-span-analyzer-in-splunk-apm"
+            ],
+            [
+              "APM operation grouping",
+              "APM & troubleshooting",
+              "Control operation cardinality",
+              "Administrators can group operation names by prefix across APM views. The default limit is 100 rules per organization; check the actual organization limit.",
+              "Rolling-service milestone · November 12, 2026",
+              "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/create-operation-rules-to-group-related-requests"
+            ],
+            [
+              "Resolved alert history",
+              "Alerting & logs",
+              "Review recurring alerts and resolution time",
+              "Controlled Availability adds resolved-alert history and MTTR in us0, us1, au0, jp0, eu0, eu1 and eu2. Confirm access and current realm scope.",
+              "Controlled Availability · November 12, 2026",
+              "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/resolved-alerts"
+            ],
+            [
+              "A2A investigation access",
+              "Automation & AI",
+              "Delegate an enabled investigation workflow",
+              "Select customers can connect an A2A 1.0 client to the Observability AI Assistant. Organization access, AI Assistant entitlement and token authentication are required. Initial scope is an APM service-alert investigation.",
+              "Select-customer service milestone · November 12, 2026",
+              "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/connect-your-agent-to-the-observability-ai-assistant/use-a2a-with-the-splunk-observability-ai-assistant"
+            ]
+          ],
+          "technicalChanges": [],
+          "requirements": [
+            [
+              "Check service and telemetry prerequisites",
+              "These are rolling SaaS changes. Validate the selected realm, access and collected telemetry separately from customer-managed Collector, chart and instrumentation versions. A Platform host selection does not establish feature entitlement.",
+              "Validate",
+              "https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector",
+              false
+            ],
+            [
+              "Configure operation grouping with administrator access",
+              "The operation-grouping guide requires the admin role. Review the organization limit and changed operation names across APM views before relying on grouped metrics.",
+              "Review",
+              "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/create-operation-rules-to-group-related-requests",
+              false
+            ],
+            [
+              "Confirm resolved-alert access",
+              "Resolved alerts remains Controlled Availability in the listed realms. General Assistant or Platform hosting coverage does not establish this feature.",
+              "Review",
+              "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/resolved-alerts",
+              false
+            ],
+            [
+              "Confirm A2A access and request limits",
+              "Confirm select-customer access and AI Assistant entitlement, use an A2A 1.0 client with tenant Agent Card and X-SF-TOKEN authentication, and send a single nonempty text part. Supported workflows are organization-specific. Results are text; files, images, structured citations and webhooks are unsupported.",
+              "Review",
+              "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/connect-your-agent-to-the-observability-ai-assistant/use-a2a-with-the-splunk-observability-ai-assistant",
               false
             ]
           ]

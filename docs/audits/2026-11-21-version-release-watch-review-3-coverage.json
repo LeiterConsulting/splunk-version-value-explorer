@@ -1453,10 +1453,26 @@
     }
   ],
   "validation": {
-    "local": "pending",
-    "exactCandidateExports": "pending",
-    "artifactReadback": "pending",
-    "qualification": "Report/input changes require the final candidate CI and artifact binding. Earlier candidates do not certify these changes."
+    "local": {
+      "outcome": "passed",
+      "checkedAt": "2026-11-21T19:41:53.636Z",
+      "commands": [
+        "npm run maintenance:sync",
+        "npm run maintenance:verify",
+        "git diff --check"
+      ],
+      "qualification": "Ordered sync/check gates, complete Node suite and build passed. Initial local setup lacked npm dependencies and content assertions still expected the prior latest target/cycle; npm ci and scoped assertion updates resolved those before the final validation."
+    },
+    "exactCandidateExports": {
+      "outcome": "pending"
+    },
+    "artifactReadback": {
+      "outcome": "pending"
+    },
+    "advisor": {
+      "outcome": "passed-with-recorded-overdue-decisions",
+      "qualification": "Existing admission pins and factual dates remain unchanged. All three decisions retain overdue assessment windows and no positive path was fabricated."
+    }
   },
   "publication": {
     "status": "candidate-preparation",

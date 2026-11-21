@@ -5458,10 +5458,26 @@
     "qualification": "Read-only diagnostic used the supported snapshot. Missing independent saved-configuration baseline and mismatched earlier receipt starts remain unverified. Absent legacy publisher telemetry is distinct from the sole scheduled Sites steward."
   },
   "validation": {
-    "local": "pending",
-    "exactCandidateExports": "pending",
-    "artifactReadback": "pending",
-    "qualification": "Report/input changes require the final candidate CI and artifact binding. Earlier candidates do not certify these changes."
+    "local": {
+      "outcome": "passed",
+      "checkedAt": "2026-11-21T19:41:53.636Z",
+      "commands": [
+        "npm run maintenance:sync",
+        "npm run maintenance:verify",
+        "git diff --check"
+      ],
+      "qualification": "Ordered sync/check gates, complete Node suite and build passed. Initial local setup lacked npm dependencies and content assertions still expected the prior latest target/cycle; npm ci and scoped assertion updates resolved those before the final validation."
+    },
+    "exactCandidateExports": {
+      "outcome": "pending"
+    },
+    "artifactReadback": {
+      "outcome": "pending"
+    },
+    "advisor": {
+      "outcome": "passed-with-recorded-overdue-decisions",
+      "qualification": "Existing admission pins and factual dates remain unchanged. All three decisions retain overdue assessment windows and no positive path was fabricated."
+    }
   },
   "publication": {
     "status": "candidate-preparation",
@@ -5475,11 +5491,17 @@
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "version-release-watch",
-    "status": "pending-public-provenance",
-    "recordedAt": "2026-11-21T19:36:51.824Z",
+    "status": "published",
+    "recordedAt": "2026-11-21T19:40:26.950Z",
     "reviewDigest": "ffe4d6ef6a66947efd6c592983a6c46c5caa5b234116d4ad70de3fc243a7628b",
-    "publicationId": "vci-5b13cfc1cd0de2fea5d94408615077cd73ae5bedac1d4901e99c1a19798e7615",
-    "recordKeys": [],
+    "publicationId": "vci-35de9ac7342ff7c9482a5d644225d45da96eedf150cfa8b22447c6d2ff05ffc9",
+    "recordKeys": [
+      "assessment:vcia-release-20261121-r3-sok-32-compatibility-scope@1",
+      "assessment:vcia-release-20261121-r3-enterprise-104-legacy-tls-scope@1",
+      "assessment:vcia-release-20261121-r3-saia-cloud-connected-agent-mode-scope@1",
+      "assessment:vcia-release-20261121-r3-o11y-november-saas-milestone-coverage@1",
+      "assessment:vcia-release-20261121-r3-es-88-enterprise-106-maintenance-pairing-coverage@1"
+    ],
     "notReassessedFindingIds": [
       "vci-soar-cloud-880-release-stage",
       "vci-itsi-subagent-region",
@@ -5526,9 +5548,7 @@
       "vci-es-88-triage-credit-revision-scope",
       "vci-es-88-ai-release-stage-copy"
     ],
-    "deferredConcerns": [
-      "version-release-watch by2026-11-22: publish this exact audit commit then append five scoped reassessments using that immutable provenance."
-    ],
-    "qualification": "Pending immutable public provenance for five actual scoped judgments. Remaining known findings are explicitly not reassessed."
+    "deferredConcerns": [],
+    "qualification": "Five actual scoped assessments cite immutable public source audit6471b54906381e046305bc31a227c4e89202710a. Candidate feed bytes await GitHub integration and pinned readback. No automatic closure, complete capability coverage or runtime delivery is claimed."
   }
 }
