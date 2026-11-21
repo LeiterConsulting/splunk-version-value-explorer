@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-cloud-connected-agent-mode-scope",
+  "assessmentId": "vcia-es-20261120-saia-cloud-connected-agent-mode-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-20T11:46:33.894Z",
+  "assessedAt": "2026-11-20T11:18:30.000Z",
+  "outcome": "partially-addressed",
+  "rationale": "The current SAIA 2.4.0 installer establishes a versioned Cloud Connect 2.0.0+/Enterprise 10.4+ installation path with paid-license, fresh-setup, network, certificate, permission, verified-email and commercial-region conditions. It does not establish Agent Mode rollout, Model Runtime placement, ES entitlement, exact pairing or regulated authorization; the 2.3.6 exclusion remains historical version scope.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant",
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "SAIA 2.4.0",
+      "ES 8.8"
+    ],
+    "editions": [
+      "Premier where separately documented"
+    ],
+    "deployments": [
+      "Cloud Connected CMP"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No Agent Mode rollout, Model Runtime placement, entitlement, exact pairing or regulated authorization is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-20261120-0-0",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-splunk-cloud-connect",
+      "section": "Prerequisites; Version compatibility; Installation steps; What data leaves your environment",
+      "statement": "The current SAIA 2.4.0 installer establishes a versioned Cloud Connect 2.0.0+/Enterprise 10.4+ installation path with paid-license, fresh-setup, network, certificate, permission, verified-email and commercial-region conditions. It does not establish Agent Mode rollout, Model Runtime placement, ES entitlement, exact pairing or regulated authorization; the 2.3.6 exclusion remains historical version scope.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-20T11:16:59.763Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "c1ab985f916ef9d75332fb9b5847025f38c8d4f0e977023c400eed1a645bdb3b",
+        "qualification": "Fresh direct public body digest; source publication and effective dates are not inferred."
+      }
+    },
+    {
+      "evidenceId": "es-20261120-0-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "Historical 2.3.6 Cloud Connected compatibility",
+      "statement": "The current SAIA 2.4.0 installer establishes a versioned Cloud Connect 2.0.0+/Enterprise 10.4+ installation path with paid-license, fresh-setup, network, certificate, permission, verified-email and commercial-region conditions. It does not establish Agent Mode rollout, Model Runtime placement, ES entitlement, exact pairing or regulated authorization; the 2.3.6 exclusion remains historical version scope.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-20T11:16:47.422Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "c06973b1dfaa48183c9e14d795c7133590c542276d081696be7920e0fdda1f35",
+        "qualification": "Fresh direct public body digest; source publication and effective dates are not inferred."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/353aadf1d9c481804413becf549766b16de7ca8c/docs/audits/2026-11-20-es-editions-watch-sources.json",
+      "pointer": "/claimChecks/4",
+      "originalLabel": "partially-addressed"
+    }
+  ],
+  "remainingConcerns": [
+    "Version Release Watch by 2026-11-21: reconcile feature-specific Agent Mode, Model Runtime and known-issue scope against the released installer.",
+    "CSP FedRAMP Watch by 2026-11-21: assess feature-specific regional and regulated authorization without inheriting base-assistant coverage."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261120-saia-cloud-connected-agent-mode-scope"
+  ]
+}

@@ -1335,12 +1335,22 @@
       {
         "id": "repository-gates",
         "outcome": "passed",
-        "evidence": "Ordered sync and --check gates, registry 1.4.0 coverage, pending-state feed validation, Advisor check, 926-test Node suite and 74-asset production build passed."
+        "evidence": "Ordered sync and --check gates, registry 1.4.0 coverage, native feed validation, Advisor check, 926-test Node suite and 74-asset production build passed."
       },
       {
         "id": "exact-candidate-exports",
-        "outcome": "pending",
-        "evidence": "Dedicated exact-candidate CI evidence pending."
+        "outcome": "passed",
+        "evidence": "GitHub workflow run 44732789433 validated commit f803b805612346d36983db04a7be6784e40d9606 / tree 1bbf9686f074a338842ebeb6af2800d5ab0633ca. Artifact 14627921495 (sha256:c694af96075e49a663f491174e4fddcf28772d18a0652fb913b4cd8b4577b05a) contains 226 passed native cases and 4,615 artifact records for content-c069256e558c2b2a33c8cb80 / engine-26fb3778ff5accd1f861."
+      },
+      {
+        "id": "artifact-readback",
+        "outcome": "passed",
+        "evidence": "The 455,906,982-byte artifact ZIP was independently downloaded; its SHA-256 matched c694af96075e49a663f491174e4fddcf28772d18a0652fb913b4cd8b4577b05a. export-evidence.cjs and check-soak.cjs --exports passed with zero missing, failed or unresolved cases."
+      },
+      {
+        "id": "retained-image-inspection",
+        "outcome": "passed",
+        "evidence": "Human inspection of retained ES Editions and AI Availability desktop and narrow images in both themes found no novel clipping, overlap or unreadable recovery state. This is separate from automated geometry validation."
       },
       {
         "id": "live-ui-assets-d1",
@@ -1356,11 +1366,20 @@
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "es-editions-watch",
-    "status": "pending-public-provenance",
-    "recordedAt": "2026-11-20T11:22:05.856Z",
+    "status": "published",
+    "recordedAt": "2026-11-20T12:19:25.861Z",
     "reviewDigest": "b3f8b16020068034a3d8eacad8fa09a84a4ba07756db4b5ee0dd52b61546cd45",
-    "publicationId": "vci-7ecfebb8690eb8128bbf41138a06fda8f04b8dcd0938221b0cb36b71e4c06d5d",
-    "recordKeys": [],
+    "publicationId": "vci-643e648e7f990d42c6aebfa2c4adc8a9ba519b986f6d76b31d7fced3ef9b92a7",
+    "recordKeys": [
+      "assessment:vcia-es-20261120-saia-cloud-connected-agent-mode-scope@1",
+      "assessment:vcia-es-20261120-es-soc-analyst-version-floor@1",
+      "assessment:vcia-es-20261120-es-88-triage-editions@1",
+      "assessment:vcia-es-20261120-es-88-response-agent-rerun-coverage@1",
+      "assessment:vcia-es-20261120-app-for-soar-es-pairing@1",
+      "assessment:vcia-es-20261120-es-activity-pricing-deployment-scope@1",
+      "assessment:vcia-es-20261120-es-guided-response-enhancement-scope@1",
+      "assessment:vcia-es-20261120-es-87-connector-builder-editions@1"
+    ],
     "notReassessedFindingIds": [
       "vci-ai-report-source-directory",
       "vci-app-for-soar-88-onprem-matrix-cell",
@@ -1401,9 +1420,9 @@
       "vci-uf-remote-upgrader-route-coverage"
     ],
     "deferredConcerns": [
-      "Eight bounded ES reassessments require this audit’s immutable public commit; publish the precursor, then append and read back the exact records by 2026-11-21."
+      "Known findings outside these eight bounded ES reassessments remain unreassessed in this run; their existing owners and dates remain unchanged."
     ],
-    "qualification": "Review complete; feed follow-up awaits immutable public provenance. No self-reference, closure or runtime delivery is claimed."
+    "qualification": "Eight ES-scope findings were distinctly reassessed from immutable public audit commit 353aadf1d9c481804413becf549766b16de7ca8c and normalized into cumulative checkpoint sequence 92. No closure or runtime delivery is inferred."
   },
   "automationCoverage": {
     "runFile": "docs/audits/2026-11-20-es-editions-watch-coverage.json"
