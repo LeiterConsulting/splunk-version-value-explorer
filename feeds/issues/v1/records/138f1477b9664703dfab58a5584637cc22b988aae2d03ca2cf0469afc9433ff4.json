@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-agent-runtime-processing-scope",
+  "assessmentId": "vcia-release-20261121-r4-saia-240-runtime-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-21T20:30:43.437Z",
+  "assessedAt": "2026-11-21T20:27:36.749Z",
+  "outcome": "still-present",
+  "rationale": "The2.4 installer limits processing to Splunk and says it does not execute SPL. The2.4 feature guides describe external model routing and permission-based search execution. Preserve the distinct statements and feature prerequisites; this assessment establishes no per-request data location or general Cloud Connected feature availability.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant"
+    ],
+    "versions": [
+      "2.4.0"
+    ],
+    "deployments": [
+      "Splunk Enterprise Cloud Connect",
+      "Agent Mode",
+      "Model Runtime"
+    ],
+    "editions": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Only the named exact public sections. No tenant authorization, universal rollout, entitlement, residency commitment, inferred pairing or automatic closure."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-r4-20261121-saia-240-runtime-scope-0",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-splunk-cloud-connect",
+      "section": "Prerequisites; Version compatibility; Installation steps; What data leaves your environment",
+      "statement": "10.4+/2.4+/CloudConnect2.0; STC/OAuth, paid license, admin capabilities, outbound443, fresh setup. Installer runtime statements remain separate from feature requirements.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": null,
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact substantive official indexed body opened and read November21 after direct403. Precise retrieval second, publisher revision and byte digest are unknown; a search snippet alone receives no complete claim-family credit."
+      }
+    },
+    {
+      "evidenceId": "release-r4-20261121-saia-240-runtime-scope-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "section": "Requirements; Supported regions; Enable Agent Mode",
+      "statement": "10.1.x feature floor alone is insufficient for the 10.4+ Cloud Connect installer. Model Runtime, enabled feature, named AWS region and permission to execute searches remain distinct.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": null,
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact substantive official indexed body opened and read November21 after direct403. Precise retrieval second, publisher revision and byte digest are unknown; a search snippet alone receives no complete claim-family credit."
+      }
+    },
+    {
+      "evidenceId": "release-r4-20261121-saia-240-runtime-scope-2",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+      "section": "Supported regions; Model Runtime feature availability and region standard; Using the Model Runtime feature; Use your own LLM with AI tier",
+      "statement": "Feature-specific routing table differentiates Global/Data zone/N/A. External model processing is not a residency guarantee. BYOLLM is AI-tier-specific, not Cloud Connected.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": null,
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact substantive official indexed body opened and read November21 after direct403. Precise retrieval second, publisher revision and byte digest are unknown; a search snippet alone receives no complete claim-family credit."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/eb415b08a2e4e8e5d20bf19d4fb1525b0183e110/docs/audits/2026-11-21-version-release-watch-review-4-sources.json",
+      "pointer": "/scopeOutcomes/ai.saia-itsi",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "version-release-watch by2026-11-22: Exact2.4 About/ITSI details, full current known-issues/release bodies and the full registered2.3.6 family were not all substantively available. No installer minimum promoted to feature support."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-guidance-20261119-saia-agent-runtime-processing-scope"
+  ]
+}
