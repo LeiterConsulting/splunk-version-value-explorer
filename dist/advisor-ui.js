@@ -32,7 +32,7 @@
     saiaVersion:'Enter the installed SAIA app version, or leave this blank for Unknown.',
     mcpVersion:'Enter the installed Splunk MCP Server version, or leave this blank for Unknown.',
     esVersion:'Enter the installed ES version. Known source discrepancies are not resolved by entering a version.',
-    cloudConnectVersion:'Enter the installed Cloud Connect version. ES 8.8 packaging remains separately qualified.',
+    cloudConnectVersion:'Enter the installed Splunk Cloud Connect version.',
     region:'Where would the assistant’s AI service run? This may differ from your Splunk hosting region. Base-assistant locations and feature-specific requirements are assessed separately.'
   };
   function options(rows,value){return Object.entries(rows).map(([key,label])=>'<option value="'+esc(key)+'"'+(key===value?' selected':'')+'>'+esc(label)+'</option>').join('');}

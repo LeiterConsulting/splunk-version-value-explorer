@@ -15,9 +15,9 @@ Print and dated HTML remain disabled until that brief exists.
 
 | Decision | Relevant reports | Bounded outcome |
 | --- | --- | --- |
-| Plan for SAIA Agent Mode | Deployment, service environment, Platform version, Cloud Connected SAIA version, AI service location, reported access | Feature-specific minima/AWS locations with the current Cloud Connected compatibility block; explicit unknown pairing, activation, runtime policy, entitlement and regulated scope |
+| Plan for SAIA Agent Mode | Deployment, service environment, Platform version, SAIA and Cloud Connect versions for Enterprise, AI service location, reported access | Version-specific Cloud and Enterprise prerequisites with the legacy 2.2.0–2.3.6 exclusion; explicit unknown pairing, activation, runtime policy, entitlement and regulated scope |
 | Check ITSI assistant dependencies | ITSI, SAIA and MCP Server versions | Three minimum comparisons; no gap can mean no version uplift indicated **by those minimums alone**. Complete pairing and subagent regional rollout remain separate. |
-| Untangle ES AI SOC requirements | Deployment/environment/edition/access, applicable Platform and ES versions, CMP Cloud Connect version | Separate Cloud/CMP chains, the current Cloud ES 8.6+/8.7+ discrepancy, and corrected historical Triage wording. Exact SOAR pairing and agent-specific rollout remain unestablished. |
+| Untangle ES AI SOC requirements | Deployment/environment/edition/access, applicable Platform and ES versions, CMP Cloud Connect and SAIA versions | Separate Cloud/CMP chains, the current Cloud ES 8.6+/8.7+ discrepancy, and corrected historical Triage wording. Exact SOAR pairing and agent-specific rollout remain unestablished. |
 
 A minimum is never selected as a recommended target. Reported access never proves
 entitlement or customer authorization. A missing fact about a visitor is not
@@ -25,18 +25,7 @@ conflated with missing product evidence. Historical Essentials/Triage wording is
 not presented as a continuing current contradiction. The separately unresolved
 Cloud aggregate-versus-task minimum remains visible with both current sources.
 
-The November 3 published implementation uses the exact Agent Mode and Model Runtime pages rather
-than inheriting base-SAIA regions. Azure/Dubai base-service listings do not support
-Agent Mode; Dublin's feature-specific AWS listing remains usable for native Cloud.
-Current Cloud Connected compatibility excludes SAIA 2.2.0–2.3.6; its 2.1.1 fallback
-lacks Agent Mode. The general feature page still describes a 2.1+ path, and SAIA-9918
-records the current access issue. Enterprise briefs retain this conflict instead
-of treating a met minimum or planned 2.4.0 support as a usable path. Runtime must be
-enabled, while actual activation and routing still need confirmation. Model
-Runtime's external processing and Data zone/Global routing remain visibly separate
-from Cloud Connected's broader no-third-party assurance. See the
-[scoped assessment](automation-coverage-followups.md) and [completed rollout / pending
-saved-task gates](automation-rollout-status.md).
+The November 21 reassessment covers the 15 named AWS Agent Mode service locations, Model Runtime routing, and distinct Cloud and Enterprise installation requirements. Splunk’s 2.4.0 release notes and installer document the Enterprise 10.4+, SAIA 2.4.0+ and Cloud Connect 2.0+ path. The SAIA-9918 entry retains the older planned-release wording and excludes the 2.2.0–2.3.6 installation path. Fresh setup, a supported commercial AWS region and activation still matter. For ES, the brief compares Triage and Autonomous Response separately, including their Cloud/CMP qualifications and the conflicting statements about Triage limits. Review clocks and exact scoped sources are in the [editorial receipt](audits/2026-11-21-advisor-brief-reassessment.json).
 
 Unsupported ingest-pressure and generic keep-current choices are removed from
 actionable coverage. Their published URLs show the original intent and an explicit
@@ -135,3 +124,5 @@ known/unknown/CMP/regulated/changed-evidence decision briefs to native PDF rende
 and independent offline HTML reopening. Landing and unsupported views deliberately
 block exports, without being labelled failed assessments. Retain actual artifacts,
 inspect novel layouts and verify the deployed custom-domain UI, assets and D1.
+
+The operational pipeline report includes each decision’s due date and current status under `coverage.advisor`. The daily count of owner assessments remains under `coverage.daily`. A brief can have a same-day dependency assessment and still be overdue if another required input is stale.
