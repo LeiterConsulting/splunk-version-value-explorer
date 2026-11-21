@@ -379,7 +379,7 @@ test('September Observability additions preserve SaaS, private-runner, and Cloud
 test('October Observability route preserves SaaS semantics and component release boundaries', async () => {
   const rt = await runtime();
   const report = rt.run('compare_routes', { routes: [{ product: 'observability', platform: 'cloud', host: '10.6', from: 'Sep 2026', to: 'Oct 2026' }] }).reports[0];
-  assert.equal(rt.window.SPLUNK_DATA.productTracks.observability.latest, 'Oct 2026');
+  assert.equal(rt.window.SPLUNK_DATA.productTracks.observability.latest, 'Nov 2026');
   for (const title of ['Stricter APM not-equal tag filtering', 'Java instrumentation 2.33', 'Node.js instrumentation 4.12.1', 'Kubernetes chart 0.162.1', 'Python instrumentation 2.13.3', 'Collector 0.163.1 security and input patch', 'Application-scoped call graph exclusions', 'Broader parentless-span MetricSets', 'Metric chart baselines', 'IBM MQ built-in dashboards', 'Multi-trace AI comparisons']) {
     assert(report.features.some(item => item.title === title), title);
   }
@@ -745,4 +745,23 @@ test('WebMCP retains legacy application identity and reports active or fallback 
  delete rt.window.VersionCompassContent;
  const metadata = rt.run('get_catalog', {}).metadata;
  assert.equal(metadata.datasetRevision, null); assert.equal(metadata.engineRevision, null); assert.equal(metadata.delivery, null);
+});
+
+
+test('November Observability service changes preserve feature-specific access and prerequisites', async () => {
+  const rt = await runtime();
+  const route = { product: 'observability', platform: 'cloud', host: '10.7', from: 'Oct 2026', to: 'Nov 2026' };
+  const result = rt.run('compare_routes', { routes: [route] });
+  assert.equal(result.ok, true);
+  const report = result.reports[0];
+  assert.equal(report.features.length, 4);
+  assert.match(report.features.find(item => item.title === 'APM operation grouping').detail, /Administrators.*100 rules/);
+  const resolved = report.features.find(item => item.title === 'Resolved alert history');
+  assert.match(resolved.detail, /Controlled Availability.*us0, us1, au0, jp0, eu0, eu1 and eu2/);
+  const a2a = report.features.find(item => item.title === 'A2A investigation access');
+  assert.match(a2a.detail, /Select customers.*A2A 1.0.*entitlement.*APM service-alert/);
+  assert(report.readiness.some(item => item.title === 'Confirm A2A access and request limits' && item.detail.includes('X-SF-TOKEN') && item.detail.includes('webhooks are unsupported')));
+  assert(report.readiness.some(item => item.title === 'Check service and telemetry prerequisites' && item.detail.includes('customer-managed Collector')));
+  assert(report.sources.includes(resolved.source));
+  assert(report.sources.includes(a2a.source));
 });
