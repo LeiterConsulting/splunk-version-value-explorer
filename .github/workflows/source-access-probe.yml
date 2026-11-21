@@ -1,0 +1,23 @@
+name: Probe authorized public sources from the GitHub runner
+on:
+  push:
+    branches: [maintenance/source-access-2026-11-21]
+    paths:
+      - '.github/workflows/source-access-probe.yml'
+      - 'tools/source-evidence/probe.py'
+permissions:
+  contents: read
+jobs:
+  source-access:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: python3 tools/source-evidence/probe.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: source-access
+          path: source-access.json
+          retention-days: 7
