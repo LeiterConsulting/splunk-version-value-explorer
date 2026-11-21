@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-88-ai-release-stage-copy",
+  "assessmentId": "vcia-es-20261121-ai-release-stage-copy",
+  "revision": 1,
+  "recordedAt": "2026-11-21T18:44:14.430Z",
+  "assessedAt": "2026-11-21T18:40:54.708Z",
+  "outcome": "partially-addressed",
+  "rationale": "The corrected repository candidate removes the shared ES product-stage assertion while preserving existing per-record product GA, Autonomous Response CA and Threat Graph alpha. New native export verification and sole-steward live delivery remain unverified at this assessment.",
+  "reviewedScope": {
+    "products": [
+      "VersionCompass AI Availability",
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "ES 8.8 documentation and VersionCompass candidate 412322132833c0c8795b3147b8612cc8b2d311d5"
+    ],
+    "editions": null,
+    "deployments": [
+      "Screen, printed and saved AI Availability report"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No new product stage, component entitlement, rollout or customer authorization is inferred. Autonomous Response CA and Threat Graph alpha remain separate."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-stage-copy-shared-assessment",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/412322132833c0c8795b3147b8612cc8b2d311d5/dist/ai-availability.js",
+      "section": "assess > ES conditional result",
+      "statement": "The shared ES conditional detail appended ES 8.8 Controlled Availability wording. The retained candidate AI PDF shows that shared wording beside the separately maintained product GA qualification.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-21T18:44:14.430Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "03ce5ac0c63cfb3f1ffa770f3227ca55fc3d90049251b181e3f3f5d2c2acaaee",
+        "qualification": "Exact public commit-pinned source bytes independently matched through GitHub tree readback and retained rendered artifact."
+      }
+    },
+    {
+      "evidenceId": "es-stage-copy-official-release",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "What's new in release 8.8.x",
+      "statement": "The exact official 8.8 release section explicitly dates product General Availability November 4, 2026; component stages retain separate agent-specific evidence.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-21T18:03:55.587Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "d9bfe1de90604bfac4d04b10ef6f6e3e1ae9d970dfea549af94c68bd62d3ee56",
+        "qualification": "Earlier same-invocation direct source body reused only for this exact release-stage statement; original source time preserved."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/606e1ce5b486a8680480c998ac02efe768c7bd02/docs/audits/2026-11-21-es-editions-watch-review-2-sources.json",
+      "pointer": "/claimChecks/0",
+      "originalLabel": "corrected-in-candidate"
+    }
+  ],
+  "remainingConcerns": [
+    "es-editions-watch: verify corrected exact-candidate native artifacts and inspect affected images before handoff, by 2026-11-22.",
+    "Maintain VersionCompass GitHub: select a qualified immutable candidate and verify live package delivery on its unchanged existing schedule."
+  ],
+  "comparedAssessmentIds": []
+}
