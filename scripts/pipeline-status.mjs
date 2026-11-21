@@ -1,9 +1,62 @@
 /* Read-only progress-task diagnostic. No schedule, rerun, PR or publication writes. */
 import fs from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 const repository = 'LeiterConsulting/splunk-version-value-explorer';
+const steward = require('./lib/operational-roles.cjs').roles.find(role => role.roleId === 'github-steward');
+const easternDate = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York', dateStyle: 'short' });
+const publicHosts = ['https://versioncompass.com', 'https://www.versioncompass.com'];
+const deliveryChecks = ['database-health', 'live-manifest', 'bundle-integrity', 'bounded-record-query', 'read-only-api', 'bundled-fallback-assets'];
+const commitId = value => typeof value === 'string' && /^[a-f0-9]{40}$/.test(value);
+const mainValidation = (commit, run) => run.path === '.github/workflows/validate.yml' && run.head_sha === commit && run.event === 'push' && run.head_branch === 'main';
+
+export function summarizeSiteDelivery(evidence, runs, { projectId, publication, now = Date.now() }) {
+  const unverified = reason => ({ status: 'unverified', reason });
+  if (!evidence) return unverified('sites-evidence-unavailable');
+  const { steward: receipt, deployment, publicChecks } = evidence;
+  if (receipt?.taskId !== steward.taskId || !commitId(receipt.sourceCommit) || !publication?.revision ||
+      !projectId || deployment?.project_id !== projectId || deployment.type !== 'publish' || deployment.status !== 'succeeded' ||
+      !receipt.deploymentId || receipt.deploymentId !== deployment.id || !receipt.versionId || receipt.versionId !== deployment.version_id) {
+    return unverified('sites-deployment-binding-mismatch');
+  }
+  if (!Number.isSafeInteger(receipt.validationRunId) || !runs.some(run => run.id === receipt.validationRunId &&
+      mainValidation(receipt.sourceCommit, run) && run.status === 'completed' && run.conclusion === 'success' && run.run_attempt === 1)) {
+    return unverified('exact-main-validation-unverified');
+  }
+  const deployedAt = Date.parse(deployment.updated_at);
+  const publishedAt = Date.parse(receipt.publishedAt);
+  const reconciledAt = Date.parse(receipt.reconciledAt);
+  const latest = Math.max(publishedAt || 0, reconciledAt || 0);
+  if (!Number.isFinite(deployedAt) || latest < deployedAt || latest > now ||
+      (receipt.publishedAt != null && publishedAt !== deployedAt) ||
+      (receipt.reconciledAt != null && !(reconciledAt >= deployedAt)) ||
+      easternDate.format(latest) !== easternDate.format(now)) {
+    return unverified('sites-outcome-clock-mismatch');
+  }
+  const matchesPublication = observed => observed?.revision === publication.revision &&
+    observed.engineRevision === publication.engineRevision && observed.recordCount === publication.recordCount;
+  if (!Array.isArray(publicChecks) || !publicHosts.every(host => {
+    const reports = publicChecks.filter(report => report?.target === host);
+    const [report] = reports;
+    return reports.length === 1 && report.status === 'delivery-checks-passed' && report.expectedRevision === publication.revision &&
+      Date.parse(report.evaluatedAt) >= latest && Date.parse(report.evaluatedAt) <= now &&
+      deliveryChecks.every(key => report.checks?.[key]?.outcome === 'passed') &&
+      report.checks['database-health'].evidence?.storage === 'bundled' &&
+      matchesPublication(report.checks['database-health'].evidence) &&
+      matchesPublication(report.checks['live-manifest'].evidence) &&
+      report.checks['live-manifest'].evidence?.digest === publication.digest &&
+      report.checks['bundle-integrity'].evidence?.digest === publication.digest;
+  })) return unverified('public-delivery-readback-mismatch');
+  return {
+    status: 'readback-matched', sourceCommit: receipt.sourceCommit, validationRunId: receipt.validationRunId,
+    versionId: receipt.versionId, deploymentId: receipt.deploymentId, revision: publication.revision,
+    publishedAt: receipt.publishedAt ?? null, reconciledAt: receipt.reconciledAt ?? null,
+    qualification: 'Retained steward report, exact-main workflow, native Sites and public readbacks agree. Scheduler identity and source assessment are checked separately.',
+  };
+}
+
 export function publisherOutcome(main, run, evidence) {
   const unknown = (status, qualification) => ({ status, qualification, claimedDelivered: false });
   if (!evidence) return unknown('unavailable', 'No retained publisher receipt supplied; a failed job alone does not identify a runtime hold.');
@@ -34,12 +87,12 @@ export function publisherOutcome(main, run, evidence) {
 export function summarize(main, runs, publisherEvidence = null) {
   if (!/^[a-f0-9]{40}$/.test(main || '') || !Array.isArray(runs)) throw Error('Exact main commit and workflow runs are required');
   const latest = predicate => runs.filter(predicate).sort((a, b) => b.id - a.id)[0];
-  const validation = latest(r => r.path === '.github/workflows/validate.yml' && r.head_sha === main && r.event === 'push' && r.head_branch === 'main');
+  const validation = latest(r => mainValidation(main, r));
   const publisher = latest(r => r.path === '.github/workflows/publish-content.yml' && r.head_sha === main);
   const state = r => !r ? 'missing' : r.status !== 'completed' ? 'pending' : r.conclusion;
   return { main, validation: { status: state(validation), runId: validation?.id || null, url: validation?.html_url || null },
     publisher: { status: state(publisher), runId: publisher?.id || null, url: publisher?.html_url || null,
-      interpretation: publisher?.conclusion === 'success' ? 'Latest trusted-workflow job passed; inspect its mode and matching receipt. An observe-only run performs no publication; staging/already-current can also succeed with active delivery off. Earlier publication failures remain unresolved by an observation.' : 'Not a successful publisher job.',
+      interpretation: publisher?.conclusion === 'success' ? 'Latest legacy workflow job passed; inspect its mode and matching receipt. An observe-only run performs no publication; staging/already-current can also succeed with active delivery off. Earlier publication failures remain unresolved by an observation.' : 'Legacy GitHub workflow telemetry. The scheduled Site-linked steward provides production release evidence.',
       outcome: publisherOutcome(main, publisher, publisherEvidence) },
     claimedDelivered: false, delivery: 'unverified', qualification: 'CI conclusions cannot establish Sites deployment, active D1 visitor delivery, source accuracy or live readback.' };
 }
@@ -53,6 +106,22 @@ export function watchReadiness(registryVersion, executions, runtime) {
 export function operationalReadiness(runtime) {
   return runtime?.operational || { status: 'unavailable', claimedDelivered: false, qualification: 'No supported native task snapshot supplied; operational roles remain unverified and cannot satisfy content coverage.' };
 }
+export function latestWatchReceipts(registryVersion, receipts, today) {
+  const latestByWatch = new Map();
+  for (const { result, run } of receipts) {
+    if (run.kind !== 'saved-task-execution') continue;
+    const cutoff = Math.max(Date.parse(run.recordedAt), ...(run.execution?.observations || []).map(o => Date.parse(o.observedAt)));
+    const attemptStarted = Date.parse(run.execution?.startedAt);
+    const order = Number.isFinite(attemptStarted) ? attemptStarted : cutoff;
+    const previous = latestByWatch.get(result.watchId);
+    if (previous && (previous.order > order || previous.order === order && previous.receipt.cutoff >= cutoff)) continue;
+    latestByWatch.set(result.watchId, { order, receipt: {
+      ...result, cutoff, registryVersion: run.registryVersion, currentRegistry: run.registryVersion === registryVersion,
+      overdue: run.coverage.filter(o => o.followUp?.reviewBy < today).map(o => ({ capabilityId: o.capabilityId, ...o.followUp })),
+    } });
+  }
+  return [...latestByWatch.values()].map(value => value.receipt);
+}
 async function read(url) {
   const token = process.env.VC_GITHUB_EVIDENCE_TOKEN;
   const response = await fetch(url, { redirect: 'error', signal: AbortSignal.timeout(15000), headers: { Accept: 'application/vnd.github+json', 'User-Agent': 'VersionCompass-read-only-pipeline-status', ...(token ? { Authorization: 'Bearer ' + token } : {}) } });
@@ -60,7 +129,12 @@ async function read(url) {
   return response.json();
 }
 async function main(args) {
-  let tasks, publisherEvidence;
+  let tasks, publisherEvidence, sitesEvidence;
+  const sitesIndex = args.indexOf('--sites-evidence');
+  if (sitesIndex >= 0) {
+    if (!args[sitesIndex + 1]) throw Error('--sites-evidence requires retained steward, deployment and public diagnostic records');
+    sitesEvidence = JSON.parse(fs.readFileSync(args[sitesIndex + 1])); args.splice(sitesIndex, 2);
+  }
   const outcomeIndex = args.indexOf('--publisher-outcome');
   if (outcomeIndex >= 0) {
     if (!args[outcomeIndex + 1]) throw Error('--publisher-outcome requires a retained run-bound publisher receipt');
@@ -77,28 +151,34 @@ async function main(args) {
     const api = 'https://api.github.com/repos/' + repository;
     const [branch, recent] = await Promise.all([read(api + '/git/ref/heads/main'), read(api + '/actions/runs?per_page=100')]);
     head = branch.object.sha; runs = recent.workflow_runs;
-  } else throw Error('Usage: node scripts/pipeline-status.mjs [--snapshot <retained-GitHub-response.json>] [--tasks <supported-native-snapshot.json>] [--publisher-outcome <run-bound-receipt.json>]');
+  } else throw Error('Usage: node scripts/pipeline-status.mjs [--snapshot FILE] [--tasks FILE] [--sites-evidence FILE] [--publisher-outcome FILE]');
   const result = summarize(head, runs, publisherEvidence), coverage = require('./lib/automation-coverage.cjs').check();
-  const today = new Date().toISOString().slice(0, 10);
-  const latestByWatch = new Map();
-  for (const r of coverage.runs) {
-    const run = JSON.parse(fs.readFileSync(r.file));
-    if (run.kind !== 'saved-task-execution') continue;
-    const cutoff = Math.max(Date.parse(run.recordedAt), ...(run.execution?.observations || []).map(o => Date.parse(o.observedAt)));
-    if ((latestByWatch.get(r.watchId)?.cutoff ?? -Infinity) >= cutoff) continue;
-    latestByWatch.set(r.watchId, { ...r, cutoff, registryVersion: run.registryVersion, currentRegistry: run.registryVersion === coverage.registryVersion,
-      overdue: run.coverage.filter(o => o.followUp?.reviewBy < today).map(o => ({ capabilityId: o.capabilityId, ...o.followUp })) });
+  const now = Date.now(), today = easternDate.format(now);
+  const sourceCommit = sitesEvidence?.steward?.sourceCommit;
+  let publication, projectId;
+  if (commitId(sourceCommit)) {
+    try {
+      const readBlob = path => JSON.parse(execFileSync('git', ['show', sourceCommit + ':' + path], {
+        encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], env: { ...process.env, GIT_NO_REPLACE_OBJECTS: '1' },
+      }));
+      publication = readBlob('content/publication.json');
+      projectId = readBlob('.openai/hosting.json').project_id;
+    } catch {
+      // The retained source commit must be available locally to bind its manifest.
+    }
   }
-  const executions = [...latestByWatch.values()];
+  const siteDelivery = summarizeSiteDelivery(sitesEvidence, runs, { projectId, publication, now });
+  const receipts = coverage.runs.map(result => ({ result, run: JSON.parse(fs.readFileSync(result.file)) }));
+  const executions = latestWatchReceipts(coverage.registryVersion, receipts, today);
   const runtime = tasks ? require('./lib/task-runtime.cjs').inspect(tasks, {
     registry: JSON.parse(fs.readFileSync('content/automation-coverage.json')),
     ledger: JSON.parse(fs.readFileSync('content/automation-amendments.json')),
-    runs: coverage.runs.map(r => ({ ...JSON.parse(fs.readFileSync(r.file)), coverageComplete: r.coverageComplete, deliveryComplete: r.deliveryComplete }))
+    runs: receipts.map(({ result: { coverageComplete, deliveryComplete }, run }) => ({ ...run, coverageComplete, deliveryComplete }))
   }) : null;
   const readiness = watchReadiness(coverage.registryVersion, executions, runtime), operations = operationalReadiness(runtime);
-  console.log(JSON.stringify({ evaluatedAt: new Date().toISOString(), repository, ...result, readiness, operations, coverage: { activation: coverage.activation,
-    currentSavedExecutions: [...latestByWatch.values()], retainedHistory: coverage.runs.map(({ file, runId, watchId }) => ({ file, runId, watchId })),
-    qualification: 'Latest retained saved execution per watch; absent watches and changed registry versions need their own current evidence. Old runs remain history, not current overdue assessments.' } }, null, 2));
-  if (result.validation.status !== 'success' || result.publisher.status !== 'success' || readiness.status !== 'evidence-matched' || operations.status !== 'evidence-matched') process.exitCode = 1;
+  console.log(JSON.stringify({ evaluatedAt: new Date(now).toISOString(), repository, ...result, siteDelivery, readiness, operations, coverage: { activation: coverage.activation,
+    currentSavedExecutions: executions, retainedHistory: coverage.runs.map(({ file, runId, watchId }) => ({ file, runId, watchId })),
+    qualification: 'Latest retained saved execution per watch uses the recorded attempt start when present. Native attempts and result identities require separate reconciliation.' } }, null, 2));
+  if (result.validation.status !== 'success' || siteDelivery.status !== 'readback-matched' || readiness.status !== 'evidence-matched' || operations.status !== 'evidence-matched') process.exitCode = 1;
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main(process.argv.slice(2)).catch(error => { console.error(error.message); process.exitCode = 1; });

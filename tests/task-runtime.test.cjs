@@ -22,6 +22,18 @@ function fixture() {
 }
 const result = f => inspect(f.snapshot, f.context);
 const first = f => result(f).watches[0];
+test('an earlier receipt stays distinct from a failed retry and a matching partial receipt is visible', () => {
+  const f = fixture();
+  Object.assign(f.context.runs[0], { runId: 'earlier', coverageComplete: false });
+  assert.deepEqual(first(f).matchingReceiptIds, ['earlier']);
+  assert.equal(first(f).accepted, false);
+  const attempt = f.snapshot.tasks[0].run_details.last_run;
+  attempt.id = 'retry';
+  attempt.recorded_status = 'failed';
+  assert.deepEqual(first(f).matchingReceiptIds, []);
+  assert.equal(first(f).recordedStatus, 'failed');
+  assert(first(f).issues.includes('no-matching-current-coverage-receipt'));
+});
 test('matching task/run/registry/configuration evidence; operations and unknown delivery remain separate', () => {
   const f = fixture(), r = result(f);
   assert.equal(r.status, 'evidence-matched'); assert.equal(r.operational.status, 'evidence-matched'); assert.equal(r.claimedDelivered, false);
@@ -65,7 +77,7 @@ test('missing independently reviewed operational baselines stay unverified and d
   const f = fixture(); delete f.context.operational;
   const r = result(f); assert.equal(r.status, 'evidence-matched'); assert.equal(r.operational.status, 'unverified');
   for (const role of r.operational.roles) assert(role.issues.includes('saved-configuration-baseline-unavailable'));
-  assert.equal(r.operational.contractVersion, '1.0.0');
+  assert.equal(r.operational.contractVersion, '1.1.0');
 });
 test('same-run stale result from a prior retry is rejected even with completed status and coverage', () => {
   const f = fixture(), t = f.snapshot.tasks[0];

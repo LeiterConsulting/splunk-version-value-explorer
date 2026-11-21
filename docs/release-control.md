@@ -56,6 +56,29 @@ The private scheduler exercises qualify build, source sync, save and deploy.
 Public release qualification requires an actual scheduled steward occurrence
 and independent public readback.
 
+### Read-only daily reconciliation
+
+`scripts/pipeline-status.mjs` looks up the Site-linked steward by task ID.
+Its legacy GitHub publisher field records workflow telemetry. A held or absent
+legacy workflow does not decide the status of the scheduled Site release.
+
+Pass `--tasks FILE` for the supported native task snapshot. The result exposes
+matching coverage receipt IDs even for a partial assessment. A failed retry,
+different result ID or mismatched native start stays separate from the earlier
+receipt.
+
+Pass `--sites-evidence FILE` from an exact Git checkout to compare retained
+delivery evidence. The JSON contains a `steward` object with `taskId`,
+`sourceCommit`, `validationRunId`, `versionId`, `deploymentId` and the observed
+`publishedAt` and/or `reconciledAt` timestamps. Supply the matching native Sites
+production `deployment` object and both independently collected
+`diagnose-content.cjs --storage=bundled` reports as `publicChecks`. Use checks
+collected after the latest reported event. The diagnostic resolves the selected
+commit's publication manifest, checks exact-main validation and compares both
+public copies. It can report an initial publication and a later no-change check
+for the same deployment. A successful readback is separate from source
+completeness and native task configuration.
+
 ### November 19 main validation interruption
 
 Guidance [PR #217](https://github.com/LeiterConsulting/splunk-version-value-explorer/pull/217)
