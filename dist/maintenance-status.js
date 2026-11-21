@@ -610,10 +610,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-21T10:35:44.635097Z",
+      "lastAttempt": "2026-11-21T11:07:59.758800Z",
       "lastSuccess": "2026-11-21T10:50:06.877Z",
-      "outcome": "changed",
-      "summary": "Prepared dated Enterprise10.6.2 and HF evidence candidate; seven mandatory coverage rows remain incomplete.",
+      "outcome": "blocked",
+      "summary": "Partial continuation:21 prior scoped judgments reused; seven capability gaps retained; validated candidate226 integrated, release selection queued.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1375,9 +1375,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Prepared dated Enterprise10.6.2 and HF evidence candidate; seven mandatory coverage rows remain incomplete.",
           "scope": "Bounded current maintenance identity and mapping;19 assessed-no-change,2 changed,7 deferred under registry1.4.0. Integration/feed/native exports and live delivery separate."
+        },
+        {
+          "at": "2026-11-21T11:07:59.758800Z",
+          "outcome": "running",
+          "summary": "Continuation acquisition and candidate evidence reconciliation.",
+          "scope": "Same exposed run ID/later observed start retained separately; original assessments/dates preserved. Protected Prep11/Release acquisition before full298-source inventory; no fresh semantic or live delivery claim."
+        },
+        {
+          "at": "2026-11-21T11:20:54.876Z",
+          "outcome": "blocked",
+          "summary": "Partial continuation:21 prior scoped judgments reused; seven capability gaps retained; validated candidate226 integrated, release selection queued.",
+          "scope": "Same exposed run ID/later observed start retained separately; original assessments/dates preserved. Protected Prep11/Release acquisition before full298-source inventory; no fresh semantic or live delivery claim."
         }
       ],
-      "scope": "Bounded current maintenance identity and mapping;19 assessed-no-change,2 changed,7 deferred under registry1.4.0. Integration/feed/native exports and live delivery separate."
+      "scope": "Same exposed run ID/later observed start retained separately; original assessments/dates preserved. Protected Prep11/Release acquisition before full298-source inventory; no fresh semantic or live delivery claim."
     },
     {
       "id": "es-editions-watch",
