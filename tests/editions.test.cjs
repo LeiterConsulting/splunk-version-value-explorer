@@ -42,12 +42,12 @@ test('task-level prerequisites and pricing uncertainty remain explicit without c
  assert.match(cap('automation-builder').desc,/10\.1\+.*FedRAMP/);
  assert.match(cap('connector-builder').desc,/SOAR App: Edit and SOAR Asset: Edit/);
  assert.match(cap('ai-soc-analyst').desc,/8\.6\+.*8\.7\+/);
- assert.match(cap('ai-soc-analyst').desc,/first 10.*approximately 200.*frontier models/);
+ assert.match(cap('ai-soc-analyst').desc,/200 analyses.*20 triage revisions.*first 10.*approximately 200.*frontier models/);
  assert.match(cap('ai-soc-analyst').flag,/es_soar_integration_user_role/);
  assert.equal(data.sources.socTask.reviewed,'2026-10-27');
  assert.match(cap('malware-reversing').desc,/8\.5\+.*10\.2\+.*8\.6\+/);
  for(const id of ['ai-soc-analyst','malware-reversing']){assert.equal(cap(id).ess.v,'no');assert.match(cap(id).flag,/discrepancy|different Cloud ES minimums/);}
- assert.equal(data.conflicts.length,7);
+ assert.equal(data.conflicts.length,8);
  for(const id of ['soc-version','malware-version','activity-pricing'])assert.equal(data.conflicts.find(c=>c.id===id).claims.length,2);
  assert.match(data.notes.find(n=>n.id==='pricing').text,/eligibility unclear/);
  assert(!cap('soar').desc.includes('offered with user-seat pricing'));
@@ -227,4 +227,19 @@ test('Cloud Connect guidance distinguishes the current install path from feature
  const html=runtime("?view=es-editions&theme=cisco").snapshot();
  assert.match(html,/agentic SOC setup page and the current SAIA 2\.4\.0 installer were directly retrieved on November 20/);
  assert(html.includes(data.sources.socTask88.u));
+});
+
+test('both Triage limit statements and their own citations survive screen and saved reports',()=>{
+ for(const search of ['?view=es-editions','?preview=es-editions&theme=cisco&release=8.7']){
+  const r=runtime(search),saved=r.snapshot();
+  for(const html of [r.html,saved]){
+   assert.match(html,/200 analyses/);
+   assert.match(html,/20 (?:triage )?revisions/);
+   assert.match(html,/first 10/);
+   assert.match(html,/no rerun|no-rerun/);
+   assert.match(html,/supported.*unresolved|behavior remains unresolved/i);
+  }
+  for(const id of ['socTask88','triageTask88','autonomousResponse88']) assert(saved.includes(data.sources[id].u),id);
+ }
+ assert.equal(data.sources.socTask.reviewed,'2026-10-27');
 });

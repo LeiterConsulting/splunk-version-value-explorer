@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "findingId": "vci-es-88-ai-release-stage-copy",
+  "revision": 1,
+  "recordedAt": "2026-11-21T18:44:14.430Z",
+  "title": "Shared ES AI copy retained an older product Controlled Availability label",
+  "concernType": "suspected-error",
+  "problem": "Shared AI Availability assessment and boundary text still used the older ES 8.8 Controlled Availability label despite current product GA data. That product stage must remain distinct from Autonomous Response CA and Threat Graph alpha.",
+  "scope": {
+    "products": [
+      "VersionCompass AI Availability",
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "ES 8.8 documentation and VersionCompass candidate 412322132833c0c8795b3147b8612cc8b2d311d5"
+    ],
+    "editions": null,
+    "deployments": [
+      "Screen, printed and saved AI Availability report"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No new product stage, component entitlement, rollout or customer authorization is inferred. Autonomous Response CA and Threat Graph alpha remain separate."
+    ]
+  },
+  "impact": {
+    "level": "moderate",
+    "customerScenario": "A reader compares the current ES product release stage with the availability of an individual AI agent.",
+    "consequence": "The shared stale label can blur product GA and component-specific limited release stages."
+  },
+  "confidence": {
+    "level": "high",
+    "rationale": "The exact public source, bound native PDF and official release section were compared. No universal feature availability is inferred."
+  },
+  "claimIds": [
+    "es.88.ai-release-stage-copy"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Repository correction exists; exact corrected exports and coordinator-owned live delivery remain separate gates."
+  },
+  "relationships": {
+    "related": [
+      "vci-es-88-triage-credit-revision-scope"
+    ],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-stage-copy-shared-assessment",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/412322132833c0c8795b3147b8612cc8b2d311d5/dist/ai-availability.js",
+      "section": "assess > ES conditional result",
+      "statement": "The shared ES conditional detail appended ES 8.8 Controlled Availability wording. The retained candidate AI PDF shows that shared wording beside the separately maintained product GA qualification.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-21T18:44:14.430Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "03ce5ac0c63cfb3f1ffa770f3227ca55fc3d90049251b181e3f3f5d2c2acaaee",
+        "qualification": "Exact public commit-pinned source bytes independently matched through GitHub tree readback and retained rendered artifact."
+      }
+    },
+    {
+      "evidenceId": "es-stage-copy-official-release",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "What's new in release 8.8.x",
+      "statement": "The exact official 8.8 release section explicitly dates product General Availability November 4, 2026; component stages retain separate agent-specific evidence.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-21T18:03:55.587Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "d9bfe1de90604bfac4d04b10ef6f6e3e1ae9d970dfea549af94c68bd62d3ee56",
+        "qualification": "Earlier same-invocation direct source body reused only for this exact release-stage statement; original source time preserved."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/606e1ce5b486a8680480c998ac02efe768c7bd02/docs/audits/2026-11-21-es-editions-watch-review-2-sources.json",
+      "pointer": "/claimChecks/0",
+      "originalLabel": "corrected-in-candidate"
+    }
+  ]
+}

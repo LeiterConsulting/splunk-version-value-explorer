@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-2aad0deb6f29213c6689c3ea",
-    "digest": "ca0ada250bcfe494b35abfa552335a329d37b577db69ff10a8c9abfd402fd9b1",
-    "engineRevision": "engine-aa154885620866c05f80",
+    "revision": "content-2d1b61b678b44d5f1ac92818",
+    "digest": "591a14d13ede64972581275dcfed7e89f71b4989ff1ce48f6fce6a5ab8063775",
+    "engineRevision": "engine-6e6d817323639cc12f6c",
     "datasetHashes": {
       "platform": "1fa3dc59d6baf2cc2bbfd31817ce63ac34c56a033b638c1f8cf1093751cedc9f",
       "products": "854fe986e92c6a88dc3d76eb70c392f0f4ca38417b34c53443eecd4015ba5df4",
-      "guidance": "ef215a00ae48b7d13657f98abd3d3389ecda6f60a926b476c47788b8536bfcc1",
+      "guidance": "72c668b20753d7c0274cb260bc13c914456f1c79e9d72fb3c8141c1647c49e28",
       "environment": "533ef7f14be7b3bf860b7c47b2d873489583d8606304ac969b6b1a32a7d4e10f",
-      "editions": "2a392e06fbc653795880cab2cd2a97f558a3fe0509796a12ae31078aebc39cdd",
+      "editions": "27ffb85abb2b3b1b25940138e9d1bdf4cae39348c065c1dd2c663ae1cf8a55b0",
       "forwarders": "a56dd49cca6e5e0d9453e3a0d58afbf3b143e01873dd91305a3fdfebe68146aa",
       "soar": "0a95273ec36589b59fe74ff2ded1d383c1f8278427449dea3d06dc9e23ddebd4"
     },
-    "recordCount": 969,
+    "recordCount": 971,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -5524,10 +5524,10 @@
           "aiEsSocTask88": {
             "title": "ES 8.8 Triage and Response workflow",
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
-            "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions; response rerun limit",
-            "checked": "2026-11-20",
-            "reviewed": "2026-11-20",
-            "scope": "Task-specific ES 8.8 workflow limits and permissions; component release stage, exact SOAR version pairing, region, entitlement and customer authorization remain separate"
+            "section": "Triage agent credit consumption; How triage revisions work; Limitations when using the Triage agent",
+            "checked": "2026-11-21",
+            "reviewed": "2026-11-21",
+            "scope": "Parent workflow guide: 200 analyses per tenant per day and 20 revisions per investigation per day, aggregation and coverage limits. The detailed Triage task retains conflicting first-ten/no-rerun wording. Prerequisites, frontier model and response permissions are sourced separately."
           },
           "aiEsAutonomousResponse88": {
             "title": "ES 8.8 Autonomous Response agent",
@@ -5693,6 +5693,14 @@
             "reviewed": "2026-11-03",
             "scope": "The versioned known issue blocks current Cloud Connected access and names a 2.1.1 workaround; no Agent Mode availability or future 2.4 release inferred.",
             "retrieval": "Official indexed issue row assessed; raw response body/retrieval timestamp unknown."
+          },
+          "aiEsTriageTask88": {
+            "title": "ES 8.8 detailed Triage task and dashboard guide",
+            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/create-custom-dashboards-for-triage-using-the-triage-agent",
+            "section": "How to use recommendations; Prerequisites; Analyze findings using the Triage agent",
+            "checked": "2026-11-21",
+            "reviewed": "2026-11-21",
+            "scope": "Detailed task: Cloud ES 8.7+ and CMP chain, existing findings, first-ten and approximate 200-finding limits, no-rerun statement and investigation permissions. Conflicts with the parent guide credit/revision model; not proof of actual tenant behavior."
           }
         },
         "preparation11": {
@@ -5908,7 +5916,8 @@
             "aiSaiaModelRuntime",
             "aiSaiaCloudConnected",
             "aiSaiaCloudConnected240",
-            "aiSaiaKnownIssues"
+            "aiSaiaKnownIssues",
+            "aiEsTriageTask88"
           ],
           "src": [
             "aiHighAnnouncement20261019",
@@ -5932,7 +5941,8 @@
             "aiSaiaModelRuntime",
             "aiSaiaCloudConnected",
             "aiSaiaCloudConnected240",
-            "aiSaiaKnownIssues"
+            "aiSaiaKnownIssues",
+            "aiEsTriageTask88"
           ],
           "serviceRegions": [
             {
@@ -6305,7 +6315,7 @@
             },
             {
               "kind": "ai-capability",
-              "verified": "2026-11-20",
+              "verified": "2026-11-21",
               "id": "ai-es-soc",
               "title": "ES · Triage and Autonomous Response agents (AI SOC workflow)",
               "product": "es",
@@ -6326,15 +6336,15 @@
               ],
               "requirements": [
                 "Premier, paired SOAR and representative enablement.",
-                "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the 8.8 task guide requires ES 8.7+.",
+                "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the detailed 8.8 Triage and Autonomous Response task guides require ES 8.7+.",
                 "Triage: Premier on Cloud and Cloud Connected CMP. Autonomous Response: Premier and explicitly Controlled Availability; the table's availability column says Cloud only even though its compatibility bullets include a CMP floor.",
                 "CMP installation: Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. The current SAIA 2.4.0 installer documents that Cloud Connect app path with additional paid-license, fresh-setup, network, certificate, administrator, verified-email and supported-commercial-region conditions.",
-                "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported.",
+                "The current 8.8 parent workflow guide describes up to 200 analyses per tenant per day (a triage-enabled finding without aggregation, or an investigation with aggregation), with up to 20 triage revisions per investigation per day. Its linked 8.8 Triage task still says only existing findings, the first 10 findings from one detection, approximately 200 findings per tenant per day and no rerun. These same-version statements conflict; supported aggregation/revision behavior remains unresolved. The separate Autonomous Response task requires frontier models only.",
                 "In ES 8.8, the Response agent cannot rerun or process findings added after it has already processed the investigation."
               ],
-              "runtime": "Agentic SOC services; the 8.8 task guide says the Splunk-hosted model option does not apply to this workflow. Paired SOAR has independent compatibility.",
-              "qualification": "The current table separates Triage and Autonomous Response. Product 8.8 General Availability does not promote Autonomous Response beyond its explicit Controlled Availability stage. Its Cloud-only availability cell conflicts with a CMP compatibility bullet, so CMP response availability remains unresolved. The current documentation no longer assigns Triage to Essentials; the earlier statement remains historical. Connector/action inheritance and es_soar_integration_user_role are task permissions, not exact SOAR pairing, entitlement, region or customer authorization evidence.",
-              "condition": "Confirm Premier access, exact Cloud or CMP prerequisites, paired SOAR compatibility, representative enablement, frontier-model support and inherited connector/asset permissions.",
+              "runtime": "Agentic SOC services; the separate 8.8 Autonomous Response task requires frontier models and says the Splunk-hosted model option does not apply to that component. This is not a model or residency guarantee for every Triage capability. Paired SOAR has independent compatibility.",
+              "qualification": "The current table separates Triage and Autonomous Response. Product 8.8 General Availability does not promote Autonomous Response beyond its explicit Controlled Availability stage. Its Cloud-only availability cell conflicts with a CMP compatibility bullet, so CMP response availability remains unresolved. The current documentation no longer assigns Triage to Essentials; the earlier statement remains historical. Connector/action inheritance and es_soar_integration_user_role are task permissions, not exact SOAR pairing, entitlement, region or customer authorization evidence. The parent Triage credit/revision model conflicts with the linked detailed task; neither source alone establishes usable rerun behavior or a universal daily finding quota.",
+              "condition": "Confirm Premier access, exact Cloud or CMP prerequisites, paired SOAR compatibility, representative enablement, frontier-model support and inherited connector/asset permissions. Reconcile the same-version Triage aggregation, quota unit and rerun conflict before relying on analysis coverage.",
               "src": [
                 "aiEsAgents88",
                 "aiEsSocTask88",
@@ -6345,7 +6355,8 @@
                 "aiEsCloudConnectAgentic88",
                 "aiSaiaInstall",
                 "aiSaiaCloudConnected",
-                "aiSaiaCloudConnected240"
+                "aiSaiaCloudConnected240",
+                "aiEsTriageTask88"
               ]
             },
             {
@@ -9610,9 +9621,9 @@
         "socTask88": {
           "t": "Triage and Response agent workflow prerequisites (ES 8.8)",
           "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
-          "reviewed": "2026-11-20",
-          "section": "Prerequisites; analysis limits; connector and permission controls; response limitations",
-          "verificationScope": "Current combined workflow prerequisites and limits. Component release stage, table minimum discrepancy, exact SOAR pairing, region, entitlement and authorization remain separate."
+          "reviewed": "2026-11-21",
+          "section": "Triage agent credit consumption; How triage revisions work; Limitations when using the Triage agent",
+          "verificationScope": "Parent workflow guide: 200 analyses per tenant per day and 20 revisions per investigation per day, aggregation and coverage limits. The detailed Triage task retains conflicting first-ten/no-rerun wording. Prerequisites, frontier model and response permissions are sourced separately."
         },
         "malwareTask": {
           "t": "Malware Reversing and Phishing task guide (ES 8.7)",
@@ -9748,6 +9759,13 @@
           "reviewed": "2026-11-11",
           "section": "Scope note; Add a TAXII 2 feed; STIX parsing",
           "verificationScope": "The task applies to native threat intelligence. The STIX parsing versions describe the payload format."
+        },
+        "triageTask88": {
+          "t": "ES 8.8 detailed Triage task and dashboard guide",
+          "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/create-custom-dashboards-for-triage-using-the-triage-agent",
+          "reviewed": "2026-11-21",
+          "section": "How to use recommendations; Prerequisites; Analyze findings using the Triage agent",
+          "verificationScope": "Detailed task: Cloud ES 8.7+ and CMP chain, existing findings, first-ten and approximate 200-finding limits, no-rerun statement and investigation permissions. Conflicts with the parent guide credit/revision model; not proof of actual tenant behavior."
         }
       },
       "capabilities": [
@@ -10194,8 +10212,8 @@
             "v": "yes",
             "n": "Triage: Cloud and Cloud Connected CMP; Autonomous Response: CA, Cloud only"
           },
-          "desc": "Assists investigation and response. The current 8.8 table separates the Triage agent from the Autonomous Response agent. Triage is Premier on Cloud and Cloud Connected CMP; Autonomous Response is explicitly Controlled Availability and its availability column says Cloud only. Both retain paired-SOAR and deployment-specific floors. Cloud compatibility lists Platform 10.2+ and ES 8.6+, while the task guide separately requires ES 8.7+. CMP requires Platform 10.4+, ES 8.8+ and Cloud Connect 2.0+; the current SAIA 2.4.0 installer documents the associated Cloud Connected app path and its additional setup conditions. The task guide requires connector and investigation permissions and a finding with AI triage results; it limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day, with frontier models only. In ES 8.8, the Autonomous Response agent cannot rerun or process findings added after it has already processed the investigation.",
-          "flag": "Product 8.8 General Availability does not make Autonomous Response generally available: the current agent table and task page label that component Controlled Availability. The same table says Autonomous Response is Cloud only but includes a Cloud Connected CMP prerequisite bullet, so CMP response availability remains conflicting. The aggregate table and task guide also retain different Cloud ES minimums. Inherited SOAR connector permissions and the es_soar_integration_user_role for granular asset access do not establish compatible SOAR pairing, entitlement, region or customer authorization.",
+          "desc": "Assists investigation and response. The current 8.8 table separates the Triage agent from the Autonomous Response agent. Triage is Premier on Cloud and Cloud Connected CMP; Autonomous Response is explicitly Controlled Availability and its availability column says Cloud only. Both retain paired-SOAR and deployment-specific floors. Cloud compatibility lists Platform 10.2+ and ES 8.6+, while the detailed Triage and Autonomous Response task guides separately require ES 8.7+. CMP requires Platform 10.4+, ES 8.8+ and Cloud Connect 2.0+; the current SAIA 2.4.0 installer documents the associated Cloud Connected app path and its additional setup conditions. The current 8.8 parent workflow guide describes up to 200 analyses per tenant per day (a triage-enabled finding without aggregation, or an investigation with aggregation), with up to 20 triage revisions per investigation per day. Its linked 8.8 Triage task still says only existing findings, the first 10 findings from one detection, approximately 200 findings per tenant per day and no rerun. These same-version statements conflict; supported aggregation/revision behavior remains unresolved. The separate Autonomous Response task requires frontier models, connector and investigation permissions, and a finding with AI triage results. In ES 8.8, the Autonomous Response agent cannot rerun or process findings added after it has already processed the investigation.",
+          "flag": "Product 8.8 General Availability does not make Autonomous Response generally available: the current agent table and task page label that component Controlled Availability. The same table says Autonomous Response is Cloud only but includes a Cloud Connected CMP prerequisite bullet, so CMP response availability remains conflicting. The aggregate table and task guide also retain different Cloud ES minimums. Inherited SOAR connector permissions and the es_soar_integration_user_role for granular asset access do not establish compatible SOAR pairing, entitlement, region or customer authorization. The parent and detailed Triage guides disagree on aggregation, daily quota units and rerun coverage; do not infer usable revision behavior from either statement alone.",
           "src": [
             "agentic88",
             "agentic",
@@ -10205,9 +10223,10 @@
             "socTask88",
             "socTask",
             "saiaCloudConnect240",
-            "autonomousResponse88"
+            "autonomousResponse88",
+            "triageTask88"
           ],
-          "reviewed": "2026-11-20"
+          "reviewed": "2026-11-21"
         }
       ],
       "history": {
@@ -10417,10 +10436,11 @@
             },
             {
               "src": [
-                "socTask88",
+                "triageTask88",
+                "autonomousResponse88",
                 "socTask"
               ],
-              "text": "The 8.8 workflow task guide requires ES 8.7+ and platform 10.2+, Premier Cloud, paired SOAR and representative enablement."
+              "text": "The detailed 8.8 Triage and Autonomous Response task prerequisites require ES 8.7+ and Platform 10.2+ for Cloud. The earlier 8.7 workflow guide retains its historical scope; the current 8.8 parent now describes credit and revision behavior instead of these prerequisites."
             }
           ],
           "meaning": "The task-specific guide has a higher ES minimum. The comparison preserves both statements instead of certifying ES 8.6 for the workflow.",
@@ -10538,6 +10558,27 @@
           ],
           "meaning": "Native TAXII feed protocol versions, STIX document parsing and TIM Cloud connector authentication are separate. The duplicate version leaves the current exact protocol list uncertain.",
           "question": "Confirm the TAXII protocol version for the exact native feed or TIM Cloud connector before planning a change."
+        },
+        {
+          "id": "triage-credit-revisions-88",
+          "kind": "Same-version quota and rerun conflict",
+          "title": "Which Triage analysis and revision limits apply in ES 8.8?",
+          "claims": [
+            {
+              "src": [
+                "socTask88"
+              ],
+              "text": "The 8.8 parent guide allows up to 200 analyses per tenant per day, counts a finding or an aggregated investigation as an analysis, and allows up to 20 revisions per investigation per day."
+            },
+            {
+              "src": [
+                "triageTask88"
+              ],
+              "text": "The linked 8.8 Triage task says existing findings only, first 10 from one detection, approximately 200 findings per tenant per day, and no rerun for later findings."
+            }
+          ],
+          "meaning": "The quota units and rerun/aggregation descriptions differ within the same documentation version. Neither statement establishes actual tenant behavior; Autonomous Response has its own separate Controlled Availability and no-rerun limitation.",
+          "question": "Confirm supported Triage aggregation, daily quota units, revision limits and coverage for later findings on the target stack."
         }
       ],
       "workflows": [
@@ -13074,6 +13115,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://github.com/signalfx/splunk-otel-python/pull/793"
+      },
+      {
+        "id": "source-81127d1ed4ebaeb38a98",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/create-custom-dashboards-for-triage-using-the-triage-agent"
       },
       {
         "id": "source-813d73059717d55b8469",
@@ -20017,9 +20064,9 @@
           {
             "sourceId": "source-966c6347457dd92dfd4e",
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
-            "section": "Prerequisites; analysis limits; connector and permission controls; response limitations",
+            "section": "Triage agent credit consumption; How triage revisions work; Limitations when using the Triage agent",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-11-20",
+            "sourceVerified": "2026-11-21",
             "sourceChecked": null
           },
           {
@@ -20325,7 +20372,8 @@
             "aiSaiaModelRuntime",
             "aiSaiaCloudConnected",
             "aiSaiaCloudConnected240",
-            "aiSaiaKnownIssues"
+            "aiSaiaKnownIssues",
+            "aiEsTriageTask88"
           ],
           "src": [
             "aiHighAnnouncement20261019",
@@ -20349,7 +20397,8 @@
             "aiSaiaModelRuntime",
             "aiSaiaCloudConnected",
             "aiSaiaCloudConnected240",
-            "aiSaiaKnownIssues"
+            "aiSaiaKnownIssues",
+            "aiEsTriageTask88"
           ],
           "serviceRegions": [
             {
@@ -20722,7 +20771,7 @@
             },
             {
               "kind": "ai-capability",
-              "verified": "2026-11-20",
+              "verified": "2026-11-21",
               "id": "ai-es-soc",
               "title": "ES · Triage and Autonomous Response agents (AI SOC workflow)",
               "product": "es",
@@ -20743,15 +20792,15 @@
               ],
               "requirements": [
                 "Premier, paired SOAR and representative enablement.",
-                "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the 8.8 task guide requires ES 8.7+.",
+                "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the detailed 8.8 Triage and Autonomous Response task guides require ES 8.7+.",
                 "Triage: Premier on Cloud and Cloud Connected CMP. Autonomous Response: Premier and explicitly Controlled Availability; the table's availability column says Cloud only even though its compatibility bullets include a CMP floor.",
                 "CMP installation: Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. The current SAIA 2.4.0 installer documents that Cloud Connect app path with additional paid-license, fresh-setup, network, certificate, administrator, verified-email and supported-commercial-region conditions.",
-                "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported.",
+                "The current 8.8 parent workflow guide describes up to 200 analyses per tenant per day (a triage-enabled finding without aggregation, or an investigation with aggregation), with up to 20 triage revisions per investigation per day. Its linked 8.8 Triage task still says only existing findings, the first 10 findings from one detection, approximately 200 findings per tenant per day and no rerun. These same-version statements conflict; supported aggregation/revision behavior remains unresolved. The separate Autonomous Response task requires frontier models only.",
                 "In ES 8.8, the Response agent cannot rerun or process findings added after it has already processed the investigation."
               ],
-              "runtime": "Agentic SOC services; the 8.8 task guide says the Splunk-hosted model option does not apply to this workflow. Paired SOAR has independent compatibility.",
-              "qualification": "The current table separates Triage and Autonomous Response. Product 8.8 General Availability does not promote Autonomous Response beyond its explicit Controlled Availability stage. Its Cloud-only availability cell conflicts with a CMP compatibility bullet, so CMP response availability remains unresolved. The current documentation no longer assigns Triage to Essentials; the earlier statement remains historical. Connector/action inheritance and es_soar_integration_user_role are task permissions, not exact SOAR pairing, entitlement, region or customer authorization evidence.",
-              "condition": "Confirm Premier access, exact Cloud or CMP prerequisites, paired SOAR compatibility, representative enablement, frontier-model support and inherited connector/asset permissions.",
+              "runtime": "Agentic SOC services; the separate 8.8 Autonomous Response task requires frontier models and says the Splunk-hosted model option does not apply to that component. This is not a model or residency guarantee for every Triage capability. Paired SOAR has independent compatibility.",
+              "qualification": "The current table separates Triage and Autonomous Response. Product 8.8 General Availability does not promote Autonomous Response beyond its explicit Controlled Availability stage. Its Cloud-only availability cell conflicts with a CMP compatibility bullet, so CMP response availability remains unresolved. The current documentation no longer assigns Triage to Essentials; the earlier statement remains historical. Connector/action inheritance and es_soar_integration_user_role are task permissions, not exact SOAR pairing, entitlement, region or customer authorization evidence. The parent Triage credit/revision model conflicts with the linked detailed task; neither source alone establishes usable rerun behavior or a universal daily finding quota.",
+              "condition": "Confirm Premier access, exact Cloud or CMP prerequisites, paired SOAR compatibility, representative enablement, frontier-model support and inherited connector/asset permissions. Reconcile the same-version Triage aggregation, quota unit and rerun conflict before relying on analysis coverage.",
               "src": [
                 "aiEsAgents88",
                 "aiEsSocTask88",
@@ -20762,7 +20811,8 @@
                 "aiEsCloudConnectAgentic88",
                 "aiSaiaInstall",
                 "aiSaiaCloudConnected",
-                "aiSaiaCloudConnected240"
+                "aiSaiaCloudConnected240",
+                "aiEsTriageTask88"
               ]
             },
             {
@@ -26368,6 +26418,40 @@
         }
       },
       {
+        "id": "vc-85b21d027c523ad7a462",
+        "kind": "Same-version quota and rerun conflict",
+        "dataset": "editions",
+        "scope": {
+          "release": "8.8"
+        },
+        "evidence": [],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": {
+          "id": "triage-credit-revisions-88",
+          "kind": "Same-version quota and rerun conflict",
+          "title": "Which Triage analysis and revision limits apply in ES 8.8?",
+          "claims": [
+            {
+              "src": [
+                "socTask88"
+              ],
+              "text": "The 8.8 parent guide allows up to 200 analyses per tenant per day, counts a finding or an aggregated investigation as an analysis, and allows up to 20 revisions per investigation per day."
+            },
+            {
+              "src": [
+                "triageTask88"
+              ],
+              "text": "The linked 8.8 Triage task says existing findings only, first 10 from one detection, approximately 200 findings per tenant per day, and no rerun for later findings."
+            }
+          ],
+          "meaning": "The quota units and rerun/aggregation descriptions differ within the same documentation version. Neither statement establishes actual tenant behavior; Autonomous Response has its own separate Controlled Availability and no-rerun limitation.",
+          "question": "Confirm supported Triage aggregation, daily quota units, revision limits and coverage for later findings on the target stack."
+        }
+      },
+      {
         "id": "vc-869ccc6cb230aac58f42",
         "kind": "feature",
         "dataset": "platform",
@@ -29816,10 +29900,11 @@
             },
             {
               "src": [
-                "socTask88",
+                "triageTask88",
+                "autonomousResponse88",
                 "socTask"
               ],
-              "text": "The 8.8 workflow task guide requires ES 8.7+ and platform 10.2+, Premier Cloud, paired SOAR and representative enablement."
+              "text": "The detailed 8.8 Triage and Autonomous Response task prerequisites require ES 8.7+ and Platform 10.2+ for Cloud. The earlier 8.7 workflow guide retains its historical scope; the current 8.8 parent now describes credit and revision behavior instead of these prerequisites."
             }
           ],
           "meaning": "The task-specific guide has a higher ES minimum. The comparison preserves both statements instead of certifying ES 8.6 for the workflow.",
@@ -31634,10 +31719,10 @@
           {
             "sourceId": "source-88f5fe3da30855096e74",
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
-            "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions; response rerun limit",
+            "section": "Triage agent credit consumption; How triage revisions work; Limitations when using the Triage agent",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-11-20",
-            "sourceChecked": "2026-11-20"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           },
           {
             "sourceId": "source-2de2443a429dbfe395bc",
@@ -31694,15 +31779,23 @@
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
             "sourceVerified": "2026-11-20",
             "sourceChecked": "2026-11-20"
+          },
+          {
+            "sourceId": "source-81127d1ed4ebaeb38a98",
+            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/create-custom-dashboards-for-triage-using-the-triage-agent",
+            "section": "How to use recommendations; Prerequisites; Analyze findings using the Triage agent",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           }
         ],
         "verification": {
-          "date": "2026-11-20",
+          "date": "2026-11-21",
           "outcome": "Recorded in original claim"
         },
         "payload": {
           "kind": "ai-capability",
-          "verified": "2026-11-20",
+          "verified": "2026-11-21",
           "id": "ai-es-soc",
           "title": "ES · Triage and Autonomous Response agents (AI SOC workflow)",
           "product": "es",
@@ -31723,15 +31816,15 @@
           ],
           "requirements": [
             "Premier, paired SOAR and representative enablement.",
-            "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the 8.8 task guide requires ES 8.7+.",
+            "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the detailed 8.8 Triage and Autonomous Response task guides require ES 8.7+.",
             "Triage: Premier on Cloud and Cloud Connected CMP. Autonomous Response: Premier and explicitly Controlled Availability; the table's availability column says Cloud only even though its compatibility bullets include a CMP floor.",
             "CMP installation: Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. The current SAIA 2.4.0 installer documents that Cloud Connect app path with additional paid-license, fresh-setup, network, certificate, administrator, verified-email and supported-commercial-region conditions.",
-            "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported.",
+            "The current 8.8 parent workflow guide describes up to 200 analyses per tenant per day (a triage-enabled finding without aggregation, or an investigation with aggregation), with up to 20 triage revisions per investigation per day. Its linked 8.8 Triage task still says only existing findings, the first 10 findings from one detection, approximately 200 findings per tenant per day and no rerun. These same-version statements conflict; supported aggregation/revision behavior remains unresolved. The separate Autonomous Response task requires frontier models only.",
             "In ES 8.8, the Response agent cannot rerun or process findings added after it has already processed the investigation."
           ],
-          "runtime": "Agentic SOC services; the 8.8 task guide says the Splunk-hosted model option does not apply to this workflow. Paired SOAR has independent compatibility.",
-          "qualification": "The current table separates Triage and Autonomous Response. Product 8.8 General Availability does not promote Autonomous Response beyond its explicit Controlled Availability stage. Its Cloud-only availability cell conflicts with a CMP compatibility bullet, so CMP response availability remains unresolved. The current documentation no longer assigns Triage to Essentials; the earlier statement remains historical. Connector/action inheritance and es_soar_integration_user_role are task permissions, not exact SOAR pairing, entitlement, region or customer authorization evidence.",
-          "condition": "Confirm Premier access, exact Cloud or CMP prerequisites, paired SOAR compatibility, representative enablement, frontier-model support and inherited connector/asset permissions.",
+          "runtime": "Agentic SOC services; the separate 8.8 Autonomous Response task requires frontier models and says the Splunk-hosted model option does not apply to that component. This is not a model or residency guarantee for every Triage capability. Paired SOAR has independent compatibility.",
+          "qualification": "The current table separates Triage and Autonomous Response. Product 8.8 General Availability does not promote Autonomous Response beyond its explicit Controlled Availability stage. Its Cloud-only availability cell conflicts with a CMP compatibility bullet, so CMP response availability remains unresolved. The current documentation no longer assigns Triage to Essentials; the earlier statement remains historical. Connector/action inheritance and es_soar_integration_user_role are task permissions, not exact SOAR pairing, entitlement, region or customer authorization evidence. The parent Triage credit/revision model conflicts with the linked detailed task; neither source alone establishes usable rerun behavior or a universal daily finding quota.",
+          "condition": "Confirm Premier access, exact Cloud or CMP prerequisites, paired SOAR compatibility, representative enablement, frontier-model support and inherited connector/asset permissions. Reconcile the same-version Triage aggregation, quota unit and rerun conflict before relying on analysis coverage.",
           "src": [
             "aiEsAgents88",
             "aiEsSocTask88",
@@ -31742,7 +31835,8 @@
             "aiEsCloudConnectAgentic88",
             "aiSaiaInstall",
             "aiSaiaCloudConnected",
-            "aiSaiaCloudConnected240"
+            "aiSaiaCloudConnected240",
+            "aiEsTriageTask88"
           ]
         }
       },
@@ -34400,10 +34494,10 @@
           {
             "sourceId": "source-88f5fe3da30855096e74",
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
-            "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions; response rerun limit",
+            "section": "Triage agent credit consumption; How triage revisions work; Limitations when using the Triage agent",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-11-20",
-            "sourceChecked": "2026-11-20"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           },
           {
             "sourceId": "source-2de2443a429dbfe395bc",
@@ -34460,6 +34554,14 @@
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
             "sourceVerified": "2026-11-03",
             "sourceChecked": "2026-11-03"
+          },
+          {
+            "sourceId": "source-81127d1ed4ebaeb38a98",
+            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/create-custom-dashboards-for-triage-using-the-triage-agent",
+            "section": "How to use recommendations; Prerequisites; Analyze findings using the Triage agent",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           }
         ],
         "verification": {
@@ -34496,7 +34598,8 @@
             "aiSaiaModelRuntime",
             "aiSaiaCloudConnected",
             "aiSaiaCloudConnected240",
-            "aiSaiaKnownIssues"
+            "aiSaiaKnownIssues",
+            "aiEsTriageTask88"
           ],
           "src": [
             "aiHighAnnouncement20261019",
@@ -34520,7 +34623,8 @@
             "aiSaiaModelRuntime",
             "aiSaiaCloudConnected",
             "aiSaiaCloudConnected240",
-            "aiSaiaKnownIssues"
+            "aiSaiaKnownIssues",
+            "aiEsTriageTask88"
           ],
           "serviceRegions": [
             {
@@ -34893,7 +34997,7 @@
             },
             {
               "kind": "ai-capability",
-              "verified": "2026-11-20",
+              "verified": "2026-11-21",
               "id": "ai-es-soc",
               "title": "ES · Triage and Autonomous Response agents (AI SOC workflow)",
               "product": "es",
@@ -34914,15 +35018,15 @@
               ],
               "requirements": [
                 "Premier, paired SOAR and representative enablement.",
-                "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the 8.8 task guide requires ES 8.7+.",
+                "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the detailed 8.8 Triage and Autonomous Response task guides require ES 8.7+.",
                 "Triage: Premier on Cloud and Cloud Connected CMP. Autonomous Response: Premier and explicitly Controlled Availability; the table's availability column says Cloud only even though its compatibility bullets include a CMP floor.",
                 "CMP installation: Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. The current SAIA 2.4.0 installer documents that Cloud Connect app path with additional paid-license, fresh-setup, network, certificate, administrator, verified-email and supported-commercial-region conditions.",
-                "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported.",
+                "The current 8.8 parent workflow guide describes up to 200 analyses per tenant per day (a triage-enabled finding without aggregation, or an investigation with aggregation), with up to 20 triage revisions per investigation per day. Its linked 8.8 Triage task still says only existing findings, the first 10 findings from one detection, approximately 200 findings per tenant per day and no rerun. These same-version statements conflict; supported aggregation/revision behavior remains unresolved. The separate Autonomous Response task requires frontier models only.",
                 "In ES 8.8, the Response agent cannot rerun or process findings added after it has already processed the investigation."
               ],
-              "runtime": "Agentic SOC services; the 8.8 task guide says the Splunk-hosted model option does not apply to this workflow. Paired SOAR has independent compatibility.",
-              "qualification": "The current table separates Triage and Autonomous Response. Product 8.8 General Availability does not promote Autonomous Response beyond its explicit Controlled Availability stage. Its Cloud-only availability cell conflicts with a CMP compatibility bullet, so CMP response availability remains unresolved. The current documentation no longer assigns Triage to Essentials; the earlier statement remains historical. Connector/action inheritance and es_soar_integration_user_role are task permissions, not exact SOAR pairing, entitlement, region or customer authorization evidence.",
-              "condition": "Confirm Premier access, exact Cloud or CMP prerequisites, paired SOAR compatibility, representative enablement, frontier-model support and inherited connector/asset permissions.",
+              "runtime": "Agentic SOC services; the separate 8.8 Autonomous Response task requires frontier models and says the Splunk-hosted model option does not apply to that component. This is not a model or residency guarantee for every Triage capability. Paired SOAR has independent compatibility.",
+              "qualification": "The current table separates Triage and Autonomous Response. Product 8.8 General Availability does not promote Autonomous Response beyond its explicit Controlled Availability stage. Its Cloud-only availability cell conflicts with a CMP compatibility bullet, so CMP response availability remains unresolved. The current documentation no longer assigns Triage to Essentials; the earlier statement remains historical. Connector/action inheritance and es_soar_integration_user_role are task permissions, not exact SOAR pairing, entitlement, region or customer authorization evidence. The parent Triage credit/revision model conflicts with the linked detailed task; neither source alone establishes usable rerun behavior or a universal daily finding quota.",
+              "condition": "Confirm Premier access, exact Cloud or CMP prerequisites, paired SOAR compatibility, representative enablement, frontier-model support and inherited connector/asset permissions. Reconcile the same-version Triage aggregation, quota unit and rerun conflict before relying on analysis coverage.",
               "src": [
                 "aiEsAgents88",
                 "aiEsSocTask88",
@@ -34933,7 +35037,8 @@
                 "aiEsCloudConnectAgentic88",
                 "aiSaiaInstall",
                 "aiSaiaCloudConnected",
-                "aiSaiaCloudConnected240"
+                "aiSaiaCloudConnected240",
+                "aiEsTriageTask88"
               ]
             },
             {
@@ -35477,9 +35582,9 @@
           {
             "sourceId": "source-966c6347457dd92dfd4e",
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
-            "section": "Prerequisites; analysis limits; connector and permission controls; response limitations",
+            "section": "Triage agent credit consumption; How triage revisions work; Limitations when using the Triage agent",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-11-20",
+            "sourceVerified": "2026-11-21",
             "sourceChecked": null
           },
           {
@@ -35857,9 +35962,9 @@
           {
             "sourceId": "source-966c6347457dd92dfd4e",
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
-            "section": "Prerequisites; analysis limits; connector and permission controls; response limitations",
+            "section": "Triage agent credit consumption; How triage revisions work; Limitations when using the Triage agent",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-11-20",
+            "sourceVerified": "2026-11-21",
             "sourceChecked": null
           },
           {
@@ -35885,6 +35990,14 @@
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
             "sourceVerified": "2026-11-20",
             "sourceChecked": null
+          },
+          {
+            "sourceId": "source-81127d1ed4ebaeb38a98",
+            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/create-custom-dashboards-for-triage-using-the-triage-agent",
+            "section": "How to use recommendations; Prerequisites; Analyze findings using the Triage agent",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": null
           }
         ],
         "verification": {
@@ -35903,8 +36016,8 @@
             "v": "yes",
             "n": "Triage: Cloud and Cloud Connected CMP; Autonomous Response: CA, Cloud only"
           },
-          "desc": "Assists investigation and response. The current 8.8 table separates the Triage agent from the Autonomous Response agent. Triage is Premier on Cloud and Cloud Connected CMP; Autonomous Response is explicitly Controlled Availability and its availability column says Cloud only. Both retain paired-SOAR and deployment-specific floors. Cloud compatibility lists Platform 10.2+ and ES 8.6+, while the task guide separately requires ES 8.7+. CMP requires Platform 10.4+, ES 8.8+ and Cloud Connect 2.0+; the current SAIA 2.4.0 installer documents the associated Cloud Connected app path and its additional setup conditions. The task guide requires connector and investigation permissions and a finding with AI triage results; it limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day, with frontier models only. In ES 8.8, the Autonomous Response agent cannot rerun or process findings added after it has already processed the investigation.",
-          "flag": "Product 8.8 General Availability does not make Autonomous Response generally available: the current agent table and task page label that component Controlled Availability. The same table says Autonomous Response is Cloud only but includes a Cloud Connected CMP prerequisite bullet, so CMP response availability remains conflicting. The aggregate table and task guide also retain different Cloud ES minimums. Inherited SOAR connector permissions and the es_soar_integration_user_role for granular asset access do not establish compatible SOAR pairing, entitlement, region or customer authorization.",
+          "desc": "Assists investigation and response. The current 8.8 table separates the Triage agent from the Autonomous Response agent. Triage is Premier on Cloud and Cloud Connected CMP; Autonomous Response is explicitly Controlled Availability and its availability column says Cloud only. Both retain paired-SOAR and deployment-specific floors. Cloud compatibility lists Platform 10.2+ and ES 8.6+, while the detailed Triage and Autonomous Response task guides separately require ES 8.7+. CMP requires Platform 10.4+, ES 8.8+ and Cloud Connect 2.0+; the current SAIA 2.4.0 installer documents the associated Cloud Connected app path and its additional setup conditions. The current 8.8 parent workflow guide describes up to 200 analyses per tenant per day (a triage-enabled finding without aggregation, or an investigation with aggregation), with up to 20 triage revisions per investigation per day. Its linked 8.8 Triage task still says only existing findings, the first 10 findings from one detection, approximately 200 findings per tenant per day and no rerun. These same-version statements conflict; supported aggregation/revision behavior remains unresolved. The separate Autonomous Response task requires frontier models, connector and investigation permissions, and a finding with AI triage results. In ES 8.8, the Autonomous Response agent cannot rerun or process findings added after it has already processed the investigation.",
+          "flag": "Product 8.8 General Availability does not make Autonomous Response generally available: the current agent table and task page label that component Controlled Availability. The same table says Autonomous Response is Cloud only but includes a Cloud Connected CMP prerequisite bullet, so CMP response availability remains conflicting. The aggregate table and task guide also retain different Cloud ES minimums. Inherited SOAR connector permissions and the es_soar_integration_user_role for granular asset access do not establish compatible SOAR pairing, entitlement, region or customer authorization. The parent and detailed Triage guides disagree on aggregation, daily quota units and rerun coverage; do not infer usable revision behavior from either statement alone.",
           "src": [
             "agentic88",
             "agentic",
@@ -35914,9 +36027,10 @@
             "socTask88",
             "socTask",
             "saiaCloudConnect240",
-            "autonomousResponse88"
+            "autonomousResponse88",
+            "triageTask88"
           ],
-          "reviewed": "2026-11-20"
+          "reviewed": "2026-11-21"
         }
       },
       {
@@ -36470,12 +36584,12 @@
         },
         "evidence": [],
         "verification": {
-          "date": "2026-11-20",
+          "date": "2026-11-21",
           "outcome": "Recorded in original claim"
         },
         "payload": {
           "kind": "ai-capability",
-          "verified": "2026-11-20",
+          "verified": "2026-11-21",
           "id": "ai-es-soc",
           "title": "ES · Triage and Autonomous Response agents (AI SOC workflow)",
           "product": "es",
@@ -36496,15 +36610,15 @@
           ],
           "requirements": [
             "Premier, paired SOAR and representative enablement.",
-            "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the 8.8 task guide requires ES 8.7+.",
+            "Cloud: Platform 10.2.x+, ES 8.6+ in the aggregate 8.8 table; the detailed 8.8 Triage and Autonomous Response task guides require ES 8.7+.",
             "Triage: Premier on Cloud and Cloud Connected CMP. Autonomous Response: Premier and explicitly Controlled Availability; the table's availability column says Cloud only even though its compatibility bullets include a CMP floor.",
             "CMP installation: Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and Splunk AI Assistant 2.4+. The current SAIA 2.4.0 installer documents that Cloud Connect app path with additional paid-license, fresh-setup, network, certificate, administrator, verified-email and supported-commercial-region conditions.",
-            "The 8.8 task guide limits analysis to existing findings, the first 10 findings produced together and approximately 200 findings per tenant per day; only frontier models are supported.",
+            "The current 8.8 parent workflow guide describes up to 200 analyses per tenant per day (a triage-enabled finding without aggregation, or an investigation with aggregation), with up to 20 triage revisions per investigation per day. Its linked 8.8 Triage task still says only existing findings, the first 10 findings from one detection, approximately 200 findings per tenant per day and no rerun. These same-version statements conflict; supported aggregation/revision behavior remains unresolved. The separate Autonomous Response task requires frontier models only.",
             "In ES 8.8, the Response agent cannot rerun or process findings added after it has already processed the investigation."
           ],
-          "runtime": "Agentic SOC services; the 8.8 task guide says the Splunk-hosted model option does not apply to this workflow. Paired SOAR has independent compatibility.",
-          "qualification": "The current table separates Triage and Autonomous Response. Product 8.8 General Availability does not promote Autonomous Response beyond its explicit Controlled Availability stage. Its Cloud-only availability cell conflicts with a CMP compatibility bullet, so CMP response availability remains unresolved. The current documentation no longer assigns Triage to Essentials; the earlier statement remains historical. Connector/action inheritance and es_soar_integration_user_role are task permissions, not exact SOAR pairing, entitlement, region or customer authorization evidence.",
-          "condition": "Confirm Premier access, exact Cloud or CMP prerequisites, paired SOAR compatibility, representative enablement, frontier-model support and inherited connector/asset permissions.",
+          "runtime": "Agentic SOC services; the separate 8.8 Autonomous Response task requires frontier models and says the Splunk-hosted model option does not apply to that component. This is not a model or residency guarantee for every Triage capability. Paired SOAR has independent compatibility.",
+          "qualification": "The current table separates Triage and Autonomous Response. Product 8.8 General Availability does not promote Autonomous Response beyond its explicit Controlled Availability stage. Its Cloud-only availability cell conflicts with a CMP compatibility bullet, so CMP response availability remains unresolved. The current documentation no longer assigns Triage to Essentials; the earlier statement remains historical. Connector/action inheritance and es_soar_integration_user_role are task permissions, not exact SOAR pairing, entitlement, region or customer authorization evidence. The parent Triage credit/revision model conflicts with the linked detailed task; neither source alone establishes usable rerun behavior or a universal daily finding quota.",
+          "condition": "Confirm Premier access, exact Cloud or CMP prerequisites, paired SOAR compatibility, representative enablement, frontier-model support and inherited connector/asset permissions. Reconcile the same-version Triage aggregation, quota unit and rerun conflict before relying on analysis coverage.",
           "src": [
             "aiEsAgents88",
             "aiEsSocTask88",
@@ -36515,7 +36629,8 @@
             "aiEsCloudConnectAgentic88",
             "aiSaiaInstall",
             "aiSaiaCloudConnected",
-            "aiSaiaCloudConnected240"
+            "aiSaiaCloudConnected240",
+            "aiEsTriageTask88"
           ]
         }
       },

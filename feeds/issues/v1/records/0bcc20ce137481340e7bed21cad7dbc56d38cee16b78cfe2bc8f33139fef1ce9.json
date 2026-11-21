@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-activity-pricing-deployment-scope",
+  "assessmentId": "vcia-es-20261121-es-activity-pricing-deployment-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-21T18:21:06.464Z",
+  "assessedAt": "2026-11-21T18:10:06.540Z",
+  "outcome": "still-present",
+  "rationale": "The ES product pricing section lists activity/workload/ingest while the model FAQ expressly names Cloud Platform for activity eligibility. Universal self-managed ES eligibility remains unestablished; trial entitlements and contracts remain separate.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": null,
+    "editions": null,
+    "deployments": [
+      "Cloud",
+      "Customer-managed"
+    ],
+    "regions": null,
+    "audiences": [
+      "Customers and documentation readers evaluating the stated decision"
+    ],
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-20261121-70-splunk-security-enterprise-security-pricing",
+      "url": "https://www.splunk.com/en_us/products/pricing.html",
+      "section": "Splunk Security > Enterprise Security pricing",
+      "statement": "The ES section lists activity-based, workload and ingest pricing.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-21T18:03:58.018Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "aabeb5810ef5fe1e9bf3a6268c25bbdbd6b40279d7007ef39280595ed5adc95b",
+        "qualification": "Exact fetched response bytes; not a publisher revision or semantic diff."
+      }
+    },
+    {
+      "evidenceId": "es-20261121-71-activity-based-pricing-faq-eligibility",
+      "url": "https://www.splunk.com/en_us/products/pricing/pricing-models.html",
+      "section": "Activity-based pricing FAQ > eligibility",
+      "statement": "The FAQ names Splunk Cloud Platform for activity-based availability.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-21T18:03:58.133Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "e5993c44d8f2be4accc8eb3154863747a49cc283d9ea56a9105399d99e31d36a",
+        "qualification": "Exact fetched response bytes; not a publisher revision or semantic diff."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/ef1fb88045e0ab5601f4722845248f1ccd9b7593/docs/audits/2026-11-21-es-editions-watch-sources.json",
+      "pointer": "/claimChecks/0",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "es-editions-watch: retain scope/history and recheck the exact outstanding question by 2026-11-22; no customer authorization or closure inferred."
+  ],
+  "comparedAssessmentIds": []
+}

@@ -30,6 +30,20 @@ test('every capability and inherited assessment citation has a positive number a
   for(const ref of html.matchAll(/href="#ai-ref-([^"]+)"/g))assert(html.includes('id="ai-ref-'+ref[1]+'"'),'Missing full-report citation target '+ref[1]);
  }
 });
+
+test('ES product GA and component release stages stay distinct in assessment and saved reports',()=>{
+ const a=model(),s=state(a,{edition:'premier',region:'us-east-1'});
+ for(const row of a.data().capabilities.filter(r=>r.product==='es')){
+  const result=a.assess(row,s);
+  assert(!result.detail.includes('ES 8.8 Controlled Availability'));
+ }
+ const report=a.report(s);
+ assert(!report.includes('ES 8.8 Controlled Availability, entitlement'));
+ assert.match(report,/Product 8.8 General Availability does not promote Autonomous Response/);
+ assert.match(report,/Autonomous Response Controlled Availability/);
+ assert.match(report,/alpha/);
+ assert(!fs.readFileSync('dist/ai-availability-ui.js','utf8').includes('ES 8.8 Controlled Availability does not guarantee'));
+});
 test('Observability AI capabilities keep realm, rollout and metric limits scoped',()=>{
  const a=model(),d=a.data();assert(a.products.observability);assert.match(d.observabilityRealmConflict,/us3/);
  assert.equal(assess(a,'ai-observability-assistant',{region:'us-east-1'}).availability,'conditional');
@@ -106,7 +120,7 @@ test('ES component and prerequisite differences prevent broad AI availability cl
  assert.equal(assess(a,'ai-es-threat-graph',{edition:'essentials'}).availability,'unavailable');
  assert.equal(assess(a,'ai-es-threat-graph',{deployment:'enterprise',edition:'premier'}).availability,'unavailable');
  const threat=assess(a,'ai-es-threat-graph',{edition:'premier'});assert.equal(threat.availability,'conditional');assert.match(threat.detail,/representative enablement/);
- const soc=a.data().capabilities.find(x=>x.id==='ai-es-soc');assert.equal(soc.verified,'2026-11-20');assert(soc.requirements.some(x=>/first 10.*approximately 200.*frontier models/i.test(x)));assert(soc.requirements.some(x=>/current SAIA 2\.4\.0 installer documents.*Cloud Connect app path/i.test(x)));assert.match(soc.qualification,/es_soar_integration_user_role/);assert.match(soc.qualification,/Cloud-only availability cell conflicts with a CMP compatibility bullet/);
+ const soc=a.data().capabilities.find(x=>x.id==='ai-es-soc');assert.equal(soc.verified,'2026-11-21');assert(soc.requirements.some(x=>/200 analyses.*20 triage revisions.*first 10.*approximately 200.*frontier models/i.test(x)));assert(soc.requirements.some(x=>/current SAIA 2\.4\.0 installer documents.*Cloud Connect app path/i.test(x)));assert.match(soc.qualification,/es_soar_integration_user_role/);assert.match(soc.qualification,/Cloud-only availability cell conflicts with a CMP compatibility bullet/);
  const detection=a.data().capabilities.find(x=>x.id==='ai-es-detection');assert.equal(detection.verified,'2026-11-20');assert(detection.requirements.some(x=>/current SAIA 2\.4\.0 installer adds.*paid-license/i.test(x)));
 });
 test('ES GovCloud Cloud exclusion does not become CMP or universal offering authorization',()=>{

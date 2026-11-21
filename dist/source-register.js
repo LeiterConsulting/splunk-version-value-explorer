@@ -4065,14 +4065,14 @@ window.VersionCompassSources = {
         "editions: editions.capabilities.15",
         "editions: editions.capabilities.20",
         "editions: editions.notes.0",
-        "editions: editions.conflicts.1.claims.1"
+        "editions: editions.conflicts.7.claims.0"
       ],
       "reviews": [
-        "2026-11-20"
+        "2026-11-21"
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-11-20",
+      "reviewed": "2026-11-21",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-11-04",
       "firstUsed": null,
@@ -4088,6 +4088,56 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-20",
           "event": "Review status updated: Needs reconciliation · 2026-11-20"
+        },
+        {
+          "date": "2026-11-21",
+          "event": "Review status updated: Needs reconciliation · 2026-11-21"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/create-custom-dashboards-for-triage-using-the-triage-agent",
+      "title": "ES 8.8 detailed Triage task and dashboard guide",
+      "areas": [
+        "Release guide",
+        "ES editions"
+      ],
+      "references": [
+        "release.guidance.sources.aiEsTriageTask88.url",
+        "editions.sources.triageTask88.u",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.7",
+        "editions: editions.capabilities.20",
+        "editions: editions.conflicts.1.claims.1",
+        "editions: editions.conflicts.7.claims.1"
+      ],
+      "reviews": [
+        "2026-11-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "How to use recommendations; Prerequisites; Analyze findings using the Triage agent"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.7",
+          "section": "How to use recommendations; Prerequisites; Analyze findings using the Triage agent"
+        }
+      ],
+      "conflict": true,
+      "usage": "In use",
+      "reviewed": "2026-11-21",
+      "status": "Needs reconciliation",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },
@@ -4103,7 +4153,8 @@ window.VersionCompassSources = {
         "editions.sources.autonomousResponse88.u",
         "guidance: guidance.aiAvailability",
         "guidance: guidance.aiAvailability.capabilities.7",
-        "editions: editions.capabilities.20"
+        "editions: editions.capabilities.20",
+        "editions: editions.conflicts.1.claims.1"
       ],
       "reviews": [
         "2026-11-20"
@@ -4118,9 +4169,10 @@ window.VersionCompassSources = {
           "section": "Controlled Availability notice; Role access; Prerequisites; connector and response limitations"
         }
       ],
+      "conflict": true,
       "usage": "In use",
       "reviewed": "2026-11-20",
-      "status": "Reviewed",
+      "status": "Needs reconciliation",
       "firstRecorded": "2026-11-20",
       "firstUsed": null,
       "outdatedAsOf": null,
@@ -4131,6 +4183,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-20",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-21",
+          "event": "Review status updated: Needs reconciliation · 2026-11-20"
         }
       ]
     },
@@ -4302,20 +4358,20 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.7"
       ],
       "reviews": [
-        "2026-11-20"
+        "2026-11-21"
       ],
       "claimReferences": [
         {
           "path": "guidance: guidance.aiAvailability",
-          "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions; response rerun limit"
+          "section": "Triage agent credit consumption; How triage revisions work; Limitations when using the Triage agent"
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.7",
-          "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions; response rerun limit"
+          "section": "Triage agent credit consumption; How triage revisions work; Limitations when using the Triage agent"
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-20",
+      "reviewed": "2026-11-21",
       "status": "Reviewed",
       "firstRecorded": "2026-10-31",
       "firstUsed": null,
@@ -4335,6 +4391,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-20",
           "event": "Review status updated: Reviewed · 2026-11-20"
+        },
+        {
+          "date": "2026-11-21",
+          "event": "Review status updated: Reviewed · 2026-11-21"
         }
       ]
     },
