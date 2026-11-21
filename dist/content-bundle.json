@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-2dcd5d718570333717f2150a",
-    "digest": "465f4f9120955d6704d8e9f06e1276d1c167c2b011e3577e61796e8bdcffd0e2",
-    "engineRevision": "engine-63d5eb6423c913c51823",
+    "revision": "content-4d2176f0b08afe9aaf9d5dfb",
+    "digest": "bb651998e08e55086294936d9575e01e80e92b8200d80f20c778a4988682ab32",
+    "engineRevision": "engine-4a70beb0d3a6b686100e",
     "datasetHashes": {
       "platform": "2214eed429890c51b6b2fdd9c55bf91706a7dc7eef9c396546fd1992c864329e",
-      "products": "43eb30dfc9ff7c2141ae13bdb73a56e698d4e3cb89e1247822042670b8698d80",
-      "guidance": "25015df1f10ec510222ba33340fad5c3acc5f5790cbfa71018698f5948d6cebe",
+      "products": "23ff46e21fbed0f0c2c32af34b0cfac46625d87f3a7a65c059c027df18e597fe",
+      "guidance": "3ff4ac0f5d4cc168abc5b2a63dbdb28a97b8803e1efebda8b0f9d30b377e1a14",
       "environment": "533ef7f14be7b3bf860b7c47b2d873489583d8606304ac969b6b1a32a7d4e10f",
       "editions": "27ffb85abb2b3b1b25940138e9d1bdf4cae39348c065c1dd2c663ae1cf8a55b0",
       "forwarders": "a56dd49cca6e5e0d9453e3a0d58afbf3b143e01873dd91305a3fdfebe68146aa",
       "soar": "126a20b593a3376f9e7dcb1cf8d6a26bc537953ca6bf38a05e1beb098f7fa55d"
     },
-    "recordCount": 997,
+    "recordCount": 1019,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -3904,7 +3904,7 @@
         },
         "observability": {
           "label": "Splunk Observability Cloud",
-          "latest": "Oct 2026",
+          "latest": "Nov 2026",
           "releases": [
             "Nov 2024",
             "Mar 2025",
@@ -3913,7 +3913,8 @@
             "Apr 2026",
             "Jul 2026",
             "Sep 2026",
-            "Oct 2026"
+            "Oct 2026",
+            "Nov 2026"
           ],
           "releaseOverview": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/release-notes-overview",
           "collectorSource": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector",
@@ -5406,6 +5407,75 @@
                   false
                 ]
               ]
+            },
+            "Nov 2026": {
+              "date": "November 2026",
+              "source": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026",
+              "features": [
+                [
+                  "Span analyzer",
+                  "APM & troubleshooting",
+                  "Compare individual span latency and errors",
+                  "Search, filter and group spans in Trace data explorer, including historical comparisons and live incoming spans.",
+                  "Rolling-service milestone · November 12, 2026",
+                  "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/search-spans-with-span-analyzer-in-splunk-apm"
+                ],
+                [
+                  "APM operation grouping",
+                  "APM & troubleshooting",
+                  "Control operation cardinality",
+                  "Administrators can group operation names by prefix across APM views. The default limit is 100 rules per organization; check the actual organization limit.",
+                  "Rolling-service milestone · November 12, 2026",
+                  "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/create-operation-rules-to-group-related-requests"
+                ],
+                [
+                  "Resolved alert history",
+                  "Alerting & logs",
+                  "Review recurring alerts and resolution time",
+                  "Controlled Availability adds resolved-alert history and MTTR in us0, us1, au0, jp0, eu0, eu1 and eu2. Confirm access and current realm scope.",
+                  "Controlled Availability · November 12, 2026",
+                  "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/resolved-alerts"
+                ],
+                [
+                  "A2A investigation access",
+                  "Automation & AI",
+                  "Delegate an enabled investigation workflow",
+                  "Select customers can connect an A2A 1.0 client to the Observability AI Assistant. Organization access, AI Assistant entitlement and token authentication are required. Initial scope is an APM service-alert investigation.",
+                  "Select-customer service milestone · November 12, 2026",
+                  "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/connect-your-agent-to-the-observability-ai-assistant/use-a2a-with-the-splunk-observability-ai-assistant"
+                ]
+              ],
+              "technicalChanges": [],
+              "requirements": [
+                [
+                  "Check service and telemetry prerequisites",
+                  "These are rolling SaaS changes. Validate the selected realm, access and collected telemetry separately from customer-managed Collector, chart and instrumentation versions. A Platform host selection does not establish feature entitlement.",
+                  "Validate",
+                  "https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector",
+                  false
+                ],
+                [
+                  "Configure operation grouping with administrator access",
+                  "The operation-grouping guide requires the admin role. Review the organization limit and changed operation names across APM views before relying on grouped metrics.",
+                  "Review",
+                  "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/create-operation-rules-to-group-related-requests",
+                  false
+                ],
+                [
+                  "Confirm resolved-alert access",
+                  "Resolved alerts remains Controlled Availability in the listed realms. General Assistant or Platform hosting coverage does not establish this feature.",
+                  "Review",
+                  "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/resolved-alerts",
+                  false
+                ],
+                [
+                  "Confirm A2A access and request limits",
+                  "Confirm select-customer access and AI Assistant entitlement, use an A2A 1.0 client with tenant Agent Card and X-SF-TOKEN authentication, and send a single nonempty text part. Supported workflows are organization-specific. Results are text; files, images, structured citations and webhooks are unsupported.",
+                  "Review",
+                  "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/connect-your-agent-to-the-observability-ai-assistant/use-a2a-with-the-splunk-observability-ai-assistant",
+                  false
+                ]
+              ]
             }
           }
         }
@@ -5815,6 +5885,20 @@
             "scope": "2.4.0 ships an Enterprise installation path through Cloud Connect. Supported FedRAMP High core SPL generation and explanation exclude Agent Mode.",
             "checked": "2026-11-21",
             "reviewed": "2026-11-21"
+          },
+          "aiObsDatabaseAssistant": {
+            "title": "AI Assistant for Database Monitoring",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-databases/use-database-monitoring/ai-assistant-for-database-monitoring",
+            "checked": "2026-11-21",
+            "section": "Prerequisites; Limitations",
+            "verificationScope": "Bounded discovery only. Realm availability, organization activation, Assistant entitlement, SQL Server/Oracle/PostgreSQL/MongoDB telemetry receivers and user permissions are separate prerequisites. No new matrix capability admitted."
+          },
+          "aiObsA2A": {
+            "title": "Use A2A with the Splunk Observability AI Assistant",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/connect-your-agent-to-the-observability-ai-assistant/use-a2a-with-the-splunk-observability-ai-assistant",
+            "checked": "2026-11-21",
+            "section": "Before you begin; Supported operations; Limitations",
+            "verificationScope": "Bounded discovery of an organization-enabled A2A1.0 text investigation interface. Select-customer access is separately documented in the parent guide. No new matrix capability admitted."
           }
         },
         "preparation11": {
@@ -6564,7 +6648,12 @@
             {
               "id": "ai-backlog-expansion",
               "owner": "Version Release Watch",
-              "topic": "Continue bounded discovery beyond the two documented Observability capabilities added October 24; preserve exact product, realm, dependency and release-stage scope."
+              "topic": "Documented Observability A2A investigation access and Database Monitoring Assistant require capability-specific admission. Keep select-customer A2A access, A2A1.0/token/text limits, database receiver/role/entitlement prerequisites, service-region policies and release stages distinct. Application Security Assistant remains an unassessed discovery lead.",
+              "sourceIds": [
+                "aiObsA2A",
+                "aiObsDatabaseAssistant"
+              ],
+              "reviewBy": "2026-11-22"
             }
           ],
           "observabilityRegions": [
@@ -12653,6 +12742,12 @@
         "url": "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Readiness"
       },
       {
+        "id": "source-0eded65c648da3ec074e",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/connect-your-agent-to-the-observability-ai-assistant/use-a2a-with-the-splunk-observability-ai-assistant"
+      },
+      {
         "id": "source-1041cb57e15424d9749c",
         "kind": "source",
         "dataset": "sources",
@@ -13547,6 +13642,12 @@
         "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#ariaid-title4"
       },
       {
+        "id": "source-9bede5c5a2f47bf9cbeb",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/resolved-alerts"
+      },
+      {
         "id": "source-9d0d6c971ab103c712cc",
         "kind": "source",
         "dataset": "sources",
@@ -13913,6 +14014,12 @@
         "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/deprecated-features/deprecated-and-removed-in-version-10.6"
       },
       {
+        "id": "source-d3d235652495b4905efd",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/search-spans-with-span-analyzer-in-splunk-apm"
+      },
+      {
         "id": "source-d5dd730be1e1278a5e73",
         "kind": "source",
         "dataset": "sources",
@@ -14075,6 +14182,12 @@
         "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/march-2025"
       },
       {
+        "id": "source-f08b9b5cd4585bb4d10c",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026"
+      },
+      {
         "id": "source-f0b8292b6a8f5016efd7",
         "kind": "source",
         "dataset": "sources",
@@ -14147,6 +14260,12 @@
         "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description#available-components-per-region-or-realm-0"
       },
       {
+        "id": "source-f944389424b97c565e77",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/create-operation-rules-to-group-related-requests"
+      },
+      {
         "id": "source-f94df24e341c0fab70b0",
         "kind": "source",
         "dataset": "sources",
@@ -14169,6 +14288,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.6.0/splunk-soar-on-premises-release-notes/fixed-issues-for-splunk-soar-on-premises"
+      },
+      {
+        "id": "source-fd357635e9b32114e560",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-databases/use-database-monitoring/ai-assistant-for-database-monitoring"
       },
       {
         "id": "vc-006493724306b0f8ed57",
@@ -14319,6 +14444,36 @@
           "text": "Existing 10.x support does not establish 11.x support for ES, ITSI, SOAR, apps, forwarders or receiver topologies.",
           "needed": "Exact app, runtime, premium-product and forwarder/receiver matrices."
         }
+      },
+      {
+        "id": "vc-02b20e72d09bd4c1e53a",
+        "kind": "requirement",
+        "dataset": "products",
+        "scope": {
+          "product": "observability",
+          "release": "Nov 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-0eded65c648da3ec074e",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/connect-your-agent-to-the-observability-ai-assistant/use-a2a-with-the-splunk-observability-ai-assistant",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Confirm A2A access and request limits",
+          "Confirm select-customer access and AI Assistant entitlement, use an A2A 1.0 client with tenant Agent Card and X-SF-TOKEN authentication, and send a single nonempty text part. Supported workflows are organization-specific. Results are text; files, images, structured citations and webhooks are unsupported.",
+          "Review",
+          "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/connect-your-agent-to-the-observability-ai-assistant/use-a2a-with-the-splunk-observability-ai-assistant",
+          false
+        ]
       },
       {
         "id": "vc-0379b7ac52259bb73eed",
@@ -15285,6 +15440,36 @@
         ]
       },
       {
+        "id": "vc-0ee59f37ca415fe30989",
+        "kind": "requirement",
+        "dataset": "products",
+        "scope": {
+          "product": "observability",
+          "release": "Nov 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-9bede5c5a2f47bf9cbeb",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/resolved-alerts",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Confirm resolved-alert access",
+          "Resolved alerts remains Controlled Availability in the listed realms. General Assistant or Platform hosting coverage does not establish this feature.",
+          "Review",
+          "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/resolved-alerts",
+          false
+        ]
+      },
+      {
         "id": "vc-0f55be63d1f307fb84e4",
         "kind": "technical",
         "dataset": "soar",
@@ -16142,6 +16327,37 @@
             "aiEsRelease88"
           ]
         }
+      },
+      {
+        "id": "vc-1b6e4f126967e0ec2cfd",
+        "kind": "feature",
+        "dataset": "products",
+        "scope": {
+          "product": "observability",
+          "release": "Nov 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-9bede5c5a2f47bf9cbeb",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/resolved-alerts",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Resolved alert history",
+          "Alerting & logs",
+          "Review recurring alerts and resolution time",
+          "Controlled Availability adds resolved-alert history and MTTR in us0, us1, au0, jp0, eu0, eu1 and eu2. Confirm access and current realm scope.",
+          "Controlled Availability · November 12, 2026",
+          "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/resolved-alerts"
+        ]
       },
       {
         "id": "vc-1b799e5eab369a017be3",
@@ -17609,6 +17825,37 @@
         }
       },
       {
+        "id": "vc-29b9c88425d8471a282d",
+        "kind": "feature",
+        "dataset": "products",
+        "scope": {
+          "product": "observability",
+          "release": "Nov 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-f944389424b97c565e77",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/create-operation-rules-to-group-related-requests",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "APM operation grouping",
+          "APM & troubleshooting",
+          "Control operation cardinality",
+          "Administrators can group operation names by prefix across APM views. The default limit is 100 rules per organization; check the actual organization limit.",
+          "Rolling-service milestone · November 12, 2026",
+          "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/create-operation-rules-to-group-related-requests"
+        ]
+      },
+      {
         "id": "vc-2a18e1290c68b359536c",
         "kind": "requirement",
         "dataset": "platform",
@@ -17804,6 +18051,37 @@
           "Investigation & response",
           "Return to the right work",
           "Save queue filters and views for repeatable analyst workflows."
+        ]
+      },
+      {
+        "id": "vc-2d4ece491221ca66441a",
+        "kind": "feature",
+        "dataset": "platform",
+        "scope": {
+          "product": "observability",
+          "release": "Nov 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-f08b9b5cd4585bb4d10c",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Span analyzer",
+          "APM & troubleshooting",
+          "Compare individual span latency and errors",
+          "Search, filter and group spans in Trace data explorer, including historical comparisons and live incoming spans.",
+          "Rolling-service milestone · November 12, 2026",
+          "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/search-spans-with-span-analyzer-in-splunk-apm"
         ]
       },
       {
@@ -19743,6 +20021,36 @@
         }
       },
       {
+        "id": "vc-40787a8cb1b6648fc9fb",
+        "kind": "requirement",
+        "dataset": "products",
+        "scope": {
+          "product": "observability",
+          "release": "Nov 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-f944389424b97c565e77",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/create-operation-rules-to-group-related-requests",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Configure operation grouping with administrator access",
+          "The operation-grouping guide requires the admin role. Review the organization limit and changed operation names across APM views before relying on grouped metrics.",
+          "Review",
+          "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/create-operation-rules-to-group-related-requests",
+          false
+        ]
+      },
+      {
         "id": "vc-408cff74f996497b9069",
         "kind": "requirement",
         "dataset": "platform",
@@ -21480,7 +21788,12 @@
             {
               "id": "ai-backlog-expansion",
               "owner": "Version Release Watch",
-              "topic": "Continue bounded discovery beyond the two documented Observability capabilities added October 24; preserve exact product, realm, dependency and release-stage scope."
+              "topic": "Documented Observability A2A investigation access and Database Monitoring Assistant require capability-specific admission. Keep select-customer A2A access, A2A1.0/token/text limits, database receiver/role/entitlement prerequisites, service-region policies and release stages distinct. Application Security Assistant remains an unassessed discovery lead.",
+              "sourceIds": [
+                "aiObsA2A",
+                "aiObsDatabaseAssistant"
+              ],
+              "reviewBy": "2026-11-22"
             }
           ],
           "observabilityRegions": [
@@ -23693,6 +24006,36 @@
         ]
       },
       {
+        "id": "vc-5e077ecfde5c6c787bc7",
+        "kind": "requirement",
+        "dataset": "platform",
+        "scope": {
+          "product": "observability",
+          "release": "Nov 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-9bede5c5a2f47bf9cbeb",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/resolved-alerts",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Confirm resolved-alert access",
+          "Resolved alerts remains Controlled Availability in the listed realms. General Assistant or Platform hosting coverage does not establish this feature.",
+          "Review",
+          "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/resolved-alerts",
+          false
+        ]
+      },
+      {
         "id": "vc-5e13db6f90b3b115f2c6",
         "kind": "requirement",
         "dataset": "products",
@@ -24259,6 +24602,37 @@
           "Validate",
           "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.6/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
           false
+        ]
+      },
+      {
+        "id": "vc-6946a526e10ed1971da6",
+        "kind": "feature",
+        "dataset": "products",
+        "scope": {
+          "product": "observability",
+          "release": "Nov 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-d3d235652495b4905efd",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/search-spans-with-span-analyzer-in-splunk-apm",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Span analyzer",
+          "APM & troubleshooting",
+          "Compare individual span latency and errors",
+          "Search, filter and group spans in Trace data explorer, including historical comparisons and live incoming spans.",
+          "Rolling-service milestone · November 12, 2026",
+          "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/search-spans-with-span-analyzer-in-splunk-apm"
         ]
       },
       {
@@ -26686,6 +27060,36 @@
         }
       },
       {
+        "id": "vc-80bffddbeb5cf3019bd5",
+        "kind": "requirement",
+        "dataset": "platform",
+        "scope": {
+          "product": "observability",
+          "release": "Nov 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-0eded65c648da3ec074e",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/connect-your-agent-to-the-observability-ai-assistant/use-a2a-with-the-splunk-observability-ai-assistant",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Confirm A2A access and request limits",
+          "Confirm select-customer access and AI Assistant entitlement, use an A2A 1.0 client with tenant Agent Card and X-SF-TOKEN authentication, and send a single nonempty text part. Supported workflows are organization-specific. Results are text; files, images, structured citations and webhooks are unsupported.",
+          "Review",
+          "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/connect-your-agent-to-the-observability-ai-assistant/use-a2a-with-the-splunk-observability-ai-assistant",
+          false
+        ]
+      },
+      {
         "id": "vc-8152add3b188895beee1",
         "kind": "feature",
         "dataset": "products",
@@ -26973,6 +27377,36 @@
           "Blocker",
           "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.163.0",
           true
+        ]
+      },
+      {
+        "id": "vc-84f4fab80ef26a3f1d0a",
+        "kind": "requirement",
+        "dataset": "platform",
+        "scope": {
+          "product": "observability",
+          "release": "Nov 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-5434c961b20d80295828",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Check service and telemetry prerequisites",
+          "These are rolling SaaS changes. Validate the selected realm, access and collected telemetry separately from customer-managed Collector, chart and instrumentation versions. A Platform host selection does not establish feature entitlement.",
+          "Validate",
+          "https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector",
+          false
         ]
       },
       {
@@ -27714,6 +28148,37 @@
           "Search & AI",
           "Accelerate high-cardinality work",
           "Distribute qualifying reduce-phase processing to improve demanding searches."
+        ]
+      },
+      {
+        "id": "vc-8a488279d86622617c98",
+        "kind": "feature",
+        "dataset": "platform",
+        "scope": {
+          "product": "observability",
+          "release": "Nov 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-f08b9b5cd4585bb4d10c",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "A2A investigation access",
+          "Automation & AI",
+          "Delegate an enabled investigation workflow",
+          "Select customers can connect an A2A 1.0 client to the Observability AI Assistant. Organization access, AI Assistant entitlement and token authentication are required. Initial scope is an APM service-alert investigation.",
+          "Select-customer service milestone · November 12, 2026",
+          "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/connect-your-agent-to-the-observability-ai-assistant/use-a2a-with-the-splunk-observability-ai-assistant"
         ]
       },
       {
@@ -28912,6 +29377,36 @@
           "Blocker",
           "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
           true
+        ]
+      },
+      {
+        "id": "vc-95d4c37193d1672d3fe1",
+        "kind": "requirement",
+        "dataset": "products",
+        "scope": {
+          "product": "observability",
+          "release": "Nov 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-5434c961b20d80295828",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Check service and telemetry prerequisites",
+          "These are rolling SaaS changes. Validate the selected realm, access and collected telemetry separately from customer-managed Collector, chart and instrumentation versions. A Platform host selection does not establish feature entitlement.",
+          "Validate",
+          "https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector",
+          false
         ]
       },
       {
@@ -30727,6 +31222,37 @@
         }
       },
       {
+        "id": "vc-abd65d4466537c8115d3",
+        "kind": "feature",
+        "dataset": "platform",
+        "scope": {
+          "product": "observability",
+          "release": "Nov 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-f08b9b5cd4585bb4d10c",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "APM operation grouping",
+          "APM & troubleshooting",
+          "Control operation cardinality",
+          "Administrators can group operation names by prefix across APM views. The default limit is 100 rules per organization; check the actual organization limit.",
+          "Rolling-service milestone · November 12, 2026",
+          "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/create-operation-rules-to-group-related-requests"
+        ]
+      },
+      {
         "id": "vc-abe87062a055016deee0",
         "kind": "Minimum-version discrepancy",
         "dataset": "editions",
@@ -31544,6 +32070,36 @@
             "rn88"
           ]
         }
+      },
+      {
+        "id": "vc-b5c4b909725b41bb486d",
+        "kind": "requirement",
+        "dataset": "platform",
+        "scope": {
+          "product": "observability",
+          "release": "Nov 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-f944389424b97c565e77",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/create-operation-rules-to-group-related-requests",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Configure operation grouping with administrator access",
+          "The operation-grouping guide requires the admin role. Review the organization limit and changed operation names across APM views before relying on grouped metrics.",
+          "Review",
+          "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/create-operation-rules-to-group-related-requests",
+          false
+        ]
       },
       {
         "id": "vc-b65e6864f2bb4429ae6d",
@@ -36085,7 +36641,12 @@
             {
               "id": "ai-backlog-expansion",
               "owner": "Version Release Watch",
-              "topic": "Continue bounded discovery beyond the two documented Observability capabilities added October 24; preserve exact product, realm, dependency and release-stage scope."
+              "topic": "Documented Observability A2A investigation access and Database Monitoring Assistant require capability-specific admission. Keep select-customer A2A access, A2A1.0/token/text limits, database receiver/role/entitlement prerequisites, service-region policies and release stages distinct. Application Security Assistant remains an unassessed discovery lead.",
+              "sourceIds": [
+                "aiObsA2A",
+                "aiObsDatabaseAssistant"
+              ],
+              "reviewBy": "2026-11-22"
             }
           ],
           "observabilityRegions": [
@@ -37940,6 +38501,37 @@
         ]
       },
       {
+        "id": "vc-e68fc3b026d9d715d929",
+        "kind": "feature",
+        "dataset": "platform",
+        "scope": {
+          "product": "observability",
+          "release": "Nov 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-f08b9b5cd4585bb4d10c",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Resolved alert history",
+          "Alerting & logs",
+          "Review recurring alerts and resolution time",
+          "Controlled Availability adds resolved-alert history and MTTR in us0, us1, au0, jp0, eu0, eu1 and eu2. Confirm access and current realm scope.",
+          "Controlled Availability · November 12, 2026",
+          "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/resolved-alerts"
+        ]
+      },
+      {
         "id": "vc-e6e65c8c817a372e91af",
         "kind": "context",
         "dataset": "platform",
@@ -39552,6 +40144,37 @@
           "Plan",
           "https://help.splunk.com/en/splunk-observability-cloud/release-notes/january-2026",
           true
+        ]
+      },
+      {
+        "id": "vc-f46b199ba544ea02b3dc",
+        "kind": "feature",
+        "dataset": "products",
+        "scope": {
+          "product": "observability",
+          "release": "Nov 2026"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-0eded65c648da3ec074e",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/connect-your-agent-to-the-observability-ai-assistant/use-a2a-with-the-splunk-observability-ai-assistant",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "A2A investigation access",
+          "Automation & AI",
+          "Delegate an enabled investigation workflow",
+          "Select customers can connect an A2A 1.0 client to the Observability AI Assistant. Organization access, AI Assistant entitlement and token authentication are required. Initial scope is an APM service-alert investigation.",
+          "Select-customer service milestone · November 12, 2026",
+          "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/connect-your-agent-to-the-observability-ai-assistant/use-a2a-with-the-splunk-observability-ai-assistant"
         ]
       },
       {

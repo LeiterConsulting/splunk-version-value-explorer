@@ -6347,9 +6347,9 @@ window.VersionCompassSources = {
           "release": "10.4",
           "component": "KV Store TLS configuration",
           "section": "Splunk changed how App Key Value Store (KV Store) uses TLS-related settings in the [kvstore] stanza of the server.conf configuration file",
-          "claimVerified": "2026-10-20",
+          "claimVerified": "2026-11-21",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. October 20 bounded semantic recheck: overlapping KV Store TLS settings previously ignored in favor of sslConfig now take precedence in kvstore. Review both stanzas and unused/conflicting settings. This does not reverse the precedence, apply to UF, or certify all HF components."
+          "qualification": "Heavy Forwarder uses the Enterprise package. October 20 bounded semantic recheck: overlapping KV Store TLS settings previously ignored in favor of sslConfig now take precedence in kvstore. Review both stanzas and unused/conflicting settings. This does not reverse the precedence, apply to UF, or certify all HF components. November21 exact READ THIS FIRST section assessment confirms per-field KV Store TLS precedence over overlapping sslConfig values and review of unintended settings. Scope remains the Enterprise package with KV Store; no UF, receiver or Cloud-managed rule is inferred."
         },
         {
           "path": "forwarders: borrowed.technical.hf.10.4.windows-service-identity",
@@ -7290,9 +7290,9 @@ window.VersionCompassSources = {
           "release": "10.4",
           "component": "Python application runtime",
           "section": "Upgrade Splunk Python version from 3.9 to 3.13",
-          "claimVerified": "2026-10-22",
+          "claimVerified": "2026-11-21",
           "outcome": "supporting-section-confirmed",
-          "qualification": "Heavy Forwarder uses the Enterprise package. October 22 bounded semantic recheck: Enterprise 10.4 uses Python 3.13 by default and keeps Python 3.9 as a fallback for applications that are not yet compatible. This does not establish UF applicability, compatibility for every installed or app-owned runtime, or deployment approval."
+          "qualification": "Heavy Forwarder uses the Enterprise package. October 22 bounded semantic recheck: Enterprise 10.4 uses Python 3.13 by default and keeps Python 3.9 as a fallback for applications that are not yet compatible. This does not establish UF applicability, compatibility for every installed or app-owned runtime, or deployment approval. November21 exact release-note section assessment confirms the Enterprise10.4 Python3.13 default with3.9 fallback. Scope remains the Enterprise package used for HF; no UF, universal app or app-owned runtime compatibility is established."
         },
         {
           "path": "forwarders: borrowed.technical.hf.10.4.kv-store-database-engine",
@@ -8428,6 +8428,33 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/resolved-alerts",
+      "title": "resolved alerts",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Nov 2026.features.2.5",
+        "release.productTracks.observability.releasesData.Nov 2026.requirements.2.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
       "title": "Observability Cloud service description",
       "areas": [
@@ -8618,7 +8645,8 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.observability.collectorSource"
+        "release.productTracks.observability.collectorSource",
+        "release.productTracks.observability.releasesData.Nov 2026.requirements.0.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -8633,6 +8661,87 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-09-25",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/create-operation-rules-to-group-related-requests",
+      "title": "create operation rules to group related requests",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Nov 2026.features.1.5",
+        "release.productTracks.observability.releasesData.Nov 2026.requirements.1.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/search-spans-with-span-analyzer-in-splunk-apm",
+      "title": "search spans with span analyzer in splunk apm",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Nov 2026.features.0.5"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-databases/use-database-monitoring/ai-assistant-for-database-monitoring",
+      "title": "AI Assistant for Database Monitoring",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.aiObsDatabaseAssistant.url"
+      ],
+      "reviews": [
+        "2026-11-21"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -8791,6 +8900,34 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-09-25",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026",
+      "title": "november 2026",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Nov 2026.source",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -8993,6 +9130,36 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-10-24",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/connect-your-agent-to-the-observability-ai-assistant/use-a2a-with-the-splunk-observability-ai-assistant",
+      "title": "use a2a with the splunk observability ai assistant",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Nov 2026.features.3.5",
+        "release.productTracks.observability.releasesData.Nov 2026.requirements.3.3",
+        "release.guidance.sources.aiObsA2A.url"
+      ],
+      "reviews": [
+        "2026-11-21"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
