@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-87-connector-builder-editions",
+  "assessmentId": "vcia-es-20261120-es-87-connector-builder-editions",
+  "revision": 1,
+  "recordedAt": "2026-11-20T11:46:33.894Z",
+  "assessedAt": "2026-11-20T11:18:30.000Z",
+  "outcome": "still-present",
+  "rationale": "The historical ES 8.7 Connector Builder edition conflict remains. The current 8.8 table documents both editions, but that correction is not applied retrospectively to 8.7.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security Connector Builder"
+    ],
+    "versions": [
+      "ES 8.7 historical",
+      "ES 8.8 current"
+    ],
+    "editions": [
+      "Essentials",
+      "Premier"
+    ],
+    "deployments": [
+      "Cloud and paired SOAR where separately documented"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No retrospective 8.7 entitlement, exact pairing, rollout or authorization is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-20261120-7-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Current 8.8 Connector Builder row",
+      "statement": "The historical ES 8.7 Connector Builder edition conflict remains. The current 8.8 table documents both editions, but that correction is not applied retrospectively to 8.7.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-20T11:16:54.991Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "a659e5880c5fe1df4456466fa059ef3fc6aa1aa42188571ce21d116f69b7e8f7",
+        "qualification": "Fresh direct public body digest; source publication and effective dates are not inferred."
+      }
+    },
+    {
+      "evidenceId": "es-20261120-7-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "Historical 8.7 release and edition scope",
+      "statement": "The historical ES 8.7 Connector Builder edition conflict remains. The current 8.8 table documents both editions, but that correction is not applied retrospectively to 8.7.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-20T11:16:56.185Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "0a5531199b5bb4130d76ca1ab25992fb6aecd1de171858531edff915ab2ada94",
+        "qualification": "Fresh direct public body digest; source publication and effective dates are not inferred."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/353aadf1d9c481804413becf549766b16de7ca8c/docs/audits/2026-11-20-es-editions-watch-sources.json",
+      "pointer": "/claimChecks/3",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "ES Editions Watch by 2026-11-21: preserve the 8.7 conflict unless version-specific authoritative evidence resolves it."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-es-20261119-es-87-connector-builder-editions"
+  ]
+}

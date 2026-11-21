@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-soc-analyst-version-floor",
+  "assessmentId": "vcia-es-20261120-es-soc-analyst-version-floor",
+  "revision": 1,
+  "recordedAt": "2026-11-20T11:46:33.894Z",
+  "assessedAt": "2026-11-20T11:18:30.000Z",
+  "outcome": "still-present",
+  "rationale": "The current ES 8.8 agent table retains Platform 10.2+ and ES 8.6+ for Cloud while the task guide requires ES 8.7+. Autonomous Response is separately Controlled Availability, and its Cloud-only availability cell conflicts with a CMP compatibility bullet. Exact SOAR pairing, entitlement, region, enablement and authorization remain separate.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "ES 8.8"
+    ],
+    "editions": [
+      "Premier"
+    ],
+    "deployments": [
+      "Cloud",
+      "Cloud Connected CMP"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No exact SOAR pairing, entitlement, rollout, region or customer authorization is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-20261120-1-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Triage and Autonomous Response availability and compatibility rows",
+      "statement": "The current ES 8.8 agent table retains Platform 10.2+ and ES 8.6+ for Cloud while the task guide requires ES 8.7+. Autonomous Response is separately Controlled Availability, and its Cloud-only availability cell conflicts with a CMP compatibility bullet. Exact SOAR pairing, entitlement, region, enablement and authorization remain separate.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-20T11:16:54.991Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "a659e5880c5fe1df4456466fa059ef3fc6aa1aa42188571ce21d116f69b7e8f7",
+        "qualification": "Fresh direct public body digest; source publication and effective dates are not inferred."
+      }
+    },
+    {
+      "evidenceId": "es-20261120-1-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
+      "section": "Cloud and CMP prerequisites; workflow limits and permissions",
+      "statement": "The current ES 8.8 agent table retains Platform 10.2+ and ES 8.6+ for Cloud while the task guide requires ES 8.7+. Autonomous Response is separately Controlled Availability, and its Cloud-only availability cell conflicts with a CMP compatibility bullet. Exact SOAR pairing, entitlement, region, enablement and authorization remain separate.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-20T11:16:55.087Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "461a1a49c8ff3be96902ccff9ce1a8a905c2ec7e3921b9bbf8f3465e457dd107",
+        "qualification": "Fresh direct public body digest; source publication and effective dates are not inferred."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/353aadf1d9c481804413becf549766b16de7ca8c/docs/audits/2026-11-20-es-editions-watch-sources.json",
+      "pointer": "/claimChecks/8",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "ES Editions Watch by 2026-11-21: retain the Cloud floor and Cloud-only/CMP conflicts until authoritative resolution."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-guidance-20261119-es-soc-analyst-version-floor"
+  ]
+}
