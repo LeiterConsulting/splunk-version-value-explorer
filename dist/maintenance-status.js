@@ -1406,10 +1406,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-20T11:02:26.095573Z",
-      "lastSuccess": "2026-11-20T11:34:42.837Z",
+      "lastAttempt": "2026-11-21T18:08:31.176Z",
+      "lastSuccess": "2026-11-21T18:15:58.479Z",
       "outcome": "changed",
-      "summary": "Six registry 1.4.0 ES scopes assessed; current Triage and Autonomous Response boundaries and the SAIA 2.4 Cloud Connect path recorded.",
+      "summary": "Completed six bounded ES assessments; retained the current Triage quota/revision conflict and separate Response limits. Current native attempt and delivery remain unverified.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -2051,9 +2051,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Six registry 1.4.0 ES scopes assessed; current Triage and Autonomous Response boundaries and the SAIA 2.4 Cloud Connect path recorded.",
           "scope": "73 official URLs, four daily ES rows, five named ES AI capabilities, Advisor SOC evidence and bounded issue-feed reassessments; production delivery excluded."
+        },
+        {
+          "at": "2026-11-21T18:08:31.176Z",
+          "outcome": "running",
+          "summary": "Independent ES source assessment and current-attempt reconciliation in progress.",
+          "scope": "Six registry 1.4.0 ES scopes; named AI capabilities; exact Triage credit/revision source conflict."
+        },
+        {
+          "at": "2026-11-21T18:15:58.479Z",
+          "outcome": "changed",
+          "summary": "Completed six bounded ES assessments; retained the current Triage quota/revision conflict and separate Response limits. Current native attempt and delivery remain unverified.",
+          "scope": "75 source requests; four daily edition outcomes; five named AI records; exact SOAR matrices and eight scoped existing issue reassessments. Candidate/feed qualification remains separate."
         }
       ],
-      "scope": "73 official URLs, four daily ES rows, five named ES AI capabilities, Advisor SOC evidence and bounded issue-feed reassessments; production delivery excluded."
+      "scope": "75 source requests; four daily edition outcomes; five named AI records; exact SOAR matrices and eight scoped existing issue reassessments. Candidate/feed qualification remains separate."
     },
     {
       "id": "version-guidance-audit",

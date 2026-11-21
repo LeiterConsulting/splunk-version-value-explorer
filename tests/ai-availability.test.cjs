@@ -106,7 +106,7 @@ test('ES component and prerequisite differences prevent broad AI availability cl
  assert.equal(assess(a,'ai-es-threat-graph',{edition:'essentials'}).availability,'unavailable');
  assert.equal(assess(a,'ai-es-threat-graph',{deployment:'enterprise',edition:'premier'}).availability,'unavailable');
  const threat=assess(a,'ai-es-threat-graph',{edition:'premier'});assert.equal(threat.availability,'conditional');assert.match(threat.detail,/representative enablement/);
- const soc=a.data().capabilities.find(x=>x.id==='ai-es-soc');assert.equal(soc.verified,'2026-11-20');assert(soc.requirements.some(x=>/first 10.*approximately 200.*frontier models/i.test(x)));assert(soc.requirements.some(x=>/current SAIA 2\.4\.0 installer documents.*Cloud Connect app path/i.test(x)));assert.match(soc.qualification,/es_soar_integration_user_role/);assert.match(soc.qualification,/Cloud-only availability cell conflicts with a CMP compatibility bullet/);
+ const soc=a.data().capabilities.find(x=>x.id==='ai-es-soc');assert.equal(soc.verified,'2026-11-21');assert(soc.requirements.some(x=>/200 analyses.*20 triage revisions.*first 10.*approximately 200.*frontier models/i.test(x)));assert(soc.requirements.some(x=>/current SAIA 2\.4\.0 installer documents.*Cloud Connect app path/i.test(x)));assert.match(soc.qualification,/es_soar_integration_user_role/);assert.match(soc.qualification,/Cloud-only availability cell conflicts with a CMP compatibility bullet/);
  const detection=a.data().capabilities.find(x=>x.id==='ai-es-detection');assert.equal(detection.verified,'2026-11-20');assert(detection.requirements.some(x=>/current SAIA 2\.4\.0 installer adds.*paid-license/i.test(x)));
 });
 test('ES GovCloud Cloud exclusion does not become CMP or universal offering authorization',()=>{

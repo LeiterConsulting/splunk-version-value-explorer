@@ -130,19 +130,19 @@
         if(state.edition==='unknown')fact('Confirm the ES edition.','The aggregate workflow’s Premier requirement is separate from subcomponent entitlement.');
         if(state.edition==='essentials')evidence('The assessed aggregate workflow row specifies Premier.','Do not infer access to the whole workflow from a component or earlier edition wording.',['aiEsAgents88','aiEsTriageNote88']);
         if(state.deployment==='enterprise'){
-          established('The assessed CMP path requires Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0. ES 8.8 requires the separate Cloud Connect download.',['aiEsAgents88','aiEsSocTask88']);
+          established('The assessed CMP path requires Platform 10.4.x+, ES 8.8+ and Cloud Connect 2.0. ES 8.8 requires the separate Cloud Connect download.',['aiEsAgents88','aiEsTriageTask88']);
           check('platformVersion','10.4.0',['aiEsAgents88']);check('esVersion','8.8.0',['aiEsAgents88']);check('cloudConnectVersion','2.0.0',['aiEsAgents88']);
         }else if(state.deployment==='cloud'){
-          check('platformVersion','10.2.0',['aiEsAgents88','aiEsSocTask88']);
+          check('platformVersion','10.2.0',['aiEsAgents88','aiEsTriageTask88']);
           const aggregate=floor(state.esVersion,'8.6.0'),task=floor(state.esVersion,'8.7.0');
           const reportedNote=aggregate==='unknown'?'An exact reported version is needed to compare either statement.':task==='meets'?'The reported version is numerically at or above both stated minimums. That does not settle the wording or establish the full pairing.':aggregate==='below'?'The reported version is below both stated minimums. A supported change needs review; neither minimum is a recommended target.':'The reported version meets the aggregate minimum but is below the task-guide minimum. Do not choose the lower statement as sufficient.';
-          r.checks.push({field:'esVersion',label:labels.esVersion,reported:state.esVersion||'Unknown',minimum:'8.6+ aggregate / 8.7+ task guide',outcome:'conflicting',belowBoth:aggregate==='below',reportedNote,sourceIds:['aiEsAgents88','aiEsSocTask88']});
+          r.checks.push({field:'esVersion',label:labels.esVersion,reported:state.esVersion||'Unknown',minimum:'8.6+ aggregate / 8.7+ task guide',outcome:'conflicting',belowBoth:aggregate==='below',reportedNote,sourceIds:['aiEsAgents88','aiEsTriageTask88']});
           if(!version(state.esVersion))fact('Confirm the ES version.','The documented minima still require clarification even when the installed version is known.');
         }
-        r.conflicts.push({title:'Current Cloud ES minimum differs between sources',text:'The ES 8.8 aggregate table lists Cloud ES 8.6+, while the current ES 8.8 workflow task guide requires ES 8.7+.',impact:'Do not select the lower value as an upgrade target. Clarify the exact workflow and supported Cloud pairing with Splunk.',scope:'Cloud workflow only',affectsDecision:state.deployment!=='enterprise',sourceIds:['aiEsAgents88','aiEsSocTask88']});
+        r.conflicts.push({title:'Current Cloud ES minimum differs between sources',text:'The ES 8.8 aggregate table lists Cloud ES 8.6+, while the detailed ES 8.8 Triage task guide requires ES 8.7+.',impact:'Do not select the lower value as an upgrade target. Clarify the exact workflow and supported Cloud pairing with Splunk.',scope:'Cloud workflow only',affectsDecision:state.deployment!=='enterprise',sourceIds:['aiEsAgents88','aiEsTriageTask88']});
         r.history.push({title:'Earlier Triage wording has been corrected',text:'The November 2 scoped review found that the current note no longer explicitly assigns Triage to Essentials and names Premier in the SOC analyst description. The earlier Essentials wording is historical; exact subcomponent entitlement remains unestablished.',sourceIds:['aiEsTriageNote88','aiEsEditions']});
         evidence('Exact paired-SOAR compatibility and agent-specific regional rollout remain unestablished here.','Neither an aggregate component table nor a hosting region establishes the whole workflow.',['aiEsAgents88','aiEsSocTask88','aiEsRegions88']);
-        action('Resolve the exact workflow and deployment prerequisites','Keep the Cloud discrepancy separate from the CMP chain. Confirm paired SOAR, representative enablement, frontier-model support, findings limits and inherited connector/asset permissions.',['aiEsSocTask88','aiEsAgents88']);
+        action('Resolve the exact workflow and deployment prerequisites','Keep the Cloud discrepancy separate from the CMP chain. Confirm paired SOAR, component enablement and model support, the conflicting Triage analysis/revision limits, and inherited connector/asset permissions.',['aiEsSocTask88','aiEsAgents88']);
       }
     }
     const below=r.checks.filter(row=>row.outcome==='below'||row.belowBoth);

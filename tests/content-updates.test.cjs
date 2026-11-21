@@ -17,12 +17,13 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('material cycle preserves scoped release evidence and prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,75);
+ assert.equal(b.policy.currentCycle,76);
  for(const key of ['environment:acs-fr-h','environment:acs-fr-h-victoria']){
   const entry=b.entries[key];assert.equal(entry.cycle,75);assert.equal(entry.kind,'corrected');assert(b.active(entry));
  }
+ const triage=b.entries['edition:ai-soc-analyst'];assert.equal(triage.cycle,76);assert.match(triage.detail,/200-analysis.*20-revision.*first-ten/);assert.equal(triage.sourceDate,null);assert(b.entries['edition:ai-soc-analyst:history:before-cycle76']);
  const maintenance106=b.entries['technical:platform:Enterprise 10.6 current maintenance release'];
- assert.equal(maintenance106.cycle,74);assert.equal(maintenance106.sourceDate,'2026-11-19');assert(b.active(maintenance106));assert(b.active(maintenance106,75));assert(!b.active(maintenance106,76));
+ assert.equal(maintenance106.cycle,74);assert.equal(maintenance106.sourceDate,'2026-11-19');assert(!b.active(maintenance106));assert(b.active(maintenance106,75));assert(!b.active(maintenance106,76));
  assert.deepEqual(Array.from(maintenance106.milestones),['Enterprise 10.6']);
  assert.match(maintenance106.detail,/No Cloud rollout or new upgrade edge/);
  assert.equal(b.entries['technical:platform:Enterprise 10.6 maintenance release'].sourceDate,'2026-10-16');
@@ -58,11 +59,11 @@ test('material cycle preserves scoped release evidence and prior cycle provenanc
  for(const key of ['ai:triage-note','soar:broker-ha88']){assert.equal(b.entries[key].cycle,48);assert(!b.active(b.entries[key]));assert.equal(b.entries[key].sourceDate,null);}
  {const e=b.entries['edition:triage-agent'];assert.equal(e.cycle,50);assert(b.active(e,51));assert.equal(e.sourceDate,null);assert.match(e.detail,/Triage and Response agents/);}
  assert(!b.active(b.entries['ai:es-essentials-regions']));
- const ai=b.entries["ai:catalog"];assert.equal(ai.cycle,50);assert(b.active(ai,51));assert.equal(ai.sourceDate,null);assert.match(ai.detail,/Triage and Response agents/);assert.match(ai.detail,/Splunk AI Assistant 2\.4/);assert.match(ai.detail,/pairing, region, entitlement and authorization stay separate/);
+ const ai=b.entries["ai:catalog:history:before-cycle76"];assert.equal(ai.recordKey,"ai:catalog");assert.equal(ai.cycle,50);assert(b.active(ai,51));assert.equal(ai.sourceDate,null);assert.match(ai.detail,/Triage and Response agents/);assert.match(ai.detail,/Splunk AI Assistant 2\.4/);assert.match(ai.detail,/pairing, region, entitlement and authorization stay separate/);
  const aiCycle42=b.entries['ai-history:catalog:cycle42'];assert.equal(aiCycle42.recordKey,'ai:catalog');assert.equal(aiCycle42.cycle,42);assert(!b.active(aiCycle42));assert.match(aiCycle42.detail,/separate Cloud Connect 2\.0 download/);assert.match(aiCycle42.detail,/does not establish an ES 8\.9 release/);
  const aiCycle40=b.entries['ai-history:catalog:cycle40'];assert.equal(aiCycle40.recordKey,'ai:catalog');assert.equal(aiCycle40.cycle,40);assert(!b.active(aiCycle40));assert.match(aiCycle40.detail,/first 10 findings/);
  const aiCycle37=b.entries['ai-history:catalog:cycle37'];assert.equal(aiCycle37.recordKey,'ai:catalog');assert.equal(aiCycle37.cycle,37);assert(!b.active(aiCycle37));assert.match(aiCycle37.detail,/Threat Graph Detection/);
- const soc=b.entries['edition:ai-soc-analyst'];assert.equal(soc.cycle,68);assert(b.active(soc,69));assert(!b.active(soc));assert.match(soc.detail,/cannot rerun/);
+ const soc=b.entries['edition:ai-soc-analyst:history:before-cycle76'];assert.equal(soc.recordKey,'edition:ai-soc-analyst');assert.equal(soc.cycle,68);assert(b.active(soc,69));assert(!b.active(soc));assert.match(soc.detail,/cannot rerun/);
  const socHistory=b.entries['edition-history:ai-soc-analyst:cycle50'];assert.equal(socHistory.cycle,50);assert(b.active(socHistory,51));assert.match(socHistory.detail,/Splunk AI Assistant 2\.4/);
  const socCycle42=b.entries['edition-history:ai-soc-analyst:cycle42'];assert.equal(socCycle42.recordKey,'edition:ai-soc-analyst');assert.equal(socCycle42.cycle,42);assert(!b.active(socCycle42));assert.match(socCycle42.detail,/dependency packaging/);
  for(const key of ['edition:connector-builder','edition:malware-reversing','edition:licensing']){const e=b.entries[key];assert.equal(e.cycle,45);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-31\.md/);}

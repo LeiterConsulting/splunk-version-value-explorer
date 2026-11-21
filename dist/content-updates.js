@@ -1,7 +1,7 @@
 /* Editorial change provenance. Cycles advance only with material factual updates. */
 (function(){
 'use strict';
-const policy={currentCycle:75,retentionCycles:2};
+const policy={currentCycle:76,retentionCycles:2};
 const note25='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-25.md';
 const note26='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-26.md';
 const note30='https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026-09-30.md';
@@ -285,6 +285,11 @@ for(const [key,history] of [
 }
 entries["technical:forwarders:November 18 advisory advance notice · SVD-2026-1101"]={"kind":"new","cycle":70,"date":"2026-11-14","version":"SVD-2026-1101","detail":"Added the advance UF and Enterprise notice with its exact listed builds.","source":"https://advisory.splunk.com/advisories/SVD-2026-1101","sourceDate":"2026-11-11","note":"https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/11/2026-11-14.md"};
 entries["edition:automation-builder"]={kind:"updated",cycle:71,date:"2026-11-14",version:"ES 8.6+ · Automation Builder Cloud task",detail:"Added the documented organization-wide agent enablement check while preserving the Cloud Platform and paired SOAR floors and the FedRAMP SOAR stack exclusion.",source:"https://help.splunk.com/en/splunk-soar/soar-cloud/develop-apps/build-playbooks/use-the-automation-builder-agent-to-build-and-understand-playbooks#before-you-begin-0",sourceDate:null,note:"https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/11/2026-11-14.md"};
+
+for(const key of ['edition:ai-soc-analyst','ai:catalog']){
+ if(entries[key])entries[key+':history:before-cycle76']={...entries[key],recordKey:key};
+ entries[key]={kind:'corrected',cycle:76,date:'2026-11-21',version:'ES 8.8 Triage documentation',detail:'Preserved the parent guide 200-analysis/20-revision model alongside the linked task first-ten, approximate 200-finding and no-rerun statements. Supported behavior remains unresolved; Autonomous Response keeps its own Controlled Availability and model/permission limits.',source:"https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",sourceDate:null,note:'https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/docs/releases/2026/11/2026-11-21.md'};
+}
 function active(entry,cycle=policy.currentCycle){return !!entry&&cycle>=entry.cycle&&cycle-entry.cycle<policy.retentionCycles;}
 function applicable(entry,record){return !entry?.milestones||entry.milestones.includes(record?.milestone);}
 function html(key,record){const e=entries[key];if(!active(e)||!applicable(e,record))return '';const text='Guide change '+e.date+' · '+e.version+' · '+e.detail+(e.sourceDate?' Source dated '+e.sourceDate+'.':' Source publication date unknown.');return '<span class="content-change content-change-'+e.kind+'"><button type="button" class="content-change-marker" aria-label="'+esc(labels[e.kind]+'. '+text)+'">'+labels[e.kind]+'</button><span class="content-change-popover" role="tooltip"><strong>'+esc(e.kind==='new'?'New to this guide':labels[e.kind])+'</strong><br>'+esc(text)+' <a href="'+esc(e.source)+'" target="_blank" rel="noopener noreferrer">Official source</a> · <a href="'+esc(e.note||note25)+'" target="_blank" rel="noopener noreferrer">Change log</a></span><span class="content-change-print"> — '+esc(labels[e.kind]+': '+text)+'</span></span>';}
