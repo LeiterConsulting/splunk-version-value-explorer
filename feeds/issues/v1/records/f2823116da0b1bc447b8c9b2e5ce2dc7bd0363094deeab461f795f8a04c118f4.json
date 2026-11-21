@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-fedramp-moderate-certified-services-display",
+  "assessmentId": "vcia-csp-cont-20261121-2",
+  "revision": 1,
+  "recordedAt": "2026-11-21T19:43:43.197Z",
+  "assessedAt": "2026-11-21T19:34:26.194Z",
+  "outcome": "still-present",
+  "rationale": "The current Moderate payload still has an empty certified_services list while retaining Certified status. High has its own named services; neither omission proves exclusion.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform FedRAMP Moderate CSO"
+    ],
+    "versions": [
+      "F1607197917",
+      "FR2314156865 for comparison"
+    ],
+    "editions": null,
+    "deployments": [
+      "US federal offering"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers verifying public Moderate offering component scope"
+    ],
+    "exclusions": [
+      "No certification revocation, component removal, entitlement, deployment, High SOAR scope, or customer authorization is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-cont-20261121-1-0",
+      "url": "https://www.fedramp.gov/marketplace/products/F1607197917/",
+      "section": "Cloud Platform Moderate product and authorization attributes",
+      "statement": "The current Moderate payload still has an empty certified_services list while retaining Certified status. High has its own named services; neither omission proves exclusion.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-21T19:30:57.980Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact official indexed representation reviewed after direct Help HTTP 403. No original raw source-body digest or publisher revision supplied."
+      }
+    },
+    {
+      "evidenceId": "csp-cont-20261121-1-1",
+      "url": "https://www.fedramp.gov/marketplace/products/FR2314156865/",
+      "section": "Cloud Platform High product and authorization attributes",
+      "statement": "The current Moderate payload still has an empty certified_services list while retaining Certified status. High has its own named services; neither omission proves exclusion.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-21T19:30:57.980Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact official indexed representation reviewed after direct Help HTTP 403. No original raw source-body digest or publisher revision supplied."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/6210389d4f3d0ea6cebdea7f4e8d8eeb8b25dfd4/docs/audits/2026-11-21-csp-fedramp-watch-review-2-sources.json",
+      "pointer": "/issueObservations/1",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "csp-fedramp-watch by 2026-11-22: retain scoped unknowns/conflicts and recheck the exact official sections; candidate export qualification and sole-steward live delivery are separate."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261117-fedramp-moderate-certified-services-display"
+  ]
+}
