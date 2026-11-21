@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "findingId": "vci-es-88-triage-credit-revision-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-21T18:21:06.464Z",
+  "title": "ES 8.8 Triage guides disagree on quota units and revision coverage",
+  "concernType": "contradiction",
+  "problem": "The same-version parent and linked detailed task use different quota units and describe conflicting aggregation/rerun behavior. Both current statements are retained; usable Triage behavior remains unresolved, separately from Autonomous Response limits.",
+  "scope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "8.8"
+    ],
+    "editions": [
+      "Premier"
+    ],
+    "deployments": [
+      "Cloud",
+      "Cloud Connected CMP as separately scoped"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No actual package or tenant behavior, precise SOAR pairing, per-agent regional rollout, customer entitlement or authorization is certified."
+    ]
+  },
+  "impact": {
+    "level": "moderate",
+    "customerScenario": "A Premier reader plans analysis coverage for aggregated investigations or findings added later.",
+    "consequence": "Using either statement as universal behavior can misstate daily capacity or later-finding coverage."
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "The exact two public sections were inspected; intended applicability and tenant behavior remain unknown."
+  },
+  "claimIds": [
+    "es.88.triage-credit-revisions"
+  ],
+  "scopeComparison": "Both English guides are ES 8.8 and directly linked. The parent describes revisions and investigation analyses; the detailed task retains a finding-based cap and no rerun.",
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "The current same-version source descriptions need authoritative reconciliation."
+  },
+  "relationships": {
+    "related": [
+      "vci-es-88-response-agent-rerun-coverage",
+      "vci-es-soc-analyst-version-floor"
+    ],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-20261121-15-triage-agent-credit-consumption-how-triage-revisions-work-li",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
+      "section": "Triage agent credit consumption; How triage revisions work; Limitations when using the Triage agent",
+      "statement": "The parent 8.8 guide describes up to 200 analyses per tenant per day, a finding or aggregated investigation as one analysis, and up to 20 revisions per investigation per day.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-21T18:03:53.205Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "69d7f60aca54d29f2edb0ed165d137edbad72065855f63ba71bd5b34ddcb8766",
+        "qualification": "Exact fetched response bytes; not a publisher revision or semantic diff."
+      }
+    },
+    {
+      "evidenceId": "es-20261121-73-how-to-use-recommendations-analyze-findings-using-the-triage",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/create-custom-dashboards-for-triage-using-the-triage-agent",
+      "section": "How to use recommendations; Analyze findings using the Triage agent",
+      "statement": "The linked 8.8 Triage task retains existing findings, the first ten from one detection, approximately 200 findings per tenant per day, and no rerun for later findings.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-21T18:05:45.981Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "38832c02a8f3577c55b4a818a494c39f11f94687d1275702f11995a48210ff55",
+        "qualification": "Exact fetched response bytes; not a publisher revision or semantic diff."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/ef1fb88045e0ab5601f4722845248f1ccd9b7593/docs/audits/2026-11-21-es-editions-watch-sources.json",
+      "pointer": "/claimChecks/10",
+      "originalLabel": "conflict-confirmed"
+    }
+  ]
+}
