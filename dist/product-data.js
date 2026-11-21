@@ -632,7 +632,7 @@ Object.assign(window.SPLUNK_DATA, {
             ],
             [
               "Match an exact supported Splunk Enterprise host",
-              "The product matrix explicitly lists Enterprise Security 8.8 with Enterprise 10.2.x and 10.4.x. A separate 10.6.1 row footnote states that ES 8.4.x and higher are compatible with Enterprise 10.6.1.1 and higher. This exact-patch qualification does not certify the generic 10.6 selector, 10.6.0 or 10.6.1. Confirm the actual patch, feature access and other prerequisites; broader 9.2.0-and-higher prose does not override the exact matrix scope.",
+              "The matrix lists ES 8.8 with Enterprise 10.2.x and 10.4.x. Its exact Enterprise 10.6.1.1 row lists 8.8.x and carries a footnote covering ES 8.4.x and higher on Enterprise 10.6.1.1 and higher. The 10.6.1.0 row lists selected versions through 8.7.x and excludes ES 8.7 and lower from cohosted KV Store 1.0. The exact row does not certify the generic 10.6 selector, a 10.6.0 host or a three-segment 10.6.1 release label.",
               "Blocker",
               "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
               true

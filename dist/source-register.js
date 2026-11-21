@@ -2671,6 +2671,33 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.8/information-about-the-service/splunk-cloud-platform-service-details",
+      "title": "splunk cloud platform service details",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.cloud.releasesData.10.8.technicalChanges.0.source",
+        "release.cloud.releasesData.10.8.requirements.0.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor",
       "title": "Ingest Processor experience and tenant prerequisites",
       "areas": [
@@ -3273,6 +3300,32 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-11-01",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/whats-new",
+      "title": "whats new",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.cloud.releasesData.10.8.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -10391,6 +10444,32 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-11-10",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/known-and-fixed-issues-for-splunk-cloud-platform",
+      "title": "known and fixed issues for splunk cloud platform",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.cloud.releasesData.10.8.technicalChanges.1.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]

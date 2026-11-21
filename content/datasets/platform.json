@@ -1288,11 +1288,11 @@
             "changeType": "Patch-qualified compatibility",
             "actionLevel": "Required",
             "from": "The platform pairing alone does not establish database-engine compatibility",
-            "to": "The matrix marks ES 8.7 and lower incompatible with cohosted KV Store 1.0 on Enterprise 10.6.0, then says ES 8.4.x and higher are compatible with Enterprise 10.6.1.1 and higher",
-            "implication": "The 10.6 line selector spans materially different maintenance scope. The 10.6.1 row enumerates ES through 8.7.x while its footnote says 8.4.x and higher, so do not invent an unlisted exact pairing or equate the three-segment 10.6.1 release statement with a 10.6.1.1 package.",
+            "to": "Enterprise 10.6.0 retains its postponement warning. For Enterprise 10.6.1.0, the matrix excludes ES 8.7 and lower from cohosted KV Store 1.0. The 10.6.1.1 row explicitly lists ES 8.8.x alongside the earlier supported patches.",
+            "implication": "The 10.6.1.0 row lists ES 8.4.1, 8.5.1, 8.6.1 and 8.7.x. The 10.6.1.1 row adds 8.8.x and has a broader 8.4.x-and-higher footnote. A 10.6 line selection alone cannot identify either exact row. A three-segment 10.6.1 release label also needs an exact patch.",
             "action": "Identify the exact Enterprise maintenance package and ES version. Retain postponement for 10.6.0; use the 10.6.1.1-and-higher matrix qualification only for its stated customer-managed scope and still validate the linked migration procedure.",
             "source": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
-            "verified": "2026-10-26"
+            "verified": "2026-11-21"
           },
           {
             "component": "Enterprise 10.6 maintenance release",
@@ -1364,7 +1364,7 @@
           ],
           [
             "Retain the ES cohosted KV Store warning",
-            "Enterprise 10.6.0 retains the ES 8.7-and-lower cohosted-KV incompatibility. The matrix separately says ES 8.4.x and higher are compatible with Enterprise 10.6.1.1 and higher, while the displayed 10.6.1 row enumerates only through ES 8.7.x. Because the selector is line-level, verify the exact Enterprise package and ES pairing; do not infer an unlisted pairing or silently treat 10.6.1 as 10.6.1.1.",
+            "Retain the documented postponement for an affected Enterprise 10.6.0 deployment. The 10.6.1.0 matrix row excludes ES 8.7 and lower from cohosted KV Store 1.0. Enterprise 10.6.1.1 explicitly lists ES 8.8.x and carries the broader 8.4.x-and-higher footnote. Verify the exact host patch and database engine before migration.",
             "Blocker",
             "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
             true
@@ -1390,7 +1390,7 @@
   "cloud": {
     "label": "Splunk Cloud Platform",
     "kind": "Splunk-managed release",
-    "latest": "10.7",
+    "latest": "10.8",
     "releases": [
       "9.2.2406",
       "9.3.2408",
@@ -1400,7 +1400,8 @@
       "10.4.2604",
       "10.5.2605",
       "10.6",
-      "10.7"
+      "10.7",
+      "10.8"
     ],
     "releasesData": {
       "9.2.2406": {
@@ -2270,6 +2271,71 @@
             "The current Service Details table lists Cloud 10.7, Enterprise Security 8.7 and ITSI 5.0. Confirm the exact stack, product patch, provider, region, feature, entitlement and regulated scope before treating 10.7 as deployed or available.",
             "Blocker",
             "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+            true
+          ]
+        ]
+      },
+      "10.8": {
+        "date": "Official release notes available November 2026",
+        "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/whats-new",
+        "features": [
+          [
+            "Data model definition upload",
+            "Data management",
+            "Align a definition across search heads",
+            "An administrator can replace an existing data model definition with JSON using Upload Definition in Splunk Web."
+          ],
+          [
+            "Machine Data Lake promotion preview",
+            "Data management",
+            "Inspect a proposed Analytics Table",
+            "Preview a bounded sample of the data and schema before submitting the full promotion."
+          ],
+          [
+            "Federated search workload admission",
+            "Search & AI",
+            "Protect remote search capacity",
+            "For supported standard and transparent federations, an administrator can apply rules on the remote search head based on whether the originating search was scheduled or ad hoc."
+          ],
+          [
+            "Delegated DDAA restore permissions",
+            "Platform operations",
+            "Delegate monitoring and execution",
+            "Restore monitoring and execution can be delegated separately from index administration."
+          ]
+        ],
+        "technicalChanges": [
+          {
+            "component": "10.8 release and managed service versions",
+            "domain": "Cloud operations",
+            "changeType": "Version scope",
+            "actionLevel": "Review",
+            "from": "Service Details lists Cloud Platform 10.7 with ES 8.7 and ITSI 5.0.",
+            "to": "The Cloud release notes describe 10.8. The current subscriptions table in the 10.8 edition of Service Details still lists those earlier service versions.",
+            "implication": "A published milestone alone does not establish which build, premium app or feature an individual stack has.",
+            "action": "Check the stack and deployment details before planning around a 10.8 capability.",
+            "source": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.8/information-about-the-service/splunk-cloud-platform-service-details",
+            "verified": "2026-11-21"
+          },
+          {
+            "component": "Federated knowledge bundle delivery",
+            "domain": "Search & federation",
+            "changeType": "Documented known issue",
+            "actionLevel": "Review",
+            "from": "Some configurations change infrequently.",
+            "to": "SPL-313801 documents a missing full knowledge bundle on some deployments.",
+            "implication": "Federated searches of third-party data that depend on search-time field extractions can fail or return incomplete results.",
+            "action": "Check the affected searches. Contact Splunk Support with SPL-313801 if the documented conditions match.",
+            "source": "https://help.splunk.com/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/known-and-fixed-issues-for-splunk-cloud-platform",
+            "verified": "2026-11-21"
+          }
+        ],
+        "requirements": [
+          [
+            "Confirm the selected stack before using Cloud 10.8 guidance",
+            "The 10.8 notes describe the milestone. Service Details still lists Cloud 10.7, ES 8.7 and ITSI 5.0. Confirm the specific stack, feature, entitlement and region.",
+            "Blocker",
+            "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.8/information-about-the-service/splunk-cloud-platform-service-details",
             true
           ]
         ]

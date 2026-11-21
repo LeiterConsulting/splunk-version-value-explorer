@@ -58,7 +58,7 @@
   const defaults = {
     platform: {
       enterprise: { from: "9.4", to: "10.4" },
-      cloud: { from: "9.3.2408", to: "10.7" },
+      cloud: { from: "9.3.2408", to: "10.8" },
       migration: { from: "9.4", to: "10.6" }
     },
     es: {

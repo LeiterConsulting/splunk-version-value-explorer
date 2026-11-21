@@ -608,6 +608,12 @@
       "url": "https://www.splunk.com/en_us/download/splunk-enterprise.html?locale=en_us"
     },
     {
+      "id": "source-6119d65af04e9e2683d3",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.8/information-about-the-service/splunk-cloud-platform-service-details"
+    },
+    {
       "id": "source-617c72730ee0b4f2b380",
       "kind": "source",
       "dataset": "sources",
@@ -654,6 +660,12 @@
       "kind": "source",
       "dataset": "sources",
       "url": "https://www.splunk.com/en_us/blog/industries/splunk-enterprise-security-premier-achieves-fedramp-moderate-authorization.html"
+    },
+    {
+      "id": "source-6960d8d2114cc0778eb8",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/whats-new"
     },
     {
       "id": "source-6a7d5336d3254cafe7c5",
@@ -1266,6 +1278,12 @@
       "kind": "source",
       "dataset": "sources",
       "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/plan-your-splunk-enterprise-installation/system-requirements-for-use-of-splunk-enterprise-on-premises"
+    },
+    {
+      "id": "source-ce14e38696e2edb70248",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://help.splunk.com/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/known-and-fixed-issues-for-splunk-cloud-platform"
     },
     {
       "id": "source-ce92391e3a9bc4eba4a8",
@@ -2239,7 +2257,7 @@
       },
       "payload": [
         "Retain the ES cohosted KV Store warning",
-        "Enterprise 10.6.0 retains the ES 8.7-and-lower cohosted-KV incompatibility. The matrix separately says ES 8.4.x and higher are compatible with Enterprise 10.6.1.1 and higher, while the displayed 10.6.1 row enumerates only through ES 8.7.x. Because the selector is line-level, verify the exact Enterprise package and ES pairing; do not infer an unlisted pairing or silently treat 10.6.1 as 10.6.1.1.",
+        "Retain the documented postponement for an affected Enterprise 10.6.0 deployment. The 10.6.1.0 matrix row excludes ES 8.7 and lower from cohosted KV Store 1.0. Enterprise 10.6.1.1 explicitly lists ES 8.8.x and carries the broader 8.4.x-and-higher footnote. Verify the exact host patch and database engine before migration.",
         "Blocker",
         "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
         true
@@ -6972,7 +6990,7 @@
       },
       "payload": [
         "Match an exact supported Splunk Enterprise host",
-        "The product matrix explicitly lists Enterprise Security 8.8 with Enterprise 10.2.x and 10.4.x. A separate 10.6.1 row footnote states that ES 8.4.x and higher are compatible with Enterprise 10.6.1.1 and higher. This exact-patch qualification does not certify the generic 10.6 selector, 10.6.0 or 10.6.1. Confirm the actual patch, feature access and other prerequisites; broader 9.2.0-and-higher prose does not override the exact matrix scope.",
+        "The matrix lists ES 8.8 with Enterprise 10.2.x and 10.4.x. Its exact Enterprise 10.6.1.1 row lists 8.8.x and carries a footnote covering ES 8.4.x and higher on Enterprise 10.6.1.1 and higher. The 10.6.1.0 row lists selected versions through 8.7.x and excludes ES 8.7 and lower from cohosted KV Store 1.0. The exact row does not certify the generic 10.6 selector, a 10.6.0 host or a three-segment 10.6.1 release label.",
         "Blocker",
         "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
         true
@@ -10512,6 +10530,35 @@
       ]
     },
     {
+      "id": "vc-5c513e36c6aeeee63111",
+      "kind": "feature",
+      "dataset": "platform",
+      "scope": {
+        "platform": "cloud",
+        "release": "10.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-6960d8d2114cc0778eb8",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/whats-new",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Federated search workload admission",
+        "Search & AI",
+        "Protect remote search capacity",
+        "For supported standard and transparent federations, an administrator can apply rules on the remote search head based on whether the originating search was scheduled or ad hoc."
+      ]
+    },
+    {
       "id": "vc-5cce68cd925ac184914c",
       "kind": "ai-capability",
       "dataset": "guidance",
@@ -13601,6 +13648,36 @@
         "Service health",
         "Trace unhealthy entities to configuration",
         "Navigate from entity status to the discovery search that contributes to the result."
+      ]
+    },
+    {
+      "id": "vc-808cd392c9a561c146a2",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "platform": "cloud",
+        "release": "10.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-6119d65af04e9e2683d3",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.8/information-about-the-service/splunk-cloud-platform-service-details",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Confirm the selected stack before using Cloud 10.8 guidance",
+        "The 10.8 notes describe the milestone. Service Details still lists Cloud 10.7, ES 8.7 and ITSI 5.0. Confirm the specific stack, feature, entitlement and region.",
+        "Blocker",
+        "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.8/information-about-the-service/splunk-cloud-platform-service-details",
+        true
       ]
     },
     {
@@ -16881,6 +16958,35 @@
         "Platform operations",
         "Modernize application state",
         "Begin the documented transition from MongoDB-backed KV Store to a cohosted PostgreSQL architecture."
+      ]
+    },
+    {
+      "id": "vc-a2c107fdc081cffa9190",
+      "kind": "feature",
+      "dataset": "platform",
+      "scope": {
+        "platform": "cloud",
+        "release": "10.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-6960d8d2114cc0778eb8",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/whats-new",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Delegated DDAA restore permissions",
+        "Platform operations",
+        "Delegate monitoring and execution",
+        "Restore monitoring and execution can be delegated separately from index administration."
       ]
     },
     {
@@ -23288,7 +23394,7 @@
       },
       "payload": [
         "Match an exact supported Splunk Enterprise host",
-        "The product matrix explicitly lists Enterprise Security 8.8 with Enterprise 10.2.x and 10.4.x. A separate 10.6.1 row footnote states that ES 8.4.x and higher are compatible with Enterprise 10.6.1.1 and higher. This exact-patch qualification does not certify the generic 10.6 selector, 10.6.0 or 10.6.1. Confirm the actual patch, feature access and other prerequisites; broader 9.2.0-and-higher prose does not override the exact matrix scope.",
+        "The matrix lists ES 8.8 with Enterprise 10.2.x and 10.4.x. Its exact Enterprise 10.6.1.1 row lists 8.8.x and carries a footnote covering ES 8.4.x and higher on Enterprise 10.6.1.1 and higher. The 10.6.1.0 row lists selected versions through 8.7.x and excludes ES 8.7 and lower from cohosted KV Store 1.0. The exact row does not certify the generic 10.6 selector, a 10.6.0 host or a three-segment 10.6.1 release label.",
         "Blocker",
         "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
         true
@@ -27259,6 +27365,35 @@
       ]
     },
     {
+      "id": "vc-fbbf038d967e8e6e50de",
+      "kind": "feature",
+      "dataset": "platform",
+      "scope": {
+        "platform": "cloud",
+        "release": "10.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-6960d8d2114cc0778eb8",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/whats-new",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Data model definition upload",
+        "Data management",
+        "Align a definition across search heads",
+        "An administrator can replace an existing data model definition with JSON using Upload Definition in Splunk Web."
+      ]
+    },
+    {
       "id": "vc-fc2814f54740804bd8e9",
       "kind": "requirement",
       "dataset": "platform",
@@ -27411,6 +27546,35 @@
         "Blocker",
         "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
         true
+      ]
+    },
+    {
+      "id": "vc-fd3b005d7b93b565e4f1",
+      "kind": "feature",
+      "dataset": "platform",
+      "scope": {
+        "platform": "cloud",
+        "release": "10.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-6960d8d2114cc0778eb8",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/whats-new",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Machine Data Lake promotion preview",
+        "Data management",
+        "Inspect a proposed Analytics Table",
+        "Preview a bounded sample of the data and schema before submitting the full promotion."
       ]
     },
     {

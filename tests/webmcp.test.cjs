@@ -746,3 +746,18 @@ test('WebMCP retains legacy application identity and reports active or fallback 
  const metadata = rt.run('get_catalog', {}).metadata;
  assert.equal(metadata.datasetRevision, null); assert.equal(metadata.engineRevision, null); assert.equal(metadata.delivery, null);
 });
+
+test('the published Cloud 10.8 milestone retains the managed service listing and exact known issue', async () => {
+  const rt = await runtime();
+  const route = { product: 'platform', platform: 'cloud', from: '10.7', to: '10.8' };
+  const report = rt.run('compare_routes', { routes: [route] }).reports[0];
+  assert(report.features.some(item => item.title === 'Data model definition upload'));
+  assert(report.breakingChanges.some(item => item.detail.includes('Cloud 10.7, ES 8.7 and ITSI 5.0')));
+  const issue = report.technicalChanges.find(item => item.component === 'Federated knowledge bundle delivery');
+  assert.match(issue.to, /SPL-313801/);
+  assert.match(issue.source, /10\.8.*known-and-fixed/);
+  const es = rt.run('compare_routes', { routes: [{product:'es', platform:'enterprise', host:'10.6', from:'8.7', to:'8.8'}] }).reports[0];
+  const pairing = es.breakingChanges.find(item => item.title === 'Match an exact supported Splunk Enterprise host');
+  assert.match(pairing.detail, /10\.6\.1\.1 row lists 8\.8\.x/);
+  assert.match(pairing.detail, /10\.6\.1\.0 row lists selected versions through 8\.7\.x/);
+});
