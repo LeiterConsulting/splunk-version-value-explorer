@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-19T12:37:10.635871Z",
+      "lastAttempt": "2026-11-20T12:38:00Z",
       "lastSuccess": "2026-11-10T12:50:41.612Z",
       "outcome": "blocked",
-      "summary": "Access recovered; regional/SAIA version reconciliation and complete coverage remain open.",
+      "summary": "Partial review: six capabilities assessed no-change; two exact-current-version families and concurrent issue-feed append remain incomplete.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -579,9 +579,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Access recovered; regional/SAIA version reconciliation and complete coverage remain open.",
           "scope": "73 URL inventory; independent bounded AI/SOC/S3 assessment; all four capability outcomes incomplete"
+        },
+        {
+          "at": "2026-11-20T12:38:00Z",
+          "outcome": "running",
+          "summary": "Running bounded November 20 CSP public-source and registry 1.4.0 review.",
+          "scope": "Eight CSP registry capabilities and four Cloud Environment daily surface rows; repository integration only."
+        },
+        {
+          "at": "2026-11-20T12:38:01Z",
+          "outcome": "blocked",
+          "summary": "Partial review: six capabilities assessed no-change; two exact-current-version families and concurrent issue-feed append remain incomplete.",
+          "scope": "All eight CSP registry 1.4.0 capabilities declared; production delivery not attempted."
         }
       ],
-      "scope": "73 URL inventory; independent bounded AI/SOC/S3 assessment; all four capability outcomes incomplete"
+      "scope": "All eight CSP registry 1.4.0 capabilities declared; production delivery not attempted."
     },
     {
       "id": "version-release-watch",
