@@ -139,6 +139,24 @@ test('ACS keeps Moderate and High service support operation-specific and separat
  const high=env.data.records.find(r=>r.id==='acs-fr-h');assert.equal(high.effective,'2026-09-15');assert(high.sources.includes('acsRelease'));assert(high.sources.includes('acsMaintenance'));assert.match(high.detail,/maintenance-window operations/);
  const moderate=env.assess(route({csp:'aws',region:'us-gov-east-1',compliance:'fr-m'}));assert(!moderate.records.some(r=>r.id==='acs-fr-h'));
 });
+test('ACS High guidance follows the selected experience and keeps both dated citations',()=>{
+ const selection={csp:'aws',compliance:'fr-h'};
+ for(const region of ['us-gov-east-1','us-gov-west-1']){
+  const records=experience=>env.assess(route({...selection,region,...experience})).records.filter(r=>r.feature==='Admin Config Service (ACS)');
+  const [classic]=records({experience:'classic'}),[victoria]=records({experience:'victoria'});
+  assert.deepEqual(Array.from(records({}),r=>r.id),[classic.id,victoria.id]);
+  assert.equal(records({experience:'classic'}).length,1);assert.equal(records({experience:'victoria'}).length,1);
+  assert.equal(classic.availability,'conditional');assert.match(classic.detail,/agree on ACS service support for Classic/);
+  assert.equal(victoria.availability,'conflicting');assert.match(victoria.detail,/unsupported on Victoria.*same page includes Victoria/);
+  for(const row of [classic,victoria]){
+   assert.equal(row.authorization,'not_established');assert.equal(row.effective,'2026-09-15');
+   assert.equal(row.checked,'2026-11-21');assert.deepEqual(Array.from(row.sources),['acs','acsRelease','acsMaintenance']);
+  }
+ }
+ for(const compliance of ['fr-m','commercial']){
+  assert(!env.assess(route({csp:'aws',compliance})).records.some(r=>r.id==='acs-fr-h-victoria'));
+ }
+});
 test('Agent Observability uses its own realms, access limits and Tokyo component exception',()=>{
  const agent=e=>env.featureRecords(route(e,'observability'),{title:'Agent Observability'});
  const tokyo=agent({region:'ap-northeast-1',compliance:'commercial'});

@@ -143,3 +143,38 @@ test('a newer green observation cannot certify publication or resolve an earlier
   // A label is not evidence and never changes receipt matching.
   assert.equal(summarize(commit, [{ ...observationRun, display_title: 'Publish verified content' }]).publisher.outcome.status, 'unavailable');
 });
+
+test('daily coverage preserves earlier work and refuses cross-owner, stale and mismatched attempt credit', async () => {
+  const { dailyReview } = await import('../scripts/pipeline-status.mjs');
+  const release = 'version-release-watch', es = 'es-editions-watch';
+  const day = '2026-11-21', today = day + 'T09:00:00Z', priorEasternDay = day + 'T04:55:00Z';
+  const registry = { registryVersion: '1.4.0', capabilities: [
+    { id: 'release', title: 'Release', mandatory: true, primaryOwner: release },
+    { id: 'editions', title: 'Editions', mandatory: true, primaryOwner: es }
+  ] };
+  const receipt = (id, watchId, capabilityId, startedAt, assessedAt, disposition) => ({
+    result: { file: id + '.json' }, run: {
+      runId: id, watchId, registryVersion: registry.registryVersion, kind: 'saved-task-execution',
+      execution: { startedAt }, recordedAt: today, coverage: [{ capabilityId, disposition, assessedAt,
+        assessments: [{ assessedAt }], followUp: null }]
+    }
+  });
+  const receipts = [
+    receipt('prior', es, 'editions', priorEasternDay, priorEasternDay, 'changed'),
+    receipt('wrong-owner', release, 'editions', today, today, 'changed'),
+    receipt('first', release, 'release', today, today, 'changed'),
+    receipt('retry', release, 'release', day + 'T10:00:00Z', null, 'deferred')
+  ];
+  let summary = dailyReview(registry, receipts, day, { watches: [{ watchId: release, matchingReceiptIds: ['retry'] }] });
+  assert.equal(summary.registered, 2); assert.equal(summary.reviewed, 1); assert.equal(summary.nativeReviewMatched, 0);
+  assert.equal(summary.sections[0].latestDisposition, 'deferred');
+  assert.equal(summary.sections[0].history[1].receipt, 'first.json');
+  assert.equal(summary.sections[1].latestDisposition, 'missing-receipt');
+  const carried = receipt('carry', es, 'editions', today, today, 'assessed-no-change');
+  carried.run.coverage[0].assessments[0].assessedAt = priorEasternDay;
+  summary = dailyReview(registry, [...receipts, carried], day, null);
+  assert.equal(summary.reviewed, 1); assert.equal(summary.nativeReviewMatched, null);
+  assert.equal(summary.sections[1].reviewedToday, false);
+  summary = dailyReview(registry, receipts, day, { watches: [{ watchId: release, matchingReceiptIds: ['first'] }] });
+  assert.equal(summary.nativeReviewMatched, 1);
+});

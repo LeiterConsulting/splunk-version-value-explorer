@@ -492,7 +492,10 @@ try {
           'The April 8 change log adds High and DoD IL5 in both AWS GovCloud regions for relevant 10.3 versions.'
         ];
         for (const claim of s3) assert(normalize(expected.text).includes(claim), 'Missing versioned S3 conflict: '+claim);
-        expected.requiredText = (expected.requiredText || []).concat(s3);
+        expected.requiredText = (expected.requiredText || []).concat(s3, [
+          'Splunk’s 10.6 compatibility matrix lists FedRAMP High as unsupported on Victoria.',
+          'The compliance guidance on the same page includes Victoria.'
+        ]);
       }
       if(marketplaceRecord) expected.requiredText=[marketplaceScope,'Current named component scope remains unresolved'];
       if(route.id==='observability-agent-gcp') {
