@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-o11y-database-monitoring-us2-conflict",
+  "assessmentId": "vcia-csp-20261120-o11y-database-monitoring-us2-conflict",
+  "revision": 1,
+  "recordedAt": "2026-11-21T02:20:38.642Z",
+  "assessedAt": "2026-11-20T12:29:09Z",
+  "outcome": "still-present",
+  "rationale": "us2 still maps to Google Cloud Oregon while Database Monitoring lists us2 with Google Cloud None. The conflict remains unresolved; nearby service rows are not substituted.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Observability Cloud Database Monitoring"
+    ],
+    "versions": [
+      "Current service description as reviewed November 20, 2026"
+    ],
+    "editions": null,
+    "deployments": [
+      "Commercial Google Cloud"
+    ],
+    "regions": [
+      "Google Cloud Oregon (us-west1) / us2"
+    ],
+    "audiences": null,
+    "exclusions": [
+      "Tenant rollout, entitlement, historical availability and regulated authorization remain outside this review."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261120-o11yservice",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
+      "section": "Realm-to-region equivalence; available components per region or realm",
+      "statement": "us2 still maps to Google Cloud Oregon while Database Monitoring lists us2 with Google Cloud None. The conflict remains unresolved; nearby service rows are not substituted.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-20T12:27:30Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "The immutable November 20 source audit retains the scope and retrieval time without a page-body digest."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/bc9e5009f1326c517228befcf1b9829a9834dcd4/docs/audits/2026-11-20-csp-fedramp-watch-sources.json",
+      "pointer": "/sourceChecks/3",
+      "originalLabel": "retrieved-and-assessed"
+    }
+  ],
+  "remainingConcerns": [
+    "CSP FedRAMP Watch by November 21: reconcile the service description table against an exact product-specific Database Monitoring clarification."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261119-o11y-database-monitoring-us2-conflict"
+  ]
+}
