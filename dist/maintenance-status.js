@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-21T12:05:48.252051Z",
-      "lastSuccess": "2026-11-10T12:50:41.612Z",
-      "outcome": "blocked",
-      "summary": "Partial review: new ACS High/Victoria source contradiction; two scopes assessed unchanged and six incomplete.",
+      "lastAttempt": "2026-11-21T19:24:00.681312+00:00",
+      "lastSuccess": "2026-11-21T19:34:26.194Z",
+      "outcome": "changed",
+      "summary": "Scoped continuation: four protected Cloud Environment rows and four AI/SOC registry scopes assessed; stale Milan/Sao Paulo exclusions corrected in candidate. Delivery and current native attempt remain unverified.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -615,9 +615,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Partial review: new ACS High/Victoria source contradiction; two scopes assessed unchanged and six incomplete.",
           "scope": "Own CSP review; exact region/experience/service evidence, no inferred authorization. Five deferred scopes plus blocked ACS correction; source/claim dates unchanged outside actual receipt; no runtime delivery."
+        },
+        {
+          "at": "2026-11-21T19:24:00.681312+00:00",
+          "outcome": "running",
+          "summary": "Scoped continuation: four protected Cloud Environment rows and four AI/SOC registry scopes assessed; stale Milan/Sao Paulo exclusions corrected in candidate. Delivery and current native attempt remain unverified.",
+          "scope": "All eight registered CSP scopes independently assessed, including four protected Cloud Environment rows before broad indexed inventory. Registered assessment completeness is distinct from unresolved product questions, current scheduler identity, native exports and live delivery."
+        },
+        {
+          "at": "2026-11-21T19:34:26.194Z",
+          "outcome": "changed",
+          "summary": "Scoped continuation: four protected Cloud Environment rows and four AI/SOC registry scopes assessed; stale Milan/Sao Paulo exclusions corrected in candidate. Delivery and current native attempt remain unverified.",
+          "scope": "All eight registered CSP scopes independently assessed, including four protected Cloud Environment rows before broad indexed inventory. Registered assessment completeness is distinct from unresolved product questions, current scheduler identity, native exports and live delivery."
         }
       ],
-      "scope": "Own CSP review; exact region/experience/service evidence, no inferred authorization. Five deferred scopes plus blocked ACS correction; source/claim dates unchanged outside actual receipt; no runtime delivery."
+      "scope": "All eight registered CSP scopes independently assessed, including four protected Cloud Environment rows before broad indexed inventory. Registered assessment completeness is distinct from unresolved product questions, current scheduler identity, native exports and live delivery."
     },
     {
       "id": "version-release-watch",

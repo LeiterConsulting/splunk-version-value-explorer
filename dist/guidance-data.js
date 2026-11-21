@@ -147,10 +147,10 @@ window.SPLUNK_DATA.guidance = {
       "title": "ES 8.8 component regions and AI compatibility",
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
       "section": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility",
-      "checked": "2026-11-20",
-      "reviewed": "2026-11-20",
-      "scope": "ES 8.8 Essentials component regions independently mapped; Premier and Cloud Connect exceptions, GCP/Azure scope and Security AI Assistant compatibility retained. This ES-scoped review does not establish regulated offering authorization.",
-      "retrieval": "Direct official page body retrieved and exact regional and compatibility tables assessed November 20; October 23 indexed-only limitation remains historical."
+      "checked": "2026-11-21",
+      "reviewed": "2026-11-21",
+      "scope": "Complete Essentials/Premier/Cloud Connect regional tables, GCP/Azure component limits and assistant compatibility. Milan and Sao Paulo no longer have named assistant exceptions. Edition, tenant enablement, model routing and authorization remain separate.",
+      "retrieval": "Exact public indexed 8.8 regional/compatibility tables reassessed November 21 after direct public acquisition returned HTTP 403. Source access and feature assessment remain separate."
     },
     "aiEsAgents88": {
       "title": "ES 8.8 agent compatibility",
@@ -643,7 +643,7 @@ window.SPLUNK_DATA.guidance = {
       "azure-ai-us-west"
     ],
     "esEssentials": {
-      "verified": "2026-10-24",
+      "verified": "2026-11-21",
       "sourceId": "aiEsRegions88",
       "regions": [
         "ap-northeast-1",
@@ -669,8 +669,6 @@ window.SPLUNK_DATA.guidance = {
       "assistantExcluded": [
         "ca-west-1",
         "eu-north-1",
-        "eu-south-1",
-        "sa-east-1",
         "us-gov-east-1",
         "us-gov-west-1"
       ],
@@ -702,8 +700,6 @@ window.SPLUNK_DATA.guidance = {
       ],
       "assistantExcluded": [
         "ca-west-1",
-        "eu-south-1",
-        "sa-east-1",
         "us-gov-east-1",
         "us-gov-west-1"
       ],
@@ -711,7 +707,8 @@ window.SPLUNK_DATA.guidance = {
         "ca-west-1",
         "us-gov-east-1",
         "us-gov-west-1"
-      ]
+      ],
+      "verified": "2026-11-21"
     },
     "esCloudConnect": {
       "regions": [
@@ -733,11 +730,10 @@ window.SPLUNK_DATA.guidance = {
         "us-west-2"
       ],
       "assistantExcluded": [
-        "ca-central-1",
-        "eu-south-1",
-        "sa-east-1"
+        "ca-central-1"
       ],
-      "agenticExcluded": []
+      "agenticExcluded": [],
+      "verified": "2026-11-21"
     },
     "capabilities": [
       {

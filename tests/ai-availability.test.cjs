@@ -110,11 +110,29 @@ test('ES Cloud and CMP retain different Montreal and Calgary component exception
  assert.equal(assess(a,'ai-es-assistant',{region:'ca-west-1',edition:'premier'}).availability,'unavailable');
  assert.equal(assess(a,'ai-es-assistant',{region:'ca-west-1',edition:'premier',deployment:'enterprise'}).availability,'conditional');
 });
+test('current ES assistant regions remove stale Milan and Sao Paulo exclusions without granting authorization',()=>{
+ const a=model();
+ for(const region of ['eu-south-1','sa-east-1']){
+  for(const edition of ['essentials','premier']){
+   const selected=state(a,{aiProduct:'es',region,edition});
+   for(const id of ['ai-es-assistant','ai-es-sop']){
+    const result=assess(a,id,{region,edition});
+    assert.equal(result.availability,'conditional');
+    assert.equal(result.authorization,'not_established');
+   }
+   assert.match(a.report(selected),/Regional evidence matches/);
+  }
+  assert.equal(assess(a,'ai-es-assistant',{region,edition:'premier',deployment:'enterprise'}).availability,'conditional');
+  assert.equal(assess(a,'ai-es-assistant',{region,edition:'essentials',deployment:'enterprise'}).availability,'not_established');
+  assert.equal(assess(a,'ai-es-detection',{region,edition:'premier',deployment:'enterprise'}).availability,'not_established');
+  assert.equal(assess(a,'ai-es-assistant',{region,edition:'premier',compliance:'fr-h'}).availability,'not_established');
+ }
+});
 test('ES component and prerequisite differences prevent broad AI availability claims',()=>{
  const a=model(),s={region:'eu-south-1',edition:'premier'};
- assert.equal(assess(a,'ai-es-assistant',s).availability,'unavailable');
+ assert.equal(assess(a,'ai-es-assistant',s).availability,'conditional');
  assert.equal(assess(a,'ai-es-detection',s).availability,'conditional');
- assert.equal(assess(a,'ai-es-sop',s).availability,'unavailable');
+ assert.equal(assess(a,'ai-es-sop',s).availability,'conditional');
  assert.equal(assess(a,'ai-es-sop',{deployment:'enterprise'}).availability,'unavailable');
  assert.equal(assess(a,'ai-es-soc',{edition:'essentials'}).availability,'unavailable');
  assert.equal(assess(a,'ai-es-threat-graph',{edition:'essentials'}).availability,'unavailable');
@@ -137,7 +155,7 @@ test('ES provider exclusion remains a Cloud rule and Essentials uses its own reg
  assert.equal(assess(a,'ai-es-assistant',{region:'eu-north-1',edition:'essentials'}).availability,'unavailable');
  assert.equal(assess(a,'ai-es-assistant',{region:'eu-north-1',edition:'premier'}).availability,'not_established');
  assert.equal(assess(a,'ai-es-detection',{region:'eu-south-1',edition:'essentials'}).availability,'conditional');
- assert.equal(assess(a,'ai-es-sop',{region:'eu-south-1',edition:'essentials'}).availability,'unavailable');
+ assert.equal(assess(a,'ai-es-sop',{region:'eu-south-1',edition:'essentials'}).availability,'conditional');
  assert.equal(assess(a,'ai-es-assistant',{region:'ca-west-1',edition:'essentials'}).availability,'unavailable');
 });
 test('filtering, comparison and complete selected report share the same evidence and escape search',()=>{

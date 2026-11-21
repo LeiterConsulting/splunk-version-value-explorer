@@ -17,9 +17,11 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('material cycle preserves scoped release evidence and prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,76);
+ assert.equal(b.policy.currentCycle,77);
+ const regions=b.entries['ai:catalog'];assert.equal(regions.cycle,77);assert.match(regions.detail,/Milan and Sao Paulo/);assert(b.active(regions));
+ assert(b.entries['ai:catalog:history:before-cycle77']);
  for(const key of ['environment:acs-fr-h','environment:acs-fr-h-victoria']){
-  const entry=b.entries[key];assert.equal(entry.cycle,75);assert.equal(entry.kind,'corrected');assert(b.active(entry));
+  const entry=b.entries[key];assert.equal(entry.cycle,75);assert.equal(entry.kind,'corrected');assert(b.active(entry,76));assert(!b.active(entry));
  }
  const triage=b.entries['edition:ai-soc-analyst'];assert.equal(triage.cycle,76);assert.match(triage.detail,/200-analysis.*20-revision.*first-ten/);assert.equal(triage.sourceDate,null);assert(b.entries['edition:ai-soc-analyst:history:before-cycle76']);
  const maintenance106=b.entries['technical:platform:Enterprise 10.6 current maintenance release'];
