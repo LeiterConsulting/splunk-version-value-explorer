@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "revision": 1,
+  "recordedAt": "2026-11-21T20:35:15.359Z",
+  "findingId": "vci-o11y-november-unmatched-pdf-heading-split",
+  "evidence": [
+    {
+      "evidenceId": "release-r4-nov21-print-heading",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/actions/runs/44944834382/job/136969747584",
+      "section": "observability-november-unknown-region-default/page-10.png",
+      "statement": "The Automation & AI section label is alone at the end of page10; the A2A card begins on page11.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-21",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "bf32a9e8221e173af5b2c800592ed04f164c067d256916452ae6297d36fcb66e",
+        "qualification": "Independently downloaded and verified original Actions export archive. Assistant inspected retained rendered page images; this is not a human full-page review."
+      }
+    },
+    {
+      "evidenceId": "release-r4-nov21-print-content",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/actions/runs/44944834382/job/136969747584",
+      "section": "Same retained route page11;14-page PDF; complete offline HTML and geometry/text receipt",
+      "statement": "The A2A content and cited prerequisite context remain readable on page11. Native checks confirm complete PDF/HTML text without out-of-bounds text.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-21",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "bf32a9e8221e173af5b2c800592ed04f164c067d256916452ae6297d36fcb66e",
+        "qualification": "Same exact retained archive and report inputs. Automated geometry/completeness and assistant selected-image inspection are distinct."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/0638683eb26c81b3e9fb9ed705b9e45ab393a842/docs/audits/2026-11-21-version-release-watch-review-4-sources.json",
+      "pointer": "/renderedFindings/0",
+      "originalLabel": "tracked-nonblocking-repair"
+    }
+  ],
+  "kind": "finding",
+  "title": "The November unmatched Observability PDF separates its Automation & AI label from the first card",
+  "concernType": "suspected-error",
+  "problem": "A native page break leaves a short section label at the foot of page10 while the A2A card starts on page11.",
+  "scope": {
+    "products": [
+      "VersionCompass Observability release report"
+    ],
+    "versions": [
+      "Tree bb565344e04e2502b42c501317dec51bb252f402"
+    ],
+    "editions": null,
+    "deployments": [
+      "Native Chromium PDF; default theme; November2026 comparison with GCP Oregon context"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Minor presentation-only observation. Complete A2A card, prerequisites and numbered citations remain present. No vendor feature, entitlement, region availability or authorization conclusion."
+    ]
+  },
+  "impact": {
+    "customerScenario": "Read the November Observability comparison PDF with the selected GCP Oregon Cloud environment.",
+    "consequence": "The reader must turn the page to reach the first card. Content and exports continue to function.",
+    "level": "low"
+  },
+  "confidence": {
+    "level": "high",
+    "rationale": "Separately inspected the exact retained pages10 and11; automated completeness and geometry checks passed for all14 pages."
+  },
+  "claimIds": [
+    "observability.november.unmatched.pdf-section-heading"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Retain the bounded candidate observation; no production occurrence or repair is claimed."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  }
+}

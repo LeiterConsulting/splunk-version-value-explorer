@@ -2671,6 +2671,33 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.8/information-about-the-service/splunk-cloud-platform-service-details",
+      "title": "splunk cloud platform service details",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.cloud.releasesData.10.8.technicalChanges.0.source",
+        "release.cloud.releasesData.10.8.requirements.0.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor",
       "title": "Ingest Processor experience and tenant prerequisites",
       "areas": [
@@ -3278,6 +3305,32 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/whats-new",
+      "title": "whats new",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.cloud.releasesData.10.8.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/9.2.2406/splunk-cloud-platform-release-notes/whats-new",
       "title": "whats new",
       "areas": [
@@ -3342,7 +3395,7 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.7"
       ],
       "reviews": [
-        "2026-11-03"
+        "2026-11-21"
       ],
       "claimReferences": [
         {
@@ -3359,7 +3412,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-03",
+      "reviewed": "2026-11-21",
       "status": "Reviewed",
       "firstRecorded": "2026-11-03",
       "firstUsed": null,
@@ -3379,6 +3432,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-20",
           "event": "Review status updated: Reviewed · 2026-11-03"
+        },
+        {
+          "date": "2026-11-21",
+          "event": "Review status updated: Reviewed · 2026-11-21"
         }
       ]
     },
@@ -3394,7 +3451,7 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.1"
       ],
       "reviews": [
-        "2026-11-03"
+        "2026-11-21"
       ],
       "claimReferences": [
         {
@@ -3407,7 +3464,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-03",
+      "reviewed": "2026-11-21",
       "status": "Reviewed",
       "firstRecorded": "2026-11-03",
       "firstUsed": null,
@@ -3418,6 +3475,90 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-11-03",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-21",
+          "event": "Review status updated: Reviewed · 2026-11-21"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/about-splunk-ai-assistant/about-splunk-ai-assistant",
+      "title": "SAIA 2.4.0 and its ITSI subagent",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.aiSaiaAbout240.url",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.2"
+      ],
+      "reviews": [
+        "2026-11-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Splunk AI Assistant ITSI subagent, Where Splunk AI Assistant runs"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.2",
+          "section": "Splunk AI Assistant ITSI subagent, Where Splunk AI Assistant runs"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "title": "SAIA 2.4.0 Cloud installation and service regions",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.aiSaiaInstall240.url",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.1"
+      ],
+      "reviews": [
+        "2026-11-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "FedRAMP deployments, Supported regions, Version compatibility"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.1",
+          "section": "FedRAMP deployments, Supported regions, Version compatibility"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -3433,6 +3574,7 @@ window.VersionCompassSources = {
         "release.guidance.sources.aiSaiaCloudConnected240.url",
         "editions.sources.saiaCloudConnect240.u",
         "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.1",
         "guidance: guidance.aiAvailability.capabilities.3",
         "guidance: guidance.aiAvailability.capabilities.4",
         "guidance: guidance.aiAvailability.capabilities.7",
@@ -3446,6 +3588,10 @@ window.VersionCompassSources = {
       "claimReferences": [
         {
           "path": "guidance: guidance.aiAvailability",
+          "section": "Prerequisites; Version compatibility; Installation steps; What data leaves your environment"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.1",
           "section": "Prerequisites; Version compatibility; Installation steps; What data leaves your environment"
         },
         {
@@ -3473,6 +3619,166 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-11-20",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/release-notes/known-issues",
+      "title": "SAIA 2.4.0 known issues",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.aiSaiaKnownIssues240.url",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.1"
+      ],
+      "reviews": [
+        "2026-11-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "SAIA-9918 Cloud Connected access"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.1",
+          "section": "SAIA-9918 Cloud Connected access"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/release-notes/whats-new-in-splunk-ai-assistant",
+      "title": "SAIA 2.4.0 release notes",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.aiSaiaRelease240.url",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.1"
+      ],
+      "reviews": [
+        "2026-11-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Version 2.4.0 and Version 2.2.0"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.1",
+          "section": "Version 2.4.0 and Version 2.2.0"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "title": "Agent Mode on SAIA 2.4.0",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.aiSaiaAgentMode240.url",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.1"
+      ],
+      "reviews": [
+        "2026-11-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Requirements, Supported regions, Enable Agent Mode"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.1",
+          "section": "Requirements, Supported regions, Enable Agent Mode"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+      "title": "SAIA 2.4.0 Model Runtime",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.aiSaiaModelRuntime240.url",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.1"
+      ],
+      "reviews": [
+        "2026-11-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Supported regions and region standard, Using Model Runtime"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.1",
+          "section": "Supported regions and region standard, Using Model Runtime"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -3791,6 +4097,7 @@ window.VersionCompassSources = {
         "editions: editions.conflicts.1.claims.1"
       ],
       "reviews": [
+        "2026-11-21",
         "2026-10-27"
       ],
       "claimReferences": [
@@ -7535,7 +7842,7 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.2"
       ],
       "reviews": [
-        "2026-10-23"
+        "2026-11-21"
       ],
       "claimReferences": [
         {
@@ -7556,7 +7863,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-23",
+      "reviewed": "2026-11-21",
       "status": "Reviewed",
       "firstRecorded": "2026-10-23",
       "firstUsed": null,
@@ -7568,6 +7875,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-23",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-21",
+          "event": "Review status updated: Reviewed · 2026-11-21"
         }
       ]
     },
@@ -7586,7 +7897,7 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.7"
       ],
       "reviews": [
-        "2026-10-23"
+        "2026-11-21"
       ],
       "claimReferences": [
         {
@@ -7611,7 +7922,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-23",
+      "reviewed": "2026-11-21",
       "status": "Reviewed",
       "firstRecorded": "2026-10-23",
       "firstUsed": null,
@@ -7631,6 +7942,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-04",
           "event": "Review status updated: Reviewed · 2026-10-23"
+        },
+        {
+          "date": "2026-11-21",
+          "event": "Review status updated: Reviewed · 2026-11-21"
         }
       ]
     },
@@ -7680,7 +7995,7 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.1"
       ],
       "reviews": [
-        "2026-11-03"
+        "2026-11-21"
       ],
       "claimReferences": [
         {
@@ -7693,7 +8008,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-03",
+      "reviewed": "2026-11-21",
       "status": "Reviewed",
       "firstRecorded": "2026-11-03",
       "firstUsed": null,
@@ -7705,6 +8020,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-03",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-21",
+          "event": "Review status updated: Reviewed · 2026-11-21"
         }
       ]
     },
@@ -7720,7 +8039,7 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.1"
       ],
       "reviews": [
-        "2026-11-03"
+        "2026-11-21"
       ],
       "claimReferences": [
         {
@@ -7733,7 +8052,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-03",
+      "reviewed": "2026-11-21",
       "status": "Reviewed",
       "firstRecorded": "2026-11-03",
       "firstUsed": null,
@@ -7745,6 +8064,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-03",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-21",
+          "event": "Review status updated: Reviewed · 2026-11-21"
         }
       ]
     },
@@ -9037,8 +9360,7 @@ window.VersionCompassSources = {
         "soar: soar.records.13",
         "soar: soar.records.14",
         "soar: soar.records.15",
-        "soar: soar.backlog.5",
-        "soar: soar.targetRequirements.8.8.0"
+        "soar: soar.backlog.5"
       ],
       "reviews": [
         "2026-11-05",
@@ -9096,10 +9418,6 @@ window.VersionCompassSources = {
         {
           "path": "soar: soar.backlog.5",
           "section": "November 4, 2026 Release 8.8; General Availability statement; Automation Broker High Availability"
-        },
-        {
-          "path": "soar: soar.targetRequirements.8.8.0",
-          "section": "October 21, 2026 release 8.8 CA/GA wording conflict; Automation Broker HA; System Insights enhancements; bundled Universal Forwarder 10.4.4; 7.1–8.7 history"
         }
       ],
       "usage": "In use",
@@ -9515,6 +9833,186 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/get-splunk-soar-on-premises/get-splunk-soar-on-premises",
+      "title": "SOAR On-premises 8.8 · Get Splunk SOAR (On-premises)",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.get88.url",
+        "soar: soar.records.30"
+      ],
+      "reviews": [
+        "2026-11-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.30",
+          "section": "Community account for access to installation packages"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/system-requirements/general-system-requirements",
+      "title": "SOAR On-premises 8.8 · General system requirements",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.req88.url",
+        "soar: soar.targetRequirements.8.8.0"
+      ],
+      "reviews": [
+        "2026-11-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.targetRequirements.8.8.0",
+          "section": "Supported operating systems, database, Elasticsearch and bundled Universal Forwarder"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/system-requirements/system-requirements-for-production-use",
+      "title": "SOAR On-premises 8.8 · System requirements for production use",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.sizing88.url",
+        "soar: soar.targetRequirements.8.8.0"
+      ],
+      "reviews": [
+        "2026-11-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.targetRequirements.8.8.0",
+          "section": "Production processor, memory, storage and networking requirements"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-a-splunk-soar-on-premises-instance",
+      "title": "SOAR On-premises 8.8 · Upgrade a Splunk SOAR (On-premises) instance",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.install88.url",
+        "soar: soar.records.30"
+      ],
+      "reviews": [
+        "2026-11-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.30",
+          "section": "Unprivileged installation archive format with version, build, commit, OS and architecture"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+      "title": "SOAR On-premises 8.8 · Upgrade path for Splunk SOAR (On-premises) unprivileged installations",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.path88.url",
+        "soar: soar.records.30",
+        "soar: soar.targetRequirements.8.8.0"
+      ],
+      "reviews": [
+        "2026-11-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.30",
+          "section": "Unprivileged upgrade table; 8.5 bridge, direct 7.0.x-and-higher row and conditional OS and PostgreSQL migrations"
+        },
+        {
+          "path": "soar: soar.targetRequirements.8.8.0",
+          "section": "Unprivileged upgrade table; 8.5 bridge, direct 7.0.x-and-higher row and conditional OS and PostgreSQL migrations"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.6.0/splunk-soar-on-premises-release-notes/fixed-issues-for-splunk-soar-on-premises",
       "title": "SOAR 8.6 fixed issues",
       "areas": [
@@ -9819,6 +10317,112 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/fixed-issues-for-splunk-soar-on-premises",
+      "title": "SOAR On-premises 8.8 · Fixed issues for Splunk SOAR (On-premises)",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.fixed88.url"
+      ],
+      "reviews": [
+        "2026-11-21"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/known-issues-for-splunk-soar-on-premises",
+      "title": "SOAR On-premises 8.8 · Known issues for Splunk SOAR (On-premises)",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.known88.url"
+      ],
+      "reviews": [
+        "2026-11-21"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+      "title": "SOAR On-premises 8.8 · Welcome to Splunk SOAR (On-premises)",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.on88.url",
+        "soar: soar.records.30",
+        "soar: soar.records.31",
+        "soar: soar.records.32",
+        "soar: soar.targetRequirements.8.8.0"
+      ],
+      "reviews": [
+        "2026-11-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.30",
+          "section": "November 4 release; Broker deployment scope and 512 KiB custom-function metadata limit"
+        },
+        {
+          "path": "soar: soar.records.31",
+          "section": "November 4 release; Broker deployment scope and 512 KiB custom-function metadata limit"
+        },
+        {
+          "path": "soar: soar.records.32",
+          "section": "November 4 release; Broker deployment scope and 512 KiB custom-function metadata limit"
+        },
+        {
+          "path": "soar: soar.targetRequirements.8.8.0",
+          "section": "November 4 release; Broker deployment scope and 512 KiB custom-function metadata limit"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
       "title": "SOAR Export 8.7 prerequisites on Cloud Platform",
       "areas": [
@@ -9995,20 +10599,25 @@ window.VersionCompassSources = {
         "soar.sources.export88Cloud.url",
         "content-updates.js",
         "editions: editions.notes.1",
-        "soar: soar.records.23"
+        "soar: soar.records.23",
+        "soar: soar.records.33"
       ],
       "reviews": [
-        "2026-11-09",
-        "2026-11-20"
+        "2026-11-20",
+        "2026-11-21"
       ],
       "claimReferences": [
         {
           "path": "soar: soar.records.23",
           "section": "Required Python version; Splunk product compatibility matrix; Required app"
+        },
+        {
+          "path": "soar: soar.records.33",
+          "section": "Required Python version; Splunk product compatibility matrix; Required app"
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-20",
+      "reviewed": "2026-11-21",
       "status": "Reviewed",
       "firstRecorded": "2026-11-09",
       "firstUsed": null,
@@ -10024,6 +10633,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-20",
           "event": "Review status updated: Reviewed · 2026-11-20"
+        },
+        {
+          "date": "2026-11-21",
+          "event": "Review status updated: Reviewed · 2026-11-21"
         }
       ]
     },
@@ -10038,20 +10651,25 @@ window.VersionCompassSources = {
         "editions.sources.soarExportEnterprise88.u",
         "soar.sources.export88Enterprise.url",
         "editions: editions.notes.1",
-        "soar: soar.records.23"
+        "soar: soar.records.23",
+        "soar: soar.records.33"
       ],
       "reviews": [
-        "2026-11-09",
-        "2026-11-20"
+        "2026-11-20",
+        "2026-11-21"
       ],
       "claimReferences": [
         {
           "path": "soar: soar.records.23",
           "section": "Required Python version; Splunk product compatibility matrix; Required app"
+        },
+        {
+          "path": "soar: soar.records.33",
+          "section": "Required Python version; Splunk product compatibility matrix; Required app"
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-20",
+      "reviewed": "2026-11-21",
       "status": "Reviewed",
       "firstRecorded": "2026-11-09",
       "firstUsed": null,
@@ -10067,6 +10685,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-20",
           "event": "Review status updated: Reviewed · 2026-11-20"
+        },
+        {
+          "date": "2026-11-21",
+          "event": "Review status updated: Reviewed · 2026-11-21"
         }
       ]
     },
@@ -10083,20 +10705,25 @@ window.VersionCompassSources = {
         "soar.sources.export88Release.url",
         "content-updates.js",
         "editions: editions.notes.1",
-        "soar: soar.records.23"
+        "soar: soar.records.23",
+        "soar: soar.records.33"
       ],
       "reviews": [
-        "2026-11-09",
-        "2026-11-20"
+        "2026-11-20",
+        "2026-11-21"
       ],
       "claimReferences": [
         {
           "path": "soar: soar.records.23",
-          "section": "Welcome to release 8.8.0"
+          "section": "8.8.0 November 4 maintenance release; 8.8.1 November 19 fix PAPP-38632"
+        },
+        {
+          "path": "soar: soar.records.33",
+          "section": "8.8.0 November 4 maintenance release; 8.8.1 November 19 fix PAPP-38632"
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-20",
+      "reviewed": "2026-11-21",
       "status": "Reviewed",
       "firstRecorded": "2026-11-09",
       "firstUsed": null,
@@ -10112,6 +10739,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-20",
           "event": "Review status updated: Reviewed · 2026-11-20"
+        },
+        {
+          "date": "2026-11-21",
+          "event": "Review status updated: Reviewed · 2026-11-21"
         }
       ]
     },
@@ -10220,7 +10851,8 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.broker.url",
-        "soar: soar.records.19"
+        "soar: soar.records.19",
+        "soar: soar.records.31"
       ],
       "reviews": [
         "2026-10-01"
@@ -10228,6 +10860,10 @@ window.VersionCompassSources = {
       "claimReferences": [
         {
           "path": "soar: soar.records.19",
+          "section": "September 2 release 8.7; Python 3.13 only; 8.6.0.536 fixes"
+        },
+        {
+          "path": "soar: soar.records.31",
           "section": "September 2 release 8.7; Python 3.13 only; 8.6.0.536 fixes"
         }
       ],
@@ -10288,6 +10924,32 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-11-10",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/known-and-fixed-issues-for-splunk-cloud-platform",
+      "title": "known and fixed issues for splunk cloud platform",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.cloud.releasesData.10.8.technicalChanges.1.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]

@@ -1083,6 +1083,58 @@
       "cases": 234,
       "pages": 2605,
       "reportFingerprint": "1aa8f6f27dad0e1c483d41227defa6bf3a158b04d5fcda77f91d6822e4942c3b"
+    },
+    "reconciledMain": {
+      "outcome": "passed",
+      "observedAt": "2026-11-21T20:51:55.848Z",
+      "runId": "44946923315",
+      "attempt": 1,
+      "workflow": ".github/workflows/validate.yml",
+      "event": "push",
+      "headBranch": "main",
+      "commit": "6d28241e93b45807fb64856100181044ba1592fd",
+      "tree": "359f9ddf2666aa9c9359cd894fbb1a7abd62a54f",
+      "validationJobId": 136976329707,
+      "attestationJobId": 136979107770,
+      "workflowOutcome": "success",
+      "validationJobOutcome": "success",
+      "exportStepOutcome": "success",
+      "attestationJobOutcome": "success",
+      "artifactId": 14724630237,
+      "zipSha256": "1d37fc47ec89d9eb6ffe20919743ac7db610c0338909320d567aff14cae86bf8",
+      "zipBytes": 492562820,
+      "attestationArtifactId": 14724675175,
+      "attestationZipSha256": "d99b2f74ba07fe65bb4e3978db852d5ffbfc63676eb0c043553c2aba3c3cdef2",
+      "completedAt": "2026-11-21T20:44:10.009Z",
+      "cases": 238,
+      "pages": 2721,
+      "artifactFiles": 4955,
+      "target": "66d2506519830e07d042b404a8f4b29b4d098b4e12e813d3131df803482a3874",
+      "signature": {
+        "admission": "held",
+        "artifactId": "14724630237",
+        "artifactUploadAttemptVerified": true,
+        "certificateRunAttemptBound": true,
+        "deliveryVerified": false,
+        "payloadManifestSha256": "77fc2b6351b9e204460a7f4bd4e0ed5ad0203ec59ef2e5568d4f88c4ee0d5623",
+        "productionActionAllowed": false,
+        "runAttempt": "1",
+        "runId": "44946923315",
+        "schemaVersion": 1,
+        "signatureVerified": true,
+        "status": "signature-and-exact-attempt-bound",
+        "zipSha256": "1d37fc47ec89d9eb6ffe20919743ac7db610c0338909320d567aff14cae86bf8"
+      },
+      "unitTests": 938,
+      "pythonAttestationTests": 47,
+      "build": "passed",
+      "qualification": "Authenticated GitHub workflow/job/step/commit/attempt readback, original archive digests, safe extraction, complete export-evidence verification on a clean exact-main checkout, and offline signature/certificate/upload-attempt validation with repository-pinned gh/root. No production admission or D1 proof."
+    },
+    "currentMetadataInputs": {
+      "outcome": "identical-to-validated-main",
+      "fingerprint": "66d2506519830e07d042b404a8f4b29b4d098b4e12e813d3131df803482a3874",
+      "proof": "docs/audits/2026-11-21-version-release-watch-handoff.json#/validation/impact",
+      "qualification": "Docs/feed-only follow-up. Complete scoped source assessments retain their original times; later editorial main changes receive no independent review credit."
     }
   },
   "publication": {
@@ -1098,11 +1150,17 @@
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "version-release-watch",
-    "status": "pending-public-provenance",
-    "recordedAt": "2026-11-21T20:33:36.470Z",
+    "status": "published",
+    "recordedAt": "2026-11-21T20:35:17.514Z",
     "reviewDigest": "24416581da42538befd6f05c51243801ee16ced5c2c1182f0260a06f3c627862",
-    "publicationId": "vci-caf9c1b32621b5088703a28b12705fd0ded4ce1e18a49dee756c10fd8d0fca6b",
-    "recordKeys": [],
+    "publicationId": "vci-65cb5fbe127f3987f9c148900bc1f3d3f5df8aca0397c0f0cd0322f401ada67d",
+    "recordKeys": [
+      "assessment:vcia-release-20261121-r4-saia-240-runtime-scope@1",
+      "assessment:vcia-release-20261121-r4-november-appsec-discovery@1",
+      "assessment:vcia-release-20261121-r4-es-maintenance-matrix@1",
+      "finding:vci-o11y-november-unmatched-pdf-heading-split@1",
+      "assessment:vcia-release-20261121-r4-november-print-heading@1"
+    ],
     "notReassessedFindingIds": [
       "vci-soar-cloud-880-release-stage",
       "vci-itsi-subagent-region",
@@ -1154,9 +1212,15 @@
       "vci-observability-ai-us3-region-mapping"
     ],
     "deferredConcerns": [
-      "version-release-watch by2026-11-22: publish this appended rendered-finding provenance, finish the three scoped reassessments and new minor print finding/assessment in retained cumulative feed checkpoints, and verify pinned readback."
+      "version-release-watch by2026-11-22: Full mapped SAIA About, ES aggregate, base Observability/RCA discovery chain and remaining capability admission not completed.",
+      "version-release-watch by2026-11-22: Exact2.4 About/ITSI details, full current known-issues/release bodies and the full registered2.3.6 family were not all substantively available. No installer minimum promoted to feature support.",
+      "version-release-watch by2026-11-22: 10.8 service/current-subscriptions, exact known/fixed and maintenance body reconciliation remain unassessed. No rollout date, patch, entitlement or service pairing inferred.",
+      "version-release-watch by2026-11-22: Current release/upgrade-window plus complete managed-service pairing chain and patch-qualified route implementation not independently completed here. Unmerged editorial PR235 is a signal, not this watch evidence.",
+      "version-release-watch by2026-11-22: Mobile RUM/session/crash, .NET dual-mode, Db2 scraper and full monthly/service/Collector chain remain incomplete. No automatic capability expansion.",
+      "version-release-watch by2026-11-22: 8.8 exact build, complete system/runtime, known/fixed and App/Export/Broker matrices not independently assessed. No claim that no listed issues means no issues; no independent version number establishes pairing.",
+      "version-release-watch by2026-11-23: repair and validate the bounded minor print section-heading split."
     ],
-    "qualification": "Existing scoped source claims remain pinned to eb415b08. This appended assistant-observed rendered finding requires its own public provenance before feed publication. Source/claim clocks are retained; no runtime change or automatic closure."
+    "qualification": "Three scoped source assessments cite public audit eb415b08. One minor rendered-report finding and its actual assessment cite the appended public audit0638683e. Checkpoints100/101 retain all original records/snapshots. GitHub integration/readback and live delivery remain distinct."
   },
   "renderedFindings": [
     {

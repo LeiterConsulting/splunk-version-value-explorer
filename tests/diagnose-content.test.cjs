@@ -155,11 +155,19 @@ test('method guard rejection and adapter mismatch both halt the run', async () =
   }
 });
 test('headers and body share one deadline rather than resetting the body timer', async () => {
-  const f = fixture(async()=> {
-    await new Promise(resolve=>setTimeout(resolve,20));
-    return { status:200, body: { getReader: () => ({ read: () => new Promise(resolve => setTimeout(() => resolve({done:false,value:Buffer.from('{}')}),40)), cancel:()=>Promise.resolve(), releaseLock(){} }) } };
+  let elapsed = 0;
+  const f = fixture(() => {
+    elapsed += 20;
+    return {
+      status: 200,
+      body: { getReader: () => ({
+        async read() { elapsed += 20; return { done: true }; },
+        async cancel() {},
+        releaseLock() {}
+      }) }
+    };
   });
-  const result=await f.run({requestMs:35});
+  const result = await f.run({ requestMs: 35, now: () => elapsed });
   assert.equal(result.checks['database-health'].errorName,'TimeoutError');
   assert.equal(result.checks['database-health'].request.phase,'body');
   assert.equal(f.calls.length,1);
