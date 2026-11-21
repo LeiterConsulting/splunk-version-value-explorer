@@ -102,6 +102,18 @@ here. Exact-candidate CI must rerun the current complete matrix.
    Retain exact URL, section, retrieval method/time/hash and actual assessment
    scope/date. A search result is qualified as indexed evidence. Preserve conflicts
    and unknowns rather than borrowing adjacent releases or related services.
+   Another authorized reviewer can provide a dated primary-source handoff. Record
+   the original retrieval time, exact public URL and section, a short literal
+   anchor or scoped table values, the reviewer’s interpretation and its limits,
+   and the immutable GitHub record of the successful read. See the
+   [November 21 release sections](audits/2026-11-21-release-section-evidence.json).
+   The due owner must read the evidence, compare it with the current claim and
+   contradictory sections, and record its own actual assessment time. Preserve
+   a denial as a denial. A partial handoff, previous-day snapshot, digest or
+   search snippet alone cannot earn a new same-day assessment. Use Splunk’s
+   [versioned topic links and documented reading options](https://help.splunk.com/en/release-notes-and-updates/using-the-help-portal)
+   or other current, official publications when available. For unsupported
+   portions, record the exact missing section and keep the last supported facts.
 4. Record every mandatory participating capability, including explicit blocked,
    deferred, failed or out-of-scope entries with owner, finite action and review
    date. Freshness is evaluated at the retained run and later observed continuation
