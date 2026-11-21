@@ -208,10 +208,11 @@ async function main(args) {
     runs: receipts.map(({ result: { coverageComplete, deliveryComplete }, run }) => ({ ...run, coverageComplete, deliveryComplete }))
   }) : null;
   const daily = dailyReview(registry, receipts, today, runtime);
+  const advisor = require('./advisor-maintenance.cjs').reviewDecisions(new Date(now).toISOString());
   const readiness = watchReadiness(coverage.registryVersion, executions, runtime), operations = operationalReadiness(runtime);
-  console.log(JSON.stringify({ evaluatedAt: new Date(now).toISOString(), repository, ...result, siteDelivery, readiness, operations, coverage: { activation: coverage.activation, daily,
+  console.log(JSON.stringify({ evaluatedAt: new Date(now).toISOString(), repository, ...result, siteDelivery, readiness, operations, coverage: { activation: coverage.activation, daily, advisor,
     currentSavedExecutions: executions, retainedHistory: coverage.runs.map(({ file, runId, watchId }) => ({ file, runId, watchId })),
     qualification: 'Latest retained saved execution per watch uses the recorded attempt start when present. Native attempts and result identities require separate reconciliation.' } }, null, 2));
-  if (!daily.registered || daily.nativeReviewMatched !== daily.registered || result.validation.status !== 'success' || siteDelivery.status !== 'readback-matched' || readiness.status !== 'evidence-matched' || operations.status !== 'evidence-matched') process.exitCode = 1;
+  if (!advisor.total || advisor.current !== advisor.total || !daily.registered || daily.nativeReviewMatched !== daily.registered || result.validation.status !== 'success' || siteDelivery.status !== 'readback-matched' || readiness.status !== 'evidence-matched' || operations.status !== 'evidence-matched') process.exitCode = 1;
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main(process.argv.slice(2)).catch(error => { console.error(error.message); process.exitCode = 1; });

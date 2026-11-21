@@ -84,6 +84,8 @@ When authoritative evidence clearly supports a change, the maintenance workflow 
 
 Maintenance validation also covers the shared WebMCP comparison contract and its citations; uncertain findings remain subject to the same human-review stop.
 
+The [Advisor decision briefs](docs/advisor.md) compare reported versions with public evidence for SAIA Agent Mode, ITSI dependencies and the Enterprise Security SOC workflow. Each brief includes the source review dates and the limits that apply to the selected deployment.
+
 Published maintenance changes are recorded in the [daily release notes](docs/releases/README.md). See [Scheduled maintenance](docs/scheduled-maintenance.md) for the review cadence, evidence standards, publication safeguards, and conceptual guidance for adapting the approach.
 
 ## Cloud environment context

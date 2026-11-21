@@ -15,12 +15,19 @@ window.VersionCompassAdvisorAdmission = {
       "source-aiSaiaCloudConnected",
       "agentModeRegions",
       "source-aiSaiaKnownIssues",
-      "agentModeCloudConnected"
+      "agentModeCloudConnected",
+      "source-aiSaiaRelease240",
+      "source-aiSaiaCloudConnected240",
+      "source-aiSaiaAgentMode240",
+      "source-aiSaiaKnownIssues240",
+      "source-aiSaiaModelRuntime240",
+      "source-aiSaiaInstall240"
     ],
     "itsi-versions": [
       "ai-itsi-subagent",
       "source-aiSaiaAbout",
-      "source-aiSaiaInstall"
+      "source-aiSaiaInstall",
+      "source-aiSaiaAbout240"
     ],
     "itsi-assistant": [
       "ai-itsi-subagent",
@@ -45,7 +52,11 @@ window.VersionCompassAdvisorAdmission = {
       "source-aiEsRegions88",
       "source-aiEsRelease88",
       "source-aiSaiaInstall",
-      "source-aiEsTriageTask88"
+      "source-aiEsTriageTask88",
+      "source-aiEsAutonomousResponse88",
+      "source-aiEsCloudConnectAgentic88",
+      "source-aiSaiaCloudConnected",
+      "source-aiSaiaCloudConnected240"
     ]
   },
   "claims": [
@@ -61,7 +72,7 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "source-aiSaiaAbout",
       "ref": "source:aiSaiaAbout",
-      "sha256": "95032f863788d093e31635db1d332bb009a19ca2a035bac77077d646b0dad160",
+      "sha256": "4d49a8b5afa611c97d30f482634521fe706800e9b0a26bb5023a77823d0fd92a",
       "scope": "Requirements; features; ITSI subagent; where the assistant runs",
       "sources": [
         "aiSaiaAbout"
@@ -70,7 +81,7 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "source-aiSaiaInstall",
       "ref": "source:aiSaiaInstall",
-      "sha256": "cc34f75b436632b36a0b6e16518e47f84fadda64c9a0f313bac5adc577115d1a",
+      "sha256": "a19bb272f9cf1329f2ec2ad339d973c865301f992939d67eb7a01c2c3568bdbb",
       "scope": "FedRAMP deployments; supported regions; version compatibility",
       "sources": [
         "aiSaiaInstall"
@@ -97,7 +108,7 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "source-aiEsSocTask87",
       "ref": "source:aiEsSocTask87",
-      "sha256": "148979e75beb380d2fa97c05b5dbcc4da53aa1ee97eebe87936e72832faaef2f",
+      "sha256": "0545fd7a8f386c9d6804a886faaa5697ab86e64728e54db2b448b3332b0ef89e",
       "scope": "Task-specific ES 8.7 Cloud workflow limits and permissions; does not establish the 8.8 CMP path, SOAR version pairing, region or customer authorization",
       "sources": [
         "aiEsSocTask87"
@@ -133,25 +144,32 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "ai-saia-agent",
       "ref": "capability:ai-saia-agent",
-      "sha256": "4c2a52bbae81f94c082b501edb38a4299da4a0b3cf4078f4a8e623bebe335515",
-      "scope": "Agent Mode has its own AWS-only region list; base SAIA or Azure Model Runtime availability does not establish this feature. Cloud Connected’s broad no-third-party assurance differs from the feature-specific external-processing documentation. Preserve both scopes; do not infer customer authorization or a residency guarantee. Current Cloud Connected compatibility is blocked/conflicting; meeting the feature guide’s minima does not restore that path. This restriction is not transferred to native Cloud deployments.",
+      "sha256": "7f97e5015c793e1164f9ec891bf76a9349c0278df076d58da25a774ca0418cf7",
+      "scope": "The two installation paths have different requirements. The 2.3.6 Cloud Connected restriction is version-specific. For 2.4.0 distinguish documented installation from tenant enablement. Agent Mode has its own AWS-only regions. The installer’s no-third-party assurance and Model Runtime’s external-processing guidance require separate consideration.",
       "sources": [
         "aiSaiaInstall",
         "aiSaiaAbout",
         "aiSaiaAgentMode",
         "aiSaiaModelRuntime",
         "aiSaiaCloudConnected",
-        "aiSaiaKnownIssues"
+        "aiSaiaKnownIssues",
+        "aiSaiaRelease240",
+        "aiSaiaCloudConnected240",
+        "aiSaiaAgentMode240",
+        "aiSaiaKnownIssues240",
+        "aiSaiaModelRuntime240",
+        "aiSaiaInstall240"
       ]
     },
     {
       "id": "ai-itsi-subagent",
       "ref": "capability:ai-itsi-subagent",
-      "sha256": "77f118ee1d9a37bbdd95d9b93c7ad5a3c73241381bc2afedcaff8f4c2d37a6ec",
+      "sha256": "cec9a22119d3897a3658a70b1f1f6e1599a6d5c7943039f42789585067294ad6",
       "scope": "Base assistant regional coverage does not establish subagent-specific rollout.",
       "sources": [
         "aiSaiaAbout",
-        "aiSaiaInstall"
+        "aiSaiaInstall",
+        "aiSaiaAbout240"
       ]
     },
     {
@@ -162,12 +180,14 @@ window.VersionCompassAdvisorAdmission = {
       "sources": [
         "aiEsAgents88",
         "aiEsSocTask88",
+        "aiEsAutonomousResponse88",
         "aiEsSocTask87",
         "aiEsRelease88",
         "aiEsTriageNote88",
         "aiEsCloudConnectAgentic88",
         "aiSaiaInstall",
         "aiSaiaCloudConnected",
+        "aiSaiaCloudConnected240",
         "aiEsTriageTask88"
       ]
     },
@@ -226,7 +246,7 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "source-aiSaiaAgentMode",
       "ref": "source:aiSaiaAgentMode",
-      "sha256": "913df0e7b6e2e8231077a04fb7e3b7ac0f8d6d984738947d23ea8497ecb65fc4",
+      "sha256": "b207ee4df1211c026e6c8bf91e4368c606b0f0561e832513f1cbefdc7b175e62",
       "scope": "Feature-specific AWS locations and Platform 10.1.x+; Cloud Connected app 2.1+; runtime/admin enablement and bidirectional setup. No tenant, entitlement or authorization finding.",
       "sources": [
         "aiSaiaAgentMode"
@@ -235,7 +255,7 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "source-aiSaiaModelRuntime",
       "ref": "source:aiSaiaModelRuntime",
-      "sha256": "5632b9de202983c3d1a9ef1582f5dd64e2aa63e57f6984a945bcf11995ba07b2",
+      "sha256": "6f63603bc9ae6d0dd18ee5851d45d1a574a63321bc842ddeb0380d0232422b35",
       "scope": "Model Runtime requirement for Agent Mode; Data zone versus Global routing; external LLM processing. Runtime support in Azure is not Agent Mode support.",
       "sources": [
         "aiSaiaModelRuntime"
@@ -244,8 +264,8 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "source-aiSaiaCloudConnected",
       "ref": "source:aiSaiaCloudConnected",
-      "sha256": "36f0ae7672fc13016eebac9bb37cb55a3280716759b04329090472d77b89533f",
-      "scope": "Current 2.2.0–2.3.6 Cloud Connected exclusion, 2.1.1 fallback without Agent Mode and planned 2.4.0; broad data assurance remains separate from feature-specific Model Runtime external processing.",
+      "sha256": "28e18614dd3363cbcabde438a49fcaefff7f576d9d37592fa83374c642be0e58",
+      "scope": "The 2.3.6 installer excludes 2.2.0–2.3.6, lists a 2.1.1 fallback without Agent Mode and describes a then-planned 2.4.0 release. See the separate 2.4.0 installer for the newer setup and the feature-specific Model Runtime guidance for processing scope.",
       "sources": [
         "aiSaiaCloudConnected"
       ]
@@ -262,22 +282,22 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "source-aiSaiaKnownIssues",
       "ref": "source:aiSaiaKnownIssues",
-      "scope": "The versioned known issue blocks current Cloud Connected access and names a 2.1.1 workaround; no Agent Mode availability or future 2.4 release inferred.",
+      "scope": "Historical SAIA-9918 exclusion for 2.2.0–2.3.6 and the 2.1.1 workaround without Agent Mode. Its older prediction is retained for comparison with the 2.4.0 release notes.",
       "sources": [
         "aiSaiaKnownIssues"
       ],
-      "sha256": "a84d25f5c03f57a947e389e76b8edf74112e65831f509021c2b270b1ca860147"
+      "sha256": "0038152ada3d3830b7b6cbc6b28c6f92faeab615f9176091d59ed03a06aca09b"
     },
     {
       "id": "agentModeCloudConnected",
       "ref": "policy:agentModeCloudConnected",
-      "scope": "Current Cloud Connected compatibility block/disagreement; planned support is not released availability.",
+      "scope": "SAIA 2.3.6 historical scope. SAIA-9918 excludes 2.2.0–2.3.6 and the 2.1.1 fallback lacks Agent Mode. The separate 2.4.0 installer and release notes document the new Cloud Connect route.",
       "sources": [
         "aiSaiaAgentMode",
         "aiSaiaCloudConnected",
         "aiSaiaKnownIssues"
       ],
-      "sha256": "4a894024dc757fbf820c1fd8ebf5c428e2587a3a62060c063c8d8927026304b8"
+      "sha256": "7d48770ffeb0e729fb0512756575425318bb137aba5cf59445f3558926d90f19"
     },
     {
       "id": "source-aiEsTriageTask88",
@@ -286,6 +306,87 @@ window.VersionCompassAdvisorAdmission = {
       "scope": "Detailed task: Cloud ES 8.7+ and CMP chain, existing findings, first-ten and approximate 200-finding limits, no-rerun statement and investigation permissions. Conflicts with the parent guide credit/revision model; not proof of actual tenant behavior.",
       "sources": [
         "aiEsTriageTask88"
+      ]
+    },
+    {
+      "id": "source-aiSaiaRelease240",
+      "ref": "source:aiSaiaRelease240",
+      "sha256": "eda7b4883a66a97171463da953f4940a73ee5b9d2fc1d5234ba897ee78dff455",
+      "scope": "2.4.0 ships an Enterprise installation path through Cloud Connect. Supported FedRAMP High core SPL generation and explanation exclude Agent Mode.",
+      "sources": [
+        "aiSaiaRelease240"
+      ]
+    },
+    {
+      "id": "source-aiSaiaCloudConnected240",
+      "ref": "source:aiSaiaCloudConnected240",
+      "sha256": "2ecefd6ab7625e01725b443fa361baecd2b17d69419117f78a0548611ae9c822",
+      "scope": "SAIA 2.4.0+, Cloud Connect 2.0.0+ and Enterprise 10.4+ Cloud Connect path with paid-license, fresh-setup, network, certificate, named permission, email, commercial-region and data-processing qualifications. ES edition, agent stage, SOAR pairing and authorization remain separate.",
+      "sources": [
+        "aiSaiaCloudConnected240"
+      ]
+    },
+    {
+      "id": "source-aiSaiaAgentMode240",
+      "ref": "source:aiSaiaAgentMode240",
+      "sha256": "7411ab9b231639455eb952bd65fc193714d7815f46d4c09528bc02f0eef836c9",
+      "scope": "The feature requires Platform 10.1.x+, administrator activation, a supported AWS service region and Model Runtime. The separate Enterprise installer raises the Platform minimum.",
+      "sources": [
+        "aiSaiaAgentMode240"
+      ]
+    },
+    {
+      "id": "source-aiSaiaKnownIssues240",
+      "ref": "source:aiSaiaKnownIssues240",
+      "sha256": "e5e28015b2e3edcb067db064b630ea6166cfc0e2a2394e0ef41e95bc994630b1",
+      "scope": "The issue describes the 2.2.0–2.3.6 restriction and 2.1.1 fallback without Agent Mode. Its future-tense 2.4.0 note differs from that version’s release notes and installer.",
+      "sources": [
+        "aiSaiaKnownIssues240"
+      ]
+    },
+    {
+      "id": "source-aiSaiaModelRuntime240",
+      "ref": "source:aiSaiaModelRuntime240",
+      "sha256": "33ab2b2ba116b40a3f235da58b9348d3eb6199226d4532edd9d7f80f77e8abea",
+      "scope": "Data zone and Global routing differ. Requests can reach a third-party model outside the Splunk platform boundary.",
+      "sources": [
+        "aiSaiaModelRuntime240"
+      ]
+    },
+    {
+      "id": "source-aiSaiaInstall240",
+      "ref": "source:aiSaiaInstall240",
+      "sha256": "8bd971b2a7d9f99519b99bc4aa20cb205c09060e1dd98556be264fe42ed843ce",
+      "scope": "The Cloud installer identifies 2.4.0 as generally available. Base AWS and Azure service locations, including the separately listed GovCloud rows, cannot establish Agent Mode availability.",
+      "sources": [
+        "aiSaiaInstall240"
+      ]
+    },
+    {
+      "id": "source-aiSaiaAbout240",
+      "ref": "source:aiSaiaAbout240",
+      "sha256": "97eb68e92c5663f5f5405bfe9ece0ad64f4cb3ff05f2637ffde268d52fc30749",
+      "scope": "The integration requires ITSI 5.0.0+, SAIA 2.2.0+ and MCP Server 1.2.1+. Its list of tools and base service regions does not identify a subagent-specific region.",
+      "sources": [
+        "aiSaiaAbout240"
+      ]
+    },
+    {
+      "id": "source-aiEsAutonomousResponse88",
+      "ref": "source:aiEsAutonomousResponse88",
+      "sha256": "4be7f051885f3e72e3ff750c8cfda72a815c8a99fb6cfc32c309356ea3c3e686",
+      "scope": "Controlled Availability component stage, Cloud availability statement, deployment floors, paired SOAR, frontier-model, inherited connector and granular asset-role requirements",
+      "sources": [
+        "aiEsAutonomousResponse88"
+      ]
+    },
+    {
+      "id": "source-aiEsCloudConnectAgentic88",
+      "ref": "source:aiEsCloudConnectAgentic88",
+      "sha256": "1a63810776b126894d3c33f5e3f4b626444038e25dddac3fb7a5fbb9ce05edfc",
+      "scope": "Directly retrieved Cloud Connected agentic SOC dependency and setup chain; no edition entitlement, region, SOAR pairing or customer authorization inference",
+      "sources": [
+        "aiEsCloudConnectAgentic88"
       ]
     }
   ]

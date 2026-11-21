@@ -12,7 +12,7 @@ window.VersionCompassAdvisorGoals = {
       "id": "agent-mode",
       "title": "Plan for SAIA Agent Mode",
       "question": "Which documented requirements should I resolve before pursuing Agent Mode?",
-      "coverage": "Feature-specific Platform minimum, Cloud Connected app minimum, AWS AI service locations and Model Runtime requirements, with explicit routing and data-boundary uncertainty. Current Cloud Connected installation/known-issue conflicts block a positive Enterprise path.",
+      "coverage": "Feature-specific Platform and Cloud Connect installation minimums, supported AWS AI service locations and Model Runtime requirements. Distinguishes the historical SAIA 2.3.6 restriction from the released 2.4.0 Enterprise path.",
       "exclusions": "Full app/Platform compatibility, tenant activation, entitlement and regulated authorization are not established.",
       "admission": "agent-mode",
       "record": "ai-saia-agent",
@@ -21,6 +21,7 @@ window.VersionCompassAdvisorGoals = {
         "compliance",
         "platformVersion",
         "saiaVersion",
+        "cloudConnectVersion",
         "region",
         "access"
       ],
@@ -37,7 +38,7 @@ window.VersionCompassAdvisorGoals = {
         "Changed or overdue evidence",
         "Private Release Guide handoff",
         "Base assistant and Model Runtime regions cannot establish Agent Mode scope",
-        "Current Cloud Connected compatibility is not established by a feature minimum or planned release"
+        "Scope the historical Cloud Connected exclusion by installed version and verify the documented 2.4.0 path separately."
       ]
     },
     {
@@ -80,6 +81,7 @@ window.VersionCompassAdvisorGoals = {
         "platformVersion",
         "esVersion",
         "cloudConnectVersion",
+        "saiaVersion",
         "access"
       ],
       "owners": [

@@ -1,6 +1,5 @@
 {
   "schemaVersion": 1,
-  "asOf": "2026-11-05T18:00:00.000Z",
   "cases": {
     "advisor-prerequisites": {
       "input": {
@@ -19,7 +18,7 @@
         "esVersion": "8.8",
         "access": "yes"
       },
-    "outcome": "needs_review"
+      "outcome": "conflicting"
     },
     "advisor-agent-gap": {
       "input": {
@@ -29,18 +28,19 @@
         "region": "unknown",
         "access": "unknown"
       },
-      "outcome": "conflicting"
+      "outcome": "version_gap"
     },
     "advisor-agent-known": {
       "input": {
         "deployment": "enterprise",
         "compliance": "commercial",
         "platformVersion": "10.4",
-        "saiaVersion": "2.3.6",
+        "saiaVersion": "2.4.0",
         "region": "us-east-1",
-        "access": "yes"
+        "access": "yes",
+        "cloudConnectVersion": "2.0.0"
       },
-      "outcome": "conflicting"
+      "outcome": "conditional"
     },
     "advisor-agent-azure": {
       "input": {
@@ -93,7 +93,7 @@
         "region": "us-east-1",
         "access": "yes"
       },
-      "outcome": "conflicting"
+      "outcome": "version_gap"
     },
     "advisor-agent-app-gap": {
       "input": {
@@ -135,9 +135,10 @@
         "platformVersion": "10.4",
         "esVersion": "8.8",
         "cloudConnectVersion": "2.0",
-        "access": "yes"
+        "access": "yes",
+        "saiaVersion": "2.4.0"
       },
-    "outcome": "needs_review"
+      "outcome": "conflicting"
     },
     "advisor-unknown": {
       "input": {},

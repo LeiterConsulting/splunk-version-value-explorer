@@ -9,7 +9,7 @@ test('SOAR App 8.8 retains the malformed matrix value and the prior route bounda
  assert.doesNotMatch(app.detail,/Cloud Platform 10\.6/);
  assert.deepEqual(Array.from(app.src),['app88']);
  assert.match(cloud.coverage,/8\.8 General Availability/);
- assert(!a.targets('cmp').includes('8.8.0'));
+ assert(a.targets('cmp').includes('8.8.0'));
  assert(!a.assess(a.defaults).technical.some(x=>x.id==='app88'));
 });
 test('SOAR paths retain Python bridge, OS bridge and privileged unknowns',()=>{const a=core().window.VersionCompassSOAR;
@@ -65,7 +65,7 @@ test('SOAR Export FIPS repair is target-specific and does not invent SOAR or App
    assert(!r.technical.find(x=>x.id==='app87').detail.includes('Export 8.7.1'));
   }else assert(!r.technical.some(x=>x.id==='export871'));
  }
- assert(d.targets.includes('8.8.0'));assert.equal(d.latest,'8.8.0');assert.equal(d.latestByDeployment.cmp,'8.7.0');
+ assert(d.targets.includes('8.8.0'));assert.equal(d.latest,'8.8.0');assert.equal(d.latestByDeployment.cmp,'8.8.0');
  assert(d.records.find(r=>r.id==='export-fips').verified==='2026-10-15');
 });
 
@@ -79,7 +79,7 @@ test('SOAR Export 8.8 keeps the tested combination apart from App and server pat
  assert.deepEqual(Array.from(row.src),['export88Release','export88Enterprise','export88Cloud','exportCatalog']);
  assert(!report.technical.find(x=>x.id==='app88').src.some(id=>id.startsWith('export')));
  assert(!a.assess({...selection,from:'8.6.0',to:'8.7.0'}).technical.some(x=>x.id==='export88'));
- assert(!a.targets('cmp').includes('8.8.0'));
+ assert(a.targets('cmp').includes('8.8.0'));
 });
 
 test('SOAR restricted environments never inherit commercial features or Platform authorization',()=>{const a=core().window.VersionCompassSOAR;
@@ -100,8 +100,8 @@ test('SOAR exact links round-trip and malformed, repeated, partial and descendin
  for(const q of ['?from=8.6.0','?from=8.6.0&from=8.5.0&to=8.7.0','?to=8.7.999&from=8.6.0','?deployment=alien','?product=soar&product=es'])assert(a.read(q).errors.length,q);
 });
 test('SOAR Cloud 8.8 GA remains a managed milestone with conditional Broker activation',()=>{const c=core(),a=c.window.VersionCompassSOAR,d=c.window.VersionCompassSOARData;
- assert.deepEqual(Array.from(a.targets('cmp')),['8.6.0','8.7.0']);assert(a.targets('cloud').includes('8.8.0'));
- assert(a.read('?product=soar&deployment=cmp&from=8.6.0&to=8.8.0').errors.length);
+ assert.deepEqual(Array.from(a.targets('cmp')),['8.6.0','8.7.0','8.8.0']);assert(a.targets('cloud').includes('8.8.0'));
+ assert.equal(a.read('?product=soar&deployment=cmp&from=8.6.0&to=8.8.0').errors.length,0);
  const r=a.assess({...a.defaults,deployment:'cloud',from:'8.7.0',to:'8.8.0'});
  assert.equal(r.errors.length,0);assert.equal(r.routeStatus,'Managed service milestones');
  const stage=r.requirements.find(x=>x.id==='cloud88-stage');
@@ -115,7 +115,7 @@ test('SOAR Cloud 8.8 GA remains a managed milestone with conditional Broker acti
  assert(r.features.some(x=>x.id==='system-insights88'));
  assert(r.technical.some(x=>x.id==='cloud88-forwarder'&&/10\.4\.4/.test(x.detail)&&/not a receiver/.test(x.detail)));
  assert.deepEqual(Object.keys(r.targetRequirements).sort(),['runtime','src']);assert(!r.issues.some(x=>x.id==='export-fips'));
- assert(!d.releases.cmp.includes('8.8.0'));assert(d.backlog.some(x=>x.id==='cloud88-stage-wording'&&x.status==='resolved'));
+ assert(d.releases.cmp.includes('8.8.0'));assert(d.backlog.some(x=>x.id==='cloud88-stage-wording'&&x.status==='resolved'));
 });
 function ui(search='?product=soar'){
  const c=core(),elements=new Map(),selects=new Map(),wrappers=new Map(),events={},tools=new Map();
@@ -152,7 +152,7 @@ test('legacy SOAR Cloud conversion and in-place changes retain the meaningful sh
 test('SOAR Cloud structured requirements do not borrow customer-managed host floors',async()=>{
  const r=ui('?product=soar&deployment=cloud&from=8.5.0&to=8.6.0');await new Promise(resolve=>setImmediate(resolve));
  const api=r.c.window.VersionCompassSOAR;
- for(const to of ['8.6.0','8.7.0']){
+ for(const to of ['8.6.0','8.7.0','8.8.0']){
   const cloud=api.assess({...api.defaults,deployment:'cloud',from:'8.5.0',to});
   assert.deepEqual(Object.keys(cloud.targetRequirements).sort(),['runtime','src']);
   assert.equal(JSON.stringify(cloud.targetRequirements.src),JSON.stringify(['cloud']));
@@ -171,3 +171,22 @@ test('SOAR source register preserves claim sections and treats empty issue retri
 });
 
 test('SOAR choices, target requirements and legacy links remain product-specific',()=>{const a=core().window.VersionCompassSOAR;assert(!a.selectable('from',a.defaults).includes('8.7.0'));assert(!a.selectable('region',{...a.defaults,provider:'gcp'}).includes('Tokyo'));assert.deepEqual(Array.from(a.selectable('provider',{...a.defaults,compliance:'fr-m'})),['unspecified','aws']);assert.equal(a.read('?product=soar&platform=cloud').state.deployment,'cloud');assert(a.read('?product=soar&platform=cloud&deployment=cmp').errors.length);const r=a.assess({...a.defaults,from:'8.5.0',to:'8.6.0'});assert.equal(r.targetRequirements.forwarder,'10.4.0');assert(r.issues.find(x=>x.id==='issue-coverage').src.includes('fixed86'));assert(r.technical.some(x=>x.id==='os86'));});
+
+test('SOAR 8.8 separates conditional self-managed bridges, export app fixes and managed Cloud rollout',()=>{
+ const a=core().window.VersionCompassSOAR;
+ const route=(deployment,from,extra={})=>a.assess({...a.defaults,deployment,from,to:'8.8.0',...extra});
+ const legacy=route('cmp','6.1.0',{os:'al2'});
+ assert.deepEqual(Array.from(legacy.path),['6.1.0','6.2.1','6.4.0','8.5.0','8.8.0']);
+ assert.equal(legacy.pathSource,'path88');
+ assert.equal(legacy.targetRequirements.forwarder,'10.4.4');
+ assert(legacy.issues.some(x=>x.src.includes('fixed88')));
+ assert.deepEqual(Array.from(route('cmp','8.7.0').path),['8.7.0','8.8.0']);
+ assert.deepEqual(Array.from(route('cmp','8.7.0',{installation:'privileged'}).path),[]);
+ for(const deployment of ['cmp','cloud']){
+  const report=route(deployment,'8.7.0');
+  assert(report.technical.some(x=>x.id==='export881-fix'&&x.detail.includes('PAPP-38632')));
+  assert(!report.path.includes('8.8.1'));
+  assert.equal(report.requirements.some(x=>x.id==='cmp88'),deployment==='cmp');
+  assert.equal(report.features.some(x=>x.id==='cmp88-broker'),deployment==='cmp');
+ }
+});

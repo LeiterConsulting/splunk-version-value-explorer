@@ -3,11 +3,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {chromium} from 'playwright';
+import fixtureAsOf from './advisor-fixture-date.cjs';
 const advisorFixtures=JSON.parse(fs.readFileSync(new URL('./advisor-fixtures.json',import.meta.url),'utf8'));
 
 // Fixture time exercises assessed briefs without extending production review dates.
 export function setAdvisorFixtureTime(page){
-  return page.clock.setFixedTime(new Date(advisorFixtures.asOf));
+  return page.clock.setFixedTime(new Date(fixtureAsOf));
 }
 
 export async function configureAdvisorRoute(page,route){
@@ -21,7 +22,7 @@ export async function configureAdvisorRoute(page,route){
 }
 
 export async function verifyAdvisor(browser,output,base='http://127.0.0.1:4173'){
-  fs.mkdirSync(output,{recursive:true});const receipt={outcome:'passed',fixtureAsOf:advisorFixtures.asOf,cases:[]};
+  fs.mkdirSync(output,{recursive:true});const receipt={outcome:'passed',fixtureAsOf:fixtureAsOf,cases:[]};
   for(const theme of ['default','cisco'])for(const width of [390,768,1220]){
     const id=theme+'-'+width,context=await browser.newContext({viewport:{width,height:900},acceptDownloads:true,reducedMotion:'reduce'}),page=await context.newPage(),errors=[],requests=[];
     page.on('pageerror',error=>errors.push(error.message));page.on('request',request=>requests.push({url:request.url(),navigation:request.isNavigationRequest()}));
@@ -45,22 +46,22 @@ export async function verifyAdvisor(browser,output,base='http://127.0.0.1:4173')
       assert.equal(await first.getAttribute('aria-pressed'),'true');
       for(const [field,value]of [['deployment','enterprise'],['compliance','commercial']])await page.locator('#advisor-'+field).selectOption(value);
       await page.locator('#advisor-platformVersion').fill('9.4');await build();
-      assert.equal(await result().getAttribute('data-outcome'),'conflicting');
+      assert.equal(await result().getAttribute('data-outcome'),'version_gap');
       assert.match(await result().innerText(),/Missing facts about your environment/);assert.match(await result().innerText(),/Missing or limited assessed evidence/);
       assert.match(await result().innerText(),/not a recommended target/);
       await page.locator('#copy-link').click();const copied=await page.evaluate(()=>window.__advisorCopiedLink);assert.equal(new URL(copied).searchParams.get('platformVersion'),null);assert.equal(new URL(copied).searchParams.get('goal'),'agent-mode');assert(!copied.includes('9.4'));
       await page.locator('#advisor-save').click();assert.match(await page.locator('#advisor-profile-status').innerText(),/saved/);
       const downloadPromise=page.waitForEvent('download');await page.locator('[data-save-snapshot]').click();const download=await downloadPromise;await download.saveAs(path.join(output,id+'-brief.html'));
-      const html=fs.readFileSync(path.join(output,id+'-brief.html'),'utf8');assert(html.includes('9.4')&&html.includes('Self-reported context')&&html.includes('Source checked 2026-10-23'));assert(!/<script\b/i.test(html));
+      const html=fs.readFileSync(path.join(output,id+'-brief.html'),'utf8');assert(html.includes('9.4')&&html.includes('Self-reported context')&&html.includes('Source checked '+await page.evaluate(()=>window.VersionCompassAIAvailability.source('aiSaiaCloudConnected240').checked)));assert(!/<script\b/i.test(html));
       await page.screenshot({path:path.join(output,id+'-gap.png')});
       await page.locator('#advisor-platformVersion').fill('10.4');assert(await page.locator('#print-report').isDisabled());assert(await page.locator('[data-save-snapshot]').isDisabled());assert.equal(await result().count(),0);
       await choose('itsi-versions');assert.equal(await page.locator('#advisor-context-fields input').count(),3);assert.equal(await page.locator('#advisor-region').count(),0);
       for(const [field,value]of [['itsiVersion','5.0.0'],['saiaVersion','2.2.0'],['mcpVersion','1.2.1']])await page.locator('#advisor-'+field).fill(value);
       await build();assert.equal(await result().getAttribute('data-outcome'),'no_change');assert.match(await result().innerText(),/regional rollout/);
       await choose('soc-workflow');for(const [field,value]of [['deployment','cloud'],['compliance','commercial'],['edition','premier']])await page.locator('#advisor-'+field).selectOption(value);
-      await page.locator('#advisor-platformVersion').fill('10.4');await page.locator('#advisor-esVersion').fill('8.8');await page.locator('#advisor-access').selectOption('yes');await build();assert.equal(await result().getAttribute('data-outcome'),'needs_review');
-      assert.match(await result().innerText(),/recorded evidence is overdue or missing a review date/);
-      assert.match(await result().innerText(),/Request a scoped evidence review/);
+      await page.locator('#advisor-platformVersion').fill('10.4');await page.locator('#advisor-esVersion').fill('8.8');await page.locator('#advisor-access').selectOption('yes');await build();assert.equal(await result().getAttribute('data-outcome'),'conflicting');
+      assert.match(await result().innerText(),/Cloud ES minimum differs/);
+      assert.match(await result().innerText(),/8.7/);
       await page.locator('.report-navigator button[data-target="advisor-results"]').click();
       const offset=await page.evaluate(()=>({top:document.getElementById('advisor-results').getBoundingClientRect().top,edge:document.querySelector('.report-navigator').getBoundingClientRect().bottom}));assert(offset.top>=offset.edge-2,'Brief hidden under sticky chrome');
       await fit();await page.screenshot({path:path.join(output,id+'-conflict.png'),fullPage:true});
@@ -69,7 +70,7 @@ export async function verifyAdvisor(browser,output,base='http://127.0.0.1:4173')
       await build();const requestStart=requests.length;await page.locator('[data-advisor-guide]').click();await page.locator('.advisor-guide-context').waitFor();await page.locator('.report-toolbar').waitFor();
       const handoffRequest=requests.slice(requestStart).find(row=>row.navigation);assert(handoffRequest);assert.equal(new URL(handoffRequest.url).searchParams.get('from'),null);assert.equal(new URL(handoffRequest.url).searchParams.get('to'),null);assert.equal(new URL(handoffRequest.url).searchParams.get('platformVersion'),null);
       assert.match(await page.locator('.advisor-guide-context').innerText(),/Enterprise 9.4/);assert.match(await page.locator('.advisor-guide-context').innerText(),/not an Advisor recommendation/);
-      assert.match(await page.locator('.advisor-guide-context').innerText(),/does not establish Agent Mode availability or resolve current Cloud Connected app restrictions/);
+      assert.match(await page.locator('.advisor-guide-context').innerText(),/also requires a supported Cloud Connect pairing/);
       assert.equal(await page.evaluate(()=>sessionStorage.getItem('versioncompass-advisor-handoff-v1')),null);
       await page.reload();assert.equal(await page.locator('.advisor-guide-context').count(),0);
       if(width===390){

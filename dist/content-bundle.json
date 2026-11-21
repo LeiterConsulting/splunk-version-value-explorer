@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-9b5650b4de2b576cb9310631",
-    "digest": "3cd8b5ab6f00682d03363634a4355532798224a7183db6e44b2d9d1a0924bca3",
-    "engineRevision": "engine-f31b07d146a0943d0bc4",
+    "revision": "content-4d2176f0b08afe9aaf9d5dfb",
+    "digest": "bb651998e08e55086294936d9575e01e80e92b8200d80f20c778a4988682ab32",
+    "engineRevision": "engine-4a70beb0d3a6b686100e",
     "datasetHashes": {
-      "platform": "1fa3dc59d6baf2cc2bbfd31817ce63ac34c56a033b638c1f8cf1093751cedc9f",
-      "products": "6c9c733211d9c38ef74ad9b079797a5bf43a910e3f5ce6c957cb6a31c6b7a73b",
-      "guidance": "757fab1a831f9a597ea0dbb54c11f32a2fd4daa4f73f9ff5def0efbe4260a99f",
+      "platform": "2214eed429890c51b6b2fdd9c55bf91706a7dc7eef9c396546fd1992c864329e",
+      "products": "23ff46e21fbed0f0c2c32af34b0cfac46625d87f3a7a65c059c027df18e597fe",
+      "guidance": "3ff4ac0f5d4cc168abc5b2a63dbdb28a97b8803e1efebda8b0f9d30b377e1a14",
       "environment": "533ef7f14be7b3bf860b7c47b2d873489583d8606304ac969b6b1a32a7d4e10f",
       "editions": "27ffb85abb2b3b1b25940138e9d1bdf4cae39348c065c1dd2c663ae1cf8a55b0",
       "forwarders": "a56dd49cca6e5e0d9453e3a0d58afbf3b143e01873dd91305a3fdfebe68146aa",
-      "soar": "0a95273ec36589b59fe74ff2ded1d383c1f8278427449dea3d06dc9e23ddebd4"
+      "soar": "126a20b593a3376f9e7dcb1cf8d6a26bc537953ca6bf38a05e1beb098f7fa55d"
     },
-    "recordCount": 993,
+    "recordCount": 1019,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -1357,11 +1357,11 @@
                 "changeType": "Patch-qualified compatibility",
                 "actionLevel": "Required",
                 "from": "The platform pairing alone does not establish database-engine compatibility",
-                "to": "The matrix marks ES 8.7 and lower incompatible with cohosted KV Store 1.0 on Enterprise 10.6.0, then says ES 8.4.x and higher are compatible with Enterprise 10.6.1.1 and higher",
-                "implication": "The 10.6 line selector spans materially different maintenance scope. The 10.6.1 row enumerates ES through 8.7.x while its footnote says 8.4.x and higher, so do not invent an unlisted exact pairing or equate the three-segment 10.6.1 release statement with a 10.6.1.1 package.",
+                "to": "Enterprise 10.6.0 retains its postponement warning. For Enterprise 10.6.1.0, the matrix excludes ES 8.7 and lower from cohosted KV Store 1.0. The 10.6.1.1 row explicitly lists ES 8.8.x alongside the earlier supported patches.",
+                "implication": "The 10.6.1.0 row lists ES 8.4.1, 8.5.1, 8.6.1 and 8.7.x. The 10.6.1.1 row adds 8.8.x and has a broader 8.4.x-and-higher footnote. A 10.6 line selection alone cannot identify either exact row. A three-segment 10.6.1 release label also needs an exact patch.",
                 "action": "Identify the exact Enterprise maintenance package and ES version. Retain postponement for 10.6.0; use the 10.6.1.1-and-higher matrix qualification only for its stated customer-managed scope and still validate the linked migration procedure.",
                 "source": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
-                "verified": "2026-10-26"
+                "verified": "2026-11-21"
               },
               {
                 "component": "Enterprise 10.6 maintenance release",
@@ -1433,7 +1433,7 @@
               ],
               [
                 "Retain the ES cohosted KV Store warning",
-                "Enterprise 10.6.0 retains the ES 8.7-and-lower cohosted-KV incompatibility. The matrix separately says ES 8.4.x and higher are compatible with Enterprise 10.6.1.1 and higher, while the displayed 10.6.1 row enumerates only through ES 8.7.x. Because the selector is line-level, verify the exact Enterprise package and ES pairing; do not infer an unlisted pairing or silently treat 10.6.1 as 10.6.1.1.",
+                "Retain the documented postponement for an affected Enterprise 10.6.0 deployment. The 10.6.1.0 matrix row excludes ES 8.7 and lower from cohosted KV Store 1.0. Enterprise 10.6.1.1 explicitly lists ES 8.8.x and carries the broader 8.4.x-and-higher footnote. Verify the exact host patch and database engine before migration.",
                 "Blocker",
                 "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
                 true
@@ -1459,7 +1459,7 @@
       "cloud": {
         "label": "Splunk Cloud Platform",
         "kind": "Splunk-managed release",
-        "latest": "10.7",
+        "latest": "10.8",
         "releases": [
           "9.2.2406",
           "9.3.2408",
@@ -1469,7 +1469,8 @@
           "10.4.2604",
           "10.5.2605",
           "10.6",
-          "10.7"
+          "10.7",
+          "10.8"
         ],
         "releasesData": {
           "9.2.2406": {
@@ -2339,6 +2340,71 @@
                 "The current Service Details table lists Cloud 10.7, Enterprise Security 8.7 and ITSI 5.0. Confirm the exact stack, product patch, provider, region, feature, entitlement and regulated scope before treating 10.7 as deployed or available.",
                 "Blocker",
                 "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+                true
+              ]
+            ]
+          },
+          "10.8": {
+            "date": "Official release notes available November 2026",
+            "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/whats-new",
+            "features": [
+              [
+                "Data model definition upload",
+                "Data management",
+                "Align a definition across search heads",
+                "An administrator can replace an existing data model definition with JSON using Upload Definition in Splunk Web."
+              ],
+              [
+                "Machine Data Lake promotion preview",
+                "Data management",
+                "Inspect a proposed Analytics Table",
+                "Preview a bounded sample of the data and schema before submitting the full promotion."
+              ],
+              [
+                "Federated search workload admission",
+                "Search & AI",
+                "Protect remote search capacity",
+                "For supported standard and transparent federations, an administrator can apply rules on the remote search head based on whether the originating search was scheduled or ad hoc."
+              ],
+              [
+                "Delegated DDAA restore permissions",
+                "Platform operations",
+                "Delegate monitoring and execution",
+                "Restore monitoring and execution can be delegated separately from index administration."
+              ]
+            ],
+            "technicalChanges": [
+              {
+                "component": "10.8 release and managed service versions",
+                "domain": "Cloud operations",
+                "changeType": "Version scope",
+                "actionLevel": "Review",
+                "from": "Service Details lists Cloud Platform 10.7 with ES 8.7 and ITSI 5.0.",
+                "to": "The Cloud release notes describe 10.8. The current subscriptions table in the 10.8 edition of Service Details still lists those earlier service versions.",
+                "implication": "A published milestone alone does not establish which build, premium app or feature an individual stack has.",
+                "action": "Check the stack and deployment details before planning around a 10.8 capability.",
+                "source": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.8/information-about-the-service/splunk-cloud-platform-service-details",
+                "verified": "2026-11-21"
+              },
+              {
+                "component": "Federated knowledge bundle delivery",
+                "domain": "Search & federation",
+                "changeType": "Documented known issue",
+                "actionLevel": "Review",
+                "from": "Some configurations change infrequently.",
+                "to": "SPL-313801 documents a missing full knowledge bundle on some deployments.",
+                "implication": "Federated searches of third-party data that depend on search-time field extractions can fail or return incomplete results.",
+                "action": "Check the affected searches. Contact Splunk Support with SPL-313801 if the documented conditions match.",
+                "source": "https://help.splunk.com/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/known-and-fixed-issues-for-splunk-cloud-platform",
+                "verified": "2026-11-21"
+              }
+            ],
+            "requirements": [
+              [
+                "Confirm the selected stack before using Cloud 10.8 guidance",
+                "The 10.8 notes describe the milestone. Service Details still lists Cloud 10.7, ES 8.7 and ITSI 5.0. Confirm the specific stack, feature, entitlement and region.",
+                "Blocker",
+                "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.8/information-about-the-service/splunk-cloud-platform-service-details",
                 true
               ]
             ]
@@ -3229,7 +3295,7 @@
                 ],
                 [
                   "Match an exact supported Splunk Enterprise host",
-                  "The product matrix explicitly lists Enterprise Security 8.8 with Enterprise 10.2.x and 10.4.x. A separate 10.6.1 row footnote states that ES 8.4.x and higher are compatible with Enterprise 10.6.1.1 and higher. This exact-patch qualification does not certify the generic 10.6 selector, 10.6.0 or 10.6.1. Confirm the actual patch, feature access and other prerequisites; broader 9.2.0-and-higher prose does not override the exact matrix scope.",
+                  "The matrix lists ES 8.8 with Enterprise 10.2.x and 10.4.x. Its exact Enterprise 10.6.1.1 row lists 8.8.x and carries a footnote covering ES 8.4.x and higher on Enterprise 10.6.1.1 and higher. The 10.6.1.0 row lists selected versions through 8.7.x and excludes ES 8.7 and lower from cohosted KV Store 1.0. The exact row does not certify the generic 10.6 selector, a 10.6.0 host or a three-segment 10.6.1 release label.",
                   "Blocker",
                   "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
                   true
@@ -5546,16 +5612,16 @@
             "title": "SAIA 2.3.6 overview and ITSI subagent",
             "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
             "section": "Requirements; features; ITSI subagent; where the assistant runs",
-            "checked": "2026-10-23",
-            "reviewed": "2026-10-23",
+            "checked": "2026-11-21",
+            "reviewed": "2026-11-21",
             "scope": "Requirements; features; ITSI subagent; where the assistant runs"
           },
           "aiSaiaInstall": {
             "title": "SAIA 2.3.6 installation and service regions",
             "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
             "section": "FedRAMP deployments; supported regions; version compatibility",
-            "checked": "2026-10-23",
-            "reviewed": "2026-10-23",
+            "checked": "2026-11-21",
+            "reviewed": "2026-11-21",
             "scope": "FedRAMP deployments; supported regions; version compatibility"
           },
           "aiEsRegions88": {
@@ -5587,8 +5653,8 @@
             "title": "ES 8.7 AI SOC analyst workflow",
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
             "section": "Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions",
-            "checked": "2026-10-27",
-            "reviewed": "2026-10-27",
+            "checked": "2026-11-21",
+            "reviewed": "2026-11-21",
             "scope": "Task-specific ES 8.7 Cloud workflow limits and permissions; does not establish the 8.8 CMP path, SOAR version pairing, region or customer authorization"
           },
           "aiEsSocTask88": {
@@ -5724,27 +5790,27 @@
             "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
             "section": "Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites",
             "scope": "Feature-specific AWS locations and Platform 10.1.x+; Cloud Connected app 2.1+; runtime/admin enablement and bidirectional setup. No tenant, entitlement or authorization finding.",
-            "checked": "2026-11-03",
-            "reviewed": "2026-11-03",
-            "retrieval": "Official indexed page sections assessed; direct HTTPS availability is recorded separately in the follow-up audit. No upstream byte digest inferred from indexed text."
+            "checked": "2026-11-21",
+            "reviewed": "2026-11-21",
+            "retrieval": "Direct official document retrieved and the named sections assessed November 21. The audit retains the response digest."
           },
           "aiSaiaModelRuntime": {
             "title": "SAIA 2.3.6 Model Runtime routing and data boundary",
             "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
             "section": "Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off",
             "scope": "Model Runtime requirement for Agent Mode; Data zone versus Global routing; external LLM processing. Runtime support in Azure is not Agent Mode support.",
-            "checked": "2026-11-03",
-            "reviewed": "2026-11-03",
-            "retrieval": "Official indexed page sections assessed; direct HTTPS availability is recorded separately in the follow-up audit. No upstream byte digest inferred from indexed text."
+            "checked": "2026-11-21",
+            "reviewed": "2026-11-21",
+            "retrieval": "Direct official document retrieved and the named sections assessed November 21. The audit retains the response digest."
           },
           "aiSaiaCloudConnected": {
             "title": "SAIA 2.3.6 Cloud Connected setup and data assurance",
             "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
             "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data",
-            "scope": "Current 2.2.0–2.3.6 Cloud Connected exclusion, 2.1.1 fallback without Agent Mode and planned 2.4.0; broad data assurance remains separate from feature-specific Model Runtime external processing.",
-            "checked": "2026-11-03",
-            "reviewed": "2026-11-03",
-            "retrieval": "Official indexed page sections assessed; direct HTTPS availability is recorded separately in the follow-up audit. No upstream byte digest inferred from indexed text."
+            "scope": "The 2.3.6 installer excludes 2.2.0–2.3.6, lists a 2.1.1 fallback without Agent Mode and describes a then-planned 2.4.0 release. See the separate 2.4.0 installer for the newer setup and the feature-specific Model Runtime guidance for processing scope.",
+            "checked": "2026-11-21",
+            "reviewed": "2026-11-21",
+            "retrieval": "Direct official document retrieved and the named sections assessed November 21. The audit retains the response digest."
           },
           "aiSaiaCloudConnected240": {
             "title": "SAIA 2.4.0 Cloud Connect installation and compatibility",
@@ -5759,10 +5825,10 @@
             "title": "SAIA 2.3.6 known issues: Cloud Connected SAIA-9918",
             "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
             "section": "SAIA-9918 Cloud Connected access and 2.1.1 workaround",
-            "checked": "2026-11-03",
-            "reviewed": "2026-11-03",
-            "scope": "The versioned known issue blocks current Cloud Connected access and names a 2.1.1 workaround; no Agent Mode availability or future 2.4 release inferred.",
-            "retrieval": "Official indexed issue row assessed; raw response body/retrieval timestamp unknown."
+            "checked": "2026-11-21",
+            "reviewed": "2026-11-21",
+            "scope": "Historical SAIA-9918 exclusion for 2.2.0–2.3.6 and the 2.1.1 workaround without Agent Mode. Its older prediction is retained for comparison with the 2.4.0 release notes.",
+            "retrieval": "Direct official document retrieved and the named sections assessed November 21. The audit retains the response digest."
           },
           "aiEsTriageTask88": {
             "title": "ES 8.8 detailed Triage task and dashboard guide",
@@ -5771,6 +5837,54 @@
             "checked": "2026-11-21",
             "reviewed": "2026-11-21",
             "scope": "Detailed task: Cloud ES 8.7+ and CMP chain, existing findings, first-ten and approximate 200-finding limits, no-rerun statement and investigation permissions. Conflicts with the parent guide credit/revision model; not proof of actual tenant behavior."
+          },
+          "aiSaiaAgentMode240": {
+            "title": "Agent Mode on SAIA 2.4.0",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+            "section": "Requirements, Supported regions, Enable Agent Mode",
+            "scope": "The feature requires Platform 10.1.x+, administrator activation, a supported AWS service region and Model Runtime. The separate Enterprise installer raises the Platform minimum.",
+            "checked": "2026-11-21",
+            "reviewed": "2026-11-21"
+          },
+          "aiSaiaModelRuntime240": {
+            "title": "SAIA 2.4.0 Model Runtime",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+            "section": "Supported regions and region standard, Using Model Runtime",
+            "scope": "Data zone and Global routing differ. Requests can reach a third-party model outside the Splunk platform boundary.",
+            "checked": "2026-11-21",
+            "reviewed": "2026-11-21"
+          },
+          "aiSaiaAbout240": {
+            "title": "SAIA 2.4.0 and its ITSI subagent",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/about-splunk-ai-assistant/about-splunk-ai-assistant",
+            "section": "Splunk AI Assistant ITSI subagent, Where Splunk AI Assistant runs",
+            "scope": "The integration requires ITSI 5.0.0+, SAIA 2.2.0+ and MCP Server 1.2.1+. Its list of tools and base service regions does not identify a subagent-specific region.",
+            "checked": "2026-11-21",
+            "reviewed": "2026-11-21"
+          },
+          "aiSaiaKnownIssues240": {
+            "title": "SAIA 2.4.0 known issues",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/release-notes/known-issues",
+            "section": "SAIA-9918 Cloud Connected access",
+            "scope": "The issue describes the 2.2.0–2.3.6 restriction and 2.1.1 fallback without Agent Mode. Its future-tense 2.4.0 note differs from that version’s release notes and installer.",
+            "checked": "2026-11-21",
+            "reviewed": "2026-11-21"
+          },
+          "aiSaiaInstall240": {
+            "title": "SAIA 2.4.0 Cloud installation and service regions",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+            "section": "FedRAMP deployments, Supported regions, Version compatibility",
+            "scope": "The Cloud installer identifies 2.4.0 as generally available. Base AWS and Azure service locations, including the separately listed GovCloud rows, cannot establish Agent Mode availability.",
+            "checked": "2026-11-21",
+            "reviewed": "2026-11-21"
+          },
+          "aiSaiaRelease240": {
+            "title": "SAIA 2.4.0 release notes",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/release-notes/whats-new-in-splunk-ai-assistant",
+            "section": "Version 2.4.0 and Version 2.2.0",
+            "scope": "2.4.0 ships an Enterprise installation path through Cloud Connect. Supported FedRAMP High core SPL generation and explanation exclude Agent Mode.",
+            "checked": "2026-11-21",
+            "reviewed": "2026-11-21"
           },
           "aiObsDatabaseAssistant": {
             "title": "AI Assistant for Database Monitoring",
@@ -6001,7 +6115,13 @@
             "aiSaiaCloudConnected",
             "aiSaiaCloudConnected240",
             "aiSaiaKnownIssues",
-            "aiEsTriageTask88"
+            "aiEsTriageTask88",
+            "aiSaiaAgentMode240",
+            "aiSaiaModelRuntime240",
+            "aiSaiaAbout240",
+            "aiSaiaKnownIssues240",
+            "aiSaiaInstall240",
+            "aiSaiaRelease240"
           ],
           "src": [
             "aiHighAnnouncement20261019",
@@ -6026,7 +6146,13 @@
             "aiSaiaCloudConnected",
             "aiSaiaCloudConnected240",
             "aiSaiaKnownIssues",
-            "aiEsTriageTask88"
+            "aiEsTriageTask88",
+            "aiSaiaAgentMode240",
+            "aiSaiaModelRuntime240",
+            "aiSaiaAbout240",
+            "aiSaiaKnownIssues240",
+            "aiSaiaInstall240",
+            "aiSaiaRelease240"
           ],
           "serviceRegions": [
             {
@@ -6193,7 +6319,7 @@
             },
             {
               "kind": "ai-capability",
-              "verified": "2026-11-03",
+              "verified": "2026-11-21",
               "id": "ai-saia-agent",
               "title": "SAIA · Agent Mode",
               "product": "platform",
@@ -6202,19 +6328,19 @@
                 "product": "platform",
                 "evidenceVersion": "2.3.6"
               },
-              "version": "SAIA 2.3.6 documentation",
+              "version": "SAIA 2.3.6 evidence with a separately assessed 2.4.0 Cloud Connect path",
               "stage": "GA app · feature-specific limits",
               "description": "Use the assistant’s agentic workflow, subject to its separate requirements.",
               "requirements": [
                 "Platform 10.1.x+ is required by the Agent Mode feature guide.",
-                "The feature guide describes a Cloud Connected SAIA 2.1+ path, but current installation guidance says 2.2.0–2.3.6 lacks Cloud Connected and its 2.1.1 fallback lacks Agent Mode; SAIA-9918 independently records the access issue.",
+                "For Enterprise on SAIA 2.2.0–2.3.6, the installer and SAIA-9918 exclude Cloud Connected. Its 2.1.1 fallback lacks Agent Mode.",
                 "Model Runtime must be enabled; a Splunk-hosted-only setting does not satisfy the documented Agent Mode runtime choice.",
-                "Cloud Connected setup also requires the documented bidirectional connectivity, regional allowlist and certificate/stack-address configuration.",
-                "The documented limited IL2 FedRAMP assistant excludes Agent Mode.",
-                "Cloud Connected support is planned for SAIA 2.4.0 in late November 2026; a plan does not establish a released supported path."
+                "For the released 2.4.0 Enterprise path, use the versioned installer. It requires Enterprise 10.4+, SAIA 2.4.0+, Cloud Connect 2.0+, a paid license, outbound HTTPS, token certificate configuration, the required administrator permissions and email verification. Setup is fresh and prior chat history does not migrate.",
+                "The limited FedRAMP assistant and the 2.4.0 supported FedRAMP High core offering exclude Agent Mode.",
+                "The 2.4.0 release notes and installer document availability. The SAIA-9918 entry retains older planned-release wording. Confirm the exact supported app pairing, AWS region, Model Runtime and activation."
               ],
               "runtime": "Model Runtime may select external LLMs outside the Splunk platform data boundary. Its regional table distinguishes Data zone routing from Global routing; a selected AI service location does not guarantee in-region processing.",
-              "qualification": "Agent Mode has its own AWS-only region list; base SAIA or Azure Model Runtime availability does not establish this feature. Cloud Connected’s broad no-third-party assurance differs from the feature-specific external-processing documentation. Preserve both scopes; do not infer customer authorization or a residency guarantee. Current Cloud Connected compatibility is blocked/conflicting; meeting the feature guide’s minima does not restore that path. This restriction is not transferred to native Cloud deployments.",
+              "qualification": "The two installation paths have different requirements. The 2.3.6 Cloud Connected restriction is version-specific. For 2.4.0 distinguish documented installation from tenant enablement. Agent Mode has its own AWS-only regions. The installer’s no-third-party assurance and Model Runtime’s external-processing guidance require separate consideration.",
               "condition": "Confirm the exact Agent Mode AWS location, supported app/Platform pairing, Model Runtime policy, administrator activation and Cloud Connected prerequisites before enabling it.",
               "src": [
                 "aiSaiaInstall",
@@ -6222,12 +6348,18 @@
                 "aiSaiaAgentMode",
                 "aiSaiaModelRuntime",
                 "aiSaiaCloudConnected",
-                "aiSaiaKnownIssues"
+                "aiSaiaKnownIssues",
+                "aiSaiaRelease240",
+                "aiSaiaCloudConnected240",
+                "aiSaiaAgentMode240",
+                "aiSaiaKnownIssues240",
+                "aiSaiaModelRuntime240",
+                "aiSaiaInstall240"
               ]
             },
             {
               "kind": "ai-capability",
-              "verified": "2026-10-23",
+              "verified": "2026-11-21",
               "id": "ai-itsi-subagent",
               "title": "ITSI · SAIA subagent",
               "product": "itsi",
@@ -6248,7 +6380,8 @@
               "condition": "The integration and version floors are documented; confirm subagent enablement and regional scope.",
               "src": [
                 "aiSaiaAbout",
-                "aiSaiaInstall"
+                "aiSaiaInstall",
+                "aiSaiaAbout240"
               ]
             },
             {
@@ -6561,7 +6694,7 @@
             "fallbackAgentMode": false,
             "plannedVersion": "2.4.0",
             "plannedWindow": "late November 2026",
-            "qualification": "The feature guide still describes a Cloud Connected 2.1+ path, but the current installation compatibility section and SAIA-9918 block the current path. A planned release is not delivered availability."
+            "qualification": "SAIA 2.3.6 historical scope. SAIA-9918 excludes 2.2.0–2.3.6 and the 2.1.1 fallback lacks Agent Mode. The separate 2.4.0 installer and release notes document the new Cloud Connect route."
           }
         },
         "exactReleases": {
@@ -11369,23 +11502,23 @@
         "export88Release": {
           "title": "Splunk App for SOAR Export 8.8.0 release notes",
           "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
-          "section": "Welcome to release 8.8.0",
-          "checked": "2026-11-09",
-          "reviewed": "2026-11-09"
+          "section": "8.8.0 November 4 maintenance release; 8.8.1 November 19 fix PAPP-38632",
+          "checked": "2026-11-21",
+          "reviewed": "2026-11-21"
         },
         "export88Enterprise": {
           "title": "SOAR Export 8.8.0 prerequisites on Splunk Enterprise",
           "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
           "section": "Required Python version; Splunk product compatibility matrix; Required app",
-          "checked": "2026-11-09",
-          "reviewed": "2026-11-09"
+          "checked": "2026-11-21",
+          "reviewed": "2026-11-21"
         },
         "export88Cloud": {
           "title": "SOAR Export 8.8.0 prerequisites on Splunk Cloud Platform",
           "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
           "section": "Required Python version; Splunk product compatibility matrix; Required app",
-          "checked": "2026-11-09",
-          "reviewed": "2026-11-09"
+          "checked": "2026-11-21",
+          "reviewed": "2026-11-21"
         },
         "exportCatalog": {
           "title": "Splunkbase: Splunk App for SOAR Export",
@@ -11678,6 +11811,70 @@
           "checked": "2026-11-05",
           "reviewed": "2026-11-05",
           "qualification": "November 2026 service table and current Python 3.13 interpreter only. Regional claims retain their own dates."
+        },
+        "on88": {
+          "title": "SOAR On-premises 8.8 · Welcome to Splunk SOAR (On-premises)",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+          "section": "November 4 release; Broker deployment scope and 512 KiB custom-function metadata limit",
+          "checked": "2026-11-21",
+          "reviewed": "2026-11-21",
+          "outcome": "confirmed"
+        },
+        "path88": {
+          "title": "SOAR On-premises 8.8 · Upgrade path for Splunk SOAR (On-premises) unprivileged installations",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+          "section": "Unprivileged upgrade table; 8.5 bridge, direct 7.0.x-and-higher row and conditional OS and PostgreSQL migrations",
+          "checked": "2026-11-21",
+          "reviewed": "2026-11-21",
+          "outcome": "confirmed"
+        },
+        "req88": {
+          "title": "SOAR On-premises 8.8 · General system requirements",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/system-requirements/general-system-requirements",
+          "section": "Supported operating systems, database, Elasticsearch and bundled Universal Forwarder",
+          "checked": "2026-11-21",
+          "reviewed": "2026-11-21",
+          "outcome": "confirmed"
+        },
+        "sizing88": {
+          "title": "SOAR On-premises 8.8 · System requirements for production use",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/system-requirements/system-requirements-for-production-use",
+          "section": "Production processor, memory, storage and networking requirements",
+          "checked": "2026-11-21",
+          "reviewed": "2026-11-21",
+          "outcome": "confirmed"
+        },
+        "known88": {
+          "title": "SOAR On-premises 8.8 · Known issues for Splunk SOAR (On-premises)",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/known-issues-for-splunk-soar-on-premises",
+          "section": "Release 8.8.0 known issues; no individual rows in the retrieved article",
+          "checked": "2026-11-21",
+          "reviewed": "2026-11-21",
+          "outcome": "limited"
+        },
+        "fixed88": {
+          "title": "SOAR On-premises 8.8 · Fixed issues for Splunk SOAR (On-premises)",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/fixed-issues-for-splunk-soar-on-premises",
+          "section": "Release 8.8.0 heading and 8.7.0 description; no individual fixes identified",
+          "checked": "2026-11-21",
+          "reviewed": "2026-11-21",
+          "outcome": "limited"
+        },
+        "get88": {
+          "title": "SOAR On-premises 8.8 · Get Splunk SOAR (On-premises)",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/get-splunk-soar-on-premises/get-splunk-soar-on-premises",
+          "section": "Community account for access to installation packages",
+          "checked": "2026-11-21",
+          "reviewed": "2026-11-21",
+          "outcome": "confirmed"
+        },
+        "install88": {
+          "title": "SOAR On-premises 8.8 · Upgrade a Splunk SOAR (On-premises) instance",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-a-splunk-soar-on-premises-instance",
+          "section": "Unprivileged installation archive format with version, build, commit, OS and architecture",
+          "checked": "2026-11-21",
+          "reviewed": "2026-11-21",
+          "outcome": "confirmed"
         }
       },
       "records": [
@@ -12183,6 +12380,77 @@
           "status": "Required",
           "verified": "2026-10-01",
           "target": true
+        },
+        {
+          "id": "cmp88",
+          "title": "SOAR On-premises 8.8 release and package",
+          "detail": "Splunk documents the November 4 release and a route to 8.8.0. Verify the OS-specific unprivileged archive, build and commit in your authorized download. The public installer describes the naming convention without identifying your package.",
+          "kind": "requirement",
+          "release": "8.8.0",
+          "src": [
+            "on88",
+            "path88",
+            "get88",
+            "install88"
+          ],
+          "deployments": [
+            "cmp"
+          ],
+          "status": "Verify exact package",
+          "verified": "2026-11-21",
+          "target": true
+        },
+        {
+          "id": "cmp88-broker",
+          "title": "Broker high availability on a single instance",
+          "detail": "The 8.8 release notes include high availability for brokers on single-instance on-premises deployments. Confirm activation and compatible Broker versions. A clustered SOAR deployment is outside this documented on-premises feature scope.",
+          "kind": "feature",
+          "release": "8.8.0",
+          "src": [
+            "on88",
+            "broker"
+          ],
+          "deployments": [
+            "cmp"
+          ],
+          "status": "Conditional",
+          "verified": "2026-11-21",
+          "target": true
+        },
+        {
+          "id": "cmp88-function",
+          "title": "Custom-function metadata size",
+          "detail": "In 8.8 the combined name, description and other metadata of a new custom function must be smaller than 512 KiB. Runtime arguments, execution results and previously created oversized metadata are outside the stated limit.",
+          "kind": "technical",
+          "release": "8.8.0",
+          "src": [
+            "on88"
+          ],
+          "deployments": [
+            "cmp"
+          ],
+          "status": "Review",
+          "verified": "2026-11-21",
+          "target": true
+        },
+        {
+          "id": "export881-fix",
+          "title": "SOAR Export 8.8.1 fixes delivery from large ES deployments",
+          "detail": "The November 19 Export app patch fixes PAPP-38632 for Send to SOAR and Run Playbook in SOAR on large ES deployments. The Export prerequisite tables cover 8.8.0 and 8.8.1, CIM 8.5.0-1681 and Python 3.13. Check the tested Enterprise or Cloud pairing before upgrading the Export app. The SOAR server release remains 8.8.0.",
+          "kind": "technical",
+          "release": "8.8.0",
+          "src": [
+            "export88Release",
+            "export88Enterprise",
+            "export88Cloud"
+          ],
+          "deployments": [
+            "cmp",
+            "cloud"
+          ],
+          "status": "Component patch",
+          "verified": "2026-11-21",
+          "target": true
         }
       ],
       "regions": {
@@ -12233,7 +12501,8 @@
           "8.4.0",
           "8.5.0",
           "8.6.0",
-          "8.7.0"
+          "8.7.0",
+          "8.8.0"
         ],
         "cloud": [
           "7.1.0",
@@ -12347,20 +12616,29 @@
           ]
         },
         "8.8.0": {
-          "runtime": "Python 3.13 remains the current Cloud automation runtime boundary established by 8.7; the 8.8 entry does not publish a new runtime transition.",
+          "runtime": "Review playbooks, custom functions and apps for Python 3.13. The Cloud 8.8 milestone retains the earlier automation runtime transition.",
+          "os": "RHEL or Oracle Linux 8.10+ or 9.7+, or Amazon Linux 2023.10.20260330+. Container deployment is unsupported.",
+          "database": "PostgreSQL 15.x",
+          "search": "Elasticsearch 8.3.3, 8.11.4 or 8.19.4",
+          "forwarder": "10.4.4",
+          "sizing": "4–8 CPU cores, 16 GB RAM minimum (32 GB recommended) and 500 GiB each for home, data and file-share volumes.",
           "src": [
-            "cloud"
+            "on88",
+            "path88",
+            "req88",
+            "sizing88"
           ]
         }
       },
       "latestByDeployment": {
-        "cmp": "8.7.0",
+        "cmp": "8.8.0",
         "cloud": "8.8.0"
       },
       "targetsByDeployment": {
         "cmp": [
           "8.6.0",
-          "8.7.0"
+          "8.7.0",
+          "8.8.0"
         ],
         "cloud": [
           "8.6.0",
@@ -12602,6 +12880,12 @@
         "url": "https://www.splunk.com/en_us/products/user-and-entity-behavior-analytics.html"
       },
       {
+        "id": "source-24fbb759162fd0cf939c",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/system-requirements/system-requirements-for-production-use"
+      },
+      {
         "id": "source-27be2a998cc5478d31c0",
         "kind": "source",
         "dataset": "sources",
@@ -12740,6 +13024,12 @@
         "url": "https://www.splunk.com/en_us/blog/industries/edge-and-ingest-processors-with-spl2-and-splunk-ai-assistant-achieve-fedramp-high.html"
       },
       {
+        "id": "source-3505ddc8d95e8d64b3d2",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises"
+      },
+      {
         "id": "source-36726158f9471003db83",
         "kind": "source",
         "dataset": "sources",
@@ -12780,6 +13070,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix"
+      },
+      {
+        "id": "source-39c6591ac4ba49ec34f4",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant"
       },
       {
         "id": "source-3adec2447325f94c3eaa",
@@ -12980,6 +13276,12 @@
         "url": "https://www.splunk.com/en_us/download/splunk-enterprise.html?locale=en_us"
       },
       {
+        "id": "source-6119d65af04e9e2683d3",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.8/information-about-the-service/splunk-cloud-platform-service-details"
+      },
+      {
         "id": "source-617c72730ee0b4f2b380",
         "kind": "source",
         "dataset": "sources",
@@ -12996,6 +13298,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information"
+      },
+      {
+        "id": "source-652057986ea1a4b2854f",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations"
       },
       {
         "id": "source-65ee629866164abb3337",
@@ -13026,6 +13334,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://www.splunk.com/en_us/blog/industries/splunk-enterprise-security-premier-achieves-fedramp-moderate-authorization.html"
+      },
+      {
+        "id": "source-6960d8d2114cc0778eb8",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/whats-new"
       },
       {
         "id": "source-6a7d5336d3254cafe7c5",
@@ -13286,6 +13600,12 @@
         "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/known-issues-for-splunk-soar-cloud"
       },
       {
+        "id": "source-922e8c6fc791418c7445",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/fixed-issues-for-splunk-soar-on-premises"
+      },
+      {
         "id": "source-92ccab3731c1303f827d",
         "kind": "source",
         "dataset": "sources",
@@ -13344,6 +13664,18 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://docs.aws.amazon.com/general/latest/gr/ec2-service.html"
+      },
+      {
+        "id": "source-9f7edcc182943caedb5a",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant"
+      },
+      {
+        "id": "source-a4983415380b77aa5d56",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/about-splunk-ai-assistant/about-splunk-ai-assistant"
       },
       {
         "id": "source-a4b22ed4024fa0c247ca",
@@ -13434,6 +13766,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant"
+      },
+      {
+        "id": "source-b2ed71a15c6779e56b44",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-a-splunk-soar-on-premises-instance"
       },
       {
         "id": "source-b38fee5af3f5e6c85261",
@@ -13550,6 +13888,12 @@
         "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.0.2503/splunk-cloud-platform-release-notes/whats-new"
       },
       {
+        "id": "source-c36a363e91af9e486204",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/release-notes/whats-new-in-splunk-ai-assistant"
+      },
+      {
         "id": "source-c66621e4448f14c6d791",
         "kind": "source",
         "dataset": "sources",
@@ -13628,6 +13972,12 @@
         "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/plan-your-splunk-enterprise-installation/system-requirements-for-use-of-splunk-enterprise-on-premises"
       },
       {
+        "id": "source-ce14e38696e2edb70248",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/known-and-fixed-issues-for-splunk-cloud-platform"
+      },
+      {
         "id": "source-ce92391e3a9bc4eba4a8",
         "kind": "source",
         "dataset": "sources",
@@ -13668,6 +14018,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/search-spans-with-span-analyzer-in-splunk-apm"
+      },
+      {
+        "id": "source-d5dd730be1e1278a5e73",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/release-notes/known-issues"
       },
       {
         "id": "source-d62bca63b4f45a3264a6",
@@ -13796,6 +14152,12 @@
         "url": "https://agent-observability-docs.splunk.com/saas/overview"
       },
       {
+        "id": "source-ea2902375c70e175f6c2",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers"
+      },
+      {
         "id": "source-ea291488ffdbc29e4e79",
         "kind": "source",
         "dataset": "sources",
@@ -13806,6 +14168,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.162.0"
+      },
+      {
+        "id": "source-ecb23e96f16146b37660",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/known-issues-for-splunk-soar-on-premises"
       },
       {
         "id": "source-eeedaa850b3060cf12f6",
@@ -13862,6 +14230,12 @@
         "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/9.4/deprecated-features/deprecated-and-removed-in-version-9.4"
       },
       {
+        "id": "source-f49600756988995e4a16",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/get-splunk-soar-on-premises/get-splunk-soar-on-premises"
+      },
+      {
         "id": "source-f4bd2867ae5680f9c22a",
         "kind": "source",
         "dataset": "sources",
@@ -13872,6 +14246,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description#realm-to-region-equivalence-0"
+      },
+      {
+        "id": "source-f73492c2413f7ad5e208",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/system-requirements/general-system-requirements"
       },
       {
         "id": "source-f7f42512a6d4b4a38d27",
@@ -14641,7 +15021,7 @@
         },
         "payload": [
           "Retain the ES cohosted KV Store warning",
-          "Enterprise 10.6.0 retains the ES 8.7-and-lower cohosted-KV incompatibility. The matrix separately says ES 8.4.x and higher are compatible with Enterprise 10.6.1.1 and higher, while the displayed 10.6.1 row enumerates only through ES 8.7.x. Because the selector is line-level, verify the exact Enterprise package and ES pairing; do not infer an unlisted pairing or silently treat 10.6.1 as 10.6.1.1.",
+          "Retain the documented postponement for an affected Enterprise 10.6.0 deployment. The 10.6.1.0 matrix row excludes ES 8.7 and lower from cohosted KV Store 1.0. Enterprise 10.6.1.1 explicitly lists ES 8.8.x and carries the broader 8.4.x-and-higher footnote. Verify the exact host patch and database engine before migration.",
           "Blocker",
           "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
           true
@@ -16318,6 +16698,101 @@
           "Catch slow degradation",
           "Identify gradual or sudden KPI drift so teams can remediate before it becomes a service problem."
         ]
+      },
+      {
+        "id": "vc-1f20c824faee1d6c333b",
+        "kind": "technical",
+        "dataset": "soar",
+        "scope": {
+          "regions": {
+            "aws": [
+              "Oregon",
+              "Virginia",
+              "London",
+              "Dublin",
+              "Frankfurt",
+              "Milan",
+              "Paris",
+              "Mumbai",
+              "Seoul",
+              "Singapore",
+              "Sydney",
+              "Tokyo",
+              "Canada Central",
+              "Canada West"
+            ],
+            "gcp": [
+              "Iowa",
+              "London",
+              "Dammam",
+              "Belgium",
+              "Frankfurt",
+              "Singapore",
+              "Sydney",
+              "Montreal"
+            ],
+            "azure": [
+              "Phoenix",
+              "Virginia",
+              "London",
+              "Tokyo"
+            ]
+          },
+          "release": "8.8.0",
+          "deployments": [
+            "cmp",
+            "cloud"
+          ]
+        },
+        "evidence": [
+          {
+            "sourceId": "source-58a0e8e5b0a27aa28965",
+            "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
+            "section": "8.8.0 November 4 maintenance release; 8.8.1 November 19 fix PAPP-38632",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
+          },
+          {
+            "sourceId": "source-805bc541eb99738547db",
+            "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+            "section": "Required Python version; Splunk product compatibility matrix; Required app",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
+          },
+          {
+            "sourceId": "source-875b45b117e8a96ef413",
+            "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+            "section": "Required Python version; Splunk product compatibility matrix; Required app",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
+          }
+        ],
+        "verification": {
+          "date": "2026-11-21",
+          "outcome": "Recorded in original claim"
+        },
+        "payload": {
+          "id": "export881-fix",
+          "title": "SOAR Export 8.8.1 fixes delivery from large ES deployments",
+          "detail": "The November 19 Export app patch fixes PAPP-38632 for Send to SOAR and Run Playbook in SOAR on large ES deployments. The Export prerequisite tables cover 8.8.0 and 8.8.1, CIM 8.5.0-1681 and Python 3.13. Check the tested Enterprise or Cloud pairing before upgrading the Export app. The SOAR server release remains 8.8.0.",
+          "kind": "technical",
+          "release": "8.8.0",
+          "src": [
+            "export88Release",
+            "export88Enterprise",
+            "export88Cloud"
+          ],
+          "deployments": [
+            "cmp",
+            "cloud"
+          ],
+          "status": "Component patch",
+          "verified": "2026-11-21",
+          "target": true
+        }
       },
       {
         "id": "vc-2091b03a8205fb4659ef",
@@ -18208,26 +18683,26 @@
           {
             "sourceId": "source-58a0e8e5b0a27aa28965",
             "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
-            "section": "Welcome to release 8.8.0",
+            "section": "8.8.0 November 4 maintenance release; 8.8.1 November 19 fix PAPP-38632",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-11-09",
-            "sourceChecked": "2026-11-09"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           },
           {
             "sourceId": "source-805bc541eb99738547db",
             "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
             "section": "Required Python version; Splunk product compatibility matrix; Required app",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-11-09",
-            "sourceChecked": "2026-11-09"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           },
           {
             "sourceId": "source-875b45b117e8a96ef413",
             "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
             "section": "Required Python version; Splunk product compatibility matrix; Required app",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-11-09",
-            "sourceChecked": "2026-11-09"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           },
           {
             "sourceId": "source-e75e11df4ec1f6d81a1b",
@@ -18651,6 +19126,108 @@
           "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first",
           true
         ]
+      },
+      {
+        "id": "vc-374fda13cfe17e21dade",
+        "kind": "requirement",
+        "dataset": "soar",
+        "scope": {
+          "regions": {
+            "aws": [
+              "Oregon",
+              "Virginia",
+              "London",
+              "Dublin",
+              "Frankfurt",
+              "Milan",
+              "Paris",
+              "Mumbai",
+              "Seoul",
+              "Singapore",
+              "Sydney",
+              "Tokyo",
+              "Canada Central",
+              "Canada West"
+            ],
+            "gcp": [
+              "Iowa",
+              "London",
+              "Dammam",
+              "Belgium",
+              "Frankfurt",
+              "Singapore",
+              "Sydney",
+              "Montreal"
+            ],
+            "azure": [
+              "Phoenix",
+              "Virginia",
+              "London",
+              "Tokyo"
+            ]
+          },
+          "release": "8.8.0",
+          "deployments": [
+            "cmp"
+          ]
+        },
+        "evidence": [
+          {
+            "sourceId": "source-3505ddc8d95e8d64b3d2",
+            "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+            "section": "November 4 release; Broker deployment scope and 512 KiB custom-function metadata limit",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
+          },
+          {
+            "sourceId": "source-652057986ea1a4b2854f",
+            "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+            "section": "Unprivileged upgrade table; 8.5 bridge, direct 7.0.x-and-higher row and conditional OS and PostgreSQL migrations",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
+          },
+          {
+            "sourceId": "source-f49600756988995e4a16",
+            "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/get-splunk-soar-on-premises/get-splunk-soar-on-premises",
+            "section": "Community account for access to installation packages",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
+          },
+          {
+            "sourceId": "source-b2ed71a15c6779e56b44",
+            "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-a-splunk-soar-on-premises-instance",
+            "section": "Unprivileged installation archive format with version, build, commit, OS and architecture",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
+          }
+        ],
+        "verification": {
+          "date": "2026-11-21",
+          "outcome": "Recorded in original claim"
+        },
+        "payload": {
+          "id": "cmp88",
+          "title": "SOAR On-premises 8.8 release and package",
+          "detail": "Splunk documents the November 4 release and a route to 8.8.0. Verify the OS-specific unprivileged archive, build and commit in your authorized download. The public installer describes the naming convention without identifying your package.",
+          "kind": "requirement",
+          "release": "8.8.0",
+          "src": [
+            "on88",
+            "path88",
+            "get88",
+            "install88"
+          ],
+          "deployments": [
+            "cmp"
+          ],
+          "status": "Verify exact package",
+          "verified": "2026-11-21",
+          "target": true
+        }
       },
       {
         "id": "vc-377192fa13295e5a2af5",
@@ -19412,12 +19989,12 @@
         },
         "evidence": [],
         "verification": {
-          "date": "2026-10-23",
+          "date": "2026-11-21",
           "outcome": "Recorded in original claim"
         },
         "payload": {
           "kind": "ai-capability",
-          "verified": "2026-10-23",
+          "verified": "2026-11-21",
           "id": "ai-itsi-subagent",
           "title": "ITSI · SAIA subagent",
           "product": "itsi",
@@ -19438,7 +20015,8 @@
           "condition": "The integration and version floors are documented; confirm subagent enablement and regional scope.",
           "src": [
             "aiSaiaAbout",
-            "aiSaiaInstall"
+            "aiSaiaInstall",
+            "aiSaiaAbout240"
           ]
         }
       },
@@ -19526,7 +20104,7 @@
         },
         "payload": [
           "Match an exact supported Splunk Enterprise host",
-          "The product matrix explicitly lists Enterprise Security 8.8 with Enterprise 10.2.x and 10.4.x. A separate 10.6.1 row footnote states that ES 8.4.x and higher are compatible with Enterprise 10.6.1.1 and higher. This exact-patch qualification does not certify the generic 10.6 selector, 10.6.0 or 10.6.1. Confirm the actual patch, feature access and other prerequisites; broader 9.2.0-and-higher prose does not override the exact matrix scope.",
+          "The matrix lists ES 8.8 with Enterprise 10.2.x and 10.4.x. Its exact Enterprise 10.6.1.1 row lists 8.8.x and carries a footnote covering ES 8.4.x and higher on Enterprise 10.6.1.1 and higher. The 10.6.1.0 row lists selected versions through 8.7.x and excludes ES 8.7 and lower from cohosted KV Store 1.0. The exact row does not certify the generic 10.6 selector, a 10.6.0 host or a three-segment 10.6.1 release label.",
           "Blocker",
           "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
           true
@@ -20677,7 +21255,13 @@
             "aiSaiaCloudConnected",
             "aiSaiaCloudConnected240",
             "aiSaiaKnownIssues",
-            "aiEsTriageTask88"
+            "aiEsTriageTask88",
+            "aiSaiaAgentMode240",
+            "aiSaiaModelRuntime240",
+            "aiSaiaAbout240",
+            "aiSaiaKnownIssues240",
+            "aiSaiaInstall240",
+            "aiSaiaRelease240"
           ],
           "src": [
             "aiHighAnnouncement20261019",
@@ -20702,7 +21286,13 @@
             "aiSaiaCloudConnected",
             "aiSaiaCloudConnected240",
             "aiSaiaKnownIssues",
-            "aiEsTriageTask88"
+            "aiEsTriageTask88",
+            "aiSaiaAgentMode240",
+            "aiSaiaModelRuntime240",
+            "aiSaiaAbout240",
+            "aiSaiaKnownIssues240",
+            "aiSaiaInstall240",
+            "aiSaiaRelease240"
           ],
           "serviceRegions": [
             {
@@ -20869,7 +21459,7 @@
             },
             {
               "kind": "ai-capability",
-              "verified": "2026-11-03",
+              "verified": "2026-11-21",
               "id": "ai-saia-agent",
               "title": "SAIA · Agent Mode",
               "product": "platform",
@@ -20878,19 +21468,19 @@
                 "product": "platform",
                 "evidenceVersion": "2.3.6"
               },
-              "version": "SAIA 2.3.6 documentation",
+              "version": "SAIA 2.3.6 evidence with a separately assessed 2.4.0 Cloud Connect path",
               "stage": "GA app · feature-specific limits",
               "description": "Use the assistant’s agentic workflow, subject to its separate requirements.",
               "requirements": [
                 "Platform 10.1.x+ is required by the Agent Mode feature guide.",
-                "The feature guide describes a Cloud Connected SAIA 2.1+ path, but current installation guidance says 2.2.0–2.3.6 lacks Cloud Connected and its 2.1.1 fallback lacks Agent Mode; SAIA-9918 independently records the access issue.",
+                "For Enterprise on SAIA 2.2.0–2.3.6, the installer and SAIA-9918 exclude Cloud Connected. Its 2.1.1 fallback lacks Agent Mode.",
                 "Model Runtime must be enabled; a Splunk-hosted-only setting does not satisfy the documented Agent Mode runtime choice.",
-                "Cloud Connected setup also requires the documented bidirectional connectivity, regional allowlist and certificate/stack-address configuration.",
-                "The documented limited IL2 FedRAMP assistant excludes Agent Mode.",
-                "Cloud Connected support is planned for SAIA 2.4.0 in late November 2026; a plan does not establish a released supported path."
+                "For the released 2.4.0 Enterprise path, use the versioned installer. It requires Enterprise 10.4+, SAIA 2.4.0+, Cloud Connect 2.0+, a paid license, outbound HTTPS, token certificate configuration, the required administrator permissions and email verification. Setup is fresh and prior chat history does not migrate.",
+                "The limited FedRAMP assistant and the 2.4.0 supported FedRAMP High core offering exclude Agent Mode.",
+                "The 2.4.0 release notes and installer document availability. The SAIA-9918 entry retains older planned-release wording. Confirm the exact supported app pairing, AWS region, Model Runtime and activation."
               ],
               "runtime": "Model Runtime may select external LLMs outside the Splunk platform data boundary. Its regional table distinguishes Data zone routing from Global routing; a selected AI service location does not guarantee in-region processing.",
-              "qualification": "Agent Mode has its own AWS-only region list; base SAIA or Azure Model Runtime availability does not establish this feature. Cloud Connected’s broad no-third-party assurance differs from the feature-specific external-processing documentation. Preserve both scopes; do not infer customer authorization or a residency guarantee. Current Cloud Connected compatibility is blocked/conflicting; meeting the feature guide’s minima does not restore that path. This restriction is not transferred to native Cloud deployments.",
+              "qualification": "The two installation paths have different requirements. The 2.3.6 Cloud Connected restriction is version-specific. For 2.4.0 distinguish documented installation from tenant enablement. Agent Mode has its own AWS-only regions. The installer’s no-third-party assurance and Model Runtime’s external-processing guidance require separate consideration.",
               "condition": "Confirm the exact Agent Mode AWS location, supported app/Platform pairing, Model Runtime policy, administrator activation and Cloud Connected prerequisites before enabling it.",
               "src": [
                 "aiSaiaInstall",
@@ -20898,12 +21488,18 @@
                 "aiSaiaAgentMode",
                 "aiSaiaModelRuntime",
                 "aiSaiaCloudConnected",
-                "aiSaiaKnownIssues"
+                "aiSaiaKnownIssues",
+                "aiSaiaRelease240",
+                "aiSaiaCloudConnected240",
+                "aiSaiaAgentMode240",
+                "aiSaiaKnownIssues240",
+                "aiSaiaModelRuntime240",
+                "aiSaiaInstall240"
               ]
             },
             {
               "kind": "ai-capability",
-              "verified": "2026-10-23",
+              "verified": "2026-11-21",
               "id": "ai-itsi-subagent",
               "title": "ITSI · SAIA subagent",
               "product": "itsi",
@@ -20924,7 +21520,8 @@
               "condition": "The integration and version floors are documented; confirm subagent enablement and regional scope.",
               "src": [
                 "aiSaiaAbout",
-                "aiSaiaInstall"
+                "aiSaiaInstall",
+                "aiSaiaAbout240"
               ]
             },
             {
@@ -21237,7 +21834,7 @@
             "fallbackAgentMode": false,
             "plannedVersion": "2.4.0",
             "plannedWindow": "late November 2026",
-            "qualification": "The feature guide still describes a Cloud Connected 2.1+ path, but the current installation compatibility section and SAIA-9918 block the current path. A planned release is not delivered availability."
+            "qualification": "SAIA 2.3.6 historical scope. SAIA-9918 excludes 2.2.0–2.3.6 and the 2.1.1 fallback lacks Agent Mode. The separate 2.4.0 installer and release notes document the new Cloud Connect route."
           }
         }
       },
@@ -21795,6 +22392,90 @@
           "Organize dense experiences",
           "Group related dashboard content into navigable tabs."
         ]
+      },
+      {
+        "id": "vc-503814f836b91726c097",
+        "kind": "feature",
+        "dataset": "soar",
+        "scope": {
+          "regions": {
+            "aws": [
+              "Oregon",
+              "Virginia",
+              "London",
+              "Dublin",
+              "Frankfurt",
+              "Milan",
+              "Paris",
+              "Mumbai",
+              "Seoul",
+              "Singapore",
+              "Sydney",
+              "Tokyo",
+              "Canada Central",
+              "Canada West"
+            ],
+            "gcp": [
+              "Iowa",
+              "London",
+              "Dammam",
+              "Belgium",
+              "Frankfurt",
+              "Singapore",
+              "Sydney",
+              "Montreal"
+            ],
+            "azure": [
+              "Phoenix",
+              "Virginia",
+              "London",
+              "Tokyo"
+            ]
+          },
+          "release": "8.8.0",
+          "deployments": [
+            "cmp"
+          ]
+        },
+        "evidence": [
+          {
+            "sourceId": "source-3505ddc8d95e8d64b3d2",
+            "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+            "section": "November 4 release; Broker deployment scope and 512 KiB custom-function metadata limit",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
+          },
+          {
+            "sourceId": "source-02c70293a4bbe16d0cd4",
+            "url": "https://help.splunk.com/en/splunk-soar/splunk-automation-broker/splunk-soar-automation-broker-release-notes/whats-new-in-splunk-soar-automation-broker",
+            "section": "September 2 release 8.7; Python 3.13 only; 8.6.0.536 fixes",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-10-01",
+            "sourceChecked": "2026-10-01"
+          }
+        ],
+        "verification": {
+          "date": "2026-11-21",
+          "outcome": "Recorded in original claim"
+        },
+        "payload": {
+          "id": "cmp88-broker",
+          "title": "Broker high availability on a single instance",
+          "detail": "The 8.8 release notes include high availability for brokers on single-instance on-premises deployments. Confirm activation and compatible Broker versions. A clustered SOAR deployment is outside this documented on-premises feature scope.",
+          "kind": "feature",
+          "release": "8.8.0",
+          "src": [
+            "on88",
+            "broker"
+          ],
+          "deployments": [
+            "cmp"
+          ],
+          "status": "Conditional",
+          "verified": "2026-11-21",
+          "target": true
+        }
       },
       {
         "id": "vc-50544547329dfee9aa19",
@@ -23052,6 +23733,35 @@
         ]
       },
       {
+        "id": "vc-5c513e36c6aeeee63111",
+        "kind": "feature",
+        "dataset": "platform",
+        "scope": {
+          "platform": "cloud",
+          "release": "10.8"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-6960d8d2114cc0778eb8",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/whats-new",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Federated search workload admission",
+          "Search & AI",
+          "Protect remote search capacity",
+          "For supported standard and transparent federations, an administrator can apply rules on the remote search head based on whether the originating search was scheduled or ad hoc."
+        ]
+      },
+      {
         "id": "vc-5cce68cd925ac184914c",
         "kind": "ai-capability",
         "dataset": "guidance",
@@ -23066,16 +23776,16 @@
             "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
             "section": "Requirements; features; ITSI subagent; where the assistant runs",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-10-23",
-            "sourceChecked": "2026-10-23"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           },
           {
             "sourceId": "source-933d52078c21646b9f1b",
             "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
             "section": "FedRAMP deployments; supported regions; version compatibility",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-10-23",
-            "sourceChecked": "2026-10-23"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           }
         ],
         "verification": {
@@ -24672,6 +25382,81 @@
         }
       },
       {
+        "id": "vc-7233908561214efcfc49",
+        "kind": "technical",
+        "dataset": "soar",
+        "scope": {
+          "regions": {
+            "aws": [
+              "Oregon",
+              "Virginia",
+              "London",
+              "Dublin",
+              "Frankfurt",
+              "Milan",
+              "Paris",
+              "Mumbai",
+              "Seoul",
+              "Singapore",
+              "Sydney",
+              "Tokyo",
+              "Canada Central",
+              "Canada West"
+            ],
+            "gcp": [
+              "Iowa",
+              "London",
+              "Dammam",
+              "Belgium",
+              "Frankfurt",
+              "Singapore",
+              "Sydney",
+              "Montreal"
+            ],
+            "azure": [
+              "Phoenix",
+              "Virginia",
+              "London",
+              "Tokyo"
+            ]
+          },
+          "release": "8.8.0",
+          "deployments": [
+            "cmp"
+          ]
+        },
+        "evidence": [
+          {
+            "sourceId": "source-3505ddc8d95e8d64b3d2",
+            "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+            "section": "November 4 release; Broker deployment scope and 512 KiB custom-function metadata limit",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
+          }
+        ],
+        "verification": {
+          "date": "2026-11-21",
+          "outcome": "Recorded in original claim"
+        },
+        "payload": {
+          "id": "cmp88-function",
+          "title": "Custom-function metadata size",
+          "detail": "In 8.8 the combined name, description and other metadata of a new custom function must be smaller than 512 KiB. Runtime arguments, execution results and previously created oversized metadata are outside the stated limit.",
+          "kind": "technical",
+          "release": "8.8.0",
+          "src": [
+            "on88"
+          ],
+          "deployments": [
+            "cmp"
+          ],
+          "status": "Review",
+          "verified": "2026-11-21",
+          "target": true
+        }
+      },
+      {
         "id": "vc-72421c4eac85996c8881",
         "kind": "feature",
         "dataset": "platform",
@@ -25975,25 +26760,33 @@
             "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
             "section": "Requirements; features; ITSI subagent; where the assistant runs",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-10-23",
-            "sourceChecked": "2026-10-23"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           },
           {
             "sourceId": "source-933d52078c21646b9f1b",
             "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
             "section": "FedRAMP deployments; supported regions; version compatibility",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-10-23",
-            "sourceChecked": "2026-10-23"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
+          },
+          {
+            "sourceId": "source-a4983415380b77aa5d56",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/about-splunk-ai-assistant/about-splunk-ai-assistant",
+            "section": "Splunk AI Assistant ITSI subagent, Where Splunk AI Assistant runs",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           }
         ],
         "verification": {
-          "date": "2026-10-23",
+          "date": "2026-11-21",
           "outcome": "Recorded in original claim"
         },
         "payload": {
           "kind": "ai-capability",
-          "verified": "2026-10-23",
+          "verified": "2026-11-21",
           "id": "ai-itsi-subagent",
           "title": "ITSI · SAIA subagent",
           "product": "itsi",
@@ -26014,7 +26807,8 @@
           "condition": "The integration and version floors are documented; confirm subagent enablement and regional scope.",
           "src": [
             "aiSaiaAbout",
-            "aiSaiaInstall"
+            "aiSaiaInstall",
+            "aiSaiaAbout240"
           ]
         }
       },
@@ -26193,6 +26987,36 @@
           "Service health",
           "Trace unhealthy entities to configuration",
           "Navigate from entity status to the discovery search that contributes to the result."
+        ]
+      },
+      {
+        "id": "vc-808cd392c9a561c146a2",
+        "kind": "requirement",
+        "dataset": "platform",
+        "scope": {
+          "platform": "cloud",
+          "release": "10.8"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-6119d65af04e9e2683d3",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.8/information-about-the-service/splunk-cloud-platform-service-details",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Confirm the selected stack before using Cloud 10.8 guidance",
+          "The 10.8 notes describe the milestone. Service Details still lists Cloud 10.7, ES 8.7 and ITSI 5.0. Confirm the specific stack, feature, entitlement and region.",
+          "Blocker",
+          "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.8/information-about-the-service/splunk-cloud-platform-service-details",
+          true
         ]
       },
       {
@@ -28245,16 +29069,16 @@
         "scope": {
           "product": "platform",
           "evidenceVersion": "2.3.6",
-          "version": "SAIA 2.3.6 documentation"
+          "version": "SAIA 2.3.6 evidence with a separately assessed 2.4.0 Cloud Connect path"
         },
         "evidence": [],
         "verification": {
-          "date": "2026-11-03",
+          "date": "2026-11-21",
           "outcome": "Recorded in original claim"
         },
         "payload": {
           "kind": "ai-capability",
-          "verified": "2026-11-03",
+          "verified": "2026-11-21",
           "id": "ai-saia-agent",
           "title": "SAIA · Agent Mode",
           "product": "platform",
@@ -28263,19 +29087,19 @@
             "product": "platform",
             "evidenceVersion": "2.3.6"
           },
-          "version": "SAIA 2.3.6 documentation",
+          "version": "SAIA 2.3.6 evidence with a separately assessed 2.4.0 Cloud Connect path",
           "stage": "GA app · feature-specific limits",
           "description": "Use the assistant’s agentic workflow, subject to its separate requirements.",
           "requirements": [
             "Platform 10.1.x+ is required by the Agent Mode feature guide.",
-            "The feature guide describes a Cloud Connected SAIA 2.1+ path, but current installation guidance says 2.2.0–2.3.6 lacks Cloud Connected and its 2.1.1 fallback lacks Agent Mode; SAIA-9918 independently records the access issue.",
+            "For Enterprise on SAIA 2.2.0–2.3.6, the installer and SAIA-9918 exclude Cloud Connected. Its 2.1.1 fallback lacks Agent Mode.",
             "Model Runtime must be enabled; a Splunk-hosted-only setting does not satisfy the documented Agent Mode runtime choice.",
-            "Cloud Connected setup also requires the documented bidirectional connectivity, regional allowlist and certificate/stack-address configuration.",
-            "The documented limited IL2 FedRAMP assistant excludes Agent Mode.",
-            "Cloud Connected support is planned for SAIA 2.4.0 in late November 2026; a plan does not establish a released supported path."
+            "For the released 2.4.0 Enterprise path, use the versioned installer. It requires Enterprise 10.4+, SAIA 2.4.0+, Cloud Connect 2.0+, a paid license, outbound HTTPS, token certificate configuration, the required administrator permissions and email verification. Setup is fresh and prior chat history does not migrate.",
+            "The limited FedRAMP assistant and the 2.4.0 supported FedRAMP High core offering exclude Agent Mode.",
+            "The 2.4.0 release notes and installer document availability. The SAIA-9918 entry retains older planned-release wording. Confirm the exact supported app pairing, AWS region, Model Runtime and activation."
           ],
           "runtime": "Model Runtime may select external LLMs outside the Splunk platform data boundary. Its regional table distinguishes Data zone routing from Global routing; a selected AI service location does not guarantee in-region processing.",
-          "qualification": "Agent Mode has its own AWS-only region list; base SAIA or Azure Model Runtime availability does not establish this feature. Cloud Connected’s broad no-third-party assurance differs from the feature-specific external-processing documentation. Preserve both scopes; do not infer customer authorization or a residency guarantee. Current Cloud Connected compatibility is blocked/conflicting; meeting the feature guide’s minima does not restore that path. This restriction is not transferred to native Cloud deployments.",
+          "qualification": "The two installation paths have different requirements. The 2.3.6 Cloud Connected restriction is version-specific. For 2.4.0 distinguish documented installation from tenant enablement. Agent Mode has its own AWS-only regions. The installer’s no-third-party assurance and Model Runtime’s external-processing guidance require separate consideration.",
           "condition": "Confirm the exact Agent Mode AWS location, supported app/Platform pairing, Model Runtime policy, administrator activation and Cloud Connected prerequisites before enabling it.",
           "src": [
             "aiSaiaInstall",
@@ -28283,7 +29107,13 @@
             "aiSaiaAgentMode",
             "aiSaiaModelRuntime",
             "aiSaiaCloudConnected",
-            "aiSaiaKnownIssues"
+            "aiSaiaKnownIssues",
+            "aiSaiaRelease240",
+            "aiSaiaCloudConnected240",
+            "aiSaiaAgentMode240",
+            "aiSaiaKnownIssues240",
+            "aiSaiaModelRuntime240",
+            "aiSaiaInstall240"
           ]
         }
       },
@@ -29588,6 +30418,35 @@
           "Platform operations",
           "Modernize application state",
           "Begin the documented transition from MongoDB-backed KV Store to a cohosted PostgreSQL architecture."
+        ]
+      },
+      {
+        "id": "vc-a2c107fdc081cffa9190",
+        "kind": "feature",
+        "dataset": "platform",
+        "scope": {
+          "platform": "cloud",
+          "release": "10.8"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-6960d8d2114cc0778eb8",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/whats-new",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Delegated DDAA restore permissions",
+          "Platform operations",
+          "Delegate monitoring and execution",
+          "Restore monitoring and execution can be delegated separately from index administration."
         ]
       },
       {
@@ -32285,8 +33144,8 @@
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
             "section": "Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-10-27",
-            "sourceChecked": "2026-10-27"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           },
           {
             "sourceId": "source-d10f9ac6604ba17d7875",
@@ -32309,16 +33168,16 @@
             "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
             "section": "FedRAMP deployments; supported regions; version compatibility",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-10-23",
-            "sourceChecked": "2026-10-23"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           },
           {
             "sourceId": "source-8f71af7acdb0a6fe115b",
             "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
             "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-11-03",
-            "sourceChecked": "2026-11-03"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           },
           {
             "sourceId": "source-bc7753295901b5f5e506",
@@ -33587,7 +34446,7 @@
         "scope": {
           "product": "platform",
           "evidenceVersion": "2.3.6",
-          "version": "SAIA 2.3.6 documentation"
+          "version": "SAIA 2.3.6 evidence with a separately assessed 2.4.0 Cloud Connect path"
         },
         "evidence": [
           {
@@ -33595,57 +34454,105 @@
             "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
             "section": "FedRAMP deployments; supported regions; version compatibility",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-10-23",
-            "sourceChecked": "2026-10-23"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           },
           {
             "sourceId": "source-a7af3e985cbd086d3974",
             "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
             "section": "Requirements; features; ITSI subagent; where the assistant runs",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-10-23",
-            "sourceChecked": "2026-10-23"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           },
           {
             "sourceId": "source-a4b22ed4024fa0c247ca",
             "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
             "section": "Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-11-03",
-            "sourceChecked": "2026-11-03"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           },
           {
             "sourceId": "source-b2af8c3f2c5d15149dde",
             "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
             "section": "Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-11-03",
-            "sourceChecked": "2026-11-03"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           },
           {
             "sourceId": "source-8f71af7acdb0a6fe115b",
             "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
             "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-11-03",
-            "sourceChecked": "2026-11-03"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           },
           {
             "sourceId": "source-c8748b9943e651ffba54",
             "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
             "section": "SAIA-9918 Cloud Connected access and 2.1.1 workaround",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-11-03",
-            "sourceChecked": "2026-11-03"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
+          },
+          {
+            "sourceId": "source-c36a363e91af9e486204",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/release-notes/whats-new-in-splunk-ai-assistant",
+            "section": "Version 2.4.0 and Version 2.2.0",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
+          },
+          {
+            "sourceId": "source-bc7753295901b5f5e506",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-splunk-cloud-connect",
+            "section": "Prerequisites; Version compatibility; Installation steps; What data leaves your environment",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-20",
+            "sourceChecked": "2026-11-20"
+          },
+          {
+            "sourceId": "source-39c6591ac4ba49ec34f4",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+            "section": "Requirements, Supported regions, Enable Agent Mode",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
+          },
+          {
+            "sourceId": "source-d5dd730be1e1278a5e73",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/release-notes/known-issues",
+            "section": "SAIA-9918 Cloud Connected access",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
+          },
+          {
+            "sourceId": "source-9f7edcc182943caedb5a",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+            "section": "Supported regions and region standard, Using Model Runtime",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
+          },
+          {
+            "sourceId": "source-ea2902375c70e175f6c2",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+            "section": "FedRAMP deployments, Supported regions, Version compatibility",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           }
         ],
         "verification": {
-          "date": "2026-11-03",
+          "date": "2026-11-21",
           "outcome": "Recorded in original claim"
         },
         "payload": {
           "kind": "ai-capability",
-          "verified": "2026-11-03",
+          "verified": "2026-11-21",
           "id": "ai-saia-agent",
           "title": "SAIA · Agent Mode",
           "product": "platform",
@@ -33654,19 +34561,19 @@
             "product": "platform",
             "evidenceVersion": "2.3.6"
           },
-          "version": "SAIA 2.3.6 documentation",
+          "version": "SAIA 2.3.6 evidence with a separately assessed 2.4.0 Cloud Connect path",
           "stage": "GA app · feature-specific limits",
           "description": "Use the assistant’s agentic workflow, subject to its separate requirements.",
           "requirements": [
             "Platform 10.1.x+ is required by the Agent Mode feature guide.",
-            "The feature guide describes a Cloud Connected SAIA 2.1+ path, but current installation guidance says 2.2.0–2.3.6 lacks Cloud Connected and its 2.1.1 fallback lacks Agent Mode; SAIA-9918 independently records the access issue.",
+            "For Enterprise on SAIA 2.2.0–2.3.6, the installer and SAIA-9918 exclude Cloud Connected. Its 2.1.1 fallback lacks Agent Mode.",
             "Model Runtime must be enabled; a Splunk-hosted-only setting does not satisfy the documented Agent Mode runtime choice.",
-            "Cloud Connected setup also requires the documented bidirectional connectivity, regional allowlist and certificate/stack-address configuration.",
-            "The documented limited IL2 FedRAMP assistant excludes Agent Mode.",
-            "Cloud Connected support is planned for SAIA 2.4.0 in late November 2026; a plan does not establish a released supported path."
+            "For the released 2.4.0 Enterprise path, use the versioned installer. It requires Enterprise 10.4+, SAIA 2.4.0+, Cloud Connect 2.0+, a paid license, outbound HTTPS, token certificate configuration, the required administrator permissions and email verification. Setup is fresh and prior chat history does not migrate.",
+            "The limited FedRAMP assistant and the 2.4.0 supported FedRAMP High core offering exclude Agent Mode.",
+            "The 2.4.0 release notes and installer document availability. The SAIA-9918 entry retains older planned-release wording. Confirm the exact supported app pairing, AWS region, Model Runtime and activation."
           ],
           "runtime": "Model Runtime may select external LLMs outside the Splunk platform data boundary. Its regional table distinguishes Data zone routing from Global routing; a selected AI service location does not guarantee in-region processing.",
-          "qualification": "Agent Mode has its own AWS-only region list; base SAIA or Azure Model Runtime availability does not establish this feature. Cloud Connected’s broad no-third-party assurance differs from the feature-specific external-processing documentation. Preserve both scopes; do not infer customer authorization or a residency guarantee. Current Cloud Connected compatibility is blocked/conflicting; meeting the feature guide’s minima does not restore that path. This restriction is not transferred to native Cloud deployments.",
+          "qualification": "The two installation paths have different requirements. The 2.3.6 Cloud Connected restriction is version-specific. For 2.4.0 distinguish documented installation from tenant enablement. Agent Mode has its own AWS-only regions. The installer’s no-third-party assurance and Model Runtime’s external-processing guidance require separate consideration.",
           "condition": "Confirm the exact Agent Mode AWS location, supported app/Platform pairing, Model Runtime policy, administrator activation and Cloud Connected prerequisites before enabling it.",
           "src": [
             "aiSaiaInstall",
@@ -33674,7 +34581,13 @@
             "aiSaiaAgentMode",
             "aiSaiaModelRuntime",
             "aiSaiaCloudConnected",
-            "aiSaiaKnownIssues"
+            "aiSaiaKnownIssues",
+            "aiSaiaRelease240",
+            "aiSaiaCloudConnected240",
+            "aiSaiaAgentMode240",
+            "aiSaiaKnownIssues240",
+            "aiSaiaModelRuntime240",
+            "aiSaiaInstall240"
           ]
         }
       },
@@ -34948,16 +35861,16 @@
             "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
             "section": "Requirements; features; ITSI subagent; where the assistant runs",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-10-23",
-            "sourceChecked": "2026-10-23"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           },
           {
             "sourceId": "source-933d52078c21646b9f1b",
             "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
             "section": "FedRAMP deployments; supported regions; version compatibility",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-10-23",
-            "sourceChecked": "2026-10-23"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           },
           {
             "sourceId": "source-348a24aafee18c00a09b",
@@ -34980,8 +35893,8 @@
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
             "section": "Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-10-27",
-            "sourceChecked": "2026-10-27"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           },
           {
             "sourceId": "source-2dc2d849c6eabc9e505e",
@@ -35068,24 +35981,24 @@
             "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
             "section": "Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-11-03",
-            "sourceChecked": "2026-11-03"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           },
           {
             "sourceId": "source-b2af8c3f2c5d15149dde",
             "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
             "section": "Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-11-03",
-            "sourceChecked": "2026-11-03"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           },
           {
             "sourceId": "source-8f71af7acdb0a6fe115b",
             "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
             "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-11-03",
-            "sourceChecked": "2026-11-03"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           },
           {
             "sourceId": "source-bc7753295901b5f5e506",
@@ -35100,13 +36013,61 @@
             "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
             "section": "SAIA-9918 Cloud Connected access and 2.1.1 workaround",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-11-03",
-            "sourceChecked": "2026-11-03"
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
           },
           {
             "sourceId": "source-81127d1ed4ebaeb38a98",
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/create-custom-dashboards-for-triage-using-the-triage-agent",
             "section": "How to use recommendations; Prerequisites; Analyze findings using the Triage agent",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
+          },
+          {
+            "sourceId": "source-39c6591ac4ba49ec34f4",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+            "section": "Requirements, Supported regions, Enable Agent Mode",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
+          },
+          {
+            "sourceId": "source-9f7edcc182943caedb5a",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+            "section": "Supported regions and region standard, Using Model Runtime",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
+          },
+          {
+            "sourceId": "source-a4983415380b77aa5d56",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/about-splunk-ai-assistant/about-splunk-ai-assistant",
+            "section": "Splunk AI Assistant ITSI subagent, Where Splunk AI Assistant runs",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
+          },
+          {
+            "sourceId": "source-d5dd730be1e1278a5e73",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/release-notes/known-issues",
+            "section": "SAIA-9918 Cloud Connected access",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
+          },
+          {
+            "sourceId": "source-ea2902375c70e175f6c2",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+            "section": "FedRAMP deployments, Supported regions, Version compatibility",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-21",
+            "sourceChecked": "2026-11-21"
+          },
+          {
+            "sourceId": "source-c36a363e91af9e486204",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/release-notes/whats-new-in-splunk-ai-assistant",
+            "section": "Version 2.4.0 and Version 2.2.0",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
             "sourceVerified": "2026-11-21",
             "sourceChecked": "2026-11-21"
@@ -35147,7 +36108,13 @@
             "aiSaiaCloudConnected",
             "aiSaiaCloudConnected240",
             "aiSaiaKnownIssues",
-            "aiEsTriageTask88"
+            "aiEsTriageTask88",
+            "aiSaiaAgentMode240",
+            "aiSaiaModelRuntime240",
+            "aiSaiaAbout240",
+            "aiSaiaKnownIssues240",
+            "aiSaiaInstall240",
+            "aiSaiaRelease240"
           ],
           "src": [
             "aiHighAnnouncement20261019",
@@ -35172,7 +36139,13 @@
             "aiSaiaCloudConnected",
             "aiSaiaCloudConnected240",
             "aiSaiaKnownIssues",
-            "aiEsTriageTask88"
+            "aiEsTriageTask88",
+            "aiSaiaAgentMode240",
+            "aiSaiaModelRuntime240",
+            "aiSaiaAbout240",
+            "aiSaiaKnownIssues240",
+            "aiSaiaInstall240",
+            "aiSaiaRelease240"
           ],
           "serviceRegions": [
             {
@@ -35339,7 +36312,7 @@
             },
             {
               "kind": "ai-capability",
-              "verified": "2026-11-03",
+              "verified": "2026-11-21",
               "id": "ai-saia-agent",
               "title": "SAIA · Agent Mode",
               "product": "platform",
@@ -35348,19 +36321,19 @@
                 "product": "platform",
                 "evidenceVersion": "2.3.6"
               },
-              "version": "SAIA 2.3.6 documentation",
+              "version": "SAIA 2.3.6 evidence with a separately assessed 2.4.0 Cloud Connect path",
               "stage": "GA app · feature-specific limits",
               "description": "Use the assistant’s agentic workflow, subject to its separate requirements.",
               "requirements": [
                 "Platform 10.1.x+ is required by the Agent Mode feature guide.",
-                "The feature guide describes a Cloud Connected SAIA 2.1+ path, but current installation guidance says 2.2.0–2.3.6 lacks Cloud Connected and its 2.1.1 fallback lacks Agent Mode; SAIA-9918 independently records the access issue.",
+                "For Enterprise on SAIA 2.2.0–2.3.6, the installer and SAIA-9918 exclude Cloud Connected. Its 2.1.1 fallback lacks Agent Mode.",
                 "Model Runtime must be enabled; a Splunk-hosted-only setting does not satisfy the documented Agent Mode runtime choice.",
-                "Cloud Connected setup also requires the documented bidirectional connectivity, regional allowlist and certificate/stack-address configuration.",
-                "The documented limited IL2 FedRAMP assistant excludes Agent Mode.",
-                "Cloud Connected support is planned for SAIA 2.4.0 in late November 2026; a plan does not establish a released supported path."
+                "For the released 2.4.0 Enterprise path, use the versioned installer. It requires Enterprise 10.4+, SAIA 2.4.0+, Cloud Connect 2.0+, a paid license, outbound HTTPS, token certificate configuration, the required administrator permissions and email verification. Setup is fresh and prior chat history does not migrate.",
+                "The limited FedRAMP assistant and the 2.4.0 supported FedRAMP High core offering exclude Agent Mode.",
+                "The 2.4.0 release notes and installer document availability. The SAIA-9918 entry retains older planned-release wording. Confirm the exact supported app pairing, AWS region, Model Runtime and activation."
               ],
               "runtime": "Model Runtime may select external LLMs outside the Splunk platform data boundary. Its regional table distinguishes Data zone routing from Global routing; a selected AI service location does not guarantee in-region processing.",
-              "qualification": "Agent Mode has its own AWS-only region list; base SAIA or Azure Model Runtime availability does not establish this feature. Cloud Connected’s broad no-third-party assurance differs from the feature-specific external-processing documentation. Preserve both scopes; do not infer customer authorization or a residency guarantee. Current Cloud Connected compatibility is blocked/conflicting; meeting the feature guide’s minima does not restore that path. This restriction is not transferred to native Cloud deployments.",
+              "qualification": "The two installation paths have different requirements. The 2.3.6 Cloud Connected restriction is version-specific. For 2.4.0 distinguish documented installation from tenant enablement. Agent Mode has its own AWS-only regions. The installer’s no-third-party assurance and Model Runtime’s external-processing guidance require separate consideration.",
               "condition": "Confirm the exact Agent Mode AWS location, supported app/Platform pairing, Model Runtime policy, administrator activation and Cloud Connected prerequisites before enabling it.",
               "src": [
                 "aiSaiaInstall",
@@ -35368,12 +36341,18 @@
                 "aiSaiaAgentMode",
                 "aiSaiaModelRuntime",
                 "aiSaiaCloudConnected",
-                "aiSaiaKnownIssues"
+                "aiSaiaKnownIssues",
+                "aiSaiaRelease240",
+                "aiSaiaCloudConnected240",
+                "aiSaiaAgentMode240",
+                "aiSaiaKnownIssues240",
+                "aiSaiaModelRuntime240",
+                "aiSaiaInstall240"
               ]
             },
             {
               "kind": "ai-capability",
-              "verified": "2026-10-23",
+              "verified": "2026-11-21",
               "id": "ai-itsi-subagent",
               "title": "ITSI · SAIA subagent",
               "product": "itsi",
@@ -35394,7 +36373,8 @@
               "condition": "The integration and version floors are documented; confirm subagent enablement and regional scope.",
               "src": [
                 "aiSaiaAbout",
-                "aiSaiaInstall"
+                "aiSaiaInstall",
+                "aiSaiaAbout240"
               ]
             },
             {
@@ -35707,7 +36687,7 @@
             "fallbackAgentMode": false,
             "plannedVersion": "2.4.0",
             "plannedWindow": "late November 2026",
-            "qualification": "The feature guide still describes a Cloud Connected 2.1+ path, but the current installation compatibility section and SAIA-9918 block the current path. A planned release is not delivered availability."
+            "qualification": "SAIA 2.3.6 historical scope. SAIA-9918 excludes 2.2.0–2.3.6 and the 2.1.1 fallback lacks Agent Mode. The separate 2.4.0 installer and release notes document the new Cloud Connect route."
           }
         }
       },
@@ -35940,7 +36920,7 @@
         },
         "payload": [
           "Match an exact supported Splunk Enterprise host",
-          "The product matrix explicitly lists Enterprise Security 8.8 with Enterprise 10.2.x and 10.4.x. A separate 10.6.1 row footnote states that ES 8.4.x and higher are compatible with Enterprise 10.6.1.1 and higher. This exact-patch qualification does not certify the generic 10.6 selector, 10.6.0 or 10.6.1. Confirm the actual patch, feature access and other prerequisites; broader 9.2.0-and-higher prose does not override the exact matrix scope.",
+          "The matrix lists ES 8.8 with Enterprise 10.2.x and 10.4.x. Its exact Enterprise 10.6.1.1 row lists 8.8.x and carries a footnote covering ES 8.4.x and higher on Enterprise 10.6.1.1 and higher. The 10.6.1.0 row lists selected versions through 8.7.x and excludes ES 8.7 and lower from cohosted KV Store 1.0. The exact row does not certify the generic 10.6 selector, a 10.6.0 host or a three-segment 10.6.1 release label.",
           "Blocker",
           "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
           true
@@ -39973,6 +40953,35 @@
         ]
       },
       {
+        "id": "vc-fbbf038d967e8e6e50de",
+        "kind": "feature",
+        "dataset": "platform",
+        "scope": {
+          "platform": "cloud",
+          "release": "10.8"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-6960d8d2114cc0778eb8",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/whats-new",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Data model definition upload",
+          "Data management",
+          "Align a definition across search heads",
+          "An administrator can replace an existing data model definition with JSON using Upload Definition in Splunk Web."
+        ]
+      },
+      {
         "id": "vc-fc2814f54740804bd8e9",
         "kind": "requirement",
         "dataset": "platform",
@@ -40125,6 +41134,35 @@
           "Blocker",
           "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
           true
+        ]
+      },
+      {
+        "id": "vc-fd3b005d7b93b565e4f1",
+        "kind": "feature",
+        "dataset": "platform",
+        "scope": {
+          "platform": "cloud",
+          "release": "10.8"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-6960d8d2114cc0778eb8",
+            "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/whats-new",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Machine Data Lake promotion preview",
+          "Data management",
+          "Inspect a proposed Analytics Table",
+          "Preview a bounded sample of the data and schema before submitting the full promotion."
         ]
       },
       {

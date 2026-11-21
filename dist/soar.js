@@ -11,7 +11,7 @@ function validate(s){const errors=[];for(const k of Object.keys(defaults)){const
 function read(search){const p=new URLSearchParams(search),state={...defaults},errors=[];if(p.has('platform')){if(p.getAll('platform').length>1||!['enterprise','cloud'].includes(p.get('platform')))errors.push('Unrecognized or repeated platform selection.');else if(!p.has('deployment'))state.deployment=p.get('platform')==='cloud'?'cloud':'cmp';else if((p.get('platform')==='cloud'?'cloud':'cmp')!==p.get('deployment'))errors.push('Conflicting deployment and platform selections.');}for(const k of Object.keys(defaults)){if(p.getAll(k).length>1)errors.push('Repeated '+k+' selection.');if(p.has(k))state[k]=p.get(k);}if(p.getAll('product').length>1)errors.push('Repeated product selection.');if(p.has('from')!==p.has('to'))errors.push('The shared link must include both current and target releases.');return {state,errors:[...errors,...validate(state)]};}
 function url(s){const p=new URLSearchParams({product:'soar'});for(const k of Object.keys(defaults))p.set(k,s[k]);return '?'+p;}
 function assess(s){const errors=validate(s);if(errors.length)return {selection:{...s},errors,path:[],features:[],requirements:[],technical:[],issues:[]};
- const cloud=s.deployment==='cloud',high=s.compliance==='fr-h',moderate=s.compliance==='fr-m',restricted=cloud&&(high||moderate),pathSource=s.to==='8.7.0'?'path87':s.to==='8.6.0'?'path86':'cloud';
+ const cloud=s.deployment==='cloud',high=s.compliance==='fr-h',moderate=s.compliance==='fr-m',restricted=cloud&&(high||moderate),pathSource=cloud?'cloud':{'8.6.0':'path86','8.7.0':'path87','8.8.0':'path88'}[s.to];
  const path=[s.from],conditions=[],questions=[];
  let routeStatus=cloud?'Managed service milestones':'Documented with conditions';
  if(!cloud&&s.installation==='privileged'){routeStatus='Path not established';questions.push('Which conversion path applies to this exact privileged build? Use the privileged-installation guide before selecting an unprivileged route.');}
@@ -21,8 +21,9 @@ function assess(s){const errors=validate(s);if(errors.length)return {selection:{
   if(cmp(s.from,'6.3.1')<0)conditions.push('If still on RHEL 7 or CentOS 7, migrate the OS at the documented step before continuing.');
   if(cmp(s.from,'6.4.1')<0){conditions.push('Amazon Linux 2 requires SOAR 6.4.0, then OS migration, before continuing.');if(s.os==='al2'&&!path.includes('6.4.0'))path.push('6.4.0');}
   if(s.to==='8.6.0'&&s.from==='6.4.1'){routeStatus='Documented with exact-build condition';conditions.push('The direct 8.6 branch starts at SOAR 6.4.1.361. Confirm the installed build is 361 or higher; an unspecified or earlier 6.4.1 build is not established as directly eligible.');}
-  if(s.to==='8.7.0'&&cmp(s.from,'7.0.0')<0)path.push('8.5.0');
-  if(s.to==='8.7.0')conditions.push('Complete Python 3.13 automation migration before the final 8.7 step.');
+  if(cmp(s.to,'8.7.0')>=0&&cmp(s.from,'7.0.0')<0)path.push('8.5.0');
+  if(cmp(s.to,'8.7.0')>=0)conditions.push('Complete Python 3.13 automation migration before the final '+s.to+' step.');
+  if(s.to==='8.8.0'&&s.from==='7.0.0')conditions.push('The 8.8 table names 7.0.0.197 in its direct 7.0.x-and-higher row. Confirm the installed build.');
   path.push(s.to);
   if(['rhel7','centos7','al2'].includes(s.os)&&cmp(s.from,'6.4.1')>=0)questions.push('The selected legacy OS is inconsistent with this recent source release. Confirm the actual OS and migration history before using the route.');
  }else{path.push(s.to);conditions.push('Splunk manages the service update. The release interval is a capability comparison, not a customer-executed installation path or confirmed tenant rollout.');}
@@ -43,11 +44,11 @@ function assess(s){const errors=validate(s);if(errors.length)return {selection:{
  if(restricted)questions.push('Which selected features are enabled in this restricted tenant? Product availability alone does not establish individual feature availability.');
  questions.push('Confirm the exact ES, Splunk App for SOAR, Export, connector and Automation Broker versions together; each has separate compatibility evidence.');
  const issues=selected.filter(r=>r.kind==='issue').map(r=>r.id==='security86'&&!cloud?{...r,qualification:'For existing affected CyberArk REST credential-manager configurations, enable certificate verification after the upgrade.'}:r);
- issues.push({id:'issue-coverage',title:'Issue inventory is incomplete',detail:'The current known/fixed issue pages did not expose complete rows during this check. Keep their official links and review them directly; this is not a claim of zero issues.',status:'Evidence gap',src:cloud?['cloudKnown']:s.to==='8.6.0'?['known86','fixed86']:['known','fixed'],verified:null});
+ issues.push({id:'issue-coverage',title:'Issue inventory is incomplete',detail:'The current known/fixed issue pages did not expose complete rows during this check. Keep their official links and review them directly; this is not a claim of zero issues.',status:'Evidence gap',src:cloud?['cloudKnown']:s.to==='8.8.0'?['known88','fixed88']:s.to==='8.6.0'?['known86','fixed86']:['known','fixed'],verified:null});
  // Cloud exposes only its documented automation runtime; server OS/database,
  // bundled Forwarder and sizing floors are customer-managed requirements.
  const targetRequirements=cloud?{runtime:d.targetRequirements[s.to].runtime,src:['cloud']}:d.targetRequirements[s.to];
- return {selection:{...s},errors,path:s.installation==='privileged'&&!cloud?[]:path,routeStatus,pathSource:cloud?'cloud':s.installation==='privileged'?'prepare':pathSource,conditions,questions,availability,features,requirements:selected.filter(r=>r.kind==='requirement'),technical:selected.filter(r=>r.kind==='technical'),targetRequirements,issues,coverage:'Selected on-premises targets remain 8.6/8.7; Cloud release evidence extends through 8.8 General Availability. Exact builds, tenant rollout, legacy conversions and complete issue inventories require the cited guidance.',sources:d.sources};
+ return {selection:{...s},errors,path:s.installation==='privileged'&&!cloud?[]:path,routeStatus,pathSource:cloud?'cloud':s.installation==='privileged'?'prepare':pathSource,conditions,questions,availability,features,requirements:selected.filter(r=>r.kind==='requirement'),technical:selected.filter(r=>r.kind==='technical'),targetRequirements,issues,coverage:'Selected on-premises targets extend through 8.8.0. Cloud 8.8 General Availability has its own service and activation evidence. Exact builds, tenant rollout, legacy conversions and complete issue inventories require the cited guidance.',sources:d.sources};
 }
 window.VersionCompassSOAR={defaults,options,targets,selectable,validate,read,url,assess};
 }());
