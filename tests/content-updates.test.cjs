@@ -17,12 +17,17 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('material cycle preserves scoped release evidence and prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,73);
+ assert.equal(b.policy.currentCycle,74);
+ const maintenance106=b.entries['technical:platform:Enterprise 10.6 current maintenance release'];
+ assert.equal(maintenance106.cycle,74);assert.equal(maintenance106.sourceDate,'2026-11-19');assert(b.active(maintenance106));assert(b.active(maintenance106,75));assert(!b.active(maintenance106,76));
+ assert.deepEqual(Array.from(maintenance106.milestones),['Enterprise 10.6']);
+ assert.match(maintenance106.detail,/No Cloud rollout or new upgrade edge/);
+ assert.equal(b.entries['technical:platform:Enterprise 10.6 maintenance release'].sourceDate,'2026-10-16');
  const database=b.entries['environment:o11y-db-us2'];
  assert.equal(database.cycle,73);assert(b.active(database));assert(b.active(database,74));assert(!b.active(database,75));
  assert.match(database.detail,/realm and Google Cloud region columns/);
  const s3=b.entries['environment:s3-high'];
- assert.equal(s3.cycle,72);assert(b.active(s3));assert(b.active(s3,73));assert(!b.active(s3,74));
+ assert.equal(s3.cycle,72);assert(!b.active(s3));assert(b.active(s3,72));assert(b.active(s3,73));assert(!b.active(s3,74));
  assert.match(s3.detail,/10\.7.*10\.6.*10\.3/);
  const automation=b.entries["edition:automation-builder"];
  assert.equal(automation.cycle,71);assert(!b.active(automation));assert(b.active(automation,72));assert(!b.active(automation,73));

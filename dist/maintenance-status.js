@@ -610,10 +610,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-20T10:03:08.259259Z",
-      "lastSuccess": "2026-11-11T14:21:55.848Z",
-      "outcome": "blocked",
-      "summary": "Eight Prep11 and two exact scopes assessed; eighteen scopes remain incomplete. SAIA2.4 Cloud Connect installer discovered.",
+      "lastAttempt": "2026-11-21T10:35:44.635097Z",
+      "lastSuccess": "2026-11-21T10:50:06.877Z",
+      "outcome": "changed",
+      "summary": "Prepared dated Enterprise10.6.2 and HF evidence candidate; seven mandatory coverage rows remain incomplete.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1363,9 +1363,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Eight Prep11 and two exact scopes assessed; eighteen scopes remain incomplete. SAIA2.4 Cloud Connect installer discovered.",
           "scope": "Prep11 eight claim families plus bounded exact branch-security/UF and changed-source discovery; nine Release Guide tracks explicitly disposed under registry 1.4.0."
+        },
+        {
+          "at": "2026-11-21T10:35:44.635097Z",
+          "outcome": "running",
+          "summary": "Started fresh-main protected source review.",
+          "scope": "Eight Prep11 and nine Release Guide passes, then full inventory and bounded Exact/AI/Advisor review."
+        },
+        {
+          "at": "2026-11-21T10:50:06.877Z",
+          "outcome": "changed",
+          "summary": "Prepared dated Enterprise10.6.2 and HF evidence candidate; seven mandatory coverage rows remain incomplete.",
+          "scope": "Bounded current maintenance identity and mapping;19 assessed-no-change,2 changed,7 deferred under registry1.4.0. Integration/feed/native exports and live delivery separate."
         }
       ],
-      "scope": "Prep11 eight claim families plus bounded exact branch-security/UF and changed-source discovery; nine Release Guide tracks explicitly disposed under registry 1.4.0."
+      "scope": "Bounded current maintenance identity and mapping;19 assessed-no-change,2 changed,7 deferred under registry1.4.0. Integration/feed/native exports and live delivery separate."
     },
     {
       "id": "es-editions-watch",

@@ -7057,18 +7057,33 @@ window.VersionCompassSources = {
       "title": "welcome to splunk enterprise 10.6",
       "areas": [
         "Release guide",
-        "Shared guidance"
+        "Shared guidance",
+        "Splunk Forwarders"
       ],
       "references": [
         "release.enterprise.releasesData.10.6.source",
         "release.enterprise.releasesData.10.6.technicalChanges.6.source",
         "release.enterprise.releasesData.10.6.technicalChanges.9.source",
+        "release.enterprise.releasesData.10.6.technicalChanges.10.source",
         "release.enterprise.releasesData.10.6.requirements.5.3",
         "release.guidance.sources.prep11enterprise.url",
-        "content-updates.js"
+        "content-updates.js",
+        "forwarders: borrowed.technical.hf.10.6.enterprise-10.6-current-maintenance-release"
       ],
       "reviews": [
         "2026-11-02"
+      ],
+      "claimReferences": [
+        {
+          "path": "forwarders: borrowed.technical.hf.10.6.enterprise-10.6-current-maintenance-release",
+          "claimId": "technical.hf.10.6.enterprise-10.6-current-maintenance-release",
+          "release": "10.6",
+          "component": "Enterprise 10.6 current maintenance release",
+          "section": "What's new in 10.6.2",
+          "claimVerified": "2026-11-21",
+          "outcome": "supporting-section-confirmed",
+          "qualification": "The exact dated Enterprise 10.6.2 release statement applies to the Enterprise package used for HF. It does not select a four-segment package, establish an upgrade edge or universal security floor, clear KV Store or premium-app requirements, or establish UF, Cloud, receiver, entitlement or authorization scope. Older borrowed mappings retain their original dates and unresolved scope."
+        }
       ],
       "usage": "In use",
       "reviewed": "2026-10-15",

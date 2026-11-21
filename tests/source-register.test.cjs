@@ -63,7 +63,7 @@ test('actual UF/HF routes retain sources for steps, receivers, topology and borr
    if(type==='uf'){assert.equal(result.technical.length,0);assert.equal(result.targetRuntime.length,0);}
   }
  }
- assert.equal(routes,900);assert.equal(seen.size,18);assert.equal(seen.size,mappings.length);
+ assert.equal(routes,900);assert.equal(seen.size,19);assert.equal(seen.size,mappings.length);
  // A dropped inherited runtime reference must fail even though all declared catalog claims remain.
  const inherited=api.assess({...api.defaults,type:'hf',from:'10.4',to:'10.6'}).targetRuntime.find(t=>t.release==='10.0');
  const damaged=JSON.parse(JSON.stringify(register.sources));
@@ -291,6 +291,22 @@ test('borrowed HF KV Store prerequisites and TLS precedence reject reversed or w
  const reversed=JSON.parse(JSON.stringify(records));reversed.find(r=>r.component==='KV Store TLS configuration').to='sslConfig always takes precedence';assert.throws(()=>check(reversed),/kvstore stanza take precedence/);
  const weakened=JSON.parse(JSON.stringify(records));weakened.find(r=>r.component==='KV Store binaries').action='Upgrade the engine after starting the 10.4 upgrade';assert.throws(()=>check(weakened),/before starting/);
  assert.equal(api.assess({...api.defaults,type:'uf',from:'10.2',to:'10.4'}).technical.length,0);
+});
+test('Enterprise maintenance discovery reaches HF without becoming a UF floor or upgrade edge',()=>{
+ const c={window:{},URLSearchParams};vm.createContext(c);
+ for(const f of ['data.js','product-data.js','comparison.js','forwarders-data.js','forwarders.js','source-register.js'])vm.runInContext(fs.readFileSync('dist/'+f,'utf8'),c);
+ const api=c.window.VersionCompassForwarders;
+ const hf=api.assess({...api.defaults,type:'hf',from:'10.4',to:'10.6'});
+ const record=hf.technical.find(r=>r.component==='Enterprise 10.6 current maintenance release');
+ assert(record);assert.match(record.to,/10\.6\.2 released November 19, 2026/);
+ assert.equal(record.actionLevel,'Review');assert.match(record.implication,/does not.*universal security floor/);
+ assert.match(record.action,/KV Store, premium-app, OS, certificate and receiver prerequisites/);
+ const entry=c.window.VersionCompassSources.sources.find(r=>r.url===record.source);
+ assert(entry.claimReferences.some(r=>r.claimId==='technical.hf.10.6.enterprise-10.6-current-maintenance-release'&&r.section==="What's new in 10.6.2"&&r.claimVerified==='2026-11-21'));
+ const uf=api.assess({...api.defaults,type:'uf',from:'10.4',to:'10.6'});
+ assert.equal(uf.technical.length,0);
+ assert.deepEqual(Array.from(hf.path),['10.4','10.6']);
+ assert(!hf.steps.some(s=>JSON.stringify(s).includes('10.6.2')),'Dated maintenance discovery must not create a supported upgrade step');
 });
 test('borrowed HF 10.6 KV Store migration and source-version conflict retain exact boundaries',()=>{
  const c={window:{},URLSearchParams};vm.createContext(c);
