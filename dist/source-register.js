@@ -3342,7 +3342,7 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.7"
       ],
       "reviews": [
-        "2026-11-03"
+        "2026-11-21"
       ],
       "claimReferences": [
         {
@@ -3359,7 +3359,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-03",
+      "reviewed": "2026-11-21",
       "status": "Reviewed",
       "firstRecorded": "2026-11-03",
       "firstUsed": null,
@@ -3379,6 +3379,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-20",
           "event": "Review status updated: Reviewed · 2026-11-03"
+        },
+        {
+          "date": "2026-11-21",
+          "event": "Review status updated: Reviewed · 2026-11-21"
         }
       ]
     },
@@ -3394,7 +3398,7 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.1"
       ],
       "reviews": [
-        "2026-11-03"
+        "2026-11-21"
       ],
       "claimReferences": [
         {
@@ -3407,7 +3411,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-03",
+      "reviewed": "2026-11-21",
       "status": "Reviewed",
       "firstRecorded": "2026-11-03",
       "firstUsed": null,
@@ -3418,6 +3422,90 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-11-03",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-21",
+          "event": "Review status updated: Reviewed · 2026-11-21"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/about-splunk-ai-assistant/about-splunk-ai-assistant",
+      "title": "SAIA 2.4.0 and its ITSI subagent",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.aiSaiaAbout240.url",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.2"
+      ],
+      "reviews": [
+        "2026-11-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Splunk AI Assistant ITSI subagent, Where Splunk AI Assistant runs"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.2",
+          "section": "Splunk AI Assistant ITSI subagent, Where Splunk AI Assistant runs"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "title": "SAIA 2.4.0 Cloud installation and service regions",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.aiSaiaInstall240.url",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.1"
+      ],
+      "reviews": [
+        "2026-11-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "FedRAMP deployments, Supported regions, Version compatibility"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.1",
+          "section": "FedRAMP deployments, Supported regions, Version compatibility"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -3433,6 +3521,7 @@ window.VersionCompassSources = {
         "release.guidance.sources.aiSaiaCloudConnected240.url",
         "editions.sources.saiaCloudConnect240.u",
         "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.1",
         "guidance: guidance.aiAvailability.capabilities.3",
         "guidance: guidance.aiAvailability.capabilities.4",
         "guidance: guidance.aiAvailability.capabilities.7",
@@ -3446,6 +3535,10 @@ window.VersionCompassSources = {
       "claimReferences": [
         {
           "path": "guidance: guidance.aiAvailability",
+          "section": "Prerequisites; Version compatibility; Installation steps; What data leaves your environment"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.1",
           "section": "Prerequisites; Version compatibility; Installation steps; What data leaves your environment"
         },
         {
@@ -3473,6 +3566,166 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-11-20",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/release-notes/known-issues",
+      "title": "SAIA 2.4.0 known issues",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.aiSaiaKnownIssues240.url",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.1"
+      ],
+      "reviews": [
+        "2026-11-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "SAIA-9918 Cloud Connected access"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.1",
+          "section": "SAIA-9918 Cloud Connected access"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/release-notes/whats-new-in-splunk-ai-assistant",
+      "title": "SAIA 2.4.0 release notes",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.aiSaiaRelease240.url",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.1"
+      ],
+      "reviews": [
+        "2026-11-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Version 2.4.0 and Version 2.2.0"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.1",
+          "section": "Version 2.4.0 and Version 2.2.0"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "title": "Agent Mode on SAIA 2.4.0",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.aiSaiaAgentMode240.url",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.1"
+      ],
+      "reviews": [
+        "2026-11-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Requirements, Supported regions, Enable Agent Mode"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.1",
+          "section": "Requirements, Supported regions, Enable Agent Mode"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+      "title": "SAIA 2.4.0 Model Runtime",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.aiSaiaModelRuntime240.url",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.1"
+      ],
+      "reviews": [
+        "2026-11-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Supported regions and region standard, Using Model Runtime"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.1",
+          "section": "Supported regions and region standard, Using Model Runtime"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-21",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-21",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-21",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -3791,6 +4044,7 @@ window.VersionCompassSources = {
         "editions: editions.conflicts.1.claims.1"
       ],
       "reviews": [
+        "2026-11-21",
         "2026-10-27"
       ],
       "claimReferences": [
@@ -5123,6 +5377,7 @@ window.VersionCompassSources = {
         "editions: editions.notes.1"
       ],
       "reviews": [
+        "2026-11-21",
         "2026-11-20"
       ],
       "claimReferences": [
@@ -7534,7 +7789,7 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.2"
       ],
       "reviews": [
-        "2026-10-23"
+        "2026-11-21"
       ],
       "claimReferences": [
         {
@@ -7555,7 +7810,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-23",
+      "reviewed": "2026-11-21",
       "status": "Reviewed",
       "firstRecorded": "2026-10-23",
       "firstUsed": null,
@@ -7567,6 +7822,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-23",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-21",
+          "event": "Review status updated: Reviewed · 2026-11-21"
         }
       ]
     },
@@ -7585,7 +7844,7 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.7"
       ],
       "reviews": [
-        "2026-10-23"
+        "2026-11-21"
       ],
       "claimReferences": [
         {
@@ -7610,7 +7869,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-23",
+      "reviewed": "2026-11-21",
       "status": "Reviewed",
       "firstRecorded": "2026-10-23",
       "firstUsed": null,
@@ -7630,6 +7889,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-04",
           "event": "Review status updated: Reviewed · 2026-10-23"
+        },
+        {
+          "date": "2026-11-21",
+          "event": "Review status updated: Reviewed · 2026-11-21"
         }
       ]
     },
@@ -7679,7 +7942,7 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.1"
       ],
       "reviews": [
-        "2026-11-03"
+        "2026-11-21"
       ],
       "claimReferences": [
         {
@@ -7692,7 +7955,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-03",
+      "reviewed": "2026-11-21",
       "status": "Reviewed",
       "firstRecorded": "2026-11-03",
       "firstUsed": null,
@@ -7704,6 +7967,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-03",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-21",
+          "event": "Review status updated: Reviewed · 2026-11-21"
         }
       ]
     },
@@ -7719,7 +7986,7 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.1"
       ],
       "reviews": [
-        "2026-11-03"
+        "2026-11-21"
       ],
       "claimReferences": [
         {
@@ -7732,7 +7999,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-03",
+      "reviewed": "2026-11-21",
       "status": "Reviewed",
       "firstRecorded": "2026-11-03",
       "firstUsed": null,
@@ -7744,6 +8011,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-03",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-21",
+          "event": "Review status updated: Reviewed · 2026-11-21"
         }
       ]
     },

@@ -15,7 +15,7 @@ test('AI catalog preserves named products, exact dependency floors and scoped da
  for(const r of d.capabilities){assert(r.requirements.length);assert(r.qualification);assert(r.verified);assert(r.scope.product===r.product);for(const id of r.src){const s=a.source(id);assert(s.section);assert(s.checked);assert(s.reviewed);assert.equal(new URL(s.url).hostname,'help.splunk.com');}}
  assert.equal(a.source('aiEsAgents88').reviewed,'2026-11-20');
  assert.equal(a.source('aiEsThreatGraph88').reviewed,'2026-11-20');
- assert.equal(a.source('aiEsSocTask87').reviewed,'2026-10-27');
+ assert.equal(a.source('aiEsSocTask87').reviewed,'2026-11-21');
  assert.equal(a.source('aiEsEditions').reviewed,'2026-11-20');
  assert.equal(a.source('aiEsRelease88').reviewed,'2026-11-20');
 });
@@ -111,9 +111,10 @@ test('ES Cloud and CMP retain different Montreal and Calgary component exception
  assert.equal(assess(a,'ai-es-assistant',{region:'ca-west-1',edition:'premier',deployment:'enterprise'}).availability,'conditional');
 });
 test('ES component and prerequisite differences prevent broad AI availability claims',()=>{
- const a=model(),s={region:'eu-south-1',edition:'premier'};
+ const a=model(),s={region:'ca-west-1',edition:'premier'};
  assert.equal(assess(a,'ai-es-assistant',s).availability,'unavailable');
- assert.equal(assess(a,'ai-es-detection',s).availability,'conditional');
+ assert.equal(assess(a,'ai-es-detection',s).availability,'unavailable');
+ for(const region of ['eu-south-1','sa-east-1'])for(const edition of ['essentials','premier']){assert.equal(assess(a,'ai-es-assistant',{region,edition}).availability,'conditional');assert.equal(assess(a,'ai-es-sop',{region,edition}).availability,'conditional');}
  assert.equal(assess(a,'ai-es-sop',s).availability,'unavailable');
  assert.equal(assess(a,'ai-es-sop',{deployment:'enterprise'}).availability,'unavailable');
  assert.equal(assess(a,'ai-es-soc',{edition:'essentials'}).availability,'unavailable');
@@ -137,7 +138,7 @@ test('ES provider exclusion remains a Cloud rule and Essentials uses its own reg
  assert.equal(assess(a,'ai-es-assistant',{region:'eu-north-1',edition:'essentials'}).availability,'unavailable');
  assert.equal(assess(a,'ai-es-assistant',{region:'eu-north-1',edition:'premier'}).availability,'not_established');
  assert.equal(assess(a,'ai-es-detection',{region:'eu-south-1',edition:'essentials'}).availability,'conditional');
- assert.equal(assess(a,'ai-es-sop',{region:'eu-south-1',edition:'essentials'}).availability,'unavailable');
+ assert.equal(assess(a,'ai-es-sop',{region:'eu-south-1',edition:'essentials'}).availability,'conditional');
  assert.equal(assess(a,'ai-es-assistant',{region:'ca-west-1',edition:'essentials'}).availability,'unavailable');
 });
 test('filtering, comparison and complete selected report share the same evidence and escape search',()=>{
