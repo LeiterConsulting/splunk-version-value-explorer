@@ -30,6 +30,20 @@ test('every capability and inherited assessment citation has a positive number a
   for(const ref of html.matchAll(/href="#ai-ref-([^"]+)"/g))assert(html.includes('id="ai-ref-'+ref[1]+'"'),'Missing full-report citation target '+ref[1]);
  }
 });
+
+test('ES product GA and component release stages stay distinct in assessment and saved reports',()=>{
+ const a=model(),s=state(a,{edition:'premier',region:'us-east-1'});
+ for(const row of a.data().capabilities.filter(r=>r.product==='es')){
+  const result=a.assess(row,s);
+  assert(!result.detail.includes('ES 8.8 Controlled Availability'));
+ }
+ const report=a.report(s);
+ assert(!report.includes('ES 8.8 Controlled Availability, entitlement'));
+ assert.match(report,/Product 8.8 General Availability does not promote Autonomous Response/);
+ assert.match(report,/Autonomous Response Controlled Availability/);
+ assert.match(report,/alpha/);
+ assert(!fs.readFileSync('dist/ai-availability-ui.js','utf8').includes('ES 8.8 Controlled Availability does not guarantee'));
+});
 test('Observability AI capabilities keep realm, rollout and metric limits scoped',()=>{
  const a=model(),d=a.data();assert(a.products.observability);assert.match(d.observabilityRealmConflict,/us3/);
  assert.equal(assess(a,'ai-observability-assistant',{region:'us-east-1'}).availability,'conditional');
