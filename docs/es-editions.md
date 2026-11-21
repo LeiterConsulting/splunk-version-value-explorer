@@ -189,3 +189,7 @@ edition-availability note; the 8.7 guide remains historical evidence. Neither
 source changes the Controlled Availability stage, resolves the Triage, Connector
 Builder or Guided Response questions, establishes a later App for SOAR pairing,
 or turns provider, region, entitlement and authorization into one fact.
+
+## November 21 Triage quota and revision conflict
+
+The current ES 8.8 parent workflow guide describes 200 analyses per tenant per day, with an analysis representing an individual finding or an aggregated investigation, and up to 20 triage revisions per investigation per day. Its linked detailed 8.8 Triage task still describes existing findings, the first ten produced by a detection, approximately 200 findings per tenant per day and no rerun. Both statements remain visible; this does not select either as actual tenant behavior. The detailed Triage and Autonomous Response tasks retain the higher Cloud ES floor. Response remains separately Controlled Availability, frontier-model-only and unable to rerun an already processed investigation. Historical 8.7 evidence and all pairing, edition, region and authorization qualifications remain distinct.

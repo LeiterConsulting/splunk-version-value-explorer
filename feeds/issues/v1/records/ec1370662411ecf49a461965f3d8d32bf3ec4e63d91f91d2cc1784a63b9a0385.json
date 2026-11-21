@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-87-connector-builder-editions",
+  "assessmentId": "vcia-es-20261121-es-87-connector-builder-editions",
+  "revision": 1,
+  "recordedAt": "2026-11-21T18:21:06.464Z",
+  "assessedAt": "2026-11-21T18:10:06.540Z",
+  "outcome": "still-present",
+  "rationale": "The historical 8.7 agent table still lists both editions while 8.7.1 release notes specify Premier and eligible-user enablement. The current 8.8 row is not applied retrospectively.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "8.7",
+      "8.7.1"
+    ],
+    "editions": null,
+    "deployments": [
+      "Splunk Cloud Platform"
+    ],
+    "regions": null,
+    "audiences": [
+      "Customers and documentation readers evaluating the stated decision"
+    ],
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-20261121-5-compatibility-information-connector-builder",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Compatibility information > Connector Builder",
+      "statement": "The versioned 8.7 row lists Essentials and Premier on Cloud with ES 8.7+ and paired SOAR.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-21T18:03:47.624Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "2c0d97e6aa5388f866f33040a644d15feb6e8837cc0a1867090260fc13b8f86e",
+        "qualification": "Exact fetched response bytes; not a publisher revision or semantic diff."
+      }
+    },
+    {
+      "evidenceId": "es-20261121-30-what-s-new-in-8-7-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "What's new in 8.7.1",
+      "statement": "The 8.7.1 release section labels Connector Builder Premier and enabled for eligible users.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-21T18:03:54.963Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ed04db81724cf41385982c69a2bbe02164ac5ae4f7e7e29483aeaed070412d17",
+        "qualification": "Exact fetched response bytes; not a publisher revision or semantic diff."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/ef1fb88045e0ab5601f4722845248f1ccd9b7593/docs/audits/2026-11-21-es-editions-watch-sources.json",
+      "pointer": "/claimChecks/1",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "es-editions-watch: retain scope/history and recheck the exact outstanding question by 2026-11-22; no customer authorization or closure inferred."
+  ],
+  "comparedAssessmentIds": []
+}

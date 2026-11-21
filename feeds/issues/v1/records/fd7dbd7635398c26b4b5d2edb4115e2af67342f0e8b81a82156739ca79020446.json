@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-soc-analyst-version-floor",
+  "assessmentId": "vcia-es-20261121-es-soc-analyst-version-floor",
+  "revision": 1,
+  "recordedAt": "2026-11-21T18:21:06.464Z",
+  "assessedAt": "2026-11-21T18:10:06.540Z",
+  "outcome": "still-present",
+  "rationale": "The 8.8 aggregate Triage/Response rows still list Cloud ES 8.6+, while the now-linked detailed 8.8 Triage and Autonomous Response tasks require ES 8.7+. The parent workflow no longer supplies the detailed prerequisite section; that relocation does not resolve the discrepancy.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security AI SOC Analyst"
+    ],
+    "versions": [
+      "ES 8.8 documentation: aggregate Cloud ES 8.6+ versus task-specific ES 8.7+"
+    ],
+    "editions": [
+      "Premier"
+    ],
+    "deployments": [
+      "Splunk Cloud Platform"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers planning AI SOC Analyst prerequisites"
+    ],
+    "exclusions": [
+      "CMP has its separate Platform 10.4+/ES 8.8+/Cloud Connect 2.0 chain; no lower-floor eligibility, tenant rollout, entitlement, pairing or authorization is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-20261121-10-compatibility-table-triage-and-autonomous-response",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Compatibility table > Triage and Autonomous Response",
+      "statement": "The aggregate Cloud rows specify Platform 10.2+ and ES 8.6+.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-21T18:03:52.697Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "7ecfe622cc1a9c8766d893199c7c8fd12fcf5d96bba308e0b6dcf59c9a0a70ed",
+        "qualification": "Exact fetched response bytes; not a publisher revision or semantic diff."
+      }
+    },
+    {
+      "evidenceId": "es-20261121-73-prerequisites",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/create-custom-dashboards-for-triage-using-the-triage-agent",
+      "section": "Prerequisites",
+      "statement": "The detailed 8.8 Triage task specifies Platform 10.2+ and ES 8.7+ for Cloud, with a separate CMP chain.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-21T18:05:45.981Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "38832c02a8f3577c55b4a818a494c39f11f94687d1275702f11995a48210ff55",
+        "qualification": "Exact fetched response bytes; not a publisher revision or semantic diff."
+      }
+    },
+    {
+      "evidenceId": "es-20261121-16-prerequisites",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/identify-and-run-the-soar-response-actions-on-findings-using-the-autonomous-response-agent-in-splunk-enterprise-security",
+      "section": "Prerequisites",
+      "statement": "The separate Autonomous Response task retains ES 8.7+ and Platform 10.2+ for Cloud.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-21T18:03:53.240Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "e0d04fa8126dab625de7a916378e08f9e15def1667560fc034c114478ed01e5b",
+        "qualification": "Exact fetched response bytes; not a publisher revision or semantic diff."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/ef1fb88045e0ab5601f4722845248f1ccd9b7593/docs/audits/2026-11-21-es-editions-watch-sources.json",
+      "pointer": "/claimChecks/8",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "es-editions-watch: retain scope/history and recheck the exact outstanding question by 2026-11-22; no customer authorization or closure inferred."
+  ],
+  "comparedAssessmentIds": []
+}
