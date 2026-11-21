@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "findingId": "vci-es-88-enterprise-106-maintenance-pairing-coverage",
+  "revision": 1,
+  "recordedAt": "2026-11-21T10:57:51.992Z",
+  "title": "ES8.8 exact Enterprise10.6 maintenance pairing is missing from the curated route",
+  "concernType": "coverage-gap",
+  "problem": "The current customer-managed compatibility matrix explicitly lists ES8.8.x on Enterprise10.6.1.1 and separates10.6.1.0. The curated ES8.8 Enterprise host mapping stops at10.4, and older10.6 descriptions are not reconciled to these exact maintenance rows. A line-level addition would still need the exact package and KV qualifications; it must not silently approve every10.6 build.",
+  "scope": {
+    "products": [
+      "Splunk Enterprise",
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "10.6.0",
+      "10.6.1.0",
+      "10.6.1.1",
+      "8.8.x"
+    ],
+    "deployments": [
+      "Customer-managed"
+    ],
+    "editions": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No universal10.6 line compatibility, Cloud availability, entitlement, customer eligibility, exact app installation or authorization."
+    ]
+  },
+  "scopeComparison": "Exact current official matrix row versus the pinned public canonical ES host map, not a comprehensive product support determination.",
+  "impact": {
+    "customerScenario": "A reader comparing ES8.8 with an Enterprise10.6 host.",
+    "consequence": "The guide cannot express the current exact-maintenance qualification and could leave the reader with an older host map.",
+    "level": "unknown"
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "Current substantive official matrix and exact public baseline canonical file compared independently."
+  },
+  "claimIds": [
+    "release-guide.es"
+  ],
+  "coverageSearch": {
+    "question": "Does the guide represent the current ES8.8 matrix pairing without approving every10.6 package?",
+    "expectedAnswer": "An exact-maintenance qualified pairing with separately retained KV constraints.",
+    "corpusEvidenceIds": [
+      "release-20261121-escompatibility-0",
+      "release-20261121-es-canonical"
+    ],
+    "searchedAt": "2026-11-21T10:49:09.426Z",
+    "limits": "Only current matrix10.x rows and named canonical ES host/warning fields on the pinned baseline; full migration procedure and all historical pairings are not reassessed."
+  },
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Release Watch coordinates exact host/pairing reconciliation with ES Editions; review by2026-11-22."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261121-escompatibility-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+      "section": "Enterprise Security compatibility rows",
+      "statement": "The current customer-managed compatibility matrix explicitly lists ES8.8.x on Enterprise10.6.1.1 and separates10.6.1.0. The curated ES8.8 Enterprise host mapping stops at10.4, and older10.6 descriptions are not reconciled to these exact maintenance rows. A line-level addition would still need the exact package and KV qualifications; it must not silently approve every10.6 build.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-21T10:38:25.194Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "25ec43af5dfc30b84f3b672114cfb61921e9e1f2dd4546d0404368ee7a3749b4",
+        "qualification": "Current-run direct public body digest when available; publisher revision remains unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261121-es-canonical",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/a40333c53072e0953ff68b4efcdb78e5dc059621/content/datasets/products.json",
+      "section": "/productTracks/es/compatibility/enterprise/8.8 and /productTracks/es/hostRequirements/enterprise/10.6",
+      "statement": "Canonical ES8.8 host list contains10.2 and10.4; the10.6 warning is not an exact-maintenance reconciliation. This is a bounded current catalog comparison, not an assertion that an unlisted product pairing is unsupported.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-21T10:49:09.426Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "fb236dbdb91386636cb6544dbe97fdd7417a166b6094326d1218c0b908a6ee50",
+        "qualification": "Exact public baseline file bytes, not vendor document revision."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/ec1f3b359958c8ae8afeca1c96f7e6aa16281f98/docs/audits/2026-11-21-version-release-watch-sources.json",
+      "pointer": "/boundedAssessments/release-guide.es",
+      "originalLabel": "scoped-independent-review"
+    }
+  ]
+}

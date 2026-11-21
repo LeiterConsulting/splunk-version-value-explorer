@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-sok-32-compatibility-scope",
+  "assessmentId": "vcia-release-20261121-sok-32-compatibility-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-21T10:57:51.992Z",
+  "assessedAt": "2026-11-21T10:49:09.426Z",
+  "outcome": "still-present",
+  "rationale": "Help matrix 3.2: September 24, 2026; Kubernetes 1.32–1.37; Enterprise 10.0.12–10.6.0. Changelog 3.2.0: September 8; Kubernetes 1.32–1.36; Enterprise 10.6.0. Both tuple/date readings and the queue secretKeyRef versus volList breaking change remain distinct. Neither certifies 11.x.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Operator for Kubernetes"
+    ],
+    "versions": [
+      "3.2.0"
+    ],
+    "deployments": [
+      "Customer-managed Kubernetes"
+    ],
+    "editions": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Only named public sections and compared canonical scope. No entitlement, customer authorization, universal feature rollout or unsupported upgrade/pairing inference."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release-20261121-prep11operator-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix",
+      "section": "SOK to Splunk Enterprise version compatibility; Upgrade path guidance",
+      "statement": "Help matrix 3.2: September 24, 2026; Kubernetes 1.32–1.37; Enterprise 10.0.12–10.6.0. Changelog 3.2.0: September 8; Kubernetes 1.32–1.36; Enterprise 10.6.0. Both tuple/date readings and the queue secretKeyRef versus volList breaking change remain distinct. Neither certifies 11.x.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-21T10:37:15.346Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "0130c21d1c16b85a4af7a003721b411a266e4b4ab18ef129b6b63c12f87c5534",
+        "qualification": "Current-run direct public body digest when available; publisher revision remains unknown."
+      }
+    },
+    {
+      "evidenceId": "release-20261121-prep11changelog-1",
+      "url": "https://splunk.github.io/splunk-operator/reference/ChangeLog.html",
+      "section": "3.2.0 (2026-09-08); Breaking Changes; Supported Kubernetes and Splunk versions",
+      "statement": "The separately scoped source supplies the other compared condition; no adjacent-version inheritance.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-21T10:37:20.444Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "26ab5b4459deeb2ae2d6fd8ad0f544e8c7ddbda5d85880e2b6805fffb833908e",
+        "qualification": "Current-run direct public body digest when available; publisher revision remains unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/ec1f3b359958c8ae8afeca1c96f7e6aa16281f98/docs/audits/2026-11-21-version-release-watch-sources.json",
+      "pointer": "/boundedAssessments/prep11.operator",
+      "originalLabel": "scoped-independent-review"
+    }
+  ],
+  "remainingConcerns": [
+    "version-release-watch by2026-11-22: finish named coverage gaps in the source audit; retain original historical evidence and independent owners."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261120-sok-32-compatibility-scope"
+  ]
+}

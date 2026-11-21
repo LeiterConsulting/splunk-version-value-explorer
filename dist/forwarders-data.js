@@ -594,6 +594,7 @@ window.VersionCompassForwarderData = {
     "Windows service identity",
     "FIPS cryptographic module",
     "KV Store source-version prerequisite",
-    "ES cohosted KV Store boundary"
+    "ES cohosted KV Store boundary",
+    "Enterprise 10.6 current maintenance release"
   ]
 };
