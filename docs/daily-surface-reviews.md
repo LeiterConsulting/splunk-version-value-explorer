@@ -24,9 +24,12 @@ contract and provenance gates.
 ## 11.x Prep first pass
 
 Start with the eight `prep11.*` rows and the exact sections in the
-[coverage registry](../content/automation-coverage.json) before the broad
-source sweep. Use [the page's evidence rules](prep11.md) to compare each source
-section with the current claim.
+[coverage registry](../content/automation-coverage.json). Finish those reviews,
+including applicable indexed evidence, then assess the nine `release-guide.*`
+paths individually before the broad source sweep. Use
+[the page's evidence rules](prep11.md) to compare each Prep11 source section
+with the current claim. Give each path its own budget and finish other paths if
+a source is blocked.
 
 1. **Announcement discovery.** Check the mapped official release and announcement
    channels for explicit Enterprise 11.x statements. Record the channels and
@@ -74,7 +77,9 @@ Explicitly defer a missing source or assessment and finish the other rows.
   receipts. List each row as completed, incomplete, or missing. Link each
   receipt and call out late or mismatched outcomes. Report independent Guidance,
   GitHub integration, steward selection and live verification with their own
-  evidence. Reconcile late receipts using their original clocks.
+  evidence. Reconcile late receipts using their original clocks. A failed retry
+  can coexist with a useful earlier assessment. Show both with their respective
+  identities and preserve separate public records for distinct attempts.
 
 Prompt readback happened November 19. First matching scheduled executions
 under the new registry and their delivery evidence are pending in the

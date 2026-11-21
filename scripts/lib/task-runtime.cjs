@@ -158,15 +158,21 @@ function inspect(snapshot, { registry, ledger, runs, operational = operationalCo
     const config = configuration(task, identity.baseline, snapshot.observedAt), evidence = attemptResult(task, snapshot.observedAt, identity.baseline?.readbackAt, identity, identities, outputs);
     const issues = [...config.issues, ...evidence.attempt.issues, ...evidence.result.issues];
     if (task.is_enabled !== true) issues.push('participating-task-disabled');
+    let matchingReceiptIds = [];
     if (identity.kind === 'watch') {
       const matchingRuns = runs.filter(r => r.kind === 'saved-task-execution' && r.watchId === identity.id && r.registryVersion === registry.registryVersion && r.execution?.taskId === task.id && evidence.attempt.schedulerRunId && r.execution.schedulerRunId === evidence.attempt.schedulerRunId);
       const matchingAttempts = matchingRuns.filter(r => sameAttemptStart(r.execution.startedAt, task.run_details?.last_run?.started_at));
+      if (task.is_enabled === true && evidence.attempt.status === 'completed' && evidence.result.status === 'matched') {
+        matchingReceiptIds = matchingAttempts.map(r => r.runId).filter(Boolean);
+      }
       if (!matchingRuns.length) issues.push('no-matching-current-coverage-receipt');
       else if (!matchingAttempts.length) issues.push('coverage-attempt-start-not-matched');
       else if (!matchingAttempts.some(r => r.coverageComplete && r.deliveryComplete && r.claimedComplete && r.publication?.claimedDelivered)) issues.push('coverage-or-delivery-incomplete');
     }
     return { ...label, taskId: identity.taskId, schedulerRunId: evidence.attempt.schedulerRunId, recordedStatus: evidence.attempt.recordedStatus,
-      isEnabled: typeof task.is_enabled === 'boolean' ? task.is_enabled : null, configuration: config, ...evidence, accepted: issues.length === 0, issues };
+      isEnabled: typeof task.is_enabled === 'boolean' ? task.is_enabled : null,
+      ...(identity.kind === 'watch' && { matchingReceiptIds }),
+      configuration: config, ...evidence, accepted: issues.length === 0, issues };
   };
   const watches = identities.filter(i => i.kind === 'watch').map(reconcile), roles = identities.filter(i => i.kind === 'role').map(reconcile);
   const inventory = {

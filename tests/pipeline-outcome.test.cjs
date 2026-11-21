@@ -9,6 +9,46 @@ const evidence = () => ({ runId: 42, runAttempt: 2, receipt: {
   action: 'runtime-inspection', completedActions: [], mutationOutcome: 'no-write-at-failed-action', claimedDelivered: false,
   requiredEngineRevision: required, deployedEngineRevision: deployed
 } });
+test('a verified Sites deployment survives a later no-change check and a held legacy workflow', async () => {
+  const { summarize, summarizeSiteDelivery } = await import('../scripts/pipeline-status.mjs');
+  const projectId = 'project-synthetic', sourceCommit = commit, validationRunId = 43;
+  const publishedAt = '2026-11-20T15:42:35.303Z', reconciledAt = '2026-11-20T15:48:46Z';
+  const publication = { revision: 'content-synthetic', engineRevision: required, recordCount: 969, digest: '0'.repeat(64) };
+  const selected = { id: validationRunId, head_sha: sourceCommit, path: '.github/workflows/validate.yml',
+    event: 'push', head_branch: 'main', run_attempt: 1, status: 'completed', conclusion: 'success' };
+  const publicChecks = ['https://versioncompass.com', 'https://www.versioncompass.com'].map(target => ({
+    target, status: 'delivery-checks-passed', expectedRevision: publication.revision, evaluatedAt: '2026-11-20T18:00:00Z',
+    checks: Object.fromEntries(['database-health', 'live-manifest', 'bundle-integrity', 'bounded-record-query', 'read-only-api', 'bundled-fallback-assets']
+      .map(key => [key, { outcome: 'passed', evidence: { ...publication, storage: 'bundled' } }])),
+  }));
+  const site = {
+    steward: { taskId: require('../scripts/lib/operational-roles.cjs').roles[0].taskId, sourceCommit,
+      validationRunId, deploymentId: 'deployment', versionId: 'version', publishedAt, reconciledAt },
+    deployment: { project_id: projectId, type: 'publish', status: 'succeeded', id: 'deployment', version_id: 'version', updated_at: publishedAt },
+    publicChecks,
+  };
+  const runs = [run(), selected], options = { projectId, publication, now: Date.parse('2026-11-21T02:00:00Z') };
+  assert.equal(summarize(sourceCommit, runs, evidence()).publisher.status, 'failure');
+  const outcome = summarizeSiteDelivery(site, runs, options);
+  assert.equal(outcome.status, 'readback-matched');
+  assert.equal(outcome.publishedAt, publishedAt);
+  assert.equal(outcome.reconciledAt, reconciledAt);
+  for (const change of [
+    e => e.steward.taskId = '6aef2ecb4e148191b0650b1c8111b041',
+    e => e.deployment.status = 'failed',
+    e => e.deployment.version_id = 'other-version',
+    e => e.publicChecks.pop(),
+    e => e.publicChecks[1].checks['live-manifest'].evidence.digest = '1'.repeat(64),
+    e => e.publicChecks[1].evaluatedAt = '2026-11-20T15:42:36Z',
+    e => e.steward.reconciledAt = '2026-11-20T15:00:00Z',
+  ]) {
+    const bad = structuredClone(site);
+    change(bad);
+    assert.equal(summarizeSiteDelivery(bad, runs, options).status, 'unverified');
+  }
+  assert.equal(summarizeSiteDelivery(site, [run(), { ...selected, run_attempt: 2 }], options).status, 'unverified');
+  assert.equal(summarizeSiteDelivery(site, runs, { ...options, now: Date.parse('2026-11-21T18:00:00Z') }).status, 'unverified');
+});
 test('a matching runtime hold remains a failed job with an explicit no-write recovery path', async () => {
   const { summarize } = await import('../scripts/pipeline-status.mjs');
   const value = summarize(commit, [run()], evidence());
@@ -22,6 +62,16 @@ test('a matching runtime hold remains a failed job with an explicit no-write rec
 test('a failed job without its receipt cannot be called a runtime hold', async () => {
   const { summarize } = await import('../scripts/pipeline-status.mjs');
   assert.equal(summarize(commit, [run()]).publisher.outcome.status, 'unavailable');
+});
+test('a late provenance append to the earlier attempt does not make it the latest review', async () => {
+  const { latestWatchReceipts } = await import('../scripts/pipeline-status.mjs');
+  const receipt = (runId, startedAt, recordedAt) => ({
+    result: { watchId: 'es-editions-watch', runId },
+    run: { kind: 'saved-task-execution', registryVersion: '1.4.0', recordedAt, execution: { startedAt }, coverage: [] },
+  });
+  const prior = receipt('prior', '2026-11-20T11:00:00Z', '2026-11-20T22:00:00Z');
+  const retry = receipt('retry', '2026-11-20T12:00:00Z', '2026-11-20T12:30:00Z');
+  assert.equal(latestWatchReceipts('1.4.0', [retry, prior], '2026-11-20')[0].runId, 'retry');
 });
 test('old preflight receipts can establish a hold without inventing engine revisions', async () => {
   const { publisherOutcome } = await import('../scripts/pipeline-status.mjs');
