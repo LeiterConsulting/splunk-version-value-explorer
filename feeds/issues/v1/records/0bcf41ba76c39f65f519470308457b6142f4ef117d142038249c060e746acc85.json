@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-cloud-s3-restricted-scope",
+  "assessmentId": "vcia-csp-20261121-cloud-s3-restricted-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-21T12:13:38.561Z",
+  "assessedAt": "2026-11-21T12:10:22.188Z",
+  "outcome": "still-present",
+  "rationale": "Current10.7 S3 table excludes High/IL5 in both GovCloud regions; April8 relevant10.3 change-log support remains distinct. This pass does not reverify every10.6 claim or establish authorization.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform",
+      "Splunk Observability Cloud"
+    ],
+    "versions": [
+      "10.7 service and relevant10.3 history; current Observability service"
+    ],
+    "deployments": [
+      "AWS GovCloud or Google Cloud us2 as explicitly scoped"
+    ],
+    "editions": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No entitlement, operation support, offering authorization or customer eligibility inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261121-service107",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions and region differences; April8 change-log entry",
+      "statement": "Current10.7 S3 table excludes High/IL5 in both GovCloud regions; April8 relevant10.3 change-log support remains distinct. This pass does not reverify every10.6 claim or establish authorization.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-21T12:06:52.246Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "08bf9183d8edd574ff1eb561c81383ad377b11b37cc4258a069adee2bce9ad83",
+        "qualification": "Current fetched public body; no publisher revision supplied."
+      }
+    },
+    {
+      "evidenceId": "csp-20261121-s3-changes",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "April8 2026 Federated Search for Amazon S3 High/IL5; relevant10.3 version scope",
+      "statement": "The April8 history states High/IL5 support for relevant10.3 versions; this does not resolve the current10.7 service-table exclusion.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-21T12:06:56.845Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "7f4a9e21fd3074eae8123cdd00caff1ebafbd06bd72de817ad522484003d9b5a",
+        "qualification": "Current public versioned change-log body; no inferred effective date beyond the explicit entry."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/88fcbd7cb33cff9892a94fbdda6088fafdda3cee/docs/audits/2026-11-21-csp-fedramp-watch-sources.json",
+      "pointer": "/claimChecks/cloud-environment.product-services",
+      "originalLabel": "scoped-independent-review"
+    }
+  ],
+  "remainingConcerns": [
+    "csp-fedramp-watch: preserve uncertainty and finish exact scoped follow-up by2026-11-22."
+  ],
+  "comparedAssessmentIds": []
+}

@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-acs-fedramp-high-victoria-conflict",
+  "assessmentId": "vcia-csp-20261121-acs-fedramp-high-victoria-conflict",
+  "revision": 1,
+  "recordedAt": "2026-11-21T12:13:38.561Z",
+  "assessedAt": "2026-11-21T12:10:22.188Z",
+  "outcome": "still-present",
+  "rationale": "FedRAMP High Victoria No / Classic Yes conflicts with prose covering both experiences.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform",
+      "Admin Config Service"
+    ],
+    "versions": [
+      "10.6 documentation"
+    ],
+    "deployments": [
+      "AWS GovCloud FedRAMP High, Victoria versus Classic"
+    ],
+    "editions": null,
+    "regions": [
+      "us-gov-east-1",
+      "us-gov-west-1"
+    ],
+    "audiences": null,
+    "exclusions": [
+      "No entitlement, operation support, offering authorization or customer eligibility inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261121-acs",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.6/using-the-admin-config-service-acs--api/admin-config-service-acs-requirements-and-compatibility-matrix",
+      "section": "ACS-supported compliance environments table and introductory prose",
+      "statement": "FedRAMP High Victoria No / Classic Yes conflicts with prose covering both experiences. Current canonical acs-fr-h says both; this does not establish supported Victoria operations.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-21T12:07:01.179Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "c293d0cb45a9203d4aba7d1451b11d4867d3063ee045cf72bf8f539020c24a45",
+        "qualification": "Current public body digest; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/88fcbd7cb33cff9892a94fbdda6088fafdda3cee/docs/audits/2026-11-21-csp-fedramp-watch-sources.json",
+      "pointer": "/newObservation",
+      "originalLabel": "scoped-independent-review"
+    }
+  ],
+  "remainingConcerns": [
+    "csp-fedramp-watch: preserve uncertainty and finish exact scoped follow-up by2026-11-22."
+  ],
+  "comparedAssessmentIds": []
+}

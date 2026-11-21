@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-o11y-database-monitoring-us2-conflict",
+  "assessmentId": "vcia-csp-20261121-o11y-database-monitoring-us2-conflict",
+  "revision": 1,
+  "recordedAt": "2026-11-21T12:13:38.561Z",
+  "assessedAt": "2026-11-21T12:10:22.188Z",
+  "outcome": "still-present",
+  "rationale": "Database Monitoring US row lists us2 while its Google Cloud column says None; realm table maps us2 to Oregon. Preserve actual service availability uncertainty; hosting does not establish authorization.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform",
+      "Splunk Observability Cloud"
+    ],
+    "versions": [
+      "10.7 service and relevant10.3 history; current Observability service"
+    ],
+    "deployments": [
+      "AWS GovCloud or Google Cloud us2 as explicitly scoped"
+    ],
+    "editions": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No entitlement, operation support, offering authorization or customer eligibility inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261121-o11ydatabaseregions",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description#available-components-per-region-or-realm-0",
+      "section": "Database Monitoring component row; Realm-to-region equivalence",
+      "statement": "Database Monitoring US row lists us2 while its Google Cloud column says None; realm table maps us2 to Oregon. Preserve actual service availability uncertainty; hosting does not establish authorization.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-21T12:07:28.750Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "18ef3d52d38eac615a3ae564fb0201c0e51adc3abd963b49dfedb4535f255420",
+        "qualification": "Current fetched public body; no publisher revision supplied."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/88fcbd7cb33cff9892a94fbdda6088fafdda3cee/docs/audits/2026-11-21-csp-fedramp-watch-sources.json",
+      "pointer": "/claimChecks/cloud-environment.product-services",
+      "originalLabel": "scoped-independent-review"
+    }
+  ],
+  "remainingConcerns": [
+    "csp-fedramp-watch: preserve uncertainty and finish exact scoped follow-up by2026-11-22."
+  ],
+  "comparedAssessmentIds": []
+}

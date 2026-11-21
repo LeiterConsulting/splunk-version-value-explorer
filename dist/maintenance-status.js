@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-20T12:59:56.606919Z",
+      "lastAttempt": "2026-11-21T12:05:48.252051Z",
       "lastSuccess": "2026-11-10T12:50:41.612Z",
       "outcome": "blocked",
-      "summary": "Partial later review: provider-region assessed no-change; seven families require their own remaining section assessments.",
+      "summary": "Partial review: new ACS High/Victoria source contradiction; two scopes assessed unchanged and six incomplete.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -603,9 +603,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Partial later review: provider-region assessed no-change; seven families require their own remaining section assessments.",
           "scope": "67 substantive source bodies and six blocked paths; earlier same-day receipts retained separately; native feed concurrency and production selection remain open."
+        },
+        {
+          "at": "2026-11-21T12:05:48.252051Z",
+          "outcome": "running",
+          "summary": "Protected four Cloud Environment reviews and full official source inventory.",
+          "scope": "Own CSP review; exact region/experience/service evidence, no inferred authorization. Five deferred scopes plus blocked ACS correction; source/claim dates unchanged outside actual receipt; no runtime delivery."
+        },
+        {
+          "at": "2026-11-21T12:10:22.188Z",
+          "outcome": "blocked",
+          "summary": "Partial review: new ACS High/Victoria source contradiction; two scopes assessed unchanged and six incomplete.",
+          "scope": "Own CSP review; exact region/experience/service evidence, no inferred authorization. Five deferred scopes plus blocked ACS correction; source/claim dates unchanged outside actual receipt; no runtime delivery."
         }
       ],
-      "scope": "67 substantive source bodies and six blocked paths; earlier same-day receipts retained separately; native feed concurrency and production selection remain open."
+      "scope": "Own CSP review; exact region/experience/service evidence, no inferred authorization. Five deferred scopes plus blocked ACS correction; source/claim dates unchanged outside actual receipt; no runtime delivery."
     },
     {
       "id": "version-release-watch",
