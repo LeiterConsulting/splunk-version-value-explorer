@@ -126,6 +126,19 @@ paired-SOAR question, region and authorization remain unresolved separately.
 
 ## Maintenance ownership
 
+### November 21 regional correction
+
+The current ES 8.8 Essentials, Premier and Cloud Connect tables no longer name
+Security AI Assistant exceptions for Milan or São Paulo. The ES release's Model
+Runtime table also lists those locations, with Data zone and Global routing
+respectively. The canonical assistant policies remove the older exclusions;
+results remain conditional on the existing edition, deployment, prerequisites and
+enablement requirements. SOP inherits the assistant prerequisite. Montréal/Calgary,
+Cloud GCP/Azure, GovCloud and per-agent regional boundaries remain separate.
+Historical October 24 observations above retain their dates. This does not establish
+tenant access, authorization or in-region model processing. Exact indexed official
+sections supported this review after direct Help requests returned HTTP 403.
+
 The November 2 independent audit reconciles the current 8.8 Triage note: it no
 longer explicitly assigns Triage to Essentials and names Premier in its SOC
 analyst description. The earlier Essentials wording remains historical evidence;

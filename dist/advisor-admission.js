@@ -115,8 +115,8 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "source-aiEsRegions88",
       "ref": "source:aiEsRegions88",
-      "sha256": "83f61d383ce9e30047fd4058cf10d649bf44a01003f583f83c1fd71e4fd542b4",
-      "scope": "ES 8.8 Essentials component regions independently mapped; Premier and Cloud Connect exceptions, GCP/Azure scope and Security AI Assistant compatibility retained without inferring regulated authorization.",
+      "sha256": "fbcb14f9ae064003c00a21bd58924e31b0fd585153351c9618f0673b543c2eed",
+      "scope": "November 21 scoped current ES 8.8 regional/compatibility assessment: Milan and Sao Paulo correction, preserved edition/deployment/provider/GovCloud exceptions. No new per-agent rollout, entitlement, authorization or SOC task resolution.",
       "sources": [
         "aiEsRegions88"
       ]
@@ -192,8 +192,8 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "esEssentials",
       "ref": "policy:esEssentials",
-      "sha256": "1efa83d6e3fce1e3734f224dd0e8b22e05997f897218b44d9addd357e03ae07c",
-      "scope": "Exact ES 8.8 Essentials component exceptions.",
+      "sha256": "db770e438ce7820f466a8a2a1690d07d367a47409e64f05383f78eed2aca138f",
+      "scope": "November 21 scoped current ES 8.8 regional/compatibility assessment: Milan and Sao Paulo correction, preserved edition/deployment/provider/GovCloud exceptions. No new per-agent rollout, entitlement, authorization or SOC task resolution.",
       "sources": [
         "aiEsRegions88"
       ]
@@ -201,8 +201,8 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "esPremier",
       "ref": "policy:esPremier",
-      "sha256": "5196ff9e7b910dd5b7a99d76f1a4400c7d0eef83611495a29cecf625edb961d3",
-      "scope": "Exact ES 8.8 Premier component exceptions.",
+      "sha256": "586bbaf664ee3b066a25e370cb7b8e96aca041b373cd2aa7b74670e2405dd7dd",
+      "scope": "November 21 scoped current ES 8.8 regional/compatibility assessment: Milan and Sao Paulo correction, preserved edition/deployment/provider/GovCloud exceptions. No new per-agent rollout, entitlement, authorization or SOC task resolution.",
       "sources": [
         "aiEsRegions88"
       ]
@@ -210,8 +210,8 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "esCloudConnect",
       "ref": "policy:esCloudConnect",
-      "sha256": "714a6b344224b0e76f6d47f69128038d2ecd6726c35a9873ddc28a01bb692850",
-      "scope": "Exact Cloud Connect component exceptions; does not establish agent rollout.",
+      "sha256": "437a5779ee7e3e342e0d29210a5a5c8416b490bb97b5f7917d43d77e242207da",
+      "scope": "November 21 scoped current ES 8.8 regional/compatibility assessment: Milan and Sao Paulo correction, preserved edition/deployment/provider/GovCloud exceptions. No new per-agent rollout, entitlement, authorization or SOC task resolution.",
       "sources": [
         "aiEsRegions88"
       ]

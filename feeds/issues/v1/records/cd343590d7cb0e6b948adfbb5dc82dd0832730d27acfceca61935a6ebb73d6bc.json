@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-observability-ai-us3-region-mapping",
+  "assessmentId": "vcia-csp-cont-20261121-13",
+  "revision": 1,
+  "recordedAt": "2026-11-21T19:43:43.197Z",
+  "assessedAt": "2026-11-21T19:35:51.359Z",
+  "outcome": "unable-to-verify",
+  "rationale": "The Assistant supported-realms list includes us3, but the service description realm-to-region table maps nine other realms and does not map us3. Preserve the unmapped realm without inferring a provider, region, exclusion or authorization.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Observability Cloud AI Assistant"
+    ],
+    "versions": [
+      "Current Observability service documentation"
+    ],
+    "editions": null,
+    "deployments": [
+      "Splunk-managed AI service"
+    ],
+    "regions": [
+      "us3"
+    ],
+    "audiences": null,
+    "exclusions": [
+      "No provider/region inheritance, feature unavailability, runtime residency, entitlement or offering/customer authorization is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-cont-20261121-12-0",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/ai-assistant-in-observability-cloud",
+      "section": "Availability; supported realms and product areas; access; context limitations; data sharing and use",
+      "statement": "The Assistant supported-realms list includes us3, but the service description realm-to-region table maps nine other realms and does not map us3. Preserve the unmapped realm without inferring a provider, region, exclusion or authorization.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-21T19:31:06.680Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact official indexed representation reviewed after direct Help HTTP 403. No original raw source-body digest or publisher revision supplied."
+      }
+    },
+    {
+      "evidenceId": "csp-cont-20261121-12-1",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
+      "section": "Available regions or realms; realm-to-region equivalence; available components per realm",
+      "statement": "The Assistant supported-realms list includes us3, but the service description realm-to-region table maps nine other realms and does not map us3. Preserve the unmapped realm without inferring a provider, region, exclusion or authorization.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-21T19:31:06.679Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Exact official indexed representation reviewed after direct Help HTTP 403. No original raw source-body digest or publisher revision supplied."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/6210389d4f3d0ea6cebdea7f4e8d8eeb8b25dfd4/docs/audits/2026-11-21-csp-fedramp-watch-review-2-sources.json",
+      "pointer": "/issueObservations/12",
+      "originalLabel": "unable-to-verify"
+    }
+  ],
+  "remainingConcerns": [
+    "csp-fedramp-watch by 2026-11-22: retain scoped unknowns/conflicts and recheck the exact official sections; candidate export qualification and sole-steward live delivery are separate."
+  ],
+  "comparedAssessmentIds": []
+}
