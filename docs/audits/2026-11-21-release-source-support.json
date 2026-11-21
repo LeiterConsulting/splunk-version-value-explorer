@@ -1,0 +1,694 @@
+{
+  "date": "2026-11-21",
+  "kind": "independent-editorial-source-assessment",
+  "purpose": "Direct public documentation supporting the six open Release Watch reviews. The owner retains its own assessment, timestamps, native execution and publication evidence.",
+  "scopes": {
+    "ai.discovery": {
+      "sourceIds": [
+        "aiSaiaAbout",
+        "aiEsAgents88",
+        "aiObsAssistant",
+        "aiObsRca",
+        "obsNovember",
+        "obsAppSec",
+        "obsDbAssistant",
+        "obsA2A",
+        "obsA2AIntro",
+        "obsLogAI"
+      ],
+      "findings": [
+        "The November 12 Application Security workflow needs a supported realm, organization activation and user access, Secure Application entitlement, Application Security UI access and security telemetry. It analyzes one library/version transition at a time and gives read-only guidance.",
+        "The November 20 Database Monitoring workflow needs assistant entitlement, supported realm, org activation and user permissions for both tools. The supported telemetry receivers are SQL Server, Oracle Database, PostgreSQL and MongoDB. IBM Db2 has a separate scraper. Its presence in the same monthly notes does not establish compatibility with this Assistant.",
+        "The November 12 Agent-to-Agent interface is limited to selected customers. The initial documented workflow investigates a Splunk APM service and returns text. Log Explorer summaries require an explicit action, an existing results set and permission to the underlying logs. Keep these separate from Platform SAIA and ES agent entitlements."
+      ]
+    },
+    "ai.saia-itsi": {
+      "sourceIds": [
+        "aiSaiaAbout",
+        "aiSaiaInstall",
+        "aiSaiaAgentMode",
+        "aiSaiaModelRuntime",
+        "aiSaiaCloudConnected",
+        "aiSaiaKnownIssues",
+        "aiSaiaRelease240",
+        "aiSaiaInstall240",
+        "aiSaiaAgentMode240",
+        "aiSaiaAbout240",
+        "aiSaiaModelRuntime240",
+        "aiSaiaKnownIssues240"
+      ],
+      "findings": [
+        "The 2.4.0 release and fresh Cloud Connect installation sections specify Enterprise 10.4+, SAIA 2.4.0+ and Connect for Splunk Cloud 2.0.0+. Verify paid license, certificate, activation, admin and outbound connectivity in that installer. The older SAIA-9918 restriction covers 2.2.0–2.3.6. The 2.1.1 fallback lacks Agent Mode. The 2.4.0 known-issues text still describes support as planned.",
+        "The Cloud Agent Mode feature lists AWS regions, the 10.1.x minimum and model/enablement requirements. The general application and model-runtime availability tables cover different capabilities. Check the exact feature list for a selected region. The About page gives the ITSI subagent floors of ITSI 5.0.0, assistant 2.2.0 and MCP Server for Splunk Platform 1.2.1."
+      ]
+    },
+    "release-guide.cloud": {
+      "sourceIds": [
+        "cloud107Notes",
+        "service107",
+        "cloud108Notes",
+        "cloud108Known",
+        "cloud108Patches",
+        "cloud108Service"
+      ],
+      "findings": [
+        "10.8 has public release notes, including replacing an existing data-model definition, a preview before submitting a Machine Data Lake promotion and workload controls for supported federated-search configurations. The 10.8 Service Details current-subscriptions table still says Platform 10.7, ES 8.7 and ITSI 5.0. Retain both and require separate stack confirmation.",
+        "The selected-known-issues table includes SPL-313801, which can produce failed or incomplete searches of third-party federated data for certain configurations. The separate maintenance history starts with 10.7.0.X and 10.7.0.6 in this read. A release page by itself supplies no exact 10.8 stack patch or per-stack rollout date."
+      ]
+    },
+    "release-guide.es": {
+      "sourceIds": [
+        "rn88",
+        "esCompatibility",
+        "service107",
+        "cloud108Service",
+        "aiEsRelease88"
+      ],
+      "findings": [
+        "The customer-managed Enterprise compatibility table lists ES 8.8.x in the 10.6.1.1 row with a broader 8.4.x+ footnote. The 10.6.1.0 row lists 8.4.1, 8.5.1, 8.6.1 and 8.7.x, omits 8.8, and excludes ES 8.7 and earlier from cohosted KV Store 1.0. Preserve the 10.6.0 row separately. A line-only 10.6 selection cannot establish which row applies.",
+        "The dated November 4 ES 8.8 release and the separate managed Cloud current-subscriptions table listing ES 8.7 answer different questions. Keep the documented upgrade-window warning and the independent edition/feature gates."
+      ]
+    },
+    "release-guide.observability": {
+      "sourceIds": [
+        "observabilityNotes",
+        "collectorDocs",
+        "o11y",
+        "obsNovember",
+        "obsSpan",
+        "obsOperations",
+        "obsResolved",
+        "obsA2A",
+        "obsDbAssistant",
+        "obsMobile",
+        "obsSession",
+        "obsCrash",
+        "obsAppSec",
+        "obsDualMode",
+        "obsDb2",
+        "obsLogAI"
+      ],
+      "findings": [
+        "The monthly notes distinguish the Nov 12 APM span analysis and administrator-defined operation grouping, Controlled Availability resolved alerts, select-customer A2A, default mobile RUM metrics and mobile error investigation. Mobile instrumentation, collected session/error data and supported .NET dual-mode telemetry have separate prerequisites. Do not extend mobile availability to every backend SDK.",
+        "November 20 adds the database investigation path with its own receiver and permission limits. The separately versioned IBM Db2 scraper, Collector and other instrumentation are independent of the hosted Assistant entitlement. The November list describes rolling service changes, not a new universal agent or Collector version."
+      ]
+    },
+    "release-guide.soar": {
+      "sourceIds": [
+        "cloud88Ga",
+        "cloud88Service",
+        "on87",
+        "path87",
+        "on88",
+        "path88",
+        "req88",
+        "install88",
+        "al88",
+        "known88",
+        "fixed88",
+        "broker",
+        "app88",
+        "export88Release",
+        "export88Enterprise",
+        "export88Cloud"
+      ],
+      "findings": [
+        "SOAR On-premises 8.8 shipped November 4. The unprivileged upgrade table has a direct 7.0.x-and-higher row, subject to documented prerequisites. Earlier rows use intermediate 6.2.1 and/or 8.5.0 depending on the starting release, external PostgreSQL and OS. Amazon Linux 2 must migrate before moving beyond 6.4.0. Validate Python 3.13 automations. The installer documents an OS/architecture/build-specific archive naming pattern, which does not identify an exact package build.",
+        "8.8 system requirements give RHEL/Oracle Linux 8.10+ or 9.7+, Amazon Linux 2023.10.20260330+, PostgreSQL 15.x, Elasticsearch 8.3.3/8.11.4/8.19.4 and bundled UF 10.4.4. The platform cannot run inside Docker or Podman. Broker high availability is documented for Cloud and single-instance on-premises. Cloud activation is by contacting Splunk. Separate platform and broker eligibility from ES or Export pairing.",
+        "The 8.8 on-premises release known-issues page had no listed rows in its article. The fixed-issues heading says 8.8.0 but its description says 8.7.0. No blanket zero-issues assertion is justified. App for SOAR 8.8.0 names Enterprise 10.2.2/10.4.2 and Cloud 10.4.2604/10.5.2605 with separately qualified SOAR rows. Its on-premises column includes a malformed 8..0 entry. Keep that entry unresolved. Export 8.8.1 (Nov 19) separately fixes PAPP-38632 on large ES deployments. Both Export installation matrices require their own platform, SOAR and Python requirements."
+      ]
+    }
+  },
+  "retrievals": [
+    {
+      "id": "aiEsAgents88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+      "checkedAt": "2026-11-21T19:23:07+00:00",
+      "status": 200,
+      "bytes": 197012,
+      "sha256": "caae986dbfb5d0db3a16578e594b256b5c6096a870be9d7eae942a0a1e6f38e7",
+      "heading": "# Agentic AI offerings in Splunk Enterprise Security"
+    },
+    {
+      "id": "aiEsRelease88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "checkedAt": "2026-11-21T19:23:07+00:00",
+      "status": 200,
+      "bytes": 217567,
+      "sha256": "bf34c31f6dc9293adcf2d486ca0e8fc68964bb32673f11535c43128f2242d089",
+      "heading": "# Release notes for Splunk Enterprise Security"
+    },
+    {
+      "id": "aiObsAssistant",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/ai-assistant-in-observability-cloud",
+      "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/ai-assistant-in-observability-cloud",
+      "checkedAt": "2026-11-21T19:29:35+00:00",
+      "status": 200,
+      "bytes": 162080,
+      "sha256": "0d8806ae4f0346ac4c1351fed8a1f820cc7c86c9b0cc8a461f1cf0236139cb35",
+      "heading": "# Splunk AI Assistant in Observability Cloud"
+    },
+    {
+      "id": "aiObsRca",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan",
+      "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan",
+      "checkedAt": "2026-11-21T19:29:35+00:00",
+      "status": 200,
+      "bytes": 172514,
+      "sha256": "ca4c2f117ba9718a8a906ab591cb6356179ebf49125571aae1dceae658d65125",
+      "heading": "# AI troubleshooting agent and remediation plan in Splunk Observability Cloud"
+    },
+    {
+      "id": "aiSaiaAbout",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+      "finalUrl": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+      "checkedAt": "2026-11-21T19:23:07+00:00",
+      "status": 200,
+      "bytes": 162682,
+      "sha256": "0b23ce556f41eee9ed3d3112e1ab60d13823c6ca53b4954fdad460741e0c6550",
+      "heading": "# About Splunk AI Assistant"
+    },
+    {
+      "id": "aiSaiaAbout240",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/about-splunk-ai-assistant/about-splunk-ai-assistant",
+      "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/about-splunk-ai-assistant/about-splunk-ai-assistant",
+      "checkedAt": "2026-11-21T19:23:07+00:00",
+      "status": 200,
+      "bytes": 163054,
+      "sha256": "d988fda84bd5b3a6ad37feaaa81acd28d232908f53a5c9756bd2982702fd1f62",
+      "heading": "# About Splunk AI Assistant"
+    },
+    {
+      "id": "aiSaiaAgentMode",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "finalUrl": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "checkedAt": "2026-11-21T19:23:07+00:00",
+      "status": 200,
+      "bytes": 202546,
+      "sha256": "92ef46eb40e3688559ca86d1f1fcfba0fb56eacffeda4e8df9ab1cb019570969",
+      "heading": "# Agent Mode in Splunk AI Assistant"
+    },
+    {
+      "id": "aiSaiaAgentMode240",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "checkedAt": "2026-11-21T19:23:07+00:00",
+      "status": 200,
+      "bytes": 161791,
+      "sha256": "e919e567799284ca65702faada95e19e5ce7a07f26cf5c88311b6d3891273860",
+      "heading": "# Agent Mode in Splunk AI Assistant"
+    },
+    {
+      "id": "aiSaiaCloudConnected",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "checkedAt": "2026-11-21T19:23:07+00:00",
+      "status": 200,
+      "bytes": 178951,
+      "sha256": "a96b3e616ca8c8fb039de43de07ea93fb898760525d29f41607bc308a401d683",
+      "heading": "# Install Splunk AI Assistant for Splunk Enterprise customers with Cloud Connected"
+    },
+    {
+      "id": "aiSaiaInstall",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "finalUrl": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "checkedAt": "2026-11-21T19:23:08+00:00",
+      "status": 200,
+      "bytes": 183789,
+      "sha256": "36332121e5a365e5d888351834997f610fbfa9b1ff10e62ff031fa466891ba11",
+      "heading": "# Install Splunk AI Assistant for Splunk Cloud customers"
+    },
+    {
+      "id": "aiSaiaInstall240",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "checkedAt": "2026-11-21T19:23:08+00:00",
+      "status": 200,
+      "bytes": 185705,
+      "sha256": "bd9d9f07a305baf47edfa5755947043c758cd7c15435543ad6ea51d774ce2cbd",
+      "heading": "# Install Splunk AI Assistant for Splunk Cloud customers"
+    },
+    {
+      "id": "aiSaiaKnownIssues",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
+      "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
+      "checkedAt": "2026-11-21T19:23:08+00:00",
+      "status": 200,
+      "bytes": 142889,
+      "sha256": "4d03fc6bfad19f60bb1be1ecce55c93669f84201e28b8c13c3e6c622c18765d8",
+      "heading": "# Known issues"
+    },
+    {
+      "id": "aiSaiaKnownIssues240",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/release-notes/known-issues",
+      "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/release-notes/known-issues",
+      "checkedAt": "2026-11-21T19:23:08+00:00",
+      "status": 200,
+      "bytes": 143793,
+      "sha256": "e4470ecede46812a919a576fc0d47d4b4a31dadeefc3f4f471916e41a24fcb76",
+      "heading": "# Known issues"
+    },
+    {
+      "id": "aiSaiaModelRuntime",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+      "finalUrl": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+      "checkedAt": "2026-11-21T19:23:08+00:00",
+      "status": 200,
+      "bytes": 174664,
+      "sha256": "0d277efe99c8ad139d2f575efadf4912b58c28e31f5fd3396a94c637c9d9434e",
+      "heading": "# Model Runtime in Splunk AI Assistant"
+    },
+    {
+      "id": "aiSaiaModelRuntime240",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+      "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+      "checkedAt": "2026-11-21T19:23:08+00:00",
+      "status": 200,
+      "bytes": 175156,
+      "sha256": "28f1acff6039eebbc7af92edb830f04aa5c8f2322787522337e774ffb414d6cf",
+      "heading": "# Model Runtime in Splunk AI Assistant"
+    },
+    {
+      "id": "aiSaiaRelease240",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/release-notes/whats-new-in-splunk-ai-assistant",
+      "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/release-notes/whats-new-in-splunk-ai-assistant",
+      "checkedAt": "2026-11-21T19:23:08+00:00",
+      "status": 200,
+      "bytes": 169916,
+      "sha256": "6879f51f473bf19aa0ca0e5e01e9dcc2890a41f98bc361747e96c29af7b1c3b8",
+      "heading": "# What's new in Splunk AI Assistant"
+    },
+    {
+      "id": "al88",
+      "url": "https://help.splunk.com/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/migrate-a-splunk-soar-on-premises-install-from-amazon-linux-2-to-amazon-linux-2023",
+      "finalUrl": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/migrate-a-splunk-soar-on-premises-install-from-amazon-linux-2-to-amazon-linux-2023",
+      "checkedAt": "2026-11-21T19:44:59+00:00",
+      "status": 200,
+      "bytes": 169994,
+      "sha256": "cd438b8e6ac140f90fdac2fd8576c9205fde98ea8918473868f815a004b08ae0",
+      "heading": "# Migrate a Splunk SOAR (On-premises) install from Amazon Linux 2 to Amazon Linux 2023"
+    },
+    {
+      "id": "app88",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.8.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "finalUrl": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.8.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "checkedAt": "2026-11-21T19:45:01+00:00",
+      "status": 200,
+      "bytes": 152617,
+      "sha256": "a5d88ef93a5ef79f1ead78706de3ee3607cabd4c08dbe2d59f4e3ec515a952b7",
+      "heading": "# Check prerequisites for Splunk App for SOAR"
+    },
+    {
+      "id": "broker",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-automation-broker/splunk-soar-automation-broker-release-notes/whats-new-in-splunk-soar-automation-broker",
+      "finalUrl": "https://help.splunk.com/en/splunk-soar/splunk-automation-broker/splunk-soar-automation-broker-release-notes/whats-new-in-splunk-soar-automation-broker",
+      "checkedAt": "2026-11-21T19:45:01+00:00",
+      "status": 200,
+      "bytes": 167825,
+      "sha256": "aac2cd333ebc9d5fae80f205d27828db47e8585c8824af4b16a29024cd86b483",
+      "heading": "# What's new in Splunk SOAR Automation Broker"
+    },
+    {
+      "id": "cloud107Notes",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+      "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+      "checkedAt": "2026-11-21T19:29:35+00:00",
+      "status": 200,
+      "bytes": 157878,
+      "sha256": "da9278740b2bdfe0ca043f0db2839a772d3c379625d838e827718731d156d2a6",
+      "heading": "# What's new"
+    },
+    {
+      "id": "cloud108Known",
+      "url": "https://help.splunk.com/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/known-and-fixed-issues-for-splunk-cloud-platform",
+      "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/known-and-fixed-issues-for-splunk-cloud-platform",
+      "checkedAt": "2026-11-21T19:44:59+00:00",
+      "status": 200,
+      "bytes": 179937,
+      "sha256": "ea016aa49a097e0f3081a94889ea2bc731be470af85d17bed9fc55ee9c90d347",
+      "heading": "# Known and fixed issues for Splunk Cloud Platform"
+    },
+    {
+      "id": "cloud108Notes",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/whats-new",
+      "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/whats-new",
+      "checkedAt": "2026-11-21T19:44:09+00:00",
+      "status": 200,
+      "bytes": 166897,
+      "sha256": "afbafef92c81c1ca1197d4959bbc2e161cf10f18f1db0882d2cc268ea1748125",
+      "heading": "# What's new"
+    },
+    {
+      "id": "cloud108Patches",
+      "url": "https://help.splunk.com/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
+      "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information",
+      "checkedAt": "2026-11-21T19:45:00+00:00",
+      "status": 200,
+      "bytes": 1050624,
+      "sha256": "c0306dacec2eb3ca4e661129a904ac713c95775e42eafc3ed9525786e1380790",
+      "heading": "# Splunk Cloud Platform Maintenance Patch Release Information"
+    },
+    {
+      "id": "cloud108Service",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.8/information-about-the-service/splunk-cloud-platform-service-details",
+      "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.8/information-about-the-service/splunk-cloud-platform-service-details",
+      "checkedAt": "2026-11-21T19:44:09+00:00",
+      "status": 200,
+      "bytes": 509414,
+      "sha256": "c004d4640907420e17a46ad826b37825fa130640ac647d358aaf86d5f18e0205",
+      "heading": "# Splunk Cloud Platform Service Details"
+    },
+    {
+      "id": "cloud88Ga",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
+      "finalUrl": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
+      "checkedAt": "2026-11-21T19:29:36+00:00",
+      "status": 200,
+      "bytes": 417418,
+      "sha256": "1a16219a3e86b7fb5a8a59cea7c7ddb337192b65c6031aaa23b2605ece1c9e79",
+      "heading": "# Welcome to Splunk SOAR (Cloud)"
+    },
+    {
+      "id": "cloud88Service",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/soar-cloud-service-description/the-splunk-soar-service/splunk-soar-cloud-introduction",
+      "finalUrl": "https://help.splunk.com/en/splunk-soar/soar-cloud/soar-cloud-service-description/the-splunk-soar-service/splunk-soar-cloud-introduction",
+      "checkedAt": "2026-11-21T19:29:37+00:00",
+      "status": 200,
+      "bytes": 239506,
+      "sha256": "6d0cf3dd31f53a62adf528ae5568db9f2426ae797a2edba82c4e2386f30978f9",
+      "heading": "# Splunk SOAR (Cloud) introduction"
+    },
+    {
+      "id": "collectorDocs",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector",
+      "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector",
+      "checkedAt": "2026-11-21T19:29:36+00:00",
+      "status": 200,
+      "bytes": 183808,
+      "sha256": "e393415c16160a27c255780de2d8417281e616f24c85e3ed56d6f2acb7fa2e34",
+      "heading": "# Get started with the Splunk Distribution of the OpenTelemetry Collector"
+    },
+    {
+      "id": "esCompatibility",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+      "finalUrl": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+      "checkedAt": "2026-11-21T19:29:36+00:00",
+      "status": 200,
+      "bytes": 155925,
+      "sha256": "d0f195eafdb51e9e76bd5dc790e276e0b8b93743841d508e72d9c1c20b233b72",
+      "heading": "# Splunk products version compatibility matrix"
+    },
+    {
+      "id": "export88Cloud",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+      "finalUrl": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+      "checkedAt": "2026-11-21T19:45:01+00:00",
+      "status": 200,
+      "bytes": 155992,
+      "sha256": "f48a949b076b84702dcc7fe565fefdb456a2c75ccd2448665426fa742e63e8c8",
+      "heading": "# Check prerequisites for Splunk App for SOAR Export on Splunk Cloud Platform"
+    },
+    {
+      "id": "export88Enterprise",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+      "finalUrl": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+      "checkedAt": "2026-11-21T19:45:01+00:00",
+      "status": 200,
+      "bytes": 155952,
+      "sha256": "55d9a5cb504b243c104c1098cca8800bc1b5fecf480e50e2a936d30803e68b0c",
+      "heading": "# Check prerequisites for Splunk App for SOAR Export on Splunk Enterprise"
+    },
+    {
+      "id": "export88Release",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
+      "finalUrl": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
+      "checkedAt": "2026-11-21T19:45:01+00:00",
+      "status": 200,
+      "bytes": 145132,
+      "sha256": "81508cfa6bea73f84761bbcd0bcb287d19276a57e3542fbfec60fd4972151075",
+      "heading": "# Splunk App for SOAR Export release notes"
+    },
+    {
+      "id": "fixed88",
+      "url": "https://help.splunk.com/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/fixed-issues-for-splunk-soar-on-premises",
+      "finalUrl": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/fixed-issues-for-splunk-soar-on-premises",
+      "checkedAt": "2026-11-21T19:45:00+00:00",
+      "status": 200,
+      "bytes": 137620,
+      "sha256": "e202d20c64b71d89fc4214ca296b13fc64b14292d2df534591782ca06aeceda7",
+      "heading": "# Fixed issues for Splunk SOAR (On-premises)"
+    },
+    {
+      "id": "install88",
+      "url": "https://help.splunk.com/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-a-splunk-soar-on-premises-instance",
+      "finalUrl": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-a-splunk-soar-on-premises-instance",
+      "checkedAt": "2026-11-21T19:44:59+00:00",
+      "status": 200,
+      "bytes": 170965,
+      "sha256": "a59bd53a98daaa99461f4fd858655c30c02a46639acfba4a09aade95a4f7ee66",
+      "heading": "# Upgrade a Splunk SOAR (On-premises) instance"
+    },
+    {
+      "id": "known88",
+      "url": "https://help.splunk.com/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/known-issues-for-splunk-soar-on-premises",
+      "finalUrl": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/known-issues-for-splunk-soar-on-premises",
+      "checkedAt": "2026-11-21T19:45:00+00:00",
+      "status": 200,
+      "bytes": 137608,
+      "sha256": "b09a42f00a81722dd62c219668797b405772e3093c3481083df6ee698308cbb6",
+      "heading": "# Known issues for Splunk SOAR (On-premises)"
+    },
+    {
+      "id": "o11y",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
+      "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
+      "checkedAt": "2026-11-21T19:29:36+00:00",
+      "status": 200,
+      "bytes": 237834,
+      "sha256": "c09fbc542d2f22d6425aebc8582e1a0f0f406d795018c52b43acaae51c191b96",
+      "heading": "# Splunk Observability Cloud service description"
+    },
+    {
+      "id": "obsA2A",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/connect-your-agent-to-the-observability-ai-assistant/use-a2a-with-the-splunk-observability-ai-assistant",
+      "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/connect-your-agent-to-the-observability-ai-assistant/use-a2a-with-the-splunk-observability-ai-assistant",
+      "checkedAt": "2026-11-21T19:44:09+00:00",
+      "status": 200,
+      "bytes": 144564,
+      "sha256": "8092051ffbf8d39534e9a851f9816466a632ccf5d81bbf444fa68a947c95bece",
+      "heading": "# Use A2A with the Splunk Observability AI Assistant"
+    },
+    {
+      "id": "obsA2AIntro",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/connect-your-agent-to-the-observability-ai-assistant",
+      "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/connect-your-agent-to-the-observability-ai-assistant",
+      "checkedAt": "2026-11-21T19:44:09+00:00",
+      "status": 200,
+      "bytes": 133899,
+      "sha256": "9479536d623648e0b4405dbf16a18d5f68a48d0c52d98e6d2832da09796f67cc",
+      "heading": "# Connect Your Agent to the Observability AI Assistant"
+    },
+    {
+      "id": "obsAppSec",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-security/monitor-application-security/ai-assistant-for-application-security",
+      "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-security/monitor-application-security/ai-assistant-for-application-security",
+      "checkedAt": "2026-11-21T19:45:00+00:00",
+      "status": 200,
+      "bytes": 141537,
+      "sha256": "feca056b024345b4003ee1c622b376bc9adb6de4ed97799f34f338868bae4c8a",
+      "heading": "# AI Assistant for Application Security"
+    },
+    {
+      "id": "obsCrash",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/digital-experience-monitoring/real-user-monitoring/monitor-errors-and-crashes-in-tag-spotlight",
+      "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/digital-experience-monitoring/real-user-monitoring/monitor-errors-and-crashes-in-tag-spotlight",
+      "checkedAt": "2026-11-21T19:45:00+00:00",
+      "status": 200,
+      "bytes": 163974,
+      "sha256": "c15164140f80526b721fd87ca25f07f03875bcf2620355412d00f27ca19a4085",
+      "heading": "# Monitor errors and crashes in Tag Spotlight"
+    },
+    {
+      "id": "obsDb2",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-databases/get-data-in/configure-receivers-and-scrapers/ibm-db2-scraper",
+      "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/monitor-databases/get-data-in/configure-receivers-and-scrapers/ibm-db2-scraper",
+      "checkedAt": "2026-11-21T19:45:00+00:00",
+      "status": 200,
+      "bytes": 167180,
+      "sha256": "43d9b44ad3ac5e1bb9aa360b4ca6576e101f66b5b716e1e93f59fe341900e19f",
+      "heading": "# IBM Db2 scraper"
+    },
+    {
+      "id": "obsDbAssistant",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-databases/use-database-monitoring/ai-assistant-for-database-monitoring",
+      "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/monitor-databases/use-database-monitoring/ai-assistant-for-database-monitoring",
+      "checkedAt": "2026-11-21T19:44:09+00:00",
+      "status": 200,
+      "bytes": 138186,
+      "sha256": "405a2909091facc9eb3aba3aad491c586eb92b9e543773f0d780b1191ca75465",
+      "heading": "# AI Assistant for Database Monitoring"
+    },
+    {
+      "id": "obsDualMode",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-security/set-up-secure-application/set-up-manual-instrumentation/do-language-specific-steps",
+      "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-security/set-up-secure-application/set-up-manual-instrumentation/do-language-specific-steps",
+      "checkedAt": "2026-11-21T19:45:00+00:00",
+      "status": 200,
+      "bytes": 190331,
+      "sha256": "b99b3d8ce9f081ff4aa5de0a9f4cc8b7550b7fd71fdb311bfffb189a95b31bc5",
+      "heading": "# Do language-specific steps"
+    },
+    {
+      "id": "obsLogAI",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/view-splunk-platform-logs/query-logs-in-log-observer-connect/summarize-logs-in-log-observer-connect",
+      "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/view-splunk-platform-logs/query-logs-in-log-observer-connect/summarize-logs-in-log-observer-connect",
+      "checkedAt": "2026-11-21T19:45:00+00:00",
+      "status": 200,
+      "bytes": 158864,
+      "sha256": "89015560ca6ad9832bb631dcc6764be49c178edf0d5217ca282100be31b3d61a",
+      "heading": "# Summarize logs in Log Observer Connect"
+    },
+    {
+      "id": "obsMobile",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/instrument-front-end-applications/instrument-mobile-and-web-applications-for-splunk-real-user-monitoring-rum/instrument-mobile-applications-for-splunk-rum",
+      "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/instrument-front-end-applications/instrument-mobile-and-web-applications-for-splunk-real-user-monitoring-rum/instrument-mobile-applications-for-splunk-rum",
+      "checkedAt": "2026-11-21T19:45:00+00:00",
+      "status": 200,
+      "bytes": 148773,
+      "sha256": "b933384eca453f29093662e6e19ed5a4e139f3e2c187243e2ad50506419855b2",
+      "heading": "# Instrument mobile applications for Splunk RUM"
+    },
+    {
+      "id": "obsNovember",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026",
+      "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2026",
+      "checkedAt": "2026-11-21T19:44:09+00:00",
+      "status": 200,
+      "bytes": 169285,
+      "sha256": "14696d7efb9b8a1b9eae3bacfaf1815712571481fd87023f9eef046c23d19bb9",
+      "heading": "# November 2026"
+    },
+    {
+      "id": "obsOperations",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/create-operation-rules-to-group-related-requests",
+      "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/create-operation-rules-to-group-related-requests",
+      "checkedAt": "2026-11-21T19:44:09+00:00",
+      "status": 200,
+      "bytes": 166202,
+      "sha256": "9fbc01f678a842925c80fb49444452f7003fef7716e527aca2086f22b9d0dd67",
+      "heading": "# Create operation rules to group related requests"
+    },
+    {
+      "id": "obsResolved",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/resolved-alerts",
+      "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/resolved-alerts",
+      "checkedAt": "2026-11-21T19:44:09+00:00",
+      "status": 200,
+      "bytes": 173026,
+      "sha256": "d69fc1352f5293f047f9741f80e93a6aa079e9a6629626fa5eb9e082e8c46da6",
+      "heading": "# View resolved alerts"
+    },
+    {
+      "id": "obsSession",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/digital-experience-monitoring/real-user-monitoring/search-for-user-sessions/understand-user-sessions",
+      "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/digital-experience-monitoring/real-user-monitoring/search-for-user-sessions/understand-user-sessions",
+      "checkedAt": "2026-11-21T19:45:00+00:00",
+      "status": 200,
+      "bytes": 156643,
+      "sha256": "810ed7e93dd2c47edaed5f5a4e10bff3cd3f7d7d7250601246f3d16de153ad86",
+      "heading": "# Understand user sessions"
+    },
+    {
+      "id": "obsSpan",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/search-spans-with-span-analyzer-in-splunk-apm",
+      "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/search-spans-with-span-analyzer-in-splunk-apm",
+      "checkedAt": "2026-11-21T19:44:09+00:00",
+      "status": 200,
+      "bytes": 174087,
+      "sha256": "41e8140dbd70aaf4d812fcae27990b8e9b541d543190ab109cb8e69a2a6fb1fd",
+      "heading": "# Search spans with Span analyzer in Splunk APM"
+    },
+    {
+      "id": "observabilityNotes",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/release-notes-overview",
+      "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/release-notes-overview",
+      "checkedAt": "2026-11-21T19:44:09+00:00",
+      "status": 200,
+      "bytes": 170683,
+      "sha256": "8ffc754d4955f5b85c77e06e2ad6fc233145012834721438d421de49040c7ece",
+      "heading": "# Release notes overview"
+    },
+    {
+      "id": "on87",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.7.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+      "finalUrl": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.7.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+      "checkedAt": "2026-11-21T19:29:36+00:00",
+      "status": 200,
+      "bytes": 145530,
+      "sha256": "d739108944aa532b9b4c6ec33e7526da25a90cc50705a7e5361b50bf872340de",
+      "heading": "# Welcome to Splunk SOAR (On-premises)"
+    },
+    {
+      "id": "on88",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+      "finalUrl": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+      "checkedAt": "2026-11-21T19:44:10+00:00",
+      "status": 200,
+      "bytes": 145300,
+      "sha256": "7fa478f6addb9fdc6b5ae91e2621858343f1097962a1382c054d5042a46b61e7",
+      "heading": "# Welcome to Splunk SOAR (On-premises)"
+    },
+    {
+      "id": "path87",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.7.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+      "finalUrl": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.7.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+      "checkedAt": "2026-11-21T19:29:37+00:00",
+      "status": 200,
+      "bytes": 219928,
+      "sha256": "bd60bae2ca599531de2aaee09bf91bf18a8b9e2eede8d6fa86041c915e18256f",
+      "heading": "# Upgrade path for Splunk SOAR (On-premises) unprivileged installations"
+    },
+    {
+      "id": "path88",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+      "finalUrl": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+      "checkedAt": "2026-11-21T19:44:10+00:00",
+      "status": 200,
+      "bytes": 219700,
+      "sha256": "0138329a7501e877164fb5332e015547b0d92232dc1105c7c627e52fd6183bb1",
+      "heading": "# Upgrade path for Splunk SOAR (On-premises) unprivileged installations"
+    },
+    {
+      "id": "req88",
+      "url": "https://help.splunk.com/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/system-requirements",
+      "finalUrl": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/system-requirements/general-system-requirements",
+      "checkedAt": "2026-11-21T19:44:59+00:00",
+      "status": 200,
+      "bytes": 190729,
+      "sha256": "366b9693d3271d2a0c4023f4acbb3735d78f929bfb1f56049291a6206bdc6d8f",
+      "heading": "# General system requirements"
+    },
+    {
+      "id": "rn88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "checkedAt": "2026-11-21T19:29:36+00:00",
+      "status": 200,
+      "bytes": 217567,
+      "sha256": "fe486f847387a3f7449472147966c45b739da910b343d418c44f5c5199d24b62",
+      "heading": "# Release notes for Splunk Enterprise Security"
+    },
+    {
+      "id": "service107",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "checkedAt": "2026-11-21T19:29:36+00:00",
+      "status": 200,
+      "bytes": 509410,
+      "sha256": "0dacffadcb5ef2ce8ba1faf21feb5d7a7b90e892eb0c0c7e139efed162ec6d00",
+      "heading": "# Splunk Cloud Platform Service Details"
+    }
+  ]
+}
