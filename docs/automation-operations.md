@@ -127,7 +127,8 @@ here. Exact-candidate CI must rerun the current complete matrix.
    ```
 
    Generation order is Advisor adapters, release metadata, canonical content,
-   source register, content revision, then issue feed. All individual check gates
+   source register, final content manifest and bundle, content revision, then issue feed.
+   The second content pass binds the generated source register into the engine hash. All individual check gates
    run after generation. `maintenance:verify` also runs the full Node suite and
    Worker build. Neither command publishes or reviews upstream evidence. Scripts
    never update admission pins or claim dates automatically.

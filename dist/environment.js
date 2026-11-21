@@ -52,9 +52,9 @@
   function body(state,printing=false){
     const a=assess(state);if(!a.active)return '';
     if(a.errors.length)return '<div class="env-warning" role="alert"><strong>Cloud environment link needs review</strong><p>'+esc(a.errors.join(' '))+' No environment assessment is shown. Choose filters again or clear them.</p></div>';
-    const intro='<p class="env-selection"><strong>'+esc(a.label)+'</strong> · Evidence checked '+esc(a.snapshotDate)+'</p><p>'+esc(a.scope)+'</p><p>'+esc(a.coverageNote)+'</p>'+(a.productNote?'<p>'+esc(a.productNote)+'</p>':'')+(a.freshnessNote?'<p class="env-warning">'+esc(a.freshnessNote)+' '+link(data.sources.compliance)+'</p>':'');
+    const intro='<p class="env-selection"><strong>'+esc(a.label)+'</strong></p><p>'+esc(a.scope)+'</p><p>'+esc(a.coverageNote)+'</p>'+(a.productNote?'<p>'+esc(a.productNote)+'</p>':'')+(a.freshnessNote?'<p class="env-warning">'+esc(a.freshnessNote)+' '+link(data.sources.compliance)+'</p>':'');
     const conflicts=a.records.filter(r=>r.availability==='conflicting');
-    const warning=conflicts.length?'<p class="env-warning"><strong>'+conflicts.length+' source conflict'+(conflicts.length===1?'':'s')+' need review:</strong> '+esc(conflicts.map(r=>r.feature).join(', '))+'. Both source statements are preserved below.</p>':'';
+    const warning=conflicts.length?'<p class="env-warning"><strong>'+conflicts.length+(conflicts.length===1?' source conflict needs review':' source conflicts need review')+'</strong> · '+esc(conflicts.map(r=>r.feature).join(', '))+'. Both source statements are preserved below.</p>':'';
     const content=a.records.map(recordHtml).join('')||'<p>'+a.sources.map(link).join(' · ')+'</p>';
     return intro+warning+(printing?content:'<details class="env-records"><summary>'+a.records.length+' matching evidence records · availability, regions and sources</summary>'+content+'</details>');
   }

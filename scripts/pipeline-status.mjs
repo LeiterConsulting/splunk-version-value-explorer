@@ -122,6 +122,37 @@ export function latestWatchReceipts(registryVersion, receipts, today) {
   }
   return [...latestByWatch.values()].map(value => value.receipt);
 }
+// Receipts are structurally validated by the coverage gate before this projection.
+export function dailyReview(registry, receipts, day, runtime) {
+  const onDay = value => Number.isFinite(Date.parse(value)) && easternDate.format(Date.parse(value)) === day;
+  const owners = new Set(['version-release-watch', 'es-editions-watch', 'csp-fedramp-watch']);
+  const attempts = receipts.filter(({ run }) =>
+    owners.has(run.watchId) && run.registryVersion === registry.registryVersion &&
+    run.kind === 'saved-task-execution' && onDay(run.execution?.startedAt || run.recordedAt)
+  ).sort((a, b) => Date.parse(b.run.execution?.startedAt || b.run.recordedAt) - Date.parse(a.run.execution?.startedAt || a.run.recordedAt)
+    || Date.parse(b.run.recordedAt) - Date.parse(a.run.recordedAt));
+  const sections = registry.capabilities.filter(cap => cap.mandatory && owners.has(cap.primaryOwner)).map(cap => {
+    const owner = cap.primaryOwner;
+    const watch = runtime?.watches?.find(w => w.watchId === owner);
+    const history = attempts.filter(({ run }) => run.watchId === owner).map(({ run, result }) => {
+      const row = run.coverage.find(entry => entry.capabilityId === cap.id);
+      if (!row) return null;
+      const reviewedToday = ['changed', 'assessed-no-change'].includes(row.disposition) && onDay(row.assessedAt)
+        && row.assessments.length > 0 && row.assessments.every(claim => onDay(claim.assessedAt));
+      return { runId: run.runId, receipt: result.file, disposition: row.disposition, assessedAt: row.assessedAt,
+        reviewedToday, matchesNativeAttempt: watch ? watch.matchingReceiptIds?.includes(run.runId) === true : null,
+        followUp: row.followUp || null };
+    }).filter(Boolean);
+    const reviewedToday = history.some(entry => entry.reviewedToday);
+    const matched = history.some(entry => entry.reviewedToday && entry.matchesNativeAttempt === true);
+    return { capabilityId: cap.id, section: cap.title, owner, reviewedToday, nativeReviewMatched: watch ? matched : null,
+      latestDisposition: history[0]?.disposition || 'missing-receipt', history };
+  });
+  return { date: day, timeZone: 'America/New_York', registryVersion: registry.registryVersion, sections,
+    registered: sections.length, reviewed: sections.filter(row => row.reviewedToday).length,
+    nativeReviewMatched: runtime ? sections.filter(row => row.nativeReviewMatched).length : null,
+    qualification: 'Primary daily owners only. Retained assessments use their original claim dates. Later gaps remain visible. Guidance and Ripple have separate schedules. Live delivery is verified independently.' };
+}
 async function read(url) {
   const token = process.env.VC_GITHUB_EVIDENCE_TOKEN;
   const response = await fetch(url, { redirect: 'error', signal: AbortSignal.timeout(15000), headers: { Accept: 'application/vnd.github+json', 'User-Agent': 'VersionCompass-read-only-pipeline-status', ...(token ? { Authorization: 'Bearer ' + token } : {}) } });
@@ -170,15 +201,17 @@ async function main(args) {
   const siteDelivery = summarizeSiteDelivery(sitesEvidence, runs, { projectId, publication, now });
   const receipts = coverage.runs.map(result => ({ result, run: JSON.parse(fs.readFileSync(result.file)) }));
   const executions = latestWatchReceipts(coverage.registryVersion, receipts, today);
+  const registry = JSON.parse(fs.readFileSync('content/automation-coverage.json'));
   const runtime = tasks ? require('./lib/task-runtime.cjs').inspect(tasks, {
-    registry: JSON.parse(fs.readFileSync('content/automation-coverage.json')),
+    registry,
     ledger: JSON.parse(fs.readFileSync('content/automation-amendments.json')),
     runs: receipts.map(({ result: { coverageComplete, deliveryComplete }, run }) => ({ ...run, coverageComplete, deliveryComplete }))
   }) : null;
+  const daily = dailyReview(registry, receipts, today, runtime);
   const readiness = watchReadiness(coverage.registryVersion, executions, runtime), operations = operationalReadiness(runtime);
-  console.log(JSON.stringify({ evaluatedAt: new Date(now).toISOString(), repository, ...result, siteDelivery, readiness, operations, coverage: { activation: coverage.activation,
+  console.log(JSON.stringify({ evaluatedAt: new Date(now).toISOString(), repository, ...result, siteDelivery, readiness, operations, coverage: { activation: coverage.activation, daily,
     currentSavedExecutions: executions, retainedHistory: coverage.runs.map(({ file, runId, watchId }) => ({ file, runId, watchId })),
     qualification: 'Latest retained saved execution per watch uses the recorded attempt start when present. Native attempts and result identities require separate reconciliation.' } }, null, 2));
-  if (result.validation.status !== 'success' || siteDelivery.status !== 'readback-matched' || readiness.status !== 'evidence-matched' || operations.status !== 'evidence-matched') process.exitCode = 1;
+  if (!daily.registered || daily.nativeReviewMatched !== daily.registered || result.validation.status !== 'success' || siteDelivery.status !== 'readback-matched' || readiness.status !== 'evidence-matched' || operations.status !== 'evidence-matched') process.exitCode = 1;
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main(process.argv.slice(2)).catch(error => { console.error(error.message); process.exitCode = 1; });

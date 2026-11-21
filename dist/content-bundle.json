@@ -1,14 +1,14 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-4b8ddfbb2c2296f9afcbd28e",
-    "digest": "aa5ccee447e92ded25a1dd12800bec9179ec2817f1c133d0485d96a8c979d706",
-    "engineRevision": "engine-04919f99a021da1d839e",
+    "revision": "content-2aad0deb6f29213c6689c3ea",
+    "digest": "ca0ada250bcfe494b35abfa552335a329d37b577db69ff10a8c9abfd402fd9b1",
+    "engineRevision": "engine-aa154885620866c05f80",
     "datasetHashes": {
       "platform": "1fa3dc59d6baf2cc2bbfd31817ce63ac34c56a033b638c1f8cf1093751cedc9f",
       "products": "854fe986e92c6a88dc3d76eb70c392f0f4ca38417b34c53443eecd4015ba5df4",
       "guidance": "ef215a00ae48b7d13657f98abd3d3389ecda6f60a926b476c47788b8536bfcc1",
-      "environment": "84185056064ddaa36867097f9655c680b528a17887348291fc305e84998adf9d",
+      "environment": "533ef7f14be7b3bf860b7c47b2d873489583d8606304ac969b6b1a32a7d4e10f",
       "editions": "2a392e06fbc653795880cab2cd2a97f558a3fe0509796a12ae31078aebc39cdd",
       "forwarders": "a56dd49cca6e5e0d9453e3a0d58afbf3b143e01873dd91305a3fdfebe68146aa",
       "soar": "0a95273ec36589b59fe74ff2ded1d383c1f8278427449dea3d06dc9e23ddebd4"
@@ -7479,21 +7479,21 @@
           "url": "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.6/using-the-admin-config-service-acs--api/admin-config-service-acs-requirements-and-compatibility-matrix",
           "published": "2026-09-14",
           "scope": "Cloud 10.6 ACS prerequisites, separate Moderate and High endpoints, experience compatibility and documented operation exclusions; service support is not offering or customer authorization evidence",
-          "checked": "2026-10-10"
+          "checked": "2026-11-21"
         },
         "acsRelease": {
           "title": "Admin Configuration Service release notes",
           "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/admin-configuration-service",
           "published": "2026-09-15",
           "scope": "September 15, 2026 ACS API v2 release entry for FedRAMP High; individual operations, versions, experiences, entitlement and authorization remain separate",
-          "checked": "2026-10-10"
+          "checked": "2026-11-21"
         },
         "acsMaintenance": {
           "title": "Manage maintenance windows with ACS",
           "url": "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.6/administer-splunk-cloud-platform-using-the-admin-config-service-acs-api/manage-maintenance-windows-for-splunk-cloud-platform",
           "published": "2026-09-14",
           "scope": "Operation-specific prerequisites and explicit FedRAMP High exclusion for ACS maintenance-window operations",
-          "checked": "2026-10-10"
+          "checked": "2026-11-21"
         },
         "es": {
           "title": "ES 8.7 regional availability",
@@ -7883,15 +7883,41 @@
           ],
           "availability": "conditional",
           "authorization": "not_established",
-          "detail": "ACS API v2 service support for FedRAMP High became available September 15, 2026 and covers both Victoria and Classic through the High endpoint. Common role and version prerequisites apply; operation support still varies by experience, topology and feature, and tokens, CLI setup/login, ACS maintenance-window operations, CMC maintenance-window visibility and the limits UI are not supported. This service-support record does not independently establish offering, feature, entitlement or customer authorization.",
+          "detail": "The 10.6 compatibility matrix and compliance guidance agree on ACS service support for Classic. The September 15 release introduced the High endpoint. Individual operation support still varies by experience and feature. Use the High endpoint with the required role, Cloud version and topology. The High environment excludes token operations, CLI setup and login, ACS maintenance-window operations, maintenance-window visibility in CMC, and the limits UI.",
           "sources": [
             "acs",
             "acsRelease",
             "acsMaintenance"
           ],
-          "checked": "2026-10-10",
-          "scope": "Current Cloud 10.6 ACS service guidance and dated API v2 release; not a universal operation, retrospective rollout, entitlement or authorization guarantee",
-          "effective": "2026-09-15"
+          "checked": "2026-11-21",
+          "scope": "FedRAMP High on Classic in AWS GovCloud. Service compatibility alone leaves feature entitlement and customer authorization unestablished.",
+          "effective": "2026-09-15",
+          "experience": "classic"
+        },
+        {
+          "id": "acs-fr-h-victoria",
+          "product": "platform",
+          "feature": "Admin Config Service (ACS)",
+          "provider": "aws",
+          "regions": [
+            "us-gov-east-1",
+            "us-gov-west-1"
+          ],
+          "regimes": [
+            "fr-h"
+          ],
+          "availability": "conflicting",
+          "authorization": "not_established",
+          "detail": "Splunk’s 10.6 compatibility matrix lists FedRAMP High as unsupported on Victoria. The compliance guidance on the same page includes Victoria. Confirm support for the exact ACS operation before planning. Use the High endpoint with the required role, Cloud version and topology. The High environment excludes token operations, CLI setup and login, ACS maintenance-window operations, maintenance-window visibility in CMC, and the limits UI.",
+          "sources": [
+            "acs",
+            "acsRelease",
+            "acsMaintenance"
+          ],
+          "checked": "2026-11-21",
+          "scope": "FedRAMP High on Victoria in AWS GovCloud. The dated API v2 release establishes the service milestone. Victoria compatibility remains disputed and customer authorization remains unestablished.",
+          "effective": "2026-09-15",
+          "experience": "victoria"
         },
         {
           "id": "es-fr-m-offering",

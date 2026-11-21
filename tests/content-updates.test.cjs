@@ -17,14 +17,17 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('material cycle preserves scoped release evidence and prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,74);
+ assert.equal(b.policy.currentCycle,75);
+ for(const key of ['environment:acs-fr-h','environment:acs-fr-h-victoria']){
+  const entry=b.entries[key];assert.equal(entry.cycle,75);assert.equal(entry.kind,'corrected');assert(b.active(entry));
+ }
  const maintenance106=b.entries['technical:platform:Enterprise 10.6 current maintenance release'];
  assert.equal(maintenance106.cycle,74);assert.equal(maintenance106.sourceDate,'2026-11-19');assert(b.active(maintenance106));assert(b.active(maintenance106,75));assert(!b.active(maintenance106,76));
  assert.deepEqual(Array.from(maintenance106.milestones),['Enterprise 10.6']);
  assert.match(maintenance106.detail,/No Cloud rollout or new upgrade edge/);
  assert.equal(b.entries['technical:platform:Enterprise 10.6 maintenance release'].sourceDate,'2026-10-16');
  const database=b.entries['environment:o11y-db-us2'];
- assert.equal(database.cycle,73);assert(b.active(database));assert(b.active(database,74));assert(!b.active(database,75));
+ assert.equal(database.cycle,73);assert(!b.active(database));assert(b.active(database,74));assert(!b.active(database,75));
  assert.match(database.detail,/realm and Google Cloud region columns/);
  const s3=b.entries['environment:s3-high'];
  assert.equal(s3.cycle,72);assert(!b.active(s3));assert(b.active(s3,72));assert(b.active(s3,73));assert(!b.active(s3,74));
@@ -91,7 +94,7 @@ test('material cycle preserves scoped release evidence and prior cycle provenanc
  for(const key of ['product:soar:export-fips','technical:soar:export871']){assert.equal(b.entries[key].cycle,24);assert(!b.active(b.entries[key]));assert.match(b.entries[key].note,/2026\/10\/2026-10-16\.md/);}
  assert.equal(b.entries["guide:splunk11"].cycle,23);
  assert(!b.active(b.entries["guide:splunk11"]));
- for(const key of ['environment:acs-fr-m','environment:acs-fr-h']){const e=b.entries[key];assert.equal(e.cycle,18);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-10\.md/);}
+ for(const key of ['environment:acs-fr-m','environment-history:acs-fr-h:cycle18']){const e=b.entries[key];assert.equal(e.cycle,18);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-10\.md/);}
  assert(!b.active(b.entries['feature:observability:Browser RUM 3.2']));
  const cloudMaintenance=b.entries['technical:platform:Cloud 10.6 maintenance build'];assert.equal(cloudMaintenance.cycle,46);assert(!b.active(cloudMaintenance));assert.equal(cloudMaintenance.version,'Splunk Cloud Platform 10.6.2.2');assert.match(cloudMaintenance.note,/2026\/11\/2026-11-01\.md/);
  for(const build of ['10.6.2.3','10.7.0.5']){

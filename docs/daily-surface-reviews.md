@@ -84,3 +84,5 @@ Explicitly defer a missing source or assessment and finish the other rows.
 Prompt readback happened November 19. First matching scheduled executions
 under the new registry and their delivery evidence are pending in the
 [amendment ledger](../content/automation-amendments.json).
+
+The existing noon diagnostic emits `coverage.daily` for the Eastern calendar date, covering the mandatory sections owned by the three daily watches. Each section lists its primary owner, receipt history, dispositions and recorded follow-ups. `reviewedToday` requires a dated assessment for every claim family in the successful row. A retry that reuses older assessments retains their dates. `nativeReviewMatched` also requires the corresponding native attempt and result. With no scheduler snapshot, the native count is unknown. A missing same-day receipt remains visible even when yesterday’s review was complete. Independent Guidance and Ripple are reconciled separately.
