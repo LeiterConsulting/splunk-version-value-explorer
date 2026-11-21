@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-cloud-connected-agent-mode-scope",
+  "assessmentId": "vcia-csp-20261120-saia-cloud-connected-agent-mode-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-21T02:20:38.642Z",
+  "assessedAt": "2026-11-20T12:29:09Z",
+  "outcome": "partially-addressed",
+  "rationale": "The 2.4.0 installer establishes a commercial AWS Cloud Connect setup and exact 2.4.0/2.0.0/10.4.x floors. The available Agent Mode result was version 2.1.0 and the current Model Runtime result was 2.3.6; no exact 2.4 feature-region section was retrieved, so feature inheritance remains unverified.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant"
+    ],
+    "versions": [
+      "SAIA 2.4.0",
+      "Cloud Connect 2.0.0+",
+      "Splunk Enterprise 10.4+"
+    ],
+    "editions": null,
+    "deployments": [
+      "Splunk Enterprise Cloud Connect"
+    ],
+    "regions": [
+      "Documented AWS commercial Cloud Connect locations"
+    ],
+    "audiences": null,
+    "exclusions": [
+      "Agent Mode and Model Runtime feature regions, entitlement, exact pairing and regulated authorization remain unverified."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-20261120-saia240-and-feature-evidence",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-splunk-cloud-connect",
+      "section": "Cloud Connect prerequisites, commercial-region selection and version matrix; compared with Agent Mode and Model Runtime region sections",
+      "statement": "The 2.4.0 installer establishes a commercial AWS Cloud Connect setup and exact 2.4.0/2.0.0/10.4.x floors. The available Agent Mode result was version 2.1.0 and the current Model Runtime result was 2.3.6; no exact 2.4 feature-region section was retrieved, so feature inheritance remains unverified.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-20T12:28:45Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "The immutable November 20 source audit retains the scope and retrieval time without a page-body digest."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/bc9e5009f1326c517228befcf1b9829a9834dcd4/docs/audits/2026-11-20-csp-fedramp-watch-sources.json",
+      "pointer": "/sourceChecks/7",
+      "originalLabel": "partial"
+    }
+  ],
+  "remainingConcerns": [
+    "CSP FedRAMP Watch and Version Release Watch by November 21: obtain exact 2.4 Agent Mode and Model Runtime sections before determining feature-region or regulated scope."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-es-20261120-saia-cloud-connected-agent-mode-scope"
+  ]
+}
