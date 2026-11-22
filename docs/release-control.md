@@ -19,11 +19,25 @@ repository documentation is not evidence of their current state.
 
 ## Scheduled Sites packages
 
-The 10:30 a.m. Eastern `Maintain VersionCompass GitHub` steward is the sole
+The 9:00 a.m. Eastern `Maintain VersionCompass GitHub` steward is the sole
 production publisher for the public Site. The existing watches continue source
 assessment, issue-feed work and authorized GitHub integration. Guidance Audit
-keeps independent assessment and read-only live checks. The noon operational
+keeps independent assessment and read-only live checks. The 9:45 a.m. Eastern operational
 audit independently checks delivery and missed work.
+
+Effective November 23, 2026, the seven existing tasks use America/New_York.
+The publisher time is its scheduled start. Its deployment and public readback
+have separate timestamps. See the [schedule and cycle evidence](audits/2026-11-22-cycle-and-schedule.md).
+
+| Eastern time | Existing task | Cadence |
+| --- | --- | --- |
+| 03:00 | Version Release Watch | Daily |
+| 04:00 | ES Editions Watch | Daily |
+| 05:00 | CSP FedRAMP Watch | Daily |
+| 06:15 | Version Guidance Audit | Monday and Thursday |
+| 07:00 | Refresh Ripple exposure intelligence | Daily |
+| 09:00 | Maintain VersionCompass GitHub | Daily, sole public Site publisher |
+| 09:45 | Audit VersionCompass and Ripple | Daily, read-only |
 
 1. Select one exact GitHub main commit and bind its tree to a successful main
    push of the validation workflow and its original export evidence. Verify the

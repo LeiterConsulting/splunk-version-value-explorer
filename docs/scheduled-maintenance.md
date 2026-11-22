@@ -12,14 +12,14 @@ It does not create or reschedule tasks.
 
 The owner-authorized [Splunk 11.x preparation page](prep11.md) is covered by the existing Release Watch and Guidance Audit. Its public announcements, current preparation context and unconfirmed future requirements remain distinct. No additional schedule is created.
 
-The configured schedules below use America/New_York time, including daylight-saving changes. They describe intended cadence, not a guarantee of execution or publication at an exact minute.
+These schedules take effect November 23, 2026, in America/New_York. The [operating timetable](release-control.md#scheduled-sites-packages) also lists the Ripple refresh, publishing steward and independent operational audit. Actual dispatch, completed assessments and live delivery have separate timestamps.
 
 | Review | Scheduled cadence | Responsibility |
 | --- | --- | --- |
-| Version Release Watch | Daily, 5:00 AM Eastern | New or revised releases, security and removal notices, platform compatibility, migration prerequisites, and customer-managed Observability components across the Release Guide. |
-| ES Editions Watch | Daily, 6:00 AM Eastern | Essentials/Premier capabilities, deployment and licensing qualifications, agent prerequisites, release history, workflow explanations, and unresolved source questions in the ES editions comparison. |
-| CSP FedRAMP Watch | Daily, around 7:00 AM Eastern | Hosting providers, regional differences, Classic/Victoria scope, and separate FR-M/FR-H availability and authorization evidence across products. |
-| Version Guidance Audit | Mondays and Thursdays, 8:00 AM Eastern | Broader revalidation of existing guidance across both views, including upgrade paths, dependencies, technical changes, lifecycle evidence, citations, historical URLs, report behavior, and presentation consistency. |
+| Version Release Watch | Daily, 3:00 AM Eastern | New or revised releases, security and removal notices, platform compatibility, migration prerequisites, and customer-managed Observability components across the Release Guide. |
+| ES Editions Watch | Daily, 4:00 AM Eastern | Essentials/Premier capabilities, deployment and licensing qualifications, agent prerequisites, release history, workflow explanations, and unresolved source questions in the ES editions comparison. |
+| CSP FedRAMP Watch | Daily, 5:00 AM Eastern | Hosting providers, regional differences, Classic/Victoria scope, and separate FR-M/FR-H availability and authorization evidence across products. |
+| Version Guidance Audit | Mondays and Thursdays, 6:15 AM Eastern | Broader revalidation of existing guidance across both views, including upgrade paths, dependencies, technical changes, lifecycle evidence, citations, historical URLs, report behavior, and presentation consistency. |
 
 The dedicated environment watch owns routine CSP and FedRAMP evidence updates; the other watches check related product changes and the broader audit checks cross-view consistency. The daily watches focus on changes; the wider audit also challenges information already published. The dedicated editions watch owns routine edition updates, while the release watch checks related product records and the guidance audit checks the complete experience. This division reduces duplicated editing without leaving the editions feature outside the broader review.
 

@@ -10,7 +10,7 @@ The generated register is a persistent ledger: commit it and never regenerate fr
 
 Use `docs/source-annotations.json`, keyed by exact URL, for independently verified `firstUsed`, `reviewed`, `outdatedAsOf`, `conflict`, and `reason`. Outdated findings require a dated determination and an explanation of affected scope or replacement. A source can be retired but accurate for historical use, or still cited while disputed/outdated. Never infer inaccuracy from age, a removed reference, or a broken link alone. Preserve findings and events during subsequent updates. Correct or qualify affected product claims when a source becomes inaccurate.
 
-The About page describes actual scheduled checks in Eastern time: releases daily 05:00, editions daily 06:00, Cloud/FedRAMP daily 07:00, guidance Monday/Thursday 08:00. Update its schedule explanation when tasks change. These are schedules, not claims that a check completed. Keep both themes, source filters/sort, shared query state, empty results, mobile layout and accessible status feedback working.
+The About page describes actual scheduled checks in Eastern time: releases daily 03:00, editions daily 04:00, Cloud/FedRAMP daily 05:00, guidance Monday/Thursday 06:15. Update its schedule explanation when tasks change. These are schedules, not claims that a check completed. Keep both themes, source filters/sort, shared query state, empty results, mobile layout and accessible status feedback working.
 
 ## Verification details
 
