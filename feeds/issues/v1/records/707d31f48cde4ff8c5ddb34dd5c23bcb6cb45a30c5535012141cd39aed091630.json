@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-sok-32-compatibility-scope",
+  "assessmentId": "vcia-release-r2-20261122-sok",
+  "revision": 1,
+  "recordedAt": "2026-11-22T21:57:52.201Z",
+  "assessedAt": "2026-11-22T21:55:43.272Z",
+  "outcome": "still-present",
+  "rationale": "Help3.2 tuple/date and linked changelog tuple/date still disagree; neither certifies11.x.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Operator for Kubernetes"
+    ],
+    "versions": [
+      "3.2.0"
+    ],
+    "deployments": [
+      "Customer-managed Kubernetes"
+    ],
+    "editions": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Only named public sections and compared canonical scope. No entitlement, customer authorization, universal feature rollout or unsupported upgrade/pairing inference."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "release22r2-1-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix",
+      "section": "SOK to Splunk Enterprise version compatibility; Upgrade path guidance",
+      "statement": "Help3.2 tuple/date and linked changelog tuple/date still disagree; neither certifies11.x.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-22T21:51:51.876Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "d49806b2be40ff85af5087fa4366241909de7ee760b12f155570bf814246d109",
+        "qualification": "Raw public response digest; does not establish source truth or publisher revision."
+      }
+    },
+    {
+      "evidenceId": "release22r2-1-2",
+      "url": "https://splunk.github.io/splunk-operator/reference/ChangeLog.html",
+      "section": "3.2.0 (2026-09-08); Breaking Changes; Supported Kubernetes and Splunk versions",
+      "statement": "Help3.2 tuple/date and linked changelog tuple/date still disagree; neither certifies11.x.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-22T21:52:29.976Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "26ab5b4459deeb2ae2d6fd8ad0f544e8c7ddbda5d85880e2b6805fffb833908e",
+        "qualification": "Raw public response digest; does not establish source truth or publisher revision."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/5d305344b68c8debd7234d0c6f0d7b221f32506e/docs/audits/2026-11-22-version-release-watch-review-2-sources.json",
+      "pointer": "/issueObservations/0",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "version-release-watch and registered supporting owners by2026-11-23: recheck the exact current disputed sections; preserve version, deployment, regional and entitlement qualifications."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-release-20261121-r3-sok-32-compatibility-scope"
+  ],
+  "correctionReason": "Correct the retrieval-method metadata for the directly retrieved Operator changelog. The source audit already retained its actual clock and SHA256. Original assessment time, conclusion and prior revision remain history."
+}

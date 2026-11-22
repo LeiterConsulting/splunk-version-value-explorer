@@ -646,10 +646,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-21T19:31:38.353Z",
+      "lastAttempt": "2026-11-22T21:49:07Z",
       "lastSuccess": "2026-11-21T19:40:05.303Z",
-      "outcome": "changed",
-      "summary": "Prepared four qualified November Observability records, two independently checked HF mappings and five scoped feed reassessments.",
+      "outcome": "blocked",
+      "summary": "20 primary sections assessed-no-change;7 primary sections incomplete; candidate held for remaining validation and publication selection.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1435,9 +1435,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Prepared four qualified November Observability records, two independently checked HF mappings and five scoped feed reassessments.",
           "scope": "Bounded candidate review only. Registry1.4 records28 dispositions with seven incomplete scopes. GitHub validation/integration and sole-coordinator runtime delivery remain separate."
+        },
+        {
+          "at": "2026-11-22T21:49:07Z",
+          "outcome": "running",
+          "summary": "Scheduled recovery assessment under current Release attempt.",
+          "scope": "27 primary registry1.4.0 sections plus supporting SOC; fresh official sources and native receipt reconciliation."
+        },
+        {
+          "at": "2026-11-22T21:58:30Z",
+          "outcome": "blocked",
+          "summary": "20 primary sections assessed-no-change;7 primary sections incomplete; candidate held for remaining validation and publication selection.",
+          "scope": "27 distinct primary dispositions and deferred supporting SOC. Four bounded feed reassessments prepared from canonical checkpoint105. Native final result join remains unresolved."
         }
       ],
-      "scope": "Bounded candidate review only. Registry1.4 records28 dispositions with seven incomplete scopes. GitHub validation/integration and sole-coordinator runtime delivery remain separate."
+      "scope": "27 distinct primary dispositions and deferred supporting SOC. Four bounded feed reassessments prepared from canonical checkpoint105. Native final result join remains unresolved."
     },
     {
       "id": "es-editions-watch",
