@@ -1430,10 +1430,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-21T18:08:31.176Z",
-      "lastSuccess": "2026-11-21T18:15:58.479Z",
+      "lastAttempt": "2026-11-22T10:56:44.436Z",
+      "lastSuccess": "2026-11-22T11:03:01.947Z",
       "outcome": "changed",
-      "summary": "Completed six bounded ES assessments; retained the current Triage quota/revision conflict and separate Response limits. Current native attempt and delivery remain unverified.",
+      "summary": "Six mapped ES scopes assessed; Export8.8.1 tested-row/fix clarification prepared. Triage and SOP source disagreements retained; GitHub candidate and live delivery separate.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -2087,9 +2087,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Completed six bounded ES assessments; retained the current Triage quota/revision conflict and separate Response limits. Current native attempt and delivery remain unverified.",
           "scope": "75 source requests; four daily edition outcomes; five named AI records; exact SOAR matrices and eight scoped existing issue reassessments. Candidate/feed qualification remains separate."
+        },
+        {
+          "at": "2026-11-22T10:56:44.436Z",
+          "outcome": "running",
+          "summary": "Owned ES daily source and six-section review; prior foreign result excluded.",
+          "scope": "Four ES Editions rows, five ES AI claim families and Advisor SOC prerequisite/discrepancy/history scope."
+        },
+        {
+          "at": "2026-11-22T11:03:01.947Z",
+          "outcome": "changed",
+          "summary": "Six mapped ES scopes assessed; Export8.8.1 tested-row/fix clarification prepared. Triage and SOP source disagreements retained; GitHub candidate and live delivery separate.",
+          "scope": "Exact current official edition/licensing, release history, deployment, workflow, ES AI and Advisor SOC sections. No blanket historical or tenant verification."
         }
       ],
-      "scope": "75 source requests; four daily edition outcomes; five named AI records; exact SOAR matrices and eight scoped existing issue reassessments. Candidate/feed qualification remains separate."
+      "scope": "Exact current official edition/licensing, release history, deployment, workflow, ES AI and Advisor SOC sections. No blanket historical or tenant verification."
     },
     {
       "id": "version-guidance-audit",

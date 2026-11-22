@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-88-response-agent-rerun-coverage",
+  "assessmentId": "vcia-es-20261122-es-88-response-agent-rerun-coverage",
+  "revision": 1,
+  "recordedAt": "2026-11-22T11:10:49.488Z",
+  "assessedAt": "2026-11-22T11:06:20.375Z",
+  "outcome": "still-present",
+  "rationale": "The separate8.8 Autonomous Response task explicitly cannot rerun an investigation or handle findings added after processing. This does not resolve the separate Triage parent/task disagreement.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "8.8"
+    ],
+    "editions": null,
+    "deployments": [
+      "Triage and Response workflow"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Actual package behavior and broader product or authorization scope remain unverified."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es22-3-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/identify-and-run-the-soar-response-actions-on-findings-using-the-autonomous-response-agent-in-splunk-enterprise-security",
+      "section": "Autonomous Response agent prerequisites and access (ES 8.8)",
+      "statement": "The separate8.8 Autonomous Response task explicitly cannot rerun an investigation or handle findings added after processing. This does not resolve the separate Triage parent/task disagreement.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-22T10:57:17.624Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "314fb35aba98be3f3ae67d41d986db784154e72bf5e59dc7dc003c86c99a2495",
+        "qualification": "Exact public HTTPS response-body digest retained by this invocation, not a publisher revision or proof of claim truth. Failed original locators remain unavailable; separately named current topics are direct substantive reads."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/d810f7390b731787eb4f64793d6fb3c9881d2147/docs/audits/2026-11-22-es-editions-watch-sources.json",
+      "pointer": "/issueObservations/3",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "es-editions-watch by2026-11-23: Recheck exact named sections and preserve scope, prior dates and unresolved conditions; coordinate separate Release/CSP ownership and coordinator selection."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-es-20261121-es-88-response-agent-rerun-coverage"
+  ]
+}
