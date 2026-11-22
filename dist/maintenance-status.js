@@ -1454,10 +1454,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-22T19:02:18.000Z",
-      "lastSuccess": "2026-11-22T19:10:19.479Z",
+      "lastAttempt": "2026-11-22T22:30:57.802381Z",
+      "lastSuccess": "2026-11-22T22:39:26.945Z",
       "outcome": "no-change",
-      "summary": "Fresh six-section ES recovery assessment; original morning timeline and current attempt kept distinct. No product fact changes.",
+      "summary": "Fresh six-section ES review; twelve scoped issue reassessments; no canonical product facts changed.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -2135,9 +2135,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Fresh six-section ES recovery assessment; original morning timeline and current attempt kept distinct. No product fact changes.",
           "scope": "Registry 1.4.0: four ES Editions sections, five individual ES AI capabilities and Advisor SOC. Three issue reassessments await immutable recovery provenance; native result and coordinator delivery remain unverified."
+        },
+        {
+          "at": "2026-11-22T22:30:57.802381Z",
+          "outcome": "running",
+          "summary": "Distinct ES scheduled recovery entered; preserved prior attempts.",
+          "scope": "Registry 1.4.0 six primary scopes. Native current-result join remains missing; exact-candidate export/artifact and sole steward runtime delivery held. Original claim dates preserved."
+        },
+        {
+          "at": "2026-11-22T22:39:26.945Z",
+          "outcome": "no-change",
+          "summary": "Fresh six-section ES review; twelve scoped issue reassessments; no canonical product facts changed.",
+          "scope": "Registry 1.4.0 six primary scopes. Native current-result join remains missing; exact-candidate export/artifact and sole steward runtime delivery held. Original claim dates preserved."
         }
       ],
-      "scope": "Registry 1.4.0: four ES Editions sections, five individual ES AI capabilities and Advisor SOC. Three issue reassessments await immutable recovery provenance; native result and coordinator delivery remain unverified."
+      "scope": "Registry 1.4.0 six primary scopes. Native current-result join remains missing; exact-candidate export/artifact and sole steward runtime delivery held. Original claim dates preserved."
     },
     {
       "id": "version-guidance-audit",

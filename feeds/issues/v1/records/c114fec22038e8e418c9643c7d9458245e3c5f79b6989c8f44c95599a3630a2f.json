@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-malware-phishing-version-floor",
+  "assessmentId": "vcia-es-recovery3-20261122-7",
+  "revision": 1,
+  "recordedAt": "2026-11-22T22:38:44.321Z",
+  "assessedAt": "2026-11-22T22:37:25.348Z",
+  "outcome": "still-present",
+  "rationale": "The8.8 aggregate lists ES8.5+, while its exact task requires Platform10.2+ and ES8.6+ with paired SOAR. Neither floor establishes a complete deployment or regional authorization.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "ES 8.5+ aggregate row",
+      "ES 8.6+ detailed task",
+      "Platform 10.2+"
+    ],
+    "editions": [
+      "Premier"
+    ],
+    "deployments": [
+      "Splunk Cloud Platform"
+    ],
+    "regions": null,
+    "audiences": [
+      "Customers and documentation readers evaluating the stated decision"
+    ],
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-r3-6-es22-6-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Agentic offerings and their feature-specific scopes",
+      "statement": "The8.8 aggregate lists ES8.5+, while its exact task requires Platform10.2+ and ES8.6+ with paired SOAR. Neither floor establishes a complete deployment or regional authorization.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-22T22:32:03.476Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "96ddf34db85383a59d90af6d899e11b5db1abce8b1d0b35088d46fdf96d6cecf",
+        "qualification": "Current direct public HTTPS body digest. Identifies bytes, not claim truth or a publisher revision."
+      }
+    },
+    {
+      "evidenceId": "es-r3-6-es22-6-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/analyze-scripts-using-the-ai-powered-malware-reversing-agent-and-phishing-analysis-agent-in-splunk-enterprise-security",
+      "section": "Malware Reversing and Phishing task guide (ES 8.8)",
+      "statement": "The8.8 aggregate lists ES8.5+, while its exact task requires Platform10.2+ and ES8.6+ with paired SOAR. Neither floor establishes a complete deployment or regional authorization.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-22T22:32:19.473Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9cda9f5b95c450261d66e13a58e04108767d66071010c6dda53cfa634ea83bb4",
+        "qualification": "Current direct public HTTPS body digest. Identifies bytes, not claim truth or a publisher revision."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/92397b7d8e151cbd5853c530a51de005d2cb876e/docs/audits/2026-11-22-es-editions-watch-review-3-sources.json",
+      "pointer": "/issueObservations/6",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "es-editions-watch by2026-11-23: Recheck exact named sections and preserve scope, prior dates and unresolved conditions; coordinate separate Release/CSP ownership and coordinator selection."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-es-20261122-es-malware-phishing-version-floor"
+  ]
+}

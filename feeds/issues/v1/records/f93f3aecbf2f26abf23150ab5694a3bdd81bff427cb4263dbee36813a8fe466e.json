@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-soc-analyst-version-floor",
+  "assessmentId": "vcia-es-recovery3-20261122-2",
+  "revision": 1,
+  "recordedAt": "2026-11-22T22:38:44.321Z",
+  "assessedAt": "2026-11-22T22:37:25.348Z",
+  "outcome": "still-present",
+  "rationale": "The aggregate8.8 Cloud row retains ES8.6+, while detailed Triage and Autonomous Response tasks require ES8.7+. No supported lower-floor combination is inferred.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security AI SOC Analyst"
+    ],
+    "versions": [
+      "ES 8.8 documentation: aggregate Cloud ES 8.6+ versus task-specific ES 8.7+"
+    ],
+    "editions": [
+      "Premier"
+    ],
+    "deployments": [
+      "Splunk Cloud Platform"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers planning AI SOC Analyst prerequisites"
+    ],
+    "exclusions": [
+      "CMP has its separate Platform 10.4+/ES 8.8+/Cloud Connect 2.0 chain; no lower-floor eligibility, tenant rollout, entitlement, pairing or authorization is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-r3-1-es-r2-1-es22-1-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Agentic offerings and their feature-specific scopes",
+      "statement": "The aggregate8.8 Cloud row retains ES8.6+, while detailed Triage and Autonomous Response tasks require ES8.7+. No supported lower-floor combination is inferred.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-22T22:32:03.476Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "96ddf34db85383a59d90af6d899e11b5db1abce8b1d0b35088d46fdf96d6cecf",
+        "qualification": "Current direct public HTTPS body digest. Identifies bytes, not claim truth or a publisher revision."
+      }
+    },
+    {
+      "evidenceId": "es-r3-1-es-r2-1-es22-1-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/create-custom-dashboards-for-triage-using-the-triage-agent",
+      "section": "ES 8.8 detailed Triage task and dashboard guide",
+      "statement": "The aggregate8.8 Cloud row retains ES8.6+, while detailed Triage and Autonomous Response tasks require ES8.7+. No supported lower-floor combination is inferred.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-22T22:32:35.718Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "877290d704ac043eb41800f490c3c6ca851c86d755785ffd93af3fe575d29623",
+        "qualification": "Current direct public HTTPS body digest. Identifies bytes, not claim truth or a publisher revision."
+      }
+    },
+    {
+      "evidenceId": "es-r3-1-es-r2-1-es22-1-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/identify-and-run-the-soar-response-actions-on-findings-using-the-autonomous-response-agent-in-splunk-enterprise-security",
+      "section": "Autonomous Response agent prerequisites and access (ES 8.8)",
+      "statement": "The aggregate8.8 Cloud row retains ES8.6+, while detailed Triage and Autonomous Response tasks require ES8.7+. No supported lower-floor combination is inferred.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-22T22:32:15.530Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "4ada62d7f11f5d25f95f8027f58bd78d62c120e673635f913f2819f732edea96",
+        "qualification": "Current direct public HTTPS body digest. Identifies bytes, not claim truth or a publisher revision."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/92397b7d8e151cbd5853c530a51de005d2cb876e/docs/audits/2026-11-22-es-editions-watch-review-3-sources.json",
+      "pointer": "/issueObservations/1",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "es-editions-watch by2026-11-23: Recheck exact named sections and preserve scope, prior dates and unresolved conditions; coordinate separate Release/CSP ownership and coordinator selection."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-es-recovery2-20261122-2"
+  ]
+}
