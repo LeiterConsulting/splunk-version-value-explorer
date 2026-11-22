@@ -578,27 +578,83 @@
     }
   ],
   "validation": {
-    "checks": [],
-    "localAttempts": [],
-    "localVerifiedAt": null,
+    "checks": [
+      {
+        "id": "sync-gates",
+        "outcome": "passed",
+        "evidence": "Ordered maintenance:sync and maintenance:verify passed on fresh main after feed checkpoint 108; generators produced no product-data changes."
+      },
+      {
+        "id": "unit-suite",
+        "outcome": "passed",
+        "evidence": "Complete Node suite passed 939/939 after locked dependencies were installed. The first local attempt passed 931 and failed eight build-dependent tests only because esbuild was absent."
+      },
+      {
+        "id": "advisor-maintenance",
+        "outcome": "passed",
+        "evidence": "Advisor maintenance and check gate passed; supporting SOC remains semantically deferred for the two registered 404 locators."
+      },
+      {
+        "id": "native-issue-feed",
+        "outcome": "passed",
+        "evidence": "Checkpoint 108 contains seven fresh CSP reassessments with provenance pinned to public audit commit 9ba1a977851249d9050a77ef4dfc7c8c2f161578."
+      },
+      {
+        "id": "coverage-gate",
+        "outcome": "passed",
+        "evidence": "Registry 1.4.0 gate accepted seven assessed-no-change primary rows and separately deferred supporting Advisor SOC."
+      },
+      {
+        "id": "build",
+        "outcome": "passed",
+        "evidence": "Worker build passed: 74 assets, seven datasets, 1,019 records, unchanged content and engine identities."
+      },
+      {
+        "id": "exact-candidate-exports",
+        "outcome": "pending",
+        "evidence": "Requires exact public candidate workflow after feed and final receipt integration."
+      },
+      {
+        "id": "artifact-readback",
+        "outcome": "pending",
+        "evidence": "Requires exact candidate export artifact digest and acceptance."
+      },
+      {
+        "id": "live-ui-assets-d1",
+        "outcome": "not-performed",
+        "evidence": "Outside this watch authority; reserved to sole 09:00 Eastern coordinator."
+      }
+    ],
+    "localAttempts": [
+      {
+        "outcome": "failed",
+        "stage": "first complete Node suite",
+        "evidence": "931 passed, eight build-dependent tests failed because the local locked dependency installation was absent; no product assertion failure."
+      },
+      {
+        "outcome": "passed",
+        "stage": "locked dependency install, ordered verification, full Node suite and build",
+        "evidence": "npm ci --ignore-scripts; maintenance:verify; 939/939 Node tests; Worker build."
+      }
+    ],
+    "localVerifiedAt": "2026-11-22T23:40:13.868Z",
     "exportEvidence": null,
     "readiness": {
       "status": "pending",
-      "evaluatedAt": "2026-11-22T23:34:11.301Z",
+      "evaluatedAt": "2026-11-22T23:40:13.868Z",
       "missing": [
-        "ordered repository validation",
         "exact-candidate CI export evidence and artifact readback"
       ],
       "failed": [],
-      "qualification": "Review receipt written early; candidate remains held while validation runs."
+      "qualification": "All local repository gates passed after installing locked dependencies. Exact-candidate native exports, artifact readback and coordinator-owned live checks remain separate."
     }
   },
   "publication": {
     "claimedDelivered": false,
-    "repositoryIntegratedAt": null,
+    "repositoryIntegratedAt": "2026-11-22T23:36:21Z",
     "sitePublishedAt": null,
     "liveVerifiedAt": null,
-    "qualification": "Review receipt prepared early; no live delivery is claimed."
+    "qualification": "Source/coverage receipt integrated through PR 257; feed/final candidate still pending and no live delivery is claimed."
   },
   "resources": [
     {
