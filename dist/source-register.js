@@ -639,6 +639,76 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1108",
+      "title": "SVD-2026-1108 · SOAR product security fixes",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.svd20261108.url",
+        "soar: soar.records.34"
+      ],
+      "reviews": [
+        "2026-11-22"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.34",
+          "section": "Solution and Product Status for the SOAR 8.8 branch"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-22",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-22",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-22",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1109",
+      "title": "SVD-2026-1109 · SOAR third-party package updates",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.svd20261109.url",
+        "soar: soar.records.34"
+      ],
+      "reviews": [
+        "2026-11-22"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.34",
+          "section": "Solution and Product Status for the SOAR 8.8 branch"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-22",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-22",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-22",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://agent-observability-docs.splunk.com/saas/overview",
       "title": "Agent Observability SaaS regional and feature considerations",
       "areas": [
@@ -1017,6 +1087,32 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-10-23",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.165.0",
+      "title": "splunk otel collector 0.165.0",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Nov 2026.technicalChanges.0.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-22",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-22",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -9840,7 +9936,8 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.get88.url",
-        "soar: soar.records.30"
+        "soar: soar.records.30",
+        "soar: soar.records.34"
       ],
       "reviews": [
         "2026-11-21"
@@ -9848,6 +9945,10 @@ window.VersionCompassSources = {
       "claimReferences": [
         {
           "path": "soar: soar.records.30",
+          "section": "Community account for access to installation packages"
+        },
+        {
+          "path": "soar: soar.records.34",
           "section": "Community account for access to installation packages"
         }
       ],
@@ -10323,10 +10424,17 @@ window.VersionCompassSources = {
         "Splunk SOAR"
       ],
       "references": [
-        "soar.sources.fixed88.url"
+        "soar.sources.fixed88.url",
+        "soar: soar.records.34"
       ],
       "reviews": [
         "2026-11-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.34",
+          "section": "Release 8.8.0 heading and 8.7.0 description; no individual fixes identified"
+        }
       ],
       "usage": "In use",
       "reviewed": "2026-11-21",
@@ -10351,10 +10459,17 @@ window.VersionCompassSources = {
         "Splunk SOAR"
       ],
       "references": [
-        "soar.sources.known88.url"
+        "soar.sources.known88.url",
+        "soar: soar.records.34"
       ],
       "reviews": [
         "2026-11-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.34",
+          "section": "Release 8.8.0 known issues; no individual rows in the retrieved article"
+        }
       ],
       "usage": "In use",
       "reviewed": "2026-11-21",

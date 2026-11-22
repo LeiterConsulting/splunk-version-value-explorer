@@ -2782,7 +2782,20 @@ Object.assign(window.SPLUNK_DATA, {
               "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/connect-your-agent-to-the-observability-ai-assistant/use-a2a-with-the-splunk-observability-ai-assistant"
             ]
           ],
-          "technicalChanges": [],
+          "technicalChanges": [
+            {
+              "component": "Kubernetes chart collection interval",
+              "domain": "Customer-managed collection",
+              "changeType": "Default collection interval changed",
+              "actionLevel": "Review",
+              "from": "Chart-generated infrastructure, control plane and Collector self-monitoring metrics defaulted to 10 seconds.",
+              "to": "Chart 0.165.0 adopts Collector 0.165.1 and changes the default for those metrics to one minute.",
+              "implication": "Dashboards and detectors that depend on short collection intervals can receive fewer samples after a chart upgrade. Existing chart overrides can affect the observed interval.",
+              "action": "Check the rendered chart values against detector windows. Set the required interval explicitly before rolling out the chart.",
+              "source": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.165.0",
+              "verified": "2026-11-22"
+            }
+          ],
           "requirements": [
             [
               "Check service and telemetry prerequisites",
