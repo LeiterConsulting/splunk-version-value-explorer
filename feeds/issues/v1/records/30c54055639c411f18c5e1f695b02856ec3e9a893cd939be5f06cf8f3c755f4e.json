@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-acs-fedramp-high-victoria-conflict",
+  "assessmentId": "vcia-csp-20261122-1",
+  "revision": 1,
+  "recordedAt": "2026-11-22T13:23:13.238Z",
+  "assessedAt": "2026-11-22T12:56:30.000Z",
+  "outcome": "still-present",
+  "rationale": "ACS prose covers both experiences while the exact High table cell says Victoria No / Classic Yes.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform",
+      "Admin Config Service"
+    ],
+    "versions": [
+      "10.6 documentation"
+    ],
+    "deployments": [
+      "AWS GovCloud FedRAMP High, Victoria versus Classic"
+    ],
+    "editions": null,
+    "regions": [
+      "us-gov-east-1",
+      "us-gov-west-1"
+    ],
+    "audiences": null,
+    "exclusions": [
+      "No entitlement, operation support, offering authorization or customer eligibility inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp22-1-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.8/using-the-admin-config-service-acs--api/admin-config-service-acs-requirements-and-compatibility-matrix",
+      "section": "Supported environments table: FedRAMP High, Victoria Experience and Classic Experience columns",
+      "statement": "ACS prose covers both experiences while the exact High table cell says Victoria No / Classic Yes.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-22T12:52:12.206Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "e598f3b8d1091e89e3dc1184cb1f41a7e8556165750b72262973e38f67641c92",
+        "qualification": "Exact public HTTPS response-body digest retained by this invocation; not a publisher revision or proof of claim truth."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/c813472633bede42594c8389838940b40e305709/docs/audits/2026-11-22-csp-fedramp-watch-sources.json",
+      "pointer": "/issueObservations/0",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "csp-fedramp-watch by 2026-11-23: Recheck the named exact sections; preserve authorization, availability, feature, entitlement and customer-eligibility boundaries. No missing authorization, entitlement, compatibility, feature rollout, processing location or customer eligibility is inferred from silence, matrix blanks or adjacent evidence."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-cont-20261121-1"
+  ]
+}

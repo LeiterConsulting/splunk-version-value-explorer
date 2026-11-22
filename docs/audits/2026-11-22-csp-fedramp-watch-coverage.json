@@ -605,13 +605,13 @@
       },
       {
         "id": "exact-candidate-exports",
-        "outcome": "pending",
-        "evidence": "Not yet verified for this candidate; no inherited success claim."
+        "outcome": "passed",
+        "evidence": "GitHub workflow 45025667708/job 137218021399 succeeded for merge-test commit 1cb1fcb460ecdc54130dd52470b6ba2e55f695ef and exact tree 2deb67e91148eb3289da1773643b70e7463efea4. Artifact 14754934599 independently matched SHA-256 a4c5fdd7babca1ba637a90665f4c576e0eb5936ab29055678e32abe4cc5e2373; export-evidence.cjs verified 4,956 retained files and fingerprint bd47dc2f8d60bc45c734decb83ddaef77422cc3b7aac886c6ec3826bce22d297. The matrix passed 238 theme/route cases, 186 native PDFs with 2,722 checked pages, 186 offline HTML reopens, 238 narrow checks and 186 keyboard journeys."
       },
       {
         "id": "artifact-readback",
-        "outcome": "pending",
-        "evidence": "Not yet verified for this candidate; no inherited success claim."
+        "outcome": "passed",
+        "evidence": "The full downloaded ZIP SHA-256 matched GitHub artifact metadata; export-evidence.cjs verified every retained byte and check-soak.cjs --exports imported the three native export gates. Readiness remains on hold only for the coordinator-owned live-revision gate. Automated page checks are not claimed as all-page human visual review or production D1 proof."
       },
       {
         "id": "live-ui-assets-d1",
@@ -631,14 +631,54 @@
         "evidence": "npm ci --ignore-scripts installed 17 locked local dependencies; the complete maintenance:verify rerun passed."
       }
     ],
-    "localVerifiedAt": "2026-11-22T13:01:15.000Z"
+    "localVerifiedAt": "2026-11-22T13:01:15.000Z",
+    "exportEvidence": {
+      "workflowRunId": "45025667708",
+      "workflowJobId": "137218021399",
+      "workflowName": "Validate release metadata and reports",
+      "workflowRunNumber": 1450,
+      "headCommit": "0a3709b4412a523742792257849cc74f91e83065",
+      "mergeTestCommit": "1cb1fcb460ecdc54130dd52470b6ba2e55f695ef",
+      "tree": "2deb67e91148eb3289da1773643b70e7463efea4",
+      "artifactId": "14754934599",
+      "artifactName": "export-evidence-1cb1fcb460ecdc54130dd52470b6ba2e55f695ef",
+      "artifactSha256": "a4c5fdd7babca1ba637a90665f4c576e0eb5936ab29055678e32abe4cc5e2373",
+      "artifactSizeBytes": 492094689,
+      "visualArtifactId": "14755064302",
+      "visualArtifactSha256": "eb780bd58e92574e3881485daf30f0d13e2014b8410e8c316ec8fde4405746ad",
+      "reportFingerprint": "bd47dc2f8d60bc45c734decb83ddaef77422cc3b7aac886c6ec3826bce22d297",
+      "contentRevision": "content-7c994bf0e60671c1c60bdb20",
+      "engineRevision": "engine-7dd1bd5c98cbed7d8fc3",
+      "completedAt": "2026-11-22T13:15:32.305Z",
+      "cases": 238,
+      "nativePdfs": 186,
+      "renderedPdfPages": 2722,
+      "offlineHtmlReopens": 186,
+      "narrowThemeChecks": 238,
+      "keyboardJourneys": 186,
+      "invalidExportsBlocked": 52,
+      "retainedArtifactFiles": 4956
+    },
+    "readiness": {
+      "status": "hold",
+      "evaluatedAt": "2026-11-22T13:20:00.000Z",
+      "missing": [],
+      "failed": [
+        {
+          "gate": "live-revision",
+          "outcome": "not-performed",
+          "reason": "Outside watch authority"
+        }
+      ],
+      "qualification": "The zero-hour rollout minimum is satisfied and all candidate/export gates passed; only the coordinator-owned live-revision gate remains unperformed."
+    }
   },
   "publication": {
     "claimedDelivered": false,
-    "repositoryIntegratedAt": null,
+    "repositoryIntegratedAt": "2026-11-22T13:21:31.000Z",
     "sitePublishedAt": null,
     "liveVerifiedAt": null,
-    "qualification": "Repository integration, exact-candidate exports and coordinator selection remain pending. No Sites or D1 operation was performed."
+    "qualification": "The immutable audit receipt is integrated at c813472633bede42594c8389838940b40e305709/tree 2deb67e91148eb3289da1773643b70e7463efea4. Issue-feed follow-up and coordinator selection remain separate. No Sites or D1 operation was performed."
   },
   "resources": [
     "docs/audits/2026-11-22-csp-fedramp-watch-sources.json",
