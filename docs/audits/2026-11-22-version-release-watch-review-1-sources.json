@@ -22337,7 +22337,7 @@
       "findingId": "vci-enterprise-106-current-package-listing",
       "assessmentId": "vcia-release-20261122-recovery1-enterprise-package",
       "outcome": "partially-addressed",
-      "assessedAt": "2026-11-22T19:10:40.657558+00:00",
+      "assessedAt": "2026-11-22T19:16:05.387179+00:00",
       "rationale": "The earlier guide called10.6.1.1 the current download. The fresh public listing and Linux AMD64 sidecar identify10.6.2.5 build b07ce3b48d58. The candidate corrects that statement; November19 remains the10.6.2 release date, not an inferred package date.",
       "reviewedScope": {
         "products": [
@@ -22453,14 +22453,26 @@
           "mergedInto": [],
           "supersedes": [],
           "supersededBy": []
+        },
+        "coverageSearch": {
+          "question": "Which exact package does the current Enterprise10.6 download list identify?",
+          "expectedAnswer": "Retain10.6.2.5/build b07ce3b48d58 separately from the10.6.2 release date and earlier packages.",
+          "corpusEvidenceIds": [
+            "release22-followthrough-60b0e15bd4c01a25",
+            "release22-followthrough-92804efea4eda36f",
+            "release22-followthrough-original-enterprise-guide"
+          ],
+          "searchedAt": "2026-11-22T19:16:05.387Z",
+          "limits": "Only the exact retrieved primary sections and the pinned current guide section named by these evidence IDs were compared. No blanket product, source corpus, customer runtime or repository absence conclusion. Candidate integration and live delivery are separate."
         }
-      }
+      },
+      "initialAssessedAt": "2026-11-22T19:10:40.657558+00:00"
     },
     {
       "findingId": "vci-o11y-chart-01650-metrics-cadence",
       "assessmentId": "vcia-release-20261122-recovery1-chart-cadence",
       "outcome": "partially-addressed",
-      "assessedAt": "2026-11-22T19:10:40.657558+00:00",
+      "assessedAt": "2026-11-22T19:16:05.387179+00:00",
       "rationale": "The chart release changes chart-generated infrastructure,control-plane and Collector self-monitoring metrics from10s to1m. Existing overrides can change observed behavior. The candidate adds a scoped warning; review detector windows and explicit values before chart rollout.",
       "reviewedScope": {
         "products": [
@@ -22496,6 +22508,21 @@
             "type": "sha256",
             "value": "013a23c9f8b4f2380c3f7b29aebdfba4efe7bdfb369e6fbe0cbfc3c4981040a2",
             "qualification": "Exact freshly acquired public response bytes; vendor revision unknown. Acquisition is separate from claim assessment."
+          }
+        },
+        {
+          "evidenceId": "release22-followthrough-original-o11y-guide",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/04aab030135f41275ae4f9b0ace312c946d98ff4/content/datasets/products.json",
+          "section": "/productTracks/observability/releasesData/Nov 2026/technicalChanges; surrounding scoped release guide",
+          "statement": "The original November technicalChanges array is empty. This finite check does not claim the entire repository or every historical record lacks related guidance.",
+          "excerpt": null,
+          "role": "challenging",
+          "sourceCheckedAt": "2026-11-22T19:16:05.387179+00:00",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "9eca8db95b1c077e8f4d798aabc281ec68eaf52e9c6684d9f840702ab7ee7a87",
+            "qualification": "Exact original main04aab030 canonical file. The current candidate adds only the chart warning; other component warnings remain finite follow-through."
           }
         }
       ],
@@ -22548,14 +22575,25 @@
           "mergedInto": [],
           "supersedes": [],
           "supersededBy": []
+        },
+        "coverageSearch": {
+          "question": "Does the November guide warn about chart0.165.0 default metric cadence?",
+          "expectedAnswer": "A scoped10s-to1m warning with explicit overrides and detector-window checks.",
+          "corpusEvidenceIds": [
+            "release22-followthrough-60c5f64318aa37cd",
+            "release22-followthrough-original-o11y-guide"
+          ],
+          "searchedAt": "2026-11-22T19:16:05.387Z",
+          "limits": "Only the exact retrieved primary sections and the pinned current guide section named by these evidence IDs were compared. No blanket product, source corpus, customer runtime or repository absence conclusion. Candidate integration and live delivery are separate."
         }
-      }
+      },
+      "initialAssessedAt": "2026-11-22T19:10:40.657558+00:00"
     },
     {
       "findingId": "vci-o11y-01651-ta-runner-removal",
       "assessmentId": "vcia-release-20261122-recovery1-ta-runner",
       "outcome": "partially-addressed",
-      "assessedAt": "2026-11-22T19:10:40.657558+00:00",
+      "assessedAt": "2026-11-22T19:16:05.387179+00:00",
       "rationale": "Collector0.165.1 removes enableTARunner,splunkconf,splunk_monitor,splunk_tcp,splunk_udp,splunk_script,splunk_batch,splunk_wineventlog andsplunk_hecout. This conditional upgrade concern is a finite guide follow-up; it does not say every Collector configuration is affected. The separate vSphere SmartAgent deprecation says removal on/afterDecember2026, not removed now.",
       "reviewedScope": {
         "products": [
@@ -22590,6 +22628,21 @@
             "type": "sha256",
             "value": "4368ef0ca873419932e58e3c976c529e974c6988227191cb9491057104c88f77",
             "qualification": "Exact freshly acquired public response bytes; vendor revision unknown. Acquisition is separate from claim assessment."
+          }
+        },
+        {
+          "evidenceId": "release22-followthrough-original-o11y-guide",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/04aab030135f41275ae4f9b0ace312c946d98ff4/content/datasets/products.json",
+          "section": "/productTracks/observability/releasesData/Nov 2026/technicalChanges; surrounding scoped release guide",
+          "statement": "The original November technicalChanges array is empty. This finite check does not claim the entire repository or every historical record lacks related guidance.",
+          "excerpt": null,
+          "role": "challenging",
+          "sourceCheckedAt": "2026-11-22T19:16:05.387179+00:00",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "9eca8db95b1c077e8f4d798aabc281ec68eaf52e9c6684d9f840702ab7ee7a87",
+            "qualification": "Exact original main04aab030 canonical file. The current candidate adds only the chart warning; other component warnings remain finite follow-through."
           }
         }
       ],
@@ -22641,14 +22694,25 @@
           "mergedInto": [],
           "supersedes": [],
           "supersededBy": []
+        },
+        "coverageSearch": {
+          "question": "Does the bounded November guide identify Collector0.165.1 TA-runner component removal?",
+          "expectedAnswer": "A version-specific removed-component warning; no universal pipeline-failure claim.",
+          "corpusEvidenceIds": [
+            "release22-followthrough-d0aafebb01c4c2f7",
+            "release22-followthrough-original-o11y-guide"
+          ],
+          "searchedAt": "2026-11-22T19:16:05.387Z",
+          "limits": "Only the exact retrieved primary sections and the pinned current guide section named by these evidence IDs were compared. No blanket product, source corpus, customer runtime or repository absence conclusion. Candidate integration and live delivery are separate."
         }
-      }
+      },
+      "initialAssessedAt": "2026-11-22T19:10:40.657558+00:00"
     },
     {
       "findingId": "vci-o11y-instrumentation-128-default-limits",
       "assessmentId": "vcia-release-20261122-recovery1-instrumentation-limits",
       "outcome": "partially-addressed",
-      "assessedAt": "2026-11-22T19:10:40.657558+00:00",
+      "assessedAt": "2026-11-22T19:16:05.387179+00:00",
       "rationale": "The two official release bodies separately set supported telemetry attribute/event/link defaults to128. Java changes unlimited defaults; .NET also changes prior span-link1000 and respects explicit values. Exceeding counts can drop telemetry. This is a scoped upgrade-backlog concern, not a claim that all telemetry or deployments lose data.",
       "reviewedScope": {
         "products": [
@@ -22700,6 +22764,21 @@
             "type": "sha256",
             "value": "8393c21ab7dcafeaffd892bbca93efb1a720d518179329854ac53b5a1b33794b",
             "qualification": "Exact freshly acquired public response bytes; vendor revision unknown. Acquisition is separate from claim assessment."
+          }
+        },
+        {
+          "evidenceId": "release22-followthrough-original-o11y-guide",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/04aab030135f41275ae4f9b0ace312c946d98ff4/content/datasets/products.json",
+          "section": "/productTracks/observability/releasesData/Nov 2026/technicalChanges; surrounding scoped release guide",
+          "statement": "The original November technicalChanges array is empty. This finite check does not claim the entire repository or every historical record lacks related guidance.",
+          "excerpt": null,
+          "role": "challenging",
+          "sourceCheckedAt": "2026-11-22T19:16:05.387179+00:00",
+          "availability": "retrieved",
+          "documentRevision": {
+            "type": "sha256",
+            "value": "9eca8db95b1c077e8f4d798aabc281ec68eaf52e9c6684d9f840702ab7ee7a87",
+            "qualification": "Exact original main04aab030 canonical file. The current candidate adds only the chart warning; other component warnings remain finite follow-through."
           }
         }
       ],
@@ -22753,8 +22832,20 @@
           "mergedInto": [],
           "supersedes": [],
           "supersededBy": []
+        },
+        "coverageSearch": {
+          "question": "Does the bounded November guide identify Java2.34.0 and.NET1.17.0 count-limit changes?",
+          "expectedAnswer": "Separate128-default and prior-default/explicit-override qualifications for each instrumentation package.",
+          "corpusEvidenceIds": [
+            "release22-followthrough-e5735fa4b98467b3",
+            "release22-followthrough-876103b0856ecbc1",
+            "release22-followthrough-original-o11y-guide"
+          ],
+          "searchedAt": "2026-11-22T19:16:05.387Z",
+          "limits": "Only the exact retrieved primary sections and the pinned current guide section named by these evidence IDs were compared. No blanket product, source corpus, customer runtime or repository absence conclusion. Candidate integration and live delivery are separate."
         }
-      }
+      },
+      "initialAssessedAt": "2026-11-22T19:10:40.657558+00:00"
     }
   ],
   "followUp": [
@@ -22823,8 +22914,8 @@
     "schemaVersion": 1,
     "watchId": "version-release-watch",
     "status": "pending-public-provenance",
-    "recordedAt": "2026-11-22T19:14:04.119Z",
-    "reviewDigest": "69339aa66eaeb0d6aaf6395f9c423c051456895ca50177589a7d65d851274ffa",
+    "recordedAt": "2026-11-22T19:16:05.703Z",
+    "reviewDigest": "bab0abeec1870f4e1e42e7d3ce2020ddc7eb959ab2d49ad084f57ad360d903ed",
     "publicationId": "vci-a1ced598f6bebce540f49fe1ae12958ad3dfb773eb889f38dbd22f843d3797e2",
     "recordKeys": [],
     "notReassessedFindingIds": [
@@ -23474,5 +23565,9 @@
       "nextAction": "Prepare separate bounded prerequisite/warning records for the assessed Collector and language changes, with actual export evidence.",
       "reviewBy": "2026-11-23"
     }
-  ]
+  ],
+  "issueFeedGateRepair": {
+    "recordedAt": "2026-11-22T19:16:05.387179+00:00",
+    "qualification": "The first uncommitted feed build held four coverage-gap records lacking finite coverageSearch declarations. Compared the original pinned guide and completed actual question/corpus boundaries; no gate was weakened and none of the incomplete records was published."
+  }
 }
