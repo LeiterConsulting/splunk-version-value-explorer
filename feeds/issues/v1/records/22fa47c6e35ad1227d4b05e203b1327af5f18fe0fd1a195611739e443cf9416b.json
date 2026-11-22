@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-o11y-database-monitoring-us2-conflict",
+  "assessmentId": "vcia-csp-20261122-6",
+  "revision": 1,
+  "recordedAt": "2026-11-22T13:23:13.238Z",
+  "assessedAt": "2026-11-22T12:56:30.000Z",
+  "outcome": "still-present",
+  "rationale": "The current component row lists us2 while its Google Cloud column is None and the realm table maps us2 to Oregon.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Observability Cloud Database Monitoring"
+    ],
+    "versions": [
+      "November 16 service-description revision"
+    ],
+    "editions": null,
+    "deployments": [
+      "Commercial Google Cloud"
+    ],
+    "regions": [
+      "Google Cloud Oregon (us-west1) / us2"
+    ],
+    "audiences": [
+      "Readers planning Observability Cloud component coverage"
+    ],
+    "exclusions": [
+      "No inferred tenant rollout, entitlement, historical availability or regulated authorization."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp22-6-1",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
+      "section": "Database Monitoring component row and realms table, including us2 and Google Cloud columns",
+      "statement": "The current component row lists us2 while its Google Cloud column is None and the realm table maps us2 to Oregon.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-22T12:52:02.654Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "eb980a6ea4cba09ed2564173606ed5e6bf06d85a114a3208cf0500e0ef4da61c",
+        "qualification": "Exact public HTTPS response-body digest retained by this invocation; not a publisher revision or proof of claim truth."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/c813472633bede42594c8389838940b40e305709/docs/audits/2026-11-22-csp-fedramp-watch-sources.json",
+      "pointer": "/issueObservations/5",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "csp-fedramp-watch by 2026-11-23: Recheck the named exact sections; preserve authorization, availability, feature, entitlement and customer-eligibility boundaries. No missing authorization, entitlement, compatibility, feature rollout, processing location or customer eligibility is inferred from silence, matrix blanks or adjacent evidence."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-cont-20261121-7"
+  ]
+}

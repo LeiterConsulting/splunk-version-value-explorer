@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-cloud-s3-restricted-scope",
+  "assessmentId": "vcia-csp-20261122-2",
+  "revision": 1,
+  "recordedAt": "2026-11-22T13:23:13.238Z",
+  "assessedAt": "2026-11-22T12:56:30.000Z",
+  "outcome": "still-present",
+  "rationale": "10.8 service details exclude S3 for High/IL5 while the April 8 change-log entry says it was added for relevant 10.3 stacks.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Cloud Platform"
+    ],
+    "versions": [
+      "10.6 current service",
+      "10.3 historical guidance"
+    ],
+    "editions": null,
+    "deployments": [
+      "Splunk-managed Cloud"
+    ],
+    "regions": [
+      "FedRAMP Moderate",
+      "FedRAMP High",
+      "IL5"
+    ],
+    "audiences": [
+      "Customers and documentation readers evaluating the stated decision"
+    ],
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp22-2-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.8/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Splunk Cloud Platform capabilities table: federated search for Amazon S3 and restricted-environment exclusions",
+      "statement": "10.8 service details exclude S3 for High/IL5 while the April 8 change-log entry says it was added for relevant 10.3 stacks.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-22T12:52:11.922Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "35578c40b68f52ffdee917693613ad0e301b441a4c2dbd7189a398a0f82178bc",
+        "qualification": "Exact public HTTPS response-body digest retained by this invocation; not a publisher revision or proof of claim truth."
+      }
+    },
+    {
+      "evidenceId": "csp22-2-2",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.8/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "April 8, 2026 change entry for federated search for Amazon S3",
+      "statement": "10.8 service details exclude S3 for High/IL5 while the April 8 change-log entry says it was added for relevant 10.3 stacks.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-22T12:52:12.072Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "35f14405388b7f4918a8f4c89893799f557f4d8f9d2f2e218a24174688341c3a",
+        "qualification": "Exact public HTTPS response-body digest retained by this invocation; not a publisher revision or proof of claim truth."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/c813472633bede42594c8389838940b40e305709/docs/audits/2026-11-22-csp-fedramp-watch-sources.json",
+      "pointer": "/issueObservations/1",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "csp-fedramp-watch by 2026-11-23: Recheck the named exact sections; preserve authorization, availability, feature, entitlement and customer-eligibility boundaries. No missing authorization, entitlement, compatibility, feature rollout, processing location or customer eligibility is inferred from silence, matrix blanks or adjacent evidence."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-cont-20261121-3"
+  ]
+}
