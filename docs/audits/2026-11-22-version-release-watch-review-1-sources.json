@@ -22118,13 +22118,28 @@
     "qualification": "npm run maintenance:sync and maintenance:verify completed successfully on this exact local candidate; actual result read at 2026-11-22T18:29:17.458509+00:00. Source coverage and delivery remain incomplete.",
     "browserExports": "pending exact-candidate CI",
     "nativeRouting": "unverified; retained separately",
-    "live": "not attempted by this watch"
+    "live": "not attempted by this watch",
+    "feedFollowUp": {
+      "checkedAt": "2026-11-22T18:33:31.670460+00:00",
+      "commands": [
+        "npm run maintenance:sync",
+        "npm run maintenance:verify",
+        "node scripts/sync-issue-feed.cjs --check",
+        "node scripts/check-native-issue-feed.cjs",
+        "node scripts/check-automation-coverage.cjs",
+        "git diff --check"
+      ],
+      "outcome": "passed",
+      "qualification": "Full local checks on the prepared feed follow-up; CI/export, committed readback and main integration remain separate."
+    }
   },
   "publication": {
-    "repositoryStatus": "pending",
+    "repositoryStatus": "public-audit-candidate-feed-follow-up-pending",
     "claimedLive": false,
     "siteWrites": false,
-    "d1Writes": false
+    "d1Writes": false,
+    "auditCommit": "395745503cb2de0bfc4b8e5f4834afffe217693f",
+    "feedPublication": "vci-b7b74d33991e1585c42fbecf99bb6834a8a021d129a6a76891100d232ba97d78"
   },
   "resources": {
     "elapsedSeconds": null,
@@ -22136,11 +22151,26 @@
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "version-release-watch",
-    "status": "pending-public-provenance",
-    "recordedAt": "2026-11-22T18:27:56.874Z",
+    "status": "published",
+    "recordedAt": "2026-11-22T18:32:00.916Z",
     "reviewDigest": "ccb586e6f6b87962bf9c5f2ecbd789df8736a05cf437e7d2a65c436748799003",
-    "publicationId": "vci-675fd64d86ed069232d86117f919338de3539f17ded548adfec7cfae24f94f28",
-    "recordKeys": [],
+    "publicationId": "vci-b7b74d33991e1585c42fbecf99bb6834a8a021d129a6a76891100d232ba97d78",
+    "recordKeys": [
+      "assessment:vcia-release-20261122-recovery1-1@1",
+      "assessment:vcia-release-20261122-recovery1-2@1",
+      "assessment:vcia-release-20261122-recovery1-3@1",
+      "assessment:vcia-release-20261122-recovery1-4@1",
+      "assessment:vcia-release-20261122-recovery1-5@1",
+      "assessment:vcia-release-20261122-recovery1-6@1",
+      "assessment:vcia-release-20261122-recovery1-7@1",
+      "assessment:vcia-release-20261122-recovery1-8@1",
+      "assessment:vcia-release-20261122-recovery1-9@1",
+      "assessment:vcia-release-20261122-recovery1-10@1",
+      "assessment:vcia-release-20261122-recovery1-11@1",
+      "assessment:vcia-release-20261122-recovery1-12@1",
+      "finding:vci-saia-240-interrupted-chat-scope@1",
+      "assessment:vcia-release-20261122-recovery1-saia10429@1"
+    ],
     "notReassessedFindingIds": [
       "vci-acs-fedramp-high-victoria-conflict",
       "vci-ai-report-source-directory",
@@ -22184,10 +22214,8 @@
       "vci-svd-2026-1015-applicability",
       "vci-uf-remote-upgrader-route-coverage"
     ],
-    "deferredConcerns": [
-      "version-release-watch by2026-11-22: after exact audit commit is public, append only the13 scoped issue observations with immutable provenance, publish/readback the checkpoint and finish native outcome."
-    ],
-    "qualification": "Independent12 existing-finding assessments and one newly supportedSAIA10429 concern require public audit provenance first. No automated closure, consumer state or foreign review credit."
+    "deferredConcerns": [],
+    "qualification": "12 scoped existing-finding assessments and1 new qualifiedSAIA10429 concern/initial assessment append14 records using exact publicaudit395745503cb2de0bfc4b8e5f4834afffe217693f provenance. Checkpoint104 is prepared; committed byte/digest/recovery readback follows. Coverage/routing/live delivery remain separate."
   },
   "automationCoverage": {
     "runFile": "docs/audits/2026-11-22-version-release-watch-review-1-coverage.json"
