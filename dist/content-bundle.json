@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-a72ebf42c3a0785126aa5b80",
-    "digest": "da9806d2301f92fac7dd0859c49ad563e4f96afe72034fa5c243e090b9c3282d",
-    "engineRevision": "engine-803a32aaaa25b18d27bc",
+    "revision": "content-3e0bb3889ec7d5e2a4914a36",
+    "digest": "8e538a4c4290e7955499018769dfefdc7754e79418393b9bffd84df0afdf486a",
+    "engineRevision": "engine-1d1d9f325cb306d33630",
     "datasetHashes": {
       "platform": "029ba4b251445fbbd0bf9c9c74152584cbd9bc0275e65afd448838cb53ebf498",
-      "products": "ec5081cf0a9ea39ca58b6e5ef17bcef16b4e36031aeeebeea1a45077bf85bdf4",
-      "guidance": "a3f07efa3f82d40c3a9473ae4a0886844410930c8c83f738b8b2b9912652078d",
+      "products": "bb311b67c2fa3bc91a2d8e7373100fb5a1713375b792b04e095737fe2b4cfd92",
+      "guidance": "776a5a906f8cacf0b98a43272645700bbdd2ff71bc87daea6ae270115c8b4e59",
       "environment": "533ef7f14be7b3bf860b7c47b2d873489583d8606304ac969b6b1a32a7d4e10f",
       "editions": "7c4e3a9774305ccdbe1cd7916e36ca9af6792426d463e3a20cd37a2837b9d88f",
       "forwarders": "a56dd49cca6e5e0d9453e3a0d58afbf3b143e01873dd91305a3fdfebe68146aa",
       "soar": "2e44b2cac69f6661c753f4f7b446b70b56173a7c6c7d4a4355e2fa7b43ce110c"
     },
-    "recordCount": 1024,
+    "recordCount": 1025,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -3879,7 +3879,7 @@
               "requirements": [
                 [
                   "Validate the exact host and managed stack",
-                  "Splunkbase lists broad platform versions 10.2–10.7. The customer-managed matrix explicitly lists ITSI 5.0.x for Enterprise 10.4.x and 10.6.0/10.6.1, and lists 5.0 without an explicit patch range for Enterprise 10.2.x. Verify that exact pairing separately. Cloud Service Details list a service line. Verify the exact stack patch and any feature enablement separately.",
+                  "Splunkbase lists broad platform versions 10.2–10.8. The customer-managed matrix explicitly lists ITSI 5.0.x for Enterprise 10.4.x and 10.6.0, 10.6.1.0 and 10.6.1.1, and lists 5.0 without an explicit patch range for Enterprise 10.2.x. Verify that exact pairing separately. Cloud Service Details list a service line. Verify the exact stack patch and any feature enablement separately.",
                   "Validate",
                   "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
                   false
@@ -5912,6 +5912,14 @@
             "checked": "2026-11-21",
             "section": "Before you begin; Supported operations; Limitations",
             "verificationScope": "Bounded discovery of an organization-enabled A2A1.0 text investigation interface. Select-customer access is separately documented in the parent guide. No new matrix capability admitted."
+          },
+          "aiObsAppSecurityAssistant": {
+            "title": "AI Assistant for Application Security",
+            "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-security/monitor-application-security/ai-assistant-for-application-security",
+            "section": "Prerequisites; Limitations; library transition analysis and read-only diagnostic scope",
+            "scope": "A supported realm, organization activation, user access, Secure Application entitlement/UI and supported security telemetry are prerequisites. Analysis concerns one specified library/version transition, can be incomplete/outdated and does not guarantee upgrade safety or provide code-migration instructions. No capability card, feature rollout, runtime-location guarantee or authorization is admitted.",
+            "checked": "2026-11-22",
+            "reviewed": "2026-11-22"
           }
         },
         "preparation11": {
@@ -6661,12 +6669,13 @@
             {
               "id": "ai-backlog-expansion",
               "owner": "Version Release Watch",
-              "topic": "Documented Observability A2A investigation access and Database Monitoring Assistant require capability-specific admission. Keep select-customer A2A access, A2A1.0/token/text limits, database receiver/role/entitlement prerequisites, service-region policies and release stages distinct. Application Security Assistant remains an unassessed discovery lead.",
+              "topic": "Documented Observability A2A investigation access and Database Monitoring Assistant require capability-specific admission. Keep select-customer A2A access, A2A1.0/token/text limits, database receiver/role/entitlement prerequisites, service-region policies and release stages distinct. Application Security Assistant now has a bounded public-source prerequisite and limitation assessment. Capability-specific admission and export coverage remain pending.",
               "sourceIds": [
                 "aiObsA2A",
-                "aiObsDatabaseAssistant"
+                "aiObsDatabaseAssistant",
+                "aiObsAppSecurityAssistant"
               ],
-              "reviewBy": "2026-11-22"
+              "reviewBy": "2026-11-23"
             }
           ],
           "observabilityRegions": [
@@ -13718,6 +13727,12 @@
         "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#ariaid-title4"
       },
       {
+        "id": "source-9713e45f92161997f9d3",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-security/monitor-application-security/ai-assistant-for-application-security"
+      },
+      {
         "id": "source-9bede5c5a2f47bf9cbeb",
         "kind": "source",
         "dataset": "sources",
@@ -15015,7 +15030,7 @@
         },
         "payload": [
           "Validate the exact host and managed stack",
-          "Splunkbase lists broad platform versions 10.2–10.7. The customer-managed matrix explicitly lists ITSI 5.0.x for Enterprise 10.4.x and 10.6.0/10.6.1, and lists 5.0 without an explicit patch range for Enterprise 10.2.x. Verify that exact pairing separately. Cloud Service Details list a service line. Verify the exact stack patch and any feature enablement separately.",
+          "Splunkbase lists broad platform versions 10.2–10.8. The customer-managed matrix explicitly lists ITSI 5.0.x for Enterprise 10.4.x and 10.6.0, 10.6.1.0 and 10.6.1.1, and lists 5.0 without an explicit patch range for Enterprise 10.2.x. Verify that exact pairing separately. Cloud Service Details list a service line. Verify the exact stack patch and any feature enablement separately.",
           "Validate",
           "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
           false
@@ -17249,7 +17264,7 @@
         },
         "payload": [
           "Validate the exact host and managed stack",
-          "Splunkbase lists broad platform versions 10.2–10.7. The customer-managed matrix explicitly lists ITSI 5.0.x for Enterprise 10.4.x and 10.6.0/10.6.1, and lists 5.0 without an explicit patch range for Enterprise 10.2.x. Verify that exact pairing separately. Cloud Service Details list a service line. Verify the exact stack patch and any feature enablement separately.",
+          "Splunkbase lists broad platform versions 10.2–10.8. The customer-managed matrix explicitly lists ITSI 5.0.x for Enterprise 10.4.x and 10.6.0, 10.6.1.0 and 10.6.1.1, and lists 5.0 without an explicit patch range for Enterprise 10.2.x. Verify that exact pairing separately. Cloud Service Details list a service line. Verify the exact stack patch and any feature enablement separately.",
           "Validate",
           "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
           false
@@ -21879,12 +21894,13 @@
             {
               "id": "ai-backlog-expansion",
               "owner": "Version Release Watch",
-              "topic": "Documented Observability A2A investigation access and Database Monitoring Assistant require capability-specific admission. Keep select-customer A2A access, A2A1.0/token/text limits, database receiver/role/entitlement prerequisites, service-region policies and release stages distinct. Application Security Assistant remains an unassessed discovery lead.",
+              "topic": "Documented Observability A2A investigation access and Database Monitoring Assistant require capability-specific admission. Keep select-customer A2A access, A2A1.0/token/text limits, database receiver/role/entitlement prerequisites, service-region policies and release stages distinct. Application Security Assistant now has a bounded public-source prerequisite and limitation assessment. Capability-specific admission and export coverage remain pending.",
               "sourceIds": [
                 "aiObsA2A",
-                "aiObsDatabaseAssistant"
+                "aiObsDatabaseAssistant",
+                "aiObsAppSecurityAssistant"
               ],
-              "reviewBy": "2026-11-22"
+              "reviewBy": "2026-11-23"
             }
           ],
           "observabilityRegions": [
@@ -36732,12 +36748,13 @@
             {
               "id": "ai-backlog-expansion",
               "owner": "Version Release Watch",
-              "topic": "Documented Observability A2A investigation access and Database Monitoring Assistant require capability-specific admission. Keep select-customer A2A access, A2A1.0/token/text limits, database receiver/role/entitlement prerequisites, service-region policies and release stages distinct. Application Security Assistant remains an unassessed discovery lead.",
+              "topic": "Documented Observability A2A investigation access and Database Monitoring Assistant require capability-specific admission. Keep select-customer A2A access, A2A1.0/token/text limits, database receiver/role/entitlement prerequisites, service-region policies and release stages distinct. Application Security Assistant now has a bounded public-source prerequisite and limitation assessment. Capability-specific admission and export coverage remain pending.",
               "sourceIds": [
                 "aiObsA2A",
-                "aiObsDatabaseAssistant"
+                "aiObsDatabaseAssistant",
+                "aiObsAppSecurityAssistant"
               ],
-              "reviewBy": "2026-11-22"
+              "reviewBy": "2026-11-23"
             }
           ],
           "observabilityRegions": [
