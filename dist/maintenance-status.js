@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-21T19:24:00.681312+00:00",
+      "lastAttempt": "2026-11-22T12:41:34.280121Z",
       "lastSuccess": "2026-11-21T19:34:26.194Z",
-      "outcome": "changed",
-      "summary": "Scoped continuation: four protected Cloud Environment rows and four AI/SOC registry scopes assessed; stale Milan/Sao Paulo exclusions corrected in candidate. Delivery and current native attempt remain unverified.",
+      "outcome": "blocked",
+      "summary": "Seven registered CSP scopes assessed; Advisor SOC coverage remains incomplete because two exact registered 8.8 locators return 404 while renamed current topics are separately readable.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -627,9 +627,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Scoped continuation: four protected Cloud Environment rows and four AI/SOC registry scopes assessed; stale Milan/Sao Paulo exclusions corrected in candidate. Delivery and current native attempt remain unverified.",
           "scope": "All eight registered CSP scopes independently assessed, including four protected Cloud Environment rows before broad indexed inventory. Registered assessment completeness is distinct from unresolved product questions, current scheduler identity, native exports and live delivery."
+        },
+        {
+          "at": "2026-11-22T12:41:34.280121Z",
+          "outcome": "running",
+          "summary": "Scheduled November 22 CSP review started from fresh GitHub main and prior public gaps.",
+          "scope": "Four protected Cloud Environment rows, three AI regional scopes, Advisor SOC dependency and complete official inventory."
+        },
+        {
+          "at": "2026-11-22T12:57:30.000Z",
+          "outcome": "blocked",
+          "summary": "Seven registered CSP scopes assessed; Advisor SOC coverage remains incomplete because two exact registered 8.8 locators return 404 while renamed current topics are separately readable.",
+          "scope": "Four protected Cloud Environment rows, three AI regional scopes, Advisor SOC dependency, visual public-sector matrix and 44-URL official inventory. Repository/feed/export/live delivery remain separate."
         }
       ],
-      "scope": "All eight registered CSP scopes independently assessed, including four protected Cloud Environment rows before broad indexed inventory. Registered assessment completeness is distinct from unresolved product questions, current scheduler identity, native exports and live delivery."
+      "scope": "Four protected Cloud Environment rows, three AI regional scopes, Advisor SOC dependency, visual public-sector matrix and 44-URL official inventory. Repository/feed/export/live delivery remain separate."
     },
     {
       "id": "version-release-watch",
