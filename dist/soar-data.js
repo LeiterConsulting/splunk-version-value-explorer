@@ -387,6 +387,30 @@ window.VersionCompassSOARData = {
       "checked": "2026-11-21",
       "reviewed": "2026-11-21",
       "outcome": "confirmed"
+    },
+    "svd20261108": {
+      "title": "SVD-2026-1108 · SOAR product security fixes",
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1108",
+      "section": "Solution and Product Status for the SOAR 8.8 branch",
+      "checked": "2026-11-22",
+      "reviewed": "2026-11-22",
+      "outcome": "confirmed"
+    },
+    "svd20261109": {
+      "title": "SVD-2026-1109 · SOAR third-party package updates",
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1109",
+      "section": "Solution and Product Status for the SOAR 8.8 branch",
+      "checked": "2026-11-22",
+      "reviewed": "2026-11-22",
+      "outcome": "confirmed"
+    },
+    "package88": {
+      "title": "Splunk SOAR Free Trial · On-premises unprivileged downloads",
+      "url": "https://www.splunk.com/en_us/download/soar-free-trial.html?locale=en_us",
+      "section": "8.8.0 x86_64 downloads for EL8, EL9 and Amazon Linux 2023, with published package checksums",
+      "checked": "2026-11-22",
+      "reviewed": "2026-11-22",
+      "outcome": "confirmed"
     }
   },
   "records": [
@@ -896,20 +920,21 @@ window.VersionCompassSOARData = {
     {
       "id": "cmp88",
       "title": "SOAR On-premises 8.8 release and package",
-      "detail": "Splunk documents the November 4 release and a route to 8.8.0. Verify the OS-specific unprivileged archive, build and commit in your authorized download. The public installer describes the naming convention without identifying your package.",
+      "detail": "Splunk dates the on-premises 8.8 release to November 4. Its public download list identifies unprivileged 8.8.0 build 282, commit 81cb9deb, for x86_64 EL8, EL9 and Amazon Linux 2023. Each archive has its own published SHA-512 checksum. Match your OS and verify the downloaded archive before following the documented upgrade path.",
       "kind": "requirement",
       "release": "8.8.0",
       "src": [
         "on88",
         "path88",
         "get88",
-        "install88"
+        "install88",
+        "package88"
       ],
       "deployments": [
         "cmp"
       ],
-      "status": "Verify exact package",
-      "verified": "2026-11-21",
+      "status": "Verify selected archive",
+      "verified": "2026-11-22",
       "target": true
     },
     {
@@ -962,6 +987,26 @@ window.VersionCompassSOARData = {
       ],
       "status": "Component patch",
       "verified": "2026-11-21",
+      "target": true
+    },
+    {
+      "id": "cmp88-advisories",
+      "title": "SOAR 8.8 security fixes",
+      "detail": "Splunk identifies 8.8.0 as the fixed SOAR release in SVD-2026-1108 and SVD-2026-1109. The 8.8.0 fixed-issues topic refers to 8.7.0 in its body, and the known-issues topic supplies no itemized list. Verify the installed build against your authorized OS-specific package before closing a local issue.",
+      "kind": "technical",
+      "release": "8.8.0",
+      "src": [
+        "svd20261108",
+        "svd20261109",
+        "fixed88",
+        "known88",
+        "get88"
+      ],
+      "deployments": [
+        "cmp"
+      ],
+      "status": "Verify installed package",
+      "verified": "2026-11-22",
       "target": true
     }
   ],

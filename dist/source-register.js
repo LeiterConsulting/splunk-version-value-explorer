@@ -639,6 +639,76 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1108",
+      "title": "SVD-2026-1108 · SOAR product security fixes",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.svd20261108.url",
+        "soar: soar.records.34"
+      ],
+      "reviews": [
+        "2026-11-22"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.34",
+          "section": "Solution and Product Status for the SOAR 8.8 branch"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-22",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-22",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-22",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://advisory.splunk.com/advisories/SVD-2026-1109",
+      "title": "SVD-2026-1109 · SOAR third-party package updates",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.svd20261109.url",
+        "soar: soar.records.34"
+      ],
+      "reviews": [
+        "2026-11-22"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.34",
+          "section": "Solution and Product Status for the SOAR 8.8 branch"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-22",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-22",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-22",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://agent-observability-docs.splunk.com/saas/overview",
       "title": "Agent Observability SaaS regional and feature considerations",
       "areas": [
@@ -1018,6 +1088,36 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-23",
           "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.165.0",
+      "title": "splunk otel collector 0.165.0",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Nov 2026.technicalChanges.0.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-11-22",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-22",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "Breaking changes; chart-generated infrastructure/control-plane/self-monitoring metrics; Collector adoption",
+      "verificationScope": "Chart0.165.0 default10s-to1m and linkedCollector0.165.1 only; explicit overrides, individual receiver changes and SaaS availability are separate.",
+      "events": [
+        {
+          "date": "2026-11-22",
+          "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-22",
+          "event": "Review status updated: Reviewed · 2026-11-22"
         }
       ]
     },
@@ -8719,6 +8819,34 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-security/monitor-application-security/ai-assistant-for-application-security",
+      "title": "AI Assistant for Application Security",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.aiObsAppSecurityAssistant.url"
+      ],
+      "reviews": [
+        "2026-11-22"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-22",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-22",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-22",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-databases/use-database-monitoring/ai-assistant-for-database-monitoring",
       "title": "AI Assistant for Database Monitoring",
       "areas": [
@@ -9840,7 +9968,8 @@ window.VersionCompassSources = {
       ],
       "references": [
         "soar.sources.get88.url",
-        "soar: soar.records.30"
+        "soar: soar.records.30",
+        "soar: soar.records.34"
       ],
       "reviews": [
         "2026-11-21"
@@ -9848,6 +9977,10 @@ window.VersionCompassSources = {
       "claimReferences": [
         {
           "path": "soar: soar.records.30",
+          "section": "Community account for access to installation packages"
+        },
+        {
+          "path": "soar: soar.records.34",
           "section": "Community account for access to installation packages"
         }
       ],
@@ -10323,10 +10456,17 @@ window.VersionCompassSources = {
         "Splunk SOAR"
       ],
       "references": [
-        "soar.sources.fixed88.url"
+        "soar.sources.fixed88.url",
+        "soar: soar.records.34"
       ],
       "reviews": [
         "2026-11-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.34",
+          "section": "Release 8.8.0 heading and 8.7.0 description; no individual fixes identified"
+        }
       ],
       "usage": "In use",
       "reviewed": "2026-11-21",
@@ -10351,10 +10491,17 @@ window.VersionCompassSources = {
         "Splunk SOAR"
       ],
       "references": [
-        "soar.sources.known88.url"
+        "soar.sources.known88.url",
+        "soar: soar.records.34"
       ],
       "reviews": [
         "2026-11-21"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.34",
+          "section": "Release 8.8.0 known issues; no individual rows in the retrieved article"
+        }
       ],
       "usage": "In use",
       "reviewed": "2026-11-21",
@@ -11234,18 +11381,22 @@ window.VersionCompassSources = {
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": "2026-11-08",
+      "reviewed": "2026-11-22",
       "status": "Reviewed",
       "firstRecorded": "2026-11-08",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "Splunkbase compatibility is kept separate from exact customer-managed patch pairing and Splunk-managed Cloud availability.",
-      "section": "Default Version 5.0.3; Compatibility",
-      "verificationScope": "Verified the public Splunkbase 5.0.3 listing dated October 28, 2026 and broad platform versions 10.2–10.7. Exact customer-managed patch pairing, managed stack rollout and authorization remain separate.",
+      "section": "Public embedded appDetails.release: ITSI5.0.3 release and versionCompatibility entries",
+      "verificationScope": "Independently inspected the current public HTML embedded listing data for ITSI5.0.3: platform lines10.2,10.3,10.4,10.5,10.6,10.7 and10.8. Release publication remains October28. Broad listing does not establish exact customer-managed patch pairing, managed stack rollout, entitlement or authorization. This source-level date applies only to these catalog fields.",
       "events": [
         {
           "date": "2026-11-08",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-22",
+          "event": "Review status updated: Reviewed · 2026-11-22"
         }
       ]
     },
@@ -11791,6 +11942,41 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://www.splunk.com/en_us/download/soar-free-trial.html?locale=en_us",
+      "title": "Splunk SOAR Free Trial · On-premises unprivileged downloads",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.package88.url",
+        "soar: soar.records.30"
+      ],
+      "reviews": [
+        "2026-11-22"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.30",
+          "section": "8.8.0 x86_64 downloads for EL8, EL9 and Amazon Linux 2023, with published package checksums"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-22",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-22",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-22",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },

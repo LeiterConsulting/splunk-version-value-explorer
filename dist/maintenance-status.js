@@ -646,10 +646,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-21T19:31:38.353Z",
+      "lastAttempt": "2026-11-22T19:12:39.957770+00:00",
       "lastSuccess": "2026-11-21T19:40:05.303Z",
-      "outcome": "changed",
-      "summary": "Prepared four qualified November Observability records, two independently checked HF mappings and five scoped feed reassessments.",
+      "outcome": "blocked",
+      "summary": "All27 primary registry1.4 families assessed:5 changed,22 no-change. SupportingSOC prerequisites remain incomplete; distinct recovery scheduler identity and combined candidate delivery checks remain separate. No Site/D1 operation or scheduler repair claimed.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1435,9 +1435,33 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Prepared four qualified November Observability records, two independently checked HF mappings and five scoped feed reassessments.",
           "scope": "Bounded candidate review only. Registry1.4 records28 dispositions with seven incomplete scopes. GitHub validation/integration and sole-coordinator runtime delivery remain separate."
+        },
+        {
+          "at": "2026-11-22T18:10:31.806362869Z",
+          "outcome": "running",
+          "summary": "Owner-authorized distinct November22 Release recovery; capture original native attempts and independently assess owned scope.",
+          "scope": "27 primary-owned rows plus1 supportingSOC disposition; actual current sources, own assessment clocks and immutable native-routing evidence. Partial review is not full success or live delivery."
+        },
+        {
+          "at": "2026-11-22T18:27:57.560933+00:00",
+          "outcome": "blocked",
+          "summary": "Release recovery assessed24 of27 owned registry1.4.0 rows;3 specific source/candidate gaps and supportingSOC remain incomplete. Original foreignES result isolated; GitHub receipts/feed preparation underway.",
+          "scope": "27 primary-owned rows plus1 supportingSOC disposition; actual current sources, own assessment clocks and immutable native-routing evidence. Partial review is not full success or live delivery."
+        },
+        {
+          "at": "2026-11-22T19:12:39.957770+00:00",
+          "outcome": "running",
+          "summary": "Reconciling the saved-work-order follow-through and compatible PR247 into the existing distinct Release recovery.",
+          "scope": "November22 recovery1 continued after saved work-order amendment;27 primary families in bounded scopes, one incomplete ES-owned supportingSOC family; complete vendor issue lists and native invocation remain qualified."
+        },
+        {
+          "at": "2026-11-22T19:12:40.018350+00:00",
+          "outcome": "blocked",
+          "summary": "All27 primary registry1.4 families assessed:5 changed,22 no-change. SupportingSOC prerequisites remain incomplete; distinct recovery scheduler identity and combined candidate delivery checks remain separate. No Site/D1 operation or scheduler repair claimed.",
+          "scope": "November22 recovery1 continued after saved work-order amendment;27 primary families in bounded scopes, one incomplete ES-owned supportingSOC family; complete vendor issue lists and native invocation remain qualified."
         }
       ],
-      "scope": "Bounded candidate review only. Registry1.4 records28 dispositions with seven incomplete scopes. GitHub validation/integration and sole-coordinator runtime delivery remain separate."
+      "scope": "November22 recovery1 continued after saved work-order amendment;27 primary families in bounded scopes, one incomplete ES-owned supportingSOC family; complete vendor issue lists and native invocation remain qualified."
     },
     {
       "id": "es-editions-watch",
