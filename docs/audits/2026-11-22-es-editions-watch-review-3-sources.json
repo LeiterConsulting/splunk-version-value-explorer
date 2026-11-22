@@ -1546,14 +1546,34 @@
     "qualification": "Supported read-only Sites current metadata and newest saved version. Saved-source provenance only; successful deployment and live D1 not independently verified. Newer canonical main retained; no Sites write."
   },
   "validation": {
-    "outcome": "pending",
+    "outcome": "local-passed-delivery-held",
     "attempts": [
       {
         "outcome": "failed",
         "gate": "maintenance:verify",
         "reason": "Initial isolated clone lacked esbuild 0.25.12; build-dependent tests failed MODULE_NOT_FOUND. Restored existing exact-version dependencies; retry pending."
       }
-    ]
+    ],
+    "local": {
+      "outcome": "passed",
+      "checkedAt": "2026-11-22T22:40:52.434Z",
+      "evidence": "Feed-inclusive npm run maintenance:sync and maintenance:verify passed: ordered generators and all four checks; Advisor, coverage, native feed gates; full Node suite, attestation tests and Worker build. git diff --check passed."
+    },
+    "nativeExports": {
+      "outcome": "blocked",
+      "checkedAt": "2026-11-22T22:39:26.945Z",
+      "evidence": "Prior PR248 retained artifact rejected by export-evidence and check-soak --exports because current report fingerprint differs. Historical evidence retained; exact new-candidate artifact required."
+    },
+    "diagnostic": {
+      "checkedAt": "2026-11-22T22:38:37.075Z",
+      "main": "acd61d98e400700420497f4088f3de36e28e1306",
+      "mainValidation": "success",
+      "mainValidationRun": 45076582154,
+      "ownPrimary": 6,
+      "ownAssessed": 6,
+      "ownNativeMatched": 0,
+      "qualification": "Read-only pipeline-status.mjs --tasks exited 1. Current ES final result/completion and saved configuration baseline unavailable. No routing repair/first execution/live delivery claim. Peers are observations only."
+    }
   },
   "publication": {
     "claimedDelivered": false,
@@ -1562,11 +1582,24 @@
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "es-editions-watch",
-    "status": "pending-public-provenance",
-    "recordedAt": "2026-11-22T22:37:47.392Z",
+    "status": "published",
+    "recordedAt": "2026-11-22T22:40:52.554Z",
     "reviewDigest": "8a1b41e7ad46e5e8494286d1e21e7c548987f4872a69be7716f7e76b8de6cbab",
-    "publicationId": "vci-45ce95549a38ad5e95e097e2c764aa8932cb70d0b4924ce5ff7dbec595d05672",
-    "recordKeys": [],
+    "publicationId": "vci-dfc66fa265107b90396da68027519190c179fc9c0e36637351533aeccc0fd83f",
+    "recordKeys": [
+      "assessment:vcia-es-recovery3-20261122-1@1",
+      "assessment:vcia-es-recovery3-20261122-2@1",
+      "assessment:vcia-es-recovery3-20261122-3@1",
+      "assessment:vcia-es-recovery3-20261122-4@1",
+      "assessment:vcia-es-recovery3-20261122-5@1",
+      "assessment:vcia-es-recovery3-20261122-6@1",
+      "assessment:vcia-es-recovery3-20261122-7@1",
+      "assessment:vcia-es-recovery3-20261122-8@1",
+      "assessment:vcia-es-recovery3-20261122-9@1",
+      "assessment:vcia-es-recovery3-20261122-10@1",
+      "assessment:vcia-es-recovery3-20261122-11@1",
+      "assessment:vcia-es-recovery3-20261122-12@1"
+    ],
     "notReassessedFindingIds": [
       "vci-soar-cloud-880-release-stage",
       "vci-itsi-subagent-region",
@@ -1610,10 +1643,8 @@
       "vci-observability-ai-us3-region-mapping",
       "vci-o11y-november-unmatched-pdf-heading-split"
     ],
-    "deferredConcerns": [
-      "es-editions-watch by 2026-11-23: pin public recovery audit commit and append the twelve assessments from current checkpoint."
-    ],
-    "qualification": "Six named scopes assessed; only the twelve named issue concerns separately reassessed for this recovery."
+    "deferredConcerns": [],
+    "qualification": "Twelve fresh ES reassessments appended from retained checkpoint 106 with provenance pinned to the public recovery audit commit. Other known findings remain explicitly unreassessed. Repository delivery only."
   },
   "automationCoverage": {
     "runFile": "docs/audits/2026-11-22-es-editions-watch-review-3-coverage.json"

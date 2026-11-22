@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-88-sop-upload-format-scope",
+  "assessmentId": "vcia-es-recovery3-20261122-12",
+  "revision": 1,
+  "recordedAt": "2026-11-22T22:38:44.321Z",
+  "assessedAt": "2026-11-22T22:37:25.348Z",
+  "outcome": "still-present",
+  "rationale": "The same8.8 SOP task initial upload list includes ZIP, but its Considerations supported-file-type list omits ZIP. Required Assistant enablement, response-template permissions and human review remain explicit; actual ZIP support is unknown.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "8.8"
+    ],
+    "editions": [
+      "Essentials",
+      "Premier"
+    ],
+    "deployments": [
+      "Cloud as scoped by aggregate agent availability"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No package/tenant behavior, exact SOAR pairing, per-agent rollout, entitlement or customer authorization is established beyond each explicitly reviewed section."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-r3-11-es-r2-2-es22-11-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/response/create-response-plans-in-splunk-enterprise-security",
+      "section": "Create response plans with the SOP agent / Prerequisites / initial supported upload formats",
+      "statement": "The initial SOP upload list includes DOCX, MD, PDF, TXT and ZIP.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-22T22:32:35.722Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9004a8ae7055a9605f55271684605e80cabf99e71f4ee35dd52a7b8eca9920ad",
+        "qualification": "Current direct public HTTPS body digest. Identifies bytes, not claim truth or a publisher revision."
+      }
+    },
+    {
+      "evidenceId": "es-r3-11-es-r2-2-es22-sop-formats-considerations",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/response/create-response-plans-in-splunk-enterprise-security",
+      "section": "Create response plans with the SOP agent / Considerations / File types supported",
+      "statement": "The later supported-file-type list names DOCX, MD, PDF and TXT, without ZIP.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-22T22:32:35.722Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9004a8ae7055a9605f55271684605e80cabf99e71f4ee35dd52a7b8eca9920ad",
+        "qualification": "Current direct public HTTPS body digest. Identifies bytes, not claim truth or a publisher revision."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/92397b7d8e151cbd5853c530a51de005d2cb876e/docs/audits/2026-11-22-es-editions-watch-review-3-sources.json",
+      "pointer": "/issueObservations/11",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "es-editions-watch by2026-11-23: Recheck exact named sections and preserve scope, prior dates and unresolved conditions; coordinate separate Release/CSP ownership and coordinator selection."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-es-recovery2-20261122-3"
+  ]
+}

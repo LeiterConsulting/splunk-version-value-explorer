@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-activity-pricing-deployment-scope",
+  "assessmentId": "vcia-es-recovery3-20261122-8",
+  "revision": 1,
+  "recordedAt": "2026-11-22T22:38:44.321Z",
+  "assessedAt": "2026-11-22T22:37:25.348Z",
+  "outcome": "still-present",
+  "rationale": "The ES pricing section lists activity/workload/ingest; the model FAQ states activity pricing for Cloud Platform. ES deployment and contract eligibility remain unresolved.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": null,
+    "editions": null,
+    "deployments": [
+      "Cloud",
+      "Customer-managed"
+    ],
+    "regions": null,
+    "audiences": [
+      "Customers and documentation readers evaluating the stated decision"
+    ],
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-r3-7-es22-7-0",
+      "url": "https://www.splunk.com/en_us/products/pricing.html",
+      "section": "Enterprise Security and SOAR pricing models",
+      "statement": "The ES pricing section lists activity/workload/ingest; the model FAQ states activity pricing for Cloud Platform. ES deployment and contract eligibility remain unresolved.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-22T22:31:57.723Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b4b1beb783b0e46fee673116f0ee173664778d3954b1c8691383332851b334b7",
+        "qualification": "Current direct public HTTPS body digest. Identifies bytes, not claim truth or a publisher revision."
+      }
+    },
+    {
+      "evidenceId": "es-r3-7-es22-7-1",
+      "url": "https://www.splunk.com/en_us/products/pricing/pricing-models.html",
+      "section": "Splunk pricing models and eligibility FAQ",
+      "statement": "The ES pricing section lists activity/workload/ingest; the model FAQ states activity pricing for Cloud Platform. ES deployment and contract eligibility remain unresolved.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-22T22:32:11.292Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "108040bec635fe18ebc20ad1a9e98331bbf653cbb707f105e86725a46d4d47c0",
+        "qualification": "Current direct public HTTPS body digest. Identifies bytes, not claim truth or a publisher revision."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/92397b7d8e151cbd5853c530a51de005d2cb876e/docs/audits/2026-11-22-es-editions-watch-review-3-sources.json",
+      "pointer": "/issueObservations/7",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "es-editions-watch by2026-11-23: Recheck exact named sections and preserve scope, prior dates and unresolved conditions; coordinate separate Release/CSP ownership and coordinator selection."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-es-20261122-es-activity-pricing-deployment-scope"
+  ]
+}
