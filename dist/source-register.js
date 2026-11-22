@@ -10603,8 +10603,8 @@ window.VersionCompassSources = {
         "soar: soar.records.33"
       ],
       "reviews": [
-        "2026-11-20",
-        "2026-11-21"
+        "2026-11-21",
+        "2026-11-22"
       ],
       "claimReferences": [
         {
@@ -10617,7 +10617,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-21",
+      "reviewed": "2026-11-22",
       "status": "Reviewed",
       "firstRecorded": "2026-11-09",
       "firstUsed": null,
@@ -10637,6 +10637,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-21",
           "event": "Review status updated: Reviewed · 2026-11-21"
+        },
+        {
+          "date": "2026-11-22",
+          "event": "Review status updated: Reviewed · 2026-11-22"
         }
       ]
     },
@@ -10655,8 +10659,8 @@ window.VersionCompassSources = {
         "soar: soar.records.33"
       ],
       "reviews": [
-        "2026-11-20",
-        "2026-11-21"
+        "2026-11-21",
+        "2026-11-22"
       ],
       "claimReferences": [
         {
@@ -10669,7 +10673,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-21",
+      "reviewed": "2026-11-22",
       "status": "Reviewed",
       "firstRecorded": "2026-11-09",
       "firstUsed": null,
@@ -10689,12 +10693,16 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-21",
           "event": "Review status updated: Reviewed · 2026-11-21"
+        },
+        {
+          "date": "2026-11-22",
+          "event": "Review status updated: Reviewed · 2026-11-22"
         }
       ]
     },
     {
       "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
-      "title": "SOAR Export 8.8.0 release notes",
+      "title": "SOAR Export 8.8.x release notes",
       "areas": [
         "ES editions",
         "Splunk SOAR",
@@ -10709,8 +10717,8 @@ window.VersionCompassSources = {
         "soar: soar.records.33"
       ],
       "reviews": [
-        "2026-11-20",
-        "2026-11-21"
+        "2026-11-21",
+        "2026-11-22"
       ],
       "claimReferences": [
         {
@@ -10723,7 +10731,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-21",
+      "reviewed": "2026-11-22",
       "status": "Reviewed",
       "firstRecorded": "2026-11-09",
       "firstUsed": null,
@@ -10743,6 +10751,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-21",
           "event": "Review status updated: Reviewed · 2026-11-21"
+        },
+        {
+          "date": "2026-11-22",
+          "event": "Review status updated: Reviewed · 2026-11-22"
         }
       ]
     },

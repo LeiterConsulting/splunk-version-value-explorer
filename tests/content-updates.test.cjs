@@ -17,8 +17,9 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('material cycle preserves scoped release evidence and prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,78);
- const regions=b.entries['ai:catalog'];assert.equal(regions.cycle,77);assert.match(regions.detail,/Milan and Sao Paulo/);assert(b.active(regions));
+ assert.equal(b.policy.currentCycle,79);
+ const regions=b.entries['ai:catalog'];assert.equal(regions.cycle,77);assert.match(regions.detail,/Milan and Sao Paulo/);assert(!b.active(regions));assert(b.active(regions,78));
+ const exportPatch=b.entries['edition:soar'];assert.equal(exportPatch.cycle,79);assert.equal(exportPatch.sourceDate,'2026-11-19');assert.match(exportPatch.detail,/large-ES.*native pairing/);assert(b.active(exportPatch));assert(b.entries['edition-history:soar:cycle58']);
  assert(b.entries['ai:catalog:history:before-cycle77']);
  for(const key of ['environment:acs-fr-h','environment:acs-fr-h-victoria']){
   const entry=b.entries[key];assert.equal(entry.cycle,75);assert.equal(entry.kind,'corrected');assert(b.active(entry,76));assert(!b.active(entry));
@@ -55,7 +56,7 @@ test('material cycle preserves scoped release evidence and prior cycle provenanc
  const ea=b.entries["edition:exposure"];assert.equal(ea.cycle,52);assert(b.active(ea,53));assert(!b.active(ea));
  const soar=b.entries['product:soar:cloud-8.8'];assert.equal(soar.cycle,51);assert(!b.active(soar));assert.match(soar.detail,/November 4 General Availability/);
  const app=b.entries['technical:soar:app88'];assert.equal(app.cycle,53);assert(!b.active(app));
- const pairing=b.entries['edition:soar'];assert.equal(pairing.cycle,58);assert(b.active(pairing,59));assert(!b.active(pairing));assert.match(pairing.detail,/Export 8\.8\.0 functionality-tested/);assert.match(pairing.detail,/native pairing, feature entitlement and regulated authorization separate/);
+ const pairing=b.entries['edition-history:soar:cycle58'];assert.equal(pairing.cycle,58);assert(b.active(pairing,59));assert(!b.active(pairing));assert.match(pairing.detail,/Export 8\.8\.0 functionality-tested/);assert.match(pairing.detail,/native pairing, feature entitlement and regulated authorization separate/);
  const export88=b.entries['technical:soar:export88'];assert.equal(export88.cycle,56);assert(b.active(export88,57));assert(!b.active(export88));assert.equal(export88.sourceDate,'2026-11-04');
  const earlierPairing=b.entries['edition-history:soar:cycle28'];assert.equal(earlierPairing.recordKey,'edition:soar');assert(!b.active(earlierPairing));
  for(const key of ['prep11:prep11-workload-baseline','prep11:prep11-cloud-option']){assert.equal(b.entries[key].cycle,49);assert(b.active(b.entries[key],50));assert(!b.active(b.entries[key]));assert.equal(b.entries[key].sourceDate,null);}

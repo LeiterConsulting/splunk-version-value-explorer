@@ -30,6 +30,9 @@ test('ES editions keeps the tested App for SOAR and SOAR Export rows separate',(
  assert.match(note.details,/App 8\.7\.0 row lists ES 8\.7\.0 or 8\.6\.1/);
  assert.match(note.details,/SOAR Export 8\.8\.0 functionality-tested rows require Python 3\.13 and CIM 8\.5\.0-1681/);
  assert.match(note.details,/optional ES 8\.8\.0 or 8\.7\.0/);
+ assert.match(note.details,/SOAR Export 8\.8\.1.*same tested row/);
+ assert.match(note.details,/November 19, 2026.*PAPP-38632.*November 16/);
+ assert.match(note.details,/does not establish an App for SOAR 8\.8\.1 release or a broader native pairing/);
  assert.match(note.details,/SOAR Export 8\.7\.1 row lists ES 8\.7\.0 or 8\.6\.0, Python 3\.13 and CIM/);
  assert.match(note.details,/do not establish configured native pairing, feature entitlement or regulated authorization/);
  for(const id of ['appForSoar88','appForSoar87','soarExportEnterprise88','soarExportCloud88','soarExportEnterprise87','soarExportCloud87']){
