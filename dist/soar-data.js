@@ -403,6 +403,14 @@ window.VersionCompassSOARData = {
       "checked": "2026-11-22",
       "reviewed": "2026-11-22",
       "outcome": "confirmed"
+    },
+    "package88": {
+      "title": "Splunk SOAR Free Trial · On-premises unprivileged downloads",
+      "url": "https://www.splunk.com/en_us/download/soar-free-trial.html?locale=en_us",
+      "section": "8.8.0 x86_64 downloads for EL8, EL9 and Amazon Linux 2023, with published package checksums",
+      "checked": "2026-11-22",
+      "reviewed": "2026-11-22",
+      "outcome": "confirmed"
     }
   },
   "records": [
@@ -912,20 +920,21 @@ window.VersionCompassSOARData = {
     {
       "id": "cmp88",
       "title": "SOAR On-premises 8.8 release and package",
-      "detail": "Splunk documents the November 4 release and a route to 8.8.0. Verify the OS-specific unprivileged archive, build and commit in your authorized download. The public installer describes the naming convention without identifying your package.",
+      "detail": "Splunk dates the on-premises 8.8 release to November 4. Its public download list identifies unprivileged 8.8.0 build 282, commit 81cb9deb, for x86_64 EL8, EL9 and Amazon Linux 2023. Each archive has its own published SHA-512 checksum. Match your OS and verify the downloaded archive before following the documented upgrade path.",
       "kind": "requirement",
       "release": "8.8.0",
       "src": [
         "on88",
         "path88",
         "get88",
-        "install88"
+        "install88",
+        "package88"
       ],
       "deployments": [
         "cmp"
       ],
-      "status": "Verify exact package",
-      "verified": "2026-11-21",
+      "status": "Verify selected archive",
+      "verified": "2026-11-22",
       "target": true
     },
     {

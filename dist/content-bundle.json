@@ -1,9 +1,9 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-0f93ff51bf02a6399d63e23d",
-    "digest": "80434887af102b06b155c36c0693e7f240297343a74762d9cb550b3d9dfd6a11",
-    "engineRevision": "engine-b320a3aa66466c8768fa",
+    "revision": "content-a72ebf42c3a0785126aa5b80",
+    "digest": "da9806d2301f92fac7dd0859c49ad563e4f96afe72034fa5c243e090b9c3282d",
+    "engineRevision": "engine-803a32aaaa25b18d27bc",
     "datasetHashes": {
       "platform": "029ba4b251445fbbd0bf9c9c74152584cbd9bc0275e65afd448838cb53ebf498",
       "products": "ec5081cf0a9ea39ca58b6e5ef17bcef16b4e36031aeeebeea1a45077bf85bdf4",
@@ -11,9 +11,9 @@
       "environment": "533ef7f14be7b3bf860b7c47b2d873489583d8606304ac969b6b1a32a7d4e10f",
       "editions": "7c4e3a9774305ccdbe1cd7916e36ca9af6792426d463e3a20cd37a2837b9d88f",
       "forwarders": "a56dd49cca6e5e0d9453e3a0d58afbf3b143e01873dd91305a3fdfebe68146aa",
-      "soar": "5ab00894c371aa06be57a03950db679e24c48c645779cda9cd1cefdb6bdcfebd"
+      "soar": "2e44b2cac69f6661c753f4f7b446b70b56173a7c6c7d4a4355e2fa7b43ce110c"
     },
-    "recordCount": 1023,
+    "recordCount": 1024,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -11904,6 +11904,14 @@
           "checked": "2026-11-22",
           "reviewed": "2026-11-22",
           "outcome": "confirmed"
+        },
+        "package88": {
+          "title": "Splunk SOAR Free Trial · On-premises unprivileged downloads",
+          "url": "https://www.splunk.com/en_us/download/soar-free-trial.html?locale=en_us",
+          "section": "8.8.0 x86_64 downloads for EL8, EL9 and Amazon Linux 2023, with published package checksums",
+          "checked": "2026-11-22",
+          "reviewed": "2026-11-22",
+          "outcome": "confirmed"
         }
       },
       "records": [
@@ -12413,20 +12421,21 @@
         {
           "id": "cmp88",
           "title": "SOAR On-premises 8.8 release and package",
-          "detail": "Splunk documents the November 4 release and a route to 8.8.0. Verify the OS-specific unprivileged archive, build and commit in your authorized download. The public installer describes the naming convention without identifying your package.",
+          "detail": "Splunk dates the on-premises 8.8 release to November 4. Its public download list identifies unprivileged 8.8.0 build 282, commit 81cb9deb, for x86_64 EL8, EL9 and Amazon Linux 2023. Each archive has its own published SHA-512 checksum. Match your OS and verify the downloaded archive before following the documented upgrade path.",
           "kind": "requirement",
           "release": "8.8.0",
           "src": [
             "on88",
             "path88",
             "get88",
-            "install88"
+            "install88",
+            "package88"
           ],
           "deployments": [
             "cmp"
           ],
-          "status": "Verify exact package",
-          "verified": "2026-11-21",
+          "status": "Verify selected archive",
+          "verified": "2026-11-22",
           "target": true
         },
         {
@@ -14241,6 +14250,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/known-issues-for-splunk-soar-on-premises"
+      },
+      {
+        "id": "source-eea376fa2af2bd4cb8c1",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://www.splunk.com/en_us/download/soar-free-trial.html?locale=en_us"
       },
       {
         "id": "source-eeedaa850b3060cf12f6",
@@ -19270,29 +19285,38 @@
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
             "sourceVerified": "2026-11-21",
             "sourceChecked": "2026-11-21"
+          },
+          {
+            "sourceId": "source-eea376fa2af2bd4cb8c1",
+            "url": "https://www.splunk.com/en_us/download/soar-free-trial.html?locale=en_us",
+            "section": "8.8.0 x86_64 downloads for EL8, EL9 and Amazon Linux 2023, with published package checksums",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-22",
+            "sourceChecked": "2026-11-22"
           }
         ],
         "verification": {
-          "date": "2026-11-21",
+          "date": "2026-11-22",
           "outcome": "Recorded in original claim"
         },
         "payload": {
           "id": "cmp88",
           "title": "SOAR On-premises 8.8 release and package",
-          "detail": "Splunk documents the November 4 release and a route to 8.8.0. Verify the OS-specific unprivileged archive, build and commit in your authorized download. The public installer describes the naming convention without identifying your package.",
+          "detail": "Splunk dates the on-premises 8.8 release to November 4. Its public download list identifies unprivileged 8.8.0 build 282, commit 81cb9deb, for x86_64 EL8, EL9 and Amazon Linux 2023. Each archive has its own published SHA-512 checksum. Match your OS and verify the downloaded archive before following the documented upgrade path.",
           "kind": "requirement",
           "release": "8.8.0",
           "src": [
             "on88",
             "path88",
             "get88",
-            "install88"
+            "install88",
+            "package88"
           ],
           "deployments": [
             "cmp"
           ],
-          "status": "Verify exact package",
-          "verified": "2026-11-21",
+          "status": "Verify selected archive",
+          "verified": "2026-11-22",
           "target": true
         }
       },

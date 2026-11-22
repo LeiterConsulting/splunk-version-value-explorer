@@ -11910,6 +11910,41 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://www.splunk.com/en_us/download/soar-free-trial.html?locale=en_us",
+      "title": "Splunk SOAR Free Trial · On-premises unprivileged downloads",
+      "areas": [
+        "Splunk SOAR"
+      ],
+      "references": [
+        "soar.sources.package88.url",
+        "soar: soar.records.30"
+      ],
+      "reviews": [
+        "2026-11-22"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.30",
+          "section": "8.8.0 x86_64 downloads for EL8, EL9 and Amazon Linux 2023, with published package checksums"
+        }
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-22",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-22",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-22",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://www.splunk.com/en_us/download/splunk-enterprise.html?locale=en_us",
       "title": "splunk enterprise.html",
       "areas": [
