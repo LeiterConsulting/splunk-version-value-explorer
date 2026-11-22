@@ -29,7 +29,7 @@ The inventory contains exact public URLs and section names. Do not replace it wi
 
 ## Existing schedules and ownership
 
-No extra watch is created. Release Watch (daily 05:00 Eastern) owns SOAR release/build, route, requirement, issue, advisory, Broker and app inventory. ES Editions Watch (daily 06:00) owns ES entitlement and pairings. CSP FedRAMP Watch (daily 07:00) owns SOAR regions and restricted environments. Guidance Audit (Monday/Thursday 08:00) independently checks consequential claims and full report behavior. Their privacy, public-source, publication parity and further-interface approval rules remain intact.
+No extra watch is created. Release Watch (daily 03:00 Eastern) owns SOAR release/build, route, requirement, issue, advisory, Broker and app inventory. ES Editions Watch (daily 04:00) owns ES entitlement and pairings. CSP FedRAMP Watch (daily 05:00) owns SOAR regions and restricted environments. Guidance Audit (Monday/Thursday 06:15) independently checks consequential claims and full report behavior. Their privacy, public-source, publication parity and further-interface approval rules remain intact.
 
 Every run checks changes in its source inventory and verifies affected claims plus a bounded high-priority selection. Maintain `backlog` with priorities, status and next evidence question; do not imply every historical claim was reverified. The shared source-register generator resolves SOAR record source IDs and keeps exact sections. Preserve retired sources, append-only change history and independent publication/source/claim dates.
 

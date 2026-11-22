@@ -9,13 +9,13 @@ source review can conclude that the published guidance needs no change.
 
 | Eastern schedule | Existing task | Primary daily scopes |
 | --- | --- | --- |
-| 05:00 | Version Release Watch | Eight 11.x Prep checks first, then nine Release Guide paths: Enterprise, Cloud, Enterprise-to-Cloud, ES, ITSI, Observability, SOAR, Universal Forwarder and Heavy Forwarder. |
-| 06:00 | ES Editions Watch | Edition and licensing, release history and entitlement changes, deployment and regional prerequisites, and feature and workflow dependencies. |
-| 07:00 | CSP FedRAMP Watch | Provider and region, Classic/Victoria and service controls, FedRAMP Moderate/High, and premium services and Observability realms. |
-| 08:00 Monday/Thursday | Version Guidance Audit | Independent review of scope, evidence, contradictions, and report and citation parity for changed claims. |
-| Noon | Audit VersionCompass and Ripple | Read-only reconciliation of the due primary-owner rows, linked receipts, and publication evidence. |
+| 03:00 | Version Release Watch | Eight 11.x Prep checks first, then nine Release Guide paths: Enterprise, Cloud, Enterprise-to-Cloud, ES, ITSI, Observability, SOAR, Universal Forwarder and Heavy Forwarder. |
+| 04:00 | ES Editions Watch | Edition and licensing, release history and entitlement changes, deployment and regional prerequisites, and feature and workflow dependencies. |
+| 05:00 | CSP FedRAMP Watch | Provider and region, Classic/Victoria and service controls, FedRAMP Moderate/High, and premium services and Observability realms. |
+| 06:15 Monday/Thursday | Version Guidance Audit | Independent review of scope, evidence, contradictions, and report and citation parity for changed claims. |
+| 09:45 | Audit VersionCompass and Ripple | Read-only reconciliation of the due primary-owner rows, linked receipts, and publication evidence. |
 
-The 10:30 a.m. Eastern Sites-linked steward remains the sole public Site
+The 9:00 a.m. Eastern Sites-linked steward remains the sole public Site
 publisher. Watches record and integrate evidence through the existing GitHub
 process. Candidate qualification and public readback follow
 [release control](release-control.md). Issue-feed changes use the existing
@@ -73,7 +73,7 @@ Explicitly defer a missing source or assessment and finish the other rows.
   watch's own scheduler attempt, bind its review inputs, and include a public
   receipt even if no site fact changes. A changed review still follows the
   normal issue-feed and candidate-validation gates.
-- The noon audit joins the due tasks for the Eastern run date to their own
+- The 9:45 a.m. Eastern audit joins the due tasks for the Eastern run date to their own
   receipts. List each row as completed, incomplete, or missing. Link each
   receipt and call out late or mismatched outcomes. Report independent Guidance,
   GitHub integration, steward selection and live verification with their own
@@ -85,4 +85,4 @@ Prompt readback happened November 19. First matching scheduled executions
 under the new registry and their delivery evidence are pending in the
 [amendment ledger](../content/automation-amendments.json).
 
-The existing noon diagnostic emits `coverage.daily` for the Eastern calendar date, covering the mandatory sections owned by the three daily watches. Each section lists its primary owner, receipt history, dispositions and recorded follow-ups. `reviewedToday` requires a dated assessment for every claim family in the successful row. A retry that reuses older assessments retains their dates. `nativeReviewMatched` also requires the corresponding native attempt and result. With no scheduler snapshot, the native count is unknown. A missing same-day receipt remains visible even when yesterday’s review was complete. Independent Guidance and Ripple are reconciled separately.
+The existing 9:45 a.m. Eastern diagnostic emits `coverage.daily` for the Eastern calendar date, covering the mandatory sections owned by the three daily watches. Each section lists its primary owner, receipt history, dispositions and recorded follow-ups. `reviewedToday` requires a dated assessment for every claim family in the successful row. A retry that reuses older assessments retains their dates. `nativeReviewMatched` also requires the corresponding native attempt and result. With no scheduler snapshot, the native count is unknown. A missing same-day receipt remains visible even when yesterday’s review was complete. Independent Guidance and Ripple are reconciled separately.
