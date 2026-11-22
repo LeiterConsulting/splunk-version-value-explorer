@@ -1372,7 +1372,7 @@ window.SPLUNK_DATA = {
           ],
           [
             "Match the exact Enterprise maintenance package",
-            "The current download lists Enterprise 10.6.1.1 build b2ae2962645c. Keep that identity distinct from the dated 10.6.1 statement and previous-release 10.6.0.5 build 86587d4e3b27; neither equivalence nor an exact four-segment release date is established.",
+            "Splunk lists Enterprise 10.6.2.5, build b07ce3b48d58, for Linux, Windows and macOS. The November 19 release note dates 10.6.2. The four-segment package has its own identity. Earlier downloads included 10.6.1.1 build b2ae2962645c and 10.6.0.5 build 86587d4e3b27. Verify the filename and vendor checksum for your OS.",
             "Review",
             "https://www.splunk.com/en_us/download/splunk-enterprise.html?locale=en_us",
             false
