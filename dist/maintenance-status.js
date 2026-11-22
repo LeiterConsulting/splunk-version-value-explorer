@@ -1442,10 +1442,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-22T10:56:44.436Z",
-      "lastSuccess": "2026-11-22T11:03:01.947Z",
-      "outcome": "changed",
-      "summary": "Six mapped ES scopes assessed; Export8.8.1 tested-row/fix clarification prepared. Triage and SOP source disagreements retained; GitHub candidate and live delivery separate.",
+      "lastAttempt": "2026-11-22T19:02:18.000Z",
+      "lastSuccess": "2026-11-22T19:10:19.479Z",
+      "outcome": "no-change",
+      "summary": "Fresh six-section ES recovery assessment; original morning timeline and current attempt kept distinct. No product fact changes.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -2111,9 +2111,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Six mapped ES scopes assessed; Export8.8.1 tested-row/fix clarification prepared. Triage and SOP source disagreements retained; GitHub candidate and live delivery separate.",
           "scope": "Exact current official edition/licensing, release history, deployment, workflow, ES AI and Advisor SOC sections. No blanket historical or tenant verification."
+        },
+        {
+          "at": "2026-11-22T19:02:18.000Z",
+          "outcome": "running",
+          "summary": "Started distinct ES recovery review",
+          "scope": "Six primary registry 1.4.0 ES sections"
+        },
+        {
+          "at": "2026-11-22T19:10:19.479Z",
+          "outcome": "no-change",
+          "summary": "Fresh six-section ES recovery assessment; original morning timeline and current attempt kept distinct. No product fact changes.",
+          "scope": "Registry 1.4.0: four ES Editions sections, five individual ES AI capabilities and Advisor SOC. Three issue reassessments await immutable recovery provenance; native result and coordinator delivery remain unverified."
         }
       ],
-      "scope": "Exact current official edition/licensing, release history, deployment, workflow, ES AI and Advisor SOC sections. No blanket historical or tenant verification."
+      "scope": "Registry 1.4.0: four ES Editions sections, five individual ES AI capabilities and Advisor SOC. Three issue reassessments await immutable recovery provenance; native result and coordinator delivery remain unverified."
     },
     {
       "id": "version-guidance-audit",
