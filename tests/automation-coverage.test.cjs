@@ -80,10 +80,25 @@ test('the recorder binds ES and CSP receipts only to their own audits under the 
     fs.writeFileSync(path.join(root, auditFile), JSON.stringify({ scope: 'Synthetic participating watch audit' }));
     assert.throws(() => record({ ...run, registryVersion: '1.2.0' }, auditFile, runFile), /current coverage registry/);
     assert.throws(() => record({ ...run, watchId: 'version-release-watch' }, auditFile, runFile), /actual saved-task execution/);
+    fs.copyFileSync('content/automation-amendments.json', path.join(root, 'content/automation-amendments.json'));
+    const foreignExecution = { taskId: '6aa950be0884819196ca3f8ae776f49b' };
+    assert.throws(() => record({ ...run, execution: foreignExecution }, auditFile, runFile), /Native task identity does not belong/);
+    assert.equal(fs.existsSync(path.join(root, runFile)), false);
     assert.equal(JSON.parse(record(run, auditFile, runFile)).watchId, watchId);
     assert.equal(JSON.parse(fs.readFileSync(path.join(root, auditFile))).automationCoverage.runFile, runFile);
   }
 });
+test('a source receipt cannot silently move between attempts that reused a native run ID', () => {
+  const { validateBoundExecution } = require('../scripts/lib/automation-coverage.cjs');
+  const source = { execution: { taskId: 'csp', schedulerRunId: 'reused', startedAt: '2026-11-22T12:41:34.280121Z' } };
+  const receipt = { execution: { ...source.execution, startedAt: '2026-11-22T07:41:34.280121-05:00' } };
+  assert.doesNotThrow(() => validateBoundExecution(receipt, source));
+  for (const changed of [{ taskId: 'es' }, { schedulerRunId: 'another' }, { startedAt: '2026-11-22T12:41:34.280122Z' }]) {
+    assert.throws(() => validateBoundExecution({ execution: { ...receipt.execution, ...changed } }, source), /disagree/);
+  }
+  assert.doesNotThrow(() => validateBoundExecution({ execution: { startedAt: null } }, source));
+});
+
 test('pilot covers Prep11 and all three Advisor decisions with separate primary and independent ownership', () => {
   assert.equal(validateRegistry(registry).capabilities.length, 11);
   assert.equal(check().activation, 'pending-first-executions');
@@ -156,6 +171,15 @@ test('future changed watch reviews cannot omit coverage or substitute a manual i
     run.kind = 'saved-task-execution';
     run.auditBindings = [{ file, reviewDigest: require('../scripts/lib/native-issue-feed.cjs').reviewDigest(audit) }];
     write(runFile, bind(run)); assert.equal(check(root).runs[0].coverageComplete, false);
+    audit.execution = { schedulerRunId: 'same-run', startedAt: '2026-11-02T10:00:00Z' };
+    run.auditBindings[0].reviewDigest = require('../scripts/lib/native-issue-feed.cjs').reviewDigest(audit);
+    run.execution = { schedulerRunId: 'same-run', startedAt: '2026-11-02T10:30:00Z' };
+    write(file, audit); write(runFile, bind(run));
+    assert.throws(() => check(root), /disagree on native attempt start/);
+    run.execution.startedAt = audit.execution.startedAt;
+    write(runFile, bind(run));
+    write('docs/audits/2026-11-02-replayed-coverage.json', bind(run));
+    assert.throws(() => check(root), /Duplicate public coverage run ID/);
   } finally { fs.rmSync(root, { recursive: true, force: true }); }
 });
 function completeRun() {

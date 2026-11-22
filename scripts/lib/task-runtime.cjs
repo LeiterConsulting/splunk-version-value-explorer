@@ -188,4 +188,4 @@ function inspect(snapshot, { registry, ledger, runs, operational = operationalCo
       qualification: 'Operational configuration/attempt/result reconciliation only. No content coverage, pilot activation, scheduler repair or notification delivery is established.' },
     claimedDelivered: false, qualification: 'Read-only identity/configuration/receipt reconciliation; matching evidence does not independently establish source truth, actual permissions, future dispatch or production delivery. Null next_run_time is unknown, not proof a task is disabled. No task, timer, retry or activation is created.' };
 }
-module.exports = { inspect, savedConfigurationDigest, nativeTasks };
+module.exports = { inspect, savedConfigurationDigest, nativeTasks, sameAttemptStart };

@@ -8719,6 +8719,34 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-security/monitor-application-security/ai-assistant-for-application-security",
+      "title": "AI Assistant for Application Security",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.guidance.sources.aiObsAppSecurityAssistant.url"
+      ],
+      "reviews": [
+        "2026-11-22"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-22",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-22",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-22",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-databases/use-database-monitoring/ai-assistant-for-database-monitoring",
       "title": "AI Assistant for Database Monitoring",
       "areas": [
@@ -11234,18 +11262,22 @@ window.VersionCompassSources = {
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": "2026-11-08",
+      "reviewed": "2026-11-22",
       "status": "Reviewed",
       "firstRecorded": "2026-11-08",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "Splunkbase compatibility is kept separate from exact customer-managed patch pairing and Splunk-managed Cloud availability.",
-      "section": "Default Version 5.0.3; Compatibility",
-      "verificationScope": "Verified the public Splunkbase 5.0.3 listing dated October 28, 2026 and broad platform versions 10.2–10.7. Exact customer-managed patch pairing, managed stack rollout and authorization remain separate.",
+      "section": "Public embedded appDetails.release: ITSI5.0.3 release and versionCompatibility entries",
+      "verificationScope": "Independently inspected the current public HTML embedded listing data for ITSI5.0.3: platform lines10.2,10.3,10.4,10.5,10.6,10.7 and10.8. Release publication remains October28. Broad listing does not establish exact customer-managed patch pairing, managed stack rollout, entitlement or authorization. This source-level date applies only to these catalog fields.",
       "events": [
         {
           "date": "2026-11-08",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-22",
+          "event": "Review status updated: Reviewed · 2026-11-22"
         }
       ]
     },

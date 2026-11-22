@@ -86,3 +86,9 @@ under the new registry and their delivery evidence are pending in the
 [amendment ledger](../content/automation-amendments.json).
 
 The existing 9:45 a.m. Eastern diagnostic emits `coverage.daily` for the Eastern calendar date, covering the mandatory sections owned by the three daily watches. Each section lists its primary owner, receipt history, dispositions and recorded follow-ups. `reviewedToday` requires a dated assessment for every claim family in the successful row. A retry that reuses older assessments retains their dates. `nativeReviewMatched` also requires the corresponding native attempt and result. With no scheduler snapshot, the native count is unknown. A missing same-day receipt remains visible even when yesterday’s review was complete. Independent Guidance and Ripple are reconciled separately.
+
+### Recovering a misrouted result
+
+Read the saved task ID, its native attempt ID and its full-precision start before associating a result with a public review. On November 22 the Release and ES task views showed the same ES result, and the CSP service reported distinct starts under a reused run ID. Preserve each observation. The coverage writer and CI check a supplied task identity against the versioned owner mapping and reject conflicting task, run or start fields between a linked source audit and its coverage receipt. Each receipt file needs its own public run ID. A manual review can record actual work and leave any unavailable scheduler identity unknown. Only the subsequent matching native result establishes execution credit.
+
+The [November 22 official-source readback](audits/2026-11-22-release-recovery-source-readback.json) supplies attributed source evidence for the six earlier Release gaps. It records fresh source retrieval times alongside the comparison to the previously retained articles. Owners retain responsibility for comparing their claims and reporting their own outcome.

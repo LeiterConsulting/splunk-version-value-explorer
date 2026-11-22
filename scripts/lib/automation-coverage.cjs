@@ -2,6 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { execFileSync } = require('node:child_process');
 const native = require('./native-issue-feed.cjs');
+const { sameAttemptStart } = require('./task-runtime.cjs');
 const statuses = ['changed', 'assessed-no-change', 'deferred', 'blocked', 'failed', 'out-of-scope'];
 const successful = new Set(statuses.slice(0, 2));
 const clocks = ['discoveredAt', 'retrievedAt', 'assessedAt', 'publishedAt', 'liveVerifiedAt'];
@@ -165,14 +166,47 @@ function validateAmendments(ledger, registry, root = process.cwd()) {
   if (registry.activation === 'active') assert(ledger.amendments.some(a => a.registryVersion === registry.registryVersion && a.activation?.status === 'active'), 'Active registry needs a matching active amendment');
   return ledger;
 }
+function validateBoundExecution(run, audit) {
+  const receipt = run.execution || {};
+  const source = audit.execution || {};
+  for (const field of ['taskId', 'schedulerRunId']) {
+    if (source[field] != null && receipt[field] != null) {
+      assert(source[field] === receipt[field], 'Source audit and coverage receipt disagree on ' + field);
+    }
+  }
+  if (source.startedAt != null && receipt.startedAt != null) {
+    assert(sameAttemptStart(source.startedAt, receipt.startedAt), 'Source audit and coverage receipt disagree on native attempt start');
+  }
+}
+function validateTaskOwner(run, root = process.cwd(), ledger) {
+  if (run.kind !== 'saved-task-execution' || run.execution?.taskId == null) return;
+  const amendments = ledger || read(root, 'content/automation-amendments.json');
+  const amendment = amendments.amendments.find(entry => entry.registryVersion === run.registryVersion);
+  const owner = amendment?.savedTasks.find(task => task.id === run.watchId);
+  assert(text(owner?.taskId) && run.execution.taskId === owner.taskId, 'Native task identity does not belong to ' + run.watchId);
+}
 function check(root = process.cwd()) {
   const registry = validateRegistry(read(root, 'content/automation-coverage.json'), root);
-  validateAmendments(read(root, 'content/automation-amendments.json'), registry, root);
+  const ledger = validateAmendments(read(root, 'content/automation-amendments.json'), registry, root);
   const git = args => execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim().split('\n').filter(Boolean);
   const parents = git(['rev-list', '--parents', '-n', '1', 'HEAD'])[0].split(/\s+/).slice(1);
   for (const revision of ['HEAD', ...parents]) for (const file of git(['ls-tree', '-r', '--name-only', revision, 'docs/audits']).filter(f => f.endsWith('-coverage.json'))) assert(fs.existsSync(path.join(root, file)), 'Do not delete coverage history: ' + file);
   const candidates = new Set([...git(['ls-files', 'docs/audits/*-coverage.json']), ...git(['ls-files', '--others', '--exclude-standard', 'docs/audits/*-coverage.json'])]);
-  const results = [...candidates].map(file => ({ file, ...validateRun(read(root, file), registry, root) }));
+  const results = [...candidates].map(file => {
+    const run = read(root, file);
+    const result = validateRun(run, registry, root);
+    validateTaskOwner(run, root, ledger);
+    for (const binding of run.auditBindings || []) {
+      assert(native.watchFor(binding.file) === run.watchId, 'Source audit belongs to a different watch: ' + file);
+      const audit = read(root, binding.file);
+      if (audit.automationCoverage?.runFile === file) {
+        assert(binding.reviewDigest === native.reviewDigest(audit), 'Coverage is not bound to the actual review: ' + file);
+        validateBoundExecution(run, audit);
+      }
+    }
+    return { file, ...result };
+  });
+  assert(new Set(results.map(row => row.runId)).size === results.length, 'Duplicate public coverage run ID across receipt files');
   // Match the native-feed changed-review gate; historical unchanged runs do not
   // acquire a retrospective assessment or an invented task execution.
   const snapshots = new Set([...git(['ls-files', 'content/automation-registries/*.json']), ...git(['ls-files', '--others', '--exclude-standard', 'content/automation-registries/*.json'])]);
@@ -216,4 +250,4 @@ function check(root = process.cwd()) {
   }
   return { registryVersion: registry.registryVersion, activation: registry.activation, runs: results };
 }
-module.exports = { statuses, clocks, pointer, mappedSource, reviewDigest, resolveRegistry, validateRegistry, validateRun, validateAmendments, check };
+module.exports = { statuses, clocks, pointer, mappedSource, reviewDigest, resolveRegistry, validateRegistry, validateRun, validateAmendments, validateBoundExecution, validateTaskOwner, check };
