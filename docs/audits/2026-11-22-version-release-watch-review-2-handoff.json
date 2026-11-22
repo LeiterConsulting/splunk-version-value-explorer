@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "kind": "immutable-watch-candidate",
+  "watchId": "version-release-watch",
+  "recordedAt": "2026-11-22T22:02:00Z",
+  "status": "held-for-validation-and-explicit-release-selection",
+  "coordinator": "Automation_440f270a74e48191a770bb15ef4748a0",
+  "candidate": {
+    "commit": "2ba6e529570bf26b7bbff65c541a86ef1eced789",
+    "tree": "c93e9267d275195a7b7c683bdba6238c975ed2ba",
+    "auditCommit": "5d305344b68c8debd7234d0c6f0d7b221f32506e",
+    "pullRequest": 255,
+    "contentRevision": "content-7c994bf0e60671c1c60bdb20",
+    "engineRevision": "engine-7dd1bd5c98cbed7d8fc3",
+    "contentDigest": "5d8b0a0bca2ade9e7fff34581650912e82824ad95e325add9a61f2b040095ba3",
+    "recordCount": 1019,
+    "qualification": "Late compatible repository evidence candidate. It does not replace an in-flight candidate without explicit selection. No canonical product facts or their dates changed."
+  },
+  "coverage": {
+    "registryVersion": "1.4.0",
+    "sourceAudit": "docs/audits/2026-11-22-version-release-watch-review-2-sources.json",
+    "coverageReceipt": "docs/audits/2026-11-22-version-release-watch-review-2-coverage.json",
+    "requiredPrimary": 27,
+    "declaredPrimary": 27,
+    "assessedNoChange": 20,
+    "incompletePrimary": [
+      "exact.uncertainty-parity",
+      "ai.discovery",
+      "release-guide.enterprise",
+      "release-guide.enterprise-to-cloud",
+      "release-guide.itsi",
+      "release-guide.observability",
+      "release-guide.soar"
+    ],
+    "incompleteSupporting": ["advisor.soc-workflow"],
+    "ownerForPrimaryGaps": "version-release-watch",
+    "ownerForSupportingSOC": "es-editions-watch",
+    "nextAction": "Complete each exact missing family named in the source/coverage pair; retain all existing facts and dates until its material conditions are assessed.",
+    "reviewBy": "2026-11-23"
+  },
+  "feed": {
+    "baseCheckpoint": 105,
+    "candidateCheckpoint": 106,
+    "publicationId": "vci-45ce95549a38ad5e95e097e2c764aa8932cb70d0b4924ce5ff7dbec595d05672",
+    "snapshotSha256": "45ce95549a38ad5e95e097e2c764aa8932cb70d0b4924ce5ff7dbec595d05672",
+    "assessmentsAdded": 4,
+    "provenanceCommit": "5d305344b68c8debd7234d0c6f0d7b221f32506e",
+    "qualification": "Prepared and public on the candidate branch; not yet integrated on main. Neither original divergent history was rewritten. Other known findings are explicitly unreassessed in the native feed outcome."
+  },
+  "validation": {
+    "local": "Ordered maintenance:sync and maintenance:verify passed, including sync/Advisor/coverage/native-feed checks, complete Node and attestation suites and Worker build. Final direct coverage/feed checks and git diff check passed.",
+    "candidateWorkflow": {
+      "id": 45075218658,
+      "runNumber": 1512,
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/actions/runs/45075218658",
+      "status": "in_progress",
+      "conclusion": null
+    },
+    "exports": "pending exact candidate successful Chromium export step",
+    "artifactReadback": "pending exact artifact digest and extracted report input verification",
+    "mainIntegration": "held",
+    "siteDelivery": "not attempted by watch",
+    "liveVerification": "not performed by watch",
+    "nextOwner": "version-release-watch for validation/artifact readback and authorized integration; sole coordinator for explicit runtime release selection",
+    "reviewBy": "2026-11-23"
+  },
+  "nativeExecution": {
+    "taskId": "6aa950be0884819196ca3f8ae776f49b",
+    "schedulerRunId": "98f46bc3-14c8-832e-8e13-2e21a35a453a",
+    "startedAt": "2026-11-22T21:48:49.827710Z",
+    "completedAt": null,
+    "status": "in_progress",
+    "observedAt": "2026-11-22T22:00:43Z",
+    "exposedPriorResultId": "f6137298-a1e8-8325-bcc4-10a679e67850",
+    "exposedPriorResultOwner": "es-editions-watch",
+    "qualification": "Foreign prior result isolated. Current attempt/start agrees with this source/coverage pair; matching final result is not exposed. No first-execution or scheduler-repair claim."
+  },
+  "peerCrossCheck": [
+    {
+      "watchId": "es-editions-watch",
+      "taskId": "6ab2aa014df881918687cc1e30393ea9",
+      "attemptId": "9a9120d1-a954-8333-83a6-2fb7e5b111a3",
+      "startedAt": "2026-11-22T19:02:17.557492Z",
+      "completedAt": "2026-11-22T19:32:24.200157Z",
+      "status": "failed",
+      "latestResultId": "bdb3d22c-da7c-832b-b7f9-ff97d0740492",
+      "resultOwner": "es-editions-watch",
+      "publicPrimaryDispositions": 6,
+      "nativeResultMatched": false,
+      "failureCause": null
+    },
+    {
+      "watchId": "csp-fedramp-watch",
+      "taskId": "6ab54b477dc88191873e8abb9c735bf7",
+      "attemptId": "d524d5be-88d0-8331-aac6-25ebfcce2c69",
+      "startedAt": "2026-11-22T20:47:04.149076Z",
+      "completedAt": "2026-11-22T21:17:08.722234Z",
+      "status": "failed",
+      "latestResultId": "9326a3cb-9c30-8327-8ed9-8e85e72653df",
+      "resultOwner": "csp-fedramp-watch",
+      "publicPrimaryDispositions": 7,
+      "nativeResultMatched": false,
+      "failureCause": null
+    }
+  ],
+  "diagnostic": {
+    "method": "scripts/pipeline-status.mjs --tasks with complete actual native peek responses retained privately",
+    "primaryRequired": {"version-release-watch": 27, "es-editions-watch": 6, "csp-fedramp-watch": 7},
+    "nativeMatchedSections": {"version-release-watch": 0, "es-editions-watch": 0, "csp-fedramp-watch": 0},
+    "qualification": "Prior same-day public section assessments coexist with incomplete or failed native joins. No raw private task settings are public. Peer records were read only."
+  },
+  "claimedDelivered": false,
+  "publicationBoundary": "Only the existing09:00 Eastern steward publishes the Site. This watch performed no Site/D1 publication, flag change, production workflow dispatch or task/schedule mutation."
+}
