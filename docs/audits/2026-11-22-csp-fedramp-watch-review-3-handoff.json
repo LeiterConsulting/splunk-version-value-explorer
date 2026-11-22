@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "kind": "immutable-watch-candidate",
+  "watchId": "csp-fedramp-watch",
+  "recordedAt": "2026-11-22T23:44:30.000Z",
+  "status": "held-pending-exact-candidate-validation",
+  "coordinator": "Automation_440f270a74e48191a770bb15ef4748a0",
+  "candidate": {
+    "commit": "1f7fafd61d16a07ea13919d3a7c991c2edcfff21",
+    "tree": "29236d1abd19979d4d1fedec52595655a9e05a21",
+    "auditCommit": "9ba1a977851249d9050a77ef4dfc7c8c2f161578",
+    "auditTree": "65101101016cb4982e0f7442ac343e380be9da57",
+    "pullRequests": [257, 260],
+    "supersededPullRequests": [258, 259],
+    "contentRevision": "content-7c994bf0e60671c1c60bdb20",
+    "engineRevision": "engine-7dd1bd5c98cbed7d8fc3",
+    "contentDigest": "5d8b0a0bca2ade9e7fff34581650912e82824ad95e325add9a61f2b040095ba3",
+    "recordCount": 1019,
+    "relationshipToEarlierCandidate": "This current-recovery candidate queues independently and does not replace any in-flight or prior selected candidate."
+  },
+  "coverage": {
+    "registryVersion": "1.4.0",
+    "assessedNoChange": [
+      "ai.regional-platform",
+      "ai.regional-es",
+      "ai.regional-observability",
+      "cloud-environment.regions",
+      "cloud-environment.experience",
+      "cloud-environment.fedramp",
+      "cloud-environment.product-services"
+    ],
+    "deferred": ["advisor.soc-workflow"],
+    "assessedAt": "2026-11-22T23:34:11.301Z",
+    "sourceAudit": "docs/audits/2026-11-22-csp-fedramp-watch-review-3-sources.json",
+    "coverageReceipt": "docs/audits/2026-11-22-csp-fedramp-watch-review-3-coverage.json",
+    "sourceReviewDigest": "beb4b6a0de37f4ca97d54e985efefe7ec85bfdbf7e67f80390ca4d2019cc613b",
+    "coverageReviewDigest": "3bbdb96ac6bff99db2803169a9adde799577b29e63179f8f20bbb0f34398d77b"
+  },
+  "feed": {
+    "sequence": 108,
+    "publicationId": "vci-ed0e7a10d8bd0f4acb65a7b39f8b7befb343cc634e76dc86312d8a9f638140ef",
+    "snapshotSha256": "ed0e7a10d8bd0f4acb65a7b39f8b7befb343cc634e76dc86312d8a9f638140ef",
+    "snapshotBytes": 273798,
+    "recordCount": 7,
+    "provenanceCommit": "9ba1a977851249d9050a77ef4dfc7c8c2f161578"
+  },
+  "validation": {
+    "local": {
+      "orderedSyncAndVerify": "passed",
+      "nodeTests": "939/939 passed after locked dependency installation",
+      "workerBuild": "passed",
+      "qualification": "The first test attempt passed 931 and failed eight build-dependent tests only because esbuild was absent; the locked dependency installation and complete rerun passed."
+    },
+    "github": {
+      "workflowRunId": 45084811373,
+      "workflow": "Validate release metadata and reports",
+      "statusAtHandoff": "in_progress",
+      "completedStepsThrough": "coverage and native-feed checks",
+      "currentStep": "full Node suite",
+      "exportArtifactSha256": null
+    }
+  },
+  "nativeExecution": {
+    "taskId": "6ab54b477dc88191873e8abb9c735bf7",
+    "currentAttempt": {
+      "runId": "be60a74a-3c68-8327-ba1b-b08eeb5d32da",
+      "startedAt": "2026-11-22T23:26:44.302545Z",
+      "statusAtHandoff": "in_progress",
+      "completedAt": null
+    },
+    "exposedLatestResult": {
+      "runId": "9326a3cb-9c30-8327-8ed9-8e85e72653df",
+      "completedAt": "2026-11-22T14:02:49.670262Z",
+      "firstLine": "CSP FedRAMP Watch — csp-fedramp-watch",
+      "matchesCurrentAttempt": false
+    }
+  },
+  "peerCrossCheck": {
+    "watchId": "es-editions-watch",
+    "taskId": "6ab2aa014df881918687cc1e30393ea9",
+    "nativeRunId": "b88ff498-f504-8320-b873-7da523203900",
+    "startedAt": "2026-11-22T22:30:57.802381Z",
+    "completedAt": "2026-11-22T22:56:08.844244Z",
+    "status": "completed",
+    "resultRunId": "b88ff498-f504-8320-b873-7da523203900",
+    "finalHeading": "ES Editions Watch — es-editions-watch",
+    "pr248HistoricalCoverageMatch": "6/6 structural rows; native attempt/result join false for that earlier receipt",
+    "currentCoverageMatch": "6/6 structural rows; later native attempt/result join true",
+    "qualification": "Read-only peer evidence; no ES record changed."
+  },
+  "incomplete": [
+    {
+      "scope": "Exact-candidate export evidence and artifact readback",
+      "owner": "csp-fedramp-watch",
+      "nextAction": "Allow workflow 45084811373 to finish, verify job, step, commit, tree and retained artifact digest, then bind export evidence before merge selection.",
+      "reviewBy": "2026-11-23"
+    },
+    {
+      "scope": "Candidate repository integration",
+      "owner": "csp-fedramp-watch",
+      "nextAction": "Merge PR 260 only after all exact-candidate gates pass; then read back the exact integrated tree.",
+      "reviewBy": "2026-11-23"
+    },
+    {
+      "scope": "Current native invocation/result match",
+      "owner": "csp-fedramp-watch",
+      "nextAction": "Compare the current full-precision attempt with its finished result without reassigning earlier receipts.",
+      "reviewBy": "2026-11-23"
+    },
+    {
+      "scope": "advisor.soc-workflow exact registered ES 8.8 source sections",
+      "owner": "es-editions-watch",
+      "nextAction": "Reconcile the two registered 404 locators with the two current official renamed sections while preserving both histories and exclusions.",
+      "reviewBy": "2026-11-23"
+    }
+  ],
+  "claimedDelivered": false,
+  "recordOnlyFollowUp": "This receipt does not publish the Site, write D1, dispatch production publication, alter flags or mutate task schedules. The sole 09:00 Eastern coordinator controls live publication."
+}
