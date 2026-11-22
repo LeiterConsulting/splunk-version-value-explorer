@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-o11y-chart-01650-metrics-cadence",
+  "revision": 1,
+  "recordedAt": "2026-11-22T19:17:30.896Z",
+  "evidence": [
+    {
+      "evidenceId": "release22-followthrough-60c5f64318aa37cd",
+      "url": "https://github.com/signalfx/splunk-otel-collector-chart/releases/tag/splunk-otel-collector-0.165.0",
+      "section": "Breaking changes; Collector adoption; Deprecations",
+      "statement": "The chart release changes chart-generated infrastructure,control-plane and Collector self-monitoring metrics from10s to1m. Existing overrides can change observed behavior. The candidate adds a scoped warning; review detector windows and explicit values before chart rollout.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-22T19:05:57.737Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "013a23c9f8b4f2380c3f7b29aebdfba4efe7bdfb369e6fbe0cbfc3c4981040a2",
+        "qualification": "Exact freshly acquired public response bytes; vendor revision unknown. Acquisition is separate from claim assessment."
+      }
+    },
+    {
+      "evidenceId": "release22-followthrough-original-o11y-guide",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/04aab030135f41275ae4f9b0ace312c946d98ff4/content/datasets/products.json",
+      "section": "/productTracks/observability/releasesData/Nov 2026/technicalChanges; surrounding scoped release guide",
+      "statement": "The original November technicalChanges array is empty. This finite check does not claim the entire repository or every historical record lacks related guidance.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-22T19:16:05.387Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9eca8db95b1c077e8f4d798aabc281ec68eaf52e9c6684d9f840702ab7ee7a87",
+        "qualification": "Exact original main04aab030 canonical file. The current candidate adds only the chart warning; other component warnings remain finite follow-through."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/e3bb39a272c0c6f8594fdbdd73ed3fab1e05a838/docs/audits/2026-11-22-version-release-watch-review-1-sources.json",
+      "pointer": "/issueObservations/17",
+      "originalLabel": "partially-addressed"
+    }
+  ],
+  "kind": "finding",
+  "title": "Chart0.165.0 changes selected metric defaults from10seconds to1minute",
+  "concernType": "coverage-gap",
+  "problem": "The chart release changes chart-generated infrastructure,control-plane and Collector self-monitoring metrics from10s to1m. Existing overrides can change observed behavior. The candidate adds a scoped warning; review detector windows and explicit values before chart rollout.",
+  "scope": {
+    "products": [
+      "Splunk OpenTelemetry Collector for Kubernetes"
+    ],
+    "versions": [
+      "chart0.165.0",
+      "Collector0.165.1"
+    ],
+    "editions": null,
+    "deployments": [
+      "Exact public component/package scope; customer configuration unknown"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers planning the named upgrade"
+    ],
+    "exclusions": [
+      "No customer configuration collected, universal impact, exact pairing, entitlement, authorization or production delivery."
+    ]
+  },
+  "impact": {
+    "customerScenario": "A reader plans the named version/component upgrade.",
+    "consequence": "An omitted or stale upgrade qualification can hide a conditional change.",
+    "level": "unknown"
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "Fresh exact primary sections independently assessed; no customer runtime or installer execution."
+  },
+  "claimIds": [
+    "release-guide.observability"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Public scoped evidence supports the concern; candidate integration/delivery and remaining follow-up are separate."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "coverageSearch": {
+    "question": "Does the November guide warn about chart0.165.0 default metric cadence?",
+    "expectedAnswer": "A scoped10s-to1m warning with explicit overrides and detector-window checks.",
+    "corpusEvidenceIds": [
+      "release22-followthrough-60c5f64318aa37cd",
+      "release22-followthrough-original-o11y-guide"
+    ],
+    "searchedAt": "2026-11-22T19:16:05.387Z",
+    "limits": "Only the exact retrieved primary sections and the pinned current guide section named by these evidence IDs were compared. No blanket product, source corpus, customer runtime or repository absence conclusion. Candidate integration and live delivery are separate."
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-o11y-instrumentation-128-default-limits",
+  "revision": 1,
+  "recordedAt": "2026-11-22T19:17:30.896Z",
+  "evidence": [
+    {
+      "evidenceId": "release22-followthrough-e5735fa4b98467b3",
+      "url": "https://github.com/signalfx/splunk-otel-java/releases/tag/v2.34.0",
+      "section": "Changed; Breaking changes",
+      "statement": "The two official release bodies separately set supported telemetry attribute/event/link defaults to128. Java changes unlimited defaults; .NET also changes prior span-link1000 and respects explicit values. Exceeding counts can drop telemetry. This is a scoped upgrade-backlog concern, not a claim that all telemetry or deployments lose data.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-22T19:06:01.611Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "dccd0bf61f495cabb935a1ebf2192bddcb74a4ca502ede0c45dde3132ef20169",
+        "qualification": "Exact freshly acquired public response bytes; vendor revision unknown. Acquisition is separate from claim assessment."
+      }
+    },
+    {
+      "evidenceId": "release22-followthrough-876103b0856ecbc1",
+      "url": "https://github.com/signalfx/splunk-otel-dotnet/releases/tag/v1.17.0",
+      "section": "Changed; Breaking changes",
+      "statement": "The two official release bodies separately set supported telemetry attribute/event/link defaults to128. Java changes unlimited defaults; .NET also changes prior span-link1000 and respects explicit values. Exceeding counts can drop telemetry. This is a scoped upgrade-backlog concern, not a claim that all telemetry or deployments lose data.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-22T19:06:01.587Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "8393c21ab7dcafeaffd892bbca93efb1a720d518179329854ac53b5a1b33794b",
+        "qualification": "Exact freshly acquired public response bytes; vendor revision unknown. Acquisition is separate from claim assessment."
+      }
+    },
+    {
+      "evidenceId": "release22-followthrough-original-o11y-guide",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/04aab030135f41275ae4f9b0ace312c946d98ff4/content/datasets/products.json",
+      "section": "/productTracks/observability/releasesData/Nov 2026/technicalChanges; surrounding scoped release guide",
+      "statement": "The original November technicalChanges array is empty. This finite check does not claim the entire repository or every historical record lacks related guidance.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-22T19:16:05.387Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9eca8db95b1c077e8f4d798aabc281ec68eaf52e9c6684d9f840702ab7ee7a87",
+        "qualification": "Exact original main04aab030 canonical file. The current candidate adds only the chart warning; other component warnings remain finite follow-through."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/e3bb39a272c0c6f8594fdbdd73ed3fab1e05a838/docs/audits/2026-11-22-version-release-watch-review-1-sources.json",
+      "pointer": "/issueObservations/19",
+      "originalLabel": "partially-addressed"
+    }
+  ],
+  "kind": "assessment",
+  "assessmentId": "vcia-release-20261122-recovery1-instrumentation-limits",
+  "assessedAt": "2026-11-22T19:16:05.387Z",
+  "outcome": "partially-addressed",
+  "rationale": "The two official release bodies separately set supported telemetry attribute/event/link defaults to128. Java changes unlimited defaults; .NET also changes prior span-link1000 and respects explicit values. Exceeding counts can drop telemetry. This is a scoped upgrade-backlog concern, not a claim that all telemetry or deployments lose data. Original acquisition/assessment precision is retained in the immutable source audit; feed transport uses UTC milliseconds.",
+  "reviewedScope": {
+    "products": [
+      "Splunk OpenTelemetry Java",
+      "Splunk OpenTelemetry .NET"
+    ],
+    "versions": [
+      "Java2.34.0",
+      ".NET1.17.0"
+    ],
+    "editions": null,
+    "deployments": [
+      "Exact public component/package scope; customer configuration unknown"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers planning the named upgrade"
+    ],
+    "exclusions": [
+      "No customer configuration collected, universal impact, exact pairing, entitlement, authorization or production delivery."
+    ]
+  },
+  "remainingConcerns": [
+    "version-release-watch by2026-11-23: retain exact version/component boundaries, complete the named package/issue/upgrade follow-up; production selection belongs to the sole09:00 steward."
+  ],
+  "comparedAssessmentIds": []
+}

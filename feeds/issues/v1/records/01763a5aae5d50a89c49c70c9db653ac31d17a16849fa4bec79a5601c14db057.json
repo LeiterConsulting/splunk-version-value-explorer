@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-enterprise-106-current-package-listing",
+  "revision": 1,
+  "recordedAt": "2026-11-22T19:17:30.896Z",
+  "evidence": [
+    {
+      "evidenceId": "release22-followthrough-60b0e15bd4c01a25",
+      "url": "https://www.splunk.com/en_us/download/splunk-enterprise.html?locale=en_us",
+      "section": "Choose Your Download > Choose Your Installation Package",
+      "statement": "The earlier guide called10.6.1.1 the current download. The fresh public listing and Linux AMD64 sidecar identify10.6.2.5 build b07ce3b48d58. The candidate corrects that statement; November19 remains the10.6.2 release date, not an inferred package date.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-22T19:06:22.712Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "224b02a346c71a37be63d7cf51cfa397c31787b18f1b5073313a6992b4703066",
+        "qualification": "Exact freshly acquired public response bytes; vendor revision unknown. Acquisition is separate from claim assessment."
+      }
+    },
+    {
+      "evidenceId": "release22-followthrough-92804efea4eda36f",
+      "url": "https://download.splunk.com/products/splunk/releases/10.6.2.5/linux/splunk-10.6.2.5-b07ce3b48d58-linux-amd64.tgz.sha512",
+      "section": "Published SHA512 for exact filename",
+      "statement": "The earlier guide called10.6.1.1 the current download. The fresh public listing and Linux AMD64 sidecar identify10.6.2.5 build b07ce3b48d58. The candidate corrects that statement; November19 remains the10.6.2 release date, not an inferred package date.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-22T19:05:58.390Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "118d3e0055f9ecdf98fb2c045190cd86ed7aea1d660a5cd70c9c47a793058137",
+        "qualification": "Exact freshly acquired public response bytes; vendor revision unknown. Acquisition is separate from claim assessment."
+      }
+    },
+    {
+      "evidenceId": "release22-followthrough-original-enterprise-guide",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/04aab030135f41275ae4f9b0ace312c946d98ff4/content/datasets/platform.json",
+      "section": "/enterprise/releasesData/10.6/requirements > Match the exact Enterprise maintenance package",
+      "statement": "The original current-download summary names10.6.1.1 build b2ae2962645c; the new primary listing has its own exact identity.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-22T19:10:40.657Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "e2b77c8565267150afc9a034a47d0e65f19e404c1c92d9227561deb63fe62840",
+        "qualification": "Exact pre-correction main04aab030 raw guide; vendor acquisition and installer verification are separate."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/e3bb39a272c0c6f8594fdbdd73ed3fab1e05a838/docs/audits/2026-11-22-version-release-watch-review-1-sources.json",
+      "pointer": "/issueObservations/16",
+      "originalLabel": "partially-addressed"
+    }
+  ],
+  "kind": "finding",
+  "title": "Enterprise10.6 download summary lagged the current public package identity",
+  "concernType": "coverage-gap",
+  "problem": "The earlier guide called10.6.1.1 the current download. The fresh public listing and Linux AMD64 sidecar identify10.6.2.5 build b07ce3b48d58. The candidate corrects that statement; November19 remains the10.6.2 release date, not an inferred package date.",
+  "scope": {
+    "products": [
+      "Splunk Enterprise"
+    ],
+    "versions": [
+      "10.6.2.5 build b07ce3b48d58"
+    ],
+    "editions": null,
+    "deployments": [
+      "Exact public component/package scope; customer configuration unknown"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers planning the named upgrade"
+    ],
+    "exclusions": [
+      "No customer configuration collected, universal impact, exact pairing, entitlement, authorization or production delivery."
+    ]
+  },
+  "impact": {
+    "customerScenario": "A reader plans the named version/component upgrade.",
+    "consequence": "An omitted or stale upgrade qualification can hide a conditional change.",
+    "level": "unknown"
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "Fresh exact primary sections independently assessed; no customer runtime or installer execution."
+  },
+  "claimIds": [
+    "release-guide.enterprise"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Public scoped evidence supports the concern; candidate integration/delivery and remaining follow-up are separate."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "coverageSearch": {
+    "question": "Which exact package does the current Enterprise10.6 download list identify?",
+    "expectedAnswer": "Retain10.6.2.5/build b07ce3b48d58 separately from the10.6.2 release date and earlier packages.",
+    "corpusEvidenceIds": [
+      "release22-followthrough-60b0e15bd4c01a25",
+      "release22-followthrough-92804efea4eda36f",
+      "release22-followthrough-original-enterprise-guide"
+    ],
+    "searchedAt": "2026-11-22T19:16:05.387Z",
+    "limits": "Only the exact retrieved primary sections and the pinned current guide section named by these evidence IDs were compared. No blanket product, source corpus, customer runtime or repository absence conclusion. Candidate integration and live delivery are separate."
+  }
+}
