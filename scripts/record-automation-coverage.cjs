@@ -17,6 +17,8 @@ try {
   run.recordedAt = new Date().toISOString();
   run.auditBindings = audits.map(a => ({ file: a.file, reviewDigest: native.reviewDigest(a.value) }));
   if (audits.length && (run.kind !== 'saved-task-execution' || audits.some(a => native.watchFor(a.file) !== run.watchId))) throw Error('Changed watch audits require their actual saved-task execution');
+  coverage.validateTaskOwner(run);
+  for (const audit of audits) coverage.validateBoundExecution(run, audit.value);
   run.reviewDigest = coverage.reviewDigest(run);
   const result = coverage.validateRun(run, registry);
   fs.writeFileSync(args[1], JSON.stringify(run, null, 2) + '\n');
