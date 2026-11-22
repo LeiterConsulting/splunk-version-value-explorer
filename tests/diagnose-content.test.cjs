@@ -61,9 +61,19 @@ test('header deadline aborts and halts without overlap or retry even when fetch 
   assert.equal(f.calls[0].options.signal.aborted,true);
   assert.equal(result.checks['live-manifest'].outcome,'skipped');
 });
-test('body deadline includes stream consumption and blocks all later requests', async () => {
-  const f = fixture(()=>new Response(new ReadableStream({start(c){c.enqueue(new TextEncoder().encode('{'));}})));
-  const result = await f.run({requestMs:15});
+test('body deadline includes stream consumption and blocks all later requests', async t => {
+  t.mock.timers.enable({apis:['setTimeout']});
+  let signalBodyRead;
+  const bodyRead = new Promise(resolve => { signalBodyRead = resolve; });
+  const response = new Response(new ReadableStream({
+    start(controller) { controller.enqueue(new TextEncoder().encode('{')); },
+    pull() { signalBodyRead(); return new Promise(()=>{}); }
+  }, {highWaterMark:0}));
+  const f = fixture(()=>response);
+  const pending = f.run({requestMs:15, now:()=>0});
+  await bodyRead;
+  t.mock.timers.tick(15);
+  const result = await pending;
   assert.equal(result.checks['database-health'].request.phase,'body');
   assert.equal(result.checks['database-health'].errorName,'TimeoutError');
   assert.equal(f.calls.length,1);

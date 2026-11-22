@@ -1,0 +1,116 @@
+{
+  "observedAt": "2026-11-22T19:36:13.293132+00:00",
+  "kind": "valid-public-feed-history-fork",
+  "contractVersion": "1.0.0",
+  "commonMain": "04aab030135f41275ae4f9b0ace312c946d98ff4",
+  "sharedCheckpointThrough": 103,
+  "heads": [
+    {
+      "commit": "03e83a8ea1db3cf95ff3c7f639fd48966d39f850",
+      "tree": "188151a52d7e69670927ecb817de2fcf16d53c1e",
+      "ledgerSha256": "4f5660890fc2b5811b954e63f781537da46fb085f4e33d6b0ed947cc047ad672",
+      "indexSha256": "72296f866cfec5724eaebd2b9866235cd43bd3c30a3891326f7ae74f23ede25c",
+      "recordRevisions": 819,
+      "checkpointCount": 106,
+      "divergentPublications": [
+        {
+          "publicationId": "vci-b7b74d33991e1585c42fbecf99bb6834a8a021d129a6a76891100d232ba97d78",
+          "sequence": 104,
+          "publishedAt": "2026-11-22T18:31:33.195Z",
+          "path": "snapshots/b7b74d33991e1585c42fbecf99bb6834a8a021d129a6a76891100d232ba97d78.json",
+          "sha256": "b7b74d33991e1585c42fbecf99bb6834a8a021d129a6a76891100d232ba97d78",
+          "byteLength": 268006
+        },
+        {
+          "publicationId": "vci-a1ced598f6bebce540f49fe1ae12958ad3dfb773eb889f38dbd22f843d3797e2",
+          "sequence": 105,
+          "publishedAt": "2026-11-22T18:55:21.332Z",
+          "path": "snapshots/a1ced598f6bebce540f49fe1ae12958ad3dfb773eb889f38dbd22f843d3797e2.json",
+          "sha256": "a1ced598f6bebce540f49fe1ae12958ad3dfb773eb889f38dbd22f843d3797e2",
+          "byteLength": 268705
+        },
+        {
+          "publicationId": "vci-e4241ad40cc8140144fefb9984cbe3bea14e8b63f013716b4ea1620ec24958fd",
+          "sequence": 106,
+          "publishedAt": "2026-11-22T19:17:30.896Z",
+          "path": "snapshots/e4241ad40cc8140144fefb9984cbe3bea14e8b63f013716b4ea1620ec24958fd.json",
+          "sha256": "e4241ad40cc8140144fefb9984cbe3bea14e8b63f013716b4ea1620ec24958fd",
+          "byteLength": 272108
+        }
+      ],
+      "latest": {
+        "publicationId": "vci-e4241ad40cc8140144fefb9984cbe3bea14e8b63f013716b4ea1620ec24958fd",
+        "sequence": 106,
+        "publishedAt": "2026-11-22T19:17:30.896Z",
+        "path": "snapshots/e4241ad40cc8140144fefb9984cbe3bea14e8b63f013716b4ea1620ec24958fd.json",
+        "sha256": "e4241ad40cc8140144fefb9984cbe3bea14e8b63f013716b4ea1620ec24958fd",
+        "byteLength": 272108
+      }
+    },
+    {
+      "commit": "72f6159a2036c64c3b9f5f825fdfeea24596e8f6",
+      "tree": "817240f253f2cff5eeb749ed19810c4ff7fd6296",
+      "ledgerSha256": "9149bf834e4122f58185b0138f3bd3aac3cfc99b852cfd010dac7cfc5c1c5544",
+      "indexSha256": "f2f1879e31fababf11eb7c9774827b8ab9452fb2ca63e545f653a287c02f1fe6",
+      "recordRevisions": 796,
+      "checkpointCount": 104,
+      "divergentPublications": [
+        {
+          "publicationId": "vci-39f75cadeae3a76afdd1ceb66895e2033683a9a19ae308dd2ed5b6b00339f419",
+          "sequence": 104,
+          "publishedAt": "2026-11-22T19:12:48.412Z",
+          "path": "snapshots/39f75cadeae3a76afdd1ceb66895e2033683a9a19ae308dd2ed5b6b00339f419.json",
+          "sha256": "39f75cadeae3a76afdd1ceb66895e2033683a9a19ae308dd2ed5b6b00339f419",
+          "byteLength": 264380
+        }
+      ],
+      "latest": {
+        "publicationId": "vci-39f75cadeae3a76afdd1ceb66895e2033683a9a19ae308dd2ed5b6b00339f419",
+        "sequence": 104,
+        "publishedAt": "2026-11-22T19:12:48.412Z",
+        "path": "snapshots/39f75cadeae3a76afdd1ceb66895e2033683a9a19ae308dd2ed5b6b00339f419.json",
+        "sha256": "39f75cadeae3a76afdd1ceb66895e2033683a9a19ae308dd2ed5b6b00339f419",
+        "byteLength": 264380
+      }
+    }
+  ],
+  "recordCollisions": [],
+  "gate": "scripts/lib/issue-feed.cjs validateLedger(previous): published snapshots must be an identical prefix",
+  "status": "blocked-no-history-rewrite",
+  "owner": "version-release-watch",
+  "independentReviewer": "version-guidance-audit",
+  "reviewBy": "2026-11-23",
+  "nextAction": "Prepare and independently review an explicit read-only checkpoint reconciliation retaining both public histories, all record bytes and recovery from both branch checkpoints. Do not weaken prefix immutability or silently renumber either published checkpoint; keep the existing public Site/runtime unchanged.",
+  "unionRecordRevisions": 822,
+  "prefixesCanBothRemainIdentical": false,
+  "negativeProbes": {
+    "checkedAt": "2026-11-22T19:41:39.532Z",
+    "recordUnion": 822,
+    "probes": [
+      {
+        "preservedHead": "03e83a8ea1db3cf95ff3c7f639fd48966d39f850",
+        "recordUnionValid": true,
+        "otherHeadRejected": "72f6159a2036c64c3b9f5f825fdfeea24596e8f6",
+        "failure": "Published snapshots are immutable; append a publication"
+      },
+      {
+        "preservedHead": "72f6159a2036c64c3b9f5f825fdfeea24596e8f6",
+        "recordUnionValid": true,
+        "otherHeadRejected": "03e83a8ea1db3cf95ff3c7f639fd48966d39f850",
+        "failure": "Published snapshots are immutable; append a publication"
+      }
+    ],
+    "qualification": "In-memory probes only. Neither alternative was written as canonical content or published. Existing history validator unchanged."
+  },
+  "mergeAttempt": {
+    "conflicts": [
+      "content/issue-feed.json",
+      "feeds/issues/v1/index.json",
+      "dist/content-revision.js",
+      "docs/releases/2026/11/2026-11-22.md"
+    ],
+    "aborted": true,
+    "mainWrites": false,
+    "qualification": "Temporary local merge aborted after both valid checkpoint histories proved incompatible. No failed candidate was merged, no checkpoint/record/date was rewritten, and no validation gate was weakened."
+  }
+}
