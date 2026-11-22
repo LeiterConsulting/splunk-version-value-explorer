@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "findingId": "vci-itsi-503-catalog-108-note-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-22T18:55:21.332Z",
+  "evidence": [
+    {
+      "evidenceId": "release22-recovery1-itsi-catalog-old",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/3596dd3f9dc6073f9b049eda036b0e3a676155a7/content/datasets/products.json",
+      "section": "/productTracks/itsi/releasesData/5.0.3/requirements/0/1",
+      "statement": "The original guide described the broad catalog as10.2–10.7 and used a three-segment10.6.1 label.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-22T18:48:32.218Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9eca8db95b1c077e8f4d798aabc281ec68eaf52e9c6684d9f840702ab7ee7a87",
+        "qualification": "Exact original GitHub-main raw file bytes; primary vendor evidence is separate."
+      }
+    },
+    {
+      "evidenceId": "release22-recovery1-itsi-catalog-current",
+      "url": "https://splunkbase.splunk.com/app/1841",
+      "section": "Public HTML __NEXT_DATA__.props.pageProps.appDetails.release.versionCompatibility; release5.0.3",
+      "statement": "The current listing includes10.2,10.3,10.4,10.5,10.6,10.7 and10.8. Broad listing is not an exact deployment pairing.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-22T18:14:53.581Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "efb7b5445052b84886b4c3ccd312ebb40a6d76a9b6b5127fb9e70cbc6db98ce2",
+        "qualification": "Original public HTML response; selected SSR catalog fields inspected separately from the empty visible JS shell."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/6e16ca3fcdec0ec6f30203ee71454269a4cfad86/docs/audits/2026-11-22-version-release-watch-review-1-sources.json",
+      "pointer": "/issueObservations/13",
+      "originalLabel": "partially-addressed"
+    }
+  ],
+  "kind": "finding",
+  "title": "ITSI5.0.3 prerequisite omitted the current Splunkbase10.8 catalog entry",
+  "concernType": "uncertain-claim",
+  "problem": "The retained Release Guide ITSI5.0.3 prerequisite described Splunkbase platform lines10.2–10.7, while the current public release catalog includes10.8. The candidate corrects the listing description and exact10.6 maintenance labels without establishing an Enterprise10.2 patch pairing, selectedCloud stack rollout, entitlement or authorization.",
+  "scope": {
+    "products": [
+      "Splunk IT Service Intelligence",
+      "VersionCompass Release Guide"
+    ],
+    "versions": [
+      "ITSI5.0.3 public catalog"
+    ],
+    "editions": null,
+    "deployments": [
+      "Broad catalog listing; exact package/stack eligibility separate"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers planning an ITSI and Platform comparison"
+    ],
+    "exclusions": [
+      "No blanket app/Platform pairing, tenant rollout, entitlement or authorization."
+    ]
+  },
+  "impact": {
+    "customerScenario": "A reader compares ITSI5.0.3 with the Cloud10.8 milestone.",
+    "consequence": "An outdated summary can obscure the current broad catalog entry. The current catalog still cannot replace exact package/stack compatibility.",
+    "level": "low"
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "Public current embedded catalog fields and commit-pinned original guide text independently compared."
+  },
+  "claimIds": [
+    "release-guide.itsi",
+    "release.itsi.5.0.3-catalog-platform-lines"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Candidate text is corrected; integration and production delivery have separate gates. Exact eligibility remains qualified."
+  },
+  "relationships": {
+    "related": [
+      "vci-itsi-503-enterprise-102-patch-scope"
+    ],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  }
+}
