@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-high-runtime-scope",
+  "assessmentId": "vcia-csp-recovery2-20261122-4",
+  "revision": 1,
+  "recordedAt": "2026-11-22T21:10:25.207Z",
+  "assessedAt": "2026-11-22T20:58:30.476Z",
+  "outcome": "still-present",
+  "rationale": "2.4 release notes limit High to core SPL generation/explanation and explicitly exclude Agent Mode; runtime/feature-region conditions remain separate.",
+  "reviewedScope": {
+    "products": [
+      "Splunk AI Assistant for SPL"
+    ],
+    "versions": [
+      "SAIA 2.3.6 documentation",
+      "October 19 High announcement"
+    ],
+    "editions": null,
+    "deployments": [
+      "Splunk Cloud Platform"
+    ],
+    "regions": [
+      "FedRAMP High scope under assessment"
+    ],
+    "audiences": [
+      "Customers and documentation readers evaluating the stated decision"
+    ],
+    "exclusions": [
+      "No tenant rollout, entitlement, authorization or environment-specific approval is inferred."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp22r2-4-1",
+      "url": "https://www.splunk.com/en_us/blog/industries/edge-and-ingest-processors-with-spl2-and-splunk-ai-assistant-achieve-fedramp-high.html",
+      "section": "Expanding capabilities in AWS GovCloud with FedRAMP High: SPL authoring and explanation",
+      "statement": "2.4 release notes limit High to core SPL generation/explanation and explicitly exclude Agent Mode; runtime/feature-region conditions remain separate.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-22T20:52:41.513Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "17935e2c5e5b7c3d6d03597b0f39297fe78cef0ef0b6aada9213968aca2982db",
+        "qualification": "Exact public HTTPS response-body digest retained by this invocation; not a publisher revision or proof of claim truth."
+      }
+    },
+    {
+      "evidenceId": "csp22r2-4-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "section": "Agent Mode requirements and supported regions; feature scope separate from base assistant coverage",
+      "statement": "2.4 release notes limit High to core SPL generation/explanation and explicitly exclude Agent Mode; runtime/feature-region conditions remain separate.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-22T20:53:07.524Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "64a7e9c8cebc3457e746933f2265660f6e3301b86d13cf39b06d306fb21f916a",
+        "qualification": "Exact public HTTPS response-body digest retained by this invocation; not a publisher revision or proof of claim truth."
+      }
+    },
+    {
+      "evidenceId": "csp22r2-4-3",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+      "section": "Model Runtime requirements and processing qualification",
+      "statement": "2.4 release notes limit High to core SPL generation/explanation and explicitly exclude Agent Mode; runtime/feature-region conditions remain separate.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-22T20:53:13.295Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "e1ad3acac4a9854712358def24cfed0e14dfa2cec66a48e3472309cb4c37f5e3",
+        "qualification": "Exact public HTTPS response-body digest retained by this invocation; not a publisher revision or proof of claim truth."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/c7eda8f803ef6e4191a7d2f7fb06106f1e22ef79/docs/audits/2026-11-22-csp-fedramp-watch-review-2-sources.json",
+      "pointer": "/issueObservations/3",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "csp-fedramp-watch by 2026-11-23: Recheck the named exact sections; No missing authorization, entitlement, compatibility, feature rollout, processing location or customer eligibility is inferred from silence, matrix blanks or adjacent evidence."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261122-4"
+  ]
+}

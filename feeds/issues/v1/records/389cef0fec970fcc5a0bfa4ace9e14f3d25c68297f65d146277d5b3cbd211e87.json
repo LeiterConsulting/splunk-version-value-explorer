@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-observability-ai-us3-region-mapping",
+  "assessmentId": "vcia-csp-recovery2-20261122-7",
+  "revision": 1,
+  "recordedAt": "2026-11-22T21:10:25.207Z",
+  "assessedAt": "2026-11-22T20:58:30.476Z",
+  "outcome": "still-present",
+  "rationale": "Assistant availability names us3 but the service-description realm table does not map us3; an AWS integration STS row is not hosting evidence.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Observability Cloud AI Assistant"
+    ],
+    "versions": [
+      "Current Observability service documentation"
+    ],
+    "editions": null,
+    "deployments": [
+      "Splunk-managed AI service"
+    ],
+    "regions": [
+      "us3"
+    ],
+    "audiences": null,
+    "exclusions": [
+      "No provider/region inheritance, feature unavailability, runtime residency, entitlement or offering/customer authorization is established."
+    ]
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp22r2-7-1",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/ai-assistant-in-observability-cloud",
+      "section": "Availability and supported realms, including us3",
+      "statement": "Assistant availability names us3 but the service-description realm table does not map us3; an AWS integration STS row is not hosting evidence.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-22T20:53:07.311Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "3c8f2572d5d32d9ad79d214ea3f5a78aab8ed06935fba94aea7b201ce9b313ad",
+        "qualification": "Exact public HTTPS response-body digest retained by this invocation; not a publisher revision or proof of claim truth."
+      }
+    },
+    {
+      "evidenceId": "csp22r2-7-2",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
+      "section": "Realm-to-provider and region table; no us3 mapping exposed",
+      "statement": "Assistant availability names us3 but the service-description realm table does not map us3; an AWS integration STS row is not hosting evidence.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-22T20:52:40.966Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b707a2f62f16dabd52586a98345c0510574dae7079cf8a97189376f7a1b39ac9",
+        "qualification": "Exact public HTTPS response-body digest retained by this invocation; not a publisher revision or proof of claim truth."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/c7eda8f803ef6e4191a7d2f7fb06106f1e22ef79/docs/audits/2026-11-22-csp-fedramp-watch-review-2-sources.json",
+      "pointer": "/issueObservations/6",
+      "originalLabel": "still-present"
+    }
+  ],
+  "remainingConcerns": [
+    "csp-fedramp-watch by 2026-11-23: Recheck the named exact sections; No missing authorization, entitlement, compatibility, feature rollout, processing location or customer eligibility is inferred from silence, matrix blanks or adjacent evidence."
+  ],
+  "comparedAssessmentIds": [
+    "vcia-csp-20261122-7"
+  ]
+}
