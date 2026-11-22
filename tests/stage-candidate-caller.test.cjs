@@ -34,8 +34,18 @@ test('rejection and malformed POST results stop uncertain without retry or raw e
  for(const reply of [()=>new Response('{"private":"secret"}',{status:409}),()=>new Response('{"status":"initialized"}'),()=>{throw Error('PRIVATE secret');}]){
  const {r,calls}=await run({},reply);assert.equal(r.status,'failed');assert.equal(calls.length,2);assert.equal(r.mutationOutcome,'uncertain-read-back-before-retry');assert.equal(r.operationId,undefined);assert.doesNotMatch(JSON.stringify(r),/PRIVATE|secret/);}
 });
-test('POST timeout stops without later calls',async()=>{
- const {r,calls}=await run({timeoutMs:25},()=>new Promise(()=>{}));assert.equal(r.reason,'request-timeout');assert.equal(r.mutationAttempted,true);assert.equal(calls.length,2);
+test('POST timeout stops without later calls', async t => {
+ t.mock.timers.enable({apis:['setTimeout']});
+ let signalPost;
+ const posted = new Promise(resolve => { signalPost = resolve; });
+ const pending = run({timeoutMs:25, monotonic:()=>0}, () => {
+   signalPost();
+   return new Promise(()=>{});
+ });
+ await posted;
+ t.mock.timers.tick(25);
+ const {r,calls} = await pending;
+ assert.equal(r.reason,'request-timeout');assert.equal(r.mutationAttempted,true);assert.equal(calls.length,2);
 });
 test('dirty checkout rejection precedes file reads',async()=>{
  const {loadStageInputs}=await import('../scripts/stage-candidate.mjs');let calls=0;
