@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "title": "Version Release Watch — version-release-watch",
+  "watchId": "version-release-watch",
+  "date": "2026-11-23",
+  "recordedAt": "2026-11-23T09:42:18Z",
+  "candidate": {
+    "commit": "ff59a420db7c88028c78a779e9839ac76b43faf9",
+    "tree": "505539f85c80a6ec1d8dda924df7ecf486332333",
+    "baseMain": "f15fb0851c4e40d6c4dc7b88c3a3c09ed6f98389",
+    "pullRequest": "https://github.com/LeiterConsulting/splunk-version-value-explorer/pull/267",
+    "status": "held",
+    "selectedForRelease": false,
+    "engineRevision": "engine-7dd1bd5c98cbed7d8fc3",
+    "contentRevision": "content-190be7b9abe2af34b1e82a4a",
+    "contentDigest": "f1a94d3bb068ea708fb02d544b4854fde5a63eb01b399de64a9ee742041436bf",
+    "recordCount": 1019,
+    "reportInputFingerprint": "24fa88b69ea6523731b86e6f77075fbebe73329d5a5c4bcf18db4561b379a06d"
+  },
+  "native": {
+    "taskId": "6aa950be0884819196ca3f8ae776f49b",
+    "schedulerRunId": "ff5242e9-5de8-8327-9ab6-67137a6f685c",
+    "startedAt": "2026-11-23T09:28:04.667001Z",
+    "entryWallClock": "2026-11-23T09:28:22Z",
+    "handoffObservedAt": "2026-11-23T09:42:18Z",
+    "status": "in_progress",
+    "completedAt": null,
+    "result": null,
+    "staleResult": {
+      "runId": "1b389ee8-5d8c-8333-8cd8-a738f641323a",
+      "heading": "Version Release Watch — version-release-watch"
+    },
+    "sameStartAtEntryAndHandoff": true,
+    "qualification": "Unknown current completion/result and null chat_ref remain unknown. Older same-owner result is isolated. No native association, scheduler repair, first-execution or activation success asserted."
+  },
+  "coverage": {
+    "registryVersion": "1.4.0",
+    "primary": 27,
+    "assessedNoChange": 17,
+    "incompletePrimary": 10,
+    "incompleteSupporting": 1,
+    "sourceAcquisitions": 330,
+    "substantiveDirectResponses": 308,
+    "blockedDirectResponses": 22,
+    "independentIndexedCiscoSection": true,
+    "sourceAudit": "docs/audits/2026-11-23-version-release-watch-sources.json",
+    "coverageReceipt": "docs/audits/2026-11-23-version-release-watch-coverage.json",
+    "earlyPublicReceipt": "d96b2ce2fbac24444d93c87b55a407b808de6b17",
+    "qualification": "All required dispositions retained. Acquisition is not semantic assessment. Nine Release Guide tracks and ai.discovery remain explicitly incomplete; supporting SOC also incomplete. Their exact gaps, owners, sources and November24 review dates are in the coverage receipt."
+  },
+  "issueFeed": {
+    "status": "blocked",
+    "retainedCanonicalSequence": 109,
+    "retainedCanonicalCheckpoint": "vci-a5ac92b1f6a52af569f69b839f9ab4b69d32b9ec407e175e022092eb21e59b37",
+    "actualScopedObservations": 5,
+    "newCheckpointCreated": false,
+    "reason": "Canonical main still109 while independently observed unmerged ES PR266 retains cumulative110/111. Hold append and reconcile lineage; do not create another divergent checkpoint. Both November22 histories and all canonical bytes retained.",
+    "owner": "version-release-watch",
+    "nextAction": "Recheck canonical main and ES feed integration, then append these actual observations with exact public audit provenance.",
+    "reviewBy": "2026-11-24"
+  },
+  "validation": {
+    "local": {
+      "outcome": "passed",
+      "commands": [
+        "npm ci --ignore-scripts",
+        "npm run maintenance:sync",
+        "npm run maintenance:verify",
+        "git diff --check",
+        "node scripts/check-native-issue-feed.cjs"
+      ],
+      "scope": "Ordered sync/check, Advisor, coverage/native-feed declaration gates, full Node suite and Worker build. Passed native-feed declaration validation does not mean an append was delivered."
+    },
+    "firstFailure": {
+      "stage": "Full Node suite",
+      "test": "reviewed deployed seed is distinct from current main content and bound to exact historical source",
+      "error": "fatal: unable to read tree (2858c6255c5c2b5ac879c35bbe560d31117ba3b9)",
+      "cause": "Shallow checkout omitted pinned historical fixture tree",
+      "recovery": "Fetched full Git history; unchanged candidate verification passed."
+    },
+    "ci": {
+      "runId": 45149324358,
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/actions/runs/45149324358",
+      "status": "in_progress-at-observation",
+      "conclusion": null
+    },
+    "exactCandidateExports": "pending",
+    "artifactDigest": null,
+    "artifactReadback": null,
+    "humanVisualReview": null,
+    "actualBrowserJourneys": "not performed",
+    "liveUiAssetsD1": "not performed"
+  },
+  "readback": {
+    "candidateTreeMatched": true,
+    "transferredFilesMatchedOriginalGitBlobs": true,
+    "mainIntegrated": false,
+    "sitesSavedVersion": 307,
+    "sitesSourceCommit": "34d41755efb9c009bc1067894bf2cc6d602d17e9",
+    "sitesArchiveDigest": "sha256:196cd0368b12f4012f5a296968d5ac5f9eb951005fb3fe450378ce72006987a0",
+    "qualification": "Read-only prior saved-source provenance, not this candidate's deployment or live health. No Sites/D1/flags/task/workflow mutations."
+  },
+  "diagnostic": {
+    "script": "scripts/pipeline-status.mjs --tasks supported-native-snapshot",
+    "evaluatedAt": "2026-11-23T09:39:08.620Z",
+    "ownedPrimary": 27,
+    "reviewedToday": 17,
+    "nativeReviewMatched": 0,
+    "qualification": "Coverage incompleteness and missing current native result remain separate from main CI success."
+  },
+  "artifacts": [
+    {
+      "path": "content/datasets/guidance.json",
+      "bytes": 91063,
+      "gitBlob": "cc245bf0f8603a0ba8ec23ecabf1f71fdf948fd5",
+      "sha256": "1c1f93bb995e0ee7de05f2f28572a36cb7e872c5294df477dfe63eeb5a5002ef"
+    },
+    {
+      "path": "content/publication.json",
+      "bytes": 1067,
+      "gitBlob": "3db848526dbf63d15dcfa6c218573d3868f407f5",
+      "sha256": "d2cae6d710103d58b941a2b25c2721b82b0572644f6745ee1a97caf20a599d06"
+    },
+    {
+      "path": "dist/content-bundle.json",
+      "bytes": 1866808,
+      "gitBlob": "009384114c4211add7b228ab0e6698d790a84b18",
+      "sha256": "6a1d9a625d59836f30c57b0d16dd8bb000950d627d5c4723d028e02f524ac189"
+    },
+    {
+      "path": "dist/content-manifest.json",
+      "bytes": 1067,
+      "gitBlob": "3db848526dbf63d15dcfa6c218573d3868f407f5",
+      "sha256": "d2cae6d710103d58b941a2b25c2721b82b0572644f6745ee1a97caf20a599d06"
+    },
+    {
+      "path": "dist/content-revision.js",
+      "bytes": 89,
+      "gitBlob": "fd97d39e5640e9ea282a82f1e434153f45d243d8",
+      "sha256": "e632c4a50d508b35affb0dac2fd323e835de3f435a446d38ee0e24e931fd80d6"
+    },
+    {
+      "path": "dist/guidance-data.js",
+      "bytes": 91187,
+      "gitBlob": "668de77a1d9fa99b9ba25751b1c6ffb633be43ce",
+      "sha256": "b981ab23eaf79aa4410691ef93cc595910d6346eac7794b6e31f79bbaa9ee06d"
+    },
+    {
+      "path": "dist/index.html",
+      "bytes": 14144,
+      "gitBlob": "72ea482b4776b0f01558e4710b9935041fadfcd1",
+      "sha256": "ec413ad912db226808b16e01c4c269b0e778a8772e99a25cc98435f6b70f9c63"
+    },
+    {
+      "path": "dist/maintenance-status.js",
+      "bytes": 187468,
+      "gitBlob": "3da1501bd86d2594182766f753cb75e415fa2c5d",
+      "sha256": "2f3c8a433ea4e4f90bc3311c3afe2223741c98449330e08760ea7f1220f51d53"
+    },
+    {
+      "path": "docs/audits/2026-11-23-version-release-watch-coverage.json",
+      "bytes": 126777,
+      "gitBlob": "ac09357882c2ab3e6a16a7ffa64fa48c20392b57",
+      "sha256": "5c3a75f922c3f2395601f8d595486956f51bf24d0a641e4232702789097fd4cb"
+    },
+    {
+      "path": "docs/audits/2026-11-23-version-release-watch-sources.json",
+      "bytes": 317651,
+      "gitBlob": "563106b8bcab63f33041f254f0833aa081eac1c2",
+      "sha256": "6571363497a2b186b66304763b52f8bbfd8837c1726a43210606a3e7b2b84179"
+    },
+    {
+      "path": "docs/releases/2026/11/2026-11-23.md",
+      "bytes": 1538,
+      "gitBlob": "782ee9450e2c4f988770cecc0e65fdd950a45161",
+      "sha256": "5e7d874af867855c6efc330bcfb79e0197057fbd423d14ee645c0c94fc956395"
+    },
+    {
+      "path": "docs/releases/2026/11/README.md",
+      "bytes": 922,
+      "gitBlob": "618d6cf1e6b777d4b075089b3b6668bb75cc555d",
+      "sha256": "17c3ee4fdf5b3855da46923ef514d47b28b005fd5c312aac9da81795f88235c7"
+    }
+  ],
+  "gates": [
+    {
+      "gate": "Finish10 primary sections and supporting SOC",
+      "owner": "version-release-watch with registered supporting owners",
+      "action": "Read exact missing claim families/sections from own coverage receipt; preserve earlier dates and vendor discrepancies.",
+      "reviewBy": "2026-11-24"
+    },
+    {
+      "gate": "Canonical feed lineage and actual append",
+      "owner": "version-release-watch",
+      "action": "Reconcile current main and qualified ES checkpoints before append; preserve all immutable histories.",
+      "reviewBy": "2026-11-24"
+    },
+    {
+      "gate": "Final-head CI/native exports/artifact provenance/readback",
+      "owner": "version-release-watch",
+      "action": "Inspect run45149324358; accept only exact candidate or proved identical-input artifact with successful provenance/digest.",
+      "reviewBy": "2026-11-24"
+    },
+    {
+      "gate": "Concurrent daily note and main integration",
+      "owner": "version-release-watch",
+      "action": "Reconcile November23 note with ES PR266 and fresh main. Merge only a qualified exact candidate and verify main CI.",
+      "reviewBy": "2026-11-24"
+    },
+    {
+      "gate": "Release selection and Site delivery",
+      "owner": "Maintain VersionCompass GitHub",
+      "action": "Sole09:00 Eastern steward explicitly selects a fully eligible immutable candidate. This held candidate must not replace an in-flight release.",
+      "reviewBy": "2026-11-24"
+    },
+    {
+      "gate": "Own matching final native result",
+      "owner": "version-release-watch",
+      "action": "Read same task/run/exact start and matching result on next existing cycle; leave current result unknown.",
+      "reviewBy": "2026-11-24"
+    }
+  ],
+  "claimedDelivered": false
+}
