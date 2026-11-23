@@ -22,6 +22,27 @@ function fixture() {
 }
 const result = f => inspect(f.snapshot, f.context);
 const first = f => result(f).watches[0];
+test('a future service-day baseline preserves historical observations and verifies the next configuration at the boundary', () => {
+  const f = fixture(), saved = f.context.ledger.amendments[0].savedTasks[0], native = f.snapshot.tasks[0];
+  const updated = { ...native, prompt: 'New private work order' };
+  const next = { ...baseline(updated), readbackAt: '2026-11-05T15:00:00Z', effectiveFrom: '2026-11-06T00:00:00-05:00' };
+  saved.scheduledConfiguration = next;
+  f.snapshot.observedAt = '2026-11-06T04:59:59Z';
+  assert.equal(first(f).accepted, true);
+  f.snapshot.observedAt = '2026-11-06T05:00:00Z';
+  assert(first(f).issues.includes('saved-configuration-not-matched'));
+  f.snapshot.tasks[0] = updated;
+  assert.equal(first(f).configuration.status, 'matched');
+  assert(first(f).issues.includes('run-predates-saved-amendment'));
+  saved.currentConfiguration = { ...baseline(native), readbackAt: '2026-11-06T06:00:00Z' };
+  assert.equal(first(f).configuration.status, 'matched');
+  f.snapshot.observedAt = '2026-11-06T06:00:00Z';
+  assert(first(f).issues.includes('saved-configuration-not-matched'));
+  for (const invalid of [{ effectiveFrom: 'yesterday' }, { readbackAt: '2026-11-07T00:00:00Z' }, { afterDigest: null }]) {
+    saved.scheduledConfiguration = { ...next, ...invalid };
+    assert.throws(() => first(f), /Invalid prospective watch configuration/);
+  }
+});
 test('an earlier receipt stays distinct from a failed retry and a matching partial receipt is visible', () => {
   const f = fixture();
   Object.assign(f.context.runs[0], { runId: 'earlier', coverageComplete: false });
