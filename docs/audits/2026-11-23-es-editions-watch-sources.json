@@ -1501,6 +1501,129 @@
         "action": "Recheck the exact conflicting/current sections; retain historical labels and coordinate regional or release details with their existing owners.",
         "reviewBy": "2026-11-24"
       }
+    },
+    {
+      "findingId": "vci-es-88-premier-uae-service-disruption",
+      "outcome": "still-present",
+      "rationale": "The exact ES8.8 Premier AWS table retains me-central-1/UAE with AWS services disrupted. This observation does not establish provider cause, every component outage, tenant impact or authorization.",
+      "evidence": [
+        {
+          "sourceId": "regions88-current",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+          "section": "Premier regional availability: AWS region, Geographic area and Exception columns; me-central-1 row",
+          "sourceCheckedAt": "2026-11-23T09:02:24.621Z",
+          "status": 200,
+          "availability": "retrieved",
+          "sha256": "9cafbb432aad9a541512dede48853fe0f57c1423ffdae9bb13c76f708560b7a6",
+          "title": "Compatibility and regional availability | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T03:25:41.821Z)"
+        }
+      ],
+      "assessedAt": "2026-11-23T09:14:37.587Z",
+      "followUp": {
+        "owner": "csp-fedramp-watch",
+        "action": "Recheck exact named public sections and coordinate the existing owners; retain unresolved scope and separate live qualification.",
+        "reviewBy": "2026-11-24"
+      }
+    },
+    {
+      "findingId": "vci-es-88-ai-regional-mapping-discrepancy",
+      "outcome": "partially-addressed",
+      "rationale": "Current canonical policies no longer exclude Security AI Assistant in Milan or Sao Paulo. The complete8.8 tables have no named Assistant exception there; current release runtime rows separately say Milan Data zone and Sao Paulo Global. Montreal/Calgary, GovCloud and component conditions remain separate. This repository comparison does not certify live delivery, in-region inference or per-agent rollout.",
+      "evidence": [
+        {
+          "sourceId": "regions88-current",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+          "section": "Compatibility and Regional Availability tables",
+          "sourceCheckedAt": "2026-11-23T09:02:24.621Z",
+          "status": 200,
+          "availability": "retrieved",
+          "sha256": "9cafbb432aad9a541512dede48853fe0f57c1423ffdae9bb13c76f708560b7a6",
+          "title": "Compatibility and regional availability | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T03:25:41.821Z)"
+        },
+        {
+          "sourceId": "rn88-current",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": "Model Runtime feature availability and region standard: Milan and Sao Paulo rows",
+          "sourceCheckedAt": "2026-11-23T09:02:24.616Z",
+          "status": 200,
+          "availability": "retrieved",
+          "sha256": "ea7983c919d23a0656fce52f7087a335d7642e1aa905e0de4727b0087440a064",
+          "title": "Release notes for Splunk Enterprise Security | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T03:25:41.821Z)"
+        }
+      ],
+      "assessedAt": "2026-11-23T09:14:37.587Z",
+      "followUp": {
+        "owner": "csp-fedramp-watch",
+        "action": "Recheck exact named public sections and coordinate the existing owners; retain unresolved scope and separate live qualification.",
+        "reviewBy": "2026-11-24"
+      }
+    },
+    {
+      "findingId": "vci-es-88-ai-release-stage-copy",
+      "outcome": "partially-addressed",
+      "rationale": "Current canonical ES records retain product GA, Threat Graph alpha and Autonomous Response CA separately. Current shared assessment code says component release stage still needs confirmation instead of appending universal product CA. Official8.8 release says November4 GA. Native exports and actual live copy are not freshly certified by this source/code review.",
+      "evidence": [
+        {
+          "sourceId": "rn88-current",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": "8.8 General Availability notice and agent-specific edition boundary",
+          "sourceCheckedAt": "2026-11-23T09:02:24.616Z",
+          "status": 200,
+          "availability": "retrieved",
+          "sha256": "ea7983c919d23a0656fce52f7087a335d7642e1aa905e0de4727b0087440a064",
+          "title": "Release notes for Splunk Enterprise Security | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T03:25:41.821Z)"
+        },
+        {
+          "sourceId": "current-shared-assessment",
+          "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/f15fb0851c4e40d6c4dc7b88c3a3c09ed6f98389/dist/ai-availability.js",
+          "section": "assess: ES conditional-result detail",
+          "sourceCheckedAt": "2026-11-23T09:14:37.587Z",
+          "status": null,
+          "availability": "retrieved",
+          "sha256": "5bbfc187867e26f8bf97acd7f0b58a75cab5092c3d178d715428b60c65b46eb9",
+          "title": "Canonical shared AI assessment source at fresh main",
+          "method": "Exact Git source readback at fetched canonical main; HTTP status not exposed"
+        }
+      ],
+      "assessedAt": "2026-11-23T09:14:37.587Z",
+      "followUp": {
+        "owner": "es-editions-watch",
+        "action": "Recheck exact named public sections and coordinate the existing owners; retain unresolved scope and separate live qualification.",
+        "reviewBy": "2026-11-24"
+      }
+    },
+    {
+      "findingId": "vci-es-88-response-deployment-column-conflict",
+      "outcome": "still-present",
+      "rationale": "The same8.8 Autonomous Response aggregate row labels availability Premier (Cloud only) but includes a Cloud Connected CMP prerequisite bullet. The exact Response task also contains a CMP prerequisite while describing Premier Cloud support. This is a vendor applicability disagreement, not proof that Response is supported on CMP. Response remains CA; entitlement, model, pairing and region are independent.",
+      "evidence": [
+        {
+          "sourceId": "agentic88-current",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+          "section": "Compatibility information: Autonomous Response row, Availability versus Compatibility information columns",
+          "sourceCheckedAt": "2026-11-23T09:02:34.071Z",
+          "status": 200,
+          "availability": "retrieved",
+          "sha256": "97d6de274ac815499fa9334cd3ae4695300af1d4f6d9b303a8b728086b2d19ae",
+          "title": "Agentic AI offerings in Splunk Enterprise Security | Platform (last updated 2026-11-18T23:29:22.145Z)"
+        },
+        {
+          "sourceId": "autonomousResponse88",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/identify-and-run-the-soar-response-actions-on-findings-using-the-autonomous-response-agent-in-splunk-enterprise-security",
+          "section": "Controlled Availability notice; Prerequisites: Cloud support and Cloud Connected bullet",
+          "sourceCheckedAt": "2026-11-23T09:02:42.346Z",
+          "status": 200,
+          "availability": "retrieved",
+          "sha256": "621213789a0699780a6cfa82b8a17b5d8be851b3d972a1c013020c7b4d3de24b",
+          "title": "Identify and run the SOAR response actions on findings using the Autonomous Response agent in Splunk Enterprise Security | Platform (last updated 2026-11-18T23:29:37.560Z)"
+        }
+      ],
+      "assessedAt": "2026-11-23T09:14:37.587Z",
+      "followUp": {
+        "owner": "es-editions-watch",
+        "action": "Recheck exact named public sections and coordinate the existing owners; retain unresolved scope and separate live qualification.",
+        "reviewBy": "2026-11-24"
+      }
     }
   ],
   "gaps": [
@@ -1551,24 +1674,11 @@
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "es-editions-watch",
-    "status": "published",
-    "recordedAt": "2026-11-23T09:08:33.896Z",
-    "reviewDigest": "00d909500d28fdae2e6222d59bab17b8593a1fbe78799440e3da067e95bdc6b5",
+    "status": "pending-public-provenance",
+    "recordedAt": "2026-11-23T09:14:58.262Z",
+    "reviewDigest": "19e77758405707f22fbc6cbe5bb215c6ac7b57ea23de7787b5f5172950d44810",
     "publicationId": "vci-0b248fb5c2672cc19935c0862f7c5e09695a88e2904191b2598cfeb12aacbf49",
-    "recordKeys": [
-      "assessment:vcia-es-20261123-es-88-triage-editions@1",
-      "assessment:vcia-es-20261123-es-soc-analyst-version-floor@1",
-      "assessment:vcia-es-20261123-es-88-triage-credit-revision-scope@1",
-      "assessment:vcia-es-20261123-es-88-response-agent-rerun-coverage@1",
-      "assessment:vcia-es-20261123-es-87-connector-builder-editions@1",
-      "assessment:vcia-es-20261123-es-guided-response-enhancement-scope@1",
-      "assessment:vcia-es-20261123-es-malware-phishing-version-floor@1",
-      "assessment:vcia-es-20261123-es-activity-pricing-deployment-scope@1",
-      "assessment:vcia-es-20261123-app-for-soar-88-onprem-matrix-cell@1",
-      "assessment:vcia-es-20261123-soar-export-88-tested-pairing-scope@1",
-      "assessment:vcia-es-20261123-es-88-soc-source-locators@1",
-      "assessment:vcia-es-20261123-es-88-sop-upload-format-scope@1"
-    ],
+    "recordKeys": [],
     "notReassessedFindingIds": [
       "vci-soar-cloud-880-release-stage",
       "vci-itsi-subagent-region",
@@ -1601,18 +1711,21 @@
       "vci-enterprise-106-legacy-tls-override-conflict",
       "vci-o11y-secure-app-dotnet-dual-mode-realms",
       "vci-forwarder-104-stale-maintenance-wording",
-      "vci-es-88-premier-uae-service-disruption",
       "vci-o11y-november-saas-milestone-coverage",
       "vci-o11y-database-monitoring-us2-conflict",
-      "vci-es-88-ai-regional-mapping-discrepancy",
       "vci-es-88-enterprise-106-maintenance-pairing-coverage",
       "vci-acs-fedramp-high-victoria-conflict",
-      "vci-es-88-ai-release-stage-copy",
       "vci-saia-dublin-base-service-listing",
       "vci-observability-ai-us3-region-mapping",
       "vci-o11y-november-unmatched-pdf-heading-split"
     ],
-    "deferredConcerns": [],
-    "qualification": "Twelve distinct November23 assessments cite immutable public audit2df2f7d. Prepared candidate records and checkpoint110 retain every prior revision and both fork histories. Final validation, canonical integration and readback remain separate delivery gates."
+    "deferredConcerns": [
+      "ES Editions Watch will pin the expanded public audit and append four scoped assessments and one finding without rewriting checkpoint110 during this invocation; next existing review2026-11-24 if blocked."
+    ],
+    "qualification": "Checkpoint110 and its twelve assessments remain immutable. The extended matched scope needs its own public audit commit before feed append. New candidate remains held."
+  },
+  "reviewContinuation": {
+    "assessedAt": "2026-11-23T09:14:37.587Z",
+    "reason": "Completed feed matching for the actual sections assessed. Adds three existing-finding reassessments and one newly normalized Response deployment contradiction; no earlier source or feed history removed."
   }
 }
