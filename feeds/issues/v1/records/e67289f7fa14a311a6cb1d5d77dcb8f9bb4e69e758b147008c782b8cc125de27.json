@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-88-ai-regional-mapping-discrepancy",
+  "revision": 1,
+  "recordedAt": "2026-11-23T09:15:49.401Z",
+  "assessmentId": "vcia-es-20261123-es-88-ai-regional-mapping-discrepancy",
+  "assessedAt": "2026-11-23T09:14:37.587Z",
+  "outcome": "partially-addressed",
+  "rationale": "Current canonical policies no longer exclude Security AI Assistant in Milan or Sao Paulo. The complete8.8 tables have no named Assistant exception there; current release runtime rows separately say Milan Data zone and Sao Paulo Global. Montreal/Calgary, GovCloud and component conditions remain separate. This repository comparison does not certify live delivery, in-region inference or per-agent rollout.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security AI Availability"
+    ],
+    "versions": [
+      "ES8.8 current documentation and canonical main f15fb085"
+    ],
+    "editions": [
+      "Essentials",
+      "Premier"
+    ],
+    "deployments": [
+      "Cloud",
+      "Cloud Connected"
+    ],
+    "regions": [
+      "Milan",
+      "São Paulo",
+      "Montréal",
+      "Calgary"
+    ],
+    "audiences": null,
+    "exclusions": [
+      "No feature rollout, entitlement, runtime placement or customer authorization is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-csp-cont-20261121-8"
+  ],
+  "remainingConcerns": [
+    "csp-fedramp-watch will recheck the exact named scope by2026-11-24; live delivery and tenant eligibility remain separate."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "vcia-es-20261123-es-88-ai-regional-mapping-discrepancy-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "Compatibility and Regional Availability tables",
+      "statement": "Current canonical policies no longer exclude Security AI Assistant in Milan or Sao Paulo. The complete8.8 tables have no named Assistant exception there; current release runtime rows separately say Milan Data zone and Sao Paulo Global. Montreal/Calgary, GovCloud and component conditions remain separate. This repository comparison does not certify live delivery, in-region inference or per-agent rollout.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-23T09:02:24.621Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9cafbb432aad9a541512dede48853fe0f57c1423ffdae9bb13c76f708560b7a6",
+        "qualification": "Raw anonymous public response digest; no publisher revision inferred."
+      }
+    },
+    {
+      "evidenceId": "vcia-es-20261123-es-88-ai-regional-mapping-discrepancy-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "Model Runtime feature availability and region standard: Milan and Sao Paulo rows",
+      "statement": "Supporting or challenging exact section assessed with separate version, edition, deployment, runtime and authorization qualifications.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-23T09:02:24.616Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ea7983c919d23a0656fce52f7087a335d7642e1aa905e0de4727b0087440a064",
+        "qualification": "Raw anonymous public response digest; no publisher revision inferred."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/f7ab637fda6b207ae4c67988b55d9e25b04072fc/docs/audits/2026-11-23-es-editions-watch-sources.json",
+      "pointer": "/issueObservations/13",
+      "originalLabel": "partially-addressed"
+    }
+  ]
+}
