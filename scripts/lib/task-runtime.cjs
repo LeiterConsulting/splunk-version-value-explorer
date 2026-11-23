@@ -132,6 +132,20 @@ function validateOperationalContract(contract) {
   const entries = [...contract.roles, ...contract.optionalTasks];
   if (new Set(entries.map(role => role.roleId)).size !== entries.length || new Set(entries.map(role => role.taskId)).size !== entries.length) throw Error('Duplicate operational role/task identity');
 }
+// A new schedule can be saved and independently read before its first service day.
+// Keep earlier observations on the baseline in effect when they were captured.
+function watchBaseline(saved, observedAt) {
+  const previous = saved.currentConfiguration || saved;
+  const next = saved.scheduledConfiguration;
+  if (next === undefined) return previous;
+  const effective = time(next?.effectiveFrom), captured = time(next?.readbackAt);
+  if (!Number.isFinite(effective) || !Number.isFinite(captured) || captured > effective || !validDigest(next?.afterDigest)) {
+    throw Error('Invalid prospective watch configuration');
+  }
+  const observed = time(observedAt), replacement = time(previous.readbackAt);
+  if (observed < effective || (replacement > captured && replacement <= observed)) return previous;
+  return next;
+}
 function inspect(snapshot, { registry, ledger, runs, operational = operationalContract }) {
   validateOperationalContract(operational);
   if (!snapshot || !Number.isFinite(time(snapshot.observedAt)) || time(snapshot.observedAt) > Date.now() || !Array.isArray(snapshot.tasks)) throw Error('Actual observed task snapshot required');
@@ -139,7 +153,7 @@ function inspect(snapshot, { registry, ledger, runs, operational = operationalCo
   const amendment = ledger.amendments.find(a => a.registryVersion === registry.registryVersion);
   if (!amendment) throw Error('Matching amendment required');
   const identities = [
-    ...amendment.savedTasks.map(saved => ({ id: saved.id, taskId: saved.taskId, kind: 'watch', aliases: [saved.id, headings.get(saved.id)].filter(Boolean), baseline: saved.currentConfiguration || saved })),
+    ...amendment.savedTasks.map(saved => ({ id: saved.id, taskId: saved.taskId, kind: 'watch', aliases: [saved.id, headings.get(saved.id)].filter(Boolean), baseline: watchBaseline(saved, snapshot.observedAt) })),
     ...operational.roles.map(role => ({ id: role.roleId, taskId: role.taskId, kind: 'role', aliases: [role.roleId, ...role.reportAliases], baseline: role.configuration }))
   ];
   if (new Set(identities.map(i => i.taskId)).size !== identities.length || new Set(identities.map(i => i.id)).size !== identities.length) throw Error('Duplicate declared role/task identity');

@@ -236,14 +236,28 @@ test('late fetch is cancelled without acquiring or consuming its response reader
   assert.equal(result.checks['database-health'].errorName,'TimeoutError');
   assert.equal(cancelled,1); assert.equal(acquired,0); assert.equal(f.calls.length,1);
 });
-test('late body chunk is never inspected after timeout and no new read is started', async () => {
-  let finish, reads=0, cancelled=0, inspected=0;
-  const f=fixture(()=>({status:200,body:{getReader:()=>({read:()=>{reads++;return new Promise(resolve=>{finish=resolve;});},cancel:()=>{cancelled++;return new Promise(()=>{});},releaseLock(){}})}}));
-  const result=await f.run({requestMs:15});
-  finish({done:false,get value(){inspected++;return Buffer.from('SECRET');}});
-  await new Promise(resolve=>setImmediate(resolve));
-  assert.equal(result.checks['database-health'].errorName,'TimeoutError');
-  assert.equal(cancelled,1); assert.equal(reads,1); assert.equal(inspected,0); assert.equal(f.calls.length,1);
+test('late body chunk is never inspected after timeout and no new read is started', async t => {
+  t.mock.timers.enable({apis: ['setTimeout']});
+  const started = Promise.withResolvers(), chunk = Promise.withResolvers();
+  let reads = 0, cancelled = 0, inspected = 0;
+  const reader = {
+    read() { reads++; started.resolve(); return chunk.promise; },
+    cancel() { cancelled++; return new Promise(() => {}); },
+    releaseLock() {}
+  };
+  const f = fixture(() => ({status: 200, body: {getReader: () => reader}}));
+  const pending = f.run({requestMs: 15, now: () => 0});
+  await started.promise;
+  t.mock.timers.tick(15);
+  const result = await pending;
+  chunk.resolve({done:false, get value() { inspected++; return Buffer.from('SECRET'); }});
+  await new Promise(resolve => setImmediate(resolve));
+  assert.equal(result.checks['database-health'].errorName, 'TimeoutError');
+  assert.equal(result.checks['database-health'].request.phase, 'body');
+  assert.equal(cancelled, 1);
+  assert.equal(reads, 1);
+  assert.equal(inspected, 0);
+  assert.equal(f.calls.length, 1);
 });
 test('body cap cancels a reader without waiting for cancellation', async () => {
   let cancelled=0;
