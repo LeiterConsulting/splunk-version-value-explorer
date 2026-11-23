@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-enterprise-kv-106-upgrade-bridge",
+  "revision": 1,
+  "recordedAt": "2026-11-23T01:01:47.487Z",
+  "assessmentId": "vcia-release-r3-1b389ee8-enterprise-kv-106-upgrade-bridge",
+  "assessedAt": "2026-11-23T00:58:27.227Z",
+  "outcome": "still-present",
+  "rationale": "Read Enterprise upgrade table, OS requirements, receiver topologies, Cloud-direct tier and cohosted KV procedure.9.4 requires10.0/10.2 bridge; ITSI5.0.x postpones KV migration and preserves backups/disk/read-only interval. Borrowed historical mappings were not all semantically reverified.",
+  "reviewedScope": {
+    "products": [
+      "Heavy Forwarder"
+    ],
+    "versions": [
+      "Sources 10.0 or lower",
+      "Destination 10.6"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed Enterprise package with KV Store"
+    ],
+    "regions": null,
+    "audiences": [
+      "Customers and documentation readers evaluating the stated decision"
+    ],
+    "exclusions": [
+      "KV-specific prerequisite; not applied to Universal Forwarders or Cloud-managed upgrade routes."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-guidance-20261102-enterprise-kv-106-upgrade-bridge"
+  ],
+  "remainingConcerns": [
+    "Only the exact named section was assessed. Preserve current conflicts and historical scope. version-release-watch with the registered supporting owner will revisit missing itemized vendor details by2026-11-23."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "vcia-release-r3-1b389ee8-enterprise-kv-106-upgrade-bridge-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise",
+      "section": "Enterprise upgrade path and Heavy Forwarder applicability",
+      "statement": "Read Enterprise upgrade table, OS requirements, receiver topologies, Cloud-direct tier and cohosted KV procedure.9.4 requires10.0/10.2 bridge; ITSI5.0.x postpones KV migration and preserves backups/disk/read-only interval. Borrowed historical mappings were not all semantically reverified.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-23T00:53:22.013Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "5ec344725b398db7dc572cec47429027ae0106e4d3e611ec39ebf0640baf91c8",
+        "qualification": "Raw anonymous public response identity; blocked original locators remain blocked and assessed replacements are separately cited."
+      }
+    },
+    {
+      "evidenceId": "vcia-release-r3-1b389ee8-enterprise-kv-106-upgrade-bridge-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/plan-your-splunk-enterprise-installation/system-requirements-for-use-of-splunk-enterprise-on-premises",
+      "section": "Splunk Enterprise system requirements",
+      "statement": "Supporting or challenging section assessed within the exact registered scope; version and environment conditions retained.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-23T00:53:21.893Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ce56622bb75e9dddf79dbca19be6576b331f4c7265ee0f3e5cb72f00a916881e",
+        "qualification": "Raw anonymous public response identity; blocked original locators remain blocked and assessed replacements are separately cited."
+      }
+    },
+    {
+      "evidenceId": "vcia-release-r3-1b389ee8-enterprise-kv-106-upgrade-bridge-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers#ariaid-title2",
+      "section": "Forwarding and receiver compatibility",
+      "statement": "Supporting or challenging section assessed within the exact registered scope; version and environment conditions retained.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-23T00:53:22.201Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "7cad1b9241ef05ea5a6e61ff18954f5826b25fed97727f3640cdf32f59263396",
+        "qualification": "Raw anonymous public response identity; blocked original locators remain blocked and assessed replacements are separately cited."
+      }
+    },
+    {
+      "evidenceId": "vcia-release-r3-1b389ee8-enterprise-kv-106-upgrade-bridge-3",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#supported-forwarder-versions-0",
+      "section": "Supported forwarder versions for Cloud destinations",
+      "statement": "Supporting or challenging section assessed within the exact registered scope; version and environment conditions retained.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-23T00:52:49.886Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "c86e4c520eebfbec51238ba2f70b7695542e7680daec8d03aa3df55bf0f618b8",
+        "qualification": "Raw anonymous public response identity; blocked original locators remain blocked and assessed replacements are separately cited."
+      }
+    },
+    {
+      "evidenceId": "vcia-release-r3-1b389ee8-enterprise-kv-106-upgrade-bridge-4",
+      "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+      "section": "Co-hosted KV store migration requirements and scope",
+      "statement": "Supporting or challenging section assessed within the exact registered scope; version and environment conditions retained.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-23T00:52:44.559Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "aae7a19194f7615c449b8313526b3aed33311e24c6b6fb7cc85c239b9b496bdd",
+        "qualification": "Raw anonymous public response identity; blocked original locators remain blocked and assessed replacements are separately cited."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/3b988eb4363427ee82e0fe859606c799f5f49172/docs/audits/2026-11-22-version-release-watch-review-3-sources.json",
+      "pointer": "/scopeOutcomes/27",
+      "originalLabel": "assessed-no-change"
+    }
+  ]
+}
