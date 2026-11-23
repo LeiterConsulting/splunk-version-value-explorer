@@ -1466,10 +1466,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-22T22:30:57.802381Z",
-      "lastSuccess": "2026-11-22T22:39:26.945Z",
+      "lastAttempt": "2026-11-23T08:58:34.626058Z",
+      "lastSuccess": "2026-11-23T09:08:34.381Z",
       "outcome": "no-change",
-      "summary": "Fresh six-section ES review; twelve scoped issue reassessments; no canonical product facts changed.",
+      "summary": "Fresh six-section ES review; canonical product guidance unchanged. Twelve issue reassessments prepared; candidate held for validation/integration.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -2159,9 +2159,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Fresh six-section ES review; twelve scoped issue reassessments; no canonical product facts changed.",
           "scope": "Registry 1.4.0 six primary scopes. Native current-result join remains missing; exact-candidate export/artifact and sole steward runtime delivery held. Original claim dates preserved."
+        },
+        {
+          "at": "2026-11-23T08:58:34.626058Z",
+          "outcome": "running",
+          "summary": "Started current Eastern-day ES source review.",
+          "scope": "Six primary registry1.4.0 sections; native result isolated."
+        },
+        {
+          "at": "2026-11-23T09:08:34.381Z",
+          "outcome": "no-change",
+          "summary": "Fresh six-section ES review; canonical product guidance unchanged. Twelve issue reassessments prepared; candidate held for validation/integration.",
+          "scope": "Edition/licensing, history, deployment, workflows, five ES AI capabilities and Advisor SOC;55 source checks. LastSuccess means this review, not live delivery."
         }
       ],
-      "scope": "Registry 1.4.0 six primary scopes. Native current-result join remains missing; exact-candidate export/artifact and sole steward runtime delivery held. Original claim dates preserved."
+      "scope": "Edition/licensing, history, deployment, workflows, five ES AI capabilities and Advisor SOC;55 source checks. LastSuccess means this review, not live delivery."
     },
     {
       "id": "version-guidance-audit",
