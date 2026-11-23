@@ -646,10 +646,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-22T21:49:07Z",
+      "lastAttempt": "2026-11-23T00:50:56.828847Z",
       "lastSuccess": "2026-11-21T19:40:05.303Z",
       "outcome": "blocked",
-      "summary": "20 primary sections assessed-no-change;7 primary sections incomplete; candidate held for remaining validation and publication selection.",
+      "summary": "27 primary dispositions:24 assessed-no-change,3 incomplete; feed checkpoint109 prepared; exact candidate CI/export and integration held.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1447,9 +1447,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "20 primary sections assessed-no-change;7 primary sections incomplete; candidate held for remaining validation and publication selection.",
           "scope": "27 distinct primary dispositions and deferred supporting SOC. Four bounded feed reassessments prepared from canonical checkpoint105. Native final result join remains unresolved."
+        },
+        {
+          "at": "2026-11-23T00:50:56.828847Z",
+          "outcome": "running",
+          "summary": "Distinct Release review invocation entered.",
+          "scope": "Fresh27 primary registry1.4.0 sections, supportingSOC and eight scoped issue reassessments; no Site release."
+        },
+        {
+          "at": "2026-11-23T01:02:33.567Z",
+          "outcome": "blocked",
+          "summary": "27 primary dispositions:24 assessed-no-change,3 incomplete; feed checkpoint109 prepared; exact candidate CI/export and integration held.",
+          "scope": "Fresh27 primary registry1.4.0 sections, supportingSOC and eight scoped issue reassessments; no Site release."
         }
       ],
-      "scope": "27 distinct primary dispositions and deferred supporting SOC. Four bounded feed reassessments prepared from canonical checkpoint105. Native final result join remains unresolved."
+      "scope": "Fresh27 primary registry1.4.0 sections, supportingSOC and eight scoped issue reassessments; no Site release."
     },
     {
       "id": "es-editions-watch",
