@@ -2166,10 +2166,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-guidance-audit",
       "name": "Version Guidance Audit",
-      "lastAttempt": "2026-11-19T13:12:41.564297Z",
+      "lastAttempt": "2026-11-23T12:04:43.530090Z",
       "lastSuccess": "2026-11-08T22:04:05.623Z",
       "outcome": "blocked",
-      "summary": "Six bounded capability reviews passed; seventeen scopes and current live identity remain incomplete.",
+      "summary": "Independent registry1.4 audit: seven assessed-no-change sections;33 incomplete; candidate held for validation and feed reconciliation.",
       "history": [
         {
           "at": "2026-09-24T12:45:24.855849+00:00",
@@ -2367,9 +2367,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Six bounded capability reviews passed; seventeen scopes and current live identity remain incomplete.",
           "scope": "Independent registry 1.3.0, historical mapping regression and read-only live checks"
+        },
+        {
+          "at": "2026-11-23T12:04:43.530090Z",
+          "outcome": "running",
+          "summary": "Independent registry1.4 audit: seven assessed-no-change sections;33 incomplete; candidate held for validation and feed reconciliation.",
+          "scope": "All40 dispositions;338 inventory attempts;13 mapping regressions;bundled live check."
+        },
+        {
+          "at": "2026-11-23T12:11:05.092Z",
+          "outcome": "blocked",
+          "summary": "Independent registry1.4 audit: seven assessed-no-change sections;33 incomplete; candidate held for validation and feed reconciliation.",
+          "scope": "All40 dispositions;338 inventory attempts;13 mapping regressions;bundled live check."
         }
       ],
-      "scope": "Independent registry 1.3.0, historical mapping regression and read-only live checks"
+      "scope": "All40 dispositions;338 inventory attempts;13 mapping regressions;bundled live check."
     }
   ]
 };
