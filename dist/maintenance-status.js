@@ -646,10 +646,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-23T00:50:56.828847Z",
+      "lastAttempt": "2026-11-23T09:28:04.667001Z",
       "lastSuccess": "2026-11-21T19:40:05.303Z",
       "outcome": "blocked",
-      "summary": "27 primary dispositions:24 assessed-no-change,3 incomplete; feed checkpoint109 prepared; exact candidate CI/export and integration held.",
+      "summary": "17 primary sections assessed-no-change;10 primary and supporting SOC incomplete. Five issue observations await canonical feed reconciliation; candidate held.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1459,9 +1459,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "27 primary dispositions:24 assessed-no-change,3 incomplete; feed checkpoint109 prepared; exact candidate CI/export and integration held.",
           "scope": "Fresh27 primary registry1.4.0 sections, supportingSOC and eight scoped issue reassessments; no Site release."
+        },
+        {
+          "at": "2026-11-23T09:28:04.667001Z",
+          "outcome": "running",
+          "summary": "Started independent current-day Release review.",
+          "scope": "27 primary registry1.4.0 rows plus supporting SOC; exact native start retained."
+        },
+        {
+          "at": "2026-11-23T09:37:38.513Z",
+          "outcome": "blocked",
+          "summary": "17 primary sections assessed-no-change;10 primary and supporting SOC incomplete. Five issue observations await canonical feed reconciliation; candidate held.",
+          "scope": "330-source acquisition separate from semantic review. No canonical factual dates or material cycle advanced; no deployment or scheduler success implied."
         }
       ],
-      "scope": "Fresh27 primary registry1.4.0 sections, supportingSOC and eight scoped issue reassessments; no Site release."
+      "scope": "330-source acquisition separate from semantic review. No canonical factual dates or material cycle advanced; no deployment or scheduler success implied."
     },
     {
       "id": "es-editions-watch",
