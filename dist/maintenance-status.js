@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-22T12:41:34.280121Z",
+      "lastAttempt": "2026-11-23T10:39:38.759897Z",
       "lastSuccess": "2026-11-21T19:34:26.194Z",
       "outcome": "blocked",
-      "summary": "Seven registered CSP scopes assessed; Advisor SOC coverage remains incomplete because two exact registered 8.8 locators return 404 while renamed current topics are separately readable.",
+      "summary": "Seven primary sections assessed without canonical fact changes; supporting SOC locators, AWS endpoint rows, feed lineage and candidate validation remain held.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -639,9 +639,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Seven registered CSP scopes assessed; Advisor SOC coverage remains incomplete because two exact registered 8.8 locators return 404 while renamed current topics are separately readable.",
           "scope": "Four protected Cloud Environment rows, three AI regional scopes, Advisor SOC dependency, visual public-sector matrix and 44-URL official inventory. Repository/feed/export/live delivery remain separate."
+        },
+        {
+          "at": "2026-11-23T10:39:38.759897Z",
+          "outcome": "running",
+          "summary": "Started the November 23 Eastern CSP FedRAMP review under native attempt eb005e5d.",
+          "scope": "Four protected Cloud Environment rows, three AI regional rows, supporting Advisor SOC, full official inventory, visual compliance matrix and feed checkpoint."
+        },
+        {
+          "at": "2026-11-23T10:50:35.976Z",
+          "outcome": "blocked",
+          "summary": "Seven primary sections assessed without canonical fact changes; supporting SOC locators, AWS endpoint rows, feed lineage and candidate validation remain held.",
+          "scope": "Registry 1.4.0 CSP review; no Site, D1, flag, workflow dispatch, task or schedule changes."
         }
       ],
-      "scope": "Four protected Cloud Environment rows, three AI regional scopes, Advisor SOC dependency, visual public-sector matrix and 44-URL official inventory. Repository/feed/export/live delivery remain separate."
+      "scope": "Registry 1.4.0 CSP review; no Site, D1, flag, workflow dispatch, task or schedule changes."
     },
     {
       "id": "version-release-watch",
