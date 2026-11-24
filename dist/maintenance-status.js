@@ -553,7 +553,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-16T12:25:14.856Z",
           "outcome": "blocked",
-          "summary": "Versioned S3 evidence corrected. Historical SOC evidence and first-execution verification remain incomplete.",
+          "summary": "Versioned S3 evidence corrected. Historical SOC evidence remains incomplete.",
           "scope": "Complete carried CSP inventory, ten scoped assessments and the governed SOC coverage slice."
         },
         {
@@ -650,7 +650,7 @@ window.VersionCompassMaintenance = {
           "at": "2026-11-23T10:50:35.976Z",
           "outcome": "blocked",
           "summary": "Seven primary sections assessed without canonical fact changes; supporting SOC locators, AWS endpoint rows, feed lineage and candidate validation remain held.",
-          "scope": "Registry 1.4.0 CSP review; no Site, D1, flag, workflow dispatch, task or schedule changes."
+          "scope": "Registry 1.4.0 CSP review."
         },
         {
           "at": "2026-11-24T10:03:32.334Z",
@@ -682,10 +682,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-24T18:10:19.135Z",
+      "lastAttempt": "2026-11-24T18:58:35Z",
       "lastSuccess": "2026-11-21T19:40:05.303Z",
       "outcome": "blocked",
-      "summary": "Prepared two Observability AI guidance corrections. All 27 sections remain incomplete for this follow-up review.",
+      "summary": "Scoped review and ITSI correction prepared; see the dated source and coverage receipts for incomplete sections and validation.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1397,7 +1397,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-16T11:34:03.307Z",
           "outcome": "blocked",
-          "summary": "Three historical receiver citations were verified. Historical SOC evidence, native first-execution verification and release delivery remain incomplete.",
+          "summary": "Three historical receiver citations were verified. Historical SOC evidence and release delivery remain incomplete.",
           "scope": "Public release discovery, Prep11, Advisor, exact Forwarder receiver citations and bounded SOAR claims."
         },
         {
@@ -1475,8 +1475,8 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-22T21:49:07Z",
           "outcome": "running",
-          "summary": "Scheduled recovery assessment under current Release attempt.",
-          "scope": "27 primary registry1.4.0 sections plus supporting SOC; fresh official sources and native receipt reconciliation."
+          "summary": "Began a follow-up Release assessment.",
+          "scope": "27 primary registry1.4.0 sections plus supporting SOC; fresh official sources."
         },
         {
           "at": "2026-11-22T21:58:30Z",
@@ -1535,7 +1535,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-24T09:52:38.388Z",
           "outcome": "running",
-          "summary": "Distinct current Release attempt; fresh27 primary scope review.",
+          "summary": "Began a separate review of 27 primary Release sections.",
           "scope": "Registry1.4.0; own fresh public section assessments; no product facts or Site runtime changed."
         },
         {
@@ -1567,9 +1567,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Prepared two Observability AI guidance corrections. All 27 sections remain incomplete for this follow-up review.",
           "scope": "Reviewed Observability AI Assistant and troubleshooting guidance. The review covered two on-screen examples. Report checks and issue-feed publication were pending at the time."
+        },
+        {
+          "at": "2026-11-24T18:58:35Z",
+          "outcome": "running",
+          "summary": "Distinct November 24 Release editorial reader and source review.",
+          "scope": "Registry 1.5.1: 22 assessed unchanged, one ITSI correction, 4 primary gaps and supporting SOC deferred."
+        },
+        {
+          "at": "2026-11-24T19:20:55.639400Z",
+          "outcome": "blocked",
+          "summary": "Scoped review and ITSI correction prepared; see the dated source and coverage receipts for incomplete sections and validation.",
+          "scope": "Registry 1.5.1: 22 assessed unchanged, one ITSI correction, 4 primary gaps and supporting SOC deferred."
         }
       ],
-      "scope": "Reviewed Observability AI Assistant and troubleshooting guidance. The review covered two on-screen examples. Report checks and issue-feed publication were pending at the time."
+      "scope": "Registry 1.5.1: 22 assessed unchanged, one ITSI correction, 4 primary gaps and supporting SOC deferred."
     },
     {
       "id": "es-editions-watch",
@@ -2169,7 +2181,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-16T11:11:57.879Z",
           "outcome": "blocked",
-          "summary": "Current claims assessed. Exact historical Controlled Availability and original Triage wording remain unavailable; first execution is unverified.",
+          "summary": "Current claims assessed. Exact historical Controlled Availability and original Triage wording remain unavailable.",
           "scope": "ES Editions evidence inventory, ten scoped edition, prerequisite, pairing and licensing claims, and Advisor SOC history."
         },
         {
@@ -2181,7 +2193,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-17T11:10:32.218Z",
           "outcome": "blocked",
-          "summary": "Scoped citation repair prepared; historical SOC scope and first-execution verification remain open.",
+          "summary": "Scoped citation repair prepared; historical SOC scope remains open.",
           "scope": "ES edition history, current Cloud and CMP prerequisites, scoped SOAR matrix and source-locator reviews."
         },
         {
@@ -2235,7 +2247,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-22T10:56:44.436Z",
           "outcome": "running",
-          "summary": "Owned ES daily source and six-section review; prior foreign result excluded.",
+          "summary": "Began the ES daily source and six-section review.",
           "scope": "Four ES Editions rows, five ES AI claim families and Advisor SOC prerequisite/discrepancy/history scope."
         },
         {
@@ -2509,7 +2521,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-16T14:14:27.502Z",
           "outcome": "blocked",
-          "summary": "Scoped claims assessed; historical ES 8.8 evidence and first-execution verification remain incomplete.",
+          "summary": "Scoped claims assessed; historical ES 8.8 evidence remains incomplete.",
           "scope": "316 official locators, 11 registry dispositions and the named high-consequence claims."
         },
         {

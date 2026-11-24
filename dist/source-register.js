@@ -7199,7 +7199,7 @@ window.VersionCompassSources = {
         "release.productTracks.itsi.hostRequirements.enterprise.10.2.source",
         "release.productTracks.itsi.releasesData.4.15.source",
         "release.productTracks.itsi.releasesData.4.17.source",
-        "release.productTracks.itsi.releasesData.5.0.3.requirements.0.3",
+        "release.productTracks.itsi.releasesData.5.0.3.requirements.1.3",
         "forwarders.sources.esKv106.url",
         "content-updates.js",
         "forwarders: forwarders.claimSources.technical.hf-es-kv-store-10.6",
@@ -7630,6 +7630,72 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-10-20",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/fixed-issues/fixed-issues/splunk-enterprise-10.6.2-fixed-issues",
+      "title": "splunk enterprise 10.6.2 fixed issues",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.enterprise.releasesData.10.6.technicalChanges.11.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-24",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-24",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/known-issues-for-this-release/known-issues/splunk-enterprise-10.6.2-known-issues",
+      "title": "splunk enterprise 10.6.2 known issues",
+      "areas": [
+        "Release guide",
+        "Splunk Forwarders"
+      ],
+      "references": [
+        "release.enterprise.releasesData.10.6.technicalChanges.12.source",
+        "forwarders: borrowed.technical.hf.10.6.windows-bundled-python-ssl"
+      ],
+      "reviews": [],
+      "claimReferences": [
+        {
+          "path": "forwarders: borrowed.technical.hf.10.6.windows-bundled-python-ssl",
+          "claimId": "technical.hf.10.6.windows-bundled-python-ssl",
+          "release": "10.6",
+          "component": "10.6.2 Windows Python SSL",
+          "section": "Splunk Enterprise 10.6.2 known issues, Windows SSL issue SPL-313522",
+          "claimVerified": "2026-11-24",
+          "outcome": "confirmed",
+          "qualification": "Splunk lists the bundled Windows Python issue in Enterprise 10.6.2. Applicability depends on the installed package, operating system and runtime used by the workload."
+        }
+      ],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-24",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-24",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -8559,7 +8625,7 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.itsi.releasesData.5.0.3.requirements.1.3"
+        "release.productTracks.itsi.releasesData.5.0.3.requirements.2.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -8598,7 +8664,7 @@ window.VersionCompassSources = {
         "release.productTracks.itsi.releasesData.5.0.2.technicalChanges.1.source",
         "release.productTracks.itsi.releasesData.5.0.2.requirements.0.3",
         "release.productTracks.itsi.releasesData.5.0.3.features.0.5",
-        "release.productTracks.itsi.releasesData.5.0.3.requirements.2.3"
+        "release.productTracks.itsi.releasesData.5.0.3.requirements.3.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -10553,13 +10619,20 @@ window.VersionCompassSources = {
         "Splunk SOAR"
       ],
       "references": [
-        "soar.sources.fixed88.url"
+        "soar.sources.fixed88.url",
+        "soar: soar.records.35"
       ],
       "reviews": [
-        "2026-11-21"
+        "2026-11-24"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.35",
+          "section": "Rendered Release 8.8.0 fixed issues with separate deployment labels, including PSAAS-36070 and PSAAS-36084"
+        }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-21",
+      "reviewed": "2026-11-24",
       "status": "Reviewed",
       "firstRecorded": "2026-11-21",
       "firstUsed": null,
@@ -10571,6 +10644,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-21",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-24",
+          "event": "Review status updated: Reviewed · 2026-11-24"
         }
       ]
     },
@@ -10581,13 +10658,20 @@ window.VersionCompassSources = {
         "Splunk SOAR"
       ],
       "references": [
-        "soar.sources.known88.url"
+        "soar.sources.known88.url",
+        "soar: soar.records.34"
       ],
       "reviews": [
-        "2026-11-21"
+        "2026-11-24"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.34",
+          "section": "Rendered Release 8.8.0 known issues, including the on-premises cluster prerequisite PSAAS-37235"
+        }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-21",
+      "reviewed": "2026-11-24",
       "status": "Reviewed",
       "firstRecorded": "2026-11-21",
       "firstUsed": null,
@@ -10599,6 +10683,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-21",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-24",
+          "event": "Review status updated: Reviewed · 2026-11-24"
         }
       ]
     },
@@ -11460,22 +11548,27 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.itsi.releasesData.5.0.3.source"
+        "release.productTracks.itsi.releasesData.5.0.3.source",
+        "release.productTracks.itsi.releasesData.5.0.3.requirements.0.3"
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": "2026-11-08",
+      "reviewed": "2026-11-24",
       "status": "Reviewed",
       "firstRecorded": "2026-11-08",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "Splunkbase compatibility is kept separate from exact customer-managed patch pairing and Splunk-managed Cloud availability.",
-      "section": "Default Version 5.0.3; Compatibility",
-      "verificationScope": "Verified the public Splunkbase 5.0.3 listing dated October 28, 2026 and broad platform versions 10.2–10.7. Exact customer-managed patch pairing, managed stack rollout and authorization remain separate.",
+      "section": "Public appDetails.releases entry for 5.0.3; versionCompatibility",
+      "verificationScope": "The exact 5.0.3 package entry lists platform lines 10.2, 10.3, 10.4, 10.5, 10.6, 10.7 and 10.8. The November 8 review recorded 10.2–10.7. The date the 10.8 listing was added is unknown. Exact customer-managed patch pairing, managed stack rollout and authorization remain separate.",
       "events": [
         {
           "date": "2026-11-08",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-24",
+          "event": "Review status updated: Reviewed · 2026-11-24"
         }
       ]
     },
