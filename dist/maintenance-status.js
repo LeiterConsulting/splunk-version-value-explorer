@@ -1473,6 +1473,18 @@ window.VersionCompassMaintenance = {
           "scope": "Fresh27 primary registry1.4.0 sections, supportingSOC and eight scoped issue reassessments; no Site release."
         },
         {
+          "at": "2026-11-24T08:45:12.891908Z",
+          "outcome": "running",
+          "summary": "Started November24 Release Watch protected source review.",
+          "scope": "Registry1.4.0 all27 primary dispositions plus supportingSOC;330 official URLs with original failures and bounded retries; no product facts or claim dates advanced."
+        },
+        {
+          "at": "2026-11-24T08:58:52.670334+00:00",
+          "outcome": "blocked",
+          "summary": "Fresh review:18 primary sections assessed-no-change;9 primary and supporting SOC incomplete. Candidate held.",
+          "scope": "Registry1.4.0 all27 primary dispositions plus supportingSOC;330 official URLs with original failures and bounded retries; no product facts or claim dates advanced."
+        },
+        {
           "at": "2026-11-24T09:17:48.922107Z",
           "outcome": "running",
           "summary": "Distinct Release attempt:18 of27 primary sections assessed unchanged;9 primary and supporting SOC incomplete. Candidate held.",
