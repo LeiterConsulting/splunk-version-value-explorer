@@ -244,7 +244,11 @@ try {
       });
       assert(result.readOnly&&result.stable&&result.current,'Missing read-only ES upgrade timing');
       assert.deepEqual(result.explicit,result.current);
-      assert.equal(result.current.verified,'2026-11-13');
+      const upgradeEvidence = require('../../docs/audits/2026-11-24-independent-gap-source-readback.json').sections
+        .find(section => section.capabilityId === 'release-guide.es').sources
+        .find(source => source.url === result.current.source);
+      assert.equal(result.current.verified, upgradeEvidence.retrievedAt.slice(0, 10));
+      assert(result.current.action.includes('at least 24 hours before the upgrade'));
       const card=page.locator('#technical-content .technical-item').filter({has:page.locator('h4').filter({hasText:result.current.component})});
       assert((await card.textContent()).includes(result.current.implication));
       entry.readOnlyReport={passed:true,browserHarness:true,stableSelection:true};
