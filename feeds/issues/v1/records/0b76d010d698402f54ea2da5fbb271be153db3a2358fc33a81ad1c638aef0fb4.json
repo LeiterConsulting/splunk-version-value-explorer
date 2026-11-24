@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-88-response-deployment-column-conflict",
+  "revision": 1,
+  "recordedAt": "2026-11-24T17:37:05.249Z",
+  "assessmentId": "vcia-es-reader-20261124-r3-6",
+  "assessedAt": "2026-11-24T17:28:36.172Z",
+  "outcome": "still-present",
+  "rationale": "Current aggregate says Premier Cloud-only for Response but includes a CMP compatibility bullet; detailed task also has CMP prerequisites. Response remains CA; usable CMP Response is not certified.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "8.8 current article sections; 8.6 task and 8.7 history only where explicitly compared"
+    ],
+    "editions": [
+      "Essentials",
+      "Premier"
+    ],
+    "deployments": [
+      "Cloud",
+      "Cloud Connected CMP only where explicitly listed"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No complete pairing, region, tenant enablement, runtime/model approval, entitlement or customer authorization inferred."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-es-20261124-74ef3ceb-r2-9"
+  ],
+  "remainingConcerns": [
+    "es-editions-watch:complete scoped reader/source/export follow-through by2026-11-25. Source owner hands PR to06:15 GitHub integrator;09:00 steward alone selects/publishes. No workflow or consumer closure implied."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "es-reader-r3-5-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Autonomous Response availability cell versus CMP compatibility bullet",
+      "statement": "Cloud-only availability and CMP prerequisites coexist; stage remains Controlled Availability.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": null,
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Actual official indexed section read November24; exact retrieval timestamp and raw vendor response revision not exposed. Direct access failures retained in the source audit. Browser baseline observations have their own clock."
+      }
+    },
+    {
+      "evidenceId": "es-reader-r3-5-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/identify-and-run-the-soar-response-actions-on-findings-using-the-autonomous-response-agent-in-splunk-enterprise-security",
+      "section": "Prerequisites and connector/model limitations",
+      "statement": "The task also names aCMP path, higher Cloud ES floor and separate frontier-model and permission restrictions.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": null,
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Actual official indexed section read November24; exact retrieval timestamp and raw vendor response revision not exposed. Direct access failures retained in the source audit. Browser baseline observations have their own clock."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/078100875e20846b81b2ac4dba15b16b97a561f3/docs/audits/2026-11-24-es-editions-watch-review-3-sources.json",
+      "pointer": "/issueObservations/5",
+      "originalLabel": "still-present"
+    }
+  ]
+}
