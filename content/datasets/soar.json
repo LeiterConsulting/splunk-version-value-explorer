@@ -358,18 +358,18 @@
     "known88": {
       "title": "SOAR On-premises 8.8 · Known issues for Splunk SOAR (On-premises)",
       "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/known-issues-for-splunk-soar-on-premises",
-      "section": "Release 8.8.0 known issues; no individual rows in the retrieved article",
-      "checked": "2026-11-21",
-      "reviewed": "2026-11-21",
-      "outcome": "limited"
+      "section": "Rendered Release 8.8.0 known issues, including the on-premises cluster prerequisite PSAAS-37235",
+      "checked": "2026-11-24",
+      "reviewed": "2026-11-24",
+      "outcome": "confirmed"
     },
     "fixed88": {
       "title": "SOAR On-premises 8.8 · Fixed issues for Splunk SOAR (On-premises)",
       "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.8.0/splunk-soar-on-premises-release-notes/fixed-issues-for-splunk-soar-on-premises",
-      "section": "Release 8.8.0 heading and 8.7.0 description; no individual fixes identified",
-      "checked": "2026-11-21",
-      "reviewed": "2026-11-21",
-      "outcome": "limited"
+      "section": "Rendered Release 8.8.0 fixed issues with separate deployment labels, including PSAAS-36070 and PSAAS-36084",
+      "checked": "2026-11-24",
+      "reviewed": "2026-11-24",
+      "outcome": "confirmed"
     },
     "get88": {
       "title": "SOAR On-premises 8.8 · Get Splunk SOAR (On-premises)",
@@ -961,6 +961,38 @@
       ],
       "status": "Component patch",
       "verified": "2026-11-21",
+      "target": true
+    },
+    {
+      "id": "cmp88-cluster-rabbitmq",
+      "title": "RabbitMQ prerequisites for cluster upgrades",
+      "detail": "SOAR cluster upgrades through 8.8 can fail when required RabbitMQ feature flags are disabled. Splunk identifies PSAAS-37235 for affected on-premises clusters and provides a pre-upgrade check and workaround for healthy clusters running 6.2.2–6.4.1. Apply the instructions for your starting release.",
+      "kind": "technical",
+      "release": "8.8.0",
+      "src": [
+        "known88"
+      ],
+      "deployments": [
+        "cmp"
+      ],
+      "status": "Known issue",
+      "verified": "2026-11-24",
+      "target": true
+    },
+    {
+      "id": "cmp88-watchdog-stall",
+      "title": "Watchdog stall fixed in 8.8",
+      "detail": "The SOAR 8.8 fixed-issues table lists a watchdog process that could stay alive while stalled. The row for PSAAS-36070 and PSAAS-36084 names both Cloud and on-premises. Other rows in the same table have different deployment labels.",
+      "kind": "technical",
+      "release": "8.8.0",
+      "src": [
+        "fixed88"
+      ],
+      "deployments": [
+        "cmp"
+      ],
+      "status": "Fixed issue",
+      "verified": "2026-11-24",
       "target": true
     }
   ],

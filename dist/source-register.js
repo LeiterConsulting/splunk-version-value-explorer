@@ -7635,6 +7635,58 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/fixed-issues/fixed-issues/splunk-enterprise-10.6.2-fixed-issues",
+      "title": "splunk enterprise 10.6.2 fixed issues",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.enterprise.releasesData.10.6.technicalChanges.11.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-24",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-24",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/known-issues-for-this-release/known-issues/splunk-enterprise-10.6.2-known-issues",
+      "title": "splunk enterprise 10.6.2 known issues",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.enterprise.releasesData.10.6.technicalChanges.12.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-24",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-24",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/known-issues-for-this-release/third-party-certificate-authorities-cease-issuing-certificates-with-serverauth-and-clientauth-eku-extensions",
       "title": "third party certificate authorities cease issuing certificates with serverauth and clientauth eku extensions",
       "areas": [
@@ -10553,13 +10605,20 @@ window.VersionCompassSources = {
         "Splunk SOAR"
       ],
       "references": [
-        "soar.sources.fixed88.url"
+        "soar.sources.fixed88.url",
+        "soar: soar.records.35"
       ],
       "reviews": [
-        "2026-11-21"
+        "2026-11-24"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.35",
+          "section": "Rendered Release 8.8.0 fixed issues with separate deployment labels, including PSAAS-36070 and PSAAS-36084"
+        }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-21",
+      "reviewed": "2026-11-24",
       "status": "Reviewed",
       "firstRecorded": "2026-11-21",
       "firstUsed": null,
@@ -10571,6 +10630,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-21",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-24",
+          "event": "Review status updated: Reviewed · 2026-11-24"
         }
       ]
     },
@@ -10581,13 +10644,20 @@ window.VersionCompassSources = {
         "Splunk SOAR"
       ],
       "references": [
-        "soar.sources.known88.url"
+        "soar.sources.known88.url",
+        "soar: soar.records.34"
       ],
       "reviews": [
-        "2026-11-21"
+        "2026-11-24"
+      ],
+      "claimReferences": [
+        {
+          "path": "soar: soar.records.34",
+          "section": "Rendered Release 8.8.0 known issues, including the on-premises cluster prerequisite PSAAS-37235"
+        }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-21",
+      "reviewed": "2026-11-24",
       "status": "Reviewed",
       "firstRecorded": "2026-11-21",
       "firstUsed": null,
@@ -10599,6 +10669,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-21",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-24",
+          "event": "Review status updated: Reviewed · 2026-11-24"
         }
       ]
     },
