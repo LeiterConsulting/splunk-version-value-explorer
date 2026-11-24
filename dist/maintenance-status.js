@@ -9,7 +9,7 @@ window.VersionCompassMaintenance = {
       "lastAttempt": "2026-11-24T17:11:12Z",
       "lastSuccess": "2026-11-21T19:34:26.194Z",
       "outcome": "blocked",
-      "summary": "Five primary reader comparisons complete; scoped High correction queued with three incomplete participating rows and exact-candidate validation pending.",
+      "summary": "Completed five reader comparisons and prepared a correction to the FedRAMP High listing. Three parts of this review remained incomplete.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -668,16 +668,16 @@ window.VersionCompassMaintenance = {
           "at": "2026-11-24T17:11:12Z",
           "outcome": "running",
           "summary": "Began the follow-up review of Cloud Environment reader comparisons.",
-          "scope": "Registry1.5.0: five primary source/reader/report comparisons; High candidate acceptance, Platform AI intersections and supporting SOC incomplete. No Site/D1 action."
+          "scope": "Compared five Cloud Environment answers with their sources and reports. FedRAMP High, Platform AI, and the supporting SOC review remained incomplete."
         },
         {
           "at": "2026-11-24T17:22:59.267Z",
           "outcome": "blocked",
-          "summary": "Five primary reader comparisons complete; scoped High correction queued with three incomplete participating rows and exact-candidate validation pending.",
-          "scope": "Registry1.5.0: five primary source/reader/report comparisons; High candidate acceptance, Platform AI intersections and supporting SOC incomplete. No Site/D1 action."
+          "summary": "Completed five reader comparisons and prepared a correction to the FedRAMP High listing. Three parts of this review remained incomplete.",
+          "scope": "Compared five Cloud Environment answers with their sources and reports. FedRAMP High, Platform AI, and the supporting SOC review remained incomplete."
         }
       ],
-      "scope": "Registry1.5.0: five primary source/reader/report comparisons; High candidate acceptance, Platform AI intersections and supporting SOC incomplete. No Site/D1 action."
+      "scope": "Compared five Cloud Environment answers with their sources and reports. FedRAMP High, Platform AI, and the supporting SOC review remained incomplete."
     },
     {
       "id": "version-release-watch",
@@ -685,7 +685,7 @@ window.VersionCompassMaintenance = {
       "lastAttempt": "2026-11-24T18:10:19.135Z",
       "lastSuccess": "2026-11-21T19:40:05.303Z",
       "outcome": "blocked",
-      "summary": "Reader recovery prepared two bounded Observability corrections;27 primary rows incomplete.",
+      "summary": "Prepared two Observability AI guidance corrections. All 27 sections remain incomplete for this follow-up review.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1559,17 +1559,17 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-24T18:10:19.135Z",
           "outcome": "running",
-          "summary": "Reader recovery prepared two bounded Observability corrections;27 primary rows incomplete.",
-          "scope": "Native start17:50:45.465577Z retained in own receipt. Actual registered source retrievals and two screen journeys;candidate reports and feed provenance held."
+          "summary": "Prepared two Observability AI guidance corrections. All 27 sections remain incomplete for this follow-up review.",
+          "scope": "Reviewed Observability AI Assistant and troubleshooting guidance. The review covered two on-screen examples. Report checks and issue-feed publication were pending at the time."
         },
         {
           "at": "2026-11-24T18:10:19.135Z",
           "outcome": "blocked",
-          "summary": "Reader recovery prepared two bounded Observability corrections;27 primary rows incomplete.",
-          "scope": "Native start17:50:45.465577Z retained in own receipt. Actual registered source retrievals and two screen journeys;candidate reports and feed provenance held."
+          "summary": "Prepared two Observability AI guidance corrections. All 27 sections remain incomplete for this follow-up review.",
+          "scope": "Reviewed Observability AI Assistant and troubleshooting guidance. The review covered two on-screen examples. Report checks and issue-feed publication were pending at the time."
         }
       ],
-      "scope": "Native start17:50:45.465577Z retained in own receipt. Actual registered source retrievals and two screen journeys;candidate reports and feed provenance held."
+      "scope": "Reviewed Observability AI Assistant and troubleshooting guidance. The review covered two on-screen examples. Report checks and issue-feed publication were pending at the time."
     },
     {
       "id": "es-editions-watch",
@@ -1577,7 +1577,7 @@ window.VersionCompassMaintenance = {
       "lastAttempt": "2026-11-24T17:17:28.269Z",
       "lastSuccess": "2026-11-24T09:08:54.963409+00:00",
       "outcome": "blocked",
-      "summary": "Prepared current Guided Response scope correction; six reader-contract rows deferred and candidate qualification pending.",
+      "summary": "Prepared the Guided Response deployment correction. Six ES section reviews remained incomplete.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -2313,7 +2313,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-24T17:29:10.485Z",
           "outcome": "blocked",
-          "summary": "Prepared current Guided Response scope correction; six reader-contract rows deferred and candidate qualification pending.",
+          "summary": "Prepared the Guided Response deployment correction. Six ES section reviews remained incomplete.",
           "scope": "Six ES source and reader sections. The earlier assessment is recorded separately."
         }
       ],
