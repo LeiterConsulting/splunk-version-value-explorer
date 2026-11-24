@@ -17,9 +17,9 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('material cycle preserves scoped release evidence and prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,80);
+ assert.equal(b.policy.currentCycle,81);
  const regions=b.entries['ai:catalog'];assert.equal(regions.cycle,77);assert.match(regions.detail,/Milan and Sao Paulo/);assert(!b.active(regions));assert(b.active(regions,78));
- const exportPatch=b.entries['edition:soar'];assert.equal(exportPatch.cycle,79);assert.equal(exportPatch.sourceDate,'2026-11-19');assert.match(exportPatch.detail,/large-ES.*native pairing/);assert(b.active(exportPatch));assert(b.entries['edition-history:soar:cycle58']);
+ const exportPatch=b.entries['edition:soar'];assert.equal(exportPatch.cycle,79);assert.equal(exportPatch.sourceDate,'2026-11-19');assert.match(exportPatch.detail,/large-ES.*native pairing/);assert(b.active(exportPatch,80));assert(!b.active(exportPatch));assert(b.entries['edition-history:soar:cycle58']);
  assert(b.entries['ai:catalog:history:before-cycle77']);
  for(const key of ['environment:acs-fr-h','environment:acs-fr-h-victoria']){
   const entry=b.entries[key];assert.equal(entry.cycle,75);assert.equal(entry.kind,'corrected');assert(b.active(entry,76));assert(!b.active(entry));
