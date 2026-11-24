@@ -21,7 +21,7 @@ export function assessedSources(run, bindings, sections, receipt) {
       if (claims.some(claim => !claim)) continue;
       observations.push({watchId:run.watchId,url:source.url,capabilityId:cap.id,sourceId:source.id,section:source.section,
         retrievedAt:retrieval.retrievedAt,assessmentDate:dayOf(row.assessedAt),claimIds:claims.map(c => c.claimId),
-        receipt:receipt.file,blob:receipt.blob,sourceAudits:bindings,schedulerRunId:run.execution.schedulerRunId});
+        receipt:receipt.file,blob:receipt.blob,sourceAudits:bindings});
     }
   }
   return observations;

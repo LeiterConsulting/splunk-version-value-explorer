@@ -42,8 +42,7 @@ for (const file of files) {
     bound &&= audit.execution?.taskId === execution.taskId && audit.execution?.schedulerRunId === execution.schedulerRunId &&
       sameAttemptStart(audit.execution?.startedAt,execution.startedAt);
   }
-  const receipt = {file,blob:git('rev-parse',head+':'+file),kind:run.kind,runId:run.runId,
-    taskId:execution.taskId || null,schedulerRunId:execution.schedulerRunId || null,startedAt:execution.startedAt || null,sourceAuditBindsAttempt:bound};
+  const receipt = {file,blob:git('rev-parse',head+':'+file),kind:run.kind,sourceAuditBindsAttempt:bound};
   receipts.push(receipt);
   observations.push(...assessedSources(run,sourceAudits,caps,receipt));
   for (const row of run.coverage.filter(r => caps.some(c => c.id === r.capabilityId) && r.readerReview)) {
