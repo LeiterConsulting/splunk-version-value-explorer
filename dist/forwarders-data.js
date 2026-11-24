@@ -255,6 +255,10 @@ window.VersionCompassForwarderData = {
       "title": "Automatic Cloud certificate renewal eligibility",
       "src": "renewal"
     },
+    "maintenance.uf-10.6-ack": {
+      "title": "Universal Forwarder 10.6 acknowledged forwarding",
+      "src": "uf106Ack"
+    },
     "maintenance.10.4": {
       "title": "Current 10.4 target and acknowledged-forwarding floor",
       "sources": [

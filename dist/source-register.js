@@ -7662,6 +7662,7 @@ window.VersionCompassSources = {
         "release.guidance.sources.prep11enterprise.url",
         "forwarders.sources.uf106Ack.url",
         "content-updates.js",
+        "forwarders: forwarders.claimSources.maintenance.uf-10.6-ack",
         "forwarders: borrowed.technical.hf.10.6.enterprise-10.6-current-maintenance-release"
       ],
       "reviews": [
@@ -7669,6 +7670,10 @@ window.VersionCompassSources = {
         "2026-11-24"
       ],
       "claimReferences": [
+        {
+          "path": "forwarders: forwarders.claimSources.maintenance.uf-10.6-ack",
+          "section": "What's new in 10.6.1 — Universal Forwarder useAck fix"
+        },
         {
           "path": "forwarders: borrowed.technical.hf.10.6.enterprise-10.6-current-maintenance-release",
           "claimId": "technical.hf.10.6.enterprise-10.6-current-maintenance-release",
