@@ -308,6 +308,22 @@ try {
         if(route.id==='prep11-shared')assert.equal(await page.locator('#prep11-count').innerText(),'1 of 5 preparation areas');
       }
     }
+    const exposureUpgrade = ['es-88-controlled-availability-enterprise','es-88-controlled-availability-cloud'].includes(route.id);
+    if (exposureUpgrade) {
+      assert((await page.locator('#route-takeaway').textContent()).includes('Exposure Analytics for assets and users'), 'ES upgrade takeaway omits Exposure Analytics');
+    }
+    const currentEs88Editions = route.id === 'editions' &&
+      await page.evaluate(() => window.VersionCompassEditions.release === '8.8');
+    if (currentEs88Editions) {
+      const exposure = page.locator('.edition-highlights article').filter({hasText:'Exposure Analytics in Essentials and Premier'});
+      const spotlight = await exposure.innerText();
+      for (const phrase of ['Entity posture','Entity profile','Entity actions','Entity analysis']) assert(spotlight.includes(phrase), 'Edition spotlight omits '+phrase);
+      assert(await exposure.locator('a[href*="/8.8/splunk-enterprise-security-release-notes/"]').count() > 0);
+      assert((await page.locator('#edition-decision-summary').textContent()).includes('Exposure Analytics in Essentials and Premier'));
+      await page.locator('#edition-filter').selectOption('changed');
+      assert(await page.locator('[data-id="exposure"]').isVisible());
+      await page.locator('#edition-filter').selectOption('all');
+    }
     if(route.id==='editions'){
       const taxii=page.locator('#edition-conflicts .edition-conflict').filter({hasText:'Which TAXII protocol versions are supported?'});
       assert(await taxii.isVisible());
@@ -517,7 +533,8 @@ try {
       }
       if(route.id==='editions'){
         expected.requiredText=['standalone agentic SOC setup link returned 404 on November 17','publisher-indexed text'];
-        for(const phrase of expected.requiredText) assert(normalize(expected.text).includes(phrase),'Missing ES Cloud Connect source qualification: '+phrase);
+        if (currentEs88Editions) expected.requiredText.push('Exposure Analytics in Essentials and Premier','Entity actions automate configured follow-up');
+        for(const phrase of expected.requiredText) assert(normalize(expected.text).includes(phrase),'Missing ES Editions report text: '+phrase);
         for(const text of ['Which TAXII protocol versions are supported?','The duplicate version leaves the current exact protocol list uncertain.','TIM Cloud TAXII2 sources','same page names TAXII 1.0 and 1.1'])assert(normalize(expected.text).includes(text),'Missing scoped TAXII report evidence');
         expected.paginationPairs=[{heading:'Which TAXII protocol versions are supported?',following:'Decision affected: Native TAXII feed protocol versions',headingOccurrence:1}];
       }
@@ -531,6 +548,9 @@ try {
       if(esMaintenanceRoute(route)) {
         expected.requiredText=['ES 8.8 Mission Control migration window','If Platform 10.6 or later is already installed','five additional minutes per GB','after ES 8.8, the guide says this migration runs in the background','on-premises search-head upgrade guide','Splunk coordinates managed Cloud upgrades.'];
         for(const phrase of expected.requiredText) assert(normalize(expected.text).includes(phrase),'Missing ES upgrade timing qualification: '+phrase);
+      }
+      if (exposureUpgrade) {
+        (expected.requiredText ??= []).push('Exposure Analytics for assets and users','Entity profile rules and Entity actions');
       }
       if(route.id==='enterprise') expected.requiredText=['Splunk Enterprise 10.4.5 was released October 30, 2026.','Version 10.4.4 remains the October 21 advisory-specific floor.'];
       if(route.id==='enterprise') expected.paginationPairs=[{heading:'Recommended action',following:'Match the exact package identifier to its release'}];

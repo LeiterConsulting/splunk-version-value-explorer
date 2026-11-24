@@ -594,6 +594,12 @@ Object.assign(window.SPLUNK_DATA, {
               "Investigation & response",
               "Narrow analyst work faster",
               "Use the 8.8 queue search and filter changes to find relevant work while preserving role and access checks."
+            ],
+            [
+              "Exposure Analytics for assets and users",
+              "Risk & exposure",
+              "Prioritize gaps in security controls",
+              "ES 8.8 adds Entity posture metrics, Entity profile rules and Entity actions. Entity analysis shows posture and profile context during investigations. The release notes list these additions under Essentials, which Premier includes. Check configuration and availability for your deployment."
             ]
           ],
           "technicalChanges": [

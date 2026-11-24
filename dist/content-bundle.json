@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-7c994bf0e60671c1c60bdb20",
-    "digest": "5d8b0a0bca2ade9e7fff34581650912e82824ad95e325add9a61f2b040095ba3",
-    "engineRevision": "engine-7dd1bd5c98cbed7d8fc3",
+    "revision": "content-05a3a5ce0db5060c67151d42",
+    "digest": "c06835d6c49d1a78bdcdb898e13b66c39ec986dbdf3ef99aed2b4ad53800dfed",
+    "engineRevision": "engine-2e4be3afe1835fc9a816",
     "datasetHashes": {
       "platform": "2214eed429890c51b6b2fdd9c55bf91706a7dc7eef9c396546fd1992c864329e",
-      "products": "23ff46e21fbed0f0c2c32af34b0cfac46625d87f3a7a65c059c027df18e597fe",
-      "guidance": "a3f07efa3f82d40c3a9473ae4a0886844410930c8c83f738b8b2b9912652078d",
+      "products": "3a39e4ce87c0d914be9f94ec671b89afecabc9abbff70a505f203f19e0e671fe",
+      "guidance": "6cb05fa7a2dfc3dbbf76501f81079ddaee5b3638e8d00db94d53f5343c6ddbe1",
       "environment": "533ef7f14be7b3bf860b7c47b2d873489583d8606304ac969b6b1a32a7d4e10f",
-      "editions": "7c4e3a9774305ccdbe1cd7916e36ca9af6792426d463e3a20cd37a2837b9d88f",
+      "editions": "4e3b3d55385523dbeea8b1413c52e7c2d1b02929c8a5f4a28212d034141155a1",
       "forwarders": "a56dd49cca6e5e0d9453e3a0d58afbf3b143e01873dd91305a3fdfebe68146aa",
       "soar": "126a20b593a3376f9e7dcb1cf8d6a26bc537953ca6bf38a05e1beb098f7fa55d"
     },
-    "recordCount": 1019,
+    "recordCount": 1027,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -3257,6 +3257,12 @@
                   "Investigation & response",
                   "Narrow analyst work faster",
                   "Use the 8.8 queue search and filter changes to find relevant work while preserving role and access checks."
+                ],
+                [
+                  "Exposure Analytics for assets and users",
+                  "Risk & exposure",
+                  "Prioritize gaps in security controls",
+                  "ES 8.8 adds Entity posture metrics, Entity profile rules and Entity actions. Entity analysis shows posture and profile context during investigations. The release notes list these additions under Essentials, which Premier includes. Check configuration and availability for your deployment."
                 ]
               ],
               "technicalChanges": [
@@ -5481,7 +5487,7 @@
         }
       },
       "guidance": {
-        "reviewed": "2026-11-22",
+        "reviewed": "2026-11-24",
         "lifecycle": {
           "source": "https://www.splunk.com/en_us/legal/splunk-software-support-policy.html",
           "reviewed": "2026-10-01",
@@ -9863,7 +9869,9 @@
         "ea": {
           "t": "Exposure Analytics product page",
           "u": "https://www.splunk.com/en_us/products/exposure-analytics.html",
-          "reviewed": "2026-10-01"
+          "reviewed": "2026-11-24",
+          "section": "Features and getting started with Entity discovery",
+          "verificationScope": "The current product page describes continuous control-gap metrics, profile rules for contextual risk, and automated actions. The versioned ES 8.8 release table supplies the edition and release attribution."
         },
         "licensing": {
           "t": "ES licensing and trials (8.7 documentation)",
@@ -9984,6 +9992,41 @@
           "reviewed": "2026-11-21",
           "section": "How to use recommendations; Prerequisites; Analyze findings using the Triage agent",
           "verificationScope": "Detailed task: Cloud ES 8.7+ and CMP chain, existing findings, first-ten and approximate 200-finding limits, no-rerun statement and investigation permissions. Conflicts with the parent guide credit/revision model; not proof of actual tenant behavior."
+        },
+        "eaPosture88": {
+          "t": "Configure entity posture in ES 8.8",
+          "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-posture",
+          "reviewed": "2026-11-24",
+          "section": "Entity posture metrics and setup",
+          "verificationScope": "Discovery sources and configured metrics determine which asset and user control gaps can be measured."
+        },
+        "eaProfile88": {
+          "t": "Configure entity profile in ES 8.8",
+          "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-profile",
+          "reviewed": "2026-11-24",
+          "section": "Entity profile rules and risk factors",
+          "verificationScope": "Discovery is required. Profile rules can use posture and discovery context. Finding risk multipliers are optional."
+        },
+        "eaActions88": {
+          "t": "Configure entity actions in ES 8.8",
+          "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-actions",
+          "reviewed": "2026-11-24",
+          "section": "Entity actions and setup",
+          "verificationScope": "Entity discovery is required. Administrators configure actions against discovery, posture or profile conditions."
+        },
+        "eaProfileExample": {
+          "t": "Splunk’s Entity Profile walkthrough",
+          "u": "https://www.splunk.com/en_us/blog/security/entity-profile-identify-contextual-risk-affecting-entities.html",
+          "reviewed": "2026-11-24",
+          "section": "November 20 workflow examples and Entity analysis",
+          "verificationScope": "Asset or user profile levels and tags change as rules match. The Exposures tab brings gaps into an investigation."
+        },
+        "eaPostureExample": {
+          "t": "Splunk’s Entity Posture walkthrough",
+          "u": "https://www.splunk.com/en_us/blog/security/find-security-control-gaps-before-they-become-incidents.html",
+          "reviewed": "2026-11-24",
+          "section": "November 13 overview of Enterprise Security 8.5 and 8.8",
+          "verificationScope": "Entity discovery was released in ES 8.5. The 8.8 posture, profile and action capabilities build on discovery."
         }
       },
       "capabilities": [
@@ -10073,7 +10116,7 @@
           "id": "exposure",
           "name": "Exposure Analytics",
           "lane": "Exposure management",
-          "tag": "conf",
+          "tag": "updated",
           "ess": {
             "v": "yes",
             "n": "Cloud and On-premises"
@@ -10082,14 +10125,18 @@
             "v": "yes",
             "n": "Cloud and On-premises"
           },
-          "desc": "Entity and business context for exposure prioritization. The November 4 ES 8.8 release table assigns Entity posture, Entity profile, Entity actions and Entity analysis enhancements to Essentials, which are also included in Premier. The separate Exposure Analytics page describes posture metrics and profiling. Confirm exact deployment, feature access and prerequisites before relying on these enhancements.",
+          "desc": "ES 8.8 adds Entity posture metrics, Entity profile rules, Entity actions and an enhanced Entity analysis view to the discovery capability introduced in 8.5. For example, a profile rule can flag an internet-facing asset with a scanning gap. Configure discovery sources, metrics, rules and actions for the controls you want to monitor. The 8.8 release notes list these enhancements under Essentials, which Premier includes. Verify access on the target deployment.",
           "src": [
+            "rn88",
             "editions",
             "ea",
-            "conf26",
-            "rn88"
+            "eaPosture88",
+            "eaProfile88",
+            "eaActions88",
+            "eaProfileExample",
+            "eaPostureExample"
           ],
-          "reviewed": "2026-11-05"
+          "reviewed": "2026-11-24"
         },
         {
           "id": "ai-assistant",
@@ -10868,6 +10915,18 @@
           "text": "ES 8.8.0 reached General Availability on November 4, after October 21 Controlled Availability. Its edition table states that Essentials features are also included in Premier, but neither the release number nor the table establishes universal access, managed Cloud rollout, region, entitlement, authorization or an ES–SOAR pairing.",
           "src": [
             "rn88"
+          ]
+        },
+        {
+          "id": "exposure-analytics-88",
+          "title": "Exposure Analytics in Essentials and Premier",
+          "text": "In ES 8.8, Entity posture measures gaps in security controls across assets and users. Entity profile uses rules to prioritize those gaps and can raise the risk of related findings. Entity actions automate configured follow-up. Entity analysis brings posture and profile context into the investigation. Set up entity discovery first.",
+          "src": [
+            "rn88",
+            "eaPosture88",
+            "eaProfile88",
+            "eaActions88",
+            "eaProfileExample"
           ]
         },
         {
@@ -12898,6 +12957,12 @@
         "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first"
       },
       {
+        "id": "source-2872718e9438834d72c9",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-actions"
+      },
+      {
         "id": "source-28d1a2eabf9442a576da",
         "kind": "source",
         "dataset": "sources",
@@ -13240,6 +13305,12 @@
         "url": "https://github.com/signalfx/splunk-otel-python/releases/tag/v2.13.2"
       },
       {
+        "id": "source-5c6bffbba91e8610b377",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://www.splunk.com/en_us/blog/security/find-security-control-gaps-before-they-become-incidents.html"
+      },
+      {
         "id": "source-5c93e9852e40250fa33d",
         "kind": "source",
         "dataset": "sources",
@@ -13400,6 +13471,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/splunk-cloud-platform-maintenance-patch-release-information#10.7.0.5-0"
+      },
+      {
+        "id": "source-6ff1d5fd0381d353cfa0",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-profile"
       },
       {
         "id": "source-701556900afdbc388489",
@@ -13996,6 +14073,12 @@
         "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.7.0/system-requirements/system-requirements-for-production-use"
       },
       {
+        "id": "source-d06f1241d21f16ba8a2b",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://www.splunk.com/en_us/blog/security/entity-profile-identify-contextual-risk-affecting-entities.html"
+      },
+      {
         "id": "source-d102852db32b8d3fe7a8",
         "kind": "source",
         "dataset": "sources",
@@ -14096,6 +14179,12 @@
         "kind": "source",
         "dataset": "sources",
         "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/november-2024"
+      },
+      {
+        "id": "source-e1f5d77514a0860f62d8",
+        "kind": "source",
+        "dataset": "sources",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-posture"
       },
       {
         "id": "source-e508e49fabe949dc6e6b",
@@ -15863,6 +15952,14 @@
         },
         "evidence": [
           {
+            "sourceId": "source-d10f9ac6604ba17d7875",
+            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+            "section": "What's new in 8.8.0; November 4 GA and edition table",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-20",
+            "sourceChecked": null
+          },
+          {
             "sourceId": "source-2dc2d849c6eabc9e505e",
             "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
             "section": "Edition definitions and capability groups",
@@ -15873,25 +15970,49 @@
           {
             "sourceId": "source-2dbcc5c0c8fd796ad195",
             "url": "https://www.splunk.com/en_us/products/exposure-analytics.html",
-            "section": null,
-            "sectionScope": "Section not recorded",
-            "sourceVerified": "2026-10-01",
-            "sourceChecked": null
-          },
-          {
-            "sourceId": "source-7a86c8b596982be23427",
-            "url": "https://www.splunk.com/en_us/blog/security/evolving-to-autonomous-defense-new-agentic-soc-capabilities.html",
-            "section": null,
-            "sectionScope": "Section not recorded",
-            "sourceVerified": "2026-10-01",
-            "sourceChecked": null
-          },
-          {
-            "sourceId": "source-d10f9ac6604ba17d7875",
-            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
-            "section": "What's new in 8.8.0; November 4 GA and edition table",
+            "section": "Features and getting started with Entity discovery",
             "sectionScope": "Recorded source section; claim-specific support is not inferred",
-            "sourceVerified": "2026-11-20",
+            "sourceVerified": "2026-11-24",
+            "sourceChecked": null
+          },
+          {
+            "sourceId": "source-e1f5d77514a0860f62d8",
+            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-posture",
+            "section": "Entity posture metrics and setup",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-24",
+            "sourceChecked": null
+          },
+          {
+            "sourceId": "source-6ff1d5fd0381d353cfa0",
+            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-profile",
+            "section": "Entity profile rules and risk factors",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-24",
+            "sourceChecked": null
+          },
+          {
+            "sourceId": "source-2872718e9438834d72c9",
+            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-actions",
+            "section": "Entity actions and setup",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-24",
+            "sourceChecked": null
+          },
+          {
+            "sourceId": "source-d06f1241d21f16ba8a2b",
+            "url": "https://www.splunk.com/en_us/blog/security/entity-profile-identify-contextual-risk-affecting-entities.html",
+            "section": "November 20 workflow examples and Entity analysis",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-24",
+            "sourceChecked": null
+          },
+          {
+            "sourceId": "source-5c6bffbba91e8610b377",
+            "url": "https://www.splunk.com/en_us/blog/security/find-security-control-gaps-before-they-become-incidents.html",
+            "section": "November 13 overview of Enterprise Security 8.5 and 8.8",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-24",
             "sourceChecked": null
           }
         ],
@@ -15903,7 +16024,7 @@
           "id": "exposure",
           "name": "Exposure Analytics",
           "lane": "Exposure management",
-          "tag": "conf",
+          "tag": "updated",
           "ess": {
             "v": "yes",
             "n": "Cloud and On-premises"
@@ -15912,14 +16033,18 @@
             "v": "yes",
             "n": "Cloud and On-premises"
           },
-          "desc": "Entity and business context for exposure prioritization. The November 4 ES 8.8 release table assigns Entity posture, Entity profile, Entity actions and Entity analysis enhancements to Essentials, which are also included in Premier. The separate Exposure Analytics page describes posture metrics and profiling. Confirm exact deployment, feature access and prerequisites before relying on these enhancements.",
+          "desc": "ES 8.8 adds Entity posture metrics, Entity profile rules, Entity actions and an enhanced Entity analysis view to the discovery capability introduced in 8.5. For example, a profile rule can flag an internet-facing asset with a scanning gap. Configure discovery sources, metrics, rules and actions for the controls you want to monitor. The 8.8 release notes list these enhancements under Essentials, which Premier includes. Verify access on the target deployment.",
           "src": [
+            "rn88",
             "editions",
             "ea",
-            "conf26",
-            "rn88"
+            "eaPosture88",
+            "eaProfile88",
+            "eaActions88",
+            "eaProfileExample",
+            "eaPostureExample"
           ],
-          "reviewed": "2026-11-05"
+          "reviewed": "2026-11-24"
         }
       },
       {
@@ -26519,6 +26644,72 @@
         ]
       },
       {
+        "id": "vc-7b6dcc99c351d91c625a",
+        "kind": "claim",
+        "dataset": "editions",
+        "scope": {
+          "release": "8.8"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-d10f9ac6604ba17d7875",
+            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+            "section": "What's new in 8.8.0; November 4 GA and edition table",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-20",
+            "sourceChecked": null
+          },
+          {
+            "sourceId": "source-e1f5d77514a0860f62d8",
+            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-posture",
+            "section": "Entity posture metrics and setup",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-24",
+            "sourceChecked": null
+          },
+          {
+            "sourceId": "source-6ff1d5fd0381d353cfa0",
+            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-profile",
+            "section": "Entity profile rules and risk factors",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-24",
+            "sourceChecked": null
+          },
+          {
+            "sourceId": "source-2872718e9438834d72c9",
+            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-actions",
+            "section": "Entity actions and setup",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-24",
+            "sourceChecked": null
+          },
+          {
+            "sourceId": "source-d06f1241d21f16ba8a2b",
+            "url": "https://www.splunk.com/en_us/blog/security/entity-profile-identify-contextual-risk-affecting-entities.html",
+            "section": "November 20 workflow examples and Entity analysis",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-24",
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": {
+          "id": "exposure-analytics-88",
+          "title": "Exposure Analytics in Essentials and Premier",
+          "text": "In ES 8.8, Entity posture measures gaps in security controls across assets and users. Entity profile uses rules to prioritize those gaps and can raise the risk of related findings. Entity actions automate configured follow-up. Entity analysis brings posture and profile context into the investigation. Set up entity discovery first.",
+          "src": [
+            "rn88",
+            "eaPosture88",
+            "eaProfile88",
+            "eaActions88",
+            "eaProfileExample"
+          ]
+        }
+      },
+      {
         "id": "vc-7c03f14a5dfd3a642a02",
         "kind": "requirement",
         "dataset": "products",
@@ -29595,6 +29786,35 @@
         ]
       },
       {
+        "id": "vc-990046aece2f0d9c952b",
+        "kind": "feature",
+        "dataset": "platform",
+        "scope": {
+          "product": "es",
+          "release": "8.8"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-d10f9ac6604ba17d7875",
+            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Exposure Analytics for assets and users",
+          "Risk & exposure",
+          "Prioritize gaps in security controls",
+          "ES 8.8 adds Entity posture metrics, Entity profile rules and Entity actions. Entity analysis shows posture and profile context during investigations. The release notes list these additions under Essentials, which Premier includes. Check configuration and availability for your deployment."
+        ]
+      },
+      {
         "id": "vc-99a124f6b63792cf961f",
         "kind": "requirement",
         "dataset": "platform",
@@ -31881,6 +32101,35 @@
         ]
       },
       {
+        "id": "vc-b423d23636ea00799d83",
+        "kind": "feature",
+        "dataset": "products",
+        "scope": {
+          "product": "es",
+          "release": "8.8"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-d10f9ac6604ba17d7875",
+            "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Exposure Analytics for assets and users",
+          "Risk & exposure",
+          "Prioritize gaps in security controls",
+          "ES 8.8 adds Entity posture metrics, Entity profile rules and Entity actions. Entity analysis shows posture and profile context during investigations. The release notes list these additions under Essentials, which Premier includes. Check configuration and availability for your deployment."
+        ]
+      },
+      {
         "id": "vc-b42fede058e9ff9622df",
         "kind": "requirement",
         "dataset": "platform",
@@ -32137,9 +32386,9 @@
           {
             "sourceId": "source-2dbcc5c0c8fd796ad195",
             "url": "https://www.splunk.com/en_us/products/exposure-analytics.html",
-            "section": null,
-            "sectionScope": "Section not recorded",
-            "sourceVerified": "2026-10-01",
+            "section": "Features and getting started with Entity discovery",
+            "sectionScope": "Recorded source section; claim-specific support is not inferred",
+            "sourceVerified": "2026-11-24",
             "sourceChecked": null
           },
           {

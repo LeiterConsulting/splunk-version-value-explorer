@@ -17,14 +17,14 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('material cycle preserves scoped release evidence and prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,79);
+ assert.equal(b.policy.currentCycle,80);
  const regions=b.entries['ai:catalog'];assert.equal(regions.cycle,77);assert.match(regions.detail,/Milan and Sao Paulo/);assert(!b.active(regions));assert(b.active(regions,78));
  const exportPatch=b.entries['edition:soar'];assert.equal(exportPatch.cycle,79);assert.equal(exportPatch.sourceDate,'2026-11-19');assert.match(exportPatch.detail,/large-ES.*native pairing/);assert(b.active(exportPatch));assert(b.entries['edition-history:soar:cycle58']);
  assert(b.entries['ai:catalog:history:before-cycle77']);
  for(const key of ['environment:acs-fr-h','environment:acs-fr-h-victoria']){
   const entry=b.entries[key];assert.equal(entry.cycle,75);assert.equal(entry.kind,'corrected');assert(b.active(entry,76));assert(!b.active(entry));
  }
- for(const title of ['Span analyzer','APM operation grouping','Resolved alert history','A2A investigation access']){const entry=b.entries['feature:observability:'+title];assert.equal(entry.cycle,78);assert.equal(entry.sourceDate,'2026-11-12');assert(b.active(entry));}
+ for(const title of ['Span analyzer','APM operation grouping','Resolved alert history','A2A investigation access']){const entry=b.entries['feature:observability:'+title];assert.equal(entry.cycle,78);assert.equal(entry.sourceDate,'2026-11-12');assert(b.active(entry,79));assert(!b.active(entry));}
  const triage=b.entries['edition:ai-soc-analyst'];assert.equal(triage.cycle,76);assert.match(triage.detail,/200-analysis.*20-revision.*first-ten/);assert.equal(triage.sourceDate,null);assert(b.entries['edition:ai-soc-analyst:history:before-cycle76']);
  const maintenance106=b.entries['technical:platform:Enterprise 10.6 current maintenance release'];
  assert.equal(maintenance106.cycle,74);assert.equal(maintenance106.sourceDate,'2026-11-19');assert(!b.active(maintenance106));assert(b.active(maintenance106,75));assert(!b.active(maintenance106,76));
@@ -53,7 +53,8 @@ test('material cycle preserves scoped release evidence and prior cycle provenanc
   const patch=b.entries['technical:platform:Cloud '+build+' maintenance patch'];
   assert.equal(patch.cycle,66);assert.equal(patch.sourceDate,'2026-11-12');assert(b.active(patch,67));assert(!b.active(patch));assert(patch.source.endsWith('#'+build+'-0'));
  }
- const ea=b.entries["edition:exposure"];assert.equal(ea.cycle,52);assert(b.active(ea,53));assert(!b.active(ea));
+ const priorExposure=b.entries["edition-history:exposure:cycle52"];assert.equal(priorExposure.recordKey,"edition:exposure");assert(b.active(priorExposure,53));assert(!b.active(priorExposure));
+ for(const key of ["edition:exposure","feature:es:Exposure Analytics for assets and users"]){assert.equal(b.entries[key].cycle,80);assert(b.active(b.entries[key],80));}
  const soar=b.entries['product:soar:cloud-8.8'];assert.equal(soar.cycle,51);assert(!b.active(soar));assert.match(soar.detail,/November 4 General Availability/);
  const app=b.entries['technical:soar:app88'];assert.equal(app.cycle,53);assert(!b.active(app));
  const pairing=b.entries['edition-history:soar:cycle58'];assert.equal(pairing.cycle,58);assert(b.active(pairing,59));assert(!b.active(pairing));assert.match(pairing.detail,/Export 8\.8\.0 functionality-tested/);assert.match(pairing.detail,/native pairing, feature entitlement and regulated authorization separate/);
