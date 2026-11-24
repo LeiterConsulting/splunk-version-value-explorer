@@ -3,12 +3,10 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import {pathToFileURL} from 'node:url';
 import {execFileSync} from 'node:child_process';
 import {createRequire} from 'node:module';
 import {chromium} from 'playwright';
-import {checkReaderSurface} from './reader-checks.mjs';
-import {configureAdvisorRoute} from './advisor.mjs';
+import {checkReaderReport} from './reader-report.mjs';
 
 const require = createRequire(import.meta.url);
 const {inventory,dayOf} = require('../../scripts/lib/reader-review.cjs');
@@ -47,36 +45,12 @@ try {
       const route = routes.find(r => r.id === routeId);
       const check = {routeId,sections:selected.map(({capabilityId,proofId,receipt,checkedAt}) => ({capabilityId,proofId,receipt,checkedAt})),status:'failed'};
       result.checks.push(check);
-      const context = await browser.newContext({acceptDownloads:true});
-      const offline = await browser.newContext({offline:true});
       try {
-        const page = await context.newPage();
-        await page.goto(host+'/?'+route.query);
-        await page.waitForFunction(() => window.VersionCompassContent?.status !== 'loading' && typeof window.VersionCompassBuildSnapshot === 'function');
-        await configureAdvisorRoute(page,route);
-        await checkReaderSurface(page,selected);
-        const downloadPromise = page.waitForEvent('download');
-        await page.locator('.report-toolbar [data-save-snapshot]').click();
-        const download = await downloadPromise, html = path.join(directory,'report.html');
-        await download.saveAs(html);
-        const reopened = await offline.newPage();
-        await reopened.goto(pathToFileURL(html).href);
-        await checkReaderSurface(reopened,selected,true);
-        const pdf = path.join(directory,'report.pdf');
-        await page.pdf({path:pdf,printBackground:true,preferCSSPageSize:true});
-        const compact = text => text.replace(/\s+/g,'').toLowerCase();
-        const text = compact(execFileSync('pdftotext',['-raw',pdf,'-'],{encoding:'utf8'}));
-        const urls = execFileSync('pdfinfo',['-url',pdf],{encoding:'utf8'}).split('\n')
-          .map(line => line.trim().split(/\s+/)[2]);
-        for (const proof of selected) {
-          assert(text.includes(compact(proof.reportAnswer || proof.answer)),'Printed answer missing');
-          assert(urls.includes(proof.sourceUrl),'Printed citation missing');
-        }
+        await checkReaderReport(browser,host,route,selected,directory);
         check.screen = check.offlineHtml = check.pdf = 'passed';
         check.status = 'passed';
         for (const proof of selected) if (dayOf(proof.checkedAt) === date) current.add(proof.capabilityId);
       } catch (error) {check.error = error.message;}
-      finally {await context.close(); await offline.close();}
     }
     result.currentSections = current.size;
     if (current.size !== sections.length) result.issues.push('Incomplete daily coverage');

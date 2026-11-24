@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "1.0.0",
+  "revision": 1,
+  "synthetic": false,
+  "recordedAt": "2026-11-24T18:23:20.183Z",
+  "kind": "assessment",
+  "findingId": "vci-observability-rca-custom-metric-scope",
+  "assessmentId": "vcia-release-20261124-rca-evidence",
+  "assessedAt": "2026-11-24T18:08:24.447Z",
+  "originalAssessedAt": "2026-11-24T18:08:24.447716Z",
+  "outcome": "partially-addressed",
+  "rationale": "The candidate distinguishes documented trigger eligibility from the role of well-tagged metrics in an investigation.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Observability Cloud"
+    ],
+    "versions": [
+      "Rolling product documentation reviewed November 24, 2026"
+    ],
+    "editions": null,
+    "deployments": [
+      "Observability Cloud"
+    ],
+    "regions": null,
+    "audiences": [
+      "Operators using the AI Assistant and AI troubleshooting"
+    ],
+    "exclusions": [
+      "Tenant-specific availability, authorization and actual data retention were outside the source review."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-release-20261124-f01346f0-r4-5"
+  ],
+  "remainingConcerns": [
+    "General custom-metric trigger support remains unestablished. Runtime behavior and tenant enablement are outside this review."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "obs-rca-trigger",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan",
+      "section": "Use AI troubleshooting agent to identify potential root causes",
+      "statement": "The documented supported detector and alert inputs use standard default metrics.",
+      "role": "observed",
+      "excerpt": null,
+      "sourceCheckedAt": "2026-11-24T18:00:17.816Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "8fd827c88d04cb28ce1186459daf335c046ce5bdfdf76e6037efd1833020bca1",
+        "qualification": "Digest of the retrieved response recorded in the published source review."
+      }
+    },
+    {
+      "evidenceId": "obs-rca-context",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan",
+      "section": "How To Make RCA More Effective",
+      "statement": "Custom metrics carrying standard dimensions can supply context about the affected entity.",
+      "role": "context",
+      "excerpt": null,
+      "sourceCheckedAt": "2026-11-24T18:00:17.816Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "8fd827c88d04cb28ce1186459daf335c046ce5bdfdf76e6037efd1833020bca1",
+        "qualification": "Digest of the retrieved response recorded in the published source review."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "published-audit-normalization",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/173169bfd1cff2892bb3bf28c96d5fc774d8eecd/docs/audits/2026-11-24-version-release-watch-review-5-sources.json",
+      "pointer": "/claimAssessments/1",
+      "originalLabel": "ai-observability-rca"
+    }
+  ]
+}

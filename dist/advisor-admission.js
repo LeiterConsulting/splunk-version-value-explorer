@@ -63,7 +63,7 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "source-aiEsTriageNote88",
       "ref": "source:aiEsTriageNote88",
-      "sha256": "74c1d0d17e72a7192991dae449bf5cd8168a16e37da4979787f6b43b716b667a",
+      "sha256": "24b77ae55396596a9c78dfb3b6223fe22e69de672e64b94cf68508748f4fc091",
       "scope": "November 20 current Triage and Autonomous Response component rows and Premier scope only; historical entitlement and other prerequisite dates remain separate.",
       "sources": [
         "aiEsTriageNote88"
@@ -90,7 +90,7 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "source-aiEsAgents88",
       "ref": "source:aiEsAgents88",
-      "sha256": "eda72d1578d521c1a58edf38d77ae438681e3ab52ee8e60d5a916c7633f52782",
+      "sha256": "314d2501708e589ab9eec3632529181eb70e5c83e641d3bf268fca53f4157543",
       "scope": "Exact current 8.8 edition, deployment, version, paired-SOAR and feature-stage rows, including separate Triage and Controlled Availability Autonomous Response components; setup, region, entitlement and authorization remain separate.",
       "sources": [
         "aiEsAgents88"
@@ -99,7 +99,7 @@ window.VersionCompassAdvisorAdmission = {
     {
       "id": "source-aiEsSocTask88",
       "ref": "source:aiEsSocTask88",
-      "sha256": "a1d9031845936f266306564bfd568ab6254b9423e211756a37445fb9d5265a03",
+      "sha256": "b1cb112b7bcead00771dd0ef727350ec7075a00256db88cfaa7324bfaacbdf54",
       "scope": "November 21 exact ES 8.8 Triage parent-versus-detailed-task quota/revision conflict and separate Response limits; no tenant behavior, model residency, entitlement, pairing or authorization certification.",
       "sources": [
         "aiEsSocTask88"

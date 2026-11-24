@@ -14,19 +14,32 @@ function copyHistoricalFixture(file, root) {
   fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true });
   if (file === 'content/automation-coverage.json') fs.writeFileSync(path.join(root,file),JSON.stringify(registry));
   else if (file === 'content/automation-amendments.json') fs.writeFileSync(path.join(root,file),JSON.stringify(amendments));
-  else fs.copyFileSync(file,path.join(root,file));
+  else if (file === 'content/datasets/guidance.json') {
+    const historical=JSON.parse(fs.readFileSync(file));
+    for (const cap of registry.capabilities) for (const source of cap.sources) {
+      if (source.dataset === 'guidance' && !source.urlPointer && historical.sources[source.id]) historical.sources[source.id].url=source.url;
+    }
+    fs.writeFileSync(path.join(root,file),JSON.stringify(historical));
+  } else fs.copyFileSync(file,path.join(root,file));
 }
+const historicalRoot=fs.mkdtempSync(path.join(os.tmpdir(),'vc-retained-contract-'));
+for (const file of ['content/datasets/guidance.json','content/advisor-goals.json']) copyHistoricalFixture(file,historicalRoot);
+test.after(()=>fs.rmSync(historicalRoot,{recursive:true,force:true}));
 const bind = run => { run.reviewDigest = reviewDigest(run); return run; };
 test('current source contract preserves 1.3.0 ownership and retains earlier execution history',()=>{
  const current=JSON.parse(fs.readFileSync('content/automation-coverage.json'));
  const previous=JSON.parse(fs.readFileSync('content/automation-registries/1.3.0.json'));
- assert.equal(current.registryVersion,'1.5.0');assert.equal(current.activation,'pending-first-executions');validateRegistry(current);
+ assert.equal(current.registryVersion,'1.5.1');assert.equal(current.activation,'pending-first-executions');validateRegistry(current);
+ const canonical=JSON.parse(fs.readFileSync('content/datasets/guidance.json')).sources;
+ for (const cap of previous.capabilities) for (const source of cap.sources) {
+  if (['aiEsAgents88','aiEsTriageNote88','aiEsSocTask88'].includes(source.id)) source.url=canonical[source.id].url;
+ }
  assert.deepEqual(current.capabilities.slice(0, previous.capabilities.length), previous.capabilities);
  const agent=current.capabilities.find(c=>c.id==='advisor.agent-mode');
  for(const id of ['aiSaiaAgentMode','aiSaiaModelRuntime','aiSaiaCloudConnected'])assert(agent.claimFamilies[0].sourceIds.includes(id));
  const soc=current.capabilities.find(c=>c.id==='advisor.soc-workflow');assert.equal(soc.primaryOwner,'es-editions-watch');assert(soc.participatingWatches.includes('csp-fedramp-watch'));
  assert.match(soc.claimFamilies[0].scope,/customer authorization remain separate/);
- assert.deepEqual(JSON.parse(fs.readFileSync('content/automation-registries/1.5.0.json')),current);
+ assert.deepEqual(JSON.parse(fs.readFileSync('content/automation-registries/1.5.1.json')),current);
  assert.equal(validateRun(original,current).gaps.length,5); // Historical implementation outcome is not relabeled.
 });
 test('each daily surface row has the intended owner and an exact canonical source link', () => {
@@ -62,7 +75,8 @@ test('the recorder binds ES and CSP receipts only to their own audits under the 
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));
   copyHistoricalFixture('tools/export-verification/routes.json', root);
   copyHistoricalFixture('content/advisor-goals.json', root);
-  for (const file of fs.readdirSync('content/datasets')) copyHistoricalFixture('content/datasets/' + file, root);
+  fs.cpSync('content/datasets',path.join(root,'content/datasets'),{recursive:true});
+  copyHistoricalFixture('content/automation-registries/1.5.0.json',root);
   fs.writeFileSync(path.join(root, 'content/automation-coverage.json'), JSON.stringify(current));
   fs.mkdirSync(path.join(root, 'docs/audits'), { recursive: true });
   const record = (run, auditFile, runFile) => execFileSync(process.execPath, [path.resolve('scripts/record-automation-coverage.cjs'), '--run', runFile, '--audit', auditFile], { cwd: root, input: JSON.stringify(run), stdio: ['pipe', 'pipe', 'pipe'] });
@@ -101,35 +115,35 @@ test('a source receipt cannot silently move between attempts that reused a nativ
 });
 
 test('pilot covers Prep11 and all three Advisor decisions with separate primary and independent ownership', () => {
-  assert.equal(validateRegistry(registry).capabilities.length, 11);
+  assert.equal(validateRegistry(registry,historicalRoot).capabilities.length, 11);
   assert.equal(check().activation, 'pending-first-executions');
 });
 test('missing owners, independent ownership and canonical sources are rejected', () => {
   for (const edit of [r => delete r.capabilities[0].primaryOwner, r => r.capabilities[0].independentVerification = [], r => r.capabilities[0].sources[0].id = 'missing']) {
-    const r = structuredClone(registry); edit(r); assert.throws(() => validateRegistry(r), /owner|source/i);
+    const r = structuredClone(registry); edit(r); assert.throws(() => validateRegistry(r,historicalRoot), /owner|source/i);
   }
 });
 test('sources fetched without assessed claims cannot report assessed-no-change', () => {
   const run = structuredClone(original), entry = run.coverage[0];
   entry.disposition = 'assessed-no-change'; entry.assessments = [];
-  assert.throws(() => validateRun(bind(run), registry), /Fetched sources are not assessed/);
+  assert.throws(() => validateRun(bind(run), registry, historicalRoot), /Fetched sources are not assessed/);
 });
 test('the registry cannot silently omit an implemented Prep11 capability or Advisor decision', () => {
   for (const id of ['prep11.discovery', 'prep11.operator', 'advisor.agent-mode']) {
     const value = structuredClone(registry); value.capabilities = value.capabilities.filter(c => c.id !== id);
-    assert.throws(() => validateRegistry(value), /Unregistered/);
+    assert.throws(() => validateRegistry(value,historicalRoot), /Unregistered/);
   }
 });
 test('omitted mandatory capabilities and broad success over explicit gaps fail closed', () => {
   const missing = structuredClone(original); missing.coverage.pop();
-  assert.throws(() => validateRun(bind(missing), registry), /Missing mandatory/);
+  assert.throws(() => validateRun(bind(missing), registry, historicalRoot), /Missing mandatory/);
   const success = structuredClone(original); success.claimedComplete = true;
-  assert.throws(() => validateRun(bind(success), registry), /Broad success/);
+  assert.throws(() => validateRun(bind(success), registry, historicalRoot), /Broad success/);
   success.claimedComplete = false; success.outcome = 'success';
-  assert.throws(() => validateRun(bind(success), registry), /Broad success/);
+  assert.throws(() => validateRun(bind(success), registry, historicalRoot), /Broad success/);
 });
 test('the real manual review retains blocked and deferred coverage without claiming saved-task execution or delivery', () => {
-  const result = validateRun(original, registry);
+  const result = validateRun(original, registry, historicalRoot);
   assert.equal(original.kind, 'implementation-review');
   assert.equal(result.coverageComplete, false); assert.equal(result.deliveryComplete, false);
   assert.equal(result.gaps.length, 5);
@@ -137,19 +151,19 @@ test('the real manual review retains blocked and deferred coverage without claim
 });
 test('changed source scope invalidates review digest while later delivery receipts do not invent assessments', () => {
   const run = structuredClone(original); run.coverage[0].qualification += ' changed';
-  assert.throws(() => validateRun(run, registry), /Stale coverage/);
+  assert.throws(() => validateRun(run, registry, historicalRoot), /Stale coverage/);
   const receipt = structuredClone(original); receipt.publication.repository = 'later verified receipt';
   receipt.coverage[0].publishedAt = '2026-11-02T17:00:00Z';
   assert.equal(reviewDigest(receipt), original.reviewDigest);
 });
 test('activation cannot be inferred from implemented files or a manual audit', () => {
-  validateAmendments(amendments, registry);
+  validateAmendments(amendments, registry, historicalRoot);
   const a = structuredClone(amendments); a.amendments[0].activation.status = 'active';
-  assert.throws(() => validateAmendments(a, registry), /Activation requires/);
+  assert.throws(() => validateAmendments(a, registry, historicalRoot), /Activation requires/);
 });
 test('incomplete coverage requires a finite accountable follow-up', () => {
   const run = structuredClone(original); delete run.coverage.find(o => o.disposition === 'blocked').followUp;
-  assert.throws(() => validateRun(bind(run), registry), /finite follow-up/);
+  assert.throws(() => validateRun(bind(run), registry, historicalRoot), /finite follow-up/);
 });
 test('future changed watch reviews cannot omit coverage or substitute a manual implementation review', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-coverage-'));
@@ -160,7 +174,7 @@ test('future changed watch reviews cannot omit coverage or substitute a manual i
     write('content/automation-coverage.json',registry);write('content/automation-amendments.json',amendments);
     write('content/automation-registries/1.0.0.json', registry);
     write('content/advisor-goals.json', JSON.parse(fs.readFileSync('content/advisor-goals.json')));
-    write('content/datasets/guidance.json', JSON.parse(fs.readFileSync('content/datasets/guidance.json')));
+    copyHistoricalFixture('content/datasets/guidance.json',root);
     const file = 'docs/audits/2026-11-02-version-release-watch.json';
     write(file, { scope: 'prior' });
     git(['add', '.']); git(['-c', 'user.name=Coverage test', '-c', 'user.email=coverage@example.invalid', 'commit', '-m', 'Prior review']);
@@ -193,24 +207,24 @@ function completeRun() {
   return bind(run);
 }
 test('freshness is measured at the actual retained run, with stale and future evidence rejected', () => {
-  assert.equal(validateRun(completeRun(), registry).coverageComplete, true);
+  assert.equal(validateRun(completeRun(), registry, historicalRoot).coverageComplete, true);
   for (const mutate of [
     r => { r.coverage[0].assessments[0].assessedAt = '2026-09-01T00:00:00Z'; },
     r => { r.coverage[0].assessments[0].assessedAt = '2099-01-01T00:00:00Z'; },
     r => { r.coverage[0].retrievals[0].retrievedAt = '2026-09-01T00:00:00Z'; },
     r => { r.coverage[0].retrievals[0].retrievedAt = '2099-01-01T00:00:00Z'; },
     r => { r.recordedAt = '2099-01-01T00:00:00Z'; },
-  ]) { const run = completeRun(); mutate(run); assert.throws(() => validateRun(bind(run), registry), /Stale|Future/); }
-  assert.equal(validateRun(completeRun(), registry, process.cwd(), Date.parse('2026-11-03T00:00:00Z')).coverageComplete, true);
+  ]) { const run = completeRun(); mutate(run); assert.throws(() => validateRun(bind(run), registry, historicalRoot), /Stale|Future/); }
+  assert.equal(validateRun(completeRun(), registry, historicalRoot, Date.parse('2026-11-03T00:00:00Z')).coverageComplete, true);
 });
 test('Advisor claim identity must match the pointed-to canonical record', () => {
   const r = structuredClone(registry), goals = r.capabilities.filter(c => c.id.startsWith('advisor.'));
   goals[0].claimFamilies[0].pointer = goals[1].claimFamilies[0].pointer;
-  assert.throws(() => validateRegistry(r), /mismatched Advisor/);
+  assert.throws(() => validateRegistry(r,historicalRoot), /mismatched Advisor/);
 });
 test('complete no-change coverage still needs every required validation gate for delivery', () => {
   const run = completeRun(); run.publication.claimedDelivered = true;
-  assert.throws(() => validateRun(bind(run), registry), /delivery is incomplete/);
+  assert.throws(() => validateRun(bind(run), registry, historicalRoot), /delivery is incomplete/);
 });
 test('retained runs resolve immutable registry versions after an active version change', t => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-coverage-version-')); t.after(() => fs.rmSync(root, { recursive: true, force: true }));

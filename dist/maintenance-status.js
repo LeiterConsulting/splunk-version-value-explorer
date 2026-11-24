@@ -9,7 +9,7 @@ window.VersionCompassMaintenance = {
       "lastAttempt": "2026-11-24T17:11:12Z",
       "lastSuccess": "2026-11-21T19:34:26.194Z",
       "outcome": "blocked",
-      "summary": "Five primary reader comparisons complete; scoped High correction queued with three incomplete participating rows and exact-candidate validation pending.",
+      "summary": "Completed five reader comparisons and prepared a correction to the FedRAMP High listing. Three parts of this review remained incomplete.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -667,25 +667,25 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-24T17:11:12Z",
           "outcome": "running",
-          "summary": "Current Eastern reader review under saved work order; current native invocation identity unavailable.",
-          "scope": "Registry1.5.0: five primary source/reader/report comparisons; High candidate acceptance, Platform AI intersections and supporting SOC incomplete. No Site/D1 action."
+          "summary": "Began the follow-up review of Cloud Environment reader comparisons.",
+          "scope": "Compared five Cloud Environment answers with their sources and reports. FedRAMP High, Platform AI, and the supporting SOC review remained incomplete."
         },
         {
           "at": "2026-11-24T17:22:59.267Z",
           "outcome": "blocked",
-          "summary": "Five primary reader comparisons complete; scoped High correction queued with three incomplete participating rows and exact-candidate validation pending.",
-          "scope": "Registry1.5.0: five primary source/reader/report comparisons; High candidate acceptance, Platform AI intersections and supporting SOC incomplete. No Site/D1 action."
+          "summary": "Completed five reader comparisons and prepared a correction to the FedRAMP High listing. Three parts of this review remained incomplete.",
+          "scope": "Compared five Cloud Environment answers with their sources and reports. FedRAMP High, Platform AI, and the supporting SOC review remained incomplete."
         }
       ],
-      "scope": "Registry1.5.0: five primary source/reader/report comparisons; High candidate acceptance, Platform AI intersections and supporting SOC incomplete. No Site/D1 action."
+      "scope": "Compared five Cloud Environment answers with their sources and reports. FedRAMP High, Platform AI, and the supporting SOC review remained incomplete."
     },
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-24T10:12:34.777Z",
+      "lastAttempt": "2026-11-24T18:10:19.135Z",
       "lastSuccess": "2026-11-21T19:40:05.303Z",
       "outcome": "blocked",
-      "summary": "18primary assessed-no-change;9primary andsupportingSOC incomplete. Eightfresh observations andcandidate gated.",
+      "summary": "Prepared two Observability AI guidance corrections. All 27 sections remain incomplete for this follow-up review.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1555,9 +1555,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "18primary assessed-no-change;9primary andsupportingSOC incomplete. Eightfresh observations andcandidate gated.",
           "scope": "OwnR4 current registry1.4.0 section/claim review; productdates andmaterialcycle unchanged."
+        },
+        {
+          "at": "2026-11-24T18:10:19.135Z",
+          "outcome": "running",
+          "summary": "Prepared two Observability AI guidance corrections. All 27 sections remain incomplete for this follow-up review.",
+          "scope": "Reviewed Observability AI Assistant and troubleshooting guidance. The review covered two on-screen examples. Report checks and issue-feed publication were pending at the time."
+        },
+        {
+          "at": "2026-11-24T18:10:19.135Z",
+          "outcome": "blocked",
+          "summary": "Prepared two Observability AI guidance corrections. All 27 sections remain incomplete for this follow-up review.",
+          "scope": "Reviewed Observability AI Assistant and troubleshooting guidance. The review covered two on-screen examples. Report checks and issue-feed publication were pending at the time."
         }
       ],
-      "scope": "OwnR4 current registry1.4.0 section/claim review; productdates andmaterialcycle unchanged."
+      "scope": "Reviewed Observability AI Assistant and troubleshooting guidance. The review covered two on-screen examples. Report checks and issue-feed publication were pending at the time."
     },
     {
       "id": "es-editions-watch",
@@ -1565,7 +1577,7 @@ window.VersionCompassMaintenance = {
       "lastAttempt": "2026-11-24T17:17:28.269Z",
       "lastSuccess": "2026-11-24T09:08:54.963409+00:00",
       "outcome": "blocked",
-      "summary": "Prepared current Guided Response scope correction; six reader-contract rows deferred and candidate qualification pending.",
+      "summary": "Prepared the Guided Response deployment correction. Six ES section reviews remained incomplete.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -2295,17 +2307,17 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-24T17:17:28.269Z",
           "outcome": "running",
-          "summary": "Started later same-day ES reader-accuracy follow-through; native identity unavailable.",
-          "scope": "Own ES six-section source/reader assessment; prior morning receipt and native identity kept separate. No Site/D1 or task changes."
+          "summary": "Began the later same-day ES reader review.",
+          "scope": "Six ES source and reader sections. The earlier assessment is recorded separately."
         },
         {
           "at": "2026-11-24T17:29:10.485Z",
           "outcome": "blocked",
-          "summary": "Prepared current Guided Response scope correction; six reader-contract rows deferred and candidate qualification pending.",
-          "scope": "Own ES six-section source/reader assessment; prior morning receipt and native identity kept separate. No Site/D1 or task changes."
+          "summary": "Prepared the Guided Response deployment correction. Six ES section reviews remained incomplete.",
+          "scope": "Six ES source and reader sections. The earlier assessment is recorded separately."
         }
       ],
-      "scope": "Own ES six-section source/reader assessment; prior morning receipt and native identity kept separate. No Site/D1 or task changes."
+      "scope": "Six ES source and reader sections. The earlier assessment is recorded separately."
     },
     {
       "id": "version-guidance-audit",

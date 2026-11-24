@@ -193,6 +193,9 @@ test('same-day owner recovery accepts the new registry alongside valid earlier r
   for (const [day, count] of [['2026-11-23',1], ['2026-11-24',2], ['2026-11-25',1]]) {
     const reports = [run(day, '1.4.0', 'first'), run(day, '1.5.0', 'second')];
     assert.equal(dailyReview(registry, reports, day).reviewed, count);
+    const corrected = {...registry,registryVersion:'1.5.1',readerReview:{...registry.readerReview,recoveryVersions:['1.5.0']}};
+    assert.equal(dailyReview(corrected,reports,day).reviewed,day === '2026-11-25' ? 0 : count);
+    assert.equal(dailyReview(corrected,[run(day,'1.5.1','second')],day).reviewed,day === '2026-11-23' ? 0 : 1);
     const replay = structuredClone(reports[1]);
     replay.run.execution = {startedAt:null, workStartedAt:replay.run.recordedAt};
     assert.equal(dailyReview(registry, [replay], day).reviewed, 0);
