@@ -646,10 +646,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-23T00:50:56.828847Z",
+      "lastAttempt": "2026-11-24T08:45:12.891908Z",
       "lastSuccess": "2026-11-21T19:40:05.303Z",
       "outcome": "blocked",
-      "summary": "27 primary dispositions:24 assessed-no-change,3 incomplete; feed checkpoint109 prepared; exact candidate CI/export and integration held.",
+      "summary": "Fresh review:18 primary sections assessed-no-change;9 primary and supporting SOC incomplete. Candidate held.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1459,9 +1459,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "27 primary dispositions:24 assessed-no-change,3 incomplete; feed checkpoint109 prepared; exact candidate CI/export and integration held.",
           "scope": "Fresh27 primary registry1.4.0 sections, supportingSOC and eight scoped issue reassessments; no Site release."
+        },
+        {
+          "at": "2026-11-24T08:45:12.891908Z",
+          "outcome": "running",
+          "summary": "Started November24 Release Watch protected source review.",
+          "scope": "Registry1.4.0 all27 primary dispositions plus supportingSOC;330 official URLs with original failures and bounded retries; no product facts or claim dates advanced."
+        },
+        {
+          "at": "2026-11-24T08:58:52.670334+00:00",
+          "outcome": "blocked",
+          "summary": "Fresh review:18 primary sections assessed-no-change;9 primary and supporting SOC incomplete. Candidate held.",
+          "scope": "Registry1.4.0 all27 primary dispositions plus supportingSOC;330 official URLs with original failures and bounded retries; no product facts or claim dates advanced."
         }
       ],
-      "scope": "Fresh27 primary registry1.4.0 sections, supportingSOC and eight scoped issue reassessments; no Site release."
+      "scope": "Registry1.4.0 all27 primary dispositions plus supportingSOC;330 official URLs with original failures and bounded retries; no product facts or claim dates advanced."
     },
     {
       "id": "es-editions-watch",
