@@ -10,7 +10,8 @@ const privateIdentifiers = /\b(?:appg(?:prj|dep|ver)_[a-z0-9]+|Automation_[a-z0-
 const privateExecutionNotes = /\b(?:scheduler (?:identity|identifier|attempt|id|run)|(?:task|run|attempt)[- ](?:id|identifier|identity)|(?:native|private) (?:current[- ]|recorded |final )?(?:invocation|identity|attempt|start|result)|(?:review|task|scheduler) invocation|notification policy|task[-/]result (?:reconciliation|integrity))\b/i;
 
 function publicText(value) {
-  if (typeof value !== 'string' || privateIdentifiers.test(value) || privateExecutionNotes.test(value)) {
+  const reconciliationNotes = /\b(?:first[- ]execution|foreign result|native receipt reconciliation|workflow dispatch|current [a-z]+ attempt)\b/i;
+  if (typeof value !== 'string' || privateIdentifiers.test(value) || privateExecutionNotes.test(value) || reconciliationNotes.test(value)) {
     throw Error('Use a reader-facing review description. Keep execution identifiers and private run details out of public maintenance history.');
   }
 }
@@ -19,14 +20,19 @@ function publicFields(row, fields) {
 }
 function checkPublicHistory() {
   publicFields(data,['schemaVersion','trackingSince','scheduleSnapshot','watches']);
+  const failures = [];
   for (const watch of data.watches) {
     publicFields(watch,['id','name','lastAttempt','lastSuccess','outcome','summary','scope','history']);
     for (const entry of watch.history) publicFields(entry,['at','outcome','summary','scope']);
     for (const row of [watch,...watch.history]) {
-      if (row.summary !== undefined) publicText(row.summary);
-      if (row.scope !== undefined) publicText(row.scope);
+      for (const field of ['summary','scope']) {
+        if (row[field] === undefined) continue;
+        try { publicText(row[field]); }
+        catch { failures.push(`${watch.id} ${row === watch ? 'current' : row.at} ${field}`); }
+      }
     }
   }
+  if (failures.length) throw Error('Private execution details in public maintenance history:\n'+failures.join('\n'));
 }
 if (process.argv[2] === '--check') {
   checkPublicHistory();
