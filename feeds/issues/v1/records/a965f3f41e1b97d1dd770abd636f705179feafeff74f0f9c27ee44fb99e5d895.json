@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "findingId": "vci-es-88-threat-graph-minimum-event-copy",
+  "revision": 1,
+  "recordedAt": "2026-11-24T22:07:56.615Z",
+  "title": "ES 8.8 Threat Graph reader omits the event gate",
+  "concernType": "suspected-error",
+  "problem": "The ES 8.8 Threat Graph task gives an approximately one-million processed-event gate before any findings. The two public readers omit the gate. The corrected candidate passed the scoped checks with the original vendor citation.",
+  "scope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "8.8, with exact earlier versions retained where cited"
+    ],
+    "editions": null,
+    "deployments": [
+      "The deployment boundaries stated in the cited sections"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No product authorization, individual entitlement, unlisted pairing or release activation is inferred."
+    ]
+  },
+  "impact": {
+    "customerScenario": "When can the ES 8.8 Alpha Threat Graph first create a finding?",
+    "consequence": "A reader can misinterpret the documented feature prerequisite or entitlement display.",
+    "level": "unknown"
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "Direct official topic and both public browser checks support the scoped finding."
+  },
+  "claimIds": [
+    "ai-es-threat-graph"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Local correction verified. Production reader and exports await release acceptance."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-nov24-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
+      "section": "Alpha stage; risk-based detection and event-volume prerequisites; enablement and test mode",
+      "statement": "The ES 8.8 Threat Graph task gives an approximately one-million processed-event gate before any findings. The two public readers omit the gate. The corrected candidate passed the scoped checks with the original vendor citation.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-24T22:01:50.391Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "61f35b0f42e9a11d136517cdc5489f0f11f0d685ebc4d5075091e28ad73cf28c",
+        "qualification": "SHA-256 of direct public response body."
+      }
+    },
+    {
+      "evidenceId": "es-reader-diff",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/7421e182ae6c9da7186ee25d4e51b79e79696451/docs/audits/2026-11-24-es-editions-watch-review-5-sources.json",
+      "section": "Both-domain reader comparison and local candidate checks",
+      "statement": "The independently rendered live screen lacked the expected answer. The admitted baseline and candidate results are retained separately.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": null,
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Immutable commit-pinned audit retains both per-origin receipts and hashes."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/7421e182ae6c9da7186ee25d4e51b79e79696451/docs/audits/2026-11-24-es-editions-watch-review-5-sources.json",
+      "pointer": "/issueObservations/1",
+      "originalLabel": "partially-addressed"
+    }
+  ]
+}

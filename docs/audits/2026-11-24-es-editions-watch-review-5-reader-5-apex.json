@@ -1,0 +1,145 @@
+{
+  "kind": "owner-reader-live-observation",
+  "method": "live-scoped-retry.json",
+  "attempt": {
+    "taskId": "6ab2aa014df881918687cc1e30393ea9",
+    "schedulerRunId": "90855a01-de78-8325-8aff-ba0c484fac8e",
+    "startedAt": "2026-11-24T21:56:48.669386Z"
+  },
+  "recordedAt": "2026-11-24T22:04:01.534Z",
+  "ownerReaderResult": {
+    "origin": "https://versioncompass.com",
+    "revision": "content-f787f93ed669c34766819f95",
+    "digest": "bc930b115100fc384adddeef1618435b2da0a99107bdecb15f73b0cd34538d96",
+    "checkedAt": "2026-11-24T22:04:01.534Z",
+    "checks": [
+      {
+        "routeId": "advisor-conflict",
+        "sections": [
+          "advisor.soc-workflow"
+        ],
+        "expectations": [
+          {
+            "capabilityId": "advisor.soc-workflow",
+            "question": "Can I select the lower Cloud ES minimum when the aggregate and detailed workflow guides disagree?",
+            "routeId": "advisor-conflict",
+            "region": "#advisor-result",
+            "answer": "The ES 8.8 aggregate table lists Cloud ES 8.6+, while the detailed ES 8.8 Triage task guide requires ES 8.7+.",
+            "reportAnswer": "The ES 8.8 aggregate table lists Cloud ES 8.6+, while the detailed ES 8.8 Triage task guide requires ES 8.7+.",
+            "claimIds": [
+              "ai-es-soc"
+            ],
+            "sourceId": "aiEsAgents88",
+            "sourceUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security"
+          }
+        ],
+        "checkedAt": "2026-11-24T22:03:31.427Z",
+        "htmlSha256": "b1c7d7ad2273c1ed3fef399f936e85a4b50b55bc3f79513f14226d44fcd78be2",
+        "pdfSha256": "a3fe47d2d41778469bb2196800907f9e837d8b25223940431c06c9ce95d1c706",
+        "status": "passed"
+      },
+      {
+        "routeId": "ai-overview",
+        "sections": [
+          "ai.es-capabilities",
+          "ai.es-capabilities"
+        ],
+        "expectations": [
+          {
+            "capabilityId": "ai.es-capabilities",
+            "question": "Does ES 8.8 GA make Threat Graph generally available for every edition and deployment?",
+            "routeId": "ai-overview",
+            "region": "#ai-es-threat-graph",
+            "answer": "Alpha feature · ES 8.8 release General Availability",
+            "reportAnswer": "Alpha feature · ES 8.8 release General Availability",
+            "claimIds": [
+              "ai-es-threat-graph"
+            ],
+            "sourceId": "aiEsAgents88",
+            "sourceUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security"
+          },
+          {
+            "capabilityId": "ai.es-capabilities",
+            "question": "What event volume must be processed before Threat Graph creates any findings?",
+            "routeId": "ai-overview",
+            "region": "#ai-es-threat-graph",
+            "answer": "approximately one million events must be processed before any findings are created",
+            "reportAnswer": "approximately one million events must be processed before any findings are created",
+            "claimIds": [
+              "ai-es-threat-graph"
+            ],
+            "sourceId": "aiEsThreatGraph88",
+            "sourceUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent"
+          }
+        ],
+        "status": "failed",
+        "error": "ai.es-capabilities on ai-overview screen missing visible answer: approximately one million events must be processed before any findings are created"
+      },
+      {
+        "routeId": "editions",
+        "sections": [
+          "es-editions.licensing",
+          "es-editions.history",
+          "es-editions.deployment",
+          "es-editions.workflows"
+        ],
+        "expectations": [
+          {
+            "capabilityId": "es-editions.licensing",
+            "question": "Why might a Cloud Connected Premier trial show Essentials in the UI?",
+            "routeId": "editions",
+            "region": "#note-licensing",
+            "answer": "the displayed entitlement is Essentials because Splunk Cloud Services does not recognize trial entitlements",
+            "reportAnswer": "the displayed entitlement is Essentials because Splunk Cloud Services does not recognize trial entitlements",
+            "claimIds": [
+              "es-editions.licensing"
+            ],
+            "sourceId": "licensing88",
+            "sourceUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.8/introduction/licensing-for-splunk-enterprise-security"
+          },
+          {
+            "capabilityId": "es-editions.history",
+            "question": "What can an ES 8.8 operator automate with entity actions?",
+            "routeId": "editions",
+            "region": ".edition-highlights",
+            "answer": "Entity actions automate configured follow-up.",
+            "reportAnswer": "Entity actions automate configured follow-up.",
+            "claimIds": [
+              "es-editions.history"
+            ],
+            "sourceId": "rn88",
+            "sourceUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security"
+          },
+          {
+            "capabilityId": "es-editions.deployment",
+            "question": "Does edition inclusion establish availability on every regional or regulated stack?",
+            "routeId": "editions",
+            "region": "#note-availability",
+            "answer": "A Cloud listing does not establish availability on every stack, cloud provider or regulated deployment.",
+            "reportAnswer": "A Cloud listing does not establish availability on every stack, cloud provider or regulated deployment.",
+            "claimIds": [
+              "es-editions.deployment"
+            ],
+            "sourceId": "regions88",
+            "sourceUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability"
+          },
+          {
+            "capabilityId": "es-editions.workflows",
+            "question": "Does the current ES 8.8 Guided Response table include Cloud Connected CMP?",
+            "routeId": "editions",
+            "region": ".edition-row",
+            "answer": "The current 8.8 aggregate table lists both editions on Cloud and Cloud Connected CMP",
+            "reportAnswer": "The current 8.8 aggregate table lists both editions on Cloud and Cloud Connected CMP",
+            "claimIds": [
+              "es-editions.workflows"
+            ],
+            "sourceId": "agentic88",
+            "sourceUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security"
+          }
+        ],
+        "status": "failed",
+        "error": "es-editions.licensing on editions screen missing visible answer: the displayed entitlement is Essentials because Splunk Cloud Services does not recognize trial entitlements"
+      }
+    ]
+  }
+}
