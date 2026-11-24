@@ -641,6 +641,18 @@ window.VersionCompassMaintenance = {
           "scope": "Four protected Cloud Environment rows, three AI regional scopes, Advisor SOC dependency, visual public-sector matrix and 44-URL official inventory. Repository/feed/export/live delivery remain separate."
         },
         {
+          "at": "2026-11-23T10:39:38.759897Z",
+          "outcome": "running",
+          "summary": "Started the November 23 Eastern CSP FedRAMP review under native attempt eb005e5d.",
+          "scope": "Four protected Cloud Environment rows, three AI regional rows, supporting Advisor SOC, full official inventory, visual compliance matrix and feed checkpoint."
+        },
+        {
+          "at": "2026-11-23T10:50:35.976Z",
+          "outcome": "blocked",
+          "summary": "Seven primary sections assessed without canonical fact changes; supporting SOC locators, AWS endpoint rows, feed lineage and candidate validation remain held.",
+          "scope": "Registry 1.4.0 CSP review; no Site, D1, flag, workflow dispatch, task or schedule changes."
+        },
+        {
           "at": "2026-11-24T10:03:32.334Z",
           "outcome": "running",
           "summary": "OwnCSP current-date seven-primary scope review.",
