@@ -187,11 +187,14 @@ test('same-day owner recovery accepts the new registry alongside valid earlier r
   function run(day, version, id) {
     const time = day + 'T16:00:00Z';
     return {result:{file:id}, run:{kind:'saved-task-execution', runId:id, watchId:owner,
-      recordedAt:time, registryVersion:version, coverage:[{capabilityId:id, disposition:'assessed-no-change',
+      recordedAt:time, execution:{startedAt:time}, registryVersion:version, coverage:[{capabilityId:id, disposition:'assessed-no-change',
         assessedAt:time, assessments:[{assessedAt:time}]}]}};
   }
   for (const [day, count] of [['2026-11-23',1], ['2026-11-24',2], ['2026-11-25',1]]) {
     const reports = [run(day, '1.4.0', 'first'), run(day, '1.5.0', 'second')];
     assert.equal(dailyReview(registry, reports, day).reviewed, count);
+    const replay = structuredClone(reports[1]);
+    replay.run.execution = {startedAt:null, workStartedAt:replay.run.recordedAt};
+    assert.equal(dailyReview(registry, [replay], day).reviewed, 0);
   }
 });

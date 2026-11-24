@@ -315,3 +315,17 @@ test('verified activation changes operational state without rewriting the versio
   assert.equal(check(root).activation, 'active');
   assert.equal(fs.readFileSync(path.join(root,'content/automation-registries/1.0.0.json'),'utf8'), fs.readFileSync('content/automation-registries/1.0.0.json','utf8'));
 });
+
+test('editorial evidence requires matching owner and work clocks and earns no execution or delivery claim', () => {
+  const { editorialReplay } = require('../scripts/lib/automation-coverage.cjs');
+  const workStartedAt = '2026-11-24T17:01:02Z';
+  const execution = {taskId:'watch', workStartedAt, startedAt:null, schedulerRunId:null};
+  const run = {kind:'implementation-review', claimedComplete:false, recordedAt:'2026-11-24T17:09:00Z',
+    publication:{claimedDelivered:false}, execution};
+  assert(editorialReplay(run, {execution}));
+  for (const changed of [{taskId:'other'}, {workStartedAt:'2026-11-24T17:08:00Z'}, {schedulerRunId:'other'}, {startedAt:workStartedAt}]) {
+    assert.equal(editorialReplay(run, {execution:{...execution, ...changed}}), false);
+  }
+  assert.equal(editorialReplay({...run, claimedComplete:true}, {execution}), false);
+  assert.equal(editorialReplay({...run, publication:{claimedDelivered:true}}, {execution}), false);
+});
