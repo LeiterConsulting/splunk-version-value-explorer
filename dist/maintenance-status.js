@@ -1473,6 +1473,18 @@ window.VersionCompassMaintenance = {
           "scope": "Fresh27 primary registry1.4.0 sections, supportingSOC and eight scoped issue reassessments; no Site release."
         },
         {
+          "at": "2026-11-24T09:17:48.922107Z",
+          "outcome": "running",
+          "summary": "Distinct Release attempt:18 of27 primary sections assessed unchanged;9 primary and supporting SOC incomplete. Candidate held.",
+          "scope": "Fresh current-source registry1.4.0 review; prior attempts preserved; no Site publication."
+        },
+        {
+          "at": "2026-11-24T09:29:29.916681Z",
+          "outcome": "blocked",
+          "summary": "Distinct Release attempt:18 of27 primary sections assessed unchanged;9 primary and supporting SOC incomplete. Candidate held.",
+          "scope": "Fresh current-source registry1.4.0 review; prior attempts preserved; no Site publication."
+        },
+        {
           "at": "2026-11-24T09:52:38.388Z",
           "outcome": "running",
           "summary": "Distinct current Release attempt; fresh27 primary scope review.",
