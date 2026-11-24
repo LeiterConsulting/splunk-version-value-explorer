@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-22T12:41:34.280121Z",
+      "lastAttempt": "2026-11-24T10:03:32.334Z",
       "lastSuccess": "2026-11-21T19:34:26.194Z",
       "outcome": "blocked",
-      "summary": "Seven registered CSP scopes assessed; Advisor SOC coverage remains incomplete because two exact registered 8.8 locators return 404 while renamed current topics are separately readable.",
+      "summary": "Seven primary sections assessed without changing facts; supportingSOC deferred; candidate held for validation,exports andintegration.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -639,9 +639,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Seven registered CSP scopes assessed; Advisor SOC coverage remains incomplete because two exact registered 8.8 locators return 404 while renamed current topics are separately readable.",
           "scope": "Four protected Cloud Environment rows, three AI regional scopes, Advisor SOC dependency, visual public-sector matrix and 44-URL official inventory. Repository/feed/export/live delivery remain separate."
+        },
+        {
+          "at": "2026-11-24T10:03:32.334Z",
+          "outcome": "running",
+          "summary": "OwnCSP current-date seven-primary scope review.",
+          "scope": "Registry1.4.0 public source/claim review; exact provider,region,experience,offering andfeature boundaries retained."
+        },
+        {
+          "at": "2026-11-24T10:12:32.853037Z",
+          "outcome": "blocked",
+          "summary": "Seven primary sections assessed without changing facts; supportingSOC deferred; candidate held for validation,exports andintegration.",
+          "scope": "Registry1.4.0 public source/claim review; exact provider,region,experience,offering andfeature boundaries retained."
         }
       ],
-      "scope": "Four protected Cloud Environment rows, three AI regional scopes, Advisor SOC dependency, visual public-sector matrix and 44-URL official inventory. Repository/feed/export/live delivery remain separate."
+      "scope": "Registry1.4.0 public source/claim review; exact provider,region,experience,offering andfeature boundaries retained."
     },
     {
       "id": "version-release-watch",
