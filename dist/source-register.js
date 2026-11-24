@@ -7664,12 +7664,26 @@ window.VersionCompassSources = {
       "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/known-issues-for-this-release/known-issues/splunk-enterprise-10.6.2-known-issues",
       "title": "splunk enterprise 10.6.2 known issues",
       "areas": [
-        "Release guide"
+        "Release guide",
+        "Splunk Forwarders"
       ],
       "references": [
-        "release.enterprise.releasesData.10.6.technicalChanges.12.source"
+        "release.enterprise.releasesData.10.6.technicalChanges.12.source",
+        "forwarders: borrowed.technical.hf.10.6.windows-bundled-python-ssl"
       ],
       "reviews": [],
+      "claimReferences": [
+        {
+          "path": "forwarders: borrowed.technical.hf.10.6.windows-bundled-python-ssl",
+          "claimId": "technical.hf.10.6.windows-bundled-python-ssl",
+          "release": "10.6",
+          "component": "10.6.2 Windows Python SSL",
+          "section": "Splunk Enterprise 10.6.2 known issues, Windows SSL issue SPL-313522",
+          "claimVerified": "2026-11-24",
+          "outcome": "confirmed",
+          "qualification": "Splunk lists the bundled Windows Python issue in Enterprise 10.6.2. Applicability depends on the installed package, operating system and runtime used by the workload."
+        }
+      ],
       "usage": "In use",
       "reviewed": null,
       "status": "Review date unknown",
