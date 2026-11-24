@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-cloud-connected-agent-mode-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-24T10:22:32.227Z",
+  "assessmentId": "vcia-release-20261124-f01346f0-r4-3",
+  "assessedAt": "2026-11-24T10:20:16.079Z",
+  "originalAssessedAt": "2026-11-24T10:20:16.079562Z",
+  "outcome": "still-present",
+  "rationale": "Compared 2.3.6 Agent Mode requirements, Model Runtime and SAIA-9918 with current 2.4.0 installer/release/known-issue text. Current installation requires Enterprise 10.4+, qualifying paid license, Cloud Connect 2.0+, STC/certificate and listed admin capabilities, fresh setup and AWS region selection. New setup says inbound 8089 is unnecessary; older feature guide requires it. Retain old exclusion, 2.1.1 no-Agent workaround, stale planned-2.4 wording, feature-specific AWS/runtime and external-processing qualifications. Installation does not establish every feature or authorization.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise,UniversalForwarder,SOK,SAIA,ITSI,Observability andSOAR onlyasexplicitly reviewed"
+    ],
+    "versions": [
+      "Exactnamedversions in sourceaudit; no adjacentbranch inheritance"
+    ],
+    "editions": null,
+    "deployments": [
+      "ExactnamedCloud orcustomer-managed scope"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No customer configuration,tenant eligibility,unlisted exact pairing,feature authorization or universal regional rollout established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-release-r3-1b389ee8-saia-cloud-connected-agent-mode-scope"
+  ],
+  "remainingConcerns": [
+    "Version Release Watch retains exact disputed conditions; recheck named primary sections by2026-11-25. Canonical integration and sole-coordinator delivery are separate."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "vcia-release-20261124-f01346f0-r4-3-0",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-splunk-cloud-connect",
+      "section": "2.4newsetup prerequisites",
+      "statement": "Compared 2.3.6 Agent Mode requirements, Model Runtime and SAIA-9918 with current 2.4.0 installer/release/known-issue text. Current installation requires Enterprise 10.4+, qualifying paid license, Cloud Connect 2.0+, STC/certificate and listed admin capabilities, fresh setup and AWS region selection. New setup says inbound 8089 is unnecessary; older feature guide requires it. Retain old exclusion, 2.1.1 no-Agent workaround, stale planned-2.4 wording, feature-specific AWS/runtime and external-processing qualifications. Installation does not establish every feature or authorization.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-24T10:16:34.466Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b3d7b483cfa1a84e9e8376c7ad9ec99e32fd1d6515bb932b83e870defafc0ac1",
+        "qualification": "Anonymous public response digest; source retrieval is separate from claim assessment."
+      }
+    },
+    {
+      "evidenceId": "vcia-release-20261124-f01346f0-r4-3-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/release-notes/known-issues",
+      "section": "SAIA-9918 oldversion exclusion andplanned2.4 wording",
+      "statement": "Independently compared this exact supporting or challenging section with separate version,edition,deployment,entitlement and authorization qualifications.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-24T10:14:22.937Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b0196f635046eb487471884f4f03bd1bc19ff0ec07f8b817f458b08d506034ba",
+        "qualification": "Anonymous public response digest; source retrieval is separate from claim assessment."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/fd1226a6e1a55e8ea52042362594a07df5938c73/docs/audits/2026-11-24-version-release-watch-review-4-sources.json",
+      "pointer": "/issueObservations/2",
+      "originalLabel": "still-present"
+    }
+  ]
+}

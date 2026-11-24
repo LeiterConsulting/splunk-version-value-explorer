@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-88-ai-release-stage-copy",
+  "revision": 1,
+  "recordedAt": "2026-11-23T09:15:49.401Z",
+  "assessmentId": "vcia-es-20261123-es-88-ai-release-stage-copy",
+  "assessedAt": "2026-11-23T09:14:37.587Z",
+  "outcome": "partially-addressed",
+  "rationale": "Current canonical ES records retain product GA, Threat Graph alpha and Autonomous Response CA separately. Current shared assessment code says component release stage still needs confirmation instead of appending universal product CA. Official8.8 release says November4 GA. Native exports and actual live copy are not freshly certified by this source/code review.",
+  "reviewedScope": {
+    "products": [
+      "VersionCompass AI Availability",
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "ES8.8 current documentation and canonical main f15fb085"
+    ],
+    "editions": null,
+    "deployments": [
+      "Screen, printed and saved AI Availability report"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No new product stage, component entitlement, rollout or customer authorization is inferred. Autonomous Response CA and Threat Graph alpha remain separate."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-es-20261121-ai-release-stage-copy"
+  ],
+  "remainingConcerns": [
+    "es-editions-watch will recheck the exact named scope by2026-11-24; live delivery and tenant eligibility remain separate."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "vcia-es-20261123-es-88-ai-release-stage-copy-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "8.8 General Availability notice and agent-specific edition boundary",
+      "statement": "Current canonical ES records retain product GA, Threat Graph alpha and Autonomous Response CA separately. Current shared assessment code says component release stage still needs confirmation instead of appending universal product CA. Official8.8 release says November4 GA. Native exports and actual live copy are not freshly certified by this source/code review.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-23T09:02:24.616Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ea7983c919d23a0656fce52f7087a335d7642e1aa905e0de4727b0087440a064",
+        "qualification": "Raw anonymous public response digest; no publisher revision inferred."
+      }
+    },
+    {
+      "evidenceId": "vcia-es-20261123-es-88-ai-release-stage-copy-1",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/f15fb0851c4e40d6c4dc7b88c3a3c09ed6f98389/dist/ai-availability.js",
+      "section": "assess: ES conditional-result detail",
+      "statement": "Supporting or challenging exact section assessed with separate version, edition, deployment, runtime and authorization qualifications.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-23T09:14:37.587Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "5bbfc187867e26f8bf97acd7f0b58a75cab5092c3d178d715428b60c65b46eb9",
+        "qualification": "Exact Git source readback at fetched canonical main; HTTP status not exposed"
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/f7ab637fda6b207ae4c67988b55d9e25b04072fc/docs/audits/2026-11-23-es-editions-watch-sources.json",
+      "pointer": "/issueObservations/14",
+      "originalLabel": "partially-addressed"
+    }
+  ]
+}
