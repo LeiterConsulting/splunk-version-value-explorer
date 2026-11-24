@@ -17,7 +17,7 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('material cycle preserves scoped release evidence and prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,82);
+ assert.equal(b.policy.currentCycle,83);
  const high=b.entries['environment:platform-fr-h'];assert.equal(high.cycle,82);assert.match(high.detail,/current empty named-services field.*historical October 9 list/);assert(b.active(high,83));assert(!b.active(high,84));
  const regions=b.entries['ai:catalog'];assert.equal(regions.cycle,77);assert.match(regions.detail,/Milan and Sao Paulo/);assert(!b.active(regions));assert(b.active(regions,78));
  const exportPatch=b.entries['edition:soar'];assert.equal(exportPatch.cycle,79);assert.equal(exportPatch.sourceDate,'2026-11-19');assert.match(exportPatch.detail,/large-ES.*native pairing/);assert(b.active(exportPatch,80));assert(!b.active(exportPatch));assert(b.entries['edition-history:soar:cycle58']);
@@ -134,9 +134,11 @@ test('10.6 technical badges never label older or Cloud records',()=>{
 });
 
 test('cycle thirteen offering badges expire after two material cycles but retain provenance',()=>{
- for(const key of ['environment-history:es-fr-m-offering:cycle13','environment:es-fr-h-offering','environment-history:itsi-fr-m-offering:cycle13','environment:itsi-fr-h-offering','product-history:soar:fedramp-moderate-offering:cycle13']){const e=b.entries[key];assert(e);assert.equal(e.cycle,13);assert(!b.active(e));assert.match(e.detail,/separate|scope/);assert.equal(b.html(key),'');}
+ for(const key of ['environment-history:es-fr-m-offering:cycle13','environment-history:es-fr-h-offering:cycle13','environment-history:itsi-fr-m-offering:cycle13','environment-history:itsi-fr-h-offering:cycle13','product-history:soar:fedramp-moderate-offering:cycle13']){const e=b.entries[key];assert(e);assert.equal(e.cycle,13);assert(!b.active(e));assert.match(e.detail,/separate|scope/);assert.equal(b.html(key),'');}
 });
 
 test('restored release markers expire after two later material cycles but retain provenance',()=>{
  for(const key of ['feature:observability:Collector 0.162 migration controls','feature:observability:Kubernetes chart 0.162','technical:observability:Collector 0.162 retired receivers and processor names','technical:observability:Collector Windows service identity','technical:observability:Kubernetes chart 0.162 package baseline','technical:observability:Python instrumentation 2.13 patch baseline','product:soar:6.4.1.361-floor']){const e=b.entries[key];assert.equal(e.cycle,16);assert(!b.active(e));assert.match(e.note,/2026\/10\/2026-10-09\.md/);}
 });
+
+test('High component corrections preserve offering status and two-cycle scoped history',()=>{for(const id of ['es-fr-h-offering','itsi-fr-h-offering']){const e=b.entries['environment:'+id];assert.equal(e.cycle,83);assert.equal(e.kind,'corrected');assert.match(e.detail,/historical.+current component scope unresolved/);assert(b.active(e,83));assert(b.active(e,84));assert(!b.active(e,85));assert.equal(b.entries['environment-history:'+id+':cycle13'].recordKey,'environment:'+id);}});

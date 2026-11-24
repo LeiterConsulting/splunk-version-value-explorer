@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "assessment",
+  "findingId": "vci-es-88-ai-regional-mapping-discrepancy",
+  "assessmentId": "vcia-csp-operator-20261124-7",
+  "revision": 1,
+  "recordedAt": "2026-11-24T21:33:44.408Z",
+  "assessedAt": "2026-11-24T21:14:08.201Z",
+  "outcome": "addressed-in-reviewed-scope",
+  "rationale": "Compared complete ES8.8 Essentials/Premier/Cloud Connect AWS tables and GCP/Azure component exclusions. Essentials excludes Calgary, Stockholm, GovCloud assistant/agentic; Premier excludes Calgary/GovCloud, with UAE disruption separate. Cloud Connect Montreal assistant exclusion differs from Premier, and Calgary blank is not a general rollout guarantee. Cloud-only GCP/Azure omit separately named agent components; GCP Oregon SOAR excluded. Current CC installation10.4+/ES8.8+/CC2+/SAIA2.4+ does not establish per-agent region, entitlement or regulated authorization.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security AI Availability"
+    ],
+    "versions": [
+      "ES 8.8 current public regional tables"
+    ],
+    "editions": [
+      "Essentials",
+      "Premier"
+    ],
+    "deployments": [
+      "Cloud",
+      "Cloud Connected"
+    ],
+    "regions": [
+      "Milan",
+      "São Paulo",
+      "Montréal",
+      "Calgary"
+    ],
+    "audiences": null,
+    "exclusions": [
+      "No feature rollout, entitlement, runtime placement or customer authorization is established.",
+      "Only the exact source sections and current canonical comparison in this operator review were reassessed. No tenant configuration, customer authorization, unlisted feature rollout or delivery verification."
+    ]
+  },
+  "comparedAssessmentIds": [],
+  "remainingConcerns": [
+    "Current reviewed regional policy is consistent in the selected scope. Other agents, entitlement, authorization and actual reader delivery remain separate."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "vcia-csp-operator-20261124-7-source-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility",
+      "statement": "Compared complete ES8.8 Essentials/Premier/Cloud Connect AWS tables and GCP/Azure component exclusions. Essentials excludes Calgary, Stockholm, GovCloud assistant/agentic; Premier excludes Calgary/GovCloud, with UAE disruption separate. Cloud Connect Montreal assistant exclusion differs from Premier, and Calgary blank is not a general rollout guarantee. Cloud-only GCP/Azure omit separately named agent components; GCP Oregon SOAR excluded. Current CC installation10.4+/ES8.8+/CC2+/SAIA2.4+ does not establish per-agent region, entitlement or regulated authorization.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-24T21:05:10.727Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "2a7ecf37ce5074eb772dfc6392319c4bc5d011bf674ae6ff7c54b973efdaf9d3",
+        "qualification": "Exact direct public response bytes retained in the source audit; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/da73db9a334240c1f89cf24a46ac92a925c505db/docs/audits/2026-11-24-csp-fedramp-watch-review-3-sources.json",
+      "pointer": "/sections/2",
+      "originalLabel": "operator-directed-scoped-assessment"
+    }
+  ]
+}

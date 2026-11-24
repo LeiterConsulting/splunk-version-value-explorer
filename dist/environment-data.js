@@ -691,7 +691,7 @@ window.VersionCompassEnvironmentData = {
     {
       "id": "es-fr-h-offering",
       "product": "es",
-      "feature": "Enterprise Security certified service",
+      "feature": "Enterprise Security High offering scope",
       "provider": "aws",
       "regions": [
         "us-gov-east-1",
@@ -700,15 +700,15 @@ window.VersionCompassEnvironmentData = {
       "regimes": [
         "fr-h"
       ],
-      "availability": "conditional",
-      "authorization": "documented",
-      "detail": "The exact High Marketplace CSO lists Splunk Enterprise Security as a Certified Service. This is offering-level assessment scope; edition, feature, entitlement, pairing, rollout and customer authorization remain separate.",
+      "availability": "not_established",
+      "authorization": "not_established",
+      "detail": "The October 9 High Marketplace observation named Enterprise Security. The November 24 package remains FedRAMP Certified but contains no named certified services. Current component scope remains unresolved. This is not a revocation or exclusion; edition, feature, entitlement, pairing, rollout and customer authorization remain separate.",
       "sources": [
         "high",
         "service"
       ],
-      "checked": "2026-10-06",
-      "scope": "Current exact CSO Certified Services list; not a historical availability guarantee"
+      "checked": "2026-11-24",
+      "scope": "Exact High offering FR2314156865 current certified_services field, with the October 9 named-service observation retained as historical evidence."
     },
     {
       "id": "itsi-fr-m-offering",
@@ -735,7 +735,7 @@ window.VersionCompassEnvironmentData = {
     {
       "id": "itsi-fr-h-offering",
       "product": "itsi",
-      "feature": "IT Service Intelligence certified service",
+      "feature": "IT Service Intelligence High offering scope",
       "provider": "aws",
       "regions": [
         "us-gov-east-1",
@@ -744,15 +744,15 @@ window.VersionCompassEnvironmentData = {
       "regimes": [
         "fr-h"
       ],
-      "availability": "conditional",
-      "authorization": "documented",
-      "detail": "The exact High Marketplace CSO lists Splunk IT Service Intelligence as a Certified Service. This is offering-level assessment scope; feature, entitlement, pairing, rollout and customer authorization remain separate.",
+      "availability": "not_established",
+      "authorization": "not_established",
+      "detail": "The October 9 High Marketplace observation named IT Service Intelligence. The November 24 package remains FedRAMP Certified but contains no named certified services. Current component scope remains unresolved. This is not a revocation or exclusion; edition, feature, entitlement, pairing, rollout and customer authorization remain separate.",
       "sources": [
         "high",
         "service"
       ],
-      "checked": "2026-10-06",
-      "scope": "Current exact CSO Certified Services list; not a historical availability guarantee"
+      "checked": "2026-11-24",
+      "scope": "Exact High offering FR2314156865 current certified_services field, with the October 9 named-service observation retained as historical evidence."
     },
     {
       "id": "edge-aws",

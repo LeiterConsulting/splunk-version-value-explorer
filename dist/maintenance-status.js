@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-24T17:11:12Z",
+      "lastAttempt": "2026-11-24T21:04:06.232Z",
       "lastSuccess": "2026-11-21T19:34:26.194Z",
       "outcome": "blocked",
-      "summary": "Completed five reader comparisons and prepared a correction to the FedRAMP High listing. Three parts of this review remained incomplete.",
+      "summary": "Corrected historical High component wording for ES and ITSI; report verification remains open.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -675,9 +675,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Completed five reader comparisons and prepared a correction to the FedRAMP High listing. Three parts of this review remained incomplete.",
           "scope": "Compared five Cloud Environment answers with their sources and reports. FedRAMP High, Platform AI, and the supporting SOC review remained incomplete."
+        },
+        {
+          "at": "2026-11-24T21:04:06.232Z",
+          "outcome": "running",
+          "summary": "Reviewing seven regional and FedRAMP source sections and reader answers.",
+          "scope": "Current public Cloud environments and AI regional evidence."
+        },
+        {
+          "at": "2026-11-24T21:14:08.201Z",
+          "outcome": "blocked",
+          "summary": "Corrected historical High component wording for ES and ITSI; report verification remains open.",
+          "scope": "Seven source sections compared. Both-host reader downloads and printed reports require qualified follow-up."
         }
       ],
-      "scope": "Compared five Cloud Environment answers with their sources and reports. FedRAMP High, Platform AI, and the supporting SOC review remained incomplete."
+      "scope": "Seven source sections compared. Both-host reader downloads and printed reports require qualified follow-up."
     },
     {
       "id": "version-release-watch",
