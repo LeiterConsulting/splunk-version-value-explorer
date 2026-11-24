@@ -14,6 +14,13 @@ const env = {...process.env, GIT_NO_REPLACE_OBJECTS: '1'};
 const git = (...args) => execFileSync('git', args, {encoding:'utf8', env, maxBuffer:16 * 1024 * 1024});
 const json = (sha, file) => JSON.parse(git('show', sha + ':' + file));
 
+// Relocating a colliding pair changes its paths and the enclosing coverage digest.
+// Every source digest, execution field and section decision must survive exactly.
+function evidenceAtOriginalPath(run) {
+  const {auditBindings, reviewDigest, ...receipt} = run;
+  return {...receipt, sourceDigests: auditBindings.map(binding => binding.reviewDigest)};
+}
+
 export function reconcile(date, base, heads) {
   assert(/^\d{4}-\d{2}-\d{2}$/.test(date), 'Supply an Eastern review date');
   const refs = [...new Set([base, ...heads])];
@@ -33,9 +40,6 @@ export function reconcile(date, base, heads) {
       if (run.kind !== 'saved-task-execution' && !(run.kind === 'implementation-review' && run.auditBindings?.length)) continue;
       const observed = uncredited ? run.execution?.workStartedAt || run.recordedAt : run.execution.startedAt;
       assert(dayOf(observed) === date, 'Review date and attempt differ: ' + file);
-      assert(!ids.has(run.runId) || ids.get(run.runId) === file, 'Run ID collision: ' + run.runId);
-      const prior = records.get(file);
-      assert(!prior || prior.blob === blob, 'Conflicting receipt bytes: ' + file);
       coverage.validateTaskOwner(run);
       coverage.bindSchedulerAttempt(owners, run);
       assert(run.execution.taskId && run.auditBindings?.length, 'Missing owner or source binding: ' + file);
@@ -46,8 +50,19 @@ export function reconcile(date, base, heads) {
         coverage.validateBoundExecution(run,audit);
         if (run.kind === 'implementation-review') assert(coverage.editorialReplay(run, audit), 'Unbound editorial replay: ' + file);
       }
-      if (prior) { prior.seenAt.push(sha); continue; }
       const result = coverage.validateRun(run,registry);
+      const canonical = ids.get(run.runId);
+      if (canonical && canonical !== file) {
+        const retained = records.get(canonical);
+        assert(ancestry.status === 0 && retained.seenAt.includes(base) &&
+          coverage.receiptPaths(run).coverage === canonical, 'Run ID collision: ' + run.runId);
+        assert.deepEqual(evidenceAtOriginalPath(run), evidenceAtOriginalPath(retained.run), 'Relocated review differs: ' + file);
+        retained.seenAt.push(sha);
+        continue;
+      }
+      const prior = records.get(file);
+      assert(!prior || prior.blob === blob, 'Conflicting receipt bytes: ' + file);
+      if (prior) { prior.seenAt.push(sha); continue; }
       ids.set(run.runId,file);
       records.set(file,{file,blob,seenAt:[sha],run,result:{...result,file}});
     }

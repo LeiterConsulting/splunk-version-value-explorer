@@ -1,6 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { execFileSync } = require('node:child_process');
+const {createHash} = require('node:crypto');
 const native = require('./native-issue-feed.cjs');
 const {validateReader, coversRoute, dayOf} = require('./reader-review.cjs');
 const { sameAttemptStart } = require('./task-runtime.cjs');
@@ -215,6 +216,32 @@ function validateTaskOwner(run, root = process.cwd(), ledger) {
   assert(text(owner?.taskId) && run.execution.taskId === owner.taskId, 'Native task identity does not belong to ' + run.watchId);
 }
 // A scheduler attempt belongs to one saved task. Multiple receipts can document its progress.
+function receiptPaths(run) {
+  const e = run.execution || {};
+  const at = e.startedAt || e.workStartedAt || run.workStartedAt;
+  assert(timestamp(at) && ['saved-task-execution','implementation-review'].includes(run.kind), 'Supply the actual review start and kind');
+  const key = e.schedulerRunId || run.runId;
+  assert(text(key) && /^[a-z0-9-]+$/.test(run.watchId), 'Supply this watch and its own attempt or review ID');
+  // Native retries can expose the same ID with a different precise start.
+  const instant = [Date.parse(at),(at.match(/\.(\d+)/)?.[1] || '').padEnd(9,'0')];
+  const hash = createHash('sha256').update(JSON.stringify([run.watchId,run.kind,key,instant])).digest('hex');
+  const prefix = 'docs/audits/'+dayOf(at)+'-'+run.watchId+'-review-'+(parseInt(hash.slice(0,12),16)+1);
+  const source = prefix+'-sources.json';
+  assert(native.watchFor(source) === run.watchId, 'Unknown source owner');
+  return {source,coverage:prefix+'-coverage.json'};
+}
+function sameReceiptIdentity(prior, run) {
+  const before = prior.execution || {}, after = run.execution || {};
+  return prior.watchId === run.watchId && prior.kind === run.kind && prior.runId === run.runId &&
+    ['taskId','schedulerRunId'].every(key => !before[key] || before[key] === after[key]) &&
+    ['startedAt','workStartedAt'].every(key => !before[key] || sameAttemptStart(before[key],after[key]));
+}
+function preserveReceiptIdentity(prior, run, file, retained) {
+  // A merge may give a colliding branch receipt its own path. The original identity
+  // must still resolve to a separately validated receipt in the resulting tree.
+  assert(sameReceiptIdentity(prior,run) || (retained && sameReceiptIdentity(prior,retained)),
+    'Receipt path belongs to another review or attempt: '+file+'. Keep both and use --paths for the new one.');
+}
 function bindSchedulerAttempt(owners, run) {
   const {taskId, schedulerRunId} = run.execution || {};
   if (run.kind !== 'saved-task-execution' || !schedulerRunId) return;
@@ -230,9 +257,16 @@ function check(root = process.cwd()) {
   const parents = git(['rev-list', '--parents', '-n', '1', 'HEAD'])[0].split(/\s+/).slice(1);
   for (const revision of ['HEAD', ...parents]) for (const file of git(['ls-tree', '-r', '--name-only', revision, 'docs/audits']).filter(f => f.endsWith('-coverage.json'))) assert(fs.existsSync(path.join(root, file)), 'Do not delete coverage history: ' + file);
   const candidates = new Set([...git(['ls-files', 'docs/audits/*-coverage.json']), ...git(['ls-files', '--others', '--exclude-standard', 'docs/audits/*-coverage.json'])]);
+  const entries = [...candidates].map(file => [file,read(root,file)]);
+  const retained = new Map(entries.map(([,run]) => [run.runId,run]));
+  for (const revision of ['HEAD', ...parents]) {
+    for (const file of git(['diff','--name-only','--no-renames','--diff-filter=M',revision,'--','docs/audits/*-coverage.json'])) {
+      const previous = JSON.parse(execFileSync('git',['show',revision+':'+file],{cwd:root,encoding:'utf8'}));
+      preserveReceiptIdentity(previous,read(root,file),file,retained.get(previous.runId));
+    }
+  }
   const owners = new Map();
-  const results = [...candidates].map(file => {
-    const run = read(root, file);
+  const results = entries.map(([file,run]) => {
     const result = validateRun(run, registry, root);
     validateTaskOwner(run, root, ledger);
     bindSchedulerAttempt(owners, run);
@@ -293,4 +327,4 @@ function check(root = process.cwd()) {
   }
   return { registryVersion: registry.registryVersion, activation: registry.activation, runs: results };
 }
-module.exports = { bindSchedulerAttempt, editorialReplay, statuses, clocks, pointer, mappedSource, reviewDigest, resolveRegistry, validateRegistry, validateRun, validateAmendments, validateBoundExecution, validateTaskOwner, check };
+module.exports = { receiptPaths, preserveReceiptIdentity, bindSchedulerAttempt, editorialReplay, statuses, clocks, pointer, mappedSource, reviewDigest, resolveRegistry, validateRegistry, validateRun, validateAmendments, validateBoundExecution, validateTaskOwner, check };

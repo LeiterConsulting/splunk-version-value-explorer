@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "findingId": "vci-es-88-cloud-connected-trial-entitlement-copy",
+  "revision": 1,
+  "recordedAt": "2026-11-24T22:07:56.615Z",
+  "title": "ES 8.8 Cloud Connected Premier trial can display Essentials",
+  "concernType": "suspected-error",
+  "problem": "The ES 8.8 licensing guide says an active Cloud Connected Premier trial displays Essentials even while the connected features keep operating. The same question failed on both public screens. The corrected Editions candidate passed the scoped browser and reports.",
+  "scope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "8.8, with exact earlier versions retained where cited"
+    ],
+    "editions": null,
+    "deployments": [
+      "The deployment boundaries stated in the cited sections"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No product authorization, individual entitlement, unlisted pairing or release activation is inferred."
+    ]
+  },
+  "impact": {
+    "customerScenario": "Why does an active Cloud Connected Premier trial show Essentials?",
+    "consequence": "A reader can misinterpret the documented feature prerequisite or entitlement display.",
+    "level": "unknown"
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "Direct official topic and both public browser checks support the scoped finding."
+  },
+  "claimIds": [
+    "es-editions.licensing"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Local correction verified. Production reader and exports await release acceptance."
+  },
+  "relationships": {
+    "related": [],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "es-nov24-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.8/introduction/licensing-for-splunk-enterprise-security",
+      "section": "Licenses, editions and trial prerequisites",
+      "statement": "The ES 8.8 licensing guide says an active Cloud Connected Premier trial displays Essentials even while the connected features keep operating. The same question failed on both public screens. The corrected Editions candidate passed the scoped browser and reports.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-24T21:59:13.871Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "548327f4fd2c702d0e5fa16d4fcc9b1449e9f3e39ccd16da43066420190a70f5",
+        "qualification": "SHA-256 of direct public response body."
+      }
+    },
+    {
+      "evidenceId": "es-reader-diff",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/7421e182ae6c9da7186ee25d4e51b79e79696451/docs/audits/2026-11-24-es-editions-watch-review-5-sources.json",
+      "section": "Both-domain reader comparison and local candidate checks",
+      "statement": "The independently rendered live screen lacked the expected answer. The admitted baseline and candidate results are retained separately.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": null,
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Immutable commit-pinned audit retains both per-origin receipts and hashes."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/7421e182ae6c9da7186ee25d4e51b79e79696451/docs/audits/2026-11-24-es-editions-watch-review-5-sources.json",
+      "pointer": "/issueObservations/0",
+      "originalLabel": "partially-addressed"
+    }
+  ]
+}

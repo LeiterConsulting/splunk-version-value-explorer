@@ -21,6 +21,12 @@ process. Candidate qualification and public readback follow
 [release control](release-control.md). Issue-feed changes use the existing
 contract and provenance gates.
 
+## Observing active reviews
+
+During an owner run, monitor the scheduled task list, the owner's GitHub branch and its read-only checks. Leave the task conversation idle until its completion appears. On November 24 an in-run status inquiry became Release Watch’s saved result and linked an earlier PR. A status inquiry provides no evidence that a claim was assessed.
+
+After completion match the task, occurrence and precise start to the owner’s GitHub receipts. Read the result heading and follow its links. A link to an earlier review, another owner’s result, or a changed start needs independent reconciliation before granting credit. Keep the original evidence and count each verified section once. Only the existing 09:00 steward can publish a qualified correction.
+
 ## 11.x Prep first pass
 
 Start with the eight `prep11.*` rows and the exact sections in the
@@ -173,6 +179,16 @@ attempts. An editor prompt digest covers only the visible text. Native execution
 and current public delivery each require their own evidence.
 
 ## Same-day material corrections
+
+When an owner opens a dated review, pass its identity JSON to
+`node scripts/record-automation-coverage.cjs --paths`. Include `watchId`,
+`kind`, `runId` and the actual `execution` start and identifiers. The command
+returns the source and coverage filenames for that attempt. An operator recovery
+and a timed run can start from the same GitHub base and each retain its own
+files. Continue a partial review at its original paths with the same identity.
+If an active timer still displays an earlier result, compare the result’s run ID
+with the current attempt and await its own report. An assessment earns scheduled
+credit only inside the native start and completion clocks.
 
 After a correction merges, qualify the exact main commit and its export artifact. Check for an in-flight release, then use **Run now** on the existing Site-linked steward. Its normal 09:00 Eastern schedule continues. Capture the saved version and deployment, check both public hosts, reopen downloaded HTML offline and inspect printed PDFs for the changed answer and vendor citation. Record the actual observation times. A same-day field check can close a delivery defect; only a dated primary-owner receipt can close that owner's daily review.
 

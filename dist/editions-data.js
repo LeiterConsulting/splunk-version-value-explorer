@@ -574,7 +574,7 @@ window.VersionCompassEditions = {
         "n": "Alpha; Cloud only; representative-enabled"
       },
       "flag": "The agent is an alpha feature in ES 8.8 and requires Splunk representative enablement. Alpha status, ES 8.8 General Availability, edition entitlement, regional availability and customer authorization remain separate.",
-      "desc": "Surfaces hidden malicious activity by stitching intermediate findings into evidence chains. The exact 8.8 guide requires at least one risk-based detection and approximately one million processed events for quality findings; the aggregate table lists Premier, Cloud only and ES 8.8+.",
+      "desc": "Surfaces hidden malicious activity by stitching intermediate findings into evidence chains. Turn on at least one risk-based detection. The exact 8.8 guide says approximately one million events must be processed before any findings are created. The aggregate table lists Premier, Cloud only and ES 8.8+.",
       "src": [
         "agentic88",
         "threatGraph88",
@@ -957,7 +957,7 @@ window.VersionCompassEditions = {
         "licensing88",
         "licensing"
       ],
-      "details": "Existing Essentials customers trialing Premier revert to their purchased Essentials entitlement with retained access to Essentials features and processed data. Other trial expiry restrictions can block Mission Control, Detection Editor and Content Management; Premier trials also restrict UEBA. Confirm the applicable trial and contract terms."
+      "details": "Existing Essentials customers trialing Premier revert to their purchased Essentials entitlement with retained access to Essentials features and processed data. Other trial expiry restrictions can block Mission Control, Detection Editor and Content Management. Premier trials also restrict UEBA after expiry. Cloud Connected features continue to function during the active Premier trial, but the displayed entitlement is Essentials because Splunk Cloud Services does not recognize trial entitlements. A paid license updates the displayed tier. Confirm the applicable trial and contract terms."
     },
     {
       "id": "pricing",
