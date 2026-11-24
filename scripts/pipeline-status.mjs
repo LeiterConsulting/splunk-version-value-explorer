@@ -4,6 +4,7 @@ import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
+const {readerChecks, proofId} = require('./lib/reader-review.cjs');
 const repository = 'LeiterConsulting/splunk-version-value-explorer';
 const steward = require('./lib/operational-roles.cjs').roles.find(role => role.roleId === 'github-steward');
 const easternDate = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York', dateStyle: 'short' });
@@ -126,8 +127,9 @@ export function latestWatchReceipts(registryVersion, receipts, today) {
 export function dailyReview(registry, receipts, day, runtime) {
   const onDay = value => Number.isFinite(Date.parse(value)) && easternDate.format(Date.parse(value)) === day;
   const owners = new Set(['version-release-watch', 'es-editions-watch', 'csp-fedramp-watch']);
+  const version = registry.readerReview && day < registry.readerReview.effectiveOn ? registry.readerReview.previousRegistryVersion : registry.registryVersion;
   const attempts = receipts.filter(({ run }) =>
-    owners.has(run.watchId) && run.registryVersion === registry.registryVersion &&
+    owners.has(run.watchId) && run.registryVersion === version &&
     run.kind === 'saved-task-execution' && onDay(run.execution?.startedAt || run.recordedAt)
   ).sort((a, b) => Date.parse(b.run.execution?.startedAt || b.run.recordedAt) - Date.parse(a.run.execution?.startedAt || a.run.recordedAt)
     || Date.parse(b.run.recordedAt) - Date.parse(a.run.recordedAt));
@@ -140,7 +142,7 @@ export function dailyReview(registry, receipts, day, runtime) {
       const reviewedToday = ['changed', 'assessed-no-change'].includes(row.disposition) && onDay(row.assessedAt)
         && row.assessments.length > 0 && row.assessments.every(claim => onDay(claim.assessedAt));
       return { runId: run.runId, receipt: result.file, disposition: row.disposition, assessedAt: row.assessedAt,
-        reviewedToday, matchesNativeAttempt: watch ? watch.matchingReceiptIds?.includes(run.runId) === true : null,
+        reviewedToday, readerChecks: readerChecks(row).map(proof => ({id:proofId(proof), routeId:proof.routeId, checkedAt:proof.checkedAt})), matchesNativeAttempt: watch ? watch.matchingReceiptIds?.includes(run.runId) === true : null,
         followUp: row.followUp || null };
     }).filter(Boolean);
     const reviewedToday = history.some(entry => entry.reviewedToday);
@@ -148,10 +150,33 @@ export function dailyReview(registry, receipts, day, runtime) {
     return { capabilityId: cap.id, section: cap.title, owner, reviewedToday, nativeReviewMatched: watch ? matched : null,
       latestDisposition: history[0]?.disposition || 'missing-receipt', history };
   });
-  return { date: day, timeZone: 'America/New_York', registryVersion: registry.registryVersion, sections,
+  return { date: day, timeZone: 'America/New_York', registryVersion: version, sections,
+    readerChecksRecorded: sections.filter(section => section.history.some(entry => entry.reviewedToday && entry.readerChecks?.length)).length,
     registered: sections.length, reviewed: sections.filter(row => row.reviewedToday).length,
     nativeReviewMatched: runtime ? sections.filter(row => row.nativeReviewMatched).length : null,
     qualification: 'Primary daily owners only. Retained assessments use their original claim dates. Later gaps remain visible. Guidance and Ripple have separate schedules. Live delivery is verified independently.' };
+}
+export function summarizeReaderDelivery(report, site, daily, now = Date.now()) {
+  const unknown = reason => ({status:'unverified', verifiedSections:null, reason});
+  if (!report || site.status !== 'readback-matched') return unknown('Reader evidence or verified steward delivery unavailable');
+  const checked = Date.parse(report.checkedAt);
+  const releaseTime = Math.max(Date.parse(site.publishedAt) || 0, Date.parse(site.reconciledAt) || 0);
+  if (report.sha !== site.sourceCommit || report.date !== daily.date || report.receiptDate !== daily.date ||
+      !Number.isFinite(checked) || checked < releaseTime || checked > now || easternDate.format(checked) !== daily.date ||
+      report.registered !== daily.registered || !Array.isArray(report.hosts)) return unknown('Reader evidence differs from the selected release or review date');
+  const hosts = publicHosts.map(host => report.hosts.filter(row => row.host === host));
+  if (hosts.some(matches => matches.length !== 1 || !Array.isArray(matches[0].checks) || !Array.isArray(matches[0].issues))) return unknown('Missing or duplicate public host');
+  const verified = daily.sections.filter(section => {
+    const entry = section.history.find(attempt => attempt.reviewedToday && attempt.readerChecks?.length);
+    return entry && entry.readerChecks.every(expected => hosts.every(([host]) => host.checks.some(check =>
+      check.routeId === expected.routeId && check.status === 'passed' &&
+      [check.screen,check.offlineHtml,check.pdf].every(result => result === 'passed') &&
+      check.sections?.some(proof => proof.capabilityId === section.capabilityId && proof.receipt === entry.receipt && proof.proofId === expected.id && proof.checkedAt === expected.checkedAt))));
+  });
+  const healthy = daily.registered > 0 && verified.length === daily.registered &&
+    hosts.every(([host]) => host.issues.length === 0 && host.checks.every(check => check.status === 'passed'));
+  return {status:healthy ? 'verified' : 'partial', verifiedSections:verified.length, registered:daily.registered,
+    gaps:daily.sections.filter(section => !verified.includes(section)).map(section => section.capabilityId)};
 }
 async function read(url) {
   const token = process.env.VC_GITHUB_EVIDENCE_TOKEN;
@@ -160,7 +185,13 @@ async function read(url) {
   return response.json();
 }
 async function main(args) {
-  let tasks, publisherEvidence, sitesEvidence;
+  let tasks, publisherEvidence, sitesEvidence, readerEvidence;
+  const readerIndex = args.indexOf('--reader-evidence');
+  if (readerIndex >= 0) {
+    if (!args[readerIndex + 1]) throw Error('--reader-evidence requires the retained two-host live-reader result');
+    readerEvidence = JSON.parse(fs.readFileSync(args[readerIndex + 1]));
+    args.splice(readerIndex,2);
+  }
   const sitesIndex = args.indexOf('--sites-evidence');
   if (sitesIndex >= 0) {
     if (!args[sitesIndex + 1]) throw Error('--sites-evidence requires retained steward, deployment and public diagnostic records');
@@ -182,7 +213,7 @@ async function main(args) {
     const api = 'https://api.github.com/repos/' + repository;
     const [branch, recent] = await Promise.all([read(api + '/git/ref/heads/main'), read(api + '/actions/runs?per_page=100')]);
     head = branch.object.sha; runs = recent.workflow_runs;
-  } else throw Error('Usage: node scripts/pipeline-status.mjs [--snapshot FILE] [--tasks FILE] [--sites-evidence FILE] [--publisher-outcome FILE]');
+  } else throw Error('Usage: node scripts/pipeline-status.mjs [--snapshot FILE] [--tasks FILE] [--sites-evidence FILE] [--reader-evidence FILE] [--publisher-outcome FILE]');
   const result = summarize(head, runs, publisherEvidence), coverage = require('./lib/automation-coverage.cjs').check();
   const now = Date.now(), today = easternDate.format(now);
   const sourceCommit = sitesEvidence?.steward?.sourceCommit;
@@ -208,11 +239,12 @@ async function main(args) {
     runs: receipts.map(({ result: { coverageComplete, deliveryComplete }, run }) => ({ ...run, coverageComplete, deliveryComplete }))
   }) : null;
   const daily = dailyReview(registry, receipts, today, runtime);
+  const readerDelivery = summarizeReaderDelivery(readerEvidence, siteDelivery, daily, now);
   const advisor = require('./advisor-maintenance.cjs').reviewDecisions(new Date(now).toISOString());
   const readiness = watchReadiness(coverage.registryVersion, executions, runtime), operations = operationalReadiness(runtime);
-  console.log(JSON.stringify({ evaluatedAt: new Date(now).toISOString(), repository, ...result, siteDelivery, readiness, operations, coverage: { activation: coverage.activation, daily, advisor,
+  console.log(JSON.stringify({ evaluatedAt: new Date(now).toISOString(), repository, ...result, siteDelivery, readerDelivery, readiness, operations, coverage: { activation: coverage.activation, daily, advisor,
     currentSavedExecutions: executions, retainedHistory: coverage.runs.map(({ file, runId, watchId }) => ({ file, runId, watchId })),
     qualification: 'Latest retained saved execution per watch uses the recorded attempt start when present. Native attempts and result identities require separate reconciliation.' } }, null, 2));
-  if (!advisor.total || advisor.current !== advisor.total || !daily.registered || daily.nativeReviewMatched !== daily.registered || result.validation.status !== 'success' || siteDelivery.status !== 'readback-matched' || readiness.status !== 'evidence-matched' || operations.status !== 'evidence-matched') process.exitCode = 1;
+  if ((registry.readerReview && today >= registry.readerReview.effectiveOn && readerDelivery.status !== 'verified') || !advisor.total || advisor.current !== advisor.total || !daily.registered || daily.nativeReviewMatched !== daily.registered || result.validation.status !== 'success' || siteDelivery.status !== 'readback-matched' || readiness.status !== 'evidence-matched' || operations.status !== 'evidence-matched') process.exitCode = 1;
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main(process.argv.slice(2)).catch(error => { console.error(error.message); process.exitCode = 1; });

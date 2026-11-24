@@ -131,3 +131,11 @@ The owner explicitly reports that independent reopening of the newly downloaded 
 ## October 29 backlog policy authorization
 
 The owner explicitly accepted the backlog/scheduling/duplicate recommendations and requested one post-rollout evaluation surfaced for review. Read docs/architecture/ripple-rollout.md section “October 29 backlog implementation and owner review”. Implement the bounded catch-up/cadence policy, preserve daily run time and all caps, and retain claim scope/dates, aliases, history and access/privacy boundaries. One November 20 evaluation task is authorized; no other new timers or automatic expansion is implied.
+
+## Daily source review and GitHub handoff
+
+Read [the daily operating procedure](docs/daily-surface-reviews.md#daily-github-handoff-and-reader-checks).
+Record the actual reader answer on each completed primary section. The existing
+06:15 Eastern Guidance task integrates qualified owner changes daily. The 09:00
+Eastern steward alone publishes. The 09:45 audit checks the selected release on
+both public hosts.

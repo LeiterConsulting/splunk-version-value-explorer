@@ -23,6 +23,7 @@ jobs:
         run: npm ci --ignore-scripts --no-audit --no-fund
       - name: Validate input bytes before generation checks
         run: node scripts/maintenance.cjs --manifest > /tmp/maintenance-inputs.json
+      - run: node scripts/sync-daily-reviews.cjs --check
       - run: node scripts/sync-release-metadata.cjs --check
       - run: node scripts/sync-source-register.cjs --check
       - run: node scripts/sync-content-revision.cjs --check
@@ -41,6 +42,7 @@ jobs:
       - run: tools/export-verification/node_modules/.bin/playwright install --with-deps chromium
       - name: Install PDF page renderer
         run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - run: node --test tools/export-verification/reader-checks.test.mjs
       - run: node tools/export-verification/verify.mjs
         id: exports
       - name: Bind rendered exports to release readiness

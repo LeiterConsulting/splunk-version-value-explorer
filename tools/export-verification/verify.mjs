@@ -6,6 +6,7 @@ import { spawn, execFileSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
+import { checkReaderSurface } from './reader-checks.mjs';
 import { verifyNavigation } from './navigation.mjs';
 import { verifyRippleScroll } from './ripple-scroll.mjs';
 import { verifyAdvisor, configureAdvisorRoute, setAdvisorFixtureTime } from './advisor.mjs';
@@ -103,6 +104,7 @@ try {
   receipt.rippleScroll = await verifyRippleScroll(browser,path.join(output,'ripple-scroll'));
   receipt.advisor = await verifyAdvisor(browser,path.join(output,'advisor'));
   const routes = JSON.parse(fs.readFileSync('tools/export-verification/routes.json'));
+  const {proofs} = require('../../scripts/lib/reader-review.cjs').inventory(root);
   for (const route of routes) for (const theme of ['default', 'cisco']) {
     const id = route.id + '-' + theme, directory = path.join(output, id); fs.mkdirSync(directory);
     const entry = { id, outcome: 'failed' }; receipt.cases.push(entry);
@@ -125,6 +127,8 @@ try {
     }
     await page.goto(url); await settled(page);
     await configureAdvisorRoute(page,route);
+    const routeProofs = proofs.filter(proof => proof.routeId === route.id);
+    await checkReaderSurface(page, routeProofs);
     await verifyExact(page,route,theme);
     if(route.id==='forwarder-invalid-enterprise-107'){
       assert.equal(new URL(page.url()).searchParams.get('receiver'),'10.7');
@@ -565,6 +569,11 @@ try {
         assert.equal(await page.locator('.forwarder-technical '+tlsGuideSelector).count(),1);
       }
       if(route.id==='soar-cloud-86-export-fips') expected.paginationPairs=[{heading:'Requirements and integrations',following:'Automation runtime'}];
+      if (routeProofs.length) {
+        (expected.requiredText ??= []).push(...routeProofs.map(proof => proof.reportAnswer || proof.answer));
+        expected.readerSourceUrls = [...new Set(routeProofs.map(proof => proof.sourceUrl))];
+        entry.readerChecks = routeProofs.map(({capabilityId, proofId, receipt, checkedAt}) => ({capabilityId, proofId, receipt, checkedAt}));
+      }
       const printTabs = await keyboardReach(page, print);
       const save = page.locator('.report-toolbar [data-save-snapshot]').first();
       const saveTabs = await keyboardReach(page, save);
@@ -580,6 +589,7 @@ try {
         requests.push(r.request().url()); return r.abort();
       });
       await reopened.goto(pathToFileURL(htmlFile).href);
+      await checkReaderSurface(reopened, routeProofs, true);
       const reopenedText = normalize(await reopened.locator('body').textContent());
       assert(reopenedText.includes(normalize(expected.text)), 'Saved HTML lost report content');
       assert.equal(await reopened.locator('script,iframe,object,embed').count(), 0);

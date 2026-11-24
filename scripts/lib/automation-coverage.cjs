@@ -2,6 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { execFileSync } = require('node:child_process');
 const native = require('./native-issue-feed.cjs');
+const {validateReader, coversRoute, dayOf} = require('./reader-review.cjs');
 const { sameAttemptStart } = require('./task-runtime.cjs');
 const statuses = ['changed', 'assessed-no-change', 'deferred', 'blocked', 'failed', 'out-of-scope'];
 const successful = new Set(statuses.slice(0, 2));
@@ -31,6 +32,13 @@ function validateRegistry(registry, root = process.cwd(), historical = false) {
   for (const record of historical ? [] : [...guidance.preparation11.baseline, ...guidance.preparation11.contextUpdates]) {
     assert(registry.capabilities.some(c => c.claimFamilies?.some(f => f.id === record.id && pointer(guidance, f.pointer)?.id === record.id)), 'Unregistered Prep11 claim family: ' + record.id);
   }
+  let readerRoutes;
+  if (registry.readerReview && !historical) {
+    const contract = registry.readerReview;
+    assert(contract.schemaVersion === 1 && /^\d{4}-\d{2}-\d{2}$/.test(contract.effectiveOn) &&
+      /^\d+\.\d+\.\d+$/.test(contract.previousRegistryVersion), 'Invalid reader-review contract');
+    readerRoutes = read(root, 'tools/export-verification/routes.json');
+  }
   const advisorGoals = read(root, 'content/advisor-goals.json').goals;
   for (const goal of historical ? [] : advisorGoals) assert(registry.capabilities.some(c => c.id === 'advisor.' + goal.id && c.claimFamilies?.some(f => f.id === goal.record && f.dataset === 'guidance' && pointer(guidance, f.pointer)?.id === goal.record)), 'Unregistered/mismatched Advisor decision: ' + goal.id);
   for (const c of registry.capabilities) {
@@ -40,6 +48,7 @@ function validateRegistry(registry, root = process.cwd(), historical = false) {
     assert(strings(c.participatingWatches) && c.participatingWatches.every(o => owners.has(o)), 'Unknown participating watch: ' + c.id);
     assert(c.participatingWatches.includes(c.primaryOwner) && c.independentVerification.every(o => c.participatingWatches.includes(o)), 'Owner omitted from run coverage: ' + c.id);
     assert(strings(c.interfaces) && strings(c.exports) && strings(c.requiredChecks), 'Missing interfaces/exports/checks: ' + c.id);
+    if (readerRoutes) assert(readerRoutes.some(route => coversRoute(c, route)), 'Missing tested reader route: ' + c.id);
     assert([c.freshness.sourceCheckDays, c.freshness.claimAssessmentDays].every(n => Number.isSafeInteger(n) && n > 0) && c.freshness.onDependencyChange === 'reassess-affected-scope', 'Missing freshness rules: ' + c.id);
     assert(owners.has(c.escalation.owner) && text(c.escalation.trigger) && text(c.escalation.action), 'Missing escalation: ' + c.id);
     assert(Array.isArray(c.sources) && strings(c.sources.map(s => s.id)), 'Missing source ownership: ' + c.id);
@@ -80,6 +89,11 @@ function resolveRegistry(version, registry, root) {
 }
 function validateRun(run, registry, root = process.cwd(), now = Date.now()) {
   const activeVersion = registry.registryVersion;
+  const readerContract = registry.readerReview;
+  if (readerContract && run.kind === 'saved-task-execution' && timestamp(run.execution?.startedAt || run.recordedAt) &&
+      dayOf(run.execution?.startedAt || run.recordedAt) >= readerContract.effectiveOn && run.registryVersion !== activeVersion) {
+    throw Error('New scheduled assessments require the current reader-review contract');
+  }
   registry = resolveRegistry(run.registryVersion, registry, root);
   validateRegistry(registry, root, registry.registryVersion !== activeVersion);
   assert(run.schemaVersion === 1 && run.registryVersion === registry.registryVersion && text(run.runId), 'Run needs the exact registry version and identity');
@@ -95,6 +109,7 @@ function validateRun(run, registry, root = process.cwd(), now = Date.now()) {
   assert(required.length > 0 && Array.isArray(run.coverage), 'No mandatory coverage declared');
   assert(new Set(run.coverage.map(o => o.capabilityId)).size === run.coverage.length, 'Duplicate capability disposition');
   assert(run.coverage.length === required.length && required.every(c => run.coverage.some(o => o.capabilityId === c.id)), 'Missing mandatory capability disposition');
+  const routes = registry.readerReview ? read(root, 'tools/export-verification/routes.json') : [];
   for (const o of run.coverage) {
     const c = required.find(c => c.id === o.capabilityId);
     assert(c && statuses.includes(o.disposition) && text(o.qualification), 'Invalid capability disposition');
@@ -117,6 +132,9 @@ function validateRun(run, registry, root = process.cwd(), now = Date.now()) {
       if (a.outcome !== 'unable-to-verify') assert(a.sourceIds.every(id => o.retrievals.some(r => r.sourceId === id && r.outcome === 'retrieved')), 'Assessed claim lacks retrieved supporting source');
     }
     if (successful.has(o.disposition)) {
+      if (registry.readerReview && run.kind === 'saved-task-execution' && c.primaryOwner === run.watchId) {
+        validateReader(o, c, run, routes, cutoff);
+      }
       assert(timestamp(o.assessedAt) && c.claimFamilies.every(f => o.assessments.some(a => a.claimId === f.id && a.outcome !== 'unable-to-verify')), 'Fetched sources are not assessed claim coverage: ' + c.id);
       assert(o.disposition === 'changed' ? o.assessments.some(a => a.outcome === 'changed') : o.assessments.every(a => a.outcome === 'assessed-no-change'), 'Disposition disagrees with claim assessments');
       assert(Date.parse(o.assessedAt) <= cutoff && cutoff - Date.parse(o.assessedAt) <= c.freshness.claimAssessmentDays * 86400000 && o.assessments.every(a => cutoff - Date.parse(a.assessedAt) <= c.freshness.claimAssessmentDays * 86400000), 'Stale claim assessment: ' + c.id);
@@ -145,7 +163,7 @@ function validateAmendments(ledger, registry, root = process.cwd()) {
     assert(text(a.id) && a.registryVersion === amendmentRegistry.registryVersion && text(a.authorization?.evidence), 'Amendment needs version and authorization');
     for (const field of ['claims', 'interfaces', 'exports', 'owners', 'privacy', 'authority', 'budgets', 'schedules']) assert(text(a.impact?.[field]), 'Missing amendment impact: ' + field);
     assert(strings(a.implementation?.files) && Array.isArray(a.savedTasks) && a.savedTasks.length > 0, 'Missing implementation/task reconciliation');
-    const reconciled = a.savedTasks.every(t => t.status === 'read-back-verified' && /^sha256:[a-f0-9]{64}$/.test(t.beforeDigest || '') && /^sha256:[a-f0-9]{64}$/.test(t.afterDigest || '') && text(t.readbackEvidence) && t.cadencePreserved === true && t.permissionsPreserved === true);
+    const reconciled = a.savedTasks.every(t => t.status === 'read-back-verified' && /^sha256:[a-f0-9]{64}$/.test(t.beforeDigest || '') && /^sha256:[a-f0-9]{64}$/.test(t.afterDigest || '') && text(t.readbackEvidence) && (t.cadencePreserved === true || (a.authorizedCadenceChanges?.[t.id] && t.verifiedCadence === a.authorizedCadenceChanges[t.id])) && t.permissionsPreserved === true);
     const executed = a.savedTasks.every(t => {
       const first = t.firstExecution;
       if (first?.status !== 'verified') return false;

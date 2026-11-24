@@ -42,6 +42,13 @@ export async function verifyNavigation(browser, output, base='http://127.0.0.1:4
       await openExplore();await page.locator('#copy-link').focus();assert(await page.locator('#explore-destinations').isHidden());assert(await page.locator('#copy-link').evaluate(el=>el===document.activeElement));
       if(width<=760)await page.locator('.global-menu-toggle').click();
       await page.locator('[data-destination="about"]').click();await page.locator('#about-title').waitFor();await fit('About');
+      const reviews = page.locator('#daily-section-reviews');
+      await reviews.locator('summary').click();
+      const expected = JSON.parse(fs.readFileSync('content/automation-coverage.json')).capabilities.filter(cap => cap.mandatory);
+      assert.equal(await reviews.locator('li').count(), expected.length, 'About omits a registered section');
+      for (const cap of expected) assert.equal(await reviews.getByText(cap.title, {exact:true}).count(),1);
+      assert(await reviews.locator('a[href*="/docs/audits/"]').count() > 0);
+      await reviews.locator('summary').click();
       if(width<=760)await page.locator('.global-menu-toggle').click();await page.locator('[data-destination="ripple"]').click();await page.locator('.ripple-tools').waitFor();
       assert.equal(new URL(page.url()).pathname,'/ripple');assert.equal(new URL(page.url()).searchParams.get('theme'),theme==='cisco'?'cisco':null);assert.equal(await page.locator('[data-destination="ripple"]').getAttribute('aria-current'),'page');await fit('Ripple');await shot('ripple');
       const tools=page.getByRole('navigation',{name:'Ripple workspace'});

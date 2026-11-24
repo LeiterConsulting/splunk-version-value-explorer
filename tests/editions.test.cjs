@@ -9,7 +9,7 @@ test('public editions and legacy preview routes load editions; release routes st
  const r=router('?preview=es-editions');assert.deepEqual(r.loaded,['content-revision.js','source-register.js','evidence.js','report-tools.js','decision-support.js','environment-data.js','environment.js','perspectives.js','editions-data.js','editions.js','navigation.js']);assert(!r.head.some(x=>x.name==='robots'));
  assert.deepEqual(router('?view=es-editions').loaded,['content-revision.js','source-register.js','evidence.js','report-tools.js','decision-support.js','environment-data.js','environment.js','perspectives.js','editions-data.js','editions.js','navigation.js']);
  for(const q of ['?view=es-editions&view=es-editions','?preview=es-editions&preview=es-editions','?view=advisor&view=es-editions'])assert.deepEqual(router(q).loaded,router('?view=es-editions').loaded);
- assert.deepEqual(router('?view=about').loaded,['source-register.js','maintenance-status.js','about.js','navigation.js']);
+ assert.deepEqual(router('?view=about').loaded,['source-register.js','maintenance-status.js','daily-reviews.js','about.js','navigation.js']);
 });
 test('all evidence records have dated, official HTTPS citations and known edition statuses',()=>{
  assert.equal(data.capabilities.length,21);assert.equal(new Set(data.capabilities.map(x=>x.id)).size,21);

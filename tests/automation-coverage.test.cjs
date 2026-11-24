@@ -20,13 +20,13 @@ const bind = run => { run.reviewDigest = reviewDigest(run); return run; };
 test('current source contract preserves 1.3.0 ownership and retains earlier execution history',()=>{
  const current=JSON.parse(fs.readFileSync('content/automation-coverage.json'));
  const previous=JSON.parse(fs.readFileSync('content/automation-registries/1.3.0.json'));
- assert.equal(current.registryVersion,'1.4.0');assert.equal(current.activation,'pending-first-executions');validateRegistry(current);
+ assert.equal(current.registryVersion,'1.5.0');assert.equal(current.activation,'pending-first-executions');validateRegistry(current);
  assert.deepEqual(current.capabilities.slice(0, previous.capabilities.length), previous.capabilities);
  const agent=current.capabilities.find(c=>c.id==='advisor.agent-mode');
  for(const id of ['aiSaiaAgentMode','aiSaiaModelRuntime','aiSaiaCloudConnected'])assert(agent.claimFamilies[0].sourceIds.includes(id));
  const soc=current.capabilities.find(c=>c.id==='advisor.soc-workflow');assert.equal(soc.primaryOwner,'es-editions-watch');assert(soc.participatingWatches.includes('csp-fedramp-watch'));
  assert.match(soc.claimFamilies[0].scope,/customer authorization remain separate/);
- assert.deepEqual(JSON.parse(fs.readFileSync('content/automation-registries/1.4.0.json')),current);
+ assert.deepEqual(JSON.parse(fs.readFileSync('content/automation-registries/1.5.0.json')),current);
  assert.equal(validateRun(original,current).gaps.length,5); // Historical implementation outcome is not relabeled.
 });
 test('each daily surface row has the intended owner and an exact canonical source link', () => {
@@ -60,6 +60,7 @@ test('the recorder binds ES and CSP receipts only to their own audits under the 
   const current = JSON.parse(fs.readFileSync('content/automation-coverage.json'));
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vc-record-coverage-'));
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  copyHistoricalFixture('tools/export-verification/routes.json', root);
   copyHistoricalFixture('content/advisor-goals.json', root);
   for (const file of fs.readdirSync('content/datasets')) copyHistoricalFixture('content/datasets/' + file, root);
   fs.writeFileSync(path.join(root, 'content/automation-coverage.json'), JSON.stringify(current));

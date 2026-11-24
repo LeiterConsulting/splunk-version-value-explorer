@@ -10,6 +10,8 @@ authority and coverage. Repository changes, saved-task configuration, content
 staging, Sites deployment and visitor delivery are separate states. No new timer,
 permission, credential or deployment is created by this procedure.
 
+The current [morning handoff and reader checks](daily-surface-reviews.md#daily-github-handoff-and-reader-checks) govern owner receipts, daily integration and the 09:45 public audit.
+
 ## What failed and what is repaired
 
 The [November 3 incident record](audits/2026-11-03-pipeline-reliability.json)
