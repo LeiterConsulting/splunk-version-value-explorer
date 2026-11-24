@@ -183,7 +183,9 @@ window.VersionCompassEditions = {
     "ea": {
       "t": "Exposure Analytics product page",
       "u": "https://www.splunk.com/en_us/products/exposure-analytics.html",
-      "reviewed": "2026-10-01"
+      "reviewed": "2026-11-24",
+      "section": "Features and getting started with Entity discovery",
+      "verificationScope": "The current product page describes continuous control-gap metrics, profile rules for contextual risk, and automated actions. The versioned ES 8.8 release table supplies the edition and release attribution."
     },
     "licensing": {
       "t": "ES licensing and trials (8.7 documentation)",
@@ -304,6 +306,41 @@ window.VersionCompassEditions = {
       "reviewed": "2026-11-21",
       "section": "How to use recommendations; Prerequisites; Analyze findings using the Triage agent",
       "verificationScope": "Detailed task: Cloud ES 8.7+ and CMP chain, existing findings, first-ten and approximate 200-finding limits, no-rerun statement and investigation permissions. Conflicts with the parent guide credit/revision model; not proof of actual tenant behavior."
+    },
+    "eaPosture88": {
+      "t": "Configure entity posture in ES 8.8",
+      "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-posture",
+      "reviewed": "2026-11-24",
+      "section": "Entity posture metrics and setup",
+      "verificationScope": "Discovery sources and configured metrics determine which asset and user control gaps can be measured."
+    },
+    "eaProfile88": {
+      "t": "Configure entity profile in ES 8.8",
+      "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-profile",
+      "reviewed": "2026-11-24",
+      "section": "Entity profile rules and risk factors",
+      "verificationScope": "Discovery is required. Profile rules can use posture and discovery context. Finding risk multipliers are optional."
+    },
+    "eaActions88": {
+      "t": "Configure entity actions in ES 8.8",
+      "u": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-actions",
+      "reviewed": "2026-11-24",
+      "section": "Entity actions and setup",
+      "verificationScope": "Entity discovery is required. Administrators configure actions against discovery, posture or profile conditions."
+    },
+    "eaProfileExample": {
+      "t": "Splunk’s Entity Profile walkthrough",
+      "u": "https://www.splunk.com/en_us/blog/security/entity-profile-identify-contextual-risk-affecting-entities.html",
+      "reviewed": "2026-11-24",
+      "section": "November 20 workflow examples and Entity analysis",
+      "verificationScope": "Asset or user profile levels and tags change as rules match. The Exposures tab brings gaps into an investigation."
+    },
+    "eaPostureExample": {
+      "t": "Splunk’s Entity Posture walkthrough",
+      "u": "https://www.splunk.com/en_us/blog/security/find-security-control-gaps-before-they-become-incidents.html",
+      "reviewed": "2026-11-24",
+      "section": "November 13 overview of Enterprise Security 8.5 and 8.8",
+      "verificationScope": "Entity discovery was released in ES 8.5. The 8.8 posture, profile and action capabilities build on discovery."
     }
   },
   "capabilities": [
@@ -393,7 +430,7 @@ window.VersionCompassEditions = {
       "id": "exposure",
       "name": "Exposure Analytics",
       "lane": "Exposure management",
-      "tag": "conf",
+      "tag": "updated",
       "ess": {
         "v": "yes",
         "n": "Cloud and On-premises"
@@ -402,14 +439,18 @@ window.VersionCompassEditions = {
         "v": "yes",
         "n": "Cloud and On-premises"
       },
-      "desc": "Entity and business context for exposure prioritization. The November 4 ES 8.8 release table assigns Entity posture, Entity profile, Entity actions and Entity analysis enhancements to Essentials, which are also included in Premier. The separate Exposure Analytics page describes posture metrics and profiling. Confirm exact deployment, feature access and prerequisites before relying on these enhancements.",
+      "desc": "ES 8.8 adds Entity posture metrics, Entity profile rules, Entity actions and an enhanced Entity analysis view to the discovery capability introduced in 8.5. For example, a profile rule can flag an internet-facing asset with a scanning gap. Configure discovery sources, metrics, rules and actions for the controls you want to monitor. The 8.8 release notes list these enhancements under Essentials, which Premier includes. Verify access on the target deployment.",
       "src": [
+        "rn88",
         "editions",
         "ea",
-        "conf26",
-        "rn88"
+        "eaPosture88",
+        "eaProfile88",
+        "eaActions88",
+        "eaProfileExample",
+        "eaPostureExample"
       ],
-      "reviewed": "2026-11-05"
+      "reviewed": "2026-11-24"
     },
     {
       "id": "ai-assistant",
@@ -1188,6 +1229,18 @@ window.VersionCompassEditions = {
       "text": "ES 8.8.0 reached General Availability on November 4, after October 21 Controlled Availability. Its edition table states that Essentials features are also included in Premier, but neither the release number nor the table establishes universal access, managed Cloud rollout, region, entitlement, authorization or an ES–SOAR pairing.",
       "src": [
         "rn88"
+      ]
+    },
+    {
+      "id": "exposure-analytics-88",
+      "title": "Exposure Analytics in Essentials and Premier",
+      "text": "In ES 8.8, Entity posture measures gaps in security controls across assets and users. Entity profile uses rules to prioritize those gaps and can raise the risk of related findings. Entity actions automate configured follow-up. Entity analysis brings posture and profile context into the investigation. Set up entity discovery first.",
+      "src": [
+        "rn88",
+        "eaPosture88",
+        "eaProfile88",
+        "eaActions88",
+        "eaProfileExample"
       ]
     },
     {

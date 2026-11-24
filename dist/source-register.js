@@ -4795,6 +4795,96 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-actions",
+      "title": "Configure entity actions in ES 8.8",
+      "areas": [
+        "ES editions"
+      ],
+      "references": [
+        "editions.sources.eaActions88.u",
+        "editions: editions.capabilities.4",
+        "editions: editions.highlights.1"
+      ],
+      "reviews": [
+        "2026-11-24"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-24",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-24",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-24",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-posture",
+      "title": "Configure entity posture in ES 8.8",
+      "areas": [
+        "ES editions"
+      ],
+      "references": [
+        "editions.sources.eaPosture88.u",
+        "editions: editions.capabilities.4",
+        "editions: editions.highlights.1"
+      ],
+      "reviews": [
+        "2026-11-24"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-24",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-24",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-24",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-profile",
+      "title": "Configure entity profile in ES 8.8",
+      "areas": [
+        "ES editions"
+      ],
+      "references": [
+        "editions.sources.eaProfile88.u",
+        "editions: editions.capabilities.4",
+        "editions: editions.highlights.1"
+      ],
+      "reviews": [
+        "2026-11-24"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-24",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-24",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-24",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/threat-intelligence/add-new-threat-intelligence-sources-in-splunk-enterprise-security",
       "title": "ES 8.8 native threat intelligence feed guide",
       "areas": [
@@ -5532,7 +5622,8 @@ window.VersionCompassSources = {
         "editions: editions.conflicts.6.claims.2",
         "editions: editions.highlights.0",
         "editions: editions.highlights.1",
-        "editions: editions.highlights.2"
+        "editions: editions.highlights.2",
+        "editions: editions.highlights.3"
       ],
       "reviews": [
         "2026-11-20"
@@ -11741,6 +11832,36 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://www.splunk.com/en_us/blog/security/entity-profile-identify-contextual-risk-affecting-entities.html",
+      "title": "Splunk’s Entity Profile walkthrough",
+      "areas": [
+        "ES editions"
+      ],
+      "references": [
+        "editions.sources.eaProfileExample.u",
+        "editions: editions.capabilities.4",
+        "editions: editions.highlights.1"
+      ],
+      "reviews": [
+        "2026-11-24"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-24",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-24",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-24",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://www.splunk.com/en_us/blog/security/evolving-to-autonomous-defense-new-agentic-soc-capabilities.html",
       "title": ".conf26 Agentic SOC announcement",
       "areas": [
@@ -11748,7 +11869,6 @@ window.VersionCompassSources = {
       ],
       "references": [
         "editions.sources.conf26.u",
-        "editions: editions.capabilities.4",
         "editions: editions.notes.5"
       ],
       "reviews": [
@@ -11791,6 +11911,35 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        }
+      ]
+    },
+    {
+      "url": "https://www.splunk.com/en_us/blog/security/find-security-control-gaps-before-they-become-incidents.html",
+      "title": "Splunk’s Entity Posture walkthrough",
+      "areas": [
+        "ES editions"
+      ],
+      "references": [
+        "editions.sources.eaPostureExample.u",
+        "editions: editions.capabilities.4"
+      ],
+      "reviews": [
+        "2026-11-24"
+      ],
+      "usage": "In use",
+      "reviewed": "2026-11-24",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-24",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-24",
+          "event": "First recorded in source register; earlier usage date not established"
         }
       ]
     },
@@ -11870,17 +12019,17 @@ window.VersionCompassSources = {
         "editions: editions.workflows.3"
       ],
       "reviews": [
-        "2026-10-01"
+        "2026-11-24"
       ],
       "usage": "In use",
-      "reviewed": "2026-10-01",
+      "reviewed": "2026-11-24",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "Named coming-soon enhancements are not presented as currently shipped capabilities.",
-      "section": "Features, packaging FAQ and coming-soon labels",
-      "verificationScope": "Checked core ES inclusion at no additional cost, current entity discovery and investigation context, and separate coming-soon labels for posture metrics and Entity Profiling.",
+      "reason": "The product page now describes these features directly. Use the November 4 ES 8.8.0 release notes and versioned task guides for release status, edition scope and prerequisites.",
+      "section": "Features and getting started with Entity discovery",
+      "verificationScope": "The current product page describes continuous control-gap metrics, profile rules for contextual risk, and automated actions. The versioned ES 8.8 release table supplies the edition and release attribution.",
       "events": [
         {
           "date": "2026-09-25",
@@ -11909,6 +12058,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-01",
           "event": "Review status updated: Reviewed · 2026-10-01"
+        },
+        {
+          "date": "2026-11-24",
+          "event": "Review status updated: Reviewed · 2026-11-24"
         }
       ]
     },

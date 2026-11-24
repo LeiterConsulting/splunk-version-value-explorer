@@ -114,6 +114,9 @@ here. Exact-candidate CI must rerun the current complete matrix.
    [versioned topic links and documented reading options](https://help.splunk.com/en/release-notes-and-updates/using-the-help-portal)
    or other current, official publications when available. For unsupported
    portions, record the exact missing section and keep the last supported facts.
+   When assessing the current ES release, the ES Editions and Release watches
+   also compare the source with the visitor summaries and reports they own.
+   Record the route and outcome using the [daily surface review instructions](daily-surface-reviews.md).
 4. Record every mandatory participating capability, including explicit blocked,
    deferred, failed or out-of-scope entries with owner, finite action and review
    date. Freshness is evaluated at the retained run and later observed continuation

@@ -56,6 +56,10 @@ Search snippets, status codes and digests alone do not substantiate assessments.
 Preserve current-release context separately from any future announcement.
 Explicitly defer a missing source or assessment and finish the other rows.
 
+## Checking the ES summary against release notes
+
+For the current ES release, the ES Editions Watch compares material changes in the official release table with the visible edition spotlight, the capability filter, and the edition report. Release Watch checks the same changes against the matching upgrade interval and its report. Record the vendor section, the visitor route, and the supported change or reason for excluding it from the summary. An existing catalog row alone cannot establish that a visitor sees the update. For ES 8.8, exercise Exposure Analytics in the edition spotlight, recent-updates filter, and the 8.7-to-8.8 Release Guide. Preserve edition inheritance and deployment qualifications in the PDF and saved HTML.
+
 ## What a receipt proves
 
 - Record every due row with its exact scope, official URL and section, supported
