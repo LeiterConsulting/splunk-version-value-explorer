@@ -127,7 +127,7 @@ Add `additionalReaderReviews` for other affected answers or reports. Every chang
 evidence, record the actual disposition, owner, next action and review date.
 Keep the last genuine assessment date. No receipt is a distinct outcome.
 
-For Splunk Help known-issue and fixed-issue pages, open the article in a browser and wait for the issue-number rows. The initial HTML can contain only introductory text. The helper `node tools/export-verification/splunk-issue-tables.mjs URL ...` records each rendered table and its digest. Match the release heading and deployment label to each cited row. Record an incomplete retrieval when the table does not load.
+For Splunk Help known-issue and fixed-issue pages, open the article in a browser and wait for the issue-number rows. The initial HTML can contain only introductory text. The helper `node tools/export-verification/splunk-issue-tables.mjs URL ...` records each rendered table and its digest. If the runner sees only introductory text, use the normal public article in the live browser. The same read-only extraction is available with `--browser-script` for browser-capable owners. If source access is denied, retain that result for the runner. Match the release heading and deployment label to each cited row. Record an incomplete retrieval when the table does not load.
 
 **06:15 integration.** Read today's source PRs (including drafts, retries and
 late arrivals) and unresolved prior handoffs from the public repository. Fetch
