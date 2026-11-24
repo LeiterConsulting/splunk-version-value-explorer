@@ -70,7 +70,12 @@ test('SAIA known commercial service region is conditional; unlisted provider and
  const a=model();
  assert.equal(assess(a,'ai-saia-spl',{region:'us-east-1'}).availability,'conditional');
  assert.equal(assess(a,'ai-saia-spl',{csp:'gcp'}).availability,'not_established');
- assert.equal(assess(a,'ai-saia-spl',{region:'eu-west-1'}).availability,'not_established');
+ const dublin=assess(a,'ai-saia-spl',{region:'eu-west-1'});
+ assert.equal(dublin.availability,'conflicting');assert.match(dublin.detail,/overview lists AWS Dublin/);
+ assert.match(dublin.detail,/Cloud installer omits Dublin/);
+ assert(dublin.src.includes('aiSaiaAbout')&&dublin.src.includes('aiSaiaInstall'));
+ const subagent=assess(a,'ai-itsi-subagent',{region:'eu-west-1'});
+ assert.equal(subagent.availability,'not_established');assert.match(subagent.detail,/no separately documented Dublin rollout/);
  assert.equal(assess(a,'ai-saia-spl',{region:'azure-ai-us-east'}).availability,'conditional');
  assert.equal(assess(a,'ai-saia-spl',{region:'azure-virginia'}).availability,'not_established');
 });

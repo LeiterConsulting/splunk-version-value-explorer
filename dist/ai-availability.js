@@ -85,6 +85,12 @@
       if(!Array.isArray(d.agentModeRegions)||region&&!d.agentModeRegions.includes(region.id)||!region&&provider&&provider!=='aws')return result('not_established','The Agent Mode feature guide lists specific AWS locations. Base SAIA and Azure Model Runtime regions do not establish this feature; an absent listing is not a universal unavailability claim.',['aiSaiaAgentMode','aiSaiaModelRuntime']);
       return result('conditional',(region?'The selected AWS location is listed specifically for Agent Mode. ':'Confirm an exact AWS location from the Agent Mode feature list. ')+record.condition+' Model Runtime may process requests beyond the selected region; the broad Cloud Connected assurance and feature-specific external-processing scope remain distinct.',['aiSaiaAgentMode','aiSaiaModelRuntime','aiSaiaCloudConnected']);
     }
+    const disagreement = state.deployment === 'cloud' && region && d.saiaRegionDisagreements?.[region.id];
+    if (disagreement) {
+      const itsi = record.product === 'itsi';
+      const detail = itsi ? disagreement.detail + ' The ITSI subagent has no separately documented Dublin rollout.' : disagreement.detail;
+      return {...result(itsi ? 'not_established' : 'conflicting', detail, disagreement.src), verified:disagreement.checked};
+    }
     if(region&&!d.saiaRegions.includes(region.id))return result('not_established','The selected region is not listed in the reviewed SAIA service table. Absence is not an unavailability claim.',['aiSaiaInstall']);
     if(!region&&provider&&!['aws','azure'].includes(provider))return result('not_established','This provider is not established by the reviewed SAIA region table.',['aiSaiaInstall']);
     if(record.product==='itsi'&&region)return result('not_established','The base SAIA service has regional evidence, but the ITSI subagent’s specific regional rollout is not independently established here. Its version prerequisites are documented.',['aiSaiaAbout']);
