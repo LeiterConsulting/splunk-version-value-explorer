@@ -282,10 +282,13 @@ window.VersionCompassDailyReviews = {
       "id": "ai.regional-platform",
       "title": "SAIA and ITSI feature-specific region and regulated scope",
       "owner": "csp-fedramp-watch",
-      "disposition": "assessed-no-change",
+      "disposition": "deferred",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-24-csp-fedramp-watch-coverage.json",
-      "followUp": null,
+      "receipt": "docs/audits/2026-11-24-csp-fedramp-watch-review-97233538604470-coverage.json",
+      "followUp": {
+        "owner": "csp-fedramp-watch",
+        "reviewBy": "2026-11-25"
+      },
       "lastAssessedAt": "2026-11-24T10:12:32.853037Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-24-csp-fedramp-watch-coverage.json"
     },
@@ -293,10 +296,13 @@ window.VersionCompassDailyReviews = {
       "id": "ai.regional-es",
       "title": "ES AI regional and regulated scope by edition and service",
       "owner": "csp-fedramp-watch",
-      "disposition": "assessed-no-change",
+      "disposition": "deferred",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-24-csp-fedramp-watch-coverage.json",
-      "followUp": null,
+      "receipt": "docs/audits/2026-11-24-csp-fedramp-watch-review-97233538604470-coverage.json",
+      "followUp": {
+        "owner": "csp-fedramp-watch",
+        "reviewBy": "2026-11-25"
+      },
       "lastAssessedAt": "2026-11-24T10:12:32.853037Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-24-csp-fedramp-watch-coverage.json"
     },
@@ -304,10 +310,13 @@ window.VersionCompassDailyReviews = {
       "id": "ai.regional-observability",
       "title": "Observability AI region, realm and provider evidence",
       "owner": "csp-fedramp-watch",
-      "disposition": "assessed-no-change",
+      "disposition": "deferred",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-24-csp-fedramp-watch-coverage.json",
-      "followUp": null,
+      "receipt": "docs/audits/2026-11-24-csp-fedramp-watch-review-97233538604470-coverage.json",
+      "followUp": {
+        "owner": "csp-fedramp-watch",
+        "reviewBy": "2026-11-25"
+      },
       "lastAssessedAt": "2026-11-24T10:12:32.853037Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-24-csp-fedramp-watch-coverage.json"
     },
@@ -488,10 +497,13 @@ window.VersionCompassDailyReviews = {
       "id": "cloud-environment.regions",
       "title": "Cloud providers and regional service availability",
       "owner": "csp-fedramp-watch",
-      "disposition": "assessed-no-change",
+      "disposition": "deferred",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-24-csp-fedramp-watch-coverage.json",
-      "followUp": null,
+      "receipt": "docs/audits/2026-11-24-csp-fedramp-watch-review-97233538604470-coverage.json",
+      "followUp": {
+        "owner": "csp-fedramp-watch",
+        "reviewBy": "2026-11-25"
+      },
       "lastAssessedAt": "2026-11-24T10:12:32.853037Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-24-csp-fedramp-watch-coverage.json"
     },
@@ -499,10 +511,13 @@ window.VersionCompassDailyReviews = {
       "id": "cloud-environment.experience",
       "title": "Classic/Victoria and Cloud service controls",
       "owner": "csp-fedramp-watch",
-      "disposition": "assessed-no-change",
+      "disposition": "deferred",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-24-csp-fedramp-watch-coverage.json",
-      "followUp": null,
+      "receipt": "docs/audits/2026-11-24-csp-fedramp-watch-review-97233538604470-coverage.json",
+      "followUp": {
+        "owner": "csp-fedramp-watch",
+        "reviewBy": "2026-11-25"
+      },
       "lastAssessedAt": "2026-11-24T10:12:32.853037Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-24-csp-fedramp-watch-coverage.json"
     },
@@ -510,10 +525,13 @@ window.VersionCompassDailyReviews = {
       "id": "cloud-environment.fedramp",
       "title": "FedRAMP Moderate and High boundaries",
       "owner": "csp-fedramp-watch",
-      "disposition": "assessed-no-change",
+      "disposition": "deferred",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-24-csp-fedramp-watch-coverage.json",
-      "followUp": null,
+      "receipt": "docs/audits/2026-11-24-csp-fedramp-watch-review-97233538604470-coverage.json",
+      "followUp": {
+        "owner": "csp-fedramp-watch",
+        "reviewBy": "2026-11-25"
+      },
       "lastAssessedAt": "2026-11-24T10:12:32.853037Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-24-csp-fedramp-watch-coverage.json"
     },
@@ -521,10 +539,13 @@ window.VersionCompassDailyReviews = {
       "id": "cloud-environment.product-services",
       "title": "Premium products, Observability realms and service scope",
       "owner": "csp-fedramp-watch",
-      "disposition": "assessed-no-change",
+      "disposition": "deferred",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-24-csp-fedramp-watch-coverage.json",
-      "followUp": null,
+      "receipt": "docs/audits/2026-11-24-csp-fedramp-watch-review-97233538604470-coverage.json",
+      "followUp": {
+        "owner": "csp-fedramp-watch",
+        "reviewBy": "2026-11-25"
+      },
       "lastAssessedAt": "2026-11-24T10:12:32.853037Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-24-csp-fedramp-watch-coverage.json"
     }

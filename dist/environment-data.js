@@ -702,10 +702,11 @@ window.VersionCompassEnvironmentData = {
       ],
       "availability": "not_established",
       "authorization": "not_established",
-      "detail": "The October 9 High Marketplace observation named Enterprise Security. The November 24 package remains FedRAMP Certified but contains no named certified services. Current component scope remains unresolved. This is not a revocation or exclusion; edition, feature, entitlement, pairing, rollout and customer authorization remain separate.",
+      "detail": "The October 9 High Marketplace observation named Enterprise Security. The November 24 package remains FedRAMP Certified but contains no named certified services. Current component scope remains unresolved. Splunk’s February 2026 US Public Sector matrix marks the base product for High audit scope. This is not a revocation or exclusion; edition, feature, entitlement, pairing, rollout and customer authorization remain separate.",
       "sources": [
         "high",
-        "service"
+        "service",
+        "compliance"
       ],
       "checked": "2026-11-24",
       "scope": "Exact High offering FR2314156865 current certified_services field, with the October 9 named-service observation retained as historical evidence."
@@ -746,10 +747,11 @@ window.VersionCompassEnvironmentData = {
       ],
       "availability": "not_established",
       "authorization": "not_established",
-      "detail": "The October 9 High Marketplace observation named IT Service Intelligence. The November 24 package remains FedRAMP Certified but contains no named certified services. Current component scope remains unresolved. This is not a revocation or exclusion; edition, feature, entitlement, pairing, rollout and customer authorization remain separate.",
+      "detail": "The October 9 High Marketplace observation named IT Service Intelligence. The November 24 package remains FedRAMP Certified but contains no named certified services. Current component scope remains unresolved. Splunk’s February 2026 US Public Sector matrix marks the base product for High audit scope. This is not a revocation or exclusion; edition, feature, entitlement, pairing, rollout and customer authorization remain separate.",
       "sources": [
         "high",
-        "service"
+        "service",
+        "compliance"
       ],
       "checked": "2026-11-24",
       "scope": "Exact High offering FR2314156865 current certified_services field, with the October 9 named-service observation retained as historical evidence."
