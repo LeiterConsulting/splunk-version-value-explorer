@@ -154,7 +154,9 @@ function watchBaseline(saved, observedAt) {
   let lastRead = -Infinity;
   // A same-day retry can use a new saved clock. Choose its baseline by observation
   // time before comparing any hashes. Preserve every earlier independent read.
+  if (saved.configurationHistory !== undefined && !Array.isArray(saved.configurationHistory)) throw Error('Invalid dated owner configuration');
   for (const entry of saved.configurationHistory || []) {
+    if (!object(entry)) throw Error('Invalid dated owner configuration');
     const at = time(entry.readbackAt);
     if (entry.watchId !== saved.id || entry.taskId !== saved.taskId || !validDigest(entry.afterDigest) ||
         !Number.isFinite(at) || at <= lastRead) throw Error('Invalid dated owner configuration');

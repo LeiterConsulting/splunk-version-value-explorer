@@ -158,8 +158,10 @@ export function dailyReview(registry, receipts, day, runtime) {
         row.assessments.every(a => inAttempt(a.assessedAt) && a.sourceIds?.length &&
           a.sourceIds.every(id => row.retrievals?.some(r => r.sourceId === id && r.outcome === 'retrieved' &&
             inAttempt(r.retrievedAt) && compareInstants(r.retrievedAt,a.assessedAt) <= 0)));
-      return { freshSources, runId: run.runId, registryVersion: run.registryVersion, receipt: result.file, disposition: row.disposition, assessedAt: row.assessedAt,
-        reviewedToday, readerChecks: readerChecks(row).map(proof => ({id:proofId(proof), routeId:proof.routeId, checkedAt:proof.checkedAt})), matchesNativeAttempt: watch ? [watch.matchingReceiptIds,watch.verifiedReviewReceiptIds].some(ids => ids?.includes(run.runId)) : null,
+      const proofs = readerChecks(row);
+      const readerCheckedDuringAttempt = proofs.length > 0 && proofs.every(proof => inAttempt(proof.checkedAt));
+      return { freshSources, readerCheckedDuringAttempt, runId: run.runId, registryVersion: run.registryVersion, receipt: result.file, disposition: row.disposition, assessedAt: row.assessedAt,
+        reviewedToday, readerChecks: proofs.map(proof => ({id:proofId(proof), routeId:proof.routeId, checkedAt:proof.checkedAt})), matchesNativeAttempt: watch ? [watch.matchingReceiptIds,watch.verifiedReviewReceiptIds].some(ids => ids?.includes(run.runId)) : null,
         followUp: row.followUp || null };
     }).filter(Boolean);
     const reviewedToday = history.some(entry => entry.reviewedToday);
@@ -185,7 +187,7 @@ export function summarizeReaderDelivery(report, site, daily, now = Date.now()) {
   if (hosts.some(matches => matches.length !== 1 || !Array.isArray(matches[0].checks) || !Array.isArray(matches[0].issues))) return unknown('Missing or duplicate public host');
   function verifiedEntry(section, entry, scheduled = false) {
     if (!entry.reviewedToday || !entry.readerChecks?.length) return false;
-    if (scheduled && (entry.matchesNativeAttempt !== true || entry.freshSources !== true)) return false;
+    if (scheduled && (entry.matchesNativeAttempt !== true || entry.freshSources !== true || entry.readerCheckedDuringAttempt !== true)) return false;
     return entry.readerChecks.every(expected => hosts.every(([host]) => host.checks.some(check =>
       check.routeId === expected.routeId && check.status === 'passed' &&
       [check.screen,check.offlineHtml,check.pdf].every(result => result === 'passed') &&

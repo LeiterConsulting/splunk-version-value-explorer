@@ -55,6 +55,8 @@ test('both actual public reports must match the same reviewed section and stewar
   entry.matchesNativeAttempt = true;
   entry.freshSources = true;
   for (const host of evidence.hosts) Object.assign(host.checks[0],{htmlSha256:'a'.repeat(64),pdfSha256:'b'.repeat(64)});
+  assert.equal(review(evidence).scheduledVerifiedSections,0);
+  entry.readerCheckedDuringAttempt = true;
   const unboundRetry = {...entry,receipt:'different.json',matchesNativeAttempt:false};
   daily.sections[0].history.unshift(unboundRetry);
   assert.equal(review(evidence).scheduledVerifiedSections,1);

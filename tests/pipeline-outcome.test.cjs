@@ -192,6 +192,11 @@ test('scheduled source credit ends at the native completion even if an owner rec
   const watch = {watchId,matchingReceiptIds:[run.runId],attempt:{startedAt,completedAt}};
   const fresh = () => dailyReview(registry,[{run,result:{boundAttempt:true,file:'csp.json'}}],day,{watches:[watch]}).sections[0].history[0].freshSources;
   assert.equal(fresh(),true);
+  row.readerReview = {claimIds:['scope'],checkedAt:completedAt};
+  const checkedInRun = () => dailyReview(registry,[{run,result:{boundAttempt:true,file:'csp.json'}}],day,{watches:[watch]}).sections[0].history[0].readerCheckedDuringAttempt;
+  assert.equal(checkedInRun(),true);
+  row.readerReview.checkedAt = day + 'T21:18:00.511388Z';
+  assert.equal(checkedInRun(),false);
   row.assessedAt = day + 'T21:18:00.511388Z';
   assert.equal(fresh(),false);
   row.assessedAt = completedAt;
