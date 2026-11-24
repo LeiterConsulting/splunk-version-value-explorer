@@ -28,6 +28,22 @@ document.querySelector('main').innerHTML=`
 const stamp=v=>v?new Date(v).toLocaleString('en-US',{timeZone:'America/New_York',dateStyle:'medium',timeStyle:'short'})+' ET':'Not recorded';
 const outcomes={'not-recorded':'Outcome not recorded',running:'Attempt recorded · awaiting outcome',changed:'Completed · changes found','no-change':'Completed · no changes',blocked:'Blocked',failed:'Failed'};
 document.getElementById('maintenance-outcomes').innerHTML=(window.VersionCompassMaintenance?.watches||[]).map(w=>'<article class="maintenance-card"><h3>'+esc(w.name)+'</h3><p><strong>'+esc(outcomes[w.outcome]||w.outcome)+'</strong></p><dl><div><dt>Last attempted check</dt><dd>'+esc(stamp(w.lastAttempt))+'</dd></div><div><dt>Last successful check</dt><dd>'+esc(stamp(w.lastSuccess))+'</dd></div></dl><p>'+esc(w.summary)+'</p><details><summary>Recorded history</summary><ul>'+w.history.slice().reverse().map(e=>'<li>'+esc(stamp(e.at))+' · '+esc(outcomes[e.outcome]||e.outcome)+': '+esc(e.summary)+'</li>').join('')+'</ul></details></article>').join('');
+const daily = window.VersionCompassDailyReviews;
+if (daily?.date) {
+  const finished = daily.sections.filter(row => row.reviewedOnDate).length;
+  const link = (file, label) => file ? ' <a href="https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/main/'+esc(file)+'">'+label+'</a>' : '';
+  const labels = {'changed':'Updated','assessed-no-change':'Reviewed, no change','missing':'No receipt','prior-assessment':'Earlier assessment carried forward','out-of-scope':'Outside reviewed scope','deferred':'Deferred','failed':'Check failed','blocked':'Source or review blocked'};
+  const items = daily.sections.map(row => {
+    const earlier = row.reviewedOnDate && !['changed','assessed-no-change'].includes(row.disposition) ? ' (reviewed earlier that day)' : '';
+    const last = row.lastAssessedAt ? esc(stamp(row.lastAssessedAt)) : 'unknown';
+    const followUp = row.followUp ? ' · Next review by '+esc(row.followUp.reviewBy)+' ('+esc(row.followUp.owner)+')' : '';
+    return '<li><strong>'+esc(row.title)+'</strong> · '+esc(labels[row.disposition] || row.disposition)+earlier+' · Last assessed '+last+
+      link(row.receipt,'Review record')+(row.lastAssessmentReceipt !== row.receipt ? link(row.lastAssessmentReceipt,'Last assessment') : '')+followUp+'</li>';
+  });
+  const summary = '<details id="daily-section-reviews"><summary>Section reviews for '+esc(daily.date)+' · '+finished+' of '+daily.sections.length+' reviewed that day</summary><ul>'+items.join('')+'</ul></details>';
+  document.getElementById('maintenance-outcomes').insertAdjacentHTML('beforebegin',summary);
+}
+
 const ids=['search','area','usage','status','sort'],controls=Object.fromEntries(ids.map(k=>[k,document.getElementById('source-'+k)]));
 const list=document.getElementById('source-list'),more=document.getElementById('source-more');
 let visibleCount=20,matchingCount=0;

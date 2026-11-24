@@ -37,6 +37,11 @@ for annotation in expected['printAnnotations']:
     assert normalize(annotation) in actual, f'Missing printable change context: {annotation}'
 for text_fragment in expected.get('requiredText', []):
     assert normalize(text_fragment) in actual, f'Missing required PDF text: {text_fragment}'
+if expected.get('readerSourceUrls'):
+    annotations = subprocess.check_output(['pdfinfo', '-url', str(pdf)], text=True)
+    links = {line.split(None, 2)[-1] for line in annotations.splitlines() if line.strip()}
+    for url in expected['readerSourceUrls']:
+        assert url in links, f'Missing reader citation in PDF: {url}'
 assert normalize(expected['revision']) in actual, 'Missing PDF content identity'
 for control in ['Save dated snapshot (.html)', 'Print / save PDF', 'Copy comparison link']:
     assert normalize(control) not in actual, f'Interactive control leaked into PDF: {control}'

@@ -4,8 +4,8 @@ const { execFileSync, spawnSync } = require('node:child_process');
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 const textInput = /\.(?:js|cjs|mjs|jsx|ts|tsx|html|css|md|yml|yaml|sql|svg|txt|csv|xml)$/i;
 // The source register reads the generated data adapters. Its final bytes also enter the content manifest’s engine hash.
-const generators = ['sync-advisor', 'sync-release-metadata', 'sync-content', 'sync-source-register', 'sync-content', 'sync-content-revision', 'sync-issue-feed'];
-const checks = ['sync-release-metadata', 'sync-source-register', 'sync-content-revision', 'sync-content', 'sync-advisor', 'advisor-maintenance', 'sync-issue-feed', 'check-native-issue-feed', 'check-automation-coverage'];
+const generators = ['sync-daily-reviews', 'sync-advisor', 'sync-release-metadata', 'sync-content', 'sync-source-register', 'sync-content', 'sync-content-revision', 'sync-issue-feed'];
+const checks = ['sync-daily-reviews', 'sync-release-metadata', 'sync-source-register', 'sync-content-revision', 'sync-content', 'sync-advisor', 'advisor-maintenance', 'sync-issue-feed', 'check-native-issue-feed', 'check-automation-coverage'];
 const command = (id, check = false) => [process.execPath, 'scripts/' + id + '.cjs', ...(check && !id.startsWith('check-') ? ['--check'] : [])];
 function files(root) {
   return [...new Set(execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard', '-z'], { cwd: root }).toString().split('\0').filter(Boolean))].sort();
