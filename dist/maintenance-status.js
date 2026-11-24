@@ -1598,10 +1598,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-24T17:17:28.269Z",
+      "lastAttempt": "2026-11-24T21:56:48.669386Z",
       "lastSuccess": "2026-11-24T09:08:54.963409+00:00",
       "outcome": "blocked",
-      "summary": "Prepared the Guided Response deployment correction. Six ES section reviews remained incomplete.",
+      "summary": "Reviewed public licensing, release notes, workflow and AI sources. The trial display and Threat Graph threshold corrections passed local checks and await exact-candidate validation.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -2339,9 +2339,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Prepared the Guided Response deployment correction. Six ES section reviews remained incomplete.",
           "scope": "Six ES source and reader sections. The earlier assessment is recorded separately."
+        },
+        {
+          "at": "2026-11-24T21:56:48.669386Z",
+          "outcome": "running",
+          "summary": "Started the current ES Editions and linked AI review.",
+          "scope": "Six ES primary sections and both-domain reports. Four validated against public answers. Two reader corrections await acceptance."
+        },
+        {
+          "at": "2026-11-24T22:05:42.309Z",
+          "outcome": "blocked",
+          "summary": "Reviewed public licensing, release notes, workflow and AI sources. The trial display and Threat Graph threshold corrections passed local checks and await exact-candidate validation.",
+          "scope": "Six ES primary sections and both-domain reports. Four validated against public answers. Two reader corrections await acceptance."
         }
       ],
-      "scope": "Six ES source and reader sections. The earlier assessment is recorded separately."
+      "scope": "Six ES primary sections and both-domain reports. Four validated against public answers. Two reader corrections await acceptance."
     },
     {
       "id": "version-guidance-audit",
