@@ -136,7 +136,7 @@ export function dailyReview(registry, receipts, day, runtime) {
   }
   const attempts = receipts.filter(({ run }) =>
     owners.has(run.watchId) && acceptedVersions.has(run.registryVersion) &&
-    run.kind === 'saved-task-execution' && onDay(run.execution?.startedAt || run.recordedAt)
+    run.kind === 'saved-task-execution' && onDay(run.execution?.startedAt)
   ).sort((a, b) => Date.parse(b.run.execution?.startedAt || b.run.recordedAt) - Date.parse(a.run.execution?.startedAt || a.run.recordedAt)
     || Date.parse(b.run.recordedAt) - Date.parse(a.run.recordedAt));
   const sections = registry.capabilities.filter(cap => cap.mandatory && owners.has(cap.primaryOwner)).map(cap => {

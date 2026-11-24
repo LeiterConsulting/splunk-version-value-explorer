@@ -29,8 +29,10 @@ export function reconcile(date, base, heads) {
     for (const file of files) {
       const blob = git('rev-parse',sha + ':' + file).trim();
       const run = json(sha,file);
-      if (run.kind !== 'saved-task-execution') continue;
-      assert(run.execution?.startedAt && dayOf(run.execution.startedAt) === date, 'Review date and attempt differ: ' + file);
+      const uncredited = !run.execution?.startedAt;
+      if (run.kind !== 'saved-task-execution' && !(run.kind === 'implementation-review' && run.auditBindings?.length)) continue;
+      const observed = uncredited ? run.execution?.workStartedAt || run.recordedAt : run.execution.startedAt;
+      assert(dayOf(observed) === date, 'Review date and attempt differ: ' + file);
       assert(!ids.has(run.runId) || ids.get(run.runId) === file, 'Run ID collision: ' + run.runId);
       const prior = records.get(file);
       assert(!prior || prior.blob === blob, 'Conflicting receipt bytes: ' + file);
@@ -41,6 +43,7 @@ export function reconcile(date, base, heads) {
         const audit = json(sha,binding.file);
         assert(audit.automationCoverage?.runFile === file && native.reviewDigest(audit) === binding.reviewDigest, 'Source binding differs: ' + file);
         coverage.validateBoundExecution(run,audit);
+        if (run.kind === 'implementation-review') assert(coverage.editorialReplay(run, audit), 'Unbound editorial replay: ' + file);
       }
       if (prior) { prior.seenAt.push(sha); continue; }
       const result = coverage.validateRun(run,registry);
@@ -51,7 +54,9 @@ export function reconcile(date, base, heads) {
   const all = [...records.values()];
   const summary = dailyReview(registry, all, date);
   return {date, base, inputs, receipts:all.map(({file,blob,seenAt,run}) => ({
-    file,blob,seenAt,integrated:seenAt.includes(base),watch:run.watchId,runId:run.runId,startedAt:run.execution.startedAt})),
+    file,blob,seenAt,integrated:seenAt.includes(base),watch:run.watchId,runId:run.runId,kind:run.kind,
+    startedAt:run.execution.startedAt || null,workStartedAt:run.execution.workStartedAt || null,
+    attribution:run.kind === 'saved-task-execution' && run.execution.startedAt ? 'dated-owner-receipt' : 'uncredited-replay' })),
     registered:summary.registered, reviewedAcrossInputs:summary.reviewed,
     reviewedInBase:dailyReview(registry,all.filter(r => r.seenAt.includes(base)),date).reviewed,
     gaps:summary.sections.filter(section => !section.reviewedToday).map(section => ({

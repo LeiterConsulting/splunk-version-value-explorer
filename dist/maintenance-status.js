@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-24T10:03:32.334Z",
+      "lastAttempt": "2026-11-24T17:11:12Z",
       "lastSuccess": "2026-11-21T19:34:26.194Z",
       "outcome": "blocked",
-      "summary": "Seven primary sections assessed without changing facts; supportingSOC deferred; candidate held for validation,exports andintegration.",
+      "summary": "Five primary reader comparisons complete; scoped High correction queued with three incomplete participating rows and exact-candidate validation pending.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -663,9 +663,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Seven primary sections assessed without changing facts; supportingSOC deferred; candidate held for validation,exports andintegration.",
           "scope": "Registry1.4.0 public source/claim review; exact provider,region,experience,offering andfeature boundaries retained."
+        },
+        {
+          "at": "2026-11-24T17:11:12Z",
+          "outcome": "running",
+          "summary": "Current Eastern reader review under saved work order; current native invocation identity unavailable.",
+          "scope": "Registry1.5.0: five primary source/reader/report comparisons; High candidate acceptance, Platform AI intersections and supporting SOC incomplete. No Site/D1 action."
+        },
+        {
+          "at": "2026-11-24T17:22:59.267Z",
+          "outcome": "blocked",
+          "summary": "Five primary reader comparisons complete; scoped High correction queued with three incomplete participating rows and exact-candidate validation pending.",
+          "scope": "Registry1.5.0: five primary source/reader/report comparisons; High candidate acceptance, Platform AI intersections and supporting SOC incomplete. No Site/D1 action."
         }
       ],
-      "scope": "Registry1.4.0 public source/claim review; exact provider,region,experience,offering andfeature boundaries retained."
+      "scope": "Registry1.5.0: five primary source/reader/report comparisons; High candidate acceptance, Platform AI intersections and supporting SOC incomplete. No Site/D1 action."
     },
     {
       "id": "version-release-watch",
@@ -1550,10 +1562,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-24T09:31:58.342334Z",
+      "lastAttempt": "2026-11-24T17:17:28.269Z",
       "lastSuccess": "2026-11-24T09:08:54.963409+00:00",
       "outcome": "blocked",
-      "summary": "Distinct ES second attempt: six primary sections and ten named families assessed; nine observations retain qualified vendor conflicts. Candidate held for exact validation/export/integration.",
+      "summary": "Prepared current Guided Response scope correction; six reader-contract rows deferred and candidate qualification pending.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -2279,9 +2291,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Distinct ES second attempt: six primary sections and ten named families assessed; nine observations retain qualified vendor conflicts. Candidate held for exact validation/export/integration.",
           "scope": "Registry1.4.0 licensing,history,deployment,workflows,five ES AI records and Advisor SOC; no claim dates advanced; no Site publication."
+        },
+        {
+          "at": "2026-11-24T17:17:28.269Z",
+          "outcome": "running",
+          "summary": "Started later same-day ES reader-accuracy follow-through; native identity unavailable.",
+          "scope": "Own ES six-section source/reader assessment; prior morning receipt and native identity kept separate. No Site/D1 or task changes."
+        },
+        {
+          "at": "2026-11-24T17:29:10.485Z",
+          "outcome": "blocked",
+          "summary": "Prepared current Guided Response scope correction; six reader-contract rows deferred and candidate qualification pending.",
+          "scope": "Own ES six-section source/reader assessment; prior morning receipt and native identity kept separate. No Site/D1 or task changes."
         }
       ],
-      "scope": "Registry1.4.0 licensing,history,deployment,workflows,five ES AI records and Advisor SOC; no claim dates advanced; no Site publication."
+      "scope": "Own ES six-section source/reader assessment; prior morning receipt and native identity kept separate. No Site/D1 or task changes."
     },
     {
       "id": "version-guidance-audit",

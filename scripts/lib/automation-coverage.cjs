@@ -196,8 +196,18 @@ function validateBoundExecution(run, audit) {
     assert(sameAttemptStart(source.startedAt, receipt.startedAt), 'Source audit and coverage receipt disagree on native attempt start');
   }
 }
+// An editorial replay can hand off a correction without claiming a native attempt.
+function editorialReplay(run, audit) {
+  const execution = run.execution || {};
+  const source = audit.execution || {};
+  return run.kind === 'implementation-review' && run.claimedComplete === false &&
+    run.publication?.claimedDelivered === false && text(execution.taskId) &&
+    source.taskId === execution.taskId && timestamp(execution.workStartedAt) &&
+    execution.workStartedAt === source.workStartedAt && Date.parse(execution.workStartedAt) <= Date.parse(run.recordedAt) &&
+    [execution, source].every(row => row.startedAt == null && row.schedulerRunId == null && row.completedAt == null);
+}
 function validateTaskOwner(run, root = process.cwd(), ledger) {
-  if (run.kind !== 'saved-task-execution' || run.execution?.taskId == null) return;
+  if (run.execution?.taskId == null || (run.kind !== 'saved-task-execution' && !run.execution.workStartedAt)) return;
   const amendments = ledger || read(root, 'content/automation-amendments.json');
   const amendment = amendments.amendments.find(entry => entry.registryVersion === run.registryVersion);
   const owner = amendment?.savedTasks.find(task => task.id === run.watchId);
@@ -264,8 +274,8 @@ function check(root = process.cwd()) {
     const binding = audit.automationCoverage;
     assert(binding && candidates.has(binding.runFile), 'Changed watch review lacks mandatory coverage: ' + file);
     const run = read(root, binding.runFile);
-    assert(run.kind === 'saved-task-execution' && run.watchId === native.watchFor(file) && run.auditBindings?.some(b => b.file === file && b.reviewDigest === native.reviewDigest(audit)), 'Watch coverage is not bound to the actual review: ' + file);
+    assert((run.kind === 'saved-task-execution' || editorialReplay(run, audit)) && run.watchId === native.watchFor(file) && run.auditBindings?.some(b => b.file === file && b.reviewDigest === native.reviewDigest(audit)), 'Watch coverage is not bound to the actual review: ' + file);
   }
   return { registryVersion: registry.registryVersion, activation: registry.activation, runs: results };
 }
-module.exports = { statuses, clocks, pointer, mappedSource, reviewDigest, resolveRegistry, validateRegistry, validateRun, validateAmendments, validateBoundExecution, validateTaskOwner, check };
+module.exports = { editorialReplay, statuses, clocks, pointer, mappedSource, reviewDigest, resolveRegistry, validateRegistry, validateRun, validateAmendments, validateBoundExecution, validateTaskOwner, check };

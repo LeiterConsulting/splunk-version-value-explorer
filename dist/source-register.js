@@ -4293,11 +4293,13 @@ window.VersionCompassSources = {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
       "title": "ES 8.8 current Triage and Response aggregate row",
       "areas": [
-        "ES editions"
+        "ES editions",
+        "Shared guidance"
       ],
       "references": [
         "editions.sources.triageNote88.u",
         "editions.sources.agentic88.u",
+        "content-updates.js",
         "editions: editions.capabilities.5",
         "editions: editions.capabilities.9",
         "editions: editions.capabilities.10",
@@ -11629,7 +11631,7 @@ window.VersionCompassSources = {
         "soar: soar.backlog.3"
       ],
       "reviews": [
-        "2026-10-10",
+        "2026-11-24",
         "2026-10-06"
       ],
       "claimReferences": [
@@ -11639,14 +11641,14 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-10-09",
+      "reviewed": "2026-11-24",
       "status": "Reviewed",
       "firstRecorded": "2026-09-25",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "Offering-level status is distinct from feature-specific availability, premium-product scope and customer authorization decisions.",
-      "section": "Status and Certification Profile — package FR2314156865",
-      "verificationScope": "Confirmed the exact High offering remains Ongoing Certification, FedRAMP Certified, Class D (High), certified since September 13, 2024, with Certified Services Platform, Private Connectivity, Enterprise Security and IT Service Intelligence. SOAR High and universal feature scope are not inferred.",
+      "reason": "An empty current named-services field is missing component evidence, not revocation or exclusion. Preserve the prior dated list and independent product/feature/customer authorization boundaries.",
+      "section": "Status, Certification Profile and package certified_services — FR2314156865",
+      "verificationScope": "Status and Certification Profile; exact FR2314156865 package certified_services field. On November 24 the High offering remains FedRAMP Certified, Class D, certified since September 13, 2024, but its current package contains no named certified services. The October 9 Platform, Private Connectivity, Enterprise Security and ITSI list is a historical observation; it does not establish the current component list, feature availability or customer authorization.",
       "events": [
         {
           "date": "2026-09-25",
@@ -11683,6 +11685,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-10-09",
           "event": "Review status updated: Reviewed · 2026-10-09"
+        },
+        {
+          "date": "2026-11-24",
+          "event": "Review status updated: Reviewed · 2026-11-24"
         }
       ]
     },
