@@ -29,8 +29,14 @@ test('public maintenance checks include historical entries and reject private ru
    assert.throws(()=>run([],JSON.stringify(input)),/reader-facing/);
    assert.equal(fs.readFileSync(file,'utf8'),original);
  }
- entry.summary='Imported scheduler attempt timestamp.';write();
- assert.throws(()=>run(['--check']),/reader-facing/);
+ entry.summary='Imported scheduler attempt timestamp.';
+ watch.history.push({at:'2026-11-23T11:00:00Z',outcome:'blocked',summary:'Reviewed the guidance.',scope:'Foreign result.'});
+ write();
+ assert.throws(()=>run(['--check']),error=>{
+   const details=error.stderr.toString();
+   return details.includes('reader-facing') && details.includes('test 2026-11-23T10:00:00Z summary') &&
+     details.includes('test 2026-11-23T11:00:00Z scope') && !details.includes(entry.summary);
+ });
 });
 test('maintenance requires an attempt, retains failed outcomes, and advances success only after completion',()=>{
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'maintenance-'));
