@@ -643,7 +643,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-23T10:39:38.759897Z",
           "outcome": "running",
-          "summary": "Started the November 23 Eastern CSP FedRAMP review under native attempt eb005e5d.",
+          "summary": "Started the November 23 Eastern CSP FedRAMP review.",
           "scope": "Four protected Cloud Environment rows, three AI regional rows, supporting Advisor SOC, full official inventory, visual compliance matrix and feed checkpoint."
         },
         {
