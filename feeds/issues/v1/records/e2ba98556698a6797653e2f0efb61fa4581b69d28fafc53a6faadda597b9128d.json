@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "1.0.0",
+  "synthetic": false,
+  "kind": "finding",
+  "findingId": "vci-fedramp-high-certified-services-display",
+  "revision": 1,
+  "recordedAt": "2026-11-24T17:29:50.974Z",
+  "title": "FedRAMP High Marketplace package no longer names the historically observed certified services",
+  "concernType": "uncertain-claim",
+  "problem": "The exact High package currently has certified_services:[], while the previously observed named component list remains in the source summary. Candidate preserves the old list historically and current component uncertainty. Empty field does not establish revocation, exclusion or SOAR High authorization.",
+  "scope": {
+    "products": [
+      "Splunk Cloud Platform FedRAMP High offering"
+    ],
+    "versions": [
+      "FR2314156865"
+    ],
+    "editions": null,
+    "deployments": [
+      "FedRAMP High offering"
+    ],
+    "regions": [
+      "AWS GovCloud"
+    ],
+    "audiences": null,
+    "exclusions": [
+      "No revocation, service removal/exclusion, SOAR High authorization, entitlement or customer eligibility is established."
+    ]
+  },
+  "scopeComparison": "Current exact package field versus the retained October 9 named-services observation. Offering certification is separate.",
+  "impact": {
+    "customerScenario": "A reader checks whether the public High offering currently names an individual service.",
+    "consequence": "Treat the previous named list as historical and seek separate current component-scope evidence.",
+    "level": "unknown"
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "The public package is directly retrievable and its current list is empty. The underlying scope and reason for this display remain unknown."
+  },
+  "claimIds": [
+    "cloud-environment.fedramp",
+    "platform-fr-h"
+  ],
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Current named component scope remains unresolved."
+  },
+  "relationships": {
+    "related": [
+      "vci-fedramp-moderate-certified-services-display"
+    ],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "csp-reader-high-20261124-source",
+      "url": "https://www.fedramp.gov/marketplace/products/FR2314156865/",
+      "section": "Status, Certification Profile and embedded package certified_services field",
+      "statement": "The exact High package currently has certified_services:[], while the previously observed named component list remains in the source summary. Candidate preserves the old list historically and current component uncertainty. Empty field does not establish revocation, exclusion or SOAR High authorization.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-24T17:13:31.882Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "662bcaa179d663790ae58e50c543fbd41ae5c6bef93f509ceb9b6543475b8999",
+        "qualification": "Actual direct public response bytes; publisher revision unknown."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/624ac7fbee88418a2a036a8c768723c1f8736b42/docs/audits/2026-11-24-csp-fedramp-watch-review-2-sources.json",
+      "pointer": "/newIssueObservations/0",
+      "originalLabel": "new-qualified-uncertainty"
+    }
+  ]
+}
