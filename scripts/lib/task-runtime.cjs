@@ -64,6 +64,12 @@ function configuration(task, baseline, observedAt) {
       const { is_self_owned_automation, ...withoutOwnership } = native;
       const compatible = savedConfigurationDigest(withoutOwnership);
       if (compatible === baseline.afterDigest) comparison = { method: 'native-caller-ownership-compat-v1', digest: compatible };
+      else if (typeof baseline.callerOwnershipAtReadback === 'boolean' && baseline.callerOwnershipAtReadback !== is_self_owned_automation) {
+        // The same saved owner can be inspected from its own chat or a separate observer.
+        // Require the exact original full digest after substituting only that caller-relative flag.
+        const priorCaller = savedConfigurationDigest({...native, is_self_owned_automation:baseline.callerOwnershipAtReadback});
+        if (priorCaller === baseline.afterDigest) comparison = {method:'native-caller-ownership-perspective-v1',digest:priorCaller};
+      }
     }
     if (!comparison) issues.push('saved-configuration-not-matched');
   }
@@ -144,7 +150,17 @@ function validateOperationalContract(contract) {
 // A new schedule can be saved and independently read before its first service day.
 // Keep earlier observations on the baseline in effect when they were captured.
 function watchBaseline(saved, observedAt) {
-  const previous = saved.currentConfiguration || saved;
+  let previous = saved.currentConfiguration || saved;
+  let lastRead = -Infinity;
+  // A same-day retry can use a new saved clock. Choose its baseline by observation
+  // time before comparing any hashes. Preserve every earlier independent read.
+  for (const entry of saved.configurationHistory || []) {
+    const at = time(entry.readbackAt);
+    if (entry.watchId !== saved.id || entry.taskId !== saved.taskId || !validDigest(entry.afterDigest) ||
+        !Number.isFinite(at) || at <= lastRead) throw Error('Invalid dated owner configuration');
+    if (at <= time(observedAt) && !(time(previous.readbackAt) > at)) previous = entry;
+    lastRead = at;
+  }
   const next = saved.scheduledConfiguration;
   if (next === undefined) return previous;
   const effective = time(next?.effectiveFrom), captured = time(next?.readbackAt);

@@ -27,6 +27,10 @@ During an owner run, monitor the scheduled task list, the owner's GitHub branch 
 
 After completion match the task, occurrence and precise start to the owner’s GitHub receipts. Read the result heading and follow its links. A link to an earlier review, another owner’s result, or a changed start needs independent reconciliation before granting credit. Keep the original evidence and count each verified section once. Only the existing 09:00 steward can publish a qualified correction.
 
+Use the dated saved configuration observed before each run, including when an owner tests twice in one day. The task API can identify whether the caller is inspecting its own task. If the recorded readback identifies that caller flag, the diagnostic can check the original full digest with only that flag restored. Schedule, prompt, environment, permissions and all other saved settings must still match.
+
+When official sources disagree, identify the exact scope of the disagreement and test what readers see. A claim that the public authorities disagree can be checked against both passages. Keep an unsupported availability or entitlement decision open and record the remaining question. Independent field verification uses the published revision even when an owner has deferred part of its source review.
+
 ## 11.x Prep first pass
 
 Start with the eight `prep11.*` rows and the exact sections in the
