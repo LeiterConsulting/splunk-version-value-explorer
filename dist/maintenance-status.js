@@ -646,10 +646,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-23T00:50:56.828847Z",
+      "lastAttempt": "2026-11-24T10:12:34.777Z",
       "lastSuccess": "2026-11-21T19:40:05.303Z",
       "outcome": "blocked",
-      "summary": "27 primary dispositions:24 assessed-no-change,3 incomplete; feed checkpoint109 prepared; exact candidate CI/export and integration held.",
+      "summary": "18primary assessed-no-change;9primary andsupportingSOC incomplete. Eightfresh observations andcandidate gated.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1459,17 +1459,41 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "27 primary dispositions:24 assessed-no-change,3 incomplete; feed checkpoint109 prepared; exact candidate CI/export and integration held.",
           "scope": "Fresh27 primary registry1.4.0 sections, supportingSOC and eight scoped issue reassessments; no Site release."
+        },
+        {
+          "at": "2026-11-24T09:52:38.388Z",
+          "outcome": "running",
+          "summary": "Distinct current Release attempt; fresh27 primary scope review.",
+          "scope": "Registry1.4.0; own fresh public section assessments; no product facts or Site runtime changed."
+        },
+        {
+          "at": "2026-11-24T10:00:38.155759Z",
+          "outcome": "blocked",
+          "summary": "18 primary assessed-no-change;9 incomplete plus supportingSOC; candidate held for exact export,artifact,integration and coordinator selection gates.",
+          "scope": "Registry1.4.0; own fresh public section assessments; no product facts or Site runtime changed."
+        },
+        {
+          "at": "2026-11-24T10:12:34.777Z",
+          "outcome": "running",
+          "summary": "Distinct fourthRelease attempt; fresh27-primary review under actual newstart.",
+          "scope": "OwnR4 current registry1.4.0 section/claim review; productdates andmaterialcycle unchanged."
+        },
+        {
+          "at": "2026-11-24T10:20:16.889741Z",
+          "outcome": "blocked",
+          "summary": "18primary assessed-no-change;9primary andsupportingSOC incomplete. Eightfresh observations andcandidate gated.",
+          "scope": "OwnR4 current registry1.4.0 section/claim review; productdates andmaterialcycle unchanged."
         }
       ],
-      "scope": "Fresh27 primary registry1.4.0 sections, supportingSOC and eight scoped issue reassessments; no Site release."
+      "scope": "OwnR4 current registry1.4.0 section/claim review; productdates andmaterialcycle unchanged."
     },
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-22T22:30:57.802381Z",
-      "lastSuccess": "2026-11-22T22:39:26.945Z",
-      "outcome": "no-change",
-      "summary": "Fresh six-section ES review; twelve scoped issue reassessments; no canonical product facts changed.",
+      "lastAttempt": "2026-11-24T09:31:58.342334Z",
+      "lastSuccess": "2026-11-24T09:08:54.963409+00:00",
+      "outcome": "blocked",
+      "summary": "Distinct ES second attempt: six primary sections and ten named families assessed; nine observations retain qualified vendor conflicts. Candidate held for exact validation/export/integration.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -2159,9 +2183,45 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Fresh six-section ES review; twelve scoped issue reassessments; no canonical product facts changed.",
           "scope": "Registry 1.4.0 six primary scopes. Native current-result join remains missing; exact-candidate export/artifact and sole steward runtime delivery held. Original claim dates preserved."
+        },
+        {
+          "at": "2026-11-23T08:58:34.626058Z",
+          "outcome": "running",
+          "summary": "Started current Eastern-day ES source review.",
+          "scope": "Six primary registry1.4.0 sections; native result isolated."
+        },
+        {
+          "at": "2026-11-23T09:08:34.381Z",
+          "outcome": "no-change",
+          "summary": "Fresh six-section ES review; canonical product guidance unchanged. Twelve issue reassessments prepared; candidate held for validation/integration.",
+          "scope": "Edition/licensing, history, deployment, workflows, five ES AI capabilities and Advisor SOC;55 source checks. LastSuccess means this review, not live delivery."
+        },
+        {
+          "at": "2026-11-24T08:58:58.327815Z",
+          "outcome": "running",
+          "summary": "Started November24 six-section ES review.",
+          "scope": "Registry1.4.0 licensing,history,deployment,workflows,five individual ES AI capabilities and AdvisorSOC;55 URL checks with bounded retries/qualified official indexed sections. LastSuccess is scoped review, not delivery."
+        },
+        {
+          "at": "2026-11-24T09:08:54.963409+00:00",
+          "outcome": "no-change",
+          "summary": "Six primary ES scopes independently assessed-no-change; candidate held for exact validation/feed integration.",
+          "scope": "Registry1.4.0 licensing,history,deployment,workflows,five individual ES AI capabilities and AdvisorSOC;55 URL checks with bounded retries/qualified official indexed sections. LastSuccess is scoped review, not delivery."
+        },
+        {
+          "at": "2026-11-24T09:31:58.342334Z",
+          "outcome": "running",
+          "summary": "Distinct ES second attempt: six primary sections and ten named families assessed; nine observations retain qualified vendor conflicts. Candidate held for exact validation/export/integration.",
+          "scope": "Registry1.4.0 licensing,history,deployment,workflows,five ES AI records and Advisor SOC; no claim dates advanced; no Site publication."
+        },
+        {
+          "at": "2026-11-24T09:37:23.026047Z",
+          "outcome": "blocked",
+          "summary": "Distinct ES second attempt: six primary sections and ten named families assessed; nine observations retain qualified vendor conflicts. Candidate held for exact validation/export/integration.",
+          "scope": "Registry1.4.0 licensing,history,deployment,workflows,five ES AI records and Advisor SOC; no claim dates advanced; no Site publication."
         }
       ],
-      "scope": "Registry 1.4.0 six primary scopes. Native current-result join remains missing; exact-candidate export/artifact and sole steward runtime delivery held. Original claim dates preserved."
+      "scope": "Registry1.4.0 licensing,history,deployment,workflows,five ES AI records and Advisor SOC; no claim dates advanced; no Site publication."
     },
     {
       "id": "version-guidance-audit",

@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "finding",
+  "synthetic": false,
+  "findingId": "vci-es-88-response-deployment-column-conflict",
+  "revision": 1,
+  "recordedAt": "2026-11-23T09:15:49.401Z",
+  "title": "ES8.8 Autonomous Response availability column conflicts with CMP prerequisites",
+  "concernType": "contradiction",
+  "problem": "The same8.8 Autonomous Response aggregate row labels availability Premier (Cloud only) but includes a Cloud Connected CMP prerequisite bullet. The exact Response task also contains a CMP prerequisite while describing Premier Cloud support. This is a vendor applicability disagreement, not proof that Response is supported on CMP. Response remains CA; entitlement, model, pairing and region are independent.",
+  "scope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "8.8"
+    ],
+    "editions": [
+      "Premier"
+    ],
+    "deployments": [
+      "Cloud",
+      "Cloud Connected CMP disputed"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No tenant behavior, exact SOAR pairing, feature entitlement, regional rollout or customer authorization is established."
+    ]
+  },
+  "impact": {
+    "level": "moderate",
+    "customerScenario": "A Premier reader plans to use Autonomous Response through a Cloud Connected deployment.",
+    "consequence": "A prerequisite bullet can be mistaken for supported deployment availability despite the Cloud-only availability cell."
+  },
+  "confidence": {
+    "level": "not-rated",
+    "rationale": "Exact same-version availability and compatibility columns plus task prerequisites disagree; intended applicability remains unknown."
+  },
+  "claimIds": [
+    "ai-es-soc"
+  ],
+  "scopeComparison": "Same ES8.8 Autonomous Response component; availability cell Cloud only versus CMP prerequisite bullets. Triage has its own Cloud/CMP row and is not used to infer Response rollout.",
+  "lifecycle": {
+    "disposition": "active",
+    "reason": "Requires authoritative component-specific deployment clarification."
+  },
+  "relationships": {
+    "related": [
+      "vci-es-88-response-agent-rerun-coverage",
+      "vci-es-soc-analyst-version-floor"
+    ],
+    "mergedInto": [],
+    "supersedes": [],
+    "supersededBy": []
+  },
+  "evidence": [
+    {
+      "evidenceId": "vcia-es-20261123-es-88-response-deployment-column-conflict-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Compatibility information: Autonomous Response row, Availability versus Compatibility information columns",
+      "statement": "The same8.8 Autonomous Response aggregate row labels availability Premier (Cloud only) but includes a Cloud Connected CMP prerequisite bullet. The exact Response task also contains a CMP prerequisite while describing Premier Cloud support. This is a vendor applicability disagreement, not proof that Response is supported on CMP. Response remains CA; entitlement, model, pairing and region are independent.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-23T09:02:34.071Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "97d6de274ac815499fa9334cd3ae4695300af1d4f6d9b303a8b728086b2d19ae",
+        "qualification": "Raw anonymous public response digest; no publisher revision inferred."
+      }
+    },
+    {
+      "evidenceId": "vcia-es-20261123-es-88-response-deployment-column-conflict-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/identify-and-run-the-soar-response-actions-on-findings-using-the-autonomous-response-agent-in-splunk-enterprise-security",
+      "section": "Controlled Availability notice; Prerequisites: Cloud support and Cloud Connected bullet",
+      "statement": "Supporting or challenging exact section assessed with separate version, edition, deployment, runtime and authorization qualifications.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-23T09:02:42.346Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "621213789a0699780a6cfa82b8a17b5d8be851b3d972a1c013020c7b4d3de24b",
+        "qualification": "Raw anonymous public response digest; no publisher revision inferred."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/f7ab637fda6b207ae4c67988b55d9e25b04072fc/docs/audits/2026-11-23-es-editions-watch-sources.json",
+      "pointer": "/issueObservations/15",
+      "originalLabel": "still-present"
+    }
+  ]
+}
