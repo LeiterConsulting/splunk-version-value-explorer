@@ -228,12 +228,17 @@ function receiptPaths(run) {
   assert(native.watchFor(source) === run.watchId, 'Unknown source owner');
   return {source,coverage:prefix+'-coverage.json'};
 }
-function preserveReceiptIdentity(prior, run, file) {
+function sameReceiptIdentity(prior, run) {
   const before = prior.execution || {}, after = run.execution || {};
-  const unchanged = prior.watchId === run.watchId && prior.kind === run.kind && prior.runId === run.runId &&
+  return prior.watchId === run.watchId && prior.kind === run.kind && prior.runId === run.runId &&
     ['taskId','schedulerRunId'].every(key => !before[key] || before[key] === after[key]) &&
     ['startedAt','workStartedAt'].every(key => !before[key] || sameAttemptStart(before[key],after[key]));
-  assert(unchanged,'Receipt path belongs to another review or attempt: '+file+'. Keep both and use --paths for the new one.');
+}
+function preserveReceiptIdentity(prior, run, file, retained) {
+  // A merge may give a colliding branch receipt its own path. The original identity
+  // must still resolve to a separately validated receipt in the resulting tree.
+  assert(sameReceiptIdentity(prior,run) || (retained && sameReceiptIdentity(prior,retained)),
+    'Receipt path belongs to another review or attempt: '+file+'. Keep both and use --paths for the new one.');
 }
 function bindSchedulerAttempt(owners, run) {
   const {taskId, schedulerRunId} = run.execution || {};
@@ -249,16 +254,17 @@ function check(root = process.cwd()) {
   const git = args => execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim().split('\n').filter(Boolean);
   const parents = git(['rev-list', '--parents', '-n', '1', 'HEAD'])[0].split(/\s+/).slice(1);
   for (const revision of ['HEAD', ...parents]) for (const file of git(['ls-tree', '-r', '--name-only', revision, 'docs/audits']).filter(f => f.endsWith('-coverage.json'))) assert(fs.existsSync(path.join(root, file)), 'Do not delete coverage history: ' + file);
+  const candidates = new Set([...git(['ls-files', 'docs/audits/*-coverage.json']), ...git(['ls-files', '--others', '--exclude-standard', 'docs/audits/*-coverage.json'])]);
+  const entries = [...candidates].map(file => [file,read(root,file)]);
+  const retained = new Map(entries.map(([,run]) => [run.runId,run]));
   for (const revision of ['HEAD', ...parents]) {
     for (const file of git(['diff','--name-only','--no-renames','--diff-filter=M',revision,'--','docs/audits/*-coverage.json'])) {
-      const previous = execFileSync('git',['show',revision+':'+file],{cwd:root,encoding:'utf8'});
-      preserveReceiptIdentity(JSON.parse(previous),read(root,file),file);
+      const previous = JSON.parse(execFileSync('git',['show',revision+':'+file],{cwd:root,encoding:'utf8'}));
+      preserveReceiptIdentity(previous,read(root,file),file,retained.get(previous.runId));
     }
   }
-  const candidates = new Set([...git(['ls-files', 'docs/audits/*-coverage.json']), ...git(['ls-files', '--others', '--exclude-standard', 'docs/audits/*-coverage.json'])]);
   const owners = new Map();
-  const results = [...candidates].map(file => {
-    const run = read(root, file);
+  const results = entries.map(([file,run]) => {
     const result = validateRun(run, registry, root);
     validateTaskOwner(run, root, ledger);
     bindSchedulerAttempt(owners, run);

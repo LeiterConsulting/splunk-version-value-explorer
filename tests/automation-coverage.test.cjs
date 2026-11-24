@@ -75,6 +75,8 @@ test('concurrent CSP recoveries keep distinct paths and preserve the original re
   const timed = {watchId:'csp-fedramp-watch',kind:'saved-task-execution',runId:'csp-one',execution:e};
   const operator = {...timed,kind:'implementation-review',execution:{taskId:'csp',workStartedAt:e.startedAt}};
   const paths = receiptPaths(timed);
+  assert.doesNotThrow(()=>preserveReceiptIdentity(timed,operator,paths.coverage,{...timed}));
+  assert.throws(()=>preserveReceiptIdentity(timed,operator,paths.coverage,{...timed,kind:'implementation-review'}),/another review/);
   assert.equal(require('../scripts/lib/native-issue-feed.cjs').watchFor(paths.source),timed.watchId);
   assert.deepEqual(receiptPaths({...timed,execution:{...e,startedAt:'2026-11-24T16:40:05.742921-05:00'}}),paths);
   assert.notDeepEqual(receiptPaths(operator),paths);
