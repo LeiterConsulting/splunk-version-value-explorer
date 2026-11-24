@@ -1,0 +1,73 @@
+name: Verify owner sources and public reports
+on:
+  pull_request:
+    paths:
+      - 'docs/audits/*-coverage.json'
+  workflow_dispatch:
+    inputs:
+      owner:
+        description: Primary owner to verify
+        type: choice
+        options:
+          - all
+          - version-release-watch
+          - es-editions-watch
+          - csp-fedramp-watch
+        default: all
+permissions:
+  contents: read
+jobs:
+  verify:
+    name: ${{ matrix.owner }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    strategy:
+      fail-fast: false
+      matrix:
+        owner: [version-release-watch, es-editions-watch, csp-fedramp-watch]
+    steps:
+      - uses: actions/checkout@v4
+        if: github.event_name == 'pull_request' || inputs.owner == 'all' || inputs.owner == matrix.owner
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        if: github.event_name == 'pull_request' || inputs.owner == 'all' || inputs.owner == matrix.owner
+        with:
+          node-version: '22'
+      - name: Select changed owner receipts
+        id: handoff
+        if: github.event_name == 'pull_request' || inputs.owner == 'all' || inputs.owner == matrix.owner
+        env:
+          OWNER: ${{ matrix.owner }}
+          BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          mkdir owner-review
+          node tools/export-verification/owner-handoff.mjs "$OWNER" "$BASE" > owner-review/handoff.json
+      - name: Retrieve registered public sources
+        id: sources
+        if: steps.handoff.outputs.selected == 'true'
+        env:
+          OWNER: ${{ matrix.owner }}
+        run: node tools/export-verification/owner-sources.mjs "$OWNER" > owner-review/sources.json
+      - name: Install reader tools
+        id: install
+        if: "!cancelled() && steps.handoff.outputs.selected == 'true'"
+        run: |
+          npm ci --prefix tools/export-verification --ignore-scripts --no-audit --no-fund
+          sudo --preserve-env=GITHUB_ACTIONS node scripts/ci-ubuntu-transport.cjs --apply
+          tools/export-verification/node_modules/.bin/playwright install --with-deps chromium
+          sudo apt-get install -y poppler-utils
+      - name: Verify both hosts and exports
+        if: "!cancelled() && steps.install.outcome == 'success'"
+        env:
+          OWNER: ${{ matrix.owner }}
+        run: node tools/export-verification/owner-reader.mjs --live "$OWNER" owner-review/questions.json > owner-review/readers.json
+      - uses: actions/upload-artifact@v4
+        if: "!cancelled() && steps.handoff.outputs.selected == 'true'"
+        with:
+          name: owner-review-${{ matrix.owner }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: owner-review/
+          if-no-files-found: error
+          retention-days: 30

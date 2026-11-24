@@ -214,6 +214,15 @@ function validateTaskOwner(run, root = process.cwd(), ledger) {
   const owner = amendment?.savedTasks.find(task => task.id === run.watchId);
   assert(text(owner?.taskId) && run.execution.taskId === owner.taskId, 'Native task identity does not belong to ' + run.watchId);
 }
+// A scheduler attempt belongs to one saved task. Multiple receipts can document its progress.
+function bindSchedulerAttempt(owners, run) {
+  const {taskId, schedulerRunId} = run.execution || {};
+  if (run.kind !== 'saved-task-execution' || !schedulerRunId) return;
+  assert(text(taskId), 'Native attempt requires its saved task identity');
+  const previous = owners.get(schedulerRunId);
+  assert(!previous || previous === taskId, 'Scheduler attempt is claimed by different saved tasks: ' + schedulerRunId);
+  owners.set(schedulerRunId, taskId);
+}
 function check(root = process.cwd()) {
   const registry = validateRegistry(read(root, 'content/automation-coverage.json'), root);
   const ledger = validateAmendments(read(root, 'content/automation-amendments.json'), registry, root);
@@ -221,19 +230,24 @@ function check(root = process.cwd()) {
   const parents = git(['rev-list', '--parents', '-n', '1', 'HEAD'])[0].split(/\s+/).slice(1);
   for (const revision of ['HEAD', ...parents]) for (const file of git(['ls-tree', '-r', '--name-only', revision, 'docs/audits']).filter(f => f.endsWith('-coverage.json'))) assert(fs.existsSync(path.join(root, file)), 'Do not delete coverage history: ' + file);
   const candidates = new Set([...git(['ls-files', 'docs/audits/*-coverage.json']), ...git(['ls-files', '--others', '--exclude-standard', 'docs/audits/*-coverage.json'])]);
+  const owners = new Map();
   const results = [...candidates].map(file => {
     const run = read(root, file);
     const result = validateRun(run, registry, root);
     validateTaskOwner(run, root, ledger);
+    bindSchedulerAttempt(owners, run);
+    let boundAttempt = false;
     for (const binding of run.auditBindings || []) {
       assert(native.watchFor(binding.file) === run.watchId, 'Source audit belongs to a different watch: ' + file);
       const audit = read(root, binding.file);
       if (audit.automationCoverage?.runFile === file) {
         assert(binding.reviewDigest === native.reviewDigest(audit), 'Coverage is not bound to the actual review: ' + file);
         validateBoundExecution(run, audit);
+        if (run.kind === 'saved-task-execution' && run.execution?.schedulerRunId && run.execution.taskId === audit.execution?.taskId &&
+            run.execution.schedulerRunId === audit.execution.schedulerRunId && sameAttemptStart(run.execution.startedAt,audit.execution.startedAt)) boundAttempt = true;
       }
     }
-    return { file, ...result };
+    return { file, ...result, boundAttempt };
   });
   assert(new Set(results.map(row => row.runId)).size === results.length, 'Duplicate public coverage run ID across receipt files');
   // Match the native-feed changed-review gate; historical unchanged runs do not
@@ -279,4 +293,4 @@ function check(root = process.cwd()) {
   }
   return { registryVersion: registry.registryVersion, activation: registry.activation, runs: results };
 }
-module.exports = { editorialReplay, statuses, clocks, pointer, mappedSource, reviewDigest, resolveRegistry, validateRegistry, validateRun, validateAmendments, validateBoundExecution, validateTaskOwner, check };
+module.exports = { bindSchedulerAttempt, editorialReplay, statuses, clocks, pointer, mappedSource, reviewDigest, resolveRegistry, validateRegistry, validateRun, validateAmendments, validateBoundExecution, validateTaskOwner, check };

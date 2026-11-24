@@ -424,3 +424,19 @@ for current repository callers. `held-publication-disabled` means no candidate,
 credential, runtime or D1 request was attempted, not that production is globally
 write-free. The workflow remains disabled. Removing the hold and any eventual
 observation dispatch, staging/bootstrap or activation require separate agreement.
+
+### Owner source and public report checks
+
+Use the registered primary watch ID with the following commands. The inventory lists the exact source sections, claim families and reader questions for that owner. Read each source and record what it establishes for the claim and what remains unresolved. Update the questions when the source or the user-visible answer changes.
+
+```sh
+node tools/export-verification/owner-reader.mjs --owner csp-fedramp-watch
+node tools/export-verification/owner-sources.mjs csp-fedramp-watch
+node tools/export-verification/owner-reader.mjs --live csp-fedramp-watch
+```
+
+The two-origin check opens the selected view on each public host, downloads and reopens the HTML offline, prints a PDF and checks the answer and official link in all three outputs. It records the live revision and both file hashes per route. The source command records HTTP access, final registered URL, title, digest and time. Owners assess the actual passages and preserve access failures and conflicts.
+
+The read-only **Verify owner sources and public reports** workflow runs when a pull request adds or changes a coverage receipt. Each participating owner gets a separate artifact containing the exact head and receipt blobs, source retrievals, questions and both public reader reports. An operator can also dispatch it from GitHub Actions to test delivery independently. A dispatch without an owner receipt carries no scheduled-review credit. A new claim can legitimately fail on the current live package before the steward deploys it. Retain that result and recheck the selected release after deployment. Only the 09:00 Eastern steward publishes.
+
+When the native CSP chat displays Release Watch’s output, record both observations independently. Reconcile CSP’s own saved task, current native attempt ID and precise start against its bound GitHub source audit. A foreign heading earns no native-review credit, even if a valid CSP receipt exists. The original watch can earn credit if its own source-bound receipt independently identifies the same attempt and another watch merely echoed its result. A shared native attempt ID invalidates the join.

@@ -4649,19 +4649,34 @@ window.VersionCompassSources = {
     },
     {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
-      "title": "AI Threat Graph Detection agent prerequisites (ES 8.8)",
+      "title": "ES 8.8 AI Threat Graph Detection agent",
       "areas": [
+        "Release guide",
         "ES editions"
       ],
       "references": [
+        "release.guidance.sources.aiEsThreatGraph88.url",
         "editions.sources.threatGraph88.u",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.6",
         "editions: editions.capabilities.10"
       ],
       "reviews": [
-        "2026-11-20"
+        "2026-11-20",
+        "2026-11-24"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Alpha stage; risk-based detection and event-volume prerequisites; enablement and test mode"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.6",
+          "section": "Alpha stage; risk-based detection and event-volume prerequisites; enablement and test mode"
+        }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-20",
+      "reviewed": "2026-11-24",
       "status": "Reviewed",
       "firstRecorded": "2026-11-20",
       "firstUsed": null,
@@ -4673,6 +4688,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-20",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-24",
+          "event": "Review status updated: Reviewed · 2026-11-24"
         }
       ]
     },
@@ -4804,33 +4823,17 @@ window.VersionCompassSources = {
     },
     {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
-      "title": "ES 8.8 AI Threat Graph Detection agent",
+      "title": "surface findings based on risk using the ai threat graph detection agent",
       "areas": [
-        "Release guide",
         "Shared guidance"
       ],
       "references": [
-        "release.guidance.sources.aiEsThreatGraph88.url",
-        "content-updates.js",
-        "guidance: guidance.aiAvailability",
-        "guidance: guidance.aiAvailability.capabilities.6"
+        "content-updates.js"
       ],
-      "reviews": [
-        "2026-11-20"
-      ],
-      "claimReferences": [
-        {
-          "path": "guidance: guidance.aiAvailability",
-          "section": "Alpha stage; risk-based detection and event-volume prerequisites; enablement and test mode"
-        },
-        {
-          "path": "guidance: guidance.aiAvailability.capabilities.6",
-          "section": "Alpha stage; risk-based detection and event-volume prerequisites; enablement and test mode"
-        }
-      ],
+      "reviews": [],
       "usage": "In use",
-      "reviewed": "2026-11-20",
-      "status": "Reviewed",
+      "reviewed": null,
+      "status": "Review date unknown",
       "firstRecorded": "2026-10-26",
       "firstUsed": null,
       "outdatedAsOf": null,
@@ -4849,6 +4852,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-20",
           "event": "Review status updated: Reviewed · 2026-11-20"
+        },
+        {
+          "date": "2026-11-24",
+          "event": "Review status updated: Review date unknown"
         }
       ]
     },

@@ -21,6 +21,13 @@ try {
     throw Error('Watch audit requires its actual saved-task execution or an explicitly uncredited editorial replay');
   }
   coverage.validateTaskOwner(run);
+  if (run.execution?.schedulerRunId) {
+    const owners = new Map();
+    for (const file of fs.readdirSync('docs/audits').filter(name => name.endsWith('-coverage.json'))) {
+      coverage.bindSchedulerAttempt(owners, JSON.parse(fs.readFileSync('docs/audits/' + file, 'utf8')));
+    }
+    coverage.bindSchedulerAttempt(owners, run);
+  }
   for (const audit of audits) coverage.validateBoundExecution(run, audit.value);
   run.reviewDigest = coverage.reviewDigest(run);
   const result = coverage.validateRun(run, registry);

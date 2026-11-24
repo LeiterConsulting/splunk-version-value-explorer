@@ -162,9 +162,9 @@ window.SPLUNK_DATA.guidance = {
     },
     "aiEsThreatGraph88": {
       "title": "ES 8.8 AI Threat Graph Detection agent",
-      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
       "section": "Alpha stage; risk-based detection and event-volume prerequisites; enablement and test mode",
-      "checked": "2026-11-20",
+      "checked": "2026-11-24",
       "reviewed": "2026-11-20",
       "scope": "Exact feature stage and task-level prerequisites; no region, offering authorization or general-availability inference"
     },

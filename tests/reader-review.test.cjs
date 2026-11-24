@@ -51,6 +51,18 @@ test('both actual public reports must match the same reviewed section and stewar
     ['https://versioncompass.com','https://www.versioncompass.com'].map(host => ({host,checks:[structuredClone(check)],issues:[]}))};
   const review = report => summarizeReaderDelivery(report,site,daily,Date.parse('2026-11-25T15:00:00Z'));
   assert.equal(review(evidence).status,'verified');
+  assert.equal(review(evidence).scheduledVerifiedSections,0);
+  entry.matchesNativeAttempt = true;
+  entry.freshSources = true;
+  for (const host of evidence.hosts) Object.assign(host.checks[0],{htmlSha256:'a'.repeat(64),pdfSha256:'b'.repeat(64)});
+  const unboundRetry = {...entry,receipt:'different.json',matchesNativeAttempt:false};
+  daily.sections[0].history.unshift(unboundRetry);
+  assert.equal(review(evidence).scheduledVerifiedSections,1);
+  delete evidence.hosts[1].checks[0].pdfSha256;
+  assert.equal(review(evidence).scheduledVerifiedSections,0);
+  evidence.hosts[1].checks[0].pdfSha256 = 'b'.repeat(64);
+  entry.freshSources = false;
+  assert.equal(review(evidence).scheduledVerifiedSections,0);
   assert.equal(review({...evidence,sha:'b'.repeat(40)}).status,'unverified');
   assert.equal(review({...evidence,hosts:evidence.hosts.slice(0,1)}).status,'unverified');
   evidence.hosts[1].checks[0].pdf = 'failed';

@@ -314,3 +314,36 @@ test('compatible configuration cannot repair native failure, old results, change
     assert.equal(result(f).claimedDelivered, false);
   }
 });
+
+test('a copied CSP result never earns credit and only the independently bound original can count', () => {
+  const f = fixture();
+  f.context.ledger.amendments[0].recordedAt = '2026-11-04T13:00:00Z';
+  const release = f.snapshot.tasks[0], csp = f.snapshot.tasks[3];
+  csp.run_details.latest_result.content_text = release.run_details.latest_result.content_text;
+  assert.equal(first(f).accepted, false);
+  Object.assign(f.context.runs[0], {runId:'release-receipt', boundAttempt:true});
+  Object.assign(f.context.runs[3], {runId:'csp-receipt', boundAttempt:true});
+  let watches = result(f).watches;
+  assert.deepEqual(watches[0].matchingReceiptIds,['release-receipt']);
+  assert.equal(watches[0].result.copiedToOtherWatch,true);
+  assert.deepEqual(watches[3].matchingReceiptIds,[]);
+  assert.deepEqual(watches[3].ownerReceiptIds,['csp-receipt']);
+  csp.run_details.last_run.id = csp.run_details.latest_result.run_id = release.run_details.last_run.id;
+  watches = result(f).watches;
+  assert(watches[0].issues.includes('native-attempt-shared-across-tasks'));
+  assert.deepEqual(watches[0].matchingReceiptIds,[]);
+});
+
+test('correct work survives a registry patch with a pending configuration, while activation stays pending', () => {
+  const f = fixture(), amendment = f.context.ledger.amendments[0];
+  amendment.recordedAt = '2026-11-04T13:00:00Z';
+  const patch = {...amendment, registryVersion:'1.2.1', savedTasks:amendment.savedTasks.map(({id,taskId}) => ({id,taskId}))};
+  f.context.registry.registryVersion = patch.registryVersion;
+  f.context.ledger.amendments.push(patch);
+  Object.assign(f.context.runs[0],{runId:'original-version-receipt',boundAttempt:true});
+  assert.deepEqual(first(f).verifiedReviewReceiptIds,['original-version-receipt']);
+  assert.deepEqual(first(f).matchingReceiptIds,[]);
+  assert.equal(first(f).accepted,false);
+  amendment.recordedAt = '2026-11-05T13:02:00Z';
+  assert.deepEqual(first(f).verifiedReviewReceiptIds,[]);
+});

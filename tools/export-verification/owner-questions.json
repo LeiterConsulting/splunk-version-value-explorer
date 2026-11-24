@@ -1,0 +1,486 @@
+[
+  {
+    "capabilityId": "prep11.discovery",
+    "question": "Does this guide establish an official Enterprise 11.x release date or upgrade path?",
+    "routeId": "prep11",
+    "region": ".prep11-status",
+    "sourceId": "prep11enterprise",
+    "answer": "Release timing, deployment requirements and migration paths remain unconfirmed here.",
+    "claimIds": [
+      "prep11.release-scope"
+    ]
+  },
+  {
+    "capabilityId": "prep11.operator",
+    "question": "What exact Enterprise and Kubernetes versions does the 3.2.0 matrix list, and do the sources agree?",
+    "routeId": "prep11",
+    "region": "#prep11-operator-baseline",
+    "sourceId": "prep11operator",
+    "answer": "The 3.2 help matrix lists Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0.",
+    "claimIds": [
+      "prep11-operator-baseline"
+    ]
+  },
+  {
+    "capabilityId": "prep11.architecture",
+    "question": "Can I treat a distributed non-clustered layout as resilient in a current Operator deployment?",
+    "routeId": "prep11",
+    "region": "#prep11-architecture-baseline",
+    "sourceId": "prep11architecture",
+    "answer": "It discourages distributed non-clustered deployments",
+    "claimIds": [
+      "prep11-architecture-baseline"
+    ]
+  },
+  {
+    "capabilityId": "prep11.app-delivery",
+    "question": "Does deploying an app through the Operator establish 11.x premium-app compatibility?",
+    "routeId": "prep11",
+    "region": "#prep11-app-delivery",
+    "sourceId": "prep11architecture",
+    "answer": "separate considerations for premium apps",
+    "claimIds": [
+      "prep11-app-delivery"
+    ]
+  },
+  {
+    "capabilityId": "prep11.workload",
+    "question": "Can I use workload pools and placement rules in Basic mode on Enterprise 10.6 Kubernetes?",
+    "routeId": "prep11",
+    "region": "#prep11-workload-baseline",
+    "sourceId": "prep11workload",
+    "answer": "Basic mode supports admission rules only.",
+    "claimIds": [
+      "prep11-workload-baseline"
+    ]
+  },
+  {
+    "capabilityId": "prep11.cloud-option",
+    "question": "Which operating-model plans should I prepare if I consider a managed Cloud migration?",
+    "routeId": "prep11",
+    "region": "#prep11-cloud-option",
+    "sourceId": "prep11migration",
+    "answer": "Cloud is a separate migration program.",
+    "claimIds": [
+      "prep11-cloud-option"
+    ]
+  },
+  {
+    "capabilityId": "prep11.context-versioning",
+    "question": "How should integrations distinguish Enterprise from Cloud starting with 10.6?",
+    "routeId": "prep11",
+    "region": "#prep11-update-list",
+    "sourceId": "prep11platformnews",
+    "answer": "use supported product-identification methods",
+    "claimIds": [
+      "prep11-news-versioning"
+    ]
+  },
+  {
+    "capabilityId": "prep11.context-ai",
+    "question": "Did the September Cisco AI POD announcement define the Enterprise 11.x architecture?",
+    "routeId": "prep11",
+    "region": "#prep11-update-list",
+    "sourceId": "prep11ainews",
+    "answer": "AI Assistant as available and Agent Launchpad as coming later in 2026.",
+    "claimIds": [
+      "prep11-news-selfmanaged-ai"
+    ]
+  },
+  {
+    "capabilityId": "advisor.agent-mode",
+    "question": "What must the administrator confirm before enabling Agent Mode?",
+    "routeId": "advisor-agent-gap",
+    "region": ".advisor-brief-section",
+    "sourceId": "aiSaiaModelRuntime",
+    "answer": "Model Runtime and administrator enablement still need confirmation.",
+    "claimIds": [
+      "ai-saia-agent"
+    ]
+  },
+  {
+    "capabilityId": "advisor.itsi-versions",
+    "question": "Does the base assistant service region establish ITSI subagent availability?",
+    "routeId": "advisor-prerequisites",
+    "region": ".advisor-brief-section",
+    "sourceId": "aiSaiaInstall",
+    "answer": "A listed base-assistant service region cannot establish ITSI subagent availability.",
+    "claimIds": [
+      "ai-itsi-subagent"
+    ]
+  },
+  {
+    "capabilityId": "advisor.soc-workflow",
+    "question": "Can I select the lower Cloud ES minimum when the aggregate and detailed workflow guides disagree?",
+    "routeId": "advisor-conflict",
+    "region": "#advisor-result",
+    "answer": "The ES 8.8 aggregate table lists Cloud ES 8.6+, while the detailed ES 8.8 Triage task guide requires ES 8.7+.",
+    "reportAnswer": "The ES 8.8 aggregate table lists Cloud ES 8.6+, while the detailed ES 8.8 Triage task guide requires ES 8.7+.",
+    "claimIds": [
+      "ai-es-soc"
+    ],
+    "sourceId": "aiEsAgents88"
+  },
+  {
+    "capabilityId": "exact.identity",
+    "question": "Does ordering Enterprise 9.4.16 before 10.4.3 establish applicability or a supported upgrade?",
+    "routeId": "exact-cross-line",
+    "region": "#exact-results",
+    "sourceId": "exact94",
+    "answer": "No applicability was inferred from release ordering.",
+    "claimIds": [
+      "exact-release-catalog",
+      "exact-ordering-and-backport"
+    ]
+  },
+  {
+    "capabilityId": "exact.capabilities",
+    "question": "When does an unset deployment-app filter default change, and does the later documentation correction change that date?",
+    "routeId": "exact-docs",
+    "region": "#exact-results",
+    "sourceId": "exact94",
+    "answer": "The implicit app-level filterType default changes to whitelist in 9.4.3 when it is not set.",
+    "claimIds": [
+      "filter-before",
+      "filter-after",
+      "filter-documentation-correction"
+    ]
+  },
+  {
+    "capabilityId": "exact.branch-security",
+    "question": "Which patch remediates the named Splunk Web advisory on each Enterprise branch?",
+    "routeId": "exact-backport",
+    "region": "#exact-results",
+    "sourceId": "exactSecurity",
+    "answer": "The advisory lists this exact branch release as fixed for the assessed CVE.",
+    "claimIds": [
+      "web-affected-9.4",
+      "web-fixed-9.4",
+      "web-affected-10.4",
+      "web-fixed-10.4"
+    ]
+  },
+  {
+    "capabilityId": "exact.uf-useack",
+    "question": "When does UF 10.4.2 forwarding stall, and which patch fixes it?",
+    "routeId": "exact-uf",
+    "region": "#exact-results",
+    "sourceId": "exactUF",
+    "answer": "UF 10.4.2 forwarding can stall with useACK enabled on a receiving heavy forwarder or indexer.",
+    "claimIds": [
+      "uf-regressed",
+      "uf-fixed"
+    ]
+  },
+  {
+    "capabilityId": "exact.uncertainty-parity",
+    "question": "Can I rely on TLS 1.0 or 1.1 after upgrading Enterprise to 10.4?",
+    "routeId": "exact-conflict",
+    "region": "#exact-results",
+    "sourceId": "exactUpgrade",
+    "answer": "The upgrade guide says TLS 1.0/1.1 support is completely removed in 10.4.",
+    "claimIds": [
+      "tls-removed",
+      "exact-evidence-boundary"
+    ]
+  },
+  {
+    "capabilityId": "ai.discovery",
+    "question": "Which official ES 8.8 AI capability is Controlled Availability, and are all operation and availability questions answered?",
+    "routeId": "ai-overview",
+    "region": "#ai-es-soc",
+    "sourceId": "aiEsAgents88",
+    "answer": "Autonomous Response Controlled Availability",
+    "claimIds": [
+      "ai-availability-backlog"
+    ]
+  },
+  {
+    "capabilityId": "ai.saia-itsi",
+    "question": "What exact versions do I need for the ITSI subagent, and does the SAIA Cloud Connected installer establish Agent Mode readiness?",
+    "routeId": "ai-itsi",
+    "region": "#ai-itsi-subagent",
+    "sourceId": "aiSaiaAbout",
+    "answer": "ITSI 5.0.0+, SAIA 2.2.0+, Splunk MCP Server 1.2.1+.",
+    "claimIds": [
+      "ai-saia-spl",
+      "ai-saia-agent",
+      "ai-itsi-subagent"
+    ]
+  },
+  {
+    "capabilityId": "ai.es-capabilities",
+    "question": "Does ES 8.8 GA make Threat Graph generally available for every edition and deployment?",
+    "routeId": "ai-overview",
+    "region": "#ai-es-threat-graph",
+    "answer": "Alpha feature · ES 8.8 release General Availability",
+    "reportAnswer": "Alpha feature · ES 8.8 release General Availability",
+    "claimIds": [
+      "ai-es-threat-graph"
+    ],
+    "sourceId": "aiEsAgents88"
+  },
+  {
+    "capabilityId": "ai.es-capabilities",
+    "question": "What prerequisites does the current Alpha Threat Graph Detection guide document?",
+    "routeId": "ai-overview",
+    "region": "#ai-es-threat-graph",
+    "answer": "Turn on at least one risk-based detection",
+    "reportAnswer": "Turn on at least one risk-based detection",
+    "claimIds": [
+      "ai-es-threat-graph"
+    ],
+    "sourceId": "aiEsThreatGraph88"
+  },
+  {
+    "capabilityId": "ai.observability-capabilities",
+    "question": "Can I assume every AI Assistant thread can be resumed, or that any custom metric can trigger troubleshooting?",
+    "routeId": "ai-observability-assistant",
+    "region": "#ai-observability-assistant",
+    "sourceId": "aiObsAssistant",
+    "answer": "resumable threads and PDF download",
+    "claimIds": [
+      "ai-observability-assistant"
+    ]
+  },
+  {
+    "capabilityId": "ai.observability-capabilities",
+    "question": "Can I assume every AI Assistant thread can be resumed, or that any custom metric can trigger troubleshooting?",
+    "routeId": "ai-observability-rca",
+    "region": "#ai-observability-rca",
+    "answer": "custom metrics can contribute useful evidence",
+    "sourceId": "aiObsRca",
+    "claimIds": [
+      "ai-observability-rca"
+    ]
+  },
+  {
+    "capabilityId": "ai.regional-platform",
+    "question": "Which SPL assistance functions does the GovCloud announcement cover?",
+    "routeId": "ai-high",
+    "region": "#ai-saia-spl",
+    "sourceId": "aiHighAnnouncement20261019",
+    "answer": "FedRAMP High authorization for AI Assistant SPL authoring and explanation.",
+    "claimIds": [
+      "saia-spl-service-regions"
+    ]
+  },
+  {
+    "capabilityId": "ai.regional-es",
+    "question": "Does Premier Cloud Connect in Montreal enable the Security AI Assistant?",
+    "routeId": "ai-cmp",
+    "region": "#ai-results",
+    "answer": "The selected ES 8.8 table explicitly excludes this component in Canada Central.",
+    "reportAnswer": "The selected ES 8.8 table explicitly excludes this component in Canada Central.",
+    "sourceId": "aiEsRegions88",
+    "claimIds": [
+      "es-essentials-ai-regions"
+    ]
+  },
+  {
+    "capabilityId": "ai.regional-observability",
+    "question": "Does selecting commercial AWS Virginia establish my Observability Assistant access and authorization?",
+    "routeId": "ai-observability-assistant",
+    "region": "#ai-observability-assistant",
+    "answer": "The selected region maps to a documented commercial Observability realm.",
+    "reportAnswer": "The selected region maps to a documented commercial Observability realm.",
+    "sourceId": "aiObsAssistant",
+    "claimIds": [
+      "observability-ai-regions"
+    ]
+  },
+  {
+    "capabilityId": "release-guide.enterprise",
+    "question": "What changes for inventory tools that parse Enterprise version identifiers?",
+    "routeId": "enterprise",
+    "region": ".benefit-card",
+    "sourceId": "enterprise106Notes",
+    "answer": "Accommodate the new four-segment version format in inventory, automation, and policy logic.",
+    "claimIds": [
+      "release-guide.enterprise"
+    ]
+  },
+  {
+    "capabilityId": "release-guide.cloud",
+    "question": "Does the Cloud 10.8 milestone mean my stack already runs 10.8 and ES 8.8?",
+    "routeId": "cloud-108-service-table",
+    "region": "#technical-content",
+    "sourceId": "service107",
+    "answer": "Service Details lists Cloud Platform 10.7 with ES 8.7 and ITSI 5.0.",
+    "claimIds": [
+      "release-guide.cloud"
+    ]
+  },
+  {
+    "capabilityId": "release-guide.enterprise-to-cloud",
+    "question": "What does the guide ask me to do with SCMA when planning a migration?",
+    "routeId": "migration",
+    "region": "#readiness-list",
+    "sourceId": "scma",
+    "answer": "Run the Cloud Migration Assessment App",
+    "claimIds": [
+      "release-guide.enterprise-to-cloud"
+    ]
+  },
+  {
+    "capabilityId": "release-guide.es",
+    "question": "Does Enterprise 10.6.1.1 list ES 8.8.x, and can the generic 10.6 selector establish that pairing?",
+    "routeId": "es-88-controlled-availability-enterprise",
+    "region": "#breaking-list",
+    "sourceId": "esCompatibility",
+    "answer": "Its exact Enterprise 10.6.1.1 row lists 8.8.x",
+    "claimIds": [
+      "release-guide.es"
+    ]
+  },
+  {
+    "capabilityId": "release-guide.itsi",
+    "question": "Which platform lines does Splunkbase list for ITSI 5.0.3, and is an exact 10.2 pairing established?",
+    "routeId": "itsi-503-enterprise-102-scope",
+    "region": "#readiness-list",
+    "sourceId": "itsiPackage",
+    "answer": "Splunkbase lists platform lines 10.2, 10.3, 10.4, 10.5, 10.6, 10.7 and 10.8 for the 5.0.3 package.",
+    "claimIds": [
+      "release-guide.itsi"
+    ]
+  },
+  {
+    "capabilityId": "release-guide.observability",
+    "question": "Should a November SaaS feature be treated as a Collector or language-agent upgrade?",
+    "routeId": "observability-november",
+    "region": "#readiness-list",
+    "sourceId": "collectorDocs",
+    "answer": "Inventory collectors and instrumentation",
+    "claimIds": [
+      "release-guide.observability"
+    ]
+  },
+  {
+    "capabilityId": "release-guide.soar",
+    "question": "When did Splunk document general availability for SOAR Cloud 8.8.0?",
+    "routeId": "soar-cloud-88",
+    "region": "#soar-cloud88-stage",
+    "sourceId": "cloud88Ga",
+    "answer": "November 4, 2026 General Availability for SOAR Cloud 8.8.0",
+    "claimIds": [
+      "release-guide.soar"
+    ]
+  },
+  {
+    "capabilityId": "release-guide.universal-forwarder",
+    "question": "Does the ordinary forwarder matrix establish an Enterprise 9.3 receiver for UF 10.6?",
+    "routeId": "uf-receiver-93",
+    "region": ".forwarder-compatibility",
+    "sourceId": "receiver",
+    "answer": "Its five receiver columns begin at 9.4.x.",
+    "claimIds": [
+      "release-guide.universal-forwarder"
+    ]
+  },
+  {
+    "capabilityId": "release-guide.heavy-forwarder",
+    "question": "Does a 10.6 hybrid heavy-forwarder route treat its Enterprise receiver and outbound Cloud service as the same compatibility decision?",
+    "routeId": "hf-hybrid",
+    "region": ".forwarder-compatibility",
+    "sourceId": "receiver",
+    "answer": "including intermediate forwarding tiers.",
+    "claimIds": [
+      "release-guide.heavy-forwarder"
+    ]
+  },
+  {
+    "capabilityId": "es-editions.licensing",
+    "question": "Does buying ES increase ingest capacity, and how long are the edition trials?",
+    "routeId": "editions",
+    "region": "#note-licensing",
+    "answer": "ES is used with Splunk Enterprise or Cloud Platform and does not add ingestion capacity.",
+    "reportAnswer": "ES is used with Splunk Enterprise or Cloud Platform and does not add ingestion capacity.",
+    "claimIds": [
+      "es-editions.licensing"
+    ],
+    "sourceId": "licensing88"
+  },
+  {
+    "capabilityId": "es-editions.history",
+    "question": "What can an ES 8.8 operator automate with entity actions?",
+    "routeId": "editions",
+    "region": ".edition-highlights",
+    "answer": "Entity actions automate configured follow-up.",
+    "reportAnswer": "Entity actions automate configured follow-up.",
+    "claimIds": [
+      "es-editions.history"
+    ],
+    "sourceId": "rn88"
+  },
+  {
+    "capabilityId": "es-editions.deployment",
+    "question": "Does edition inclusion establish availability on every regional or regulated stack?",
+    "routeId": "editions",
+    "region": "#note-availability",
+    "answer": "A Cloud listing does not establish availability on every stack, cloud provider or regulated deployment.",
+    "reportAnswer": "A Cloud listing does not establish availability on every stack, cloud provider or regulated deployment.",
+    "claimIds": [
+      "es-editions.deployment"
+    ],
+    "sourceId": "regions88"
+  },
+  {
+    "capabilityId": "es-editions.workflows",
+    "question": "Does the current ES 8.8 Guided Response table include Cloud Connected CMP?",
+    "routeId": "editions",
+    "region": ".edition-row",
+    "answer": "The current 8.8 aggregate table lists both editions on Cloud and Cloud Connected CMP",
+    "reportAnswer": "The current 8.8 aggregate table lists both editions on Cloud and Cloud Connected CMP",
+    "claimIds": [
+      "es-editions.workflows"
+    ],
+    "sourceId": "agentic88"
+  },
+  {
+    "capabilityId": "cloud-environment.regions",
+    "question": "Does the Israel location establish Victoria availability for my historical release and every feature?",
+    "routeId": "cloud-107-aws-israel",
+    "region": "#environment-overview",
+    "answer": "Current service evidence, separate from the selected historical release interval.",
+    "reportAnswer": "The Cloud Platform 10.7 service table lists AWS Israel for new Victoria stacks.",
+    "sourceId": "service107",
+    "claimIds": [
+      "cloud-environment.regions"
+    ]
+  },
+  {
+    "capabilityId": "cloud-environment.experience",
+    "question": "Can I plan ACS operations for a FedRAMP High Victoria stack?",
+    "routeId": "cloud-107-fedramp-high",
+    "region": "#environment-overview",
+    "answer": "Confirm support for the exact ACS operation before planning.",
+    "reportAnswer": "Confirm support for the exact ACS operation before planning.",
+    "sourceId": "acs",
+    "claimIds": [
+      "cloud-environment.experience"
+    ]
+  },
+  {
+    "capabilityId": "cloud-environment.fedramp",
+    "question": "Which stacks does the Edge Processor announcement say will be onboarded automatically?",
+    "routeId": "cloud-fedramp-high",
+    "region": ".decision-question",
+    "sourceId": "highAnnouncement20261019",
+    "answer": "The October 19 announcement limits automatic onboarding to eligible stacks.",
+    "claimIds": [
+      "cloud-environment.fedramp"
+    ]
+  },
+  {
+    "capabilityId": "cloud-environment.product-services",
+    "question": "Can I rely on Database Monitoring in Google Cloud Oregon realm us2?",
+    "routeId": "observability-november-unknown-region",
+    "region": "#environment-overview",
+    "answer": "The Database Monitoring row lists us2 and says None for Google Cloud regions.",
+    "reportAnswer": "The Database Monitoring row lists us2 and says None for Google Cloud regions.",
+    "sourceId": "o11yDatabaseRegions",
+    "claimIds": [
+      "cloud-environment.product-services"
+    ]
+  }
+]
