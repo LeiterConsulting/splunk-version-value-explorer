@@ -129,6 +129,20 @@ test('failed/incomplete attempts cannot accept older or otherwise matching resul
   }
   const f = fixture(); delete f.snapshot.tasks[0].run_details.last_run; assert(first(f).issues.includes('no-recorded-run'));
 });
+test('an active CSP attempt may still display a completed Release report from a previous run', () => {
+  const f = fixture(), task = f.snapshot.tasks.find(t => t.title === 'csp-fedramp-watch');
+  const {last_run:last,latest_result:previous} = task.run_details;
+  Object.assign(last,{id:'new-csp',recorded_status:'in_progress',completed_at:null});
+  Object.assign(previous,{content_text:'Version Release Watch — earlier review',completed_at:'2026-11-05T13:00:00Z'});
+  const row = result(f).watches.find(w => w.watchId === 'csp-fedramp-watch');
+  assert.equal(row.accepted,false);
+  assert.equal(row.recordedStatus,'in_progress');
+  assert.equal(row.attempt.startedAt,last.started_at);
+  assert.equal(row.attempt.completedAt,null);
+  assert.deepEqual(row.result.issues,['prior-result-displayed-during-current-run']);
+  assert.deepEqual(row.verifiedReviewReceiptIds,[]);
+  assert(!row.issues.includes('run-completion-time-unavailable'));
+});
 test('duplicate-output scan retains missing and malformed attempt/result evidence without throwing', () => {
   for (const last of [{}, null, undefined, [], 'not-an-object', { id: '' }, { id: 'run-0' }]) {
     for (const output of [undefined, null, {}, [], 'not-an-object', { content_text: 'unbound report' }]) {

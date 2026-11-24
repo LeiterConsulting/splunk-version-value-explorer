@@ -8,6 +8,7 @@ const headings = new Map([
 ]);
 const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
 const safeId = value => typeof value === 'string' && /^[A-Za-z0-9_-]{1,100}$/.test(value) ? value : null;
+const nativeStatuses = ['completed','failed','running','in_progress','pending','cancelled','no_update'];
 const validDigest = value => typeof value === 'string' && /^sha256:[a-f0-9]{64}$/.test(value);
 function time(value) {
   if (typeof value !== 'string' || !/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d{1,9})?(?:Z|[+-]\d\d:\d\d)$/.test(value)) return NaN;
@@ -15,12 +16,15 @@ function time(value) {
   if (month < 1 || month > 12 || day < 1 || day > new Date(Date.UTC(year, month, 0)).getUTCDate() || hour > 23 || minute > 59 || second > 59) return NaN;
   return Date.parse(value);
 }
-function sameAttemptStart(left, right) {
-  const start = time(left);
-  if (!Number.isFinite(start) || start !== time(right)) return false;
+function compareInstants(left, right) {
+  const difference = time(left) - time(right);
+  if (difference !== 0) return difference;
   // Date.parse keeps milliseconds. Native attempts can differ below that precision.
-  const fraction = value => (value.match(/\.(\d+)/)?.[1] || '').padEnd(9, '0');
-  return fraction(left) === fraction(right);
+  const fraction = value => Number((value.match(/\.(\d+)/)?.[1] || '').padEnd(9, '0'));
+  return fraction(left) - fraction(right);
+}
+function sameAttemptStart(left, right) {
+  return compareInstants(left,right) === 0;
 }
 // Unwrap supported native get/peek transports BEFORE inspecting/hashing saved objects.
 // No rendered text parsing, runtime merge, field projection or recursive key sorting.
@@ -77,6 +81,7 @@ function claimIdentity(content, identities) {
 }
 function attemptResult(task, observedAt, readbackAt, identity, identities, duplicates) {
   const last = task.run_details?.last_run, result = task.run_details?.latest_result;
+  const running = ['running','in_progress'].includes(last?.recorded_status);
   const attemptIssues = [], resultIssues = [];
   const observed = time(observedAt), readback = time(readbackAt);
   const checkTime = (value, key, issues, actualEvent = true) => {
@@ -89,15 +94,17 @@ function attemptResult(task, observedAt, readbackAt, identity, identities, dupli
   if (!object(last)) attemptIssues.push('no-recorded-run');
   else {
     if (!safeId(last.id)) attemptIssues.push('recorded-run-identity-unavailable');
-    if (last.recorded_status !== 'completed') attemptIssues.push(last.recorded_status === 'no_update' ? 'recorded-run-output-suppressed' : ['failed', 'running', 'pending', 'cancelled'].includes(last.recorded_status) ? 'recorded-run-' + last.recorded_status : 'recorded-run-not-completed');
+    if (last.recorded_status !== 'completed') attemptIssues.push(last.recorded_status === 'no_update' ? 'recorded-run-output-suppressed' : nativeStatuses.includes(last.recorded_status) ? 'recorded-run-' + last.recorded_status : 'recorded-run-not-completed');
     started = checkTime(last.started_at, 'run-start', attemptIssues);
-    completed = checkTime(last.completed_at, 'run-completion', attemptIssues);
+    if (!running || last.completed_at != null) completed = checkTime(last.completed_at, 'run-completion', attemptIssues);
     scheduled = checkTime(last.scheduled_for, 'run-scheduled', attemptIssues, false);
     if (completed < started) attemptIssues.push('run-time-order-invalid');
     if (!Number.isFinite(readback)) attemptIssues.push('run-configuration-readback-unavailable');
     else if (started < readback) attemptIssues.push('run-predates-saved-amendment');
   }
-  if (!object(result) || !safeId(last?.id) || result.run_id !== last.id) resultIssues.push('current-run-result-unavailable');
+  if (running && safeId(last?.id) && safeId(result?.run_id) && result.run_id !== last.id &&
+      compareInstants(result.completed_at,last.started_at) <= 0) resultIssues.push('prior-result-displayed-during-current-run');
+  else if (!object(result) || !safeId(last?.id) || result.run_id !== last.id) resultIssues.push('current-run-result-unavailable');
   else {
     const created = checkTime(result.created_at, 'result-created', resultIssues);
     const ended = checkTime(result.completed_at, 'result-completion', resultIssues);
@@ -117,7 +124,9 @@ function attemptResult(task, observedAt, readbackAt, identity, identities, dupli
     if (peers.some(peer => peer.taskId !== task.id)) resultIssues.push(identity.kind === 'watch' && peers.some(peer => peer.taskId !== task.id && peer.kind === 'watch') ? 'duplicate-result-across-watches' : 'duplicate-result-across-roles');
   }
   return {
-    attempt: { status: attemptIssues.length ? 'unverified' : 'completed', schedulerRunId: safeId(last?.id), recordedStatus: ['completed', 'failed', 'running', 'pending', 'cancelled', 'no_update'].includes(last?.recorded_status) ? last.recorded_status : null, issues: attemptIssues },
+    attempt: { status: attemptIssues.length ? 'unverified' : 'completed', schedulerRunId: safeId(last?.id),
+      startedAt: Number.isFinite(started) ? last.started_at : null, completedAt: Number.isFinite(completed) ? last.completed_at : null,
+      recordedStatus: nativeStatuses.includes(last?.recorded_status) ? last.recorded_status : null, issues: attemptIssues },
     result: { status: resultIssues.length ? 'unverified' : 'matched', issues: resultIssues },
     // The native transport currently exposes no independent delivery receipt.
     delivery: { status: 'unknown', claimedDelivered: false }
@@ -232,4 +241,4 @@ function inspect(snapshot, { registry, ledger, runs, operational = operationalCo
       qualification: 'Operational configuration/attempt/result reconciliation only. No content coverage, pilot activation, scheduler repair or notification delivery is established.' },
     claimedDelivered: false, qualification: 'Read-only identity/configuration/receipt reconciliation; matching evidence does not independently establish source truth, actual permissions, future dispatch or production delivery. Null next_run_time is unknown, not proof a task is disabled. No task, timer, retry or activation is created.' };
 }
-module.exports = { inspect, savedConfigurationDigest, nativeTasks, sameAttemptStart };
+module.exports = { inspect, savedConfigurationDigest, nativeTasks, sameAttemptStart, compareInstants };

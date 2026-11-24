@@ -88,5 +88,9 @@ test('a current owner assessment can resolve a runner 403 only for the exact bou
   receipt.sourceAuditBindsAttempt=false; assert.equal(resolved(),'unresolved'); receipt.sourceAuditBindsAttempt=true;
   retrieval.evidence='A different source'; assert.equal(resolved(),'unresolved'); retrieval.evidence=source.url;
   retrieval.retrievedAt='2026-11-25T08:59:00Z'; assert.equal(resolved(),'unresolved'); retrieval.retrievedAt=checkedAt;
+  run.coverage[0].disposition='deferred'; assert.equal(resolved(),'owner-assessed');
+  check.requiredBy.push({capabilityId:'another-section',sourceId:source.id,section:source.section});
+  assert.equal(resolved(),'unresolved'); check.requiredBy.pop();
+  assessment.sourceIds.push('other-support'); assert.equal(resolved(),'unresolved'); assessment.sourceIds.pop();
   assessment.outcome='unable-to-verify'; assert.equal(resolved(),'unresolved');
 });

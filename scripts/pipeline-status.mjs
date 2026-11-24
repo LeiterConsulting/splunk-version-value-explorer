@@ -5,6 +5,7 @@ import { pathToFileURL } from 'node:url';
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 const {readerChecks, proofId} = require('./lib/reader-review.cjs');
+const {compareInstants} = require('./lib/task-runtime.cjs');
 const repository = 'LeiterConsulting/splunk-version-value-explorer';
 const steward = require('./lib/operational-roles.cjs').roles.find(role => role.roleId === 'github-steward');
 const easternDate = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York', dateStyle: 'short' });
@@ -150,12 +151,13 @@ export function dailyReview(registry, receipts, day, runtime) {
       if (!row) return null;
       const reviewedToday = ['changed', 'assessed-no-change'].includes(row.disposition) && onDay(row.assessedAt)
         && row.assessments.length > 0 && row.assessments.every(claim => onDay(claim.assessedAt));
-      const started = Date.parse(run.execution.startedAt);
-      const finished = Date.parse(run.execution.completedAt || run.recordedAt);
-      const inAttempt = t => onDay(t) && Date.parse(t) >= started && Date.parse(t) <= finished;
+      const inAttempt = t => onDay(t) &&
+        compareInstants(t,run.execution.startedAt) >= 0 && compareInstants(t,run.execution.completedAt || run.recordedAt) <= 0 &&
+        compareInstants(t,watch?.attempt?.startedAt) >= 0 && compareInstants(t,watch?.attempt?.completedAt) <= 0;
       const freshSources = reviewedToday && result.boundAttempt === true && inAttempt(row.assessedAt) &&
         row.assessments.every(a => inAttempt(a.assessedAt) && a.sourceIds?.length &&
-          a.sourceIds.every(id => row.retrievals?.some(r => r.sourceId === id && r.outcome === 'retrieved' && inAttempt(r.retrievedAt))));
+          a.sourceIds.every(id => row.retrievals?.some(r => r.sourceId === id && r.outcome === 'retrieved' &&
+            inAttempt(r.retrievedAt) && compareInstants(r.retrievedAt,a.assessedAt) <= 0)));
       return { freshSources, runId: run.runId, registryVersion: run.registryVersion, receipt: result.file, disposition: row.disposition, assessedAt: row.assessedAt,
         reviewedToday, readerChecks: readerChecks(row).map(proof => ({id:proofId(proof), routeId:proof.routeId, checkedAt:proof.checkedAt})), matchesNativeAttempt: watch ? [watch.matchingReceiptIds,watch.verifiedReviewReceiptIds].some(ids => ids?.includes(run.runId)) : null,
         followUp: row.followUp || null };
