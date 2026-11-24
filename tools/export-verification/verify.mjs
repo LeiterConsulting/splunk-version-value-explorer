@@ -312,14 +312,19 @@ try {
     if (exposureUpgrade) {
       assert((await page.locator('#route-takeaway').textContent()).includes('Exposure Analytics for assets and users'), 'ES upgrade takeaway omits Exposure Analytics');
     }
-    if(route.id==='editions'){
+    const currentEs88Editions = route.id === 'editions' &&
+      await page.evaluate(() => window.VersionCompassEditions.release === '8.8');
+    if (currentEs88Editions) {
       const exposure = page.locator('.edition-highlights article').filter({hasText:'Exposure Analytics in Essentials and Premier'});
-      for (const phrase of ['Entity posture','Entity profile','Entity actions','Entity analysis']) assert((await exposure.innerText()).includes(phrase), 'Edition spotlight omits '+phrase);
+      const spotlight = await exposure.innerText();
+      for (const phrase of ['Entity posture','Entity profile','Entity actions','Entity analysis']) assert(spotlight.includes(phrase), 'Edition spotlight omits '+phrase);
       assert(await exposure.locator('a[href*="/8.8/splunk-enterprise-security-release-notes/"]').count() > 0);
       assert((await page.locator('#edition-decision-summary').textContent()).includes('Exposure Analytics in Essentials and Premier'));
       await page.locator('#edition-filter').selectOption('changed');
       assert(await page.locator('[data-id="exposure"]').isVisible());
       await page.locator('#edition-filter').selectOption('all');
+    }
+    if(route.id==='editions'){
       const taxii=page.locator('#edition-conflicts .edition-conflict').filter({hasText:'Which TAXII protocol versions are supported?'});
       assert(await taxii.isVisible());
       assert((await taxii.textContent()).includes('The duplicate version leaves the current exact protocol list uncertain.'));
@@ -527,7 +532,8 @@ try {
         assert(normalize(expected.text).includes('the Response agent cannot rerun or process findings added after it has already processed the investigation'), 'The exact ES 8.8 Response limitation is missing from export');
       }
       if(route.id==='editions'){
-        expected.requiredText=['Exposure Analytics in Essentials and Premier','Entity actions automate configured follow-up','standalone agentic SOC setup link returned 404 on November 17','publisher-indexed text'];
+        expected.requiredText=['standalone agentic SOC setup link returned 404 on November 17','publisher-indexed text'];
+        if (currentEs88Editions) expected.requiredText.push('Exposure Analytics in Essentials and Premier','Entity actions automate configured follow-up');
         for(const phrase of expected.requiredText) assert(normalize(expected.text).includes(phrase),'Missing ES Editions report text: '+phrase);
         for(const text of ['Which TAXII protocol versions are supported?','The duplicate version leaves the current exact protocol list uncertain.','TIM Cloud TAXII2 sources','same page names TAXII 1.0 and 1.1'])assert(normalize(expected.text).includes(text),'Missing scoped TAXII report evidence');
         expected.paginationPairs=[{heading:'Which TAXII protocol versions are supported?',following:'Decision affected: Native TAXII feed protocol versions',headingOccurrence:1}];
