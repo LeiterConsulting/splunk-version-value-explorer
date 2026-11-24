@@ -12,9 +12,11 @@ test('decision change history follows actual selected milestones and environment
  assert(currentChanges.some(x=>x.key.includes('APM not-equal tag filters')));
  assert(!currentChanges.some(x=>x.key.includes('Browser RUM')));
  const env={product:'platform',platform:'cloud',from:'10.2.2406',to:'10.5.2605',environment:{csp:'aws',experience:'classic'},environmentErrors:[]};
- const scoped=w.VersionCompassDecision.model(env,null);assert(scoped.changes.every(x=>x.key.includes('classic')||x.key.includes('machine-data-lake')||x.key.startsWith('environment:acs-fr-')||['environment:s3-moderate','environment:s3-high','environment:platform-ai-high-unknown','environment:edge-high-unknown','environment:ingest-high-unknown'].includes(x.key)));assert(scoped.changes.some(x=>x.key==='environment:machine-data-lake-aws'));assert(scoped.changes.some(x=>x.key==='environment:machine-data-lake-gov'));assert(scoped.changes.some(x=>x.key==='environment:s3-moderate'));assert(scoped.changes.some(x=>x.key==='environment:acs-fr-h'));assert(scoped.changes.length);
+ const scoped=w.VersionCompassDecision.model(env,null);assert(scoped.changes.every(x=>x.key.includes('classic')||x.key.includes('machine-data-lake')||x.key.startsWith('environment:acs-fr-')||['environment:s3-moderate','environment:s3-high','environment:platform-fr-h','environment:platform-ai-high-unknown','environment:edge-high-unknown','environment:ingest-high-unknown'].includes(x.key)));assert(scoped.changes.some(x=>x.key==='environment:machine-data-lake-aws'));assert(scoped.changes.some(x=>x.key==='environment:machine-data-lake-gov'));assert(scoped.changes.some(x=>x.key==='environment:s3-moderate'));assert(scoped.changes.some(x=>x.key==='environment:acs-fr-h'));assert(scoped.changes.length);
  const moderate={...env,environment:{csp:'aws',compliance:'fr-m'}};
  assert(!w.VersionCompassDecision.model(moderate,null).changes.some(x=>x.key==='environment:s3-high'));
+ assert(scoped.changes.some(x=>x.key==='environment:platform-fr-h'));
+ assert(!w.VersionCompassDecision.model(moderate,null).changes.some(x=>x.key==='environment:platform-fr-h'));
 });
 test('decision history retains successive changes to the same stable record',()=>{
  const c=context(),w=c.window,state={product:'platform',platform:'enterprise',from:'10.2',to:'10.4',environment:{},environmentErrors:[]};

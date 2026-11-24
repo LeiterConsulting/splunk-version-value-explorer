@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-24T10:03:32.334Z",
+      "lastAttempt": "2026-11-24T17:11:12Z",
       "lastSuccess": "2026-11-21T19:34:26.194Z",
       "outcome": "blocked",
-      "summary": "Seven primary sections assessed without changing facts; supportingSOC deferred; candidate held for validation,exports andintegration.",
+      "summary": "Five primary reader comparisons complete; scoped High correction queued with three incomplete participating rows and exact-candidate validation pending.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -663,9 +663,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Seven primary sections assessed without changing facts; supportingSOC deferred; candidate held for validation,exports andintegration.",
           "scope": "Registry1.4.0 public source/claim review; exact provider,region,experience,offering andfeature boundaries retained."
+        },
+        {
+          "at": "2026-11-24T17:11:12Z",
+          "outcome": "running",
+          "summary": "Current Eastern reader review under saved work order; current native invocation identity unavailable.",
+          "scope": "Registry1.5.0: five primary source/reader/report comparisons; High candidate acceptance, Platform AI intersections and supporting SOC incomplete. No Site/D1 action."
+        },
+        {
+          "at": "2026-11-24T17:22:59.267Z",
+          "outcome": "blocked",
+          "summary": "Five primary reader comparisons complete; scoped High correction queued with three incomplete participating rows and exact-candidate validation pending.",
+          "scope": "Registry1.5.0: five primary source/reader/report comparisons; High candidate acceptance, Platform AI intersections and supporting SOC incomplete. No Site/D1 action."
         }
       ],
-      "scope": "Registry1.4.0 public source/claim review; exact provider,region,experience,offering andfeature boundaries retained."
+      "scope": "Registry1.5.0: five primary source/reader/report comparisons; High candidate acceptance, Platform AI intersections and supporting SOC incomplete. No Site/D1 action."
     },
     {
       "id": "version-release-watch",
