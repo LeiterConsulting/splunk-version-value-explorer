@@ -68,3 +68,25 @@ test('both actual public reports must match the same reviewed section and stewar
   evidence.hosts[1].checks[0].pdf = 'failed';
   assert.equal(review(evidence).verifiedSections,0);
 });
+
+test('a current owner assessment can resolve a runner 403 only for the exact bound source and scope', async () => {
+  const {assessedSources,sourceResolution} = await import('../tools/export-verification/owner-source-evidence.mjs');
+  const source = {id:'official',url:'https://example.org/official',section:'Pricing table'};
+  const cap = {id:'editions',sources:[source],claimFamilies:[{id:'licensing',sourceIds:['official']}]};
+  const retrieval = {sourceId:'official',outcome:'retrieved',retrievedAt:checkedAt,evidence:source.url};
+  const assessment = {claimId:'licensing',sourceIds:['official'],outcome:'assessed-no-change',assessedAt:checkedAt};
+  const run = {watchId:'es',kind:'saved-task-execution',recordedAt:checkedAt,execution:{startedAt,schedulerRunId:'current'},
+    coverage:[{capabilityId:cap.id,disposition:'assessed-no-change',assessedAt:checkedAt,retrievals:[retrieval],assessments:[assessment]}]};
+  const receipt = {file:'coverage.json',blob:'a'.repeat(40),sourceAuditBindsAttempt:true};
+  const get = () => assessedSources(run,[{file:'sources.json',blob:'b'.repeat(40)}],[cap],receipt);
+  const check = {status:'blocked',http:403,url:source.url,requiredBy:[{capabilityId:cap.id,sourceId:source.id,section:source.section}]};
+  const resolved = (day='2026-11-25') => sourceResolution(check,{watchId:'es',assessedSources:get()},day).method;
+  assert.equal(resolved(),'owner-assessed');
+  assert.equal(resolved('2026-11-26'),'unresolved');
+  check.http=404; assert.equal(resolved(),'unresolved'); check.http=403;
+  run.kind='implementation-review'; assert.equal(resolved(),'unresolved'); run.kind='saved-task-execution';
+  receipt.sourceAuditBindsAttempt=false; assert.equal(resolved(),'unresolved'); receipt.sourceAuditBindsAttempt=true;
+  retrieval.evidence='A different source'; assert.equal(resolved(),'unresolved'); retrieval.evidence=source.url;
+  retrieval.retrievedAt='2026-11-25T08:59:00Z'; assert.equal(resolved(),'unresolved'); retrieval.retrievedAt=checkedAt;
+  assessment.outcome='unable-to-verify'; assert.equal(resolved(),'unresolved');
+});

@@ -1,6 +1,7 @@
 // Locate exact changed owner receipts for this validation. Read Git blobs only through the checked-out PR head.
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import {assessedSources} from './owner-source-evidence.mjs';
 import {execFileSync} from 'node:child_process';
 import {createRequire} from 'node:module';
 const require = createRequire(import.meta.url);
@@ -21,7 +22,7 @@ if (base) {
   files = git('diff','--name-only','--diff-filter=AM',base+'...'+head,'--','docs/audits')
     .split('\n').filter(f => /^docs\/audits\/\d{4}-\d{2}-\d{2}-[a-z0-9-]+-coverage\.json$/.test(f));
 }
-const receipts = [];
+const receipts = [], observations = [];
 const questions = [...templates];
 for (const file of files) {
   const run = read(file);
@@ -31,16 +32,20 @@ for (const file of files) {
   assert(run.auditBindings?.length,'Missing source audit');
   const execution = run.execution || {};
   let bound = run.kind === 'saved-task-execution' && !!execution.schedulerRunId && !!execution.taskId;
+  const sourceAudits = [];
   for (const binding of run.auditBindings) {
     assert(native.watchFor(binding.file) === watchId,'Source audit belongs to a different watch');
     const audit = read(binding.file);
     assert(audit.automationCoverage?.runFile === file && native.reviewDigest(audit) === binding.reviewDigest,'Source binding differs');
     coverage.validateBoundExecution(run,audit);
+    sourceAudits.push({file:binding.file,blob:git('rev-parse',head+':'+binding.file),reviewDigest:binding.reviewDigest});
     bound &&= audit.execution?.taskId === execution.taskId && audit.execution?.schedulerRunId === execution.schedulerRunId &&
       sameAttemptStart(audit.execution?.startedAt,execution.startedAt);
   }
-  receipts.push({file,blob:git('rev-parse',head+':'+file),kind:run.kind,runId:run.runId,
-    taskId:execution.taskId || null,schedulerRunId:execution.schedulerRunId || null,startedAt:execution.startedAt || null,sourceAuditBindsAttempt:bound});
+  const receipt = {file,blob:git('rev-parse',head+':'+file),kind:run.kind,runId:run.runId,
+    taskId:execution.taskId || null,schedulerRunId:execution.schedulerRunId || null,startedAt:execution.startedAt || null,sourceAuditBindsAttempt:bound};
+  receipts.push(receipt);
+  observations.push(...assessedSources(run,sourceAudits,caps,receipt));
   for (const row of run.coverage.filter(r => caps.some(c => c.id === r.capabilityId) && r.readerReview)) {
     for (const proof of [row.readerReview,...(row.additionalReaderReviews || [])]) {
       const {question,routeId,region,sourceId,claimIds,answer,reportAnswer} = proof;
@@ -48,6 +53,6 @@ for (const file of files) {
     }
   }
 }
-console.log(JSON.stringify({watchId,head,base:base || null,receipts},null,2));
+console.log(JSON.stringify({watchId,head,base:base || null,receipts,assessedSources:observations},null,2));
 fs.writeFileSync('owner-review/questions.json',JSON.stringify(questions,null,2)+'\n');
 if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT,'selected='+(!base || !!receipts.length)+'\n');

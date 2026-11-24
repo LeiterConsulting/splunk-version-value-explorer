@@ -50,7 +50,7 @@ jobs:
         if: steps.handoff.outputs.selected == 'true'
         env:
           OWNER: ${{ matrix.owner }}
-        run: node tools/export-verification/owner-sources.mjs "$OWNER" > owner-review/sources.json
+        run: node tools/export-verification/owner-sources.mjs "$OWNER" owner-review/handoff.json > owner-review/sources.json
       - name: Install reader tools
         id: install
         if: "!cancelled() && steps.handoff.outputs.selected == 'true'"
