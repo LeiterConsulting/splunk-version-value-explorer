@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-24T21:04:06.232Z",
+      "lastAttempt": "2026-11-24T23:00:03.188436Z",
       "lastSuccess": "2026-11-21T19:34:26.194Z",
       "outcome": "blocked",
-      "summary": "Corrected historical High component wording for ES and ITSI; report verification remains open.",
+      "summary": "Six sections agreed with official source and reader checks. Regional Agent Mode, Model Runtime and ITSI subagent coverage still require vendor evidence.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -687,9 +687,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Corrected historical High component wording for ES and ITSI; report verification remains open.",
           "scope": "Seven source sections compared. Both-host reader downloads and printed reports require qualified follow-up."
+        },
+        {
+          "at": "2026-11-24T23:00:03.188436Z",
+          "outcome": "running",
+          "summary": "Started a fresh review of Cloud Environment and regional AI guidance.",
+          "scope": "Seven Cloud Environment and regional AI sections, plus supporting SOC. Both public domains, downloaded HTML and real printed reports."
+        },
+        {
+          "at": "2026-11-24T23:10:47.358Z",
+          "outcome": "blocked",
+          "summary": "Six sections agreed with official source and reader checks. Regional Agent Mode, Model Runtime and ITSI subagent coverage still require vendor evidence.",
+          "scope": "Seven Cloud Environment and regional AI sections, plus supporting SOC. Both public domains, downloaded HTML and real printed reports."
         }
       ],
-      "scope": "Seven source sections compared. Both-host reader downloads and printed reports require qualified follow-up."
+      "scope": "Seven Cloud Environment and regional AI sections, plus supporting SOC. Both public domains, downloaded HTML and real printed reports."
     },
     {
       "id": "version-release-watch",
