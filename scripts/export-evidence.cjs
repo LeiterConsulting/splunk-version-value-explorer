@@ -3,16 +3,35 @@ const fs = require('node:fs'), path = require('node:path'), crypto = require('no
 const { execFileSync } = require('node:child_process');
 const gates = ['html-reopen', 'pdf-rendering', 'themes-and-narrow-screens'];
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
-function target(root = process.cwd()) {
+function hasReaderContract(root) {
+  const file = path.join(root, 'content/automation-coverage.json');
+  return fs.existsSync(file) && Boolean(JSON.parse(fs.readFileSync(file)).readerReview);
+}
+function readerExpectations(root) {
+  return hasReaderContract(root) ? require('./lib/reader-review.cjs').inventory(root).proofs : [];
+}
+function assertReaderAssertions(expected, observed = []) {
+  const keys = rows => rows.map(({capabilityId, proofId, receipt, checkedAt}) => JSON.stringify([capabilityId, proofId, receipt, checkedAt])).sort();
+  if (!Array.isArray(observed) || JSON.stringify(keys(expected)) !== JSON.stringify(keys(observed))) {
+    throw Error('Export reader assertions differ from the registered source receipts');
+  }
+}
+function target(root = process.cwd(), proofs = readerExpectations(root)) {
+  const readerFiles = new Set(proofs.map(proof => proof.receipt));
+  if (hasReaderContract(root)) {
+    readerFiles.add('content/automation-coverage.json');
+    readerFiles.add('scripts/lib/reader-review.cjs');
+  }
   const files = execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard'], { cwd: root, encoding: 'utf8' }).trim().split('\n')
-    .filter(f => /^(dist\/(?:ripple\/)?[^/]+\.(?:html|js|css|json|svg)|client\/.*\.js|worker\/.*\.mjs|content\/(?:advisor-(?:admission|goals)\.json|datasets\/.*\.json|publication\.json)|tools\/export-verification\/[^/]+\.(?:mjs|cjs|py|json)|tools\/ripple\/.*\.(?:tsx|ts|css|html|json|svg)|scripts\/(?:export-evidence|sync-advisor|advisor-maintenance|build-ripple|check-ripple)\.cjs)$/.test(f)).sort();
+    .filter(f => readerFiles.has(f) || /^(dist\/(?:ripple\/)?[^/]+\.(?:html|js|css|json|svg)|client\/.*\.js|worker\/.*\.mjs|content\/(?:advisor-(?:admission|goals)\.json|datasets\/.*\.json|publication\.json)|tools\/export-verification\/[^/]+\.(?:mjs|cjs|py|json)|tools\/ripple\/.*\.(?:tsx|ts|css|html|json|svg)|scripts\/(?:export-evidence|sync-advisor|advisor-maintenance|build-ripple|check-ripple)\.cjs)$/.test(f)).sort();
   const inputs = [...new Set(files)].map(file => ({ file, sha256: hash(fs.readFileSync(path.join(root, file))) }));
   const manifest = JSON.parse(fs.readFileSync(path.join(root, 'content/publication.json')));
   return { fingerprint: hash(JSON.stringify(inputs)), contentRevision: manifest.revision, engineRevision: manifest.engineRevision, inputs };
 }
 function verify(directory, root = process.cwd()) {
   const receipt = JSON.parse(fs.readFileSync(path.join(directory, 'evidence.json')));
-  const expected = target(root);
+  const proofs = readerExpectations(root);
+  const expected = target(root,proofs);
   if (receipt.schemaVersion !== 1 || receipt.outcome !== 'passed' || receipt.target?.fingerprint !== expected.fingerprint
     || receipt.target?.contentRevision !== expected.contentRevision || receipt.target?.engineRevision !== expected.engineRevision) throw Error('Export evidence does not cover these report inputs');
   if (!/^[a-f0-9]{40}$/.test(receipt.commit || '') || !/^[a-f0-9]{40}$/.test(receipt.tree || '')
@@ -30,6 +49,7 @@ function verify(directory, root = process.cwd()) {
   }
   for (const c of receipt.cases) {
     const route = routes.find(r => c.id === r.id + '-default' || c.id === r.id + '-cisco');
+    assertReaderAssertions(proofs.filter(proof => proof.routeId === route.id), c.readerChecks);
     const invalid = route?.invalid || route?.exportsBlocked;
     if (!c.narrow?.passed || !verifiedArtifacts.has(c.screen) || !verifiedArtifacts.has(c.narrow.file)) throw Error('Missing rendered viewport evidence');
     if (invalid) { if (c.exportsBlocked !== true) throw Error('Invalid route exports were not blocked (including deliberate non-reporting views)'); continue; }
@@ -58,4 +78,4 @@ if (require.main === module) {
   try { const args = process.argv.slice(2); console.log(JSON.stringify(args[0] === 'target' ? target() : verify(args[0]), null, 2)); }
   catch (error) { console.error(error.message); process.exitCode = 1; }
 }
-module.exports = { target, verify, hash, gates };
+module.exports = { target, verify, hash, gates, assertReaderAssertions };

@@ -1,5 +1,5 @@
 const { test } = require('node:test'), assert = require('node:assert/strict'), fs = require('node:fs'), os = require('node:os'), path = require('node:path');
-const { target, verify, hash, gates } = require('../scripts/export-evidence.cjs');
+const { target, verify, hash, gates, assertReaderAssertions } = require('../scripts/export-evidence.cjs');
 const { assess } = require('../scripts/check-soak.cjs');
 const policy = JSON.parse(fs.readFileSync('content/soak-policy.json'));
 function fixture(t) {
@@ -14,6 +14,8 @@ function fixture(t) {
     c.advisorPaginationCoverage={passed:true,sections:4,pairs:5};c.pdf.pagination=Array.from({length:5},()=>({passed:true}));c.paginationRegression={passed:true,oldNativePdf:'fixture.txt'};
     if(c.id.startsWith('advisor-agent-known-'))c.advisorOversized={passed:true,complete:true,firstPageHasContent:true,syntheticUnits:2,syntheticParagraphs:96,endMarkers:2,printThemeParity:{passed:true},pageCount:3,pages:Array.from({length:3},()=>({file:'fixture.txt',passed:true})),file:'fixture.txt',inspection:'fixture.txt'};
   }
+  const proofs = require('../scripts/lib/reader-review.cjs').inventory().proofs;
+  for (const c of receipt.cases) c.readerChecks = proofs.filter(p => c.id === p.routeId+'-default' || c.id === p.routeId+'-cisco');
   const save = ()=>fs.writeFileSync(path.join(dir,'evidence.json'),JSON.stringify(receipt)); save(); return {dir,receipt,save};
 }
 test('candidate evidence requires complete routes, page renders, offline reopening and intact artifact bytes',t=>{
@@ -47,4 +49,12 @@ test('Advisor evidence cannot omit containment, negative replay or oversized com
  for(const mutate of [c=>delete c.advisorPaginationCoverage,c=>c.pdf.pagination.pop(),c=>c.paginationRegression.passed=false,c=>c.advisorOversized.complete=false,c=>c.advisorOversized.pages.pop(),c=>c.advisorOversized.firstPageHasContent=false]) {
   const original=JSON.stringify(f.receipt),c=f.receipt.cases.find(c=>c.id==='advisor-agent-known-cisco');mutate(c);f.save();assert.throws(()=>verify(f.dir),/Advisor/);Object.assign(f.receipt,JSON.parse(original));f.save();
  }
+});
+
+test('an export cannot drop, duplicate or replace a source-bound reader assertion', () => {
+  const proof = {capabilityId:'section',proofId:'a'.repeat(64),receipt:'docs/audits/fixture.json',checkedAt:'2026-11-25T09:15:00Z'};
+  assertReaderAssertions([proof],[proof]);
+  for (const rows of [[],[proof,proof],[{...proof,proofId:'b'.repeat(64)}],[{...proof,receipt:'other'}]]) {
+    assert.throws(() => assertReaderAssertions([proof],rows), /reader assertions differ/);
+  }
 });
