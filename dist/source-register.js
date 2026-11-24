@@ -2333,9 +2333,7 @@ window.VersionCompassSources = {
         "environment: environment.records.7",
         "environment: environment.records.8",
         "environment: environment.records.12",
-        "environment: environment.records.13",
         "environment: environment.records.14",
-        "environment: environment.records.15",
         "environment: environment.records.16",
         "environment: environment.records.17",
         "environment: environment.records.18",
@@ -11814,6 +11812,8 @@ window.VersionCompassSources = {
       ],
       "references": [
         "environment.sources.compliance.url",
+        "environment: environment.records.13",
+        "environment: environment.records.15",
         "environment: environment.records.63",
         "environment: environment.records.64",
         "environment: environment.records.66"
