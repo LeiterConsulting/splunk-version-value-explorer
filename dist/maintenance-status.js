@@ -1485,6 +1485,18 @@ window.VersionCompassMaintenance = {
           "scope": "Fresh27 primary registry1.4.0 sections, supportingSOC and eight scoped issue reassessments; no Site release."
         },
         {
+          "at": "2026-11-23T09:28:04.667001Z",
+          "outcome": "running",
+          "summary": "Started independent current-day Release review.",
+          "scope": "27 primary registry1.4.0 rows plus supporting SOC; exact native start retained."
+        },
+        {
+          "at": "2026-11-23T09:37:38.513Z",
+          "outcome": "blocked",
+          "summary": "17 primary sections assessed-no-change;10 primary and supporting SOC incomplete. Five issue observations await canonical feed reconciliation; candidate held.",
+          "scope": "330-source acquisition separate from semantic review. No canonical factual dates or material cycle advanced; no deployment or scheduler success implied."
+        },
+        {
           "at": "2026-11-24T08:45:12.891908Z",
           "outcome": "running",
           "summary": "Started November24 Release Watch protected source review.",
