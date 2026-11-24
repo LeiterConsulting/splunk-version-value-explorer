@@ -23,6 +23,8 @@ ITSI 5.0+, SAIA 2.2+ and MCP Server 1.2.1+. ES agent and regional evidence is
 versioned 8.8; the release remains Controlled Availability. A release stage never
 substitutes for tenant enablement, entitlement or regional availability.
 
+The SAIA 2.3.6 overview includes AWS Dublin in its commercial region table. The Cloud installer omits it. AI Availability shows this disagreement for base SPL assistance and keeps ITSI subagent rollout unconfirmed. The Agent Mode feature table supplies its own Dublin evidence. [Overview](https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant) · [Cloud installer](https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers)
+
 ## Filters and report behavior
 
 The view supports product, deployment, service environment, provider, service

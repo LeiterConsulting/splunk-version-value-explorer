@@ -8142,7 +8142,8 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability",
         "guidance: guidance.aiAvailability.capabilities.0",
         "guidance: guidance.aiAvailability.capabilities.1",
-        "guidance: guidance.aiAvailability.capabilities.2"
+        "guidance: guidance.aiAvailability.capabilities.2",
+        "guidance: guidance.aiAvailability.saiaRegionDisagreements.eu-west-1"
       ],
       "reviews": [
         "2026-11-21"
@@ -8162,6 +8163,10 @@ window.VersionCompassSources = {
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.2",
+          "section": "Requirements; features; ITSI subagent; where the assistant runs"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.saiaRegionDisagreements.eu-west-1",
           "section": "Requirements; features; ITSI subagent; where the assistant runs"
         }
       ],
@@ -8197,7 +8202,8 @@ window.VersionCompassSources = {
         "guidance: guidance.aiAvailability.capabilities.0",
         "guidance: guidance.aiAvailability.capabilities.1",
         "guidance: guidance.aiAvailability.capabilities.2",
-        "guidance: guidance.aiAvailability.capabilities.7"
+        "guidance: guidance.aiAvailability.capabilities.7",
+        "guidance: guidance.aiAvailability.saiaRegionDisagreements.eu-west-1"
       ],
       "reviews": [
         "2026-11-21"
@@ -8221,6 +8227,10 @@ window.VersionCompassSources = {
         },
         {
           "path": "guidance: guidance.aiAvailability.capabilities.7",
+          "section": "FedRAMP deployments; supported regions; version compatibility"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.saiaRegionDisagreements.eu-west-1",
           "section": "FedRAMP deployments; supported regions; version compatibility"
         }
       ],
