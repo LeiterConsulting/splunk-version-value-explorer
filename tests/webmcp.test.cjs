@@ -319,7 +319,9 @@ test('Enterprise Security 8.8 GA preserves feature access and exact matrix scope
   for (const title of ['Investigation aggregation', 'Detection rerun', 'Quick search and advanced filtering']) assert(enterprise.features.some(item => item.title === title), title);
   assert(enterprise.breakingChanges.some(item => item.title === 'Confirm ES 8.8 feature access' && item.breaking && item.detail.includes('November 4, 2026')));
   assert(enterprise.breakingChanges.some(item => item.title === 'Match an exact supported Splunk Enterprise host' && item.detail.includes('10.2.x and 10.4.x') && item.detail.includes('10.6.1.1 and higher')));
-  assert(enterprise.breakingChanges.some(item => item.title === 'Keep the incomplete issue tables unresolved'));
+  assert(enterprise.readiness.some(item => item.detail.includes('BLUERIDGE-26142') && item.detail.includes('ARI-619')));
+  assert(enterprise.breakingChanges.some(item => item.title === 'Check the ES 8.8.0 known-issues list'));
+  assert(enterprise.breakingChanges.some(item => item.detail.includes('Send SH Metadata to SECA')));
   const trust = enterprise.technicalChanges.find(item => item.component === 'ES-SOAR hybrid certificate trust');
   assert.match(trust.from, /public certificate authority/);
   assert.match(trust.to, /private or public certificate authority/);

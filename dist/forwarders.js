@@ -22,7 +22,12 @@ function assess(s){
  const hfSource=s.to==='10.6'?'enterprise106':'enterprise';
  const steps=path.slice(1).map((to,i)=>({from:path[i],to,source:s.type==='hf'?hfSource:{'10.0':'upgrade100','10.2':'upgrade102','10.4':'upgrade104','10.6':'upgrade106'}[to]}));
  const route=claim('Upgrade support',path.length?'conditional':'not_established',path.length?'Documented release-line path: '+path.join(' → ')+'. Use a suitable supported maintenance release at each step; this is not a patch or OS approval.':'No documented path is recorded for this selection.',s.type==='hf'?hfSource:s.to==='10.6'?'upgrade106':'upgrade104');
- const enterpriseReceiver=claim('Splunk Enterprise receiver',s.topology==='edge'||!['9.3','9.4','10.0','10.2','10.4','10.6'].includes(s.receiver)?'not_established':'available',s.topology==='edge'?'The separate Edge Processor pairing has not been established for this selection.':'The customer-managed Enterprise matrix records events, metrics and HTTPS forwarding for the listed release lines through 10.6, including an intermediate forwarding tier. Prefer receiver versions at least as new as the forwarder; compatibility does not establish support lifecycle.','receiver');
+ const listedEnterpriseReceiver=['9.4','10.0','10.2','10.4','10.6'].includes(s.receiver);
+ let enterpriseDetail = 'The selected receiver line is absent from the direct and intermediate Enterprise indexer columns. Compatibility is unverified for this pairing.';
+ if (listedEnterpriseReceiver) enterpriseDetail = 'The Enterprise matrix lists events, metrics and HTTPS forwarding for these release lines, including intermediate forwarding tiers. Check support lifecycle separately.';
+ if (s.receiver==='9.3') enterpriseDetail = '9.3.x appears as a forwarder row in the ordinary matrix. Its five receiver columns begin at 9.4.x. The separate Edge Processor table has different pairings.';
+ if (s.topology==='edge') enterpriseDetail = 'This selection requires the separate Edge Processor pairing. The ordinary UF/HF receiver result does not establish it.';
+ const enterpriseReceiver=claim('Splunk Enterprise receiver',listedEnterpriseReceiver && s.topology!=='edge'?'available':'not_established',enterpriseDetail,'receiver');
  const allowed=s.to==='10.6'?['10.6']:['10.2','10.4'].includes(s.to)?['10.1','10.2','10.3','10.4','10.5','10.6']:['9.3','10.0','10.1','10.2','10.3','10.5','10.6'];
  const cloudVersion=s.destination==='hybrid'?s.cloudReceiver:s.receiver;
  const cloud107=cloudVersion==='10.7';
@@ -40,6 +45,10 @@ function assess(s){
  const technical=s.type==='hf'?engine.selectedTechnicalChanges().filter(r=>d.hfComponents.includes(r.component)&&(!/Windows/.test(r.component)||s.os.startsWith('Windows')||s.os==='unspecified')&&(!/Unix/.test(r.component)||!s.os.startsWith('Windows'))):[];
  const targetRuntime=s.type==='hf'?Object.entries(enterprise.releasesData).filter(([v])=>d.releases.includes(v)&&d.releases.indexOf(v)<=d.releases.indexOf(s.to)).flatMap(([v,r])=>(r.technicalChanges||[]).filter(t=>/Python|Node.js/.test(t.component)).map(t=>({...t,release:v}))).sort((a,b)=>d.releases.indexOf(a.release)-d.releases.indexOf(b.release)):[];
  const risks=[];if(s.to==='10.4')risks.push(claim('Use the current 10.4 maintenance release','conditional','Splunk documents Enterprise 10.4.5, released October 30, 2026. Enterprise 10.4.4 remains the October 21 advisory-specific fixed floor. Avoid UF 10.4.2 for acknowledged forwarding. Splunk lists 10.4.3 as fixing that specific blockage. Check exact package security and both sides of the receiving link separately.','maintenance'));
+ if (s.type === 'uf' && s.to === '10.6') {
+  risks.push(claim('Universal Forwarder 10.6 acknowledged forwarding', 'conditional',
+   'Avoid Universal Forwarder 10.6.0. Splunk identifies 10.6.1 and later as fixing the useAck forwarding issue.', 'uf106Ack'));
+ }
  if(os.status==='unavailable')risks.push(os);
  for(const notice of Object.values(d.securityNotices||{})){
   if(notice.types&&!notice.types.includes(s.type))continue;

@@ -1124,6 +1124,12 @@
       "url": "https://github.com/signalfx/splunk-otel-collector-chart/blob/splunk-otel-collector-0.163.0/helm-charts/splunk-otel-collector/templates/config/_otel-k8s-cluster-receiver-config.tpl"
     },
     {
+      "id": "source-af9f2b1102ffd7663fd1",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/fixed-issues"
+    },
+    {
       "id": "source-b149817344821b10afd7",
       "kind": "source",
       "dataset": "sources",
@@ -1370,6 +1376,12 @@
       "url": "https://www.splunk.com/en_us/blog/security/entity-profile-identify-contextual-risk-affecting-entities.html"
     },
     {
+      "id": "source-d0aafebb01c4c2f785e2",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.165.1"
+    },
+    {
       "id": "source-d102852db32b8d3fe7a8",
       "kind": "source",
       "dataset": "sources",
@@ -1392,6 +1404,12 @@
       "kind": "source",
       "dataset": "sources",
       "url": "https://help.splunk.com/en/splunk-observability-cloud/monitor-application-performance/manage-services-spans-and-traces-in-splunk-apm/search-spans-with-span-analyzer-in-splunk-apm"
+    },
+    {
+      "id": "source-d456608bbc0e30fdada5",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://github.com/signalfx/splunk-otel-dotnet/releases/tag/v1.18.0"
     },
     {
       "id": "source-d5dd730be1e1278a5e73",
@@ -1614,6 +1632,12 @@
       "kind": "source",
       "dataset": "sources",
       "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.8.0/get-splunk-soar-on-premises/get-splunk-soar-on-premises"
+    },
+    {
+      "id": "source-f4a16a705131beedc88f",
+      "kind": "source",
+      "dataset": "sources",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/known-and-fixed-issues-for-splunk-cloud-platform"
     },
     {
       "id": "source-f4bd2867ae5680f9c22a",
@@ -3079,8 +3103,8 @@
         "outcome": "Claim verification not recorded"
       },
       "payload": [
-        "Keep the incomplete issue tables unresolved",
-        "The current 8.8 fixed-issues page exposes no rows and the known-issues page exposes incomplete UEBA placeholders. Do not treat either retrieval as evidence of zero issues.",
+        "Check the ES 8.8.0 known-issues list",
+        "The public article yielded no itemized known issues on November 24. Issue coverage remains unknown.",
         "Validate",
         "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/known-issues",
         true
@@ -4687,9 +4711,9 @@
         {
           "sourceId": "source-0c26d8e1803bdaee542e",
           "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers#ariaid-title2",
-          "section": "Determine forwarder-indexer compatibility; direct-to-indexer and intermediate-tier scope; forwarder-version / indexer-version table",
+          "section": "Determine forwarder-indexer compatibility, UF/HF receiver column headings and cells; separate Edge Processor on Splunk Enterprise table",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-11-16",
+          "sourceVerified": "2026-11-24",
           "sourceChecked": null
         }
       ],
@@ -7746,9 +7770,9 @@
         {
           "sourceId": "source-0c26d8e1803bdaee542e",
           "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers#ariaid-title2",
-          "section": "Determine forwarder-indexer compatibility; direct-to-indexer and intermediate-tier scope; forwarder-version / indexer-version table",
+          "section": "Determine forwarder-indexer compatibility, UF/HF receiver column headings and cells; separate Edge Processor on Splunk Enterprise table",
           "sectionScope": "Recorded source section; claim-specific support is not inferred",
-          "sourceVerified": "2026-11-16",
+          "sourceVerified": "2026-11-24",
           "sourceChecked": null
         }
       ],
@@ -11149,6 +11173,65 @@
       ]
     },
     {
+      "id": "vc-5b9a48ad056c875a7cb9",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "product": "observability",
+        "release": "Nov 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-d456608bbc0e30fdada5",
+          "url": "https://github.com/signalfx/splunk-otel-dotnet/releases/tag/v1.18.0",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Check .NET 8 and .NET 9 before upgrading instrumentation",
+        "Use Splunk .NET instrumentation 1.17.0 or earlier for services staying on .NET 8 or .NET 9. Best-effort support through May 10, 2027 applies only to .NET 8.0.34 and 9.0.23.",
+        "Required",
+        "https://github.com/signalfx/splunk-otel-dotnet/releases/tag/v1.18.0"
+      ]
+    },
+    {
+      "id": "vc-5bb91ad04bf395d1d9de",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "product": "es",
+        "release": "8.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-2ffb76e46dc2821c1ec4",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/install/8.8/upgrading/upgrade-splunk-enterprise-security",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Check the SECA input after an on-premises ES 8.8 upgrade",
+        "For on-premises AI triage, enable Send SH Metadata to SECA under Settings > Data inputs after the upgrade. Splunk disables this input during the upgrade. Coordinate managed Cloud changes with Splunk.",
+        "Validate",
+        "https://help.splunk.com/en/splunk-enterprise-security-8/install/8.8/upgrading/upgrade-splunk-enterprise-security",
+        true
+      ]
+    },
+    {
       "id": "vc-5c513e36c6aeeee63111",
       "kind": "feature",
       "dataset": "platform",
@@ -11988,6 +12071,35 @@
         "Data management",
         "Shape data closer to its source",
         "Centrally author pipelines that filter, mask, transform, and route data at the edge."
+      ]
+    },
+    {
+      "id": "vc-66924c0c4d5a92f47a65",
+      "kind": "requirement",
+      "dataset": "products",
+      "scope": {
+        "product": "observability",
+        "release": "Nov 2026"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-d456608bbc0e30fdada5",
+          "url": "https://github.com/signalfx/splunk-otel-dotnet/releases/tag/v1.18.0",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Check .NET 8 and .NET 9 before upgrading instrumentation",
+        "Use Splunk .NET instrumentation 1.17.0 or earlier for services staying on .NET 8 or .NET 9. Best-effort support through May 10, 2027 applies only to .NET 8.0.34 and 9.0.23.",
+        "Required",
+        "https://github.com/signalfx/splunk-otel-dotnet/releases/tag/v1.18.0"
       ]
     },
     {
@@ -14413,6 +14525,36 @@
       ]
     },
     {
+      "id": "vc-7f8d9d9072e4321fc827",
+      "kind": "requirement",
+      "dataset": "products",
+      "scope": {
+        "product": "es",
+        "release": "8.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-af9f2b1102ffd7663fd1",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/fixed-issues",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Review the two listed ES 8.8.0 fixes",
+        "Splunk lists BLUERIDGE-26142 for adding a search to a response plan task and ARI-619 for the world-map watermark in Entity Analysis.",
+        "Review",
+        "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/fixed-issues",
+        false
+      ]
+    },
+    {
       "id": "vc-7fa950053b8b040934fd",
       "kind": "claim",
       "dataset": "editions",
@@ -16629,6 +16771,36 @@
       ]
     },
     {
+      "id": "vc-92f308fc7ab027a96dc3",
+      "kind": "requirement",
+      "dataset": "platform",
+      "scope": {
+        "product": "es",
+        "release": "8.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-af9f2b1102ffd7663fd1",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/fixed-issues",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Review the two listed ES 8.8.0 fixes",
+        "Splunk lists BLUERIDGE-26142 for adding a search to a response plan task and ARI-619 for the world-map watermark in Entity Analysis.",
+        "Review",
+        "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/fixed-issues",
+        false
+      ]
+    },
+    {
       "id": "vc-934df8508bf09f4b8c04",
       "kind": "Commercial deployment scope",
       "dataset": "editions",
@@ -17957,7 +18129,7 @@
         "Delegated DDAA restore permissions",
         "Platform operations",
         "Delegate monitoring and execution",
-        "Restore monitoring and execution can be delegated separately from index administration."
+        "Restore monitoring and execution can be delegated separately from index administration. On Azure Victoria, allow more than two hours before restoring the same buckets after clearing a restore. See SPL-292559 under technical changes."
       ]
     },
     {
@@ -19930,6 +20102,36 @@
       ]
     },
     {
+      "id": "vc-ba42ad71f9e36e8407c9",
+      "kind": "requirement",
+      "dataset": "products",
+      "scope": {
+        "product": "es",
+        "release": "8.8"
+      },
+      "evidence": [
+        {
+          "sourceId": "source-2ffb76e46dc2821c1ec4",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/install/8.8/upgrading/upgrade-splunk-enterprise-security",
+          "section": null,
+          "sectionScope": "Section not recorded",
+          "sourceVerified": null,
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": [
+        "Check the SECA input after an on-premises ES 8.8 upgrade",
+        "For on-premises AI triage, enable Send SH Metadata to SECA under Settings > Data inputs after the upgrade. Splunk disables this input during the upgrade. Coordinate managed Cloud changes with Splunk.",
+        "Validate",
+        "https://help.splunk.com/en/splunk-enterprise-security-8/install/8.8/upgrading/upgrade-splunk-enterprise-security",
+        true
+      ]
+    },
+    {
       "id": "vc-ba55bb2167927059bd61",
       "kind": "feature",
       "dataset": "platform",
@@ -21874,6 +22076,30 @@
       ]
     },
     {
+      "id": "vc-cad898004fef968f5029",
+      "kind": "claim",
+      "dataset": "forwarders",
+      "scope": {},
+      "evidence": [
+        {
+          "sourceId": "source-bfcc8adc3f5cf62972b7",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6",
+          "section": "What's new in 10.6.1 — Universal Forwarder useAck fix",
+          "sectionScope": "Recorded source section; claim-specific support is not inferred",
+          "sourceVerified": "2026-11-24",
+          "sourceChecked": null
+        }
+      ],
+      "verification": {
+        "date": null,
+        "outcome": "Claim verification not recorded"
+      },
+      "payload": {
+        "title": "Universal Forwarder 10.6 acknowledged forwarding",
+        "src": "uf106Ack"
+      }
+    },
+    {
       "id": "vc-cada1d021d2ee324f2d5",
       "kind": "feature",
       "dataset": "platform",
@@ -22603,8 +22829,8 @@
         "outcome": "Claim verification not recorded"
       },
       "payload": [
-        "Keep the incomplete issue tables unresolved",
-        "The current 8.8 fixed-issues page exposes no rows and the known-issues page exposes incomplete UEBA placeholders. Do not treat either retrieval as evidence of zero issues.",
+        "Check the ES 8.8.0 known-issues list",
+        "The public article yielded no itemized known issues on November 24. Issue coverage remains unknown.",
         "Validate",
         "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/known-issues",
         true
