@@ -132,7 +132,10 @@ export function dailyReview(registry, receipts, day, runtime) {
   if (registry.readerReview) {
     const transition = new Date(registry.readerReview.effectiveOn + 'T00:00:00Z');
     transition.setUTCDate(transition.getUTCDate() - 1);
-    if (transition.toISOString().slice(0, 10) === day) acceptedVersions.add(registry.registryVersion);
+    if (transition.toISOString().slice(0, 10) === day) {
+      acceptedVersions.add(registry.registryVersion);
+      for (const version of registry.readerReview.recoveryVersions || []) acceptedVersions.add(version);
+    }
   }
   const attempts = receipts.filter(({ run }) =>
     owners.has(run.watchId) && acceptedVersions.has(run.registryVersion) &&

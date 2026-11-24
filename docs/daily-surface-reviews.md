@@ -99,7 +99,7 @@ The [November 22 official-source readback](audits/2026-11-22-release-recovery-so
 
 ## Daily GitHub handoff and reader checks
 
-Starting November 25, 2026 (Eastern), use registry 1.5.0 for the primary morning
+Starting November 25, 2026 (Eastern), use registry 1.5.1 for the primary morning
 reviews. Release (03:00), ES (04:00) and CSP (05:00) assess their registered
 sections. The 06:15 Guidance task owns their daily integration into GitHub.
 Guidance continues its own substantive research on Mondays and Thursdays.
@@ -179,3 +179,5 @@ For a recovery run, search today's release note and dated independent source rev
 A replay that cannot obtain a native start can still hand off a cited reader correction. Bind its source and coverage files to the same registered task ID, actual editorial work start and source digest. Record it as an implementation review with no native start, scheduler ID, completion claim or delivery claim. The integrator reports the replay separately and still checks the other owners. Crediting a daily section requires a dated owner execution.
 
 For a same-day owner check, use `node tools/export-verification/owner-reader.mjs --list SECTION` to get valid report IDs and registered source URLs. Before filing the receipt, run `node tools/export-verification/owner-reader.mjs ORIGIN CHECKS.json` against the local built preview or the matching live revision. Supply an array of objects with `capabilityId`, `routeId`, `sourceId`, `region`, `answer`, and optionally `reportAnswer`. The command checks each selected route once, reopens its downloaded HTML offline, and reads the actual PDF text and links. Its output records the completion time and report hashes. Use the result for the reader portion of the source review. Review every required source family and retain the actual native owner and date before claiming a completed section. Record detailed runtime and provenance diagnostics in the GitHub audit. Keep public maintenance summaries focused on what changed for readers, when it was checked, and what remains open.
+
+The [November 24 ES citation check](audits/2026-11-24-es-source-locator-recovery.json) records the two retired topics and their verified replacements. After a batch of connection timeouts, retry one outstanding section with at most two simultaneous requests per host and a bounded connection retry. Check the article heading and required passages. Preserve both the original failures and retry times.

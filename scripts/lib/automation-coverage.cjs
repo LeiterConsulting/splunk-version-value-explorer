@@ -37,6 +37,7 @@ function validateRegistry(registry, root = process.cwd(), historical = false) {
     const contract = registry.readerReview;
     assert(contract.schemaVersion === 1 && /^\d{4}-\d{2}-\d{2}$/.test(contract.effectiveOn) &&
       /^\d+\.\d+\.\d+$/.test(contract.previousRegistryVersion), 'Invalid reader-review contract');
+    if (contract.recoveryVersions) assert(strings(contract.recoveryVersions) && contract.recoveryVersions.every(v => /^\d+\.\d+\.\d+$/.test(v) && v !== registry.registryVersion && fs.existsSync(path.join(root, 'content/automation-registries', v + '.json'))), 'Invalid historical recovery registry');
     readerRoutes = read(root, 'tools/export-verification/routes.json');
   }
   const advisorGoals = read(root, 'content/advisor-goals.json').goals;

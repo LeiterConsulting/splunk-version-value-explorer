@@ -4291,15 +4291,24 @@ window.VersionCompassSources = {
     },
     {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
-      "title": "ES 8.8 current Triage and Response aggregate row",
+      "title": "ES 8.8 current Triage and Autonomous Response rows",
       "areas": [
+        "Release guide",
         "ES editions",
         "Shared guidance"
       ],
       "references": [
+        "release.guidance.sources.aiEsTriageNote88.url",
+        "release.guidance.sources.aiEsAgents88.url",
         "editions.sources.triageNote88.u",
         "editions.sources.agentic88.u",
         "content-updates.js",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.3",
+        "guidance: guidance.aiAvailability.capabilities.4",
+        "guidance: guidance.aiAvailability.capabilities.5",
+        "guidance: guidance.aiAvailability.capabilities.6",
+        "guidance: guidance.aiAvailability.capabilities.7",
         "editions: editions.capabilities.5",
         "editions: editions.capabilities.9",
         "editions: editions.capabilities.10",
@@ -4318,11 +4327,46 @@ window.VersionCompassSources = {
         "editions: editions.workflows.1"
       ],
       "reviews": [
-        "2026-11-20"
+        "2026-11-20",
+        "2026-11-24"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage, Autonomous Response, Guided Response, Malware/Phishing and SOP agents; agentic chat model note"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Triage and Autonomous Response agent availability and compatibility rows"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.3",
+          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage, Autonomous Response, Guided Response, Malware/Phishing and SOP agents; agentic chat model note"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.4",
+          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage, Autonomous Response, Guided Response, Malware/Phishing and SOP agents; agentic chat model note"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.5",
+          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage, Autonomous Response, Guided Response, Malware/Phishing and SOP agents; agentic chat model note"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.6",
+          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage, Autonomous Response, Guided Response, Malware/Phishing and SOP agents; agentic chat model note"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.7",
+          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage, Autonomous Response, Guided Response, Malware/Phishing and SOP agents; agentic chat model note"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.7",
+          "section": "Triage and Autonomous Response agent availability and compatibility rows"
+        }
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-11-20",
+      "reviewed": "2026-11-24",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-11-04",
       "firstUsed": null,
@@ -4338,6 +4382,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-20",
           "event": "Review status updated: Needs reconciliation · 2026-11-20"
+        },
+        {
+          "date": "2026-11-24",
+          "event": "Review status updated: Needs reconciliation · 2026-11-24"
         }
       ]
     },
@@ -4444,25 +4492,40 @@ window.VersionCompassSources = {
     },
     {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
-      "title": "Triage and Response agent workflow prerequisites (ES 8.8)",
+      "title": "ES 8.8 Triage and Response workflow",
       "areas": [
+        "Release guide",
         "ES editions",
         "Shared guidance"
       ],
       "references": [
+        "release.guidance.sources.aiEsSocTask88.url",
         "editions.sources.socTask88.u",
         "content-updates.js",
+        "guidance: guidance.aiAvailability",
+        "guidance: guidance.aiAvailability.capabilities.7",
         "editions: editions.capabilities.15",
         "editions: editions.capabilities.20",
         "editions: editions.notes.0",
         "editions: editions.conflicts.7.claims.0"
       ],
       "reviews": [
-        "2026-11-21"
+        "2026-11-21",
+        "2026-11-24"
+      ],
+      "claimReferences": [
+        {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Triage agent credit consumption; How triage revisions work; Limitations when using the Triage agent"
+        },
+        {
+          "path": "guidance: guidance.aiAvailability.capabilities.7",
+          "section": "Triage agent credit consumption; How triage revisions work; Limitations when using the Triage agent"
+        }
       ],
       "conflict": true,
       "usage": "In use",
-      "reviewed": "2026-11-21",
+      "reviewed": "2026-11-24",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-11-04",
       "firstUsed": null,
@@ -4482,6 +4545,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-21",
           "event": "Review status updated: Needs reconciliation · 2026-11-21"
+        },
+        {
+          "date": "2026-11-24",
+          "event": "Review status updated: Needs reconciliation · 2026-11-24"
         }
       ]
     },
@@ -4611,62 +4678,17 @@ window.VersionCompassSources = {
     },
     {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
-      "title": "ES 8.8 current Triage and Autonomous Response rows",
+      "title": "agentic ai offerings in splunk enterprise security",
       "areas": [
-        "Release guide",
         "Shared guidance"
       ],
       "references": [
-        "release.guidance.sources.aiEsTriageNote88.url",
-        "release.guidance.sources.aiEsAgents88.url",
-        "content-updates.js",
-        "guidance: guidance.aiAvailability",
-        "guidance: guidance.aiAvailability.capabilities.3",
-        "guidance: guidance.aiAvailability.capabilities.4",
-        "guidance: guidance.aiAvailability.capabilities.5",
-        "guidance: guidance.aiAvailability.capabilities.6",
-        "guidance: guidance.aiAvailability.capabilities.7"
+        "content-updates.js"
       ],
-      "reviews": [
-        "2026-11-20"
-      ],
-      "claimReferences": [
-        {
-          "path": "guidance: guidance.aiAvailability",
-          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage, Autonomous Response, Guided Response, Malware/Phishing and SOP agents; agentic chat model note"
-        },
-        {
-          "path": "guidance: guidance.aiAvailability",
-          "section": "Triage and Autonomous Response agent availability and compatibility rows"
-        },
-        {
-          "path": "guidance: guidance.aiAvailability.capabilities.3",
-          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage, Autonomous Response, Guided Response, Malware/Phishing and SOP agents; agentic chat model note"
-        },
-        {
-          "path": "guidance: guidance.aiAvailability.capabilities.4",
-          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage, Autonomous Response, Guided Response, Malware/Phishing and SOP agents; agentic chat model note"
-        },
-        {
-          "path": "guidance: guidance.aiAvailability.capabilities.5",
-          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage, Autonomous Response, Guided Response, Malware/Phishing and SOP agents; agentic chat model note"
-        },
-        {
-          "path": "guidance: guidance.aiAvailability.capabilities.6",
-          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage, Autonomous Response, Guided Response, Malware/Phishing and SOP agents; agentic chat model note"
-        },
-        {
-          "path": "guidance: guidance.aiAvailability.capabilities.7",
-          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage, Autonomous Response, Guided Response, Malware/Phishing and SOP agents; agentic chat model note"
-        },
-        {
-          "path": "guidance: guidance.aiAvailability.capabilities.7",
-          "section": "Triage and Autonomous Response agent availability and compatibility rows"
-        }
-      ],
+      "reviews": [],
       "usage": "In use",
-      "reviewed": "2026-11-20",
-      "status": "Reviewed",
+      "reviewed": null,
+      "status": "Review date unknown",
       "firstRecorded": "2026-10-23",
       "firstUsed": null,
       "outdatedAsOf": null,
@@ -4701,6 +4723,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-20",
           "event": "Review status updated: Reviewed · 2026-11-20"
+        },
+        {
+          "date": "2026-11-24",
+          "event": "Review status updated: Review date unknown"
         }
       ]
     },
@@ -4736,33 +4762,17 @@ window.VersionCompassSources = {
     },
     {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
-      "title": "ES 8.8 Triage and Response workflow",
+      "title": "setting up the ai soc analyst agentic workflow in splunk enterprise security",
       "areas": [
-        "Release guide",
         "Shared guidance"
       ],
       "references": [
-        "release.guidance.sources.aiEsSocTask88.url",
-        "content-updates.js",
-        "guidance: guidance.aiAvailability",
-        "guidance: guidance.aiAvailability.capabilities.7"
+        "content-updates.js"
       ],
-      "reviews": [
-        "2026-11-21"
-      ],
-      "claimReferences": [
-        {
-          "path": "guidance: guidance.aiAvailability",
-          "section": "Triage agent credit consumption; How triage revisions work; Limitations when using the Triage agent"
-        },
-        {
-          "path": "guidance: guidance.aiAvailability.capabilities.7",
-          "section": "Triage agent credit consumption; How triage revisions work; Limitations when using the Triage agent"
-        }
-      ],
+      "reviews": [],
       "usage": "In use",
-      "reviewed": "2026-11-21",
-      "status": "Reviewed",
+      "reviewed": null,
+      "status": "Review date unknown",
       "firstRecorded": "2026-10-31",
       "firstUsed": null,
       "outdatedAsOf": null,
@@ -4785,6 +4795,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-21",
           "event": "Review status updated: Reviewed · 2026-11-21"
+        },
+        {
+          "date": "2026-11-24",
+          "event": "Review status updated: Review date unknown"
         }
       ]
     },
