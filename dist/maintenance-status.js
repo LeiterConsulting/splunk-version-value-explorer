@@ -646,10 +646,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-24T09:52:38.388Z",
+      "lastAttempt": "2026-11-24T10:12:34.777Z",
       "lastSuccess": "2026-11-21T19:40:05.303Z",
       "outcome": "blocked",
-      "summary": "18 primary assessed-no-change;9 incomplete plus supportingSOC; candidate held for exact export,artifact,integration and coordinator selection gates.",
+      "summary": "18primary assessed-no-change;9primary andsupportingSOC incomplete. Eightfresh observations andcandidate gated.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1471,9 +1471,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "18 primary assessed-no-change;9 incomplete plus supportingSOC; candidate held for exact export,artifact,integration and coordinator selection gates.",
           "scope": "Registry1.4.0; own fresh public section assessments; no product facts or Site runtime changed."
+        },
+        {
+          "at": "2026-11-24T10:12:34.777Z",
+          "outcome": "running",
+          "summary": "Distinct fourthRelease attempt; fresh27-primary review under actual newstart.",
+          "scope": "OwnR4 current registry1.4.0 section/claim review; productdates andmaterialcycle unchanged."
+        },
+        {
+          "at": "2026-11-24T10:20:16.889741Z",
+          "outcome": "blocked",
+          "summary": "18primary assessed-no-change;9primary andsupportingSOC incomplete. Eightfresh observations andcandidate gated.",
+          "scope": "OwnR4 current registry1.4.0 section/claim review; productdates andmaterialcycle unchanged."
         }
       ],
-      "scope": "Registry1.4.0; own fresh public section assessments; no product facts or Site runtime changed."
+      "scope": "OwnR4 current registry1.4.0 section/claim review; productdates andmaterialcycle unchanged."
     },
     {
       "id": "es-editions-watch",
