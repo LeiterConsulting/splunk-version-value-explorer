@@ -178,3 +178,20 @@ test('daily coverage preserves earlier work and refuses cross-owner, stale and m
   summary = dailyReview(registry, receipts, day, { watches: [{ watchId: release, matchingReceiptIds: ['first'] }] });
   assert.equal(summary.nativeReviewMatched, 1);
 });
+
+test('same-day owner recovery accepts the new registry alongside valid earlier receipts', async () => {
+  const { dailyReview } = await import('../scripts/pipeline-status.mjs');
+  const owner = 'version-release-watch';
+  const registry = {registryVersion:'1.5.0', readerReview:{previousRegistryVersion:'1.4.0', effectiveOn:'2026-11-25'},
+    capabilities:['first','second'].map(id => ({id, title:id, mandatory:true, primaryOwner:owner}))};
+  function run(day, version, id) {
+    const time = day + 'T16:00:00Z';
+    return {result:{file:id}, run:{kind:'saved-task-execution', runId:id, watchId:owner,
+      recordedAt:time, registryVersion:version, coverage:[{capabilityId:id, disposition:'assessed-no-change',
+        assessedAt:time, assessments:[{assessedAt:time}]}]}};
+  }
+  for (const [day, count] of [['2026-11-23',1], ['2026-11-24',2], ['2026-11-25',1]]) {
+    const reports = [run(day, '1.4.0', 'first'), run(day, '1.5.0', 'second')];
+    assert.equal(dailyReview(registry, reports, day).reviewed, count);
+  }
+});

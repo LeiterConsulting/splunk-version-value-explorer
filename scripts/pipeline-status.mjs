@@ -128,8 +128,14 @@ export function dailyReview(registry, receipts, day, runtime) {
   const onDay = value => Number.isFinite(Date.parse(value)) && easternDate.format(Date.parse(value)) === day;
   const owners = new Set(['version-release-watch', 'es-editions-watch', 'csp-fedramp-watch']);
   const version = registry.readerReview && day < registry.readerReview.effectiveOn ? registry.readerReview.previousRegistryVersion : registry.registryVersion;
+  const acceptedVersions = new Set([version]);
+  if (registry.readerReview) {
+    const transition = new Date(registry.readerReview.effectiveOn + 'T00:00:00Z');
+    transition.setUTCDate(transition.getUTCDate() - 1);
+    if (transition.toISOString().slice(0, 10) === day) acceptedVersions.add(registry.registryVersion);
+  }
   const attempts = receipts.filter(({ run }) =>
-    owners.has(run.watchId) && run.registryVersion === version &&
+    owners.has(run.watchId) && acceptedVersions.has(run.registryVersion) &&
     run.kind === 'saved-task-execution' && onDay(run.execution?.startedAt || run.recordedAt)
   ).sort((a, b) => Date.parse(b.run.execution?.startedAt || b.run.recordedAt) - Date.parse(a.run.execution?.startedAt || a.run.recordedAt)
     || Date.parse(b.run.recordedAt) - Date.parse(a.run.recordedAt));
@@ -141,7 +147,7 @@ export function dailyReview(registry, receipts, day, runtime) {
       if (!row) return null;
       const reviewedToday = ['changed', 'assessed-no-change'].includes(row.disposition) && onDay(row.assessedAt)
         && row.assessments.length > 0 && row.assessments.every(claim => onDay(claim.assessedAt));
-      return { runId: run.runId, receipt: result.file, disposition: row.disposition, assessedAt: row.assessedAt,
+      return { runId: run.runId, registryVersion: run.registryVersion, receipt: result.file, disposition: row.disposition, assessedAt: row.assessedAt,
         reviewedToday, readerChecks: readerChecks(row).map(proof => ({id:proofId(proof), routeId:proof.routeId, checkedAt:proof.checkedAt})), matchesNativeAttempt: watch ? watch.matchingReceiptIds?.includes(run.runId) === true : null,
         followUp: row.followUp || null };
     }).filter(Boolean);

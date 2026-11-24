@@ -1214,6 +1214,32 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.165.1",
+      "title": "v0.165.1",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Nov 2026.technicalChanges.1.source"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-24",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-24",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://github.com/signalfx/splunk-otel-dotnet/releases/tag/v1.16.0",
       "title": "v1.16.0",
       "areas": [
@@ -1236,6 +1262,33 @@ window.VersionCompassSources = {
       "events": [
         {
           "date": "2026-09-25",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/signalfx/splunk-otel-dotnet/releases/tag/v1.18.0",
+      "title": "v1.18.0",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.observability.releasesData.Nov 2026.technicalChanges.0.source",
+        "release.productTracks.observability.releasesData.Nov 2026.requirements.4.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-24",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-24",
           "event": "First recorded in source register; earlier usage date not established"
         }
       ]
@@ -3305,6 +3358,34 @@ window.VersionCompassSources = {
       ]
     },
     {
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/known-and-fixed-issues-for-splunk-cloud-platform",
+      "title": "known and fixed issues for splunk cloud platform",
+      "areas": [
+        "Release guide",
+        "Shared guidance"
+      ],
+      "references": [
+        "release.cloud.releasesData.10.8.technicalChanges.2.source",
+        "content-updates.js"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": null,
+      "status": "Review date unknown",
+      "firstRecorded": "2026-11-24",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "",
+      "section": "",
+      "verificationScope": "",
+      "events": [
+        {
+          "date": "2026-11-24",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
       "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/whats-new",
       "title": "whats new",
       "areas": [
@@ -5046,6 +5127,7 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.productTracks.es.releasesData.8.8.technicalChanges.0.source",
+        "release.productTracks.es.releasesData.8.8.requirements.6.3",
         "content-updates.js"
       ],
       "reviews": [],
@@ -5562,8 +5644,8 @@ window.VersionCompassSources = {
       ]
     },
     {
-      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/known-issues",
-      "title": "known issues",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/fixed-issues",
+      "title": "fixed issues",
       "areas": [
         "Release guide"
       ],
@@ -5572,18 +5654,48 @@ window.VersionCompassSources = {
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": null,
+      "reviewed": "2026-11-24",
+      "status": "Reviewed",
+      "firstRecorded": "2026-11-24",
+      "firstUsed": null,
+      "outdatedAsOf": null,
+      "reason": "The article identifies two fixes for this release.",
+      "section": "Splunk Enterprise Security 8.8.0 fixed issues",
+      "verificationScope": "The public ES 8.8.0 article lists BLUERIDGE-26142 and ARI-619.",
+      "events": [
+        {
+          "date": "2026-11-24",
+          "event": "First recorded in source register; earlier usage date not established"
+        }
+      ]
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/known-issues",
+      "title": "known issues",
+      "areas": [
+        "Release guide"
+      ],
+      "references": [
+        "release.productTracks.es.releasesData.8.8.requirements.5.3"
+      ],
+      "reviews": [],
+      "usage": "In use",
+      "reviewed": "2026-11-24",
       "status": "Needs reconciliation",
       "firstRecorded": "2026-10-22",
       "firstUsed": null,
       "outdatedAsOf": null,
-      "reason": "Malformed or incomplete retrieved rows cannot support a claim of zero known issues or a specific workaround.",
+      "reason": "The public result leaves issue coverage unresolved.",
       "section": "Splunk Enterprise Security 8.8.0 known issues",
-      "verificationScope": "Retrieved table exposes incomplete UEBA placeholders without usable issue rows; issue coverage remains unresolved.",
+      "verificationScope": "The ES 8.8.0 article did not expose itemized known issues.",
       "events": [
         {
           "date": "2026-10-22",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-24",
+          "event": "Review status updated: Needs reconciliation · 2026-11-24"
         }
       ]
     },
@@ -7021,20 +7133,20 @@ window.VersionCompassSources = {
         "forwarders: forwarders.claimSources.topology.enterprise-intermediate"
       ],
       "reviews": [
-        "2026-11-16"
+        "2026-11-24"
       ],
       "claimReferences": [
         {
           "path": "forwarders: forwarders.claimSources.receiver.enterprise",
-          "section": "Determine forwarder-indexer compatibility; direct-to-indexer and intermediate-tier scope; forwarder-version / indexer-version table"
+          "section": "Determine forwarder-indexer compatibility, UF/HF receiver column headings and cells; separate Edge Processor on Splunk Enterprise table"
         },
         {
           "path": "forwarders: forwarders.claimSources.topology.enterprise-intermediate",
-          "section": "Determine forwarder-indexer compatibility; direct-to-indexer and intermediate-tier scope; forwarder-version / indexer-version table"
+          "section": "Determine forwarder-indexer compatibility, UF/HF receiver column headings and cells; separate Edge Processor on Splunk Enterprise table"
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-16",
+      "reviewed": "2026-11-24",
       "status": "Reviewed",
       "firstRecorded": "2026-11-16",
       "firstUsed": null,
@@ -7046,6 +7158,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-16",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-24",
+          "event": "Review status updated: Reviewed · 2026-11-24"
         }
       ]
     },
@@ -7534,8 +7650,8 @@ window.VersionCompassSources = {
       "title": "welcome to splunk enterprise 10.6",
       "areas": [
         "Release guide",
-        "Shared guidance",
-        "Splunk Forwarders"
+        "Splunk Forwarders",
+        "Shared guidance"
       ],
       "references": [
         "release.enterprise.releasesData.10.6.source",
@@ -7544,11 +7660,13 @@ window.VersionCompassSources = {
         "release.enterprise.releasesData.10.6.technicalChanges.10.source",
         "release.enterprise.releasesData.10.6.requirements.5.3",
         "release.guidance.sources.prep11enterprise.url",
+        "forwarders.sources.uf106Ack.url",
         "content-updates.js",
         "forwarders: borrowed.technical.hf.10.6.enterprise-10.6-current-maintenance-release"
       ],
       "reviews": [
-        "2026-11-02"
+        "2026-11-02",
+        "2026-11-24"
       ],
       "claimReferences": [
         {

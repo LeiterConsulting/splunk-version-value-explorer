@@ -610,9 +610,9 @@
               "from": "In the on-premises search-head upgrade guide, this migration does not extend the ES 8.8 upgrade window on Platform 10.5 or lower.",
               "to": "If Platform 10.6 or later is already installed, upgrading ES to 8.8 extends the maintenance window for the Mission Control incidents migration from KV Store to PostgreSQL.",
               "implication": "Splunk estimates about five additional minutes per GB for the missioncontrol.mc_incidents collection. Volume, record count and environment can extend the estimate. Expect analyst queue interruptions and possible intermittent ES unavailability. If Platform is upgraded to 10.6 or later after ES 8.8, the guide says this migration runs in the background.",
-              "action": "Estimate the collection size, allow time for analyst queue disruption and confirm the exact supported host and ES patches before choosing an upgrade order. Splunk coordinates managed Cloud upgrades. Confirm the actual window with Splunk.",
+              "action": "Estimate the collection size, allow time for analyst queue disruption and confirm the exact supported host and ES patches before choosing an upgrade order. Splunk coordinates managed Cloud upgrades. Confirm the actual window with Splunk. If you plan to reduce findings or investigation retention, apply the policy at least 24 hours before the upgrade and recheck the collection size.",
               "source": "https://help.splunk.com/en/splunk-enterprise-security-8/install/8.8/upgrading/upgrade-splunk-enterprise-security",
-              "verified": "2026-11-13"
+              "verified": "2026-11-24"
             },
             {
               "component": "ES-SOAR hybrid certificate trust",
@@ -657,10 +657,24 @@
               true
             ],
             [
-              "Keep the incomplete issue tables unresolved",
-              "The current 8.8 fixed-issues page exposes no rows and the known-issues page exposes incomplete UEBA placeholders. Do not treat either retrieval as evidence of zero issues.",
+              "Review the two listed ES 8.8.0 fixes",
+              "Splunk lists BLUERIDGE-26142 for adding a search to a response plan task and ARI-619 for the world-map watermark in Entity Analysis.",
+              "Review",
+              "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/fixed-issues",
+              false
+            ],
+            [
+              "Check the ES 8.8.0 known-issues list",
+              "The public article yielded no itemized known issues on November 24. Issue coverage remains unknown.",
               "Validate",
               "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/known-issues",
+              true
+            ],
+            [
+              "Check the SECA input after an on-premises ES 8.8 upgrade",
+              "For on-premises AI triage, enable Send SH Metadata to SECA under Settings > Data inputs after the upgrade. Splunk disables this input during the upgrade. Coordinate managed Cloud changes with Splunk.",
+              "Validate",
+              "https://help.splunk.com/en/splunk-enterprise-security-8/install/8.8/upgrading/upgrade-splunk-enterprise-security",
               true
             ]
           ]
@@ -2787,7 +2801,30 @@
               "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/connect-your-agent-to-the-observability-ai-assistant/use-a2a-with-the-splunk-observability-ai-assistant"
             ]
           ],
-          "technicalChanges": [],
+          "technicalChanges": [
+            {
+              "component": ".NET instrumentation 1.18.0 runtime support",
+              "domain": "Customer-managed instrumentation",
+              "changeType": "Runtime support removed",
+              "actionLevel": "Required",
+              "from": "Instrumentation 1.17.0 is the last Splunk release for .NET 8 and .NET 9.",
+              "to": "Splunk .NET instrumentation 1.18.0 drops support for .NET 8 and .NET 9.",
+              "implication": "Services staying on either runtime need instrumentation 1.17.0 or earlier. Splunk limits best-effort support through May 10, 2027 to runtime patches 8.0.34 and 9.0.23.",
+              "action": "Inventory each service runtime before upgrading its instrumentation. Check the separate AppDynamics .NET Agent requirements when using that product.",
+              "source": "https://github.com/signalfx/splunk-otel-dotnet/releases/tag/v1.18.0"
+            },
+            {
+              "component": "Collector 0.165.1 TA runner removal",
+              "domain": "Customer-managed collection",
+              "changeType": "Experimental components removed",
+              "actionLevel": "Required",
+              "from": "Earlier Collector releases exposed an experimental TA runner and the enableTARunner feature gate.",
+              "to": "Collector 0.165.1 removes enableTARunner, the splunkconf provider, the TA runner receivers and the splunk_hecout exporter.",
+              "implication": "Configurations referencing these components need changes before adopting the new Collector.",
+              "action": "Check effective configuration and remove or replace affected inputs and exporters before rollout.",
+              "source": "https://github.com/signalfx/splunk-otel-collector/releases/tag/v0.165.1"
+            }
+          ],
           "requirements": [
             [
               "Check service and telemetry prerequisites",
@@ -2816,6 +2853,12 @@
               "Review",
               "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/connect-your-agent-to-the-observability-ai-assistant/use-a2a-with-the-splunk-observability-ai-assistant",
               false
+            ],
+            [
+              "Check .NET 8 and .NET 9 before upgrading instrumentation",
+              "Use Splunk .NET instrumentation 1.17.0 or earlier for services staying on .NET 8 or .NET 9. Best-effort support through May 10, 2027 applies only to .NET 8.0.34 and 9.0.23.",
+              "Required",
+              "https://github.com/signalfx/splunk-otel-dotnet/releases/tag/v1.18.0"
             ]
           ]
         }

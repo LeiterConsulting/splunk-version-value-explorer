@@ -2301,7 +2301,7 @@
             "Delegated DDAA restore permissions",
             "Platform operations",
             "Delegate monitoring and execution",
-            "Restore monitoring and execution can be delegated separately from index administration."
+            "Restore monitoring and execution can be delegated separately from index administration. On Azure Victoria, allow more than two hours before restoring the same buckets after clearing a restore. See SPL-292559 under technical changes."
           ]
         ],
         "technicalChanges": [
@@ -2328,6 +2328,17 @@
             "action": "Check the affected searches. Contact Splunk Support with SPL-313801 if the documented conditions match.",
             "source": "https://help.splunk.com/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/known-and-fixed-issues-for-splunk-cloud-platform",
             "verified": "2026-11-21"
+          },
+          {
+            "component": "Azure Victoria DDAA repeat restores",
+            "domain": "Cloud data restoration",
+            "changeType": "Known issue SPL-292559",
+            "actionLevel": "Required",
+            "from": "Clearing a restore can leave remote freeze operations in progress.",
+            "to": "On Azure Victoria, a repeat restore can report success with buckets missing from search results.",
+            "implication": "SPL-292559 affects restored search results. The original archive remains intact.",
+            "action": "Wait more than two hours before restoring the same buckets after clearing the earlier restore.",
+            "source": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.8/splunk-cloud-platform-release-notes/known-and-fixed-issues-for-splunk-cloud-platform"
           }
         ],
         "requirements": [

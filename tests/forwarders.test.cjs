@@ -128,3 +128,18 @@ test('November advance notice is separate from advisory patch floors and receive
   assert(!report.claims.some(r=>r.source==='novemberAdvance'));
  }
 });
+
+test('receiver columns and acknowledged forwarding follow their own documented scope', () => {
+  const model = api();
+  for (const type of ['uf', 'hf']) {
+    for (const destination of ['cmp', 'hybrid']) {
+      for (const topology of ['direct', 'intermediate']) {
+        const state = {...model.defaults, type, destination, topology, to:'10.6', receiver:'9.3'};
+        const result = model.assess(state);
+        assert.equal(result.claims[1].status, 'not_established');
+        assert.equal(model.assess({...state, receiver:'9.4'}).claims[1].status, 'available');
+        assert.equal(result.risks.some(risk => risk.source === 'uf106Ack' && risk.detail.includes('useAck')), type === 'uf');
+      }
+    }
+  }
+});

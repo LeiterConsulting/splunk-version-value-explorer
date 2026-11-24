@@ -569,9 +569,16 @@ try {
         assert.equal(await page.locator('.forwarder-technical '+tlsGuideSelector).count(),1);
       }
       if(route.id==='soar-cloud-86-export-fips') expected.paginationPairs=[{heading:'Requirements and integrations',following:'Automation runtime'}];
+      if (route.sourceReadback) {
+        (expected.requiredText ??= []).push(...route.sourceReadback.phrases);
+        expected.readerSourceUrls = route.sourceReadback.urls;
+        for (const phrase of route.sourceReadback.phrases) {
+          assert(normalize(expected.text).includes(normalize(phrase)), 'Rendered report missing ' + phrase);
+        }
+      }
       if (routeProofs.length) {
         (expected.requiredText ??= []).push(...routeProofs.map(proof => proof.reportAnswer || proof.answer));
-        expected.readerSourceUrls = [...new Set(routeProofs.map(proof => proof.sourceUrl))];
+        expected.readerSourceUrls = [...new Set([...(expected.readerSourceUrls || []), ...routeProofs.map(proof => proof.sourceUrl)])];
         entry.readerChecks = routeProofs.map(({capabilityId, proofId, receipt, checkedAt}) => ({capabilityId, proofId, receipt, checkedAt}));
       }
       const printTabs = await keyboardReach(page, print);
@@ -591,6 +598,10 @@ try {
       await reopened.goto(pathToFileURL(htmlFile).href);
       await checkReaderSurface(reopened, routeProofs, true);
       const reopenedText = normalize(await reopened.locator('body').textContent());
+      if (route.sourceReadback) {
+        const links = await reopened.locator('a[href]').evaluateAll(anchors => anchors.map(anchor => anchor.href));
+        for (const url of route.sourceReadback.urls) assert(links.includes(url), 'Downloaded report missing ' + url);
+      }
       assert(reopenedText.includes(normalize(expected.text)), 'Saved HTML lost report content');
       assert.equal(await reopened.locator('script,iframe,object,embed').count(), 0);
       if(route.id==='hf-inherited-runtime') assert.equal(await reopened.locator('.forwarder-technical '+tlsGuideSelector).count(),1);

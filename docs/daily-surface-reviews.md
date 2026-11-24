@@ -169,3 +169,7 @@ The November 24 scheduler editor readbacks are recorded in
 read to retain two matching full configuration reads and bind future scheduled
 attempts. An editor prompt digest covers only the visible text. Native execution
 and current public delivery each require their own evidence.
+
+## Same-day material corrections
+
+After a correction merges, qualify the exact main commit and its export artifact. Check for an in-flight release, then use **Run now** on the existing Site-linked steward. Its normal 09:00 Eastern schedule continues. Capture the saved version and deployment, check both public hosts, reopen downloaded HTML offline and inspect printed PDFs for the changed answer and vendor citation. Record the actual observation times. A same-day field check can close a delivery defect; only a dated primary-owner receipt can close that owner's daily review.
