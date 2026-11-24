@@ -1629,14 +1629,24 @@
         "npm run maintenance:verify",
         "git diff --check"
       ],
-      "qualification": "Ordered generators/checks,Advisor,native-feed declaration,coverage,full Node tests and Worker build; not rendering or delivery proof."
+      "qualification": "Ordered generators/checks,Advisor,native-feed declaration,coverage,full Node tests and Worker build; not rendering or delivery proof.",
+      "feedInclusiveRecheckedAt": "2026-11-24T09:14:11.156194+00:00"
     },
     "exports": "pending exact final candidate CI/artifact provenance,digest and readback",
-    "live": "not performed"
+    "live": "not performed",
+    "firstFailedStage": {
+      "stage": "Local feed writer timestamp validation",
+      "error": "Invalid record creation time",
+      "resolution": "New feed records use supported millisecond precision with full original assessment times retained; native start precision unchanged. Final full local validation passed."
+    }
   },
   "publication": {
     "status": "held",
-    "claimedDelivered": false
+    "claimedDelivered": false,
+    "sourceAuditCommit": "9c55c036a36ffcf5ab5e97346e2fd4a92e29345e",
+    "candidateFeedCheckpoint": 112,
+    "canonicalMainCheckpoint": 109,
+    "qualification": "Candidate static feed has immutable public provenance; canonical-main integration and sole-coordinator delivery remain held."
   },
   "followUp": {
     "owner": "es-editions-watch",
@@ -1646,11 +1656,21 @@
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "es-editions-watch",
-    "status": "pending-public-provenance",
-    "recordedAt": "2026-11-24T09:08:19.774Z",
+    "status": "published",
+    "recordedAt": "2026-11-24T09:12:47.204Z",
     "reviewDigest": "46a11398a301ffc4f3a141bec638a4eb48033c5b0f1d84a7c8f0327dde4cd6de",
-    "publicationId": "vci-b9b1e6e454067735769273a112d8f10e5853177b6234d1a0a63352bd20035688",
-    "recordKeys": [],
+    "publicationId": "vci-2633e3c5ba5c90b36d6903534256e617b7ad5155cf9af79e7422e76132f868d1",
+    "recordKeys": [
+      "assessment:vcia-es-20261124-74ef3ceb-1@1",
+      "assessment:vcia-es-20261124-74ef3ceb-2@1",
+      "assessment:vcia-es-20261124-74ef3ceb-3@1",
+      "assessment:vcia-es-20261124-74ef3ceb-4@1",
+      "assessment:vcia-es-20261124-74ef3ceb-5@1",
+      "assessment:vcia-es-20261124-74ef3ceb-6@1",
+      "assessment:vcia-es-20261124-74ef3ceb-7@1",
+      "assessment:vcia-es-20261124-74ef3ceb-8@1",
+      "assessment:vcia-es-20261124-74ef3ceb-9@1"
+    ],
     "notReassessedFindingIds": [
       "vci-acs-fedramp-high-victoria-conflict",
       "vci-ai-report-source-directory",
@@ -1699,9 +1719,9 @@
       "vci-uf-remote-upgrader-route-coverage"
     ],
     "deferredConcerns": [
-      "Nine observations await this audit exact public SHA, then append from retained ES111, sync and committed digest/recovery readback. ES owner;review2026-11-25."
+      "Canonical main still109; this queued ES candidate extends retained111 to112 without selecting a release. Validate candidate and committed readback,then integrate the reconciled lineage. ES owner;review2026-11-25."
     ],
-    "qualification": "Main rechecked at checkpoint109. Existing ES candidate111 explicitly retained as continuation; no competing110/111 or incident-history rewrite. Repository candidate is not canonical integration or Site delivery."
+    "qualification": "Nine actual current assessments have exact immutable public audit provenance. Candidate static-feed publication is separate from canonical-main discovery,Site runtime and sole-coordinator selection. Earlier records/checkpoints and both incident histories are byte-identical."
   },
   "automationCoverage": {
     "runFile": "docs/audits/2026-11-24-es-editions-watch-coverage.json"
