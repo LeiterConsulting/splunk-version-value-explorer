@@ -667,7 +667,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-24T17:11:12Z",
           "outcome": "running",
-          "summary": "Current Eastern reader review under saved work order; current native invocation identity unavailable.",
+          "summary": "Began the follow-up review of Cloud Environment reader comparisons.",
           "scope": "Registry1.5.0: five primary source/reader/report comparisons; High candidate acceptance, Platform AI intersections and supporting SOC incomplete. No Site/D1 action."
         },
         {
@@ -2307,17 +2307,17 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-24T17:17:28.269Z",
           "outcome": "running",
-          "summary": "Started later same-day ES reader-accuracy follow-through; native identity unavailable.",
-          "scope": "Own ES six-section source/reader assessment; prior morning receipt and native identity kept separate. No Site/D1 or task changes."
+          "summary": "Began the later same-day ES reader review.",
+          "scope": "Six ES source and reader sections. The earlier assessment is recorded separately."
         },
         {
           "at": "2026-11-24T17:29:10.485Z",
           "outcome": "blocked",
           "summary": "Prepared current Guided Response scope correction; six reader-contract rows deferred and candidate qualification pending.",
-          "scope": "Own ES six-section source/reader assessment; prior morning receipt and native identity kept separate. No Site/D1 or task changes."
+          "scope": "Six ES source and reader sections. The earlier assessment is recorded separately."
         }
       ],
-      "scope": "Own ES six-section source/reader assessment; prior morning receipt and native identity kept separate. No Site/D1 or task changes."
+      "scope": "Six ES source and reader sections. The earlier assessment is recorded separately."
     },
     {
       "id": "version-guidance-audit",
