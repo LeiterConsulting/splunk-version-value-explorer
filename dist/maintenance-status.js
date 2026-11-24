@@ -682,10 +682,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-24T10:12:34.777Z",
+      "lastAttempt": "2026-11-24T18:10:19.135Z",
       "lastSuccess": "2026-11-21T19:40:05.303Z",
       "outcome": "blocked",
-      "summary": "18primary assessed-no-change;9primary andsupportingSOC incomplete. Eightfresh observations andcandidate gated.",
+      "summary": "Reader recovery prepared two bounded Observability corrections;27 primary rows incomplete.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1555,9 +1555,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "18primary assessed-no-change;9primary andsupportingSOC incomplete. Eightfresh observations andcandidate gated.",
           "scope": "OwnR4 current registry1.4.0 section/claim review; productdates andmaterialcycle unchanged."
+        },
+        {
+          "at": "2026-11-24T18:10:19.135Z",
+          "outcome": "running",
+          "summary": "Reader recovery prepared two bounded Observability corrections;27 primary rows incomplete.",
+          "scope": "Native start17:50:45.465577Z retained in own receipt. Actual registered source retrievals and two screen journeys;candidate reports and feed provenance held."
+        },
+        {
+          "at": "2026-11-24T18:10:19.135Z",
+          "outcome": "blocked",
+          "summary": "Reader recovery prepared two bounded Observability corrections;27 primary rows incomplete.",
+          "scope": "Native start17:50:45.465577Z retained in own receipt. Actual registered source retrievals and two screen journeys;candidate reports and feed provenance held."
         }
       ],
-      "scope": "OwnR4 current registry1.4.0 section/claim review; productdates andmaterialcycle unchanged."
+      "scope": "Native start17:50:45.465577Z retained in own receipt. Actual registered source retrievals and two screen journeys;candidate reports and feed provenance held."
     },
     {
       "id": "es-editions-watch",
