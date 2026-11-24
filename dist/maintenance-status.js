@@ -646,10 +646,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-23T00:50:56.828847Z",
+      "lastAttempt": "2026-11-24T09:17:48.922107Z",
       "lastSuccess": "2026-11-21T19:40:05.303Z",
       "outcome": "blocked",
-      "summary": "27 primary dispositions:24 assessed-no-change,3 incomplete; feed checkpoint109 prepared; exact candidate CI/export and integration held.",
+      "summary": "Distinct Release attempt:18 of27 primary sections assessed unchanged;9 primary and supporting SOC incomplete. Candidate held.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1459,9 +1459,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "27 primary dispositions:24 assessed-no-change,3 incomplete; feed checkpoint109 prepared; exact candidate CI/export and integration held.",
           "scope": "Fresh27 primary registry1.4.0 sections, supportingSOC and eight scoped issue reassessments; no Site release."
+        },
+        {
+          "at": "2026-11-24T09:17:48.922107Z",
+          "outcome": "running",
+          "summary": "Distinct Release attempt:18 of27 primary sections assessed unchanged;9 primary and supporting SOC incomplete. Candidate held.",
+          "scope": "Fresh current-source registry1.4.0 review; prior attempts preserved; no Site publication."
+        },
+        {
+          "at": "2026-11-24T09:29:29.916681Z",
+          "outcome": "blocked",
+          "summary": "Distinct Release attempt:18 of27 primary sections assessed unchanged;9 primary and supporting SOC incomplete. Candidate held.",
+          "scope": "Fresh current-source registry1.4.0 review; prior attempts preserved; no Site publication."
         }
       ],
-      "scope": "Fresh27 primary registry1.4.0 sections, supportingSOC and eight scoped issue reassessments; no Site release."
+      "scope": "Fresh current-source registry1.4.0 review; prior attempts preserved; no Site publication."
     },
     {
       "id": "es-editions-watch",
