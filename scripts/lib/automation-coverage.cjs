@@ -222,7 +222,9 @@ function receiptPaths(run) {
   assert(timestamp(at) && ['saved-task-execution','implementation-review'].includes(run.kind), 'Supply the actual review start and kind');
   const key = e.schedulerRunId || run.runId;
   assert(text(key) && /^[a-z0-9-]+$/.test(run.watchId), 'Supply this watch and its own attempt or review ID');
-  const hash = createHash('sha256').update(JSON.stringify([run.watchId,run.kind,key])).digest('hex');
+  // Native retries can expose the same ID with a different precise start.
+  const instant = [Date.parse(at),(at.match(/\.(\d+)/)?.[1] || '').padEnd(9,'0')];
+  const hash = createHash('sha256').update(JSON.stringify([run.watchId,run.kind,key,instant])).digest('hex');
   const prefix = 'docs/audits/'+dayOf(at)+'-'+run.watchId+'-review-'+(parseInt(hash.slice(0,12),16)+1);
   const source = prefix+'-sources.json';
   assert(native.watchFor(source) === run.watchId, 'Unknown source owner');

@@ -81,6 +81,7 @@ test('concurrent CSP recoveries keep distinct paths and preserve the original re
   assert.deepEqual(receiptPaths({...timed,execution:{...e,startedAt:'2026-11-24T16:40:05.742921-05:00'}}),paths);
   assert.notDeepEqual(receiptPaths(operator),paths);
   assert.notDeepEqual(receiptPaths({...timed,execution:{...e,schedulerRunId:'native-2'}}),paths);
+  assert.notDeepEqual(receiptPaths({...timed,execution:{...e,startedAt:'2026-11-24T21:40:05.742922Z'}}),paths);
   assert.doesNotThrow(()=>preserveReceiptIdentity(timed,{...timed,execution:{...e,completedAt:e.startedAt}},paths.coverage));
   for(const changed of [operator,{...timed,runId:'other'},{...timed,execution:{...e,schedulerRunId:'native-2'}},
     {...timed,execution:{...e,startedAt:'2026-11-24T21:40:05.742922Z'}}]) {
