@@ -16,7 +16,7 @@ test('all evidence records have dated, official HTTPS citations and known editio
  for(const r of [...data.capabilities,...data.notes,...data.workflows,...data.highlights,...data.conflicts.flatMap(c=>c.claims)]){assert(r.src.length);for(const key of r.src){const s=data.sources[key];assert(s,key);const u=new URL(s.u);assert.equal(u.protocol,'https:');assert(['www.splunk.com','help.splunk.com','splunkbase.splunk.com'].includes(u.hostname));assert.match(s.reviewed,/^\d{4}-\d{2}-\d{2}$/);} }
  for(const c of data.capabilities)for(const cell of [c.ess,c.prem])assert(['yes','no','part','review'].includes(cell.v));
  const triage=data.capabilities.find(x=>x.id==='triage-agent');assert.equal(triage.ess.v,'no');assert.equal(triage.prem.v,'yes');assert(triage.flag);assert(triage.src.length>=2);
- const guided=data.capabilities.find(x=>x.id==='guided-response');assert.equal(guided.ess.v,'review');assert(guided.flag);assert(guided.src.length>=2);
+ const guided=data.capabilities.find(x=>x.id==='guided-response');assert.equal(guided.ess.v,'part');assert(guided.flag);assert(guided.src.length>=2);
  const connector=data.capabilities.find(x=>x.id==='connector-builder');assert.equal(connector.ess.v,'yes');assert.equal(connector.prem.v,'yes');assert.match(connector.flag,/8\.7 conflict/);
  const threat=data.capabilities.find(x=>x.id==='threat-graph-detection');assert.equal(threat.ess.v,'no');assert.equal(threat.prem.v,'part');assert.match(threat.flag,/alpha feature/);assert.match(threat.desc,/one million/);
  const detection=data.capabilities.find(x=>x.id==='detection-builder');assert.match(detection.ess.n,/Cloud Connected CMP/);assert.match(detection.desc,/Cloud Connect 2\.0/);
@@ -74,10 +74,10 @@ test('ambiguous or unsupported edition history links keep original input and blo
 });
 test('search, filters, history URLs, copy links and print restoration work without leaking preview tools',async()=>{
  const r=runtime();assert.equal(r.elements.get('edition-count').textContent,'21 of 21 capabilities');assert(r.details.every(x=>!x.open));
- const filter=r.elements.get('edition-filter');filter.value='review';filter.listeners.change();assert.equal([...r.rows.values()].filter(x=>!x.hidden).length,1);
+ const filter=r.elements.get('edition-filter');filter.value='review';filter.listeners.change();assert.equal([...r.rows.values()].filter(x=>!x.hidden).length,0);filter.value='all';filter.listeners.change();
  const q=r.elements.get('edition-search');q.value='Guided';q.listeners.input();assert.equal([...r.rows.values()].filter(x=>!x.hidden).length,1);
  q.value='zzzzz';q.listeners.input();assert.equal(r.elements.get('edition-empty').hidden,false);
- q.value='';q.listeners.input();const release=r.elements.get('edition-history');release.value='8.4';release.listeners.change();assert(r.elements.get('edition-timeline').innerHTML.includes('Cisco Talos'));
+ q.value='';q.listeners.input();filter.value='review';filter.listeners.change();const release=r.elements.get('edition-history');release.value='8.4';release.listeners.change();assert(r.elements.get('edition-timeline').innerHTML.includes('Cisco Talos'));
  await r.elements.get('edition-copy').listeners.click();assert.match(r.copied,/view=es-editions&filter=review&release=8.4/);
  const restored=runtime(r.location.search);assert.equal(restored.elements.get('edition-filter').value,'review');assert.equal(restored.elements.get('edition-history').value,'8.4');
  r.details[0].open=true;r.events.beforeprint();r.events.beforeprint();assert(r.details.every(x=>x.open));r.events.afterprint();assert(r.details[0].open);assert(r.details.slice(1).every(x=>!x.open));
@@ -245,4 +245,16 @@ test('both Triage limit statements and their own citations survive screen and sa
   for(const id of ['socTask88','triageTask88','autonomousResponse88']) assert(saved.includes(data.sources[id].u),id);
  }
  assert.equal(data.sources.socTask.reviewed,'2026-10-27');
+});
+test('Guided Response keeps current CMP scope distinct from the historical Cloud task and 8.7 enhancement',()=>{
+ const guided=data.capabilities.find(c=>c.id==='guided-response');
+ assert.match(guided.desc,/8\.8.*Cloud and Cloud Connected CMP/);
+ assert.match(guided.desc,/8\.6 task guide.*Cloud/);
+ assert.match(guided.flag,/8\.7/);
+ assert.match(guided.flag,/not.*CMP.*setup|CMP.*not.*certif/i);
+ for(const theme of ['', '&theme=cisco']){
+  const r=runtime('?view=es-editions&release=8.8'+theme);
+  assert(r.html.includes(guided.desc));assert(r.snapshot().includes(guided.desc));
+  assert(r.snapshot().includes(data.conflicts.find(c=>c.id==='guided-response').meaning));
+ }
 });

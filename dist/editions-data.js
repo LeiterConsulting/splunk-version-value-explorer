@@ -692,22 +692,22 @@ window.VersionCompassEditions = {
       "name": "Guided Response Agent",
       "lane": "Agentic SOC Workforce",
       "ess": {
-        "v": "review",
-        "n": "Confirm edition scope"
+        "v": "part",
+        "n": "8.8 table: Cloud and Cloud Connected CMP; paired SOAR"
       },
       "prem": {
         "v": "part",
-        "n": "Cloud; paired SOAR"
+        "n": "8.8 table: Cloud and Cloud Connected CMP; paired SOAR"
       },
-      "flag": "Source-scope ambiguity: the 8.7 Cloud matrix places Guided Response enhancements under Premier, while the current 8.8 aggregate row and the 8.6 task guide list the agent for both editions. Workflow grouping and an enhancement label are not interchangeable entitlement evidence; preserve the exact release and component scope.",
-      "desc": "Helps run SOAR response actions. The current 8.8 aggregate row and the 8.6 task guide document Cloud, both editions, platform 10.2+, ES 8.6+ and paired SOAR; the 8.7 matrix's Premier-only enhancement remains separately scoped.",
+      "flag": "Source-scope ambiguity: the 8.7 Cloud matrix places Guided Response enhancements under Premier. The current 8.8 aggregate lists both editions on Cloud and Cloud Connected CMP; the older 8.6 task is Cloud-scoped and excludes the SecA1 chat model. Keep that historical task and the 8.7 enhancement question separate. The aggregate row does not certify CMP-specific setup, regional rollout, entitlement, enablement or an exact SOAR pairing.",
+      "desc": "Helps run SOAR response actions. The current 8.8 aggregate table lists both editions on Cloud and Cloud Connected CMP, with Platform 10.2+, ES 8.6+ and paired SOAR. The older 8.6 task guide describes Cloud, both editions, the same version floors, connector permissions and a model restriction. The 8.7 Premier-only enhancement remains separately scoped; the aggregate CMP listing alone does not certify the complete setup or customer access.",
       "src": [
         "editions",
         "agentic88",
         "matrix",
         "guided"
       ],
-      "reviewed": "2026-11-04"
+      "reviewed": "2026-11-24"
     },
     {
       "id": "malware-reversing",
@@ -1179,7 +1179,7 @@ window.VersionCompassEditions = {
     },
     {
       "title": "Investigate and respond",
-      "text": "Triage helps assess incoming findings; Guided Response helps run SOAR actions; Autonomous Response is a separate Controlled Availability component. The earlier explicit Triage Essentials statement remains historical, while the current 8.8 table assigns Triage to Premier on Cloud and Cloud Connected CMP. Check each component’s edition, stage, deployment, enablement and pairing requirements before treating this as an available end-to-end workflow.",
+      "text": "Triage helps assess incoming findings; Guided Response helps run SOAR actions and its current 8.8 aggregate lists Cloud and Cloud Connected CMP, while the older 8.6 task remains Cloud-scoped; Autonomous Response is a separate Controlled Availability component. The earlier explicit Triage Essentials statement remains historical, while the current 8.8 table assigns Triage to Premier on Cloud and Cloud Connected CMP. Check each component’s edition, stage, deployment, enablement and pairing requirements before treating this as an available end-to-end workflow.",
       "ids": [
         "triage-agent",
         "guided-response",

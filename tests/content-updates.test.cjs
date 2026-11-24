@@ -17,8 +17,8 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('material cycle preserves scoped release evidence and prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,81);
- const high=b.entries['environment:platform-fr-h'];assert.equal(high.cycle,81);assert.match(high.detail,/current empty named-services field.*historical October 9 list/);assert(b.active(high,82));assert(!b.active(high,83));
+ assert.equal(b.policy.currentCycle,82);
+ const high=b.entries['environment:platform-fr-h'];assert.equal(high.cycle,82);assert.match(high.detail,/current empty named-services field.*historical October 9 list/);assert(b.active(high,83));assert(!b.active(high,84));
  const regions=b.entries['ai:catalog'];assert.equal(regions.cycle,77);assert.match(regions.detail,/Milan and Sao Paulo/);assert(!b.active(regions));assert(b.active(regions,78));
  const exportPatch=b.entries['edition:soar'];assert.equal(exportPatch.cycle,79);assert.equal(exportPatch.sourceDate,'2026-11-19');assert.match(exportPatch.detail,/large-ES.*native pairing/);assert(b.active(exportPatch,80));assert(!b.active(exportPatch));assert(b.entries['edition-history:soar:cycle58']);
  assert(b.entries['ai:catalog:history:before-cycle77']);

@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-soar-export-88-tested-pairing-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-24T17:37:05.249Z",
+  "assessmentId": "vcia-es-reader-20261124-r3-3",
+  "assessedAt": "2026-11-24T17:28:36.172Z",
+  "outcome": "partially-addressed",
+  "rationale": "Both exact current indexed prerequisite pages now list8.8.1 and8.8.0 in the same functionality-tested row. This supplies the Cloud row missing from the earlier attempt, without treating broader upgrade listings as pairing or expanding native ES/SOAR compatibility.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "8.8 current article sections; 8.6 task and 8.7 history only where explicitly compared"
+    ],
+    "editions": [
+      "Essentials",
+      "Premier"
+    ],
+    "deployments": [
+      "Cloud",
+      "Cloud Connected CMP only where explicitly listed"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No complete pairing, region, tenant enablement, runtime/model approval, entitlement or customer authorization inferred."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-es-20261124-74ef3ceb-r2-8"
+  ],
+  "remainingConcerns": [
+    "es-editions-watch:complete scoped reader/source/export follow-through by2026-11-25. Source owner hands PR to06:15 GitHub integrator;09:00 steward alone selects/publishes. No workflow or consumer closure implied."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "es-reader-r3-2-0",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+      "section": "Splunk product compatibility matrix; Required Python version",
+      "statement": "Current exact Cloud page lists8.8.1 and8.8.0 in the functionality-tested row and uses Python3.13.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": null,
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Actual official indexed section read November24; exact retrieval timestamp and raw vendor response revision not exposed. Direct access failures retained in the source audit. Browser baseline observations have their own clock."
+      }
+    },
+    {
+      "evidenceId": "es-reader-r3-2-1",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+      "section": "Splunk product compatibility matrix; Required Python version",
+      "statement": "Enterprise exact page carries the same tested row. Broader Splunkbase listings are upgrade-purpose scope.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": null,
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "unavailable",
+        "value": null,
+        "qualification": "Actual official indexed section read November24; exact retrieval timestamp and raw vendor response revision not exposed. Direct access failures retained in the source audit. Browser baseline observations have their own clock."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/078100875e20846b81b2ac4dba15b16b97a561f3/docs/audits/2026-11-24-es-editions-watch-review-3-sources.json",
+      "pointer": "/issueObservations/2",
+      "originalLabel": "partially-addressed"
+    }
+  ]
+}

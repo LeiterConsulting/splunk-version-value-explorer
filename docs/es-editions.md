@@ -193,3 +193,7 @@ or turns provider, region, entitlement and authorization into one fact.
 ## November 21 Triage quota and revision conflict
 
 The current ES 8.8 parent workflow guide describes 200 analyses per tenant per day, with an analysis representing an individual finding or an aggregated investigation, and up to 20 triage revisions per investigation per day. Its linked detailed 8.8 Triage task still describes existing findings, the first ten produced by a detection, approximately 200 findings per tenant per day and no rerun. Both statements remain visible; this does not select either as actual tenant behavior. The detailed Triage and Autonomous Response tasks retain the higher Cloud ES floor. Response remains separately Controlled Availability, frontier-model-only and unable to rerun an already processed investigation. Historical 8.7 evidence and all pairing, edition, region and authorization qualifications remain distinct.
+
+## November 24 Guided Response reader correction
+
+The current ES 8.8 aggregate table lists Guided Response for both editions on Cloud and Cloud Connected CMP. The older 8.6 task is Cloud-scoped, includes connector permission inheritance and excludes the SecA1 model. Keep the 8.7 Premier enhancement ambiguity historical. The aggregate CMP listing alone does not certify the complete setup, rollout, entitlement or an exact SOAR pairing. The later November 24 candidate updates its capability cells and workflow summary; runtime delivery remains with the sole steward.

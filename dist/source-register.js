@@ -4293,11 +4293,13 @@ window.VersionCompassSources = {
       "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
       "title": "ES 8.8 current Triage and Response aggregate row",
       "areas": [
-        "ES editions"
+        "ES editions",
+        "Shared guidance"
       ],
       "references": [
         "editions.sources.triageNote88.u",
         "editions.sources.agentic88.u",
+        "content-updates.js",
         "editions: editions.capabilities.5",
         "editions: editions.capabilities.9",
         "editions: editions.capabilities.10",
