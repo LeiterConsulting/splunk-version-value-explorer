@@ -1466,10 +1466,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-23T08:58:34.626058Z",
-      "lastSuccess": "2026-11-23T09:08:34.381Z",
+      "lastAttempt": "2026-11-24T08:58:58.327815Z",
+      "lastSuccess": "2026-11-24T09:08:54.963409+00:00",
       "outcome": "no-change",
-      "summary": "Fresh six-section ES review; canonical product guidance unchanged. Twelve issue reassessments prepared; candidate held for validation/integration.",
+      "summary": "Six primary ES scopes independently assessed-no-change; candidate held for exact validation/feed integration.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -2171,9 +2171,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Fresh six-section ES review; canonical product guidance unchanged. Twelve issue reassessments prepared; candidate held for validation/integration.",
           "scope": "Edition/licensing, history, deployment, workflows, five ES AI capabilities and Advisor SOC;55 source checks. LastSuccess means this review, not live delivery."
+        },
+        {
+          "at": "2026-11-24T08:58:58.327815Z",
+          "outcome": "running",
+          "summary": "Started November24 six-section ES review.",
+          "scope": "Registry1.4.0 licensing,history,deployment,workflows,five individual ES AI capabilities and AdvisorSOC;55 URL checks with bounded retries/qualified official indexed sections. LastSuccess is scoped review, not delivery."
+        },
+        {
+          "at": "2026-11-24T09:08:54.963409+00:00",
+          "outcome": "no-change",
+          "summary": "Six primary ES scopes independently assessed-no-change; candidate held for exact validation/feed integration.",
+          "scope": "Registry1.4.0 licensing,history,deployment,workflows,five individual ES AI capabilities and AdvisorSOC;55 URL checks with bounded retries/qualified official indexed sections. LastSuccess is scoped review, not delivery."
         }
       ],
-      "scope": "Edition/licensing, history, deployment, workflows, five ES AI capabilities and Advisor SOC;55 source checks. LastSuccess means this review, not live delivery."
+      "scope": "Registry1.4.0 licensing,history,deployment,workflows,five individual ES AI capabilities and AdvisorSOC;55 URL checks with bounded retries/qualified official indexed sections. LastSuccess is scoped review, not delivery."
     },
     {
       "id": "version-guidance-audit",
