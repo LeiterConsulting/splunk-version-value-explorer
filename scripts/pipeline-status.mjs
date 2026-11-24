@@ -150,8 +150,14 @@ export function dailyReview(registry, receipts, day, runtime) {
       if (!row) return null;
       const reviewedToday = ['changed', 'assessed-no-change'].includes(row.disposition) && onDay(row.assessedAt)
         && row.assessments.length > 0 && row.assessments.every(claim => onDay(claim.assessedAt));
-      return { runId: run.runId, registryVersion: run.registryVersion, receipt: result.file, disposition: row.disposition, assessedAt: row.assessedAt,
-        reviewedToday, readerChecks: readerChecks(row).map(proof => ({id:proofId(proof), routeId:proof.routeId, checkedAt:proof.checkedAt})), matchesNativeAttempt: watch ? watch.matchingReceiptIds?.includes(run.runId) === true : null,
+      const started = Date.parse(run.execution.startedAt);
+      const finished = Date.parse(run.execution.completedAt || run.recordedAt);
+      const inAttempt = t => onDay(t) && Date.parse(t) >= started && Date.parse(t) <= finished;
+      const freshSources = reviewedToday && result.boundAttempt === true && inAttempt(row.assessedAt) &&
+        row.assessments.every(a => inAttempt(a.assessedAt) && a.sourceIds?.length &&
+          a.sourceIds.every(id => row.retrievals?.some(r => r.sourceId === id && r.outcome === 'retrieved' && inAttempt(r.retrievedAt))));
+      return { freshSources, runId: run.runId, registryVersion: run.registryVersion, receipt: result.file, disposition: row.disposition, assessedAt: row.assessedAt,
+        reviewedToday, readerChecks: readerChecks(row).map(proof => ({id:proofId(proof), routeId:proof.routeId, checkedAt:proof.checkedAt})), matchesNativeAttempt: watch ? [watch.matchingReceiptIds,watch.verifiedReviewReceiptIds].some(ids => ids?.includes(run.runId)) : null,
         followUp: row.followUp || null };
     }).filter(Boolean);
     const reviewedToday = history.some(entry => entry.reviewedToday);
@@ -175,16 +181,21 @@ export function summarizeReaderDelivery(report, site, daily, now = Date.now()) {
       report.registered !== daily.registered || !Array.isArray(report.hosts)) return unknown('Reader evidence differs from the selected release or review date');
   const hosts = publicHosts.map(host => report.hosts.filter(row => row.host === host));
   if (hosts.some(matches => matches.length !== 1 || !Array.isArray(matches[0].checks) || !Array.isArray(matches[0].issues))) return unknown('Missing or duplicate public host');
-  const verified = daily.sections.filter(section => {
-    const entry = section.history.find(attempt => attempt.reviewedToday && attempt.readerChecks?.length);
-    return entry && entry.readerChecks.every(expected => hosts.every(([host]) => host.checks.some(check =>
+  function verifiedEntry(section, entry, scheduled = false) {
+    if (!entry.reviewedToday || !entry.readerChecks?.length) return false;
+    if (scheduled && (entry.matchesNativeAttempt !== true || entry.freshSources !== true)) return false;
+    return entry.readerChecks.every(expected => hosts.every(([host]) => host.checks.some(check =>
       check.routeId === expected.routeId && check.status === 'passed' &&
       [check.screen,check.offlineHtml,check.pdf].every(result => result === 'passed') &&
-      check.sections?.some(proof => proof.capabilityId === section.capabilityId && proof.receipt === entry.receipt && proof.proofId === expected.id && proof.checkedAt === expected.checkedAt))));
-  });
+      (!scheduled || [check.htmlSha256,check.pdfSha256].every(hash => /^[0-9a-f]{64}$/.test(hash))) &&
+      check.sections?.some(proof => proof.capabilityId === section.capabilityId && proof.receipt === entry.receipt &&
+        proof.proofId === expected.id && proof.checkedAt === expected.checkedAt))));
+  }
+  const verified = daily.sections.filter(section => section.history.some(entry => verifiedEntry(section,entry)));
+  const scheduled = daily.sections.filter(section => section.history.some(entry => verifiedEntry(section,entry,true)));
   const healthy = daily.registered > 0 && verified.length === daily.registered &&
     hosts.every(([host]) => host.issues.length === 0 && host.checks.every(check => check.status === 'passed'));
-  return {status:healthy ? 'verified' : 'partial', verifiedSections:verified.length, registered:daily.registered,
+  return {status:healthy ? 'verified' : 'partial', verifiedSections:verified.length, scheduledVerifiedSections:scheduled.length, registered:daily.registered,
     gaps:daily.sections.filter(section => !verified.includes(section)).map(section => section.capabilityId)};
 }
 async function read(url) {
@@ -245,7 +256,7 @@ async function main(args) {
   const runtime = tasks ? require('./lib/task-runtime.cjs').inspect(tasks, {
     registry,
     ledger: JSON.parse(fs.readFileSync('content/automation-amendments.json')),
-    runs: receipts.map(({ result: { coverageComplete, deliveryComplete }, run }) => ({ ...run, coverageComplete, deliveryComplete }))
+    runs: receipts.map(({ result: { coverageComplete, deliveryComplete, boundAttempt }, run }) => ({ ...run, coverageComplete, deliveryComplete, boundAttempt }))
   }) : null;
   const daily = dailyReview(registry, receipts, today, runtime);
   const readerDelivery = summarizeReaderDelivery(readerEvidence, siteDelivery, daily, now);
@@ -254,6 +265,6 @@ async function main(args) {
   console.log(JSON.stringify({ evaluatedAt: new Date(now).toISOString(), repository, ...result, siteDelivery, readerDelivery, readiness, operations, coverage: { activation: coverage.activation, daily, advisor,
     currentSavedExecutions: executions, retainedHistory: coverage.runs.map(({ file, runId, watchId }) => ({ file, runId, watchId })),
     qualification: 'Latest retained saved execution per watch uses the recorded attempt start when present. Native attempts and result identities require separate reconciliation.' } }, null, 2));
-  if ((registry.readerReview && today >= registry.readerReview.effectiveOn && readerDelivery.status !== 'verified') || !advisor.total || advisor.current !== advisor.total || !daily.registered || daily.nativeReviewMatched !== daily.registered || result.validation.status !== 'success' || siteDelivery.status !== 'readback-matched' || readiness.status !== 'evidence-matched' || operations.status !== 'evidence-matched') process.exitCode = 1;
+  if ((registry.readerReview && today >= registry.readerReview.effectiveOn && (readerDelivery.status !== 'verified' || readerDelivery.scheduledVerifiedSections !== daily.registered)) || !advisor.total || advisor.current !== advisor.total || !daily.registered || daily.nativeReviewMatched !== daily.registered || result.validation.status !== 'success' || siteDelivery.status !== 'readback-matched' || readiness.status !== 'evidence-matched' || operations.status !== 'evidence-matched') process.exitCode = 1;
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main(process.argv.slice(2)).catch(error => { console.error(error.message); process.exitCode = 1; });

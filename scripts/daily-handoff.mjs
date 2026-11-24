@@ -18,7 +18,7 @@ export function reconcile(date, base, heads) {
   assert(/^\d{4}-\d{2}-\d{2}$/.test(date), 'Supply an Eastern review date');
   const refs = [...new Set([base, ...heads])];
   const registry = JSON.parse(fs.readFileSync('content/automation-coverage.json'));
-  const records = new Map(), ids = new Map(), inputs = [];
+  const owners = new Map(), records = new Map(), ids = new Map(), inputs = [];
   for (const sha of refs) {
     assert(/^[a-f0-9]{40}$/.test(sha) && git('cat-file','-t',sha).trim() === 'commit', 'Fetch and supply exact commit IDs');
     const ancestry = spawnSync('git',['merge-base','--is-ancestor',sha,base],{env});
@@ -37,6 +37,7 @@ export function reconcile(date, base, heads) {
       const prior = records.get(file);
       assert(!prior || prior.blob === blob, 'Conflicting receipt bytes: ' + file);
       coverage.validateTaskOwner(run);
+      coverage.bindSchedulerAttempt(owners, run);
       assert(run.execution.taskId && run.auditBindings?.length, 'Missing owner or source binding: ' + file);
       for (const binding of run.auditBindings) {
         assert(native.watchFor(binding.file) === run.watchId && /^docs\/audits\/[a-z0-9.-]+\.json$/.test(binding.file), 'Invalid owner audit: ' + file);

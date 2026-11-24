@@ -1,0 +1,3702 @@
+{
+  "schemaVersion": 1,
+  "registryVersion": "1.5.2",
+  "activation": "pending-first-executions",
+  "constitution": "docs/automation-constitution.md",
+  "publicSourceHosts": [
+    "help.splunk.com",
+    "www.splunk.com",
+    "splunk.github.io",
+    "newsroom.cisco.com",
+    "lantern.splunk.com",
+    "advisory.splunk.com",
+    "splunkbase.splunk.com",
+    "www.fedramp.gov"
+  ],
+  "owners": [
+    {
+      "id": "version-release-watch",
+      "title": "Version Release Watch"
+    },
+    {
+      "id": "version-guidance-audit",
+      "title": "Version Guidance Audit"
+    },
+    {
+      "id": "es-editions-watch",
+      "title": "ES Editions Watch"
+    },
+    {
+      "id": "csp-fedramp-watch",
+      "title": "CSP FedRAMP Watch"
+    }
+  ],
+  "requiredClaimInventories": [
+    {
+      "pointer": "/exactReleases/claims",
+      "capabilityPrefix": "exact."
+    },
+    {
+      "pointer": "/aiAvailability/capabilities",
+      "capabilityPrefix": "ai."
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "prep11.discovery",
+      "title": "Public 11.x announcement discovery",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "prep11.release-scope",
+          "dataset": "guidance",
+          "pointer": "/preparation11/questions",
+          "scope": "Release timing, stage, deployment, upgrade/pairing/security and Cloud questions; no universal absence inference.",
+          "sourceIds": [
+            "prep11enterprise",
+            "prep11platformnews",
+            "prep11ainews"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "prep11enterprise",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6",
+          "section": "Release introduction; upgrade and system-requirement links"
+        },
+        {
+          "id": "prep11platformnews",
+          "dataset": "guidance",
+          "url": "https://www.splunk.com/en_us/blog/platform/announcing-splunk-cloud-platform-10-6-and-splunk-enterprise-10-6.html",
+          "section": "Keep Apps and Integrations Ready for Updated Versioning"
+        },
+        {
+          "id": "prep11ainews",
+          "dataset": "guidance",
+          "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m09/cisco-delivers-trusted-ai-at-scale-through-new-splunk-advancements.html",
+          "section": "Self-managed Splunk AI, accelerated by NVIDIA"
+        }
+      ],
+      "interfaces": [
+        "/?view=splunk-11"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-and-invalid-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 14,
+        "claimAssessmentDays": 30,
+        "onDependencyChange": "reassess-affected-scope",
+        "qualification": "Product review windows, not vendor support periods. Every participating run still declares disposition."
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-guidance-audit",
+        "trigger": "Missing owner, changed/overdue dependency, inaccessible exact source, contradiction or incomplete required validation",
+        "action": "Keep uncertainty and prior dates; record finite owner follow-up, retain the last verified public revision and surface the gap."
+      }
+    },
+    {
+      "id": "prep11.operator",
+      "title": "Start with an exact Operator compatibility tuple",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "prep11-operator-baseline",
+          "dataset": "guidance",
+          "pointer": "/preparation11/baseline/0",
+          "scope": "Preserve both published scopes. Confirm the exact Kubernetes, Operator and Enterprise combination before using it; neither source certifies 11.x.",
+          "sourceIds": [
+            "prep11operator",
+            "prep11changelog"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "prep11operator",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix",
+          "section": "SOK to Splunk Enterprise version compatibility; Upgrade path guidance"
+        },
+        {
+          "id": "prep11changelog",
+          "dataset": "guidance",
+          "url": "https://splunk.github.io/splunk-operator/reference/ChangeLog.html",
+          "section": "3.2.0 (2026-09-08); Breaking Changes; Supported Kubernetes and Splunk versions"
+        }
+      ],
+      "interfaces": [
+        "/?view=splunk-11"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-and-invalid-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 14,
+        "claimAssessmentDays": 30,
+        "onDependencyChange": "reassess-affected-scope",
+        "qualification": "Product review windows, not vendor support periods. Every participating run still declares disposition."
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-guidance-audit",
+        "trigger": "Missing owner, changed/overdue dependency, inaccessible exact source, contradiction or incomplete required validation",
+        "action": "Keep uncertainty and prior dates; record finite owner follow-up, retain the last verified public revision and surface the gap."
+      }
+    },
+    {
+      "id": "prep11.architecture",
+      "title": "Design storage and failure recovery before moving workloads",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "prep11-architecture-baseline",
+          "dataset": "guidance",
+          "pointer": "/preparation11/baseline/1",
+          "scope": "Current architecture guidance is preparation context. An 11.x topology, sizing or migration requirement is not established.",
+          "sourceIds": [
+            "prep11architecture"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "prep11architecture",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/splunk-validated-architectures/applied-svas/splunk-operator-for-kubernetes",
+          "section": "Deployment Options; Storage Considerations; Application Lifecycle Management / App Framework / Premium Apps; Resilience and Scaling"
+        }
+      ],
+      "interfaces": [
+        "/?view=splunk-11"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-and-invalid-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 14,
+        "claimAssessmentDays": 30,
+        "onDependencyChange": "reassess-affected-scope",
+        "qualification": "Product review windows, not vendor support periods. Every participating run still declares disposition."
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-guidance-audit",
+        "trigger": "Missing owner, changed/overdue dependency, inaccessible exact source, contradiction or incomplete required validation",
+        "action": "Keep uncertainty and prior dates; record finite owner follow-up, retain the last verified public revision and surface the gap."
+      }
+    },
+    {
+      "id": "prep11.app-delivery",
+      "title": "Inventory apps and configuration delivery",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "prep11-app-delivery",
+          "dataset": "guidance",
+          "pointer": "/preparation11/baseline/2",
+          "scope": "App installation and a container image do not prove ES, ITSI, SOAR or third-party compatibility with 11.x.",
+          "sourceIds": [
+            "prep11architecture"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "prep11architecture",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/splunk-validated-architectures/applied-svas/splunk-operator-for-kubernetes",
+          "section": "Deployment Options; Storage Considerations; Application Lifecycle Management / App Framework / Premium Apps; Resilience and Scaling"
+        }
+      ],
+      "interfaces": [
+        "/?view=splunk-11"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-and-invalid-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 14,
+        "claimAssessmentDays": 30,
+        "onDependencyChange": "reassess-affected-scope",
+        "qualification": "Product review windows, not vendor support periods. Every participating run still declares disposition."
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-guidance-audit",
+        "trigger": "Missing owner, changed/overdue dependency, inaccessible exact source, contradiction or incomplete required validation",
+        "action": "Keep uncertainty and prior dates; record finite owner follow-up, retain the last verified public revision and surface the gap."
+      }
+    },
+    {
+      "id": "prep11.workload",
+      "title": "Recheck search resource controls",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "prep11-workload-baseline",
+          "dataset": "guidance",
+          "pointer": "/preparation11/baseline/3",
+          "scope": "Basic mode does not establish full workload-pool or placement-rule parity. This is current-release behavior, not an 11.x promise.",
+          "sourceIds": [
+            "prep11workload"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "prep11workload",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/administer/manage-workloads/10.6/use-workload-management-on-kubernetes",
+          "section": "Workload management modes"
+        }
+      ],
+      "interfaces": [
+        "/?view=splunk-11"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-and-invalid-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 14,
+        "claimAssessmentDays": 30,
+        "onDependencyChange": "reassess-affected-scope",
+        "qualification": "Product review windows, not vendor support periods. Every participating run still declares disposition."
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-guidance-audit",
+        "trigger": "Missing owner, changed/overdue dependency, inaccessible exact source, contradiction or incomplete required validation",
+        "action": "Keep uncertainty and prior dates; record finite owner follow-up, retain the last verified public revision and surface the gap."
+      }
+    },
+    {
+      "id": "prep11.cloud-option",
+      "title": "Compare the future operating model with a Cloud migration",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "prep11-cloud-option",
+          "dataset": "guidance",
+          "pointer": "/preparation11/baseline/4",
+          "scope": "Cloud is a separate migration program. Enterprise announcements do not establish Cloud rollout, entitlement or FedRAMP Moderate/High authorization.",
+          "sourceIds": [
+            "prep11migration"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "prep11migration",
+          "dataset": "guidance",
+          "url": "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Readiness",
+          "section": "Organizational readiness guide: staffing plan, communications plan and post-migration staffing transition plan"
+        }
+      ],
+      "interfaces": [
+        "/?view=splunk-11"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-and-invalid-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 14,
+        "claimAssessmentDays": 30,
+        "onDependencyChange": "reassess-affected-scope",
+        "qualification": "Product review windows, not vendor support periods. Every participating run still declares disposition."
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-guidance-audit",
+        "trigger": "Missing owner, changed/overdue dependency, inaccessible exact source, contradiction or incomplete required validation",
+        "action": "Keep uncertainty and prior dates; record finite owner follow-up, retain the last verified public revision and surface the gap."
+      }
+    },
+    {
+      "id": "prep11.context-versioning",
+      "title": "Review custom version-detection logic",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "prep11-news-versioning",
+          "dataset": "guidance",
+          "pointer": "/preparation11/contextUpdates/0",
+          "scope": "This is published 10.6 guidance and a useful preparation task. It does not announce an 11.x release or a migration path.",
+          "sourceIds": [
+            "prep11platformnews"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "prep11platformnews",
+          "dataset": "guidance",
+          "url": "https://www.splunk.com/en_us/blog/platform/announcing-splunk-cloud-platform-10-6-and-splunk-enterprise-10-6.html",
+          "section": "Keep Apps and Integrations Ready for Updated Versioning"
+        }
+      ],
+      "interfaces": [
+        "/?view=splunk-11"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-and-invalid-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 14,
+        "claimAssessmentDays": 30,
+        "onDependencyChange": "reassess-affected-scope",
+        "qualification": "Product review windows, not vendor support periods. Every participating run still declares disposition."
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-guidance-audit",
+        "trigger": "Missing owner, changed/overdue dependency, inaccessible exact source, contradiction or incomplete required validation",
+        "action": "Keep uncertainty and prior dates; record finite owner follow-up, retain the last verified public revision and surface the gap."
+      }
+    },
+    {
+      "id": "prep11.context-ai",
+      "title": "Kubernetes-based architecture announced for Cisco AI POD for Splunk",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "prep11-news-selfmanaged-ai",
+          "dataset": "guidance",
+          "pointer": "/preparation11/contextUpdates/1",
+          "scope": "The statement is specific to self-managed AI and Cisco AI POD for Splunk. It does not establish an 11.x deployment model or confirm later delivery of the named planned feature.",
+          "sourceIds": [
+            "prep11ainews"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "prep11ainews",
+          "dataset": "guidance",
+          "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m09/cisco-delivers-trusted-ai-at-scale-through-new-splunk-advancements.html",
+          "section": "Self-managed Splunk AI, accelerated by NVIDIA"
+        }
+      ],
+      "interfaces": [
+        "/?view=splunk-11"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-and-invalid-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 14,
+        "claimAssessmentDays": 30,
+        "onDependencyChange": "reassess-affected-scope",
+        "qualification": "Product review windows, not vendor support periods. Every participating run still declares disposition."
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-guidance-audit",
+        "trigger": "Missing owner, changed/overdue dependency, inaccessible exact source, contradiction or incomplete required validation",
+        "action": "Keep uncertainty and prior dates; record finite owner follow-up, retain the last verified public revision and surface the gap."
+      }
+    },
+    {
+      "id": "advisor.agent-mode",
+      "title": "Plan for SAIA Agent Mode",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [
+        "csp-fedramp-watch"
+      ],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "ai-saia-agent",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/capabilities/1",
+          "scope": "Feature-specific Platform minimum, Cloud Connected app minimum, AWS AI service locations and Model Runtime requirements, with explicit routing and data-boundary uncertainty. Exclusions: Full app/Platform compatibility, tenant activation, entitlement and regulated authorization are not established. Current Cloud Connected exclusion/feature-guide disagreement and planned future support remain explicit; no positive Enterprise path from a minimum alone.",
+          "sourceIds": [
+            "aiSaiaInstall",
+            "aiSaiaAbout",
+            "aiSaiaAgentMode",
+            "aiSaiaModelRuntime",
+            "aiSaiaCloudConnected",
+            "aiSaiaKnownIssues"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "aiSaiaInstall",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+          "section": "FedRAMP deployments; supported regions; version compatibility"
+        },
+        {
+          "id": "aiSaiaAbout",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+          "section": "Requirements; features; ITSI subagent; where the assistant runs"
+        },
+        {
+          "id": "aiSaiaAgentMode",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+          "section": "Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites"
+        },
+        {
+          "id": "aiSaiaModelRuntime",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+          "section": "Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off"
+        },
+        {
+          "id": "aiSaiaCloudConnected",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+          "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data"
+        },
+        {
+          "id": "aiSaiaKnownIssues",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
+          "section": "SAIA-9918 Cloud Connected access and 2.1.1 workaround"
+        }
+      ],
+      "interfaces": [
+        "/?view=advisor&goal=agent-mode",
+        "/?view=ai-availability"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-and-invalid-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 14,
+        "claimAssessmentDays": 30,
+        "onDependencyChange": "reassess-affected-scope",
+        "qualification": "Product review windows, not vendor support periods. Every participating run still declares disposition."
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-guidance-audit",
+        "trigger": "Missing owner, changed/overdue dependency, inaccessible exact source, contradiction or incomplete required validation",
+        "action": "Keep uncertainty and prior dates; record finite owner follow-up, retain the last verified public revision and surface the gap."
+      }
+    },
+    {
+      "id": "advisor.itsi-versions",
+      "title": "Check ITSI assistant dependencies",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [
+        "csp-fedramp-watch"
+      ],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "ai-itsi-subagent",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/capabilities/2",
+          "scope": "Three documented version minimums, missing dependencies and the next pairing/enablement questions. Exclusions: Meeting the minimums does not establish a supported complete pairing or subagent-specific regional rollout.",
+          "sourceIds": [
+            "aiSaiaAbout",
+            "aiSaiaInstall"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "aiSaiaAbout",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+          "section": "Requirements; features; ITSI subagent; where the assistant runs"
+        },
+        {
+          "id": "aiSaiaInstall",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+          "section": "FedRAMP deployments; supported regions; version compatibility"
+        }
+      ],
+      "interfaces": [
+        "/?view=advisor&goal=itsi-versions",
+        "/?view=ai-availability"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-and-invalid-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 14,
+        "claimAssessmentDays": 30,
+        "onDependencyChange": "reassess-affected-scope",
+        "qualification": "Product review windows, not vendor support periods. Every participating run still declares disposition."
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-guidance-audit",
+        "trigger": "Missing owner, changed/overdue dependency, inaccessible exact source, contradiction or incomplete required validation",
+        "action": "Keep uncertainty and prior dates; record finite owner follow-up, retain the last verified public revision and surface the gap."
+      }
+    },
+    {
+      "id": "advisor.soc-workflow",
+      "title": "Untangle ES AI SOC requirements",
+      "mandatory": true,
+      "primaryOwner": "es-editions-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [
+        "csp-fedramp-watch"
+      ],
+      "participatingWatches": [
+        "version-release-watch",
+        "es-editions-watch",
+        "version-guidance-audit",
+        "csp-fedramp-watch"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "ai-es-soc",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/capabilities/7",
+          "scope": "Assessed deployment-specific prerequisites, the current Cloud version discrepancy and the corrected historical Triage wording. Exclusions: Exact SOAR pairing, agent-specific regional rollout, component entitlement and customer authorization remain separate.",
+          "sourceIds": [
+            "aiEsAgents88",
+            "aiEsSocTask88",
+            "aiEsSocTask87",
+            "aiEsRelease88",
+            "aiEsTriageNote88",
+            "aiSaiaInstall",
+            "aiEsRegions88",
+            "aiEsEditions"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "aiEsAgents88",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+          "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
+        },
+        {
+          "id": "aiEsSocTask88",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
+          "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions"
+        },
+        {
+          "id": "aiEsSocTask87",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+          "section": "Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions"
+        },
+        {
+          "id": "aiEsRelease88",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": "ES 8.8 Controlled Availability"
+        },
+        {
+          "id": "aiEsTriageNote88",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+          "section": "SOC analyst Triage/Response note; aggregate AI SOC Analyst availability row"
+        },
+        {
+          "id": "aiSaiaInstall",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+          "section": "FedRAMP deployments; supported regions; version compatibility"
+        },
+        {
+          "id": "aiEsRegions88",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+          "section": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility"
+        },
+        {
+          "id": "aiEsEditions",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
+          "section": "Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings"
+        }
+      ],
+      "interfaces": [
+        "/?view=advisor&goal=soc-workflow",
+        "/?view=ai-availability"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-and-invalid-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 14,
+        "claimAssessmentDays": 30,
+        "onDependencyChange": "reassess-affected-scope",
+        "qualification": "Product review windows, not vendor support periods. Every participating run still declares disposition."
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-guidance-audit",
+        "trigger": "Missing owner, changed/overdue dependency, inaccessible exact source, contradiction or incomplete required validation",
+        "action": "Keep uncertainty and prior dates; record finite owner follow-up, retain the last verified public revision and surface the gap."
+      }
+    },
+    {
+      "id": "exact.identity",
+      "title": "Exact package identity, branch and ordering",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "exact-release-catalog",
+          "dataset": "guidance",
+          "pointer": "/exactReleases/releases",
+          "scope": "Enterprise 9.4/10.4 and UF 10.4 named releases and distinct package identities.",
+          "sourceIds": [
+            "exact94",
+            "exact104",
+            "exactUF"
+          ]
+        },
+        {
+          "id": "exact-ordering-and-backport",
+          "dataset": "guidance",
+          "pointer": "/exactReleases/relationships",
+          "scope": "Branch-local ordering and the named parallel remediation. Preserve unknown paths and separate release order from applicability and upgrade support.",
+          "sourceIds": [
+            "exact94",
+            "exact104",
+            "exactUF",
+            "exactSecurity"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "exact94",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/9.4/whats-new/welcome-to-splunk-enterprise-9.4",
+          "section": "9.4 release headings; 9.4.3 filterType default and later documentation visibility"
+        },
+        {
+          "id": "exact104",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4",
+          "section": "10.4 TLS 1.3 and legacy TLS availability; 10.4.2/10.4.3 UF warning; maintenance release headings"
+        },
+        {
+          "id": "exactUF",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues",
+          "section": "Important: UF 10.4.2 warning; fixed in UF 10.4.3; receiver acknowledgements"
+        },
+        {
+          "id": "exactSecurity",
+          "dataset": "guidance",
+          "url": "https://advisory.splunk.com/advisories/SVD-2026-1007",
+          "section": "Product Status; CVE-2026-76288 Description and Mitigations. Other CVEs are outside this pilot."
+        }
+      ],
+      "interfaces": [
+        "/?view=exact-releases",
+        "versioncompass_compare_exact_releases"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-invalid-links",
+        "both-themes-phone"
+      ],
+      "freshness": {
+        "sourceCheckDays": 14,
+        "claimAssessmentDays": 30,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-release-watch",
+        "trigger": "Conflicting, unavailable, changed or overdue evidence or failed interface parity.",
+        "action": "Record exact affected scope and finite follow-up. Preserve qualifiers and verify supported changes before steward handoff."
+      }
+    },
+    {
+      "id": "exact.capabilities",
+      "title": "Exact feature status and documentation corrections",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "filter-before",
+          "dataset": "guidance",
+          "pointer": "/exactReleases/claims/0",
+          "scope": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections.",
+          "sourceIds": [
+            "exact94"
+          ],
+          "recordId": "filter-before"
+        },
+        {
+          "id": "filter-after",
+          "dataset": "guidance",
+          "pointer": "/exactReleases/claims/1",
+          "scope": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections.",
+          "sourceIds": [
+            "exact94"
+          ],
+          "recordId": "filter-after"
+        },
+        {
+          "id": "html-deprecated",
+          "dataset": "guidance",
+          "pointer": "/exactReleases/claims/2",
+          "scope": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections.",
+          "sourceIds": [
+            "exactDeprecated"
+          ],
+          "recordId": "html-deprecated"
+        },
+        {
+          "id": "html-removed",
+          "dataset": "guidance",
+          "pointer": "/exactReleases/claims/3",
+          "scope": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections.",
+          "sourceIds": [
+            "exactRemoved"
+          ],
+          "recordId": "html-removed"
+        },
+        {
+          "id": "tls13-introduced",
+          "dataset": "guidance",
+          "pointer": "/exactReleases/claims/4",
+          "scope": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections.",
+          "sourceIds": [
+            "exact104"
+          ],
+          "recordId": "tls13-introduced"
+        },
+        {
+          "id": "filter-documentation-correction",
+          "dataset": "guidance",
+          "pointer": "/exactReleases/events/2",
+          "scope": "Distinguish the 9.4.3 behavior change from the 9.4.8 documentation correction.",
+          "sourceIds": [
+            "exact94"
+          ],
+          "recordId": "event-filter-docs"
+        }
+      ],
+      "sources": [
+        {
+          "id": "exact94",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/9.4/whats-new/welcome-to-splunk-enterprise-9.4",
+          "section": "9.4 release headings; 9.4.3 filterType default and later documentation visibility"
+        },
+        {
+          "id": "exactDeprecated",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/9.4/deprecated-features/deprecated-and-removed-in-version-9.4",
+          "section": "Still deprecated: HTML dashboards"
+        },
+        {
+          "id": "exactRemoved",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/deprecated-features/deprecated-and-removed-in-version-10.4",
+          "section": "Removed features: HTML dashboards"
+        },
+        {
+          "id": "exact104",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4",
+          "section": "10.4 TLS 1.3 and legacy TLS availability; 10.4.2/10.4.3 UF warning; maintenance release headings"
+        }
+      ],
+      "interfaces": [
+        "/?view=exact-releases",
+        "versioncompass_compare_exact_releases"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-invalid-links",
+        "both-themes-phone"
+      ],
+      "freshness": {
+        "sourceCheckDays": 14,
+        "claimAssessmentDays": 30,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-release-watch",
+        "trigger": "Conflicting, unavailable, changed or overdue evidence or failed interface parity.",
+        "action": "Record exact affected scope and finite follow-up. Preserve qualifiers and verify supported changes before steward handoff."
+      }
+    },
+    {
+      "id": "exact.branch-security",
+      "title": "Exact branch remediation for the pilot advisory scope",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "web-affected-9.4",
+          "dataset": "guidance",
+          "pointer": "/exactReleases/claims/7",
+          "scope": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections.",
+          "sourceIds": [
+            "exactSecurity"
+          ],
+          "recordId": "web-affected-9.4"
+        },
+        {
+          "id": "web-fixed-9.4",
+          "dataset": "guidance",
+          "pointer": "/exactReleases/claims/8",
+          "scope": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections.",
+          "sourceIds": [
+            "exactSecurity"
+          ],
+          "recordId": "web-fixed-9.4"
+        },
+        {
+          "id": "web-affected-10.4",
+          "dataset": "guidance",
+          "pointer": "/exactReleases/claims/9",
+          "scope": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections.",
+          "sourceIds": [
+            "exactSecurity"
+          ],
+          "recordId": "web-affected-10.4"
+        },
+        {
+          "id": "web-fixed-10.4",
+          "dataset": "guidance",
+          "pointer": "/exactReleases/claims/10",
+          "scope": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections.",
+          "sourceIds": [
+            "exactSecurity"
+          ],
+          "recordId": "web-fixed-10.4"
+        }
+      ],
+      "sources": [
+        {
+          "id": "exactSecurity",
+          "dataset": "guidance",
+          "url": "https://advisory.splunk.com/advisories/SVD-2026-1007",
+          "section": "Product Status; CVE-2026-76288 Description and Mitigations. Other CVEs are outside this pilot."
+        }
+      ],
+      "interfaces": [
+        "/?view=exact-releases",
+        "versioncompass_compare_exact_releases"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-invalid-links",
+        "both-themes-phone"
+      ],
+      "freshness": {
+        "sourceCheckDays": 14,
+        "claimAssessmentDays": 30,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-release-watch",
+        "trigger": "Conflicting, unavailable, changed or overdue evidence or failed interface parity.",
+        "action": "Record exact affected scope and finite follow-up. Preserve qualifiers and verify supported changes before steward handoff."
+      }
+    },
+    {
+      "id": "exact.uf-useack",
+      "title": "Exact UF regression, receiver condition and fix",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "uf-regressed",
+          "dataset": "guidance",
+          "pointer": "/exactReleases/claims/11",
+          "scope": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections.",
+          "sourceIds": [
+            "exactUF"
+          ],
+          "recordId": "uf-regressed"
+        },
+        {
+          "id": "uf-fixed",
+          "dataset": "guidance",
+          "pointer": "/exactReleases/claims/12",
+          "scope": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections.",
+          "sourceIds": [
+            "exactUF"
+          ],
+          "recordId": "uf-fixed"
+        }
+      ],
+      "sources": [
+        {
+          "id": "exactUF",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues",
+          "section": "Important: UF 10.4.2 warning; fixed in UF 10.4.3; receiver acknowledgements"
+        }
+      ],
+      "interfaces": [
+        "/?view=exact-releases",
+        "versioncompass_compare_exact_releases"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-invalid-links",
+        "both-themes-phone"
+      ],
+      "freshness": {
+        "sourceCheckDays": 14,
+        "claimAssessmentDays": 30,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-release-watch",
+        "trigger": "Conflicting, unavailable, changed or overdue evidence or failed interface parity.",
+        "action": "Record exact affected scope and finite follow-up. Preserve qualifiers and verify supported changes before steward handoff."
+      }
+    },
+    {
+      "id": "exact.uncertainty-parity",
+      "title": "Legacy TLS conflict and exact comparison qualifications",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "tls-retained",
+          "dataset": "guidance",
+          "pointer": "/exactReleases/claims/5",
+          "scope": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections.",
+          "sourceIds": [
+            "exact104"
+          ],
+          "recordId": "tls-retained"
+        },
+        {
+          "id": "tls-removed",
+          "dataset": "guidance",
+          "pointer": "/exactReleases/claims/6",
+          "scope": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections.",
+          "sourceIds": [
+            "exactUpgrade"
+          ],
+          "recordId": "tls-removed"
+        },
+        {
+          "id": "exact-evidence-boundary",
+          "dataset": "guidance",
+          "pointer": "/exactReleases/boundary",
+          "scope": "Retain the release/upgrade guide disagreement, unknown and historical evidence, and the evidence review window in screen, agent and export paths.",
+          "sourceIds": [
+            "exact104",
+            "exactUpgrade"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "exact104",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4",
+          "section": "10.4 TLS 1.3 and legacy TLS availability; 10.4.2/10.4.3 UF warning; maintenance release headings"
+        },
+        {
+          "id": "exactUpgrade",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first",
+          "section": "Splunk has removed support for versions 1.0 and 1.1 of TLS; Enterprise component, all operating systems, introduced 10.4"
+        }
+      ],
+      "interfaces": [
+        "/?view=exact-releases",
+        "versioncompass_compare_exact_releases"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-invalid-links",
+        "both-themes-phone"
+      ],
+      "freshness": {
+        "sourceCheckDays": 14,
+        "claimAssessmentDays": 30,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-release-watch",
+        "trigger": "Conflicting, unavailable, changed or overdue evidence or failed interface parity.",
+        "action": "Record exact affected scope and finite follow-up. Preserve qualifiers and verify supported changes before steward handoff."
+      }
+    },
+    {
+      "id": "ai.discovery",
+      "title": "Public discovery and unresolved AI matrix scope",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "ai-availability-backlog",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/backlog",
+          "scope": "Search for new official release or capability documentation within the curated matrix and check discovery/rollout gaps. Record what was searched, even when no further evidence is found; coordinate ES and regional follow-up.",
+          "sourceIds": [
+            "aiSaiaAbout",
+            "aiEsAgents88",
+            "aiObsAssistant",
+            "aiObsRca"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "aiSaiaAbout",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+          "section": "Requirements; features; ITSI subagent; where the assistant runs"
+        },
+        {
+          "id": "aiEsAgents88",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note"
+        },
+        {
+          "id": "aiObsAssistant",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/ai-assistant-in-observability-cloud",
+          "section": "Availability; supported realms and product areas; access; context limitations; data sharing and use"
+        },
+        {
+          "id": "aiObsRca",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan",
+          "section": "Availability; supported alerts and metrics; opt-in behavior; Kubernetes remediation plans"
+        }
+      ],
+      "interfaces": [
+        "/?view=ai-availability"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-invalid-links",
+        "both-themes-phone"
+      ],
+      "freshness": {
+        "sourceCheckDays": 14,
+        "claimAssessmentDays": 30,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-release-watch",
+        "trigger": "Conflicting, unavailable, changed or overdue evidence or failed interface parity.",
+        "action": "Record exact affected scope and finite follow-up. Preserve qualifiers and verify supported changes before steward handoff."
+      }
+    },
+    {
+      "id": "ai.saia-itsi",
+      "title": "SAIA and ITSI capabilities and prerequisites",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "ai-saia-spl",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/capabilities/0",
+          "scope": "SPL assistance identity, stage, exact requirements and runtime.",
+          "sourceIds": [
+            "aiSaiaAbout",
+            "aiSaiaInstall"
+          ],
+          "recordId": "ai-saia-spl"
+        },
+        {
+          "id": "ai-saia-agent",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/capabilities/1",
+          "scope": "Agent Mode and Model Runtime compatibility, enablement and version-bound issues; keep Cloud Connected compatibility and feature scope distinct.",
+          "sourceIds": [
+            "aiSaiaInstall",
+            "aiSaiaAbout",
+            "aiSaiaAgentMode",
+            "aiSaiaModelRuntime",
+            "aiSaiaCloudConnected",
+            "aiSaiaKnownIssues"
+          ],
+          "recordId": "ai-saia-agent"
+        },
+        {
+          "id": "ai-itsi-subagent",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/capabilities/2",
+          "scope": "ITSI integration version floors, supported tooling and permission requirements. Subagent rollout requires its own evidence.",
+          "sourceIds": [
+            "aiSaiaAbout",
+            "aiSaiaInstall"
+          ],
+          "recordId": "ai-itsi-subagent"
+        }
+      ],
+      "sources": [
+        {
+          "id": "aiSaiaAbout",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+          "section": "Requirements; features; ITSI subagent; where the assistant runs"
+        },
+        {
+          "id": "aiSaiaInstall",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+          "section": "FedRAMP deployments; supported regions; version compatibility"
+        },
+        {
+          "id": "aiSaiaAgentMode",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+          "section": "Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites"
+        },
+        {
+          "id": "aiSaiaModelRuntime",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+          "section": "Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off"
+        },
+        {
+          "id": "aiSaiaCloudConnected",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+          "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data"
+        },
+        {
+          "id": "aiSaiaKnownIssues",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
+          "section": "SAIA-9918 Cloud Connected access and 2.1.1 workaround"
+        }
+      ],
+      "interfaces": [
+        "/?view=ai-availability"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-invalid-links",
+        "both-themes-phone"
+      ],
+      "freshness": {
+        "sourceCheckDays": 14,
+        "claimAssessmentDays": 30,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-release-watch",
+        "trigger": "Conflicting, unavailable, changed or overdue evidence or failed interface parity.",
+        "action": "Record exact affected scope and finite follow-up. Preserve qualifiers and verify supported changes before steward handoff."
+      }
+    },
+    {
+      "id": "ai.es-capabilities",
+      "title": "ES AI capabilities, editions and dependencies",
+      "mandatory": true,
+      "primaryOwner": "es-editions-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "es-editions-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "ai-es-assistant",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/capabilities/3",
+          "scope": "Assistant edition, entitlement, Cloud/CMP and exact enablement prerequisites.",
+          "sourceIds": [
+            "aiEsRegions88",
+            "aiEsEditions",
+            "aiEsRelease88",
+            "aiEsAgents88",
+            "aiEsCloudConnectAgentic88"
+          ],
+          "recordId": "ai-es-assistant"
+        },
+        {
+          "id": "ai-es-detection",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/capabilities/4",
+          "scope": "Detection Builder Cloud/CMP, version, edition, stage and setup prerequisites.",
+          "sourceIds": [
+            "aiEsAgents88",
+            "aiEsRelease88",
+            "aiEsCloudConnectAgentic88"
+          ],
+          "recordId": "ai-es-detection"
+        },
+        {
+          "id": "ai-es-sop",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/capabilities/5",
+          "scope": "SOP deployment, edition and Assistant dependency.",
+          "sourceIds": [
+            "aiEsAgents88",
+            "aiEsRelease88"
+          ],
+          "recordId": "ai-es-sop"
+        },
+        {
+          "id": "ai-es-threat-graph",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/capabilities/6",
+          "scope": "Threat Graph documented stage, prerequisites, eligibility and enablement.",
+          "sourceIds": [
+            "aiEsAgents88",
+            "aiEsThreatGraph88",
+            "aiEsRelease88"
+          ],
+          "recordId": "ai-es-threat-graph"
+        },
+        {
+          "id": "ai-es-soc",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/capabilities/7",
+          "scope": "SOC workflow stage, edition, paired dependencies, limits, model and asset or connector permissions. Keep current and historical guide conflicts scoped.",
+          "sourceIds": [
+            "aiEsAgents88",
+            "aiEsSocTask88",
+            "aiEsSocTask87",
+            "aiEsRelease88",
+            "aiEsTriageNote88",
+            "aiEsCloudConnectAgentic88",
+            "aiSaiaInstall",
+            "aiSaiaCloudConnected"
+          ],
+          "recordId": "ai-es-soc"
+        }
+      ],
+      "sources": [
+        {
+          "id": "aiEsRegions88",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+          "section": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility"
+        },
+        {
+          "id": "aiEsEditions",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
+          "section": "Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings"
+        },
+        {
+          "id": "aiEsRelease88",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": "What's new in 8.8.0 / November 4 General Availability and edition table"
+        },
+        {
+          "id": "aiEsAgents88",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+          "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note"
+        },
+        {
+          "id": "aiEsCloudConnectAgentic88",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/set-up-splunk-cloud-connect-to-use-the-agentic-soc",
+          "section": "Platform, ES, Cloud Connect and Splunk AI Assistant floors; installation, service activation and token certificate setup"
+        },
+        {
+          "id": "aiEsThreatGraph88",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
+          "section": "Alpha stage; risk-based detection and event-volume prerequisites; enablement and test mode"
+        },
+        {
+          "id": "aiEsSocTask88",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
+          "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions"
+        },
+        {
+          "id": "aiEsSocTask87",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+          "section": "Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions"
+        },
+        {
+          "id": "aiEsTriageNote88",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+          "section": "Triage and Response agent aggregate availability and compatibility row"
+        },
+        {
+          "id": "aiSaiaInstall",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+          "section": "FedRAMP deployments; supported regions; version compatibility"
+        },
+        {
+          "id": "aiSaiaCloudConnected",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+          "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data"
+        }
+      ],
+      "interfaces": [
+        "/?view=ai-availability"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-invalid-links",
+        "both-themes-phone"
+      ],
+      "freshness": {
+        "sourceCheckDays": 14,
+        "claimAssessmentDays": 30,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "es-editions-watch",
+        "trigger": "Conflicting, unavailable, changed or overdue evidence or failed interface parity.",
+        "action": "Record exact affected scope and finite follow-up. Preserve qualifiers and verify supported changes before steward handoff."
+      }
+    },
+    {
+      "id": "ai.observability-capabilities",
+      "title": "Observability AI capability and access scope",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "ai-observability-assistant",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/capabilities/8",
+          "scope": "Assistant identity, service coverage, access and runtime/data handling limits.",
+          "sourceIds": [
+            "aiObsAssistant",
+            "aiObsServiceDetails"
+          ],
+          "recordId": "ai-observability-assistant"
+        },
+        {
+          "id": "ai-observability-rca",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/capabilities/9",
+          "scope": "AI troubleshooting agent and remediation plans, release evidence, opt-in and supported investigation scope.",
+          "sourceIds": [
+            "aiObsRca",
+            "aiObsJulyRelease",
+            "aiObsServiceDetails"
+          ],
+          "recordId": "ai-observability-rca"
+        }
+      ],
+      "sources": [
+        {
+          "id": "aiObsAssistant",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/ai-assistant-in-observability-cloud",
+          "section": "Availability; supported realms and product areas; access; context limitations; data sharing and use"
+        },
+        {
+          "id": "aiObsServiceDetails",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
+          "section": "Available regions or realms; realm-to-region equivalence; available components per realm"
+        },
+        {
+          "id": "aiObsRca",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan",
+          "section": "Availability; supported alerts and metrics; opt-in behavior; Kubernetes remediation plans"
+        },
+        {
+          "id": "aiObsJulyRelease",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/july-2026",
+          "section": "July 8 AI troubleshooting agent and remediation plan milestone"
+        }
+      ],
+      "interfaces": [
+        "/?view=ai-availability"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-invalid-links",
+        "both-themes-phone"
+      ],
+      "freshness": {
+        "sourceCheckDays": 14,
+        "claimAssessmentDays": 30,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-release-watch",
+        "trigger": "Conflicting, unavailable, changed or overdue evidence or failed interface parity.",
+        "action": "Record exact affected scope and finite follow-up. Preserve qualifiers and verify supported changes before steward handoff."
+      }
+    },
+    {
+      "id": "ai.regional-platform",
+      "title": "SAIA and ITSI feature-specific region and regulated scope",
+      "mandatory": true,
+      "primaryOwner": "csp-fedramp-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "csp-fedramp-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "saia-spl-service-regions",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/saiaRegions",
+          "scope": "Base SAIA AI-service regions, provider mappings and evidence version; preserve commercial and regulated qualifications.",
+          "sourceIds": [
+            "aiSaiaInstall",
+            "aiSaiaAbout",
+            "aiHighAnnouncement20261019"
+          ]
+        },
+        {
+          "id": "ai-service-region-mappings",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/serviceRegions",
+          "scope": "Preserve AI service-location mappings and distinguish them from the tenant host or implied processing residency.",
+          "sourceIds": [
+            "aiSaiaInstall",
+            "aiSaiaAbout"
+          ]
+        },
+        {
+          "id": "ai-regulated-boundaries",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/regulatedQualification",
+          "scope": "Separate the documented feature-level regulated boundary from offering authorization. Preserve exclusions and unknowns.",
+          "sourceIds": [
+            "aiSaiaInstall",
+            "aiHighAnnouncement20261019",
+            "aiEsRegions88",
+            "aiObsAssistant"
+          ]
+        },
+        {
+          "id": "saia-agent-service-regions",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/agentModeRegions",
+          "scope": "Agent Mode and Model Runtime have their own region evidence; derive no feature inheritance from the base assistant.",
+          "sourceIds": [
+            "aiSaiaAgentMode",
+            "aiSaiaModelRuntime"
+          ]
+        },
+        {
+          "id": "saia-agent-cloud-connected",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/agentModeCloudConnected",
+          "scope": "Cloud Connected Agent Mode regional/runtime availability and compatibility stay independently scoped.",
+          "sourceIds": [
+            "aiSaiaAgentMode",
+            "aiSaiaModelRuntime",
+            "aiSaiaCloudConnected",
+            "aiSaiaKnownIssues"
+          ]
+        },
+        {
+          "id": "itsi-subagent-regional-qualification",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/capabilities/2/qualification",
+          "scope": "Keep ITSI-specific regional enablement unresolved where a public scoped source does not establish it.",
+          "sourceIds": [
+            "aiSaiaAbout",
+            "aiSaiaInstall"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "aiSaiaInstall",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+          "section": "FedRAMP deployments; supported regions; version compatibility"
+        },
+        {
+          "id": "aiSaiaAbout",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+          "section": "Requirements; features; ITSI subagent; where the assistant runs"
+        },
+        {
+          "id": "aiHighAnnouncement20261019",
+          "dataset": "guidance",
+          "url": "https://www.splunk.com/en_us/blog/industries/edge-and-ingest-processors-with-spl2-and-splunk-ai-assistant-achieve-fedramp-high.html",
+          "section": "Expanding Capabilities in AWS GovCloud with FedRAMP High; SPL authoring and explanation"
+        },
+        {
+          "id": "aiEsRegions88",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+          "section": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility"
+        },
+        {
+          "id": "aiObsAssistant",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/ai-assistant-in-observability-cloud",
+          "section": "Availability; supported realms and product areas; access; context limitations; data sharing and use"
+        },
+        {
+          "id": "aiSaiaAgentMode",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+          "section": "Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites"
+        },
+        {
+          "id": "aiSaiaModelRuntime",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+          "section": "Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off"
+        },
+        {
+          "id": "aiSaiaCloudConnected",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+          "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data"
+        },
+        {
+          "id": "aiSaiaKnownIssues",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
+          "section": "SAIA-9918 Cloud Connected access and 2.1.1 workaround"
+        }
+      ],
+      "interfaces": [
+        "/?view=ai-availability"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-invalid-links",
+        "both-themes-phone"
+      ],
+      "freshness": {
+        "sourceCheckDays": 14,
+        "claimAssessmentDays": 30,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "csp-fedramp-watch",
+        "trigger": "Conflicting, unavailable, changed or overdue evidence or failed interface parity.",
+        "action": "Record exact affected scope and finite follow-up. Preserve qualifiers and verify supported changes before steward handoff."
+      }
+    },
+    {
+      "id": "ai.regional-es",
+      "title": "ES AI regional and regulated scope by edition and service",
+      "mandatory": true,
+      "primaryOwner": "csp-fedramp-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "csp-fedramp-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "es-essentials-ai-regions",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/esEssentials",
+          "scope": "Essentials regional table and feature-specific exclusions.",
+          "sourceIds": [
+            "aiEsRegions88",
+            "aiEsEditions"
+          ]
+        },
+        {
+          "id": "es-premier-ai-regions",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/esPremier",
+          "scope": "Premier regional table, regulated/provider and component boundaries.",
+          "sourceIds": [
+            "aiEsRegions88",
+            "aiEsEditions"
+          ]
+        },
+        {
+          "id": "es-cloud-connect-ai-regions",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/esCloudConnect",
+          "scope": "Cloud Connected requirements and regional qualifications stay separate from Cloud-only rules.",
+          "sourceIds": [
+            "aiEsRegions88",
+            "aiEsCloudConnectAgentic88",
+            "aiSaiaCloudConnected"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "aiEsRegions88",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+          "section": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility"
+        },
+        {
+          "id": "aiEsEditions",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
+          "section": "Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings"
+        },
+        {
+          "id": "aiEsCloudConnectAgentic88",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/set-up-splunk-cloud-connect-to-use-the-agentic-soc",
+          "section": "Platform, ES, Cloud Connect and Splunk AI Assistant floors; installation, service activation and token certificate setup"
+        },
+        {
+          "id": "aiSaiaCloudConnected",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+          "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data"
+        }
+      ],
+      "interfaces": [
+        "/?view=ai-availability"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-invalid-links",
+        "both-themes-phone"
+      ],
+      "freshness": {
+        "sourceCheckDays": 14,
+        "claimAssessmentDays": 30,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "csp-fedramp-watch",
+        "trigger": "Conflicting, unavailable, changed or overdue evidence or failed interface parity.",
+        "action": "Record exact affected scope and finite follow-up. Preserve qualifiers and verify supported changes before steward handoff."
+      }
+    },
+    {
+      "id": "ai.regional-observability",
+      "title": "Observability AI region, realm and provider evidence",
+      "mandatory": true,
+      "primaryOwner": "csp-fedramp-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "csp-fedramp-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "observability-ai-regions",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/observabilityRegions",
+          "scope": "Map assistant and troubleshooting eligibility separately to documented service regions; retain the regulated exclusion or unknown.",
+          "sourceIds": [
+            "aiObsAssistant",
+            "aiObsRca",
+            "aiObsServiceDetails"
+          ]
+        },
+        {
+          "id": "observability-ai-realm-conflict",
+          "dataset": "guidance",
+          "pointer": "/aiAvailability/observabilityRealmConflict",
+          "scope": "Preserve any conflicting or unmapped realm evidence and distinguish it from inferred neighboring availability.",
+          "sourceIds": [
+            "aiObsAssistant",
+            "aiObsServiceDetails"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "aiObsAssistant",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/ai-assistant-in-observability-cloud",
+          "section": "Availability; supported realms and product areas; access; context limitations; data sharing and use"
+        },
+        {
+          "id": "aiObsRca",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan",
+          "section": "Availability; supported alerts and metrics; opt-in behavior; Kubernetes remediation plans"
+        },
+        {
+          "id": "aiObsServiceDetails",
+          "dataset": "guidance",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
+          "section": "Available regions or realms; realm-to-region equivalence; available components per realm"
+        }
+      ],
+      "interfaces": [
+        "/?view=ai-availability"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-invalid-links",
+        "both-themes-phone"
+      ],
+      "freshness": {
+        "sourceCheckDays": 14,
+        "claimAssessmentDays": 30,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "csp-fedramp-watch",
+        "trigger": "Conflicting, unavailable, changed or overdue evidence or failed interface parity.",
+        "action": "Record exact affected scope and finite follow-up. Preserve qualifiers and verify supported changes before steward handoff."
+      }
+    },
+    {
+      "id": "release-guide.enterprise",
+      "title": "Splunk Enterprise upgrade paths",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "release-guide.enterprise",
+          "dataset": "platform",
+          "pointer": "/enterprise",
+          "scope": "Current release and lifecycle signals, supported upgrade steps, patch floors and changed technical requirements. Check applicability by branch and package.",
+          "sourceIds": [
+            "enterprise106Notes",
+            "enterprise106Upgrade"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "enterprise106Notes",
+          "dataset": "platform",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6",
+          "section": "What’s New headings and maintenance-release markers",
+          "urlPointer": "/enterprise/releasesData/10.6/source"
+        },
+        {
+          "id": "enterprise106Upgrade",
+          "dataset": "platform",
+          "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise",
+          "section": "Supported upgrade paths and upgrade planning",
+          "urlPointer": "/enterprise/upgradeSources/10.6"
+        }
+      ],
+      "interfaces": [
+        "/?product=platform&platform=enterprise"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 1,
+        "claimAssessmentDays": 1,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-release-watch",
+        "trigger": "Missing, contradictory or stale evidence for the named review scope.",
+        "action": "Publish the bounded result with the exact gap and next review date. Preserve prior facts, dates and qualifications when unresolved."
+      }
+    },
+    {
+      "id": "release-guide.cloud",
+      "title": "Splunk Cloud Platform milestones",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "release-guide.cloud",
+          "dataset": "platform",
+          "pointer": "/cloud",
+          "scope": "Cloud-managed release milestones, rollout qualifications, and changed capabilities or technical requirements in the guide.",
+          "sourceIds": [
+            "cloud107Notes",
+            "service107"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "cloud107Notes",
+          "dataset": "platform",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new",
+          "section": "What’s New and release headings",
+          "urlPointer": "/cloud/releasesData/10.7/source"
+        },
+        {
+          "id": "service107",
+          "dataset": "environment",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+          "section": "Splunk Cloud Platform versions and feature availability"
+        }
+      ],
+      "interfaces": [
+        "/?product=platform&platform=cloud"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 1,
+        "claimAssessmentDays": 1,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-release-watch",
+        "trigger": "Missing, contradictory or stale evidence for the named review scope.",
+        "action": "Publish the bounded result with the exact gap and next review date. Preserve prior facts, dates and qualifications when unresolved."
+      }
+    },
+    {
+      "id": "release-guide.enterprise-to-cloud",
+      "title": "Enterprise-to-Cloud migration",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "release-guide.enterprise-to-cloud",
+          "dataset": "platform",
+          "pointer": "/migration",
+          "scope": "Assessment readiness and SCMA prerequisites, preparation, validation, and cutover/operating-model implications. Review destination milestones independently.",
+          "sourceIds": [
+            "migrationOverview",
+            "migrationPrepare",
+            "migrationValidate",
+            "scma"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "migrationOverview",
+          "dataset": "platform",
+          "url": "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Overview",
+          "section": "Migration phases and transition",
+          "urlPointer": "/migration/sources/overview"
+        },
+        {
+          "id": "migrationPrepare",
+          "dataset": "platform",
+          "url": "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Prepare",
+          "section": "Preparation, app and data readiness",
+          "urlPointer": "/migration/sources/prepare"
+        },
+        {
+          "id": "migrationValidate",
+          "dataset": "platform",
+          "url": "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Validate",
+          "section": "Validation and transition criteria",
+          "urlPointer": "/migration/sources/validate"
+        },
+        {
+          "id": "scma",
+          "dataset": "platform",
+          "url": "https://splunkbase.splunk.com/app/4974",
+          "section": "Release history and Splunk Enterprise compatibility",
+          "urlPointer": "/migration/sources/scma"
+        }
+      ],
+      "interfaces": [
+        "/?product=platform&platform=migration"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 1,
+        "claimAssessmentDays": 1,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-release-watch",
+        "trigger": "Missing, contradictory or stale evidence for the named review scope.",
+        "action": "Publish the bounded result with the exact gap and next review date. Preserve prior facts, dates and qualifications when unresolved."
+      }
+    },
+    {
+      "id": "release-guide.es",
+      "title": "Enterprise Security release path",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "release-guide.es",
+          "dataset": "products",
+          "pointer": "/productTracks/es",
+          "scope": "ES release stage, upgrade and host pairing, changed requirements, and Platform-managed Cloud scope. Keep edition entitlement in ES Editions.",
+          "sourceIds": [
+            "rn88",
+            "esCompatibility",
+            "service107"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "rn88",
+          "dataset": "editions",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": "What’s New, upgrade caveats and release stage",
+          "urlPointer": "/sources/rn88/u"
+        },
+        {
+          "id": "esCompatibility",
+          "dataset": "products",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+          "section": "Enterprise Security compatibility rows",
+          "urlPointer": "/productTracks/es/compatibilitySource"
+        },
+        {
+          "id": "service107",
+          "dataset": "environment",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+          "section": "Premium solutions and Splunk-managed service compatibility"
+        }
+      ],
+      "interfaces": [
+        "/?product=es"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 1,
+        "claimAssessmentDays": 1,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-release-watch",
+        "trigger": "Missing, contradictory or stale evidence for the named review scope.",
+        "action": "Publish the bounded result with the exact gap and next review date. Preserve prior facts, dates and qualifications when unresolved."
+      }
+    },
+    {
+      "id": "release-guide.itsi",
+      "title": "ITSI release path",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "release-guide.itsi",
+          "dataset": "products",
+          "pointer": "/productTracks/itsi",
+          "scope": "Current ITSI release, exact host and related-app pairing, changed technical requirements and managed Cloud scope.",
+          "sourceIds": [
+            "itsiPackage",
+            "itsiCompatibility",
+            "itsiRelatedApps",
+            "service107"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "itsiPackage",
+          "dataset": "products",
+          "url": "https://splunkbase.splunk.com/app/1841",
+          "section": "Release history and Enterprise compatibility",
+          "urlPointer": "/productTracks/itsi/releasesData/5.0.3/source"
+        },
+        {
+          "id": "itsiCompatibility",
+          "dataset": "products",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+          "section": "ITSI compatibility rows",
+          "urlPointer": "/productTracks/itsi/compatibilitySource"
+        },
+        {
+          "id": "itsiRelatedApps",
+          "dataset": "products",
+          "url": "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/install-and-upgrade/5.0/planning/itsi-compatibility-with-related-apps-and-add-ons",
+          "section": "Related apps and add-ons compatibility",
+          "urlPointer": "/productTracks/itsi/relatedAppsSource"
+        },
+        {
+          "id": "service107",
+          "dataset": "environment",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+          "section": "Premium solutions and Splunk-managed service compatibility"
+        }
+      ],
+      "interfaces": [
+        "/?product=itsi"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 1,
+        "claimAssessmentDays": 1,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-release-watch",
+        "trigger": "Missing, contradictory or stale evidence for the named review scope.",
+        "action": "Publish the bounded result with the exact gap and next review date. Preserve prior facts, dates and qualifications when unresolved."
+      }
+    },
+    {
+      "id": "release-guide.observability",
+      "title": "Observability Cloud milestones and components",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "release-guide.observability",
+          "dataset": "products",
+          "pointer": "/productTracks/observability",
+          "scope": "Current rolling service changes and separately versioned Collector, instrumentation and deployment prerequisites. Keep realm and entitlement qualifications.",
+          "sourceIds": [
+            "observabilityNotes",
+            "collectorDocs",
+            "o11y"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "observabilityNotes",
+          "dataset": "products",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/release-notes-overview",
+          "section": "Latest monthly release-note headings and component changes",
+          "urlPointer": "/productTracks/observability/releaseOverview"
+        },
+        {
+          "id": "collectorDocs",
+          "dataset": "products",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector",
+          "section": "Collector installation, deployment and linked component releases",
+          "urlPointer": "/productTracks/observability/collectorSource"
+        },
+        {
+          "id": "o11y",
+          "dataset": "environment",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
+          "section": "Available components, regions and realms"
+        }
+      ],
+      "interfaces": [
+        "/?product=observability"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 1,
+        "claimAssessmentDays": 1,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-release-watch",
+        "trigger": "Missing, contradictory or stale evidence for the named review scope.",
+        "action": "Publish the bounded result with the exact gap and next review date. Preserve prior facts, dates and qualifications when unresolved."
+      }
+    },
+    {
+      "id": "release-guide.soar",
+      "title": "SOAR Cloud and on-premises release paths",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "release-guide.soar",
+          "dataset": "soar",
+          "pointer": "/releases",
+          "scope": "Cloud milestones and managed availability, separate on-premises upgrade path and requirements, package prerequisites and supported pairing.",
+          "sourceIds": [
+            "cloud88Ga",
+            "on87",
+            "path87",
+            "cloud88Service"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "cloud88Ga",
+          "dataset": "soar",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
+          "section": "Current release and Cloud release history"
+        },
+        {
+          "id": "on87",
+          "dataset": "soar",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.7.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises",
+          "section": "On-premises release version, changes and prerequisites"
+        },
+        {
+          "id": "path87",
+          "dataset": "soar",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.7.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations",
+          "section": "Supported paths for unprivileged on-premises installations"
+        },
+        {
+          "id": "cloud88Service",
+          "dataset": "soar",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/soar-cloud-service-description/the-splunk-soar-service/splunk-soar-cloud-introduction",
+          "section": "SOAR Cloud service availability and supported versions"
+        }
+      ],
+      "interfaces": [
+        "/?product=soar"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 1,
+        "claimAssessmentDays": 1,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-release-watch",
+        "trigger": "Missing, contradictory or stale evidence for the named review scope.",
+        "action": "Publish the bounded result with the exact gap and next review date. Preserve prior facts, dates and qualifications when unresolved."
+      }
+    },
+    {
+      "id": "release-guide.universal-forwarder",
+      "title": "Universal Forwarder upgrade paths",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "release-guide.universal-forwarder",
+          "dataset": "forwarders",
+          "pointer": "/ufEdges",
+          "scope": "Exact forwarder release paths, receiver support, operating systems, Cloud renewal differences and acknowledgment applicability.",
+          "sourceIds": [
+            "upgrade106",
+            "receiver",
+            "os106",
+            "cloud107",
+            "ack"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "upgrade106",
+          "dataset": "forwarders",
+          "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first",
+          "section": "Universal Forwarder release upgrade paths"
+        },
+        {
+          "id": "receiver",
+          "dataset": "forwarders",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers#ariaid-title2",
+          "section": "Forwarder-to-indexer compatibility"
+        },
+        {
+          "id": "os106",
+          "dataset": "forwarders",
+          "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/plan-your-splunk-enterprise-installation/system-requirements-for-use-of-splunk-enterprise-on-premises",
+          "section": "Supported operating systems for Universal Forwarder"
+        },
+        {
+          "id": "cloud107",
+          "dataset": "forwarders",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#supported-forwarder-versions-0",
+          "section": "Supported forwarder versions and Cloud credentials"
+        },
+        {
+          "id": "ack",
+          "dataset": "forwarders",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues",
+          "section": "Universal Forwarder receiver acknowledgment warning and resolution"
+        }
+      ],
+      "interfaces": [
+        "/?product=forwarders&type=uf"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 1,
+        "claimAssessmentDays": 1,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-release-watch",
+        "trigger": "Missing, contradictory or stale evidence for the named review scope.",
+        "action": "Publish the bounded result with the exact gap and next review date. Preserve prior facts, dates and qualifications when unresolved."
+      }
+    },
+    {
+      "id": "release-guide.heavy-forwarder",
+      "title": "Heavy Forwarder upgrade paths",
+      "mandatory": true,
+      "primaryOwner": "version-release-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "version-release-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "release-guide.heavy-forwarder",
+          "dataset": "forwarders",
+          "pointer": "/hfComponents",
+          "scope": "Enterprise-based Heavy Forwarder platform upgrades and supported OS/receivers, hybrid topology and changed runtime components.",
+          "sourceIds": [
+            "enterprise106",
+            "os106",
+            "receiver",
+            "cloud107",
+            "kv106"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "enterprise106",
+          "dataset": "forwarders",
+          "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise",
+          "section": "Enterprise upgrade path and Heavy Forwarder applicability"
+        },
+        {
+          "id": "os106",
+          "dataset": "forwarders",
+          "url": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/plan-your-splunk-enterprise-installation/system-requirements-for-use-of-splunk-enterprise-on-premises",
+          "section": "Splunk Enterprise system requirements"
+        },
+        {
+          "id": "receiver",
+          "dataset": "forwarders",
+          "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers#ariaid-title2",
+          "section": "Forwarding and receiver compatibility"
+        },
+        {
+          "id": "cloud107",
+          "dataset": "forwarders",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#supported-forwarder-versions-0",
+          "section": "Supported forwarder versions for Cloud destinations"
+        },
+        {
+          "id": "kv106",
+          "dataset": "forwarders",
+          "url": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store",
+          "section": "Co-hosted KV store migration requirements and scope"
+        }
+      ],
+      "interfaces": [
+        "/?product=forwarders&type=hf"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 1,
+        "claimAssessmentDays": 1,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "version-release-watch",
+        "trigger": "Missing, contradictory or stale evidence for the named review scope.",
+        "action": "Publish the bounded result with the exact gap and next review date. Preserve prior facts, dates and qualifications when unresolved."
+      }
+    },
+    {
+      "id": "es-editions.licensing",
+      "title": "Essentials/Premier edition tiers and licensing",
+      "mandatory": true,
+      "primaryOwner": "es-editions-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "es-editions-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "es-editions.licensing",
+          "dataset": "editions",
+          "pointer": "/capabilities",
+          "scope": "Essentials, Premier, licensing, trials and pricing-model distinctions. Compare the published edition and capability rows; preserve separate entitlements.",
+          "sourceIds": [
+            "editions",
+            "licensing88",
+            "pricing"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "editions",
+          "dataset": "editions",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
+          "section": "Edition definitions and capability table",
+          "urlPointer": "/sources/editions/u"
+        },
+        {
+          "id": "licensing88",
+          "dataset": "editions",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.8/introduction/licensing-for-splunk-enterprise-security",
+          "section": "Licenses, editions and trial prerequisites",
+          "urlPointer": "/sources/licensing88/u"
+        },
+        {
+          "id": "pricing",
+          "dataset": "editions",
+          "url": "https://www.splunk.com/en_us/products/pricing.html",
+          "section": "Enterprise Security and SOAR pricing models",
+          "urlPointer": "/sources/pricing/u"
+        }
+      ],
+      "interfaces": [
+        "/?view=es-editions"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 1,
+        "claimAssessmentDays": 1,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "es-editions-watch",
+        "trigger": "Missing, contradictory or stale evidence for the named review scope.",
+        "action": "Publish the bounded result with the exact gap and next review date. Preserve prior facts, dates and qualifications when unresolved."
+      }
+    },
+    {
+      "id": "es-editions.history",
+      "title": "Release history and entitlement changes",
+      "mandatory": true,
+      "primaryOwner": "es-editions-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "es-editions-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "es-editions.history",
+          "dataset": "editions",
+          "pointer": "/history",
+          "scope": "Release stage and changed edition or entitlement boundaries across maintained history. Check release notices for explicit historical corrections.",
+          "sourceIds": [
+            "rn87",
+            "rn88"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "rn87",
+          "dataset": "editions",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": "8.7 release milestones and edition table",
+          "urlPointer": "/sources/rn87/u"
+        },
+        {
+          "id": "rn88",
+          "dataset": "editions",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "section": "8.8 release milestones and edition table",
+          "urlPointer": "/sources/rn88/u"
+        }
+      ],
+      "interfaces": [
+        "/?view=es-editions"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 1,
+        "claimAssessmentDays": 1,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "es-editions-watch",
+        "trigger": "Missing, contradictory or stale evidence for the named review scope.",
+        "action": "Publish the bounded result with the exact gap and next review date. Preserve prior facts, dates and qualifications when unresolved."
+      }
+    },
+    {
+      "id": "es-editions.deployment",
+      "title": "ES deployment and regional prerequisites",
+      "mandatory": true,
+      "primaryOwner": "es-editions-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "es-editions-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "es-editions.deployment",
+          "dataset": "editions",
+          "pointer": "/conflicts",
+          "scope": "Cloud and Enterprise deployment differences, host and regional compatibility, and mismatched edition/capability matrix claims.",
+          "sourceIds": [
+            "matrix88",
+            "regions88",
+            "cloudcx88"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "matrix88",
+          "dataset": "editions",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/splunk-enterprise-security-editions-cloud-capability-matrix",
+          "section": "Edition and Cloud capability rows",
+          "urlPointer": "/sources/matrix88/u"
+        },
+        {
+          "id": "regions88",
+          "dataset": "editions",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+          "section": "Compatibility and Regional Availability tables",
+          "urlPointer": "/sources/regions88/u"
+        },
+        {
+          "id": "cloudcx88",
+          "dataset": "editions",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.8/introduction/access-splunk-cloud-connect-in-splunk-enterprise-security-to-access-cloud-extensions",
+          "section": "Cloud Connect scope and access prerequisites",
+          "urlPointer": "/sources/cloudcx88/u"
+        }
+      ],
+      "interfaces": [
+        "/?view=es-editions"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 1,
+        "claimAssessmentDays": 1,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "es-editions-watch",
+        "trigger": "Missing, contradictory or stale evidence for the named review scope.",
+        "action": "Publish the bounded result with the exact gap and next review date. Preserve prior facts, dates and qualifications when unresolved."
+      }
+    },
+    {
+      "id": "es-editions.workflows",
+      "title": "ES feature and workflow dependencies",
+      "mandatory": true,
+      "primaryOwner": "es-editions-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "es-editions-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "es-editions.workflows",
+          "dataset": "editions",
+          "pointer": "/workflows",
+          "scope": "Edition-specific feature and workflow prerequisites, including UEBA, AI/Cloud Connect and separately versioned SOAR connector/export paths.",
+          "sourceIds": [
+            "matrix88",
+            "ueba",
+            "agentic88",
+            "appForSoar88",
+            "soarExportCloud88",
+            "soarExportEnterprise88"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "matrix88",
+          "dataset": "editions",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/splunk-enterprise-security-editions-cloud-capability-matrix",
+          "section": "Workflow and feature availability by edition",
+          "urlPointer": "/sources/matrix88/u"
+        },
+        {
+          "id": "ueba",
+          "dataset": "editions",
+          "url": "https://www.splunk.com/en_us/products/user-and-entity-behavior-analytics.html",
+          "section": "UEBA capabilities and prerequisites",
+          "urlPointer": "/sources/ueba/u"
+        },
+        {
+          "id": "agentic88",
+          "dataset": "editions",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+          "section": "Agentic offerings and their feature-specific scopes",
+          "urlPointer": "/sources/agentic88/u"
+        },
+        {
+          "id": "appForSoar88",
+          "dataset": "editions",
+          "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.8.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+          "section": "App for SOAR prerequisites, compatibility and required ports",
+          "urlPointer": "/sources/appForSoar88/u"
+        },
+        {
+          "id": "soarExportCloud88",
+          "dataset": "editions",
+          "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+          "section": "Cloud Platform prerequisites and functionality-tested pairings",
+          "urlPointer": "/sources/soarExportCloud88/u"
+        },
+        {
+          "id": "soarExportEnterprise88",
+          "dataset": "editions",
+          "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+          "section": "Enterprise prerequisites and functionality-tested pairings",
+          "urlPointer": "/sources/soarExportEnterprise88/u"
+        }
+      ],
+      "interfaces": [
+        "/?view=es-editions"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 1,
+        "claimAssessmentDays": 1,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "es-editions-watch",
+        "trigger": "Missing, contradictory or stale evidence for the named review scope.",
+        "action": "Publish the bounded result with the exact gap and next review date. Preserve prior facts, dates and qualifications when unresolved."
+      }
+    },
+    {
+      "id": "cloud-environment.regions",
+      "title": "Cloud providers and regional service availability",
+      "mandatory": true,
+      "primaryOwner": "csp-fedramp-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "csp-fedramp-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "cloud-environment.regions",
+          "dataset": "environment",
+          "pointer": "/regions",
+          "scope": "AWS, Azure and Google Cloud service regions and named exceptions. Record changes by provider and region; treat provider catalog evidence as distinct from Splunk availability.",
+          "sourceIds": [
+            "service107",
+            "changes107"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "service107",
+          "dataset": "environment",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+          "section": "Available regions and region differences"
+        },
+        {
+          "id": "changes107",
+          "dataset": "environment",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log",
+          "section": "Dated provider and region changes"
+        }
+      ],
+      "interfaces": [
+        "/?product=platform&platform=cloud"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 1,
+        "claimAssessmentDays": 1,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "csp-fedramp-watch",
+        "trigger": "Missing, contradictory or stale evidence for the named review scope.",
+        "action": "Publish the bounded result with the exact gap and next review date. Preserve prior facts, dates and qualifications when unresolved."
+      }
+    },
+    {
+      "id": "cloud-environment.experience",
+      "title": "Classic/Victoria and Cloud service controls",
+      "mandatory": true,
+      "primaryOwner": "csp-fedramp-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "csp-fedramp-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "cloud-environment.experience",
+          "dataset": "environment",
+          "pointer": "/experiences",
+          "scope": "Classic and Victoria experience boundaries, managed upgrades and environment-specific ACS, maintenance, and ingest service prerequisites exposed in the perspectives.",
+          "sourceIds": [
+            "service107",
+            "acs",
+            "acsMaintenance",
+            "ingest"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "service107",
+          "dataset": "environment",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+          "section": "Classic and Victoria experience, availability and service controls"
+        },
+        {
+          "id": "acs",
+          "dataset": "environment",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.6/using-the-admin-config-service-acs--api/admin-config-service-acs-requirements-and-compatibility-matrix",
+          "section": "Requirements and compatibility matrix"
+        },
+        {
+          "id": "acsMaintenance",
+          "dataset": "environment",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.6/administer-splunk-cloud-platform-using-the-admin-config-service-acs-api/manage-maintenance-windows-for-splunk-cloud-platform",
+          "section": "Maintenance window requirements and limitations"
+        },
+        {
+          "id": "ingest",
+          "dataset": "environment",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor",
+          "section": "Ingest Processor availability and deployment prerequisites"
+        }
+      ],
+      "interfaces": [
+        "/?product=platform&platform=cloud&experience=victoria"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 1,
+        "claimAssessmentDays": 1,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "csp-fedramp-watch",
+        "trigger": "Missing, contradictory or stale evidence for the named review scope.",
+        "action": "Publish the bounded result with the exact gap and next review date. Preserve prior facts, dates and qualifications when unresolved."
+      }
+    },
+    {
+      "id": "cloud-environment.fedramp",
+      "title": "FedRAMP Moderate and High boundaries",
+      "mandatory": true,
+      "primaryOwner": "csp-fedramp-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "csp-fedramp-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "cloud-environment.fedramp",
+          "dataset": "environment",
+          "pointer": "/regimes",
+          "scope": "Check both Marketplace entries against the vendor compliance scope and named feature/service rows. Keep product authorization, experience, rollout and customer eligibility distinct.",
+          "sourceIds": [
+            "moderate",
+            "high",
+            "compliance",
+            "highAnnouncement20261019"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "moderate",
+          "dataset": "environment",
+          "url": "https://www.fedramp.gov/marketplace/products/F1607197917/",
+          "section": "Cloud Platform Moderate product and authorization attributes"
+        },
+        {
+          "id": "high",
+          "dataset": "environment",
+          "url": "https://www.fedramp.gov/marketplace/products/FR2314156865/",
+          "section": "Cloud Platform High product and authorization attributes"
+        },
+        {
+          "id": "compliance",
+          "dataset": "environment",
+          "url": "https://www.splunk.com/en_us/about-splunk/splunk-data-security-and-privacy/compliance-at-splunk.html",
+          "section": "FedRAMP scope by product and level"
+        },
+        {
+          "id": "highAnnouncement20261019",
+          "dataset": "environment",
+          "url": "https://www.splunk.com/en_us/blog/industries/edge-and-ingest-processors-with-spl2-and-splunk-ai-assistant-achieve-fedramp-high.html",
+          "section": "Specifically named features and High scope"
+        }
+      ],
+      "interfaces": [
+        "/?product=platform&platform=cloud&compliance=fr-h"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 1,
+        "claimAssessmentDays": 1,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "csp-fedramp-watch",
+        "trigger": "Missing, contradictory or stale evidence for the named review scope.",
+        "action": "Publish the bounded result with the exact gap and next review date. Preserve prior facts, dates and qualifications when unresolved."
+      }
+    },
+    {
+      "id": "cloud-environment.product-services",
+      "title": "Premium products, Observability realms and service scope",
+      "mandatory": true,
+      "primaryOwner": "csp-fedramp-watch",
+      "independentVerification": [
+        "version-guidance-audit"
+      ],
+      "supportingOwners": [],
+      "participatingWatches": [
+        "csp-fedramp-watch",
+        "version-guidance-audit"
+      ],
+      "requiredDisposition": "every-participating-run",
+      "claimFamilies": [
+        {
+          "id": "cloud-environment.product-services",
+          "dataset": "environment",
+          "pointer": "/records",
+          "scope": "Check environment-specific ES, ITSI and SOAR service pairings and availability, and Observability realm, provider and component mapping. Keep text explicit about the product, version, service, region, and exceptions.",
+          "sourceIds": [
+            "service107",
+            "regions88",
+            "cloud88Service",
+            "o11yRealmUs2",
+            "o11yDatabaseRegions"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "service107",
+          "dataset": "environment",
+          "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+          "section": "Premium solutions and availability by service and region"
+        },
+        {
+          "id": "regions88",
+          "dataset": "editions",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+          "section": "Regional version and product compatibility",
+          "urlPointer": "/sources/regions88/u"
+        },
+        {
+          "id": "cloud88Service",
+          "dataset": "soar",
+          "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/soar-cloud-service-description/the-splunk-soar-service/splunk-soar-cloud-introduction",
+          "section": "SOAR Cloud service scope"
+        },
+        {
+          "id": "o11yRealmUs2",
+          "dataset": "environment",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description#realm-to-region-equivalence-0",
+          "section": "Realm-to-region equivalence"
+        },
+        {
+          "id": "o11yDatabaseRegions",
+          "dataset": "environment",
+          "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description#available-components-per-region-or-realm-0",
+          "section": "Available components per region or realm"
+        }
+      ],
+      "interfaces": [
+        "/?product=observability&platform=cloud"
+      ],
+      "exports": [
+        "screen",
+        "native-pdf",
+        "offline-html",
+        "shared-links"
+      ],
+      "freshness": {
+        "sourceCheckDays": 1,
+        "claimAssessmentDays": 1,
+        "onDependencyChange": "reassess-affected-scope"
+      },
+      "requiredChecks": [
+        "sync-gates",
+        "unit-suite",
+        "advisor-maintenance",
+        "native-issue-feed",
+        "coverage-gate",
+        "build",
+        "exact-candidate-exports",
+        "artifact-readback",
+        "live-ui-assets-d1"
+      ],
+      "escalation": {
+        "owner": "csp-fedramp-watch",
+        "trigger": "Missing, contradictory or stale evidence for the named review scope.",
+        "action": "Publish the bounded result with the exact gap and next review date. Preserve prior facts, dates and qualifications when unresolved."
+      }
+    }
+  ],
+  "expansion": [
+    {
+      "scope": "ES editions and workflows",
+      "primaryOwner": "es-editions-watch"
+    },
+    {
+      "scope": "FedRAMP and regional evidence",
+      "primaryOwner": "csp-fedramp-watch"
+    },
+    {
+      "scope": "Forwarders, SOAR and issue assessment",
+      "primaryOwner": "version-release-watch"
+    },
+    {
+      "scope": "Architecture and publication",
+      "primaryOwner": "version-guidance-audit"
+    },
+    {
+      "scope": "Ripple research and finding journeys",
+      "primaryOwner": "version-release-watch"
+    }
+  ],
+  "review": {
+    "cadence": "Next existing Guidance Audit after four actual pilot cycles, then monthly within that task",
+    "measures": [
+      "coverage misses and overdue scope",
+      "efficacy and false/repeated findings",
+      "duplicate work",
+      "resource use only when measured",
+      "observed user value and unresolved assumptions"
+    ],
+    "newSchedule": false
+  },
+  "readerReview": {
+    "schemaVersion": 1,
+    "effectiveOn": "2026-11-25",
+    "previousRegistryVersion": "1.4.0",
+    "recoveryVersions": [
+      "1.5.0",
+      "1.5.1"
+    ]
+  }
+}

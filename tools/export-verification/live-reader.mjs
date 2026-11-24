@@ -46,7 +46,7 @@ try {
       const check = {routeId,sections:selected.map(({capabilityId,proofId,receipt,checkedAt}) => ({capabilityId,proofId,receipt,checkedAt})),status:'failed'};
       result.checks.push(check);
       try {
-        await checkReaderReport(browser,host,route,selected,directory);
+        Object.assign(check,await checkReaderReport(browser,host,route,selected,directory));
         check.screen = check.offlineHtml = check.pdf = 'passed';
         check.status = 'passed';
         for (const proof of selected) if (dayOf(proof.checkedAt) === date) current.add(proof.capabilityId);

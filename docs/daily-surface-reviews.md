@@ -99,7 +99,7 @@ The [November 22 official-source readback](audits/2026-11-22-release-recovery-so
 
 ## Daily GitHub handoff and reader checks
 
-Starting November 25, 2026 (Eastern), use registry 1.5.1 for the primary morning
+Starting November 25, 2026 (Eastern), use registry 1.5.2 for the primary morning
 reviews. Release (03:00), ES (04:00) and CSP (05:00) assess their registered
 sections. The 06:15 Guidance task owns their daily integration into GitHub.
 Guidance continues its own substantive research on Mondays and Thursdays.
@@ -185,3 +185,5 @@ For a same-day owner check, use `node tools/export-verification/owner-reader.mjs
 The [November 24 ES citation check](audits/2026-11-24-es-source-locator-recovery.json) records the two retired topics and their verified replacements. After a batch of connection timeouts, retry one outstanding section with at most two simultaneous requests per host and a bounded connection retry. Check the article heading and required passages. Preserve both the original failures and retry times.
 
 Public maintenance history shows the dates, outcomes and scope of reader-facing reviews. Check all historical entries as well as current summaries with `node scripts/record-maintenance.cjs --check`. The recorder and normal maintenance verification use the same rule. Keep execution identifiers in their appropriate diagnostic records.
+
+The [Threat Graph citation check](audits/2026-11-24-threat-graph-source-locator.json) records the official ES 8.8 topic move and its published prerequisites.

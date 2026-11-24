@@ -170,22 +170,52 @@ function inspect(snapshot, { registry, ledger, runs, operational = operationalCo
     const label = identity.kind === 'watch' ? { watchId: identity.id } : { roleId: identity.id };
     if (matches.length !== 1) return { ...label, taskId: identity.taskId, accepted: false, configuration: { status: 'unverified' }, attempt: { status: 'unverified' }, result: { status: 'unverified' }, delivery: { status: 'unknown', claimedDelivered: false }, issues: [matches.length ? 'duplicate-actual-task' : 'missing-actual-task'] };
     const config = configuration(task, identity.baseline, snapshot.observedAt), evidence = attemptResult(task, snapshot.observedAt, identity.baseline?.readbackAt, identity, identities, outputs);
-    const issues = [...config.issues, ...evidence.attempt.issues, ...evidence.result.issues];
+    const issues = [...config.issues, ...evidence.attempt.issues];
     if (task.is_enabled !== true) issues.push('participating-task-disabled');
-    let matchingReceiptIds = [];
+    let matchingReceiptIds = [], ownerReceiptIds = [], verifiedReviewReceiptIds = [];
     if (identity.kind === 'watch') {
       const matchingRuns = runs.filter(r => r.kind === 'saved-task-execution' && r.watchId === identity.id && r.registryVersion === registry.registryVersion && r.execution?.taskId === task.id && evidence.attempt.schedulerRunId && r.execution.schedulerRunId === evidence.attempt.schedulerRunId);
       const matchingAttempts = matchingRuns.filter(r => sameAttemptStart(r.execution.startedAt, task.run_details?.last_run?.started_at));
+      ownerReceiptIds = matchingAttempts.map(r => r.runId).filter(Boolean);
+      // Report identity and product review are independently meaningful during a registry transition.
+      // Qualification for activation still requires the current version and its saved configuration.
+      const lastStart = task.run_details?.last_run?.started_at;
+      const traceable = runs.filter(r => {
+        if (!r.boundAttempt || !r.runId || r.kind !== 'saved-task-execution' || r.watchId !== identity.id ||
+            r.execution?.taskId !== task.id || !evidence.attempt.schedulerRunId ||
+            r.execution.schedulerRunId !== evidence.attempt.schedulerRunId || !sameAttemptStart(r.execution.startedAt,lastStart)) return false;
+        const version = ledger.amendments.find(a => a.registryVersion === r.registryVersion);
+        return version?.savedTasks.some(t => t.id === identity.id && t.taskId === task.id) &&
+          time(version.recordedAt) <= time(lastStart);
+      });
+      // Attribute an original that another watch echoed only with an independent owner receipt.
+      // A foreign heading, shared attempt ID, missing receipt or other result error stays unverified.
+      const resultIssues = evidence.result.issues;
+      const last = task.run_details?.last_run, content = task.run_details?.latest_result?.content_text;
+      const ownRunId = last?.id;
+      const sharedAttempt = ownRunId && tasks.some(other => other.id !== task.id && other.run_details?.last_run?.id === ownRunId);
+      if (sharedAttempt) {
+        resultIssues.push('native-attempt-shared-across-tasks');
+        evidence.result.status = 'unverified';
+      } else if (traceable.length && resultIssues.length === 1 && resultIssues[0] === 'duplicate-result-across-watches' &&
+          outputs.get(digest(content)).every(peer => peer.kind === 'watch') && claimIdentity(content, identities) === identity.id) {
+        evidence.result = {status:'matched', issues:[], copiedToOtherWatch:true};
+      }
       if (task.is_enabled === true && evidence.attempt.status === 'completed' && evidence.result.status === 'matched') {
-        matchingReceiptIds = matchingAttempts.map(r => r.runId).filter(Boolean);
+        matchingReceiptIds = ownerReceiptIds;
+      }
+      if (task.is_enabled === true && evidence.result.status === 'matched' &&
+          evidence.attempt.issues.every(issue => issue === 'run-configuration-readback-unavailable')) {
+        verifiedReviewReceiptIds = traceable.map(r => r.runId);
       }
       if (!matchingRuns.length) issues.push('no-matching-current-coverage-receipt');
       else if (!matchingAttempts.length) issues.push('coverage-attempt-start-not-matched');
       else if (!matchingAttempts.some(r => r.coverageComplete && r.deliveryComplete && r.claimedComplete && r.publication?.claimedDelivered)) issues.push('coverage-or-delivery-incomplete');
     }
+    issues.push(...evidence.result.issues);
     return { ...label, taskId: identity.taskId, schedulerRunId: evidence.attempt.schedulerRunId, recordedStatus: evidence.attempt.recordedStatus,
       isEnabled: typeof task.is_enabled === 'boolean' ? task.is_enabled : null,
-      ...(identity.kind === 'watch' && { matchingReceiptIds }),
+      ...(identity.kind === 'watch' && { matchingReceiptIds, ownerReceiptIds, verifiedReviewReceiptIds }),
       configuration: config, ...evidence, accepted: issues.length === 0, issues };
   };
   const watches = identities.filter(i => i.kind === 'watch').map(reconcile), roles = identities.filter(i => i.kind === 'role').map(reconcile);

@@ -29,17 +29,17 @@ const bind = run => { run.reviewDigest = reviewDigest(run); return run; };
 test('current source contract preserves 1.3.0 ownership and retains earlier execution history',()=>{
  const current=JSON.parse(fs.readFileSync('content/automation-coverage.json'));
  const previous=JSON.parse(fs.readFileSync('content/automation-registries/1.3.0.json'));
- assert.equal(current.registryVersion,'1.5.1');assert.equal(current.activation,'pending-first-executions');validateRegistry(current);
+ assert.equal(current.registryVersion,'1.5.2');assert.equal(current.activation,'pending-first-executions');validateRegistry(current);
  const canonical=JSON.parse(fs.readFileSync('content/datasets/guidance.json')).sources;
  for (const cap of previous.capabilities) for (const source of cap.sources) {
-  if (['aiEsAgents88','aiEsTriageNote88','aiEsSocTask88'].includes(source.id)) source.url=canonical[source.id].url;
+  if (['aiEsAgents88','aiEsTriageNote88','aiEsSocTask88','aiEsThreatGraph88'].includes(source.id)) source.url=canonical[source.id].url;
  }
  assert.deepEqual(current.capabilities.slice(0, previous.capabilities.length), previous.capabilities);
  const agent=current.capabilities.find(c=>c.id==='advisor.agent-mode');
  for(const id of ['aiSaiaAgentMode','aiSaiaModelRuntime','aiSaiaCloudConnected'])assert(agent.claimFamilies[0].sourceIds.includes(id));
  const soc=current.capabilities.find(c=>c.id==='advisor.soc-workflow');assert.equal(soc.primaryOwner,'es-editions-watch');assert(soc.participatingWatches.includes('csp-fedramp-watch'));
  assert.match(soc.claimFamilies[0].scope,/customer authorization remain separate/);
- assert.deepEqual(JSON.parse(fs.readFileSync('content/automation-registries/1.5.1.json')),current);
+ assert.deepEqual(JSON.parse(fs.readFileSync('content/automation-registries/1.5.2.json')),current);
  assert.equal(validateRun(original,current).gaps.length,5); // Historical implementation outcome is not relabeled.
 });
 test('each daily surface row has the intended owner and an exact canonical source link', () => {
@@ -76,7 +76,7 @@ test('the recorder binds ES and CSP receipts only to their own audits under the 
   copyHistoricalFixture('tools/export-verification/routes.json', root);
   copyHistoricalFixture('content/advisor-goals.json', root);
   fs.cpSync('content/datasets',path.join(root,'content/datasets'),{recursive:true});
-  copyHistoricalFixture('content/automation-registries/1.5.0.json',root);
+  for (const version of current.readerReview.recoveryVersions) copyHistoricalFixture('content/automation-registries/'+version+'.json',root);
   fs.writeFileSync(path.join(root, 'content/automation-coverage.json'), JSON.stringify(current));
   fs.mkdirSync(path.join(root, 'docs/audits'), { recursive: true });
   const record = (run, auditFile, runFile) => execFileSync(process.execPath, [path.resolve('scripts/record-automation-coverage.cjs'), '--run', runFile, '--audit', auditFile], { cwd: root, input: JSON.stringify(run), stdio: ['pipe', 'pipe', 'pipe'] });
@@ -186,9 +186,10 @@ test('future changed watch reviews cannot omit coverage or substitute a manual i
     run.kind = 'saved-task-execution';
     run.auditBindings = [{ file, reviewDigest: require('../scripts/lib/native-issue-feed.cjs').reviewDigest(audit) }];
     write(runFile, bind(run)); assert.equal(check(root).runs[0].coverageComplete, false);
-    audit.execution = { schedulerRunId: 'same-run', startedAt: '2026-11-02T10:00:00Z' };
+    const taskId = amendments.amendments[0].savedTasks.find(t => t.id === run.watchId).taskId;
+    audit.execution = { taskId, schedulerRunId: 'same-run', startedAt: '2026-11-02T10:00:00Z' };
     run.auditBindings[0].reviewDigest = require('../scripts/lib/native-issue-feed.cjs').reviewDigest(audit);
-    run.execution = { schedulerRunId: 'same-run', startedAt: '2026-11-02T10:30:00Z' };
+    run.execution = { taskId, schedulerRunId: 'same-run', startedAt: '2026-11-02T10:30:00Z' };
     write(file, audit); write(runFile, bind(run));
     assert.throws(() => check(root), /disagree on native attempt start/);
     run.execution.startedAt = audit.execution.startedAt;
@@ -342,4 +343,14 @@ test('editorial evidence requires matching owner and work clocks and earns no ex
   }
   assert.equal(editorialReplay({...run, claimedComplete:true}, {execution}), false);
   assert.equal(editorialReplay({...run, publication:{claimedDelivered:true}}, {execution}), false);
+});
+
+test('a native run can have progressive receipts from one task but cannot be borrowed by another', () => {
+  const {bindSchedulerAttempt} = require('../scripts/lib/automation-coverage.cjs');
+  const owners = new Map();
+  const receipt = taskId => ({kind:'saved-task-execution',execution:{taskId,schedulerRunId:'run-1'}});
+  bindSchedulerAttempt(owners, receipt('release'));
+  bindSchedulerAttempt(owners, receipt('release'));
+  assert.throws(() => bindSchedulerAttempt(owners,receipt('csp')), /different saved tasks/);
+  assert.throws(() => bindSchedulerAttempt(owners,receipt(null)), /task identity/);
 });
