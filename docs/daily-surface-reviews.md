@@ -21,6 +21,12 @@ process. Candidate qualification and public readback follow
 [release control](release-control.md). Issue-feed changes use the existing
 contract and provenance gates.
 
+## Observing active reviews
+
+During an owner run, monitor the scheduled task list, the owner's GitHub branch and its read-only checks. Leave the task conversation idle until its completion appears. On November 24 an in-run status inquiry became Release Watch’s saved result and linked an earlier PR. A status inquiry provides no evidence that a claim was assessed.
+
+After completion match the task, occurrence and precise start to the owner’s GitHub receipts. Read the result heading and follow its links. A link to an earlier review, another owner’s result, or a changed start needs independent reconciliation before granting credit. Keep the original evidence and count each verified section once. Only the existing 09:00 steward can publish a qualified correction.
+
 ## 11.x Prep first pass
 
 Start with the eight `prep11.*` rows and the exact sections in the
