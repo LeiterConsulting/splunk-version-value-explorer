@@ -1,0 +1,2454 @@
+{
+  "schemaVersion": 1,
+  "registryVersion": "1.5.1",
+  "runId": "2026-11-24-version-release-watch-review-6",
+  "watchId": "version-release-watch",
+  "kind": "implementation-review",
+  "outcome": "partial",
+  "execution": {
+    "taskId": "6aa950be0884819196ca3f8ae776f49b",
+    "workStartedAt": "2026-11-24T18:58:35Z",
+    "schedulerRunId": null,
+    "startedAt": null,
+    "completedAt": null
+  },
+  "claimedComplete": false,
+  "coverage": [
+    {
+      "capabilityId": "prep11.discovery",
+      "disposition": "assessed-no-change",
+      "qualification": "Bounded public search of Splunk Help release notes, Splunk Platform announcements and Cisco Newsroom. Read the 10.6 release introduction and upgrade links, the September 30 versioning section, and September 15 self-managed AI section. No version-specific 11.x timing, deployment, supported pairs, security baseline or Cloud availability was located in this pass. This is not proof of absence.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:02:14.178283057Z",
+      "assessedAt": "2026-11-24T19:02:14.181406939Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "prep11enterprise",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:02:14.178283057Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6 | Release introduction; upgrade and system-requirement links | direct HTTP None, 0 bytes; SHA-256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; curl: (28) Connection timed out after 5002 milliseconds | Publisher-indexed exact Enterprise 10.6 Release notes introduction and Upgrade/requirements links; direct attempts retained."
+        },
+        {
+          "sourceId": "prep11platformnews",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:01:29.408410Z",
+          "evidence": "https://www.splunk.com/en_us/blog/platform/announcing-splunk-cloud-platform-10-6-and-splunk-enterprise-10-6.html | Keep Apps and Integrations Ready for Updated Versioning | direct HTTP 200, 32300 bytes; SHA-256 de90509ddd06adbdaf29969f32a1e8f8e56a76840d61d885936201caa3b52b1f"
+        },
+        {
+          "sourceId": "prep11ainews",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:01:55.171484126Z",
+          "evidence": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m09/cisco-delivers-trusted-ai-at-scale-through-new-splunk-advancements.html | Self-managed Splunk AI, accelerated by NVIDIA | direct HTTP 403, 195 bytes; SHA-256 5b131ca14aa96311d3432b0062c7443d3b0e6346ec279bd376a75f0a76bcd5d7 | Publisher-indexed exact Cisco Newsroom Self-Managed Splunk AI, accelerated by NVIDIA article; direct denial retained."
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "prep11.release-scope",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "prep11enterprise",
+            "prep11platformnews",
+            "prep11ainews"
+          ],
+          "assessedAt": "2026-11-24T19:02:14.181406939Z",
+          "evidence": "Bounded public search of Splunk Help release notes, Splunk Platform announcements and Cisco Newsroom. Read the 10.6 release introduction and upgrade links, the September 30 versioning section, and September 15 self-managed AI section. No version-specific 11.x timing, deployment, supported pairs, security baseline or Cloud availability was located in this pass. This is not proof of absence.",
+          "qualification": "Release timing, stage, deployment, upgrade/pairing/security and Cloud questions; no universal absence inference."
+        }
+      ],
+      "readerReview": {
+        "question": "Does this guide establish an official Enterprise 11.x release date or upgrade path?",
+        "routeId": "prep11",
+        "routeQuery": "view=splunk-11",
+        "region": ".prep11-status",
+        "sourceId": "prep11enterprise",
+        "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6",
+        "sourceSection": "Release introduction; upgrade and system-requirement links",
+        "answer": "Release timing, deployment requirements and migration paths remain unconfirmed here.",
+        "checkedAt": "2026-11-24T19:02:16.550Z",
+        "claimIds": [
+          "prep11.release-scope"
+        ],
+        "outputs": {
+          "screen": "passed",
+          "offlineHeadlessChromiumHtml": "passed",
+          "nativeChromiumPdf": "passed"
+        },
+        "htmlSha256": "278e0bd881fcff09661a5eeed2ab2a2953c2cc9700dc05d5c296ae6eaf73b790",
+        "pdfSha256": "6ec46769a088c643ab60b199587800c11aea073616577f4e0953315bd61a170a",
+        "results": [
+          {
+            "question": "Does this guide establish an official Enterprise 11.x release date or upgrade path?",
+            "routeId": "prep11",
+            "routeQuery": "view=splunk-11",
+            "region": ".prep11-status",
+            "sourceId": "prep11enterprise",
+            "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6",
+            "sourceSection": "Release introduction; upgrade and system-requirement links",
+            "visibleAnswer": "Release timing, deployment requirements and migration paths remain unconfirmed here.",
+            "checkedAt": "2026-11-24T19:02:16.550Z",
+            "htmlSha256": "278e0bd881fcff09661a5eeed2ab2a2953c2cc9700dc05d5c296ae6eaf73b790",
+            "pdfSha256": "6ec46769a088c643ab60b199587800c11aea073616577f4e0953315bd61a170a",
+            "revision": "content-8eb66e60f4702bedd85546d5",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "capabilityId": "prep11.operator",
+      "disposition": "assessed-no-change",
+      "qualification": "Current English Help matrix SOK to Splunk Enterprise version compatibility: 3.2.0, September 24, Kubernetes 1.32–1.37, Enterprise 10.0.12–10.6.0. Upgrade path guidance says Operator first. Changelog heading 3.2.0 (September 8) states Kubernetes 1.32–1.36 and Enterprise 10.6.0. Both record the Queue secretKeyRef change for Index & Ingestion Separation. Separately, the older localized matrix (October 1 indexed revision) still displays 9.4.15 as lower Enterprise endpoint. No source establishes 11.x compatibility.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:00:04.263832Z",
+      "assessedAt": "2026-11-24T19:00:36.458375174Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "prep11operator",
+          "outcome": "retrieved",
+          "retrievedAt": null,
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix | SOK to Splunk Enterprise version compatibility; Upgrade path guidance | direct HTTP None, 0 bytes; SHA-256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; curl: (28) Connection timed out after 5002 milliseconds | Publisher-indexed English operator compatibility matrix 3.2.0 row and Upgrade path guidance, compared with the older localized 9.4.15 row; minute-level retrieval clock unavailable. Direct attempts retained.",
+          "observedOn": "2026-11-24"
+        },
+        {
+          "sourceId": "prep11changelog",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:00:04.263832Z",
+          "evidence": "https://splunk.github.io/splunk-operator/reference/ChangeLog.html | 3.2.0 (2026-09-08); Breaking Changes; Supported Kubernetes and Splunk versions | direct HTTP 200, 83468 bytes; SHA-256 26ab5b4459deeb2ae2d6fd8ad0f544e8c7ddbda5d85880e2b6805fffb833908e"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "prep11-operator-baseline",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "prep11operator",
+            "prep11changelog"
+          ],
+          "assessedAt": "2026-11-24T19:00:36.458375174Z",
+          "evidence": "Current English Help matrix SOK to Splunk Enterprise version compatibility: 3.2.0, September 24, Kubernetes 1.32–1.37, Enterprise 10.0.12–10.6.0. Upgrade path guidance says Operator first. Changelog heading 3.2.0 (September 8) states Kubernetes 1.32–1.36 and Enterprise 10.6.0. Both record the Queue secretKeyRef change for Index & Ingestion Separation. Separately, the older localized matrix (October 1 indexed revision) still displays 9.4.15 as lower Enterprise endpoint. No source establishes 11.x compatibility.",
+          "qualification": "Preserve both published scopes. Confirm the exact Kubernetes, Operator and Enterprise combination before using it; neither source certifies 11.x."
+        }
+      ],
+      "readerReview": {
+        "question": "What exact Enterprise and Kubernetes versions does the 3.2.0 matrix list, and do the sources agree?",
+        "routeId": "prep11",
+        "routeQuery": "view=splunk-11",
+        "region": "#prep11-operator-baseline",
+        "sourceId": "prep11operator",
+        "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix",
+        "sourceSection": "SOK to Splunk Enterprise version compatibility; Upgrade path guidance",
+        "answer": "The 3.2 help matrix lists Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0.",
+        "checkedAt": "2026-11-24T19:00:38.394Z",
+        "claimIds": [
+          "prep11-operator-baseline"
+        ],
+        "outputs": {
+          "screen": "passed",
+          "offlineHeadlessChromiumHtml": "passed",
+          "nativeChromiumPdf": "passed"
+        },
+        "htmlSha256": "a61a61ccc1da5a254d1615e42b0acb14bd50e0514e0bd25a92896a396b2e7e39",
+        "pdfSha256": "02399bccbca1d3641183c11fb877a16851bcef211fd22b7ea9bc9e3d3604b1ee",
+        "results": [
+          {
+            "question": "What exact Enterprise and Kubernetes versions does the 3.2.0 matrix list, and do the sources agree?",
+            "routeId": "prep11",
+            "routeQuery": "view=splunk-11",
+            "region": "#prep11-operator-baseline",
+            "sourceId": "prep11operator",
+            "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix",
+            "sourceSection": "SOK to Splunk Enterprise version compatibility; Upgrade path guidance",
+            "visibleAnswer": "The 3.2 help matrix lists Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0.",
+            "checkedAt": "2026-11-24T19:00:38.394Z",
+            "htmlSha256": "a61a61ccc1da5a254d1615e42b0acb14bd50e0514e0bd25a92896a396b2e7e39",
+            "pdfSha256": "02399bccbca1d3641183c11fb877a16851bcef211fd22b7ea9bc9e3d3604b1ee",
+            "revision": "content-8eb66e60f4702bedd85546d5",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "capabilityId": "prep11.architecture",
+      "disposition": "assessed-no-change",
+      "qualification": "Current validated architecture Deployment Options recommends clustered designs for redundancy and distinguishes single-site failure from multi-site recovery. Storage Considerations describes SmartStore remote storage plus local persistent hot data/configuration. Resilience and Scaling documents health probes, stateful storage and PDBs. Scope remains current Operator architecture, not 11.x requirements.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:00:43.263354Z",
+      "assessedAt": "2026-11-24T19:01:04.263263383Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "prep11architecture",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:00:43.263354Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/splunk-validated-architectures/applied-svas/splunk-operator-for-kubernetes | Deployment Options; Storage Considerations; Application Lifecycle Management / App Framework / Premium Apps; Resilience and Scaling | direct HTTP 200, 188962 bytes; SHA-256 25270442480be1979886d785b302dc0a7e7a104e916c29a184e9100d25e417cd"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "prep11-architecture-baseline",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "prep11architecture"
+          ],
+          "assessedAt": "2026-11-24T19:01:04.263263383Z",
+          "evidence": "Current validated architecture Deployment Options recommends clustered designs for redundancy and distinguishes single-site failure from multi-site recovery. Storage Considerations describes SmartStore remote storage plus local persistent hot data/configuration. Resilience and Scaling documents health probes, stateful storage and PDBs. Scope remains current Operator architecture, not 11.x requirements.",
+          "qualification": "Current architecture guidance is preparation context. An 11.x topology, sizing or migration requirement is not established."
+        }
+      ],
+      "readerReview": {
+        "question": "Can I treat a distributed non-clustered layout as resilient in a current Operator deployment?",
+        "routeId": "prep11",
+        "routeQuery": "view=splunk-11",
+        "region": "#prep11-architecture-baseline",
+        "sourceId": "prep11architecture",
+        "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/splunk-validated-architectures/applied-svas/splunk-operator-for-kubernetes",
+        "sourceSection": "Deployment Options; Storage Considerations; Application Lifecycle Management / App Framework / Premium Apps; Resilience and Scaling",
+        "answer": "It discourages distributed non-clustered deployments",
+        "checkedAt": "2026-11-24T19:01:06.634Z",
+        "claimIds": [
+          "prep11-architecture-baseline"
+        ],
+        "outputs": {
+          "screen": "passed",
+          "offlineHeadlessChromiumHtml": "passed",
+          "nativeChromiumPdf": "passed"
+        },
+        "htmlSha256": "e984e239fe69e235d73ee31f265c9873b3fc5b09ed4e135f0d910948e095a0c4",
+        "pdfSha256": "7548be103bd91c666b98aee2b366c355bb03e1f310097f8679dd579da916f754",
+        "results": [
+          {
+            "question": "Can I treat a distributed non-clustered layout as resilient in a current Operator deployment?",
+            "routeId": "prep11",
+            "routeQuery": "view=splunk-11",
+            "region": "#prep11-architecture-baseline",
+            "sourceId": "prep11architecture",
+            "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/splunk-validated-architectures/applied-svas/splunk-operator-for-kubernetes",
+            "sourceSection": "Deployment Options; Storage Considerations; Application Lifecycle Management / App Framework / Premium Apps; Resilience and Scaling",
+            "visibleAnswer": "It discourages distributed non-clustered deployments",
+            "checkedAt": "2026-11-24T19:01:06.634Z",
+            "htmlSha256": "e984e239fe69e235d73ee31f265c9873b3fc5b09ed4e135f0d910948e095a0c4",
+            "pdfSha256": "7548be103bd91c666b98aee2b366c355bb03e1f310097f8679dd579da916f754",
+            "revision": "content-8eb66e60f4702bedd85546d5",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "capabilityId": "prep11.app-delivery",
+      "disposition": "assessed-no-change",
+      "qualification": "Application Lifecycle Management > App Framework describes declarative app distribution from object storage. Premium Apps separately identifies selected current ES and ITSI topologies and manual ES indexer add-on deployment. These operational patterns do not establish 11.x compatibility.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:00:43.263354Z",
+      "assessedAt": "2026-11-24T19:01:06.803147768Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "prep11architecture",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:00:43.263354Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/splunk-validated-architectures/applied-svas/splunk-operator-for-kubernetes | Deployment Options; Storage Considerations; Application Lifecycle Management / App Framework / Premium Apps; Resilience and Scaling | direct HTTP 200, 188962 bytes; SHA-256 25270442480be1979886d785b302dc0a7e7a104e916c29a184e9100d25e417cd"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "prep11-app-delivery",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "prep11architecture"
+          ],
+          "assessedAt": "2026-11-24T19:01:06.803147768Z",
+          "evidence": "Application Lifecycle Management > App Framework describes declarative app distribution from object storage. Premium Apps separately identifies selected current ES and ITSI topologies and manual ES indexer add-on deployment. These operational patterns do not establish 11.x compatibility.",
+          "qualification": "App installation and a container image do not prove ES, ITSI, SOAR or third-party compatibility with 11.x."
+        }
+      ],
+      "readerReview": {
+        "question": "Does deploying an app through the Operator establish 11.x premium-app compatibility?",
+        "routeId": "prep11",
+        "routeQuery": "view=splunk-11",
+        "region": "#prep11-app-delivery",
+        "sourceId": "prep11architecture",
+        "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/splunk-validated-architectures/applied-svas/splunk-operator-for-kubernetes",
+        "sourceSection": "Deployment Options; Storage Considerations; Application Lifecycle Management / App Framework / Premium Apps; Resilience and Scaling",
+        "answer": "separate considerations for premium apps",
+        "checkedAt": "2026-11-24T19:01:08.473Z",
+        "claimIds": [
+          "prep11-app-delivery"
+        ],
+        "outputs": {
+          "screen": "passed",
+          "offlineHeadlessChromiumHtml": "passed",
+          "nativeChromiumPdf": "passed"
+        },
+        "htmlSha256": "a2f547f93484a9bc0d577fa99dfa5f3f716bf3d1cb7d2480ba0d42bd18ca6841",
+        "pdfSha256": "c8640e719407a14a9507fe275cfcd5ca57142e8caed852ce61c7b306c2f157aa",
+        "results": [
+          {
+            "question": "Does deploying an app through the Operator establish 11.x premium-app compatibility?",
+            "routeId": "prep11",
+            "routeQuery": "view=splunk-11",
+            "region": "#prep11-app-delivery",
+            "sourceId": "prep11architecture",
+            "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/splunk-validated-architectures/applied-svas/splunk-operator-for-kubernetes",
+            "sourceSection": "Deployment Options; Storage Considerations; Application Lifecycle Management / App Framework / Premium Apps; Resilience and Scaling",
+            "visibleAnswer": "separate considerations for premium apps",
+            "checkedAt": "2026-11-24T19:01:08.473Z",
+            "htmlSha256": "a2f547f93484a9bc0d577fa99dfa5f3f716bf3d1cb7d2480ba0d42bd18ca6841",
+            "pdfSha256": "c8640e719407a14a9507fe275cfcd5ca57142e8caed852ce61c7b306c2f157aa",
+            "revision": "content-8eb66e60f4702bedd85546d5",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "capabilityId": "prep11.workload",
+      "disposition": "assessed-no-change",
+      "qualification": "The exact 10.6 Workload management modes table reserves pools, categories and placement/monitoring rules for Advanced mode with writable CPU and memory cgroups. Basic mode supports admission rules only. Activate workload management on Kubernetes says allow_basic is false by default; mode status displays basic or advanced. These are current 10.6 documented behaviors.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T18:59:36.230175Z",
+      "assessedAt": "2026-11-24T19:00:06.193409847Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "prep11workload",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T18:59:36.230175Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/administer/manage-workloads/10.6/use-workload-management-on-kubernetes | Workload management modes | direct HTTP 200, 143923 bytes; SHA-256 741f6dc893b89455ddfbd32ba9f3a512ef280b265ca3a2cc501ab1076abb6e9f"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "prep11-workload-baseline",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "prep11workload"
+          ],
+          "assessedAt": "2026-11-24T19:00:06.193409847Z",
+          "evidence": "The exact 10.6 Workload management modes table reserves pools, categories and placement/monitoring rules for Advanced mode with writable CPU and memory cgroups. Basic mode supports admission rules only. Activate workload management on Kubernetes says allow_basic is false by default; mode status displays basic or advanced. These are current 10.6 documented behaviors.",
+          "qualification": "Basic mode does not establish full workload-pool or placement-rule parity. This is current-release behavior, not an 11.x promise."
+        }
+      ],
+      "readerReview": {
+        "question": "Can I use workload pools and placement rules in Basic mode on Enterprise 10.6 Kubernetes?",
+        "routeId": "prep11",
+        "routeQuery": "view=splunk-11",
+        "region": "#prep11-workload-baseline",
+        "sourceId": "prep11workload",
+        "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/administer/manage-workloads/10.6/use-workload-management-on-kubernetes",
+        "sourceSection": "Workload management modes",
+        "answer": "Basic mode supports admission rules only.",
+        "checkedAt": "2026-11-24T19:00:07.942Z",
+        "claimIds": [
+          "prep11-workload-baseline"
+        ],
+        "outputs": {
+          "screen": "passed",
+          "offlineHeadlessChromiumHtml": "passed",
+          "nativeChromiumPdf": "passed"
+        },
+        "htmlSha256": "ad203a66784797443afc7b4a24919ea3b92f35c6a58f43782263b61b815f6146",
+        "pdfSha256": "347a922b649886f18be339beaee430018cf1f7bcabeb73ebbb3b9fee2e375b15",
+        "results": [
+          {
+            "question": "Can I use workload pools and placement rules in Basic mode on Enterprise 10.6 Kubernetes?",
+            "routeId": "prep11",
+            "routeQuery": "view=splunk-11",
+            "region": "#prep11-workload-baseline",
+            "sourceId": "prep11workload",
+            "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/administer/manage-workloads/10.6/use-workload-management-on-kubernetes",
+            "sourceSection": "Workload management modes",
+            "visibleAnswer": "Basic mode supports admission rules only.",
+            "checkedAt": "2026-11-24T19:00:07.942Z",
+            "htmlSha256": "ad203a66784797443afc7b4a24919ea3b92f35c6a58f43782263b61b815f6146",
+            "pdfSha256": "347a922b649886f18be339beaee430018cf1f7bcabeb73ebbb3b9fee2e375b15",
+            "revision": "content-8eb66e60f4702bedd85546d5",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "capabilityId": "prep11.cloud-option",
+      "disposition": "assessed-no-change",
+      "qualification": "Lantern Readiness sections Cloud migration team staffing plan, Developing and executing communications plan, and Post-migration staffing transition plan call for workforce planning, audience-specific communications and reassigned responsibilities. Planning guidance is not a migration procedure, entitlement, authorization or staffing guarantee.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:01:15.174711Z",
+      "assessedAt": "2026-11-24T19:01:22.220023038Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "prep11migration",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:01:15.174711Z",
+          "evidence": "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Readiness | Organizational readiness guide: staffing plan, communications plan and post-migration staffing transition plan | direct HTTP 200, 84386 bytes; SHA-256 bd7a6395b5ab6992d222731b1faf38bf81502464564ba8e9c954542640b5820e"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "prep11-cloud-option",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "prep11migration"
+          ],
+          "assessedAt": "2026-11-24T19:01:22.220023038Z",
+          "evidence": "Lantern Readiness sections Cloud migration team staffing plan, Developing and executing communications plan, and Post-migration staffing transition plan call for workforce planning, audience-specific communications and reassigned responsibilities. Planning guidance is not a migration procedure, entitlement, authorization or staffing guarantee.",
+          "qualification": "Cloud is a separate migration program. Enterprise announcements do not establish Cloud rollout, entitlement or FedRAMP Moderate/High authorization."
+        }
+      ],
+      "readerReview": {
+        "question": "Which operating-model plans should I prepare if I consider a managed Cloud migration?",
+        "routeId": "prep11",
+        "routeQuery": "view=splunk-11",
+        "region": "#prep11-cloud-option",
+        "sourceId": "prep11migration",
+        "sourceUrl": "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Readiness",
+        "sourceSection": "Organizational readiness guide: staffing plan, communications plan and post-migration staffing transition plan",
+        "answer": "Cloud is a separate migration program.",
+        "checkedAt": "2026-11-24T19:01:24.432Z",
+        "claimIds": [
+          "prep11-cloud-option"
+        ],
+        "outputs": {
+          "screen": "passed",
+          "offlineHeadlessChromiumHtml": "passed",
+          "nativeChromiumPdf": "passed"
+        },
+        "htmlSha256": "dc9b3e589e6c9aa72c83167127255d42be0cb6817d943e5869e5681f16b4c1d4",
+        "pdfSha256": "e841fc327b23a6ec0eb756c1387f526c1b0c9426d8c7cf4f2bc59da48df86ab4",
+        "results": [
+          {
+            "question": "Which operating-model plans should I prepare if I consider a managed Cloud migration?",
+            "routeId": "prep11",
+            "routeQuery": "view=splunk-11",
+            "region": "#prep11-cloud-option",
+            "sourceId": "prep11migration",
+            "sourceUrl": "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Readiness",
+            "sourceSection": "Organizational readiness guide: staffing plan, communications plan and post-migration staffing transition plan",
+            "visibleAnswer": "Cloud is a separate migration program.",
+            "checkedAt": "2026-11-24T19:01:24.432Z",
+            "htmlSha256": "dc9b3e589e6c9aa72c83167127255d42be0cb6817d943e5869e5681f16b4c1d4",
+            "pdfSha256": "e841fc327b23a6ec0eb756c1387f526c1b0c9426d8c7cf4f2bc59da48df86ab4",
+            "revision": "content-8eb66e60f4702bedd85546d5",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "capabilityId": "prep11.context-versioning",
+      "disposition": "assessed-no-change",
+      "qualification": "September 30 Splunk announcement, Keep Apps and Integrations Ready for Updated Versioning, directs app and automation owners to supported product identification rather than version string alone. The directive concerns 10.6, not an announced 11.x release.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:01:29.408410Z",
+      "assessedAt": "2026-11-24T19:01:35.049919911Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "prep11platformnews",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:01:29.408410Z",
+          "evidence": "https://www.splunk.com/en_us/blog/platform/announcing-splunk-cloud-platform-10-6-and-splunk-enterprise-10-6.html | Keep Apps and Integrations Ready for Updated Versioning | direct HTTP 200, 32300 bytes; SHA-256 de90509ddd06adbdaf29969f32a1e8f8e56a76840d61d885936201caa3b52b1f"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "prep11-news-versioning",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "prep11platformnews"
+          ],
+          "assessedAt": "2026-11-24T19:01:35.049919911Z",
+          "evidence": "September 30 Splunk announcement, Keep Apps and Integrations Ready for Updated Versioning, directs app and automation owners to supported product identification rather than version string alone. The directive concerns 10.6, not an announced 11.x release.",
+          "qualification": "This is published 10.6 guidance and a useful preparation task. It does not announce an 11.x release or a migration path."
+        }
+      ],
+      "readerReview": {
+        "question": "How should integrations distinguish Enterprise from Cloud starting with 10.6?",
+        "routeId": "prep11",
+        "routeQuery": "view=splunk-11",
+        "region": "#prep11-update-list",
+        "sourceId": "prep11platformnews",
+        "sourceUrl": "https://www.splunk.com/en_us/blog/platform/announcing-splunk-cloud-platform-10-6-and-splunk-enterprise-10-6.html",
+        "sourceSection": "Keep Apps and Integrations Ready for Updated Versioning",
+        "answer": "use supported product-identification methods",
+        "checkedAt": "2026-11-24T19:01:37.026Z",
+        "claimIds": [
+          "prep11-news-versioning"
+        ],
+        "outputs": {
+          "screen": "passed",
+          "offlineHeadlessChromiumHtml": "passed",
+          "nativeChromiumPdf": "passed"
+        },
+        "htmlSha256": "9126611eb0731d1303b4d3641768be8b2fdc447f67fe88b60462f17debf2014e",
+        "pdfSha256": "34ce247740b7fd1ea74d873decaee6cdef9fa2af7e5c21a18df95c3b18ea80f8",
+        "results": [
+          {
+            "question": "How should integrations distinguish Enterprise from Cloud starting with 10.6?",
+            "routeId": "prep11",
+            "routeQuery": "view=splunk-11",
+            "region": "#prep11-update-list",
+            "sourceId": "prep11platformnews",
+            "sourceUrl": "https://www.splunk.com/en_us/blog/platform/announcing-splunk-cloud-platform-10-6-and-splunk-enterprise-10-6.html",
+            "sourceSection": "Keep Apps and Integrations Ready for Updated Versioning",
+            "visibleAnswer": "use supported product-identification methods",
+            "checkedAt": "2026-11-24T19:01:37.026Z",
+            "htmlSha256": "9126611eb0731d1303b4d3641768be8b2fdc447f67fe88b60462f17debf2014e",
+            "pdfSha256": "34ce247740b7fd1ea74d873decaee6cdef9fa2af7e5c21a18df95c3b18ea80f8",
+            "revision": "content-8eb66e60f4702bedd85546d5",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "capabilityId": "prep11.context-ai",
+      "disposition": "assessed-no-change",
+      "qualification": "Cisco Newsroom Self-managed Splunk AI, accelerated by NVIDIA identifies available Kubernetes-based Cisco AI POD and self-managed AI Assistant, with Launchpad planned later in 2026 at announcement. No Enterprise 11.x architecture or later Launchpad delivery follows from it.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:01:55.171484126Z",
+      "assessedAt": "2026-11-24T19:01:55.174868652Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "prep11ainews",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:01:55.171484126Z",
+          "evidence": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m09/cisco-delivers-trusted-ai-at-scale-through-new-splunk-advancements.html | Self-managed Splunk AI, accelerated by NVIDIA | direct HTTP 403, 195 bytes; SHA-256 5b131ca14aa96311d3432b0062c7443d3b0e6346ec279bd376a75f0a76bcd5d7 | Publisher-indexed exact Cisco Newsroom Self-Managed Splunk AI, accelerated by NVIDIA article; direct denial retained."
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "prep11-news-selfmanaged-ai",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "prep11ainews"
+          ],
+          "assessedAt": "2026-11-24T19:01:55.174868652Z",
+          "evidence": "Cisco Newsroom Self-managed Splunk AI, accelerated by NVIDIA identifies available Kubernetes-based Cisco AI POD and self-managed AI Assistant, with Launchpad planned later in 2026 at announcement. No Enterprise 11.x architecture or later Launchpad delivery follows from it.",
+          "qualification": "The statement is specific to self-managed AI and Cisco AI POD for Splunk. It does not establish an 11.x deployment model or confirm later delivery of the named planned feature."
+        }
+      ],
+      "readerReview": {
+        "question": "Did the September Cisco AI POD announcement define the Enterprise 11.x architecture?",
+        "routeId": "prep11",
+        "routeQuery": "view=splunk-11",
+        "region": "#prep11-update-list",
+        "sourceId": "prep11ainews",
+        "sourceUrl": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m09/cisco-delivers-trusted-ai-at-scale-through-new-splunk-advancements.html",
+        "sourceSection": "Self-managed Splunk AI, accelerated by NVIDIA",
+        "answer": "AI Assistant as available and Agent Launchpad as coming later in 2026.",
+        "checkedAt": "2026-11-24T19:01:57.290Z",
+        "claimIds": [
+          "prep11-news-selfmanaged-ai"
+        ],
+        "outputs": {
+          "screen": "passed",
+          "offlineHeadlessChromiumHtml": "passed",
+          "nativeChromiumPdf": "passed"
+        },
+        "htmlSha256": "3d94aae770e1a9a5e47312036b76cb6c2958018c139901be791b0ef4664066c8",
+        "pdfSha256": "72c13022bd4e4041f1d51ee8a5353e544a048e006969c80466f174f50874039f",
+        "results": [
+          {
+            "question": "Did the September Cisco AI POD announcement define the Enterprise 11.x architecture?",
+            "routeId": "prep11",
+            "routeQuery": "view=splunk-11",
+            "region": "#prep11-update-list",
+            "sourceId": "prep11ainews",
+            "sourceUrl": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m09/cisco-delivers-trusted-ai-at-scale-through-new-splunk-advancements.html",
+            "sourceSection": "Self-managed Splunk AI, accelerated by NVIDIA",
+            "visibleAnswer": "AI Assistant as available and Agent Launchpad as coming later in 2026.",
+            "checkedAt": "2026-11-24T19:01:57.290Z",
+            "htmlSha256": "3d94aae770e1a9a5e47312036b76cb6c2958018c139901be791b0ef4664066c8",
+            "pdfSha256": "72c13022bd4e4041f1d51ee8a5353e544a048e006969c80466f174f50874039f",
+            "revision": "content-8eb66e60f4702bedd85546d5",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "capabilityId": "advisor.agent-mode",
+      "disposition": "deferred",
+      "qualification": "Fresh assessment of the complete registered claim families and scoped reader answer is outstanding.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:17:15.126593Z",
+      "assessedAt": null,
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "aiSaiaInstall",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:17:07.030739Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers | FedRAMP deployments; supported regions; version compatibility | direct HTTP 200, 183789 bytes; SHA-256 88599a1ab8a5a4ca1e798912e4321d1162a8a41d51c63a5c692753149bcd8ba3"
+        },
+        {
+          "sourceId": "aiSaiaAbout",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:16:38.779783Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant | Requirements; features; ITSI subagent; where the assistant runs | direct HTTP 200, 162682 bytes; SHA-256 d55f65fe822d1307faa4ef2192a398f8d4311113d6db1251714396e58fea28af"
+        },
+        {
+          "sourceId": "aiSaiaAgentMode",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:17:06.575444Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant | Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites | direct HTTP 200, 202546 bytes; SHA-256 342c329b9a8531be5f099ae813a8d65526aa0665ad4b2029fcc19111f996c225"
+        },
+        {
+          "sourceId": "aiSaiaModelRuntime",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:17:11.003859Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant | Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off | direct HTTP 200, 174664 bytes; SHA-256 730b341c1de133dafa67fe7b92e29712f3f40f9b017fe75ef768df96bcdb3335"
+        },
+        {
+          "sourceId": "aiSaiaCloudConnected",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:17:15.097267Z",
+          "evidence": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected | Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data | direct HTTP 200, 178951 bytes; SHA-256 879b7fd68b172ffa3fb379bfb843e6ca75c72b1ee0fe4240c28ee5eac6893df7"
+        },
+        {
+          "sourceId": "aiSaiaKnownIssues",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:17:15.126593Z",
+          "evidence": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues | SAIA-9918 Cloud Connected access and 2.1.1 workaround | direct HTTP 200, 142889 bytes; SHA-256 d4292c0c4efc3690edbc992bd4ab7c914fb2f46cb0c976e87a48e7d60d6de7d7"
+        }
+      ],
+      "assessments": [],
+      "lastVerifiedEvidence": {
+        "receipt": "docs/audits/2026-11-24-version-release-watch-review-4-coverage.json",
+        "assessedAt": "2026-11-24T10:20:16.079562Z",
+        "disposition": "assessed-no-change",
+        "qualification": "Compared 2.3.6 Agent Mode requirements, Model Runtime and SAIA-9918 with current 2.4.0 installer/release/known-issue text. Current installation requires Enterprise 10.4+, qualifying paid license, Cloud Connect 2.0+, STC/certificate and listed admin capabilities, fresh setup and AWS region selection. New setup says inbound 8089 is unnecessary; older feature guide requires it. Retain old exclusion, 2.1.1 no-Agent workaround, stale planned-2.4 wording, feature-specific AWS/runtime and external-processing qualifications. Installation does not establish every feature or authorization."
+      },
+      "followUp": {
+        "owner": "version-release-watch",
+        "action": "Check the exact 2.4 app install, Agent Mode, Model Runtime, Cloud Connected and SAIA-9918 sections together; reopen the scoped Advisor and verify reports.",
+        "reviewBy": "2026-11-25"
+      }
+    },
+    {
+      "capabilityId": "advisor.itsi-versions",
+      "disposition": "deferred",
+      "qualification": "About 2.3.6 Requirements and ITSI subagent set ITSI 5.0.0+, SAIA 2.2.0+ and MCP 1.2.1+. The 2.3.6 install topic separates SaaS deployment and commercial versus restricted service conditions. Permission, installed-tool, entitlement and scoped rollout qualification remain separate. A verified scoped answer and report parity are still outstanding.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:17:07.030739Z",
+      "assessedAt": "2026-11-24T19:20:06.467675442Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "aiSaiaAbout",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:16:38.779783Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant | Requirements; features; ITSI subagent; where the assistant runs | direct HTTP 200, 162682 bytes; SHA-256 d55f65fe822d1307faa4ef2192a398f8d4311113d6db1251714396e58fea28af"
+        },
+        {
+          "sourceId": "aiSaiaInstall",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:17:07.030739Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers | FedRAMP deployments; supported regions; version compatibility | direct HTTP 200, 183789 bytes; SHA-256 88599a1ab8a5a4ca1e798912e4321d1162a8a41d51c63a5c692753149bcd8ba3"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "ai-itsi-subagent",
+          "outcome": "unable-to-verify",
+          "sourceIds": [
+            "aiSaiaAbout",
+            "aiSaiaInstall"
+          ],
+          "assessedAt": "2026-11-24T19:20:06.467675442Z",
+          "evidence": "About 2.3.6 Requirements and ITSI subagent set ITSI 5.0.0+, SAIA 2.2.0+ and MCP 1.2.1+. The 2.3.6 install topic separates SaaS deployment and commercial versus restricted service conditions. Permission, installed-tool, entitlement and scoped rollout qualification remain separate.",
+          "qualification": "Three documented version minimums, missing dependencies and the next pairing/enablement questions. Exclusions: Meeting the minimums does not establish a supported complete pairing or subagent-specific regional rollout."
+        }
+      ],
+      "lastVerifiedEvidence": {
+        "receipt": "docs/audits/2026-11-24-version-release-watch-review-4-coverage.json",
+        "assessedAt": "2026-11-24T10:20:16.079562Z",
+        "disposition": "assessed-no-change",
+        "qualification": "Compared the exact About ITSI tool list and Cloud installation requirements with the committed dependency: ITSI 5.0+, SAIA 2.2+, MCP Server 1.2.1+. Six named ITSI tools and permissions remain conditional; meeting minimums is not a full app/host pairing or subagent-region rollout guarantee."
+      },
+      "followUp": {
+        "owner": "version-release-watch",
+        "action": "Compare decision admission against exact ITSI, SAIA, MCP and platform prerequisites in About and installation topics and verify the Advisor answer/reports.",
+        "reviewBy": "2026-11-25"
+      }
+    },
+    {
+      "capabilityId": "advisor.soc-workflow",
+      "disposition": "deferred",
+      "qualification": "Fresh assessment of the complete registered claim families and scoped reader answer is outstanding.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:20:18.603470Z",
+      "assessedAt": null,
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "aiEsAgents88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:16:38.932245Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security | Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note | direct HTTP 200, 197012 bytes; SHA-256 71d969e2d610e40d3ee40d2de9f9745ddaf7ee48d474e3f0eab7cf8e223836a6"
+        },
+        {
+          "sourceId": "aiEsSocTask88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:20:13.960867Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security | Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions | direct HTTP 200, 183835 bytes; SHA-256 b45559a34d95a51c1ee01f70eff09ac40b079b7d6c1c2a72c7b3f4efaa1b2075"
+        },
+        {
+          "sourceId": "aiEsSocTask87",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:20:14.032628Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security | Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions | direct HTTP 200, 191695 bytes; SHA-256 7b03565621002d435eeee7f1d9cd188377be021112a46ca99034e9de11c980c9"
+        },
+        {
+          "sourceId": "aiEsRelease88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:03:37.779563Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security | ES 8.8 Controlled Availability | direct HTTP 200, 217589 bytes; SHA-256 594195f8ea961923accf9b84335f4513cb4fe2d71b0f9520abd1b0b949ef9662"
+        },
+        {
+          "sourceId": "aiEsTriageNote88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:16:38.932245Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security | SOC analyst Triage/Response note; aggregate AI SOC Analyst availability row | direct HTTP 200, 197012 bytes; SHA-256 71d969e2d610e40d3ee40d2de9f9745ddaf7ee48d474e3f0eab7cf8e223836a6"
+        },
+        {
+          "sourceId": "aiSaiaInstall",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:17:07.030739Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers | FedRAMP deployments; supported regions; version compatibility | direct HTTP 200, 183789 bytes; SHA-256 88599a1ab8a5a4ca1e798912e4321d1162a8a41d51c63a5c692753149bcd8ba3"
+        },
+        {
+          "sourceId": "aiEsRegions88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:03:47.102802Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability | Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility | direct HTTP 200, 239067 bytes; SHA-256 5a295ed6fabb12f1dac9fb66d3db0a65cbea88e662b31b714c4e2da9da00bafa"
+        },
+        {
+          "sourceId": "aiEsEditions",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:20:18.603470Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions | Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings | direct HTTP 200, 137948 bytes; SHA-256 38966a264ca7bfab794f1557544ae5b434fbee79452010206282853d7277b148"
+        }
+      ],
+      "assessments": [],
+      "lastVerifiedEvidence": {
+        "receipt": "docs/audits/2026-11-22-version-release-watch-review-3-coverage.json",
+        "assessedAt": "2026-11-23T00:58:27.227Z",
+        "disposition": "assessed-no-change",
+        "qualification": "Old registered8.8 offerings/workflow URLs returned404. Fresh renamed official agentic offerings, parent Triage/Response, Triage task and Autonomous Response task were compared with canonical SOC record. Aggregate Cloud ES8.6+ versus detailed8.7+, Response Cloud-only availability versus CMP bullet, parent200 analyses/20 revisions versus task200 findings/10-at-once/no-rerun remain distinct conflicts. Premier, pairedSOAR, CMP10.4+/ES8.8+/CloudConnect2.0+, frontier models and asset/action permissions remain conditional. Historical8.7 context preserved; no exact pairing or authorization inferred."
+      },
+      "followUp": {
+        "owner": "es-editions-watch",
+        "action": "ES Editions Watch to compare the 8.8 renamed overview and setup passages against Triage and older 8.7 history, with prerequisites separated from rollout and pairing; Release Watch to confirm the supporting Advisor context.",
+        "reviewBy": "2026-11-25"
+      }
+    },
+    {
+      "capabilityId": "exact.identity",
+      "disposition": "assessed-no-change",
+      "qualification": "Enterprise 9.4 and 10.4 release histories name their respective patch releases. The 10.4.3 fixed-issues warning separately names the UF package. Advisory SVD-2026-1007 Product Status lists distinct 9.4.16 and 10.4.4 fixes on separate Enterprise branches. Branch-local order establishes neither cross-branch applicability nor a supported upgrade edge.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:10:45.473887Z",
+      "assessedAt": "2026-11-24T19:13:07.477885550Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "exact94",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:10:40.952338Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/9.4/whats-new/welcome-to-splunk-enterprise-9.4 | 9.4 release headings; 9.4.3 filterType default and later documentation visibility | direct HTTP 200, 173086 bytes; SHA-256 242af2971bbca811a59e0d2f32ad178432c0b318bd78a6e556cc9d77e316a19d"
+        },
+        {
+          "sourceId": "exact104",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:10:05.635372Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4 | 10.4 TLS 1.3 and legacy TLS availability; 10.4.2/10.4.3 UF warning; maintenance release headings | direct HTTP 200, 193325 bytes; SHA-256 62b35d552d365d32b0e7035e4829572e5864f95f468e6b017406c0dabb3a1bf5"
+        },
+        {
+          "sourceId": "exactUF",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:08:38.622437Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues | Important: UF 10.4.2 warning; fixed in UF 10.4.3; receiver acknowledgements | direct HTTP 200, 144817 bytes; SHA-256 cbcb9bae9ca8b3ac4004e1a7a2c5d3502ccea73f8bd6aa03650be191504b45d6"
+        },
+        {
+          "sourceId": "exactSecurity",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:10:45.473887Z",
+          "evidence": "https://advisory.splunk.com/advisories/SVD-2026-1007 | Product Status; CVE-2026-76288 Description and Mitigations. Other CVEs are outside this pilot. | direct HTTP 200, 46462 bytes; SHA-256 c0d93b514cc692d38e90880245d68d352cc312298081ed889feac3e062e2386b"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "exact-release-catalog",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "exact94",
+            "exact104",
+            "exactUF"
+          ],
+          "assessedAt": "2026-11-24T19:13:07.477885550Z",
+          "evidence": "Enterprise 9.4 and 10.4 release histories name their respective patch releases. The 10.4.3 fixed-issues warning separately names the UF package. Advisory SVD-2026-1007 Product Status lists distinct 9.4.16 and 10.4.4 fixes on separate Enterprise branches. Branch-local order establishes neither cross-branch applicability nor a supported upgrade edge.",
+          "qualification": "Enterprise 9.4/10.4 and UF 10.4 named releases and distinct package identities."
+        },
+        {
+          "claimId": "exact-ordering-and-backport",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "exact94",
+            "exact104",
+            "exactUF",
+            "exactSecurity"
+          ],
+          "assessedAt": "2026-11-24T19:13:07.477885550Z",
+          "evidence": "Enterprise 9.4 and 10.4 release histories name their respective patch releases. The 10.4.3 fixed-issues warning separately names the UF package. Advisory SVD-2026-1007 Product Status lists distinct 9.4.16 and 10.4.4 fixes on separate Enterprise branches. Branch-local order establishes neither cross-branch applicability nor a supported upgrade edge.",
+          "qualification": "Branch-local ordering and the named parallel remediation. Preserve unknown paths and separate release order from applicability and upgrade support."
+        }
+      ],
+      "readerReview": {
+        "question": "Does ordering Enterprise 9.4.16 before 10.4.3 establish applicability or a supported upgrade?",
+        "routeId": "exact-cross-line",
+        "routeQuery": "view=exact-releases&from=9.4.16&to=10.4.3&asOf=2026-11-02",
+        "region": "#exact-results",
+        "sourceId": "exact94",
+        "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/9.4/whats-new/welcome-to-splunk-enterprise-9.4",
+        "sourceSection": "9.4 release headings; 9.4.3 filterType default and later documentation visibility",
+        "answer": "No applicability was inferred from release ordering.",
+        "checkedAt": "2026-11-24T19:13:09.640Z",
+        "claimIds": [
+          "exact-release-catalog",
+          "exact-ordering-and-backport"
+        ],
+        "outputs": {
+          "screen": "passed",
+          "offlineHeadlessChromiumHtml": "passed",
+          "nativeChromiumPdf": "passed"
+        },
+        "htmlSha256": "29ab18e12e9d2b4d0439c702d888cea140315ab39053b91697654ed20363c6d7",
+        "pdfSha256": "ce57232937d198098ecc460d3d6064f80d14a54391a2be242c6cf9ce51c2fc2a",
+        "results": [
+          {
+            "question": "Does ordering Enterprise 9.4.16 before 10.4.3 establish applicability or a supported upgrade?",
+            "routeId": "exact-cross-line",
+            "routeQuery": "view=exact-releases&from=9.4.16&to=10.4.3&asOf=2026-11-02",
+            "region": "#exact-results",
+            "sourceId": "exact94",
+            "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/9.4/whats-new/welcome-to-splunk-enterprise-9.4",
+            "sourceSection": "9.4 release headings; 9.4.3 filterType default and later documentation visibility",
+            "visibleAnswer": "No applicability was inferred from release ordering.",
+            "checkedAt": "2026-11-24T19:13:09.640Z",
+            "htmlSha256": "29ab18e12e9d2b4d0439c702d888cea140315ab39053b91697654ed20363c6d7",
+            "pdfSha256": "ce57232937d198098ecc460d3d6064f80d14a54391a2be242c6cf9ce51c2fc2a",
+            "revision": "content-79c5217ec2a1d61c85b4d912",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "capabilityId": "exact.capabilities",
+      "disposition": "assessed-no-change",
+      "qualification": "Enterprise 9.4 release history changes the implicit app-level default from blacklist to whitelist at 9.4.3 and points to 9.4.8 for documentation timing. The 9.4 and 10.4 Deprecated and removed tables place HTML dashboards in different states. The 10.4 release table introduces TLS 1.3 alongside 1.2 for public-facing connections. These are bounded Enterprise claims.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:13:18.812490Z",
+      "assessedAt": "2026-11-24T19:13:26.526915834Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "exact94",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:10:40.952338Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/9.4/whats-new/welcome-to-splunk-enterprise-9.4 | 9.4 release headings; 9.4.3 filterType default and later documentation visibility | direct HTTP 200, 173086 bytes; SHA-256 242af2971bbca811a59e0d2f32ad178432c0b318bd78a6e556cc9d77e316a19d"
+        },
+        {
+          "sourceId": "exactDeprecated",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:13:18.812490Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/9.4/deprecated-features/deprecated-and-removed-in-version-9.4 | Still deprecated: HTML dashboards | direct HTTP 200, 210356 bytes; SHA-256 c94827a9a1613c73df93f595517b145b136e370cddf652bf67d95252cdddfbcb"
+        },
+        {
+          "sourceId": "exactRemoved",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:13:18.772916Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/deprecated-features/deprecated-and-removed-in-version-10.4 | Removed features: HTML dashboards | direct HTTP 200, 201400 bytes; SHA-256 bab9e9cabbeb2a3d6f6c529f72489b336557c3e11f68eb6c0e98eb5b20323dbc"
+        },
+        {
+          "sourceId": "exact104",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:10:05.635372Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4 | 10.4 TLS 1.3 and legacy TLS availability; 10.4.2/10.4.3 UF warning; maintenance release headings | direct HTTP 200, 193325 bytes; SHA-256 62b35d552d365d32b0e7035e4829572e5864f95f468e6b017406c0dabb3a1bf5"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "filter-before",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "exact94"
+          ],
+          "assessedAt": "2026-11-24T19:13:26.526915834Z",
+          "evidence": "Enterprise 9.4 release history changes the implicit app-level default from blacklist to whitelist at 9.4.3 and points to 9.4.8 for documentation timing. The 9.4 and 10.4 Deprecated and removed tables place HTML dashboards in different states. The 10.4 release table introduces TLS 1.3 alongside 1.2 for public-facing connections. These are bounded Enterprise claims.",
+          "qualification": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections."
+        },
+        {
+          "claimId": "filter-after",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "exact94"
+          ],
+          "assessedAt": "2026-11-24T19:13:26.526915834Z",
+          "evidence": "Enterprise 9.4 release history changes the implicit app-level default from blacklist to whitelist at 9.4.3 and points to 9.4.8 for documentation timing. The 9.4 and 10.4 Deprecated and removed tables place HTML dashboards in different states. The 10.4 release table introduces TLS 1.3 alongside 1.2 for public-facing connections. These are bounded Enterprise claims.",
+          "qualification": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections."
+        },
+        {
+          "claimId": "html-deprecated",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "exactDeprecated"
+          ],
+          "assessedAt": "2026-11-24T19:13:26.526915834Z",
+          "evidence": "Enterprise 9.4 release history changes the implicit app-level default from blacklist to whitelist at 9.4.3 and points to 9.4.8 for documentation timing. The 9.4 and 10.4 Deprecated and removed tables place HTML dashboards in different states. The 10.4 release table introduces TLS 1.3 alongside 1.2 for public-facing connections. These are bounded Enterprise claims.",
+          "qualification": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections."
+        },
+        {
+          "claimId": "html-removed",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "exactRemoved"
+          ],
+          "assessedAt": "2026-11-24T19:13:26.526915834Z",
+          "evidence": "Enterprise 9.4 release history changes the implicit app-level default from blacklist to whitelist at 9.4.3 and points to 9.4.8 for documentation timing. The 9.4 and 10.4 Deprecated and removed tables place HTML dashboards in different states. The 10.4 release table introduces TLS 1.3 alongside 1.2 for public-facing connections. These are bounded Enterprise claims.",
+          "qualification": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections."
+        },
+        {
+          "claimId": "tls13-introduced",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "exact104"
+          ],
+          "assessedAt": "2026-11-24T19:13:26.526915834Z",
+          "evidence": "Enterprise 9.4 release history changes the implicit app-level default from blacklist to whitelist at 9.4.3 and points to 9.4.8 for documentation timing. The 9.4 and 10.4 Deprecated and removed tables place HTML dashboards in different states. The 10.4 release table introduces TLS 1.3 alongside 1.2 for public-facing connections. These are bounded Enterprise claims.",
+          "qualification": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections."
+        },
+        {
+          "claimId": "filter-documentation-correction",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "exact94"
+          ],
+          "assessedAt": "2026-11-24T19:13:26.526915834Z",
+          "evidence": "Enterprise 9.4 release history changes the implicit app-level default from blacklist to whitelist at 9.4.3 and points to 9.4.8 for documentation timing. The 9.4 and 10.4 Deprecated and removed tables place HTML dashboards in different states. The 10.4 release table introduces TLS 1.3 alongside 1.2 for public-facing connections. These are bounded Enterprise claims.",
+          "qualification": "Distinguish the 9.4.3 behavior change from the 9.4.8 documentation correction."
+        }
+      ],
+      "readerReview": {
+        "question": "When does an unset deployment-app filter default change, and does the later documentation correction change that date?",
+        "routeId": "exact-docs",
+        "routeQuery": "view=exact-releases&from=9.4.2&to=9.4.8&asOf=2026-11-02",
+        "region": "#exact-results",
+        "sourceId": "exact94",
+        "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/9.4/whats-new/welcome-to-splunk-enterprise-9.4",
+        "sourceSection": "9.4 release headings; 9.4.3 filterType default and later documentation visibility",
+        "answer": "The implicit app-level filterType default changes to whitelist in 9.4.3 when it is not set.",
+        "checkedAt": "2026-11-24T19:13:28.576Z",
+        "claimIds": [
+          "filter-before",
+          "filter-after",
+          "filter-documentation-correction"
+        ],
+        "outputs": {
+          "screen": "passed",
+          "offlineHeadlessChromiumHtml": "passed",
+          "nativeChromiumPdf": "passed"
+        },
+        "htmlSha256": "43c27ffca3bbf60489b3fa06f3e7f50bcaf37215c62efea7d53a47e63bd7d6e6",
+        "pdfSha256": "3d56f45016890bf4ab6a91ee50f460aadd0b6a21d3425b6179bca06bbfbe07da",
+        "results": [
+          {
+            "question": "When does an unset deployment-app filter default change, and does the later documentation correction change that date?",
+            "routeId": "exact-docs",
+            "routeQuery": "view=exact-releases&from=9.4.2&to=9.4.8&asOf=2026-11-02",
+            "region": "#exact-results",
+            "sourceId": "exact94",
+            "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/9.4/whats-new/welcome-to-splunk-enterprise-9.4",
+            "sourceSection": "9.4 release headings; 9.4.3 filterType default and later documentation visibility",
+            "visibleAnswer": "The implicit app-level filterType default changes to whitelist in 9.4.3 when it is not set.",
+            "checkedAt": "2026-11-24T19:13:28.576Z",
+            "htmlSha256": "43c27ffca3bbf60489b3fa06f3e7f50bcaf37215c62efea7d53a47e63bd7d6e6",
+            "pdfSha256": "3d56f45016890bf4ab6a91ee50f460aadd0b6a21d3425b6179bca06bbfbe07da",
+            "revision": "content-79c5217ec2a1d61c85b4d912",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "capabilityId": "exact.branch-security",
+      "disposition": "assessed-no-change",
+      "qualification": "The advisory Product Status and CVE-2026-76288 Mitigations and Workarounds scope the named issue to Splunk Enterprise with Splunk Web enabled. Within the bounded comparison, 9.4.0–9.4.15 is affected and 9.4.16 fixes it; 10.4.0–10.4.3 is affected and 10.4.4 fixes it. The parallel fixes do not establish a branch transition or cover other CVEs.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:10:45.473887Z",
+      "assessedAt": "2026-11-24T19:14:38.158697738Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "exactSecurity",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:10:45.473887Z",
+          "evidence": "https://advisory.splunk.com/advisories/SVD-2026-1007 | Product Status; CVE-2026-76288 Description and Mitigations. Other CVEs are outside this pilot. | direct HTTP 200, 46462 bytes; SHA-256 c0d93b514cc692d38e90880245d68d352cc312298081ed889feac3e062e2386b"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "web-affected-9.4",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "exactSecurity"
+          ],
+          "assessedAt": "2026-11-24T19:14:38.158697738Z",
+          "evidence": "The advisory Product Status and CVE-2026-76288 Mitigations and Workarounds scope the named issue to Splunk Enterprise with Splunk Web enabled. Within the bounded comparison, 9.4.0–9.4.15 is affected and 9.4.16 fixes it; 10.4.0–10.4.3 is affected and 10.4.4 fixes it. The parallel fixes do not establish a branch transition or cover other CVEs.",
+          "qualification": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections."
+        },
+        {
+          "claimId": "web-fixed-9.4",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "exactSecurity"
+          ],
+          "assessedAt": "2026-11-24T19:14:38.158697738Z",
+          "evidence": "The advisory Product Status and CVE-2026-76288 Mitigations and Workarounds scope the named issue to Splunk Enterprise with Splunk Web enabled. Within the bounded comparison, 9.4.0–9.4.15 is affected and 9.4.16 fixes it; 10.4.0–10.4.3 is affected and 10.4.4 fixes it. The parallel fixes do not establish a branch transition or cover other CVEs.",
+          "qualification": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections."
+        },
+        {
+          "claimId": "web-affected-10.4",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "exactSecurity"
+          ],
+          "assessedAt": "2026-11-24T19:14:38.158697738Z",
+          "evidence": "The advisory Product Status and CVE-2026-76288 Mitigations and Workarounds scope the named issue to Splunk Enterprise with Splunk Web enabled. Within the bounded comparison, 9.4.0–9.4.15 is affected and 9.4.16 fixes it; 10.4.0–10.4.3 is affected and 10.4.4 fixes it. The parallel fixes do not establish a branch transition or cover other CVEs.",
+          "qualification": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections."
+        },
+        {
+          "claimId": "web-fixed-10.4",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "exactSecurity"
+          ],
+          "assessedAt": "2026-11-24T19:14:38.158697738Z",
+          "evidence": "The advisory Product Status and CVE-2026-76288 Mitigations and Workarounds scope the named issue to Splunk Enterprise with Splunk Web enabled. Within the bounded comparison, 9.4.0–9.4.15 is affected and 9.4.16 fixes it; 10.4.0–10.4.3 is affected and 10.4.4 fixes it. The parallel fixes do not establish a branch transition or cover other CVEs.",
+          "qualification": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections."
+        }
+      ],
+      "readerReview": {
+        "question": "Which patch remediates the named Splunk Web advisory on each Enterprise branch?",
+        "routeId": "exact-backport",
+        "routeQuery": "view=exact-releases&from=9.4.15&to=9.4.16&asOf=2026-11-02",
+        "region": "#exact-results",
+        "sourceId": "exactSecurity",
+        "sourceUrl": "https://advisory.splunk.com/advisories/SVD-2026-1007",
+        "sourceSection": "Product Status; CVE-2026-76288 Description and Mitigations. Other CVEs are outside this pilot.",
+        "answer": "The advisory lists this exact branch release as fixed for the assessed CVE.",
+        "checkedAt": "2026-11-24T19:14:40.348Z",
+        "claimIds": [
+          "web-affected-9.4",
+          "web-fixed-9.4",
+          "web-affected-10.4",
+          "web-fixed-10.4"
+        ],
+        "outputs": {
+          "screen": "passed",
+          "offlineHeadlessChromiumHtml": "passed",
+          "nativeChromiumPdf": "passed"
+        },
+        "htmlSha256": "327be1ee35b946de7131d3891d43b538361ceb213da16a653d10c8dbadd4f8cf",
+        "pdfSha256": "72461a130b35f8d6910c1982a4c895d5fbd4da08252691f8c43fd11d5c50c7c1",
+        "results": [
+          {
+            "question": "Which patch remediates the named Splunk Web advisory on each Enterprise branch?",
+            "routeId": "exact-backport",
+            "routeQuery": "view=exact-releases&from=9.4.15&to=9.4.16&asOf=2026-11-02",
+            "region": "#exact-results",
+            "sourceId": "exactSecurity",
+            "sourceUrl": "https://advisory.splunk.com/advisories/SVD-2026-1007",
+            "sourceSection": "Product Status; CVE-2026-76288 Description and Mitigations. Other CVEs are outside this pilot.",
+            "visibleAnswer": "The advisory lists this exact branch release as fixed for the assessed CVE.",
+            "checkedAt": "2026-11-24T19:14:40.348Z",
+            "htmlSha256": "327be1ee35b946de7131d3891d43b538361ceb213da16a653d10c8dbadd4f8cf",
+            "pdfSha256": "72461a130b35f8d6910c1982a4c895d5fbd4da08252691f8c43fd11d5c50c7c1",
+            "revision": "content-79c5217ec2a1d61c85b4d912",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "capabilityId": "exact.uf-useack",
+      "disposition": "assessed-no-change",
+      "qualification": "Enterprise 10.4.3 fixed-issues Important warnings separately identify UF 10.4.2 and the receiving heavy forwarder or indexer condition with useACK enabled; the warning directs customers to UF 10.4.3 or higher. The fix is not a receiver-wide or Cloud compatibility claim.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:08:38.622437Z",
+      "assessedAt": "2026-11-24T19:10:33.626208454Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "exactUF",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:08:38.622437Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues | Important: UF 10.4.2 warning; fixed in UF 10.4.3; receiver acknowledgements | direct HTTP 200, 144817 bytes; SHA-256 cbcb9bae9ca8b3ac4004e1a7a2c5d3502ccea73f8bd6aa03650be191504b45d6"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "uf-regressed",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "exactUF"
+          ],
+          "assessedAt": "2026-11-24T19:10:33.626208454Z",
+          "evidence": "Enterprise 10.4.3 fixed-issues Important warnings separately identify UF 10.4.2 and the receiving heavy forwarder or indexer condition with useACK enabled; the warning directs customers to UF 10.4.3 or higher. The fix is not a receiver-wide or Cloud compatibility claim.",
+          "qualification": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections."
+        },
+        {
+          "claimId": "uf-fixed",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "exactUF"
+          ],
+          "assessedAt": "2026-11-24T19:10:33.626208454Z",
+          "evidence": "Enterprise 10.4.3 fixed-issues Important warnings separately identify UF 10.4.2 and the receiving heavy forwarder or indexer condition with useACK enabled; the warning directs customers to UF 10.4.3 or higher. The fix is not a receiver-wide or Cloud compatibility claim.",
+          "qualification": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections."
+        }
+      ],
+      "readerReview": {
+        "question": "When does UF 10.4.2 forwarding stall, and which patch fixes it?",
+        "routeId": "exact-uf",
+        "routeQuery": "view=exact-releases&component=universal-forwarder&from=10.4.2&to=10.4.3&asOf=2026-11-02",
+        "region": "#exact-results",
+        "sourceId": "exactUF",
+        "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues",
+        "sourceSection": "Important: UF 10.4.2 warning; fixed in UF 10.4.3; receiver acknowledgements",
+        "answer": "UF 10.4.2 forwarding can stall with useACK enabled on a receiving heavy forwarder or indexer.",
+        "checkedAt": "2026-11-24T19:10:35.641Z",
+        "claimIds": [
+          "uf-regressed",
+          "uf-fixed"
+        ],
+        "outputs": {
+          "screen": "passed",
+          "offlineHeadlessChromiumHtml": "passed",
+          "nativeChromiumPdf": "passed"
+        },
+        "htmlSha256": "69b6f9f95faa4c40d4554f4c05480af310d92e95c870366c25d88f166e03c439",
+        "pdfSha256": "2320c372775d6ef65b285b5ba81148ee4d2975bc65ab315f47e07caf92acf4f3",
+        "results": [
+          {
+            "question": "When does UF 10.4.2 forwarding stall, and which patch fixes it?",
+            "routeId": "exact-uf",
+            "routeQuery": "view=exact-releases&component=universal-forwarder&from=10.4.2&to=10.4.3&asOf=2026-11-02",
+            "region": "#exact-results",
+            "sourceId": "exactUF",
+            "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues",
+            "sourceSection": "Important: UF 10.4.2 warning; fixed in UF 10.4.3; receiver acknowledgements",
+            "visibleAnswer": "UF 10.4.2 forwarding can stall with useACK enabled on a receiving heavy forwarder or indexer.",
+            "checkedAt": "2026-11-24T19:10:35.641Z",
+            "htmlSha256": "69b6f9f95faa4c40d4554f4c05480af310d92e95c870366c25d88f166e03c439",
+            "pdfSha256": "2320c372775d6ef65b285b5ba81148ee4d2975bc65ab315f47e07caf92acf4f3",
+            "revision": "content-79c5217ec2a1d61c85b4d912",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "capabilityId": "exact.uncertainty-parity",
+      "disposition": "assessed-no-change",
+      "qualification": "The 10.4 release table describes legacy TLS as disabled by default and retained for migration. The 10.4 upgrade guide heading TLS 1.0 and 1.1 support removed says removal is introduced in 10.4 for Enterprise across OSes. Retain both, plan TLS 1.2 or higher, and leave historical and unassessed tuples explicitly scoped. The candidate route and its reports retain the disagreement.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:10:05.635372Z",
+      "assessedAt": "2026-11-24T19:10:20.948699925Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "exact104",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:10:05.635372Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4 | 10.4 TLS 1.3 and legacy TLS availability; 10.4.2/10.4.3 UF warning; maintenance release headings | direct HTTP 200, 193325 bytes; SHA-256 62b35d552d365d32b0e7035e4829572e5864f95f468e6b017406c0dabb3a1bf5"
+        },
+        {
+          "sourceId": "exactUpgrade",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:10:05.633941Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first | Splunk has removed support for versions 1.0 and 1.1 of TLS; Enterprise component, all operating systems, introduced 10.4 | direct HTTP 200, 219561 bytes; SHA-256 8ead405c350b7c6ad6431446b93424e4f337aa315e2f2bf0128e67f1066823be"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "tls-retained",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "exact104"
+          ],
+          "assessedAt": "2026-11-24T19:10:20.948699925Z",
+          "evidence": "The 10.4 release table describes legacy TLS as disabled by default and retained for migration. The 10.4 upgrade guide heading TLS 1.0 and 1.1 support removed says removal is introduced in 10.4 for Enterprise across OSes. Retain both, plan TLS 1.2 or higher, and leave historical and unassessed tuples explicitly scoped. The candidate route and its reports retain the disagreement.",
+          "qualification": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections."
+        },
+        {
+          "claimId": "tls-removed",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "exactUpgrade"
+          ],
+          "assessedAt": "2026-11-24T19:10:20.948699925Z",
+          "evidence": "The 10.4 release table describes legacy TLS as disabled by default and retained for migration. The 10.4 upgrade guide heading TLS 1.0 and 1.1 support removed says removal is introduced in 10.4 for Enterprise across OSes. Retain both, plan TLS 1.2 or higher, and leave historical and unassessed tuples explicitly scoped. The candidate route and its reports retain the disagreement.",
+          "qualification": "Validate the exact component, branch and endpoint or range, stated conditions and linked event against the mapped sections."
+        },
+        {
+          "claimId": "exact-evidence-boundary",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "exact104",
+            "exactUpgrade"
+          ],
+          "assessedAt": "2026-11-24T19:10:20.948699925Z",
+          "evidence": "The 10.4 release table describes legacy TLS as disabled by default and retained for migration. The 10.4 upgrade guide heading TLS 1.0 and 1.1 support removed says removal is introduced in 10.4 for Enterprise across OSes. Retain both, plan TLS 1.2 or higher, and leave historical and unassessed tuples explicitly scoped. The candidate route and its reports retain the disagreement.",
+          "qualification": "Retain the release/upgrade guide disagreement, unknown and historical evidence, and the evidence review window in screen, agent and export paths."
+        }
+      ],
+      "readerReview": {
+        "question": "Can I rely on TLS 1.0 or 1.1 after upgrading Enterprise to 10.4?",
+        "routeId": "exact-conflict",
+        "routeQuery": "view=exact-releases&from=9.4.0&to=10.4.0&asOf=2026-11-02#exact-results",
+        "region": "#exact-results",
+        "sourceId": "exactUpgrade",
+        "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first",
+        "sourceSection": "Splunk has removed support for versions 1.0 and 1.1 of TLS; Enterprise component, all operating systems, introduced 10.4",
+        "answer": "The upgrade guide says TLS 1.0/1.1 support is completely removed in 10.4.",
+        "checkedAt": "2026-11-24T19:10:22.997Z",
+        "claimIds": [
+          "tls-removed",
+          "exact-evidence-boundary"
+        ],
+        "outputs": {
+          "screen": "passed",
+          "offlineHeadlessChromiumHtml": "passed",
+          "nativeChromiumPdf": "passed"
+        },
+        "htmlSha256": "032874659e6878114c9750ddbbec7ec3ce9c787eb889361fd07a5351b832fa48",
+        "pdfSha256": "77a13bb94def44a3f13f25261872cca58a4855a3247329134e05707c13a5d3b4",
+        "results": [
+          {
+            "question": "Can I rely on TLS 1.0 or 1.1 after upgrading Enterprise to 10.4?",
+            "routeId": "exact-conflict",
+            "routeQuery": "view=exact-releases&from=9.4.0&to=10.4.0&asOf=2026-11-02#exact-results",
+            "region": "#exact-results",
+            "sourceId": "exactUpgrade",
+            "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first",
+            "sourceSection": "Splunk has removed support for versions 1.0 and 1.1 of TLS; Enterprise component, all operating systems, introduced 10.4",
+            "visibleAnswer": "The upgrade guide says TLS 1.0/1.1 support is completely removed in 10.4.",
+            "checkedAt": "2026-11-24T19:10:22.997Z",
+            "htmlSha256": "032874659e6878114c9750ddbbec7ec3ce9c787eb889361fd07a5351b832fa48",
+            "pdfSha256": "77a13bb94def44a3f13f25261872cca58a4855a3247329134e05707c13a5d3b4",
+            "revision": "content-79c5217ec2a1d61c85b4d912",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "capabilityId": "ai.discovery",
+      "disposition": "assessed-no-change",
+      "qualification": "The current ES 8.8 Agentic AI Offerings aggregate distinguishes GA Triage from Controlled Availability Autonomous Response. Both legacy registered path variants returned 404; the renaming is not new feature availability. The mapped current About article identifies the SPL assistant and Agent Mode; the Observability Assistant and troubleshooting guides identify separate service capabilities. The curated directory keeps evidence gaps rather than inferring rollout from the product label.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:16:38.932245Z",
+      "assessedAt": "2026-11-24T19:16:58.951871292Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "aiSaiaAbout",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:16:38.779783Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant | Requirements; features; ITSI subagent; where the assistant runs | direct HTTP 200, 162682 bytes; SHA-256 d55f65fe822d1307faa4ef2192a398f8d4311113d6db1251714396e58fea28af"
+        },
+        {
+          "sourceId": "aiEsAgents88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:16:38.932245Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security | Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note | direct HTTP 200, 197012 bytes; SHA-256 71d969e2d610e40d3ee40d2de9f9745ddaf7ee48d474e3f0eab7cf8e223836a6"
+        },
+        {
+          "sourceId": "aiObsAssistant",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:14:45.039320Z",
+          "evidence": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/ai-assistant-in-observability-cloud | Availability; supported realms and product areas; access; context limitations; data sharing and use | direct HTTP 200, 162080 bytes; SHA-256 2899764a088a0552e03d3574be89196758d8333590fd7558f8bd99fc1742ff67"
+        },
+        {
+          "sourceId": "aiObsRca",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:14:44.996507Z",
+          "evidence": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan | Availability; supported alerts and metrics; opt-in behavior; Kubernetes remediation plans | direct HTTP 200, 172514 bytes; SHA-256 6b958815b163916d4254ca4c0cb53602232faa5a5c9371de7f81c4f51c307786"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "ai-availability-backlog",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiSaiaAbout",
+            "aiEsAgents88",
+            "aiObsAssistant",
+            "aiObsRca"
+          ],
+          "assessedAt": "2026-11-24T19:16:58.951871292Z",
+          "evidence": "The current ES 8.8 Agentic AI Offerings aggregate distinguishes GA Triage from Controlled Availability Autonomous Response. Both legacy registered path variants returned 404; the renaming is not new feature availability. The mapped current About article identifies the SPL assistant and Agent Mode; the Observability Assistant and troubleshooting guides identify separate service capabilities. The curated directory keeps evidence gaps rather than inferring rollout from the product label.",
+          "qualification": "Search for new official release or capability documentation within the curated matrix and check discovery/rollout gaps. Record what was searched, even when no further evidence is found; coordinate ES and regional follow-up."
+        }
+      ],
+      "readerReview": {
+        "question": "Which official ES 8.8 AI capability is Controlled Availability, and are all operation and availability questions answered?",
+        "routeId": "ai-overview",
+        "routeQuery": "view=ai-availability",
+        "region": "#ai-es-soc",
+        "sourceId": "aiEsAgents88",
+        "sourceUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+        "sourceSection": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note",
+        "answer": "Autonomous Response Controlled Availability",
+        "checkedAt": "2026-11-24T19:17:01.128Z",
+        "claimIds": [
+          "ai-availability-backlog"
+        ],
+        "outputs": {
+          "screen": "passed",
+          "offlineHeadlessChromiumHtml": "passed",
+          "nativeChromiumPdf": "passed"
+        },
+        "htmlSha256": "b808b398ee9928faab7e4fd6b582209c814a78c33deba40eb0c3e76a2a968b68",
+        "pdfSha256": "a0644a6e731242471c94ae429875a961827a688af9938f4fca839133aa86dfb0",
+        "results": [
+          {
+            "question": "Which official ES 8.8 AI capability is Controlled Availability, and are all operation and availability questions answered?",
+            "routeId": "ai-overview",
+            "routeQuery": "view=ai-availability",
+            "region": "#ai-es-soc",
+            "sourceId": "aiEsAgents88",
+            "sourceUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+            "sourceSection": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note",
+            "visibleAnswer": "Autonomous Response Controlled Availability",
+            "checkedAt": "2026-11-24T19:17:01.128Z",
+            "htmlSha256": "b808b398ee9928faab7e4fd6b582209c814a78c33deba40eb0c3e76a2a968b68",
+            "pdfSha256": "a0644a6e731242471c94ae429875a961827a688af9938f4fca839133aa86dfb0",
+            "revision": "content-79c5217ec2a1d61c85b4d912",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "capabilityId": "ai.saia-itsi",
+      "disposition": "assessed-no-change",
+      "qualification": "About 2.3.6 and 2.4.0 identify the SPL assistant and document ITSI 5.0.0+, SAIA 2.2.0+ and MCP Server 1.2.1+, subject to permissions and enabled tools. Cloud install scope and regulated limitations are separate. The 2.4 release and installer document fresh Enterprise 10.4.x+, SAIA 2.4.0+, Cloud Connect 2.0.0+, qualifying license and selected commercial AWS region. Agent Mode separately requires a supported AWS AI service location, Model Runtime and permission. Model Runtime lists external choices and regulated limits, while the 2.4 known-issues page retains the historical SAIA-9918 future tense and the 2.2.0–2.3.6 exclusion. No subagent rollout is inferred from base service coverage.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:17:15.126593Z",
+      "assessedAt": "2026-11-24T19:19:19.621374180Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "aiSaiaAbout",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:16:38.779783Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant | Requirements; features; ITSI subagent; where the assistant runs | direct HTTP 200, 162682 bytes; SHA-256 d55f65fe822d1307faa4ef2192a398f8d4311113d6db1251714396e58fea28af"
+        },
+        {
+          "sourceId": "aiSaiaInstall",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:17:07.030739Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers | FedRAMP deployments; supported regions; version compatibility | direct HTTP 200, 183789 bytes; SHA-256 88599a1ab8a5a4ca1e798912e4321d1162a8a41d51c63a5c692753149bcd8ba3"
+        },
+        {
+          "sourceId": "aiSaiaAgentMode",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:17:06.575444Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant | Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites | direct HTTP 200, 202546 bytes; SHA-256 342c329b9a8531be5f099ae813a8d65526aa0665ad4b2029fcc19111f996c225"
+        },
+        {
+          "sourceId": "aiSaiaModelRuntime",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:17:11.003859Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant | Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off | direct HTTP 200, 174664 bytes; SHA-256 730b341c1de133dafa67fe7b92e29712f3f40f9b017fe75ef768df96bcdb3335"
+        },
+        {
+          "sourceId": "aiSaiaCloudConnected",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:17:15.097267Z",
+          "evidence": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected | Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data | direct HTTP 200, 178951 bytes; SHA-256 879b7fd68b172ffa3fb379bfb843e6ca75c72b1ee0fe4240c28ee5eac6893df7"
+        },
+        {
+          "sourceId": "aiSaiaKnownIssues",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:17:15.126593Z",
+          "evidence": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues | SAIA-9918 Cloud Connected access and 2.1.1 workaround | direct HTTP 200, 142889 bytes; SHA-256 d4292c0c4efc3690edbc992bd4ab7c914fb2f46cb0c976e87a48e7d60d6de7d7"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "ai-saia-spl",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiSaiaAbout",
+            "aiSaiaInstall"
+          ],
+          "assessedAt": "2026-11-24T19:19:19.621374180Z",
+          "evidence": "About 2.3.6 and 2.4.0 identify the SPL assistant and document ITSI 5.0.0+, SAIA 2.2.0+ and MCP Server 1.2.1+, subject to permissions and enabled tools. Cloud install scope and regulated limitations are separate. The 2.4 release and installer document fresh Enterprise 10.4.x+, SAIA 2.4.0+, Cloud Connect 2.0.0+, qualifying license and selected commercial AWS region. Agent Mode separately requires a supported AWS AI service location, Model Runtime and permission. Model Runtime lists external choices and regulated limits, while the 2.4 known-issues page retains the historical SAIA-9918 future tense and the 2.2.0–2.3.6 exclusion. No subagent rollout is inferred from base service coverage.",
+          "qualification": "SPL assistance identity, stage, exact requirements and runtime."
+        },
+        {
+          "claimId": "ai-saia-agent",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiSaiaInstall",
+            "aiSaiaAbout",
+            "aiSaiaAgentMode",
+            "aiSaiaModelRuntime",
+            "aiSaiaCloudConnected",
+            "aiSaiaKnownIssues"
+          ],
+          "assessedAt": "2026-11-24T19:19:19.621374180Z",
+          "evidence": "About 2.3.6 and 2.4.0 identify the SPL assistant and document ITSI 5.0.0+, SAIA 2.2.0+ and MCP Server 1.2.1+, subject to permissions and enabled tools. Cloud install scope and regulated limitations are separate. The 2.4 release and installer document fresh Enterprise 10.4.x+, SAIA 2.4.0+, Cloud Connect 2.0.0+, qualifying license and selected commercial AWS region. Agent Mode separately requires a supported AWS AI service location, Model Runtime and permission. Model Runtime lists external choices and regulated limits, while the 2.4 known-issues page retains the historical SAIA-9918 future tense and the 2.2.0–2.3.6 exclusion. No subagent rollout is inferred from base service coverage.",
+          "qualification": "Agent Mode and Model Runtime compatibility, enablement and version-bound issues; keep Cloud Connected compatibility and feature scope distinct."
+        },
+        {
+          "claimId": "ai-itsi-subagent",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiSaiaAbout",
+            "aiSaiaInstall"
+          ],
+          "assessedAt": "2026-11-24T19:19:19.621374180Z",
+          "evidence": "About 2.3.6 and 2.4.0 identify the SPL assistant and document ITSI 5.0.0+, SAIA 2.2.0+ and MCP Server 1.2.1+, subject to permissions and enabled tools. Cloud install scope and regulated limitations are separate. The 2.4 release and installer document fresh Enterprise 10.4.x+, SAIA 2.4.0+, Cloud Connect 2.0.0+, qualifying license and selected commercial AWS region. Agent Mode separately requires a supported AWS AI service location, Model Runtime and permission. Model Runtime lists external choices and regulated limits, while the 2.4 known-issues page retains the historical SAIA-9918 future tense and the 2.2.0–2.3.6 exclusion. No subagent rollout is inferred from base service coverage.",
+          "qualification": "ITSI integration version floors, supported tooling and permission requirements. Subagent rollout requires its own evidence."
+        }
+      ],
+      "readerReview": {
+        "question": "What exact versions do I need for the ITSI subagent, and does the SAIA Cloud Connected installer establish Agent Mode readiness?",
+        "routeId": "ai-itsi",
+        "routeQuery": "view=ai-availability&aiProduct=itsi&aiVersion=5.0",
+        "region": "#ai-itsi-subagent",
+        "sourceId": "aiSaiaAbout",
+        "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+        "sourceSection": "Requirements; features; ITSI subagent; where the assistant runs",
+        "answer": "ITSI 5.0.0+, SAIA 2.2.0+, Splunk MCP Server 1.2.1+.",
+        "checkedAt": "2026-11-24T19:19:21.565Z",
+        "claimIds": [
+          "ai-saia-spl",
+          "ai-saia-agent",
+          "ai-itsi-subagent"
+        ],
+        "outputs": {
+          "screen": "passed",
+          "offlineHeadlessChromiumHtml": "passed",
+          "nativeChromiumPdf": "passed"
+        },
+        "htmlSha256": "4f490d6f83af735a5c9e942c4c7c8039070c5be6e69387142fe50c0376777e4d",
+        "pdfSha256": "126d186ab432f1826d77c486e5ed14daae1b8b48b611c6dd4b8b411f9888d600",
+        "results": [
+          {
+            "question": "What exact versions do I need for the ITSI subagent, and does the SAIA Cloud Connected installer establish Agent Mode readiness?",
+            "routeId": "ai-itsi",
+            "routeQuery": "view=ai-availability&aiProduct=itsi&aiVersion=5.0",
+            "region": "#ai-itsi-subagent",
+            "sourceId": "aiSaiaAbout",
+            "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+            "sourceSection": "Requirements; features; ITSI subagent; where the assistant runs",
+            "visibleAnswer": "ITSI 5.0.0+, SAIA 2.2.0+, Splunk MCP Server 1.2.1+.",
+            "checkedAt": "2026-11-24T19:19:21.565Z",
+            "htmlSha256": "4f490d6f83af735a5c9e942c4c7c8039070c5be6e69387142fe50c0376777e4d",
+            "pdfSha256": "126d186ab432f1826d77c486e5ed14daae1b8b48b611c6dd4b8b411f9888d600",
+            "revision": "content-79c5217ec2a1d61c85b4d912",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "capabilityId": "ai.observability-capabilities",
+      "disposition": "assessed-no-change",
+      "qualification": "The Assistant Features table documents resumable threads and PDF export, while Context limitations separately retains the most recent interaction within 30 days. Supported product areas, organization data handling, permissions and the service description realm table bound access. The troubleshooting guide limits detector-triggered analysis to standard default metrics and separately describes custom metrics with standard dimensions as usable evidence. The use section identifies manual versus automatic opt-in; the July 8 release note scopes APM transaction errors. The two guides have different realm scope.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:14:49.005426Z",
+      "assessedAt": "2026-11-24T19:16:26.316864101Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "aiObsAssistant",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:14:45.039320Z",
+          "evidence": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/ai-assistant-in-observability-cloud | Availability; supported realms and product areas; access; context limitations; data sharing and use | direct HTTP 200, 162080 bytes; SHA-256 2899764a088a0552e03d3574be89196758d8333590fd7558f8bd99fc1742ff67"
+        },
+        {
+          "sourceId": "aiObsServiceDetails",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:06:37.475912Z",
+          "evidence": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description | Available regions or realms; realm-to-region equivalence; available components per realm | direct HTTP 200, 237834 bytes; SHA-256 7d1f866009dd6e4e9503a1c8f2c84c3e24ca8f4eb3a285810ca2df5af04396f8"
+        },
+        {
+          "sourceId": "aiObsRca",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:14:44.996507Z",
+          "evidence": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan | Availability; supported alerts and metrics; opt-in behavior; Kubernetes remediation plans | direct HTTP 200, 172514 bytes; SHA-256 6b958815b163916d4254ca4c0cb53602232faa5a5c9371de7f81c4f51c307786"
+        },
+        {
+          "sourceId": "aiObsJulyRelease",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:14:49.005426Z",
+          "evidence": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/july-2026 | July 8 AI troubleshooting agent and remediation plan milestone | direct HTTP 200, 169015 bytes; SHA-256 7e159fe8fede8e03351e7a30f90a6ba2970b48f02643b6e3a67b39ccc5f1984b"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "ai-observability-assistant",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiObsAssistant",
+            "aiObsServiceDetails"
+          ],
+          "assessedAt": "2026-11-24T19:16:26.316864101Z",
+          "evidence": "The Assistant Features table documents resumable threads and PDF export, while Context limitations separately retains the most recent interaction within 30 days. Supported product areas, organization data handling, permissions and the service description realm table bound access. The troubleshooting guide limits detector-triggered analysis to standard default metrics and separately describes custom metrics with standard dimensions as usable evidence. The use section identifies manual versus automatic opt-in; the July 8 release note scopes APM transaction errors. The two guides have different realm scope.",
+          "qualification": "Assistant identity, service coverage, access and runtime/data handling limits."
+        },
+        {
+          "claimId": "ai-observability-rca",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiObsRca",
+            "aiObsJulyRelease",
+            "aiObsServiceDetails"
+          ],
+          "assessedAt": "2026-11-24T19:16:26.316864101Z",
+          "evidence": "The Assistant Features table documents resumable threads and PDF export, while Context limitations separately retains the most recent interaction within 30 days. Supported product areas, organization data handling, permissions and the service description realm table bound access. The troubleshooting guide limits detector-triggered analysis to standard default metrics and separately describes custom metrics with standard dimensions as usable evidence. The use section identifies manual versus automatic opt-in; the July 8 release note scopes APM transaction errors. The two guides have different realm scope.",
+          "qualification": "AI troubleshooting agent and remediation plans, release evidence, opt-in and supported investigation scope."
+        }
+      ],
+      "readerReview": {
+        "question": "Can I assume every AI Assistant thread can be resumed, or that any custom metric can trigger troubleshooting?",
+        "routeId": "ai-observability-assistant",
+        "routeQuery": "view=ai-availability&aiProduct=observability&deployment=cloud&compliance=commercial&csp=aws&region=us-east-1&aiVersion=2026-08-27",
+        "region": "#ai-observability-assistant",
+        "sourceId": "aiObsAssistant",
+        "sourceUrl": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/ai-assistant-in-observability-cloud",
+        "sourceSection": "Availability; supported realms and product areas; access; context limitations; data sharing and use",
+        "answer": "resumable threads and PDF download",
+        "checkedAt": "2026-11-24T19:16:28.474Z",
+        "claimIds": [
+          "ai-observability-assistant"
+        ],
+        "outputs": {
+          "screen": "passed",
+          "offlineHeadlessChromiumHtml": "passed",
+          "nativeChromiumPdf": "passed"
+        },
+        "htmlSha256": "98486a874b0c056ae3ee79ed1d3994d5491695520bc7833f166dc010708cf0d4",
+        "pdfSha256": "d0b3e6058733b1201bcf569d5ca16b2fc2db4370ce7dc5038ab2385506081105",
+        "results": [
+          {
+            "question": "Can I assume every AI Assistant thread can be resumed, or that any custom metric can trigger troubleshooting?",
+            "routeId": "ai-observability-assistant",
+            "routeQuery": "view=ai-availability&aiProduct=observability&deployment=cloud&compliance=commercial&csp=aws&region=us-east-1&aiVersion=2026-08-27",
+            "region": "#ai-observability-assistant",
+            "sourceId": "aiObsAssistant",
+            "sourceUrl": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/ai-assistant-in-observability-cloud",
+            "sourceSection": "Availability; supported realms and product areas; access; context limitations; data sharing and use",
+            "visibleAnswer": "resumable threads and PDF download",
+            "checkedAt": "2026-11-24T19:16:28.474Z",
+            "htmlSha256": "98486a874b0c056ae3ee79ed1d3994d5491695520bc7833f166dc010708cf0d4",
+            "pdfSha256": "d0b3e6058733b1201bcf569d5ca16b2fc2db4370ce7dc5038ab2385506081105",
+            "revision": "content-79c5217ec2a1d61c85b4d912",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          },
+          {
+            "question": "Can I assume every AI Assistant thread can be resumed, or that any custom metric can trigger troubleshooting?",
+            "routeId": "ai-observability-rca",
+            "routeQuery": "view=ai-availability&aiProduct=observability&deployment=cloud&compliance=commercial&csp=gcp&region=gcp-oregon&aiVersion=2026-07-08",
+            "region": "#ai-observability-rca",
+            "sourceId": "aiObsRca",
+            "sourceUrl": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan",
+            "sourceSection": "Availability; supported alerts and metrics; opt-in behavior; Kubernetes remediation plans",
+            "visibleAnswer": "custom metrics can contribute useful evidence",
+            "checkedAt": "2026-11-24T19:16:28.887Z",
+            "htmlSha256": "9e94a7e897572202357fb71809ce3f3a832722960dc5720885ee647bbb4813e4",
+            "pdfSha256": "f7428ab6bfaec9d9b6f2b3f15b6a60fd65e1a91a1d4394b89c6a0b3f4cf10c98",
+            "revision": "content-79c5217ec2a1d61c85b4d912",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          }
+        ]
+      },
+      "additionalReaderReviews": [
+        {
+          "question": "Can I assume every AI Assistant thread can be resumed, or that any custom metric can trigger troubleshooting?",
+          "routeId": "ai-observability-rca",
+          "region": "#ai-observability-rca",
+          "answer": "custom metrics can contribute useful evidence",
+          "sourceId": "aiObsRca",
+          "sourceSection": "Availability; supported alerts and metrics; opt-in behavior; Kubernetes remediation plans",
+          "checkedAt": "2026-11-24T19:16:28.887Z",
+          "claimIds": [
+            "ai-observability-rca"
+          ]
+        }
+      ]
+    },
+    {
+      "capabilityId": "release-guide.enterprise",
+      "disposition": "deferred",
+      "qualification": "10.6 Installation Manual table lists 9.4.x to 10.0.x or 10.2.x first, then a listed 10.6.x hop. The indexed release introduction dates 10.6 to September 30. The exact 10.6.2 known/fixed pages expose introductory text without itemized rows, leaving its package-level detail unresolved. Obtain substantive 10.6.2 issue tables and finish exact branch/package verification. The selected release-line path and report passed.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:02:22.160922Z",
+      "assessedAt": "2026-11-24T19:02:51.313757911Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "enterprise106Notes",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:02:14.178283057Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.6/whats-new/welcome-to-splunk-enterprise-10.6 | What’s New headings and maintenance-release markers | direct HTTP None, 0 bytes; SHA-256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; curl: (28) Connection timed out after 5002 milliseconds | Publisher-indexed exact Enterprise 10.6 Welcome sections; direct attempts retained."
+        },
+        {
+          "sourceId": "enterprise106Upgrade",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:02:22.160922Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise | Supported upgrade paths and upgrade planning | direct HTTP 200, 178425 bytes; SHA-256 4ad37d63d5da5b5214a6bc2f6789080fda8fd767a47f27eafd46b528b2f916a7"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "release-guide.enterprise",
+          "outcome": "unable-to-verify",
+          "sourceIds": [
+            "enterprise106Notes",
+            "enterprise106Upgrade"
+          ],
+          "assessedAt": "2026-11-24T19:02:51.313757911Z",
+          "evidence": "10.6 Installation Manual table lists 9.4.x to 10.0.x or 10.2.x first, then a listed 10.6.x hop. The indexed release introduction dates 10.6 to September 30. The exact 10.6.2 known/fixed pages expose introductory text without itemized rows, leaving its package-level detail unresolved.",
+          "qualification": "Current release and lifecycle signals, supported upgrade steps, patch floors and changed technical requirements. Check applicability by branch and package."
+        }
+      ],
+      "lastVerifiedEvidence": {
+        "receipt": "docs/audits/2026-11-22-version-release-watch-review-1-coverage.json",
+        "assessedAt": "2026-11-22T19:10:40.657558+00:00",
+        "disposition": "changed",
+        "qualification": "Independently reopened the release introduction, supported upgrade paths, public download listing, Linux AMD64 SHA-512 sidecar and SVD-2026-1103/1104 solution/status sections. The listing and sidecar identify package10.6.2.5 build b07ce3b48d58; November19 dates10.6.2, not the exact four-segment package. Preserve prior10.6.1.1/10.6.0.5 identities, exact host matrices, KV bridges and component-specific advisory floors. The two10.6.2 issue topics expose introductions without itemized rows; complete issue enumeration remains unknown, not no issues or all fixes. No installer archive was downloaded or installed."
+      },
+      "followUp": {
+        "owner": "version-release-watch",
+        "action": "Resolve the named gap in the current Splunk Enterprise upgrade paths official section(s), then compare the scoped visitor answer and native exports. Obtain substantive 10.6.2 issue tables and finish exact branch/package verification. The selected release-line path and report passed.",
+        "reviewBy": "2026-11-25"
+      }
+    },
+    {
+      "capabilityId": "release-guide.cloud",
+      "disposition": "assessed-no-change",
+      "qualification": "10.7 and 10.8 Service Details subscription tables both list Cloud Platform 10.7, ES 8.7 and ITSI 5.0. The 10.8 What's New table separately documents DMA definition upload, AI Canvas knowledge objects, Machine Data Lake preview and governed approval with feature scope. SPL-292559 qualifies repeat DDAA restores on Azure Victoria and keeps original archives intact. The maintenance page's latest itemized heading remains 10.7.0.6, with no itemized 10.8 patch rows. The milestone does not establish specific stack rollout.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:02:59.980736Z",
+      "assessedAt": "2026-11-24T19:03:28.960430324Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "cloud107Notes",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:02:59.491478Z",
+          "evidence": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.7/splunk-cloud-platform-release-notes/whats-new | What’s New and release headings | direct HTTP 200, 157878 bytes; SHA-256 ce782d47ad8be66aa010c740b00757debd22a98916ac62dad9703f0821eb4004"
+        },
+        {
+          "sourceId": "service107",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:02:59.980736Z",
+          "evidence": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details | Splunk Cloud Platform versions and feature availability | direct HTTP 200, 509410 bytes; SHA-256 2197b5e24caea4870657c5111c7112c461f60af6bf7dc0b690bd1a4ee017904e"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "release-guide.cloud",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "cloud107Notes",
+            "service107"
+          ],
+          "assessedAt": "2026-11-24T19:03:28.960430324Z",
+          "evidence": "10.7 and 10.8 Service Details subscription tables both list Cloud Platform 10.7, ES 8.7 and ITSI 5.0. The 10.8 What's New table separately documents DMA definition upload, AI Canvas knowledge objects, Machine Data Lake preview and governed approval with feature scope. SPL-292559 qualifies repeat DDAA restores on Azure Victoria and keeps original archives intact. The maintenance page's latest itemized heading remains 10.7.0.6, with no itemized 10.8 patch rows. The milestone does not establish specific stack rollout.",
+          "qualification": "Cloud-managed release milestones, rollout qualifications, and changed capabilities or technical requirements in the guide."
+        }
+      ],
+      "readerReview": {
+        "question": "Does the Cloud 10.8 milestone mean my stack already runs 10.8 and ES 8.8?",
+        "routeId": "cloud-108-service-table",
+        "routeQuery": "product=platform&platform=cloud&from=10.7&to=10.8#technical-title",
+        "region": "#technical-content",
+        "sourceId": "service107",
+        "sourceUrl": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+        "sourceSection": "Splunk Cloud Platform versions and feature availability",
+        "answer": "Service Details lists Cloud Platform 10.7 with ES 8.7 and ITSI 5.0.",
+        "checkedAt": "2026-11-24T19:03:32.013Z",
+        "claimIds": [
+          "release-guide.cloud"
+        ],
+        "outputs": {
+          "screen": "passed",
+          "offlineHeadlessChromiumHtml": "passed",
+          "nativeChromiumPdf": "passed"
+        },
+        "htmlSha256": "db8f5a7f756f47924cf51847f9da57c4e70152b7250e794da52dd11f1b3b3cbb",
+        "pdfSha256": "1b2aefac9b0e9bbee35a978033bc6995f80482a99a932884835a2246b4bd6223",
+        "results": [
+          {
+            "question": "Does the Cloud 10.8 milestone mean my stack already runs 10.8 and ES 8.8?",
+            "routeId": "cloud-108-service-table",
+            "routeQuery": "product=platform&platform=cloud&from=10.7&to=10.8#technical-title",
+            "region": "#technical-content",
+            "sourceId": "service107",
+            "sourceUrl": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+            "sourceSection": "Splunk Cloud Platform versions and feature availability",
+            "visibleAnswer": "Service Details lists Cloud Platform 10.7 with ES 8.7 and ITSI 5.0.",
+            "checkedAt": "2026-11-24T19:03:32.013Z",
+            "htmlSha256": "db8f5a7f756f47924cf51847f9da57c4e70152b7250e794da52dd11f1b3b3cbb",
+            "pdfSha256": "1b2aefac9b0e9bbee35a978033bc6995f80482a99a932884835a2246b4bd6223",
+            "revision": "content-8eb66e60f4702bedd85546d5",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "capabilityId": "release-guide.enterprise-to-cloud",
+      "disposition": "assessed-no-change",
+      "qualification": "Lantern Overview, Prepare and Validate distinguish mobilization, app/data preparation and system/user acceptance. SCMA public appDetails.releases entry 5.4.11 names Enterprise platform lines 9.1 through 10.6 and cloudCompatible false. That is an assessment package for the source environment. The route directs the operator to the Monitoring Console and leaves export an intentional sharing choice; the assessment does not establish readiness, a cutover path or destination access.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:04:11.628687Z",
+      "assessedAt": "2026-11-24T19:04:51.690959677Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "migrationOverview",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:04:06.333927Z",
+          "evidence": "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Overview | Migration phases and transition | direct HTTP 200, 128109 bytes; SHA-256 db1a65ca37d02d384ea3123b9848ae120cc01222bebe188cb4e9c6573ec89d13"
+        },
+        {
+          "sourceId": "migrationPrepare",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:04:06.330393Z",
+          "evidence": "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Prepare | Preparation, app and data readiness | direct HTTP 200, 98893 bytes; SHA-256 8d551c4a6ca62a33a8615ecf2b656b8abce75ef6dcaa62cf314e7d2bf9d4872d"
+        },
+        {
+          "sourceId": "migrationValidate",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:04:11.628687Z",
+          "evidence": "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Validate | Validation and transition criteria | direct HTTP 200, 82121 bytes; SHA-256 672afaee334007df72c4bfb1b7635fa2338dd5dbf665d9e5d3a61756c75fc1f8"
+        },
+        {
+          "sourceId": "scma",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:04:07.657405Z",
+          "evidence": "https://splunkbase.splunk.com/app/4974 | Release history and Splunk Enterprise compatibility | direct HTTP 200, 236589 bytes; SHA-256 ef3109b53d2031511bca141aa82224cf19be5d9a151b4b35f1e0d37140093de4"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "release-guide.enterprise-to-cloud",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "migrationOverview",
+            "migrationPrepare",
+            "migrationValidate",
+            "scma"
+          ],
+          "assessedAt": "2026-11-24T19:04:51.690959677Z",
+          "evidence": "Lantern Overview, Prepare and Validate distinguish mobilization, app/data preparation and system/user acceptance. SCMA public appDetails.releases entry 5.4.11 names Enterprise platform lines 9.1 through 10.6 and cloudCompatible false. That is an assessment package for the source environment. The route directs the operator to the Monitoring Console and leaves export an intentional sharing choice; the assessment does not establish readiness, a cutover path or destination access.",
+          "qualification": "Assessment readiness and SCMA prerequisites, preparation, validation, and cutover/operating-model implications. Review destination milestones independently."
+        }
+      ],
+      "readerReview": {
+        "question": "What does the guide ask me to do with SCMA when planning a migration?",
+        "routeId": "migration",
+        "routeQuery": "product=platform&platform=migration&from=9.4&to=10.6",
+        "region": "#readiness-list",
+        "sourceId": "scma",
+        "sourceUrl": "https://splunkbase.splunk.com/app/4974",
+        "sourceSection": "Release history and Splunk Enterprise compatibility",
+        "answer": "Run the Cloud Migration Assessment App",
+        "checkedAt": "2026-11-24T19:04:54.314Z",
+        "claimIds": [
+          "release-guide.enterprise-to-cloud"
+        ],
+        "outputs": {
+          "screen": "passed",
+          "offlineHeadlessChromiumHtml": "passed",
+          "nativeChromiumPdf": "passed"
+        },
+        "htmlSha256": "b1d4978b32d78d33f0c77599dac05434e0b79d3468f0d16f2022156c5ea42a94",
+        "pdfSha256": "599f731bd87d699d42abca67d3f8e7a0bf945ebf1a71e76343c5d0a60b6f53b2",
+        "results": [
+          {
+            "question": "What does the guide ask me to do with SCMA when planning a migration?",
+            "routeId": "migration",
+            "routeQuery": "product=platform&platform=migration&from=9.4&to=10.6",
+            "region": "#readiness-list",
+            "sourceId": "scma",
+            "sourceUrl": "https://splunkbase.splunk.com/app/4974",
+            "sourceSection": "Release history and Splunk Enterprise compatibility",
+            "visibleAnswer": "Run the Cloud Migration Assessment App",
+            "checkedAt": "2026-11-24T19:04:54.314Z",
+            "htmlSha256": "b1d4978b32d78d33f0c77599dac05434e0b79d3468f0d16f2022156c5ea42a94",
+            "pdfSha256": "599f731bd87d699d42abca67d3f8e7a0bf945ebf1a71e76343c5d0a60b6f53b2",
+            "revision": "content-8eb66e60f4702bedd85546d5",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "capabilityId": "release-guide.es",
+      "disposition": "assessed-no-change",
+      "qualification": "ES 8.8 What's New dates GA to November 4. The exact compatibility matrix lists 8.8.x on 10.6.1.1 and distinguishes 10.6.1.0 and the cohosted KV Store warning. Current Cloud Service Details lists ES 8.7. ES 8.8 on-prem upgrade requires reviewing the disabled SECA input and collection migration window. Fixed Issues lists BLUERIDGE-26142 and ARI-619, while Known Issues remains unitemized. No exact managed tenant pairing is inferred.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:03:37.779563Z",
+      "assessedAt": "2026-11-24T19:03:59.279878654Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "rn88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:03:37.779563Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security | What’s New, upgrade caveats and release stage | direct HTTP 200, 217589 bytes; SHA-256 594195f8ea961923accf9b84335f4513cb4fe2d71b0f9520abd1b0b949ef9662"
+        },
+        {
+          "sourceId": "esCompatibility",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:03:37.552020Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix | Enterprise Security compatibility rows | direct HTTP 200, 155925 bytes; SHA-256 e67b3770b1581c61deb700aea76a6534963bfca47ecac572581df94677227819"
+        },
+        {
+          "sourceId": "service107",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:02:59.980736Z",
+          "evidence": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details | Premium solutions and Splunk-managed service compatibility | direct HTTP 200, 509410 bytes; SHA-256 2197b5e24caea4870657c5111c7112c461f60af6bf7dc0b690bd1a4ee017904e"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "release-guide.es",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "rn88",
+            "esCompatibility",
+            "service107"
+          ],
+          "assessedAt": "2026-11-24T19:03:59.279878654Z",
+          "evidence": "ES 8.8 What's New dates GA to November 4. The exact compatibility matrix lists 8.8.x on 10.6.1.1 and distinguishes 10.6.1.0 and the cohosted KV Store warning. Current Cloud Service Details lists ES 8.7. ES 8.8 on-prem upgrade requires reviewing the disabled SECA input and collection migration window. Fixed Issues lists BLUERIDGE-26142 and ARI-619, while Known Issues remains unitemized. No exact managed tenant pairing is inferred.",
+          "qualification": "ES release stage, upgrade and host pairing, changed requirements, and Platform-managed Cloud scope. Keep edition entitlement in ES Editions."
+        }
+      ],
+      "readerReview": {
+        "question": "Does Enterprise 10.6.1.1 list ES 8.8.x, and can the generic 10.6 selector establish that pairing?",
+        "routeId": "es-88-controlled-availability-enterprise",
+        "routeQuery": "product=es&platform=enterprise&host=10.6&from=8.7&to=8.8#technical-title",
+        "region": "#breaking-list",
+        "sourceId": "esCompatibility",
+        "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+        "sourceSection": "Enterprise Security compatibility rows",
+        "answer": "Its exact Enterprise 10.6.1.1 row lists 8.8.x",
+        "checkedAt": "2026-11-24T19:04:01.773Z",
+        "claimIds": [
+          "release-guide.es"
+        ],
+        "outputs": {
+          "screen": "passed",
+          "offlineHeadlessChromiumHtml": "passed",
+          "nativeChromiumPdf": "passed"
+        },
+        "htmlSha256": "525563af05cffad3e205f1f133bc37a41044de1c13cccdee28c7b7476c5aa793",
+        "pdfSha256": "5b6fbdbc8619fc5bca161a61dd9dc4f2b40df30f7b174e6a3c16edb6ac646c16",
+        "results": [
+          {
+            "question": "Does Enterprise 10.6.1.1 list ES 8.8.x, and can the generic 10.6 selector establish that pairing?",
+            "routeId": "es-88-controlled-availability-enterprise",
+            "routeQuery": "product=es&platform=enterprise&host=10.6&from=8.7&to=8.8#technical-title",
+            "region": "#breaking-list",
+            "sourceId": "esCompatibility",
+            "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+            "sourceSection": "Enterprise Security compatibility rows",
+            "visibleAnswer": "Its exact Enterprise 10.6.1.1 row lists 8.8.x",
+            "checkedAt": "2026-11-24T19:04:01.773Z",
+            "htmlSha256": "525563af05cffad3e205f1f133bc37a41044de1c13cccdee28c7b7476c5aa793",
+            "pdfSha256": "5b6fbdbc8619fc5bca161a61dd9dc4f2b40df30f7b174e6a3c16edb6ac646c16",
+            "revision": "content-8eb66e60f4702bedd85546d5",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "capabilityId": "release-guide.itsi",
+      "disposition": "changed",
+      "qualification": "Splunkbase named 5.0.3 appDetails.releases entry lists 10.2, 10.3, 10.4, 10.5, 10.6, 10.7, 10.8 and cloudCompatible true. The Help matrix separately lists 5.0.x for Enterprise 10.4.x, 10.6.0, 10.6.1.0 and 10.6.1.1; the 10.2.x cell says 5.0 with no explicit patch range. The related-app matrix has conditional Content Packs, ServiceNow, SAIA and MCP requirements. Service Details lists managed ITSI 5.0. The 5.0.3 KPI base-search preview is off by default and Splunk enabled. 46607 concerns Cloud catalog 503 and 46608 concerns empty lookback across selected indexes. Candidate readiness now distinguishes the listing and exact host/managed stack checks, with each claim sourced directly.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:05:04.577082Z",
+      "assessedAt": "2026-11-24T19:06:24.626860701Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "itsiPackage",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:05:04.577082Z",
+          "evidence": "https://splunkbase.splunk.com/app/1841 | Release history and Enterprise compatibility | direct HTTP 200, 260512 bytes; SHA-256 dde49d95ba49cc8b14bd9845b95e9d4009fd4c24da66cab0581cf2ce0c2bf8fe"
+        },
+        {
+          "sourceId": "itsiCompatibility",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:03:37.552020Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix | ITSI compatibility rows | direct HTTP 200, 155925 bytes; SHA-256 e67b3770b1581c61deb700aea76a6534963bfca47ecac572581df94677227819"
+        },
+        {
+          "sourceId": "itsiRelatedApps",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:04:59.403567Z",
+          "evidence": "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/install-and-upgrade/5.0/planning/itsi-compatibility-with-related-apps-and-add-ons | Related apps and add-ons compatibility | direct HTTP 200, 235856 bytes; SHA-256 65c9373e253d41b9a700d80d754dba62a5aa7d0ab3e3551ad6aed4cb5441110f"
+        },
+        {
+          "sourceId": "service107",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:02:59.980736Z",
+          "evidence": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details | Premium solutions and Splunk-managed service compatibility | direct HTTP 200, 509410 bytes; SHA-256 2197b5e24caea4870657c5111c7112c461f60af6bf7dc0b690bd1a4ee017904e"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "release-guide.itsi",
+          "outcome": "changed",
+          "sourceIds": [
+            "itsiPackage",
+            "itsiCompatibility",
+            "itsiRelatedApps",
+            "service107"
+          ],
+          "assessedAt": "2026-11-24T19:06:24.626860701Z",
+          "evidence": "Splunkbase named 5.0.3 appDetails.releases entry lists 10.2, 10.3, 10.4, 10.5, 10.6, 10.7, 10.8 and cloudCompatible true. The Help matrix separately lists 5.0.x for Enterprise 10.4.x, 10.6.0, 10.6.1.0 and 10.6.1.1; the 10.2.x cell says 5.0 with no explicit patch range. The related-app matrix has conditional Content Packs, ServiceNow, SAIA and MCP requirements. Service Details lists managed ITSI 5.0. The 5.0.3 KPI base-search preview is off by default and Splunk enabled. 46607 concerns Cloud catalog 503 and 46608 concerns empty lookback across selected indexes. Candidate readiness now distinguishes the listing and exact host/managed stack checks, with each claim sourced directly.",
+          "qualification": "Current ITSI release, exact host and related-app pairing, changed technical requirements and managed Cloud scope."
+        }
+      ],
+      "readerReview": {
+        "question": "Which platform lines does Splunkbase list for ITSI 5.0.3, and is an exact 10.2 pairing established?",
+        "routeId": "itsi-503-enterprise-102-scope",
+        "routeQuery": "product=itsi&platform=enterprise&host=10.2&from=5.0.2&to=5.0.3",
+        "region": "#readiness-list",
+        "sourceId": "itsiPackage",
+        "sourceUrl": "https://splunkbase.splunk.com/app/1841",
+        "sourceSection": "Release history and Enterprise compatibility",
+        "answer": "Splunkbase lists platform lines 10.2, 10.3, 10.4, 10.5, 10.6, 10.7 and 10.8 for the 5.0.3 package.",
+        "checkedAt": "2026-11-24T19:06:26.738Z",
+        "claimIds": [
+          "release-guide.itsi"
+        ],
+        "outputs": {
+          "screen": "passed",
+          "offlineHeadlessChromiumHtml": "passed",
+          "nativeChromiumPdf": "passed"
+        },
+        "htmlSha256": "dd177ca07de94ff70b4a984bdc424259289c5765364466fdfb55e7167ef736c6",
+        "pdfSha256": "97dbe27514a41d485f952d6ead0e704970149ca3254a6b819dd1ad71c2086449",
+        "results": [
+          {
+            "question": "Which platform lines does Splunkbase list for ITSI 5.0.3, and is an exact 10.2 pairing established?",
+            "routeId": "itsi-503-enterprise-102-scope",
+            "routeQuery": "product=itsi&platform=enterprise&host=10.2&from=5.0.2&to=5.0.3",
+            "region": "#readiness-list",
+            "sourceId": "itsiPackage",
+            "sourceUrl": "https://splunkbase.splunk.com/app/1841",
+            "sourceSection": "Release history and Enterprise compatibility",
+            "visibleAnswer": "Splunkbase lists platform lines 10.2, 10.3, 10.4, 10.5, 10.6, 10.7 and 10.8 for the 5.0.3 package.",
+            "checkedAt": "2026-11-24T19:06:26.738Z",
+            "htmlSha256": "dd177ca07de94ff70b4a984bdc424259289c5765364466fdfb55e7167ef736c6",
+            "pdfSha256": "97dbe27514a41d485f952d6ead0e704970149ca3254a6b819dd1ad71c2086449",
+            "revision": "content-79c5217ec2a1d61c85b4d912",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "capabilityId": "release-guide.observability",
+      "disposition": "assessed-no-change",
+      "qualification": "November 12/20 notes describe rolling service changes for APM, MRUM, Secure Application, selected-customer A2A and Database Monitoring. The Collector prerequisites cover ingress token, realm and deployed pipelines. 0.165.1 removes experimental TA runner components; .NET 1.18.0 drops .NET 8/9 with the separately documented 1.17.0 ceiling and patch-specific best-effort window. Secure Application .NET Agent 26.9 dual mode and Db2 scraper 0.1.10 have separate requirements. Service component realms stay distinct from feature entitlement, installation and authorization.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:06:37.475912Z",
+      "assessedAt": "2026-11-24T19:06:59.929474773Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "observabilityNotes",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:06:31.665506Z",
+          "evidence": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/release-notes-overview | Latest monthly release-note headings and component changes | direct HTTP 200, 170683 bytes; SHA-256 86a22f623edc8a987356adc916c83ffa8f3fb551822eb44513e79b3d2bfbc7b7"
+        },
+        {
+          "sourceId": "collectorDocs",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:06:31.737333Z",
+          "evidence": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector | Collector installation, deployment and linked component releases | direct HTTP 200, 183808 bytes; SHA-256 224978df9d6a4d09316895972972b3d1e44fa1566a932d282db42412a390683f"
+        },
+        {
+          "sourceId": "o11y",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:06:37.475912Z",
+          "evidence": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description | Available components, regions and realms | direct HTTP 200, 237834 bytes; SHA-256 7d1f866009dd6e4e9503a1c8f2c84c3e24ca8f4eb3a285810ca2df5af04396f8"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "release-guide.observability",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "observabilityNotes",
+            "collectorDocs",
+            "o11y"
+          ],
+          "assessedAt": "2026-11-24T19:06:59.929474773Z",
+          "evidence": "November 12/20 notes describe rolling service changes for APM, MRUM, Secure Application, selected-customer A2A and Database Monitoring. The Collector prerequisites cover ingress token, realm and deployed pipelines. 0.165.1 removes experimental TA runner components; .NET 1.18.0 drops .NET 8/9 with the separately documented 1.17.0 ceiling and patch-specific best-effort window. Secure Application .NET Agent 26.9 dual mode and Db2 scraper 0.1.10 have separate requirements. Service component realms stay distinct from feature entitlement, installation and authorization.",
+          "qualification": "Current rolling service changes and separately versioned Collector, instrumentation and deployment prerequisites. Keep realm and entitlement qualifications."
+        }
+      ],
+      "readerReview": {
+        "question": "Should a November SaaS feature be treated as a Collector or language-agent upgrade?",
+        "routeId": "observability-november",
+        "routeQuery": "product=observability&platform=cloud&host=10.7&from=Oct%202026&to=Nov%202026#technical-title",
+        "region": "#readiness-list",
+        "sourceId": "collectorDocs",
+        "sourceUrl": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector",
+        "sourceSection": "Collector installation, deployment and linked component releases",
+        "answer": "Inventory collectors and instrumentation",
+        "checkedAt": "2026-11-24T19:07:02.948Z",
+        "claimIds": [
+          "release-guide.observability"
+        ],
+        "outputs": {
+          "screen": "passed",
+          "offlineHeadlessChromiumHtml": "passed",
+          "nativeChromiumPdf": "passed"
+        },
+        "htmlSha256": "479f3c5116af54ef0ae54530f8029f04c08c28133ead26e0131a95ffa4972c32",
+        "pdfSha256": "134880ae5b9f3b48ca3d4a85764ccbc407380d1b0d15d4172c41846349451314",
+        "results": [
+          {
+            "question": "Should a November SaaS feature be treated as a Collector or language-agent upgrade?",
+            "routeId": "observability-november",
+            "routeQuery": "product=observability&platform=cloud&host=10.7&from=Oct%202026&to=Nov%202026#technical-title",
+            "region": "#readiness-list",
+            "sourceId": "collectorDocs",
+            "sourceUrl": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector",
+            "sourceSection": "Collector installation, deployment and linked component releases",
+            "visibleAnswer": "Inventory collectors and instrumentation",
+            "checkedAt": "2026-11-24T19:07:02.948Z",
+            "htmlSha256": "479f3c5116af54ef0ae54530f8029f04c08c28133ead26e0131a95ffa4972c32",
+            "pdfSha256": "134880ae5b9f3b48ca3d4a85764ccbc407380d1b0d15d4172c41846349451314",
+            "revision": "content-79c5217ec2a1d61c85b4d912",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "capabilityId": "release-guide.soar",
+      "disposition": "deferred",
+      "qualification": "8.7 On-premises release notes distinguish build 243 from 232 and the Python 3.13 runtime. The unprivileged path table retains 6.2.1 PostgreSQL and 8.5/Python bridges with OS and cluster qualifications. 8.8 Cloud GA is a distinct November 4 managed milestone. 8.8 Export tables give separate tested patch rows; Broker 8.7.0.245 is Docker Hub-only per October 9 entry and independent of package pairing. Indexed 8.8 installation pages show exact bridge rows, bundled UF 10.4.4 and malformed App for SOAR 8..0 cell. Direct 8.8 fixed-issues title says 8.8 while body says 8.7; known/fixed bodies have no itemized rows. No inference from stage or versions to pairing. Reconcile 8.8 issue headings/body and itemized rows, and the malformed App for SOAR compatibility cell. Obtain exact publisher itemized evidence. The older selected 8.7 answer and report passed.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:07:57.491300Z",
+      "assessedAt": "2026-11-24T19:08:24.050189610Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "cloud88Ga",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:07:07.940122Z",
+          "evidence": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud | Current release and Cloud release history | direct HTTP 200, 417418 bytes; SHA-256 4678e07817a55050ea171f571e6d8a12642ee26e1e6a8df7661dc3532ec6afc7"
+        },
+        {
+          "sourceId": "on87",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:07:07.730442Z",
+          "evidence": "https://help.splunk.com/en/splunk-soar/soar-on-premises/release-notes/8.7.0/splunk-soar-on-premises-release-notes/welcome-to-splunk-soar-on-premises | On-premises release version, changes and prerequisites | direct HTTP 200, 145530 bytes; SHA-256 eb2a1090eeb77aa996f0231d6d22ff7e789d5b94c5796f80c6feac92469102ea"
+        },
+        {
+          "sourceId": "path87",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:07:57.491300Z",
+          "evidence": "https://help.splunk.com/en/splunk-soar/soar-on-premises/install-and-upgrade-soar-on-premises/8.7.0/upgrade-splunk-soar-on-premises/upgrade-path-for-splunk-soar-on-premises-unprivileged-installations | Supported paths for unprivileged on-premises installations | direct HTTP 200, 219928 bytes; SHA-256 08371f84c49030ac384a03a6791c5f117107e14d7f972b2321be3ad08a0d09f4"
+        },
+        {
+          "sourceId": "cloud88Service",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:07:53.203407Z",
+          "evidence": "https://help.splunk.com/en/splunk-soar/soar-cloud/soar-cloud-service-description/the-splunk-soar-service/splunk-soar-cloud-introduction | SOAR Cloud service availability and supported versions | direct HTTP 200, 239506 bytes; SHA-256 72b4f3b1c01120d2d4a307627551d7cc04daa39fb5fe512dcce6fdc8a1a985e9"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "release-guide.soar",
+          "outcome": "unable-to-verify",
+          "sourceIds": [
+            "cloud88Ga",
+            "on87",
+            "path87",
+            "cloud88Service"
+          ],
+          "assessedAt": "2026-11-24T19:08:24.050189610Z",
+          "evidence": "8.7 On-premises release notes distinguish build 243 from 232 and the Python 3.13 runtime. The unprivileged path table retains 6.2.1 PostgreSQL and 8.5/Python bridges with OS and cluster qualifications. 8.8 Cloud GA is a distinct November 4 managed milestone. 8.8 Export tables give separate tested patch rows; Broker 8.7.0.245 is Docker Hub-only per October 9 entry and independent of package pairing. Indexed 8.8 installation pages show exact bridge rows, bundled UF 10.4.4 and malformed App for SOAR 8..0 cell. Direct 8.8 fixed-issues title says 8.8 while body says 8.7; known/fixed bodies have no itemized rows. No inference from stage or versions to pairing.",
+          "qualification": "Cloud milestones and managed availability, separate on-premises upgrade path and requirements, package prerequisites and supported pairing."
+        }
+      ],
+      "lastVerifiedEvidence": {
+        "receipt": "docs/audits/2026-11-22-version-release-watch-review-1-coverage.json",
+        "assessedAt": "2026-11-22T19:10:40.657558+00:00",
+        "disposition": "changed",
+        "qualification": "Independently reopened current Cloud/on-prem8.8, unprivileged paths, App/Export prerequisites, release-level PSIRT solutions/status and the public download listing plus three OS-specific SHA-512 sidecars. Listed unprivileged8.8.0 build282 commit81cb9deb is specific to x86_64 EL8,EL9 andAmazonLinux2023. Modern/Classic Broker8.8.0.262 and Manager1.0.8 are separate download identities, not server pairing. SVD-2026-1108/1109 fix floor is SOAR8.8.0; no per-build fix guarantee follows. The fixed topic explicitly describes8.7.0 under8.8.0 heading, and known topic supplies no itemized list. Keep that conflict/unknown enumeration, conditional Python3.13/pre7/8.5/OS/PostgreSQL bridges,8.7build232/243 and8.6credential/CyberArk history. No archive installation, Cloud entitlement, ES pairing or regulated authorization inferred."
+      },
+      "followUp": {
+        "owner": "version-release-watch",
+        "action": "Resolve the named gap in the current SOAR Cloud and on-premises release paths official section(s), then compare the scoped visitor answer and native exports. Reconcile 8.8 issue headings/body and itemized rows, and the malformed App for SOAR compatibility cell. Obtain exact publisher itemized evidence. The older selected 8.7 answer and report passed.",
+        "reviewBy": "2026-11-25"
+      }
+    },
+    {
+      "capabilityId": "release-guide.universal-forwarder",
+      "disposition": "assessed-no-change",
+      "qualification": "10.6 READ THIS FIRST allows a direct UF 10.0.x+ route. The ordinary event/HTTP/metric receiver matrix columns are 9.4.x, 10.0.x, 10.2.x, 10.4.x and 10.6.x. 9.3.x is a row, not a receiver column. Edge Processor is separately scoped. OS requirements have UF versus Enterprise columns, and the Cloud service table applies to the Cloud-connected tier. Receiver-side acknowledgements are the 10.4.2 defect condition fixed in 10.4.3; retain separate 10.6.0 acknowledgement guidance and deployment-specific renewal prerequisites.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:08:45.933606Z",
+      "assessedAt": "2026-11-24T19:09:12.550616815Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "upgrade106",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:08:33.104912Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first | Universal Forwarder release upgrade paths | direct HTTP 200, 203888 bytes; SHA-256 cb530001ef28dc89791e20df315f983a659cd3e23410e5cd22b8b438340ddbd7"
+        },
+        {
+          "sourceId": "receiver",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:08:33.151128Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers#ariaid-title2 | Forwarder-to-indexer compatibility | direct HTTP 200, 172835 bytes; SHA-256 518843d5b32e36f98ede8b71e068655f6288fc7760cc0337fff6da9250a38799"
+        },
+        {
+          "sourceId": "os106",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:08:45.933606Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/plan-your-splunk-enterprise-installation/system-requirements-for-use-of-splunk-enterprise-on-premises | Supported operating systems for Universal Forwarder | direct HTTP 200, 256170 bytes; SHA-256 846ba203bb89d185b83482d8b7d3b99379f4ab6966bebba142b0f09191ffb214"
+        },
+        {
+          "sourceId": "cloud107",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:08:38.620701Z",
+          "evidence": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#supported-forwarder-versions-0 | Supported forwarder versions and Cloud credentials | direct HTTP 200, 509410 bytes; SHA-256 42deaf1b79c3df1139503b7a163d8ad4e5182dd61b6269cb0f54da387d41b884"
+        },
+        {
+          "sourceId": "ack",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:08:38.622437Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues | Universal Forwarder receiver acknowledgment warning and resolution | direct HTTP 200, 144817 bytes; SHA-256 cbcb9bae9ca8b3ac4004e1a7a2c5d3502ccea73f8bd6aa03650be191504b45d6"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "release-guide.universal-forwarder",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "upgrade106",
+            "receiver",
+            "os106",
+            "cloud107",
+            "ack"
+          ],
+          "assessedAt": "2026-11-24T19:09:12.550616815Z",
+          "evidence": "10.6 READ THIS FIRST allows a direct UF 10.0.x+ route. The ordinary event/HTTP/metric receiver matrix columns are 9.4.x, 10.0.x, 10.2.x, 10.4.x and 10.6.x. 9.3.x is a row, not a receiver column. Edge Processor is separately scoped. OS requirements have UF versus Enterprise columns, and the Cloud service table applies to the Cloud-connected tier. Receiver-side acknowledgements are the 10.4.2 defect condition fixed in 10.4.3; retain separate 10.6.0 acknowledgement guidance and deployment-specific renewal prerequisites.",
+          "qualification": "Exact forwarder release paths, receiver support, operating systems, Cloud renewal differences and acknowledgment applicability."
+        }
+      ],
+      "readerReview": {
+        "question": "Does the ordinary forwarder matrix establish an Enterprise 9.3 receiver for UF 10.6?",
+        "routeId": "uf-receiver-93",
+        "routeQuery": "product=forwarders&type=uf&from=10.4&to=10.6&destination=cmp&receiver=9.3",
+        "region": ".forwarder-compatibility",
+        "sourceId": "receiver",
+        "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers#ariaid-title2",
+        "sourceSection": "Forwarder-to-indexer compatibility",
+        "answer": "Its five receiver columns begin at 9.4.x.",
+        "checkedAt": "2026-11-24T19:09:14.625Z",
+        "claimIds": [
+          "release-guide.universal-forwarder"
+        ],
+        "outputs": {
+          "screen": "passed",
+          "offlineHeadlessChromiumHtml": "passed",
+          "nativeChromiumPdf": "passed"
+        },
+        "htmlSha256": "75e898e0af88d2c307d1439c27f40a2a29dfbcf037ae33a0c2f542a6d814bdb7",
+        "pdfSha256": "da49e36130a2df06aa95225850f944b6128cf432a2b42e577d4ee5460c3073f4",
+        "results": [
+          {
+            "question": "Does the ordinary forwarder matrix establish an Enterprise 9.3 receiver for UF 10.6?",
+            "routeId": "uf-receiver-93",
+            "routeQuery": "product=forwarders&type=uf&from=10.4&to=10.6&destination=cmp&receiver=9.3",
+            "region": ".forwarder-compatibility",
+            "sourceId": "receiver",
+            "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers#ariaid-title2",
+            "sourceSection": "Forwarder-to-indexer compatibility",
+            "visibleAnswer": "Its five receiver columns begin at 9.4.x.",
+            "checkedAt": "2026-11-24T19:09:14.625Z",
+            "htmlSha256": "75e898e0af88d2c307d1439c27f40a2a29dfbcf037ae33a0c2f542a6d814bdb7",
+            "pdfSha256": "da49e36130a2df06aa95225850f944b6128cf432a2b42e577d4ee5460c3073f4",
+            "revision": "content-79c5217ec2a1d61c85b4d912",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "capabilityId": "release-guide.heavy-forwarder",
+      "disposition": "assessed-no-change",
+      "qualification": "The 10.6 Enterprise upgrade path specifies a 10.0 or 10.2 transition from 9.4.x. Forwarder and indexer compatibility describes direct and intermediate receiver tiers; managed Cloud 10.7 deployment and forwarding guidance governs the separate outbound leg. Enterprise package OS requirements apply to the installed HF, and cohosted KV Store guidance requires health, more than 50% free space, and checks of KV engine, app compatibility and postponement conditions before migration. This bounded check leaves historical mappings open.",
+      "discoveredAt": null,
+      "retrievedAt": "2026-11-24T19:09:21.327695Z",
+      "assessedAt": "2026-11-24T19:09:54.056080803Z",
+      "publishedAt": null,
+      "liveVerifiedAt": null,
+      "retrievals": [
+        {
+          "sourceId": "enterprise106",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:02:22.160922Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise | Enterprise upgrade path and Heavy Forwarder applicability | direct HTTP 200, 178425 bytes; SHA-256 4ad37d63d5da5b5214a6bc2f6789080fda8fd767a47f27eafd46b528b2f916a7"
+        },
+        {
+          "sourceId": "os106",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:08:45.933606Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/plan-your-splunk-enterprise-installation/system-requirements-for-use-of-splunk-enterprise-on-premises | Splunk Enterprise system requirements | direct HTTP 200, 256170 bytes; SHA-256 846ba203bb89d185b83482d8b7d3b99379f4ab6966bebba142b0f09191ffb214"
+        },
+        {
+          "sourceId": "receiver",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:08:33.151128Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers#ariaid-title2 | Forwarding and receiver compatibility | direct HTTP 200, 172835 bytes; SHA-256 518843d5b32e36f98ede8b71e068655f6288fc7760cc0337fff6da9250a38799"
+        },
+        {
+          "sourceId": "cloud107",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:08:38.620701Z",
+          "evidence": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#supported-forwarder-versions-0 | Supported forwarder versions for Cloud destinations | direct HTTP 200, 509410 bytes; SHA-256 42deaf1b79c3df1139503b7a163d8ad4e5182dd61b6269cb0f54da387d41b884"
+        },
+        {
+          "sourceId": "kv106",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-24T19:09:21.327695Z",
+          "evidence": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store | Co-hosted KV store migration requirements and scope | direct HTTP 200, 174953 bytes; SHA-256 18fdcf9cf4d8bc4752947528bf9ea087e32ec35e95f7c80aa721b8852355c44c"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "release-guide.heavy-forwarder",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "enterprise106",
+            "os106",
+            "receiver",
+            "cloud107",
+            "kv106"
+          ],
+          "assessedAt": "2026-11-24T19:09:54.056080803Z",
+          "evidence": "The 10.6 Enterprise upgrade path specifies a 10.0 or 10.2 transition from 9.4.x. Forwarder and indexer compatibility describes direct and intermediate receiver tiers; managed Cloud 10.7 deployment and forwarding guidance governs the separate outbound leg. Enterprise package OS requirements apply to the installed HF, and cohosted KV Store guidance requires health, more than 50% free space, and checks of KV engine, app compatibility and postponement conditions before migration. This bounded check leaves historical mappings open.",
+          "qualification": "Enterprise-based Heavy Forwarder platform upgrades and supported OS/receivers, hybrid topology and changed runtime components."
+        }
+      ],
+      "readerReview": {
+        "question": "Does a 10.6 hybrid heavy-forwarder route treat its Enterprise receiver and outbound Cloud service as the same compatibility decision?",
+        "routeId": "hf-hybrid",
+        "routeQuery": "product=forwarders&type=hf&from=9.4&to=10.6&destination=hybrid&receiver=10.6&cloudReceiver=10.6",
+        "region": ".forwarder-compatibility",
+        "sourceId": "receiver",
+        "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers#ariaid-title2",
+        "sourceSection": "Forwarding and receiver compatibility",
+        "answer": "including intermediate forwarding tiers.",
+        "checkedAt": "2026-11-24T19:09:55.823Z",
+        "claimIds": [
+          "release-guide.heavy-forwarder"
+        ],
+        "outputs": {
+          "screen": "passed",
+          "offlineHeadlessChromiumHtml": "passed",
+          "nativeChromiumPdf": "passed"
+        },
+        "htmlSha256": "f8ee46efa8906aad2c9106774c630dba9eb543131b2349d2b072d83dbaff6bad",
+        "pdfSha256": "6885d34f9a50d8f83e6f392689b4cd355e3de2f7f07d89647a57bc7ef586e130",
+        "results": [
+          {
+            "question": "Does a 10.6 hybrid heavy-forwarder route treat its Enterprise receiver and outbound Cloud service as the same compatibility decision?",
+            "routeId": "hf-hybrid",
+            "routeQuery": "product=forwarders&type=hf&from=9.4&to=10.6&destination=hybrid&receiver=10.6&cloudReceiver=10.6",
+            "region": ".forwarder-compatibility",
+            "sourceId": "receiver",
+            "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers#ariaid-title2",
+            "sourceSection": "Forwarding and receiver compatibility",
+            "visibleAnswer": "including intermediate forwarding tiers.",
+            "checkedAt": "2026-11-24T19:09:55.823Z",
+            "htmlSha256": "f8ee46efa8906aad2c9106774c630dba9eb543131b2349d2b072d83dbaff6bad",
+            "pdfSha256": "6885d34f9a50d8f83e6f392689b4cd355e3de2f7f07d89647a57bc7ef586e130",
+            "revision": "content-79c5217ec2a1d61c85b4d912",
+            "checks": {
+              "screen": "passed",
+              "offlineHeadlessChromiumHtml": "passed",
+              "nativeChromiumPdf": "passed"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "publication": {
+    "claimedDelivered": false,
+    "status": "held"
+  },
+  "validation": {
+    "checks": []
+  },
+  "recordedAt": "2026-11-24T19:20:54.684Z",
+  "auditBindings": [
+    {
+      "file": "docs/audits/2026-11-24-version-release-watch-review-6-sources.json",
+      "reviewDigest": "c6e8631696b3895074ed1f3ac79c248e8e86d8c3357a9dd678d6d8a1f2fadcac"
+    }
+  ],
+  "reviewDigest": "e99f6a9018a7dc2b9ff66adfcf74926f27b5722ea6e9960646c74c3a8c1fa6b4"
+}

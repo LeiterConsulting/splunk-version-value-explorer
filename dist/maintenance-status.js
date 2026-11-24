@@ -682,10 +682,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-24T18:10:19.135Z",
+      "lastAttempt": "2026-11-24T18:58:35Z",
       "lastSuccess": "2026-11-21T19:40:05.303Z",
       "outcome": "blocked",
-      "summary": "Prepared two Observability AI guidance corrections. All 27 sections remain incomplete for this follow-up review.",
+      "summary": "Scoped review and ITSI correction prepared; see the dated source and coverage receipts for incomplete sections and validation.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1567,9 +1567,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Prepared two Observability AI guidance corrections. All 27 sections remain incomplete for this follow-up review.",
           "scope": "Reviewed Observability AI Assistant and troubleshooting guidance. The review covered two on-screen examples. Report checks and issue-feed publication were pending at the time."
+        },
+        {
+          "at": "2026-11-24T18:58:35Z",
+          "outcome": "running",
+          "summary": "Distinct November 24 Release editorial reader and source review.",
+          "scope": "Registry 1.5.1: 22 assessed unchanged, one ITSI correction, 4 primary gaps and supporting SOC deferred."
+        },
+        {
+          "at": "2026-11-24T19:20:55.639400Z",
+          "outcome": "blocked",
+          "summary": "Scoped review and ITSI correction prepared; see the dated source and coverage receipts for incomplete sections and validation.",
+          "scope": "Registry 1.5.1: 22 assessed unchanged, one ITSI correction, 4 primary gaps and supporting SOC deferred."
         }
       ],
-      "scope": "Reviewed Observability AI Assistant and troubleshooting guidance. The review covered two on-screen examples. Report checks and issue-feed publication were pending at the time."
+      "scope": "Registry 1.5.1: 22 assessed unchanged, one ITSI correction, 4 primary gaps and supporting SOC deferred."
     },
     {
       "id": "es-editions-watch",

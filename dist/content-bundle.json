@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "content-8eb66e60f4702bedd85546d5",
-    "digest": "c39ab55a1303a55e2833acf1a50c4ec6e5184be9777bc97db61901b5395a55fa",
-    "engineRevision": "engine-0d6b5b712a2a3bb7811c",
+    "revision": "content-79c5217ec2a1d61c85b4d912",
+    "digest": "1f423a7b3caa052bc80d298e584e1d50fb5d4d3034db32adb9862fa42e77e63b",
+    "engineRevision": "engine-3a29f92649c5ad9e5d9a",
     "datasetHashes": {
       "platform": "b4c097166ddef3871def4cf2fae07142c360b89ff6647f6202c4e5890374e108",
-      "products": "a4eb3e7dbd256c5dc570f1d871db1cb85e15c19c021b89ac27dba579bf79b449",
+      "products": "bbc6315ec213a9df34b9b52989260b8948c43ee35af1152d8c02236a9ff744d6",
       "guidance": "581d2b2ec85680805e30925059e573de981fa1426b15c2ad2aa5b131be2e335d",
       "environment": "9d343e6a834fd02014f68637a08a85a691fe925c971582de71eb775af1c7949b",
       "editions": "9766db278b9478fc1468d5da80d878c052da572f400f078482c7bc0cb05bf151",
       "forwarders": "ce7572f1f419a259a470fbe4bc3ff044de730c8282537f999bbf8436e57ac4f1",
       "soar": "126a20b593a3376f9e7dcb1cf8d6a26bc537953ca6bf38a05e1beb098f7fa55d"
     },
-    "recordCount": 1036,
+    "recordCount": 1038,
     "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
     "verificationPolicy": "Migration and delivery do not create verification dates",
     "phase": "content-model-and-database-delivery"
@@ -3909,8 +3909,15 @@
               ],
               "requirements": [
                 [
+                  "Check the ITSI 5.0.3 package listing",
+                  "Splunkbase lists platform lines 10.2, 10.3, 10.4, 10.5, 10.6, 10.7 and 10.8 for the 5.0.3 package. Confirm the installed Enterprise patch against the compatibility matrix and the managed Cloud stack against Service Details.",
+                  "Validate",
+                  "https://splunkbase.splunk.com/app/1841",
+                  false
+                ],
+                [
                   "Validate the exact host and managed stack",
-                  "Splunkbase lists broad platform versions 10.2–10.7. The customer-managed matrix explicitly lists ITSI 5.0.x for Enterprise 10.4.x and 10.6.0/10.6.1, and lists 5.0 without an explicit patch range for Enterprise 10.2.x. Verify that exact pairing separately. Cloud Service Details list a service line. Verify the exact stack patch and any feature enablement separately.",
+                  "The customer-managed matrix lists ITSI 5.0.x for Enterprise 10.4.x, 10.6.0, 10.6.1.0 and 10.6.1.1. Its Enterprise 10.2.x row lists 5.0 without an explicit patch range. Verify that exact pairing separately. Cloud Service Details list a service line. Confirm the exact stack patch and feature enablement.",
                   "Validate",
                   "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
                   false
@@ -15098,9 +15105,39 @@
         },
         "payload": [
           "Validate the exact host and managed stack",
-          "Splunkbase lists broad platform versions 10.2–10.7. The customer-managed matrix explicitly lists ITSI 5.0.x for Enterprise 10.4.x and 10.6.0/10.6.1, and lists 5.0 without an explicit patch range for Enterprise 10.2.x. Verify that exact pairing separately. Cloud Service Details list a service line. Verify the exact stack patch and any feature enablement separately.",
+          "The customer-managed matrix lists ITSI 5.0.x for Enterprise 10.4.x, 10.6.0, 10.6.1.0 and 10.6.1.1. Its Enterprise 10.2.x row lists 5.0 without an explicit patch range. Verify that exact pairing separately. Cloud Service Details list a service line. Confirm the exact stack patch and feature enablement.",
           "Validate",
           "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+          false
+        ]
+      },
+      {
+        "id": "vc-095364e36df7e74fa59f",
+        "kind": "requirement",
+        "dataset": "platform",
+        "scope": {
+          "product": "itsi",
+          "release": "5.0.3"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-b3efac3f3240e8eb1be5",
+            "url": "https://splunkbase.splunk.com/app/1841",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Check the ITSI 5.0.3 package listing",
+          "Splunkbase lists platform lines 10.2, 10.3, 10.4, 10.5, 10.6, 10.7 and 10.8 for the 5.0.3 package. Confirm the installed Enterprise patch against the compatibility matrix and the managed Cloud stack against Service Details.",
+          "Validate",
+          "https://splunkbase.splunk.com/app/1841",
           false
         ]
       },
@@ -17368,7 +17405,7 @@
         },
         "payload": [
           "Validate the exact host and managed stack",
-          "Splunkbase lists broad platform versions 10.2–10.7. The customer-managed matrix explicitly lists ITSI 5.0.x for Enterprise 10.4.x and 10.6.0/10.6.1, and lists 5.0 without an explicit patch range for Enterprise 10.2.x. Verify that exact pairing separately. Cloud Service Details list a service line. Verify the exact stack patch and any feature enablement separately.",
+          "The customer-managed matrix lists ITSI 5.0.x for Enterprise 10.4.x, 10.6.0, 10.6.1.0 and 10.6.1.1. Its Enterprise 10.2.x row lists 5.0 without an explicit patch range. Verify that exact pairing separately. Cloud Service Details list a service line. Confirm the exact stack patch and feature enablement.",
           "Validate",
           "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
           false
@@ -17486,6 +17523,36 @@
           "title": "Universal and Heavy Forwarder to Enterprise receiver compatibility",
           "src": "receiver"
         }
+      },
+      {
+        "id": "vc-24d584c4bed00adc5f8e",
+        "kind": "requirement",
+        "dataset": "products",
+        "scope": {
+          "product": "itsi",
+          "release": "5.0.3"
+        },
+        "evidence": [
+          {
+            "sourceId": "source-b3efac3f3240e8eb1be5",
+            "url": "https://splunkbase.splunk.com/app/1841",
+            "section": null,
+            "sectionScope": "Section not recorded",
+            "sourceVerified": null,
+            "sourceChecked": null
+          }
+        ],
+        "verification": {
+          "date": null,
+          "outcome": "Claim verification not recorded"
+        },
+        "payload": [
+          "Check the ITSI 5.0.3 package listing",
+          "Splunkbase lists platform lines 10.2, 10.3, 10.4, 10.5, 10.6, 10.7 and 10.8 for the 5.0.3 package. Confirm the installed Enterprise patch against the compatibility matrix and the managed Cloud stack against Service Details.",
+          "Validate",
+          "https://splunkbase.splunk.com/app/1841",
+          false
+        ]
       },
       {
         "id": "vc-251aca731835eee54956",

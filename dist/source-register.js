@@ -7199,7 +7199,7 @@ window.VersionCompassSources = {
         "release.productTracks.itsi.hostRequirements.enterprise.10.2.source",
         "release.productTracks.itsi.releasesData.4.15.source",
         "release.productTracks.itsi.releasesData.4.17.source",
-        "release.productTracks.itsi.releasesData.5.0.3.requirements.0.3",
+        "release.productTracks.itsi.releasesData.5.0.3.requirements.1.3",
         "forwarders.sources.esKv106.url",
         "content-updates.js",
         "forwarders: forwarders.claimSources.technical.hf-es-kv-store-10.6",
@@ -8559,7 +8559,7 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.itsi.releasesData.5.0.3.requirements.1.3"
+        "release.productTracks.itsi.releasesData.5.0.3.requirements.2.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -8598,7 +8598,7 @@ window.VersionCompassSources = {
         "release.productTracks.itsi.releasesData.5.0.2.technicalChanges.1.source",
         "release.productTracks.itsi.releasesData.5.0.2.requirements.0.3",
         "release.productTracks.itsi.releasesData.5.0.3.features.0.5",
-        "release.productTracks.itsi.releasesData.5.0.3.requirements.2.3"
+        "release.productTracks.itsi.releasesData.5.0.3.requirements.3.3"
       ],
       "reviews": [],
       "usage": "In use",
@@ -11460,22 +11460,27 @@ window.VersionCompassSources = {
         "Release guide"
       ],
       "references": [
-        "release.productTracks.itsi.releasesData.5.0.3.source"
+        "release.productTracks.itsi.releasesData.5.0.3.source",
+        "release.productTracks.itsi.releasesData.5.0.3.requirements.0.3"
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": "2026-11-08",
+      "reviewed": "2026-11-24",
       "status": "Reviewed",
       "firstRecorded": "2026-11-08",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "Splunkbase compatibility is kept separate from exact customer-managed patch pairing and Splunk-managed Cloud availability.",
-      "section": "Default Version 5.0.3; Compatibility",
-      "verificationScope": "Verified the public Splunkbase 5.0.3 listing dated October 28, 2026 and broad platform versions 10.2–10.7. Exact customer-managed patch pairing, managed stack rollout and authorization remain separate.",
+      "section": "Public appDetails.releases entry for 5.0.3; versionCompatibility",
+      "verificationScope": "The exact 5.0.3 package entry lists platform lines 10.2, 10.3, 10.4, 10.5, 10.6, 10.7 and 10.8. The November 8 review recorded 10.2–10.7. The date the 10.8 listing was added is unknown. Exact customer-managed patch pairing, managed stack rollout and authorization remain separate.",
       "events": [
         {
           "date": "2026-11-08",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-24",
+          "event": "Review status updated: Reviewed · 2026-11-24"
         }
       ]
     },
