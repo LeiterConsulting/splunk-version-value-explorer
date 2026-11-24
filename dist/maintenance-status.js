@@ -14,7 +14,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
           "outcome": "not-recorded",
-          "summary": "Imported scheduler attempt timestamp; not evidence of successful completion."
+          "summary": "The review start was recorded. Completion was unconfirmed."
         },
         {
           "at": "2026-09-26T11:59:18Z",
@@ -595,7 +595,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-20T12:59:56.606919Z",
           "outcome": "running",
-          "summary": "Running later independent CSP review and exact task/result reconciliation.",
+          "summary": "Started a follow-up review of Cloud Environment and FedRAMP guidance.",
           "scope": "73-URL inventory, provider-region assessment, SAIA 2.4 discovery and eight registry 1.4.0 dispositions."
         },
         {
@@ -619,14 +619,14 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-21T19:24:00.681312+00:00",
           "outcome": "running",
-          "summary": "Scoped continuation: four protected Cloud Environment rows and four AI/SOC registry scopes assessed; stale Milan/Sao Paulo exclusions corrected in candidate. Delivery and current native attempt remain unverified.",
-          "scope": "All eight registered CSP scopes independently assessed, including four protected Cloud Environment rows before broad indexed inventory. Registered assessment completeness is distinct from unresolved product questions, current scheduler identity, native exports and live delivery."
+          "summary": "Scoped continuation: four protected Cloud Environment rows and four AI/SOC registry scopes assessed; stale Milan/Sao Paulo exclusions corrected in candidate. Public delivery and completion of the follow-up review were unconfirmed.",
+          "scope": "All eight registered CSP scopes independently assessed, including four protected Cloud Environment rows before broad indexed inventory. Product questions remained open. Export checks and public delivery still needed verification."
         },
         {
           "at": "2026-11-21T19:34:26.194Z",
           "outcome": "changed",
-          "summary": "Scoped continuation: four protected Cloud Environment rows and four AI/SOC registry scopes assessed; stale Milan/Sao Paulo exclusions corrected in candidate. Delivery and current native attempt remain unverified.",
-          "scope": "All eight registered CSP scopes independently assessed, including four protected Cloud Environment rows before broad indexed inventory. Registered assessment completeness is distinct from unresolved product questions, current scheduler identity, native exports and live delivery."
+          "summary": "Scoped continuation: four protected Cloud Environment rows and four AI/SOC registry scopes assessed; stale Milan/Sao Paulo exclusions corrected in candidate. Public delivery and completion of the follow-up review were unconfirmed.",
+          "scope": "All eight registered CSP scopes independently assessed, including four protected Cloud Environment rows before broad indexed inventory. Product questions remained open. Export checks and public delivery still needed verification."
         },
         {
           "at": "2026-11-22T12:41:34.280121Z",
@@ -690,7 +690,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
           "outcome": "not-recorded",
-          "summary": "Imported scheduler attempt timestamp; not evidence of successful completion."
+          "summary": "The review start was recorded. Completion was unconfirmed."
         },
         {
           "at": "2026-09-26T09:11:11Z",
@@ -1080,7 +1080,7 @@ window.VersionCompassMaintenance = {
           "at": "2026-10-28T09:54:55Z",
           "outcome": "running",
           "summary": "Publishing the exact CI-verified Cloud maintenance candidate and verifying production D1 delivery.",
-          "scope": "GitHub candidate tree 1cb2c3733da5f7b6a4e10b09e77ec8c80c8cfdfe; Site version 230; custom-domain UI, read-only WebMCP, real D1 health, manifest, bundle, bounded query and fallback adapters."
+          "scope": "The proposed GitHub release and Site version 230; custom-domain UI, read-only WebMCP, real D1 health, manifest, bundle, bounded query and fallback adapters."
         },
         {
           "at": "2026-10-28T10:03:54.320Z",
@@ -1452,19 +1452,19 @@ window.VersionCompassMaintenance = {
           "at": "2026-11-21T11:07:59.758800Z",
           "outcome": "running",
           "summary": "Continuation acquisition and candidate evidence reconciliation.",
-          "scope": "Same exposed run ID/later observed start retained separately; original assessments/dates preserved. Protected Prep11/Release acquisition before full298-source inventory; no fresh semantic or live delivery claim."
+          "scope": "The original assessments and dates were retained. The follow-up collected 11.x Prep and Release Guide sources before checking the 298-source inventory. New assessments and public delivery were unconfirmed."
         },
         {
           "at": "2026-11-21T11:20:54.876Z",
           "outcome": "blocked",
           "summary": "Partial continuation:21 prior scoped judgments reused; seven capability gaps retained; validated candidate226 integrated, release selection queued.",
-          "scope": "Same exposed run ID/later observed start retained separately; original assessments/dates preserved. Protected Prep11/Release acquisition before full298-source inventory; no fresh semantic or live delivery claim."
+          "scope": "The original assessments and dates were retained. The follow-up collected 11.x Prep and Release Guide sources before checking the 298-source inventory. New assessments and public delivery were unconfirmed."
         },
         {
           "at": "2026-11-21T19:31:38.353Z",
           "outcome": "running",
           "summary": "Continuing the protected daily review and preparing a bounded November Observability candidate.",
-          "scope": "Eight Prep11 and nine Release Guide dispositions; Exact/AI/Advisor follow-up; official inventory; two scoped historical HF mappings. Native recorded attempt remains separately qualified."
+          "scope": "Eight Prep11 and nine Release Guide dispositions; Exact/AI/Advisor follow-up; official inventory; two scoped historical HF mappings. The review completion remained unconfirmed."
         },
         {
           "at": "2026-11-21T19:40:05.303Z",
@@ -1482,12 +1482,12 @@ window.VersionCompassMaintenance = {
           "at": "2026-11-22T21:58:30Z",
           "outcome": "blocked",
           "summary": "20 primary sections assessed-no-change;7 primary sections incomplete; candidate held for remaining validation and publication selection.",
-          "scope": "27 distinct primary dispositions and deferred supporting SOC. Four bounded feed reassessments prepared from canonical checkpoint105. Native final result join remains unresolved."
+          "scope": "27 distinct primary dispositions and deferred supporting SOC. Four bounded feed reassessments prepared from canonical checkpoint105. Completion of the follow-up review remained unconfirmed."
         },
         {
           "at": "2026-11-23T00:50:56.828847Z",
           "outcome": "running",
-          "summary": "Distinct Release review invocation entered.",
+          "summary": "Started a follow-up Release Watch review.",
           "scope": "Fresh27 primary registry1.4.0 sections, supportingSOC and eight scoped issue reassessments; no Site release."
         },
         {
@@ -1500,13 +1500,13 @@ window.VersionCompassMaintenance = {
           "at": "2026-11-23T09:28:04.667001Z",
           "outcome": "running",
           "summary": "Started independent current-day Release review.",
-          "scope": "27 primary registry1.4.0 rows plus supporting SOC; exact native start retained."
+          "scope": "27 primary sections and the supporting SOC workflow."
         },
         {
           "at": "2026-11-23T09:37:38.513Z",
           "outcome": "blocked",
           "summary": "17 primary sections assessed-no-change;10 primary and supporting SOC incomplete. Five issue observations await canonical feed reconciliation; candidate held.",
-          "scope": "330-source acquisition separate from semantic review. No canonical factual dates or material cycle advanced; no deployment or scheduler success implied."
+          "scope": "330-source acquisition separate from semantic review. The existing factual dates and release cycle were retained. Completion and publication were unconfirmed."
         },
         {
           "at": "2026-11-24T08:45:12.891908Z",
@@ -1582,7 +1582,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
           "outcome": "not-recorded",
-          "summary": "Imported scheduler attempt timestamp; not evidence of successful completion."
+          "summary": "The review start was recorded. Completion was unconfirmed."
         },
         {
           "at": "2026-09-26T10:04:09Z",
@@ -1678,7 +1678,7 @@ window.VersionCompassMaintenance = {
           "at": "2026-10-04T10:09:44.067Z",
           "outcome": "no-change",
           "summary": "Reviewed all 20 maintained ES Editions sources and four exact SOAR pairing/release records; no factual correction was supported, and all conflicts and qualifications remain open.",
-          "scope": "ES Essentials/Premier highlights, workflows, capabilities/history, Cloud Connect, agents/tasks, entitlement, prerequisites, regional/SOAR pairing, pricing, licensing/trials, UEBA, Exposure Analytics, announcements and surrounding release/export parity. Native PDF, reopened HTML, narrow-screen and live WebMCP invocation remain unavailable or unperformed and are recorded separately."
+          "scope": "ES Essentials/Premier highlights, workflows, capabilities/history, Cloud Connect, agents/tasks, entitlement, prerequisites, regional/SOAR pairing, pricing, licensing/trials, UEBA, Exposure Analytics, announcements and surrounding release/export parity. Native PDF, reopened HTML, narrow-screen and live WebMCP checks remain unavailable or unperformed and are recorded separately."
         },
         {
           "at": "2026-10-05T10:02:00Z",
@@ -2044,7 +2044,7 @@ window.VersionCompassMaintenance = {
           "at": "2026-11-09T11:32:23.000Z",
           "outcome": "running",
           "summary": "Running the saved ES Editions Watch against fresh main, the saved Site source, the full official ES inventory and registry 1.2.0.",
-          "scope": "Fresh main/Site reconciliation; 52 official ES, AI and SOAR pairing sources; affected and highest-consequence edition, entitlement, prerequisite, pricing, compatibility and authorization boundaries; exact-candidate validation and task-result integrity."
+          "scope": "Fresh main/Site reconciliation; 52 official ES, AI and SOAR pairing sources; affected and highest-consequence edition, entitlement, prerequisite, pricing, compatibility and authorization boundaries; release validation and confirmation of review outcomes."
         },
         {
           "at": "2026-11-09T12:12:36Z",
@@ -2229,7 +2229,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-21T18:15:58.479Z",
           "outcome": "changed",
-          "summary": "Completed six bounded ES assessments; retained the current Triage quota/revision conflict and separate Response limits. Current native attempt and delivery remain unverified.",
+          "summary": "Completed six bounded ES assessments; retained the current Triage quota/revision conflict and separate Response limits. Completion of the follow-up review and public delivery were unconfirmed.",
           "scope": "75 source requests; four daily edition outcomes; five named AI records; exact SOAR matrices and eight scoped existing issue reassessments. Candidate/feed qualification remains separate."
         },
         {
@@ -2254,25 +2254,25 @@ window.VersionCompassMaintenance = {
           "at": "2026-11-22T19:10:19.479Z",
           "outcome": "no-change",
           "summary": "Fresh six-section ES recovery assessment; original morning timeline and current attempt kept distinct. No product fact changes.",
-          "scope": "Registry 1.4.0: four ES Editions sections, five individual ES AI capabilities and Advisor SOC. Three issue reassessments await immutable recovery provenance; native result and coordinator delivery remain unverified."
+          "scope": "Registry 1.4.0: four ES Editions sections, five individual ES AI capabilities and Advisor SOC. Three issue reassessments await immutable recovery provenance; review completion and public delivery were unconfirmed."
         },
         {
           "at": "2026-11-22T22:30:57.802381Z",
           "outcome": "running",
           "summary": "Distinct ES scheduled recovery entered; preserved prior attempts.",
-          "scope": "Registry 1.4.0 six primary scopes. Native current-result join remains missing; exact-candidate export/artifact and sole steward runtime delivery held. Original claim dates preserved."
+          "scope": "Six primary sections. Review completion, report verification, and public delivery remained unconfirmed. The original claim dates were retained."
         },
         {
           "at": "2026-11-22T22:39:26.945Z",
           "outcome": "no-change",
           "summary": "Fresh six-section ES review; twelve scoped issue reassessments; no canonical product facts changed.",
-          "scope": "Registry 1.4.0 six primary scopes. Native current-result join remains missing; exact-candidate export/artifact and sole steward runtime delivery held. Original claim dates preserved."
+          "scope": "Six primary sections. Review completion, report verification, and public delivery remained unconfirmed. The original claim dates were retained."
         },
         {
           "at": "2026-11-23T08:58:34.626058Z",
           "outcome": "running",
           "summary": "Started current Eastern-day ES source review.",
-          "scope": "Six primary registry1.4.0 sections; native result isolated."
+          "scope": "Six primary sections were in scope."
         },
         {
           "at": "2026-11-23T09:08:34.381Z",
@@ -2330,7 +2330,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-09-24T12:45:24.855849+00:00",
           "outcome": "not-recorded",
-          "summary": "Imported scheduler attempt timestamp; not evidence of successful completion."
+          "summary": "The review start was recorded. Completion was unconfirmed."
         },
         {
           "at": "2026-09-28T12:50:24Z",
@@ -2384,7 +2384,7 @@ window.VersionCompassMaintenance = {
           "at": "2026-10-01T21:08:16Z",
           "outcome": "running",
           "summary": "Reconcile retained publication evidence with concurrent SOAR source; independently inspect new inventory and bounded consequential claims.",
-          "scope": "140 exact URL retrieval attempts across retained audit and 20 added SOAR sources; four additional SOAR claim checks. Existing v80 native results retained as bounded evidence; PDF, narrow-screen, reopened HTML and native WebMCP remain unverified."
+          "scope": "140 exact URL retrieval attempts across retained audit and 20 added SOAR sources; four additional SOAR claim checks. Existing version 80 results were retained for their original scope; PDF, narrow-screen, reopened HTML and native WebMCP remain unverified."
         },
         {
           "at": "2026-10-01T21:08:35Z",

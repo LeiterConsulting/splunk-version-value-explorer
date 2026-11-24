@@ -13,6 +13,25 @@ test('10.4 and 10.6 route tables preserve required intermediate steps',()=>{
  assert(edges['9.3'].includes('10.0'));assert(edges['9.4'].includes('10.2'));assert(edges['10.0'].includes('10.4'));assert(edges['10.2'].includes('10.4'));
  assert(!edges['9.4'].includes('10.6'));assert(edges['10.0'].includes('10.6'));assert(edges['10.2'].includes('10.6'));assert(edges['10.4'].includes('10.6'));
 });
+test('public maintenance checks include historical entries and reject private run data before writing', t => {
+ const root=fs.mkdtempSync(path.join(os.tmpdir(),'public-watch-'));
+ t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+ fs.mkdirSync(path.join(root,'dist'));
+ const file=path.join(root,'dist/maintenance-status.js');
+ const entry={at:'2026-11-23T10:00:00Z',outcome:'running',summary:'Reviewed the regional tables.'};
+ const watch={id:'test',outcome:'running',summary:'Reviewed the current source.',history:[entry]};
+ const write=()=>fs.writeFileSync(file,'window.VersionCompassMaintenance='+JSON.stringify({watches:[watch]})+';');
+ const run=(args,input)=>cp.execFileSync(process.execPath,[path.resolve('scripts/record-maintenance.cjs'),...args],{cwd:root,input,stdio:'pipe'});
+ write();run(['--check']);
+ const original=fs.readFileSync(file,'utf8');
+ for(const summary of ['Started under native attempt eb005e5d.','Result for 00000000-1234-4123-8123-0123456789ab.']){
+   const input={watch:'test',outcome:'blocked',at:'2026-11-24T10:00:00Z',summary,scope:'Cloud Environment'};
+   assert.throws(()=>run([],JSON.stringify(input)),/reader-facing/);
+   assert.equal(fs.readFileSync(file,'utf8'),original);
+ }
+ entry.summary='Imported scheduler attempt timestamp.';write();
+ assert.throws(()=>run(['--check']),/reader-facing/);
+});
 test('maintenance requires an attempt, retains failed outcomes, and advances success only after completion',()=>{
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'maintenance-'));
  try{
