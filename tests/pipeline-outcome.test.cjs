@@ -179,6 +179,32 @@ test('daily coverage preserves earlier work and refuses cross-owner, stale and m
   assert.equal(summary.nativeReviewMatched, 1);
 });
 
+test('scheduled source credit ends at the native completion even if an owner receipt was written later', async () => {
+  const { dailyReview } = await import('../scripts/pipeline-status.mjs');
+  const watchId = 'csp-fedramp-watch', day = '2026-11-24';
+  const startedAt = day + 'T21:09:03.621045Z', completedAt = day + 'T21:18:00.511387Z';
+  const registry = { registryVersion:'1.5.2', capabilities:[{id:'csp',title:'CSP',primaryOwner:watchId,mandatory:true}] };
+  const row = { capabilityId:'csp',disposition:'assessed-no-change',assessedAt:completedAt,
+    assessments:[{assessedAt:completedAt,sourceIds:['official']}],
+    retrievals:[{sourceId:'official',outcome:'retrieved',retrievedAt:startedAt}] };
+  const run = {runId:'csp-own',watchId,kind:'saved-task-execution',registryVersion:registry.registryVersion,
+    execution:{startedAt,completedAt:day+'T21:45:00Z'},coverage:[row]};
+  const watch = {watchId,matchingReceiptIds:[run.runId],attempt:{startedAt,completedAt}};
+  const fresh = () => dailyReview(registry,[{run,result:{boundAttempt:true,file:'csp.json'}}],day,{watches:[watch]}).sections[0].history[0].freshSources;
+  assert.equal(fresh(),true);
+  row.assessedAt = day + 'T21:18:00.511388Z';
+  assert.equal(fresh(),false);
+  row.assessedAt = completedAt;
+  row.retrievals[0].retrievedAt = day + 'T21:09:03.621044Z';
+  assert.equal(fresh(),false);
+  row.retrievals[0].retrievedAt = completedAt;
+  row.assessments[0].assessedAt = day + 'T21:18:00.511386Z';
+  assert.equal(fresh(),false);
+  row.assessments[0].assessedAt = completedAt;
+  delete watch.attempt.completedAt;
+  assert.equal(fresh(),false);
+});
+
 test('same-day owner recovery accepts the new registry alongside valid earlier receipts', async () => {
   const { dailyReview } = await import('../scripts/pipeline-status.mjs');
   const owner = 'version-release-watch';

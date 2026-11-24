@@ -4,6 +4,10 @@ const native = require('./lib/native-issue-feed.cjs');
 const coverage = require('./lib/automation-coverage.cjs');
 try {
   const args = process.argv.slice(2);
+  if (args.length === 1 && args[0] === '--paths') {
+    console.log(JSON.stringify(coverage.receiptPaths(JSON.parse(fs.readFileSync(0,'utf8')))));
+    return;
+  }
   if (args[0] !== '--run' || !/^docs\/audits\/\d{4}-\d{2}-\d{2}-[a-z0-9-]+-coverage\.json$/.test(args[1] || '')) throw Error('Usage: record-automation-coverage.cjs --run docs/audits/DATE-ID-coverage.json [--audit FILE ...]; explicit run JSON on stdin');
   const registry = JSON.parse(fs.readFileSync('content/automation-coverage.json', 'utf8'));
   const participatingWatches = new Set(registry.capabilities.flatMap(capability => capability.participatingWatches));
@@ -13,6 +17,7 @@ try {
     audits.push({ file: args[i + 1], value: JSON.parse(fs.readFileSync(args[i + 1], 'utf8')) });
   }
   const run = JSON.parse(fs.readFileSync(0, 'utf8'));
+  if (fs.existsSync(args[1])) coverage.preserveReceiptIdentity(JSON.parse(fs.readFileSync(args[1],'utf8')),run,args[1]);
   if (audits.length && run.registryVersion !== registry.registryVersion) throw Error('New watch audit bindings require the current coverage registry');
   run.recordedAt = new Date().toISOString();
   run.auditBindings = audits.map(a => ({ file: a.file, reviewDigest: native.reviewDigest(a.value) }));

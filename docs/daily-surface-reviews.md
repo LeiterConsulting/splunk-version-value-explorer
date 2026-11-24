@@ -174,6 +174,16 @@ and current public delivery each require their own evidence.
 
 ## Same-day material corrections
 
+When an owner opens a dated review, pass its identity JSON to
+`node scripts/record-automation-coverage.cjs --paths`. Include `watchId`,
+`kind`, `runId` and the actual `execution` start and identifiers. The command
+returns the source and coverage filenames for that attempt. An operator recovery
+and a timed run can start from the same GitHub base and each retain its own
+files. Continue a partial review at its original paths with the same identity.
+If an active timer still displays an earlier result, compare the result’s run ID
+with the current attempt and await its own report. An assessment earns scheduled
+credit only inside the native start and completion clocks.
+
 After a correction merges, qualify the exact main commit and its export artifact. Check for an in-flight release, then use **Run now** on the existing Site-linked steward. Its normal 09:00 Eastern schedule continues. Capture the saved version and deployment, check both public hosts, reopen downloaded HTML offline and inspect printed PDFs for the changed answer and vendor citation. Record the actual observation times. A same-day field check can close a delivery defect; only a dated primary-owner receipt can close that owner's daily review.
 
 For a recovery run, search today's release note and dated independent source reviews for the open sections. Use the original source URLs, headings and retrieval times to find the relevant evidence. Recheck the official pages and the actual reader answers, and record the watch's own assessment time and disposition. The [November 24 source review](audits/2026-11-24-independent-gap-source-readback.json) covers the two open AI areas and seven Release Guide areas, including the documented limits for SOAR and Enterprise issue lists.

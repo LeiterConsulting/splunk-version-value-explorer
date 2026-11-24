@@ -1,6 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { execFileSync } = require('node:child_process');
+const {createHash} = require('node:crypto');
 const native = require('./native-issue-feed.cjs');
 const {validateReader, coversRoute, dayOf} = require('./reader-review.cjs');
 const { sameAttemptStart } = require('./task-runtime.cjs');
@@ -215,6 +216,25 @@ function validateTaskOwner(run, root = process.cwd(), ledger) {
   assert(text(owner?.taskId) && run.execution.taskId === owner.taskId, 'Native task identity does not belong to ' + run.watchId);
 }
 // A scheduler attempt belongs to one saved task. Multiple receipts can document its progress.
+function receiptPaths(run) {
+  const e = run.execution || {};
+  const at = e.startedAt || e.workStartedAt || run.workStartedAt;
+  assert(timestamp(at) && ['saved-task-execution','implementation-review'].includes(run.kind), 'Supply the actual review start and kind');
+  const key = e.schedulerRunId || run.runId;
+  assert(text(key) && /^[a-z0-9-]+$/.test(run.watchId), 'Supply this watch and its own attempt or review ID');
+  const hash = createHash('sha256').update(JSON.stringify([run.watchId,run.kind,key])).digest('hex');
+  const prefix = 'docs/audits/'+dayOf(at)+'-'+run.watchId+'-review-'+(parseInt(hash.slice(0,12),16)+1);
+  const source = prefix+'-sources.json';
+  assert(native.watchFor(source) === run.watchId, 'Unknown source owner');
+  return {source,coverage:prefix+'-coverage.json'};
+}
+function preserveReceiptIdentity(prior, run, file) {
+  const before = prior.execution || {}, after = run.execution || {};
+  const unchanged = prior.watchId === run.watchId && prior.kind === run.kind && prior.runId === run.runId &&
+    ['taskId','schedulerRunId'].every(key => !before[key] || before[key] === after[key]) &&
+    ['startedAt','workStartedAt'].every(key => !before[key] || sameAttemptStart(before[key],after[key]));
+  assert(unchanged,'Receipt path belongs to another review or attempt: '+file+'. Keep both and use --paths for the new one.');
+}
 function bindSchedulerAttempt(owners, run) {
   const {taskId, schedulerRunId} = run.execution || {};
   if (run.kind !== 'saved-task-execution' || !schedulerRunId) return;
@@ -229,6 +249,12 @@ function check(root = process.cwd()) {
   const git = args => execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim().split('\n').filter(Boolean);
   const parents = git(['rev-list', '--parents', '-n', '1', 'HEAD'])[0].split(/\s+/).slice(1);
   for (const revision of ['HEAD', ...parents]) for (const file of git(['ls-tree', '-r', '--name-only', revision, 'docs/audits']).filter(f => f.endsWith('-coverage.json'))) assert(fs.existsSync(path.join(root, file)), 'Do not delete coverage history: ' + file);
+  for (const revision of ['HEAD', ...parents]) {
+    for (const file of git(['diff','--name-only','--no-renames','--diff-filter=M',revision,'--','docs/audits/*-coverage.json'])) {
+      const previous = execFileSync('git',['show',revision+':'+file],{cwd:root,encoding:'utf8'});
+      preserveReceiptIdentity(JSON.parse(previous),read(root,file),file);
+    }
+  }
   const candidates = new Set([...git(['ls-files', 'docs/audits/*-coverage.json']), ...git(['ls-files', '--others', '--exclude-standard', 'docs/audits/*-coverage.json'])]);
   const owners = new Map();
   const results = [...candidates].map(file => {
@@ -293,4 +319,4 @@ function check(root = process.cwd()) {
   }
   return { registryVersion: registry.registryVersion, activation: registry.activation, runs: results };
 }
-module.exports = { bindSchedulerAttempt, editorialReplay, statuses, clocks, pointer, mappedSource, reviewDigest, resolveRegistry, validateRegistry, validateRun, validateAmendments, validateBoundExecution, validateTaskOwner, check };
+module.exports = { receiptPaths, preserveReceiptIdentity, bindSchedulerAttempt, editorialReplay, statuses, clocks, pointer, mappedSource, reviewDigest, resolveRegistry, validateRegistry, validateRun, validateAmendments, validateBoundExecution, validateTaskOwner, check };
