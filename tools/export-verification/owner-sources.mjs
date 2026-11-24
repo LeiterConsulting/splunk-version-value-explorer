@@ -1,10 +1,19 @@
 // Record the exact source transport available to this runner. Owners assess the cited passages.
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {execFileSync} from 'node:child_process';
+import {sourceResolution} from './owner-source-evidence.mjs';
 import {createHash} from 'node:crypto';
 import {createRequire} from 'node:module';
 const require = createRequire(import.meta.url);
 const registry = require('../../content/automation-coverage.json');
-const [watchId] = process.argv.slice(2);
+const [watchId, handoffFile] = process.argv.slice(2);
+const {dayOf} = require('../../scripts/lib/reader-review.cjs');
+const handoff = handoffFile ? JSON.parse(fs.readFileSync(handoffFile,'utf8')) : null;
+if (handoff) {
+  assert(handoff.watchId === watchId && handoff.head === execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim() &&
+    Array.isArray(handoff.assessedSources),'Use the source-bound handoff from this owner and exact checkout');
+}
 const sections = registry.capabilities.filter(cap => cap.mandatory && cap.primaryOwner === watchId);
 assert(sections.length, 'Choose a registered primary owner');
 const byUrl = new Map();
@@ -54,7 +63,8 @@ async function consume() {
   }
 }
 await Promise.all([consume(),consume(),consume()]);
+for (const row of sources) row.resolution = sourceResolution(row,handoff,dayOf(row.checkedAt));
 sources.sort((a,b) => a.url.localeCompare(b.url));
 console.log(JSON.stringify({watchId,checkedAt:new Date().toISOString(),sources,
-  qualification:'Transport evidence. Each owner must read the cited section and assess the mapped claims.'},null,2));
-if (sources.some(source => source.status !== 'received')) process.exitCode = 2;
+  qualification:'Direct HTTP results and independently source-bound owner assessments are recorded separately.'},null,2));
+if (sources.some(source => source.resolution.method === 'unresolved')) process.exitCode = 2;
