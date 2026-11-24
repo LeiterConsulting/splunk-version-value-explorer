@@ -646,10 +646,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-23T00:50:56.828847Z",
+      "lastAttempt": "2026-11-24T09:52:38.388Z",
       "lastSuccess": "2026-11-21T19:40:05.303Z",
       "outcome": "blocked",
-      "summary": "27 primary dispositions:24 assessed-no-change,3 incomplete; feed checkpoint109 prepared; exact candidate CI/export and integration held.",
+      "summary": "18 primary assessed-no-change;9 incomplete plus supportingSOC; candidate held for exact export,artifact,integration and coordinator selection gates.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1459,9 +1459,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "27 primary dispositions:24 assessed-no-change,3 incomplete; feed checkpoint109 prepared; exact candidate CI/export and integration held.",
           "scope": "Fresh27 primary registry1.4.0 sections, supportingSOC and eight scoped issue reassessments; no Site release."
+        },
+        {
+          "at": "2026-11-24T09:52:38.388Z",
+          "outcome": "running",
+          "summary": "Distinct current Release attempt; fresh27 primary scope review.",
+          "scope": "Registry1.4.0; own fresh public section assessments; no product facts or Site runtime changed."
+        },
+        {
+          "at": "2026-11-24T10:00:38.155759Z",
+          "outcome": "blocked",
+          "summary": "18 primary assessed-no-change;9 incomplete plus supportingSOC; candidate held for exact export,artifact,integration and coordinator selection gates.",
+          "scope": "Registry1.4.0; own fresh public section assessments; no product facts or Site runtime changed."
         }
       ],
-      "scope": "Fresh27 primary registry1.4.0 sections, supportingSOC and eight scoped issue reassessments; no Site release."
+      "scope": "Registry1.4.0; own fresh public section assessments; no product facts or Site runtime changed."
     },
     {
       "id": "es-editions-watch",
