@@ -12209,18 +12209,22 @@ window.VersionCompassSources = {
       ],
       "reviews": [],
       "usage": "In use",
-      "reviewed": "2026-10-20",
+      "reviewed": "2026-11-24",
       "status": "Reviewed",
       "firstRecorded": "2026-10-20",
       "firstUsed": null,
       "outdatedAsOf": null,
       "reason": "",
-      "section": "Splunk Enterprise 10.6.1.1; installation package commands",
-      "verificationScope": "Exact currently listed version 10.6.1.1 / build b2ae2962645c only. No exact release date, equivalence to 10.6.1, upgrade path, security floor, OS certification or Cloud availability established.",
+      "section": "Splunk Enterprise 10.6.2.5 download heading and operating-system package filenames",
+      "verificationScope": "The public selector lists Enterprise 10.6.2.5 build b07ce3b48d58. Package filenames identify their operating system and architecture. The release notes date the separate 10.6.2 release label.",
       "events": [
         {
           "date": "2026-10-20",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-24",
+          "event": "Review status updated: Reviewed · 2026-11-24"
         }
       ]
     },

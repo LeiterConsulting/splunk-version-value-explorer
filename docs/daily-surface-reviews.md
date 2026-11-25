@@ -27,6 +27,8 @@ During an owner run, monitor the scheduled task list, the owner's GitHub branch 
 
 After completion match the task, occurrence and precise start to the owner’s GitHub receipts. Read the result heading and follow its links. A link to an earlier review, another owner’s result, or a changed start needs independent reconciliation before granting credit. Keep the original evidence and count each verified section once. Only the existing 09:00 steward can publish a qualified correction.
 
+For the Enterprise release guide, check the current download selector and the exact filenames for the named operating systems. Compare the four-segment package and build with the public readiness answer and its exports. The [November 24 package receipt](audits/2026-11-24-enterprise-download-selector.json) shows the separate origin results and public package header checks. A working older package URL alone cannot establish the current selection.
+
 ## 11.x Prep first pass
 
 Start with the eight `prep11.*` rows and the exact sections in the

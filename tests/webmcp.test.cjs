@@ -468,7 +468,7 @@ test('dated Enterprise 10.6.1 does not substitute the exact 10.6.1.1 package or 
  const route={product:'platform',platform:'enterprise',from:'10.4',to:'10.6'},rt=await runtime({selection:route});
  const r=rt.run('compare_routes',{routes:[route]}).reports[0],t=r.technicalChanges.find(x=>x.component==='Enterprise 10.6 maintenance release');
  assert(t);assert.equal(t.to,'Enterprise 10.6.1 released October 16, 2026');assert.equal(t.actionLevel,'Review');assert.match(t.implication,/not the distinct four-segment 10.6.1.1/);
- assert(r.readiness.some(x=>x.title==='Match the exact Enterprise maintenance package'&&x.detail.includes('b2ae2962645c')&&x.detail.includes('86587d4e3b27')));
+ assert(r.readiness.some(x=>x.title==='Match the exact Enterprise maintenance package'&&x.detail.includes('lists 10.6.2.5 build b07ce3b48d58')&&x.detail.includes('Earlier packages include 10.6.1.1')));
  assert(r.readiness.some(x=>x.title==='Resolve the 10.6.1 fixed-issue retrieval gap'&&/no issue rows/.test(x.detail)));
  const cloud=rt.run('compare_routes',{routes:[{product:'platform',platform:'cloud',from:'10.5.2605',to:'10.6'}]}).reports[0];assert(!cloud.technicalChanges.some(x=>x.component===t.component));
  const catalog=rt.run('get_catalog',{}).products.find(x=>x.id==='platform').contexts.find(x=>x.platform==='enterprise');assert(!catalog.targetReleases.some(x=>x.id==='10.6.1.1'));
