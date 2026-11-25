@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-taxii-protocol-version-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-25T09:13:08.866Z",
+  "assessmentId": "vcia-es-20261125-c588d42e-13",
+  "assessedAt": "2026-11-25T09:09:28.244Z",
+  "originalAssessedAt": "2026-11-25T09:09:28.244298Z",
+  "outcome": "still-present",
+  "rationale": "The 8.8 compatibility text repeats TAXII 2.0. The 8.2 feature introduction names 2.0 and 2.1 while its compatibility passage names 1.0 and 1.1. Native feed protocol, STIX parsing and TIM Cloud authentication remain separate; the current public discrepancy preserves these qualifications.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "8.2",
+      "8.8"
+    ],
+    "editions": null,
+    "deployments": [
+      "Native ES threat intelligence",
+      "TIM Cloud connector"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Exact connector eligibility, tenant activation and authorization remain separate."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-es-20261114-es-taxii-protocol-version-scope"
+  ],
+  "remainingConcerns": [
+    "Confirm the exact native feed or TIM Cloud connector protocol against corrected primary documentation. ES Editions Watch, review November 26."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "vcia-es-20261125-c588d42e-13-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security#ariaid-title5",
+      "section": "ES 8.8 TAXII compatibility wording",
+      "statement": "The 8.8 compatibility text repeats TAXII 2.0. The 8.2 feature introduction names 2.0 and 2.1 while its compatibility passage names 1.0 and 1.1. Native feed protocol, STIX parsing and TIM Cloud authentication remain separate; the current public discrepancy preserves these qualifications.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-25T09:05:18.338Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "14649627f3181990347b12e0621afd1bc81d57e76303c9793556d8d41c31517d",
+        "qualification": "Anonymous official response hash. See source audit for source retrieval and independent claim assessment."
+      }
+    },
+    {
+      "evidenceId": "vcia-es-20261125-c588d42e-13-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.2/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "ES 8.2 native TAXII 2 feed introduction",
+      "statement": "Exact supporting or conflicting versioned source section assessed independently.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-25T09:05:18.346Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "434aba15c70976b823de41cde5675650e02c7d6c48fa89f74d2bcc103d430901",
+        "qualification": "Anonymous official response hash. See source audit for source retrieval and independent claim assessment."
+      }
+    },
+    {
+      "evidenceId": "vcia-es-20261125-c588d42e-13-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/threat-intelligence/add-new-threat-intelligence-sources-in-splunk-enterprise-security",
+      "section": "ES 8.8 native threat intelligence feed guide",
+      "statement": "Exact supporting or conflicting versioned source section assessed independently.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-25T09:05:21.329Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b21198f769e0d8860bfbe3f00a63f86066596ae578ae1a63437f227b4262d504",
+        "qualification": "Anonymous official response hash. See source audit for source retrieval and independent claim assessment."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/7f083c77ad30eff163b7f32e636d3e4247108f64/docs/audits/2026-11-25-es-editions-watch-review-167534351410966-sources.json",
+      "pointer": "/issueObservations/12",
+      "originalLabel": "still-present"
+    }
+  ]
+}
