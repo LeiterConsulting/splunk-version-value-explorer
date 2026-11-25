@@ -203,15 +203,12 @@ window.VersionCompassDailyReviews = {
       "id": "ai.es-capabilities",
       "title": "ES AI capabilities, editions and dependencies",
       "owner": "es-editions-watch",
-      "disposition": "deferred",
-      "reviewedOnDate": false,
+      "disposition": "assessed-no-change",
+      "reviewedOnDate": true,
       "receipt": "docs/audits/2026-11-25-es-editions-watch-review-167534351410966-coverage.json",
-      "followUp": {
-        "owner": "es-editions-watch",
-        "reviewBy": "2026-11-26"
-      },
-      "lastAssessedAt": "2026-11-25T00:41:19.675Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-24-es-editions-watch-review-53528061771298-coverage.json"
+      "followUp": null,
+      "lastAssessedAt": "2026-11-25T09:05:40.483847Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-25-es-editions-watch-review-167534351410966-coverage.json"
     },
     {
       "id": "ai.observability-capabilities",
@@ -397,7 +394,7 @@ window.VersionCompassDailyReviews = {
       "reviewedOnDate": true,
       "receipt": "docs/audits/2026-11-25-es-editions-watch-review-167534351410966-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-25T09:05:40.483843Z",
+      "lastAssessedAt": "2026-11-25T09:09:28.244298Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-25-es-editions-watch-review-167534351410966-coverage.json"
     },
     {

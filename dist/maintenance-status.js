@@ -1658,10 +1658,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-25T00:35:11.120064Z",
-      "lastSuccess": "2026-11-25T00:42:24.590Z",
+      "lastAttempt": "2026-11-25T09:00:23.180006Z",
+      "lastSuccess": "2026-11-25T09:09:29.698Z",
       "outcome": "no-change",
-      "summary": "Reviewed six ES sections and their public reports. Existing source conflicts and qualifications remain explicit.",
+      "summary": "Verified six ES sections against current public sources and both public reports.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -2423,9 +2423,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Reviewed six ES sections and their public reports. Existing source conflicts and qualifications remain explicit.",
           "scope": "Licensing, history, deployment, workflows, AI capabilities and SOC Advisor."
+        },
+        {
+          "at": "2026-11-25T09:00:23.180006Z",
+          "outcome": "running",
+          "summary": "Reviewing ES editions, feature prerequisites and public reports.",
+          "scope": "Licensing, history, deployment, workflows, five ES AI capabilities and the SOC Advisor dependency."
+        },
+        {
+          "at": "2026-11-25T09:09:29.698Z",
+          "outcome": "no-change",
+          "summary": "Verified six ES sections against current public sources and both public reports.",
+          "scope": "Licensing, history, deployment, workflows, five ES AI capabilities and the SOC Advisor dependency. Vendor disagreements remain qualified in the public answers, reopened HTML and printed PDFs."
         }
       ],
-      "scope": "Licensing, history, deployment, workflows, AI capabilities and SOC Advisor."
+      "scope": "Licensing, history, deployment, workflows, five ES AI capabilities and the SOC Advisor dependency. Vendor disagreements remain qualified in the public answers, reopened HTML and printed PDFs."
     },
     {
       "id": "version-guidance-audit",
