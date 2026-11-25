@@ -10,7 +10,7 @@ const privateIdentifiers = /\b(?:appg(?:prj|dep|ver)_[a-z0-9]+|Automation_[a-z0-
 const privateExecutionNotes = /\b(?:scheduler (?:identity|identifier|attempt|id|run)|(?:task|run|attempt)[- ](?:id|identifier|identity)|(?:native|private) (?:current[- ]|recorded |final )?(?:invocation|identity|attempt|start|result)|(?:review|task|scheduler) invocation|notification policy|task[-/]result (?:reconciliation|integrity))\b/i;
 
 function publicText(value) {
-  const reconciliationNotes = /\b(?:first[- ]execution|foreign result|native receipt reconciliation|workflow dispatch|current [a-z]+ attempt)\b/i;
+  const reconciliationNotes = /\b(?:first[- ]execution|foreign result|native receipt reconciliation|workflow dispatch|current [a-z]+ attempt|current[- ]attempt|second attempt|earlier same-day receipts|native feed|actual receipt|runtime delivery|browser daemon|coordinator-only runtime boundary)\b/i;
   if (typeof value !== 'string' || privateIdentifiers.test(value) || privateExecutionNotes.test(value) || reconciliationNotes.test(value)) {
     throw Error('Use a reader-facing review description. Keep execution identifiers and private run details out of public maintenance history.');
   }
