@@ -17,12 +17,12 @@
     {
       "capabilityId": "prep11.discovery",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-25T08:05:43.902288Z",
       "assessedAt": null,
       "publishedAt": null,
-      "liveVerifiedAt": null,
+      "liveVerifiedAt": "2026-11-25T08:09:09.729Z",
       "retrievals": [
         {
           "sourceId": "prep11enterprise",
@@ -44,7 +44,32 @@
         }
       ],
       "assessments": [],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:30.024Z",
+          "routeId": "prep11",
+          "sourceId": "prep11enterprise",
+          "htmlSha256": "d5665945acda5658425d6923aabd63bc8a8f79222d5b7ab34fb974f35ad7ed0d",
+          "pdfSha256": "cd2c60cf979d1e95054f00533803ec4c76a7c4a1ebc449d6dab23f2a6ff7bed1"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:09.729Z",
+          "routeId": "prep11",
+          "sourceId": "prep11enterprise",
+          "htmlSha256": "b610b6d961dcf0e9a7e6e1e9b291373aac7056aa90a1bedd8c6a07813e43a56a",
+          "pdfSha256": "aa6b0d3725c3ce175dc09e4ee9b1b877c858bf5f81f8359ddfa8d93b0d6048cf"
+        }
+      ],
       "followUp": {
         "owner": "version-release-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Public 11.x announcement discovery.",
@@ -58,13 +83,13 @@
     },
     {
       "capabilityId": "prep11.operator",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "disposition": "assessed-no-change",
+      "qualification": "The Operator 3.2 supported matrix gives 3.2.0 dated September 24, Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0; the independent project changelog gives September 8, Kubernetes 1.32–1.36, and Enterprise 10.6.0. Queue credentials move to secretKeyRef. Preserved both different rows and conditional upgrade guidance. Neither row establishes Splunk 11.x compatibility.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-25T08:05:48.058905Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-25T08:12:09.410413Z",
       "publishedAt": null,
-      "liveVerifiedAt": null,
+      "liveVerifiedAt": "2026-11-25T08:09:09.729Z",
       "retrievals": [
         {
           "sourceId": "prep11operator",
@@ -79,28 +104,67 @@
           "evidence": "https://splunk.github.io/splunk-operator/reference/ChangeLog.html | 3.2.0 (2026-09-08); Breaking Changes; Supported Kubernetes and Splunk versions | HTTP 200 | 83468 bytes | SHA-256 26ab5b4459deeb2ae2d6fd8ad0f544e8c7ddbda5d85880e2b6805fffb833908e"
         }
       ],
-      "assessments": [],
-      "publicOriginEvidence": [],
-      "followUp": {
-        "owner": "version-release-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Start with an exact Operator compatibility tuple.",
-        "reviewBy": "2026-11-26"
-      },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-24-version-release-watch-review-102644420306273-coverage.json",
-        "assessmentAt": "2026-11-25T03:09:59.501Z",
-        "disposition": "assessed-no-change"
+      "assessments": [
+        {
+          "claimId": "prep11-operator-baseline",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "prep11operator",
+            "prep11changelog"
+          ],
+          "assessedAt": "2026-11-25T08:12:09.410413Z",
+          "evidence": "The Operator 3.2 supported matrix gives 3.2.0 dated September 24, Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0; the independent project changelog gives September 8, Kubernetes 1.32–1.36, and Enterprise 10.6.0. Queue credentials move to secretKeyRef. Preserved both different rows and conditional upgrade guidance. Neither row establishes Splunk 11.x compatibility.",
+          "qualification": "Preserve both published scopes. Confirm the exact Kubernetes, Operator and Enterprise combination before using it; neither source certifies 11.x."
+        }
+      ],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:30.024Z",
+          "routeId": "prep11",
+          "sourceId": "prep11operator",
+          "htmlSha256": "d5665945acda5658425d6923aabd63bc8a8f79222d5b7ab34fb974f35ad7ed0d",
+          "pdfSha256": "cd2c60cf979d1e95054f00533803ec4c76a7c4a1ebc449d6dab23f2a6ff7bed1"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:09.729Z",
+          "routeId": "prep11",
+          "sourceId": "prep11operator",
+          "htmlSha256": "b610b6d961dcf0e9a7e6e1e9b291373aac7056aa90a1bedd8c6a07813e43a56a",
+          "pdfSha256": "aa6b0d3725c3ce175dc09e4ee9b1b877c858bf5f81f8359ddfa8d93b0d6048cf"
+        }
+      ],
+      "readerReview": {
+        "question": "What exact Enterprise and Kubernetes versions does the 3.2.0 matrix list, and do the sources agree?",
+        "routeId": "prep11",
+        "region": "#prep11-operator-baseline",
+        "sourceId": "prep11operator",
+        "answer": "The 3.2 help matrix lists Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0.",
+        "claimIds": [
+          "prep11-operator-baseline"
+        ],
+        "sourceSection": "SOK to Splunk Enterprise version compatibility; Upgrade path guidance",
+        "checkedAt": "2026-11-25T08:09:09.729Z"
       }
     },
     {
       "capabilityId": "prep11.architecture",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-25T08:05:52.774395Z",
       "assessedAt": null,
       "publishedAt": null,
-      "liveVerifiedAt": null,
+      "liveVerifiedAt": "2026-11-25T08:09:09.729Z",
       "retrievals": [
         {
           "sourceId": "prep11architecture",
@@ -110,7 +174,32 @@
         }
       ],
       "assessments": [],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:30.024Z",
+          "routeId": "prep11",
+          "sourceId": "prep11architecture",
+          "htmlSha256": "d5665945acda5658425d6923aabd63bc8a8f79222d5b7ab34fb974f35ad7ed0d",
+          "pdfSha256": "cd2c60cf979d1e95054f00533803ec4c76a7c4a1ebc449d6dab23f2a6ff7bed1"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:09.729Z",
+          "routeId": "prep11",
+          "sourceId": "prep11architecture",
+          "htmlSha256": "b610b6d961dcf0e9a7e6e1e9b291373aac7056aa90a1bedd8c6a07813e43a56a",
+          "pdfSha256": "aa6b0d3725c3ce175dc09e4ee9b1b877c858bf5f81f8359ddfa8d93b0d6048cf"
+        }
+      ],
       "followUp": {
         "owner": "version-release-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Design storage and failure recovery before moving workloads.",
@@ -125,12 +214,12 @@
     {
       "capabilityId": "prep11.app-delivery",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-25T08:05:52.774395Z",
       "assessedAt": null,
       "publishedAt": null,
-      "liveVerifiedAt": null,
+      "liveVerifiedAt": "2026-11-25T08:09:09.729Z",
       "retrievals": [
         {
           "sourceId": "prep11architecture",
@@ -140,7 +229,32 @@
         }
       ],
       "assessments": [],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:30.024Z",
+          "routeId": "prep11",
+          "sourceId": "prep11architecture",
+          "htmlSha256": "d5665945acda5658425d6923aabd63bc8a8f79222d5b7ab34fb974f35ad7ed0d",
+          "pdfSha256": "cd2c60cf979d1e95054f00533803ec4c76a7c4a1ebc449d6dab23f2a6ff7bed1"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:09.729Z",
+          "routeId": "prep11",
+          "sourceId": "prep11architecture",
+          "htmlSha256": "b610b6d961dcf0e9a7e6e1e9b291373aac7056aa90a1bedd8c6a07813e43a56a",
+          "pdfSha256": "aa6b0d3725c3ce175dc09e4ee9b1b877c858bf5f81f8359ddfa8d93b0d6048cf"
+        }
+      ],
       "followUp": {
         "owner": "version-release-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Inventory apps and configuration delivery.",
@@ -155,12 +269,12 @@
     {
       "capabilityId": "prep11.workload",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-25T08:05:57.839178Z",
       "assessedAt": null,
       "publishedAt": null,
-      "liveVerifiedAt": null,
+      "liveVerifiedAt": "2026-11-25T08:09:09.729Z",
       "retrievals": [
         {
           "sourceId": "prep11workload",
@@ -170,7 +284,32 @@
         }
       ],
       "assessments": [],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:30.024Z",
+          "routeId": "prep11",
+          "sourceId": "prep11workload",
+          "htmlSha256": "d5665945acda5658425d6923aabd63bc8a8f79222d5b7ab34fb974f35ad7ed0d",
+          "pdfSha256": "cd2c60cf979d1e95054f00533803ec4c76a7c4a1ebc449d6dab23f2a6ff7bed1"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:09.729Z",
+          "routeId": "prep11",
+          "sourceId": "prep11workload",
+          "htmlSha256": "b610b6d961dcf0e9a7e6e1e9b291373aac7056aa90a1bedd8c6a07813e43a56a",
+          "pdfSha256": "aa6b0d3725c3ce175dc09e4ee9b1b877c858bf5f81f8359ddfa8d93b0d6048cf"
+        }
+      ],
       "followUp": {
         "owner": "version-release-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Recheck search resource controls.",
@@ -185,12 +324,12 @@
     {
       "capabilityId": "prep11.cloud-option",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-25T08:06:02.183886Z",
       "assessedAt": null,
       "publishedAt": null,
-      "liveVerifiedAt": null,
+      "liveVerifiedAt": "2026-11-25T08:09:09.729Z",
       "retrievals": [
         {
           "sourceId": "prep11migration",
@@ -200,7 +339,32 @@
         }
       ],
       "assessments": [],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:30.024Z",
+          "routeId": "prep11",
+          "sourceId": "prep11migration",
+          "htmlSha256": "d5665945acda5658425d6923aabd63bc8a8f79222d5b7ab34fb974f35ad7ed0d",
+          "pdfSha256": "cd2c60cf979d1e95054f00533803ec4c76a7c4a1ebc449d6dab23f2a6ff7bed1"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:09.729Z",
+          "routeId": "prep11",
+          "sourceId": "prep11migration",
+          "htmlSha256": "b610b6d961dcf0e9a7e6e1e9b291373aac7056aa90a1bedd8c6a07813e43a56a",
+          "pdfSha256": "aa6b0d3725c3ce175dc09e4ee9b1b877c858bf5f81f8359ddfa8d93b0d6048cf"
+        }
+      ],
       "followUp": {
         "owner": "version-release-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Compare the future operating model with a Cloud migration.",
@@ -215,12 +379,12 @@
     {
       "capabilityId": "prep11.context-versioning",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-25T08:05:43.463356Z",
       "assessedAt": null,
       "publishedAt": null,
-      "liveVerifiedAt": null,
+      "liveVerifiedAt": "2026-11-25T08:09:09.729Z",
       "retrievals": [
         {
           "sourceId": "prep11platformnews",
@@ -230,7 +394,32 @@
         }
       ],
       "assessments": [],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:30.024Z",
+          "routeId": "prep11",
+          "sourceId": "prep11platformnews",
+          "htmlSha256": "d5665945acda5658425d6923aabd63bc8a8f79222d5b7ab34fb974f35ad7ed0d",
+          "pdfSha256": "cd2c60cf979d1e95054f00533803ec4c76a7c4a1ebc449d6dab23f2a6ff7bed1"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:09.729Z",
+          "routeId": "prep11",
+          "sourceId": "prep11platformnews",
+          "htmlSha256": "b610b6d961dcf0e9a7e6e1e9b291373aac7056aa90a1bedd8c6a07813e43a56a",
+          "pdfSha256": "aa6b0d3725c3ce175dc09e4ee9b1b877c858bf5f81f8359ddfa8d93b0d6048cf"
+        }
+      ],
       "followUp": {
         "owner": "version-release-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Review custom version-detection logic.",
@@ -245,12 +434,12 @@
     {
       "capabilityId": "prep11.context-ai",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-25T08:05:43.661912Z",
       "assessedAt": null,
       "publishedAt": null,
-      "liveVerifiedAt": null,
+      "liveVerifiedAt": "2026-11-25T08:09:09.729Z",
       "retrievals": [
         {
           "sourceId": "prep11ainews",
@@ -260,7 +449,32 @@
         }
       ],
       "assessments": [],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:30.024Z",
+          "routeId": "prep11",
+          "sourceId": "prep11ainews",
+          "htmlSha256": "d5665945acda5658425d6923aabd63bc8a8f79222d5b7ab34fb974f35ad7ed0d",
+          "pdfSha256": "cd2c60cf979d1e95054f00533803ec4c76a7c4a1ebc449d6dab23f2a6ff7bed1"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:09.729Z",
+          "routeId": "prep11",
+          "sourceId": "prep11ainews",
+          "htmlSha256": "b610b6d961dcf0e9a7e6e1e9b291373aac7056aa90a1bedd8c6a07813e43a56a",
+          "pdfSha256": "aa6b0d3725c3ce175dc09e4ee9b1b877c858bf5f81f8359ddfa8d93b0d6048cf"
+        }
+      ],
       "followUp": {
         "owner": "version-release-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Kubernetes-based architecture announced for Cisco AI POD for Splunk.",
@@ -275,15 +489,77 @@
     {
       "capabilityId": "advisor.agent-mode",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
-      "retrievedAt": null,
+      "retrievedAt": "2026-11-25T08:07:55.854067Z",
       "assessedAt": null,
       "publishedAt": null,
-      "liveVerifiedAt": null,
-      "retrievals": [],
+      "liveVerifiedAt": "2026-11-25T08:09:14.258Z",
+      "retrievals": [
+        {
+          "sourceId": "aiSaiaInstall",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:07:47.413949Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers | FedRAMP deployments; supported regions; version compatibility | HTTP 200 | 183789 bytes | SHA-256 09c4f42003b8ef6c0eb09b2a6e9fab1ba0dd9b72ae257d4883063c05939293a2"
+        },
+        {
+          "sourceId": "aiSaiaAbout",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:05:30.794140Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant | Requirements; features; ITSI subagent; where the assistant runs | HTTP 200 | 162682 bytes | SHA-256 91a6c1447d7573bbba8fd321a97e4778d516b0b7b8d9d6f1f8086fd229159be8"
+        },
+        {
+          "sourceId": "aiSaiaAgentMode",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:07:47.439226Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant | Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites | HTTP 200 | 202546 bytes | SHA-256 682a9dec3eb9c887c72c24c9c4fe75dae4a33ef27805f35b818314233dcb6a9a"
+        },
+        {
+          "sourceId": "aiSaiaModelRuntime",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:07:51.515783Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant | Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off | HTTP 200 | 174664 bytes | SHA-256 696bf2aef38b67db88d0334ed93b10d22d0a2a1b45dfa835c4cac94c2397da7f"
+        },
+        {
+          "sourceId": "aiSaiaCloudConnected",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:07:51.515228Z",
+          "evidence": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected | Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data | HTTP 200 | 178951 bytes | SHA-256 71156fa00be5933ac05d7d7800febfbce15acf570999d9e922eb0adffc689164"
+        },
+        {
+          "sourceId": "aiSaiaKnownIssues",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:07:55.854067Z",
+          "evidence": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues | SAIA-9918 Cloud Connected access and 2.1.1 workaround | HTTP 200 | 142889 bytes | SHA-256 f047b55bfcff730b0871b9c9758a8d51a937e93e5109fdfa4ef5404391a3aa43"
+        }
+      ],
       "assessments": [],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:35.195Z",
+          "routeId": "advisor-agent-gap",
+          "sourceId": "aiSaiaModelRuntime",
+          "htmlSha256": "693301b3101a9f5bd1bb49d7e8f795fa22be1f57e92895071b02b0f291c26c70",
+          "pdfSha256": "078090060710f888b10e8ee2a913f1d3a1ab25f674f2ed6d2c632edbad312653"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:14.258Z",
+          "routeId": "advisor-agent-gap",
+          "sourceId": "aiSaiaModelRuntime",
+          "htmlSha256": "5a38bb43f9163ebe66aa15f5e83af9d32bd7d22aecec6165195229f7ed71465c",
+          "pdfSha256": "ee84b0477f538a0cfedde90b93f5d2c396b489d6958cdb9eac5be65b9010c411"
+        }
+      ],
       "followUp": {
         "owner": "version-release-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Plan for SAIA Agent Mode.",
@@ -298,15 +574,53 @@
     {
       "capabilityId": "advisor.itsi-versions",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
-      "retrievedAt": null,
+      "retrievedAt": "2026-11-25T08:07:47.413949Z",
       "assessedAt": null,
       "publishedAt": null,
-      "liveVerifiedAt": null,
-      "retrievals": [],
+      "liveVerifiedAt": "2026-11-25T08:09:17.144Z",
+      "retrievals": [
+        {
+          "sourceId": "aiSaiaAbout",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:05:30.794140Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant | Requirements; features; ITSI subagent; where the assistant runs | HTTP 200 | 162682 bytes | SHA-256 91a6c1447d7573bbba8fd321a97e4778d516b0b7b8d9d6f1f8086fd229159be8"
+        },
+        {
+          "sourceId": "aiSaiaInstall",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:07:47.413949Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers | FedRAMP deployments; supported regions; version compatibility | HTTP 200 | 183789 bytes | SHA-256 09c4f42003b8ef6c0eb09b2a6e9fab1ba0dd9b72ae257d4883063c05939293a2"
+        }
+      ],
       "assessments": [],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:39.987Z",
+          "routeId": "advisor-prerequisites",
+          "sourceId": "aiSaiaInstall",
+          "htmlSha256": "bdec92a3842bb299798986717e848094a30e1edcc80ad633c9412548cd61b284",
+          "pdfSha256": "5795beeb269442a499ac452a7bb5fc8dac4d38b2fdb793c492a546d33a7de124"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:17.144Z",
+          "routeId": "advisor-prerequisites",
+          "sourceId": "aiSaiaInstall",
+          "htmlSha256": "6b23edcf25bda4f6b71b01d82f0af1cb7414d8d461fa15971be2729ed4290eaa",
+          "pdfSha256": "2722f70477f2bc246c2d15ee54235d2e7c7036945a0a36e72abe4fd9f9f1b9bb"
+        }
+      ],
       "followUp": {
         "owner": "version-release-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Check ITSI assistant dependencies.",
@@ -323,11 +637,60 @@
       "disposition": "deferred",
       "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
-      "retrievedAt": null,
+      "retrievedAt": "2026-11-25T08:08:04.549107Z",
       "assessedAt": null,
       "publishedAt": null,
       "liveVerifiedAt": null,
-      "retrievals": [],
+      "retrievals": [
+        {
+          "sourceId": "aiEsAgents88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:05:30.938273Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security | Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note | HTTP 200 | 197012 bytes | SHA-256 7ceec161e3c0aad6e8744290db6155e3da876f5c926a1569273782d4b1604220"
+        },
+        {
+          "sourceId": "aiEsSocTask88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:07:59.760616Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security | Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions | HTTP 200 | 183835 bytes | SHA-256 7f8663354b18259569ad9329254a22043a9a948cb1d331cc839a7c8091c1f828"
+        },
+        {
+          "sourceId": "aiEsSocTask87",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:07:59.839560Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security | Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions | HTTP 200 | 191695 bytes | SHA-256 37b49ecd42c8310fb3effdec6a2c78d487606478ac0bdaaf1058bd609d92ce75"
+        },
+        {
+          "sourceId": "aiEsRelease88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:06:28.442941Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security | ES 8.8 Controlled Availability | HTTP 200 | 217589 bytes | SHA-256 15083ee9c4724499138c3f22a08896913c725264c279a4fbfc72496710d3835e"
+        },
+        {
+          "sourceId": "aiEsTriageNote88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:05:30.938273Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security | SOC analyst Triage/Response note; aggregate AI SOC Analyst availability row | HTTP 200 | 197012 bytes | SHA-256 7ceec161e3c0aad6e8744290db6155e3da876f5c926a1569273782d4b1604220"
+        },
+        {
+          "sourceId": "aiSaiaInstall",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:07:47.413949Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers | FedRAMP deployments; supported regions; version compatibility | HTTP 200 | 183789 bytes | SHA-256 09c4f42003b8ef6c0eb09b2a6e9fab1ba0dd9b72ae257d4883063c05939293a2"
+        },
+        {
+          "sourceId": "aiEsRegions88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:06:32.847029Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability | Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility | HTTP 200 | 239067 bytes | SHA-256 e3c16d2ba8f5a04855571dfe31a1a46d3a089d65339e5dc4a32a69692bb1f460"
+        },
+        {
+          "sourceId": "aiEsEditions",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:08:04.549107Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions | Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings | HTTP 200 | 137948 bytes | SHA-256 c48a451754e8aae7210afe9582f8e4904ed42b20c8921cc8a804aa0c4304fce8"
+        }
+      ],
       "assessments": [],
       "publicOriginEvidence": [],
       "followUp": {
@@ -344,15 +707,65 @@
     {
       "capabilityId": "exact.identity",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
-      "retrievedAt": null,
+      "retrievedAt": "2026-11-25T08:08:16.602092Z",
       "assessedAt": null,
       "publishedAt": null,
-      "liveVerifiedAt": null,
-      "retrievals": [],
+      "liveVerifiedAt": "2026-11-25T08:09:19.285Z",
+      "retrievals": [
+        {
+          "sourceId": "exact94",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:08:12.743081Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/9.4/whats-new/welcome-to-splunk-enterprise-9.4 | 9.4 release headings; 9.4.3 filterType default and later documentation visibility | HTTP 200 | 173086 bytes | SHA-256 adf0fed67fc12ed93bbbf138a655ec0b6500c3398893723329b4d3737b8f7dca"
+        },
+        {
+          "sourceId": "exact104",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:08:12.753838Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4 | 10.4 TLS 1.3 and legacy TLS availability; 10.4.2/10.4.3 UF warning; maintenance release headings | HTTP 200 | 193325 bytes | SHA-256 e0629233cbf75227fe44280a5a73654ea28acd9b7d3688e9fc1e77f537e36bfb"
+        },
+        {
+          "sourceId": "exactUF",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:08:16.602092Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues | Important: UF 10.4.2 warning; fixed in UF 10.4.3; receiver acknowledgements | HTTP 200 | 144817 bytes | SHA-256 221112139fee0e9bd22efc9418ab20296656b8acbc21ea17662065355461622b"
+        },
+        {
+          "sourceId": "exactSecurity",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:08:12.426728Z",
+          "evidence": "https://advisory.splunk.com/advisories/SVD-2026-1007 | Product Status; CVE-2026-76288 Description and Mitigations. Other CVEs are outside this pilot. | HTTP 200 | 46462 bytes | SHA-256 c0d93b514cc692d38e90880245d68d352cc312298081ed889feac3e062e2386b"
+        }
+      ],
       "assessments": [],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:41.223Z",
+          "routeId": "exact-cross-line",
+          "sourceId": "exact94",
+          "htmlSha256": "8a7d8db75a721a62c06af71d730756d4a8fce1901e20c69ea9f9afc1750e7b37",
+          "pdfSha256": "ba36b1853dab20caffb1da81cca71612cc162e55939f2378d210a3796d8bd337"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:19.285Z",
+          "routeId": "exact-cross-line",
+          "sourceId": "exact94",
+          "htmlSha256": "c29d3a6af0464c2b91d1856500bc0a971f96a7d5c7de21417f7a37c313541a41",
+          "pdfSha256": "edf521e1fda6d6ca84126ab72ce1f8896c8e882f4f4c0fb68e3104c360f2b9ff"
+        }
+      ],
       "followUp": {
         "owner": "version-release-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Exact package identity, branch and ordering.",
@@ -367,15 +780,65 @@
     {
       "capabilityId": "exact.capabilities",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
-      "retrievedAt": null,
+      "retrievedAt": "2026-11-25T08:08:20.990416Z",
       "assessedAt": null,
       "publishedAt": null,
-      "liveVerifiedAt": null,
-      "retrievals": [],
+      "liveVerifiedAt": "2026-11-25T08:09:20.263Z",
+      "retrievals": [
+        {
+          "sourceId": "exact94",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:08:12.743081Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/9.4/whats-new/welcome-to-splunk-enterprise-9.4 | 9.4 release headings; 9.4.3 filterType default and later documentation visibility | HTTP 200 | 173086 bytes | SHA-256 adf0fed67fc12ed93bbbf138a655ec0b6500c3398893723329b4d3737b8f7dca"
+        },
+        {
+          "sourceId": "exactDeprecated",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:08:20.990416Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/9.4/deprecated-features/deprecated-and-removed-in-version-9.4 | Still deprecated: HTML dashboards | HTTP 200 | 210356 bytes | SHA-256 4a6ea41a49a3cd7a30ad41c77d98105ac303a7280971c372782dfb8288289b7d"
+        },
+        {
+          "sourceId": "exactRemoved",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:08:20.939929Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/deprecated-features/deprecated-and-removed-in-version-10.4 | Removed features: HTML dashboards | HTTP 200 | 201400 bytes | SHA-256 e42ab178765d619eecf3cdcec38d73e1068afcf82bbf01bb2bfa595d98454cf8"
+        },
+        {
+          "sourceId": "exact104",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:08:12.753838Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4 | 10.4 TLS 1.3 and legacy TLS availability; 10.4.2/10.4.3 UF warning; maintenance release headings | HTTP 200 | 193325 bytes | SHA-256 e0629233cbf75227fe44280a5a73654ea28acd9b7d3688e9fc1e77f537e36bfb"
+        }
+      ],
       "assessments": [],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:42.137Z",
+          "routeId": "exact-docs",
+          "sourceId": "exact94",
+          "htmlSha256": "847ef15ba2a0960e315a0b514c87a3e00cd5f1ef6b6796c0e75d7d42309c457d",
+          "pdfSha256": "461ffe0086fd88e05b16930b253dec38a1c847c2e0a3bbe38670edccab95af65"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:20.263Z",
+          "routeId": "exact-docs",
+          "sourceId": "exact94",
+          "htmlSha256": "7ef19e8e89fb3bef19e93ef92004a92f7d530d051e7c68e6295133467eb8749d",
+          "pdfSha256": "2697e76eaf517f69875411cd63ba8c556e73fa4ae31fe2ea6572ccc371abe908"
+        }
+      ],
       "followUp": {
         "owner": "version-release-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Exact feature status and documentation corrections.",
@@ -390,15 +853,47 @@
     {
       "capabilityId": "exact.branch-security",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
-      "retrievedAt": null,
+      "retrievedAt": "2026-11-25T08:08:12.426728Z",
       "assessedAt": null,
       "publishedAt": null,
-      "liveVerifiedAt": null,
-      "retrievals": [],
+      "liveVerifiedAt": "2026-11-25T08:09:21.268Z",
+      "retrievals": [
+        {
+          "sourceId": "exactSecurity",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:08:12.426728Z",
+          "evidence": "https://advisory.splunk.com/advisories/SVD-2026-1007 | Product Status; CVE-2026-76288 Description and Mitigations. Other CVEs are outside this pilot. | HTTP 200 | 46462 bytes | SHA-256 c0d93b514cc692d38e90880245d68d352cc312298081ed889feac3e062e2386b"
+        }
+      ],
       "assessments": [],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:43.382Z",
+          "routeId": "exact-backport",
+          "sourceId": "exactSecurity",
+          "htmlSha256": "35bd32babe8b5995a7bc5b8ef83f88aefec013dce1f68ea8be5e1d0d8800bbf6",
+          "pdfSha256": "4703042ca4160ea3cbe790c9ebe3f5001d14fe9c6f0e75fc0351759ef9f993c5"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:21.268Z",
+          "routeId": "exact-backport",
+          "sourceId": "exactSecurity",
+          "htmlSha256": "17c92045ee9e0672b4179264b3738eb3ec942c66a36b713f2f15a7bca10a13bd",
+          "pdfSha256": "9b9bc098a3e47475e788e1e5635228822e7038a0f89e7e89cbd8febfb4d5ce3d"
+        }
+      ],
       "followUp": {
         "owner": "version-release-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Exact branch remediation for the pilot advisory scope.",
@@ -413,15 +908,47 @@
     {
       "capabilityId": "exact.uf-useack",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
-      "retrievedAt": null,
+      "retrievedAt": "2026-11-25T08:08:16.602092Z",
       "assessedAt": null,
       "publishedAt": null,
-      "liveVerifiedAt": null,
-      "retrievals": [],
+      "liveVerifiedAt": "2026-11-25T08:09:22.144Z",
+      "retrievals": [
+        {
+          "sourceId": "exactUF",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:08:16.602092Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues | Important: UF 10.4.2 warning; fixed in UF 10.4.3; receiver acknowledgements | HTTP 200 | 144817 bytes | SHA-256 221112139fee0e9bd22efc9418ab20296656b8acbc21ea17662065355461622b"
+        }
+      ],
       "assessments": [],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:44.562Z",
+          "routeId": "exact-uf",
+          "sourceId": "exactUF",
+          "htmlSha256": "36082fa14d2f72a870de6e5425c2661c8704dc97e5e6fdb4b823973a9dc67c46",
+          "pdfSha256": "5566387cb30f59e1b4f171239d474b3b3905b3c44e40d4ddcd9b474bd0fee289"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:22.144Z",
+          "routeId": "exact-uf",
+          "sourceId": "exactUF",
+          "htmlSha256": "91e15b91a7f1f2047044781934a8b836c4bad4a36d51aa997e19ebfbc8e97fb9",
+          "pdfSha256": "2246ac76421484cca8629e4bbe31a1b728367dde4991176e209d22da62c5a0ba"
+        }
+      ],
       "followUp": {
         "owner": "version-release-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Exact UF regression, receiver condition and fix.",
@@ -436,15 +963,53 @@
     {
       "capabilityId": "exact.uncertainty-parity",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
-      "retrievedAt": null,
+      "retrievedAt": "2026-11-25T08:08:25.474603Z",
       "assessedAt": null,
       "publishedAt": null,
-      "liveVerifiedAt": null,
-      "retrievals": [],
+      "liveVerifiedAt": "2026-11-25T08:09:23.156Z",
+      "retrievals": [
+        {
+          "sourceId": "exact104",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:08:12.753838Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4 | 10.4 TLS 1.3 and legacy TLS availability; 10.4.2/10.4.3 UF warning; maintenance release headings | HTTP 200 | 193325 bytes | SHA-256 e0629233cbf75227fe44280a5a73654ea28acd9b7d3688e9fc1e77f537e36bfb"
+        },
+        {
+          "sourceId": "exactUpgrade",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:08:25.474603Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first | Splunk has removed support for versions 1.0 and 1.1 of TLS; Enterprise component, all operating systems, introduced 10.4 | HTTP 200 | 219561 bytes | SHA-256 76f09bb7c981f20ffe366f707a09f04e107a73e2709a381712bde48836a98ad2"
+        }
+      ],
       "assessments": [],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:45.675Z",
+          "routeId": "exact-conflict",
+          "sourceId": "exactUpgrade",
+          "htmlSha256": "2468825003fc50686799c63aa7196991355dbbf04b6a16c6106768f0a4cdc9f9",
+          "pdfSha256": "6918430d9aabeecd3ac42923f5b304e8ab4c0dcba12153c2e43084e85ea3cd51"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:23.156Z",
+          "routeId": "exact-conflict",
+          "sourceId": "exactUpgrade",
+          "htmlSha256": "85453491ac1741b9b58337f041c91f77f35d503cdef60fff0ba1bb1325b96883",
+          "pdfSha256": "717c5821745d199a4cdb9633e5c710c107d94219f5128679f09e0bc5b2ee8d7b"
+        }
+      ],
       "followUp": {
         "owner": "version-release-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Legacy TLS conflict and exact comparison qualifications.",
@@ -458,13 +1023,13 @@
     },
     {
       "capabilityId": "ai.discovery",
-      "disposition": "deferred",
-      "qualification": "The fresh Assistant About ITSI subsection confirms SAIA 2.2.0+, ITSI 5.0.0+, and MCP Server 1.2.1+ while the current 2.4 release note describes a separate on-premises installation path. The renamed ES 8.8 agent page labels Threat Graph alpha and Response Controlled Availability. The two retired public paths returned 404. Observability separates its English assistant and realm scope from opt-in RCA and supported default-metric alerts. Fresh official Help, Splunk platform and Cisco announcement searches did not establish a new universal capability rollout. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "disposition": "assessed-no-change",
+      "qualification": "The fresh Assistant About ITSI subsection confirms SAIA 2.2.0+, ITSI 5.0.0+, and MCP Server 1.2.1+ while the current 2.4 release note describes a separate on-premises installation path. The renamed ES 8.8 agent page labels Threat Graph alpha and Response Controlled Availability. The two retired public paths returned 404. Observability separates its English assistant and realm scope from opt-in RCA and supported default-metric alerts. Fresh official Help, Splunk platform and Cisco announcement searches did not establish a new universal capability rollout.",
       "discoveredAt": "2026-11-25T08:05:27.673Z",
       "retrievedAt": "2026-11-25T08:05:35.577880Z",
       "assessedAt": "2026-11-25T08:07:26.653736Z",
       "publishedAt": null,
-      "liveVerifiedAt": null,
+      "liveVerifiedAt": "2026-11-25T08:09:23.996Z",
       "retrievals": [
         {
           "sourceId": "aiSaiaAbout",
@@ -506,30 +1071,119 @@
           "qualification": "Search for new official release or capability documentation within the curated matrix and check discovery/rollout gaps. Record what was searched, even when no further evidence is found; coordinate ES and regional follow-up."
         }
       ],
-      "publicOriginEvidence": [],
-      "followUp": {
-        "owner": "version-release-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Public discovery and unresolved AI matrix scope.",
-        "reviewBy": "2026-11-26"
-      },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-24-version-release-watch-review-102644420306273-coverage.json",
-        "assessmentAt": "2026-11-25T03:01:02.789097Z",
-        "disposition": "assessed-no-change"
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:47.227Z",
+          "routeId": "ai-overview",
+          "sourceId": "aiEsAgents88",
+          "htmlSha256": "f05202c0b9426b507460be38f053b907617de601ad7a885c53d13edc554e9062",
+          "pdfSha256": "ad68cdb1a60d8e87f0fc59a64445c92f2ca24996df6d7fd356fc511a2f38e447"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:23.996Z",
+          "routeId": "ai-overview",
+          "sourceId": "aiEsAgents88",
+          "htmlSha256": "adc054f0be6178d2b9ce7068489e2951de29a511813fbb22b981ae5de5fa92a3",
+          "pdfSha256": "50d63e86fa0079e50b2c74014b218971fb8ad8d1460eb582684b9fc096c92b67"
+        }
+      ],
+      "readerReview": {
+        "question": "Which official ES 8.8 AI capability is Controlled Availability, and are all operation and availability questions answered?",
+        "routeId": "ai-overview",
+        "region": "#ai-es-soc",
+        "sourceId": "aiEsAgents88",
+        "answer": "Autonomous Response Controlled Availability",
+        "claimIds": [
+          "ai-availability-backlog"
+        ],
+        "sourceSection": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note",
+        "checkedAt": "2026-11-25T08:09:23.996Z"
       }
     },
     {
       "capabilityId": "ai.saia-itsi",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
-      "retrievedAt": null,
+      "retrievedAt": "2026-11-25T08:07:55.854067Z",
       "assessedAt": null,
       "publishedAt": null,
-      "liveVerifiedAt": null,
-      "retrievals": [],
+      "liveVerifiedAt": "2026-11-25T08:09:24.793Z",
+      "retrievals": [
+        {
+          "sourceId": "aiSaiaAbout",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:05:30.794140Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant | Requirements; features; ITSI subagent; where the assistant runs | HTTP 200 | 162682 bytes | SHA-256 91a6c1447d7573bbba8fd321a97e4778d516b0b7b8d9d6f1f8086fd229159be8"
+        },
+        {
+          "sourceId": "aiSaiaInstall",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:07:47.413949Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers | FedRAMP deployments; supported regions; version compatibility | HTTP 200 | 183789 bytes | SHA-256 09c4f42003b8ef6c0eb09b2a6e9fab1ba0dd9b72ae257d4883063c05939293a2"
+        },
+        {
+          "sourceId": "aiSaiaAgentMode",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:07:47.439226Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant | Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites | HTTP 200 | 202546 bytes | SHA-256 682a9dec3eb9c887c72c24c9c4fe75dae4a33ef27805f35b818314233dcb6a9a"
+        },
+        {
+          "sourceId": "aiSaiaModelRuntime",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:07:51.515783Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant | Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off | HTTP 200 | 174664 bytes | SHA-256 696bf2aef38b67db88d0334ed93b10d22d0a2a1b45dfa835c4cac94c2397da7f"
+        },
+        {
+          "sourceId": "aiSaiaCloudConnected",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:07:51.515228Z",
+          "evidence": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected | Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data | HTTP 200 | 178951 bytes | SHA-256 71156fa00be5933ac05d7d7800febfbce15acf570999d9e922eb0adffc689164"
+        },
+        {
+          "sourceId": "aiSaiaKnownIssues",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:07:55.854067Z",
+          "evidence": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues | SAIA-9918 Cloud Connected access and 2.1.1 workaround | HTTP 200 | 142889 bytes | SHA-256 f047b55bfcff730b0871b9c9758a8d51a937e93e5109fdfa4ef5404391a3aa43"
+        }
+      ],
       "assessments": [],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:48.128Z",
+          "routeId": "ai-itsi",
+          "sourceId": "aiSaiaAbout",
+          "htmlSha256": "ffaea245a00d26a5a08c5ee4f64fb470aaa10f2728285b8a42cd6726f8acacb9",
+          "pdfSha256": "1654aa9b0e7d9484c78d16ac926fa0ebf1524a417ea109994b3fa2bdf91f04e4"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:24.793Z",
+          "routeId": "ai-itsi",
+          "sourceId": "aiSaiaAbout",
+          "htmlSha256": "e2b8ea8d1718e7f075438e2868664deedd8fb2e77e7d4a2fad01e02ae00e61ae",
+          "pdfSha256": "bf8ae278557a46627b4a82c54aeb26e16590a798b664b17f8ee385e946d6de4f"
+        }
+      ],
       "followUp": {
         "owner": "version-release-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for SAIA and ITSI capabilities and prerequisites.",
@@ -544,15 +1198,89 @@
     {
       "capabilityId": "ai.observability-capabilities",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
-      "retrievedAt": null,
+      "retrievedAt": "2026-11-25T08:08:46.163078Z",
       "assessedAt": null,
       "publishedAt": null,
-      "liveVerifiedAt": null,
-      "retrievals": [],
+      "liveVerifiedAt": "2026-11-25T08:09:26.624Z",
+      "retrievals": [
+        {
+          "sourceId": "aiObsAssistant",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:05:35.577880Z",
+          "evidence": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/ai-assistant-in-observability-cloud | Availability; supported realms and product areas; access; context limitations; data sharing and use | HTTP 200 | 162080 bytes | SHA-256 d65268aa36316e74d2f8b0e53802060f6a3beb961b8d218cc7019de7c04c8c3d"
+        },
+        {
+          "sourceId": "aiObsServiceDetails",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:07:26.633687Z",
+          "evidence": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description | Available regions or realms; realm-to-region equivalence; available components per realm | HTTP 200 | 237834 bytes | SHA-256 f9ab3163c1888de2b8b135736c3c3b98f4502652cf2bfb3e9ab4ccf0952c8c45"
+        },
+        {
+          "sourceId": "aiObsRca",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:05:35.546061Z",
+          "evidence": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan | Availability; supported alerts and metrics; opt-in behavior; Kubernetes remediation plans | HTTP 200 | 172514 bytes | SHA-256 b4ad5f774d6144d007b3ca07e1dbdd4bfa25f47906180dc6cc7b947ed3e8db31"
+        },
+        {
+          "sourceId": "aiObsJulyRelease",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:08:46.163078Z",
+          "evidence": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/july-2026 | July 8 AI troubleshooting agent and remediation plan milestone | HTTP 200 | 169015 bytes | SHA-256 90afc57518a6c3169bc18cff12ca87537717dbb030805671df18f30aac9270ce"
+        }
+      ],
       "assessments": [],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:49.097Z",
+          "routeId": "ai-observability-assistant",
+          "sourceId": "aiObsAssistant",
+          "htmlSha256": "22ce9d84ac07669cab42778ab662e321d432eb78458114d5bdad3958b8d808b8",
+          "pdfSha256": "a39532cb16d322d5897758748d3ba46a5c2c4cc1dde9eca7feec56a0035ddd4c"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:25.605Z",
+          "routeId": "ai-observability-assistant",
+          "sourceId": "aiObsAssistant",
+          "htmlSha256": "46c2e5d876d792f4cae4acddf34cd25009450533946652255c50bdd37423cfbc",
+          "pdfSha256": "b5dda8af52bda09b1bc8a264d5b5d1ac3ed8a679909f26bbb3b108487b22deff"
+        },
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:49.927Z",
+          "routeId": "ai-observability-rca",
+          "sourceId": "aiObsRca",
+          "htmlSha256": "f3ea529f3116331ee8b4a4979b70e3456d41bd273fb020ca40cbca043853db08",
+          "pdfSha256": "c89c13e11981cf6d5a04335d6ffd791543301bdc61fff1a0d61543db7f6c6d55"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:26.624Z",
+          "routeId": "ai-observability-rca",
+          "sourceId": "aiObsRca",
+          "htmlSha256": "8d2853e7a2136982571f009b1a89373d216a7a2abf00149072e230a3baa0d99a",
+          "pdfSha256": "a365cf39378b866ac51df25c8abddb4955fe1dea9b2d22d132d2a8de20a23337"
+        }
+      ],
       "followUp": {
         "owner": "version-release-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Observability AI capability and access scope.",
@@ -567,12 +1295,12 @@
     {
       "capabilityId": "release-guide.enterprise",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-25T08:06:05.793917Z",
       "assessedAt": null,
       "publishedAt": null,
-      "liveVerifiedAt": null,
+      "liveVerifiedAt": "2026-11-25T08:09:28.546Z",
       "retrievals": [
         {
           "sourceId": "enterprise106Notes",
@@ -588,7 +1316,104 @@
         }
       ],
       "assessments": [],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:52.382Z",
+          "routeId": "enterprise",
+          "sourceId": "enterprise106Notes",
+          "htmlSha256": "b221aa6656d1afb706fdd8714d7bf4dda5df6af75c7c7e9a29da7fde04c27c44",
+          "pdfSha256": "9e6b03ddbd57f712389c377fc41c5f1c92bf6cf05113bee756f5e64ebe30c4db"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:28.546Z",
+          "routeId": "enterprise",
+          "sourceId": "enterprise106Notes",
+          "htmlSha256": "bdb0bc9094ba0b2a72f2d677f7017f417cb73e7a43454d1601440dc84e5a0894",
+          "pdfSha256": "333c9cd14693dd7e7d4ff496612480dc1166575d93536541d0cb7e3c6c6cd884"
+        },
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:52.382Z",
+          "routeId": "enterprise",
+          "sourceId": "enterprise106Notes",
+          "htmlSha256": "b221aa6656d1afb706fdd8714d7bf4dda5df6af75c7c7e9a29da7fde04c27c44",
+          "pdfSha256": "9e6b03ddbd57f712389c377fc41c5f1c92bf6cf05113bee756f5e64ebe30c4db"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:28.546Z",
+          "routeId": "enterprise",
+          "sourceId": "enterprise106Notes",
+          "htmlSha256": "bdb0bc9094ba0b2a72f2d677f7017f417cb73e7a43454d1601440dc84e5a0894",
+          "pdfSha256": "333c9cd14693dd7e7d4ff496612480dc1166575d93536541d0cb7e3c6c6cd884"
+        },
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:52.382Z",
+          "routeId": "enterprise",
+          "sourceId": "enterprise106Notes",
+          "htmlSha256": "b221aa6656d1afb706fdd8714d7bf4dda5df6af75c7c7e9a29da7fde04c27c44",
+          "pdfSha256": "9e6b03ddbd57f712389c377fc41c5f1c92bf6cf05113bee756f5e64ebe30c4db"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:28.546Z",
+          "routeId": "enterprise",
+          "sourceId": "enterprise106Notes",
+          "htmlSha256": "bdb0bc9094ba0b2a72f2d677f7017f417cb73e7a43454d1601440dc84e5a0894",
+          "pdfSha256": "333c9cd14693dd7e7d4ff496612480dc1166575d93536541d0cb7e3c6c6cd884"
+        },
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:52.382Z",
+          "routeId": "enterprise",
+          "sourceId": "enterprise106Notes",
+          "htmlSha256": "b221aa6656d1afb706fdd8714d7bf4dda5df6af75c7c7e9a29da7fde04c27c44",
+          "pdfSha256": "9e6b03ddbd57f712389c377fc41c5f1c92bf6cf05113bee756f5e64ebe30c4db"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:28.546Z",
+          "routeId": "enterprise",
+          "sourceId": "enterprise106Notes",
+          "htmlSha256": "bdb0bc9094ba0b2a72f2d677f7017f417cb73e7a43454d1601440dc84e5a0894",
+          "pdfSha256": "333c9cd14693dd7e7d4ff496612480dc1166575d93536541d0cb7e3c6c6cd884"
+        }
+      ],
       "followUp": {
         "owner": "version-release-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Splunk Enterprise upgrade paths.",
@@ -602,13 +1427,13 @@
     },
     {
       "capabilityId": "release-guide.cloud",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "disposition": "assessed-no-change",
+      "qualification": "Splunk Cloud release headings and the active subscriptions table distinguish quarterly releases, maintenance streams, and managed-service eligibility. The nominal 10.8 Service Details table still lists Platform 10.7, ES 8.7 and ITSI 5.0. Quarterly 10.8 integrates selected federated capabilities. The rendered quarterly issue SPL-313801 covers affected deployments with infrequently changing knowledge objects and missing complete bundles, with a support-directed configuration change and possible propagation delay. The separate maintenance index now starts at 10.7.0.7 (November 24), with prior 10.7.0.6, and the current article has no 10.8 quarterly patch mapping for that issue. No applicability or remediation patch was assumed. An unrelated 10.2 maintenance identifier ending in .8 is not quarterly 10.8.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-25T08:06:17.089890Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-25T08:12:09.410410Z",
       "publishedAt": null,
-      "liveVerifiedAt": null,
+      "liveVerifiedAt": "2026-11-25T08:09:29.999Z",
       "retrievals": [
         {
           "sourceId": "cloud107Notes",
@@ -623,31 +1448,195 @@
           "evidence": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details | Splunk Cloud Platform versions and feature availability | HTTP 200 | 509410 bytes | SHA-256 e0883cd13530a286e58fea83887bba5ee20d90072afc4f0ceaaf927629045d40"
         }
       ],
-      "assessments": [],
-      "publicOriginEvidence": [],
-      "followUp": {
-        "owner": "version-release-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Splunk Cloud Platform milestones.",
-        "reviewBy": "2026-11-26"
+      "assessments": [
+        {
+          "claimId": "release-guide.cloud",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "cloud107Notes",
+            "service107"
+          ],
+          "assessedAt": "2026-11-25T08:12:09.410410Z",
+          "evidence": "Splunk Cloud release headings and the active subscriptions table distinguish quarterly releases, maintenance streams, and managed-service eligibility. The nominal 10.8 Service Details table still lists Platform 10.7, ES 8.7 and ITSI 5.0. Quarterly 10.8 integrates selected federated capabilities. The rendered quarterly issue SPL-313801 covers affected deployments with infrequently changing knowledge objects and missing complete bundles, with a support-directed configuration change and possible propagation delay. The separate maintenance index now starts at 10.7.0.7 (November 24), with prior 10.7.0.6, and the current article has no 10.8 quarterly patch mapping for that issue. No applicability or remediation patch was assumed. An unrelated 10.2 maintenance identifier ending in .8 is not quarterly 10.8.",
+          "qualification": "Cloud-managed release milestones, rollout qualifications, and changed capabilities or technical requirements in the guide."
+        }
+      ],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:54.235Z",
+          "routeId": "cloud-108-service-table",
+          "sourceId": "service107",
+          "htmlSha256": "443637a7e503365e1a7bd90e95d250eb3728aa76661feeaca08c815bf0e454c4",
+          "pdfSha256": "5954f0c4b1897ad58e72f66dfc2ae1b5b513142cbcf1a09fb03c7ec7c825b9d6"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:29.999Z",
+          "routeId": "cloud-108-service-table",
+          "sourceId": "service107",
+          "htmlSha256": "b2c514625d62235c94f230e17517ff511f4b285a2ba4cafc4bbeb77bc56b3287",
+          "pdfSha256": "c807f9199ecc17107c7ec61cd0e52ae347182313fc9e81c8013da2e62b57c6af"
+        },
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:54.235Z",
+          "routeId": "cloud-108-service-table",
+          "sourceId": "service107",
+          "htmlSha256": "443637a7e503365e1a7bd90e95d250eb3728aa76661feeaca08c815bf0e454c4",
+          "pdfSha256": "5954f0c4b1897ad58e72f66dfc2ae1b5b513142cbcf1a09fb03c7ec7c825b9d6"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:29.999Z",
+          "routeId": "cloud-108-service-table",
+          "sourceId": "service107",
+          "htmlSha256": "b2c514625d62235c94f230e17517ff511f4b285a2ba4cafc4bbeb77bc56b3287",
+          "pdfSha256": "c807f9199ecc17107c7ec61cd0e52ae347182313fc9e81c8013da2e62b57c6af"
+        },
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:54.235Z",
+          "routeId": "cloud-108-service-table",
+          "sourceId": "service107",
+          "htmlSha256": "443637a7e503365e1a7bd90e95d250eb3728aa76661feeaca08c815bf0e454c4",
+          "pdfSha256": "5954f0c4b1897ad58e72f66dfc2ae1b5b513142cbcf1a09fb03c7ec7c825b9d6"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:29.999Z",
+          "routeId": "cloud-108-service-table",
+          "sourceId": "service107",
+          "htmlSha256": "b2c514625d62235c94f230e17517ff511f4b285a2ba4cafc4bbeb77bc56b3287",
+          "pdfSha256": "c807f9199ecc17107c7ec61cd0e52ae347182313fc9e81c8013da2e62b57c6af"
+        }
+      ],
+      "readerReview": {
+        "question": "Does the Cloud 10.8 milestone mean my stack already runs 10.8 and ES 8.8?",
+        "routeId": "cloud-108-service-table",
+        "region": "#technical-content",
+        "sourceId": "service107",
+        "answer": "Service Details lists Cloud Platform 10.7 with ES 8.7 and ITSI 5.0.",
+        "claimIds": [
+          "release-guide.cloud"
+        ],
+        "sourceSection": "Splunk Cloud Platform versions and feature availability",
+        "checkedAt": "2026-11-25T08:09:29.999Z"
       },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-24-version-release-watch-review-102644420306273-coverage.json",
-        "assessmentAt": "2026-11-25T03:07:35.157Z",
-        "disposition": "assessed-no-change"
-      }
+      "additionalReaderReviews": [
+        {
+          "question": "Which quarterly Cloud issue can affect federated searches, and what does the guide tell affected customers to do?",
+          "routeId": "cloud-108-service-table",
+          "region": "#technical-content",
+          "sourceId": "service107",
+          "answer": "SPL-313801 documents a missing full knowledge bundle on some deployments.",
+          "reportAnswer": "Contact Splunk Support with SPL-313801 if the documented conditions match.",
+          "claimIds": [
+            "release-guide.cloud"
+          ],
+          "sourceSection": "Splunk Cloud Platform versions and feature availability",
+          "checkedAt": "2026-11-25T08:09:29.999Z"
+        },
+        {
+          "question": "Which search condition applies to the quarterly Cloud issue?",
+          "routeId": "cloud-108-service-table",
+          "region": "#technical-content",
+          "sourceId": "service107",
+          "answer": "Federated searches of third-party data that depend on search-time field extractions can fail or return incomplete results.",
+          "claimIds": [
+            "release-guide.cloud"
+          ],
+          "sourceSection": "Splunk Cloud Platform versions and feature availability",
+          "checkedAt": "2026-11-25T08:09:29.999Z"
+        }
+      ]
     },
     {
       "capabilityId": "release-guide.enterprise-to-cloud",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
-      "retrievedAt": null,
+      "retrievedAt": "2026-11-25T08:08:55.431886Z",
       "assessedAt": null,
       "publishedAt": null,
-      "liveVerifiedAt": null,
-      "retrievals": [],
+      "liveVerifiedAt": "2026-11-25T08:09:31.771Z",
+      "retrievals": [
+        {
+          "sourceId": "migrationOverview",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:08:50.467409Z",
+          "evidence": "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Overview | Migration phases and transition | HTTP 200 | 128109 bytes | SHA-256 1d3f8be6ffd03960857b09a21a9eeeca8ab712340f5aa9542aaa8920eef82f4f"
+        },
+        {
+          "sourceId": "migrationPrepare",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:08:50.818567Z",
+          "evidence": "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Prepare | Preparation, app and data readiness | HTTP 200 | 98893 bytes | SHA-256 da4046649fbd46fc5aa00e51b629013827ec48610402f7fb5fb6147bd1b1049e"
+        },
+        {
+          "sourceId": "migrationValidate",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:08:55.431886Z",
+          "evidence": "https://lantern.splunk.com/Splunk_Cloud_Platform_Migration/Validate | Validation and transition criteria | HTTP 200 | 82121 bytes | SHA-256 9c8155d129866867583968014d49a95791cf49aa0f671dc8e611a0b8b56b9f50"
+        },
+        {
+          "sourceId": "scma",
+          "outcome": "blocked",
+          "retrievedAt": "2026-11-25T08:08:51.234860Z",
+          "evidence": "https://splunkbase.splunk.com/app/4974 | Release history and Splunk Enterprise compatibility | HTTP 200 | 236589 bytes | SHA-256 6fe45cb9a45ce053cbaf9b43a2e5ddc3b9f2407105cfe94467f0dd29a80907ba"
+        }
+      ],
       "assessments": [],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:56.655Z",
+          "routeId": "migration",
+          "sourceId": "scma",
+          "htmlSha256": "9fae75a215a9460ba21d03b9f07027ef77d35948d78970634e9fc82580b8dfce",
+          "pdfSha256": "189fe8d57d713b3f202691caf095a6010fdad9c704f3355ab15d86263bb2fbaa"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:31.771Z",
+          "routeId": "migration",
+          "sourceId": "scma",
+          "htmlSha256": "d27f21eefaafa497c833322cf8745dffeb18af6de82289ddf2b588b9395f79a7",
+          "pdfSha256": "57132384d589dd1f3fea08cec40bc12bacfad89845f87e3406b9e10bddc6c699"
+        }
+      ],
       "followUp": {
         "owner": "version-release-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Enterprise-to-Cloud migration.",
@@ -662,12 +1651,12 @@
     {
       "capabilityId": "release-guide.es",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-25T08:06:28.442941Z",
       "assessedAt": null,
       "publishedAt": null,
-      "liveVerifiedAt": null,
+      "liveVerifiedAt": "2026-11-25T08:09:33.162Z",
       "retrievals": [
         {
           "sourceId": "rn88",
@@ -689,7 +1678,80 @@
         }
       ],
       "assessments": [],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:58.251Z",
+          "routeId": "es-88-controlled-availability-enterprise",
+          "sourceId": "esCompatibility",
+          "htmlSha256": "fea7bc6d46f81a7a14b07405f20d396c7c6d51decd2e7d970a84a3db7871d20e",
+          "pdfSha256": "03bd3f3878537201e07741a30e34d7d6977ba8f48f6a0de55783234036a09846"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:33.162Z",
+          "routeId": "es-88-controlled-availability-enterprise",
+          "sourceId": "esCompatibility",
+          "htmlSha256": "6023da090f60bf7a87ce5504cf6fc1611d4d5a96d2cfb87e3457e70c31d5f5bb",
+          "pdfSha256": "c4fba20971461ade9d147fe8ef7b7adb05d44f7f0353e7ed4e8c10d9700212fe"
+        },
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:58.251Z",
+          "routeId": "es-88-controlled-availability-enterprise",
+          "sourceId": "rn88",
+          "htmlSha256": "fea7bc6d46f81a7a14b07405f20d396c7c6d51decd2e7d970a84a3db7871d20e",
+          "pdfSha256": "03bd3f3878537201e07741a30e34d7d6977ba8f48f6a0de55783234036a09846"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:33.162Z",
+          "routeId": "es-88-controlled-availability-enterprise",
+          "sourceId": "rn88",
+          "htmlSha256": "6023da090f60bf7a87ce5504cf6fc1611d4d5a96d2cfb87e3457e70c31d5f5bb",
+          "pdfSha256": "c4fba20971461ade9d147fe8ef7b7adb05d44f7f0353e7ed4e8c10d9700212fe"
+        },
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:58.251Z",
+          "routeId": "es-88-controlled-availability-enterprise",
+          "sourceId": "rn88",
+          "htmlSha256": "fea7bc6d46f81a7a14b07405f20d396c7c6d51decd2e7d970a84a3db7871d20e",
+          "pdfSha256": "03bd3f3878537201e07741a30e34d7d6977ba8f48f6a0de55783234036a09846"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:33.162Z",
+          "routeId": "es-88-controlled-availability-enterprise",
+          "sourceId": "rn88",
+          "htmlSha256": "6023da090f60bf7a87ce5504cf6fc1611d4d5a96d2cfb87e3457e70c31d5f5bb",
+          "pdfSha256": "c4fba20971461ade9d147fe8ef7b7adb05d44f7f0353e7ed4e8c10d9700212fe"
+        }
+      ],
       "followUp": {
         "owner": "version-release-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Enterprise Security release path.",
@@ -704,15 +1766,65 @@
     {
       "capabilityId": "release-guide.itsi",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
-      "retrievedAt": null,
+      "retrievedAt": "2026-11-25T08:08:59.773977Z",
       "assessedAt": null,
       "publishedAt": null,
-      "liveVerifiedAt": null,
-      "retrievals": [],
+      "liveVerifiedAt": "2026-11-25T08:09:34.508Z",
+      "retrievals": [
+        {
+          "sourceId": "itsiPackage",
+          "outcome": "blocked",
+          "retrievedAt": "2026-11-25T08:08:59.464142Z",
+          "evidence": "https://splunkbase.splunk.com/app/1841 | Release history and Enterprise compatibility | HTTP 200 | 260512 bytes | SHA-256 9bc128705f0a4d672788bff4db5bf584f565f9d8f98ab4d88bf331240c09f9ea"
+        },
+        {
+          "sourceId": "itsiCompatibility",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:06:28.314731Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix | ITSI compatibility rows | HTTP 200 | 155925 bytes | SHA-256 bed70e4b7e94bcb71210a2d0105700618d85627205b9fccfc516b1b604ed0322"
+        },
+        {
+          "sourceId": "itsiRelatedApps",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:08:59.773977Z",
+          "evidence": "https://help.splunk.com/en/splunk-it-service-intelligence/splunk-it-service-intelligence/install-and-upgrade/5.0/planning/itsi-compatibility-with-related-apps-and-add-ons | Related apps and add-ons compatibility | HTTP 200 | 235856 bytes | SHA-256 d41a25675df0cb773d270cde66ced18ec809d58d11be74b5542fd45f5984e124"
+        },
+        {
+          "sourceId": "service107",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:06:17.018646Z",
+          "evidence": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details | Premium solutions and Splunk-managed service compatibility | HTTP 200 | 509410 bytes | SHA-256 e0883cd13530a286e58fea83887bba5ee20d90072afc4f0ceaaf927629045d40"
+        }
+      ],
       "assessments": [],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:08:59.796Z",
+          "routeId": "itsi-503-enterprise-102-scope",
+          "sourceId": "itsiPackage",
+          "htmlSha256": "1f04a99a820aab7f1676246e12c68fb2fc96d1dad959849650879fc0e688cb1d",
+          "pdfSha256": "8dc348d07efa36994a9593281ad37a9e24c75cbc31e044513020192bc3354f63"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:34.508Z",
+          "routeId": "itsi-503-enterprise-102-scope",
+          "sourceId": "itsiPackage",
+          "htmlSha256": "a4eb546addd4e97b7496ed134aa07e25ac0978032d4448c698b7bc56f44b7496",
+          "pdfSha256": "0406e2a0aedc17c785e3618943355d55f9a0d9653f0b6330ddf89c321dd60319"
+        }
+      ],
       "followUp": {
         "owner": "version-release-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for ITSI release path.",
@@ -726,36 +1838,170 @@
     },
     {
       "capabilityId": "release-guide.observability",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "disposition": "assessed-no-change",
+      "qualification": "November release notes and the official Essentials and Premier edition comparison support the scoped visible benefit grid: both host-based editions include logs, AI-assisted troubleshooting and Agent Observability; Premier adds database monitoring, secure application, synthetics, RUM, DXA, business journeys and AI agent evaluation, with 20K rather than 5K monthly spans. Remediation Agent is additionally in the full edition table. Edition entitlements do not establish tenant enablement or realm authorization. The service description maintains independent realm mappings. November A2A has select-customer scope, .NET Secure Application requires the supported dual-mode AppDynamics agent, and November 20 database/RUM features are service milestones. Collector installation and the independent component releases confirm that these milestones are not blanket Collector or instrumentation upgrades.",
       "discoveredAt": null,
-      "retrievedAt": null,
-      "assessedAt": null,
+      "retrievedAt": "2026-11-25T08:07:26.633687Z",
+      "assessedAt": "2026-11-25T08:12:09.410397Z",
       "publishedAt": null,
-      "liveVerifiedAt": null,
-      "retrievals": [],
-      "assessments": [],
-      "publicOriginEvidence": [],
-      "followUp": {
-        "owner": "version-release-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Observability Cloud milestones and components.",
-        "reviewBy": "2026-11-26"
+      "liveVerifiedAt": "2026-11-25T08:09:35.919Z",
+      "retrievals": [
+        {
+          "sourceId": "observabilityNotes",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:07:22.306246Z",
+          "evidence": "https://help.splunk.com/en/splunk-observability-cloud/release-notes/release-notes-overview | Latest monthly release-note headings and component changes | HTTP 200 | 170683 bytes | SHA-256 673781b797cbdf554dd3896158b73c3d1aa058deb324317c36af02e45bd10f1b"
+        },
+        {
+          "sourceId": "collectorDocs",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:07:22.290197Z",
+          "evidence": "https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector | Collector installation, deployment and linked component releases | HTTP 200 | 183780 bytes | SHA-256 f2becacde3c8f2e73bf01d022b69028c4643e4f968f041f5bf34af2b11c4199f"
+        },
+        {
+          "sourceId": "o11y",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:07:26.633687Z",
+          "evidence": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description | Available components, regions and realms | HTTP 200 | 237834 bytes | SHA-256 f9ab3163c1888de2b8b135736c3c3b98f4502652cf2bfb3e9ab4ccf0952c8c45"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "release-guide.observability",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "observabilityNotes",
+            "collectorDocs",
+            "o11y"
+          ],
+          "assessedAt": "2026-11-25T08:12:09.410397Z",
+          "evidence": "November release notes and the official Essentials and Premier edition comparison support the scoped visible benefit grid: both host-based editions include logs, AI-assisted troubleshooting and Agent Observability; Premier adds database monitoring, secure application, synthetics, RUM, DXA, business journeys and AI agent evaluation, with 20K rather than 5K monthly spans. Remediation Agent is additionally in the full edition table. Edition entitlements do not establish tenant enablement or realm authorization. The service description maintains independent realm mappings. November A2A has select-customer scope, .NET Secure Application requires the supported dual-mode AppDynamics agent, and November 20 database/RUM features are service milestones. Collector installation and the independent component releases confirm that these milestones are not blanket Collector or instrumentation upgrades.",
+          "qualification": "Current rolling service changes and separately versioned Collector, instrumentation and deployment prerequisites. Keep realm and entitlement qualifications."
+        }
+      ],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:01.008Z",
+          "routeId": "observability-november",
+          "sourceId": "collectorDocs",
+          "htmlSha256": "52104bc6bfd702535466fd6b968c086d5650e80ed3a5dfe5210bf068185a0665",
+          "pdfSha256": "b9b9d2ef4b047ec71c05089a117c100a4ae05651d193595ab8ee7c3c01e7e905"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:35.919Z",
+          "routeId": "observability-november",
+          "sourceId": "collectorDocs",
+          "htmlSha256": "b134c64dcc6a0c02d552987d0f8a4bc61c7b3b143b8917f747390117618f5a3a",
+          "pdfSha256": "429fd038d71a07d4e44239c1ac0cc41a4862d61f126e847869f3a867743ca8d8"
+        },
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:01.008Z",
+          "routeId": "observability-november",
+          "sourceId": "observabilityNotes",
+          "htmlSha256": "52104bc6bfd702535466fd6b968c086d5650e80ed3a5dfe5210bf068185a0665",
+          "pdfSha256": "b9b9d2ef4b047ec71c05089a117c100a4ae05651d193595ab8ee7c3c01e7e905"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:35.919Z",
+          "routeId": "observability-november",
+          "sourceId": "observabilityNotes",
+          "htmlSha256": "b134c64dcc6a0c02d552987d0f8a4bc61c7b3b143b8917f747390117618f5a3a",
+          "pdfSha256": "429fd038d71a07d4e44239c1ac0cc41a4862d61f126e847869f3a867743ca8d8"
+        },
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:01.008Z",
+          "routeId": "observability-november",
+          "sourceId": "observabilityNotes",
+          "htmlSha256": "52104bc6bfd702535466fd6b968c086d5650e80ed3a5dfe5210bf068185a0665",
+          "pdfSha256": "b9b9d2ef4b047ec71c05089a117c100a4ae05651d193595ab8ee7c3c01e7e905"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:35.919Z",
+          "routeId": "observability-november",
+          "sourceId": "observabilityNotes",
+          "htmlSha256": "b134c64dcc6a0c02d552987d0f8a4bc61c7b3b143b8917f747390117618f5a3a",
+          "pdfSha256": "429fd038d71a07d4e44239c1ac0cc41a4862d61f126e847869f3a867743ca8d8"
+        }
+      ],
+      "readerReview": {
+        "question": "Should a November SaaS feature be treated as a Collector or language-agent upgrade?",
+        "routeId": "observability-november",
+        "region": "#readiness-list",
+        "sourceId": "collectorDocs",
+        "answer": "Inventory collectors and instrumentation",
+        "claimIds": [
+          "release-guide.observability"
+        ],
+        "sourceSection": "Collector installation, deployment and linked component releases",
+        "checkedAt": "2026-11-25T08:09:35.919Z"
       },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-24-version-release-watch-review-102644420306273-coverage.json",
-        "assessmentAt": "2026-11-25T03:07:35.157Z",
-        "disposition": "assessed-no-change"
-      }
+      "additionalReaderReviews": [
+        {
+          "question": "Which capabilities do both host-based editions include, and what does the announcement establish about tenant enablement?",
+          "routeId": "observability-november",
+          "region": "#benefit-grid",
+          "sourceId": "observabilityNotes",
+          "answer": "Both host-based editions include Observability Logs, AI-assisted troubleshooting, and Agent Observability.",
+          "reportAnswer": "The edition announcement does not establish tenant enablement, realm availability, or an instrumentation upgrade.",
+          "claimIds": [
+            "release-guide.observability"
+          ],
+          "sourceSection": "Latest monthly release-note headings and component changes",
+          "checkedAt": "2026-11-25T08:09:35.919Z"
+        },
+        {
+          "question": "What does the host-based edition comparison include, and which tenant, realm and instrumentation limits remain?",
+          "routeId": "observability-november",
+          "region": "#benefit-grid",
+          "sourceId": "observabilityNotes",
+          "answer": "Both host-based editions include Observability Logs, AI-assisted troubleshooting, and Agent Observability. Premier adds Database Monitoring, Secure Application, Synthetic Monitoring, RUM, Digital Experience Analytics, Business Journeys, and AI Agent Evaluation, with a higher monthly Agent Observability span allowance. Check the edition and contract for your organization. The edition announcement does not establish tenant enablement, realm availability, or an instrumentation upgrade.",
+          "claimIds": [
+            "release-guide.observability"
+          ],
+          "sourceSection": "Latest monthly release-note headings and component changes",
+          "checkedAt": "2026-11-25T08:09:35.919Z"
+        }
+      ]
     },
     {
       "capabilityId": "release-guide.soar",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-25T08:06:51.717772Z",
       "assessedAt": null,
       "publishedAt": null,
-      "liveVerifiedAt": null,
+      "liveVerifiedAt": "2026-11-25T08:09:40.996Z",
       "retrievals": [
         {
           "sourceId": "cloud88Ga",
@@ -783,7 +2029,80 @@
         }
       ],
       "assessments": [],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:01.995Z",
+          "routeId": "soar-cloud-88",
+          "sourceId": "cloud88Ga",
+          "htmlSha256": "c57234f4743593e347c6a1ab10943a7dd8d1e6d42323cea0a95abb79dfaec461",
+          "pdfSha256": "f81565062946095c3c14722a4189f87e5ed31c388c2029bc2409bf02d879f99e"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:37.094Z",
+          "routeId": "soar-cloud-88",
+          "sourceId": "cloud88Ga",
+          "htmlSha256": "1308019e97f775be9556599b35c9265d6ab7dbb98b29284703787eaf106f5308",
+          "pdfSha256": "4270e6c638b84fb8ae63b523739e400a833d059a46a2982c68b694ec44e2f340"
+        },
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:07.670Z",
+          "routeId": "soar-cmp88-conditional-bridge",
+          "sourceId": "on87",
+          "htmlSha256": "aba1d3c2c62e888514b8371ece999573d30fec34f31c2c8bf9d4dd625317b551",
+          "pdfSha256": "16c75c5b8188149b00745a1d42749708acd115a798c383accfa8174a9f6823ef"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:40.996Z",
+          "routeId": "soar-cmp88-conditional-bridge",
+          "sourceId": "on87",
+          "htmlSha256": "415fe4fb53ed324b01787e64844df4355083aa5d88ba5d67ec4cb1c2f3580845",
+          "pdfSha256": "376cee4e37ecf46642a23a2a9a9b750d681eb9f6ef4b50cf6653dad2ff5894c1"
+        },
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:07.670Z",
+          "routeId": "soar-cmp88-conditional-bridge",
+          "sourceId": "on87",
+          "htmlSha256": "aba1d3c2c62e888514b8371ece999573d30fec34f31c2c8bf9d4dd625317b551",
+          "pdfSha256": "16c75c5b8188149b00745a1d42749708acd115a798c383accfa8174a9f6823ef"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:40.996Z",
+          "routeId": "soar-cmp88-conditional-bridge",
+          "sourceId": "on87",
+          "htmlSha256": "415fe4fb53ed324b01787e64844df4355083aa5d88ba5d67ec4cb1c2f3580845",
+          "pdfSha256": "376cee4e37ecf46642a23a2a9a9b750d681eb9f6ef4b50cf6653dad2ff5894c1"
+        }
+      ],
       "followUp": {
         "owner": "version-release-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for SOAR Cloud and on-premises release paths.",
@@ -798,15 +2117,71 @@
     {
       "capabilityId": "release-guide.universal-forwarder",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
-      "retrievedAt": null,
+      "retrievedAt": "2026-11-25T08:09:13.178466Z",
       "assessedAt": null,
       "publishedAt": null,
-      "liveVerifiedAt": null,
-      "retrievals": [],
+      "liveVerifiedAt": "2026-11-25T08:09:37.901Z",
+      "retrievals": [
+        {
+          "sourceId": "upgrade106",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:09:07.837815Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.6-read-this-first | Universal Forwarder release upgrade paths | HTTP 200 | 203888 bytes | SHA-256 aa1cf8240e6af745d79aa4c742b6be3902826f710612c72f3927862a52db0f4e"
+        },
+        {
+          "sourceId": "receiver",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:09:07.818183Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers#ariaid-title2 | Forwarder-to-indexer compatibility | HTTP 200 | 172835 bytes | SHA-256 c8a9989c934a0cad04129d0d44395c183958e7a4c0b95e2890651f463d2face0"
+        },
+        {
+          "sourceId": "os106",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:09:13.133888Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/plan-your-splunk-enterprise-installation/system-requirements-for-use-of-splunk-enterprise-on-premises | Supported operating systems for Universal Forwarder | HTTP 200 | 256170 bytes | SHA-256 db28753b8822d82b6a0bc2564316a85dac9267767acbc1aec97121f91f6f9bdd"
+        },
+        {
+          "sourceId": "cloud107",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:09:13.178466Z",
+          "evidence": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#supported-forwarder-versions-0 | Supported forwarder versions and Cloud credentials | HTTP 200 | 509410 bytes | SHA-256 2546477bd89da7505393fe265d1ee9dbfadb838df87ad573d6161e128becc6d5"
+        },
+        {
+          "sourceId": "ack",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:08:16.602092Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/fixed-issues/fixed-issues/splunk-enterprise-10.4.3-fixed-issues | Universal Forwarder receiver acknowledgment warning and resolution | HTTP 200 | 144817 bytes | SHA-256 221112139fee0e9bd22efc9418ab20296656b8acbc21ea17662065355461622b"
+        }
+      ],
       "assessments": [],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:03.026Z",
+          "routeId": "uf-receiver-93",
+          "sourceId": "receiver",
+          "htmlSha256": "882cc32c4c4c8441c747ba4de6388d63a9b1f1ad1e039976aecf631333ac8dd4",
+          "pdfSha256": "4829dac562bcccccb460070e6434ea49a8151859b73b5753475081c742158f23"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:37.901Z",
+          "routeId": "uf-receiver-93",
+          "sourceId": "receiver",
+          "htmlSha256": "06fe2e34dc5c7118c2767fcdb413ae4b97a57576fc1cd48804d22c283626299c",
+          "pdfSha256": "3fd499e3f6dfa636c783a033e789ca7d55b2d59466a6217e0d1fac0f66099e85"
+        }
+      ],
       "followUp": {
         "owner": "version-release-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Universal Forwarder upgrade paths.",
@@ -821,15 +2196,71 @@
     {
       "capabilityId": "release-guide.heavy-forwarder",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "No current claim decision had been recorded at this checkpoint.",
       "discoveredAt": null,
-      "retrievedAt": null,
+      "retrievedAt": "2026-11-25T08:09:17.030326Z",
       "assessedAt": null,
       "publishedAt": null,
-      "liveVerifiedAt": null,
-      "retrievals": [],
+      "liveVerifiedAt": "2026-11-25T08:09:39.095Z",
+      "retrievals": [
+        {
+          "sourceId": "enterprise106",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:06:05.793917Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/upgrade-or-migrate-splunk-enterprise/how-to-upgrade-splunk-enterprise | Enterprise upgrade path and Heavy Forwarder applicability | HTTP 200 | 178425 bytes | SHA-256 b367c9b12199a71182bcd2e8bf136bd831f6a01b622c3aa30ee3f791eb92ba53"
+        },
+        {
+          "sourceId": "os106",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:09:13.133888Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/get-started/install-and-upgrade/10.6/plan-your-splunk-enterprise-installation/system-requirements-for-use-of-splunk-enterprise-on-premises | Splunk Enterprise system requirements | HTTP 200 | 256170 bytes | SHA-256 db28753b8822d82b6a0bc2564316a85dac9267767acbc1aec97121f91f6f9bdd"
+        },
+        {
+          "sourceId": "receiver",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:09:07.818183Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/compatibility-between-forwarders-and-splunk-enterprise-indexers#ariaid-title2 | Forwarding and receiver compatibility | HTTP 200 | 172835 bytes | SHA-256 c8a9989c934a0cad04129d0d44395c183958e7a4c0b95e2890651f463d2face0"
+        },
+        {
+          "sourceId": "cloud107",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:09:13.178466Z",
+          "evidence": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#supported-forwarder-versions-0 | Supported forwarder versions for Cloud destinations | HTTP 200 | 509410 bytes | SHA-256 2546477bd89da7505393fe265d1ee9dbfadb838df87ad573d6161e128becc6d5"
+        },
+        {
+          "sourceId": "kv106",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T08:09:17.030326Z",
+          "evidence": "https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.6/administer-the-app-key-value-store/upgrade-to-a-cohosted-kv-store | Co-hosted KV store migration requirements and scope | HTTP 200 | 174953 bytes | SHA-256 8bf60836da785f762828d6f829ee95c8258b6f67e2417095ccae7465d2320198"
+        }
+      ],
       "assessments": [],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-apex.json",
+          "receiptSha256": "0fb2ea66d81577162fc1f5bc89e0e5cb517c6ca760d6ace52bef0b93b58666c8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:04.511Z",
+          "routeId": "hf-hybrid",
+          "sourceId": "receiver",
+          "htmlSha256": "3c2c7a18430df145d1a7b5b0270526c25c2dae4e9d10f2129f7e54aa513a7948",
+          "pdfSha256": "fd90671694806a43cb94f2f4e818a240cb403ab5572ec7d458391b6ebb84da60"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-reader-owner-workflow-www.json",
+          "receiptSha256": "ac5372b0be800f73da608fd08c2a324d6b26f7a106b2bddccb5cb823efb9b4e8",
+          "revision": "content-b65df03e34900b4071c9a224",
+          "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+          "checkedAt": "2026-11-25T08:09:39.095Z",
+          "routeId": "hf-hybrid",
+          "sourceId": "receiver",
+          "htmlSha256": "8110652d6b82a0b5b6fabeb54901e5aff1e804f09cf755d570cffb50c7f1261d",
+          "pdfSha256": "5f60dc910886a7cd36b4ae56677785bab9ea8acab811ced4bc5d2b677115b70d"
+        }
+      ],
       "followUp": {
         "owner": "version-release-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Heavy Forwarder upgrade paths.",
@@ -849,12 +2280,12 @@
     "claimedDelivered": false,
     "status": "held"
   },
-  "recordedAt": "2026-11-25T08:07:26.912Z",
+  "recordedAt": "2026-11-25T08:12:09.762Z",
   "auditBindings": [
     {
       "file": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-sources.json",
-      "reviewDigest": "85648e70819622349d74d74b2011539adaf1577f0caa2212d2419ed38bd3a9c9"
+      "reviewDigest": "45917ce8086cdaf32565b03ba78535d08805a4d83cfffc5d6be64efe66a8d03b"
     }
   ],
-  "reviewDigest": "52e1aa58708df8bc5f1f25ea99e1ed542e4e6243f89420e4de81b367d7ac284e"
+  "reviewDigest": "742e81a0d0b6c39fed6fd8a8514dd918d80f3f091f90754b0d641754fe669872"
 }
