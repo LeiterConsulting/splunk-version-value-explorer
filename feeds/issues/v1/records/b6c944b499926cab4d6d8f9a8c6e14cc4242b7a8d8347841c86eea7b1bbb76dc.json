@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-88-response-deployment-column-conflict",
+  "assessmentId": "vcia-csp-20261124-dublin-6321475f-15",
+  "revision": 1,
+  "recordedAt": "2026-11-25T01:29:13.733Z",
+  "assessedAt": "2026-11-25T01:26:18.756Z",
+  "originalAssessedAt": "2026-11-25T01:26:18.756Z",
+  "outcome": "still-present",
+  "rationale": "The current aggregate has a Cloud-only Response availability column alongside CMP prerequisite text. The task remains Controlled Availability and does not qualify unlisted deployments.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security"
+    ],
+    "versions": [
+      "8.8"
+    ],
+    "editions": [
+      "Premier"
+    ],
+    "deployments": [
+      "Cloud",
+      "Cloud Connected CMP disputed"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "No tenant behavior, exact SOAR pairing, feature entitlement, regional rollout or customer authorization is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-es-20261124-0b8ea08b-8"
+  ],
+  "remainingConcerns": [
+    "CSP FedRAMP Watch will recheck the named gaps by November 25. Source, reader and release evidence retain their separate scopes."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "csp-evening-15-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
+      "statement": "The current aggregate has a Cloud-only Response availability column alongside CMP prerequisite text. The task remains Controlled Availability and does not qualify unlisted deployments.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-25T01:19:49.124Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "0205bbdd90c90fcdd856215cba6641d45af7c49b54c47d6c07b74cd851a28e6b",
+        "qualification": "Digest of public response."
+      }
+    },
+    {
+      "evidenceId": "csp-evening-15-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/identify-and-run-the-soar-response-actions-on-findings-using-the-autonomous-response-agent-in-splunk-enterprise-security",
+      "section": "Identify and run the SOAR response actions on findings using the Autonomous Response agent in Splunk Enterprise Security | Platform (last updated 2026-11-18T23:29:37.560Z)",
+      "statement": "Compare the cited version/deployment scope and reader qualification in the public source audit.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-25T01:21:46.718Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "5c177dade3492a53e98dd1681850658655c360f41826d9ad2bbfb4e6c286d88e",
+        "qualification": "Digest of public response."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/ece07a37a31ab287c7da6b522f79fbd0bee43bb4/docs/audits/2026-11-24-csp-fedramp-watch-review-148410692413714-sources.json",
+      "pointer": "/issueObservations/14",
+      "originalLabel": "still-present"
+    }
+  ]
+}

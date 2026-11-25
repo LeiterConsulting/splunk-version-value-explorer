@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-o11y-database-monitoring-us2-conflict",
+  "assessmentId": "vcia-csp-20261124-dublin-6321475f-6",
+  "revision": 1,
+  "recordedAt": "2026-11-25T01:29:13.733Z",
+  "assessedAt": "2026-11-25T01:26:18.756Z",
+  "originalAssessedAt": "2026-11-25T01:26:18.756Z",
+  "outcome": "still-present",
+  "rationale": "The service description maps us2 to Google Cloud Oregon (us-west1). Its US Database Monitoring row still lists us2 and None in the Google Cloud column.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Observability Cloud Database Monitoring"
+    ],
+    "versions": [
+      "November 16 service-description revision"
+    ],
+    "editions": null,
+    "deployments": [
+      "Commercial Google Cloud"
+    ],
+    "regions": [
+      "Google Cloud Oregon (us-west1) / us2"
+    ],
+    "audiences": [
+      "Readers planning Observability Cloud component coverage"
+    ],
+    "exclusions": [
+      "No inferred tenant rollout, entitlement, historical availability or regulated authorization."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-csp-20261124-evening-6"
+  ],
+  "remainingConcerns": [
+    "CSP FedRAMP Watch will recheck the named gaps by November 25. Source, reader and release evidence retain their separate scopes."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "csp-evening-6-1",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description#realm-to-region-equivalence-0",
+      "section": "Realm-to-region equivalence",
+      "statement": "The service description maps us2 to Google Cloud Oregon (us-west1). Its US Database Monitoring row still lists us2 and None in the Google Cloud column.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-25T01:19:06.364Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "a491b3280d4fdbd0e64ad86cfe7ecd51e65e6e675677c9b67a08452d3aa94b9d",
+        "qualification": "Digest of public response."
+      }
+    },
+    {
+      "evidenceId": "csp-evening-6-2",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description#available-components-per-region-or-realm-0",
+      "section": "Available components per region or realm",
+      "statement": "Compare the cited version/deployment scope and reader qualification in the public source audit.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-25T01:19:06.410Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "bd44e8da646a72a9ba31bc08ebb67dcd0d1883c27dcd0144a04c684e7d24f2d3",
+        "qualification": "Digest of public response."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/ece07a37a31ab287c7da6b522f79fbd0bee43bb4/docs/audits/2026-11-24-csp-fedramp-watch-review-148410692413714-sources.json",
+      "pointer": "/issueObservations/5",
+      "originalLabel": "still-present"
+    }
+  ]
+}
