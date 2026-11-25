@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-88-ai-regional-mapping-discrepancy",
+  "assessmentId": "vcia-csp-20261124-dublin-6321475f-12",
+  "revision": 1,
+  "recordedAt": "2026-11-25T01:29:13.733Z",
+  "assessedAt": "2026-11-25T01:26:18.756Z",
+  "originalAssessedAt": "2026-11-25T01:26:18.756Z",
+  "outcome": "addressed-in-reviewed-scope",
+  "rationale": "The current Essentials and Premier tables preserve the named Calgary/GovCloud exclusions and do not apply a blanket Security AI Assistant exclusion to Milan or São Paulo. Montréal has a named Cloud Connect exception and Calgary does not. The verified Cloud Connect reader displays the Montréal exception.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise Security AI Availability"
+    ],
+    "versions": [
+      "ES 8.8 current public regional tables"
+    ],
+    "editions": [
+      "Essentials",
+      "Premier"
+    ],
+    "deployments": [
+      "Cloud",
+      "Cloud Connected"
+    ],
+    "regions": [
+      "Milan",
+      "São Paulo",
+      "Montréal",
+      "Calgary"
+    ],
+    "audiences": null,
+    "exclusions": [
+      "No feature rollout, entitlement, runtime placement or customer authorization is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-csp-20261124-evening-11"
+  ],
+  "remainingConcerns": [
+    "CSP FedRAMP Watch will recheck the named gaps by November 25. Source, reader and release evidence retain their separate scopes."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "csp-evening-12-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility",
+      "statement": "The current Essentials and Premier tables preserve the named Calgary/GovCloud exclusions and do not apply a blanket Security AI Assistant exclusion to Milan or São Paulo. Montréal has a named Cloud Connect exception and Calgary does not. The verified Cloud Connect reader displays the Montréal exception.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-25T01:19:01.668Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "321a94a255fcced72e6cfad143e67f6ae4fa4c4e0afd831849eb9d7936234caa",
+        "qualification": "Digest of public response."
+      }
+    },
+    {
+      "evidenceId": "csp-evening-12-2",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
+      "section": "Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings",
+      "statement": "Compare the cited version/deployment scope and reader qualification in the public source audit.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-25T01:19:32.381Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "ad2a7d48b308100a136156e0566c60e4d1e6472e2eb330041d0088448c88a284",
+        "qualification": "Digest of public response."
+      }
+    },
+    {
+      "evidenceId": "csp-evening-12-3",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/set-up-splunk-cloud-connect-to-use-the-agentic-soc",
+      "section": "Platform, ES, Cloud Connect and Splunk AI Assistant floors; installation, service activation and token certificate setup",
+      "statement": "Compare the cited version/deployment scope and reader qualification in the public source audit.",
+      "excerpt": null,
+      "role": "context",
+      "sourceCheckedAt": "2026-11-25T01:19:32.290Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "baff2e57334e5d0bdcba0955ffa49082915e21a42d22116c1a1176e0ec5e34ff",
+        "qualification": "Digest of public response."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/ece07a37a31ab287c7da6b522f79fbd0bee43bb4/docs/audits/2026-11-24-csp-fedramp-watch-review-148410692413714-sources.json",
+      "pointer": "/issueObservations/11",
+      "originalLabel": "addressed-in-reviewed-scope"
+    }
+  ]
+}

@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-24T23:00:03.188436Z",
-      "lastSuccess": "2026-11-21T19:34:26.194Z",
-      "outcome": "blocked",
-      "summary": "Six sections agreed with official source and reader checks. Regional Agent Mode, Model Runtime and ITSI subagent coverage still require vendor evidence.",
+      "lastAttempt": "2026-11-25T01:15:05.864958Z",
+      "lastSuccess": "2026-11-25T01:29:37.959Z",
+      "outcome": "no-change",
+      "summary": "Reviewed seven Cloud environment and regional AI sections. Source and report checks retain the Dublin SPL disagreement and the separate, unresolved ITSI rollout.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -699,9 +699,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Six sections agreed with official source and reader checks. Regional Agent Mode, Model Runtime and ITSI subagent coverage still require vendor evidence.",
           "scope": "Seven Cloud Environment and regional AI sections, plus supporting SOC. Both public domains, downloaded HTML and real printed reports."
+        },
+        {
+          "at": "2026-11-25T01:15:05.864958Z",
+          "outcome": "running",
+          "summary": "Reviewing FedRAMP offering scope, Cloud environments and regional AI claims.",
+          "scope": "Seven registered CSP sections and the supporting SOC Advisor source scope."
+        },
+        {
+          "at": "2026-11-25T01:29:37.959Z",
+          "outcome": "no-change",
+          "summary": "Reviewed seven Cloud environment and regional AI sections. Source and report checks retain the Dublin SPL disagreement and the separate, unresolved ITSI rollout.",
+          "scope": "Official source comparisons, both public domains, reopened saved HTML and native PDF. Supporting SOC prerequisites reviewed separately."
         }
       ],
-      "scope": "Seven Cloud Environment and regional AI sections, plus supporting SOC. Both public domains, downloaded HTML and real printed reports."
+      "scope": "Official source comparisons, both public domains, reopened saved HTML and native PDF. Supporting SOC prerequisites reviewed separately."
     },
     {
       "id": "version-release-watch",
