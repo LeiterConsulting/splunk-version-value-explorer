@@ -1,0 +1,63 @@
+{
+  "kind": "owner-reader-live-observation",
+  "method": "bounded-retry",
+  "attempt": {
+    "taskId": "6aa950be0884819196ca3f8ae776f49b",
+    "schedulerRunId": "5de62d16-b0d8-832c-b6cf-86f60cb9dbe3",
+    "startedAt": "2026-11-24T23:50:06.652615Z",
+    "completedAt": null,
+    "scheduledFor": "2026-11-24T23:50:00Z"
+  },
+  "ownerReaderResult": {
+    "origin": "https://www.versioncompass.com",
+    "revision": "content-f70fea138f6e644a8314a6d5",
+    "digest": "ca3084cdcbf0b6c364191c6dd7fe9b772b47b98fbf3d4c779e71078f79324644",
+    "checkedAt": "2026-11-24T23:58:41.108Z",
+    "checks": [
+      {
+        "routeId": "prep11",
+        "sections": [
+          "prep11.operator"
+        ],
+        "expectations": [
+          {
+            "capabilityId": "prep11.operator",
+            "question": "What exact Enterprise and Kubernetes versions does the 3.2.0 matrix list, and do the sources agree?",
+            "routeId": "prep11",
+            "region": "#prep11-operator-baseline",
+            "sourceId": "prep11operator",
+            "answer": "The 3.2 help matrix lists Kubernetes 1.32–1.37 and Enterprise 10.0.12–10.6.0.",
+            "claimIds": [
+              "prep11-operator-baseline"
+            ],
+            "sourceUrl": "https://help.splunk.com/en/splunk-enterprise/splunk-operator-for-kubernetes-guide/3.2/splunk-operator-for-kubernetes-overview/splunk-operator-compatibility-matrix"
+          }
+        ],
+        "status": "failed",
+        "error": "download.saveAs: canceled"
+      },
+      {
+        "routeId": "ai-overview",
+        "sections": [
+          "ai.discovery"
+        ],
+        "expectations": [
+          {
+            "capabilityId": "ai.discovery",
+            "question": "Which official ES 8.8 AI capability is Controlled Availability, and are all operation and availability questions answered?",
+            "routeId": "ai-overview",
+            "region": "#ai-es-soc",
+            "sourceId": "aiEsAgents88",
+            "answer": "Autonomous Response Controlled Availability",
+            "claimIds": [
+              "ai-availability-backlog"
+            ],
+            "sourceUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security"
+          }
+        ],
+        "status": "failed",
+        "error": "download.saveAs: canceled"
+      }
+    ]
+  }
+}
