@@ -3748,15 +3748,21 @@ window.VersionCompassSources = {
       "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/release-notes/whats-new-in-splunk-ai-assistant",
       "title": "SAIA 2.4.0 release notes",
       "areas": [
-        "Release guide"
+        "Release guide",
+        "Cloud environment",
+        "Shared guidance"
       ],
       "references": [
         "release.guidance.sources.aiSaiaRelease240.url",
+        "environment.sources.assistantRelease240.url",
+        "content-updates.js",
         "guidance: guidance.aiAvailability",
-        "guidance: guidance.aiAvailability.capabilities.1"
+        "guidance: guidance.aiAvailability.capabilities.1",
+        "environment: environment.records.66"
       ],
       "reviews": [
-        "2026-11-21"
+        "2026-11-21",
+        "2026-11-25"
       ],
       "claimReferences": [
         {
@@ -3769,7 +3775,7 @@ window.VersionCompassSources = {
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-21",
+      "reviewed": "2026-11-25",
       "status": "Reviewed",
       "firstRecorded": "2026-11-21",
       "firstUsed": null,
@@ -3781,6 +3787,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-21",
           "event": "First recorded in source register; earlier usage date not established"
+        },
+        {
+          "date": "2026-11-25",
+          "event": "Review status updated: Reviewed · 2026-11-25"
         }
       ]
     },

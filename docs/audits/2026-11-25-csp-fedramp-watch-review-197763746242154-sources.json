@@ -35,8 +35,21 @@
     "status": "earlier-result-isolated",
     "qualification": "The earlier result links PR 305 and has a distinct run identity. It supplies historical evidence only."
   },
-  "handoffObservation": null,
-  "batch": "full-source-review",
+  "handoffObservation": {
+    "observedAt": "2026-11-25T10:11:45.059Z",
+    "taskId": "6ab54b477dc88191873e8abb9c735bf7",
+    "attemptId": "b80e2746-49c8-8323-a875-cfe7698a42e2",
+    "scheduledFor": "2026-11-25T10:00:00Z",
+    "startedAt": "2026-11-25T10:00:37.038316Z",
+    "completedAt": null,
+    "status": "in_progress",
+    "latestResult": {
+      "id": "6321475f-0d40-8333-acd6-d2734b706608",
+      "matches": false,
+      "completedAt": "2026-11-25T01:37:11.679612Z"
+    }
+  },
+  "batch": "final bounded review and exact-preview correction",
   "baseline": {
     "main": "e5ff4f35ae2d441d798bdd20a077d7f6b1032ced",
     "tree": "e407f35f25169a7173dfcc6be69cecaf3a9938b3",
@@ -143,8 +156,8 @@
     },
     {
       "capabilityId": "ai.regional-platform",
-      "disposition": "assessed-no-change",
-      "qualification": "Both full registered 2.3.6 regional tables were read and compared by label and service availability date. About has 22 rows and Cloud Install has 21, differing only in the June 28, 2024 AWS Dublin row found in About. The newer 2.4.0 overview/Cloud installer comparison repeats this discrepancy without settling feature availability. Both live Dublin views preserve base uncertainty and the separate Agent Mode/ITSI scopes.",
+      "disposition": "deferred",
+      "qualification": "Both full registered 2.3.6 regional tables were read and compared by label and service availability date. About has 22 rows and Cloud Install has 21, differing only in the June 28, 2024 AWS Dublin row found in About. The newer 2.4.0 overview/Cloud installer comparison repeats this discrepancy without settling feature availability. Both live Dublin views preserve base uncertainty and the separate Agent Mode/ITSI scopes. The registered published answers and citations passed on both origins. The subsequently identified, source-supported 2.4.0 High correction passed the candidate’s screen, offline HTML and printed PDF. Verification of the corrected answer on the public origins remains open.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-25T10:02:34.939372Z",
       "assessedAt": "2026-11-25T10:05:59.084606Z",
@@ -462,7 +475,18 @@
           "sourceSection": "Requirements; features; ITSI subagent; where the assistant runs",
           "checkedAt": "2026-11-25T10:04:09.626Z"
         }
-      ]
+      ],
+      "followUp": {
+        "owner": "csp-fedramp-watch",
+        "action": "After steward selection and release, verify the supported High core SPL answer and explicit Agent Mode exclusion, with the 2.4.0 official citation, on both live pages and both export formats. Keep separate tenant and rollout uncertainty.",
+        "reviewBy": "2026-11-26"
+      },
+      "lastVerifiedEvidence": {
+        "coverage": "docs/audits/2026-11-25-csp-fedramp-watch-review-197763746242154-coverage.json",
+        "immutableBaseline": "cbeda072b1da2c7c1b95a823039defd5ee0522fa",
+        "assessmentAt": "2026-11-25T10:05:59.084606Z",
+        "disposition": "assessed-no-change"
+      }
     },
     {
       "capabilityId": "ai.regional-es",
@@ -837,8 +861,8 @@
     },
     {
       "capabilityId": "cloud-environment.fedramp",
-      "disposition": "assessed-no-change",
-      "qualification": "The exact Marketplace listings F1607197917 and FR2314156865 show FedRAMP Certified, Rev5 Agency Class C Moderate since October 11, 2019 and Class D High since September 13, 2024. Both current public embedded package objects have empty certified_services arrays. Preserve the historical component lists and avoid inferring authorization loss or exclusion. In a Chromium render using the current publisher table and icon font, the column order is IL5, Moderate, High, GovRAMP, TX-RAMP. The February 2026 program matrix marks Platform and ES at Moderate/High, SOAR Cloud and SAIA at Moderate with blank High cells, and Observability Cloud components blank. Its legend qualifies feature inclusion and the next assessment cycle. The dated October 19 High announcement identifies Edge/Ingest Processor, SPL2 and assistant SPL authoring/explanation with eligible-stack onboarding conditions. Earlier matrix blanks do not contradict these later naming events. Platform authorization, exact feature eligibility, independent Observability authorization and SOAR High scope remain separately qualified.",
+      "disposition": "deferred",
+      "qualification": "The exact Marketplace listings F1607197917 and FR2314156865 show FedRAMP Certified, Rev5 Agency Class C Moderate since October 11, 2019 and Class D High since September 13, 2024. Both current public embedded package objects have empty certified_services arrays. Preserve the historical component lists and avoid inferring authorization loss or exclusion. In a Chromium render using the current publisher table and icon font, the column order is IL5, Moderate, High, GovRAMP, TX-RAMP. The February 2026 program matrix marks Platform and ES at Moderate/High, SOAR Cloud and SAIA at Moderate with blank High cells, and Observability Cloud components blank. Its legend qualifies feature inclusion and the next assessment cycle. The dated October 19 High announcement identifies Edge/Ingest Processor, SPL2 and assistant SPL authoring/explanation with eligible-stack onboarding conditions. Earlier matrix blanks do not contradict these later naming events. Platform authorization, exact feature eligibility, independent Observability authorization and SOAR High scope remain separately qualified. The registered published answers and citations passed on both origins. The subsequently identified, source-supported 2.4.0 High correction passed the candidate’s screen, offline HTML and printed PDF. Verification of the corrected answer on the public origins remains open.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-25T10:01:55.136964Z",
       "assessedAt": "2026-11-25T10:03:39.252365Z",
@@ -922,6 +946,17 @@
         ],
         "sourceSection": "Specifically named features and High scope",
         "checkedAt": "2026-11-25T10:04:06.277Z"
+      },
+      "followUp": {
+        "owner": "csp-fedramp-watch",
+        "action": "After steward selection and release, verify the supported High core SPL answer and explicit Agent Mode exclusion, with the 2.4.0 official citation, on both live pages and both export formats. Keep separate tenant and rollout uncertainty.",
+        "reviewBy": "2026-11-26"
+      },
+      "lastVerifiedEvidence": {
+        "coverage": "docs/audits/2026-11-25-csp-fedramp-watch-review-197763746242154-coverage.json",
+        "immutableBaseline": "cbeda072b1da2c7c1b95a823039defd5ee0522fa",
+        "assessmentAt": "2026-11-25T10:03:39.252365Z",
+        "disposition": "assessed-no-change"
       }
     },
     {
@@ -1023,7 +1058,8 @@
     }
   ],
   "ownedTotals": {
-    "assessed-no-change": 7
+    "assessed-no-change": 5,
+    "deferred": 2
   },
   "sourceChecks": {
     "advisor.soc-workflow": [
@@ -5232,7 +5268,98 @@
     }
   },
   "renderedIssueObservations": [],
-  "publicPublicationReadback": null,
+  "publicPublicationReadback": [
+    {
+      "origin": "https://versioncompass.com",
+      "retrievals": {
+        "health": {
+          "retrievedAt": "2026-11-25T10:14:41.786294124Z",
+          "sha256": "05b6343ce7a3bedcf0bdc60d5d076f6c172534aeefe0ed26165f9d63d9a96763"
+        },
+        "manifest": {
+          "retrievedAt": "2026-11-25T10:14:46.895102140Z",
+          "sha256": "f8fba7ca6585d26fdde2c1cdf56582bbf969e0a910a6274eac75ef795ac61e4b"
+        },
+        "bundle": {
+          "retrievedAt": "2026-11-25T10:14:50.935437881Z",
+          "sha256": "67e277110d0c4ad216098e4c15cfd8d550871e7596e93c017ca38369fd41d6ec"
+        }
+      },
+      "health": {
+        "status": "ready",
+        "storage": "bundled",
+        "revision": "content-b65df03e34900b4071c9a224",
+        "engineRevision": "engine-3970c344c3c655578371",
+        "recordCount": 1044
+      },
+      "manifest": {
+        "schemaVersion": 1,
+        "revision": "content-b65df03e34900b4071c9a224",
+        "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+        "engineRevision": "engine-3970c344c3c655578371",
+        "datasetHashes": {
+          "platform": "27499f8a5a3ca756abf447c12e876341a20a0ccc3cacf4852353dddbcd50b60b",
+          "products": "e8370a26f37807679c81986a938d4410d553e22aee1a40f16fff0c09bfcbde15",
+          "guidance": "d49ae42cd66d8a37ed7a7dad1a532818d06bfac008556aa6a0d7c8f0366cf8c0",
+          "environment": "dad096725419a3eadb6e45fafb87514c4171a463ea28b1488928eaeb4a71b6ae",
+          "editions": "bb12a1b0b6545ea59f0f3c370da2174dc16e8eb58c658cff19c37a37cc005bcc",
+          "forwarders": "ce7572f1f419a259a470fbe4bc3ff044de730c8282537f999bbf8436e57ac4f1",
+          "soar": "3d671ff5a70ab903d8aac1a9dd8d1f268b4ce2e1418627f09a69bb0d6d8b49c0"
+        },
+        "recordCount": 1044,
+        "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+        "verificationPolicy": "Migration and delivery do not create verification dates",
+        "phase": "content-model-and-database-delivery"
+      },
+      "bundleMatchesAdmission": true,
+      "productionD1HealthVerified": false
+    },
+    {
+      "origin": "https://www.versioncompass.com",
+      "retrievals": {
+        "health": {
+          "retrievedAt": "2026-11-25T10:14:55.111189630Z",
+          "sha256": "05b6343ce7a3bedcf0bdc60d5d076f6c172534aeefe0ed26165f9d63d9a96763"
+        },
+        "manifest": {
+          "retrievedAt": "2026-11-25T10:14:59.461225121Z",
+          "sha256": "f8fba7ca6585d26fdde2c1cdf56582bbf969e0a910a6274eac75ef795ac61e4b"
+        },
+        "bundle": {
+          "retrievedAt": "2026-11-25T10:15:03.800333788Z",
+          "sha256": "67e277110d0c4ad216098e4c15cfd8d550871e7596e93c017ca38369fd41d6ec"
+        }
+      },
+      "health": {
+        "status": "ready",
+        "storage": "bundled",
+        "revision": "content-b65df03e34900b4071c9a224",
+        "engineRevision": "engine-3970c344c3c655578371",
+        "recordCount": 1044
+      },
+      "manifest": {
+        "schemaVersion": 1,
+        "revision": "content-b65df03e34900b4071c9a224",
+        "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+        "engineRevision": "engine-3970c344c3c655578371",
+        "datasetHashes": {
+          "platform": "27499f8a5a3ca756abf447c12e876341a20a0ccc3cacf4852353dddbcd50b60b",
+          "products": "e8370a26f37807679c81986a938d4410d553e22aee1a40f16fff0c09bfcbde15",
+          "guidance": "d49ae42cd66d8a37ed7a7dad1a532818d06bfac008556aa6a0d7c8f0366cf8c0",
+          "environment": "dad096725419a3eadb6e45fafb87514c4171a463ea28b1488928eaeb4a71b6ae",
+          "editions": "bb12a1b0b6545ea59f0f3c370da2174dc16e8eb58c658cff19c37a37cc005bcc",
+          "forwarders": "ce7572f1f419a259a470fbe4bc3ff044de730c8282537f999bbf8436e57ac4f1",
+          "soar": "3d671ff5a70ab903d8aac1a9dd8d1f268b4ce2e1418627f09a69bb0d6d8b49c0"
+        },
+        "recordCount": 1044,
+        "provenance": "Canonical content/datasets JSON in the public VersionCompass repository",
+        "verificationPolicy": "Migration and delivery do not create verification dates",
+        "phase": "content-model-and-database-delivery"
+      },
+      "bundleMatchesAdmission": true,
+      "productionD1HealthVerified": false
+    }
+  ],
   "issueObservations": [
     {
       "findingId": "vci-fedramp-high-certified-services-display",
@@ -5475,6 +5602,16 @@
       "coverageBlob": "9efb9cc7ac44d866fed33c0cf39735f4af11b2a0",
       "sourceStep": "failed",
       "readerStep": "passed"
+    },
+    {
+      "head": "cbeda072b1da2c7c1b95a823039defd5ee0522fa",
+      "workflowRunId": 45591893670,
+      "artifactId": 15011401883,
+      "sha256": "sha256:ee18ded0d21dc319d8b73b1fdf21308c5106b60c09cb0e01b1f1272cb150b9ef",
+      "coverageBlob": "7f16764e2b6db5ddc039ddd90bb9f5f18987bc1a",
+      "sourceAuditBlob": "a6b29906ce73585c518c77036b62fa9a6a0d5643",
+      "sourceStep": "passed",
+      "readerStep": "passed"
     }
   ],
   "readerEvidence": [
@@ -5513,12 +5650,197 @@
   ],
   "outcome": "partial",
   "validation": {
-    "candidateExport": "pending"
+    "sourceReaderBaseline": "9 routes per origin on the admitted revision, with separately retained HTML/PDF hashes",
+    "targetedCandidateExports": "Both affected answers and both official citations passed in Chromium, offline HTML and real PDF on the candidate revision.",
+    "fullCandidateAcceptance": "Held for the exact GitHub application/export run and its independently downloaded package; the sole steward selects actual live delivery.",
+    "issueFeed": "18 assessment keys at checkpoint 129 on this owner branch, retaining all canonical checkpoint 128 history."
   },
   "publication": {
     "claimedDelivered": false,
     "status": "held",
     "owner": "Maintain VersionCompass GitHub"
+  },
+  "confirmatoryOriginReceipts": [
+    {
+      "file": "docs/audits/2026-11-25-csp-fedramp-watch-review-197763746242154-reader-owner-workflow-confirmed-apex.json",
+      "sha256": "a4b99a89662f20f4de4889a59eba241f3a11258d66c0e494894b351f93548341",
+      "origin": "https://versioncompass.com",
+      "revision": "content-b65df03e34900b4071c9a224",
+      "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+      "checkedAt": "2026-11-25T10:08:39.151Z",
+      "routes": [
+        {
+          "routeId": "ai-high",
+          "checkedAt": "2026-11-25T10:08:28.825Z",
+          "htmlSha256": "132a9ae6f95f4234f2d190d87321d11f551e0cb4a62178b5330bb4f0844de9fc",
+          "pdfSha256": "632155a7d3303beb57697cb2a5f5573c5e99fe8d7a7b98f243d91edd1d6e98b5"
+        },
+        {
+          "routeId": "ai-cmp",
+          "checkedAt": "2026-11-25T10:08:29.746Z",
+          "htmlSha256": "7f1335516583a2906be3c3f48cc8aa109bcee09c90a12a4f59e80871be85ba4b",
+          "pdfSha256": "be0e4bed6733a526e3c6cabf24427b5ccbeec7d21543b5dbe35619433242d104"
+        },
+        {
+          "routeId": "ai-observability-assistant",
+          "checkedAt": "2026-11-25T10:08:30.719Z",
+          "htmlSha256": "9feacd6b5a3b41c0cc8d37a6c42dd6c71b4fb70cd4fbd41380880e6db0a01a6a",
+          "pdfSha256": "053fa55b32152fbf1d7fc9a533587006b020536214370c31ba6ea59857a43446"
+        },
+        {
+          "routeId": "cloud-107-aws-israel",
+          "checkedAt": "2026-11-25T10:08:31.965Z",
+          "htmlSha256": "77af38df904eb4a53081b1976edebe4f85f089f9c7aaa31084a23001f313f00c",
+          "pdfSha256": "b446f13e27a411842ab5d337e4fab648f5e6e768c10b2c4623073877eddd36a5"
+        },
+        {
+          "routeId": "cloud-107-fedramp-high",
+          "checkedAt": "2026-11-25T10:08:33.662Z",
+          "htmlSha256": "794d376ba5fb8c30140ce1176e20a33b20160f5b5df2f57c1a5bfe7608e0db42",
+          "pdfSha256": "97e2a6eb2433eec34c88b50d8ee33264ee298e726fb4e94baacd2e5e483cc46a"
+        },
+        {
+          "routeId": "cloud-fedramp-high",
+          "checkedAt": "2026-11-25T10:08:35.761Z",
+          "htmlSha256": "cf963525088aa3f14b11776bcb627d9bd0fe917ec0b081b7decaef0b50910b1c",
+          "pdfSha256": "988899ff2142746fdd83c15e8231a4cb68bdc488b9a83d68cea56d1c786aca88"
+        },
+        {
+          "routeId": "observability-november-unknown-region",
+          "checkedAt": "2026-11-25T10:08:37.332Z",
+          "htmlSha256": "62252613d6ec0fdb0e2d4e6206b6c173a9ec185ce5a648d2365600404a6c32b1",
+          "pdfSha256": "93121b0393c45174779acd15568e75dd800be8e427d41c0d70f1ad192aa3e6e1"
+        },
+        {
+          "routeId": "ai-platform-dublin",
+          "checkedAt": "2026-11-25T10:08:38.214Z",
+          "htmlSha256": "48d10e002169a51529c7cc31a8fa030ab3b979e364e16140186bd4702c3bd7a9",
+          "pdfSha256": "4d01bc3f45b6956d345ad2bcc0bf628915a342cc66926ae30f4ec7cb123cd3d2"
+        },
+        {
+          "routeId": "ai-itsi-dublin",
+          "checkedAt": "2026-11-25T10:08:39.085Z",
+          "htmlSha256": "145b2fdaeb97d384a600ddf4d8eb448b99a393cf8b15f95ddc21c179bcba7dd7",
+          "pdfSha256": "d8edff40f86744c72f3747f0950190f4a5255ecbe9518be581e76e33021f2503"
+        }
+      ]
+    },
+    {
+      "file": "docs/audits/2026-11-25-csp-fedramp-watch-review-197763746242154-reader-owner-workflow-confirmed-www.json",
+      "sha256": "8552f3840dd3709292e47aea045a5eaf12143cb9f284249c1393b02d6d6b5bad",
+      "origin": "https://www.versioncompass.com",
+      "revision": "content-b65df03e34900b4071c9a224",
+      "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398",
+      "checkedAt": "2026-11-25T10:08:52.524Z",
+      "routes": [
+        {
+          "routeId": "ai-high",
+          "checkedAt": "2026-11-25T10:08:40.550Z",
+          "htmlSha256": "a820f94e970de711ddf358563ecb1dab6916a0e1a1cc12d9cd4bb0c50daebadb",
+          "pdfSha256": "e3952122d78b3456b322875d21f5e3b49049c9ec7bebbdbbd1674d7931a51e56"
+        },
+        {
+          "routeId": "ai-cmp",
+          "checkedAt": "2026-11-25T10:08:41.531Z",
+          "htmlSha256": "29ce5a3e7fa91e6526f6ef32730e4e86a1181f32788eeae8a6e69bf0adc8172d",
+          "pdfSha256": "0c8fe2684de6c930b360a6828407f42028df48c36746cfd0d2356ff0a6da4731"
+        },
+        {
+          "routeId": "ai-observability-assistant",
+          "checkedAt": "2026-11-25T10:08:42.320Z",
+          "htmlSha256": "cf9ffb9eff29a1a88b173c9420bfd21ba83307ac32804c69a6e7989ec0a43d25",
+          "pdfSha256": "5ebc54c408f8a2ece8eb07d06628935b5a7d8763a313a8a73b1d131f30199bc3"
+        },
+        {
+          "routeId": "cloud-107-aws-israel",
+          "checkedAt": "2026-11-25T10:08:44.115Z",
+          "htmlSha256": "003fa51f1d7b960d0e4bda4a257f258db72dacf9954e5d5c71008d69ad0a6227",
+          "pdfSha256": "b3430f4c485d2f31361cb8e3406b498cd4437dd4bcfa294c214d282fc4c638f4"
+        },
+        {
+          "routeId": "cloud-107-fedramp-high",
+          "checkedAt": "2026-11-25T10:08:46.992Z",
+          "htmlSha256": "7cb9dc69c5b288f2546f9c661c1122eba1180bb376d11243b2e1b315868a9fc5",
+          "pdfSha256": "b85124686434cd3d4862cd5a1b0f80898d92447e2ff605016e75576be4bcdda2"
+        },
+        {
+          "routeId": "cloud-fedramp-high",
+          "checkedAt": "2026-11-25T10:08:48.720Z",
+          "htmlSha256": "25e8857c5ab059617a0f325854f735fd4826d91ebd46eaeb604ca4afc51e7959",
+          "pdfSha256": "e32abe97f71c26308b47ee01bef4319a366c8da608db57b0d3c1e5f35c0bb073"
+        },
+        {
+          "routeId": "observability-november-unknown-region",
+          "checkedAt": "2026-11-25T10:08:50.147Z",
+          "htmlSha256": "ba5ed569d032ee4f4e81f10fa545ce34b424a34ce4e1a9d7481d9b426835f130",
+          "pdfSha256": "1ffb74cff6ce350f7efc370108a96abf2d1d910ea8530df0e504f5bdfe8d19f1"
+        },
+        {
+          "routeId": "ai-platform-dublin",
+          "checkedAt": "2026-11-25T10:08:51.059Z",
+          "htmlSha256": "6a89bbea4f7a47509586548a84f57ae6dd2897f4949c3ec6bed57a86416b5865",
+          "pdfSha256": "fe242936506a7756232cdc4e91c97789ef475de706b14c308b9d6062f03d458b"
+        },
+        {
+          "routeId": "ai-itsi-dublin",
+          "checkedAt": "2026-11-25T10:08:52.458Z",
+          "htmlSha256": "2f4540adb1072d4daaeb3223bebe89528bd594bafe7c1d6c48753e0aa6425b58",
+          "pdfSha256": "2c717720c084612fd298cd25c38898979988f5f46ea4aeef8ab7ce878c822d77"
+        }
+      ]
+    }
+  ],
+  "correction": {
+    "owner": "csp-fedramp-watch",
+    "source": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/release-notes/whats-new-in-splunk-ai-assistant",
+    "section": "Version 2.4.0: core SPL generation and explanation in supported FedRAMP High environments, excluding Agent Mode",
+    "affectedScopes": [
+      "ai.regional-platform",
+      "cloud-environment.fedramp"
+    ],
+    "liveOutcome": "The admitted bundle leaves the exact High app and mode unresolved in the general answers and omits the scoped release-note answer from these sections. The prior registered public answers passed on both domains and remain in their dated proofs. The direct browser transport errors and any reached assertions are retained separately.",
+    "admittedRevision": "content-b65df03e34900b4071c9a224",
+    "releaseNoteLiveAttempts": {
+      "versioncompass.com": {
+        "file": "docs/audits/2026-11-25-csp-fedramp-watch-review-197763746242154-reader-live-high-failure-apex.json",
+        "sha256": "31babe7d6be832a641ba2f441f915747b5025ffc4ba2f0f4c6aebb93c64d6609",
+        "revision": "content-b65df03e34900b4071c9a224",
+        "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398"
+      },
+      "www.versioncompass.com": {
+        "file": "docs/audits/2026-11-25-csp-fedramp-watch-review-197763746242154-reader-live-high-failure-www.json",
+        "sha256": "085941b3172625097c3128b9cf2444652f8048d4a2be5873988e6009792e078f",
+        "revision": "content-b65df03e34900b4071c9a224",
+        "digest": "4116cf7ca950d2a1c2e1745678e4b5c963bb00092dd7cf621c918709fc971398"
+      }
+    },
+    "candidate": {
+      "file": "docs/audits/2026-11-25-csp-fedramp-watch-review-197763746242154-reader-candidate-high.json",
+      "sha256": "bc6367216fed9c45341e65c6f987fd9ce3f6d3bbd9ebc5932f4dbce7ab8320ad",
+      "revision": "content-bc9d53f8dfe742f878cb987b",
+      "digest": "2266a3bbfb6b3d0b8527c3ee96817aad11af2a2cc3c50bd4f6de78717bb93d8d",
+      "engineRevision": "engine-07fcf47e64e8fea04568",
+      "reportInputs": [
+        "content/datasets/environment.json",
+        "content/datasets/guidance.json",
+        "dist/ai-availability.js",
+        "dist/content-updates.js",
+        "tools/export-verification/routes.json"
+      ],
+      "shaByInput": {
+        "content/datasets/environment.json": "e55f94dbd4c10a9b8402b82abc6b680938865ab06d2550cfd1b8e8a8e29b26ae",
+        "content/datasets/guidance.json": "005aee00bfe9a39f35578718d2995e356c89f88638a08d44b9eb9a36cd9515e4",
+        "dist/ai-availability.js": "17dc5aea1db1defe6dbd2f414f187a56ff09e9fe944f2670c085a81f194796e1",
+        "dist/content-updates.js": "9550a13963e310bb18844204e53a826a4ecf0557a5eef908c78046bbf4e396f5",
+        "tools/export-verification/routes.json": "0ebde5dcbbf35f20174c1e02e3211c39a29aca3a922d0f1cb2e920a0915250d9",
+        "dist/content-bundle.json": "5a5ad75ee38c4ac32cdfb9b2445e86e6e4f7bfaee728fdabb8432f5d81b6f806"
+      }
+    },
+    "followUp": {
+      "owner": "Maintain VersionCompass GitHub",
+      "action": "Select the integrated exact candidate only after export artifact readback and normal delivery gates, then verify the corrected answer and release-note link on both live domains, reopened offline HTML and printed PDF.",
+      "reviewBy": "2026-11-26"
+    }
   },
   "automationCoverage": {
     "runFile": "docs/audits/2026-11-25-csp-fedramp-watch-review-197763746242154-coverage.json"
@@ -5527,8 +5849,8 @@
     "schemaVersion": 1,
     "watchId": "csp-fedramp-watch",
     "status": "published",
-    "recordedAt": "2026-11-25T10:10:16.219Z",
-    "reviewDigest": "2dd78f91f7ddd8263dfe75856b512f8d318ff061e6976a02f00e34aaa2e1618b",
+    "recordedAt": "2026-11-25T10:16:40.048Z",
+    "reviewDigest": "2033f11daa1080899aca63b7a426331deee1d3b6c3184e440917812b89da2b11",
     "publicationId": "vci-185d99230f610e6b5a5933144f5fe91d1e9a44730073476cbee45675f6affcd4",
     "recordKeys": [
       "assessment:vcia-csp-20261125-b80e2746-1@1",

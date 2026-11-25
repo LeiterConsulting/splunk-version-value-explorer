@@ -373,6 +373,12 @@ window.VersionCompassEnvironmentData = {
       "published": null,
       "scope": "Available components per region or realm > Database Monitoring > US realm and provider columns",
       "checked": "2026-11-17"
+    },
+    "assistantRelease240": {
+      "title": "Splunk AI Assistant 2.4.0 release notes",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/release-notes/whats-new-in-splunk-ai-assistant",
+      "scope": "Version 2.4.0: core SPL generation and explanation in supported FedRAMP High environments; Agent Mode explicitly excluded",
+      "checked": "2026-11-25"
     }
   },
   "records": [
@@ -2055,15 +2061,16 @@ window.VersionCompassEnvironmentData = {
       ],
       "availability": "not_established",
       "authorization": "not_established",
-      "detail": "Splunk's October 19, 2026 announcement claims FedRAMP High authorization for Splunk AI Assistant's SPL authoring and explanation. The 2.2 and current 2.3.6 installation guidance separately describes limited IL2 support for 2.0.0+, excludes Agent Mode there, turns training/fine-tuning off by default and fixes runtime to Splunk-hosted models. The commercial-stack lead-in and GovCloud rows remain unreconciled. The announcement does not resolve exact High app/version, mode, runtime, rollout or customer authorization and does not establish ES assistant or ITSI subagent coverage.",
+      "detail": "Splunk's October 19, 2026 announcement claims FedRAMP High authorization for Splunk AI Assistant's SPL authoring and explanation. The SAIA 2.4.0 release notes document core SPL generation and explanation in supported FedRAMP High environments and explicitly exclude Agent Mode. The older 2.2 and 2.3.6 installation guides document limited IL2 support for 2.0.0+. Each guide excludes Agent Mode there, turns training and fine-tuning off by default, and requires Splunk-hosted models. Their commercial-stack lead-in and GovCloud rows remain unreconciled. Exact High tenant eligibility, regional rollout, runtime routing, authorization scope, ES assistant coverage and ITSI subagent coverage remain open.",
       "sources": [
         "service",
         "compliance",
         "assistantInstall",
-        "highAnnouncement20261019"
+        "highAnnouncement20261019",
+        "assistantRelease240"
       ],
-      "checked": "2026-10-26",
-      "scope": "High announcement versus versioned limited-IL2 guidance; exact feature and offering scope remains a reconciliation question"
+      "checked": "2026-11-25",
+      "scope": "High source scope in SAIA 2.4.0 with separate versioned IL2 evidence and unresolved tenant, routing and offering details"
     },
     {
       "id": "o11y-agent-us0",
