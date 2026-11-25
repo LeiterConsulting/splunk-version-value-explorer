@@ -718,10 +718,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-25T01:55:02.605007Z",
+      "lastAttempt": "2026-11-25T02:58:36.497360Z",
       "lastSuccess": "2026-11-21T19:40:05.303Z",
       "outcome": "blocked",
-      "summary": "Twenty-two primary sections passed source and reader checks. Five remain open, including a scoped Observability editions correction held for candidate verification.",
+      "summary": "Twenty-five primary sections completed. Fresh Enterprise and SOAR itemized issue evidence remains incomplete.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1639,9 +1639,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Twenty-two primary sections passed source and reader checks. Five remain open, including a scoped Observability editions correction held for candidate verification.",
           "scope": "Release Guide, Exact Releases, AI Availability, Prep for Splunk 11.x and Advisor"
+        },
+        {
+          "at": "2026-11-25T02:58:36.497360Z",
+          "outcome": "running",
+          "summary": "Reviewing current official release evidence and public report output.",
+          "scope": "Release Guides, Exact Releases, AI Availability, Prep for Splunk 11.x and supporting Advisor decisions"
+        },
+        {
+          "at": "2026-11-25T03:14:57.202Z",
+          "outcome": "blocked",
+          "summary": "Twenty-five primary sections completed. Fresh Enterprise and SOAR itemized issue evidence remains incomplete.",
+          "scope": "Release Guides, Exact Releases, AI Availability, Prep for Splunk 11.x and supporting Advisor decisions"
         }
       ],
-      "scope": "Release Guide, Exact Releases, AI Availability, Prep for Splunk 11.x and Advisor"
+      "scope": "Release Guides, Exact Releases, AI Availability, Prep for Splunk 11.x and supporting Advisor decisions"
     },
     {
       "id": "es-editions-watch",
