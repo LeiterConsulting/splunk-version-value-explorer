@@ -24,7 +24,7 @@ function validatePolicy(policy) {
   assert(policy.privacy === 'public-evidence-only' && policy.consumerWriteBack === false && policy.automaticWorkClosure === false, 'Native feed must preserve independence and read-only boundaries');
   return policy;
 }
-function checkDeclaration(audit, file, ledger) {
+function checkDeclaration(audit, file, ledger, forks = []) {
   const watch = watchFor(file), outcome = audit.issueFeed;
   assert(watch && outcome?.schemaVersion === 1 && outcome.watchId === watch, 'Missing native issue-feed outcome: ' + file);
   assert(statuses.includes(outcome.status) && outcome.reviewDigest === reviewDigest(audit), 'Stale or invalid feed outcome: ' + file);
@@ -34,8 +34,14 @@ function checkDeclaration(audit, file, ledger) {
   const findingIds = new Set(ledger.records.filter(r => r.kind === 'finding').map(r => r.findingId));
   assert(outcome.notReassessedFindingIds.every(id => findingIds.has(id)), 'Unknown unreassessed finding identity');
   const publication = build(ledger).index.publications.find(p => p.publicationId === outcome.publicationId);
-  assert(publication, 'Feed outcome checkpoint is not retained');
-  const available = new Set(ledger.publications[publication.sequence - 1].recordKeys);
+  const fork = forks.find(f => f.built.index.publications.some(p => p.publicationId === outcome.publicationId));
+  assert(publication || fork, 'Feed outcome checkpoint is not retained');
+  let keys = publication && ledger.publications[publication.sequence - 1].recordKeys;
+  if (fork && !publication) {
+    const descriptor = fork.built.index.publications.find(p => p.publicationId === outcome.publicationId);
+    keys = JSON.parse(fork.built.files.get(descriptor.path)).records.map(r => r.kind + ':' + r.id + '@' + r.revision);
+  }
+  const available = new Set(keys);
   assert(outcome.recordKeys.every(k => available.has(k)), 'Feed outcome references unpublished record revisions');
   if (outcome.status === 'published') {
     assert(outcome.recordKeys.length > 0, 'Published feed outcome needs actual records');
@@ -54,6 +60,7 @@ function check(root = process.cwd()) {
   const policy = validatePolicy(JSON.parse(fs.readFileSync(path.join(root, 'content/issue-feed-policy.json'))));
   const ledger = JSON.parse(fs.readFileSync(path.join(root, 'content/issue-feed.json')));
   const index = JSON.parse(fs.readFileSync(path.join(root, 'feeds/issues/v1/index.json')));
+  const forks = require('./issue-feed.cjs').retainedForks(root, ledger);
   assert(index.producer?.mode === 'native' && index.producer.policy?.sha256 === crypto.createHash('sha256').update(fs.readFileSync(path.join(root, 'feeds/issues/v1/producer-policy.json'))).digest('hex'), 'Public index does not declare the exact native policy');
   const git = args => execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
   const parents = git(['rev-list', '--parents', '-n', '1', 'HEAD']).split(/\s+/).slice(1);
@@ -69,7 +76,7 @@ function check(root = process.cwd()) {
       try { prior = JSON.parse(git(['show', `${revision}:${file}`])); } catch { changed = true; continue; }
       if (reviewDigest(prior) !== reviewDigest(audit)) changed = true;
     }
-    if (changed || audit.issueFeed) results.push(checkDeclaration(audit, file, ledger));
+    if (changed || audit.issueFeed) results.push(checkDeclaration(audit, file, ledger, forks));
   }
   return { enabled: policy.enabled, mode: policy.mode, checkedAuditOutcomes: results, qualification: 'Checks publication declarations and structural consistency, not the truth of public claims or successful downstream action.' };
 }

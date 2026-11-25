@@ -78,7 +78,7 @@
       return result('conditional',(region?'The selected region maps to a documented commercial Observability realm. ':'Select an exact AWS or GCP service region. ')+record.condition+' Entitlement, organization enablement and customer authorization remain separate.');
     }
     if(state.compliance!=='commercial'||region?.id.startsWith('us-gov-')){
-      return result('not_established',d.regulatedQualification+(record.id==='ai-saia-agent'?' The documented IL2 assistant excludes Agent Mode.':''),['aiSaiaInstall','aiHighAnnouncement20261019']);
+      return result('not_established',d.regulatedQualification+(record.id==='ai-saia-agent'?' The documented IL2 assistant excludes Agent Mode.':''),['aiSaiaInstall','aiHighAnnouncement20261019','aiSaiaRelease240']);
     }
     if(record.id==='ai-saia-agent'){
       if(state.deployment==='enterprise')return result('not_established','The 2.3.6 Cloud Connected installation guide excludes SAIA 2.2.0–2.3.6 and says the 2.1.1 fallback lacks Agent Mode; SAIA-9918 records the access issue. The feature guide still describes a 2.1+ path. For the separate 2.4.0 release, the installer documents a fresh setup on Enterprise 10.4+ with Cloud Connect 2.0+. Confirm the exact AWS service region and Model Runtime.',['aiSaiaCloudConnected','aiSaiaKnownIssues','aiSaiaAgentMode','aiSaiaRelease240','aiSaiaCloudConnected240']);

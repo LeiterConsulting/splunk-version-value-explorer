@@ -123,3 +123,15 @@ require this process; schedules, timing modes and enabled states remain unchange
 No new timer is created. Feed-only repository work does not imply a Site runtime
 deployment; changed report/runtime inputs retain all existing exact-candidate
 browser/export, repository/Sites and live verification gates.
+
+### Concurrent owner checkpoints
+
+The November 25 owner branches independently extended canonical checkpoint 128.
+Their original ledgers are pinned by commit and raw SHA-256 in
+`content/issue-feed-forks.json`. Synchronization validates each original stream
+against its shared canonical prefix and requires every original record to appear
+unchanged in the integrated ledger. All original record and snapshot objects are
+retained at their existing hash paths. The optional `index.retainedForks` metadata
+identifies each original lineage. Consumers continue the canonical linear stream
+through `index.publications`. This integration adds no claim assessment and does
+not relabel original timestamps or replace owner provenance.
