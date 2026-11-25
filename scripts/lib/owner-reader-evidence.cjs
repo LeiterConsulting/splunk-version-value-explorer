@@ -29,13 +29,13 @@ function matches(origin, proof, row, run, cap, record) {
       attempt.taskId !== run.execution.taskId || !sameAttemptStart(attempt.startedAt,run.execution.startedAt)) return false;
   if (report?.origin !== origin.origin || report.revision !== origin.revision || report.digest !== origin.digest) return false;
   const source = cap.sources.find(s => s.id === proof.sourceId);
-  return !!source && Array.isArray(report.checks) && report.checks.some(check => check.status === 'passed' &&
+  return !!source && Array.isArray(report.checks) && report.checks.some(check => check?.status === 'passed' &&
     check.routeId === proof.routeId && check.checkedAt === origin.checkedAt && check.htmlSha256 === origin.htmlSha256 &&
-    check.pdfSha256 === origin.pdfSha256 && check.sections?.includes(row.capabilityId) &&
-    check.expectations?.some(q => q.capabilityId === row.capabilityId && q.routeId === proof.routeId &&
+    check.pdfSha256 === origin.pdfSha256 && Array.isArray(check.sections) && check.sections.includes(row.capabilityId) &&
+    Array.isArray(check.expectations) && check.expectations.some(q => q?.capabilityId === row.capabilityId && q.routeId === proof.routeId &&
       q.region === proof.region && q.sourceId === proof.sourceId && q.sourceUrl === source.url &&
       q.answer === proof.answer && (q.reportAnswer || q.answer) === (proof.reportAnswer || proof.answer) &&
-      proof.claimIds.every(id => q.claimIds?.includes(id))));
+      Array.isArray(q.claimIds) && proof.claimIds.every(id => q.claimIds.includes(id))));
 }
 
 // The caller also checks every accepted observation against the terminal native clock.

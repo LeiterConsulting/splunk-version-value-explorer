@@ -124,6 +124,8 @@ test('scheduled owner evidence binds the actual host receipts, attempt, selected
   assert.deepEqual(accepted([a,{...b,pdfSha256:'d'.repeat(64)}]),{});
   assert.deepEqual(accepted([a,{...b,receiptSha256:'e'.repeat(64)}]),{});
   assert.deepEqual(accepted([a,b],{readerReview:{...proof,answer:'A different reader-facing answer.'}}),{});
+  const malformed = save(b.origin,'malformed',{ownerReaderResult:{origin:b.origin,revision,digest,checks:[null,{...check,expectations:{}}]}});
+  assert.deepEqual(accepted([a,malformed]),{});
   const other = save(b.origin,'foreign',{attempt:{...attempt,schedulerRunId:'foreign'}});
   assert.deepEqual(accepted([a,other]),{});
   const later = save(b.origin,'later',{ownerReaderResult:{origin:b.origin,revision:'content-def',digest,checks:[check]}});
