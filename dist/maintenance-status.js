@@ -421,7 +421,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-07T13:01:59.243Z",
           "outcome": "blocked",
-          "summary": "Reviewed regional and authorization evidence. Exact runtime delivery requires a separate verified candidate.",
+          "summary": "Reviewed regional and authorization evidence. Public delivery still needed verification.",
           "scope": "51 public URLs, 17 bounded claim groups and one assessed Registry 1.2.0 SOC disposition. Moderate component listing unresolved."
         },
         {
@@ -608,13 +608,13 @@ window.VersionCompassMaintenance = {
           "at": "2026-11-21T12:05:48.252051Z",
           "outcome": "running",
           "summary": "Protected four Cloud Environment reviews and full official source inventory.",
-          "scope": "Own CSP review; exact region/experience/service evidence, no inferred authorization. Five deferred scopes plus blocked ACS correction; source/claim dates unchanged outside actual receipt; no runtime delivery."
+          "scope": "Own CSP review; exact region/experience/service evidence, no inferred authorization. Five deferred scopes plus blocked ACS correction; other claims retain their earlier review dates. Public delivery still needed verification."
         },
         {
           "at": "2026-11-21T12:10:22.188Z",
           "outcome": "blocked",
           "summary": "Partial review: new ACS High/Victoria source contradiction; two scopes assessed unchanged and six incomplete.",
-          "scope": "Own CSP review; exact region/experience/service evidence, no inferred authorization. Five deferred scopes plus blocked ACS correction; source/claim dates unchanged outside actual receipt; no runtime delivery."
+          "scope": "Own CSP review; exact region/experience/service evidence, no inferred authorization. Five deferred scopes plus blocked ACS correction; other claims retain their earlier review dates. Public delivery still needed verification."
         },
         {
           "at": "2026-11-21T19:24:00.681312+00:00",
@@ -1494,7 +1494,7 @@ window.VersionCompassMaintenance = {
           "at": "2026-11-21T19:40:05.303Z",
           "outcome": "changed",
           "summary": "Prepared four qualified November Observability records, two independently checked HF mappings and five scoped feed reassessments.",
-          "scope": "Bounded candidate review only. Registry1.4 records28 dispositions with seven incomplete scopes. GitHub validation/integration and sole-coordinator runtime delivery remain separate."
+          "scope": "The review recorded 28 outcomes. Seven scopes remained incomplete, and public delivery still needed verification."
         },
         {
           "at": "2026-11-22T21:49:07Z",
@@ -1622,10 +1622,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-24T21:56:48.669386Z",
-      "lastSuccess": "2026-11-24T09:08:54.963409+00:00",
-      "outcome": "blocked",
-      "summary": "Reviewed public licensing, release notes, workflow and AI sources. The trial display and Threat Graph threshold corrections passed local checks and await exact-candidate validation.",
+      "lastAttempt": "2026-11-25T00:35:11.120064Z",
+      "lastSuccess": "2026-11-25T00:42:24.590Z",
+      "outcome": "no-change",
+      "summary": "Reviewed six ES sections and their public reports. Existing source conflicts and qualifications remain explicit.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -1996,13 +1996,13 @@ window.VersionCompassMaintenance = {
           "at": "2026-11-03T11:02:17.186Z",
           "outcome": "running",
           "summary": "ES edition and SOC prerequisite review in progress",
-          "scope": "38 source scopes/37 exact official URLs;14 claim groups; exact SOC Cloud/CMP/permissions/runtime and App/Export scope. Native feed and publication separately recorded."
+          "scope": "38 source scopes/37 exact official URLs;14 claim groups; exact SOC Cloud/CMP/permissions/runtime and App/Export scope. The public issue feed and publication were recorded separately."
         },
         {
           "at": "2026-11-03T11:02:17.269Z",
           "outcome": "no-change",
           "summary": "Fourteen scoped ES/SOAR claim groups preserved; no canonical correction supported.",
-          "scope": "38 source scopes/37 exact official URLs;14 claim groups; exact SOC Cloud/CMP/permissions/runtime and App/Export scope. Native feed and publication separately recorded."
+          "scope": "38 source scopes/37 exact official URLs;14 claim groups; exact SOC Cloud/CMP/permissions/runtime and App/Export scope. The public issue feed and publication were recorded separately."
         },
         {
           "at": "2026-11-03T11:09:50.641Z",
@@ -2375,9 +2375,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Reviewed public licensing, release notes, workflow and AI sources. The trial display and Threat Graph threshold corrections passed local checks and await exact-candidate validation.",
           "scope": "Six ES primary sections and both-domain reports. Four validated against public answers. Two reader corrections await acceptance."
+        },
+        {
+          "at": "2026-11-25T00:35:11.120064Z",
+          "outcome": "running",
+          "summary": "Reviewing ES licensing, release history, deployment, workflows and AI prerequisites.",
+          "scope": "The six registered ES review sections and their public reader answers."
+        },
+        {
+          "at": "2026-11-25T00:42:24.590Z",
+          "outcome": "no-change",
+          "summary": "Reviewed six ES sections and their public reports. Existing source conflicts and qualifications remain explicit.",
+          "scope": "Licensing, history, deployment, workflows, AI capabilities and SOC Advisor."
         }
       ],
-      "scope": "Six ES primary sections and both-domain reports. Four validated against public answers. Two reader corrections await acceptance."
+      "scope": "Licensing, history, deployment, workflows, AI capabilities and SOC Advisor."
     },
     {
       "id": "version-guidance-audit",
@@ -2516,13 +2528,13 @@ window.VersionCompassMaintenance = {
           "at": "2026-11-02T13:34:09.040Z",
           "outcome": "running",
           "summary": "Independent integrated guidance audit in progress.",
-          "scope": "Complete registered official-source inventory change check; bounded consequential claim and generated mapping review; report, native feed and publication evidence."
+          "scope": "Complete registered official-source inventory change check; bounded consequential claim and generated mapping review; report, public issue feed and publication evidence."
         },
         {
           "at": "2026-11-02T13:48:56.380Z",
           "outcome": "changed",
           "summary": "Independent audit corrected current ES Triage and SOAR Broker HA scope; historical evidence and unknowns preserved.",
-          "scope": "215 exact registered source URLs checked (213 retrieved); 15 bounded claim groups, all ten AI capability/source chains, 18 borrowed HF mappings/900 routes, genuine before/after regressions; native feed and exact candidate delivery separately recorded."
+          "scope": "215 exact registered source URLs checked (213 retrieved); 15 bounded claim groups, all ten AI capability/source chains, 18 borrowed HF mappings/900 routes, genuine before/after regressions; public issue feed and delivery checks recorded separately."
         },
         {
           "at": "2026-11-02T14:04:21.578Z",
