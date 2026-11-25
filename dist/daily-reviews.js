@@ -438,15 +438,12 @@ window.VersionCompassDailyReviews = {
       "id": "cloud-environment.fedramp",
       "title": "FedRAMP Moderate and High boundaries",
       "owner": "csp-fedramp-watch",
-      "disposition": "deferred",
-      "reviewedOnDate": false,
+      "disposition": "assessed-no-change",
+      "reviewedOnDate": true,
       "receipt": "docs/audits/2026-11-25-csp-fedramp-watch-review-197763746242154-coverage.json",
-      "followUp": {
-        "owner": "csp-fedramp-watch",
-        "reviewBy": "2026-11-26"
-      },
-      "lastAssessedAt": "2026-11-25T01:17:37.851216+00:00",
-      "lastAssessmentReceipt": "docs/audits/2026-11-24-csp-fedramp-watch-review-148410692413714-coverage.json"
+      "followUp": null,
+      "lastAssessedAt": "2026-11-25T10:03:39.252365Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-25-csp-fedramp-watch-review-197763746242154-coverage.json"
     },
     {
       "id": "cloud-environment.product-services",
