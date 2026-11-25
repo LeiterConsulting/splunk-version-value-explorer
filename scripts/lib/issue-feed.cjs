@@ -131,6 +131,33 @@ function build(ledger, policy = null) {
   for (const bytes of files.values()) assert(Buffer.byteLength(bytes) <= 2 * 1024 * 1024, 'Feed object exceeds 2 MiB');
   return { files, index };
 }
+// A concurrent owner stream keeps its original snapshot lineage and bytes.
+// Admission pins the complete public ledger and its shared canonical prefix.
+function reconcileFork(ledger, fork, baseline) {
+  validateLedger(fork, baseline);
+  validateLedger(ledger, baseline);
+  const current = new Map(ledger.records.map(record => [key(record), encode(record)]));
+  for (const record of fork.records) assert(current.get(key(record)) === encode(record), 'Fork record history differs from canonical ledger');
+  return build(fork);
+}
+function retainedForks(root, ledger) {
+  const file = path.join(root, 'content/issue-feed-forks.json');
+  if (!fs.existsSync(file)) return [];
+  const registry = JSON.parse(fs.readFileSync(file));
+  assert(registry.schemaVersion === 1 && text(registry.reason) && Array.isArray(registry.forks), 'Invalid retained fork registry');
+  const commits = new Set();
+  return registry.forks.map(row => {
+    assert(/^[a-f0-9]{40}$/.test(row.commit) && /^[a-f0-9]{40}$/.test(row.baseCommit) &&
+      /^[a-f0-9]{64}$/.test(row.sha256) && /^[a-f0-9]{64}$/.test(row.baseSha256) &&
+      row.source === 'content/issue-feed.json' && !commits.has(row.commit), 'Invalid or duplicate retained fork');
+    commits.add(row.commit);
+    const read = commit => execFileSync('git', ['show', commit + ':' + row.source], {cwd:root, maxBuffer:ledgerReadLimit});
+    const original = read(row.commit), base = read(row.baseCommit);
+    assert(sha256(original) === row.sha256 && sha256(base) === row.baseSha256, 'Retained fork byte digest differs');
+    const built = reconcileFork(ledger, JSON.parse(original), JSON.parse(base));
+    return {row, built};
+  });
+}
 function sync(root = process.cwd(), check = false) {
   const source = 'content/issue-feed.json';
   const ledger = JSON.parse(fs.readFileSync(path.join(root, source)));
@@ -140,6 +167,7 @@ function sync(root = process.cwd(), check = false) {
   let revisions = [];
   try { revisions = execFileSync('git', ['rev-list', '--parents', '-n', '1', 'HEAD'], gitOptions).toString().trim().split(/\s+/); } catch {}
   validateLedger(ledger);
+  const forks = retainedForks(root, ledger);
   for (const revision of revisions) {
     const entry = execFileSync('git', ['ls-tree', revision, '--', source], gitOptions);
     if (entry.length === 0) continue;
@@ -165,13 +193,27 @@ function sync(root = process.cwd(), check = false) {
         assert(generated.get(file.replace(/^feeds\/issues\/v1\//, '')) === retained, 'Repair must retain every immutable published feed object: ' + file);
       }
     }
-    validateLedger(ledger, baseline);
+    const admitted = forks.some(fork => fork.row.commit === revision && fork.row.sha256 === sha256(old));
+    if (!admitted) validateLedger(ledger, baseline);
   }
   const outputs = [[ledger, 'feeds/issues/v1'], [JSON.parse(fs.readFileSync(path.join(root, 'content/issue-feed-examples.json'))), 'feeds/issues/v1/examples']];
   let count = 0;
   for (const [input, destination] of outputs) {
     const policy = destination === 'feeds/issues/v1' && fs.existsSync(path.join(root, 'content/issue-feed-policy.json')) ? JSON.parse(fs.readFileSync(path.join(root, 'content/issue-feed-policy.json'))) : null;
-    const { files } = build(input, policy);
+    const { files, index } = build(input, policy);
+    if (destination === 'feeds/issues/v1' && forks.length) {
+      for (const fork of forks) for (const [file, bytes] of fork.built.files) {
+        if (file === 'index.json') continue;
+        assert(!files.has(file) || files.get(file) === bytes, 'Retained fork collides with immutable object');
+        files.set(file, bytes);
+      }
+      index.retainedForks = forks.map(({row, built}) => ({
+        commit:row.commit, source:row.source, sourceSha256:row.sha256,
+        canonicalBase:row.baseCommit, publications:built.index.publications,
+        qualification:'Original concurrent owner stream. Canonical continuation remains index.publications; original checkpoints and record bytes are retained.'
+      }));
+      files.set('index.json', encode(index));
+    }
     for (const directory of ['records', 'snapshots']) {
       const full = path.join(root, destination, directory);
       for (const name of fs.existsSync(full) ? fs.readdirSync(full) : []) assert(files.has(`${directory}/${name}`), 'Unexpected generated file: ' + path.join(destination, directory, name));
@@ -188,4 +230,4 @@ function sync(root = process.cwd(), check = false) {
   }
   return { files: count, publications: ledger.publications.length, findings: ledger.records.filter(r => r.kind === 'finding').length, assessments: ledger.records.filter(r => r.kind === 'assessment').length };
 }
-module.exports = { VERSION, outcomes, concernTypes, sha256, encode, key, validateRecord, validateLedger, build, sync };
+module.exports = { VERSION, outcomes, concernTypes, sha256, encode, key, validateRecord, validateLedger, build, reconcileFork, retainedForks, sync };

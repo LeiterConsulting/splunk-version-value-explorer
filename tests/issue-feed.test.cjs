@@ -161,3 +161,20 @@ test('pilot checkpoint recovers expanded coverage without replacing prior record
   assert.equal(security.assessedAt, '2026-10-29');
   assert.equal(security.evidence[0].sourceCheckedAt, '2026-10-30');
 });
+
+test('concurrent owner streams retain original snapshots and reject changed records or shared history', () => {
+ const { reconcileFork } = require('../scripts/lib/issue-feed.cjs');
+ const pin=JSON.parse(fs.readFileSync('content/issue-feed-forks.json')).forks.find(f=>f.commit==='fcc08c7283f5bf47f5d7676586813eb16cebffe5');
+ const original=JSON.parse(execFileSync('git',['show',pin.commit+':'+pin.source],{maxBuffer:16*1024*1024}));
+ const baseline=JSON.parse(execFileSync('git',['show',pin.baseCommit+':'+pin.source],{maxBuffer:16*1024*1024}));
+ const built=reconcileFork(real, original, baseline);
+ for(const [file,bytes] of built.files) if(file!=='index.json') assert.equal(fs.readFileSync('feeds/issues/v1/'+file,'utf8'),bytes);
+ const altered=clone(real); altered.records.find(r=>r.assessmentId==='vcia-es-20261125-c588d42e-1').rationale+=' changed';
+ assert.throws(()=>reconcileFork(altered, original, baseline),/Fork record history/);
+ const dropped=clone(real);const id='vcia-es-20261125-c588d42e-1';
+ dropped.records=dropped.records.filter(r=>r.assessmentId!==id);
+ for(const p of dropped.publications)p.recordKeys=p.recordKeys.filter(k=>k!=='assessment:'+id+'@1');
+ assert.throws(()=>reconcileFork(dropped, original, baseline),/Fork record history/);
+ const rewritten=clone(original);rewritten.publications[0].coverage.completeness+=' changed';
+ assert.throws(()=>reconcileFork(real, rewritten, baseline),/immutable/);
+});

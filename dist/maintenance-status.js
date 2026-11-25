@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-25T01:15:05.864958Z",
-      "lastSuccess": "2026-11-25T01:29:37.959Z",
-      "outcome": "no-change",
-      "summary": "Reviewed seven Cloud environment and regional AI sections. Source and report checks retain the Dublin SPL disagreement and the separate, unresolved ITSI rollout.",
+      "lastAttempt": "2026-11-25T10:00:37.038316Z",
+      "lastSuccess": "2026-11-25T10:12:36.790Z",
+      "outcome": "changed",
+      "summary": "Reviewed the seven Cloud and AI regional sections and prepared a scoped correction for core SPL assistance in supported FedRAMP High environments.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -711,17 +711,29 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Reviewed seven Cloud environment and regional AI sections. Source and report checks retain the Dublin SPL disagreement and the separate, unresolved ITSI rollout.",
           "scope": "Official source comparisons, both public domains, reopened saved HTML and native PDF. Supporting SOC prerequisites reviewed separately."
+        },
+        {
+          "at": "2026-11-25T10:00:37.038316Z",
+          "outcome": "running",
+          "summary": "Review of Cloud environments and AI regional evidence started.",
+          "scope": "FedRAMP offerings, providers, Cloud experience, premium services and the three AI regional scopes."
+        },
+        {
+          "at": "2026-11-25T10:12:36.790Z",
+          "outcome": "changed",
+          "summary": "Reviewed the seven Cloud and AI regional sections and prepared a scoped correction for core SPL assistance in supported FedRAMP High environments.",
+          "scope": "Cloud provider, experience and service scope, both FedRAMP offerings, Platform and ES AI service regions, Observability realms and supporting SOC prerequisites."
         }
       ],
-      "scope": "Official source comparisons, both public domains, reopened saved HTML and native PDF. Supporting SOC prerequisites reviewed separately."
+      "scope": "Cloud provider, experience and service scope, both FedRAMP offerings, Platform and ES AI service regions, Observability realms and supporting SOC prerequisites."
     },
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-25T02:58:36.497360Z",
+      "lastAttempt": "2026-11-25T08:03:39.328400Z",
       "lastSuccess": "2026-11-21T19:40:05.303Z",
       "outcome": "blocked",
-      "summary": "Twenty-five primary sections completed. Fresh Enterprise and SOAR itemized issue evidence remains incomplete.",
+      "summary": "Verified 25 Release sections in the public reports. Enterprise and SOAR guide reviews remain open.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1651,17 +1663,29 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Twenty-five primary sections completed. Fresh Enterprise and SOAR itemized issue evidence remains incomplete.",
           "scope": "Release Guides, Exact Releases, AI Availability, Prep for Splunk 11.x and supporting Advisor decisions"
+        },
+        {
+          "at": "2026-11-25T08:03:39.328400Z",
+          "outcome": "running",
+          "summary": "Checking the dated Release guidance and its public reports.",
+          "scope": "Release Guides, Prep for Splunk 11.x, Exact Releases, AI Availability and related Advisor decisions."
+        },
+        {
+          "at": "2026-11-25T08:19:22.422Z",
+          "outcome": "blocked",
+          "summary": "Verified 25 Release sections in the public reports. Enterprise and SOAR guide reviews remain open.",
+          "scope": "The itemized Enterprise 10.6.2 and SOAR on-premises 8.8.0 issues could not be verified in the public sources. The November 24 confirmed evidence is retained."
         }
       ],
-      "scope": "Release Guides, Exact Releases, AI Availability, Prep for Splunk 11.x and supporting Advisor decisions"
+      "scope": "The itemized Enterprise 10.6.2 and SOAR on-premises 8.8.0 issues could not be verified in the public sources. The November 24 confirmed evidence is retained."
     },
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-25T00:35:11.120064Z",
-      "lastSuccess": "2026-11-25T00:42:24.590Z",
+      "lastAttempt": "2026-11-25T09:00:23.180006Z",
+      "lastSuccess": "2026-11-25T09:09:29.698Z",
       "outcome": "no-change",
-      "summary": "Reviewed six ES sections and their public reports. Existing source conflicts and qualifications remain explicit.",
+      "summary": "Verified six ES sections against current public sources and both public reports.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -2423,17 +2447,29 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Reviewed six ES sections and their public reports. Existing source conflicts and qualifications remain explicit.",
           "scope": "Licensing, history, deployment, workflows, AI capabilities and SOC Advisor."
+        },
+        {
+          "at": "2026-11-25T09:00:23.180006Z",
+          "outcome": "running",
+          "summary": "Reviewing ES editions, feature prerequisites and public reports.",
+          "scope": "Licensing, history, deployment, workflows, five ES AI capabilities and the SOC Advisor dependency."
+        },
+        {
+          "at": "2026-11-25T09:09:29.698Z",
+          "outcome": "no-change",
+          "summary": "Verified six ES sections against current public sources and both public reports.",
+          "scope": "Licensing, history, deployment, workflows, five ES AI capabilities and the SOC Advisor dependency. Vendor disagreements remain qualified in the public answers, reopened HTML and printed PDFs."
         }
       ],
-      "scope": "Licensing, history, deployment, workflows, AI capabilities and SOC Advisor."
+      "scope": "Licensing, history, deployment, workflows, five ES AI capabilities and the SOC Advisor dependency. Vendor disagreements remain qualified in the public answers, reopened HTML and printed PDFs."
     },
     {
       "id": "version-guidance-audit",
       "name": "Version Guidance Audit",
-      "lastAttempt": "2026-11-23T12:04:43.530090Z",
-      "lastSuccess": "2026-11-08T22:04:05.623Z",
-      "outcome": "blocked",
-      "summary": "Independent registry1.4 audit: seven assessed-no-change sections;33 incomplete; candidate held for validation and feed reconciliation.",
+      "lastAttempt": "2026-11-25T11:49:18.470770Z",
+      "lastSuccess": "2026-11-25T11:55:13.802Z",
+      "outcome": "changed",
+      "summary": "Combined owner reviews and retained concurrent issue-feed history for release qualification.",
       "history": [
         {
           "at": "2026-09-24T12:45:24.855849+00:00",
@@ -2643,9 +2679,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Independent registry1.4 audit: seven assessed-no-change sections;33 incomplete; candidate held for validation and feed reconciliation.",
           "scope": "All40 dispositions;338 inventory attempts;13 mapping regressions;bundled live check."
+        },
+        {
+          "at": "2026-11-25T11:49:18.470770Z",
+          "outcome": "running",
+          "summary": "Daily owner evidence integration started.",
+          "scope": "Wednesday GitHub handoff only. Independent source review is due November 26."
+        },
+        {
+          "at": "2026-11-25T11:55:13.802Z",
+          "outcome": "changed",
+          "summary": "Combined owner reviews and retained concurrent issue-feed history for release qualification.",
+          "scope": "Wednesday GitHub handoff only. Independent source review is due November 26."
         }
       ],
-      "scope": "All40 dispositions;338 inventory attempts;13 mapping regressions;bundled live check."
+      "scope": "Wednesday GitHub handoff only. Independent source review is due November 26."
     }
   ]
 };

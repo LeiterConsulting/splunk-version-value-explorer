@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-itsi-503-enterprise-102-patch-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-25T08:21:45.114Z",
+  "assessmentId": "vcia-release-20261125-f04ceefa-6",
+  "assessedAt": "2026-11-25T08:15:07.717Z",
+  "originalAssessedAt": "2026-11-25T08:15:07.717979Z",
+  "outcome": "still-present",
+  "rationale": "Splunkbase 5.0.3 entry includes Platform 10.2, while the Help Enterprise 10.2.x row lists ITSI 5.0 without patch detail. Preserve exact 5.0.3 eligibility as unresolved.",
+  "reviewedScope": {
+    "products": [
+      "release-guide.itsi"
+    ],
+    "versions": [
+      "ITSI 5.0.3",
+      "Enterprise 10.2.x"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed Enterprise"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Scope stays with the named release and deployment. No tenant eligibility, unstated region, undocumented pairing or offering authorization is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-release-20261124-c70280b1-6"
+  ],
+  "remainingConcerns": [
+    "Review the exact documentation and unresolved applicability with Version Release Watch on November 26. Prior issue evidence retains its original scope and time."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "vcia-release-20261125-f04ceefa-6-0",
+      "url": "https://splunkbase.splunk.com/app/1841",
+      "section": "Release history and Enterprise compatibility",
+      "statement": "Splunkbase 5.0.3 entry includes Platform 10.2, while the Help Enterprise 10.2.x row lists ITSI 5.0 without patch detail. Preserve exact 5.0.3 eligibility as unresolved.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-25T08:08:59.464Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9bc128705f0a4d672788bff4db5bf584f565f9d8f98ab4d88bf331240c09f9ea",
+        "qualification": "Public vendor HTML __NEXT_DATA__.props.pageProps.appDetails.releases exact 5.0.3 versionCompatibility = 10.2, 10.3, 10.4, 10.5, 10.6, 10.7, 10.8; cloudCompatible = true."
+      },
+      "qualification": "Public vendor HTML __NEXT_DATA__.props.pageProps.appDetails.releases exact 5.0.3 versionCompatibility = 10.2, 10.3, 10.4, 10.5, 10.6, 10.7, 10.8; cloudCompatible = true."
+    },
+    {
+      "evidenceId": "vcia-release-20261125-f04ceefa-6-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+      "section": "ITSI compatibility rows",
+      "statement": "Exact supporting or contrasting vendor section examined during this review; see the source audit for release and deployment scope.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-25T08:06:28.314Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "bed70e4b7e94bcb71210a2d0105700618d85627205b9fccfc516b1b604ed0322",
+        "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+      },
+      "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/1fedc80b7de2438fb41ab9db29a83e5e0f820f75/docs/audits/2026-11-25-version-release-watch-review-107448648100193-sources.json",
+      "pointer": "/issueObservations/5",
+      "originalLabel": "still-present"
+    }
+  ]
+}
