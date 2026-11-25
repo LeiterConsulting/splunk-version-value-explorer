@@ -361,3 +361,23 @@ test('correct work survives a registry patch with a pending configuration, while
   amendment.recordedAt = '2026-11-05T13:02:00Z';
   assert.deepEqual(first(f).verifiedReviewReceiptIds,[]);
 });
+
+test('separate observer matches only the recorded caller flag and exact saved settings at that clock', () => {
+  const f = fixture(), t = f.snapshot.tasks[0], saved = f.context.ledger.amendments[0].savedTasks[0];
+  t.is_self_owned_automation = false;
+  const entry = {...baseline(t), watchId:saved.id, taskId:saved.taskId, callerOwnershipAtReadback:false};
+  saved.configurationHistory = [entry, {...entry, readbackAt:'2026-11-06T01:00:00Z', afterDigest:'sha256:'+'a'.repeat(64)}];
+  t.is_self_owned_automation = true;
+  const compared = first(f).configuration;
+  assert.equal(compared.status,'matched');
+  assert.equal(compared.digest,savedConfigurationDigest(t));
+  assert.equal(compared.comparison.digest,entry.afterDigest);
+  assert.equal(compared.comparison.method,'native-caller-ownership-perspective-v1');
+  t.prompt += ' changed';
+  assert.equal(first(f).configuration.status,'unverified');
+  t.prompt = t.prompt.slice(0,-8);
+  f.snapshot.observedAt = '2026-11-06T02:00:00Z';
+  assert.equal(first(f).configuration.status,'unverified');
+  saved.configurationHistory[1].taskId = 'other';
+  assert.throws(() => first(f), /Invalid dated owner configuration/);
+});

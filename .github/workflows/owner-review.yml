@@ -63,6 +63,7 @@ jobs:
         if: "!cancelled() && steps.install.outcome == 'success'"
         env:
           OWNER: ${{ matrix.owner }}
+          VC_OWNER_FAILURE_DIR: owner-review/failed-reports
         run: node tools/export-verification/owner-reader.mjs --live "$OWNER" owner-review/questions.json > owner-review/readers.json
       - uses: actions/upload-artifact@v4
         if: "!cancelled() && steps.handoff.outputs.selected == 'true'"
