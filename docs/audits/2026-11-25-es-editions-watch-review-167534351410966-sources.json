@@ -31,7 +31,7 @@
     "qualification": "The earlier result links PR 303 and has a distinct run identity. It supplies historical evidence only."
   },
   "handoffObservation": null,
-  "batch": "first-verified",
+  "batch": "completed-sections",
   "baseline": {
     "main": "e5ff4f35ae2d441d798bdd20a077d7f6b1032ced",
     "tree": "e407f35f25169a7173dfcc6be69cecaf3a9938b3",
@@ -58,11 +58,11 @@
   "scopeOutcomes": [
     {
       "capabilityId": "advisor.soc-workflow",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint.",
+      "disposition": "assessed-no-change",
+      "qualification": "Read current 8.8 aggregate and linked parent/Triage/Autonomous Response guides plus historical 8.7 task and canonical Advisor dependency. Premier/paired-SOAR/admission minima, per-component stage, activation and permissions were compared. Aggregate Cloud ES 8.6+ differs from linked ES 8.7+. The parent analyses/revisions model differs from the Triage task first-ten/findings/no-rerun limit. Response is CA and its Cloud availability column differs from CMP prerequisite bullets; it requires frontier models plus connector/action and granular asset access. Earlier 8.7 requirements stay dated. Full exact pairing, per-agent regions, entitlement and customer authorization remain excluded.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-25T09:03:05.326112Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-25T09:05:40.483849Z",
       "publishedAt": null,
       "liveVerifiedAt": "2026-11-25T09:04:00.192Z",
       "retrievals": [
@@ -115,7 +115,25 @@
           "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions | Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings | HTTP 200 | 137948 bytes | SHA-256 346f3404232b3b1daab4387b31e03930f13ed89c8cf853a3c73e6d5faf807b51"
         }
       ],
-      "assessments": [],
+      "assessments": [
+        {
+          "claimId": "ai-es-soc",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsAgents88",
+            "aiEsSocTask88",
+            "aiEsSocTask87",
+            "aiEsRelease88",
+            "aiEsTriageNote88",
+            "aiSaiaInstall",
+            "aiEsRegions88",
+            "aiEsEditions"
+          ],
+          "assessedAt": "2026-11-25T09:05:40.483849Z",
+          "evidence": "Read current 8.8 aggregate and linked parent/Triage/Autonomous Response guides plus historical 8.7 task and canonical Advisor dependency. Premier/paired-SOAR/admission minima, per-component stage, activation and permissions were compared. Aggregate Cloud ES 8.6+ differs from linked ES 8.7+. The parent analyses/revisions model differs from the Triage task first-ten/findings/no-rerun limit. Response is CA and its Cloud availability column differs from CMP prerequisite bullets; it requires frontier models plus connector/action and granular asset access. Earlier 8.7 requirements stay dated. Full exact pairing, per-agent regions, entitlement and customer authorization remain excluded.",
+          "qualification": "Assessed deployment-specific prerequisites, the current Cloud version discrepancy and the corrected historical Triage wording. Exclusions: Exact SOAR pairing, agent-specific regional rollout, component entitlement and customer authorization remain separate."
+        }
+      ],
       "publicOriginEvidence": [
         {
           "origin": "https://versioncompass.com",
@@ -142,24 +160,27 @@
           "pdfSha256": "fbe193e8e57fe1525a98ea46952bc2f673bc1d09c5f9ccaa6bc4d193b0630371"
         }
       ],
-      "followUp": {
-        "owner": "es-editions-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Untangle ES AI SOC requirements.",
-        "reviewBy": "2026-11-26"
-      },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-24-es-editions-watch-review-53528061771298-coverage.json",
-        "assessmentAt": "2026-11-25T00:41:19.675Z",
-        "disposition": "assessed-no-change"
+      "readerReview": {
+        "question": "Can I select the lower Cloud ES minimum when the aggregate and detailed workflow guides disagree?",
+        "routeId": "advisor-conflict",
+        "region": "#advisor-result",
+        "answer": "The ES 8.8 aggregate table lists Cloud ES 8.6+, while the detailed ES 8.8 Triage task guide requires ES 8.7+.",
+        "reportAnswer": "The ES 8.8 aggregate table lists Cloud ES 8.6+, while the detailed ES 8.8 Triage task guide requires ES 8.7+.",
+        "claimIds": [
+          "ai-es-soc"
+        ],
+        "sourceId": "aiEsAgents88",
+        "sourceSection": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
+        "checkedAt": "2026-11-25T09:04:00.192Z"
       }
     },
     {
       "capabilityId": "ai.es-capabilities",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint.",
+      "disposition": "assessed-no-change",
+      "qualification": "Assessed each of the five named AI capabilities separately against its canonical record, release table and detailed task. Product 8.8 GA, feature stage, edition, exact deployment chain, access, runtime and pairing remain separate.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-25T09:03:05.326112Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-25T09:05:40.483847Z",
       "publishedAt": null,
       "liveVerifiedAt": "2026-11-25T09:04:01.494Z",
       "retrievals": [
@@ -230,7 +251,74 @@
           "evidence": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected | Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data | HTTP 200 | 178951 bytes | SHA-256 5f00eaae7cee8c921f1dc9c144f907194f5f078b486137fa210f0dac3d7519a2"
         }
       ],
-      "assessments": [],
+      "assessments": [
+        {
+          "claimId": "ai-es-assistant",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsRegions88",
+            "aiEsEditions",
+            "aiEsRelease88",
+            "aiEsAgents88",
+            "aiEsCloudConnectAgentic88"
+          ],
+          "assessedAt": "2026-11-25T09:05:40.483847Z",
+          "evidence": "The edition overview says Essentials Cloud only where available and Premier Cloud/CMP. The regional assistant compatibility distinguishes Cloud 8.2+ from CMP 8.8+. For agentic CMP, the setup adds Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and SAIA 2.4+. The current SAIA 2.4 installer additionally requires qualifying paid license, fresh setup, outbound 443, STC/OAuth signing certificate, administrator capabilities, verified license-domain email and supported AWS commercial region. Preserve older 2.3.6 incompatibility/planned-release wording as historical.",
+          "qualification": "Assistant edition, entitlement, Cloud/CMP and exact enablement prerequisites."
+        },
+        {
+          "claimId": "ai-es-detection",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsAgents88",
+            "aiEsRelease88",
+            "aiEsCloudConnectAgentic88"
+          ],
+          "assessedAt": "2026-11-25T09:05:40.483847Z",
+          "evidence": "The current authoring task requires Cloud Platform 10.1+/ES 8.6+ or CMP Platform 10.4+/ES 8.8+/Cloud Connect 2.0+, with the agentic setup adding SAIA 2.4+. Both editions are listed. Finding-based detection is turned off in 8.8. Agent can advise on SPL, validation and troubleshooting but cannot save, clone, change version/status or test the detection.",
+          "qualification": "Detection Builder Cloud/CMP, version, edition, stage and setup prerequisites."
+        },
+        {
+          "claimId": "ai-es-sop",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsAgents88",
+            "aiEsRelease88"
+          ],
+          "assessedAt": "2026-11-25T09:05:40.483847Z",
+          "evidence": "The aggregate is Essentials/Premier Cloud only. The detailed response-plan guide requires AI Assistant enablement and view/edit response-template permissions, while JSON importing remains independent. The upload list includes ZIP and Considerations omits it. Preserve that conflict, 50 MB/text-only conditions, and review suggested actions/SPL against actual paired SOAR capabilities.",
+          "qualification": "SOP deployment, edition and Assistant dependency."
+        },
+        {
+          "claimId": "ai-es-threat-graph",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsAgents88",
+            "aiEsThreatGraph88",
+            "aiEsRelease88"
+          ],
+          "assessedAt": "2026-11-25T09:05:40.483847Z",
+          "evidence": "The current canonical card and task retain Premier Cloud, ES 8.8+ and alpha status independent of product GA. At least one risk-based detection and approximately one million processed events are required before findings. Representative enablement and test-queue behavior remain explicit.",
+          "qualification": "Threat Graph documented stage, prerequisites, eligibility and enablement."
+        },
+        {
+          "claimId": "ai-es-soc",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsAgents88",
+            "aiEsSocTask88",
+            "aiEsSocTask87",
+            "aiEsRelease88",
+            "aiEsTriageNote88",
+            "aiEsCloudConnectAgentic88",
+            "aiSaiaInstall",
+            "aiSaiaCloudConnected"
+          ],
+          "assessedAt": "2026-11-25T09:05:40.483847Z",
+          "evidence": "Triage and Autonomous Response have distinct table rows and stages. Cloud table Platform 10.2+/ES 8.6+ conflicts with linked 8.8 task ES 8.7+. Triage supports Cloud/CMP; CA Response has a Cloud-only availability cell with CMP compatibility bullets. The parent limits 200 analyses/tenant/day and 20 revisions/investigation/day conflict with linked first-ten, approximately 200 findings/day and no-rerun guidance. Response cannot rerun or process later findings and requires frontier models. Asset-role and connector/action access, paired SOAR, enablement and exact region remain explicit.",
+          "qualification": "SOC workflow stage, edition, paired dependencies, limits, model and asset or connector permissions. Keep current and historical guide conflicts scoped."
+        }
+      ],
       "publicOriginEvidence": [
         {
           "origin": "https://versioncompass.com",
@@ -281,16 +369,34 @@
           "pdfSha256": "eb71ebf3d0ee62797f018fe78b9487deb9c15c8b4f150cb3c5a7a46ac092e21d"
         }
       ],
-      "followUp": {
-        "owner": "es-editions-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for ES AI capabilities, editions and dependencies.",
-        "reviewBy": "2026-11-26"
+      "readerReview": {
+        "question": "Does ES 8.8 GA make Threat Graph generally available for every edition and deployment?",
+        "routeId": "ai-overview",
+        "region": "#ai-es-threat-graph",
+        "answer": "Alpha feature · ES 8.8 release General Availability",
+        "reportAnswer": "Alpha feature · ES 8.8 release General Availability",
+        "claimIds": [
+          "ai-es-threat-graph"
+        ],
+        "sourceId": "aiEsAgents88",
+        "sourceSection": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note",
+        "checkedAt": "2026-11-25T09:04:01.494Z"
       },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-24-es-editions-watch-review-53528061771298-coverage.json",
-        "assessmentAt": "2026-11-25T00:41:19.675Z",
-        "disposition": "assessed-no-change"
-      }
+      "additionalReaderReviews": [
+        {
+          "question": "What prerequisites does the current Alpha Threat Graph Detection guide document?",
+          "routeId": "ai-overview",
+          "region": "#ai-es-threat-graph",
+          "answer": "Turn on at least one risk-based detection",
+          "reportAnswer": "Turn on at least one risk-based detection",
+          "claimIds": [
+            "ai-es-threat-graph"
+          ],
+          "sourceId": "aiEsThreatGraph88",
+          "sourceSection": "Alpha stage; risk-based detection and event-volume prerequisites; enablement and test mode",
+          "checkedAt": "2026-11-25T09:04:01.494Z"
+        }
+      ]
     },
     {
       "capabilityId": "es-editions.licensing",
@@ -453,11 +559,11 @@
     },
     {
       "capabilityId": "es-editions.deployment",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint.",
+      "disposition": "assessed-no-change",
+      "qualification": "Read the Cloud capability matrix with its Version, Essentials (Included in Premier) and Premier Only headers. ES 8.8 places Detection Builder instructions, Investigation Aggregation and Detection Re-run in Essentials, with Cloud Connected SOC, UEBA changes, TIM TAXII2 and broker HA in Premier. Read every regional row under its own Essentials, Premier or Cloud Connect heading, including Montréal/Calgary differences, the Premier UAE disruption and GovCloud exceptions. GCP/Azure prose limits available components and Oregon SOAR. Separate edition-specific ES/SOAR pairings cover matched providers, hybrid certificate conditions and unsupported IL5 hybrid, Windows and Enterprise 9.4.0–9.4.2. Cloud Connect installation, named role capabilities, license, authenticated setup and activation are independent. No product or feature authorization follows from a blank exception cell.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-25T09:02:30.891387Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-25T09:05:40.483834Z",
       "publishedAt": null,
       "liveVerifiedAt": "2026-11-25T09:04:03.177Z",
       "retrievals": [
@@ -480,7 +586,20 @@
           "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.8/introduction/access-splunk-cloud-connect-in-splunk-enterprise-security-to-access-cloud-extensions | Cloud Connect scope and access prerequisites | HTTP 200 | 167338 bytes | SHA-256 129970448dc38a673bc19e373c48a43a5404fbdf3195cd39681deb85670c87b8"
         }
       ],
-      "assessments": [],
+      "assessments": [
+        {
+          "claimId": "es-editions.deployment",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "matrix88",
+            "regions88",
+            "cloudcx88"
+          ],
+          "assessedAt": "2026-11-25T09:05:40.483834Z",
+          "evidence": "Read the Cloud capability matrix with its Version, Essentials (Included in Premier) and Premier Only headers. ES 8.8 places Detection Builder instructions, Investigation Aggregation and Detection Re-run in Essentials, with Cloud Connected SOC, UEBA changes, TIM TAXII2 and broker HA in Premier. Read every regional row under its own Essentials, Premier or Cloud Connect heading, including Montréal/Calgary differences, the Premier UAE disruption and GovCloud exceptions. GCP/Azure prose limits available components and Oregon SOAR. Separate edition-specific ES/SOAR pairings cover matched providers, hybrid certificate conditions and unsupported IL5 hybrid, Windows and Enterprise 9.4.0–9.4.2. Cloud Connect installation, named role capabilities, license, authenticated setup and activation are independent. No product or feature authorization follows from a blank exception cell.",
+          "qualification": "Cloud and Enterprise deployment differences, host and regional compatibility, and mismatched edition/capability matrix claims."
+        }
+      ],
       "publicOriginEvidence": [
         {
           "origin": "https://versioncompass.com",
@@ -507,24 +626,27 @@
           "pdfSha256": "d995a3dc509e96f70f246fefce5fb6d9adf6cb0be75f28e1e8e391ee7a3e8381"
         }
       ],
-      "followUp": {
-        "owner": "es-editions-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for ES deployment and regional prerequisites.",
-        "reviewBy": "2026-11-26"
-      },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-24-es-editions-watch-review-53528061771298-coverage.json",
-        "assessmentAt": "2026-11-25T00:41:19.675Z",
-        "disposition": "assessed-no-change"
+      "readerReview": {
+        "question": "Does edition inclusion establish availability on every regional or regulated stack?",
+        "routeId": "editions",
+        "region": "#note-availability",
+        "answer": "A Cloud listing does not establish availability on every stack, cloud provider or regulated deployment.",
+        "reportAnswer": "A Cloud listing does not establish availability on every stack, cloud provider or regulated deployment.",
+        "claimIds": [
+          "es-editions.deployment"
+        ],
+        "sourceId": "regions88",
+        "sourceSection": "Compatibility and Regional Availability tables",
+        "checkedAt": "2026-11-25T09:04:03.177Z"
       }
     },
     {
       "capabilityId": "es-editions.workflows",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint.",
+      "disposition": "assessed-no-change",
+      "qualification": "The workflow matrix was compared by edition and release. The 8.8 agent aggregate gives Guided Response to Essentials and Premier on Cloud and Cloud Connected CMP, with Platform 10.2+, ES 8.6+ and paired SOAR. Its historical 8.6 task remains Cloud-scoped and the 8.7 matrix assigns enhancements to Premier. The 8.7 Connector Builder aggregate lists both editions but the 8.7.1 release enhancement says Premier. Malware/Phishing aggregate says ES 8.5+, while the detailed task requires Platform 10.2+/ES 8.6+ and paired SOAR. Automation Builder and Connector Builder task floors, permissions and pairings remain independent. UEBA behavior/product description supports the maintained Premier capability. App for SOAR 8.8.0 matrix still contains literal 8..0 for an on-premises combination. Export Cloud and Enterprise separately require Python 3.13, proper roles/ports and tested combinations, with CIM 8.5.0-1681. Additional Splunkbase versions are for upgrade listing purposes. Neither package numbering nor license proves a pairing. The 8.8.1 Export note fixes PAPP-38632 without silently broadening the tested scope.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-25T09:02:39.942368Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-25T09:05:40.483843Z",
       "publishedAt": null,
       "liveVerifiedAt": "2026-11-25T09:04:03.177Z",
       "retrievals": [
@@ -565,7 +687,23 @@
           "evidence": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise | Enterprise prerequisites and functionality-tested pairings | HTTP 200 | 155952 bytes | SHA-256 53397e308390eb99bdb373c8f0ecc3fb681f0c743fa1520058dac6bbc8be0c67"
         }
       ],
-      "assessments": [],
+      "assessments": [
+        {
+          "claimId": "es-editions.workflows",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "matrix88",
+            "ueba",
+            "agentic88",
+            "appForSoar88",
+            "soarExportCloud88",
+            "soarExportEnterprise88"
+          ],
+          "assessedAt": "2026-11-25T09:05:40.483843Z",
+          "evidence": "The workflow matrix was compared by edition and release. The 8.8 agent aggregate gives Guided Response to Essentials and Premier on Cloud and Cloud Connected CMP, with Platform 10.2+, ES 8.6+ and paired SOAR. Its historical 8.6 task remains Cloud-scoped and the 8.7 matrix assigns enhancements to Premier. The 8.7 Connector Builder aggregate lists both editions but the 8.7.1 release enhancement says Premier. Malware/Phishing aggregate says ES 8.5+, while the detailed task requires Platform 10.2+/ES 8.6+ and paired SOAR. Automation Builder and Connector Builder task floors, permissions and pairings remain independent. UEBA behavior/product description supports the maintained Premier capability. App for SOAR 8.8.0 matrix still contains literal 8..0 for an on-premises combination. Export Cloud and Enterprise separately require Python 3.13, proper roles/ports and tested combinations, with CIM 8.5.0-1681. Additional Splunkbase versions are for upgrade listing purposes. Neither package numbering nor license proves a pairing. The 8.8.1 Export note fixes PAPP-38632 without silently broadening the tested scope.",
+          "qualification": "Edition-specific feature and workflow prerequisites, including UEBA, AI/Cloud Connect and separately versioned SOAR connector/export paths."
+        }
+      ],
       "publicOriginEvidence": [
         {
           "origin": "https://versioncompass.com",
@@ -592,21 +730,23 @@
           "pdfSha256": "d995a3dc509e96f70f246fefce5fb6d9adf6cb0be75f28e1e8e391ee7a3e8381"
         }
       ],
-      "followUp": {
-        "owner": "es-editions-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for ES feature and workflow dependencies.",
-        "reviewBy": "2026-11-26"
-      },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-24-es-editions-watch-review-53528061771298-coverage.json",
-        "assessmentAt": "2026-11-25T00:41:19.675Z",
-        "disposition": "assessed-no-change"
+      "readerReview": {
+        "question": "Does the current ES 8.8 Guided Response table include Cloud Connected CMP?",
+        "routeId": "editions",
+        "region": ".edition-row",
+        "answer": "The current 8.8 aggregate table lists both editions on Cloud and Cloud Connected CMP",
+        "reportAnswer": "The current 8.8 aggregate table lists both editions on Cloud and Cloud Connected CMP",
+        "claimIds": [
+          "es-editions.workflows"
+        ],
+        "sourceId": "agentic88",
+        "sourceSection": "Agentic offerings and their feature-specific scopes",
+        "checkedAt": "2026-11-25T09:04:03.177Z"
       }
     }
   ],
   "ownedTotals": {
-    "deferred": 4,
-    "assessed-no-change": 2
+    "assessed-no-change": 6
   },
   "sourceChecks": {
     "advisor.soc-workflow": [
@@ -1888,8 +2028,8 @@
     "schemaVersion": 1,
     "watchId": "es-editions-watch",
     "status": "no-new-observations",
-    "recordedAt": "2026-11-25T09:04:49.327Z",
-    "reviewDigest": "0bb37f5017e5454245f6f1f9529bc16a9d7dcd9aa1da8c1331dddabeba1f13e4",
+    "recordedAt": "2026-11-25T09:05:41.081Z",
+    "reviewDigest": "9c7a10de60e445f6aec37d7139eabc7d228717523370e8091fe37cee6fe6cbd5",
     "publicationId": "vci-42a3d35473bf7961c799f4430413c217dd314b8a428f885e7cf80c25c482458b",
     "recordKeys": [],
     "notReassessedFindingIds": [
