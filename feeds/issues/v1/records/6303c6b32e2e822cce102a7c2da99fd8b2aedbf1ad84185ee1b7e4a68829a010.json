@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-enterprise-104-legacy-tls-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-25T02:11:14.016Z",
+  "assessmentId": "vcia-release-20261124-be1bb689-7",
+  "assessedAt": "2026-11-25T02:09:16.131Z",
+  "originalAssessedAt": "2026-11-25T02:09:16.131460Z",
+  "outcome": "still-present",
+  "rationale": "The Enterprise 10.4 release table describes a migration-only legacy TLS override while the upgrade section introduced in 10.4 describes removal. It does not settle an exact legacy connection posture.",
+  "reviewedScope": {
+    "products": [
+      "Splunk Enterprise and applicable Heavy Forwarder components"
+    ],
+    "versions": [
+      "10.4, with 10.6 context"
+    ],
+    "editions": null,
+    "deployments": [
+      "Customer-managed inter-Splunk connections"
+    ],
+    "regions": null,
+    "audiences": [
+      "Readers evaluating documented release or feature scope"
+    ],
+    "exclusions": [
+      "No unlisted exact pairing, rollout, entitlement or customer authorization established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-release-20261124-5de62d16-3"
+  ],
+  "remainingConcerns": [
+    "Verify unresolved conditions in the next exact official topic check. Version Release Watch. Review by 2026-11-25."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "vcia-release-20261124-be1bb689-7-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/release-notes/10.4/whats-new/welcome-to-splunk-enterprise-10.4",
+      "section": "10.4 TLS 1.3 and legacy TLS availability; 10.4.2/10.4.3 UF warning; maintenance release headings",
+      "statement": "The Enterprise 10.4 release table describes a migration-only legacy TLS override while the upgrade section introduced in 10.4 describes removal. It does not settle an exact legacy connection posture.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-25T02:03:15.973Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "41ada3b0f0d4f1f88ea84b87f090932a3b633f64f20d9c0168685464d39751bf",
+        "qualification": "Public direct response digest."
+      }
+    },
+    {
+      "evidenceId": "vcia-release-20261124-be1bb689-7-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/install-and-upgrade/10.4/upgrade-or-migrate-splunk-enterprise/about-upgrading-to-10.4-read-this-first",
+      "section": "Splunk has removed support for versions 1.0 and 1.1 of TLS; Enterprise component, all operating systems, introduced 10.4",
+      "statement": "Compare this exact source section with the stated version, component and support limits.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-25T02:03:27.404Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "418e876217c0f1c99f997a072bff8b28bd3be82f38a58a0883500301a0faa585",
+        "qualification": "Public direct response digest."
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/a4761fbde81ca516451d0e3f3692c1415109ace5/docs/audits/2026-11-24-version-release-watch-review-82128859923030-sources.json",
+      "pointer": "/issueObservations/6",
+      "originalLabel": "still-present"
+    }
+  ]
+}

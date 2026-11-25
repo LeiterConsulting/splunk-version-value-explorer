@@ -771,7 +771,7 @@ test('November Observability service changes preserve feature-specific access an
   const result = rt.run('compare_routes', { routes: [route] });
   assert.equal(result.ok, true);
   const report = result.reports[0];
-  assert.equal(report.features.length, 4);
+  assert.equal(report.features.length, 5);
   assert.match(report.features.find(item => item.title === 'APM operation grouping').detail, /Administrators.*100 rules/);
   const resolved = report.features.find(item => item.title === 'Resolved alert history');
   assert.match(resolved.detail, /Controlled Availability.*us0, us1, au0, jp0, eu0, eu1 and eu2/);
@@ -781,4 +781,9 @@ test('November Observability service changes preserve feature-specific access an
   assert(report.readiness.some(item => item.title === 'Check service and telemetry prerequisites' && item.detail.includes('customer-managed Collector')));
   assert(report.sources.includes(resolved.source));
   assert(report.sources.includes(a2a.source));
+  const editions = report.features.find(item => item.title === 'Observability host-based editions');
+  assert.match(editions.detail, /Both host-based editions include Observability Logs, AI-assisted troubleshooting, and Agent Observability/);
+  assert.match(editions.detail, /Premier adds Database Monitoring.*RUM/);
+  assert.match(editions.detail, /does not establish tenant enablement, realm availability, or an instrumentation upgrade/);
+  assert(report.sources.includes(editions.source));
 });
