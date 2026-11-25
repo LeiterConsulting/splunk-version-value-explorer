@@ -59,6 +59,24 @@ jobs:
           sudo --preserve-env=GITHUB_ACTIONS node scripts/ci-ubuntu-transport.cjs --apply
           tools/export-verification/node_modules/.bin/playwright install --with-deps chromium
           sudo apt-get install -y poppler-utils
+      - name: Read Enterprise and SOAR issue rows
+        id: issues
+        if: "!cancelled() && matrix.owner == 'version-release-watch' && steps.install.outcome == 'success'"
+        run: |
+          tools/export-verification/node_modules/.bin/playwright install --with-deps webkit
+          node tools/export-verification/splunk-issue-tables.mjs --release-watch > release-issue-tables.jsonl || {
+            echo "::warning::Release issue retrieval is incomplete. Inspect each article in the source artifact before assessing its section."
+            exit 1
+          }
+        continue-on-error: true
+      - name: Retain per-article source evidence
+        if: "!cancelled() && (steps.issues.outcome == 'success' || steps.issues.outcome == 'failure')"
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-issue-tables-${{ github.run_id }}-${{ github.run_attempt }}
+          path: release-issue-tables.jsonl
+          if-no-files-found: error
+          retention-days: 30
       - name: Verify both hosts and exports
         if: "!cancelled() && steps.install.outcome == 'success'"
         env:
