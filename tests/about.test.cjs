@@ -8,7 +8,16 @@ test('About search, combined filters, sorting, empty results and reset retain th
  const context={window,document,history,location,URL,URLSearchParams,ResizeObserver:class{observe(){}}};
  vm.runInNewContext(fs.readFileSync('dist/source-register.js','utf8'),context);
  vm.runInNewContext(fs.readFileSync('dist/maintenance-status.js','utf8'),context);
+ window.VersionCompassDailyReviews = {date:'2026-11-24',sections:[
+  {title:'CSP availability',disposition:'assessed-no-change',reviewedOnDate:true},
+  {title:'Observability releases',disposition:'deferred',reviewedOnDate:true}
+ ]};
+ let dailySummary;
+ node('maintenance-outcomes').insertAdjacentHTML=(_,html)=>{dailySummary=html;};
  vm.runInNewContext(fs.readFileSync('dist/about.js','utf8'),context);
+ assert.match(dailySummary,/1 of 2 latest source reviews complete/);
+ assert.match(dailySummary,/Deferred \(reviewed earlier that day\)/);
+ assert.match(node('main').innerHTML,/owner reviews into GitHub daily at 6:15 a\.m\./);
  assert(node('maintenance-outcomes').innerHTML.includes('Last successful check'));
  assert(node('maintenance-outcomes').innerHTML.includes('Version Release Watch'));
  assert.equal(node('source-count').textContent,'Showing 20 of '+window.VersionCompassSources.sources.length+' sources');
