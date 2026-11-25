@@ -225,12 +225,15 @@ window.VersionCompassDailyReviews = {
       "id": "ai.regional-platform",
       "title": "SAIA and ITSI feature-specific region and regulated scope",
       "owner": "csp-fedramp-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
+      "disposition": "deferred",
+      "reviewedOnDate": false,
       "receipt": "docs/audits/2026-11-25-csp-fedramp-watch-review-197763746242154-coverage.json",
-      "followUp": null,
-      "lastAssessedAt": "2026-11-25T10:05:59.084606Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-25-csp-fedramp-watch-review-197763746242154-coverage.json"
+      "followUp": {
+        "owner": "csp-fedramp-watch",
+        "reviewBy": "2026-11-26"
+      },
+      "lastAssessedAt": "2026-11-25T01:26:18.756Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-24-csp-fedramp-watch-review-148410692413714-coverage.json"
     },
     {
       "id": "ai.regional-es",
@@ -423,12 +426,15 @@ window.VersionCompassDailyReviews = {
       "id": "cloud-environment.fedramp",
       "title": "FedRAMP Moderate and High boundaries",
       "owner": "csp-fedramp-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
+      "disposition": "deferred",
+      "reviewedOnDate": false,
       "receipt": "docs/audits/2026-11-25-csp-fedramp-watch-review-197763746242154-coverage.json",
-      "followUp": null,
-      "lastAssessedAt": "2026-11-25T10:03:39.252365Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-25-csp-fedramp-watch-review-197763746242154-coverage.json"
+      "followUp": {
+        "owner": "csp-fedramp-watch",
+        "reviewBy": "2026-11-26"
+      },
+      "lastAssessedAt": "2026-11-25T01:17:37.851216+00:00",
+      "lastAssessmentReceipt": "docs/audits/2026-11-24-csp-fedramp-watch-review-148410692413714-coverage.json"
     },
     {
       "id": "cloud-environment.product-services",
