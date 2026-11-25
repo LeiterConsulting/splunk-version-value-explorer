@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {chromium} from 'playwright';
 import {checkReaderSurface} from './reader-checks.mjs';
+import {checkReaderReport} from './reader-report.mjs';
 
 test('reader checks require the quoted text in its visible region and a usable citation', async () => {
   const browser = await chromium.launch();
@@ -16,4 +17,10 @@ test('reader checks require the quoted text in its visible region and a usable c
       await assert.rejects(checkReaderSurface(page,[{...proof,...change}]));
     }
   } finally {await browser.close();}
+});
+
+test('additional report citations must belong to the selected route', async () => {
+  const route = {id:'guide',sourceReadback:{urls:['https://help.splunk.com/editions']}};
+  const proof = {additionalCitationUrls:['https://help.splunk.com/unrelated']};
+  await assert.rejects(checkReaderReport(null,'',route,[proof],''),/documented on the selected route/);
 });

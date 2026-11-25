@@ -209,3 +209,5 @@ The [November 24 ES citation check](audits/2026-11-24-es-source-locator-recovery
 Public maintenance history shows the dates, outcomes and scope of reader-facing reviews. Check all historical entries as well as current summaries with `node scripts/record-maintenance.cjs --check`. The recorder and normal maintenance verification use the same rule. Keep execution identifiers in their appropriate diagnostic records.
 
 The [Threat Graph citation check](audits/2026-11-24-threat-graph-source-locator.json) records the official ES 8.8 topic move and its published prerequisites.
+
+For the November Observability SaaS guide, check the host-based edition comparison in the benefits list. Verify the edition qualification and direct Splunk comparison link in the saved HTML and PDF as well as the live guide.

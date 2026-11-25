@@ -8,6 +8,14 @@ import {checkReaderSurface} from './reader-checks.mjs';
 import {configureAdvisorRoute} from './advisor.mjs';
 
 export async function checkReaderReport(browser, host, route, proofs, directory) {
+  // A route may cite a specific product table in addition to its registered source.
+  // Verify the same public references on screen and in both downloaded formats.
+  const citations = proofs.flatMap(proof => {
+    const extra = proof.additionalCitationUrls ?? [];
+    assert(Array.isArray(extra) && extra.every(url => route.sourceReadback?.urls?.includes(url)),
+      'Additional citations must be documented on the selected route');
+    return [proof,...extra.map(sourceUrl => ({...proof,sourceUrl}))];
+  });
   const context = await browser.newContext({acceptDownloads:true});
   const offline = await browser.newContext({offline:true});
   try {
@@ -15,7 +23,7 @@ export async function checkReaderReport(browser, host, route, proofs, directory)
     await page.goto(host+'/?'+route.query);
     await page.waitForFunction(() => window.VersionCompassContent?.status !== 'loading' && typeof window.VersionCompassBuildSnapshot === 'function');
     await configureAdvisorRoute(page,route);
-    await checkReaderSurface(page,proofs);
+    await checkReaderSurface(page,citations);
     const downloadPromise = page.waitForEvent('download');
     await page.locator('.report-toolbar [data-save-snapshot]').click();
     const download = await downloadPromise;
@@ -23,7 +31,7 @@ export async function checkReaderReport(browser, host, route, proofs, directory)
     await download.saveAs(html);
     const reopened = await offline.newPage();
     await reopened.goto(pathToFileURL(html).href);
-    await checkReaderSurface(reopened,proofs,true);
+    await checkReaderSurface(reopened,citations,true);
     const pdf = path.join(directory, route.id + '.pdf');
     await page.bringToFront();
     await page.emulateMedia({media:'print'});
@@ -33,7 +41,7 @@ export async function checkReaderReport(browser, host, route, proofs, directory)
     const text = compact(execFileSync('pdftotext',['-raw',pdf,'-'],{encoding:'utf8'}));
     const urls = execFileSync('pdfinfo',['-url',pdf],{encoding:'utf8'}).split('\n')
       .map(line => line.trim().split(/\s+/)[2]);
-    for (const proof of proofs) {
+    for (const proof of citations) {
       assert(text.includes(compact(proof.reportAnswer || proof.answer)),'Printed answer missing for ' + proof.capabilityId + ' on ' + route.id + ': ' + (proof.reportAnswer || proof.answer));
       assert(urls.includes(proof.sourceUrl),'Printed citation missing for ' + proof.capabilityId + ' on ' + route.id + ': ' + proof.sourceUrl);
     }
