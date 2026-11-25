@@ -31,6 +31,8 @@ Use the dated saved configuration observed before each run, including when an ow
 
 When official sources disagree, identify the exact scope of the disagreement and test what readers see. A claim that the public authorities disagree can be checked against both passages. Keep an unsupported availability or entitlement decision open and record the remaining question. Independent field verification uses the published revision even when an owner has deferred part of its source review.
 
+For the Enterprise release guide, check the current download selector and the exact filenames for the named operating systems. Compare the four-segment package and build with the public readiness answer and its exports. The [November 24 package receipt](audits/2026-11-24-enterprise-download-selector.json) shows the separate origin results and public package header checks. A working older package URL alone cannot establish the current selection.
+
 ## 11.x Prep first pass
 
 Start with the eight `prep11.*` rows and the exact sections in the

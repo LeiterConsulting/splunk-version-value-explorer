@@ -1622,10 +1622,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-24T21:56:48.669386Z",
-      "lastSuccess": "2026-11-24T09:08:54.963409+00:00",
-      "outcome": "blocked",
-      "summary": "Reviewed public licensing, release notes, workflow and AI sources. The trial display and Threat Graph threshold corrections passed local checks and await exact-candidate validation.",
+      "lastAttempt": "2026-11-25T00:35:11.120064Z",
+      "lastSuccess": "2026-11-25T00:42:24.590Z",
+      "outcome": "no-change",
+      "summary": "Reviewed six ES sections and their public reports. Existing source conflicts and qualifications remain explicit.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -2375,9 +2375,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Reviewed public licensing, release notes, workflow and AI sources. The trial display and Threat Graph threshold corrections passed local checks and await exact-candidate validation.",
           "scope": "Six ES primary sections and both-domain reports. Four validated against public answers. Two reader corrections await acceptance."
+        },
+        {
+          "at": "2026-11-25T00:35:11.120064Z",
+          "outcome": "running",
+          "summary": "Reviewing ES licensing, release history, deployment, workflows and AI prerequisites.",
+          "scope": "The six registered ES review sections and their public reader answers."
+        },
+        {
+          "at": "2026-11-25T00:42:24.590Z",
+          "outcome": "no-change",
+          "summary": "Reviewed six ES sections and their public reports. Existing source conflicts and qualifications remain explicit.",
+          "scope": "Licensing, history, deployment, workflows, AI capabilities and SOC Advisor."
         }
       ],
-      "scope": "Six ES primary sections and both-domain reports. Four validated against public answers. Two reader corrections await acceptance."
+      "scope": "Licensing, history, deployment, workflows, AI capabilities and SOC Advisor."
     },
     {
       "id": "version-guidance-audit",
