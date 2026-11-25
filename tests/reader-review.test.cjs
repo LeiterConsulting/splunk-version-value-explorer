@@ -60,6 +60,9 @@ test('both actual public reports must match the same reviewed section and stewar
   const unboundRetry = {...entry,receipt:'different.json',matchesNativeAttempt:false};
   daily.sections[0].history.unshift(unboundRetry);
   assert.equal(review(evidence).scheduledVerifiedSections,1);
+  entry.supersededBy = 'new-owner-finding.json';
+  assert.equal(review(evidence).scheduledVerifiedSections,0);
+  delete entry.supersededBy;
   delete evidence.hosts[1].checks[0].pdfSha256;
   assert.equal(review(evidence).scheduledVerifiedSections,0);
   evidence.hosts[1].checks[0].pdfSha256 = 'b'.repeat(64);

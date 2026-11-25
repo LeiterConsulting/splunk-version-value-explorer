@@ -152,8 +152,8 @@ export function dailyReview(registry, receipts, day, runtime, previous = []) {
   const attempts = receipts.filter(({ run }) =>
     owners.has(run.watchId) && acceptedVersions.has(run.registryVersion) &&
     run.kind === 'saved-task-execution' && onDay(run.execution?.startedAt)
-  ).sort((a, b) => Date.parse(b.run.execution?.startedAt || b.run.recordedAt) - Date.parse(a.run.execution?.startedAt || a.run.recordedAt)
-    || Date.parse(b.run.recordedAt) - Date.parse(a.run.recordedAt));
+  ).sort((a, b) => compareInstants(b.run.execution?.startedAt || b.run.recordedAt, a.run.execution?.startedAt || a.run.recordedAt)
+    || compareInstants(b.run.recordedAt,a.run.recordedAt));
   const sections = registry.capabilities.filter(cap => cap.mandatory && owners.has(cap.primaryOwner)).map(cap => {
     const owner = cap.primaryOwner;
     const watches = observations.flatMap(o => o.watches.filter(w => w.watchId === owner));
@@ -178,12 +178,20 @@ export function dailyReview(registry, receipts, day, runtime, previous = []) {
       const originTimes = result.ownerReaderTimes?.[cap.id];
       const readerCheckedDuringAttempt = proofs.length > 0 && proofs.every(proof => inAttempt(proof.checkedAt)) &&
         Array.isArray(originTimes) && originTimes.length === proofs.length * 2 && originTimes.every(inAttempt);
-      return { freshSources, readerCheckedDuringAttempt, runId: run.runId, registryVersion: run.registryVersion, receipt: result.file, disposition: row.disposition, assessedAt: row.assessedAt,
+      const assessedDeferral = ['deferred','blocked','failed'].includes(row.disposition) && result.boundAttempt === true &&
+        inAttempt(row.assessedAt) && Array.isArray(row.assessments) && row.assessments.some(claim => inAttempt(claim.assessedAt));
+      return { freshSources, readerCheckedDuringAttempt, assessedDeferral, runId: run.runId, registryVersion: run.registryVersion, receipt: result.file, disposition: row.disposition, assessedAt: row.assessedAt,
         reviewedToday, readerChecks: proofs.map(proof => ({id:proofId(proof), routeId:proof.routeId, checkedAt:proof.checkedAt})), matchesNativeAttempt: watches.length ? !!watch : null,
         followUp: row.followUp || null };
     }).filter(Boolean);
+    // An owner's new assessment can reopen a previously verified section. Keep the
+    // earlier receipt in history. Untouched sections in a targeted retry stay eligible.
+    const reopened = history.findIndex(entry => entry.assessedDeferral);
+    if (reopened !== -1) {
+      for (const older of history.slice(reopened + 1)) older.supersededBy = history[reopened].receipt;
+    }
     const reviewedToday = history.some(entry => entry.reviewedToday);
-    const matched = history.some(entry => entry.reviewedToday && entry.matchesNativeAttempt === true);
+    const matched = history.some(entry => !entry.supersededBy && entry.reviewedToday && entry.matchesNativeAttempt === true);
     return { capabilityId: cap.id, section: cap.title, owner, reviewedToday, nativeReviewMatched: watches.length ? matched : null,
       latestDisposition: history[0]?.disposition || 'missing-receipt', history };
   });
@@ -204,7 +212,7 @@ export function summarizeReaderDelivery(report, site, daily, now = Date.now()) {
   const hosts = publicHosts.map(host => report.hosts.filter(row => row.host === host));
   if (hosts.some(matches => matches.length !== 1 || !Array.isArray(matches[0].checks) || !Array.isArray(matches[0].issues))) return unknown('Missing or duplicate public host');
   function verifiedEntry(section, entry, scheduled = false) {
-    if (!entry.reviewedToday || !entry.readerChecks?.length) return false;
+    if (entry.supersededBy || !entry.reviewedToday || !entry.readerChecks?.length) return false;
     if (scheduled && (entry.matchesNativeAttempt !== true || entry.freshSources !== true || entry.readerCheckedDuringAttempt !== true)) return false;
     return entry.readerChecks.every(expected => hosts.every(([host]) => host.checks.some(check =>
       check.routeId === expected.routeId && check.status === 'passed' &&

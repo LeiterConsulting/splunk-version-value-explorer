@@ -186,6 +186,29 @@ test('daily coverage preserves earlier work and refuses cross-owner, stale and m
   assert.equal(dailyReview(registry,receipts,day,latest,[prior,wrongClock]).nativeReviewMatched,0);
 });
 
+test('a current owner assessment reopens an earlier pass until a later matching review closes it', async () => {
+  const {dailyReview} = await import('../scripts/pipeline-status.mjs');
+  const owner = 'version-release-watch', date = '2026-11-24';
+  const registry = {registryVersion:'1.5.2',capabilities:[{id:'guide',title:'Guide',mandatory:true,primaryOwner:owner}]};
+  function occurrence(hour,disposition) {
+    const at = date+'T'+hour+':15:00Z', id = 'review-'+hour;
+    const row = {capabilityId:'guide',disposition,assessedAt:at,assessments:[{assessedAt:at}]};
+    const run = {runId:id,kind:'saved-task-execution',watchId:owner,registryVersion:'1.5.2',recordedAt:at,execution:{startedAt:at,completedAt:at},coverage:[row]};
+    const watch = {watchId:owner,matchingReceiptIds:[id],attempt:{startedAt:at,completedAt:at}};
+    return {receipt:{run,result:{boundAttempt:true,file:id+'.json'}},snapshot:{watches:[watch]}};
+  }
+  const first=occurrence('12','assessed-no-change'), second=occurrence('13','deferred'), third=occurrence('14','changed');
+  const check=(...rs)=>dailyReview(registry,rs.map(r=>r.receipt),date,rs.at(-1).snapshot,rs.slice(0,-1).map(r=>r.snapshot)).sections[0];
+  let current=check(first,second);
+  assert.equal(current.nativeReviewMatched,false);
+  assert.equal(current.history[1].supersededBy,'review-13.json');
+  assert.equal(check(first,second,third).nativeReviewMatched,true);
+  second.receipt.run.coverage[0].assessments=[];
+  current=check(first,second);
+  assert.equal(current.nativeReviewMatched,true);
+  assert.equal(current.history[1].supersededBy,undefined);
+});
+
 test('scheduled source credit ends at the native completion even if an owner receipt was written later', async () => {
   const { dailyReview } = await import('../scripts/pipeline-status.mjs');
   const watchId = 'csp-fedramp-watch', day = '2026-11-24';
