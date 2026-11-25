@@ -125,7 +125,18 @@ export function latestWatchReceipts(registryVersion, receipts, today) {
   return [...latestByWatch.values()].map(value => value.receipt);
 }
 // Receipts are structurally validated by the coverage gate before this projection.
-export function dailyReview(registry, receipts, day, runtime) {
+export function dailyReview(registry, receipts, day, runtime, previous = []) {
+  const observations = [runtime,...previous].filter(Boolean);
+  const sameClock = (a,b) => a === b || compareInstants(a,b) === 0;
+  const taskByOccurrence = new Map(), conflicts = new Set();
+  for (const observation of observations) {
+    for (const role of [...observation.watches,...(observation.operational?.roles || [])]) {
+      if (!role.schedulerRunId || !role.taskId) continue;
+      const owner = taskByOccurrence.get(role.schedulerRunId);
+      if (owner && owner !== role.taskId) conflicts.add(role.schedulerRunId);
+      taskByOccurrence.set(role.schedulerRunId,role.taskId);
+    }
+  }
   const onDay = value => Number.isFinite(Date.parse(value)) && easternDate.format(Date.parse(value)) === day;
   const owners = new Set(['version-release-watch', 'es-editions-watch', 'csp-fedramp-watch']);
   const version = registry.readerReview && day < registry.readerReview.effectiveOn ? registry.readerReview.previousRegistryVersion : registry.registryVersion;
@@ -145,10 +156,15 @@ export function dailyReview(registry, receipts, day, runtime) {
     || Date.parse(b.run.recordedAt) - Date.parse(a.run.recordedAt));
   const sections = registry.capabilities.filter(cap => cap.mandatory && owners.has(cap.primaryOwner)).map(cap => {
     const owner = cap.primaryOwner;
-    const watch = runtime?.watches?.find(w => w.watchId === owner);
+    const watches = observations.flatMap(o => o.watches.filter(w => w.watchId === owner));
     const history = attempts.filter(({ run }) => run.watchId === owner).map(({ run, result }) => {
       const row = run.coverage.find(entry => entry.capabilityId === cap.id);
       if (!row) return null;
+      const matches = watches.filter(w => [w.matchingReceiptIds,w.verifiedReviewReceiptIds].some(ids => ids?.includes(run.runId)));
+      const first = matches[0];
+      const contradictory = matches.some(w => w.schedulerRunId !== first.schedulerRunId ||
+        !sameClock(w.attempt?.startedAt,first.attempt?.startedAt) || !sameClock(w.attempt?.completedAt,first.attempt?.completedAt));
+      const watch = !contradictory && !conflicts.has(run.execution?.schedulerRunId) ? first : null;
       const reviewedToday = ['changed', 'assessed-no-change'].includes(row.disposition) && onDay(row.assessedAt)
         && row.assessments.length > 0 && row.assessments.every(claim => onDay(claim.assessedAt));
       const inAttempt = t => onDay(t) &&
@@ -163,12 +179,12 @@ export function dailyReview(registry, receipts, day, runtime) {
       const readerCheckedDuringAttempt = proofs.length > 0 && proofs.every(proof => inAttempt(proof.checkedAt)) &&
         Array.isArray(originTimes) && originTimes.length === proofs.length * 2 && originTimes.every(inAttempt);
       return { freshSources, readerCheckedDuringAttempt, runId: run.runId, registryVersion: run.registryVersion, receipt: result.file, disposition: row.disposition, assessedAt: row.assessedAt,
-        reviewedToday, readerChecks: proofs.map(proof => ({id:proofId(proof), routeId:proof.routeId, checkedAt:proof.checkedAt})), matchesNativeAttempt: watch ? [watch.matchingReceiptIds,watch.verifiedReviewReceiptIds].some(ids => ids?.includes(run.runId)) : null,
+        reviewedToday, readerChecks: proofs.map(proof => ({id:proofId(proof), routeId:proof.routeId, checkedAt:proof.checkedAt})), matchesNativeAttempt: watches.length ? !!watch : null,
         followUp: row.followUp || null };
     }).filter(Boolean);
     const reviewedToday = history.some(entry => entry.reviewedToday);
     const matched = history.some(entry => entry.reviewedToday && entry.matchesNativeAttempt === true);
-    return { capabilityId: cap.id, section: cap.title, owner, reviewedToday, nativeReviewMatched: watch ? matched : null,
+    return { capabilityId: cap.id, section: cap.title, owner, reviewedToday, nativeReviewMatched: watches.length ? matched : null,
       latestDisposition: history[0]?.disposition || 'missing-receipt', history };
   });
   return { date: day, timeZone: 'America/New_York', registryVersion: version, sections,
@@ -233,13 +249,22 @@ async function main(args) {
     if (!args[taskIndex + 1]) throw Error('--tasks requires a retained supported native snapshot');
     tasks = JSON.parse(fs.readFileSync(args[taskIndex + 1])); args.splice(taskIndex, 2);
   }
+  const previousTasks = [];
+  let priorIndex;
+  while ((priorIndex = args.indexOf('--prior-owner-tasks')) >= 0) {
+    if (!tasks || !args[priorIndex + 1]) throw Error('--prior-owner-tasks requires a current --tasks snapshot and an earlier native snapshot');
+    const prior = JSON.parse(fs.readFileSync(args[priorIndex + 1]));
+    if (!(compareInstants(prior.observedAt,tasks.observedAt) <= 0)) throw Error('Owner history was observed after the current task snapshot');
+    previousTasks.push(prior);
+    args.splice(priorIndex,2);
+  }
   let head, runs;
   if (args.length === 2 && args[0] === '--snapshot') { const snapshot = JSON.parse(fs.readFileSync(args[1])); head = snapshot.main; runs = snapshot.workflow_runs; }
   else if (args.length === 0) {
     const api = 'https://api.github.com/repos/' + repository;
     const [branch, recent] = await Promise.all([read(api + '/git/ref/heads/main'), read(api + '/actions/runs?per_page=100')]);
     head = branch.object.sha; runs = recent.workflow_runs;
-  } else throw Error('Usage: node scripts/pipeline-status.mjs [--snapshot FILE] [--tasks FILE] [--sites-evidence FILE] [--reader-evidence FILE] [--publisher-outcome FILE]');
+  } else throw Error('Usage: node scripts/pipeline-status.mjs [--snapshot FILE] [--tasks FILE] [--prior-owner-tasks FILE] [--sites-evidence FILE] [--reader-evidence FILE] [--publisher-outcome FILE]');
   const result = summarize(head, runs, publisherEvidence), coverage = require('./lib/automation-coverage.cjs').check();
   const now = Date.now(), today = easternDate.format(now);
   const sourceCommit = sitesEvidence?.steward?.sourceCommit;
@@ -259,12 +284,14 @@ async function main(args) {
   const receipts = coverage.runs.map(result => ({ result, run: JSON.parse(fs.readFileSync(result.file)) }));
   const executions = latestWatchReceipts(coverage.registryVersion, receipts, today);
   const registry = JSON.parse(fs.readFileSync('content/automation-coverage.json'));
-  const runtime = tasks ? require('./lib/task-runtime.cjs').inspect(tasks, {
+  const context = {
     registry,
     ledger: JSON.parse(fs.readFileSync('content/automation-amendments.json')),
     runs: receipts.map(({ result: { coverageComplete, deliveryComplete, boundAttempt }, run }) => ({ ...run, coverageComplete, deliveryComplete, boundAttempt }))
-  }) : null;
-  const daily = dailyReview(registry, receipts, today, runtime);
+  };
+  const {inspect} = require('./lib/task-runtime.cjs');
+  const runtime = tasks ? inspect(tasks,context) : null;
+  const daily = dailyReview(registry, receipts, today, runtime, previousTasks.map(prior => inspect(prior,context)));
   const readerDelivery = summarizeReaderDelivery(readerEvidence, siteDelivery, daily, now);
   const advisor = require('./advisor-maintenance.cjs').reviewDecisions(new Date(now).toISOString());
   const readiness = watchReadiness(coverage.registryVersion, executions, runtime), operations = operationalReadiness(runtime);

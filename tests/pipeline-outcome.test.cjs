@@ -177,6 +177,13 @@ test('daily coverage preserves earlier work and refuses cross-owner, stale and m
   assert.equal(summary.sections[1].reviewedToday, false);
   summary = dailyReview(registry, receipts, day, { watches: [{ watchId: release, matchingReceiptIds: ['first'] }] });
   assert.equal(summary.nativeReviewMatched, 1);
+  const latest = {watches:[{watchId:release,matchingReceiptIds:['retry']}]};
+  const prior = {watches:[{watchId:release,matchingReceiptIds:['first']}]};
+  summary = dailyReview(registry,receipts,day,latest,[prior]);
+  assert.equal(summary.nativeReviewMatched,1);
+  assert.equal(summary.sections[0].latestDisposition,'deferred');
+  const wrongClock = {watches:[{watchId:release,matchingReceiptIds:['first'],attempt:{completedAt:today}}]};
+  assert.equal(dailyReview(registry,receipts,day,latest,[prior,wrongClock]).nativeReviewMatched,0);
 });
 
 test('scheduled source credit ends at the native completion even if an owner receipt was written later', async () => {
