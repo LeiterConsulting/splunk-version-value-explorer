@@ -25,14 +25,17 @@ export async function checkReaderReport(browser, host, route, proofs, directory)
     await reopened.goto(pathToFileURL(html).href);
     await checkReaderSurface(reopened,proofs,true);
     const pdf = path.join(directory, route.id + '.pdf');
+    await page.bringToFront();
+    await page.emulateMedia({media:'print'});
+    await page.evaluate(() => document.fonts.ready.then(() => true));
     await page.pdf({path:pdf,printBackground:true,preferCSSPageSize:true});
     const compact = text => text.replace(/\s+/g,'').toLowerCase();
     const text = compact(execFileSync('pdftotext',['-raw',pdf,'-'],{encoding:'utf8'}));
     const urls = execFileSync('pdfinfo',['-url',pdf],{encoding:'utf8'}).split('\n')
       .map(line => line.trim().split(/\s+/)[2]);
     for (const proof of proofs) {
-      assert(text.includes(compact(proof.reportAnswer || proof.answer)),'Printed answer missing');
-      assert(urls.includes(proof.sourceUrl),'Printed citation missing');
+      assert(text.includes(compact(proof.reportAnswer || proof.answer)),'Printed answer missing for ' + proof.capabilityId + ' on ' + route.id + ': ' + (proof.reportAnswer || proof.answer));
+      assert(urls.includes(proof.sourceUrl),'Printed citation missing for ' + proof.capabilityId + ' on ' + route.id + ': ' + proof.sourceUrl);
     }
     const sha256 = file => createHash('sha256').update(fs.readFileSync(file)).digest('hex');
     return {checkedAt:new Date().toISOString(), htmlSha256:sha256(html), pdfSha256:sha256(pdf)};

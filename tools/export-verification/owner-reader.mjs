@@ -93,6 +93,19 @@ async function checkOrigin(target, inputs, expected = manifest) {
       } catch (error) {
         result.status = 'failed';
         result.error = error.message;
+        const failureDirectory = process.env.VC_OWNER_FAILURE_DIR;
+        if (failureDirectory && hosts.includes(target)) {
+          const prefix = path.join(url.hostname,route.id);
+          for (const extension of ['html','pdf']) {
+            const filename = path.join(directory,route.id + '.' + extension);
+            if (!fs.existsSync(filename)) continue;
+            const relative = prefix + '.' + extension;
+            const retained = path.join(failureDirectory,relative);
+            fs.mkdirSync(path.dirname(retained),{recursive:true});
+            fs.copyFileSync(filename,retained);
+            (result.failedReports ||= []).push(relative);
+          }
+        }
         process.exitCode = 1;
       }
     }
