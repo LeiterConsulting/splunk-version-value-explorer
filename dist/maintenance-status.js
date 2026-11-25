@@ -706,10 +706,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-24T18:58:35Z",
+      "lastAttempt": "2026-11-24T23:50:06.652615Z",
       "lastSuccess": "2026-11-21T19:40:05.303Z",
       "outcome": "blocked",
-      "summary": "Scoped review and ITSI correction prepared; see the dated source and coverage receipts for incomplete sections and validation.",
+      "summary": "Public reader checks passed for the deployed revision. Four Release Guide paths retain open itemized issue evidence.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1603,9 +1603,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Scoped review and ITSI correction prepared; see the dated source and coverage receipts for incomplete sections and validation.",
           "scope": "Registry 1.5.1: 22 assessed unchanged, one ITSI correction, 4 primary gaps and supporting SOC deferred."
+        },
+        {
+          "at": "2026-11-24T23:50:06.652615Z",
+          "outcome": "running",
+          "summary": "Reviewing current release evidence and the public report answers.",
+          "scope": "AI discovery, Prep for Splunk 11.x, Exact Releases, Advisor and the nine Release Guide paths."
+        },
+        {
+          "at": "2026-11-25T00:06:43.629Z",
+          "outcome": "blocked",
+          "summary": "Public reader checks passed for the deployed revision. Four Release Guide paths retain open itemized issue evidence.",
+          "scope": "AI discovery and capabilities, Prep for Splunk 11.x, Exact Releases, Advisor and the nine Release Guide paths."
         }
       ],
-      "scope": "Registry 1.5.1: 22 assessed unchanged, one ITSI correction, 4 primary gaps and supporting SOC deferred."
+      "scope": "AI discovery and capabilities, Prep for Splunk 11.x, Exact Releases, Advisor and the nine Release Guide paths."
     },
     {
       "id": "es-editions-watch",
