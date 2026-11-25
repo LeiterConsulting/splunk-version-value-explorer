@@ -421,7 +421,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-07T13:01:59.243Z",
           "outcome": "blocked",
-          "summary": "Reviewed regional and authorization evidence. Exact runtime delivery requires a separate verified candidate.",
+          "summary": "Reviewed regional and authorization evidence. Public delivery still needed verification.",
           "scope": "51 public URLs, 17 bounded claim groups and one assessed Registry 1.2.0 SOC disposition. Moderate component listing unresolved."
         },
         {
@@ -602,19 +602,19 @@ window.VersionCompassMaintenance = {
           "at": "2026-11-20T13:04:41Z",
           "outcome": "blocked",
           "summary": "Partial later review: provider-region assessed no-change; seven families require their own remaining section assessments.",
-          "scope": "67 substantive source bodies and six blocked paths; earlier same-day receipts retained separately; native feed concurrency and production selection remain open."
+          "scope": "67 substantive source bodies and six blocked paths; feed updates and public delivery remain pending."
         },
         {
           "at": "2026-11-21T12:05:48.252051Z",
           "outcome": "running",
           "summary": "Protected four Cloud Environment reviews and full official source inventory.",
-          "scope": "Own CSP review; exact region/experience/service evidence, no inferred authorization. Five deferred scopes plus blocked ACS correction; source/claim dates unchanged outside actual receipt; no runtime delivery."
+          "scope": "Own CSP review; exact region/experience/service evidence, no inferred authorization. Five deferred scopes plus blocked ACS correction; other claims retain their earlier review dates. Public delivery still needed verification."
         },
         {
           "at": "2026-11-21T12:10:22.188Z",
           "outcome": "blocked",
           "summary": "Partial review: new ACS High/Victoria source contradiction; two scopes assessed unchanged and six incomplete.",
-          "scope": "Own CSP review; exact region/experience/service evidence, no inferred authorization. Five deferred scopes plus blocked ACS correction; source/claim dates unchanged outside actual receipt; no runtime delivery."
+          "scope": "Own CSP review; exact region/experience/service evidence, no inferred authorization. Five deferred scopes plus blocked ACS correction; other claims retain their earlier review dates. Public delivery still needed verification."
         },
         {
           "at": "2026-11-21T19:24:00.681312+00:00",
@@ -1494,7 +1494,7 @@ window.VersionCompassMaintenance = {
           "at": "2026-11-21T19:40:05.303Z",
           "outcome": "changed",
           "summary": "Prepared four qualified November Observability records, two independently checked HF mappings and five scoped feed reassessments.",
-          "scope": "Bounded candidate review only. Registry1.4 records28 dispositions with seven incomplete scopes. GitHub validation/integration and sole-coordinator runtime delivery remain separate."
+          "scope": "The review recorded 28 outcomes. Seven scopes remained incomplete, and public delivery still needed verification."
         },
         {
           "at": "2026-11-22T21:49:07Z",
@@ -1996,13 +1996,13 @@ window.VersionCompassMaintenance = {
           "at": "2026-11-03T11:02:17.186Z",
           "outcome": "running",
           "summary": "ES edition and SOC prerequisite review in progress",
-          "scope": "38 source scopes/37 exact official URLs;14 claim groups; exact SOC Cloud/CMP/permissions/runtime and App/Export scope. Native feed and publication separately recorded."
+          "scope": "38 source scopes/37 exact official URLs;14 claim groups; exact SOC Cloud/CMP/permissions/runtime and App/Export scope. The public issue feed and publication were recorded separately."
         },
         {
           "at": "2026-11-03T11:02:17.269Z",
           "outcome": "no-change",
           "summary": "Fourteen scoped ES/SOAR claim groups preserved; no canonical correction supported.",
-          "scope": "38 source scopes/37 exact official URLs;14 claim groups; exact SOC Cloud/CMP/permissions/runtime and App/Export scope. Native feed and publication separately recorded."
+          "scope": "38 source scopes/37 exact official URLs;14 claim groups; exact SOC Cloud/CMP/permissions/runtime and App/Export scope. The public issue feed and publication were recorded separately."
         },
         {
           "at": "2026-11-03T11:09:50.641Z",
@@ -2260,7 +2260,7 @@ window.VersionCompassMaintenance = {
           "at": "2026-11-20T11:02:26.095573Z",
           "outcome": "running",
           "summary": "Reviewing the full ES Editions inventory and registry 1.4.0 daily edition and AI capability scope.",
-          "scope": "73 public URLs; all six ES registry capabilities; four ES Editions daily rows; five named ES AI capabilities; coordinator-only runtime boundary."
+          "scope": "73 public URLs; all six ES registry capabilities; four ES Editions daily rows; five named ES AI capabilities."
         },
         {
           "at": "2026-11-20T11:34:42.837Z",
@@ -2271,7 +2271,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-21T18:08:31.176Z",
           "outcome": "running",
-          "summary": "Independent ES source assessment and current-attempt reconciliation in progress.",
+          "summary": "Independent ES source assessment in progress.",
           "scope": "Six registry 1.4.0 ES scopes; named AI capabilities; exact Triage credit/revision source conflict."
         },
         {
@@ -2301,7 +2301,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-22T19:10:19.479Z",
           "outcome": "no-change",
-          "summary": "Fresh six-section ES recovery assessment; original morning timeline and current attempt kept distinct. No product fact changes.",
+          "summary": "Follow-up review covered six ES sections. No product fact changes.",
           "scope": "Registry 1.4.0: four ES Editions sections, five individual ES AI capabilities and Advisor SOC. Three issue reassessments await immutable recovery provenance; review completion and public delivery were unconfirmed."
         },
         {
@@ -2343,13 +2343,13 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-24T09:31:58.342334Z",
           "outcome": "running",
-          "summary": "Distinct ES second attempt: six primary sections and ten named families assessed; nine observations retain qualified vendor conflicts. Candidate held for exact validation/export/integration.",
+          "summary": "Follow-up ES review: six primary sections and ten named families assessed; nine observations retain qualified vendor conflicts. Candidate held for exact validation/export/integration.",
           "scope": "Registry1.4.0 licensing,history,deployment,workflows,five ES AI records and Advisor SOC; no claim dates advanced; no Site publication."
         },
         {
           "at": "2026-11-24T09:37:23.026047Z",
           "outcome": "blocked",
-          "summary": "Distinct ES second attempt: six primary sections and ten named families assessed; nine observations retain qualified vendor conflicts. Candidate held for exact validation/export/integration.",
+          "summary": "Follow-up ES review: six primary sections and ten named families assessed; nine observations retain qualified vendor conflicts. Candidate held for exact validation/export/integration.",
           "scope": "Registry1.4.0 licensing,history,deployment,workflows,five ES AI records and Advisor SOC; no claim dates advanced; no Site publication."
         },
         {
@@ -2426,7 +2426,7 @@ window.VersionCompassMaintenance = {
           "at": "2026-10-01T12:53:15Z",
           "outcome": "changed",
           "summary": "Added source-backed Enterprise and Cloud 10.6 guidance, exact ES/ITSI host pairings and Universal Forwarder 10.6 paths while preserving unknown Enterprise/HF paths, receiver gaps, current Cloud 10.5 pairing and support-date uncertainty.",
-          "scope": "Audited integrated Platform, migration, ES, ITSI, Observability, ES Editions, Cloud Environment, About/source register and UF/HF routes; checked 10.6 release, upgrade, OS, compatibility and current Cloud pairing evidence; validated exact URLs, source mappings, shared reports, snapshots, print expansion and read-only WebMCP structurally. Native local browser/PDF execution was unavailable because the browser daemon and runtime binary could not start."
+          "scope": "Audited integrated Platform, migration, ES, ITSI, Observability, ES Editions, Cloud Environment, About/source register and UF/HF routes; checked 10.6 release, upgrade, OS, compatibility and current Cloud pairing evidence; validated exact URLs, source mappings, shared reports, snapshots, print expansion and read-only WebMCP structurally. Browser and PDF checks were unavailable."
         },
         {
           "at": "2026-10-01T20:06:02.643887+00:00",
@@ -2528,13 +2528,13 @@ window.VersionCompassMaintenance = {
           "at": "2026-11-02T13:34:09.040Z",
           "outcome": "running",
           "summary": "Independent integrated guidance audit in progress.",
-          "scope": "Complete registered official-source inventory change check; bounded consequential claim and generated mapping review; report, native feed and publication evidence."
+          "scope": "Complete registered official-source inventory change check; bounded consequential claim and generated mapping review; report, public issue feed and publication evidence."
         },
         {
           "at": "2026-11-02T13:48:56.380Z",
           "outcome": "changed",
           "summary": "Independent audit corrected current ES Triage and SOAR Broker HA scope; historical evidence and unknowns preserved.",
-          "scope": "215 exact registered source URLs checked (213 retrieved); 15 bounded claim groups, all ten AI capability/source chains, 18 borrowed HF mappings/900 routes, genuine before/after regressions; native feed and exact candidate delivery separately recorded."
+          "scope": "215 exact registered source URLs checked (213 retrieved); 15 bounded claim groups, all ten AI capability/source chains, 18 borrowed HF mappings/900 routes, genuine before/after regressions; public issue feed and delivery checks recorded separately."
         },
         {
           "at": "2026-11-02T14:04:21.578Z",
