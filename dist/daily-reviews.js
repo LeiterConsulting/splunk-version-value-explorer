@@ -272,15 +272,12 @@ window.VersionCompassDailyReviews = {
       "id": "release-guide.cloud",
       "title": "Splunk Cloud Platform milestones",
       "owner": "version-release-watch",
-      "disposition": "deferred",
-      "reviewedOnDate": false,
+      "disposition": "assessed-no-change",
+      "reviewedOnDate": true,
       "receipt": "docs/audits/2026-11-24-version-release-watch-review-102644420306273-coverage.json",
-      "followUp": {
-        "owner": "version-release-watch",
-        "reviewBy": "2026-11-25"
-      },
-      "lastAssessedAt": "2026-11-23T00:58:27.227Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-22-version-release-watch-review-3-coverage.json"
+      "followUp": null,
+      "lastAssessedAt": "2026-11-25T03:07:35.157Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-24-version-release-watch-review-102644420306273-coverage.json"
     },
     {
       "id": "release-guide.enterprise-to-cloud",
@@ -297,15 +294,12 @@ window.VersionCompassDailyReviews = {
       "id": "release-guide.es",
       "title": "Enterprise Security release path",
       "owner": "version-release-watch",
-      "disposition": "deferred",
-      "reviewedOnDate": false,
+      "disposition": "assessed-no-change",
+      "reviewedOnDate": true,
       "receipt": "docs/audits/2026-11-24-version-release-watch-review-102644420306273-coverage.json",
-      "followUp": {
-        "owner": "version-release-watch",
-        "reviewBy": "2026-11-25"
-      },
-      "lastAssessedAt": "2026-11-23T00:58:27.227Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-22-version-release-watch-review-3-coverage.json"
+      "followUp": null,
+      "lastAssessedAt": "2026-11-25T03:07:35.160Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-24-version-release-watch-review-102644420306273-coverage.json"
     },
     {
       "id": "release-guide.itsi",
