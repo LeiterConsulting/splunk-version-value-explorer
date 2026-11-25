@@ -77,9 +77,9 @@
     },
     "candidate": {
       "schemaVersion": 1,
-      "revision": "content-48d551fb872a516bd97d71b4",
+      "revision": "content-68e5440e84bffadaed80a094",
       "digest": "15ddae8ba4b5a30c2b70e1aa243b2495d72d21f25fcedc85de5d5957590556b9",
-      "engineRevision": "engine-96fc2ce6110c59e966cb",
+      "engineRevision": "engine-d4b025c7039f51d50421",
       "datasetHashes": {
         "platform": "fdbd99be962a7f97614dc3d55d60d1fd9d5ff1ef6c519724ceeaab24131b084d",
         "products": "bbc6315ec213a9df34b9b52989260b8948c43ee35af1152d8c02236a9ff744d6",
@@ -96,66 +96,362 @@
     }
   },
   "outcome": "partial",
-  "batch": "first",
+  "batch": "complete",
   "ownedTotals": {
-    "deferred": 6
+    "assessed-no-change": 6
   },
   "scopeOutcomes": [
     {
       "capabilityId": "advisor.soc-workflow",
-      "disposition": "deferred",
-      "qualification": "The registered claim-family comparison remains open. Exact source passages still required for aiEsAgents88, aiEsEditions, aiEsRegions88, aiEsRelease88, aiEsSocTask87, aiEsSocTask88, aiEsTriageNote88, aiSaiaInstall. The registered answer and official citation have not passed screen, downloaded offline HTML and real PDF on both public origins at the same revision.",
+      "disposition": "assessed-no-change",
+      "qualification": "The 8.8 aggregate Triage/Response compatibility requires Premier, paired SOAR and Platform 10.2+ with ES 8.6+ on Cloud. The current linked Triage and Autonomous Response guides specify ES 8.7+, retaining the higher detailed minimum. The parent 8.8 setup guide now describes 200 analyses per tenant per day and 20 revisions per investigation; the linked Triage guide still limits coverage to existing/first ten findings and no rerun. Response remains Controlled Availability, Cloud-only in its availability column beside CMP compatibility bullets, and only frontier models are supported. Asset-role and connector/action permissions remain essential. The older 8.7 setup, SAIA 2.3.6 installer and regional/edition tables were checked within their own historical/product scope. No exact pairing, regional rollout or tenant authorization is inferred.",
       "discoveredAt": null,
-      "retrievedAt": null,
-      "assessedAt": null,
+      "retrievedAt": "2026-11-25T00:37:25.534607Z",
+      "assessedAt": "2026-11-25T00:41:19.675Z",
       "publishedAt": null,
-      "liveVerifiedAt": null,
-      "retrievals": [],
-      "assessments": [],
-      "publicOriginEvidence": [],
-      "lastVerifiedEvidence": {
-        "receipt": "docs/audits/2026-11-24-es-editions-watch-review-5-coverage.json",
-        "assessedAt": "2026-11-24T22:03:36.692891+00:00",
-        "disposition": "assessed-no-change"
-      },
-      "followUp": {
-        "owner": "es-editions-watch",
-        "reviewBy": "2026-11-25",
-        "action": "Recheck the missing official sections and finish the registered reader and report verification for Untangle ES AI SOC requirements. "
+      "liveVerifiedAt": "2026-11-25T00:40:17.785Z",
+      "retrievals": [
+        {
+          "sourceId": "aiEsAgents88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T00:37:06.462064Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security | Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note | direct HTTP 200 | 197012 bytes | SHA-256 9f8a1c4df882cb73a4479175759e8628ccc963928a4f27da5c199e7f970cc3b7"
+        },
+        {
+          "sourceId": "aiEsSocTask88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T00:37:21.085293Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security | Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions | direct HTTP 200 | 183835 bytes | SHA-256 884ad6537c9ff06c7c74d62b09a81553595482845f257728013c0ed0c5fc7cd1"
+        },
+        {
+          "sourceId": "aiEsSocTask87",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T00:37:25.534607Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security | Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions | direct HTTP 200 | 191695 bytes | SHA-256 cdaa4eb3bf606004b1586f282250171553ebeb747236feaa63be801a7b3b8ba5"
+        },
+        {
+          "sourceId": "aiEsRelease88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T00:36:52.190109Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security | ES 8.8 Controlled Availability | direct HTTP 200 | 217589 bytes | SHA-256 32f028113f355313c78ca01a8ec0c9aae5d852511bdadfbeded6f65bb5967dbc"
+        },
+        {
+          "sourceId": "aiEsTriageNote88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T00:37:06.462064Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security | SOC analyst Triage/Response note; aggregate AI SOC Analyst availability row | direct HTTP 200 | 197012 bytes | SHA-256 9f8a1c4df882cb73a4479175759e8628ccc963928a4f27da5c199e7f970cc3b7"
+        },
+        {
+          "sourceId": "aiSaiaInstall",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T00:37:25.434252Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers | FedRAMP deployments; supported regions; version compatibility | direct HTTP 200 | 183789 bytes | SHA-256 b6084bf506ebfad733403ab6eea02fbc2e85e02b794a8d509fd1f173e20be341"
+        },
+        {
+          "sourceId": "aiEsRegions88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T00:36:57.547879Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability | Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility | direct HTTP 200 | 239067 bytes | SHA-256 2bc6492864d32b305f7a08cbba897dcb465e480cc77ae32aa599436423e7c791"
+        },
+        {
+          "sourceId": "aiEsEditions",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T00:36:27.661014Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions | Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings | direct HTTP 200 | 137948 bytes | SHA-256 e37f87fa699fc2b61a70b66315ad6851426a9748cdcc2a28e496f6b2fc3ecadc"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "ai-es-soc",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsAgents88",
+            "aiEsSocTask88",
+            "aiEsSocTask87",
+            "aiEsRelease88",
+            "aiEsTriageNote88",
+            "aiSaiaInstall",
+            "aiEsRegions88",
+            "aiEsEditions"
+          ],
+          "assessedAt": "2026-11-25T00:41:19.675Z",
+          "evidence": "The 8.8 aggregate Triage/Response compatibility requires Premier, paired SOAR and Platform 10.2+ with ES 8.6+ on Cloud. The current linked Triage and Autonomous Response guides specify ES 8.7+, retaining the higher detailed minimum. The parent 8.8 setup guide now describes 200 analyses per tenant per day and 20 revisions per investigation; the linked Triage guide still limits coverage to existing/first ten findings and no rerun. Response remains Controlled Availability, Cloud-only in its availability column beside CMP compatibility bullets, and only frontier models are supported. Asset-role and connector/action permissions remain essential. The older 8.7 setup, SAIA 2.3.6 installer and regional/edition tables were checked within their own historical/product scope. No exact pairing, regional rollout or tenant authorization is inferred.",
+          "qualification": "Assessed deployment-specific prerequisites, the current Cloud version discrepancy and the corrected historical Triage wording. Exclusions: Exact SOAR pairing, agent-specific regional rollout, component entitlement and customer authorization remain separate."
+        }
+      ],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-24-es-editions-watch-review-53528061771298-reader-github-owner-workflow-apex.json",
+          "receiptSha256": "156690c330927fab771f72e0d5665c8a5d84f3eb575bc79397eec6a81e7a130f",
+          "revision": "content-5cb756253bf337ae0e291de1",
+          "digest": "15ddae8ba4b5a30c2b70e1aa243b2495d72d21f25fcedc85de5d5957590556b9",
+          "checkedAt": "2026-11-25T00:40:09.004Z",
+          "routeId": "advisor-conflict",
+          "sourceId": "aiEsAgents88",
+          "htmlSha256": "6e78d93cbf69046f1c33d3282f802fd7059b8ae06a3e61974878be8b91d50de0",
+          "pdfSha256": "2cfc12380f4405ba78e8b72bd6d22ffef05812bedaf98232d7cc7534ab1901e1"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-24-es-editions-watch-review-53528061771298-reader-github-owner-workflow-www.json",
+          "receiptSha256": "001484d2d9ccd7a1ae0d969ed97f043dc80f68a0c33af94aa0ecaa47f59ffe0e",
+          "revision": "content-5cb756253bf337ae0e291de1",
+          "digest": "15ddae8ba4b5a30c2b70e1aa243b2495d72d21f25fcedc85de5d5957590556b9",
+          "checkedAt": "2026-11-25T00:40:17.785Z",
+          "routeId": "advisor-conflict",
+          "sourceId": "aiEsAgents88",
+          "htmlSha256": "06c575d6cafc749c35f5ebb2826257e6a2916a6b57f342e43e6cbb9a8e5cf169",
+          "pdfSha256": "7240a452057eed45737230665fd6e55d1032012b87e21447624edf4d9f345983"
+        }
+      ],
+      "readerReview": {
+        "question": "Can I select the lower Cloud ES minimum when the aggregate and detailed workflow guides disagree?",
+        "routeId": "advisor-conflict",
+        "region": "#advisor-result",
+        "answer": "The ES 8.8 aggregate table lists Cloud ES 8.6+, while the detailed ES 8.8 Triage task guide requires ES 8.7+.",
+        "reportAnswer": "The ES 8.8 aggregate table lists Cloud ES 8.6+, while the detailed ES 8.8 Triage task guide requires ES 8.7+.",
+        "claimIds": [
+          "ai-es-soc"
+        ],
+        "sourceId": "aiEsAgents88",
+        "sourceSection": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
+        "checkedAt": "2026-11-25T00:40:17.785Z"
       }
     },
     {
       "capabilityId": "ai.es-capabilities",
-      "disposition": "deferred",
-      "qualification": "The registered claim-family comparison remains open. Exact source passages still required for aiEsAgents88, aiEsCloudConnectAgentic88, aiEsEditions, aiEsRegions88, aiEsRelease88, aiEsSocTask87, aiEsSocTask88, aiEsThreatGraph88, aiEsTriageNote88, aiSaiaCloudConnected, aiSaiaInstall. The registered answer and official citation have not passed screen, downloaded offline HTML and real PDF on both public origins at the same revision.",
+      "disposition": "assessed-no-change",
+      "qualification": "Five ES AI capabilities were independently compared with the canonical entries. The aggregate agent table, detailed guides and Cloud Connect setup retain separate editions, deployment paths, release stages, versions, enablement and permissions. Installation support does not establish feature rollout or customer authorization. Current source disagreements remain explicit.",
       "discoveredAt": null,
-      "retrievedAt": null,
-      "assessedAt": null,
+      "retrievedAt": "2026-11-25T00:37:25.534607Z",
+      "assessedAt": "2026-11-25T00:41:19.675Z",
       "publishedAt": null,
-      "liveVerifiedAt": null,
-      "retrievals": [],
-      "assessments": [],
-      "publicOriginEvidence": [],
-      "lastVerifiedEvidence": {
-        "receipt": "docs/audits/2026-11-24-es-editions-watch-review-2-coverage.json",
-        "assessedAt": "2026-11-24T09:36:07.310989Z",
-        "disposition": "assessed-no-change"
+      "liveVerifiedAt": "2026-11-25T00:40:19.038Z",
+      "retrievals": [
+        {
+          "sourceId": "aiEsRegions88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T00:36:57.547879Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability | Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility | direct HTTP 200 | 239067 bytes | SHA-256 2bc6492864d32b305f7a08cbba897dcb465e480cc77ae32aa599436423e7c791"
+        },
+        {
+          "sourceId": "aiEsEditions",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T00:36:27.661014Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions | Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings | direct HTTP 200 | 137948 bytes | SHA-256 e37f87fa699fc2b61a70b66315ad6851426a9748cdcc2a28e496f6b2fc3ecadc"
+        },
+        {
+          "sourceId": "aiEsRelease88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T00:36:52.190109Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security | What's new in 8.8.0 / November 4 General Availability and edition table | direct HTTP 200 | 217589 bytes | SHA-256 32f028113f355313c78ca01a8ec0c9aae5d852511bdadfbeded6f65bb5967dbc"
+        },
+        {
+          "sourceId": "aiEsAgents88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T00:37:06.462064Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security | Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note | direct HTTP 200 | 197012 bytes | SHA-256 9f8a1c4df882cb73a4479175759e8628ccc963928a4f27da5c199e7f970cc3b7"
+        },
+        {
+          "sourceId": "aiEsCloudConnectAgentic88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T00:37:16.660437Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/set-up-splunk-cloud-connect-to-use-the-agentic-soc | Platform, ES, Cloud Connect and Splunk AI Assistant floors; installation, service activation and token certificate setup | direct HTTP 200 | 191923 bytes | SHA-256 7fcb8bb7693f909868a442ab458ff8ad64a894dabda4c14bb0dcebec0bfec060"
+        },
+        {
+          "sourceId": "aiEsThreatGraph88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T00:37:16.537895Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent | Alpha stage; risk-based detection and event-volume prerequisites; enablement and test mode | direct HTTP 200 | 172952 bytes | SHA-256 6eff0ba5c822ac7079422d2444b740677f925749ef780227fd054141fd6c1032"
+        },
+        {
+          "sourceId": "aiEsSocTask88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T00:37:21.085293Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security | Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions | direct HTTP 200 | 183835 bytes | SHA-256 884ad6537c9ff06c7c74d62b09a81553595482845f257728013c0ed0c5fc7cd1"
+        },
+        {
+          "sourceId": "aiEsSocTask87",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T00:37:25.534607Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security | Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions | direct HTTP 200 | 191695 bytes | SHA-256 cdaa4eb3bf606004b1586f282250171553ebeb747236feaa63be801a7b3b8ba5"
+        },
+        {
+          "sourceId": "aiEsTriageNote88",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T00:37:06.462064Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security | Triage and Response agent aggregate availability and compatibility row | direct HTTP 200 | 197012 bytes | SHA-256 9f8a1c4df882cb73a4479175759e8628ccc963928a4f27da5c199e7f970cc3b7"
+        },
+        {
+          "sourceId": "aiSaiaInstall",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T00:37:25.434252Z",
+          "evidence": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers | FedRAMP deployments; supported regions; version compatibility | direct HTTP 200 | 183789 bytes | SHA-256 b6084bf506ebfad733403ab6eea02fbc2e85e02b794a8d509fd1f173e20be341"
+        },
+        {
+          "sourceId": "aiSaiaCloudConnected",
+          "outcome": "retrieved",
+          "retrievedAt": "2026-11-25T00:37:20.960580Z",
+          "evidence": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected | Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data | direct HTTP 200 | 178951 bytes | SHA-256 eb03d6e162dbeff9c98a35bbf19ddc4b31179f7b2c9f92a3c0e31fa4daaf7ca0"
+        }
+      ],
+      "assessments": [
+        {
+          "claimId": "ai-es-assistant",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsRegions88",
+            "aiEsEditions",
+            "aiEsRelease88",
+            "aiEsAgents88",
+            "aiEsCloudConnectAgentic88"
+          ],
+          "assessedAt": "2026-11-25T00:41:19.675Z",
+          "evidence": "Essentials lists Security Assistant on Cloud where available, while Premier also lists Cloud Connected CMP. The ES 8.8 setup requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and SAIA 2.4+. The 2.4 installer requires fresh setup, a qualifying paid license, outbound HTTPS, STC/OAuth certificate, administrator capabilities, verified email domain and a supported AWS commercial region. The 2.3.6 installer excludes its new Cloud Connected route; installation and actual feature eligibility remain distinct.",
+          "qualification": "Assistant edition, entitlement, Cloud/CMP and exact enablement prerequisites."
+        },
+        {
+          "claimId": "ai-es-detection",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsAgents88",
+            "aiEsRelease88",
+            "aiEsCloudConnectAgentic88"
+          ],
+          "assessedAt": "2026-11-25T00:41:19.675Z",
+          "evidence": "Detection Builder is both editions, Cloud and Cloud Connected CMP. The exact 8.8 task has Cloud Platform 10.1+/ES 8.6+ and CMP Platform 10.4+/ES 8.8+/Cloud Connect 2.0+ floors. It is disabled for finding-based detections, and the ES agentic setup adds SAIA 2.4+. This is not a permission to save, clone, test or enable detections automatically.",
+          "qualification": "Detection Builder Cloud/CMP, version, edition, stage and setup prerequisites."
+        },
+        {
+          "claimId": "ai-es-sop",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsAgents88",
+            "aiEsRelease88"
+          ],
+          "assessedAt": "2026-11-25T00:41:19.675Z",
+          "evidence": "The aggregate SOP row is both editions on Cloud only and requires the Security AI Assistant plus view/edit response-template capabilities. The response-plan guide separately describes import and conversion, formats and supporting workflows; inclusion does not establish tenant or regional activation.",
+          "qualification": "SOP deployment, edition and Assistant dependency."
+        },
+        {
+          "claimId": "ai-es-threat-graph",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsAgents88",
+            "aiEsThreatGraph88",
+            "aiEsRelease88"
+          ],
+          "assessedAt": "2026-11-25T00:41:19.675Z",
+          "evidence": "The exact 8.8 task labels Threat Graph an alpha for Premier and requires at least one enabled risk-based detection and approximately one million events before findings. Representative enablement, Test mode queue behavior and the daily finding limit are independent of ES 8.8 GA.",
+          "qualification": "Threat Graph documented stage, prerequisites, eligibility and enablement."
+        },
+        {
+          "claimId": "ai-es-soc",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsAgents88",
+            "aiEsSocTask88",
+            "aiEsSocTask87",
+            "aiEsRelease88",
+            "aiEsTriageNote88",
+            "aiEsCloudConnectAgentic88",
+            "aiSaiaInstall",
+            "aiSaiaCloudConnected"
+          ],
+          "assessedAt": "2026-11-25T00:41:19.675Z",
+          "evidence": "The 8.8 aggregate Triage/Response compatibility requires Premier, paired SOAR and Platform 10.2+ with ES 8.6+ on Cloud. The current linked Triage and Autonomous Response guides specify ES 8.7+, retaining the higher detailed minimum. The parent 8.8 setup guide now describes 200 analyses per tenant per day and 20 revisions per investigation; the linked Triage guide still limits coverage to existing/first ten findings and no rerun. Response remains Controlled Availability, Cloud-only in its availability column beside CMP compatibility bullets, and only frontier models are supported. Asset-role and connector/action permissions remain essential. The older 8.7 setup, SAIA 2.3.6 installer and regional/edition tables were checked within their own historical/product scope. No exact pairing, regional rollout or tenant authorization is inferred.",
+          "qualification": "SOC workflow stage, edition, paired dependencies, limits, model and asset or connector permissions. Keep current and historical guide conflicts scoped."
+        }
+      ],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-24-es-editions-watch-review-53528061771298-reader-github-owner-workflow-apex.json",
+          "receiptSha256": "156690c330927fab771f72e0d5665c8a5d84f3eb575bc79397eec6a81e7a130f",
+          "revision": "content-5cb756253bf337ae0e291de1",
+          "digest": "15ddae8ba4b5a30c2b70e1aa243b2495d72d21f25fcedc85de5d5957590556b9",
+          "checkedAt": "2026-11-25T00:40:10.232Z",
+          "routeId": "ai-overview",
+          "sourceId": "aiEsAgents88",
+          "htmlSha256": "09d14f84ebd4127e64f58e99dc6cc8c2f1873f9a69b566fd0432ab99a965fbe9",
+          "pdfSha256": "526dbd96e1db78d9358cb6cd8e0ce0cf7e15e0c28374240f690e6c2112e2b685"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-24-es-editions-watch-review-53528061771298-reader-github-owner-workflow-www.json",
+          "receiptSha256": "001484d2d9ccd7a1ae0d969ed97f043dc80f68a0c33af94aa0ecaa47f59ffe0e",
+          "revision": "content-5cb756253bf337ae0e291de1",
+          "digest": "15ddae8ba4b5a30c2b70e1aa243b2495d72d21f25fcedc85de5d5957590556b9",
+          "checkedAt": "2026-11-25T00:40:19.038Z",
+          "routeId": "ai-overview",
+          "sourceId": "aiEsAgents88",
+          "htmlSha256": "195b8a1affcdbd39221b192341381d54b699c419009752a579e3ee7b78911094",
+          "pdfSha256": "ef644d6915f0377030893c1016b894692cace6fa492c024704c3ed123611a62f"
+        },
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-24-es-editions-watch-review-53528061771298-reader-github-owner-workflow-apex.json",
+          "receiptSha256": "156690c330927fab771f72e0d5665c8a5d84f3eb575bc79397eec6a81e7a130f",
+          "revision": "content-5cb756253bf337ae0e291de1",
+          "digest": "15ddae8ba4b5a30c2b70e1aa243b2495d72d21f25fcedc85de5d5957590556b9",
+          "checkedAt": "2026-11-25T00:40:10.232Z",
+          "routeId": "ai-overview",
+          "sourceId": "aiEsThreatGraph88",
+          "htmlSha256": "09d14f84ebd4127e64f58e99dc6cc8c2f1873f9a69b566fd0432ab99a965fbe9",
+          "pdfSha256": "526dbd96e1db78d9358cb6cd8e0ce0cf7e15e0c28374240f690e6c2112e2b685"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-24-es-editions-watch-review-53528061771298-reader-github-owner-workflow-www.json",
+          "receiptSha256": "001484d2d9ccd7a1ae0d969ed97f043dc80f68a0c33af94aa0ecaa47f59ffe0e",
+          "revision": "content-5cb756253bf337ae0e291de1",
+          "digest": "15ddae8ba4b5a30c2b70e1aa243b2495d72d21f25fcedc85de5d5957590556b9",
+          "checkedAt": "2026-11-25T00:40:19.038Z",
+          "routeId": "ai-overview",
+          "sourceId": "aiEsThreatGraph88",
+          "htmlSha256": "195b8a1affcdbd39221b192341381d54b699c419009752a579e3ee7b78911094",
+          "pdfSha256": "ef644d6915f0377030893c1016b894692cace6fa492c024704c3ed123611a62f"
+        }
+      ],
+      "readerReview": {
+        "question": "Does ES 8.8 GA make Threat Graph generally available for every edition and deployment?",
+        "routeId": "ai-overview",
+        "region": "#ai-es-threat-graph",
+        "answer": "Alpha feature · ES 8.8 release General Availability",
+        "reportAnswer": "Alpha feature · ES 8.8 release General Availability",
+        "claimIds": [
+          "ai-es-threat-graph"
+        ],
+        "sourceId": "aiEsAgents88",
+        "sourceSection": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note",
+        "checkedAt": "2026-11-25T00:40:19.038Z"
       },
-      "followUp": {
-        "owner": "es-editions-watch",
-        "reviewBy": "2026-11-25",
-        "action": "Recheck the missing official sections and finish the registered reader and report verification for ES AI capabilities, editions and dependencies. "
-      }
+      "additionalReaderReviews": [
+        {
+          "question": "What prerequisites does the current Alpha Threat Graph Detection guide document?",
+          "routeId": "ai-overview",
+          "region": "#ai-es-threat-graph",
+          "answer": "Turn on at least one risk-based detection",
+          "reportAnswer": "Turn on at least one risk-based detection",
+          "claimIds": [
+            "ai-es-threat-graph"
+          ],
+          "sourceId": "aiEsThreatGraph88",
+          "sourceSection": "Alpha stage; risk-based detection and event-volume prerequisites; enablement and test mode",
+          "checkedAt": "2026-11-25T00:40:19.038Z"
+        }
+      ]
     },
     {
       "capabilityId": "es-editions.licensing",
-      "disposition": "deferred",
-      "qualification": "The editions overview includes Essentials core detection, Exposure Analytics, Detection Studio and TIM, with Premier adding SOAR, UEBA and the named agent grouping. The licensing 8.8 topic requires a Platform license and adds no ingestion capacity, distinguishes Daily Indexing Volume/vCPU/SVC, specifies 30-day Essentials and 90-day Premier trials, expiry restrictions, Essentials reversion and Cloud Connected trial display behavior. The pricing overview lists ingest, workload and activity options; deployment and contract eligibility still require the detailed pricing model and specific entitlement. The registered answer and official citation have not passed screen, downloaded offline HTML and real PDF on both public origins at the same revision.",
+      "disposition": "assessed-no-change",
+      "qualification": "The editions overview includes Essentials core detection, Exposure Analytics, Detection Studio and TIM, with Premier adding SOAR, UEBA and the named agent grouping. The licensing 8.8 topic requires a Platform license and adds no ingestion capacity, distinguishes Daily Indexing Volume/vCPU/SVC, specifies 30-day Essentials and 90-day Premier trials, expiry restrictions, Essentials reversion and Cloud Connected trial display behavior. The pricing overview lists ingest, workload and activity options; deployment and contract eligibility still require the detailed pricing model and specific entitlement.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-25T00:36:28.705676Z",
       "assessedAt": "2026-11-25T00:37:10.343863Z",
       "publishedAt": null,
-      "liveVerifiedAt": null,
+      "liveVerifiedAt": "2026-11-25T00:40:20.905Z",
       "retrievals": [
         {
           "sourceId": "editions",
@@ -190,27 +486,55 @@
           "qualification": "Essentials, Premier, licensing, trials and pricing-model distinctions. Compare the published edition and capability rows; preserve separate entitlements."
         }
       ],
-      "publicOriginEvidence": [],
-      "lastVerifiedEvidence": {
-        "receipt": "docs/audits/2026-11-24-es-editions-watch-review-2-coverage.json",
-        "assessedAt": "2026-11-24T09:36:07.310989Z",
-        "disposition": "assessed-no-change"
-      },
-      "followUp": {
-        "owner": "es-editions-watch",
-        "reviewBy": "2026-11-25",
-        "action": "Recheck the missing official sections and finish the registered reader and report verification for Essentials/Premier edition tiers and licensing. "
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-24-es-editions-watch-review-53528061771298-reader-github-owner-workflow-apex.json",
+          "receiptSha256": "156690c330927fab771f72e0d5665c8a5d84f3eb575bc79397eec6a81e7a130f",
+          "revision": "content-5cb756253bf337ae0e291de1",
+          "digest": "15ddae8ba4b5a30c2b70e1aa243b2495d72d21f25fcedc85de5d5957590556b9",
+          "checkedAt": "2026-11-25T00:40:12.178Z",
+          "routeId": "editions",
+          "sourceId": "licensing88",
+          "htmlSha256": "a0a656113458301f394360b9378de3f28023ed1edef6b686213cb7aca8e0a4c0",
+          "pdfSha256": "2eac5b49f6ddf97920d6f73b0b7802c2329de4e10f0063d6a0a73550e89cffd7"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-24-es-editions-watch-review-53528061771298-reader-github-owner-workflow-www.json",
+          "receiptSha256": "001484d2d9ccd7a1ae0d969ed97f043dc80f68a0c33af94aa0ecaa47f59ffe0e",
+          "revision": "content-5cb756253bf337ae0e291de1",
+          "digest": "15ddae8ba4b5a30c2b70e1aa243b2495d72d21f25fcedc85de5d5957590556b9",
+          "checkedAt": "2026-11-25T00:40:20.905Z",
+          "routeId": "editions",
+          "sourceId": "licensing88",
+          "htmlSha256": "2de2e738b6009006fda2ae3a9f9809f4b33de3bc61fe320f4471adf17a331cf0",
+          "pdfSha256": "b1f62b2556cea80f3b15db65b6f45f287281db2167eec77be71f6b2835be7286"
+        }
+      ],
+      "readerReview": {
+        "question": "Does buying ES increase ingest capacity, and how long are the edition trials?",
+        "routeId": "editions",
+        "region": "#note-licensing",
+        "answer": "ES is used with Splunk Enterprise or Cloud Platform and does not add ingestion capacity.",
+        "reportAnswer": "ES is used with Splunk Enterprise or Cloud Platform and does not add ingestion capacity.",
+        "claimIds": [
+          "es-editions.licensing"
+        ],
+        "sourceId": "licensing88",
+        "sourceSection": "Licenses, editions and trial prerequisites",
+        "checkedAt": "2026-11-25T00:40:20.905Z"
       }
     },
     {
       "capabilityId": "es-editions.history",
-      "disposition": "deferred",
-      "qualification": "The registered claim-family comparison remains open. The registered answer and official citation have not passed screen, downloaded offline HTML and real PDF on both public origins at the same revision.",
+      "disposition": "assessed-no-change",
+      "qualification": "The 8.7.0 and 8.7.1 notices retain their actual release dates and Premier Connector Builder enhancement label. The 8.8.0 table is General Availability on November 4 with Essentials inherited by Premier. Exposure Analytics posture, profile and entity actions are Essentials changes and are visible in the edition highlights; entity actions are configured follow-up automation. The agent release stages remain separate from ES release GA, and later compatibility rows do not rewrite 8.7 entitlement.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-25T00:36:52.231250Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-25T00:41:19.675Z",
       "publishedAt": null,
-      "liveVerifiedAt": null,
+      "liveVerifiedAt": "2026-11-25T00:40:20.905Z",
       "retrievals": [
         {
           "sourceId": "rn87",
@@ -225,28 +549,68 @@
           "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security | 8.8 release milestones and edition table | direct HTTP 200 | 217589 bytes | SHA-256 32f028113f355313c78ca01a8ec0c9aae5d852511bdadfbeded6f65bb5967dbc"
         }
       ],
-      "assessments": [],
-      "publicOriginEvidence": [],
-      "lastVerifiedEvidence": {
-        "receipt": "docs/audits/2026-11-24-es-editions-watch-review-5-coverage.json",
-        "assessedAt": "2026-11-24T22:00:08.542328+00:00",
-        "disposition": "assessed-no-change"
-      },
-      "followUp": {
-        "owner": "es-editions-watch",
-        "reviewBy": "2026-11-25",
-        "action": "Recheck the missing official sections and finish the registered reader and report verification for Release history and entitlement changes. "
+      "assessments": [
+        {
+          "claimId": "es-editions.history",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "rn87",
+            "rn88"
+          ],
+          "assessedAt": "2026-11-25T00:41:19.675Z",
+          "evidence": "The 8.7.0 and 8.7.1 notices retain their actual release dates and Premier Connector Builder enhancement label. The 8.8.0 table is General Availability on November 4 with Essentials inherited by Premier. Exposure Analytics posture, profile and entity actions are Essentials changes and are visible in the edition highlights; entity actions are configured follow-up automation. The agent release stages remain separate from ES release GA, and later compatibility rows do not rewrite 8.7 entitlement.",
+          "qualification": "Release stage and changed edition or entitlement boundaries across maintained history. Check release notices for explicit historical corrections."
+        }
+      ],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-24-es-editions-watch-review-53528061771298-reader-github-owner-workflow-apex.json",
+          "receiptSha256": "156690c330927fab771f72e0d5665c8a5d84f3eb575bc79397eec6a81e7a130f",
+          "revision": "content-5cb756253bf337ae0e291de1",
+          "digest": "15ddae8ba4b5a30c2b70e1aa243b2495d72d21f25fcedc85de5d5957590556b9",
+          "checkedAt": "2026-11-25T00:40:12.178Z",
+          "routeId": "editions",
+          "sourceId": "rn88",
+          "htmlSha256": "a0a656113458301f394360b9378de3f28023ed1edef6b686213cb7aca8e0a4c0",
+          "pdfSha256": "2eac5b49f6ddf97920d6f73b0b7802c2329de4e10f0063d6a0a73550e89cffd7"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-24-es-editions-watch-review-53528061771298-reader-github-owner-workflow-www.json",
+          "receiptSha256": "001484d2d9ccd7a1ae0d969ed97f043dc80f68a0c33af94aa0ecaa47f59ffe0e",
+          "revision": "content-5cb756253bf337ae0e291de1",
+          "digest": "15ddae8ba4b5a30c2b70e1aa243b2495d72d21f25fcedc85de5d5957590556b9",
+          "checkedAt": "2026-11-25T00:40:20.905Z",
+          "routeId": "editions",
+          "sourceId": "rn88",
+          "htmlSha256": "2de2e738b6009006fda2ae3a9f9809f4b33de3bc61fe320f4471adf17a331cf0",
+          "pdfSha256": "b1f62b2556cea80f3b15db65b6f45f287281db2167eec77be71f6b2835be7286"
+        }
+      ],
+      "readerReview": {
+        "question": "What can an ES 8.8 operator automate with entity actions?",
+        "routeId": "editions",
+        "region": ".edition-highlights",
+        "answer": "Entity actions automate configured follow-up.",
+        "reportAnswer": "Entity actions automate configured follow-up.",
+        "claimIds": [
+          "es-editions.history"
+        ],
+        "sourceId": "rn88",
+        "sourceSection": "8.8 release milestones and edition table",
+        "checkedAt": "2026-11-25T00:40:20.905Z"
       }
     },
     {
       "capabilityId": "es-editions.deployment",
-      "disposition": "deferred",
-      "qualification": "The registered claim-family comparison remains open. The registered answer and official citation have not passed screen, downloaded offline HTML and real PDF on both public origins at the same revision.",
+      "disposition": "assessed-no-change",
+      "qualification": "The Cloud capability matrix was read with its actual Version, Essentials (included in Premier), and Premier Only headers. The 8.8 row places Detection Builder instructions, Investigation Aggregation and Detection Re-run under Essentials and Cloud Connected SOC enhancements under Premier. The complete regional tables distinguish edition components, Montréal and Calgary by Cloud versus Cloud Connect, GovCloud component exceptions, and GCP/Azure restrictions. A regional listing does not establish entitlement or regulatory authorization. The Cloud Connect access guide separately requires eligible account verification, permissions, installation and service activation.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-25T00:37:01.474247Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-25T00:41:19.675Z",
       "publishedAt": null,
-      "liveVerifiedAt": null,
+      "liveVerifiedAt": "2026-11-25T00:40:20.905Z",
       "retrievals": [
         {
           "sourceId": "matrix88",
@@ -267,28 +631,69 @@
           "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.8/introduction/access-splunk-cloud-connect-in-splunk-enterprise-security-to-access-cloud-extensions | Cloud Connect scope and access prerequisites | direct HTTP 200 | 167338 bytes | SHA-256 8926349ccab4fc5cc824066f6f265c14d591fe1b2b54ded4b74f35b1f8f11167"
         }
       ],
-      "assessments": [],
-      "publicOriginEvidence": [],
-      "lastVerifiedEvidence": {
-        "receipt": "docs/audits/2026-11-24-es-editions-watch-review-5-coverage.json",
-        "assessedAt": "2026-11-24T22:00:50.991417+00:00",
-        "disposition": "assessed-no-change"
-      },
-      "followUp": {
-        "owner": "es-editions-watch",
-        "reviewBy": "2026-11-25",
-        "action": "Recheck the missing official sections and finish the registered reader and report verification for ES deployment and regional prerequisites. "
+      "assessments": [
+        {
+          "claimId": "es-editions.deployment",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "matrix88",
+            "regions88",
+            "cloudcx88"
+          ],
+          "assessedAt": "2026-11-25T00:41:19.675Z",
+          "evidence": "The Cloud capability matrix was read with its actual Version, Essentials (included in Premier), and Premier Only headers. The 8.8 row places Detection Builder instructions, Investigation Aggregation and Detection Re-run under Essentials and Cloud Connected SOC enhancements under Premier. The complete regional tables distinguish edition components, Montréal and Calgary by Cloud versus Cloud Connect, GovCloud component exceptions, and GCP/Azure restrictions. A regional listing does not establish entitlement or regulatory authorization. The Cloud Connect access guide separately requires eligible account verification, permissions, installation and service activation.",
+          "qualification": "Cloud and Enterprise deployment differences, host and regional compatibility, and mismatched edition/capability matrix claims."
+        }
+      ],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-24-es-editions-watch-review-53528061771298-reader-github-owner-workflow-apex.json",
+          "receiptSha256": "156690c330927fab771f72e0d5665c8a5d84f3eb575bc79397eec6a81e7a130f",
+          "revision": "content-5cb756253bf337ae0e291de1",
+          "digest": "15ddae8ba4b5a30c2b70e1aa243b2495d72d21f25fcedc85de5d5957590556b9",
+          "checkedAt": "2026-11-25T00:40:12.178Z",
+          "routeId": "editions",
+          "sourceId": "regions88",
+          "htmlSha256": "a0a656113458301f394360b9378de3f28023ed1edef6b686213cb7aca8e0a4c0",
+          "pdfSha256": "2eac5b49f6ddf97920d6f73b0b7802c2329de4e10f0063d6a0a73550e89cffd7"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-24-es-editions-watch-review-53528061771298-reader-github-owner-workflow-www.json",
+          "receiptSha256": "001484d2d9ccd7a1ae0d969ed97f043dc80f68a0c33af94aa0ecaa47f59ffe0e",
+          "revision": "content-5cb756253bf337ae0e291de1",
+          "digest": "15ddae8ba4b5a30c2b70e1aa243b2495d72d21f25fcedc85de5d5957590556b9",
+          "checkedAt": "2026-11-25T00:40:20.905Z",
+          "routeId": "editions",
+          "sourceId": "regions88",
+          "htmlSha256": "2de2e738b6009006fda2ae3a9f9809f4b33de3bc61fe320f4471adf17a331cf0",
+          "pdfSha256": "b1f62b2556cea80f3b15db65b6f45f287281db2167eec77be71f6b2835be7286"
+        }
+      ],
+      "readerReview": {
+        "question": "Does edition inclusion establish availability on every regional or regulated stack?",
+        "routeId": "editions",
+        "region": "#note-availability",
+        "answer": "A Cloud listing does not establish availability on every stack, cloud provider or regulated deployment.",
+        "reportAnswer": "A Cloud listing does not establish availability on every stack, cloud provider or regulated deployment.",
+        "claimIds": [
+          "es-editions.deployment"
+        ],
+        "sourceId": "regions88",
+        "sourceSection": "Compatibility and Regional Availability tables",
+        "checkedAt": "2026-11-25T00:40:20.905Z"
       }
     },
     {
       "capabilityId": "es-editions.workflows",
-      "disposition": "deferred",
-      "qualification": "The registered claim-family comparison remains open. The registered answer and official citation have not passed screen, downloaded offline HTML and real PDF on both public origins at the same revision.",
+      "disposition": "assessed-no-change",
+      "qualification": "UEBA remains an independently qualified Premier capability. The 8.8 aggregate lists Guided Response for both editions on Cloud and Cloud Connected CMP with Platform 10.2+, ES 8.6+ and paired SOAR, while the historical 8.7 matrix groups enhancements in Premier and the 8.6 task has its own Cloud scope. The 8.7 Connector Builder aggregate includes both editions whereas 8.7.1 calls it Premier. Automation Builder and Connector Builder require their own paired SOAR and permission conditions. The App for SOAR 8.8.0 matrix is separate from Export 8.8.0/8.8.1. Both Export prerequisites list exact Enterprise 10.4.2/10.2.2, Cloud 10.5.2605/10.4.2604 and ES/SOAR 8.8.0/8.7.0 pairings; extra catalog versions are upgrade-only. The App table still has literal 8..0, which remains unresolved. The Export November 19 patch and named PAPP-38632 are specific to that package.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-25T00:37:10.877110Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-25T00:41:19.675Z",
       "publishedAt": null,
-      "liveVerifiedAt": null,
+      "liveVerifiedAt": "2026-11-25T00:40:20.905Z",
       "retrievals": [
         {
           "sourceId": "matrix88",
@@ -327,23 +732,637 @@
           "evidence": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise | Enterprise prerequisites and functionality-tested pairings | direct HTTP 200 | 155952 bytes | SHA-256 f33fedd36e238aa974b2948ae6e21a11257188f77f6583a6adb7eb1646536c6a"
         }
       ],
-      "assessments": [],
-      "publicOriginEvidence": [],
-      "lastVerifiedEvidence": {
-        "receipt": "docs/audits/2026-11-24-es-editions-watch-review-5-coverage.json",
-        "assessedAt": "2026-11-24T22:01:39.000907+00:00",
-        "disposition": "assessed-no-change"
-      },
-      "followUp": {
-        "owner": "es-editions-watch",
-        "reviewBy": "2026-11-25",
-        "action": "Recheck the missing official sections and finish the registered reader and report verification for ES feature and workflow dependencies. "
+      "assessments": [
+        {
+          "claimId": "es-editions.workflows",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "matrix88",
+            "ueba",
+            "agentic88",
+            "appForSoar88",
+            "soarExportCloud88",
+            "soarExportEnterprise88"
+          ],
+          "assessedAt": "2026-11-25T00:41:19.675Z",
+          "evidence": "UEBA remains an independently qualified Premier capability. The 8.8 aggregate lists Guided Response for both editions on Cloud and Cloud Connected CMP with Platform 10.2+, ES 8.6+ and paired SOAR, while the historical 8.7 matrix groups enhancements in Premier and the 8.6 task has its own Cloud scope. The 8.7 Connector Builder aggregate includes both editions whereas 8.7.1 calls it Premier. Automation Builder and Connector Builder require their own paired SOAR and permission conditions. The App for SOAR 8.8.0 matrix is separate from Export 8.8.0/8.8.1. Both Export prerequisites list exact Enterprise 10.4.2/10.2.2, Cloud 10.5.2605/10.4.2604 and ES/SOAR 8.8.0/8.7.0 pairings; extra catalog versions are upgrade-only. The App table still has literal 8..0, which remains unresolved. The Export November 19 patch and named PAPP-38632 are specific to that package.",
+          "qualification": "Edition-specific feature and workflow prerequisites, including UEBA, AI/Cloud Connect and separately versioned SOAR connector/export paths."
+        }
+      ],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-24-es-editions-watch-review-53528061771298-reader-github-owner-workflow-apex.json",
+          "receiptSha256": "156690c330927fab771f72e0d5665c8a5d84f3eb575bc79397eec6a81e7a130f",
+          "revision": "content-5cb756253bf337ae0e291de1",
+          "digest": "15ddae8ba4b5a30c2b70e1aa243b2495d72d21f25fcedc85de5d5957590556b9",
+          "checkedAt": "2026-11-25T00:40:12.178Z",
+          "routeId": "editions",
+          "sourceId": "agentic88",
+          "htmlSha256": "a0a656113458301f394360b9378de3f28023ed1edef6b686213cb7aca8e0a4c0",
+          "pdfSha256": "2eac5b49f6ddf97920d6f73b0b7802c2329de4e10f0063d6a0a73550e89cffd7"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-24-es-editions-watch-review-53528061771298-reader-github-owner-workflow-www.json",
+          "receiptSha256": "001484d2d9ccd7a1ae0d969ed97f043dc80f68a0c33af94aa0ecaa47f59ffe0e",
+          "revision": "content-5cb756253bf337ae0e291de1",
+          "digest": "15ddae8ba4b5a30c2b70e1aa243b2495d72d21f25fcedc85de5d5957590556b9",
+          "checkedAt": "2026-11-25T00:40:20.905Z",
+          "routeId": "editions",
+          "sourceId": "agentic88",
+          "htmlSha256": "2de2e738b6009006fda2ae3a9f9809f4b33de3bc61fe320f4471adf17a331cf0",
+          "pdfSha256": "b1f62b2556cea80f3b15db65b6f45f287281db2167eec77be71f6b2835be7286"
+        }
+      ],
+      "readerReview": {
+        "question": "Does the current ES 8.8 Guided Response table include Cloud Connected CMP?",
+        "routeId": "editions",
+        "region": ".edition-row",
+        "answer": "The current 8.8 aggregate table lists both editions on Cloud and Cloud Connected CMP",
+        "reportAnswer": "The current 8.8 aggregate table lists both editions on Cloud and Cloud Connected CMP",
+        "claimIds": [
+          "es-editions.workflows"
+        ],
+        "sourceId": "agentic88",
+        "sourceSection": "Agentic offerings and their feature-specific scopes",
+        "checkedAt": "2026-11-25T00:40:20.905Z"
       }
     }
   ],
   "sourceChecks": {
-    "advisor.soc-workflow": [],
-    "ai.es-capabilities": [],
+    "advisor.soc-workflow": [
+      {
+        "id": "aiEsAgents88",
+        "dataset": "guidance",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+        "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:37:01.565765Z",
+            "completedAt": "2026-11-25T00:37:06.462064Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+            "sha256": "9f8a1c4df882cb73a4479175759e8628ccc963928a4f27da5c199e7f970cc3b7",
+            "bytes": 197012,
+            "error": null
+          }
+        ],
+        "title": "Agentic AI offerings in Splunk Enterprise Security | Platform (last updated 2026-11-18T23:29:22.145Z)",
+        "articleCharacters": 6270,
+        "key": "0b963040d7879579354b",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "aiEsSocTask88",
+        "dataset": "guidance",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
+        "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:37:16.542353Z",
+            "completedAt": "2026-11-25T00:37:21.085293Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
+            "sha256": "884ad6537c9ff06c7c74d62b09a81553595482845f257728013c0ed0c5fc7cd1",
+            "bytes": 183835,
+            "error": null
+          }
+        ],
+        "title": "Setting up the Triage and Response agents in Splunk Enterprise Security | Platform (last updated 2026-11-19T00:56:26.084Z)",
+        "articleCharacters": 6940,
+        "key": "966c6347457dd92dfd4e",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "aiEsSocTask87",
+        "dataset": "guidance",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+        "section": "Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:37:21.098976Z",
+            "completedAt": "2026-11-25T00:37:25.534607Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+            "sha256": "cdaa4eb3bf606004b1586f282250171553ebeb747236feaa63be801a7b3b8ba5",
+            "bytes": 191695,
+            "error": null
+          }
+        ],
+        "title": "Setting up the AI SOC analyst agentic workflow in Splunk Enterprise Security | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-10-26T18:30:10.008Z)",
+        "articleCharacters": 12833,
+        "key": "826680668ee958944bf5",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "aiEsRelease88",
+        "dataset": "guidance",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+        "section": "ES 8.8 Controlled Availability",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:36:47.721700Z",
+            "completedAt": "2026-11-25T00:36:52.190109Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+            "sha256": "32f028113f355313c78ca01a8ec0c9aae5d852511bdadfbeded6f65bb5967dbc",
+            "bytes": 217589,
+            "error": null
+          }
+        ],
+        "title": "Release notes for Splunk Enterprise Security | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T03:25:41.821Z)",
+        "articleCharacters": 17798,
+        "key": "d10f9ac6604ba17d7875",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "aiEsTriageNote88",
+        "dataset": "guidance",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+        "section": "SOC analyst Triage/Response note; aggregate AI SOC Analyst availability row",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:37:01.565765Z",
+            "completedAt": "2026-11-25T00:37:06.462064Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+            "sha256": "9f8a1c4df882cb73a4479175759e8628ccc963928a4f27da5c199e7f970cc3b7",
+            "bytes": 197012,
+            "error": null
+          }
+        ],
+        "title": "Agentic AI offerings in Splunk Enterprise Security | Platform (last updated 2026-11-18T23:29:22.145Z)",
+        "articleCharacters": 6270,
+        "key": "0b963040d7879579354b",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "aiSaiaInstall",
+        "dataset": "guidance",
+        "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+        "section": "FedRAMP deployments; supported regions; version compatibility",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:37:20.966594Z",
+            "completedAt": "2026-11-25T00:37:25.434252Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+            "sha256": "b6084bf506ebfad733403ab6eea02fbc2e85e02b794a8d509fd1f173e20be341",
+            "bytes": 183789,
+            "error": null
+          }
+        ],
+        "title": "Install Splunk AI Assistant for Splunk Cloud customers | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-10-15T00:28:12.903Z)",
+        "articleCharacters": 6384,
+        "key": "933d52078c21646b9f1b",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "aiEsRegions88",
+        "dataset": "guidance",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+        "section": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:36:52.310530Z",
+            "completedAt": "2026-11-25T00:36:57.547879Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+            "sha256": "2bc6492864d32b305f7a08cbba897dcb465e480cc77ae32aa599436423e7c791",
+            "bytes": 239067,
+            "error": null
+          }
+        ],
+        "title": "Compatibility and regional availability | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T03:25:41.821Z)",
+        "articleCharacters": 11083,
+        "key": "348a24aafee18c00a09b",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "aiEsEditions",
+        "dataset": "guidance",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
+        "section": "Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:36:21.501622Z",
+            "completedAt": "2026-11-25T00:36:27.661014Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions/overview-of-splunk-enterprise-security-editions",
+            "sha256": "e37f87fa699fc2b61a70b66315ad6851426a9748cdcc2a28e496f6b2fc3ecadc",
+            "bytes": 137948,
+            "error": null
+          }
+        ],
+        "title": "Overview of Splunk Enterprise Security Editions | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T16:26:20.217Z)",
+        "articleCharacters": 2953,
+        "key": "2dc2d849c6eabc9e505e",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "supplemental-0",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/create-custom-dashboards-for-triage-using-the-triage-agent",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:38:49.617360Z",
+            "completedAt": "2026-11-25T00:38:53.841044Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/create-custom-dashboards-for-triage-using-the-triage-agent",
+            "sha256": "b48ec3e2abf8bf12ab5764f1b44c28538b467fd305d9080958f44fb5c536bdd3",
+            "bytes": 219864,
+            "error": null
+          }
+        ],
+        "title": "Create custom dashboards for triage using the Triage agent | Platform (last updated 2026-11-18T23:26:40.163Z)",
+        "articleCharacters": 14565,
+        "key": "81127d1ed4ebaeb38a98",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "supplemental-1",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/identify-and-run-the-soar-response-actions-on-findings-using-the-autonomous-response-agent-in-splunk-enterprise-security",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:38:49.617449Z",
+            "completedAt": "2026-11-25T00:38:53.862426Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/identify-and-run-the-soar-response-actions-on-findings-using-the-autonomous-response-agent-in-splunk-enterprise-security",
+            "sha256": "969fb97eb26c55b0699377d0e75617cfdad98325f0a04eee2b1ab412be3297e0",
+            "bytes": 188665,
+            "error": null
+          }
+        ],
+        "title": "Identify and run the SOAR response actions on findings using the Autonomous Response agent in Splunk Enterprise Security | Platform (last updated 2026-11-18T23:29:37.560Z)",
+        "articleCharacters": 8262,
+        "key": "2de2443a429dbfe395bc",
+        "outcome": "retrieved"
+      }
+    ],
+    "ai.es-capabilities": [
+      {
+        "id": "aiEsRegions88",
+        "dataset": "guidance",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+        "section": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:36:52.310530Z",
+            "completedAt": "2026-11-25T00:36:57.547879Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+            "sha256": "2bc6492864d32b305f7a08cbba897dcb465e480cc77ae32aa599436423e7c791",
+            "bytes": 239067,
+            "error": null
+          }
+        ],
+        "title": "Compatibility and regional availability | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T03:25:41.821Z)",
+        "articleCharacters": 11083,
+        "key": "348a24aafee18c00a09b",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "aiEsEditions",
+        "dataset": "guidance",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
+        "section": "Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:36:21.501622Z",
+            "completedAt": "2026-11-25T00:36:27.661014Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions/overview-of-splunk-enterprise-security-editions",
+            "sha256": "e37f87fa699fc2b61a70b66315ad6851426a9748cdcc2a28e496f6b2fc3ecadc",
+            "bytes": 137948,
+            "error": null
+          }
+        ],
+        "title": "Overview of Splunk Enterprise Security Editions | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T16:26:20.217Z)",
+        "articleCharacters": 2953,
+        "key": "2dc2d849c6eabc9e505e",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "aiEsRelease88",
+        "dataset": "guidance",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+        "section": "What's new in 8.8.0 / November 4 General Availability and edition table",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:36:47.721700Z",
+            "completedAt": "2026-11-25T00:36:52.190109Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+            "sha256": "32f028113f355313c78ca01a8ec0c9aae5d852511bdadfbeded6f65bb5967dbc",
+            "bytes": 217589,
+            "error": null
+          }
+        ],
+        "title": "Release notes for Splunk Enterprise Security | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T03:25:41.821Z)",
+        "articleCharacters": 17798,
+        "key": "d10f9ac6604ba17d7875",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "aiEsAgents88",
+        "dataset": "guidance",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+        "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:37:01.565765Z",
+            "completedAt": "2026-11-25T00:37:06.462064Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+            "sha256": "9f8a1c4df882cb73a4479175759e8628ccc963928a4f27da5c199e7f970cc3b7",
+            "bytes": 197012,
+            "error": null
+          }
+        ],
+        "title": "Agentic AI offerings in Splunk Enterprise Security | Platform (last updated 2026-11-18T23:29:22.145Z)",
+        "articleCharacters": 6270,
+        "key": "0b963040d7879579354b",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "aiEsCloudConnectAgentic88",
+        "dataset": "guidance",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/set-up-splunk-cloud-connect-to-use-the-agentic-soc",
+        "section": "Platform, ES, Cloud Connect and Splunk AI Assistant floors; installation, service activation and token certificate setup",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:37:10.954820Z",
+            "completedAt": "2026-11-25T00:37:16.660437Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/set-up-splunk-cloud-connect-to-use-the-agentic-soc",
+            "sha256": "7fcb8bb7693f909868a442ab458ff8ad64a894dabda4c14bb0dcebec0bfec060",
+            "bytes": 191923,
+            "error": null
+          }
+        ],
+        "title": "Set up Splunk Cloud Connect to use the agentic SOC | Platform (last updated 2026-11-18T23:29:23.671Z)",
+        "articleCharacters": 7585,
+        "key": "772289d5c453a6cdd71f",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "aiEsThreatGraph88",
+        "dataset": "guidance",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
+        "section": "Alpha stage; risk-based detection and event-volume prerequisites; enablement and test mode",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:37:10.955019Z",
+            "completedAt": "2026-11-25T00:37:16.537895Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
+            "sha256": "6eff0ba5c822ac7079422d2444b740677f925749ef780227fd054141fd6c1032",
+            "bytes": 172952,
+            "error": null
+          }
+        ],
+        "title": "Surface findings based on risk using the AI Threat Graph Detection agent | Platform (last updated 2026-11-04T20:01:07.869Z)",
+        "articleCharacters": 3458,
+        "key": "0c8b5dd28912f3519637",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "aiEsSocTask88",
+        "dataset": "guidance",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
+        "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:37:16.542353Z",
+            "completedAt": "2026-11-25T00:37:21.085293Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
+            "sha256": "884ad6537c9ff06c7c74d62b09a81553595482845f257728013c0ed0c5fc7cd1",
+            "bytes": 183835,
+            "error": null
+          }
+        ],
+        "title": "Setting up the Triage and Response agents in Splunk Enterprise Security | Platform (last updated 2026-11-19T00:56:26.084Z)",
+        "articleCharacters": 6940,
+        "key": "966c6347457dd92dfd4e",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "aiEsSocTask87",
+        "dataset": "guidance",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+        "section": "Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:37:21.098976Z",
+            "completedAt": "2026-11-25T00:37:25.534607Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+            "sha256": "cdaa4eb3bf606004b1586f282250171553ebeb747236feaa63be801a7b3b8ba5",
+            "bytes": 191695,
+            "error": null
+          }
+        ],
+        "title": "Setting up the AI SOC analyst agentic workflow in Splunk Enterprise Security | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-10-26T18:30:10.008Z)",
+        "articleCharacters": 12833,
+        "key": "826680668ee958944bf5",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "aiEsTriageNote88",
+        "dataset": "guidance",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+        "section": "Triage and Response agent aggregate availability and compatibility row",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:37:01.565765Z",
+            "completedAt": "2026-11-25T00:37:06.462064Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+            "sha256": "9f8a1c4df882cb73a4479175759e8628ccc963928a4f27da5c199e7f970cc3b7",
+            "bytes": 197012,
+            "error": null
+          }
+        ],
+        "title": "Agentic AI offerings in Splunk Enterprise Security | Platform (last updated 2026-11-18T23:29:22.145Z)",
+        "articleCharacters": 6270,
+        "key": "0b963040d7879579354b",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "aiSaiaInstall",
+        "dataset": "guidance",
+        "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+        "section": "FedRAMP deployments; supported regions; version compatibility",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:37:20.966594Z",
+            "completedAt": "2026-11-25T00:37:25.434252Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+            "sha256": "b6084bf506ebfad733403ab6eea02fbc2e85e02b794a8d509fd1f173e20be341",
+            "bytes": 183789,
+            "error": null
+          }
+        ],
+        "title": "Install Splunk AI Assistant for Splunk Cloud customers | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-10-15T00:28:12.903Z)",
+        "articleCharacters": 6384,
+        "key": "933d52078c21646b9f1b",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "aiSaiaCloudConnected",
+        "dataset": "guidance",
+        "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+        "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:37:16.664403Z",
+            "completedAt": "2026-11-25T00:37:20.960580Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+            "sha256": "eb03d6e162dbeff9c98a35bbf19ddc4b31179f7b2c9f92a3c0e31fa4daaf7ca0",
+            "bytes": 178951,
+            "error": null
+          }
+        ],
+        "title": "Install Splunk AI Assistant for Splunk Enterprise customers with Cloud Connected | Platform (last updated 2026-11-03T19:32:46.083Z)",
+        "articleCharacters": 9908,
+        "key": "8f71af7acdb0a6fe115b",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "supplemental-0",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/create-custom-dashboards-for-triage-using-the-triage-agent",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:38:49.617360Z",
+            "completedAt": "2026-11-25T00:38:53.841044Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/create-custom-dashboards-for-triage-using-the-triage-agent",
+            "sha256": "b48ec3e2abf8bf12ab5764f1b44c28538b467fd305d9080958f44fb5c536bdd3",
+            "bytes": 219864,
+            "error": null
+          }
+        ],
+        "title": "Create custom dashboards for triage using the Triage agent | Platform (last updated 2026-11-18T23:26:40.163Z)",
+        "articleCharacters": 14565,
+        "key": "81127d1ed4ebaeb38a98",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "supplemental-1",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/identify-and-run-the-soar-response-actions-on-findings-using-the-autonomous-response-agent-in-splunk-enterprise-security",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:38:49.617449Z",
+            "completedAt": "2026-11-25T00:38:53.862426Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/identify-and-run-the-soar-response-actions-on-findings-using-the-autonomous-response-agent-in-splunk-enterprise-security",
+            "sha256": "969fb97eb26c55b0699377d0e75617cfdad98325f0a04eee2b1ab412be3297e0",
+            "bytes": 188665,
+            "error": null
+          }
+        ],
+        "title": "Identify and run the SOAR response actions on findings using the Autonomous Response agent in Splunk Enterprise Security | Platform (last updated 2026-11-18T23:29:37.560Z)",
+        "articleCharacters": 8262,
+        "key": "2de2443a429dbfe395bc",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "supplemental-2",
+        "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-splunk-cloud-connect",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:39:07.132918Z",
+            "completedAt": "2026-11-25T00:39:12.149587Z",
+            "httpStatus": null,
+            "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-splunk-cloud-connect",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "bytes": 0,
+            "error": "curl: (28) Connection timed out after 5002 milliseconds"
+          },
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:39:12.149954Z",
+            "completedAt": "2026-11-25T00:39:15.842759Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-splunk-cloud-connect",
+            "sha256": "10b49dbf6a19387e69311e7dceb42992f55aadbe16673c2a83cd44d38f118063",
+            "bytes": 160376,
+            "error": null
+          }
+        ],
+        "title": "Install Splunk AI Assistant for Splunk Enterprise customers with Splunk Cloud Connect | Platform (last updated 2026-11-17T19:38:35.570Z)",
+        "articleCharacters": 5522,
+        "key": "bc7753295901b5f5e506",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "supplemental-3",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/author-detections-using-the-detection-builder-agent-in-splunk-enterprise-security",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:40:21.697779Z",
+            "completedAt": "2026-11-25T00:40:26.387704Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/author-detections-using-the-detection-builder-agent-in-splunk-enterprise-security",
+            "sha256": "b1b217d41077f54e2355a5f037936b81d5242e3d65e0f117aa213a1af44e1adc",
+            "bytes": 176562,
+            "error": null
+          }
+        ],
+        "title": "Author detections using the Detection Builder agent in Splunk Enterprise Security | Platform (last updated 2026-10-27T17:12:28.070Z)",
+        "articleCharacters": 5181,
+        "key": "74a57e7d0dcd5d839db5",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "supplemental-4",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/response/create-response-plans-in-splunk-enterprise-security",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:40:21.698176Z",
+            "completedAt": "2026-11-25T00:40:26.381275Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/response/create-response-plans-in-splunk-enterprise-security",
+            "sha256": "aa600dc93463c52bc6c721ad84a4ff2a1f2de1e20bda3ed0a4f0a72666392415",
+            "bytes": 182087,
+            "error": null
+          }
+        ],
+        "title": "Create response plans in Splunk Enterprise Security | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T15:32:30.850Z)",
+        "articleCharacters": 13031,
+        "key": "fd0d74ad455c5cd8799e",
+        "outcome": "retrieved"
+      }
+    ],
     "es-editions.licensing": [
       {
         "id": "editions",
@@ -423,6 +1442,26 @@
         "articleCharacters": 18858,
         "key": "234153c310b7e56083a0",
         "outcome": "retrieved"
+      },
+      {
+        "id": "supplemental-0",
+        "url": "https://www.splunk.com/en_us/products/pricing/pricing-models.html",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:38:36.234248Z",
+            "completedAt": "2026-11-25T00:38:40.713953Z",
+            "httpStatus": 200,
+            "finalUrl": "https://www.splunk.com/en_us/products/pricing/pricing-models.html",
+            "sha256": "9399a952018278552d09c0049f4b1beeff86071c6ae4ea8a1e27097bc4bb91d1",
+            "bytes": 373773,
+            "error": null
+          }
+        ],
+        "title": "Pricing Models | Splunk",
+        "articleCharacters": 10879,
+        "key": "e69d359d09fed5cb2a4b",
+        "outcome": "retrieved"
       }
     ],
     "es-editions.history": [
@@ -470,6 +1509,66 @@
         "title": "Release notes for Splunk Enterprise Security | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T03:25:41.821Z)",
         "articleCharacters": 17798,
         "key": "d10f9ac6604ba17d7875",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "supplemental-0",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-actions",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:39:16.039706Z",
+            "completedAt": "2026-11-25T00:39:20.518474Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-actions",
+            "sha256": "6c6358426a13df312253a22aa7fe99ace57bb5eaa81539b545af717dcec8427b",
+            "bytes": 177309,
+            "error": null
+          }
+        ],
+        "title": "Configure entity actions | Platform (last updated 2026-10-23T17:59:08.420Z)",
+        "articleCharacters": 2114,
+        "key": "2872718e9438834d72c9",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "supplemental-1",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-posture",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:39:20.529542Z",
+            "completedAt": "2026-11-25T00:39:24.988942Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-posture",
+            "sha256": "73be12f87972cc37f32f37bbee4e22957f37f5efba71e4757c33521d4abc72b9",
+            "bytes": 186800,
+            "error": null
+          }
+        ],
+        "title": "Configure entity posture | Platform (last updated 2026-10-23T18:02:21.098Z)",
+        "articleCharacters": 2656,
+        "key": "e1f5d77514a0860f62d8",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "supplemental-2",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-profile",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:39:16.040251Z",
+            "completedAt": "2026-11-25T00:39:20.551694Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-profile",
+            "sha256": "7b798432010296ebe8f8c3d0e39f8636d629a84c09c24c91b2066ad6ab73df06",
+            "bytes": 177159,
+            "error": null
+          }
+        ],
+        "title": "Configure entity profile | Platform (last updated 2026-10-23T18:02:03.157Z)",
+        "articleCharacters": 2412,
+        "key": "6ff1d5fd0381d353cfa0",
         "outcome": "retrieved"
       }
     ],
@@ -692,20 +1791,2021 @@
         "articleCharacters": 2798,
         "key": "805bc541eb99738547db",
         "outcome": "retrieved"
+      },
+      {
+        "id": "supplemental-0",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:38:40.866767Z",
+            "completedAt": "2026-11-25T00:38:44.913918Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+            "sha256": "3030ac61624970f156fc373adfb5aa3d59623d09977a020cb55032c9f351afc8",
+            "bytes": 184685,
+            "error": null
+          }
+        ],
+        "title": "Agentic AI offerings in Splunk Enterprise Security | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-09-03T19:35:15.755Z)",
+        "articleCharacters": 4720,
+        "key": "dc0e2c38de6297132b39",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "supplemental-1",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.6/ai-assistant-in-security-and-agentic-capabilities/run-soar-response-actions-using-the-guided-response-agent-in-splunk-enterprise-security",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:38:44.925496Z",
+            "completedAt": "2026-11-25T00:38:49.340532Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.6/ai-assistant-in-security-and-agentic-capabilities/run-soar-response-actions-using-the-guided-response-agent-in-splunk-enterprise-security",
+            "sha256": "60a96a618d6d4cf8173d2d560e49cfa15152f3dc9edf90f88f7e2d25fac08912",
+            "bytes": 181732,
+            "error": null
+          }
+        ],
+        "title": "Run SOAR response actions using the Guided Response Agent in Splunk Enterprise Security | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-07-31T17:51:07.774Z)",
+        "articleCharacters": 5166,
+        "key": "8047634e244ba2a3a6d5",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "supplemental-2",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/analyze-scripts-using-the-ai-powered-malware-reversing-agent-and-phishing-analysis-agent-in-splunk-enterprise-security",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:38:40.870341Z",
+            "completedAt": "2026-11-25T00:38:45.001180Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/analyze-scripts-using-the-ai-powered-malware-reversing-agent-and-phishing-analysis-agent-in-splunk-enterprise-security",
+            "sha256": "e5e684d873e5d304ead9e2faf087c1d2a443f32a48854054520ef5a171ee4d1f",
+            "bytes": 180091,
+            "error": null
+          }
+        ],
+        "title": "Analyze scripts using the AI-powered Malware Reversing agent and Phishing Analysis agent in Splunk Enterprise Security | Platform (last updated 2026-10-21T15:32:30.850Z)",
+        "articleCharacters": 4408,
+        "key": "3adec2447325f94c3eaa",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "supplemental-3",
+        "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/develop-apps/build-playbooks/use-the-automation-builder-agent-to-build-and-understand-playbooks#before-you-begin-0",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:39:25.072057Z",
+            "completedAt": "2026-11-25T00:39:29.097705Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-soar/soar-cloud/develop-apps/build-playbooks/use-the-automation-builder-agent-to-build-and-understand-playbooks#before-you-begin-0",
+            "sha256": "e6b66ee6b05f480bcfa249f753a42196f0607e389af35088c8c142366d3b9f92",
+            "bytes": 145532,
+            "error": null
+          }
+        ],
+        "title": "Use the Automation Builder Agent to build and understand playbooks | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T15:27:55.809Z)",
+        "articleCharacters": 5304,
+        "key": "78ec4a09f4cb6da1e4a9",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "supplemental-4",
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/automation-with-playbooks/configure-splunk-soar-apps-in-splunk-enterprise-security",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:39:29.121484Z",
+            "completedAt": "2026-11-25T00:39:34.258429Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/automation-with-playbooks/configure-splunk-soar-apps-in-splunk-enterprise-security",
+            "sha256": "af5c908c316d1590df03965b74a459d33333a840da51aedfbea68cebead8f377",
+            "bytes": 207268,
+            "error": null
+          }
+        ],
+        "title": "Configure Splunk SOAR apps in Splunk Enterprise Security | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T15:32:30.850Z)",
+        "articleCharacters": 20937,
+        "key": "449d27d009cfbea709b9",
+        "outcome": "retrieved"
+      },
+      {
+        "id": "supplemental-5",
+        "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
+        "attempts": [
+          {
+            "method": "direct-public-https",
+            "startedAt": "2026-11-25T00:39:25.072513Z",
+            "completedAt": "2026-11-25T00:39:29.222428Z",
+            "httpStatus": 200,
+            "finalUrl": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
+            "sha256": "5d99536098c6f78e9d6b24ccaa6f941242a7d1ac4a9e326a9adcff37b64edaab",
+            "bytes": 145132,
+            "error": null
+          }
+        ],
+        "title": "Splunk App for SOAR Export release notes | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-10-19T23:11:29.073Z)",
+        "articleCharacters": 1147,
+        "key": "58a0e8e5b0a27aa28965",
+        "outcome": "retrieved"
       }
     ]
   },
   "officialSupplement": {},
-  "ownerReaderArtifact": null,
+  "ownerReaderArtifact": {
+    "workflow": "Verify owner sources and public reports",
+    "runId": 45519761254,
+    "artifactId": 14979119893,
+    "artifactSha256": "0fa0752ee875a9fd3b3c744b9c1bf34b4976d5feae67efc72c63517d2d34a2fc",
+    "head": "6ca2912178d884d1c16ef9438ed06d942d899a25",
+    "coverageBlob": "3c0d224687acc41e4cdbfd5d00c1face20449cec",
+    "scope": "Both public origins and registered answers, offline reopened downloaded HTML and real printed PDF.",
+    "jobId": 138888366587,
+    "verifiedSteps": [
+      "Select changed owner receipts",
+      "Retrieve registered public sources",
+      "Verify both hosts and exports"
+    ],
+    "sourceBlob": "8c92e1a81c820101eaead0122dbb0ffe51b57c0d"
+  },
+  "officialInventory": [
+    {
+      "id": "triageNote88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "ES 8.8 current Triage and Response aggregate row",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:37:01.565765Z",
+          "completedAt": "2026-11-25T00:37:06.462064Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+          "sha256": "9f8a1c4df882cb73a4479175759e8628ccc963928a4f27da5c199e7f970cc3b7",
+          "bytes": 197012,
+          "error": null
+        }
+      ],
+      "title": "Agentic AI offerings in Splunk Enterprise Security | Platform (last updated 2026-11-18T23:29:22.145Z)",
+      "articleCharacters": 6270,
+      "key": "0b963040d7879579354b",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "rn88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "ES 8.8 release notes",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:36:47.721700Z",
+          "completedAt": "2026-11-25T00:36:52.190109Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "sha256": "32f028113f355313c78ca01a8ec0c9aae5d852511bdadfbeded6f65bb5967dbc",
+          "bytes": 217589,
+          "error": null
+        }
+      ],
+      "title": "Release notes for Splunk Enterprise Security | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T03:25:41.821Z)",
+      "articleCharacters": 17798,
+      "key": "d10f9ac6604ba17d7875",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "rn87",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "ES 8.7 release notes",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:36:47.721504Z",
+          "completedAt": "2026-11-25T00:36:52.231250Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "sha256": "44cec41242c317e3490bb15511429f1652aebf3ac951525f8d178aedc9998f8f",
+          "bytes": 200868,
+          "error": null
+        }
+      ],
+      "title": "Release notes for Splunk Enterprise Security | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-09-03T19:36:19.361Z)",
+      "articleCharacters": 15137,
+      "key": "3f85b7b36b8cf6f0216e",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "matrix",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/splunk-enterprise-security-editions-cloud-capability-matrix",
+      "section": "ES 8.7 Editions Cloud Capability Matrix",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:41:43.800740Z",
+          "completedAt": "2026-11-25T00:41:49.519790Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/splunk-enterprise-security-editions-cloud-capability-matrix",
+          "sha256": "e4d458568b4efb748bf6d8371e26c70662839be8b67dc3c424b44da69b9e9d70",
+          "bytes": 150297,
+          "error": null
+        }
+      ],
+      "title": "Splunk Enterprise Security Editions Cloud Capability Matrix | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-09-01T21:53:09.020Z)",
+      "articleCharacters": 1352,
+      "key": "44ca5a212c121b6a9493",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "matrix88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/splunk-enterprise-security-editions-cloud-capability-matrix",
+      "section": "ES 8.8 Editions Cloud Capability Matrix",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:36:52.310185Z",
+          "completedAt": "2026-11-25T00:36:57.432283Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/splunk-enterprise-security-editions-cloud-capability-matrix",
+          "sha256": "97e5fa400893fe7faea7f22c2397b462688194cc0ace49eef67d00f5ff9a8939",
+          "bytes": 151072,
+          "error": null
+        }
+      ],
+      "title": "Splunk Enterprise Security Editions Cloud Capability Matrix | Platform (last updated 2026-10-21T03:25:41.821Z)",
+      "articleCharacters": 1612,
+      "key": "bce98745317b7ea55f5f",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "editions",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
+      "section": "Overview of ES Editions",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:36:21.501622Z",
+          "completedAt": "2026-11-25T00:36:27.661014Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions/overview-of-splunk-enterprise-security-editions",
+          "sha256": "e37f87fa699fc2b61a70b66315ad6851426a9748cdcc2a28e496f6b2fc3ecadc",
+          "bytes": 137948,
+          "error": null
+        }
+      ],
+      "title": "Overview of Splunk Enterprise Security Editions | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T16:26:20.217Z)",
+      "articleCharacters": 2953,
+      "key": "2dc2d849c6eabc9e505e",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "conf26",
+      "url": "https://www.splunk.com/en_us/blog/security/evolving-to-autonomous-defense-new-agentic-soc-capabilities.html",
+      "section": ".conf26 Agentic SOC announcement",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:41:43.801401Z",
+          "completedAt": "2026-11-25T00:41:49.234720Z",
+          "httpStatus": 200,
+          "finalUrl": "https://www.splunk.com/en_us/blog/security/evolving-to-autonomous-defense-new-agentic-soc-capabilities.html",
+          "sha256": "a87637b613df55a6e8b97079565460fccbcd7682f84fefbdeb9209e7eaeb613f",
+          "bytes": 24879,
+          "error": null
+        }
+      ],
+      "title": "Evolving to Autonomous Defense: New Agentic SOC Capabilities | Splunk",
+      "articleCharacters": 6358,
+      "key": "7a86c8b596982be23427",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "agentic",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Agentic AI offerings in ES",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:38:40.866767Z",
+          "completedAt": "2026-11-25T00:38:44.913918Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/agentic-ai-offerings-in-splunk-enterprise-security",
+          "sha256": "3030ac61624970f156fc373adfb5aa3d59623d09977a020cb55032c9f351afc8",
+          "bytes": 184685,
+          "error": null
+        }
+      ],
+      "title": "Agentic AI offerings in Splunk Enterprise Security | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-09-03T19:35:15.755Z)",
+      "articleCharacters": 4720,
+      "key": "dc0e2c38de6297132b39",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "agentic88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "Agentic AI offerings in ES 8.8",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:37:01.565765Z",
+          "completedAt": "2026-11-25T00:37:06.462064Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+          "sha256": "9f8a1c4df882cb73a4479175759e8628ccc963928a4f27da5c199e7f970cc3b7",
+          "bytes": 197012,
+          "error": null
+        }
+      ],
+      "title": "Agentic AI offerings in Splunk Enterprise Security | Platform (last updated 2026-11-18T23:29:22.145Z)",
+      "articleCharacters": 6270,
+      "key": "0b963040d7879579354b",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "threatGraph88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
+      "section": "AI Threat Graph Detection agent prerequisites (ES 8.8)",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:37:10.955019Z",
+          "completedAt": "2026-11-25T00:37:16.537895Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
+          "sha256": "6eff0ba5c822ac7079422d2444b740677f925749ef780227fd054141fd6c1032",
+          "bytes": 172952,
+          "error": null
+        }
+      ],
+      "title": "Surface findings based on risk using the AI Threat Graph Detection agent | Platform (last updated 2026-11-04T20:01:07.869Z)",
+      "articleCharacters": 3458,
+      "key": "0c8b5dd28912f3519637",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "cloudcx",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.7/introduction/access-splunk-cloud-connect-in-splunk-enterprise-security-to-access-cloud-extensions",
+      "section": "Access Splunk Cloud Connect in ES",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:41:43.802144Z",
+          "completedAt": "2026-11-25T00:41:49.515423Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.7/introduction/access-splunk-cloud-connect-in-splunk-enterprise-security-to-access-cloud-extensions",
+          "sha256": "26a4022e5287eb1fbb275b16dd0b9bf72295cd84a40bb5084a34c291a8623f5c",
+          "bytes": 165217,
+          "error": null
+        }
+      ],
+      "title": "Access Splunk Cloud Connect in Splunk Enterprise Security to access Cloud extensions | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-09-01T21:04:27.123Z)",
+      "articleCharacters": 6920,
+      "key": "9d0d6c971ab103c712cc",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "cloudcx88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.8/introduction/access-splunk-cloud-connect-in-splunk-enterprise-security-to-access-cloud-extensions",
+      "section": "Access Splunk Cloud Connect in ES 8.8",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:36:57.436748Z",
+          "completedAt": "2026-11-25T00:37:01.474247Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.8/introduction/access-splunk-cloud-connect-in-splunk-enterprise-security-to-access-cloud-extensions",
+          "sha256": "8926349ccab4fc5cc824066f6f265c14d591fe1b2b54ded4b74f35b1f8f11167",
+          "bytes": 167338,
+          "error": null
+        }
+      ],
+      "title": "Access Splunk Cloud Connect in Splunk Enterprise Security to access Cloud extensions | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-11-03T23:48:09.806Z)",
+      "articleCharacters": 8020,
+      "key": "58537d17380e8ddbf179",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "cloudcxAgentic88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/set-up-splunk-cloud-connect-to-use-the-agentic-soc",
+      "section": "ES 8.8 Cloud Connect setup for the agentic SOC",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:37:10.954820Z",
+          "completedAt": "2026-11-25T00:37:16.660437Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/set-up-splunk-cloud-connect-to-use-the-agentic-soc",
+          "sha256": "7fcb8bb7693f909868a442ab458ff8ad64a894dabda4c14bb0dcebec0bfec060",
+          "bytes": 191923,
+          "error": null
+        }
+      ],
+      "title": "Set up Splunk Cloud Connect to use the agentic SOC | Platform (last updated 2026-11-18T23:29:23.671Z)",
+      "articleCharacters": 7585,
+      "key": "772289d5c453a6cdd71f",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "aiassist",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/ai-assistant-overview",
+      "section": "AI Assistant overview (ES)",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:39:07.133019Z",
+          "completedAt": "2026-11-25T00:39:12.151609Z",
+          "httpStatus": null,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/ai-assistant-overview",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "error": "curl: (28) Connection timed out after 5002 milliseconds"
+        },
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:39:12.151624Z",
+          "completedAt": "2026-11-25T00:39:15.968022Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/ai-assistant-overview",
+          "sha256": "ca4ba63ba09575024ef073b6791bc4349936457b7a7fccd4b2a51f19c1a35cfe",
+          "bytes": 167656,
+          "error": null
+        }
+      ],
+      "title": "AI Assistant overview | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-09-03T19:35:08.695Z)",
+      "articleCharacters": 682,
+      "key": "ca0db261424e78d864bd",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "saia",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.2.0/release-notes/whats-new-in-splunk-ai-assistant",
+      "section": "Splunk AI Assistant 2.2.0 release notes",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:41:49.521583Z",
+          "completedAt": "2026-11-25T00:41:54.825673Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.2.0/release-notes/whats-new-in-splunk-ai-assistant",
+          "sha256": "ea7885aaff7da205a0749f682b88a4df2a90d6aed633a3ff24f2c1f4a6e75140",
+          "bytes": 163235,
+          "error": null
+        }
+      ],
+      "title": "What's new in Splunk AI Assistant | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-08-07T14:48:32.645Z)",
+      "articleCharacters": 9713,
+      "key": "13126e61c4de3cda80ca",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "saiaCloudConnected",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "Splunk AI Assistant 2.3.6 Cloud Connected compatibility",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:41:49.525881Z",
+          "completedAt": "2026-11-25T00:41:54.716297Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+          "sha256": "6f7a1b424061a64eeb16b7154acf5e602dae7b32759914304d849b7600804075",
+          "bytes": 178515,
+          "error": null
+        }
+      ],
+      "title": "Install Splunk AI Assistant for Splunk Enterprise customers with Cloud Connected | Platform (last updated 2026-11-03T19:32:46.083Z)",
+      "articleCharacters": 9908,
+      "key": "8cacdeb627b8f386c148",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "saiaCloudConnect240",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-splunk-cloud-connect",
+      "section": "Splunk AI Assistant 2.4.0 Cloud Connect installation",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:39:07.132918Z",
+          "completedAt": "2026-11-25T00:39:12.149587Z",
+          "httpStatus": null,
+          "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-splunk-cloud-connect",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "error": "curl: (28) Connection timed out after 5002 milliseconds"
+        },
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:39:12.149954Z",
+          "completedAt": "2026-11-25T00:39:15.842759Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.4.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-splunk-cloud-connect",
+          "sha256": "10b49dbf6a19387e69311e7dceb42992f55aadbe16673c2a83cd44d38f118063",
+          "bytes": 160376,
+          "error": null
+        }
+      ],
+      "title": "Install Splunk AI Assistant for Splunk Enterprise customers with Splunk Cloud Connect | Platform (last updated 2026-11-17T19:38:35.570Z)",
+      "articleCharacters": 5522,
+      "key": "bc7753295901b5f5e506",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "pricing",
+      "url": "https://www.splunk.com/en_us/products/pricing.html",
+      "section": "Splunk pricing — Enterprise Security and SOAR",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:36:21.502453Z",
+          "completedAt": "2026-11-25T00:36:26.516685Z",
+          "httpStatus": null,
+          "finalUrl": "https://www.splunk.com/en_us/products/pricing.html",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "error": "curl: (28) Connection timed out after 5002 milliseconds"
+        },
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:36:26.516718Z",
+          "completedAt": "2026-11-25T00:36:28.705676Z",
+          "httpStatus": 200,
+          "finalUrl": "https://www.splunk.com/en_us/products/pricing.html",
+          "sha256": "6204c2be21e972b9d6604959c806c257236b83b90aee903cbb3788486a2be73f",
+          "bytes": 525187,
+          "error": null
+        }
+      ],
+      "title": "Pricing | Splunk",
+      "articleCharacters": 18858,
+      "key": "234153c310b7e56083a0",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "pricingModels",
+      "url": "https://www.splunk.com/en_us/products/pricing/pricing-models.html",
+      "section": "Splunk pricing models and eligibility FAQ",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:38:36.234248Z",
+          "completedAt": "2026-11-25T00:38:40.713953Z",
+          "httpStatus": 200,
+          "finalUrl": "https://www.splunk.com/en_us/products/pricing/pricing-models.html",
+          "sha256": "9399a952018278552d09c0049f4b1beeff86071c6ae4ea8a1e27097bc4bb91d1",
+          "bytes": 373773,
+          "error": null
+        }
+      ],
+      "title": "Pricing Models | Splunk",
+      "articleCharacters": 10879,
+      "key": "e69d359d09fed5cb2a4b",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "automationTask",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/develop-apps/build-playbooks/use-the-automation-builder-agent-to-build-and-understand-playbooks#before-you-begin-0",
+      "section": "SOAR Cloud Automation Builder task guide",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:39:25.072057Z",
+          "completedAt": "2026-11-25T00:39:29.097705Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-soar/soar-cloud/develop-apps/build-playbooks/use-the-automation-builder-agent-to-build-and-understand-playbooks#before-you-begin-0",
+          "sha256": "e6b66ee6b05f480bcfa249f753a42196f0607e389af35088c8c142366d3b9f92",
+          "bytes": 145532,
+          "error": null
+        }
+      ],
+      "title": "Use the Automation Builder Agent to build and understand playbooks | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T15:27:55.809Z)",
+      "articleCharacters": 5304,
+      "key": "78ec4a09f4cb6da1e4a9",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "connectorTask",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/automation-with-playbooks/configure-splunk-soar-apps-in-splunk-enterprise-security",
+      "section": "Connector Builder prerequisites (ES 8.7)",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:41:54.732041Z",
+          "completedAt": "2026-11-25T00:41:59.197213Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/automation-with-playbooks/configure-splunk-soar-apps-in-splunk-enterprise-security",
+          "sha256": "49fc1ebaebb48bac15311482643bf3cdd9bb2ed6ce12ee32344041f6c8b16753",
+          "bytes": 209459,
+          "error": null
+        }
+      ],
+      "title": "Configure Splunk SOAR apps in Splunk Enterprise Security | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-09-01T21:50:49.229Z)",
+      "articleCharacters": 20445,
+      "key": "b972395657511224714f",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "connectorTask88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/automation-with-playbooks/configure-splunk-soar-apps-in-splunk-enterprise-security",
+      "section": "Connector Builder prerequisites (ES 8.8)",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:39:29.121484Z",
+          "completedAt": "2026-11-25T00:39:34.258429Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/automation-with-playbooks/configure-splunk-soar-apps-in-splunk-enterprise-security",
+          "sha256": "af5c908c316d1590df03965b74a459d33333a840da51aedfbea68cebead8f377",
+          "bytes": 207268,
+          "error": null
+        }
+      ],
+      "title": "Configure Splunk SOAR apps in Splunk Enterprise Security | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T15:32:30.850Z)",
+      "articleCharacters": 20937,
+      "key": "449d27d009cfbea709b9",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "autonomousResponse88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/identify-and-run-the-soar-response-actions-on-findings-using-the-autonomous-response-agent-in-splunk-enterprise-security",
+      "section": "Autonomous Response agent prerequisites and access (ES 8.8)",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:38:49.617449Z",
+          "completedAt": "2026-11-25T00:38:53.862426Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/identify-and-run-the-soar-response-actions-on-findings-using-the-autonomous-response-agent-in-splunk-enterprise-security",
+          "sha256": "969fb97eb26c55b0699377d0e75617cfdad98325f0a04eee2b1ab412be3297e0",
+          "bytes": 188665,
+          "error": null
+        }
+      ],
+      "title": "Identify and run the SOAR response actions on findings using the Autonomous Response agent in Splunk Enterprise Security | Platform (last updated 2026-11-18T23:29:37.560Z)",
+      "articleCharacters": 8262,
+      "key": "2de2443a429dbfe395bc",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "socTask",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "section": "AI SOC Analyst workflow prerequisites (ES 8.7)",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:37:21.098976Z",
+          "completedAt": "2026-11-25T00:37:25.534607Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+          "sha256": "cdaa4eb3bf606004b1586f282250171553ebeb747236feaa63be801a7b3b8ba5",
+          "bytes": 191695,
+          "error": null
+        }
+      ],
+      "title": "Setting up the AI SOC analyst agentic workflow in Splunk Enterprise Security | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-10-26T18:30:10.008Z)",
+      "articleCharacters": 12833,
+      "key": "826680668ee958944bf5",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "socTask88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
+      "section": "Triage and Response agent workflow prerequisites (ES 8.8)",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:37:16.542353Z",
+          "completedAt": "2026-11-25T00:37:21.085293Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
+          "sha256": "884ad6537c9ff06c7c74d62b09a81553595482845f257728013c0ed0c5fc7cd1",
+          "bytes": 183835,
+          "error": null
+        }
+      ],
+      "title": "Setting up the Triage and Response agents in Splunk Enterprise Security | Platform (last updated 2026-11-19T00:56:26.084Z)",
+      "articleCharacters": 6940,
+      "key": "966c6347457dd92dfd4e",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "malwareTask",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/analyze-scripts-using-the-ai-powered-malware-reversing-agent-and-phishing-analysis-agent-in-splunk-enterprise-security",
+      "section": "Malware Reversing and Phishing task guide (ES 8.7)",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:41:59.204044Z",
+          "completedAt": "2026-11-25T00:42:03.007041Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/analyze-scripts-using-the-ai-powered-malware-reversing-agent-and-phishing-analysis-agent-in-splunk-enterprise-security",
+          "sha256": "9b1723d58b2d396660dcec7c736f8c653f27253f76b8d691a68979190f1eb86e",
+          "bytes": 180266,
+          "error": null
+        }
+      ],
+      "title": "Analyze scripts using the AI-powered Malware Reversing agent and Phishing Analysis agent in Splunk Enterprise Security | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-09-01T21:46:58.522Z)",
+      "articleCharacters": 4408,
+      "key": "65fc1c630a969cdeeffe",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "malwareTask88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/analyze-scripts-using-the-ai-powered-malware-reversing-agent-and-phishing-analysis-agent-in-splunk-enterprise-security",
+      "section": "Malware Reversing and Phishing task guide (ES 8.8)",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:38:40.870341Z",
+          "completedAt": "2026-11-25T00:38:45.001180Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/analyze-scripts-using-the-ai-powered-malware-reversing-agent-and-phishing-analysis-agent-in-splunk-enterprise-security",
+          "sha256": "e5e684d873e5d304ead9e2faf087c1d2a443f32a48854054520ef5a171ee4d1f",
+          "bytes": 180091,
+          "error": null
+        }
+      ],
+      "title": "Analyze scripts using the AI-powered Malware Reversing agent and Phishing Analysis agent in Splunk Enterprise Security | Platform (last updated 2026-10-21T15:32:30.850Z)",
+      "articleCharacters": 4408,
+      "key": "3adec2447325f94c3eaa",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "ueba",
+      "url": "https://www.splunk.com/en_us/products/user-and-entity-behavior-analytics.html",
+      "section": "Splunk UEBA product page",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:37:01.565386Z",
+          "completedAt": "2026-11-25T00:37:06.580652Z",
+          "httpStatus": null,
+          "finalUrl": "https://www.splunk.com/en_us/products/user-and-entity-behavior-analytics.html",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "error": "curl: (28) Connection timed out after 5002 milliseconds"
+        },
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:37:06.580682Z",
+          "completedAt": "2026-11-25T00:37:08.925879Z",
+          "httpStatus": 200,
+          "finalUrl": "https://www.splunk.com/en_us/products/user-and-entity-behavior-analytics.html",
+          "sha256": "e586ab8725588d2eea7aa141f01cf9ae32932377c115a01a57f4253a779fc03b",
+          "bytes": 279527,
+          "error": null
+        }
+      ],
+      "title": "Splunk User and Entity Behavior Analytics (UEBA) | Splunk",
+      "articleCharacters": 8250,
+      "key": "24d5e0d5c25e6748ebb1",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "ea",
+      "url": "https://www.splunk.com/en_us/products/exposure-analytics.html",
+      "section": "Exposure Analytics product page",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:41:54.735412Z",
+          "completedAt": "2026-11-25T00:41:59.666616Z",
+          "httpStatus": 200,
+          "finalUrl": "https://www.splunk.com/en_us/products/exposure-analytics.html",
+          "sha256": "deea6be64e2591e06c5ed51a93059861e60bdf477d94f8614fbc76484406f840",
+          "bytes": 320480,
+          "error": null
+        }
+      ],
+      "title": "Exposure Analytics in Splunk Enterprise Security | Splunk",
+      "articleCharacters": 7582,
+      "key": "2dbcc5c0c8fd796ad195",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "licensing",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.7/introduction/licensing-for-splunk-enterprise-security",
+      "section": "ES licensing and trials (8.7 documentation)",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:41:54.831336Z",
+          "completedAt": "2026-11-25T00:41:59.196284Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.7/introduction/licensing-for-splunk-enterprise-security",
+          "sha256": "eb5434b2cda72b9c8fa063094e4929c1f0b8cdcb4ca82d370626b2af106e22c2",
+          "bytes": 154268,
+          "error": null
+        }
+      ],
+      "title": "Licensing for Splunk Enterprise Security | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-09-01T21:04:21.891Z)",
+      "articleCharacters": 3727,
+      "key": "dcdee984729a78a7a0bf",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "licensing88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.8/introduction/licensing-for-splunk-enterprise-security",
+      "section": "ES licensing and trials (8.8 documentation)",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:36:21.501779Z",
+          "completedAt": "2026-11-25T00:36:27.499179Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.8/introduction/licensing-for-splunk-enterprise-security",
+          "sha256": "9e28683641ed38f9d96389eb8cc3aa6ffdbb7864d0d9507f4accf9dc6a6bf251",
+          "bytes": 154360,
+          "error": null
+        }
+      ],
+      "title": "Licensing for Splunk Enterprise Security | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T03:25:38.111Z)",
+      "articleCharacters": 3727,
+      "key": "f2a7e2ef980bc3743cb1",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "regions",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "ES 8.7 compatibility and regional availability",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:41:59.208683Z",
+          "completedAt": "2026-11-25T00:42:03.079717Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+          "sha256": "1b2f3bd75b2b86017cacd45d86a8df564180f345ae6f4949ce0b10eff62aa59d",
+          "bytes": 237729,
+          "error": null
+        }
+      ],
+      "title": "Compatibility and regional availability | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-09-01T21:55:16.476Z)",
+      "articleCharacters": 10457,
+      "key": "526872634a7c9994f8f3",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "regions88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "ES 8.8 compatibility and regional availability",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:36:52.310530Z",
+          "completedAt": "2026-11-25T00:36:57.547879Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+          "sha256": "2bc6492864d32b305f7a08cbba897dcb465e480cc77ae32aa599436423e7c791",
+          "bytes": 239067,
+          "error": null
+        }
+      ],
+      "title": "Compatibility and regional availability | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T03:25:41.821Z)",
+      "articleCharacters": 11083,
+      "key": "348a24aafee18c00a09b",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "guided",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.6/ai-assistant-in-security-and-agentic-capabilities/run-soar-response-actions-using-the-guided-response-agent-in-splunk-enterprise-security",
+      "section": "Guided Response prerequisites (8.6 documentation)",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:38:44.925496Z",
+          "completedAt": "2026-11-25T00:38:49.340532Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.6/ai-assistant-in-security-and-agentic-capabilities/run-soar-response-actions-using-the-guided-response-agent-in-splunk-enterprise-security",
+          "sha256": "60a96a618d6d4cf8173d2d560e49cfa15152f3dc9edf90f88f7e2d25fac08912",
+          "bytes": 181732,
+          "error": null
+        }
+      ],
+      "title": "Run SOAR response actions using the Guided Response Agent in Splunk Enterprise Security | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-07-31T17:51:07.774Z)",
+      "articleCharacters": 5166,
+      "key": "8047634e244ba2a3a6d5",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "triage",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.6/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-triage-agent-in-splunk-enterprise-security",
+      "section": "Triage agent setup (8.6 documentation)",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:42:06.879857Z",
+          "completedAt": "2026-11-25T00:42:10.910864Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.6/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-triage-agent-in-splunk-enterprise-security",
+          "sha256": "a320d3ac9097f85b1dacbe01c1ab58df67fed4707e5715959bcb4a26a3618751",
+          "bytes": 178114,
+          "error": null
+        }
+      ],
+      "title": "Setting up the Triage agent in Splunk Enterprise Security | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-07-21T20:58:36.846Z)",
+      "articleCharacters": 1545,
+      "key": "d62bca63b4f45a3264a6",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "appForSoar88",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.8.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "section": "App for SOAR 8.8.0 tested compatibility",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:37:01.566053Z",
+          "completedAt": "2026-11-25T00:37:06.461836Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.8.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+          "sha256": "e1d951d90d5784e59044d4e9f594ec24fc3ce3b029542783ae4b370ebcc58e44",
+          "bytes": 152617,
+          "error": null
+        }
+      ],
+      "title": "Check prerequisites for Splunk App for SOAR | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-10-23T23:38:43.578Z)",
+      "articleCharacters": 1394,
+      "key": "c959d0800e253f8eeab4",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "appForSoar87",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.7.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "section": "Historical App for SOAR 8.7.0 tested compatibility",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:42:15.224155Z",
+          "completedAt": "2026-11-25T00:42:19.529914Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.7.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+          "sha256": "73fe9c4f37d17ed60664064d046f5a8a61e2ea02d3bfbad3203f1deadb135674",
+          "bytes": 152755,
+          "error": null
+        }
+      ],
+      "title": "Check prerequisites for Splunk App for SOAR | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-08-31T16:24:16.551Z)",
+      "articleCharacters": 1473,
+      "key": "dfdad326577dab07dd43",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "soarExportEnterprise87",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+      "section": "SOAR Export 8.7 prerequisites on Enterprise",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:42:03.021267Z",
+          "completedAt": "2026-11-25T00:42:06.995433Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+          "sha256": "c776d49597978d082e213169694d41bad4081e877e1f3b48be9f9f9cef34ca65",
+          "bytes": 159386,
+          "error": null
+        }
+      ],
+      "title": "Check prerequisites for Splunk App for SOAR Export on Splunk Enterprise | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-09-01T21:59:58.735Z)",
+      "articleCharacters": 2938,
+      "key": "d86ca80bacf7d36e9cb7",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "soarExportCloud87",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+      "section": "SOAR Export 8.7 prerequisites on Cloud Platform",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:42:03.087947Z",
+          "completedAt": "2026-11-25T00:42:06.874151Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+          "sha256": "07a93ef4c51d595815e1723bb2381fa437d897ef435a11ba845cb68cacfc9cd8",
+          "bytes": 159534,
+          "error": null
+        }
+      ],
+      "title": "Check prerequisites for Splunk App for SOAR Export on Splunk Cloud Platform | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-09-01T21:59:58.810Z)",
+      "articleCharacters": 2414,
+      "key": "673139da0582f454dad3",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "soarExportRelease88",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
+      "section": "SOAR Export 8.8.x release notes",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:39:25.072513Z",
+          "completedAt": "2026-11-25T00:39:29.222428Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/introduction-and-overview/splunk-app-for-soar-export-release-notes",
+          "sha256": "5d99536098c6f78e9d6b24ccaa6f941242a7d1ac4a9e326a9adcff37b64edaab",
+          "bytes": 145132,
+          "error": null
+        }
+      ],
+      "title": "Splunk App for SOAR Export release notes | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-10-19T23:11:29.073Z)",
+      "articleCharacters": 1147,
+      "key": "58a0e8e5b0a27aa28965",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "soarExportEnterprise88",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+      "section": "SOAR Export 8.8.0 prerequisites on Enterprise",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:37:06.472207Z",
+          "completedAt": "2026-11-25T00:37:10.877110Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+          "sha256": "f33fedd36e238aa974b2948ae6e21a11257188f77f6583a6adb7eb1646536c6a",
+          "bytes": 155952,
+          "error": null
+        }
+      ],
+      "title": "Check prerequisites for Splunk App for SOAR Export on Splunk Enterprise | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-10-19T23:11:29.073Z)",
+      "articleCharacters": 2798,
+      "key": "805bc541eb99738547db",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "soarExportCloud88",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+      "section": "SOAR Export 8.8.0 prerequisites on Cloud Platform",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:37:06.475809Z",
+          "completedAt": "2026-11-25T00:37:10.838771Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+          "sha256": "db61041f42e1c345dbd1bfa7d9491f72e3f5b948ab8c902fbe113f784b0f6970",
+          "bytes": 155992,
+          "error": null
+        }
+      ],
+      "title": "Check prerequisites for Splunk App for SOAR Export on Splunk Cloud Platform | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-10-19T23:11:29.073Z)",
+      "articleCharacters": 2274,
+      "key": "875b45b117e8a96ef413",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "soarExportCatalog88",
+      "url": "https://splunkbase.splunk.com/app/3411",
+      "section": "Splunkbase: Splunk App for SOAR Export",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:42:06.880637Z",
+          "completedAt": "2026-11-25T00:42:12.176402Z",
+          "httpStatus": 200,
+          "finalUrl": "https://splunkbase.splunk.com/app/3411",
+          "sha256": "69a724a9e524653bdfe0be210071a807d73bde0d7aec6dad7a6d3938123f7441",
+          "bytes": 238608,
+          "error": null
+        }
+      ],
+      "title": "Splunk App for SOAR Export | Splunkbase",
+      "articleCharacters": 51,
+      "key": "e75e11df4ec1f6d81a1b",
+      "outcome": "retrieved",
+      "semanticContent": "Public Splunkbase appDetails.releases for named Export 8.8 package",
+      "package": [
+        {
+          "name": "8.8.1",
+          "versionCompatibility": [
+            {
+              "id": 138,
+              "status": "live",
+              "versionString": "10.8"
+            },
+            {
+              "id": 137,
+              "status": "live",
+              "versionString": "10.7"
+            },
+            {
+              "id": 136,
+              "status": "live",
+              "versionString": "10.6"
+            },
+            {
+              "id": 132,
+              "status": "live",
+              "versionString": "10.5"
+            },
+            {
+              "id": 129,
+              "status": "live",
+              "versionString": "10.4"
+            },
+            {
+              "id": 128,
+              "status": "live",
+              "versionString": "10.3"
+            },
+            {
+              "id": 127,
+              "status": "live",
+              "versionString": "10.2"
+            }
+          ],
+          "cloudCompatible": true
+        },
+        {
+          "name": "8.8.0",
+          "versionCompatibility": [
+            {
+              "id": 138,
+              "status": "live",
+              "versionString": "10.8"
+            },
+            {
+              "id": 137,
+              "status": "live",
+              "versionString": "10.7"
+            },
+            {
+              "id": 136,
+              "status": "live",
+              "versionString": "10.6"
+            },
+            {
+              "id": 132,
+              "status": "live",
+              "versionString": "10.5"
+            },
+            {
+              "id": 129,
+              "status": "live",
+              "versionString": "10.4"
+            },
+            {
+              "id": 128,
+              "status": "live",
+              "versionString": "10.3"
+            },
+            {
+              "id": 127,
+              "status": "live",
+              "versionString": "10.2"
+            }
+          ],
+          "cloudCompatible": true
+        }
+      ]
+    },
+    {
+      "id": "taxii88Compatibility",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security#ariaid-title5",
+      "section": "ES 8.8 TAXII compatibility wording",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:42:06.998477Z",
+          "completedAt": "2026-11-25T00:42:10.859884Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security#ariaid-title5",
+          "sha256": "b9464ffa920a65bba026b4001b206c07ad493a267487b984f027ffc1e0c3c33a",
+          "bytes": 217589,
+          "error": null
+        }
+      ],
+      "title": "Release notes for Splunk Enterprise Security | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T03:25:41.821Z)",
+      "articleCharacters": 17798,
+      "key": "0d63b84739cecc296ab9",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "taxii82Release",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.2/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "ES 8.2 native TAXII 2 feed introduction",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:42:10.863960Z",
+          "completedAt": "2026-11-25T00:42:15.291763Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.2/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "sha256": "ca15eb0b4cdfcab5526434bf58c2ee9b26c7dd01e4efc2541728fd57a3d0a886",
+          "bytes": 187469,
+          "error": null
+        }
+      ],
+      "title": "Release notes for Splunk Enterprise Security | Splunk Enterprise, Splunk Cloud Platform (last updated 2025-09-17T21:53:58.168Z)",
+      "articleCharacters": 13378,
+      "key": "2969891e3268c15aa2a5",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "taxii88Native",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/threat-intelligence/add-new-threat-intelligence-sources-in-splunk-enterprise-security",
+      "section": "ES 8.8 native threat intelligence feed guide",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:42:10.914634Z",
+          "completedAt": "2026-11-25T00:42:15.217835Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/threat-intelligence/add-new-threat-intelligence-sources-in-splunk-enterprise-security",
+          "sha256": "1999deaefd0286c9f4603b1d53fda26f114805498ed91ffeb54e5136af2ae39a",
+          "bytes": 238705,
+          "error": null
+        }
+      ],
+      "title": "Add new threat intelligence sources in Splunk Enterprise Security | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T15:32:30.850Z)",
+      "articleCharacters": 24945,
+      "key": "b9a92c6c57eab86b1c72",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "triageTask88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/create-custom-dashboards-for-triage-using-the-triage-agent",
+      "section": "ES 8.8 detailed Triage task and dashboard guide",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:38:49.617360Z",
+          "completedAt": "2026-11-25T00:38:53.841044Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/create-custom-dashboards-for-triage-using-the-triage-agent",
+          "sha256": "b48ec3e2abf8bf12ab5764f1b44c28538b467fd305d9080958f44fb5c536bdd3",
+          "bytes": 219864,
+          "error": null
+        }
+      ],
+      "title": "Create custom dashboards for triage using the Triage agent | Platform (last updated 2026-11-18T23:26:40.163Z)",
+      "articleCharacters": 14565,
+      "key": "81127d1ed4ebaeb38a98",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "eaPosture88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-posture",
+      "section": "Configure entity posture in ES 8.8",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:39:20.529542Z",
+          "completedAt": "2026-11-25T00:39:24.988942Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-posture",
+          "sha256": "73be12f87972cc37f32f37bbee4e22957f37f5efba71e4757c33521d4abc72b9",
+          "bytes": 186800,
+          "error": null
+        }
+      ],
+      "title": "Configure entity posture | Platform (last updated 2026-10-23T18:02:21.098Z)",
+      "articleCharacters": 2656,
+      "key": "e1f5d77514a0860f62d8",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "eaProfile88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-profile",
+      "section": "Configure entity profile in ES 8.8",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:39:16.040251Z",
+          "completedAt": "2026-11-25T00:39:20.551694Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-profile",
+          "sha256": "7b798432010296ebe8f8c3d0e39f8636d629a84c09c24c91b2066ad6ab73df06",
+          "bytes": 177159,
+          "error": null
+        }
+      ],
+      "title": "Configure entity profile | Platform (last updated 2026-10-23T18:02:03.157Z)",
+      "articleCharacters": 2412,
+      "key": "6ff1d5fd0381d353cfa0",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "eaActions88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-actions",
+      "section": "Configure entity actions in ES 8.8",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:39:16.039706Z",
+          "completedAt": "2026-11-25T00:39:20.518474Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/exposure-analytics/configure-entity-actions",
+          "sha256": "6c6358426a13df312253a22aa7fe99ace57bb5eaa81539b545af717dcec8427b",
+          "bytes": 177309,
+          "error": null
+        }
+      ],
+      "title": "Configure entity actions | Platform (last updated 2026-10-23T17:59:08.420Z)",
+      "articleCharacters": 2114,
+      "key": "2872718e9438834d72c9",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "eaProfileExample",
+      "url": "https://www.splunk.com/en_us/blog/security/entity-profile-identify-contextual-risk-affecting-entities.html",
+      "section": "Splunk’s Entity Profile walkthrough",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:42:12.178816Z",
+          "completedAt": "2026-11-25T00:42:16.558561Z",
+          "httpStatus": 200,
+          "finalUrl": "https://www.splunk.com/en_us/blog/security/entity-profile-identify-contextual-risk-affecting-entities.html",
+          "sha256": "06346d3bdb40e730a77b9165046c0841497e36796031f3a4ae32f9ed021e465e",
+          "bytes": 24427,
+          "error": null
+        }
+      ],
+      "title": "Entity Profile: Identify Contextual Risk Affecting Entities | Splunk",
+      "articleCharacters": 4353,
+      "key": "d06f1241d21f16ba8a2b",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "eaPostureExample",
+      "url": "https://www.splunk.com/en_us/blog/security/find-security-control-gaps-before-they-become-incidents.html",
+      "section": "Splunk’s Entity Posture walkthrough",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-25T00:42:15.223356Z",
+          "completedAt": "2026-11-25T00:42:16.705583Z",
+          "httpStatus": 200,
+          "finalUrl": "https://www.splunk.com/en_us/blog/security/find-security-control-gaps-before-they-become-incidents.html",
+          "sha256": "047f2e18acc88d3c144a54cf447657bce2e0f25cfe421effb5a69bed9c49f640",
+          "bytes": 24682,
+          "error": null
+        }
+      ],
+      "title": "Entity Posture: Find Security Control Gaps, Before They Become Incidents | Splunk",
+      "articleCharacters": 4511,
+      "key": "5c6bffbba91e8610b377",
+      "outcome": "retrieved"
+    }
+  ],
+  "ownerSourceTransport": {
+    "watchId": "es-editions-watch",
+    "checkedAt": "2026-11-25T00:40:10.355Z",
+    "sources": [
+      {
+        "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+        "http": 200,
+        "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+        "contentType": "text/html;charset=UTF-8",
+        "status": "received",
+        "bytes": 178951,
+        "sha256": "b703b8f43c2b575c7b2690760b3abecb1fd6643591fdb12f387c7f2413d307da",
+        "title": "Install Splunk AI Assistant for Splunk Enterprise customers with Cloud Connected | Platform (last updated 2026-11-03T19:32:46.083Z)",
+        "checkedAt": "2026-11-25T00:40:03.610Z",
+        "requiredBy": [
+          {
+            "capabilityId": "ai.es-capabilities",
+            "sourceId": "aiSaiaCloudConnected",
+            "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data"
+          }
+        ],
+        "resolution": {
+          "method": "direct"
+        }
+      },
+      {
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+        "http": 200,
+        "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+        "contentType": "text/html;charset=UTF-8",
+        "status": "received",
+        "bytes": 191695,
+        "sha256": "4d7912c8fd65446c2d9417b2bdfa0183a5c315bd364b360989e4da6a885aa91e",
+        "title": "Setting up the AI SOC analyst agentic workflow in Splunk Enterprise Security | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-10-26T18:30:10.008Z)",
+        "checkedAt": "2026-11-25T00:40:01.616Z",
+        "requiredBy": [
+          {
+            "capabilityId": "advisor.soc-workflow",
+            "sourceId": "aiEsSocTask87",
+            "section": "Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions"
+          },
+          {
+            "capabilityId": "ai.es-capabilities",
+            "sourceId": "aiEsSocTask87",
+            "section": "Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions"
+          }
+        ],
+        "resolution": {
+          "method": "direct"
+        }
+      },
+      {
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+        "http": 200,
+        "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+        "contentType": "text/html;charset=UTF-8",
+        "status": "received",
+        "bytes": 197012,
+        "sha256": "6e5c7e74945959cce19f981b57f947029884f649c61cbc80387b292abef9467d",
+        "title": "Agentic AI offerings in Splunk Enterprise Security | Platform (last updated 2026-11-18T23:29:22.145Z)",
+        "checkedAt": "2026-11-25T00:40:01.588Z",
+        "requiredBy": [
+          {
+            "capabilityId": "advisor.soc-workflow",
+            "sourceId": "aiEsAgents88",
+            "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note"
+          },
+          {
+            "capabilityId": "advisor.soc-workflow",
+            "sourceId": "aiEsTriageNote88",
+            "section": "SOC analyst Triage/Response note; aggregate AI SOC Analyst availability row"
+          },
+          {
+            "capabilityId": "ai.es-capabilities",
+            "sourceId": "aiEsAgents88",
+            "section": "Compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, Triage and Response, Malware/Phishing and SOP agents; agentic chat model note"
+          },
+          {
+            "capabilityId": "ai.es-capabilities",
+            "sourceId": "aiEsTriageNote88",
+            "section": "Triage and Response agent aggregate availability and compatibility row"
+          },
+          {
+            "capabilityId": "es-editions.workflows",
+            "sourceId": "agentic88",
+            "section": "Agentic offerings and their feature-specific scopes"
+          }
+        ],
+        "resolution": {
+          "method": "direct"
+        }
+      },
+      {
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/set-up-splunk-cloud-connect-to-use-the-agentic-soc",
+        "http": 200,
+        "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/set-up-splunk-cloud-connect-to-use-the-agentic-soc",
+        "contentType": "text/html;charset=UTF-8",
+        "status": "received",
+        "bytes": 191923,
+        "sha256": "4feb322f40d0effabfd39ff084076748323885e6a67c91d00292fc9b0fe2492d",
+        "title": "Set up Splunk Cloud Connect to use the agentic SOC | Platform (last updated 2026-11-18T23:29:23.671Z)",
+        "checkedAt": "2026-11-25T00:40:03.117Z",
+        "requiredBy": [
+          {
+            "capabilityId": "ai.es-capabilities",
+            "sourceId": "aiEsCloudConnectAgentic88",
+            "section": "Platform, ES, Cloud Connect and Splunk AI Assistant floors; installation, service activation and token certificate setup"
+          }
+        ],
+        "resolution": {
+          "method": "direct"
+        }
+      },
+      {
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
+        "http": 200,
+        "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
+        "contentType": "text/html;charset=UTF-8",
+        "status": "received",
+        "bytes": 183835,
+        "sha256": "4e66263e97a65fe263c501f187c1cd90569a15aab7d4c723472315a7c6df69b6",
+        "title": "Setting up the Triage and Response agents in Splunk Enterprise Security | Platform (last updated 2026-11-19T00:56:26.084Z)",
+        "checkedAt": "2026-11-25T00:40:01.986Z",
+        "requiredBy": [
+          {
+            "capabilityId": "advisor.soc-workflow",
+            "sourceId": "aiEsSocTask88",
+            "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions"
+          },
+          {
+            "capabilityId": "ai.es-capabilities",
+            "sourceId": "aiEsSocTask88",
+            "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions"
+          }
+        ],
+        "resolution": {
+          "method": "direct"
+        }
+      },
+      {
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
+        "http": 200,
+        "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/surface-findings-based-on-risk-using-the-ai-threat-graph-detection-agent",
+        "contentType": "text/html;charset=UTF-8",
+        "status": "received",
+        "bytes": 172952,
+        "sha256": "e23282edae6cc276a6212b3eaef30b596df725b75994dd2dbea3bd4448b3f827",
+        "title": "Surface findings based on risk using the AI Threat Graph Detection agent | Platform (last updated 2026-11-04T20:01:07.869Z)",
+        "checkedAt": "2026-11-25T00:40:03.310Z",
+        "requiredBy": [
+          {
+            "capabilityId": "ai.es-capabilities",
+            "sourceId": "aiEsThreatGraph88",
+            "section": "Alpha stage; risk-based detection and event-volume prerequisites; enablement and test mode"
+          }
+        ],
+        "resolution": {
+          "method": "direct"
+        }
+      },
+      {
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
+        "http": 200,
+        "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions/overview-of-splunk-enterprise-security-editions",
+        "contentType": "text/html;charset=UTF-8",
+        "status": "received",
+        "bytes": 137948,
+        "sha256": "0a72d0df3c9a6f3e8fffea8b3dc966b5d5b6cf769311110caed7ccb773ed8560",
+        "title": "Overview of Splunk Enterprise Security Editions | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T16:26:20.217Z)",
+        "checkedAt": "2026-11-25T00:40:02.796Z",
+        "requiredBy": [
+          {
+            "capabilityId": "advisor.soc-workflow",
+            "sourceId": "aiEsEditions",
+            "section": "Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings"
+          },
+          {
+            "capabilityId": "ai.es-capabilities",
+            "sourceId": "aiEsEditions",
+            "section": "Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings"
+          },
+          {
+            "capabilityId": "es-editions.licensing",
+            "sourceId": "editions",
+            "section": "Edition definitions and capability table"
+          }
+        ],
+        "resolution": {
+          "method": "direct"
+        }
+      },
+      {
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+        "http": 200,
+        "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+        "contentType": "text/html;charset=UTF-8",
+        "status": "received",
+        "bytes": 200868,
+        "sha256": "bf0d9550d27ddd5d3d6ac303ad3ac7a423173f728912291934835db1ef608400",
+        "title": "Release notes for Splunk Enterprise Security | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-09-03T19:36:19.361Z)",
+        "checkedAt": "2026-11-25T00:40:04.371Z",
+        "requiredBy": [
+          {
+            "capabilityId": "es-editions.history",
+            "sourceId": "rn87",
+            "section": "8.7 release milestones and edition table"
+          }
+        ],
+        "resolution": {
+          "method": "direct"
+        }
+      },
+      {
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+        "http": 200,
+        "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+        "contentType": "text/html;charset=UTF-8",
+        "status": "received",
+        "bytes": 239067,
+        "sha256": "a1acf7c2de23e0eca0166d91caa33e870cb99dc9aa493f7e6a0e7bea5764d457",
+        "title": "Compatibility and regional availability | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T03:25:41.821Z)",
+        "checkedAt": "2026-11-25T00:40:02.540Z",
+        "requiredBy": [
+          {
+            "capabilityId": "advisor.soc-workflow",
+            "sourceId": "aiEsRegions88",
+            "section": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility"
+          },
+          {
+            "capabilityId": "ai.es-capabilities",
+            "sourceId": "aiEsRegions88",
+            "section": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility"
+          },
+          {
+            "capabilityId": "es-editions.deployment",
+            "sourceId": "regions88",
+            "section": "Compatibility and Regional Availability tables"
+          }
+        ],
+        "resolution": {
+          "method": "direct"
+        }
+      },
+      {
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+        "http": 200,
+        "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+        "contentType": "text/html;charset=UTF-8",
+        "status": "received",
+        "bytes": 217589,
+        "sha256": "c441e90a4811a564cf6786754bf312575b28a789882776fdd92535fecbe2467b",
+        "title": "Release notes for Splunk Enterprise Security | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T03:25:41.821Z)",
+        "checkedAt": "2026-11-25T00:40:06.650Z",
+        "requiredBy": [
+          {
+            "capabilityId": "advisor.soc-workflow",
+            "sourceId": "aiEsRelease88",
+            "section": "ES 8.8 Controlled Availability"
+          },
+          {
+            "capabilityId": "ai.es-capabilities",
+            "sourceId": "aiEsRelease88",
+            "section": "What's new in 8.8.0 / November 4 General Availability and edition table"
+          },
+          {
+            "capabilityId": "es-editions.history",
+            "sourceId": "rn88",
+            "section": "8.8 release milestones and edition table"
+          }
+        ],
+        "resolution": {
+          "method": "direct"
+        }
+      },
+      {
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/splunk-enterprise-security-editions-cloud-capability-matrix",
+        "http": 200,
+        "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/splunk-enterprise-security-editions-cloud-capability-matrix",
+        "contentType": "text/html;charset=UTF-8",
+        "status": "received",
+        "bytes": 151072,
+        "sha256": "54a92993d2d2d291a077da6384efb60259804449b18f6bdaa3047dd6e201f5cd",
+        "title": "Splunk Enterprise Security Editions Cloud Capability Matrix | Platform (last updated 2026-10-21T03:25:41.821Z)",
+        "checkedAt": "2026-11-25T00:40:05.058Z",
+        "requiredBy": [
+          {
+            "capabilityId": "es-editions.deployment",
+            "sourceId": "matrix88",
+            "section": "Edition and Cloud capability rows"
+          },
+          {
+            "capabilityId": "es-editions.workflows",
+            "sourceId": "matrix88",
+            "section": "Workflow and feature availability by edition"
+          }
+        ],
+        "resolution": {
+          "method": "direct"
+        }
+      },
+      {
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.8/introduction/access-splunk-cloud-connect-in-splunk-enterprise-security-to-access-cloud-extensions",
+        "http": 200,
+        "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.8/introduction/access-splunk-cloud-connect-in-splunk-enterprise-security-to-access-cloud-extensions",
+        "contentType": "text/html;charset=UTF-8",
+        "status": "received",
+        "bytes": 167338,
+        "sha256": "47697e2d8996af553f75a0657b77c2b5ae6692780dda431d2728247cd781c262",
+        "title": "Access Splunk Cloud Connect in Splunk Enterprise Security to access Cloud extensions | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-11-03T23:48:09.806Z)",
+        "checkedAt": "2026-11-25T00:40:05.738Z",
+        "requiredBy": [
+          {
+            "capabilityId": "es-editions.deployment",
+            "sourceId": "cloudcx88",
+            "section": "Cloud Connect scope and access prerequisites"
+          }
+        ],
+        "resolution": {
+          "method": "direct"
+        }
+      },
+      {
+        "url": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.8/introduction/licensing-for-splunk-enterprise-security",
+        "http": 200,
+        "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/user-guide/8.8/introduction/licensing-for-splunk-enterprise-security",
+        "contentType": "text/html;charset=UTF-8",
+        "status": "received",
+        "bytes": 154360,
+        "sha256": "cb9723f1fa6293fb6f9ff1e1bd5df57ed087aee74b8bd713c1f72318a484f6ba",
+        "title": "Licensing for Splunk Enterprise Security | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T03:25:38.111Z)",
+        "checkedAt": "2026-11-25T00:40:03.786Z",
+        "requiredBy": [
+          {
+            "capabilityId": "es-editions.licensing",
+            "sourceId": "licensing88",
+            "section": "Licenses, editions and trial prerequisites"
+          }
+        ],
+        "resolution": {
+          "method": "direct"
+        }
+      },
+      {
+        "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+        "http": 200,
+        "finalUrl": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+        "contentType": "text/html;charset=UTF-8",
+        "status": "received",
+        "bytes": 183789,
+        "sha256": "5ef12d6b9c68dae87fb73ea1de51c35d8b1ac8a5bde16ead77a74a3f799f4b89",
+        "title": "Install Splunk AI Assistant for Splunk Cloud customers | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-10-15T00:28:12.903Z)",
+        "checkedAt": "2026-11-25T00:40:01.975Z",
+        "requiredBy": [
+          {
+            "capabilityId": "advisor.soc-workflow",
+            "sourceId": "aiSaiaInstall",
+            "section": "FedRAMP deployments; supported regions; version compatibility"
+          },
+          {
+            "capabilityId": "ai.es-capabilities",
+            "sourceId": "aiSaiaInstall",
+            "section": "FedRAMP deployments; supported regions; version compatibility"
+          }
+        ],
+        "resolution": {
+          "method": "direct"
+        }
+      },
+      {
+        "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+        "http": 200,
+        "finalUrl": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+        "contentType": "text/html;charset=UTF-8",
+        "status": "received",
+        "bytes": 155992,
+        "sha256": "049f2d36d417f27f27bffd711926d7031a957d6adddfccb0850e986daafa3466",
+        "title": "Check prerequisites for Splunk App for SOAR Export on Splunk Cloud Platform | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-10-19T23:11:29.073Z)",
+        "checkedAt": "2026-11-25T00:40:08.067Z",
+        "requiredBy": [
+          {
+            "capabilityId": "es-editions.workflows",
+            "sourceId": "soarExportCloud88",
+            "section": "Cloud Platform prerequisites and functionality-tested pairings"
+          }
+        ],
+        "resolution": {
+          "method": "direct"
+        }
+      },
+      {
+        "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+        "http": 200,
+        "finalUrl": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+        "contentType": "text/html;charset=UTF-8",
+        "status": "received",
+        "bytes": 155952,
+        "sha256": "d6f127559909af51894d62645a7bd3dcd079bb6bb999fae3e80ff993d8bcbeab",
+        "title": "Check prerequisites for Splunk App for SOAR Export on Splunk Enterprise | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-10-19T23:11:29.073Z)",
+        "checkedAt": "2026-11-25T00:40:08.750Z",
+        "requiredBy": [
+          {
+            "capabilityId": "es-editions.workflows",
+            "sourceId": "soarExportEnterprise88",
+            "section": "Enterprise prerequisites and functionality-tested pairings"
+          }
+        ],
+        "resolution": {
+          "method": "direct"
+        }
+      },
+      {
+        "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.8.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+        "http": 200,
+        "finalUrl": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.8.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+        "contentType": "text/html;charset=UTF-8",
+        "status": "received",
+        "bytes": 152617,
+        "sha256": "600531dd18cbc90303f83bfba73cb6a8f4f246882e1fb855030a2fd92e87de14",
+        "title": "Check prerequisites for Splunk App for SOAR | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-10-23T23:38:43.578Z)",
+        "checkedAt": "2026-11-25T00:40:07.320Z",
+        "requiredBy": [
+          {
+            "capabilityId": "es-editions.workflows",
+            "sourceId": "appForSoar88",
+            "section": "App for SOAR prerequisites, compatibility and required ports"
+          }
+        ],
+        "resolution": {
+          "method": "direct"
+        }
+      },
+      {
+        "url": "https://www.splunk.com/en_us/products/pricing.html",
+        "http": 200,
+        "finalUrl": "https://www.splunk.com/en_us/products/pricing.html",
+        "contentType": "text/html;charset=utf-8",
+        "status": "received",
+        "bytes": 525189,
+        "sha256": "6f6a533a133d672369ff034cde3efc8aa0a9f550bc99025307c0f52d48e89c77",
+        "title": "Pricing | Splunk",
+        "checkedAt": "2026-11-25T00:40:10.354Z",
+        "requiredBy": [
+          {
+            "capabilityId": "es-editions.licensing",
+            "sourceId": "pricing",
+            "section": "Enterprise Security and SOAR pricing models"
+          }
+        ],
+        "resolution": {
+          "method": "direct"
+        }
+      },
+      {
+        "url": "https://www.splunk.com/en_us/products/user-and-entity-behavior-analytics.html",
+        "http": 200,
+        "finalUrl": "https://www.splunk.com/en_us/products/user-and-entity-behavior-analytics.html",
+        "contentType": "text/html;charset=utf-8",
+        "status": "received",
+        "bytes": 279529,
+        "sha256": "5da2238454cfeece0828a83fbb8a21dd77d3066b9802302e1e787dd152a46bdd",
+        "title": "Splunk User and Entity Behavior Analytics (UEBA) | Splunk",
+        "checkedAt": "2026-11-25T00:40:10.277Z",
+        "requiredBy": [
+          {
+            "capabilityId": "es-editions.workflows",
+            "sourceId": "ueba",
+            "section": "UEBA capabilities and prerequisites"
+          }
+        ],
+        "resolution": {
+          "method": "direct"
+        }
+      }
+    ],
+    "qualification": "Direct HTTP results and independently source-bound owner assessments are recorded separately."
+  },
   "itemizedIssueAccess": [],
-  "readerEvidence": [],
+  "readerEvidence": [
+    {
+      "origin": "https://versioncompass.com",
+      "method": "github-owner-workflow",
+      "file": "docs/audits/2026-11-24-es-editions-watch-review-53528061771298-reader-github-owner-workflow-apex.json",
+      "sha256": "156690c330927fab771f72e0d5665c8a5d84f3eb575bc79397eec6a81e7a130f",
+      "revision": "content-5cb756253bf337ae0e291de1",
+      "digest": "15ddae8ba4b5a30c2b70e1aa243b2495d72d21f25fcedc85de5d5957590556b9",
+      "checkedAt": "2026-11-25T00:40:12.423Z"
+    },
+    {
+      "origin": "https://www.versioncompass.com",
+      "method": "github-owner-workflow",
+      "file": "docs/audits/2026-11-24-es-editions-watch-review-53528061771298-reader-github-owner-workflow-www.json",
+      "sha256": "001484d2d9ccd7a1ae0d969ed97f043dc80f68a0c33af94aa0ecaa47f59ffe0e",
+      "revision": "content-5cb756253bf337ae0e291de1",
+      "digest": "15ddae8ba4b5a30c2b70e1aa243b2495d72d21f25fcedc85de5d5957590556b9",
+      "checkedAt": "2026-11-25T00:40:20.977Z"
+    },
+    {
+      "origin": "https://versioncompass.com",
+      "method": "own-full",
+      "file": "docs/audits/2026-11-24-es-editions-watch-review-53528061771298-reader-own-full-apex.json",
+      "sha256": "1d5847dc7f4adce3ffe64d7a07b9363793d9bd552bae045404dddd7b41b3f65d",
+      "revision": "content-5cb756253bf337ae0e291de1",
+      "digest": "15ddae8ba4b5a30c2b70e1aa243b2495d72d21f25fcedc85de5d5957590556b9",
+      "checkedAt": "2026-11-25T00:37:26.427Z"
+    },
+    {
+      "origin": "https://www.versioncompass.com",
+      "method": "own-full",
+      "file": "docs/audits/2026-11-24-es-editions-watch-review-53528061771298-reader-own-full-www.json",
+      "sha256": "a3d9f24c40178bbd72ba83fa9f721319b242c2e890e3a5c583620091e2222761",
+      "revision": null,
+      "digest": null,
+      "checkedAt": null
+    }
+  ],
   "readerTransportErrors": [],
   "validation": {
     "candidateExactCI": "open",
     "artifactReadback": "open",
     "siteDelivery": "unverified"
   },
-  "issueObservations": [],
+  "issueObservations": [
+    {
+      "findingId": "vci-es-87-connector-builder-editions",
+      "capabilityId": "es-editions.workflows",
+      "outcome": "still-present",
+      "rationale": "The 8.7 aggregate includes Essentials and Premier whereas 8.7.1 release notes label Connector Builder Premier. The 8.8 statement does not resolve the historical same-version conflict.",
+      "sourceIds": [
+        "supplemental-0",
+        "agentic88"
+      ],
+      "assessedAt": "2026-11-25T00:41:19.675Z"
+    },
+    {
+      "findingId": "vci-es-guided-response-enhancement-scope",
+      "capabilityId": "es-editions.workflows",
+      "outcome": "still-present",
+      "rationale": "The matrix’s Premier enhancement grouping and the older Cloud task describe different release and feature scopes. The current 8.8 aggregate explicitly lists both editions and Cloud Connected CMP without rewriting the older entitlement question.",
+      "sourceIds": [
+        "matrix88",
+        "agentic88",
+        "supplemental-1"
+      ],
+      "assessedAt": "2026-11-25T00:41:19.675Z"
+    },
+    {
+      "findingId": "vci-es-malware-phishing-version-floor",
+      "capabilityId": "es-editions.workflows",
+      "outcome": "still-present",
+      "rationale": "The 8.8 aggregate lists ES 8.5+ while the 8.8 task requires ES 8.6+ with Platform 10.2+ and paired SOAR. Preserve the higher task requirement and disagreement.",
+      "sourceIds": [
+        "agentic88",
+        "supplemental-2"
+      ],
+      "assessedAt": "2026-11-25T00:41:19.675Z"
+    },
+    {
+      "findingId": "vci-app-for-soar-88-onprem-matrix-cell",
+      "capabilityId": "es-editions.workflows",
+      "outcome": "still-present",
+      "rationale": "The App for SOAR 8.8 tested table still includes the literal malformed on-premises version 8..0. The two Export prerequisites use different explicit package rows. No unsupported tuple is inferred.",
+      "sourceIds": [
+        "appForSoar88",
+        "soarExportCloud88",
+        "soarExportEnterprise88"
+      ],
+      "assessedAt": "2026-11-25T00:41:19.675Z"
+    },
+    {
+      "findingId": "vci-es-activity-pricing-deployment-scope",
+      "capabilityId": "es-editions.licensing",
+      "outcome": "still-present",
+      "rationale": "The ES pricing overview advertises activity, workload and ingest options. The detailed activity-based pricing FAQ applies to Cloud Platform and excludes self-managed Enterprise. Preserve unresolved ES deployment and contract eligibility.",
+      "sourceIds": [
+        "pricing",
+        "supplemental-0"
+      ],
+      "assessedAt": "2026-11-25T00:37:10.343863Z"
+    },
+    {
+      "findingId": "vci-es-88-triage-editions",
+      "capabilityId": "ai.es-capabilities",
+      "outcome": "partially-addressed",
+      "rationale": "The current Triage row and editions overview identify Premier with separate Cloud and Cloud Connected prerequisites; the historic lower-edition statement remains dated. Current pairing, activation and customer entitlement remain separate.",
+      "sourceIds": [
+        "aiEsAgents88",
+        "aiEsEditions"
+      ],
+      "assessedAt": "2026-11-25T00:41:19.675Z"
+    },
+    {
+      "findingId": "vci-es-soc-analyst-version-floor",
+      "capabilityId": "advisor.soc-workflow",
+      "outcome": "still-present",
+      "rationale": "The 8.8 aggregate gives Cloud ES 8.6+, whereas the detailed Triage and Autonomous Response tasks give ES 8.7+. The parent now focuses on credits and revisions rather than replacing the task-specific prerequisites.",
+      "sourceIds": [
+        "aiEsAgents88",
+        "supplemental-0",
+        "supplemental-1"
+      ],
+      "assessedAt": "2026-11-25T00:41:19.675Z"
+    },
+    {
+      "findingId": "vci-es-88-response-deployment-column-conflict",
+      "capabilityId": "ai.es-capabilities",
+      "outcome": "still-present",
+      "rationale": "The aggregate Autonomous Response availability column says Premier Cloud only while its compatibility bullets describe a CMP minimum. The detailed task also describes CMP. Availability remains unresolved for that intersection.",
+      "sourceIds": [
+        "aiEsAgents88",
+        "supplemental-1"
+      ],
+      "assessedAt": "2026-11-25T00:41:19.675Z"
+    },
+    {
+      "findingId": "vci-es-88-triage-credit-revision-scope",
+      "capabilityId": "advisor.soc-workflow",
+      "outcome": "still-present",
+      "rationale": "The parent permits 200 daily analyses and 20 daily revisions per investigation, while the linked task retains finding-based quotas, first-ten coverage and no rerun. These same-version descriptions remain distinct.",
+      "sourceIds": [
+        "aiEsSocTask88",
+        "supplemental-0"
+      ],
+      "assessedAt": "2026-11-25T00:41:19.675Z"
+    },
+    {
+      "findingId": "vci-es-88-response-agent-rerun-coverage",
+      "capabilityId": "ai.es-capabilities",
+      "outcome": "still-present",
+      "rationale": "The separate Autonomous Response task still disallows rerun and picking up newly added findings after processing, and supports frontier models only. Parent Triage revisions do not clear Response limits.",
+      "sourceIds": [
+        "supplemental-1"
+      ],
+      "assessedAt": "2026-11-25T00:41:19.675Z"
+    },
+    {
+      "findingId": "vci-es-88-cloud-connected-trial-entitlement-copy",
+      "capabilityId": "es-editions.licensing",
+      "outcome": "partially-addressed",
+      "rationale": "The 8.8 licensing topic preserves working Cloud Connected features during a Premier trial with the displayed tier remaining Essentials until the paid license updates. The public trial guidance retains that display distinction and the expiry conditions.",
+      "sourceIds": [
+        "licensing88"
+      ],
+      "assessedAt": "2026-11-25T00:37:10.343863Z"
+    },
+    {
+      "findingId": "vci-es-88-threat-graph-minimum-event-copy",
+      "capabilityId": "ai.es-capabilities",
+      "outcome": "partially-addressed",
+      "rationale": "The current Threat Graph alpha task requires an enabled risk-based detection and approximately one million processed events before findings. The actual AI report contains this prerequisite and separate feature/release-stage qualification.",
+      "sourceIds": [
+        "aiEsThreatGraph88",
+        "aiEsAgents88"
+      ],
+      "assessedAt": "2026-11-25T00:41:19.675Z"
+    }
+  ],
   "publication": {
     "claimedDelivered": false,
     "status": "held",
@@ -717,15 +3817,14 @@
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "es-editions-watch",
-    "status": "no-new-observations",
-    "recordedAt": "2026-11-25T00:37:15.607Z",
-    "reviewDigest": "3a73e54ac77663a3ab2d40131acd25cf3c7df4838a0429906036ba9b5cfa5048",
+    "status": "pending-public-provenance",
+    "recordedAt": "2026-11-25T00:43:14.808Z",
+    "reviewDigest": "2fd4bead4728b7abbd2ad5460a1e5d9258a473d30796823fbdd84dd35959b242",
     "publicationId": "vci-ad5ee2878ec3a53a8bf3140a599fba578c6766aa8471fa3884fb7ceca78753df",
     "recordKeys": [],
     "notReassessedFindingIds": [
       "vci-acs-fedramp-high-victoria-conflict",
       "vci-ai-report-source-directory",
-      "vci-app-for-soar-88-onprem-matrix-cell",
       "vci-app-for-soar-es-pairing",
       "vci-cloud-107-aws-israel-filter",
       "vci-cloud-107-release-service-pairing",
@@ -733,28 +3832,17 @@
       "vci-enterprise-104-legacy-tls-scope",
       "vci-enterprise-106-legacy-tls-override-conflict",
       "vci-enterprise-kv-106-upgrade-bridge",
-      "vci-es-87-connector-builder-editions",
       "vci-es-88-ai-regional-mapping-discrepancy",
       "vci-es-88-ai-release-stage-copy",
-      "vci-es-88-cloud-connected-trial-entitlement-copy",
       "vci-es-88-enterprise-106-maintenance-pairing-coverage",
       "vci-es-88-guided-response-deployment-copy",
       "vci-es-88-premier-uae-service-disruption",
-      "vci-es-88-response-agent-rerun-coverage",
-      "vci-es-88-response-deployment-column-conflict",
       "vci-es-88-soc-source-locators",
       "vci-es-88-sop-upload-format-scope",
-      "vci-es-88-threat-graph-minimum-event-copy",
-      "vci-es-88-triage-credit-revision-scope",
-      "vci-es-88-triage-editions",
-      "vci-es-activity-pricing-deployment-scope",
       "vci-es-editions-ambiguous-link",
       "vci-es-editions-taxii-pdf-heading-split",
-      "vci-es-guided-response-enhancement-scope",
-      "vci-es-malware-phishing-version-floor",
       "vci-es-security-assistant-runtime-ap-routing",
       "vci-es-security-assistant-runtime-default",
-      "vci-es-soc-analyst-version-floor",
       "vci-es-taxii-protocol-version-scope",
       "vci-fedramp-high-certified-services-display",
       "vci-fedramp-moderate-certified-services-display",
@@ -783,7 +3871,9 @@
       "vci-svd-2026-1015-applicability",
       "vci-uf-remote-upgrader-route-coverage"
     ],
-    "deferredConcerns": [],
+    "deferredConcerns": [
+      "Pin the scoped source receipt to a public commit and append only supported observations on the current retained checkpoint. Version Release Watch, November 25."
+    ],
     "qualification": "The retained checkpoint and immutable histories remain the feed baseline."
   }
 }
