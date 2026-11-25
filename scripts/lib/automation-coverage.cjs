@@ -4,6 +4,7 @@ const { execFileSync } = require('node:child_process');
 const {createHash} = require('node:crypto');
 const native = require('./native-issue-feed.cjs');
 const {validateReader, coversRoute, dayOf} = require('./reader-review.cjs');
+const {ownerReaderTimes} = require('./owner-reader-evidence.cjs');
 const { sameAttemptStart } = require('./task-runtime.cjs');
 const statuses = ['changed', 'assessed-no-change', 'deferred', 'blocked', 'failed', 'out-of-scope'];
 const successful = new Set(statuses.slice(0, 2));
@@ -266,6 +267,7 @@ function check(root = process.cwd()) {
     }
   }
   const owners = new Map();
+  const readerArtifacts = new Map();
   const results = entries.map(([file,run]) => {
     const result = validateRun(run, registry, root);
     validateTaskOwner(run, root, ledger);
@@ -281,7 +283,7 @@ function check(root = process.cwd()) {
             run.execution.schedulerRunId === audit.execution.schedulerRunId && sameAttemptStart(run.execution.startedAt,audit.execution.startedAt)) boundAttempt = true;
       }
     }
-    return { file, ...result, boundAttempt };
+    return { file, ...result, boundAttempt, ownerReaderTimes:boundAttempt ? ownerReaderTimes(root,run,registry,readerArtifacts) : {} };
   });
   assert(new Set(results.map(row => row.runId)).size === results.length, 'Duplicate public coverage run ID across receipt files');
   // Match the native-feed changed-review gate; historical unchanged runs do not

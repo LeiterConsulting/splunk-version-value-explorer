@@ -96,3 +96,36 @@ test('a current owner assessment can resolve a runner 403 only for the exact bou
   assessment.sourceIds.push('other-support'); assert.equal(resolved(),'unresolved'); assessment.sourceIds.pop();
   assessment.outcome='unable-to-verify'; assert.equal(resolved(),'unresolved');
 });
+
+test('scheduled owner evidence binds the actual host receipts, attempt, selected answer and downloaded bytes', t => {
+  const {ownerReaderTimes} = require('../scripts/lib/owner-reader-evidence.cjs');
+  const {createHash} = require('node:crypto');
+  const root = fs.mkdtempSync(path.join(os.tmpdir(),'vc-owner-reader-'));
+  t.after(() => fs.rmSync(root,{recursive:true,force:true}));
+  fs.mkdirSync(path.join(root,'docs/audits'),{recursive:true});
+  const attempt = {taskId:'owner',schedulerRunId:'occurrence',startedAt};
+  const q = {...proof,capabilityId:cap.id,sourceUrl:cap.sources.find(s=>s.id===proof.sourceId).url};
+  const revision = 'content-abc', digest = 'c'.repeat(64);
+  const check = {routeId:proof.routeId,status:'passed',sections:[cap.id],expectations:[q],checkedAt,
+    htmlSha256:'a'.repeat(64),pdfSha256:'b'.repeat(64)};
+  function save(host, suffix, changes={}) {
+    const receipt = 'docs/audits/owner-'+suffix+'.json';
+    const data = {attempt,ownerReaderResult:{origin:host,revision,digest,checks:[check]},...changes};
+    const bytes = Buffer.from(JSON.stringify(data));
+    fs.writeFileSync(path.join(root,receipt),bytes);
+    return {origin:host,receipt,receiptSha256:createHash('sha256').update(bytes).digest('hex'),
+      revision,digest,checkedAt,htmlSha256:check.htmlSha256,pdfSha256:check.pdfSha256};
+  }
+  const a = save('https://versioncompass.com','apex'), b = save('https://www.versioncompass.com','www');
+  const accepted = (refs,extra={}) => ownerReaderTimes(root,{execution:attempt,
+    coverage:[{...row,publicOriginEvidence:refs,...extra}]},{capabilities:[cap]});
+  assert.deepEqual(accepted([a,b]),{[cap.id]:[checkedAt,checkedAt]});
+  assert.deepEqual(accepted([a,a]),{});
+  assert.deepEqual(accepted([a,{...b,pdfSha256:'d'.repeat(64)}]),{});
+  assert.deepEqual(accepted([a,{...b,receiptSha256:'e'.repeat(64)}]),{});
+  assert.deepEqual(accepted([a,b],{readerReview:{...proof,answer:'A different reader-facing answer.'}}),{});
+  const other = save(b.origin,'foreign',{attempt:{...attempt,schedulerRunId:'foreign'}});
+  assert.deepEqual(accepted([a,other]),{});
+  const later = save(b.origin,'later',{ownerReaderResult:{origin:b.origin,revision:'content-def',digest,checks:[check]}});
+  assert.deepEqual(accepted([a,{...later,revision:'content-def'}]),{});
+});

@@ -159,7 +159,9 @@ export function dailyReview(registry, receipts, day, runtime) {
           a.sourceIds.every(id => row.retrievals?.some(r => r.sourceId === id && r.outcome === 'retrieved' &&
             inAttempt(r.retrievedAt) && compareInstants(r.retrievedAt,a.assessedAt) <= 0)));
       const proofs = readerChecks(row);
-      const readerCheckedDuringAttempt = proofs.length > 0 && proofs.every(proof => inAttempt(proof.checkedAt));
+      const originTimes = result.ownerReaderTimes?.[cap.id];
+      const readerCheckedDuringAttempt = proofs.length > 0 && proofs.every(proof => inAttempt(proof.checkedAt)) &&
+        Array.isArray(originTimes) && originTimes.length === proofs.length * 2 && originTimes.every(inAttempt);
       return { freshSources, readerCheckedDuringAttempt, runId: run.runId, registryVersion: run.registryVersion, receipt: result.file, disposition: row.disposition, assessedAt: row.assessedAt,
         reviewedToday, readerChecks: proofs.map(proof => ({id:proofId(proof), routeId:proof.routeId, checkedAt:proof.checkedAt})), matchesNativeAttempt: watch ? [watch.matchingReceiptIds,watch.verifiedReviewReceiptIds].some(ids => ids?.includes(run.runId)) : null,
         followUp: row.followUp || null };
