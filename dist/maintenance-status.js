@@ -602,7 +602,7 @@ window.VersionCompassMaintenance = {
           "at": "2026-11-20T13:04:41Z",
           "outcome": "blocked",
           "summary": "Partial later review: provider-region assessed no-change; seven families require their own remaining section assessments.",
-          "scope": "67 substantive source bodies and six blocked paths; earlier same-day receipts retained separately; native feed concurrency and production selection remain open."
+          "scope": "67 substantive source bodies and six blocked paths; feed updates and public delivery remain pending."
         },
         {
           "at": "2026-11-21T12:05:48.252051Z",
@@ -2260,7 +2260,7 @@ window.VersionCompassMaintenance = {
           "at": "2026-11-20T11:02:26.095573Z",
           "outcome": "running",
           "summary": "Reviewing the full ES Editions inventory and registry 1.4.0 daily edition and AI capability scope.",
-          "scope": "73 public URLs; all six ES registry capabilities; four ES Editions daily rows; five named ES AI capabilities; coordinator-only runtime boundary."
+          "scope": "73 public URLs; all six ES registry capabilities; four ES Editions daily rows; five named ES AI capabilities."
         },
         {
           "at": "2026-11-20T11:34:42.837Z",
@@ -2271,7 +2271,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-21T18:08:31.176Z",
           "outcome": "running",
-          "summary": "Independent ES source assessment and current-attempt reconciliation in progress.",
+          "summary": "Independent ES source assessment in progress.",
           "scope": "Six registry 1.4.0 ES scopes; named AI capabilities; exact Triage credit/revision source conflict."
         },
         {
@@ -2301,7 +2301,7 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-22T19:10:19.479Z",
           "outcome": "no-change",
-          "summary": "Fresh six-section ES recovery assessment; original morning timeline and current attempt kept distinct. No product fact changes.",
+          "summary": "Follow-up review covered six ES sections. No product fact changes.",
           "scope": "Registry 1.4.0: four ES Editions sections, five individual ES AI capabilities and Advisor SOC. Three issue reassessments await immutable recovery provenance; review completion and public delivery were unconfirmed."
         },
         {
@@ -2343,13 +2343,13 @@ window.VersionCompassMaintenance = {
         {
           "at": "2026-11-24T09:31:58.342334Z",
           "outcome": "running",
-          "summary": "Distinct ES second attempt: six primary sections and ten named families assessed; nine observations retain qualified vendor conflicts. Candidate held for exact validation/export/integration.",
+          "summary": "Follow-up ES review: six primary sections and ten named families assessed; nine observations retain qualified vendor conflicts. Candidate held for exact validation/export/integration.",
           "scope": "Registry1.4.0 licensing,history,deployment,workflows,five ES AI records and Advisor SOC; no claim dates advanced; no Site publication."
         },
         {
           "at": "2026-11-24T09:37:23.026047Z",
           "outcome": "blocked",
-          "summary": "Distinct ES second attempt: six primary sections and ten named families assessed; nine observations retain qualified vendor conflicts. Candidate held for exact validation/export/integration.",
+          "summary": "Follow-up ES review: six primary sections and ten named families assessed; nine observations retain qualified vendor conflicts. Candidate held for exact validation/export/integration.",
           "scope": "Registry1.4.0 licensing,history,deployment,workflows,five ES AI records and Advisor SOC; no claim dates advanced; no Site publication."
         },
         {
@@ -2414,7 +2414,7 @@ window.VersionCompassMaintenance = {
           "at": "2026-10-01T12:53:15Z",
           "outcome": "changed",
           "summary": "Added source-backed Enterprise and Cloud 10.6 guidance, exact ES/ITSI host pairings and Universal Forwarder 10.6 paths while preserving unknown Enterprise/HF paths, receiver gaps, current Cloud 10.5 pairing and support-date uncertainty.",
-          "scope": "Audited integrated Platform, migration, ES, ITSI, Observability, ES Editions, Cloud Environment, About/source register and UF/HF routes; checked 10.6 release, upgrade, OS, compatibility and current Cloud pairing evidence; validated exact URLs, source mappings, shared reports, snapshots, print expansion and read-only WebMCP structurally. Native local browser/PDF execution was unavailable because the browser daemon and runtime binary could not start."
+          "scope": "Audited integrated Platform, migration, ES, ITSI, Observability, ES Editions, Cloud Environment, About/source register and UF/HF routes; checked 10.6 release, upgrade, OS, compatibility and current Cloud pairing evidence; validated exact URLs, source mappings, shared reports, snapshots, print expansion and read-only WebMCP structurally. Browser and PDF checks were unavailable."
         },
         {
           "at": "2026-10-01T20:06:02.643887+00:00",
