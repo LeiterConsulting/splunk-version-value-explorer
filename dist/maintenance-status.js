@@ -1682,10 +1682,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-25T09:00:23.180006Z",
-      "lastSuccess": "2026-11-25T09:09:29.698Z",
+      "lastAttempt": "2026-11-26T09:04:35.962858Z",
+      "lastSuccess": "2026-11-26T09:15:12.431066Z",
       "outcome": "no-change",
-      "summary": "Verified six ES sections against current public sources and both public reports.",
+      "summary": "Six ES sections assessed with public screen, saved HTML and PDF checks.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -2459,9 +2459,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Verified six ES sections against current public sources and both public reports.",
           "scope": "Licensing, history, deployment, workflows, five ES AI capabilities and the SOC Advisor dependency. Vendor disagreements remain qualified in the public answers, reopened HTML and printed PDFs."
+        },
+        {
+          "at": "2026-11-26T09:04:35.962858Z",
+          "outcome": "running",
+          "summary": "Review ES editions and capability prerequisites against public documentation.",
+          "scope": "Edition licensing, history, deployment, workflow dependencies, ES AI capabilities and the SOC decision."
+        },
+        {
+          "at": "2026-11-26T09:15:12.431066Z",
+          "outcome": "no-change",
+          "summary": "Six ES sections assessed with public screen, saved HTML and PDF checks.",
+          "scope": "Retained the SOC version and credit-limit conflicts, Response deployment uncertainty, App for SOAR matrix typo and TAXII protocol ambiguity."
         }
       ],
-      "scope": "Licensing, history, deployment, workflows, five ES AI capabilities and the SOC Advisor dependency. Vendor disagreements remain qualified in the public answers, reopened HTML and printed PDFs."
+      "scope": "Retained the SOC version and credit-limit conflicts, Response deployment uncertainty, App for SOAR matrix typo and TAXII protocol ambiguity."
     },
     {
       "id": "version-guidance-audit",
