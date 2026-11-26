@@ -2490,10 +2490,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-guidance-audit",
       "name": "Version Guidance Audit",
-      "lastAttempt": "2026-11-26T12:13:08.528192Z",
+      "lastAttempt": "2026-11-26T12:45:46.901965Z",
       "lastSuccess": "2026-11-25T11:55:13.802Z",
       "outcome": "blocked",
-      "summary": "Prepared combined owner evidence with the ITSI correction held for export repair.",
+      "summary": "Four independent scopes rechecked; remaining Guidance coverage and final handoff gates remain open.",
       "history": [
         {
           "at": "2026-09-24T12:45:24.855849+00:00",
@@ -2727,9 +2727,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Prepared combined owner evidence with the ITSI correction held for export repair.",
           "scope": "Four independent Guidance sections assessed, thirty-six remain incomplete. Combined export and repository integration gates remain open."
+        },
+        {
+          "at": "2026-11-26T12:45:46.901965Z",
+          "outcome": "running",
+          "summary": "Continue the combined owner handoff and recheck four independent source scopes.",
+          "scope": "Daily owner integration, retained export and feed evidence, four fresh source reviews and thirty-six independent gaps."
+        },
+        {
+          "at": "2026-11-26T12:48:20.686389Z",
+          "outcome": "blocked",
+          "summary": "Four independent scopes rechecked; remaining Guidance coverage and final handoff gates remain open.",
+          "scope": "Daily owner integration, retained export and feed evidence, four fresh source reviews and thirty-six independent gaps."
         }
       ],
-      "scope": "Four independent Guidance sections assessed, thirty-six remain incomplete. Combined export and repository integration gates remain open."
+      "scope": "Daily owner integration, retained export and feed evidence, four fresh source reviews and thirty-six independent gaps."
     }
   ]
 };
