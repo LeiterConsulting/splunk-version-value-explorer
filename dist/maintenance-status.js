@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-25T10:00:37.038316Z",
-      "lastSuccess": "2026-11-25T10:12:36.790Z",
+      "lastAttempt": "2026-11-26T09:56:01.309071Z",
+      "lastSuccess": "2026-11-26T10:07:11.750994Z",
       "outcome": "changed",
-      "summary": "Reviewed the seven Cloud and AI regional sections and prepared a scoped correction for core SPL assistance in supported FedRAMP High environments.",
+      "summary": "Prepared Sydney Model Runtime and exact Splunk MCP pairing qualifications.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -723,9 +723,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Reviewed the seven Cloud and AI regional sections and prepared a scoped correction for core SPL assistance in supported FedRAMP High environments.",
           "scope": "Cloud provider, experience and service scope, both FedRAMP offerings, Platform and ES AI service regions, Observability realms and supporting SOC prerequisites."
+        },
+        {
+          "at": "2026-11-26T09:56:01.309071Z",
+          "outcome": "running",
+          "summary": "Compare Cloud Environment and regional AI evidence.",
+          "scope": "FedRAMP, Classic and Victoria, regions, premium services and regional AI."
+        },
+        {
+          "at": "2026-11-26T10:07:11.750994Z",
+          "outcome": "changed",
+          "summary": "Prepared Sydney Model Runtime and exact Splunk MCP pairing qualifications.",
+          "scope": "Six primary reviews passed. Regional Platform AI remains open pending publication and both-domain review of its two updated answers."
         }
       ],
-      "scope": "Cloud provider, experience and service scope, both FedRAMP offerings, Platform and ES AI service regions, Observability realms and supporting SOC prerequisites."
+      "scope": "Six primary reviews passed. Regional Platform AI remains open pending publication and both-domain review of its two updated answers."
     },
     {
       "id": "version-release-watch",

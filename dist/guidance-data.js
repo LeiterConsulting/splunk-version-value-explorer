@@ -1,6 +1,6 @@
 /* Generated from content/datasets/guidance.json. Edit the JSON source, not this adapter. */
 window.SPLUNK_DATA.guidance = {
-  "reviewed": "2026-11-25",
+  "reviewed": "2026-11-26",
   "lifecycle": {
     "source": "https://www.splunk.com/en_us/legal/splunk-software-support-policy.html",
     "reviewed": "2026-10-01",
@@ -418,6 +418,23 @@ window.SPLUNK_DATA.guidance = {
       "checked": "2026-11-21",
       "section": "Before you begin; Supported operations; Limitations",
       "verificationScope": "Bounded discovery of an organization-enabled A2A1.0 text investigation interface. Select-customer access is separately documented in the parent guide. No new matrix capability admitted."
+    },
+    "aiSaiaMcp236": {
+      "title": "SAIA 2.3.6 known issues: exact MCP incompatibility",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
+      "section": "Known issues for version 2.3.6; SAIA-10157",
+      "checked": "2026-11-26",
+      "reviewed": "2026-11-26",
+      "scope": "The row names SAIA 2.3.6 and MCP 2.1.0 as incompatible. Other version pairs and regional rollout need separate evidence.",
+      "retrieval": "Direct official topic retrieved and exact SAIA-10157 row assessed on November 26."
+    },
+    "aiSaiaModelRuntimeSydney": {
+      "title": "SAIA Model Runtime for AWS Sydney",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+      "section": "Supported regions and region standard; Inference processing and data storage for AWS AP Sydney",
+      "scope": "Sydney inference uses Microsoft APAC Data Zone, which extends outside Australia. Storage at rest follows the Azure resource geography, with Microsoft’s documented exceptions and no guarantee of a specific Azure region.",
+      "checked": "2026-11-26",
+      "reviewed": "2026-11-26"
     }
   },
   "preparation11": {
@@ -640,7 +657,9 @@ window.SPLUNK_DATA.guidance = {
       "aiSaiaAbout240",
       "aiSaiaKnownIssues240",
       "aiSaiaInstall240",
-      "aiSaiaRelease240"
+      "aiSaiaRelease240",
+      "aiSaiaMcp236",
+      "aiSaiaModelRuntimeSydney"
     ],
     "src": [
       "aiHighAnnouncement20261019",
@@ -671,7 +690,9 @@ window.SPLUNK_DATA.guidance = {
       "aiSaiaAbout240",
       "aiSaiaKnownIssues240",
       "aiSaiaInstall240",
-      "aiSaiaRelease240"
+      "aiSaiaRelease240",
+      "aiSaiaMcp236",
+      "aiSaiaModelRuntimeSydney"
     ],
     "serviceRegions": [
       {
@@ -1224,6 +1245,18 @@ window.SPLUNK_DATA.guidance = {
         ],
         "checked": "2026-11-24"
       }
+    },
+    "agentModeRegionQualifications": {
+      "ap-southeast-2": {
+        "detail": "For AWS Sydney, Model Runtime inference uses the Microsoft APAC Data Zone, which includes locations outside Australia. Data at rest for resources in Australia stays within the Australia geography, subject to Microsoft’s documented exceptions. The guide gives no specific Azure region guarantee.",
+        "checked": "2026-11-26",
+        "sourceId": "aiSaiaModelRuntimeSydney"
+      }
+    },
+    "itsiPairQualification": {
+      "detail": "Splunk documents SAIA 2.3.6 as incompatible with MCP 2.1.0 in SAIA-10157.",
+      "sourceId": "aiSaiaMcp236",
+      "checked": "2026-11-26"
     }
   },
   "exactReleases": {
