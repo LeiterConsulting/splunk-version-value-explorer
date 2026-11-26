@@ -16,11 +16,11 @@
   "coverage": [
     {
       "capabilityId": "advisor.soc-workflow",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint.",
+      "disposition": "assessed-no-change",
+      "qualification": "Fresh registry sources include migrated 8.8 offerings and setting-up sections, plus separate original retired URL checks returning 404, historical 8.7 and current response-specific instructions. Parent Cloud requirements use Platform 10.2+/ES 8.6+ with paired SOAR; task and older detailed evidence have distinct ES 8.7+ controls, and conditional CMP is Platform 10.4+/ES 8.8+/Cloud Connect 2.0+/SAIA 2.4+ with access. The November 4 ES release is GA while Response is CA. The parent caps and first-ten triage/findings/rerun rules have separate scopes from the Response task model and permission restrictions. Exact pairing, per-agent rollout, entitlement and customer authorization remain outside this supporting row.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-26T10:15:27.499599Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-26T10:19:35.060309Z",
       "publishedAt": null,
       "liveVerifiedAt": null,
       "retrievals": [
@@ -73,26 +73,34 @@
           "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions | Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings | HTTP 200 | 137982 bytes | SHA-256 6bbc2609f52cbdb812f0c90d0bf8c42414eb8549f38a7003124be42e5e90c1f7"
         }
       ],
-      "assessments": [],
-      "publicOriginEvidence": [],
-      "followUp": {
-        "owner": "es-editions-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Untangle ES AI SOC requirements.",
-        "reviewBy": "2026-11-27"
-      },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-25-csp-fedramp-watch-review-197763746242154-coverage.json",
-        "assessmentAt": "2026-11-25T10:05:59.084610Z",
-        "disposition": "assessed-no-change"
-      }
+      "assessments": [
+        {
+          "claimId": "ai-es-soc",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsAgents88",
+            "aiEsSocTask88",
+            "aiEsSocTask87",
+            "aiEsRelease88",
+            "aiEsTriageNote88",
+            "aiSaiaInstall",
+            "aiEsRegions88",
+            "aiEsEditions"
+          ],
+          "assessedAt": "2026-11-26T10:19:35.060309Z",
+          "evidence": "Fresh registry sources include migrated 8.8 offerings and setting-up sections, plus separate original retired URL checks returning 404, historical 8.7 and current response-specific instructions. Parent Cloud requirements use Platform 10.2+/ES 8.6+ with paired SOAR; task and older detailed evidence have distinct ES 8.7+ controls, and conditional CMP is Platform 10.4+/ES 8.8+/Cloud Connect 2.0+/SAIA 2.4+ with access. The November 4 ES release is GA while Response is CA. The parent caps and first-ten triage/findings/rerun rules have separate scopes from the Response task model and permission restrictions. Exact pairing, per-agent rollout, entitlement and customer authorization remain outside this supporting row.",
+          "qualification": "Assessed deployment-specific prerequisites, the current Cloud version discrepancy and the corrected historical Triage wording. Exclusions: Exact SOAR pairing, agent-specific regional rollout, component entitlement and customer authorization remain separate."
+        }
+      ],
+      "publicOriginEvidence": []
     },
     {
       "capabilityId": "ai.regional-platform",
       "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "qualification": "Fresh 2.3.6 and 2.4.0 Cloud install and About section tables were read in full. Each has 21 install and 22 About rows with identical common rows. AWS Dublin (June 28, 2024) occurs only in About. Scope and documented feature discrepancies are recorded with the official details below. Dublin base SPL and ITSI rollout remain unresolved. Sydney runtime placement and the exact MCP issue require current published reader verification after the held correction. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-26T10:14:24.861479Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-26T10:17:30.943298Z",
       "publishedAt": null,
       "liveVerifiedAt": null,
       "retrievals": [
@@ -151,11 +159,204 @@
           "evidence": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues | SAIA-9918 Cloud Connected access and 2.1.1 workaround | HTTP 200 | 143795 bytes | SHA-256 8a05a011bfb1ea9402f99f87800e653c24fe1a55989f86c5ddb70725d621aff0"
         }
       ],
-      "assessments": [],
-      "publicOriginEvidence": [],
+      "assessments": [
+        {
+          "claimId": "saia-spl-service-regions",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiSaiaInstall",
+            "aiSaiaAbout",
+            "aiHighAnnouncement20261019"
+          ],
+          "assessedAt": "2026-11-26T10:17:30.943298Z",
+          "evidence": "The 2.3.6 and 2.4.0 About tables each include the June 28, 2024 Dublin row while their own Cloud install table omits it. The common provider rows and dates match; absence from one table does not resolve base SPL availability. Both public Dublin report questions retain a separate verification gate.",
+          "qualification": "Base SAIA AI-service regions, provider mappings and evidence version; preserve commercial and regulated qualifications."
+        },
+        {
+          "claimId": "ai-service-region-mappings",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiSaiaInstall",
+            "aiSaiaAbout"
+          ],
+          "assessedAt": "2026-11-26T10:17:30.943298Z",
+          "evidence": "Read the 17 vs 18 named AWS rows and four common Azure AI service labels, including Azure US West, across both full 2.3.6 tables. The service labels and runtime placement standards are separately qualified and do not imply tenant location, deployment or authorization.",
+          "qualification": "Preserve AI service-location mappings and distinguish them from the tenant host or implied processing residency."
+        },
+        {
+          "claimId": "ai-regulated-boundaries",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiSaiaInstall",
+            "aiHighAnnouncement20261019",
+            "aiEsRegions88",
+            "aiObsAssistant"
+          ],
+          "assessedAt": "2026-11-26T10:17:30.943298Z",
+          "evidence": "The 2.3.6 Cloud installer limits IL2, disables Agent Mode and fixes runtime to Splunk-hosted models. The exact direct 2.4.0 release section separately confirms core SPL generation and explanation in supported High environments and excludes Agent Mode. Read the exact October 19 offering signal, current Marketplace offerings and confidence boundaries for ES and Observability across providers.",
+          "qualification": "Separate the documented feature-level regulated boundary from offering authorization. Preserve exclusions and unknowns."
+        },
+        {
+          "claimId": "saia-agent-service-regions",
+          "outcome": "changed",
+          "sourceIds": [
+            "aiSaiaAgentMode",
+            "aiSaiaModelRuntime"
+          ],
+          "assessedAt": "2026-11-26T10:17:30.943298Z",
+          "evidence": "The detailed Agent Mode Requirements and Supported regions list AWS Dublin with Platform 10.1.x or higher, supported AWS region and Model Runtime enabled. Model Runtime lists Dublin Global from 2.3.0 with no local-country processing guarantee. The fresh 2.3.6 and 2.4.0 Inference processing and data storage prose explicitly puts Sydney in the APAC Data Zone outside Australia as well as inside it, with storage at rest separately governed at Australian Azure geography level subject to Microsoft exceptions and without specific Azure region guarantee. Live Sydney answer must be corrected.",
+          "qualification": "Agent Mode and Model Runtime have their own region evidence; derive no feature inheritance from the base assistant."
+        },
+        {
+          "claimId": "saia-agent-cloud-connected",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiSaiaAgentMode",
+            "aiSaiaModelRuntime",
+            "aiSaiaCloudConnected",
+            "aiSaiaKnownIssues"
+          ],
+          "assessedAt": "2026-11-26T10:17:30.943298Z",
+          "evidence": "The feature guide has a conditional path; the separately read 2.3.6 installer and SAIA-9918 explicitly exclude 2.2.0–2.3.6; the 2.1.1 workaround lacks Agent Mode. Current 2.4.0 installation requires paid Enterprise 10.4+, Cloud Connect 2.0+, a fresh setup, STC/OAuth2 signing certificate, admin permissions, email verification, outbound service access and a supported AWS commercial region independently of Agent Mode enablement and runtime.",
+          "qualification": "Cloud Connected Agent Mode regional/runtime availability and compatibility stay independently scoped."
+        },
+        {
+          "claimId": "itsi-subagent-regional-qualification",
+          "outcome": "changed",
+          "sourceIds": [
+            "aiSaiaAbout",
+            "aiSaiaInstall"
+          ],
+          "assessedAt": "2026-11-26T10:17:30.943298Z",
+          "evidence": "The About ITSI feature explicitly lists SAIA 2.2.0+, ITSI 5.0.0+, MCP Server 1.2.1+ and six episode tools. It does not establish Dublin subagent rollout. The 2.3.6 Known issues table names SAIA-10157 for the specifically incompatible SAIA 2.3.6 and MCP 2.1.0 pair. Generic minimums do not resolve this pair and it is not evidence about other pairs or regions.",
+          "qualification": "Keep ITSI-specific regional enablement unresolved where a public scoped source does not establish it."
+        }
+      ],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-reader-owner-workflow-apex.json",
+          "receiptSha256": "4868d469e3c1541874307be7398c8cef6c91fb481465485d00335d4282969e63",
+          "revision": "content-e0ad1e7b4057bbd9fe3bb5a0",
+          "digest": "2266a3bbfb6b3d0b8527c3ee96817aad11af2a2cc3c50bd4f6de78717bb93d8d",
+          "checkedAt": "2026-11-26T10:20:40.806Z",
+          "routeId": "ai-high",
+          "sourceId": "aiHighAnnouncement20261019",
+          "htmlSha256": "73b4c61bfb27b8a4683807c6cf340469320e926a453533c49382728e60d866e0",
+          "pdfSha256": "eaa2baadc36d14991ee31e81b1d769aae25b9858e76c5c0d5b827c1c6f1b645c"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-reader-owner-workflow-www.json",
+          "receiptSha256": "79cd35f27c6e3c89ffb470f13219e5954db21de76e2cfed448d5bbee4422bae7",
+          "revision": "content-e0ad1e7b4057bbd9fe3bb5a0",
+          "digest": "2266a3bbfb6b3d0b8527c3ee96817aad11af2a2cc3c50bd4f6de78717bb93d8d",
+          "checkedAt": "2026-11-26T10:20:53.318Z",
+          "routeId": "ai-high",
+          "sourceId": "aiHighAnnouncement20261019",
+          "htmlSha256": "0ba55afd5f6acb4df33f27272b63100c9bd0f317bc85fe43fd7470b4f77ed7d0",
+          "pdfSha256": "e873dea256e6bbb41e9acf8e94611867c3c3581e513025bcecf4eb06e5361a15"
+        },
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-reader-owner-workflow-apex.json",
+          "receiptSha256": "4868d469e3c1541874307be7398c8cef6c91fb481465485d00335d4282969e63",
+          "revision": "content-e0ad1e7b4057bbd9fe3bb5a0",
+          "digest": "2266a3bbfb6b3d0b8527c3ee96817aad11af2a2cc3c50bd4f6de78717bb93d8d",
+          "checkedAt": "2026-11-26T10:20:50.795Z",
+          "routeId": "ai-platform-dublin",
+          "sourceId": "aiSaiaAbout",
+          "htmlSha256": "f8eae68b39a0d8c13f1c2863686d5b21dcf8c1335e211fbb7e96d5884f1685c9",
+          "pdfSha256": "0fe76ec3217a1628983fba83b8d5dc8fcda38ba5d77628a63d4dc144c52b1196"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-reader-owner-workflow-www.json",
+          "receiptSha256": "79cd35f27c6e3c89ffb470f13219e5954db21de76e2cfed448d5bbee4422bae7",
+          "revision": "content-e0ad1e7b4057bbd9fe3bb5a0",
+          "digest": "2266a3bbfb6b3d0b8527c3ee96817aad11af2a2cc3c50bd4f6de78717bb93d8d",
+          "checkedAt": "2026-11-26T10:21:02.891Z",
+          "routeId": "ai-platform-dublin",
+          "sourceId": "aiSaiaAbout",
+          "htmlSha256": "188e24c7074211b5e0ec795028edebddfcf1b0835e6e39135ce3d934ca19270b",
+          "pdfSha256": "b229ba1c1be0dcb952b2d7ad816a96789620e0674a91a9c1cd9227dc20f6ba71"
+        },
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-reader-owner-workflow-apex.json",
+          "receiptSha256": "4868d469e3c1541874307be7398c8cef6c91fb481465485d00335d4282969e63",
+          "revision": "content-e0ad1e7b4057bbd9fe3bb5a0",
+          "digest": "2266a3bbfb6b3d0b8527c3ee96817aad11af2a2cc3c50bd4f6de78717bb93d8d",
+          "checkedAt": "2026-11-26T10:20:50.795Z",
+          "routeId": "ai-platform-dublin",
+          "sourceId": "aiSaiaInstall",
+          "htmlSha256": "f8eae68b39a0d8c13f1c2863686d5b21dcf8c1335e211fbb7e96d5884f1685c9",
+          "pdfSha256": "0fe76ec3217a1628983fba83b8d5dc8fcda38ba5d77628a63d4dc144c52b1196"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-reader-owner-workflow-www.json",
+          "receiptSha256": "79cd35f27c6e3c89ffb470f13219e5954db21de76e2cfed448d5bbee4422bae7",
+          "revision": "content-e0ad1e7b4057bbd9fe3bb5a0",
+          "digest": "2266a3bbfb6b3d0b8527c3ee96817aad11af2a2cc3c50bd4f6de78717bb93d8d",
+          "checkedAt": "2026-11-26T10:21:02.891Z",
+          "routeId": "ai-platform-dublin",
+          "sourceId": "aiSaiaInstall",
+          "htmlSha256": "188e24c7074211b5e0ec795028edebddfcf1b0835e6e39135ce3d934ca19270b",
+          "pdfSha256": "b229ba1c1be0dcb952b2d7ad816a96789620e0674a91a9c1cd9227dc20f6ba71"
+        },
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-reader-owner-workflow-apex.json",
+          "receiptSha256": "4868d469e3c1541874307be7398c8cef6c91fb481465485d00335d4282969e63",
+          "revision": "content-e0ad1e7b4057bbd9fe3bb5a0",
+          "digest": "2266a3bbfb6b3d0b8527c3ee96817aad11af2a2cc3c50bd4f6de78717bb93d8d",
+          "checkedAt": "2026-11-26T10:20:50.795Z",
+          "routeId": "ai-platform-dublin",
+          "sourceId": "aiSaiaAgentMode",
+          "htmlSha256": "f8eae68b39a0d8c13f1c2863686d5b21dcf8c1335e211fbb7e96d5884f1685c9",
+          "pdfSha256": "0fe76ec3217a1628983fba83b8d5dc8fcda38ba5d77628a63d4dc144c52b1196"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-reader-owner-workflow-www.json",
+          "receiptSha256": "79cd35f27c6e3c89ffb470f13219e5954db21de76e2cfed448d5bbee4422bae7",
+          "revision": "content-e0ad1e7b4057bbd9fe3bb5a0",
+          "digest": "2266a3bbfb6b3d0b8527c3ee96817aad11af2a2cc3c50bd4f6de78717bb93d8d",
+          "checkedAt": "2026-11-26T10:21:02.891Z",
+          "routeId": "ai-platform-dublin",
+          "sourceId": "aiSaiaAgentMode",
+          "htmlSha256": "188e24c7074211b5e0ec795028edebddfcf1b0835e6e39135ce3d934ca19270b",
+          "pdfSha256": "b229ba1c1be0dcb952b2d7ad816a96789620e0674a91a9c1cd9227dc20f6ba71"
+        },
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-reader-owner-workflow-apex.json",
+          "receiptSha256": "4868d469e3c1541874307be7398c8cef6c91fb481465485d00335d4282969e63",
+          "revision": "content-e0ad1e7b4057bbd9fe3bb5a0",
+          "digest": "2266a3bbfb6b3d0b8527c3ee96817aad11af2a2cc3c50bd4f6de78717bb93d8d",
+          "checkedAt": "2026-11-26T10:20:51.538Z",
+          "routeId": "ai-itsi-dublin",
+          "sourceId": "aiSaiaAbout",
+          "htmlSha256": "5f16631e0d621075a5fc085bd060f18887f266f89331c840bf853540e8ea517f",
+          "pdfSha256": "f7c1fa266c0ef9820958bf2127b08b992b61ecf5b7c9599ca1ae00187fef428a"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-reader-owner-workflow-www.json",
+          "receiptSha256": "79cd35f27c6e3c89ffb470f13219e5954db21de76e2cfed448d5bbee4422bae7",
+          "revision": "content-e0ad1e7b4057bbd9fe3bb5a0",
+          "digest": "2266a3bbfb6b3d0b8527c3ee96817aad11af2a2cc3c50bd4f6de78717bb93d8d",
+          "checkedAt": "2026-11-26T10:21:03.923Z",
+          "routeId": "ai-itsi-dublin",
+          "sourceId": "aiSaiaAbout",
+          "htmlSha256": "60ef0f14eb6be6f323218d11c8411b2943e2933905f21485ef70c8cd4996de0b",
+          "pdfSha256": "534cf3c3c9c98593b79fb65a8a93c94760588234317d8c0d5ebd25b866620c3f"
+        }
+      ],
       "followUp": {
         "owner": "csp-fedramp-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for SAIA and ITSI feature-specific region and regulated scope.",
+        "action": "Coordinate exact candidate and issue-feed reconciliation with Guidance. Recheck both corrected public reader answers and official citations on both domains, reopened offline HTML and printed PDFs after steward selection. If still held, carry both gaps and the prior valid Dublin/High results forward.",
         "reviewBy": "2026-11-27"
       },
       "lastVerifiedEvidence": {
@@ -166,13 +367,13 @@
     },
     {
       "capabilityId": "ai.regional-es",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "disposition": "assessed-no-change",
+      "qualification": "The fresh complete 8.8 Essentials, Premier and Cloud Connect tables show that Montréal is available for the relevant cloud Assistant scope and excepted for Cloud Connect, while Calgary has cloud rows with a Security AI Assistant exception. The GovCloud exclusions and UAE condition are scoped to the named offerings. GCP and Azure component restrictions have their own SOAR/ES qualifications including the separately scoped Oregon row. Essentials Cloud support and Premier CMP remain separate. The CMP agentic path requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+, AI Assistant 2.4+, actual activation, permission, certificate and supported region. The historic Cloud Connected exclusions remain separate.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-26T10:15:14.376029Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-26T10:19:35.060306Z",
       "publishedAt": null,
-      "liveVerifiedAt": null,
+      "liveVerifiedAt": "2026-11-26T10:20:54.381Z",
       "retrievals": [
         {
           "sourceId": "aiEsRegions88",
@@ -199,28 +400,91 @@
           "evidence": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected | Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data | HTTP 200 | 178985 bytes | SHA-256 ee9adbd5dd48d7ee90aa0fe1582c5070ae8f5b365f67c7f1ae1ac93af5b0529e"
         }
       ],
-      "assessments": [],
-      "publicOriginEvidence": [],
-      "followUp": {
-        "owner": "csp-fedramp-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for ES AI regional and regulated scope by edition and service.",
-        "reviewBy": "2026-11-27"
-      },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-25-csp-fedramp-watch-review-197763746242154-coverage.json",
-        "assessmentAt": "2026-11-25T10:05:59.084607Z",
-        "disposition": "assessed-no-change"
+      "assessments": [
+        {
+          "claimId": "es-essentials-ai-regions",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsRegions88",
+            "aiEsEditions"
+          ],
+          "assessedAt": "2026-11-26T10:19:35.060306Z",
+          "evidence": "Read all Essentials cloud rows and GCP/Azure exception prose, including Montréal, Calgary, GovCloud and conditional Azure/GCP feature limitations. Essentials Assistant has a Cloud scope where individual rows allow it; no CMP or blanket regional inference.",
+          "qualification": "Essentials regional table and feature-specific exclusions."
+        },
+        {
+          "claimId": "es-premier-ai-regions",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsRegions88",
+            "aiEsEditions"
+          ],
+          "assessedAt": "2026-11-26T10:19:35.060306Z",
+          "evidence": "The Premier Cloud table keeps its component columns and exceptions. It includes Montréal subject to the applicable listed component, excepts the Assistant in Calgary and marks some GovCloud and region limitations separately. Premier licensing or activity does not establish every regional agent.",
+          "qualification": "Premier regional table, regulated/provider and component boundaries."
+        },
+        {
+          "claimId": "es-cloud-connect-ai-regions",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsRegions88",
+            "aiEsCloudConnectAgentic88",
+            "aiSaiaCloudConnected"
+          ],
+          "assessedAt": "2026-11-26T10:19:35.060306Z",
+          "evidence": "The Cloud Connect table treats Montréal differently, and Calgary is not an Assistant exception in that table. The agentic Cloud Connect guide gives explicit 10.4+, ES 8.8+, Cloud Connect 2.0+, SAIA 2.4+ plus certificate/access and activation requirements. No implied GovCloud or standalone SOAR availability.",
+          "qualification": "Cloud Connected requirements and regional qualifications stay separate from Cloud-only rules."
+        }
+      ],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-reader-owner-workflow-apex.json",
+          "receiptSha256": "4868d469e3c1541874307be7398c8cef6c91fb481465485d00335d4282969e63",
+          "revision": "content-e0ad1e7b4057bbd9fe3bb5a0",
+          "digest": "2266a3bbfb6b3d0b8527c3ee96817aad11af2a2cc3c50bd4f6de78717bb93d8d",
+          "checkedAt": "2026-11-26T10:20:42.133Z",
+          "routeId": "ai-cmp",
+          "sourceId": "aiEsRegions88",
+          "htmlSha256": "d4d9556afc385524615060150a5321348a2845c347f1aef62df8eb8d751ee4e9",
+          "pdfSha256": "c7ac37caf2b03dec07f1a1ad9ccd7166a8c4fce2ccf697c33feb41686ec5a4d7"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-reader-owner-workflow-www.json",
+          "receiptSha256": "79cd35f27c6e3c89ffb470f13219e5954db21de76e2cfed448d5bbee4422bae7",
+          "revision": "content-e0ad1e7b4057bbd9fe3bb5a0",
+          "digest": "2266a3bbfb6b3d0b8527c3ee96817aad11af2a2cc3c50bd4f6de78717bb93d8d",
+          "checkedAt": "2026-11-26T10:20:54.381Z",
+          "routeId": "ai-cmp",
+          "sourceId": "aiEsRegions88",
+          "htmlSha256": "09c303bb36c8f7d4f8577dadd276693ede5c8cd620129a3dbf46be03c3b48e55",
+          "pdfSha256": "1220cb76b237cac5f2547695c0a44800dddebfc1fc13c530b7606fa60101db50"
+        }
+      ],
+      "readerReview": {
+        "question": "Does Premier Cloud Connect in Montreal enable the Security AI Assistant?",
+        "routeId": "ai-cmp",
+        "region": "#ai-results",
+        "answer": "The selected ES 8.8 table explicitly excludes this component in Canada Central.",
+        "reportAnswer": "The selected ES 8.8 table explicitly excludes this component in Canada Central.",
+        "sourceId": "aiEsRegions88",
+        "claimIds": [
+          "es-essentials-ai-regions"
+        ],
+        "sourceSection": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility",
+        "checkedAt": "2026-11-26T10:20:54.381Z"
       }
     },
     {
       "capabilityId": "ai.regional-observability",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "disposition": "assessed-no-change",
+      "qualification": "AI Assistant availability is explicitly English and limited to the documented realms and applicable product areas, user access and context. The published service details realm table omits us3 while AI Assistant names it. The Troubleshooting Agent guide is a separate organization opt-in and standard/default-metric route, with manual use and conditional Kubernetes remediation. Custom metric context does not widen the alert support. Geographic mapping and tenant or regulated availability remain distinct.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-26T10:15:17.703767Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-26T10:19:35.060308Z",
       "publishedAt": null,
-      "liveVerifiedAt": null,
+      "liveVerifiedAt": "2026-11-26T10:20:55.397Z",
       "retrievals": [
         {
           "sourceId": "aiObsAssistant",
@@ -241,28 +505,80 @@
           "evidence": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description | Available regions or realms; realm-to-region equivalence; available components per realm | HTTP 200 | 237868 bytes | SHA-256 66325229b107765a2caf93187f852ff42482d0fe4aba99534791792b169d6d79"
         }
       ],
-      "assessments": [],
-      "publicOriginEvidence": [],
-      "followUp": {
-        "owner": "csp-fedramp-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Observability AI region, realm and provider evidence.",
-        "reviewBy": "2026-11-27"
-      },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-25-csp-fedramp-watch-review-197763746242154-coverage.json",
-        "assessmentAt": "2026-11-25T10:05:59.084609Z",
-        "disposition": "assessed-no-change"
+      "assessments": [
+        {
+          "claimId": "observability-ai-regions",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiObsAssistant",
+            "aiObsRca",
+            "aiObsServiceDetails"
+          ],
+          "assessedAt": "2026-11-26T10:19:35.060308Z",
+          "evidence": "Reviewed the ten-row Assistant availability list us0/us1/us2/us3/eu0/eu1/eu2/au0/jp0/sg0 and the troubleshooting guide’s explicit default-signal organization conditions. No separate blanket realm rollout claimed.",
+          "qualification": "Map assistant and troubleshooting eligibility separately to documented service regions; retain the regulated exclusion or unknown."
+        },
+        {
+          "claimId": "observability-ai-realm-conflict",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiObsAssistant",
+            "aiObsServiceDetails"
+          ],
+          "assessedAt": "2026-11-26T10:19:35.060308Z",
+          "evidence": "Compared the Assistant realm list to Service Details region mapping; us3 appears in one and is absent from the other. Independent Databases us2 mismatch and authorization scope are tracked in Cloud product-services.",
+          "qualification": "Preserve any conflicting or unmapped realm evidence and distinguish it from inferred neighboring availability."
+        }
+      ],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-reader-owner-workflow-apex.json",
+          "receiptSha256": "4868d469e3c1541874307be7398c8cef6c91fb481465485d00335d4282969e63",
+          "revision": "content-e0ad1e7b4057bbd9fe3bb5a0",
+          "digest": "2266a3bbfb6b3d0b8527c3ee96817aad11af2a2cc3c50bd4f6de78717bb93d8d",
+          "checkedAt": "2026-11-26T10:20:43.282Z",
+          "routeId": "ai-observability-assistant",
+          "sourceId": "aiObsAssistant",
+          "htmlSha256": "e42c9f9de0c6d05a7aa18042b77f7610ee7e82a89bedd4133c009ce06537765f",
+          "pdfSha256": "160d83aabf179a5d0e25107f63fc1127c62452ef9443394f4ed990da3d915580"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-reader-owner-workflow-www.json",
+          "receiptSha256": "79cd35f27c6e3c89ffb470f13219e5954db21de76e2cfed448d5bbee4422bae7",
+          "revision": "content-e0ad1e7b4057bbd9fe3bb5a0",
+          "digest": "2266a3bbfb6b3d0b8527c3ee96817aad11af2a2cc3c50bd4f6de78717bb93d8d",
+          "checkedAt": "2026-11-26T10:20:55.397Z",
+          "routeId": "ai-observability-assistant",
+          "sourceId": "aiObsAssistant",
+          "htmlSha256": "524a486c14ae3325d54c8d29060c8a4e80173b56558adc431b04697214b96321",
+          "pdfSha256": "5f00428124ee2dc2f33c98bfe3ce08b22573073650d4a72372ac8bb505dc29b7"
+        }
+      ],
+      "readerReview": {
+        "question": "Does selecting commercial AWS Virginia establish my Observability Assistant access and authorization?",
+        "routeId": "ai-observability-assistant",
+        "region": "#ai-observability-assistant",
+        "answer": "The selected region maps to a documented commercial Observability realm.",
+        "reportAnswer": "The selected region maps to a documented commercial Observability realm.",
+        "sourceId": "aiObsAssistant",
+        "claimIds": [
+          "observability-ai-regions"
+        ],
+        "sourceSection": "Availability; supported realms and product areas; access; context limitations; data sharing and use",
+        "checkedAt": "2026-11-26T10:20:55.397Z"
       }
     },
     {
       "capabilityId": "cloud-environment.regions",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "disposition": "assessed-no-change",
+      "qualification": "The Available regions table supplies AWS Victoria (Israel and both GovCloud Moderate/High regions), GCP Iowa/Frankfurt/Dammam, Azure Phoenix/Virginia/London/Tokyo and separately the Classic AWS/IL5, GCP London/Belgium/Singapore/Sydney/Montréal and no Azure entries. The reviewed 10.7 release changelog bounds the Israel addition to that release. Direct AWS HTML and official Markdown each returned 403. The official relocated EC2 endpoints article independently lists Israel Tel Aviv il-central-1, Ireland eu-west-1, and AWS GovCloud East/West reference rows, supporting provider labels only.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-26T10:14:59.862091Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-26T10:19:35.060301Z",
       "publishedAt": null,
-      "liveVerifiedAt": null,
+      "liveVerifiedAt": "2026-11-26T10:20:57.069Z",
       "retrievals": [
         {
           "sourceId": "service107",
@@ -277,28 +593,68 @@
           "evidence": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log | Dated provider and region changes | HTTP 200 | 411573 bytes | SHA-256 dbd7a7999f74a61ed746bf2c8ea4cce77f06788835439fc18de6bb4c66ce6f47"
         }
       ],
-      "assessments": [],
-      "publicOriginEvidence": [],
-      "followUp": {
-        "owner": "csp-fedramp-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Cloud providers and regional service availability.",
-        "reviewBy": "2026-11-27"
-      },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-25-csp-fedramp-watch-review-197763746242154-coverage.json",
-        "assessmentAt": "2026-11-25T10:05:59.084600Z",
-        "disposition": "assessed-no-change"
+      "assessments": [
+        {
+          "claimId": "cloud-environment.regions",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "service107",
+            "changes107"
+          ],
+          "assessedAt": "2026-11-26T10:19:35.060301Z",
+          "evidence": "The Available regions table supplies AWS Victoria (Israel and both GovCloud Moderate/High regions), GCP Iowa/Frankfurt/Dammam, Azure Phoenix/Virginia/London/Tokyo and separately the Classic AWS/IL5, GCP London/Belgium/Singapore/Sydney/Montréal and no Azure entries. The reviewed 10.7 release changelog bounds the Israel addition to that release. Direct AWS HTML and official Markdown each returned 403. The official relocated EC2 endpoints article independently lists Israel Tel Aviv il-central-1, Ireland eu-west-1, and AWS GovCloud East/West reference rows, supporting provider labels only.",
+          "qualification": "AWS, Azure and Google Cloud service regions and named exceptions. Record changes by provider and region; treat provider catalog evidence as distinct from Splunk availability."
+        }
+      ],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-reader-owner-workflow-apex.json",
+          "receiptSha256": "4868d469e3c1541874307be7398c8cef6c91fb481465485d00335d4282969e63",
+          "revision": "content-e0ad1e7b4057bbd9fe3bb5a0",
+          "digest": "2266a3bbfb6b3d0b8527c3ee96817aad11af2a2cc3c50bd4f6de78717bb93d8d",
+          "checkedAt": "2026-11-26T10:20:44.865Z",
+          "routeId": "cloud-107-aws-israel",
+          "sourceId": "service107",
+          "htmlSha256": "88fb545b64c89643a14027aa127729e4d4a6ef97aa6a94851fab046dafb04ade",
+          "pdfSha256": "f883254c545b7598835991f59f15d46d61cf1f67fe3f456a79dd549bf2a5f17a"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-reader-owner-workflow-www.json",
+          "receiptSha256": "79cd35f27c6e3c89ffb470f13219e5954db21de76e2cfed448d5bbee4422bae7",
+          "revision": "content-e0ad1e7b4057bbd9fe3bb5a0",
+          "digest": "2266a3bbfb6b3d0b8527c3ee96817aad11af2a2cc3c50bd4f6de78717bb93d8d",
+          "checkedAt": "2026-11-26T10:20:57.069Z",
+          "routeId": "cloud-107-aws-israel",
+          "sourceId": "service107",
+          "htmlSha256": "23007e0efbb31b02e235a4786ed1b36b2e517803799823fe0444f332400e2bef",
+          "pdfSha256": "cb1a75f2ccc74c9965fb134c2b3603473b000c88a679c73f2832b2565eb11463"
+        }
+      ],
+      "readerReview": {
+        "question": "Does the Israel location establish Victoria availability for my historical release and every feature?",
+        "routeId": "cloud-107-aws-israel",
+        "region": "#environment-overview",
+        "answer": "Current service evidence, separate from the selected historical release interval.",
+        "reportAnswer": "The Cloud Platform 10.7 service table lists AWS Israel for new Victoria stacks.",
+        "sourceId": "service107",
+        "claimIds": [
+          "cloud-environment.regions"
+        ],
+        "sourceSection": "Available regions and region differences",
+        "checkedAt": "2026-11-26T10:20:57.069Z"
       }
     },
     {
       "capabilityId": "cloud-environment.experience",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "disposition": "assessed-no-change",
+      "qualification": "The current 10.7/10.8 Service Details comparison and provider rows distinguish managed upgrades, self-service app installation and Classic input placement. Victoria and Classic availability differ by service, provider and experience. In the ACS compatibility table the High row is Victoria No and Classic Yes while lower linked text says both; the maintenance-window guide specifically excludes the High API and mentions CMC viewing independently. The 10.7/10.8 service row includes Moderate S3 and excludes High/IL5 while the 10.3 changelog entry says High/IL5 S3 was added. Differing use cases and history remain visible. Ingest Processor uses documented applicable onboarding, tenant and service conditions.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-26T10:14:49.617838Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-26T10:19:35.060289Z",
       "publishedAt": null,
-      "liveVerifiedAt": null,
+      "liveVerifiedAt": "2026-11-26T10:20:58.608Z",
       "retrievals": [
         {
           "sourceId": "service107",
@@ -325,17 +681,59 @@
           "evidence": "https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor | Ingest Processor availability and deployment prerequisites | HTTP 200 | 165298 bytes | SHA-256 a7721ac757ea22489aea96c63017ee411ff4747243e35b5b316622aa2b4ae239"
         }
       ],
-      "assessments": [],
-      "publicOriginEvidence": [],
-      "followUp": {
-        "owner": "csp-fedramp-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Classic/Victoria and Cloud service controls.",
-        "reviewBy": "2026-11-27"
-      },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-25-csp-fedramp-watch-review-197763746242154-coverage.json",
-        "assessmentAt": "2026-11-25T10:05:59.084588Z",
-        "disposition": "assessed-no-change"
+      "assessments": [
+        {
+          "claimId": "cloud-environment.experience",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "service107",
+            "acs",
+            "acsMaintenance",
+            "ingest"
+          ],
+          "assessedAt": "2026-11-26T10:19:35.060289Z",
+          "evidence": "The current 10.7/10.8 Service Details comparison and provider rows distinguish managed upgrades, self-service app installation and Classic input placement. Victoria and Classic availability differ by service, provider and experience. In the ACS compatibility table the High row is Victoria No and Classic Yes while lower linked text says both; the maintenance-window guide specifically excludes the High API and mentions CMC viewing independently. The 10.7/10.8 service row includes Moderate S3 and excludes High/IL5 while the 10.3 changelog entry says High/IL5 S3 was added. Differing use cases and history remain visible. Ingest Processor uses documented applicable onboarding, tenant and service conditions.",
+          "qualification": "Classic and Victoria experience boundaries, managed upgrades and environment-specific ACS, maintenance, and ingest service prerequisites exposed in the perspectives."
+        }
+      ],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-reader-owner-workflow-apex.json",
+          "receiptSha256": "4868d469e3c1541874307be7398c8cef6c91fb481465485d00335d4282969e63",
+          "revision": "content-e0ad1e7b4057bbd9fe3bb5a0",
+          "digest": "2266a3bbfb6b3d0b8527c3ee96817aad11af2a2cc3c50bd4f6de78717bb93d8d",
+          "checkedAt": "2026-11-26T10:20:46.708Z",
+          "routeId": "cloud-107-fedramp-high",
+          "sourceId": "acs",
+          "htmlSha256": "a94354d6e789480b0fe6310a1dcb4fe8c5b20e3c3565a2cca097ff2bbedee2ac",
+          "pdfSha256": "617b8c66f7c90717e7ef9d9129a1f0bbe7b382157136bff86d10699858537bc2"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-reader-owner-workflow-www.json",
+          "receiptSha256": "79cd35f27c6e3c89ffb470f13219e5954db21de76e2cfed448d5bbee4422bae7",
+          "revision": "content-e0ad1e7b4057bbd9fe3bb5a0",
+          "digest": "2266a3bbfb6b3d0b8527c3ee96817aad11af2a2cc3c50bd4f6de78717bb93d8d",
+          "checkedAt": "2026-11-26T10:20:58.608Z",
+          "routeId": "cloud-107-fedramp-high",
+          "sourceId": "acs",
+          "htmlSha256": "59645774be38c7dcd2db1a50c657cc17f1a65ce139db944da44f7288ec4aabeb",
+          "pdfSha256": "c35dab586660c2ff9c53fe263cb794bdb1dda3931721011eaaab48c8a27ef3a9"
+        }
+      ],
+      "readerReview": {
+        "question": "Can I plan ACS operations for a FedRAMP High Victoria stack?",
+        "routeId": "cloud-107-fedramp-high",
+        "region": "#environment-overview",
+        "answer": "Confirm support for the exact ACS operation before planning.",
+        "reportAnswer": "Confirm support for the exact ACS operation before planning.",
+        "sourceId": "acs",
+        "claimIds": [
+          "cloud-environment.experience"
+        ],
+        "sourceSection": "Requirements and compatibility matrix",
+        "checkedAt": "2026-11-26T10:20:58.608Z"
       }
     },
     {
@@ -388,7 +786,32 @@
           "qualification": "Check both Marketplace entries against the vendor compliance scope and named feature/service rows. Keep product authorization, experience, rollout and customer eligibility distinct."
         }
       ],
-      "publicOriginEvidence": [],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-reader-owner-workflow-apex.json",
+          "receiptSha256": "4868d469e3c1541874307be7398c8cef6c91fb481465485d00335d4282969e63",
+          "revision": "content-e0ad1e7b4057bbd9fe3bb5a0",
+          "digest": "2266a3bbfb6b3d0b8527c3ee96817aad11af2a2cc3c50bd4f6de78717bb93d8d",
+          "checkedAt": "2026-11-26T10:20:48.365Z",
+          "routeId": "cloud-fedramp-high",
+          "sourceId": "highAnnouncement20261019",
+          "htmlSha256": "2c7bce3fa421898de1387b16297756e289c8b923723592092957694ef20ae833",
+          "pdfSha256": "ac77d91a30d6537847cf7beb1b9615f4a737252b4f7bdea944620c7bb15ca753"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-reader-owner-workflow-www.json",
+          "receiptSha256": "79cd35f27c6e3c89ffb470f13219e5954db21de76e2cfed448d5bbee4422bae7",
+          "revision": "content-e0ad1e7b4057bbd9fe3bb5a0",
+          "digest": "2266a3bbfb6b3d0b8527c3ee96817aad11af2a2cc3c50bd4f6de78717bb93d8d",
+          "checkedAt": "2026-11-26T10:21:00.260Z",
+          "routeId": "cloud-fedramp-high",
+          "sourceId": "highAnnouncement20261019",
+          "htmlSha256": "66c97ac6d842bf6c74841e141d32cf44fe89a72227be83dd50ccc7658642d23b",
+          "pdfSha256": "0ba9fd98852cf52b9e6cdfbbda86d249e2e5c5eae5c10e2e1425ba9eea33cd94"
+        }
+      ],
       "followUp": {
         "owner": "csp-fedramp-watch",
         "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for FedRAMP Moderate and High boundaries.",
@@ -402,13 +825,13 @@
     },
     {
       "capabilityId": "cloud-environment.product-services",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint. Both-origin screen, offline HTML and PDF evidence remains incomplete.",
+      "disposition": "assessed-no-change",
+      "qualification": "The public 10.7/10.8 subscription/new capabilities and experience sections distinguish service product releases from onboarding. ES 8.8 deployment and pairing rows separate Premier integration from non-Premier, scope Cloud same-provider pairs and use conditional hybrid certificates and explicit IL5 or Windows limitations. The November 16 High announcement names UEBA/TIM/Detection Studio only. SOAR Cloud service details distinguish their own GovCloud offering, FIPS validated modules, playbook, migration and service limitations, plus the separate retention-date discrepancy. The Observability realm-equivalence table shows Google Cloud Oregon us2 while Database Monitoring shows us2 and None in the GCP column. Both values remain visible without inferring a supported feature in us2 or carrying Platform authorization across products.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-26T10:15:10.376456Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-26T10:19:35.060304Z",
       "publishedAt": null,
-      "liveVerifiedAt": null,
+      "liveVerifiedAt": "2026-11-26T10:21:01.569Z",
       "retrievals": [
         {
           "sourceId": "service107",
@@ -441,17 +864,60 @@
           "evidence": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description#available-components-per-region-or-realm-0 | Available components per region or realm | HTTP 200 | 237868 bytes | SHA-256 f6d87cbe7e5483ad0b2fbfa82fc69afc41839652f94968b490858a0f954e0e83"
         }
       ],
-      "assessments": [],
-      "publicOriginEvidence": [],
-      "followUp": {
-        "owner": "csp-fedramp-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Premium products, Observability realms and service scope.",
-        "reviewBy": "2026-11-27"
-      },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-25-csp-fedramp-watch-review-197763746242154-coverage.json",
-        "assessmentAt": "2026-11-25T10:07:03.197348Z",
-        "disposition": "assessed-no-change"
+      "assessments": [
+        {
+          "claimId": "cloud-environment.product-services",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "service107",
+            "regions88",
+            "cloud88Service",
+            "o11yRealmUs2",
+            "o11yDatabaseRegions"
+          ],
+          "assessedAt": "2026-11-26T10:19:35.060304Z",
+          "evidence": "The public 10.7/10.8 subscription/new capabilities and experience sections distinguish service product releases from onboarding. ES 8.8 deployment and pairing rows separate Premier integration from non-Premier, scope Cloud same-provider pairs and use conditional hybrid certificates and explicit IL5 or Windows limitations. The November 16 High announcement names UEBA/TIM/Detection Studio only. SOAR Cloud service details distinguish their own GovCloud offering, FIPS validated modules, playbook, migration and service limitations, plus the separate retention-date discrepancy. The Observability realm-equivalence table shows Google Cloud Oregon us2 while Database Monitoring shows us2 and None in the GCP column. Both values remain visible without inferring a supported feature in us2 or carrying Platform authorization across products.",
+          "qualification": "Check environment-specific ES, ITSI and SOAR service pairings and availability, and Observability realm, provider and component mapping. Keep text explicit about the product, version, service, region, and exceptions."
+        }
+      ],
+      "publicOriginEvidence": [
+        {
+          "origin": "https://versioncompass.com",
+          "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-reader-owner-workflow-apex.json",
+          "receiptSha256": "4868d469e3c1541874307be7398c8cef6c91fb481465485d00335d4282969e63",
+          "revision": "content-e0ad1e7b4057bbd9fe3bb5a0",
+          "digest": "2266a3bbfb6b3d0b8527c3ee96817aad11af2a2cc3c50bd4f6de78717bb93d8d",
+          "checkedAt": "2026-11-26T10:20:49.744Z",
+          "routeId": "observability-november-unknown-region",
+          "sourceId": "o11yDatabaseRegions",
+          "htmlSha256": "4282c90f1ea1ec45e6c48f01a1a5af7897f971c11f897ea5dcdc54d60a7cdf64",
+          "pdfSha256": "199711e92120389cb42660a115b9a8391501ce183d52540b71b261ad90f44daa"
+        },
+        {
+          "origin": "https://www.versioncompass.com",
+          "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-reader-owner-workflow-www.json",
+          "receiptSha256": "79cd35f27c6e3c89ffb470f13219e5954db21de76e2cfed448d5bbee4422bae7",
+          "revision": "content-e0ad1e7b4057bbd9fe3bb5a0",
+          "digest": "2266a3bbfb6b3d0b8527c3ee96817aad11af2a2cc3c50bd4f6de78717bb93d8d",
+          "checkedAt": "2026-11-26T10:21:01.569Z",
+          "routeId": "observability-november-unknown-region",
+          "sourceId": "o11yDatabaseRegions",
+          "htmlSha256": "218556caaaa23afd631488e42443893be91309f196a98693257697231a008247",
+          "pdfSha256": "c8abce92b4cb9b2b90c8110afcec5267aa62097416603cf066e7ebaceef07d67"
+        }
+      ],
+      "readerReview": {
+        "question": "Can I rely on Database Monitoring in Google Cloud Oregon realm us2?",
+        "routeId": "observability-november-unknown-region",
+        "region": "#environment-overview",
+        "answer": "The Database Monitoring row lists us2 and says None for Google Cloud regions.",
+        "reportAnswer": "The Database Monitoring row lists us2 and says None for Google Cloud regions.",
+        "sourceId": "o11yDatabaseRegions",
+        "claimIds": [
+          "cloud-environment.product-services"
+        ],
+        "sourceSection": "Available components per region or realm",
+        "checkedAt": "2026-11-26T10:21:01.569Z"
       }
     }
   ],
@@ -462,12 +928,12 @@
     "claimedDelivered": false,
     "status": "held"
   },
-  "recordedAt": "2026-11-26T10:16:09.793Z",
+  "recordedAt": "2026-11-26T10:22:04.083Z",
   "auditBindings": [
     {
       "file": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-sources.json",
-      "reviewDigest": "675cb132f2d9b8cfc2641ddfa1795057eefc72efe4207951b9567ad7679b509c"
+      "reviewDigest": "117a6509710cb187e3b6465b71ddf0cfad50f64a57d1d7c5d413e97d60ba36af"
     }
   ],
-  "reviewDigest": "285567d754072516cdda519fd3be0c5ad2193112882fe7648e4f490c00ecd29d"
+  "reviewDigest": "289374f36d413c888219420e83ab7e9ee2de438d781e7d394dad3017855af0a1"
 }
