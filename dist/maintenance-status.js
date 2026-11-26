@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-25T10:00:37.038316Z",
-      "lastSuccess": "2026-11-25T10:12:36.790Z",
-      "outcome": "changed",
-      "summary": "Reviewed the seven Cloud and AI regional sections and prepared a scoped correction for core SPL assistance in supported FedRAMP High environments.",
+      "lastAttempt": "2026-11-26T10:11:10.111740Z",
+      "lastSuccess": "2026-11-26T10:07:11.750994Z",
+      "outcome": "blocked",
+      "summary": "Verified six primary sections and prepared evidence for two Platform AI corrections.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -723,9 +723,33 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Reviewed the seven Cloud and AI regional sections and prepared a scoped correction for core SPL assistance in supported FedRAMP High environments.",
           "scope": "Cloud provider, experience and service scope, both FedRAMP offerings, Platform and ES AI service regions, Observability realms and supporting SOC prerequisites."
+        },
+        {
+          "at": "2026-11-26T09:56:01.309071Z",
+          "outcome": "running",
+          "summary": "Compare Cloud Environment and regional AI evidence.",
+          "scope": "FedRAMP, Classic and Victoria, regions, premium services and regional AI."
+        },
+        {
+          "at": "2026-11-26T10:07:11.750994Z",
+          "outcome": "changed",
+          "summary": "Prepared Sydney Model Runtime and exact Splunk MCP pairing qualifications.",
+          "scope": "Six primary reviews passed. Regional Platform AI remains open pending publication and both-domain review of its two updated answers."
+        },
+        {
+          "at": "2026-11-26T10:11:10.111740Z",
+          "outcome": "running",
+          "summary": "Compare current Cloud Environment and regional AI claims.",
+          "scope": "FedRAMP offerings, Cloud experiences and regions, premium services, and Platform, ES and Observability AI."
+        },
+        {
+          "at": "2026-11-26T10:28:31Z",
+          "outcome": "blocked",
+          "summary": "Verified six primary sections and prepared evidence for two Platform AI corrections.",
+          "scope": "Platform AI remains open for the Sydney inference and exact MCP compatibility answers on both published reports."
         }
       ],
-      "scope": "Cloud provider, experience and service scope, both FedRAMP offerings, Platform and ES AI service regions, Observability realms and supporting SOC prerequisites."
+      "scope": "Platform AI remains open for the Sydney inference and exact MCP compatibility answers on both published reports."
     },
     {
       "id": "version-release-watch",
