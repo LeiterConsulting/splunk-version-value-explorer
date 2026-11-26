@@ -730,10 +730,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-25T08:03:39.328400Z",
-      "lastSuccess": "2026-11-21T19:40:05.303Z",
-      "outcome": "blocked",
-      "summary": "Verified 25 Release sections in the public reports. Enterprise and SOAR guide reviews remain open.",
+      "lastAttempt": "2026-11-26T08:03:31.887166Z",
+      "lastSuccess": "2026-11-26T08:20:27.368836Z",
+      "outcome": "changed",
+      "summary": "Prepared an ITSI 5.0.3 package-listing correction and preserved the older listing.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1675,9 +1675,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Verified 25 Release sections in the public reports. Enterprise and SOAR guide reviews remain open.",
           "scope": "The itemized Enterprise 10.6.2 and SOAR on-premises 8.8.0 issues could not be verified in the public sources. The November 24 confirmed evidence is retained."
+        },
+        {
+          "at": "2026-11-26T08:03:31.887166Z",
+          "outcome": "running",
+          "summary": "Review official release evidence and the corresponding public reports.",
+          "scope": "Release Guide, Prep for 11.x, Exact Releases, AI Availability, and product decision support."
+        },
+        {
+          "at": "2026-11-26T08:20:27.368836Z",
+          "outcome": "changed",
+          "summary": "Prepared an ITSI 5.0.3 package-listing correction and preserved the older listing.",
+          "scope": "Twenty-four primary sections verified. ES 8.8 known-issue rows, the ITSI package answer and an intermittent SOAR print remain open."
         }
       ],
-      "scope": "The itemized Enterprise 10.6.2 and SOAR on-premises 8.8.0 issues could not be verified in the public sources. The November 24 confirmed evidence is retained."
+      "scope": "Twenty-four primary sections verified. ES 8.8 known-issue rows, the ITSI package answer and an intermittent SOAR print remain open."
     },
     {
       "id": "es-editions-watch",
