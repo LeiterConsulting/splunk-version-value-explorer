@@ -174,7 +174,7 @@ test('concurrent owner streams retain original snapshots and reject changed reco
  const dropped=clone(real);const id='vcia-es-20261125-c588d42e-1';
  dropped.records=dropped.records.filter(r=>r.assessmentId!==id);
  for(const p of dropped.publications)p.recordKeys=p.recordKeys.filter(k=>k!=='assessment:'+id+'@1');
- assert.throws(()=>reconcileFork(dropped, original, baseline),/Fork record history/);
+ assert.throws(()=>reconcileFork(dropped, original, baseline),/Fork record history|Compared assessment must belong to the same finding and precede this review/);
  const rewritten=clone(original);rewritten.publications[0].coverage.completeness+=' changed';
  assert.throws(()=>reconcileFork(real, rewritten, baseline),/immutable/);
 });

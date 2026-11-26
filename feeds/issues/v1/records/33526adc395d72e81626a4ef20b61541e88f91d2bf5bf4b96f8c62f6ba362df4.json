@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-itsi-503-enterprise-102-patch-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-26T08:19:20.317Z",
+  "assessmentId": "vcia-release-20261126-2a76f515-6",
+  "assessedAt": "2026-11-26T08:11:19.658Z",
+  "originalAssessedAt": "2026-11-26T08:11:19.658398Z",
+  "outcome": "still-present",
+  "rationale": "Two current Splunkbase app 1841 responses list Platform 10.4 through 10.8 for package release ID 125032. The preceding observation of the same ID included 10.2 and 10.3. The versioned Help 10.2.x row still says generic 5.0. Exact patch applicability remains unresolved and the publication still shows the prior tags.",
+  "reviewedScope": {
+    "products": [
+      "release-guide.itsi"
+    ],
+    "versions": [
+      "5.0.3",
+      "10.2.x"
+    ],
+    "editions": null,
+    "deployments": [
+      "Enterprise"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Scope stays with the named release and deployment. No tenant eligibility, unstated region, undocumented pairing or offering authorization is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-release-20261125-f04ceefa-6"
+  ],
+  "remainingConcerns": [
+    "Review the exact documentation and unresolved applicability with Version Release Watch on November 27. Prior issue evidence retains its original scope and time."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "vcia-release-20261126-2a76f515-6-0",
+      "url": "https://splunkbase.splunk.com/app/1841",
+      "section": "Public embedded appDetails.releases, named Splunkbase package and versionCompatibility",
+      "statement": "Two current Splunkbase app 1841 responses list Platform 10.4 through 10.8 for package release ID 125032. The preceding observation of the same ID included 10.2 and 10.3. The versioned Help 10.2.x row still says generic 5.0. Exact patch applicability remains unresolved and the publication still shows the prior tags.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-26T08:08:28.515Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "a9e6ae0e308857b042904f85eae6beba98ef60680520ac8ec5a8871a93cb6ea0",
+        "qualification": "Exact package 5.0.3, versionCompatibility [{'id': 138, 'status': 'live', 'versionString': '10.8'}, {'id': 137, 'status': 'live', 'versionString': '10.7'}, {'id': 136, 'status': 'live', 'versionString': '10.6'}, {'id': 132, 'status': 'live', 'versionString': '10.5'}, {'id': 129, 'status': 'live', 'versionString': '10.4'}], cloudCompatible True"
+      },
+      "qualification": "Exact package 5.0.3, versionCompatibility [{'id': 138, 'status': 'live', 'versionString': '10.8'}, {'id': 137, 'status': 'live', 'versionString': '10.7'}, {'id': 136, 'status': 'live', 'versionString': '10.6'}, {'id': 132, 'status': 'live', 'versionString': '10.5'}, {'id': 129, 'status': 'live', 'versionString': '10.4'}], cloudCompatible True"
+    },
+    {
+      "evidenceId": "vcia-release-20261126-2a76f515-6-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/release-notes-and-updates/compatibility-matrix/splunk-products-version-compatibility/splunk-products-version-compatibility-matrix",
+      "section": "ITSI compatibility rows",
+      "statement": "Exact supporting or contrasting vendor section examined during this review; see the source audit for release and deployment scope.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-26T08:06:08.619Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "b88713ccc43c9ad3bf772de0eef56b5cee7fcc46338267a4a248b20a97e1c5f1",
+        "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+      },
+      "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/6e61f3c20479d3aef7c1f76d2a0ad7442e8981a2/docs/audits/2026-11-26-version-release-watch-review-179654810435166-sources.json",
+      "pointer": "/issueObservations/5",
+      "originalLabel": "still-present"
+    }
+  ]
+}

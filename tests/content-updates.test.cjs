@@ -17,7 +17,7 @@ test('badges are explicit, qualified and printable with evidence',()=>{
 });
 
 test('material cycle preserves scoped release evidence and prior cycle provenance',()=>{
- assert.equal(b.policy.currentCycle,84);
+ assert.equal(b.policy.currentCycle,85);
  const spl=b.entries['environment:platform-ai-high-unknown'];
  assert.equal(spl.cycle,84);assert.equal(spl.kind,'corrected');assert.match(spl.detail,/explicit Agent Mode exclusion/);
  assert(b.active(spl,84));assert(b.active(spl,85));assert(!b.active(spl,86));
