@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-app-for-soar-88-onprem-matrix-cell",
+  "revision": 1,
+  "recordedAt": "2026-11-26T09:12:45.273Z",
+  "assessmentId": "vcia-es-20261126-d72589be-4",
+  "assessedAt": "2026-11-26T09:09:38.307Z",
+  "originalAssessedAt": "2026-11-26T09:09:38.307261Z",
+  "outcome": "still-present",
+  "rationale": "App for SOAR still contains literal 8..0 in an on-premises tested cell. The separate Export matrix explicitly includes 8.8.1 and 8.8.0. That listing cannot repair the malformed App pairing.",
+  "reviewedScope": {
+    "products": [
+      "es-editions.workflows"
+    ],
+    "versions": [
+      "Exact ES 8.8 and named historical versions in the source audit"
+    ],
+    "editions": null,
+    "deployments": [
+      "Exact Cloud or Cloud Connected CMP scope in the source audit"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Scope stays with the named release and deployment. No tenant eligibility, unstated region, undocumented pairing or offering authorization is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-es-20261125-c588d42e-4"
+  ],
+  "remainingConcerns": [
+    "Review the exact documentation and unresolved applicability with ES Editions Watch on November 27. Prior issue evidence retains its original scope and time."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "vcia-es-20261126-d72589be-4-0",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar/install-and-configure/8.8.0/install-splunk-app-for-soar/check-prerequisites-for-splunk-app-for-soar",
+      "section": "App for SOAR prerequisites, compatibility and required ports",
+      "statement": "App for SOAR still contains literal 8..0 in an on-premises tested cell. The separate Export matrix explicitly includes 8.8.1 and 8.8.0. That listing cannot repair the malformed App pairing.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-26T09:06:33.098Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "3ede6a765eefd71ebafb6dda4af3952f7807f8ef75cadd5592030850f8e16c44",
+        "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+      },
+      "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+    },
+    {
+      "evidenceId": "vcia-es-20261126-d72589be-4-1",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+      "section": "Cloud Platform prerequisites and functionality-tested pairings",
+      "statement": "Exact supporting or contrasting vendor section examined during this review; see the source audit for release and deployment scope.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-26T09:06:36.634Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "f6982aa4020c70ba0bcaaacec7ede27c83343612031ac058a918805050868491",
+        "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+      },
+      "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+    },
+    {
+      "evidenceId": "vcia-es-20261126-d72589be-4-2",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-enterprise/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-enterprise",
+      "section": "Enterprise prerequisites and functionality-tested pairings",
+      "statement": "Exact supporting or contrasting vendor section examined during this review; see the source audit for release and deployment scope.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-26T09:06:36.705Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "9b31af1d1fceff7ce4afa8901af2c5e63a0f1ca240e98083ee668813e834b19d",
+        "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+      },
+      "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/e9cbdbf5a2d598db2ac0a73adf194df97d2cf5e5/docs/audits/2026-11-26-es-editions-watch-review-43644226795462-sources.json",
+      "pointer": "/issueObservations/3",
+      "originalLabel": "still-present"
+    }
+  ]
+}

@@ -3528,11 +3528,13 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.guidance.sources.aiSaiaKnownIssues.url",
+        "release.guidance.sources.aiSaiaMcp236.url",
         "guidance: guidance.aiAvailability",
         "guidance: guidance.aiAvailability.capabilities.1"
       ],
       "reviews": [
-        "2026-11-21"
+        "2026-11-21",
+        "2026-11-26"
       ],
       "claimReferences": [
         {
@@ -3540,12 +3542,16 @@ window.VersionCompassSources = {
           "section": "SAIA-9918 Cloud Connected access and 2.1.1 workaround"
         },
         {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Known issues for version 2.3.6; SAIA-10157"
+        },
+        {
           "path": "guidance: guidance.aiAvailability.capabilities.1",
           "section": "SAIA-9918 Cloud Connected access and 2.1.1 workaround"
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-21",
+      "reviewed": "2026-11-26",
       "status": "Reviewed",
       "firstRecorded": "2026-11-03",
       "firstUsed": null,
@@ -3561,6 +3567,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-21",
           "event": "Review status updated: Reviewed · 2026-11-21"
+        },
+        {
+          "date": "2026-11-26",
+          "event": "Review status updated: Reviewed · 2026-11-26"
         }
       ]
     },
@@ -8358,11 +8368,13 @@ window.VersionCompassSources = {
       ],
       "references": [
         "release.guidance.sources.aiSaiaModelRuntime.url",
+        "release.guidance.sources.aiSaiaModelRuntimeSydney.url",
         "guidance: guidance.aiAvailability",
         "guidance: guidance.aiAvailability.capabilities.1"
       ],
       "reviews": [
-        "2026-11-21"
+        "2026-11-21",
+        "2026-11-26"
       ],
       "claimReferences": [
         {
@@ -8370,12 +8382,16 @@ window.VersionCompassSources = {
           "section": "Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off"
         },
         {
+          "path": "guidance: guidance.aiAvailability",
+          "section": "Supported regions and region standard; Inference processing and data storage for AWS AP Sydney"
+        },
+        {
           "path": "guidance: guidance.aiAvailability.capabilities.1",
           "section": "Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off"
         }
       ],
       "usage": "In use",
-      "reviewed": "2026-11-21",
+      "reviewed": "2026-11-26",
       "status": "Reviewed",
       "firstRecorded": "2026-11-03",
       "firstUsed": null,
@@ -8391,6 +8407,10 @@ window.VersionCompassSources = {
         {
           "date": "2026-11-21",
           "event": "Review status updated: Reviewed · 2026-11-21"
+        },
+        {
+          "date": "2026-11-26",
+          "event": "Review status updated: Reviewed · 2026-11-26"
         }
       ]
     },

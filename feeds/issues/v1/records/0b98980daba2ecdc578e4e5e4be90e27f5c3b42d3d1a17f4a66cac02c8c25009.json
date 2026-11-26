@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-saia-agent-runtime-processing-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-26T08:19:20.317Z",
+  "assessmentId": "vcia-release-20261126-2a76f515-4",
+  "assessedAt": "2026-11-26T08:16:36.496Z",
+  "originalAssessedAt": "2026-11-26T08:16:36.496230Z",
+  "outcome": "still-present",
+  "rationale": "Agent Mode requires an enabled Model Runtime and supported AWS service location. The applicable runtime standard still describes zone/global routing separately; a listed feature location does not establish processing or authorization for a tenant.",
+  "reviewedScope": {
+    "products": [
+      "advisor.agent-mode"
+    ],
+    "versions": [
+      "2.3.6"
+    ],
+    "editions": null,
+    "deployments": [
+      "Cloud",
+      "Cloud Connected"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Scope stays with the named release and deployment. No tenant eligibility, unstated region, undocumented pairing or offering authorization is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-csp-20261125-b80e2746-9"
+  ],
+  "remainingConcerns": [
+    "Review the exact documentation and unresolved applicability with Version Release Watch on November 27. Prior issue evidence retains its original scope and time."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "vcia-release-20261126-2a76f515-4-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "section": "Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites",
+      "statement": "Agent Mode requires an enabled Model Runtime and supported AWS service location. The applicable runtime standard still describes zone/global routing separately; a listed feature location does not establish processing or authorization for a tenant.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-26T08:07:15.521Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "e8b8afcb8f9e530cd712f071d86fe525e34d5b1c2eb3bf8c28362f380ee26bb5",
+        "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+      },
+      "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+    },
+    {
+      "evidenceId": "vcia-release-20261126-2a76f515-4-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+      "section": "Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off",
+      "statement": "Exact supporting or contrasting vendor section examined during this review; see the source audit for release and deployment scope.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-26T08:07:19.463Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "d939cf46acad25e7d868b0baddedef9d3e35f69878c51a1f684540b656814dcd",
+        "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+      },
+      "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/6e61f3c20479d3aef7c1f76d2a0ad7442e8981a2/docs/audits/2026-11-26-version-release-watch-review-179654810435166-sources.json",
+      "pointer": "/issueObservations/3",
+      "originalLabel": "still-present"
+    }
+  ]
+}

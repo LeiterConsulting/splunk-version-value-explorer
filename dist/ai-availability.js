@@ -47,7 +47,14 @@
   function assess(record,state){
     const d=data(),region=regions().find(r=>r.id===state.region);
     const provider=region?.provider||(state.csp==='all'?'':state.csp);
-    const result=(availability,detail,extra=[])=>({availability,detail,authorization:'not_established',src:[...new Set([...record.src,...extra])],verified:record.verified});
+    const pairing = record.id === 'ai-itsi-subagent' ? d.itsiPairQualification : null;
+    const result = (availability, detail, extra = []) => ({
+      availability,
+      detail: pairing ? detail + ' ' + pairing.detail : detail,
+      authorization: 'not_established',
+      src: [...new Set([...record.src, ...extra, ...(pairing ? [pairing.sourceId] : [])])],
+      verified: record.verified
+    });
     if(record.product==='es'){
       if(state.deployment==='cloud'&&region?.id.startsWith('us-gov-'))return result('unavailable','The ES 8.8 regional table excludes Security AI Assistant and Agentic SOC in both GovCloud regions. Offering authorization remains a separate question.',['aiEsRegions88']);
       if(state.compliance!=='commercial')return result('not_established','No capability-specific '+regimes[state.compliance]+' availability or authorization is established here. A hosting or offering listing is insufficient.');
@@ -83,7 +90,12 @@
     if(record.id==='ai-saia-agent'){
       if(state.deployment==='enterprise')return result('not_established','The 2.3.6 Cloud Connected installation guide excludes SAIA 2.2.0–2.3.6 and says the 2.1.1 fallback lacks Agent Mode; SAIA-9918 records the access issue. The feature guide still describes a 2.1+ path. For the separate 2.4.0 release, the installer documents a fresh setup on Enterprise 10.4+ with Cloud Connect 2.0+. Confirm the exact AWS service region and Model Runtime.',['aiSaiaCloudConnected','aiSaiaKnownIssues','aiSaiaAgentMode','aiSaiaRelease240','aiSaiaCloudConnected240']);
       if(!Array.isArray(d.agentModeRegions)||region&&!d.agentModeRegions.includes(region.id)||!region&&provider&&provider!=='aws')return result('not_established','The Agent Mode feature guide lists specific AWS locations. Base SAIA and Azure Model Runtime regions do not establish this feature; an absent listing is not a universal unavailability claim.',['aiSaiaAgentMode','aiSaiaModelRuntime']);
-      return result('conditional',(region?'The selected AWS location is listed specifically for Agent Mode. ':'Confirm an exact AWS location from the Agent Mode feature list. ')+record.condition+' Model Runtime may process requests beyond the selected region; the broad Cloud Connected assurance and feature-specific external-processing scope remain distinct.',['aiSaiaAgentMode','aiSaiaModelRuntime','aiSaiaCloudConnected']);
+      const regionalRuntime = d.agentModeRegionQualifications?.[region?.id];
+      const runtimeScope = regionalRuntime ? ' ' + regionalRuntime.detail : '';
+      const runtimeSources = regionalRuntime ? [regionalRuntime.sourceId] : [];
+      const assessment = result('conditional',(region?'The selected AWS location is listed specifically for Agent Mode. ':'Confirm an exact AWS location from the Agent Mode feature list. ')+record.condition+' Model Runtime may process requests beyond the selected region; the broad Cloud Connected assurance and feature-specific external-processing scope remain distinct.'+runtimeScope,['aiSaiaAgentMode','aiSaiaModelRuntime','aiSaiaCloudConnected',...runtimeSources]);
+      if (regionalRuntime) assessment.verified = regionalRuntime.checked;
+      return assessment;
     }
     const disagreement = state.deployment === 'cloud' && region && d.saiaRegionDisagreements?.[region.id];
     if (disagreement) {
