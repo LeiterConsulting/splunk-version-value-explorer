@@ -2490,10 +2490,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-guidance-audit",
       "name": "Version Guidance Audit",
-      "lastAttempt": "2026-11-25T11:49:18.470770Z",
+      "lastAttempt": "2026-11-26T12:13:08.528192Z",
       "lastSuccess": "2026-11-25T11:55:13.802Z",
-      "outcome": "changed",
-      "summary": "Combined owner reviews and retained concurrent issue-feed history for release qualification.",
+      "outcome": "blocked",
+      "summary": "Prepared combined owner evidence with the ITSI correction held for export repair.",
       "history": [
         {
           "at": "2026-09-24T12:45:24.855849+00:00",
@@ -2715,9 +2715,21 @@ window.VersionCompassMaintenance = {
           "outcome": "changed",
           "summary": "Combined owner reviews and retained concurrent issue-feed history for release qualification.",
           "scope": "Wednesday GitHub handoff only. Independent source review is due November 26."
+        },
+        {
+          "at": "2026-11-26T12:13:08.528192Z",
+          "outcome": "running",
+          "summary": "Reconcile the morning owner reviews and perform a bounded independent source audit.",
+          "scope": "Owner PRs, immutable issue-feed history, report evidence and assigned Guidance source families."
+        },
+        {
+          "at": "2026-11-26T12:26:09Z",
+          "outcome": "blocked",
+          "summary": "Prepared combined owner evidence with the ITSI correction held for export repair.",
+          "scope": "Four independent Guidance sections assessed, thirty-six remain incomplete. Combined export and repository integration gates remain open."
         }
       ],
-      "scope": "Wednesday GitHub handoff only. Independent source review is due November 26."
+      "scope": "Four independent Guidance sections assessed, thirty-six remain incomplete. Combined export and repository integration gates remain open."
     }
   ]
 };
