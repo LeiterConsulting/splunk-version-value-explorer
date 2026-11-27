@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-26T10:11:10.111740Z",
-      "lastSuccess": "2026-11-26T10:07:11.750994Z",
-      "outcome": "blocked",
-      "summary": "Verified six primary sections and prepared evidence for two Platform AI corrections.",
+      "lastAttempt": "2026-11-27T10:14:34.633511Z",
+      "lastSuccess": "2026-11-27T10:20:56.815770Z",
+      "outcome": "no-change",
+      "summary": "Fresh source and reader checks passed for seven owned sections, with the supporting SOC prerequisites independently assessed.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -747,17 +747,41 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Verified six primary sections and prepared evidence for two Platform AI corrections.",
           "scope": "Platform AI remains open for the Sydney inference and exact MCP compatibility answers on both published reports."
+        },
+        {
+          "at": "2026-11-27T09:55:44.608131Z",
+          "outcome": "running",
+          "summary": "Reviewing regulated Cloud offerings and regional AI evidence.",
+          "scope": "Cloud Environment, regulated offerings, Platform and premium AI regions, and supporting ES SOC Advisor prerequisites."
+        },
+        {
+          "at": "2026-11-27T10:05:22.502775Z",
+          "outcome": "no-change",
+          "summary": "Assessed seven owned sections and the supporting Advisor prerequisite scope. The registered public reader answers and citations passed in both domains and exports.",
+          "scope": "Cloud Environment, regulated offerings, Platform and premium AI regions, and supporting ES SOC Advisor prerequisites."
+        },
+        {
+          "at": "2026-11-27T10:14:34.633511Z",
+          "outcome": "running",
+          "summary": "Reviewing current regulated offering and regional service guidance.",
+          "scope": "Cloud Environment, regulated offerings, AI regional availability, and SOC prerequisites."
+        },
+        {
+          "at": "2026-11-27T10:20:56.815770Z",
+          "outcome": "no-change",
+          "summary": "Fresh source and reader checks passed for seven owned sections, with the supporting SOC prerequisites independently assessed.",
+          "scope": "Cloud Environment, regulated offerings, AI regional availability, and SOC prerequisites."
         }
       ],
-      "scope": "Platform AI remains open for the Sydney inference and exact MCP compatibility answers on both published reports."
+      "scope": "Cloud Environment, regulated offerings, AI regional availability, and SOC prerequisites."
     },
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-25T08:03:39.328400Z",
+      "lastAttempt": "2026-11-27T08:00:05.528151Z",
       "lastSuccess": "2026-11-21T19:40:05.303Z",
       "outcome": "blocked",
-      "summary": "Verified 25 Release sections in the public reports. Enterprise and SOAR guide reviews remain open.",
+      "summary": "Retained a partial public review and staged the ITSI package wording correction.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1699,17 +1723,29 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Verified 25 Release sections in the public reports. Enterprise and SOAR guide reviews remain open.",
           "scope": "The itemized Enterprise 10.6.2 and SOAR on-premises 8.8.0 issues could not be verified in the public sources. The November 24 confirmed evidence is retained."
+        },
+        {
+          "at": "2026-11-27T08:00:05.528151Z",
+          "outcome": "running",
+          "summary": "Began the dated public review.",
+          "scope": "Release Guide, Prep for 11.x, Exact Releases, AI availability, and Advisor source dependencies."
+        },
+        {
+          "at": "2026-11-27T08:16:53Z",
+          "outcome": "blocked",
+          "summary": "Retained a partial public review and staged the ITSI package wording correction.",
+          "scope": "Observability and the Cloud quarterly issue were checked. The ES 8.8 known-issue rows and the ITSI correction's live verification remain open."
         }
       ],
-      "scope": "The itemized Enterprise 10.6.2 and SOAR on-premises 8.8.0 issues could not be verified in the public sources. The November 24 confirmed evidence is retained."
+      "scope": "Observability and the Cloud quarterly issue were checked. The ES 8.8 known-issue rows and the ITSI correction's live verification remain open."
     },
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-25T09:00:23.180006Z",
-      "lastSuccess": "2026-11-25T09:09:29.698Z",
+      "lastAttempt": "2026-11-27T09:01:57.548671Z",
+      "lastSuccess": "2026-11-27T09:08:13Z",
       "outcome": "no-change",
-      "summary": "Verified six ES sections against current public sources and both public reports.",
+      "summary": "Completed six bounded ES sections against current public evidence and reports.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -2483,17 +2519,29 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Verified six ES sections against current public sources and both public reports.",
           "scope": "Licensing, history, deployment, workflows, five ES AI capabilities and the SOC Advisor dependency. Vendor disagreements remain qualified in the public answers, reopened HTML and printed PDFs."
+        },
+        {
+          "at": "2026-11-27T09:01:57.548671Z",
+          "outcome": "running",
+          "summary": "Began the dated ES editions review.",
+          "scope": "The six registered ES editions, AI and SOC dependency sections."
+        },
+        {
+          "at": "2026-11-27T09:08:13Z",
+          "outcome": "no-change",
+          "summary": "Completed six bounded ES sections against current public evidence and reports.",
+          "scope": "Licensing, history, deployment, workflows, five ES AI capabilities and SOC Advisor dependency. Existing source conflicts and unknown applicability remain qualified."
         }
       ],
-      "scope": "Licensing, history, deployment, workflows, five ES AI capabilities and the SOC Advisor dependency. Vendor disagreements remain qualified in the public answers, reopened HTML and printed PDFs."
+      "scope": "Licensing, history, deployment, workflows, five ES AI capabilities and SOC Advisor dependency. Existing source conflicts and unknown applicability remain qualified."
     },
     {
       "id": "version-guidance-audit",
       "name": "Version Guidance Audit",
-      "lastAttempt": "2026-11-26T12:45:46.901965Z",
-      "lastSuccess": "2026-11-25T11:55:13.802Z",
-      "outcome": "blocked",
-      "summary": "Four independent scopes rechecked; remaining Guidance coverage and final handoff gates remain open.",
+      "lastAttempt": "2026-11-27T11:25:15.714083Z",
+      "lastSuccess": "2026-11-27T11:29:56.503Z",
+      "outcome": "changed",
+      "summary": "Prepared the daily owner integration with original evidence, immutable feed history and explicit Release scope gaps.",
       "history": [
         {
           "at": "2026-09-24T12:45:24.855849+00:00",
@@ -2739,9 +2787,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Four independent scopes rechecked; remaining Guidance coverage and final handoff gates remain open.",
           "scope": "Daily owner integration, retained export and feed evidence, four fresh source reviews and thirty-six independent gaps."
+        },
+        {
+          "at": "2026-11-27T11:25:15.714083Z",
+          "outcome": "running",
+          "summary": "Reconciling the three morning owners’ GitHub evidence and validation.",
+          "scope": "Daily GitHub handoff only. Independent source review follows the standing Monday and Thursday cadence."
+        },
+        {
+          "at": "2026-11-27T11:29:56.503Z",
+          "outcome": "changed",
+          "summary": "Prepared the daily owner integration with original evidence, immutable feed history and explicit Release scope gaps.",
+          "scope": "Daily GitHub handoff only. Independent source review follows the standing Monday and Thursday cadence."
         }
       ],
-      "scope": "Daily owner integration, retained export and feed evidence, four fresh source reviews and thirty-six independent gaps."
+      "scope": "Daily GitHub handoff only. Independent source review follows the standing Monday and Thursday cadence."
     }
   ]
 };
