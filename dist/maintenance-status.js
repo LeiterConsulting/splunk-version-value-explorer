@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-27T09:55:44.608131Z",
-      "lastSuccess": "2026-11-27T10:05:22.502775Z",
+      "lastAttempt": "2026-11-27T10:14:34.633511Z",
+      "lastSuccess": "2026-11-27T10:20:56.815770Z",
       "outcome": "no-change",
-      "summary": "Assessed seven owned sections and the supporting Advisor prerequisite scope. The registered public reader answers and citations passed in both domains and exports.",
+      "summary": "Fresh source and reader checks passed for seven owned sections, with the supporting SOC prerequisites independently assessed.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -759,9 +759,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Assessed seven owned sections and the supporting Advisor prerequisite scope. The registered public reader answers and citations passed in both domains and exports.",
           "scope": "Cloud Environment, regulated offerings, Platform and premium AI regions, and supporting ES SOC Advisor prerequisites."
+        },
+        {
+          "at": "2026-11-27T10:14:34.633511Z",
+          "outcome": "running",
+          "summary": "Reviewing current regulated offering and regional service guidance.",
+          "scope": "Cloud Environment, regulated offerings, AI regional availability, and SOC prerequisites."
+        },
+        {
+          "at": "2026-11-27T10:20:56.815770Z",
+          "outcome": "no-change",
+          "summary": "Fresh source and reader checks passed for seven owned sections, with the supporting SOC prerequisites independently assessed.",
+          "scope": "Cloud Environment, regulated offerings, AI regional availability, and SOC prerequisites."
         }
       ],
-      "scope": "Cloud Environment, regulated offerings, Platform and premium AI regions, and supporting ES SOC Advisor prerequisites."
+      "scope": "Cloud Environment, regulated offerings, AI regional availability, and SOC prerequisites."
     },
     {
       "id": "version-release-watch",
