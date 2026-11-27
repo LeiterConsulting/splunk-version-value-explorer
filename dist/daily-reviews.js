@@ -1,5 +1,5 @@
 window.VersionCompassDailyReviews = {
-  "date": "2026-11-26",
+  "date": "2026-11-27",
   "sections": [
     {
       "id": "prep11.discovery",
@@ -7,10 +7,10 @@ window.VersionCompassDailyReviews = {
       "owner": "version-release-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-26T08:08:37.190799Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
+      "lastAssessedAt": "2026-11-27T08:06:20.500598Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json"
     },
     {
       "id": "prep11.operator",
@@ -18,10 +18,10 @@ window.VersionCompassDailyReviews = {
       "owner": "version-release-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-26T08:08:37.191147Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
+      "lastAssessedAt": "2026-11-27T08:06:20.500877Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json"
     },
     {
       "id": "prep11.architecture",
@@ -29,10 +29,10 @@ window.VersionCompassDailyReviews = {
       "owner": "version-release-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-26T08:08:37.192098Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
+      "lastAssessedAt": "2026-11-27T08:06:20.501164Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json"
     },
     {
       "id": "prep11.app-delivery",
@@ -40,10 +40,10 @@ window.VersionCompassDailyReviews = {
       "owner": "version-release-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-26T08:08:37.192400Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
+      "lastAssessedAt": "2026-11-27T08:06:20.501418Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json"
     },
     {
       "id": "prep11.workload",
@@ -51,10 +51,10 @@ window.VersionCompassDailyReviews = {
       "owner": "version-release-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-26T08:08:37.192569Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
+      "lastAssessedAt": "2026-11-27T08:06:20.501596Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json"
     },
     {
       "id": "prep11.cloud-option",
@@ -62,10 +62,10 @@ window.VersionCompassDailyReviews = {
       "owner": "version-release-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-26T08:08:37.192754Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
+      "lastAssessedAt": "2026-11-27T08:06:20.501755Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json"
     },
     {
       "id": "prep11.context-versioning",
@@ -73,10 +73,10 @@ window.VersionCompassDailyReviews = {
       "owner": "version-release-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-26T08:08:37.193003Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
+      "lastAssessedAt": "2026-11-27T08:06:20.502008Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json"
     },
     {
       "id": "prep11.context-ai",
@@ -84,19 +84,22 @@ window.VersionCompassDailyReviews = {
       "owner": "version-release-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-26T08:08:37.193058Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
+      "lastAssessedAt": "2026-11-27T08:06:20.502059Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json"
     },
     {
       "id": "advisor.agent-mode",
       "title": "Plan for SAIA Agent Mode",
       "owner": "version-release-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
-      "followUp": null,
+      "disposition": "deferred",
+      "reviewedOnDate": false,
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
+      "followUp": {
+        "owner": "version-release-watch",
+        "reviewBy": "2026-11-28"
+      },
       "lastAssessedAt": "2026-11-26T08:16:36.496230Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
     },
@@ -104,10 +107,13 @@ window.VersionCompassDailyReviews = {
       "id": "advisor.itsi-versions",
       "title": "Check ITSI assistant dependencies",
       "owner": "version-release-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
-      "followUp": null,
+      "disposition": "deferred",
+      "reviewedOnDate": false,
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
+      "followUp": {
+        "owner": "version-release-watch",
+        "reviewBy": "2026-11-28"
+      },
       "lastAssessedAt": "2026-11-26T08:16:36.496563Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
     },
@@ -115,9 +121,9 @@ window.VersionCompassDailyReviews = {
       "id": "advisor.soc-workflow",
       "title": "Untangle ES AI SOC requirements",
       "owner": "es-editions-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-es-editions-watch-review-43644226795462-coverage.json",
+      "disposition": "missing",
+      "reviewedOnDate": false,
+      "receipt": null,
       "followUp": null,
       "lastAssessedAt": "2026-11-26T09:09:38.315658Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-es-editions-watch-review-43644226795462-coverage.json"
@@ -126,10 +132,13 @@ window.VersionCompassDailyReviews = {
       "id": "exact.identity",
       "title": "Exact package identity, branch and ordering",
       "owner": "version-release-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
-      "followUp": null,
+      "disposition": "deferred",
+      "reviewedOnDate": false,
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
+      "followUp": {
+        "owner": "version-release-watch",
+        "reviewBy": "2026-11-28"
+      },
       "lastAssessedAt": "2026-11-26T08:11:19.661287Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
     },
@@ -137,10 +146,13 @@ window.VersionCompassDailyReviews = {
       "id": "exact.capabilities",
       "title": "Exact feature status and documentation corrections",
       "owner": "version-release-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
-      "followUp": null,
+      "disposition": "deferred",
+      "reviewedOnDate": false,
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
+      "followUp": {
+        "owner": "version-release-watch",
+        "reviewBy": "2026-11-28"
+      },
       "lastAssessedAt": "2026-11-26T08:11:19.662295Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
     },
@@ -148,10 +160,13 @@ window.VersionCompassDailyReviews = {
       "id": "exact.branch-security",
       "title": "Exact branch remediation for the pilot advisory scope",
       "owner": "version-release-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
-      "followUp": null,
+      "disposition": "deferred",
+      "reviewedOnDate": false,
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
+      "followUp": {
+        "owner": "version-release-watch",
+        "reviewBy": "2026-11-28"
+      },
       "lastAssessedAt": "2026-11-26T08:11:19.662573Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
     },
@@ -159,10 +174,13 @@ window.VersionCompassDailyReviews = {
       "id": "exact.uf-useack",
       "title": "Exact UF regression, receiver condition and fix",
       "owner": "version-release-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
-      "followUp": null,
+      "disposition": "deferred",
+      "reviewedOnDate": false,
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
+      "followUp": {
+        "owner": "version-release-watch",
+        "reviewBy": "2026-11-28"
+      },
       "lastAssessedAt": "2026-11-26T08:11:19.662672Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
     },
@@ -170,10 +188,13 @@ window.VersionCompassDailyReviews = {
       "id": "exact.uncertainty-parity",
       "title": "Legacy TLS conflict and exact comparison qualifications",
       "owner": "version-release-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
-      "followUp": null,
+      "disposition": "deferred",
+      "reviewedOnDate": false,
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
+      "followUp": {
+        "owner": "version-release-watch",
+        "reviewBy": "2026-11-28"
+      },
       "lastAssessedAt": "2026-11-26T08:11:19.663489Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
     },
@@ -183,19 +204,22 @@ window.VersionCompassDailyReviews = {
       "owner": "version-release-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-26T08:08:37.190426Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
+      "lastAssessedAt": "2026-11-27T08:06:20.499860Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json"
     },
     {
       "id": "ai.saia-itsi",
       "title": "SAIA and ITSI capabilities and prerequisites",
       "owner": "version-release-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
-      "followUp": null,
+      "disposition": "deferred",
+      "reviewedOnDate": false,
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
+      "followUp": {
+        "owner": "version-release-watch",
+        "reviewBy": "2026-11-28"
+      },
       "lastAssessedAt": "2026-11-26T08:16:36.498020Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
     },
@@ -203,9 +227,9 @@ window.VersionCompassDailyReviews = {
       "id": "ai.es-capabilities",
       "title": "ES AI capabilities, editions and dependencies",
       "owner": "es-editions-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-es-editions-watch-review-43644226795462-coverage.json",
+      "disposition": "missing",
+      "reviewedOnDate": false,
+      "receipt": null,
       "followUp": null,
       "lastAssessedAt": "2026-11-26T09:09:38.312550Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-es-editions-watch-review-43644226795462-coverage.json"
@@ -214,10 +238,13 @@ window.VersionCompassDailyReviews = {
       "id": "ai.observability-capabilities",
       "title": "Observability AI capability and access scope",
       "owner": "version-release-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
-      "followUp": null,
+      "disposition": "deferred",
+      "reviewedOnDate": false,
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
+      "followUp": {
+        "owner": "version-release-watch",
+        "reviewBy": "2026-11-28"
+      },
       "lastAssessedAt": "2026-11-26T08:16:36.499471Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
     },
@@ -225,13 +252,10 @@ window.VersionCompassDailyReviews = {
       "id": "ai.regional-platform",
       "title": "SAIA and ITSI feature-specific region and regulated scope",
       "owner": "csp-fedramp-watch",
-      "disposition": "deferred",
+      "disposition": "missing",
       "reviewedOnDate": false,
-      "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json",
-      "followUp": {
-        "owner": "csp-fedramp-watch",
-        "reviewBy": "2026-11-27"
-      },
+      "receipt": null,
+      "followUp": null,
       "lastAssessedAt": "2026-11-25T01:26:18.756Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-24-csp-fedramp-watch-review-148410692413714-coverage.json"
     },
@@ -239,9 +263,9 @@ window.VersionCompassDailyReviews = {
       "id": "ai.regional-es",
       "title": "ES AI regional and regulated scope by edition and service",
       "owner": "csp-fedramp-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json",
+      "disposition": "missing",
+      "reviewedOnDate": false,
+      "receipt": null,
       "followUp": null,
       "lastAssessedAt": "2026-11-26T10:19:35.060306Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json"
@@ -250,9 +274,9 @@ window.VersionCompassDailyReviews = {
       "id": "ai.regional-observability",
       "title": "Observability AI region, realm and provider evidence",
       "owner": "csp-fedramp-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json",
+      "disposition": "missing",
+      "reviewedOnDate": false,
+      "receipt": null,
       "followUp": null,
       "lastAssessedAt": "2026-11-26T10:19:35.060308Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json"
@@ -261,10 +285,13 @@ window.VersionCompassDailyReviews = {
       "id": "release-guide.enterprise",
       "title": "Splunk Enterprise upgrade paths",
       "owner": "version-release-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
-      "followUp": null,
+      "disposition": "deferred",
+      "reviewedOnDate": false,
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
+      "followUp": {
+        "owner": "version-release-watch",
+        "reviewBy": "2026-11-28"
+      },
       "lastAssessedAt": "2026-11-26T08:12:29.295728Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
     },
@@ -274,19 +301,22 @@ window.VersionCompassDailyReviews = {
       "owner": "version-release-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-26T08:11:19.651894Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
+      "lastAssessedAt": "2026-11-27T08:06:20.503621Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json"
     },
     {
       "id": "release-guide.enterprise-to-cloud",
       "title": "Enterprise-to-Cloud migration",
       "owner": "version-release-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
-      "followUp": null,
+      "disposition": "deferred",
+      "reviewedOnDate": false,
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
+      "followUp": {
+        "owner": "version-release-watch",
+        "reviewBy": "2026-11-28"
+      },
       "lastAssessedAt": "2026-11-26T08:11:19.659290Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
     },
@@ -296,10 +326,10 @@ window.VersionCompassDailyReviews = {
       "owner": "version-release-watch",
       "disposition": "deferred",
       "reviewedOnDate": false,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
       "followUp": {
         "owner": "version-release-watch",
-        "reviewBy": "2026-11-27"
+        "reviewBy": "2026-11-28"
       },
       "lastAssessedAt": "2026-11-25T08:15:07.717976Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-coverage.json"
@@ -310,10 +340,10 @@ window.VersionCompassDailyReviews = {
       "owner": "version-release-watch",
       "disposition": "deferred",
       "reviewedOnDate": false,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
       "followUp": {
         "owner": "version-release-watch",
-        "reviewBy": "2026-11-27"
+        "reviewBy": "2026-11-28"
       },
       "lastAssessedAt": "2026-11-25T08:15:07.717979Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-25-version-release-watch-review-107448648100193-coverage.json"
@@ -324,10 +354,10 @@ window.VersionCompassDailyReviews = {
       "owner": "version-release-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-26T08:08:37.195633Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
+      "lastAssessedAt": "2026-11-27T08:06:20.504468Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json"
     },
     {
       "id": "release-guide.soar",
@@ -335,10 +365,10 @@ window.VersionCompassDailyReviews = {
       "owner": "version-release-watch",
       "disposition": "deferred",
       "reviewedOnDate": false,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
       "followUp": {
         "owner": "version-release-watch",
-        "reviewBy": "2026-11-27"
+        "reviewBy": "2026-11-28"
       },
       "lastAssessedAt": null,
       "lastAssessmentReceipt": null
@@ -347,10 +377,13 @@ window.VersionCompassDailyReviews = {
       "id": "release-guide.universal-forwarder",
       "title": "Universal Forwarder upgrade paths",
       "owner": "version-release-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
-      "followUp": null,
+      "disposition": "deferred",
+      "reviewedOnDate": false,
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
+      "followUp": {
+        "owner": "version-release-watch",
+        "reviewBy": "2026-11-28"
+      },
       "lastAssessedAt": "2026-11-26T08:11:19.660248Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
     },
@@ -358,10 +391,13 @@ window.VersionCompassDailyReviews = {
       "id": "release-guide.heavy-forwarder",
       "title": "Heavy Forwarder upgrade paths",
       "owner": "version-release-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json",
-      "followUp": null,
+      "disposition": "deferred",
+      "reviewedOnDate": false,
+      "receipt": "docs/audits/2026-11-27-version-release-watch-review-189774586531071-coverage.json",
+      "followUp": {
+        "owner": "version-release-watch",
+        "reviewBy": "2026-11-28"
+      },
       "lastAssessedAt": "2026-11-26T08:11:19.660793Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-version-release-watch-review-179654810435166-coverage.json"
     },
@@ -369,9 +405,9 @@ window.VersionCompassDailyReviews = {
       "id": "es-editions.licensing",
       "title": "Essentials/Premier edition tiers and licensing",
       "owner": "es-editions-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-es-editions-watch-review-43644226795462-coverage.json",
+      "disposition": "missing",
+      "reviewedOnDate": false,
+      "receipt": null,
       "followUp": null,
       "lastAssessedAt": "2026-11-26T09:09:38.301217Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-es-editions-watch-review-43644226795462-coverage.json"
@@ -380,9 +416,9 @@ window.VersionCompassDailyReviews = {
       "id": "es-editions.history",
       "title": "Release history and entitlement changes",
       "owner": "es-editions-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-es-editions-watch-review-43644226795462-coverage.json",
+      "disposition": "missing",
+      "reviewedOnDate": false,
+      "receipt": null,
       "followUp": null,
       "lastAssessedAt": "2026-11-26T09:14:52.368891Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-es-editions-watch-review-43644226795462-coverage.json"
@@ -391,9 +427,9 @@ window.VersionCompassDailyReviews = {
       "id": "es-editions.deployment",
       "title": "ES deployment and regional prerequisites",
       "owner": "es-editions-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-es-editions-watch-review-43644226795462-coverage.json",
+      "disposition": "missing",
+      "reviewedOnDate": false,
+      "receipt": null,
       "followUp": null,
       "lastAssessedAt": "2026-11-26T09:09:38.304812Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-es-editions-watch-review-43644226795462-coverage.json"
@@ -402,9 +438,9 @@ window.VersionCompassDailyReviews = {
       "id": "es-editions.workflows",
       "title": "ES feature and workflow dependencies",
       "owner": "es-editions-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-es-editions-watch-review-43644226795462-coverage.json",
+      "disposition": "missing",
+      "reviewedOnDate": false,
+      "receipt": null,
       "followUp": null,
       "lastAssessedAt": "2026-11-26T09:14:52.368891Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-es-editions-watch-review-43644226795462-coverage.json"
@@ -413,9 +449,9 @@ window.VersionCompassDailyReviews = {
       "id": "cloud-environment.regions",
       "title": "Cloud providers and regional service availability",
       "owner": "csp-fedramp-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json",
+      "disposition": "missing",
+      "reviewedOnDate": false,
+      "receipt": null,
       "followUp": null,
       "lastAssessedAt": "2026-11-26T10:19:35.060301Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json"
@@ -424,9 +460,9 @@ window.VersionCompassDailyReviews = {
       "id": "cloud-environment.experience",
       "title": "Classic/Victoria and Cloud service controls",
       "owner": "csp-fedramp-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json",
+      "disposition": "missing",
+      "reviewedOnDate": false,
+      "receipt": null,
       "followUp": null,
       "lastAssessedAt": "2026-11-26T10:19:35.060289Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json"
@@ -435,9 +471,9 @@ window.VersionCompassDailyReviews = {
       "id": "cloud-environment.fedramp",
       "title": "FedRAMP Moderate and High boundaries",
       "owner": "csp-fedramp-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json",
+      "disposition": "missing",
+      "reviewedOnDate": false,
+      "receipt": null,
       "followUp": null,
       "lastAssessedAt": "2026-11-26T10:16:09.531004Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json"
@@ -446,9 +482,9 @@ window.VersionCompassDailyReviews = {
       "id": "cloud-environment.product-services",
       "title": "Premium products, Observability realms and service scope",
       "owner": "csp-fedramp-watch",
-      "disposition": "assessed-no-change",
-      "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json",
+      "disposition": "missing",
+      "reviewedOnDate": false,
+      "receipt": null,
       "followUp": null,
       "lastAssessedAt": "2026-11-26T10:19:35.060304Z",
       "lastAssessmentReceipt": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json"
