@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-88-triage-credit-revision-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-27T09:07:55.023Z",
+  "assessmentId": "vcia-es-20261127-391ccb4b-9",
+  "assessedAt": "2026-11-27T09:06:07.138Z",
+  "originalAssessedAt": "2026-11-27T09:06:07.138755Z",
+  "outcome": "still-present",
+  "rationale": "The current parent counts 200 analyses per tenant per day and 20 revisions per investigation. The linked task counts first ten findings, approximately 200 per day and no rerun. The different limits are retained with their exact source sections.",
+  "reviewedScope": {
+    "products": [
+      "advisor.soc-workflow"
+    ],
+    "versions": [
+      "Exact ES 8.8 and named historical versions in the source audit"
+    ],
+    "editions": null,
+    "deployments": [
+      "Exact Cloud or Cloud Connected CMP scope in the source audit"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Scope stays with the named release and deployment. No tenant eligibility, unstated region, undocumented pairing or offering authorization is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-csp-20261126-1d2c3955-16"
+  ],
+  "remainingConcerns": [
+    "Review the exact documentation and unresolved applicability with ES Editions Watch on November 28. Prior issue evidence retains its original scope and time."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "vcia-es-20261127-391ccb4b-9-0",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
+      "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions",
+      "statement": "The current parent counts 200 analyses per tenant per day and 20 revisions per investigation. The linked task counts first ten findings, approximately 200 per day and no rerun. The different limits are retained with their exact source sections.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-27T09:03:57.700Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "1d9e1a29901d046c5e7821c85f9df1ce002423ccea6a68d259052cf2c2d8b6b7",
+        "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+      },
+      "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+    },
+    {
+      "evidenceId": "vcia-es-20261127-391ccb4b-9-1",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security/create-custom-dashboards-for-triage-using-the-triage-agent",
+      "section": "Create custom dashboards for triage using the Triage agent",
+      "statement": "Exact supporting or contrasting vendor section examined during this review; see the source audit for release and deployment scope.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-27T09:04:11.496Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "3c8902673146f2cf7a48815b17c53a72a9ea318fe2a8f64d4b4d8ab9b9d966bc",
+        "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+      },
+      "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/85384563c6f4379f3ec006349d799d5994b29f5e/docs/audits/2026-11-27-es-editions-watch-review-206016971978248-sources.json",
+      "pointer": "/issueObservations/8",
+      "originalLabel": "still-present"
+    }
+  ]
+}
