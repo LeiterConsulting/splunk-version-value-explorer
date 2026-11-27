@@ -115,15 +115,12 @@ window.VersionCompassDailyReviews = {
       "id": "advisor.soc-workflow",
       "title": "Untangle ES AI SOC requirements",
       "owner": "es-editions-watch",
-      "disposition": "deferred",
-      "reviewedOnDate": false,
+      "disposition": "assessed-no-change",
+      "reviewedOnDate": true,
       "receipt": "docs/audits/2026-11-27-es-editions-watch-review-206016971978248-coverage.json",
-      "followUp": {
-        "owner": "es-editions-watch",
-        "reviewBy": "2026-11-28"
-      },
-      "lastAssessedAt": "2026-11-26T09:09:38.315658Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-26-es-editions-watch-review-43644226795462-coverage.json"
+      "followUp": null,
+      "lastAssessedAt": "2026-11-27T09:06:07.138755Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-es-editions-watch-review-206016971978248-coverage.json"
     },
     {
       "id": "exact.identity",
@@ -206,15 +203,12 @@ window.VersionCompassDailyReviews = {
       "id": "ai.es-capabilities",
       "title": "ES AI capabilities, editions and dependencies",
       "owner": "es-editions-watch",
-      "disposition": "deferred",
-      "reviewedOnDate": false,
+      "disposition": "assessed-no-change",
+      "reviewedOnDate": true,
       "receipt": "docs/audits/2026-11-27-es-editions-watch-review-206016971978248-coverage.json",
-      "followUp": {
-        "owner": "es-editions-watch",
-        "reviewBy": "2026-11-28"
-      },
-      "lastAssessedAt": "2026-11-26T09:09:38.312550Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-26-es-editions-watch-review-43644226795462-coverage.json"
+      "followUp": null,
+      "lastAssessedAt": "2026-11-27T09:06:07.138753Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-es-editions-watch-review-206016971978248-coverage.json"
     },
     {
       "id": "ai.observability-capabilities",
@@ -363,57 +357,45 @@ window.VersionCompassDailyReviews = {
       "id": "es-editions.licensing",
       "title": "Essentials/Premier edition tiers and licensing",
       "owner": "es-editions-watch",
-      "disposition": "deferred",
-      "reviewedOnDate": false,
+      "disposition": "assessed-no-change",
+      "reviewedOnDate": true,
       "receipt": "docs/audits/2026-11-27-es-editions-watch-review-206016971978248-coverage.json",
-      "followUp": {
-        "owner": "es-editions-watch",
-        "reviewBy": "2026-11-28"
-      },
-      "lastAssessedAt": "2026-11-26T09:09:38.301217Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-26-es-editions-watch-review-43644226795462-coverage.json"
+      "followUp": null,
+      "lastAssessedAt": "2026-11-27T09:06:07.138735Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-es-editions-watch-review-206016971978248-coverage.json"
     },
     {
       "id": "es-editions.history",
       "title": "Release history and entitlement changes",
       "owner": "es-editions-watch",
-      "disposition": "deferred",
-      "reviewedOnDate": false,
+      "disposition": "assessed-no-change",
+      "reviewedOnDate": true,
       "receipt": "docs/audits/2026-11-27-es-editions-watch-review-206016971978248-coverage.json",
-      "followUp": {
-        "owner": "es-editions-watch",
-        "reviewBy": "2026-11-28"
-      },
-      "lastAssessedAt": "2026-11-26T09:14:52.368891Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-26-es-editions-watch-review-43644226795462-coverage.json"
+      "followUp": null,
+      "lastAssessedAt": "2026-11-27T09:06:07.138747Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-es-editions-watch-review-206016971978248-coverage.json"
     },
     {
       "id": "es-editions.deployment",
       "title": "ES deployment and regional prerequisites",
       "owner": "es-editions-watch",
-      "disposition": "deferred",
-      "reviewedOnDate": false,
+      "disposition": "assessed-no-change",
+      "reviewedOnDate": true,
       "receipt": "docs/audits/2026-11-27-es-editions-watch-review-206016971978248-coverage.json",
-      "followUp": {
-        "owner": "es-editions-watch",
-        "reviewBy": "2026-11-28"
-      },
-      "lastAssessedAt": "2026-11-26T09:09:38.304812Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-26-es-editions-watch-review-43644226795462-coverage.json"
+      "followUp": null,
+      "lastAssessedAt": "2026-11-27T09:06:07.138749Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-es-editions-watch-review-206016971978248-coverage.json"
     },
     {
       "id": "es-editions.workflows",
       "title": "ES feature and workflow dependencies",
       "owner": "es-editions-watch",
-      "disposition": "deferred",
-      "reviewedOnDate": false,
+      "disposition": "assessed-no-change",
+      "reviewedOnDate": true,
       "receipt": "docs/audits/2026-11-27-es-editions-watch-review-206016971978248-coverage.json",
-      "followUp": {
-        "owner": "es-editions-watch",
-        "reviewBy": "2026-11-28"
-      },
-      "lastAssessedAt": "2026-11-26T09:14:52.368891Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-26-es-editions-watch-review-43644226795462-coverage.json"
+      "followUp": null,
+      "lastAssessedAt": "2026-11-27T09:06:07.138751Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-es-editions-watch-review-206016971978248-coverage.json"
     },
     {
       "id": "cloud-environment.regions",
