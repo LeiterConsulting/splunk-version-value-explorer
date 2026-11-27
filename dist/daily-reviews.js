@@ -227,10 +227,10 @@ window.VersionCompassDailyReviews = {
       "owner": "csp-fedramp-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-86283625203727-coverage.json",
+      "receipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-119763376277878-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-27T10:03:15.780291Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-86283625203727-coverage.json"
+      "lastAssessedAt": "2026-11-27T10:19:18.284000Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-119763376277878-coverage.json"
     },
     {
       "id": "ai.regional-es",
@@ -238,10 +238,10 @@ window.VersionCompassDailyReviews = {
       "owner": "csp-fedramp-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-86283625203727-coverage.json",
+      "receipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-119763376277878-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-27T10:03:15.780293Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-86283625203727-coverage.json"
+      "lastAssessedAt": "2026-11-27T10:19:18.284002Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-119763376277878-coverage.json"
     },
     {
       "id": "ai.regional-observability",
@@ -249,10 +249,10 @@ window.VersionCompassDailyReviews = {
       "owner": "csp-fedramp-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-86283625203727-coverage.json",
+      "receipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-119763376277878-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-27T10:03:15.780294Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-86283625203727-coverage.json"
+      "lastAssessedAt": "2026-11-27T10:19:18.284023Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-119763376277878-coverage.json"
     },
     {
       "id": "release-guide.enterprise",
@@ -403,10 +403,10 @@ window.VersionCompassDailyReviews = {
       "owner": "csp-fedramp-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-86283625203727-coverage.json",
+      "receipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-119763376277878-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-27T10:03:15.780285Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-86283625203727-coverage.json"
+      "lastAssessedAt": "2026-11-27T10:19:18.283995Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-119763376277878-coverage.json"
     },
     {
       "id": "cloud-environment.experience",
@@ -414,10 +414,10 @@ window.VersionCompassDailyReviews = {
       "owner": "csp-fedramp-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-86283625203727-coverage.json",
+      "receipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-119763376277878-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-27T10:03:15.780270Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-86283625203727-coverage.json"
+      "lastAssessedAt": "2026-11-27T10:19:18.283981Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-119763376277878-coverage.json"
     },
     {
       "id": "cloud-environment.fedramp",
@@ -425,10 +425,10 @@ window.VersionCompassDailyReviews = {
       "owner": "csp-fedramp-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-86283625203727-coverage.json",
+      "receipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-119763376277878-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-27T10:00:01.934116Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-86283625203727-coverage.json"
+      "lastAssessedAt": "2026-11-27T10:17:36.349543Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-119763376277878-coverage.json"
     },
     {
       "id": "cloud-environment.product-services",
@@ -436,10 +436,10 @@ window.VersionCompassDailyReviews = {
       "owner": "csp-fedramp-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-86283625203727-coverage.json",
+      "receipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-119763376277878-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-27T10:03:15.780288Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-86283625203727-coverage.json"
+      "lastAssessedAt": "2026-11-27T10:19:18.283998Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-27-csp-fedramp-watch-review-119763376277878-coverage.json"
     }
   ]
 };
