@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-cloud-s3-restricted-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-27T10:04:51.793Z",
+  "assessmentId": "vcia-csp-20261127-8c0ab7ef-4",
+  "assessedAt": "2026-11-27T10:03:15.780Z",
+  "originalAssessedAt": "2026-11-27T10:03:15.780270Z",
+  "outcome": "still-present",
+  "rationale": "The 10.7 and 10.8 service table excludes High and IL5 in both GovCloud regions for Federated Search for Amazon S3. The April 8 history names their addition in both for relevant 10.3 versions. Do not generalize either across the other release or the third-party search scope.",
+  "reviewedScope": {
+    "products": [
+      "cloud-environment.experience"
+    ],
+    "versions": null,
+    "editions": null,
+    "deployments": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Scope stays with the named release and deployment. No tenant eligibility, unstated region, undocumented pairing or offering authorization is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-csp-20261126-recovery-101110-4"
+  ],
+  "remainingConcerns": [
+    "Review the exact documentation and unresolved applicability with CSP FedRAMP Watch on November 28. Prior issue evidence retains its original scope and time."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "vcia-csp-20261127-8c0ab7ef-4-0",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Classic and Victoria experience, availability and service controls",
+      "statement": "The 10.7 and 10.8 service table excludes High and IL5 in both GovCloud regions for Federated Search for Amazon S3. The April 8 history names their addition in both for relevant 10.3 versions. Do not generalize either across the other release or the third-party search scope.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-27T09:56:46.767Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "8a62b2d2a2f00b0a925700dccfe1cfd23d4f10d42b9b18c7dbc347bf47780472",
+        "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+      },
+      "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+    },
+    {
+      "evidenceId": "vcia-csp-20261127-8c0ab7ef-4-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log#8-april-2026-0",
+      "section": "8 April 2026 > Available region and region differences; added High and DoD IL5 availability in both AWS GovCloud regions for relevant Cloud Platform 10.3 versions.",
+      "statement": "Exact supporting or contrasting vendor section examined during this review; see the source audit for release and deployment scope.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-27T09:56:54.568Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "e1d3734c358980dd7109f77145379ded7b0737a2c7a2de5f756a0c9219ba02e0",
+        "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+      },
+      "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/7275f53aea971c59d4087af9604c39c62b8d707d/docs/audits/2026-11-27-csp-fedramp-watch-review-86283625203727-sources.json",
+      "pointer": "/issueObservations/3",
+      "originalLabel": "still-present"
+    }
+  ]
+}

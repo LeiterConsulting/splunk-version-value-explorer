@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-26T10:11:10.111740Z",
-      "lastSuccess": "2026-11-26T10:07:11.750994Z",
-      "outcome": "blocked",
-      "summary": "Verified six primary sections and prepared evidence for two Platform AI corrections.",
+      "lastAttempt": "2026-11-27T09:55:44.608131Z",
+      "lastSuccess": "2026-11-27T10:05:22.502775Z",
+      "outcome": "no-change",
+      "summary": "Assessed seven owned sections and the supporting Advisor prerequisite scope. The registered public reader answers and citations passed in both domains and exports.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -747,9 +747,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Verified six primary sections and prepared evidence for two Platform AI corrections.",
           "scope": "Platform AI remains open for the Sydney inference and exact MCP compatibility answers on both published reports."
+        },
+        {
+          "at": "2026-11-27T09:55:44.608131Z",
+          "outcome": "running",
+          "summary": "Reviewing regulated Cloud offerings and regional AI evidence.",
+          "scope": "Cloud Environment, regulated offerings, Platform and premium AI regions, and supporting ES SOC Advisor prerequisites."
+        },
+        {
+          "at": "2026-11-27T10:05:22.502775Z",
+          "outcome": "no-change",
+          "summary": "Assessed seven owned sections and the supporting Advisor prerequisite scope. The registered public reader answers and citations passed in both domains and exports.",
+          "scope": "Cloud Environment, regulated offerings, Platform and premium AI regions, and supporting ES SOC Advisor prerequisites."
         }
       ],
-      "scope": "Platform AI remains open for the Sydney inference and exact MCP compatibility answers on both published reports."
+      "scope": "Cloud Environment, regulated offerings, Platform and premium AI regions, and supporting ES SOC Advisor prerequisites."
     },
     {
       "id": "version-release-watch",
