@@ -2538,10 +2538,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-guidance-audit",
       "name": "Version Guidance Audit",
-      "lastAttempt": "2026-11-27T11:25:15.714083Z",
+      "lastAttempt": "2026-11-27T11:57:45.910087Z",
       "lastSuccess": "2026-11-27T11:29:56.503Z",
-      "outcome": "changed",
-      "summary": "Prepared the daily owner integration with original evidence, immutable feed history and explicit Release scope gaps.",
+      "outcome": "blocked",
+      "summary": "Owner GitHub integration is complete. Release selection is held for the ITSI opening-summary inconsistency tracked in issue 325.",
       "history": [
         {
           "at": "2026-09-24T12:45:24.855849+00:00",
@@ -2798,6 +2798,18 @@ window.VersionCompassMaintenance = {
           "at": "2026-11-27T11:29:56.503Z",
           "outcome": "changed",
           "summary": "Prepared the daily owner integration with original evidence, immutable feed history and explicit Release scope gaps.",
+          "scope": "Daily GitHub handoff only. Independent source review follows the standing Monday and Thursday cadence."
+        },
+        {
+          "at": "2026-11-27T11:57:45.910087Z",
+          "outcome": "running",
+          "summary": "Reconciling the three morning owners’ GitHub evidence and validation.",
+          "scope": "Daily GitHub handoff only. Independent source review follows the standing Monday and Thursday cadence."
+        },
+        {
+          "at": "2026-11-27T11:59:08.917Z",
+          "outcome": "blocked",
+          "summary": "Owner GitHub integration is complete. Release selection is held for the ITSI opening-summary inconsistency tracked in issue 325.",
           "scope": "Daily GitHub handoff only. Independent source review follows the standing Monday and Thursday cadence."
         }
       ],
