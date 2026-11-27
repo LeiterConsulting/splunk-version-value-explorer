@@ -11,16 +11,16 @@
   "runId": "2026-11-27-csp-fedramp-watch-8c0ab7ef",
   "registryVersion": "1.5.2",
   "schemaVersion": 1,
-  "outcome": "partial",
-  "claimedComplete": false,
+  "outcome": "assessed-no-change",
+  "claimedComplete": true,
   "coverage": [
     {
       "capabilityId": "advisor.soc-workflow",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint.",
+      "disposition": "assessed-no-change",
+      "qualification": "Supporting Advisor claim only. The two retired ES 8.8 topic addresses independently returned 404. Both registered successor topics and their Triage, Autonomous Response, and historical counterparts resolved. The parent aggregate Cloud row gives Platform 10.2+/ES 8.6+; older task-specific guidance sets ES 8.7+. CMP guidance states Platform 10.4+/ES 8.8+/Cloud Connect 2.0+ and current setup documents SAIA 2.4+, activation, roles and certificate prerequisites. Product 8.8 is GA November 4, while Response remains CA. The parent 200 analyses per tenant/day and 20 revisions are scoped per investigation; Triage separately documents first ten, its approximate tenant findings count and no rerun. Response limits include existing findings, frontier-model selection, connector/action allow lists and asset-level roles. Exact SOAR pairings, entitlement, customer authorization and per-agent rollout are excluded from supporting scope.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-27T09:58:04.769016Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-27T10:03:15.780296Z",
       "publishedAt": null,
       "liveVerifiedAt": null,
       "retrievals": [
@@ -73,26 +73,34 @@
           "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions | Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings | HTTP 200 | 137982 bytes | SHA-256 9e2be3afd77c15b8b730a12ebb44e48a80cddd2ad93204fff4a72fbbb430e71e"
         }
       ],
-      "assessments": [],
-      "publicOriginEvidence": [],
-      "followUp": {
-        "owner": "es-editions-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Untangle ES AI SOC requirements.",
-        "reviewBy": "2026-11-28"
-      },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json",
-        "assessmentAt": "2026-11-26T10:19:35.060309Z",
-        "disposition": "assessed-no-change"
-      }
+      "assessments": [
+        {
+          "claimId": "ai-es-soc",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsAgents88",
+            "aiEsSocTask88",
+            "aiEsSocTask87",
+            "aiEsRelease88",
+            "aiEsTriageNote88",
+            "aiSaiaInstall",
+            "aiEsRegions88",
+            "aiEsEditions"
+          ],
+          "assessedAt": "2026-11-27T10:03:15.780296Z",
+          "evidence": "Supporting Advisor claim only. The two retired ES 8.8 topic addresses independently returned 404. Both registered successor topics and their Triage, Autonomous Response, and historical counterparts resolved. The parent aggregate Cloud row gives Platform 10.2+/ES 8.6+; older task-specific guidance sets ES 8.7+. CMP guidance states Platform 10.4+/ES 8.8+/Cloud Connect 2.0+ and current setup documents SAIA 2.4+, activation, roles and certificate prerequisites. Product 8.8 is GA November 4, while Response remains CA. The parent 200 analyses per tenant/day and 20 revisions are scoped per investigation; Triage separately documents first ten, its approximate tenant findings count and no rerun. Response limits include existing findings, frontier-model selection, connector/action allow lists and asset-level roles. Exact SOAR pairings, entitlement, customer authorization and per-agent rollout are excluded from supporting scope.",
+          "qualification": "Assessed deployment-specific prerequisites, the current Cloud version discrepancy and the corrected historical Triage wording. Exclusions: Exact SOAR pairing, agent-specific regional rollout, component entitlement and customer authorization remain separate."
+        }
+      ],
+      "publicOriginEvidence": []
     },
     {
       "capabilityId": "ai.regional-platform",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint.",
+      "disposition": "assessed-no-change",
+      "qualification": "Read both entire registered 2.3.6 regional tables from the versioned About and Cloud Install pages. The 22 and 21 data rows respectively agree on every shared row and date. About alone lists AWS EU Dublin (June 28, 2024). Checked 2.4.0 overview and installer as separate corroborating evidence, also with a lone Dublin difference. Base SPL availability therefore remains unconfirmed. Verified the separate Dublin Agent Mode and ITSI answers, the Sydney Runtime answer and the High SPL scope with exact source and supplementary citations on both public origins, reopened offline HTML and real PDFs.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-27T09:57:31.719841Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-27T10:03:15.780291Z",
       "publishedAt": null,
       "liveVerifiedAt": "2026-11-27T09:58:41.682Z",
       "retrievals": [
@@ -151,7 +159,79 @@
           "evidence": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues | SAIA-9918 Cloud Connected access and 2.1.1 workaround | HTTP 200 | 143795 bytes | SHA-256 d6a3fc80eae1c9225afcd222073675089c88e2c55155b416b1aff88828022ce1"
         }
       ],
-      "assessments": [],
+      "assessments": [
+        {
+          "claimId": "saia-spl-service-regions",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiSaiaInstall",
+            "aiSaiaAbout",
+            "aiHighAnnouncement20261019"
+          ],
+          "assessedAt": "2026-11-27T10:03:15.780291Z",
+          "evidence": "Both full versioned tables preserve all row labels and dates. About alone says AWS EU Dublin on June 28, 2024. Cloud installation does not list it. The 2.4.0 pair also differs on Dublin; this does not settle base SPL availability.",
+          "qualification": "Base SAIA AI-service regions, provider mappings and evidence version; preserve commercial and regulated qualifications."
+        },
+        {
+          "claimId": "ai-service-region-mappings",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiSaiaInstall",
+            "aiSaiaAbout"
+          ],
+          "assessedAt": "2026-11-27T10:03:15.780291Z",
+          "evidence": "Both sources have the same four AI service Azure labels: AP Japan, UK South, US East and US West. Those labels do not imply corresponding tenant geography. Kept all comparison rows and the distinct 19-row Model Runtime table; AWS Sydney and Dublin retain their own runtime standards.",
+          "qualification": "Preserve AI service-location mappings and distinguish them from the tenant host or implied processing residency."
+        },
+        {
+          "claimId": "ai-regulated-boundaries",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiSaiaInstall",
+            "aiHighAnnouncement20261019",
+            "aiEsRegions88",
+            "aiObsAssistant"
+          ],
+          "assessedAt": "2026-11-27T10:03:15.780291Z",
+          "evidence": "The 2.3.6 installer documents limited IL2 support, no Agent Mode, training/fine-tuning off by default and hosted models only. Its commercial lead-in and May 11, 2026 GovCloud rows do not establish tenant rights. October 19 and 2.4.0 release notes independently scope supported High to core SPL generation/explanation and exclude Agent Mode. ES 8.8 tables exclude Security AI Assistant/Agentic SOC in named Cloud GovCloud rows and no regulated Observability entitlement follows from the AI Assistant realm list.",
+          "qualification": "Separate the documented feature-level regulated boundary from offering authorization. Preserve exclusions and unknowns."
+        },
+        {
+          "claimId": "saia-agent-service-regions",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiSaiaAgentMode",
+            "aiSaiaModelRuntime"
+          ],
+          "assessedAt": "2026-11-27T10:03:15.780291Z",
+          "evidence": "The Agent Mode feature guide lists AWS Dublin and requires Platform 10.1.x+, a supported AWS region, administrator enablement and enabled Model Runtime. The runtime guide lists Dublin Global from 2.3.0 with no country/zone routing guarantee, and Sydney APAC Data Zone with inference possible outside Australia. Data at rest follows Azure geography subject to documented exceptions. Hosted versus external model processing and base SPL remain separate.",
+          "qualification": "Agent Mode and Model Runtime have their own region evidence; derive no feature inheritance from the base assistant."
+        },
+        {
+          "claimId": "saia-agent-cloud-connected",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiSaiaAgentMode",
+            "aiSaiaModelRuntime",
+            "aiSaiaCloudConnected",
+            "aiSaiaKnownIssues"
+          ],
+          "assessedAt": "2026-11-27T10:03:15.780291Z",
+          "evidence": "The 2.3.6 Agent Mode guide describes a conditional on-premises Cloud Connected route, region selection and certificate setup; the 2.3.6 installation guide and exact SAIA-9918 row exclude versions 2.2.0–2.3.6, and the 2.1.1 fallback lacks Agent Mode. The 2.4.0 release and setup guide document a fresh installation with paid Enterprise 10.4+, Cloud Connect 2.0+, signed STC/OAuth, verified license-domain email, setup admin capabilities, outbound HTTPS and supported commercial AWS selection. Historical and current installation rules remain distinct from feature-specific runtime routes.",
+          "qualification": "Cloud Connected Agent Mode regional/runtime availability and compatibility stay independently scoped."
+        },
+        {
+          "claimId": "itsi-subagent-regional-qualification",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiSaiaAbout",
+            "aiSaiaInstall"
+          ],
+          "assessedAt": "2026-11-27T10:03:15.780291Z",
+          "evidence": "The About ITSI subagent section specifies SAIA 2.2.0+, ITSI 5.0.0+, MCP Server 1.2.1+ and six data-fetching tools. SAIA-10157 specifically excludes the SAIA 2.3.6/MCP 2.1.0 pairing; a floor is insufficient for that tuple. No ITSI-specific Dublin release or entitlement follows from either base table or the separate Dublin Agent Mode/Runtime listings.",
+          "qualification": "Keep ITSI-specific regional enablement unresolved where a public scoped source does not establish it."
+        }
+      ],
       "publicOriginEvidence": [
         {
           "origin": "https://versioncompass.com",
@@ -346,24 +426,113 @@
           "pdfSha256": "ad9e6816960f58c29b0a629f019a4f7480b204e117c05bd89163a5f67b0f6377"
         }
       ],
-      "followUp": {
-        "owner": "csp-fedramp-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for SAIA and ITSI feature-specific region and regulated scope.",
-        "reviewBy": "2026-11-28"
+      "readerReview": {
+        "question": "Which SPL assistance functions does the GovCloud announcement cover?",
+        "routeId": "ai-high",
+        "region": "#ai-saia-spl",
+        "sourceId": "aiHighAnnouncement20261019",
+        "answer": "FedRAMP High authorization for AI Assistant SPL authoring and explanation.",
+        "claimIds": [
+          "saia-spl-service-regions"
+        ],
+        "sourceSection": "Expanding Capabilities in AWS GovCloud with FedRAMP High; SPL authoring and explanation",
+        "checkedAt": "2026-11-27T09:57:51.204Z"
       },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json",
-        "assessmentAt": "2026-11-26T10:17:30.943298Z",
-        "disposition": "deferred"
-      }
+      "additionalReaderReviews": [
+        {
+          "question": "Does the 2.3.6 overview list the Dublin region?",
+          "routeId": "ai-platform-dublin",
+          "region": "#ai-saia-spl",
+          "sourceId": "aiSaiaAbout",
+          "answer": "The SAIA 2.3.6 overview lists AWS Dublin.",
+          "claimIds": [
+            "ai-service-region-mappings"
+          ],
+          "sourceSection": "Requirements; features; ITSI subagent; where the assistant runs",
+          "checkedAt": "2026-11-27T09:58:32.936Z"
+        },
+        {
+          "question": "Does the Cloud installer confirm base SPL assistance in Dublin?",
+          "routeId": "ai-platform-dublin",
+          "region": "#ai-saia-spl",
+          "sourceId": "aiSaiaInstall",
+          "answer": "The 2.3.6 Cloud installer omits Dublin from its supported regions. Base SPL assistance in Dublin remains unconfirmed.",
+          "claimIds": [
+            "ai-service-region-mappings"
+          ],
+          "sourceSection": "FedRAMP deployments; supported regions; version compatibility",
+          "checkedAt": "2026-11-27T09:58:32.936Z"
+        },
+        {
+          "question": "What does the Agent Mode feature guide establish for Dublin?",
+          "routeId": "ai-platform-dublin",
+          "region": "#ai-saia-agent",
+          "sourceId": "aiSaiaAgentMode",
+          "answer": "The selected AWS location is listed specifically for Agent Mode.",
+          "claimIds": [
+            "saia-agent-service-regions"
+          ],
+          "sourceSection": "Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites",
+          "checkedAt": "2026-11-27T09:58:32.936Z"
+        },
+        {
+          "question": "Does the ITSI subagent have its own documented Dublin rollout?",
+          "routeId": "ai-itsi-dublin",
+          "region": "#ai-itsi-subagent",
+          "sourceId": "aiSaiaAbout",
+          "answer": "The ITSI subagent has no separately documented Dublin rollout.",
+          "claimIds": [
+            "itsi-subagent-regional-qualification"
+          ],
+          "sourceSection": "Requirements; features; ITSI subagent; where the assistant runs",
+          "checkedAt": "2026-11-27T09:58:37.022Z"
+        },
+        {
+          "question": "Which SAIA 2.4.0 functions do the FedRAMP High release notes document?",
+          "routeId": "ai-high",
+          "region": "#ai-saia-spl",
+          "sourceId": "aiHighAnnouncement20261019",
+          "answer": "The SAIA 2.4.0 release notes document core SPL generation and explanation in supported FedRAMP High environments and explicitly exclude Agent Mode.",
+          "claimIds": [
+            "saia-spl-service-regions"
+          ],
+          "reportAnswer": "The SAIA 2.4.0 release notes document core SPL generation and explanation in supported FedRAMP High environments and explicitly exclude Agent Mode.",
+          "sourceSection": "Expanding Capabilities in AWS GovCloud with FedRAMP High; SPL authoring and explanation",
+          "checkedAt": "2026-11-27T09:57:51.204Z"
+        },
+        {
+          "question": "Where can Model Runtime process inference for the AWS Sydney service location?",
+          "routeId": "ai-platform-sydney-runtime",
+          "region": "#ai-saia-agent",
+          "sourceId": "aiSaiaModelRuntime",
+          "answer": "For AWS Sydney, Model Runtime inference uses the Microsoft APAC Data Zone, which includes locations outside Australia.",
+          "claimIds": [
+            "saia-agent-service-regions"
+          ],
+          "sourceSection": "Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off",
+          "checkedAt": "2026-11-27T09:58:41.682Z"
+        },
+        {
+          "question": "What exact MCP compatibility exception does Splunk document for SAIA 2.3.6?",
+          "routeId": "ai-itsi-dublin",
+          "region": "#ai-itsi-subagent",
+          "sourceId": "aiSaiaAbout",
+          "answer": "Splunk documents SAIA 2.3.6 as incompatible with MCP 2.1.0 in SAIA-10157.",
+          "claimIds": [
+            "itsi-subagent-regional-qualification"
+          ],
+          "sourceSection": "Requirements; features; ITSI subagent; where the assistant runs",
+          "checkedAt": "2026-11-27T09:58:37.022Z"
+        }
+      ]
     },
     {
       "capabilityId": "ai.regional-es",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint.",
+      "disposition": "assessed-no-change",
+      "qualification": "Reviewed the complete ES 8.8 Essentials Cloud, Premier Cloud, Cloud Connect, GCP and Azure tables and the edition/deployment and setup sections. Montréal and Calgary retain different deployment-specific exceptions. Region, edition, regulated authority and configuration remain separate.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-27T09:57:47.803786Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-27T10:03:15.780293Z",
       "publishedAt": null,
       "liveVerifiedAt": "2026-11-27T09:57:56.120Z",
       "retrievals": [
@@ -392,7 +561,42 @@
           "evidence": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected | Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data | HTTP 200 | 178985 bytes | SHA-256 f0704eef64d05f85604c82310d158a04a1c04528e30daa32f3fcc878bca28f24"
         }
       ],
-      "assessments": [],
+      "assessments": [
+        {
+          "claimId": "es-essentials-ai-regions",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsRegions88",
+            "aiEsEditions"
+          ],
+          "assessedAt": "2026-11-27T10:03:15.780293Z",
+          "evidence": "The Essentials AWS table shows Montréal without an assistant exception; Calgary and both GovCloud rows explicitly except Security AI Assistant and Agentic SOC. The Essentials edition qualification applies to Cloud-available Security AI Assistant, with feature/tenant enablement distinct.",
+          "qualification": "Essentials regional table and feature-specific exclusions."
+        },
+        {
+          "claimId": "es-premier-ai-regions",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsRegions88",
+            "aiEsEditions"
+          ],
+          "assessedAt": "2026-11-27T10:03:15.780293Z",
+          "evidence": "Premier Cloud AWS Montréal has no exception for the named assistant; Calgary and GovCloud except the assistant and Agentic SOC, with separate Attack Analyzer and UAE qualifications. GCP/Azure availability is limited to the documented ES and SOAR components, with the separately stated Oregon SOAR exception. Premier’s possible CMP path leaves its actual availability conditional.",
+          "qualification": "Premier regional table, regulated/provider and component boundaries."
+        },
+        {
+          "claimId": "es-cloud-connect-ai-regions",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsRegions88",
+            "aiEsCloudConnectAgentic88",
+            "aiSaiaCloudConnected"
+          ],
+          "assessedAt": "2026-11-27T10:03:15.780293Z",
+          "evidence": "AWS Cloud Connect Montréal specifically excepts the Security AI Assistant and Calgary carries no such exception; neither is inferred from the Cloud tables. Agentic SOC requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and AI Assistant 2.4+, commercial region, service activation, roles and certificates. The 2.3.6 unsupported Cloud Connected path remains historical.",
+          "qualification": "Cloud Connected requirements and regional qualifications stay separate from Cloud-only rules."
+        }
+      ],
       "publicOriginEvidence": [
         {
           "origin": "https://versioncompass.com",
@@ -419,24 +623,27 @@
           "pdfSha256": "bef2029fc3a9e09b1b6defabf4e2a2040d14603dd88143c8d62b781e299a62d6"
         }
       ],
-      "followUp": {
-        "owner": "csp-fedramp-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for ES AI regional and regulated scope by edition and service.",
-        "reviewBy": "2026-11-28"
-      },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json",
-        "assessmentAt": "2026-11-26T10:19:35.060306Z",
-        "disposition": "assessed-no-change"
+      "readerReview": {
+        "question": "Does Premier Cloud Connect in Montreal enable the Security AI Assistant?",
+        "routeId": "ai-cmp",
+        "region": "#ai-results",
+        "answer": "The selected ES 8.8 table explicitly excludes this component in Canada Central.",
+        "reportAnswer": "The selected ES 8.8 table explicitly excludes this component in Canada Central.",
+        "sourceId": "aiEsRegions88",
+        "claimIds": [
+          "es-essentials-ai-regions"
+        ],
+        "sourceSection": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility",
+        "checkedAt": "2026-11-27T09:57:56.120Z"
       }
     },
     {
       "capabilityId": "ai.regional-observability",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint.",
+      "disposition": "assessed-no-change",
+      "qualification": "Compared the named assistant realm list, access/context and data-sharing conditions, published service realm table and the independently scoped troubleshooting guide. Current commercial Virginia maps to the documented us0 realm. The public answer and official citation matched on both origins and exports.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-27T09:57:51.700138Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-27T10:03:15.780294Z",
       "publishedAt": null,
       "liveVerifiedAt": "2026-11-27T09:58:00.675Z",
       "retrievals": [
@@ -459,7 +666,31 @@
           "evidence": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description | Available regions or realms; realm-to-region equivalence; available components per realm | HTTP 200 | 237868 bytes | SHA-256 c0e8d1816c561ad9f4466ad0b4d9ff442508eb29c50e76f12dce604345aba400"
         }
       ],
-      "assessments": [],
+      "assessments": [
+        {
+          "claimId": "observability-ai-regions",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiObsAssistant",
+            "aiObsRca",
+            "aiObsServiceDetails"
+          ],
+          "assessedAt": "2026-11-27T10:03:15.780294Z",
+          "evidence": "Assistant Availability lists us0, us1, us2, us3, eu0, eu1, eu2, au0, jp0 and sg0 and English. User access/settings, supported contexts and data-sharing conditions apply. The RCA agent is documented for non-governmental realms, with opt-in automation, manual Run root cause analysis, supported standard/default alerts and conditional Kubernetes remediation. Its scope is independent of the Assistant realm list.",
+          "qualification": "Map assistant and troubleshooting eligibility separately to documented service regions; retain the regulated exclusion or unknown."
+        },
+        {
+          "claimId": "observability-ai-realm-conflict",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiObsAssistant",
+            "aiObsServiceDetails"
+          ],
+          "assessedAt": "2026-11-27T10:03:15.780294Z",
+          "evidence": "The Assistant list includes us3, but the service realm-to-region equivalence has nine realm rows without us3. Preserve the documented unknown provider/region mapping and do not infer government eligibility or nearby region equivalence.",
+          "qualification": "Preserve any conflicting or unmapped realm evidence and distinguish it from inferred neighboring availability."
+        }
+      ],
       "publicOriginEvidence": [
         {
           "origin": "https://versioncompass.com",
@@ -486,24 +717,27 @@
           "pdfSha256": "da7ebc192639e547e857d980cdba005b28ae1bef55d4e03b0ace53e1c70cb3a8"
         }
       ],
-      "followUp": {
-        "owner": "csp-fedramp-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Observability AI region, realm and provider evidence.",
-        "reviewBy": "2026-11-28"
-      },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json",
-        "assessmentAt": "2026-11-26T10:19:35.060308Z",
-        "disposition": "assessed-no-change"
+      "readerReview": {
+        "question": "Does selecting commercial AWS Virginia establish my Observability Assistant access and authorization?",
+        "routeId": "ai-observability-assistant",
+        "region": "#ai-observability-assistant",
+        "answer": "The selected region maps to a documented commercial Observability realm.",
+        "reportAnswer": "The selected region maps to a documented commercial Observability realm.",
+        "sourceId": "aiObsAssistant",
+        "claimIds": [
+          "observability-ai-regions"
+        ],
+        "sourceSection": "Availability; supported realms and product areas; access; context limitations; data sharing and use",
+        "checkedAt": "2026-11-27T09:58:00.675Z"
       }
     },
     {
       "capabilityId": "cloud-environment.regions",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint.",
+      "disposition": "assessed-no-change",
+      "qualification": "The 10.7 and 10.8 Available regions and region differences tables were compared across AWS, GCP and Azure. New Victoria AWS stacks include Israel and both GovCloud regions for High and Moderate, GCP includes Iowa, Frankfurt and Dammam, and Azure includes Phoenix, Virginia, London and Tokyo. The Classic table lists AWS Stockholm and GovCloud IL5, GCP London, Belgium, Singapore, Sydney and Montréal, and Azure N/A. The dated change log ties AWS Israel to relevant 10.7 versions. The separately reviewed AWS EC2 endpoint rows establish only the provider site names Israel (Tel Aviv) and AWS GovCloud US East/West, with il-central-1, us-gov-east-1 and us-gov-west-1. Preserve the distinction between provider endpoints, selected historical release scope, service availability and tenant eligibility.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-27T09:56:59.903190Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-27T10:03:15.780285Z",
       "publishedAt": null,
       "liveVerifiedAt": "2026-11-27T09:58:06.573Z",
       "retrievals": [
@@ -520,7 +754,19 @@
           "evidence": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log | Dated provider and region changes | HTTP 200 | 411573 bytes | SHA-256 2369e79b54aebb3fa7bd9f80c14ea4fe0568b3b208e9403f184f79aeb8986ba7"
         }
       ],
-      "assessments": [],
+      "assessments": [
+        {
+          "claimId": "cloud-environment.regions",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "service107",
+            "changes107"
+          ],
+          "assessedAt": "2026-11-27T10:03:15.780285Z",
+          "evidence": "The 10.7 and 10.8 Available regions and region differences tables were compared across AWS, GCP and Azure. New Victoria AWS stacks include Israel and both GovCloud regions for High and Moderate, GCP includes Iowa, Frankfurt and Dammam, and Azure includes Phoenix, Virginia, London and Tokyo. The Classic table lists AWS Stockholm and GovCloud IL5, GCP London, Belgium, Singapore, Sydney and Montréal, and Azure N/A. The dated change log ties AWS Israel to relevant 10.7 versions. The separately reviewed AWS EC2 endpoint rows establish only the provider site names Israel (Tel Aviv) and AWS GovCloud US East/West, with il-central-1, us-gov-east-1 and us-gov-west-1. Preserve the distinction between provider endpoints, selected historical release scope, service availability and tenant eligibility.",
+          "qualification": "AWS, Azure and Google Cloud service regions and named exceptions. Record changes by provider and region; treat provider catalog evidence as distinct from Splunk availability."
+        }
+      ],
       "publicOriginEvidence": [
         {
           "origin": "https://versioncompass.com",
@@ -547,24 +793,27 @@
           "pdfSha256": "f71af08cd1377a4bc0752234b5633e23c218d0e8721edc1aeebc7b72dd3790b9"
         }
       ],
-      "followUp": {
-        "owner": "csp-fedramp-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Cloud providers and regional service availability.",
-        "reviewBy": "2026-11-28"
-      },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json",
-        "assessmentAt": "2026-11-26T10:19:35.060301Z",
-        "disposition": "assessed-no-change"
+      "readerReview": {
+        "question": "Does the Israel location establish Victoria availability for my historical release and every feature?",
+        "routeId": "cloud-107-aws-israel",
+        "region": "#environment-overview",
+        "answer": "Current service evidence, separate from the selected historical release interval.",
+        "reportAnswer": "The Cloud Platform 10.7 service table lists AWS Israel for new Victoria stacks.",
+        "sourceId": "service107",
+        "claimIds": [
+          "cloud-environment.regions"
+        ],
+        "sourceSection": "Available regions and region differences",
+        "checkedAt": "2026-11-27T09:58:06.573Z"
       }
     },
     {
       "capabilityId": "cloud-environment.experience",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint.",
+      "disposition": "assessed-no-change",
+      "qualification": "The 10.7 Service Details Capability | Victoria Experience | Classic Experience table separates app self-install and managed upgrade pathways, script/modular input placement and private connectivity, including Classic GovCloud cross-region and IL5 egress limits. Classic premium app install/upgrade may require Splunk assistance, and inputs may require an IDM or customer-managed heavy forwarder. The ACS 10.7 and 10.8 compatibility matrices still read FedRAMP High Victoria No / Classic Yes; their ACS-supported compliance environments paragraphs say both. The operation guide excludes High for maintenance-window operations and the requirements matrix separately excludes viewing windows in the High CMC. The Ingest Processor source requires Victoria and actual tenant provisioning. October High onboarding is limited by eligible stack and Essentials tier. The S3 service table includes Moderate in both GovCloud regions and excludes High and IL5; the 8 April change log says the latter were added to both regions for relevant 10.3 versions. The separate third-party federation restrictions and optional AWS S3 add-on scope do not establish cross-scope availability.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-27T09:56:50.148172Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-27T10:03:15.780270Z",
       "publishedAt": null,
       "liveVerifiedAt": "2026-11-27T09:58:12.401Z",
       "retrievals": [
@@ -593,7 +842,21 @@
           "evidence": "https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor | Ingest Processor availability and deployment prerequisites | HTTP 200 | 165298 bytes | SHA-256 5e56c37fd71710596b02e61ba6812ecf6a5e8c20dfcef0681a9e500dee475ace"
         }
       ],
-      "assessments": [],
+      "assessments": [
+        {
+          "claimId": "cloud-environment.experience",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "service107",
+            "acs",
+            "acsMaintenance",
+            "ingest"
+          ],
+          "assessedAt": "2026-11-27T10:03:15.780270Z",
+          "evidence": "The 10.7 Service Details Capability | Victoria Experience | Classic Experience table separates app self-install and managed upgrade pathways, script/modular input placement and private connectivity, including Classic GovCloud cross-region and IL5 egress limits. Classic premium app install/upgrade may require Splunk assistance, and inputs may require an IDM or customer-managed heavy forwarder. The ACS 10.7 and 10.8 compatibility matrices still read FedRAMP High Victoria No / Classic Yes; their ACS-supported compliance environments paragraphs say both. The operation guide excludes High for maintenance-window operations and the requirements matrix separately excludes viewing windows in the High CMC. The Ingest Processor source requires Victoria and actual tenant provisioning. October High onboarding is limited by eligible stack and Essentials tier. The S3 service table includes Moderate in both GovCloud regions and excludes High and IL5; the 8 April change log says the latter were added to both regions for relevant 10.3 versions. The separate third-party federation restrictions and optional AWS S3 add-on scope do not establish cross-scope availability.",
+          "qualification": "Classic and Victoria experience boundaries, managed upgrades and environment-specific ACS, maintenance, and ingest service prerequisites exposed in the perspectives."
+        }
+      ],
       "publicOriginEvidence": [
         {
           "origin": "https://versioncompass.com",
@@ -620,15 +883,18 @@
           "pdfSha256": "b82a2ac0b541fe8e2d2d2a41753dd6402873c4ea8976503b84194cf2e048e929"
         }
       ],
-      "followUp": {
-        "owner": "csp-fedramp-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Classic/Victoria and Cloud service controls.",
-        "reviewBy": "2026-11-28"
-      },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json",
-        "assessmentAt": "2026-11-26T10:19:35.060289Z",
-        "disposition": "assessed-no-change"
+      "readerReview": {
+        "question": "Can I plan ACS operations for a FedRAMP High Victoria stack?",
+        "routeId": "cloud-107-fedramp-high",
+        "region": "#environment-overview",
+        "answer": "Confirm support for the exact ACS operation before planning.",
+        "reportAnswer": "Confirm support for the exact ACS operation before planning.",
+        "sourceId": "acs",
+        "claimIds": [
+          "cloud-environment.experience"
+        ],
+        "sourceSection": "Requirements and compatibility matrix",
+        "checkedAt": "2026-11-27T09:58:12.401Z"
       }
     },
     {
@@ -761,11 +1027,11 @@
     },
     {
       "capabilityId": "cloud-environment.product-services",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint.",
+      "disposition": "assessed-no-change",
+      "qualification": "Both current 10.7 and 10.8 Supported versions tables name Platform 10.7, ES 8.7 and ITSI 5.0 for service subscriptions. This is separate from a quarterly release, upgrade onboarding or commercial entitlement. The ES 8.8 compatibility tables distinguish Premier integration from non-Premier pairing, Cloud-only same-provider scope, the conditional hybrid CA/ES 8.8 path and IL5/Windows limits. The SOAR 8.8 service details independently scope Moderate to AWS GovCloud East and West, require FIPS 140-3 validated modules and document limitations of playbook management and native on-premises-to-cloud migration. The November new-deployment retention milestone remains separate from service-date evidence and a blanket tenant rollout. The Observability realm-equivalence table maps us2 to Google Cloud Oregon, while its Database Monitoring row lists us2 and None under Google Cloud. Public uncertainty remains accurate. November 16 High ES UEBA, TIM and Detection Studio is scoped expansion: TIM/Detection Studio are included for Essentials and UEBA requires separate entitlement. It does not resolve SOAR High or independently authorize Observability.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-27T09:57:11.441282Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-27T10:03:15.780288Z",
       "publishedAt": null,
       "liveVerifiedAt": "2026-11-27T09:58:27.537Z",
       "retrievals": [
@@ -800,7 +1066,22 @@
           "evidence": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description#available-components-per-region-or-realm-0 | Available components per region or realm | HTTP 200 | 237868 bytes | SHA-256 2b17e16ec9d38fd059ba35a0dbb61954d2f02dad03296e5df1f6953653ac91fb"
         }
       ],
-      "assessments": [],
+      "assessments": [
+        {
+          "claimId": "cloud-environment.product-services",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "service107",
+            "regions88",
+            "cloud88Service",
+            "o11yRealmUs2",
+            "o11yDatabaseRegions"
+          ],
+          "assessedAt": "2026-11-27T10:03:15.780288Z",
+          "evidence": "Both current 10.7 and 10.8 Supported versions tables name Platform 10.7, ES 8.7 and ITSI 5.0 for service subscriptions. This is separate from a quarterly release, upgrade onboarding or commercial entitlement. The ES 8.8 compatibility tables distinguish Premier integration from non-Premier pairing, Cloud-only same-provider scope, the conditional hybrid CA/ES 8.8 path and IL5/Windows limits. The SOAR 8.8 service details independently scope Moderate to AWS GovCloud East and West, require FIPS 140-3 validated modules and document limitations of playbook management and native on-premises-to-cloud migration. The November new-deployment retention milestone remains separate from service-date evidence and a blanket tenant rollout. The Observability realm-equivalence table maps us2 to Google Cloud Oregon, while its Database Monitoring row lists us2 and None under Google Cloud. Public uncertainty remains accurate. November 16 High ES UEBA, TIM and Detection Studio is scoped expansion: TIM/Detection Studio are included for Essentials and UEBA requires separate entitlement. It does not resolve SOAR High or independently authorize Observability.",
+          "qualification": "Check environment-specific ES, ITSI and SOAR service pairings and availability, and Observability realm, provider and component mapping. Keep text explicit about the product, version, service, region, and exceptions."
+        }
+      ],
       "publicOriginEvidence": [
         {
           "origin": "https://versioncompass.com",
@@ -827,15 +1108,18 @@
           "pdfSha256": "1ccacc14450a5dbeb0634f78b9f79aaa2ee48140bd95a4c5be63937f5cc52cdd"
         }
       ],
-      "followUp": {
-        "owner": "csp-fedramp-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Premium products, Observability realms and service scope.",
-        "reviewBy": "2026-11-28"
-      },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json",
-        "assessmentAt": "2026-11-26T10:19:35.060304Z",
-        "disposition": "assessed-no-change"
+      "readerReview": {
+        "question": "Can I rely on Database Monitoring in Google Cloud Oregon realm us2?",
+        "routeId": "observability-november-unknown-region",
+        "region": "#environment-overview",
+        "answer": "The Database Monitoring row lists us2 and says None for Google Cloud regions.",
+        "reportAnswer": "The Database Monitoring row lists us2 and says None for Google Cloud regions.",
+        "sourceId": "o11yDatabaseRegions",
+        "claimIds": [
+          "cloud-environment.product-services"
+        ],
+        "sourceSection": "Available components per region or realm",
+        "checkedAt": "2026-11-27T09:58:27.537Z"
       }
     }
   ],
@@ -846,12 +1130,12 @@
     "claimedDelivered": false,
     "status": "held"
   },
-  "recordedAt": "2026-11-27T10:00:02.177Z",
+  "recordedAt": "2026-11-27T10:04:05.047Z",
   "auditBindings": [
     {
       "file": "docs/audits/2026-11-27-csp-fedramp-watch-review-86283625203727-sources.json",
-      "reviewDigest": "79cc44d204d7a8d73756e2b719d057b2d9530b17ec12c82fc139d07d981fa74c"
+      "reviewDigest": "f53b372860299fceddf3f8a102eb987b16d12bd7813790cd9fd85067e5e9f9e2"
     }
   ],
-  "reviewDigest": "ad91be29c0cc0516f8b52435c664c80bc1b05434c6ca9d1e0f37837813d553d9"
+  "reviewDigest": "59e043ed316842a0ebaabf189543f68b0b4326f2a26d387b8bf50bd506fcf8a2"
 }
