@@ -1706,10 +1706,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-25T09:00:23.180006Z",
-      "lastSuccess": "2026-11-25T09:09:29.698Z",
+      "lastAttempt": "2026-11-27T09:01:57.548671Z",
+      "lastSuccess": "2026-11-27T09:08:13Z",
       "outcome": "no-change",
-      "summary": "Verified six ES sections against current public sources and both public reports.",
+      "summary": "Completed six bounded ES sections against current public evidence and reports.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -2483,9 +2483,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Verified six ES sections against current public sources and both public reports.",
           "scope": "Licensing, history, deployment, workflows, five ES AI capabilities and the SOC Advisor dependency. Vendor disagreements remain qualified in the public answers, reopened HTML and printed PDFs."
+        },
+        {
+          "at": "2026-11-27T09:01:57.548671Z",
+          "outcome": "running",
+          "summary": "Began the dated ES editions review.",
+          "scope": "The six registered ES editions, AI and SOC dependency sections."
+        },
+        {
+          "at": "2026-11-27T09:08:13Z",
+          "outcome": "no-change",
+          "summary": "Completed six bounded ES sections against current public evidence and reports.",
+          "scope": "Licensing, history, deployment, workflows, five ES AI capabilities and SOC Advisor dependency. Existing source conflicts and unknown applicability remain qualified."
         }
       ],
-      "scope": "Licensing, history, deployment, workflows, five ES AI capabilities and the SOC Advisor dependency. Vendor disagreements remain qualified in the public answers, reopened HTML and printed PDFs."
+      "scope": "Licensing, history, deployment, workflows, five ES AI capabilities and SOC Advisor dependency. Existing source conflicts and unknown applicability remain qualified."
     },
     {
       "id": "version-guidance-audit",
