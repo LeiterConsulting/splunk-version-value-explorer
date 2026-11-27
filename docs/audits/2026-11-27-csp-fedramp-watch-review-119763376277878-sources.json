@@ -31,7 +31,7 @@
     "qualification": "The native service exposed the same attempt identifier with a distinct start. Earlier source and reader evidence remains on its own receipt."
   },
   "handoffObservation": null,
-  "batch": "First batch of the distinct November 27 occurrence: FedRAMP review",
+  "batch": "Fresh seven-section owner assessment for the distinct November 27 occurrence",
   "baseline": {
     "main": "ef2d8208e3b79b2452c0bd86f8b6178fcd8702d0",
     "manifest": {
@@ -58,11 +58,11 @@
   "scopeOutcomes": [
     {
       "capabilityId": "advisor.soc-workflow",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint.",
+      "disposition": "assessed-no-change",
+      "qualification": "Supporting Advisor claim only. The two retired ES 8.8 topic addresses independently returned 404. Both registered successor topics and their Triage, Autonomous Response, and historical counterparts resolved. The parent aggregate Cloud row gives Platform 10.2+/ES 8.6+; older task-specific guidance sets ES 8.7+. CMP guidance states Platform 10.4+/ES 8.8+/Cloud Connect 2.0+ and current setup documents SAIA 2.4+, activation, roles and certificate prerequisites. Product 8.8 is GA November 4, while Response remains CA. The parent 200 analyses per tenant/day and 20 revisions are scoped per investigation; Triage separately documents first ten, its approximate tenant findings count and no rerun. Response limits include existing findings, frontier-model selection, connector/action allow lists and asset-level roles. Exact SOAR pairings, entitlement, customer authorization and per-agent rollout are excluded from supporting scope.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-27T10:17:40.180053Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-27T10:19:18.284025Z",
       "publishedAt": null,
       "liveVerifiedAt": null,
       "retrievals": [
@@ -115,26 +115,34 @@
           "evidence": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions | Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings | HTTP 200 | 137982 bytes | SHA-256 c33d70e9dbf549ba0936a398166a71b543f2b9ad5ef563275c2f4ce609af8504"
         }
       ],
-      "assessments": [],
-      "publicOriginEvidence": [],
-      "followUp": {
-        "owner": "es-editions-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Untangle ES AI SOC requirements.",
-        "reviewBy": "2026-11-28"
-      },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json",
-        "assessmentAt": "2026-11-26T10:19:35.060309Z",
-        "disposition": "assessed-no-change"
-      }
+      "assessments": [
+        {
+          "claimId": "ai-es-soc",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsAgents88",
+            "aiEsSocTask88",
+            "aiEsSocTask87",
+            "aiEsRelease88",
+            "aiEsTriageNote88",
+            "aiSaiaInstall",
+            "aiEsRegions88",
+            "aiEsEditions"
+          ],
+          "assessedAt": "2026-11-27T10:19:18.284025Z",
+          "evidence": "Supporting Advisor claim only. The two retired ES 8.8 topic addresses independently returned 404. Both registered successor topics and their Triage, Autonomous Response, and historical counterparts resolved. The parent aggregate Cloud row gives Platform 10.2+/ES 8.6+; older task-specific guidance sets ES 8.7+. CMP guidance states Platform 10.4+/ES 8.8+/Cloud Connect 2.0+ and current setup documents SAIA 2.4+, activation, roles and certificate prerequisites. Product 8.8 is GA November 4, while Response remains CA. The parent 200 analyses per tenant/day and 20 revisions are scoped per investigation; Triage separately documents first ten, its approximate tenant findings count and no rerun. Response limits include existing findings, frontier-model selection, connector/action allow lists and asset-level roles. Exact SOAR pairings, entitlement, customer authorization and per-agent rollout are excluded from supporting scope.",
+          "qualification": "Assessed deployment-specific prerequisites, the current Cloud version discrepancy and the corrected historical Triage wording. Exclusions: Exact SOAR pairing, agent-specific regional rollout, component entitlement and customer authorization remain separate."
+        }
+      ],
+      "publicOriginEvidence": []
     },
     {
       "capabilityId": "ai.regional-platform",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint.",
+      "disposition": "assessed-no-change",
+      "qualification": "Read both entire registered 2.3.6 regional tables from the versioned About and Cloud Install pages. The 22 and 21 data rows respectively agree on every shared row and date. About alone lists AWS EU Dublin (June 28, 2024). Checked 2.4.0 overview and installer as separate corroborating evidence, also with a lone Dublin difference. Base SPL availability therefore remains unconfirmed. Verified the separate Dublin Agent Mode and ITSI answers, the Sydney Runtime answer and the High SPL scope with exact source and supplementary citations on both public origins, reopened offline HTML and real PDFs.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-27T10:17:10.533672Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-27T10:19:18.284000Z",
       "publishedAt": null,
       "liveVerifiedAt": "2026-11-27T10:18:13.662Z",
       "retrievals": [
@@ -193,7 +201,79 @@
           "evidence": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues | SAIA-9918 Cloud Connected access and 2.1.1 workaround | HTTP 200 | 143795 bytes | SHA-256 d83adf22c134b8347759749809cd31a6e8f27b5f03f12f0ed84024de13eaa85e"
         }
       ],
-      "assessments": [],
+      "assessments": [
+        {
+          "claimId": "saia-spl-service-regions",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiSaiaInstall",
+            "aiSaiaAbout",
+            "aiHighAnnouncement20261019"
+          ],
+          "assessedAt": "2026-11-27T10:19:18.284000Z",
+          "evidence": "Both full versioned tables preserve all row labels and dates. About alone says AWS EU Dublin on June 28, 2024. Cloud installation does not list it. The 2.4.0 pair also differs on Dublin; this does not settle base SPL availability.",
+          "qualification": "Base SAIA AI-service regions, provider mappings and evidence version; preserve commercial and regulated qualifications."
+        },
+        {
+          "claimId": "ai-service-region-mappings",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiSaiaInstall",
+            "aiSaiaAbout"
+          ],
+          "assessedAt": "2026-11-27T10:19:18.284000Z",
+          "evidence": "Both sources have the same four AI service Azure labels: AP Japan, UK South, US East and US West. Those labels do not imply corresponding tenant geography. Kept all comparison rows and the distinct 19-row Model Runtime table; AWS Sydney and Dublin retain their own runtime standards.",
+          "qualification": "Preserve AI service-location mappings and distinguish them from the tenant host or implied processing residency."
+        },
+        {
+          "claimId": "ai-regulated-boundaries",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiSaiaInstall",
+            "aiHighAnnouncement20261019",
+            "aiEsRegions88",
+            "aiObsAssistant"
+          ],
+          "assessedAt": "2026-11-27T10:19:18.284000Z",
+          "evidence": "The 2.3.6 installer documents limited IL2 support, no Agent Mode, training/fine-tuning off by default and hosted models only. Its commercial lead-in and May 11, 2026 GovCloud rows do not establish tenant rights. October 19 and 2.4.0 release notes independently scope supported High to core SPL generation/explanation and exclude Agent Mode. ES 8.8 tables exclude Security AI Assistant/Agentic SOC in named Cloud GovCloud rows and no regulated Observability entitlement follows from the AI Assistant realm list.",
+          "qualification": "Separate the documented feature-level regulated boundary from offering authorization. Preserve exclusions and unknowns."
+        },
+        {
+          "claimId": "saia-agent-service-regions",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiSaiaAgentMode",
+            "aiSaiaModelRuntime"
+          ],
+          "assessedAt": "2026-11-27T10:19:18.284000Z",
+          "evidence": "The Agent Mode feature guide lists AWS Dublin and requires Platform 10.1.x+, a supported AWS region, administrator enablement and enabled Model Runtime. The runtime guide lists Dublin Global from 2.3.0 with no country/zone routing guarantee, and Sydney APAC Data Zone with inference possible outside Australia. Data at rest follows Azure geography subject to documented exceptions. Hosted versus external model processing and base SPL remain separate.",
+          "qualification": "Agent Mode and Model Runtime have their own region evidence; derive no feature inheritance from the base assistant."
+        },
+        {
+          "claimId": "saia-agent-cloud-connected",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiSaiaAgentMode",
+            "aiSaiaModelRuntime",
+            "aiSaiaCloudConnected",
+            "aiSaiaKnownIssues"
+          ],
+          "assessedAt": "2026-11-27T10:19:18.284000Z",
+          "evidence": "The 2.3.6 Agent Mode guide describes a conditional on-premises Cloud Connected route, region selection and certificate setup; the 2.3.6 installation guide and exact SAIA-9918 row exclude versions 2.2.0–2.3.6, and the 2.1.1 fallback lacks Agent Mode. The 2.4.0 release and setup guide document a fresh installation with paid Enterprise 10.4+, Cloud Connect 2.0+, signed STC/OAuth, verified license-domain email, setup admin capabilities, outbound HTTPS and supported commercial AWS selection. Historical and current installation rules remain distinct from feature-specific runtime routes.",
+          "qualification": "Cloud Connected Agent Mode regional/runtime availability and compatibility stay independently scoped."
+        },
+        {
+          "claimId": "itsi-subagent-regional-qualification",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiSaiaAbout",
+            "aiSaiaInstall"
+          ],
+          "assessedAt": "2026-11-27T10:19:18.284000Z",
+          "evidence": "The About ITSI subagent section specifies SAIA 2.2.0+, ITSI 5.0.0+, MCP Server 1.2.1+ and six data-fetching tools. SAIA-10157 specifically excludes the SAIA 2.3.6/MCP 2.1.0 pairing; a floor is insufficient for that tuple. No ITSI-specific Dublin release or entitlement follows from either base table or the separate Dublin Agent Mode/Runtime listings.",
+          "qualification": "Keep ITSI-specific regional enablement unresolved where a public scoped source does not establish it."
+        }
+      ],
       "publicOriginEvidence": [
         {
           "origin": "https://versioncompass.com",
@@ -388,24 +468,113 @@
           "pdfSha256": "bee441a8827c4e11a7a0aa528ac376bb19edde708d4f2313d098f9f902a18d97"
         }
       ],
-      "followUp": {
-        "owner": "csp-fedramp-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for SAIA and ITSI feature-specific region and regulated scope.",
-        "reviewBy": "2026-11-28"
+      "readerReview": {
+        "question": "Which SPL assistance functions does the GovCloud announcement cover?",
+        "routeId": "ai-high",
+        "region": "#ai-saia-spl",
+        "sourceId": "aiHighAnnouncement20261019",
+        "answer": "FedRAMP High authorization for AI Assistant SPL authoring and explanation.",
+        "claimIds": [
+          "saia-spl-service-regions"
+        ],
+        "sourceSection": "Expanding Capabilities in AWS GovCloud with FedRAMP High; SPL authoring and explanation",
+        "checkedAt": "2026-11-27T10:17:26.966Z"
       },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json",
-        "assessmentAt": "2026-11-26T10:17:30.943298Z",
-        "disposition": "deferred"
-      }
+      "additionalReaderReviews": [
+        {
+          "question": "Does the 2.3.6 overview list the Dublin region?",
+          "routeId": "ai-platform-dublin",
+          "region": "#ai-saia-spl",
+          "sourceId": "aiSaiaAbout",
+          "answer": "The SAIA 2.3.6 overview lists AWS Dublin.",
+          "claimIds": [
+            "ai-service-region-mappings"
+          ],
+          "sourceSection": "Requirements; features; ITSI subagent; where the assistant runs",
+          "checkedAt": "2026-11-27T10:18:04.765Z"
+        },
+        {
+          "question": "Does the Cloud installer confirm base SPL assistance in Dublin?",
+          "routeId": "ai-platform-dublin",
+          "region": "#ai-saia-spl",
+          "sourceId": "aiSaiaInstall",
+          "answer": "The 2.3.6 Cloud installer omits Dublin from its supported regions. Base SPL assistance in Dublin remains unconfirmed.",
+          "claimIds": [
+            "ai-service-region-mappings"
+          ],
+          "sourceSection": "FedRAMP deployments; supported regions; version compatibility",
+          "checkedAt": "2026-11-27T10:18:04.765Z"
+        },
+        {
+          "question": "What does the Agent Mode feature guide establish for Dublin?",
+          "routeId": "ai-platform-dublin",
+          "region": "#ai-saia-agent",
+          "sourceId": "aiSaiaAgentMode",
+          "answer": "The selected AWS location is listed specifically for Agent Mode.",
+          "claimIds": [
+            "saia-agent-service-regions"
+          ],
+          "sourceSection": "Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites",
+          "checkedAt": "2026-11-27T10:18:04.765Z"
+        },
+        {
+          "question": "Does the ITSI subagent have its own documented Dublin rollout?",
+          "routeId": "ai-itsi-dublin",
+          "region": "#ai-itsi-subagent",
+          "sourceId": "aiSaiaAbout",
+          "answer": "The ITSI subagent has no separately documented Dublin rollout.",
+          "claimIds": [
+            "itsi-subagent-regional-qualification"
+          ],
+          "sourceSection": "Requirements; features; ITSI subagent; where the assistant runs",
+          "checkedAt": "2026-11-27T10:18:09.272Z"
+        },
+        {
+          "question": "Which SAIA 2.4.0 functions do the FedRAMP High release notes document?",
+          "routeId": "ai-high",
+          "region": "#ai-saia-spl",
+          "sourceId": "aiHighAnnouncement20261019",
+          "answer": "The SAIA 2.4.0 release notes document core SPL generation and explanation in supported FedRAMP High environments and explicitly exclude Agent Mode.",
+          "claimIds": [
+            "saia-spl-service-regions"
+          ],
+          "reportAnswer": "The SAIA 2.4.0 release notes document core SPL generation and explanation in supported FedRAMP High environments and explicitly exclude Agent Mode.",
+          "sourceSection": "Expanding Capabilities in AWS GovCloud with FedRAMP High; SPL authoring and explanation",
+          "checkedAt": "2026-11-27T10:17:26.966Z"
+        },
+        {
+          "question": "Where can Model Runtime process inference for the AWS Sydney service location?",
+          "routeId": "ai-platform-sydney-runtime",
+          "region": "#ai-saia-agent",
+          "sourceId": "aiSaiaModelRuntime",
+          "answer": "For AWS Sydney, Model Runtime inference uses the Microsoft APAC Data Zone, which includes locations outside Australia.",
+          "claimIds": [
+            "saia-agent-service-regions"
+          ],
+          "sourceSection": "Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off",
+          "checkedAt": "2026-11-27T10:18:13.662Z"
+        },
+        {
+          "question": "What exact MCP compatibility exception does Splunk document for SAIA 2.3.6?",
+          "routeId": "ai-itsi-dublin",
+          "region": "#ai-itsi-subagent",
+          "sourceId": "aiSaiaAbout",
+          "answer": "Splunk documents SAIA 2.3.6 as incompatible with MCP 2.1.0 in SAIA-10157.",
+          "claimIds": [
+            "itsi-subagent-regional-qualification"
+          ],
+          "sourceSection": "Requirements; features; ITSI subagent; where the assistant runs",
+          "checkedAt": "2026-11-27T10:18:09.272Z"
+        }
+      ]
     },
     {
       "capabilityId": "ai.regional-es",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint.",
+      "disposition": "assessed-no-change",
+      "qualification": "Reviewed the complete ES 8.8 Essentials Cloud, Premier Cloud, Cloud Connect, GCP and Azure tables and the edition/deployment and setup sections. Montréal and Calgary retain different deployment-specific exceptions. Region, edition, regulated authority and configuration remain separate.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-27T10:17:28.171681Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-27T10:19:18.284002Z",
       "publishedAt": null,
       "liveVerifiedAt": "2026-11-27T10:17:31.084Z",
       "retrievals": [
@@ -434,7 +603,42 @@
           "evidence": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected | Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data | HTTP 200 | 178985 bytes | SHA-256 bec404582d8005cb6c4a36750d1a8ccdddfc52013f18e8ab3185a891569cde81"
         }
       ],
-      "assessments": [],
+      "assessments": [
+        {
+          "claimId": "es-essentials-ai-regions",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsRegions88",
+            "aiEsEditions"
+          ],
+          "assessedAt": "2026-11-27T10:19:18.284002Z",
+          "evidence": "The Essentials AWS table shows Montréal without an assistant exception; Calgary and both GovCloud rows explicitly except Security AI Assistant and Agentic SOC. The Essentials edition qualification applies to Cloud-available Security AI Assistant, with feature/tenant enablement distinct.",
+          "qualification": "Essentials regional table and feature-specific exclusions."
+        },
+        {
+          "claimId": "es-premier-ai-regions",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsRegions88",
+            "aiEsEditions"
+          ],
+          "assessedAt": "2026-11-27T10:19:18.284002Z",
+          "evidence": "Premier Cloud AWS Montréal has no exception for the named assistant; Calgary and GovCloud except the assistant and Agentic SOC, with separate Attack Analyzer and UAE qualifications. GCP/Azure availability is limited to the documented ES and SOAR components, with the separately stated Oregon SOAR exception. Premier’s possible CMP path leaves its actual availability conditional.",
+          "qualification": "Premier regional table, regulated/provider and component boundaries."
+        },
+        {
+          "claimId": "es-cloud-connect-ai-regions",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiEsRegions88",
+            "aiEsCloudConnectAgentic88",
+            "aiSaiaCloudConnected"
+          ],
+          "assessedAt": "2026-11-27T10:19:18.284002Z",
+          "evidence": "AWS Cloud Connect Montréal specifically excepts the Security AI Assistant and Calgary carries no such exception; neither is inferred from the Cloud tables. Agentic SOC requires Platform 10.4+, ES 8.8+, Cloud Connect 2.0+ and AI Assistant 2.4+, commercial region, service activation, roles and certificates. The 2.3.6 unsupported Cloud Connected path remains historical.",
+          "qualification": "Cloud Connected requirements and regional qualifications stay separate from Cloud-only rules."
+        }
+      ],
       "publicOriginEvidence": [
         {
           "origin": "https://versioncompass.com",
@@ -461,24 +665,27 @@
           "pdfSha256": "126dd490ba8fdfc3c010c484bd9e01eb91e4ac6cac2d058c4422772c6c710d70"
         }
       ],
-      "followUp": {
-        "owner": "csp-fedramp-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for ES AI regional and regulated scope by edition and service.",
-        "reviewBy": "2026-11-28"
-      },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json",
-        "assessmentAt": "2026-11-26T10:19:35.060306Z",
-        "disposition": "assessed-no-change"
+      "readerReview": {
+        "question": "Does Premier Cloud Connect in Montreal enable the Security AI Assistant?",
+        "routeId": "ai-cmp",
+        "region": "#ai-results",
+        "answer": "The selected ES 8.8 table explicitly excludes this component in Canada Central.",
+        "reportAnswer": "The selected ES 8.8 table explicitly excludes this component in Canada Central.",
+        "sourceId": "aiEsRegions88",
+        "claimIds": [
+          "es-essentials-ai-regions"
+        ],
+        "sourceSection": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility",
+        "checkedAt": "2026-11-27T10:17:31.084Z"
       }
     },
     {
       "capabilityId": "ai.regional-observability",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint.",
+      "disposition": "assessed-no-change",
+      "qualification": "Compared the named assistant realm list, access/context and data-sharing conditions, published service realm table and the independently scoped troubleshooting guide. Current commercial Virginia maps to the documented us0 realm. The public answer and official citation matched on both origins and exports.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-27T10:17:31.935879Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-27T10:19:18.284023Z",
       "publishedAt": null,
       "liveVerifiedAt": "2026-11-27T10:17:36.702Z",
       "retrievals": [
@@ -501,7 +708,31 @@
           "evidence": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description | Available regions or realms; realm-to-region equivalence; available components per realm | HTTP 200 | 237868 bytes | SHA-256 682537578c6c5f077da3ca201944dd8b2f1899f34c700cc6e90f4cbc949c0718"
         }
       ],
-      "assessments": [],
+      "assessments": [
+        {
+          "claimId": "observability-ai-regions",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiObsAssistant",
+            "aiObsRca",
+            "aiObsServiceDetails"
+          ],
+          "assessedAt": "2026-11-27T10:19:18.284023Z",
+          "evidence": "Assistant Availability lists us0, us1, us2, us3, eu0, eu1, eu2, au0, jp0 and sg0 and English. User access/settings, supported contexts and data-sharing conditions apply. The RCA agent is documented for non-governmental realms, with opt-in automation, manual Run root cause analysis, supported standard/default alerts and conditional Kubernetes remediation. Its scope is independent of the Assistant realm list.",
+          "qualification": "Map assistant and troubleshooting eligibility separately to documented service regions; retain the regulated exclusion or unknown."
+        },
+        {
+          "claimId": "observability-ai-realm-conflict",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "aiObsAssistant",
+            "aiObsServiceDetails"
+          ],
+          "assessedAt": "2026-11-27T10:19:18.284023Z",
+          "evidence": "The Assistant list includes us3, but the service realm-to-region equivalence has nine realm rows without us3. Preserve the documented unknown provider/region mapping and do not infer government eligibility or nearby region equivalence.",
+          "qualification": "Preserve any conflicting or unmapped realm evidence and distinguish it from inferred neighboring availability."
+        }
+      ],
       "publicOriginEvidence": [
         {
           "origin": "https://versioncompass.com",
@@ -528,24 +759,27 @@
           "pdfSha256": "6ec549d0ff686ce4aef0ee6702ef46829609e62609914ed0b3ee6692732e27d4"
         }
       ],
-      "followUp": {
-        "owner": "csp-fedramp-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Observability AI region, realm and provider evidence.",
-        "reviewBy": "2026-11-28"
-      },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json",
-        "assessmentAt": "2026-11-26T10:19:35.060308Z",
-        "disposition": "assessed-no-change"
+      "readerReview": {
+        "question": "Does selecting commercial AWS Virginia establish my Observability Assistant access and authorization?",
+        "routeId": "ai-observability-assistant",
+        "region": "#ai-observability-assistant",
+        "answer": "The selected region maps to a documented commercial Observability realm.",
+        "reportAnswer": "The selected region maps to a documented commercial Observability realm.",
+        "sourceId": "aiObsAssistant",
+        "claimIds": [
+          "observability-ai-regions"
+        ],
+        "sourceSection": "Availability; supported realms and product areas; access; context limitations; data sharing and use",
+        "checkedAt": "2026-11-27T10:17:36.702Z"
       }
     },
     {
       "capabilityId": "cloud-environment.regions",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint.",
+      "disposition": "assessed-no-change",
+      "qualification": "The 10.7 and 10.8 Available regions and region differences tables were compared across AWS, GCP and Azure. New Victoria AWS stacks include Israel and both GovCloud regions for High and Moderate, GCP includes Iowa, Frankfurt and Dammam, and Azure includes Phoenix, Virginia, London and Tokyo. The Classic table lists AWS Stockholm and GovCloud IL5, GCP London, Belgium, Singapore, Sydney and Montréal, and Azure N/A. The dated change log ties AWS Israel to relevant 10.7 versions. The separately reviewed AWS EC2 endpoint rows establish only the provider site names Israel (Tel Aviv) and AWS GovCloud US East/West, with il-central-1, us-gov-east-1 and us-gov-west-1. Preserve the distinction between provider endpoints, selected historical release scope, service availability and tenant eligibility.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-27T10:16:41.392315Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-27T10:19:18.283995Z",
       "publishedAt": null,
       "liveVerifiedAt": "2026-11-27T10:17:42.774Z",
       "retrievals": [
@@ -562,7 +796,19 @@
           "evidence": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log | Dated provider and region changes | HTTP 200 | 411573 bytes | SHA-256 832cd6c4d36a26433ec45721019863ae17a0878ef6abc501d1dbc2737afe499c"
         }
       ],
-      "assessments": [],
+      "assessments": [
+        {
+          "claimId": "cloud-environment.regions",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "service107",
+            "changes107"
+          ],
+          "assessedAt": "2026-11-27T10:19:18.283995Z",
+          "evidence": "The 10.7 and 10.8 Available regions and region differences tables were compared across AWS, GCP and Azure. New Victoria AWS stacks include Israel and both GovCloud regions for High and Moderate, GCP includes Iowa, Frankfurt and Dammam, and Azure includes Phoenix, Virginia, London and Tokyo. The Classic table lists AWS Stockholm and GovCloud IL5, GCP London, Belgium, Singapore, Sydney and Montréal, and Azure N/A. The dated change log ties AWS Israel to relevant 10.7 versions. The separately reviewed AWS EC2 endpoint rows establish only the provider site names Israel (Tel Aviv) and AWS GovCloud US East/West, with il-central-1, us-gov-east-1 and us-gov-west-1. Preserve the distinction between provider endpoints, selected historical release scope, service availability and tenant eligibility.",
+          "qualification": "AWS, Azure and Google Cloud service regions and named exceptions. Record changes by provider and region; treat provider catalog evidence as distinct from Splunk availability."
+        }
+      ],
       "publicOriginEvidence": [
         {
           "origin": "https://versioncompass.com",
@@ -589,24 +835,27 @@
           "pdfSha256": "77c19cc2c9ca5bddaad77f02580a9151780877ff726fb3ec6312daa3cfec354d"
         }
       ],
-      "followUp": {
-        "owner": "csp-fedramp-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Cloud providers and regional service availability.",
-        "reviewBy": "2026-11-28"
-      },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json",
-        "assessmentAt": "2026-11-26T10:19:35.060301Z",
-        "disposition": "assessed-no-change"
+      "readerReview": {
+        "question": "Does the Israel location establish Victoria availability for my historical release and every feature?",
+        "routeId": "cloud-107-aws-israel",
+        "region": "#environment-overview",
+        "answer": "Current service evidence, separate from the selected historical release interval.",
+        "reportAnswer": "The Cloud Platform 10.7 service table lists AWS Israel for new Victoria stacks.",
+        "sourceId": "service107",
+        "claimIds": [
+          "cloud-environment.regions"
+        ],
+        "sourceSection": "Available regions and region differences",
+        "checkedAt": "2026-11-27T10:17:42.774Z"
       }
     },
     {
       "capabilityId": "cloud-environment.experience",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint.",
+      "disposition": "assessed-no-change",
+      "qualification": "The 10.7 Service Details Capability | Victoria Experience | Classic Experience table separates app self-install and managed upgrade pathways, script/modular input placement and private connectivity, including Classic GovCloud cross-region and IL5 egress limits. Classic premium app install/upgrade may require Splunk assistance, and inputs may require an IDM or customer-managed heavy forwarder. The ACS 10.7 and 10.8 compatibility matrices still read FedRAMP High Victoria No / Classic Yes; their ACS-supported compliance environments paragraphs say both. The operation guide excludes High for maintenance-window operations and the requirements matrix separately excludes viewing windows in the High CMC. The Ingest Processor source requires Victoria and actual tenant provisioning. October High onboarding is limited by eligible stack and Essentials tier. The S3 service table includes Moderate in both GovCloud regions and excludes High and IL5; the 8 April change log says the latter were added to both regions for relevant 10.3 versions. The separate third-party federation restrictions and optional AWS S3 add-on scope do not establish cross-scope availability.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-27T10:16:34.538430Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-27T10:19:18.283981Z",
       "publishedAt": null,
       "liveVerifiedAt": "2026-11-27T10:17:48.699Z",
       "retrievals": [
@@ -635,7 +884,21 @@
           "evidence": "https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor | Ingest Processor availability and deployment prerequisites | HTTP 200 | 165298 bytes | SHA-256 5ad15ab92587100e24152417ef8b5c02dcd7165f84501343ae50d81871b02d59"
         }
       ],
-      "assessments": [],
+      "assessments": [
+        {
+          "claimId": "cloud-environment.experience",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "service107",
+            "acs",
+            "acsMaintenance",
+            "ingest"
+          ],
+          "assessedAt": "2026-11-27T10:19:18.283981Z",
+          "evidence": "The 10.7 Service Details Capability | Victoria Experience | Classic Experience table separates app self-install and managed upgrade pathways, script/modular input placement and private connectivity, including Classic GovCloud cross-region and IL5 egress limits. Classic premium app install/upgrade may require Splunk assistance, and inputs may require an IDM or customer-managed heavy forwarder. The ACS 10.7 and 10.8 compatibility matrices still read FedRAMP High Victoria No / Classic Yes; their ACS-supported compliance environments paragraphs say both. The operation guide excludes High for maintenance-window operations and the requirements matrix separately excludes viewing windows in the High CMC. The Ingest Processor source requires Victoria and actual tenant provisioning. October High onboarding is limited by eligible stack and Essentials tier. The S3 service table includes Moderate in both GovCloud regions and excludes High and IL5; the 8 April change log says the latter were added to both regions for relevant 10.3 versions. The separate third-party federation restrictions and optional AWS S3 add-on scope do not establish cross-scope availability.",
+          "qualification": "Classic and Victoria experience boundaries, managed upgrades and environment-specific ACS, maintenance, and ingest service prerequisites exposed in the perspectives."
+        }
+      ],
       "publicOriginEvidence": [
         {
           "origin": "https://versioncompass.com",
@@ -662,15 +925,18 @@
           "pdfSha256": "65228c40fec988267a65649e1f4517e50f170bc273480d3668d6756dbdfcbc4c"
         }
       ],
-      "followUp": {
-        "owner": "csp-fedramp-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Classic/Victoria and Cloud service controls.",
-        "reviewBy": "2026-11-28"
-      },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json",
-        "assessmentAt": "2026-11-26T10:19:35.060289Z",
-        "disposition": "assessed-no-change"
+      "readerReview": {
+        "question": "Can I plan ACS operations for a FedRAMP High Victoria stack?",
+        "routeId": "cloud-107-fedramp-high",
+        "region": "#environment-overview",
+        "answer": "Confirm support for the exact ACS operation before planning.",
+        "reportAnswer": "Confirm support for the exact ACS operation before planning.",
+        "sourceId": "acs",
+        "claimIds": [
+          "cloud-environment.experience"
+        ],
+        "sourceSection": "Requirements and compatibility matrix",
+        "checkedAt": "2026-11-27T10:17:48.699Z"
       }
     },
     {
@@ -803,11 +1069,11 @@
     },
     {
       "capabilityId": "cloud-environment.product-services",
-      "disposition": "deferred",
-      "qualification": "No current claim decision had been recorded at this checkpoint.",
+      "disposition": "assessed-no-change",
+      "qualification": "Both current 10.7 and 10.8 Supported versions tables name Platform 10.7, ES 8.7 and ITSI 5.0 for service subscriptions. This is separate from a quarterly release, upgrade onboarding or commercial entitlement. The ES 8.8 compatibility tables distinguish Premier integration from non-Premier pairing, Cloud-only same-provider scope, the conditional hybrid CA/ES 8.8 path and IL5/Windows limits. The SOAR 8.8 service details independently scope Moderate to AWS GovCloud East and West, require FIPS 140-3 validated modules and document limitations of playbook management and native on-premises-to-cloud migration. The November new-deployment retention milestone remains separate from service-date evidence and a blanket tenant rollout. The Observability realm-equivalence table maps us2 to Google Cloud Oregon, while its Database Monitoring row lists us2 and None under Google Cloud. Public uncertainty remains accurate. November 16 High ES UEBA, TIM and Detection Studio is scoped expansion: TIM/Detection Studio are included for Essentials and UEBA requires separate entitlement. It does not resolve SOAR High or independently authorize Observability.",
       "discoveredAt": null,
       "retrievedAt": "2026-11-27T10:16:51.931470Z",
-      "assessedAt": null,
+      "assessedAt": "2026-11-27T10:19:18.283998Z",
       "publishedAt": null,
       "liveVerifiedAt": "2026-11-27T10:18:00.218Z",
       "retrievals": [
@@ -842,7 +1108,22 @@
           "evidence": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description#available-components-per-region-or-realm-0 | Available components per region or realm | HTTP 200 | 237868 bytes | SHA-256 73696a939bad24a6547ab8655a6bfca13c4f94520344c6cdd70bc3480c9c8c56"
         }
       ],
-      "assessments": [],
+      "assessments": [
+        {
+          "claimId": "cloud-environment.product-services",
+          "outcome": "assessed-no-change",
+          "sourceIds": [
+            "service107",
+            "regions88",
+            "cloud88Service",
+            "o11yRealmUs2",
+            "o11yDatabaseRegions"
+          ],
+          "assessedAt": "2026-11-27T10:19:18.283998Z",
+          "evidence": "Both current 10.7 and 10.8 Supported versions tables name Platform 10.7, ES 8.7 and ITSI 5.0 for service subscriptions. This is separate from a quarterly release, upgrade onboarding or commercial entitlement. The ES 8.8 compatibility tables distinguish Premier integration from non-Premier pairing, Cloud-only same-provider scope, the conditional hybrid CA/ES 8.8 path and IL5/Windows limits. The SOAR 8.8 service details independently scope Moderate to AWS GovCloud East and West, require FIPS 140-3 validated modules and document limitations of playbook management and native on-premises-to-cloud migration. The November new-deployment retention milestone remains separate from service-date evidence and a blanket tenant rollout. The Observability realm-equivalence table maps us2 to Google Cloud Oregon, while its Database Monitoring row lists us2 and None under Google Cloud. Public uncertainty remains accurate. November 16 High ES UEBA, TIM and Detection Studio is scoped expansion: TIM/Detection Studio are included for Essentials and UEBA requires separate entitlement. It does not resolve SOAR High or independently authorize Observability.",
+          "qualification": "Check environment-specific ES, ITSI and SOAR service pairings and availability, and Observability realm, provider and component mapping. Keep text explicit about the product, version, service, region, and exceptions."
+        }
+      ],
       "publicOriginEvidence": [
         {
           "origin": "https://versioncompass.com",
@@ -869,21 +1150,23 @@
           "pdfSha256": "1f79f72e6aac6f0ca2ba0f6d27e2e8b522ed6855ffebbef6afb048753dac1e18"
         }
       ],
-      "followUp": {
-        "owner": "csp-fedramp-watch",
-        "action": "Compare the exact registered source passages, then verify the registered answer and citations on both public reports for Premium products, Observability realms and service scope.",
-        "reviewBy": "2026-11-28"
-      },
-      "lastVerifiedEvidence": {
-        "coverage": "docs/audits/2026-11-26-csp-fedramp-watch-review-187837568212268-coverage.json",
-        "assessmentAt": "2026-11-26T10:19:35.060304Z",
-        "disposition": "assessed-no-change"
+      "readerReview": {
+        "question": "Can I rely on Database Monitoring in Google Cloud Oregon realm us2?",
+        "routeId": "observability-november-unknown-region",
+        "region": "#environment-overview",
+        "answer": "The Database Monitoring row lists us2 and says None for Google Cloud regions.",
+        "reportAnswer": "The Database Monitoring row lists us2 and says None for Google Cloud regions.",
+        "sourceId": "o11yDatabaseRegions",
+        "claimIds": [
+          "cloud-environment.product-services"
+        ],
+        "sourceSection": "Available components per region or realm",
+        "checkedAt": "2026-11-27T10:18:00.218Z"
       }
     }
   ],
   "ownedTotals": {
-    "deferred": 6,
-    "assessed-no-change": 1
+    "assessed-no-change": 7
   },
   "sourceChecks": {
     "advisor.soc-workflow": [
@@ -2752,7 +3035,1525 @@
     ],
     "qualification": "Direct HTTP results and independently source-bound owner assessments are recorded separately."
   },
-  "officialInventory": [],
+  "freshPassageComparison": {
+    "cloud-environment.fedramp": {
+      "moderate": {
+        "retrievedAt": "2026-11-27T10:16:22.312431Z",
+        "section": "Cloud Platform Moderate product and authorization attributes",
+        "articleSha256": "8685ab2aa8dadf0826fd88567f2576480ed730a513e91372a5f22f9aa78d6128",
+        "comparedAt": "2026-11-27T10:18:21.601154Z",
+        "exactPlainArticleAgreement": true
+      },
+      "high": {
+        "retrievedAt": "2026-11-27T10:16:22.324439Z",
+        "section": "Cloud Platform High product and authorization attributes",
+        "articleSha256": "f304f79f1d6ec0e60257fd79bc7236c05d9888741282552d305751d033a6afc4",
+        "comparedAt": "2026-11-27T10:18:21.601408Z",
+        "exactPlainArticleAgreement": true
+      },
+      "compliance": {
+        "retrievedAt": "2026-11-27T10:16:22.441027Z",
+        "section": "FedRAMP scope by product and level",
+        "articleSha256": "341d76dd7739df9a46dc49f055b5cb2f1df6e1f00d874eaa90e467f8c910e550",
+        "comparedAt": "2026-11-27T10:18:21.601867Z",
+        "exactPlainArticleAgreement": true
+      },
+      "highAnnouncement20261019": {
+        "retrievedAt": "2026-11-27T10:16:22.462759Z",
+        "section": "Specifically named features and High scope",
+        "articleSha256": "fd4a158b62dc20510f6adb397eb9a84adba904cf5cc547e59ae7fdb1d57e09cc",
+        "comparedAt": "2026-11-27T10:18:21.602159Z",
+        "exactPlainArticleAgreement": true
+      },
+      "esHighNovember": {
+        "retrievedAt": "2026-11-27T10:16:27.410926Z",
+        "section": "November 16 limited UEBA, TIM and Detection Studio High rollout",
+        "articleSha256": "c2fd725a417e92e2911f7ecf9cbbc50bbb9d49559fbacc6c165186260b302dfe",
+        "comparedAt": "2026-11-27T10:18:21.602449Z",
+        "exactPlainArticleAgreement": true
+      }
+    },
+    "cloud-environment.experience": {
+      "service107": {
+        "retrievedAt": "2026-11-27T10:16:31.328040Z",
+        "section": "Classic and Victoria experience, availability and service controls",
+        "articleSha256": "8eed25e9ef26f78b86dbb7bdb97dd739a2f21ac37f5089083d8d29040d1073f5",
+        "comparedAt": "2026-11-27T10:18:21.603145Z",
+        "exactPlainArticleAgreement": true
+      },
+      "acs": {
+        "retrievedAt": "2026-11-27T10:16:31.284467Z",
+        "section": "Requirements and compatibility matrix",
+        "articleSha256": "f6367fa58c9aa3919426afbe4f6759b70a05579452e17428a596c17e77121fce",
+        "comparedAt": "2026-11-27T10:18:21.603489Z",
+        "exactPlainArticleAgreement": true
+      },
+      "acsMaintenance": {
+        "retrievedAt": "2026-11-27T10:16:34.538430Z",
+        "section": "Maintenance window requirements and limitations",
+        "articleSha256": "fa39e1dcd1713d54254c980717438ac89b31c531814278eed5ccd68af68a4ade",
+        "comparedAt": "2026-11-27T10:18:21.603848Z",
+        "exactPlainArticleAgreement": true
+      },
+      "ingest": {
+        "retrievedAt": "2026-11-27T10:16:34.537349Z",
+        "section": "Ingest Processor availability and deployment prerequisites",
+        "articleSha256": "fe67cd4557482cb7bf78c7b0e6be4edf7e89a5c23e4ce2c5653f8b6447f9540a",
+        "comparedAt": "2026-11-27T10:18:21.604077Z",
+        "exactPlainArticleAgreement": true
+      },
+      "acs108": {
+        "retrievedAt": "2026-11-27T10:16:37.927890Z",
+        "section": "Requirements and compatibility matrix, ACS-supported compliance environments",
+        "articleSha256": "f6367fa58c9aa3919426afbe4f6759b70a05579452e17428a596c17e77121fce",
+        "comparedAt": "2026-11-27T10:18:21.604283Z",
+        "exactPlainArticleAgreement": true
+      },
+      "s3Changes103": {
+        "retrievedAt": "2026-11-27T10:16:37.951728Z",
+        "section": "8 April 2026 > Available region and region differences; added High and DoD IL5 availability in both AWS GovCloud regions for relevant Cloud Platform 10.3 versions.",
+        "articleSha256": "d9c79fc9b8870b7eb6867253200c158137d3987ec4fa1dbb83074304604970a9",
+        "comparedAt": "2026-11-27T10:18:21.604630Z",
+        "exactPlainArticleAgreement": true
+      }
+    },
+    "cloud-environment.regions": {
+      "service107": {
+        "retrievedAt": "2026-11-27T10:16:31.328040Z",
+        "section": "Available regions and region differences",
+        "articleSha256": "8eed25e9ef26f78b86dbb7bdb97dd739a2f21ac37f5089083d8d29040d1073f5",
+        "comparedAt": "2026-11-27T10:18:21.605075Z",
+        "exactPlainArticleAgreement": true
+      },
+      "changes107": {
+        "retrievedAt": "2026-11-27T10:16:41.392315Z",
+        "section": "Dated provider and region changes",
+        "articleSha256": "d9c79fc9b8870b7eb6867253200c158137d3987ec4fa1dbb83074304604970a9",
+        "comparedAt": "2026-11-27T10:18:21.605356Z",
+        "exactPlainArticleAgreement": true
+      },
+      "supplemental-2": {
+        "retrievedAt": "2026-11-27T10:16:41.571096Z",
+        "section": null,
+        "articleSha256": "8eed25e9ef26f78b86dbb7bdb97dd739a2f21ac37f5089083d8d29040d1073f5",
+        "comparedAt": "2026-11-27T10:18:21.605913Z",
+        "exactPlainArticleAgreement": true
+      },
+      "supplemental-3": {
+        "retrievedAt": "2026-11-27T10:16:44.840176Z",
+        "section": null,
+        "articleSha256": "d9c79fc9b8870b7eb6867253200c158137d3987ec4fa1dbb83074304604970a9",
+        "comparedAt": "2026-11-27T10:18:21.606322Z",
+        "exactPlainArticleAgreement": true
+      }
+    },
+    "cloud-environment.product-services": {
+      "service107": {
+        "retrievedAt": "2026-11-27T10:16:31.328040Z",
+        "section": "Premium solutions and availability by service and region",
+        "articleSha256": "8eed25e9ef26f78b86dbb7bdb97dd739a2f21ac37f5089083d8d29040d1073f5",
+        "comparedAt": "2026-11-27T10:18:21.606509Z",
+        "exactPlainArticleAgreement": true
+      },
+      "regions88": {
+        "retrievedAt": "2026-11-27T10:16:48.676405Z",
+        "section": "Regional version and product compatibility",
+        "articleSha256": "94df71ba8eca9c0ee3ec1bddd0f1d02f6e40e8431f37dab5423db3c5ce028872",
+        "comparedAt": "2026-11-27T10:18:21.606786Z",
+        "exactPlainArticleAgreement": true
+      },
+      "cloud88Service": {
+        "retrievedAt": "2026-11-27T10:16:48.703818Z",
+        "section": "SOAR Cloud service scope",
+        "articleSha256": "6e61bcf16013ee71ad4483f3c5dd8a5d8df8aca7282c319b22a1ab979afad790",
+        "comparedAt": "2026-11-27T10:18:21.607064Z",
+        "exactPlainArticleAgreement": true
+      },
+      "o11yRealmUs2": {
+        "retrievedAt": "2026-11-27T10:16:51.931470Z",
+        "section": "Realm-to-region equivalence",
+        "articleSha256": "750824ad93850917960678c719279597341e8518bc765db9e1cad32c2c08845f",
+        "comparedAt": "2026-11-27T10:18:21.607344Z",
+        "exactPlainArticleAgreement": true
+      },
+      "o11yDatabaseRegions": {
+        "retrievedAt": "2026-11-27T10:16:51.737382Z",
+        "section": "Available components per region or realm",
+        "articleSha256": "750824ad93850917960678c719279597341e8518bc765db9e1cad32c2c08845f",
+        "comparedAt": "2026-11-27T10:18:21.607717Z",
+        "exactPlainArticleAgreement": true
+      },
+      "esHighNovember": {
+        "retrievedAt": "2026-11-27T10:16:27.410926Z",
+        "section": "November 16 limited UEBA, TIM and Detection Studio High rollout",
+        "articleSha256": "c2fd725a417e92e2911f7ecf9cbbc50bbb9d49559fbacc6c165186260b302dfe",
+        "comparedAt": "2026-11-27T10:18:21.607750Z",
+        "exactPlainArticleAgreement": true
+      },
+      "soar:cloud88Ga": {
+        "retrievedAt": "2026-11-27T10:16:55.877379Z",
+        "section": null,
+        "articleSha256": "1af11082f88e1bd116f97881a7ae4dddef7d90b08efae94df4a7287813dbcf6b",
+        "comparedAt": "2026-11-27T10:18:21.608160Z",
+        "exactPlainArticleAgreement": true
+      }
+    },
+    "ai.regional-platform": {
+      "aiSaiaInstall": {
+        "retrievedAt": "2026-11-27T10:16:59.744307Z",
+        "section": "FedRAMP deployments; supported regions; version compatibility",
+        "articleSha256": "efd9a3fe4414dea1e64e14a61361c2536a0ee95ea65f53f7d94bc5eb4dc30f8e",
+        "comparedAt": "2026-11-27T10:18:21.608607Z",
+        "exactPlainArticleAgreement": true
+      },
+      "aiSaiaAbout": {
+        "retrievedAt": "2026-11-27T10:16:59.759751Z",
+        "section": "Requirements; features; ITSI subagent; where the assistant runs",
+        "articleSha256": "ca693c4793faea12d40184478da57dcb77671107a5ea9cd51bee602a3bf42d3b",
+        "comparedAt": "2026-11-27T10:18:21.608814Z",
+        "exactPlainArticleAgreement": true
+      },
+      "aiHighAnnouncement20261019": {
+        "retrievedAt": "2026-11-27T10:16:22.462759Z",
+        "section": "Expanding Capabilities in AWS GovCloud with FedRAMP High; SPL authoring and explanation",
+        "articleSha256": "fd4a158b62dc20510f6adb397eb9a84adba904cf5cc547e59ae7fdb1d57e09cc",
+        "comparedAt": "2026-11-27T10:18:21.608844Z",
+        "exactPlainArticleAgreement": true
+      },
+      "aiEsRegions88": {
+        "retrievedAt": "2026-11-27T10:16:48.676405Z",
+        "section": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility",
+        "articleSha256": "94df71ba8eca9c0ee3ec1bddd0f1d02f6e40e8431f37dab5423db3c5ce028872",
+        "comparedAt": "2026-11-27T10:18:21.608873Z",
+        "exactPlainArticleAgreement": true
+      },
+      "aiObsAssistant": {
+        "retrievedAt": "2026-11-27T10:17:03.138123Z",
+        "section": "Availability; supported realms and product areas; access; context limitations; data sharing and use",
+        "articleSha256": "c51162bb6eacb4efdb6aeddcf62d707e32b464b29d6b25effc4a01cf702397e6",
+        "comparedAt": "2026-11-27T10:18:21.609100Z",
+        "exactPlainArticleAgreement": true
+      },
+      "aiSaiaAgentMode": {
+        "retrievedAt": "2026-11-27T10:17:03.150343Z",
+        "section": "Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites",
+        "articleSha256": "239de37deb271abe1418e86bafc42ad65278b1013c46baf2d3e1cb10e0250451",
+        "comparedAt": "2026-11-27T10:18:21.609373Z",
+        "exactPlainArticleAgreement": true
+      },
+      "aiSaiaModelRuntime": {
+        "retrievedAt": "2026-11-27T10:17:06.584089Z",
+        "section": "Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off",
+        "articleSha256": "9033aed17829033a406340f4383aa1226b4c84c2159350acab74acaeae0761f6",
+        "comparedAt": "2026-11-27T10:18:21.609693Z",
+        "exactPlainArticleAgreement": true
+      },
+      "aiSaiaCloudConnected": {
+        "retrievedAt": "2026-11-27T10:17:06.548085Z",
+        "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data",
+        "articleSha256": "3afd63e41a473442b0983dcadae2f6ade116c09ff9d51c3b65a1f5a2985fc0ba",
+        "comparedAt": "2026-11-27T10:18:21.609983Z",
+        "exactPlainArticleAgreement": true
+      },
+      "aiSaiaKnownIssues": {
+        "retrievedAt": "2026-11-27T10:17:10.533672Z",
+        "section": "SAIA-9918 Cloud Connected access and 2.1.1 workaround",
+        "articleSha256": "a94259e8f053d08a7ab32c9734924cbdebc3cffe26cae615b6105650fda2e87d",
+        "comparedAt": "2026-11-27T10:18:21.610170Z",
+        "exactPlainArticleAgreement": true
+      },
+      "supplemental-0": {
+        "retrievedAt": "2026-11-27T10:17:10.519777Z",
+        "section": null,
+        "articleSha256": "11724821c3d9ba3f4ef9d8b408844db71aece93ec943d80a0bb1970535332683",
+        "comparedAt": "2026-11-27T10:18:21.610385Z",
+        "exactPlainArticleAgreement": true
+      },
+      "supplemental-1": {
+        "retrievedAt": "2026-11-27T10:17:14.501794Z",
+        "section": null,
+        "articleSha256": "045d792c59c987eaae163b9da6f32b6a9fe787c3ad547b937b4a1999744336b3",
+        "comparedAt": "2026-11-27T10:18:21.610587Z",
+        "exactPlainArticleAgreement": true
+      },
+      "supplemental-2": {
+        "retrievedAt": "2026-11-27T10:17:14.521730Z",
+        "section": null,
+        "articleSha256": "9033aed17829033a406340f4383aa1226b4c84c2159350acab74acaeae0761f6",
+        "comparedAt": "2026-11-27T10:18:21.610801Z",
+        "exactPlainArticleAgreement": true
+      },
+      "supplemental-3": {
+        "retrievedAt": "2026-11-27T10:17:18.650812Z",
+        "section": null,
+        "articleSha256": "ca693c4793faea12d40184478da57dcb77671107a5ea9cd51bee602a3bf42d3b",
+        "comparedAt": "2026-11-27T10:18:21.610918Z",
+        "exactPlainArticleAgreement": true
+      },
+      "supplemental-4": {
+        "retrievedAt": "2026-11-27T10:17:18.630326Z",
+        "section": null,
+        "articleSha256": "f9b57d5fa17f97b014ed3fe8c4f91db2809d26e6f0be44a779ac3e292b4758ea",
+        "comparedAt": "2026-11-27T10:18:21.611073Z",
+        "exactPlainArticleAgreement": true
+      },
+      "supplemental-5": {
+        "retrievedAt": "2026-11-27T10:17:24.392267Z",
+        "section": null,
+        "articleSha256": "d2ce32cb8ca0a664473e622025a302c47f2ab215a24869c1d2a91d01dbf58515",
+        "comparedAt": "2026-11-27T10:18:21.611243Z",
+        "exactPlainArticleAgreement": true
+      },
+      "supplemental-6": {
+        "retrievedAt": "2026-11-27T10:17:24.395822Z",
+        "section": null,
+        "articleSha256": "b65fbc71b841a6ffe1eb6abcedd9b467b1d3aa24ef75c1bbd72d2e0294ed76af",
+        "comparedAt": "2026-11-27T10:18:21.611486Z",
+        "exactPlainArticleAgreement": true
+      }
+    },
+    "ai.regional-es": {
+      "aiEsRegions88": {
+        "retrievedAt": "2026-11-27T10:16:48.676405Z",
+        "section": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility",
+        "articleSha256": "94df71ba8eca9c0ee3ec1bddd0f1d02f6e40e8431f37dab5423db3c5ce028872",
+        "comparedAt": "2026-11-27T10:18:21.611588Z",
+        "exactPlainArticleAgreement": true
+      },
+      "aiEsEditions": {
+        "retrievedAt": "2026-11-27T10:17:28.167801Z",
+        "section": "Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings",
+        "articleSha256": "02ef67f6df4bbbc5f2b261b394514dcc2a14582c8652e8166c6c839ba84315b2",
+        "comparedAt": "2026-11-27T10:18:21.611752Z",
+        "exactPlainArticleAgreement": true
+      },
+      "aiEsCloudConnectAgentic88": {
+        "retrievedAt": "2026-11-27T10:17:28.171681Z",
+        "section": "Platform, ES, Cloud Connect and Splunk AI Assistant floors; installation, service activation and token certificate setup",
+        "articleSha256": "944c37189263ba2bffe0f4c7bf841e8fe4432270c9ae2cac4c112b46f5355672",
+        "comparedAt": "2026-11-27T10:18:21.611973Z",
+        "exactPlainArticleAgreement": true
+      },
+      "aiSaiaCloudConnected": {
+        "retrievedAt": "2026-11-27T10:17:06.548085Z",
+        "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data",
+        "articleSha256": "3afd63e41a473442b0983dcadae2f6ade116c09ff9d51c3b65a1f5a2985fc0ba",
+        "comparedAt": "2026-11-27T10:18:21.612004Z",
+        "exactPlainArticleAgreement": true
+      }
+    },
+    "ai.regional-observability": {
+      "aiObsAssistant": {
+        "retrievedAt": "2026-11-27T10:17:03.138123Z",
+        "section": "Availability; supported realms and product areas; access; context limitations; data sharing and use",
+        "articleSha256": "c51162bb6eacb4efdb6aeddcf62d707e32b464b29d6b25effc4a01cf702397e6",
+        "comparedAt": "2026-11-27T10:18:21.612063Z",
+        "exactPlainArticleAgreement": true
+      },
+      "aiObsRca": {
+        "retrievedAt": "2026-11-27T10:17:31.935879Z",
+        "section": "Availability; supported alerts and metrics; opt-in behavior; Kubernetes remediation plans",
+        "articleSha256": "a102c9bc0fa3eba097a8fce0b7e5806e006c0fa1b4510ceca3d460d695587270",
+        "comparedAt": "2026-11-27T10:18:21.612287Z",
+        "exactPlainArticleAgreement": true
+      },
+      "aiObsServiceDetails": {
+        "retrievedAt": "2026-11-27T10:17:31.800119Z",
+        "section": "Available regions or realms; realm-to-region equivalence; available components per realm",
+        "articleSha256": "750824ad93850917960678c719279597341e8518bc765db9e1cad32c2c08845f",
+        "comparedAt": "2026-11-27T10:18:21.612608Z",
+        "exactPlainArticleAgreement": true
+      }
+    },
+    "advisor.soc-workflow": {
+      "aiEsAgents88": {
+        "retrievedAt": "2026-11-27T10:17:35.984843Z",
+        "section": "Agent and component edition notes; compatibility table for Detection Builder, Threat Graph Detection, Automation Builder, Connector Builder, AI SOC Analyst, Malware/Phishing and SOP agents; agentic chat model note",
+        "articleSha256": "65035934d8b7e631cae6c4ee43659fb310b76e3ce20db1e72c066583047c7e7a",
+        "comparedAt": "2026-11-27T10:18:21.612948Z",
+        "exactPlainArticleAgreement": true
+      },
+      "aiEsSocTask88": {
+        "retrievedAt": "2026-11-27T10:17:35.986579Z",
+        "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions",
+        "articleSha256": "920e12880d0e05f16621b85b5590b95a806629269440aa19b6e182b7e3e0c814",
+        "comparedAt": "2026-11-27T10:18:21.613222Z",
+        "exactPlainArticleAgreement": true
+      },
+      "aiEsSocTask87": {
+        "retrievedAt": "2026-11-27T10:17:40.180053Z",
+        "section": "Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions",
+        "articleSha256": "73dafb922b34ed090c3e5a98484ca4fed6f0627e9df66a7e61738d67ad3f2d1e",
+        "comparedAt": "2026-11-27T10:18:21.613535Z",
+        "exactPlainArticleAgreement": true
+      },
+      "aiEsRelease88": {
+        "retrievedAt": "2026-11-27T10:17:39.969151Z",
+        "section": "ES 8.8 Controlled Availability",
+        "articleSha256": "a83094a36b1c5f35fa3de77aeb3cd44725cbcc5c263d0323492554a0550f170c",
+        "comparedAt": "2026-11-27T10:18:21.613812Z",
+        "exactPlainArticleAgreement": true
+      },
+      "aiEsTriageNote88": {
+        "retrievedAt": "2026-11-27T10:17:35.984843Z",
+        "section": "SOC analyst Triage/Response note; aggregate AI SOC Analyst availability row",
+        "articleSha256": "65035934d8b7e631cae6c4ee43659fb310b76e3ce20db1e72c066583047c7e7a",
+        "comparedAt": "2026-11-27T10:18:21.613859Z",
+        "exactPlainArticleAgreement": true
+      },
+      "aiSaiaInstall": {
+        "retrievedAt": "2026-11-27T10:16:59.744307Z",
+        "section": "FedRAMP deployments; supported regions; version compatibility",
+        "articleSha256": "efd9a3fe4414dea1e64e14a61361c2536a0ee95ea65f53f7d94bc5eb4dc30f8e",
+        "comparedAt": "2026-11-27T10:18:21.613888Z",
+        "exactPlainArticleAgreement": true
+      },
+      "aiEsRegions88": {
+        "retrievedAt": "2026-11-27T10:16:48.676405Z",
+        "section": "Complete Essentials and Premier regional tables; Cloud Connect table; GCP/Azure scope; Security AI Assistant compatibility",
+        "articleSha256": "94df71ba8eca9c0ee3ec1bddd0f1d02f6e40e8431f37dab5423db3c5ce028872",
+        "comparedAt": "2026-11-27T10:18:21.613917Z",
+        "exactPlainArticleAgreement": true
+      },
+      "aiEsEditions": {
+        "retrievedAt": "2026-11-27T10:17:28.167801Z",
+        "section": "Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings",
+        "articleSha256": "02ef67f6df4bbbc5f2b261b394514dcc2a14582c8652e8166c6c839ba84315b2",
+        "comparedAt": "2026-11-27T10:18:21.614270Z",
+        "exactPlainArticleAgreement": true
+      },
+      "supplemental-2": {
+        "retrievedAt": "2026-11-27T10:17:47.804514Z",
+        "section": null,
+        "articleSha256": "1bd381e85503b297b563fc69731bf058e64d23cb7d315e69c0ee4ac06854320b",
+        "comparedAt": "2026-11-27T10:18:21.614532Z",
+        "exactPlainArticleAgreement": true
+      },
+      "supplemental-3": {
+        "retrievedAt": "2026-11-27T10:17:10.519777Z",
+        "section": null,
+        "articleSha256": "11724821c3d9ba3f4ef9d8b408844db71aece93ec943d80a0bb1970535332683",
+        "comparedAt": "2026-11-27T10:18:21.614581Z",
+        "exactPlainArticleAgreement": true
+      },
+      "supplemental-4": {
+        "retrievedAt": "2026-11-27T10:17:47.790200Z",
+        "section": null,
+        "articleSha256": "4a21762f7dd79c64e4efecf5876d2d8a4f54f9e256b58a2bd1f6dcc8857db843",
+        "comparedAt": "2026-11-27T10:18:21.614826Z",
+        "exactPlainArticleAgreement": true
+      }
+    }
+  },
+  "officialInventory": [
+    {
+      "id": "ingest",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor",
+      "section": "Ingest Processor availability and deployment prerequisites",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:21.708129Z",
+          "completedAt": "2026-11-27T10:18:25.669082Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/process-data-at-ingest-time/use-ingest-processors/introduction/about-ingest-processor",
+          "sha256": "ee1ff454bdd228f28acb58efed18ed968d9616c0791b78f9c7b360dc31497f23",
+          "bytes": 165298,
+          "error": null
+        }
+      ],
+      "title": "About Ingest Processor | Splunk Cloud Platform (last updated 2026-06-16T02:25:33.481Z)",
+      "articleCharacters": 10630,
+      "key": "8070ab5d5cba82a05010",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "service",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Available regions and region differences; Machine Data Lake search; third-party federated-search limitations; current subscription table lists Cloud 10.6, ES 8.7 and ITSI 5.0; supported forwarder rows extend through 10.6; page modification date",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:21.708708Z",
+          "completedAt": "2026-11-27T10:18:25.720470Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-platform-service-details",
+          "sha256": "5e2b42bf8bc454a8d9d5a0532c5156070187948a067e55ba32cfa15b6932b9a0",
+          "bytes": 509184,
+          "error": null
+        }
+      ],
+      "title": "Splunk Cloud Platform Service Details | Splunk Cloud Platform (last updated 2026-10-19T21:57:41.837Z)",
+      "articleCharacters": 115720,
+      "key": "bf0eee41cf6ae18623bf",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "changes",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "October 21, 2026 entry adds Cloud Activity Based Pricing across service-description sections for relevant Cloud 10.6 versions; October 6 regional/search/subscription history and April 8 version-scoped S3 guidance remain separate. Individual effective dates do not establish regional rollout, entitlement or authorization.",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:25.670073Z",
+          "completedAt": "2026-11-27T10:18:29.960411Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.6/information-about-the-service/splunk-cloud-service-description-change-log",
+          "sha256": "28b7dda381c5222e54b15fcda31983eeb3a88f141da9b18928fc69a017343340",
+          "bytes": 407282,
+          "error": null
+        }
+      ],
+      "title": "Splunk Cloud Service Description Change Log | Splunk Cloud Platform (last updated 2026-09-14T19:15:57.121Z)",
+      "articleCharacters": 40165,
+      "key": "312336886206984e809c",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "acs",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.6/using-the-admin-config-service-acs--api/admin-config-service-acs-requirements-and-compatibility-matrix",
+      "section": "Requirements and compatibility matrix",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:25.720865Z",
+          "completedAt": "2026-11-27T10:18:29.904282Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.6/using-the-admin-config-service-acs--api/admin-config-service-acs-requirements-and-compatibility-matrix",
+          "sha256": "e7536bc9b6aa15d4054cb781c0fff5a1503df59f1ac61f2bc65b6513673eb8d7",
+          "bytes": 189787,
+          "error": null
+        }
+      ],
+      "title": "Admin Config Service (ACS) requirements and compatibility matrix | Splunk Cloud Platform (last updated 2026-09-14T19:15:57.121Z)",
+      "articleCharacters": 5375,
+      "key": "730e7a6de539ab2a2d58",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "acsRelease",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/admin-configuration-service",
+      "section": "September 15, 2026 ACS API v2 release entry for FedRAMP High; individual operations, versions, experiences, entitlement and authorization remain separate",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:29.905215Z",
+          "completedAt": "2026-11-27T10:18:33.464398Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/release-notes/10.6/splunk-cloud-platform-release-notes/admin-configuration-service",
+          "sha256": "47b75204eb492fb19f0a54484b9e5555b8e79e61578a9acaaa1ec54e41af67d8",
+          "bytes": 246796,
+          "error": null
+        }
+      ],
+      "title": "Admin Configuration Service | Splunk Cloud Platform (last updated 2026-09-16T19:51:13.914Z)",
+      "articleCharacters": 13562,
+      "key": "f0d930cb5d157ac84f04",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "acsMaintenance",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.6/administer-splunk-cloud-platform-using-the-admin-config-service-acs-api/manage-maintenance-windows-for-splunk-cloud-platform",
+      "section": "Maintenance window requirements and limitations",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:29.960766Z",
+          "completedAt": "2026-11-27T10:18:33.370637Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.6/administer-splunk-cloud-platform-using-the-admin-config-service-acs-api/manage-maintenance-windows-for-splunk-cloud-platform",
+          "sha256": "adcd489314e0ec69c9e9057c66b369f8a5a070f515ef5c2131970ca885f75781",
+          "bytes": 220177,
+          "error": null
+        }
+      ],
+      "title": "Manage maintenance windows for Splunk Cloud Platform | Splunk Cloud Platform (last updated 2026-09-14T19:15:57.121Z)",
+      "articleCharacters": 23301,
+      "key": "22af368bb1aebc7a9ab0",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "es",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "ES 8.7; page modification date",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:33.371224Z",
+          "completedAt": "2026-11-27T10:18:37.069481Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.7/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+          "sha256": "b11df3613cc2ecda2cca73fab156d7a53d8c1fba3c987636ac44a684653cb85c",
+          "bytes": 237763,
+          "error": null
+        }
+      ],
+      "title": "Compatibility and regional availability | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-09-01T21:55:16.476Z)",
+      "articleCharacters": 10457,
+      "key": "526872634a7c9994f8f3",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "compliance",
+      "url": "https://www.splunk.com/en_us/about-splunk/splunk-data-security-and-privacy/compliance-at-splunk.html",
+      "section": "FedRAMP scope by product and level",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:29.914927Z",
+          "completedAt": "2026-11-27T10:18:33.661898Z",
+          "httpStatus": 200,
+          "finalUrl": "https://www.splunk.com/en_us/about-splunk/splunk-data-security-and-privacy/compliance-at-splunk.html",
+          "sha256": "9e4e1a19d846bf61414489be478f2791e34e78790d313964b357b456cf21a579",
+          "bytes": 388443,
+          "error": null
+        }
+      ],
+      "title": "Compliance at Splunk | Splunk",
+      "articleCharacters": 33278,
+      "key": "a5fc592e0297c2019e11",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "high",
+      "url": "https://www.fedramp.gov/marketplace/products/FR2314156865/",
+      "section": "Cloud Platform High product and authorization attributes",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:29.971485Z",
+          "completedAt": "2026-11-27T10:18:33.444731Z",
+          "httpStatus": 200,
+          "finalUrl": "https://www.fedramp.gov/marketplace/products/FR2314156865/",
+          "sha256": "b224a181dd7310f7d4e656ad2db59f16eb79b36e947d5d971abcc35312d583c0",
+          "bytes": 44165,
+          "error": null
+        }
+      ],
+      "title": "Splunk Cloud Platform for FedRAMP High | FedRAMP Marketplace Expand menu Expand menu Search Submit Icon FedRAMP on X FedRAMP on YouTube FedRAMP on GitHub FedRAMP Email Address",
+      "articleCharacters": 1581,
+      "key": "040fbe9e458b16b5230c",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "moderate",
+      "url": "https://www.fedramp.gov/marketplace/products/F1607197917/",
+      "section": "Cloud Platform Moderate product and authorization attributes",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:33.380354Z",
+          "completedAt": "2026-11-27T10:18:37.501029Z",
+          "httpStatus": 200,
+          "finalUrl": "https://www.fedramp.gov/marketplace/products/F1607197917/",
+          "sha256": "9fbaae65b233e0be16b08bcef2589246e3ec5157b13dbb1cd1ee2c4083fca164",
+          "bytes": 46535,
+          "error": null
+        }
+      ],
+      "title": "Splunk Cloud Platform for FedRAMP Moderate | FedRAMP Marketplace Expand menu Expand menu Search Submit Icon FedRAMP on X FedRAMP on YouTube FedRAMP on GitHub FedRAMP Email Address",
+      "articleCharacters": 1595,
+      "key": "24183874b123a88c45e8",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "victoria",
+      "url": "https://www.splunk.com/en_us/blog/industries/splunk-victoria-experience-is-now-authorized-at-fedramp-high.html",
+      "section": "Platform experience authorization announcement",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:33.446730Z",
+          "completedAt": "2026-11-27T10:18:37.594908Z",
+          "httpStatus": 200,
+          "finalUrl": "https://www.splunk.com/en_us/blog/industries/splunk-victoria-experience-is-now-authorized-at-fedramp-high.html",
+          "sha256": "b733e7f31f875899dd9b7e560fb5f45d0afdb40a9e9a2249ecbb955bdea59f55",
+          "bytes": 25218,
+          "error": null
+        }
+      ],
+      "title": "Modernizing the Mission: Splunk Victoria Experience is Now Authorized at FedRAMP High | Splunk",
+      "articleCharacters": 5621,
+      "key": "6b8e6906df0774ea7480",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "esmoderate",
+      "url": "https://www.splunk.com/en_us/blog/industries/splunk-enterprise-security-premier-achieves-fedramp-moderate-authorization.html",
+      "section": "Premier Moderate announcement; not universal component authorization",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:33.662280Z",
+          "completedAt": "2026-11-27T10:18:37.576017Z",
+          "httpStatus": 200,
+          "finalUrl": "https://www.splunk.com/en_us/blog/industries/splunk-enterprise-security-premier-achieves-fedramp-moderate-authorization.html",
+          "sha256": "9fec498ea0425382f82b3497a3ee6529d93592ae0ba5e0cedaa7fa44ac409bd5",
+          "bytes": 25947,
+          "error": null
+        }
+      ],
+      "title": "Elevating Federal Security: Splunk Enterprise Security Premier Achieves FedRAMP Moderate Authorization | Splunk",
+      "articleCharacters": 6332,
+      "key": "68de058b673d885b123f",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "aiObsServiceDetails",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
+      "section": "Available regions or realms; realm-to-region equivalence; available components per realm",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:33.676458Z",
+          "completedAt": "2026-11-27T10:18:36.803279Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description",
+          "sha256": "44fb67185fcd523e5f2dd1eff7c61ef1d3270d40e06783522711e0ebc69af7e8",
+          "bytes": 237868,
+          "error": null
+        }
+      ],
+      "title": "Splunk Observability Cloud service description | Observability Cloud (last updated 2026-11-16T19:49:27.176Z)",
+      "articleCharacters": 26285,
+      "key": "20d24966f205ded91363",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "agentSaas",
+      "url": "https://agent-observability-docs.splunk.com/saas/overview",
+      "section": "Current SaaS region and realm availability, access prerequisite and Luna-3 exception; no historical rollout or FedRAMP authorization established",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:36.811541Z",
+          "completedAt": "2026-11-27T10:18:40.662859Z",
+          "httpStatus": 200,
+          "finalUrl": "https://agent-observability-docs.splunk.com/saas/overview",
+          "sha256": "cedab7f1f048f606ed3652c0dafcddea16c2f042df456fff1c185ab53bc8e329",
+          "bytes": 235148,
+          "error": null
+        }
+      ],
+      "title": "Splunk Agent Observability (SaaS) - Splunk Agent Observability",
+      "articleCharacters": 3040,
+      "key": "e9d6dfb5bb271e501cfc",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "highAnnouncement20261019",
+      "url": "https://www.splunk.com/en_us/blog/industries/edge-and-ingest-processors-with-spl2-and-splunk-ai-assistant-achieve-fedramp-high.html",
+      "section": "Specifically named features and High scope",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:37.576152Z",
+          "completedAt": "2026-11-27T10:18:41.517823Z",
+          "httpStatus": 200,
+          "finalUrl": "https://www.splunk.com/en_us/blog/industries/edge-and-ingest-processors-with-spl2-and-splunk-ai-assistant-achieve-fedramp-high.html",
+          "sha256": "fb0da2b581fa3615a7be6b3e19d99ff624eff90fa9da2d33412d2a34f551622a",
+          "bytes": 27012,
+          "error": null
+        }
+      ],
+      "title": "Elevating Public Sector Data Security: Edge and Ingest Processors with SPL2 and Splunk AI Assistant Achieve FedRAMP High | Splunk",
+      "articleCharacters": 6873,
+      "key": "34916216f1f9405c4fa3",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "assistantInstall",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.2.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "section": "Splunk AI Assistant for FedRAMP deployments and Supported regions; limited IL2 support for 2.0.0+, GovCloud rows and commercial-stack lead-in retained separately; no High or offering authorization inferred",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:37.502593Z",
+          "completedAt": "2026-11-27T10:18:41.189228Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.2.0/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+          "sha256": "69fce27db985717858cccc6324d81eb1c743d014abc8c7fbb9fcfaaa8101874f",
+          "bytes": 179939,
+          "error": null
+        }
+      ],
+      "title": "Install Splunk AI Assistant for Splunk Cloud customers | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-08-07T14:48:27.406Z)",
+      "articleCharacters": 5648,
+      "key": "e508e49fabe949dc6e6b",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "service107",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Premium solutions and availability by service and region",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:37.578003Z",
+          "completedAt": "2026-11-27T10:18:41.224567Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+          "sha256": "83689b16e714921b52ae8dcbf815ad6a4f6193c08b8501032f0a81ae93fe4819",
+          "bytes": 509444,
+          "error": null
+        }
+      ],
+      "title": "Splunk Cloud Platform Service Details | Splunk Cloud Platform (last updated 2026-10-19T21:58:00.210Z)",
+      "articleCharacters": 116020,
+      "key": "2e2e157125c5c312bbb7",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "changes107",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log",
+      "section": "Dated provider and region changes",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:41.189485Z",
+          "completedAt": "2026-11-27T10:18:44.632937Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log",
+          "sha256": "5dc148c834a68de7f40253166c3ccc871e0d8527e4d230d7aa3ae5d51b43a3cc",
+          "bytes": 411573,
+          "error": null
+        }
+      ],
+      "title": "Splunk Cloud Service Description Change Log | Splunk Cloud Platform (last updated 2026-10-17T14:19:49.252Z)",
+      "articleCharacters": 40992,
+      "key": "f0b8292b6a8f5016efd7",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "s3Service107",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#ariaid-title4",
+      "section": "Available regions and region differences > Federated search for Amazon S3; both AWS GovCloud regions; Moderate inclusion and High/IL5 exclusion in this table.",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:41.225503Z",
+          "completedAt": "2026-11-27T10:18:44.656689Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#ariaid-title4",
+          "sha256": "238f7c5474881e5d91890bd6761cdda6ae859f08ba94ae33f53e3f485ad0b2bd",
+          "bytes": 509444,
+          "error": null
+        }
+      ],
+      "title": "Splunk Cloud Platform Service Details | Splunk Cloud Platform (last updated 2026-10-19T21:58:00.210Z)",
+      "articleCharacters": 116020,
+      "key": "968bfc6dc52188719961",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "s3Changes103",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log#8-april-2026-0",
+      "section": "8 April 2026 > Available region and region differences; added High and DoD IL5 availability in both AWS GovCloud regions for relevant Cloud Platform 10.3 versions.",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:44.633303Z",
+          "completedAt": "2026-11-27T10:18:48.204142Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log#8-april-2026-0",
+          "sha256": "cca4f6539038a1eac9b146d8580d81f4b35c1f547ca66786f73656a97d8f1ea8",
+          "bytes": 411573,
+          "error": null
+        }
+      ],
+      "title": "Splunk Cloud Service Description Change Log | Splunk Cloud Platform (last updated 2026-10-17T14:19:49.252Z)",
+      "articleCharacters": 40992,
+      "key": "cbf0a9a482d92d1dea54",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "service107Israel",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#id_599802a1_7358_493f_851f_15dfde0fbe0e--en__Available_regions_and_region_differences",
+      "section": "Available regions and region differences > Victoria Experience > AWS > Middle East (Israel), for new stacks.",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:44.657149Z",
+          "completedAt": "2026-11-27T10:18:48.180381Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details#id_599802a1_7358_493f_851f_15dfde0fbe0e--en__Available_regions_and_region_differences",
+          "sha256": "f3966ce6eed1eddd2f21b2e60f329ef189779e31057c77b2b09e6f20a8a9b230",
+          "bytes": 509444,
+          "error": null
+        }
+      ],
+      "title": "Splunk Cloud Platform Service Details | Splunk Cloud Platform (last updated 2026-10-19T21:58:00.210Z)",
+      "articleCharacters": 116020,
+      "key": "e88b33ef7718fd619252",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "awsIsrael",
+      "url": "https://docs.aws.amazon.com/general/latest/gr/ec2-service.html",
+      "section": "Service endpoints > Israel (Tel Aviv) and il-central-1. Provider naming only.",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:41.520395Z",
+          "completedAt": "2026-11-27T10:18:45.248026Z",
+          "httpStatus": 403,
+          "finalUrl": "https://docs.aws.amazon.com/general/latest/gr/ec2-service.html",
+          "sha256": "5b131ca14aa96311d3432b0062c7443d3b0e6346ec279bd376a75f0a76bcd5d7",
+          "bytes": 195,
+          "error": null
+        }
+      ],
+      "title": "Site Unavailable",
+      "articleCharacters": 61,
+      "key": "9f7551976c1c94308f66",
+      "outcome": "blocked"
+    },
+    {
+      "id": "changes107Israel",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log#6-november-2026-0",
+      "section": "6 November 2026 > Available regions and region differences > AWS Israel addition for relevant Cloud 10.7 versions.",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:48.180948Z",
+          "completedAt": "2026-11-27T10:18:52.088060Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log#6-november-2026-0",
+          "sha256": "316ee045eb283b58d1953b7aa3ada3862622ba79e5802a3982b3562ab622d151",
+          "bytes": 411573,
+          "error": null
+        }
+      ],
+      "title": "Splunk Cloud Service Description Change Log | Splunk Cloud Platform (last updated 2026-10-17T14:19:49.252Z)",
+      "articleCharacters": 40992,
+      "key": "9e9033cbf74a6eeeaa24",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "o11yRealmUs2",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description#realm-to-region-equivalence-0",
+      "section": "Realm-to-region equivalence",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:48.204527Z",
+          "completedAt": "2026-11-27T10:18:52.160857Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description#realm-to-region-equivalence-0",
+          "sha256": "3cff33a777c257888ae56f660b558eb96fcc8076b0c53c8a18da560e7494dbc7",
+          "bytes": 237868,
+          "error": null
+        }
+      ],
+      "title": "Splunk Observability Cloud service description | Observability Cloud (last updated 2026-11-16T19:49:27.176Z)",
+      "articleCharacters": 26285,
+      "key": "f4e0d0d33c6c4ce8b7d1",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "o11yDatabaseRegions",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description#available-components-per-region-or-realm-0",
+      "section": "Available components per region or realm",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:52.089027Z",
+          "completedAt": "2026-11-27T10:18:55.652382Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/get-started/service-description/splunk-observability-cloud-service-description#available-components-per-region-or-realm-0",
+          "sha256": "0dc610f456e34daca1cf60a6a52d5568e13ecab7e87c5551707bbbb19d78a681",
+          "bytes": 237868,
+          "error": null
+        }
+      ],
+      "title": "Splunk Observability Cloud service description | Observability Cloud (last updated 2026-11-16T19:49:27.176Z)",
+      "articleCharacters": 26285,
+      "key": "f7f42512a6d4b4a38d27",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "soar:export88Cloud",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:52.161137Z",
+          "completedAt": "2026-11-27T10:18:55.772100Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.8.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+          "sha256": "aea6ee396ccf799711074d422424c9e59f8e6abe0e07fe4af82ea3c8213cc310",
+          "bytes": 156026,
+          "error": null
+        }
+      ],
+      "title": "Check prerequisites for Splunk App for SOAR Export on Splunk Cloud Platform | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-10-19T23:11:29.073Z)",
+      "articleCharacters": 2274,
+      "key": "875b45b117e8a96ef413",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "soar:cloud88Ga",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:55.652772Z",
+          "completedAt": "2026-11-27T10:18:59.124623Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/welcome-to-splunk-soar-cloud",
+          "sha256": "927d501d0ec8dd285f20e67b53addd082a749c685c4230f44a9f5d31d5a685a1",
+          "bytes": 417452,
+          "error": null
+        }
+      ],
+      "title": "Welcome to Splunk SOAR (Cloud) | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-27T21:50:26.852Z)",
+      "articleCharacters": 78839,
+      "key": "82e4d5d64919b192142d",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "soar:broker",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-automation-broker/splunk-soar-automation-broker-release-notes/whats-new-in-splunk-soar-automation-broker",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:55.772333Z",
+          "completedAt": "2026-11-27T10:18:59.103913Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-soar/splunk-automation-broker/splunk-soar-automation-broker-release-notes/whats-new-in-splunk-soar-automation-broker",
+          "sha256": "5b1e3bf4ec8a0a4242eed38b1a0e16569db470f1ff5b115fb0375c15bd80e940",
+          "bytes": 167859,
+          "error": null
+        }
+      ],
+      "title": "What's new in Splunk SOAR Automation Broker | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-09-02T16:57:39.567Z)",
+      "articleCharacters": 7881,
+      "key": "02c70293a4bbe16d0cd4",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "soar:broker870245",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-automation-broker/splunk-soar-automation-broker-release-notes/whats-new-in-splunk-soar-automation-broker#patch-release-8.7.0.245-0",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:59.104107Z",
+          "completedAt": "2026-11-27T10:19:02.447929Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-soar/splunk-automation-broker/splunk-soar-automation-broker-release-notes/whats-new-in-splunk-soar-automation-broker#patch-release-8.7.0.245-0",
+          "sha256": "7c9d379fca26bb6a477503d9e1a03ddc09a6bb38b08ce9dd415c88b9076400ae",
+          "bytes": 167859,
+          "error": null
+        }
+      ],
+      "title": "What's new in Splunk SOAR Automation Broker | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-09-02T16:57:39.567Z)",
+      "articleCharacters": 7881,
+      "key": "3d0b3925336ffd88d2c2",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "soar:cloudKnown",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/known-issues-for-splunk-soar-cloud",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:18:59.125053Z",
+          "completedAt": "2026-11-27T10:19:02.844801Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-soar/soar-cloud/release-notes/splunk-soar-cloud-release-notes/known-issues-for-splunk-soar-cloud",
+          "sha256": "6058d66268d0d2cf0c873055f20f5cffcedf88fcd27fe80e01be6d2d4358f0c7",
+          "bytes": 803247,
+          "error": null
+        }
+      ],
+      "title": "Known issues for Splunk SOAR (Cloud) | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-04-07T22:34:35.264Z)",
+      "articleCharacters": 108338,
+      "key": "8f7b7692c203d732dc97",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "soar:exportCloud",
+      "url": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:19:02.448973Z",
+          "completedAt": "2026-11-27T10:19:06.005372Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-soar/splunk-app-for-soar-export/8.7.0/install-or-upgrade-the-splunk-app-for-soar-export-on-splunk-cloud-platform/check-prerequisites-for-splunk-app-for-soar-export-on-splunk-cloud-platform",
+          "sha256": "ce983ffacaa25700f527cd9987612bcd4e8cd706370d5bfc4f9aa4ec64e788dc",
+          "bytes": 159568,
+          "error": null
+        }
+      ],
+      "title": "Check prerequisites for Splunk App for SOAR Export on Splunk Cloud Platform | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-09-01T21:59:58.810Z)",
+      "articleCharacters": 2414,
+      "key": "673139da0582f454dad3",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "cloud88Service",
+      "url": "https://help.splunk.com/en/splunk-soar/soar-cloud/soar-cloud-service-description/the-splunk-soar-service/splunk-soar-cloud-introduction",
+      "section": "SOAR Cloud service scope",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:19:02.845383Z",
+          "completedAt": "2026-11-27T10:19:06.013004Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-soar/soar-cloud/soar-cloud-service-description/the-splunk-soar-service/splunk-soar-cloud-introduction",
+          "sha256": "5659c00e41f6ae2fb9eee4b863f5e2f2ad4108a5e007f1ec1992ce1e238bacf4",
+          "bytes": 239540,
+          "error": null
+        }
+      ],
+      "title": "Splunk SOAR (Cloud) introduction | Splunk Cloud Platform (last updated 2026-04-07T22:36:14.804Z)",
+      "articleCharacters": 43382,
+      "key": "ac533790b09dc64ef675",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "aiEsTriageNote88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+      "section": "SOC analyst Triage/Response note; aggregate AI SOC Analyst availability row",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:19:06.009363Z",
+          "completedAt": "2026-11-27T10:19:09.748079Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/agentic-ai-offerings-in-splunk-enterprise-security",
+          "sha256": "c6196c9140285c8a973ff27752a3b07c4ce9c9dd9271aeb15314169f079a8d55",
+          "bytes": 197046,
+          "error": null
+        }
+      ],
+      "title": "Agentic AI offerings in Splunk Enterprise Security | Platform (last updated 2026-11-18T23:29:22.145Z)",
+      "articleCharacters": 6270,
+      "key": "0b963040d7879579354b",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "aiEsSocTask88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
+      "section": "Cloud and CMP prerequisites; existing-finding and per-detection/per-tenant limits; frontier-model, connector, action and asset-role permissions",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:19:06.013366Z",
+          "completedAt": "2026-11-27T10:19:09.398759Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/setting-up-the-triage-and-response-agents-in-splunk-enterprise-security",
+          "sha256": "23f71d237ac3f275a7575f2e8f4c59ca11a781c177c6642c3be2bc27ce1b973a",
+          "bytes": 183869,
+          "error": null
+        }
+      ],
+      "title": "Setting up the Triage and Response agents in Splunk Enterprise Security | Platform (last updated 2026-11-19T00:56:26.084Z)",
+      "articleCharacters": 6940,
+      "key": "966c6347457dd92dfd4e",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "aiEsSocTask87",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+      "section": "Cloud prerequisites; existing-finding and per-detection/per-tenant limits; model, connector, action and asset-role permissions",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:19:09.399421Z",
+          "completedAt": "2026-11-27T10:19:12.905103Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.7/ai-assistant-in-security-and-agentic-capabilities/setting-up-the-ai-soc-analyst-agentic-workflow-in-splunk-enterprise-security",
+          "sha256": "7ec6c4e7cad70057ebe9b6a53fa2bcf7f4fff14454693b4aeb4b23714caefebd",
+          "bytes": 191729,
+          "error": null
+        }
+      ],
+      "title": "Setting up the AI SOC analyst agentic workflow in Splunk Enterprise Security | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-10-26T18:30:10.008Z)",
+      "articleCharacters": 12833,
+      "key": "826680668ee958944bf5",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "aiEsRelease88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+      "section": "ES 8.8 Controlled Availability",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:19:09.748436Z",
+          "completedAt": "2026-11-27T10:19:12.900480Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/release-notes-for-splunk-enterprise-security",
+          "sha256": "48504e31a231160ac6988cdcc2d3cafb0566b913d54dd3028bb45c86826aadf9",
+          "bytes": 217623,
+          "error": null
+        }
+      ],
+      "title": "Release notes for Splunk Enterprise Security | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-11-25T13:00:08.469Z)",
+      "articleCharacters": 17798,
+      "key": "d10f9ac6604ba17d7875",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "aiSaiaInstall",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+      "section": "FedRAMP deployments; supported regions; version compatibility",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:19:12.901178Z",
+          "completedAt": "2026-11-27T10:19:16.132242Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-cloud-customers",
+          "sha256": "0e47c1aa86a4bfe2f1c4c9dd143c4198b1d020379d79ecb47f5fbbf9f94d958d",
+          "bytes": 183823,
+          "error": null
+        }
+      ],
+      "title": "Install Splunk AI Assistant for Splunk Cloud customers | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-10-15T00:28:12.903Z)",
+      "articleCharacters": 6384,
+      "key": "933d52078c21646b9f1b",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "regions88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+      "section": "Regional version and product compatibility",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:19:12.905370Z",
+          "completedAt": "2026-11-27T10:19:16.213382Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/release-notes-and-resources/8.8/splunk-enterprise-security-release-notes/compatibility-and-regional-availability",
+          "sha256": "788da95a0d9ebdfae6ea270803566114c76523dd360f4bd3036aa1c2cb3f6f9b",
+          "bytes": 239101,
+          "error": null
+        }
+      ],
+      "title": "Compatibility and regional availability | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T03:25:41.821Z)",
+      "articleCharacters": 11083,
+      "key": "348a24aafee18c00a09b",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "aiEsEditions",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions",
+      "section": "Essentials and Premier capability groups; Security AI Assistant deployment qualification; agent groupings",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:19:16.132546Z",
+          "completedAt": "2026-11-27T10:19:19.881350Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/enterprise-security-editions/overview-of-splunk-enterprise-security-editions",
+          "sha256": "983f9922115cc1e163a29712c8052d0f913715f7146e879260cf3d789453955b",
+          "bytes": 137982,
+          "error": null
+        }
+      ],
+      "title": "Overview of Splunk Enterprise Security Editions | Splunk Cloud Platform, Splunk Enterprise (last updated 2026-10-21T16:26:20.217Z)",
+      "articleCharacters": 2953,
+      "key": "2dc2d849c6eabc9e505e",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "aiSaiaAbout",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+      "section": "Requirements; features; ITSI subagent; where the assistant runs",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:19:16.213701Z",
+          "completedAt": "2026-11-27T10:19:19.752005Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/about-splunk-ai-assistant/about-splunk-ai-assistant",
+          "sha256": "28003012f15e4cafed9982768521d8b721e0ce8cf35e541bb417c04b2f0d510a",
+          "bytes": 162716,
+          "error": null
+        }
+      ],
+      "title": "About Splunk AI Assistant | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-10-15T00:28:12.903Z)",
+      "articleCharacters": 5710,
+      "key": "a7af3e985cbd086d3974",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "aiObsAssistant",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/ai-assistant-in-observability-cloud",
+      "section": "Availability; supported realms and product areas; access; context limitations; data sharing and use",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:19:19.752314Z",
+          "completedAt": "2026-11-27T10:19:23.282489Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/splunk-ai-assistant/ai-assistant-in-observability-cloud",
+          "sha256": "6949efa01b95f6e798c1d295d07a5a20e96e40f89449da9b421f77a240590f50",
+          "bytes": 162114,
+          "error": null
+        }
+      ],
+      "title": "AI Assistant in Observability Cloud | Observability Cloud (last updated 2026-10-28T14:53:13.206Z)",
+      "articleCharacters": 9953,
+      "key": "befd90e7f10de13b3883",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "aiSaiaAgentMode",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+      "section": "Requirements; Supported regions; Enable Agent Mode; Cloud Connected setup and certificate prerequisites",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:19:19.881576Z",
+          "completedAt": "2026-11-27T10:19:23.253677Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/agent-mode-in-splunk-ai-assistant",
+          "sha256": "076b395ec60a772a70c791246969004c132892e08e6561b0e9ecfd0ac6cceb05",
+          "bytes": 202580,
+          "error": null
+        }
+      ],
+      "title": "Agent Mode in Splunk AI Assistant | Platform (last updated 2026-10-15T00:28:12.903Z)",
+      "articleCharacters": 17263,
+      "key": "a4b22ed4024fa0c247ca",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "aiSaiaModelRuntime",
+      "url": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+      "section": "Supported regions; Feature availability and region standard; Using Model Runtime; Turn Model Runtime on or off",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:19:23.254269Z",
+          "completedAt": "2026-11-27T10:19:26.845048Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise/search/splunk-ai-assistant/2.3.6/use-splunk-ai-assistant/model-runtime-in-splunk-ai-assistant",
+          "sha256": "177005be4a16cf1a65a8f35ba2ca7d03691550945087ce0438fb8cfd7189309b",
+          "bytes": 175783,
+          "error": null
+        }
+      ],
+      "title": "Model Runtime in Splunk AI Assistant | Platform (last updated 2026-10-15T00:28:12.903Z)",
+      "articleCharacters": 6983,
+      "key": "b2af8c3f2c5d15149dde",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "aiSaiaCloudConnected",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+      "section": "Cloud Connected compatibility; Version compatibility; Activation steps; How Splunk AI Assistant uses your data",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:19:23.282686Z",
+          "completedAt": "2026-11-27T10:19:26.863977Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/install-and-configure-splunk-ai-assistant/install-splunk-ai-assistant-for-splunk-enterprise-customers-with-cloud-connected",
+          "sha256": "816c376c9168b72311b43a6b030adc195277ae24ab04953602384460326a45a4",
+          "bytes": 178985,
+          "error": null
+        }
+      ],
+      "title": "Install Splunk AI Assistant for Splunk Enterprise customers with Cloud Connected | Platform (last updated 2026-11-03T19:32:46.083Z)",
+      "articleCharacters": 9908,
+      "key": "8f71af7acdb0a6fe115b",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "aiSaiaKnownIssues",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
+      "section": "SAIA-9918 Cloud Connected access and 2.1.1 workaround",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:19:26.845591Z",
+          "completedAt": "2026-11-27T10:19:30.814956Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/search/splunk-ai-assistant/2.3.6/release-notes/known-issues",
+          "sha256": "61eea898a51bf9b42089f8f024c56cabcd1c21954437716f2ddf4152ac68cb4e",
+          "bytes": 143795,
+          "error": null
+        }
+      ],
+      "title": "Known issues | Splunk Enterprise, Splunk Cloud Platform (last updated 2026-11-25T20:49:45.554Z)",
+      "articleCharacters": 964,
+      "key": "c8748b9943e651ffba54",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "aiEsCloudConnectAgentic88",
+      "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/set-up-splunk-cloud-connect-to-use-the-agentic-soc",
+      "section": "Platform, ES, Cloud Connect and Splunk AI Assistant floors; installation, service activation and token certificate setup",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:19:26.866251Z",
+          "completedAt": "2026-11-27T10:19:31.032158Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.8/agentic-capabilities-in-splunk-enterprise-security/set-up-splunk-cloud-connect-to-use-the-agentic-soc",
+          "sha256": "a038550a861d94f586c04b5cdce13af0c82a9dcc981dd0417a45016baf66755b",
+          "bytes": 191957,
+          "error": null
+        }
+      ],
+      "title": "Set up Splunk Cloud Connect to use the agentic SOC | Platform (last updated 2026-11-18T23:29:23.671Z)",
+      "articleCharacters": 7585,
+      "key": "772289d5c453a6cdd71f",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "aiObsRca",
+      "url": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan",
+      "section": "Availability; supported alerts and metrics; opt-in behavior; Kubernetes remediation plans",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:19:30.815348Z",
+          "completedAt": "2026-11-27T10:19:34.563774Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-observability-cloud/create-alerts-detectors-and-service-level-objectives/create-alerts-and-detectors/ai-troubleshooting-agent-and-remediation-plan",
+          "sha256": "6b2f25e65a9a60d8756fae475219c5ba9cc4380deca24425376205b4de01479d",
+          "bytes": 172548,
+          "error": null
+        }
+      ],
+      "title": "AI troubleshooting agent and remediation plan | Observability Cloud (last updated 2026-07-07T17:58:22.465Z)",
+      "articleCharacters": 7729,
+      "key": "60a63b47568f9b9b7ecb",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "acs108",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.8/using-the-admin-config-service-acs--api/admin-config-service-acs-requirements-and-compatibility-matrix",
+      "section": "Requirements and compatibility matrix, ACS-supported compliance environments",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:19:31.034000Z",
+          "completedAt": "2026-11-27T10:19:34.451993Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.8/using-the-admin-config-service-acs--api/admin-config-service-acs-requirements-and-compatibility-matrix",
+          "sha256": "1acfd8696d3be78c0867852424e2209640cc1593e20d6d95042ae254bc962527",
+          "bytes": 189737,
+          "error": null
+        }
+      ],
+      "title": "Admin Config Service (ACS) requirements and compatibility matrix | Splunk Cloud Platform (last updated 2026-11-08T15:22:50.733Z)",
+      "articleCharacters": 5375,
+      "key": "0990d6c4f91e03d7218e",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "esHighNovember",
+      "url": "https://www.splunk.com/en_us/blog/industries/new-expanded-capabilities-are-now-available-for-splunk-enterprise-security-fedramp-high-customers.html",
+      "section": "November 16 limited UEBA, TIM and Detection Studio High rollout",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:19:26.868164Z",
+          "completedAt": "2026-11-27T10:19:31.413797Z",
+          "httpStatus": 200,
+          "finalUrl": "https://www.splunk.com/en_us/blog/industries/new-expanded-capabilities-are-now-available-for-splunk-enterprise-security-fedramp-high-customers.html",
+          "sha256": "1a937e23259e5f9e8a7e2ea75232dcd912738dd2516b02f6050ef22c0e33da39",
+          "bytes": 24363,
+          "error": null
+        }
+      ],
+      "title": "New Expanded Capabilities Are Now Available for Splunk Enterprise Security FedRAMP High Customers | Splunk",
+      "articleCharacters": 4291,
+      "key": "f9e4f2c87baa1b4a5966",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "acs108",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.8/using-the-admin-config-service-acs--api/admin-config-service-acs-requirements-and-compatibility-matrix",
+      "section": "Requirements and compatibility matrix, ACS-supported compliance environments",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:19:34.452300Z",
+          "completedAt": "2026-11-27T10:19:39.552044Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.8/using-the-admin-config-service-acs--api/admin-config-service-acs-requirements-and-compatibility-matrix",
+          "sha256": "3dd568b3e1bac6c5704da63d7eb06f3530ad4d2762bda66f3284f86bfe2f2431",
+          "bytes": 189737,
+          "error": null
+        }
+      ],
+      "title": "Admin Config Service (ACS) requirements and compatibility matrix | Splunk Cloud Platform (last updated 2026-11-08T15:22:50.733Z)",
+      "articleCharacters": 5546,
+      "key": "0990d6c4f91e03d7218e",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "esHighNovember",
+      "url": "https://www.splunk.com/en_us/blog/industries/new-expanded-capabilities-are-now-available-for-splunk-enterprise-security-fedramp-high-customers.html",
+      "section": "November 16 limited UEBA, TIM and Detection Studio High rollout",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:19:31.037694Z",
+          "completedAt": "2026-11-27T10:19:34.468309Z",
+          "httpStatus": 200,
+          "finalUrl": "https://www.splunk.com/en_us/blog/industries/new-expanded-capabilities-are-now-available-for-splunk-enterprise-security-fedramp-high-customers.html",
+          "sha256": "235ce3b2b162b68740f64ce1759a9831532e9e80b8f152b2b3b3103fed813eaf",
+          "bytes": 24363,
+          "error": null
+        }
+      ],
+      "title": "New Expanded Capabilities Are Now Available for Splunk Enterprise Security FedRAMP High Customers | Splunk",
+      "articleCharacters": 4291,
+      "key": "f9e4f2c87baa1b4a5966",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "acs108",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.8/using-the-admin-config-service-acs--api/admin-config-service-acs-requirements-and-compatibility-matrix",
+      "section": "Requirements and compatibility matrix, ACS-supported compliance environments",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:19:34.564021Z",
+          "completedAt": "2026-11-27T10:19:39.608922Z",
+          "httpStatus": 200,
+          "finalUrl": "https://help.splunk.com/en/splunk-cloud-platform/administer/admin-config-service-manual/10.8/using-the-admin-config-service-acs--api/admin-config-service-acs-requirements-and-compatibility-matrix",
+          "sha256": "bb12281c92c63059638a4fee488865c125ea0211a4c5afeb147c0b979dc03851",
+          "bytes": 189737,
+          "error": null
+        }
+      ],
+      "title": "Admin Config Service (ACS) requirements and compatibility matrix | Splunk Cloud Platform (last updated 2026-11-08T15:22:50.733Z)",
+      "articleCharacters": 5375,
+      "key": "0990d6c4f91e03d7218e",
+      "outcome": "retrieved"
+    },
+    {
+      "id": "esHighNovember",
+      "url": "https://www.splunk.com/en_us/blog/industries/new-expanded-capabilities-are-now-available-for-splunk-enterprise-security-fedramp-high-customers.html",
+      "section": "November 16 limited UEBA, TIM and Detection Studio High rollout",
+      "attempts": [
+        {
+          "method": "direct-public-https",
+          "startedAt": "2026-11-27T10:19:26.868164Z",
+          "completedAt": "2026-11-27T10:19:31.413797Z",
+          "httpStatus": 200,
+          "finalUrl": "https://www.splunk.com/en_us/blog/industries/new-expanded-capabilities-are-now-available-for-splunk-enterprise-security-fedramp-high-customers.html",
+          "sha256": "1a937e23259e5f9e8a7e2ea75232dcd912738dd2516b02f6050ef22c0e33da39",
+          "bytes": 24363,
+          "error": null
+        }
+      ],
+      "title": "New Expanded Capabilities Are Now Available for Splunk Enterprise Security FedRAMP High Customers | Splunk",
+      "articleCharacters": 4291,
+      "key": "f9e4f2c87baa1b4a5966",
+      "outcome": "retrieved"
+    }
+  ],
   "matrixVerification": {
     "at": "2026-11-27T10:16:59.527Z",
     "rows": [
@@ -4632,7 +6433,16 @@
   "supplements": {
     "cloud-environment.fedramp": [
       "Independent November 16 High announcement for UEBA, TIM and Detection Studio is assessed with premium-services and does not establish all Premier components."
-    ]
+    ],
+    "cloud-environment.regions": {
+      "awsIndexed": {
+        "url": "https://docs.aws.amazon.com/general/latest/gr/ec2-service.html",
+        "section": "Service endpoints: Israel (Tel Aviv) and both AWS GovCloud rows",
+        "assessmentAt": "2026-11-27T10:19:18.283992Z",
+        "retrievalClock": "Direct HTML and publisher-linked Markdown failures have exact clocks. Independently retrieved and assessed the current publisher-indexed bodies within this occurrence; the indexing service does not expose an article retrieval timestamp.",
+        "qualification": "Both direct HTTP 403 results remain in sourceChecks."
+      }
+    }
   },
   "renderedIssueObservations": [],
   "publicPublicationReadback": {
@@ -4718,7 +6528,177 @@
       "phase": "content-model-and-database-delivery"
     }
   },
-  "issueObservations": [],
+  "issueObservations": [
+    {
+      "findingId": "vci-fedramp-high-certified-services-display",
+      "capabilityId": "cloud-environment.fedramp",
+      "sourceIds": [
+        "high",
+        "compliance"
+      ],
+      "outcome": "still-present",
+      "assessedAt": "2026-11-27T10:17:36.349543Z",
+      "rationale": "The exact FR2314156865 offering is certified Rev5 Agency Class D (High). Its current embedded certified_services array is empty. The dated vendor matrix and October 19 feature-specific announcement still provide different public scope signals. Component certification may not be concluded from the empty array."
+    },
+    {
+      "findingId": "vci-fedramp-moderate-certified-services-display",
+      "capabilityId": "cloud-environment.fedramp",
+      "sourceIds": [
+        "moderate",
+        "compliance"
+      ],
+      "outcome": "still-present",
+      "assessedAt": "2026-11-27T10:17:36.349543Z",
+      "rationale": "The exact F1607197917 offering is certified Rev5 Agency Class C (Moderate). Its current embedded certified_services array is empty. The vendor matrix still gives dated product/feature rows; the empty array provides no component exclusion or authorization change."
+    },
+    {
+      "findingId": "vci-acs-fedramp-high-victoria-conflict",
+      "capabilityId": "cloud-environment.experience",
+      "sourceIds": [
+        "acs",
+        "acsMaintenance"
+      ],
+      "outcome": "still-present",
+      "assessedAt": "2026-11-27T10:19:18.283981Z",
+      "rationale": "The current ACS compatibility rows for High read Victoria No and Classic Yes in both 10.7 and 10.8. Their adjacent compliance prose says both experiences. The separate maintenance-window API topic excludes High; confirm the specific operation, topology, version and experience."
+    },
+    {
+      "findingId": "vci-cloud-s3-restricted-scope",
+      "capabilityId": "cloud-environment.experience",
+      "sourceIds": [
+        "service107",
+        "s3Changes103"
+      ],
+      "outcome": "still-present",
+      "assessedAt": "2026-11-27T10:19:18.283981Z",
+      "rationale": "The 10.7 and 10.8 service table excludes High and IL5 in both GovCloud regions for Federated Search for Amazon S3. The April 8 history names their addition in both for relevant 10.3 versions. Do not generalize either across the other release or the third-party search scope."
+    },
+    {
+      "findingId": "vci-o11y-database-monitoring-us2-conflict",
+      "capabilityId": "cloud-environment.product-services",
+      "sourceIds": [
+        "o11yRealmUs2",
+        "o11yDatabaseRegions"
+      ],
+      "outcome": "still-present",
+      "assessedAt": "2026-11-27T10:19:18.283998Z",
+      "rationale": "The Observability service document maps us2 to Google Cloud Oregon in its realm-to-region table. Its Database Monitoring row lists us2 and says None in the Google Cloud column. The visible report and both exports retain this unresolved conflict."
+    },
+    {
+      "findingId": "vci-saia-dublin-base-service-listing",
+      "capabilityId": "ai.regional-platform",
+      "sourceIds": [
+        "aiSaiaAbout",
+        "aiSaiaInstall"
+      ],
+      "outcome": "still-present",
+      "assessedAt": "2026-11-27T10:19:18.284000Z",
+      "rationale": "The exact 2.3.6 About and Cloud Install lists have 22 and 21 data rows and match on all common labels and dates. About alone lists AWS EU Dublin effective June 28, 2024. The 2.4.0 pair has the same difference. Both original live reports and exports kept the base SPL answer unconfirmed and Agent Mode separately scoped."
+    },
+    {
+      "findingId": "vci-itsi-subagent-region",
+      "capabilityId": "ai.regional-platform",
+      "sourceIds": [
+        "aiSaiaAbout",
+        "aiSaiaInstall"
+      ],
+      "outcome": "still-present",
+      "assessedAt": "2026-11-27T10:19:18.284000Z",
+      "rationale": "The scoped ITSI subsection confirms the three app floors and its six tool functions. Neither it nor the separately scoped base and Agent Mode tables establishes Dublin ITSI rollout. The current report preserves that gap and the exact SAIA 2.3.6 MCP 2.1.0 exception."
+    },
+    {
+      "findingId": "vci-saia-agent-runtime-processing-scope",
+      "capabilityId": "ai.regional-platform",
+      "sourceIds": [
+        "aiSaiaModelRuntime",
+        "aiSaiaCloudConnected"
+      ],
+      "outcome": "still-present",
+      "assessedAt": "2026-11-27T10:19:18.284000Z",
+      "rationale": "The feature-specific 2.3.6 runtime evidence gives Sydney APAC Data Zone inference with potential processing outside Australia and separately qualifies data at rest under the Australia Azure geography. Dublin uses the Global standard. The generic Cloud Connected deployment description does not replace those feature-specific routes."
+    },
+    {
+      "findingId": "vci-saia-cloud-connected-agent-mode-scope",
+      "capabilityId": "ai.regional-platform",
+      "sourceIds": [
+        "aiSaiaAgentMode",
+        "aiSaiaCloudConnected",
+        "aiSaiaKnownIssues"
+      ],
+      "outcome": "partially-addressed",
+      "assessedAt": "2026-11-27T10:19:18.284000Z",
+      "rationale": "The historical conditional Agent Mode guide is narrower than the installation access decision: the 2.3.6 install guide and SAIA-9918 block 2.2.0 through 2.3.6 with a no-Agent-Mode 2.1.1 workaround. The 2.4.0 commercial setup path has separate conditions. Deployment prerequisites do not establish a universal Agent Mode rollout."
+    },
+    {
+      "findingId": "vci-saia-high-runtime-scope",
+      "capabilityId": "ai.regional-platform",
+      "sourceIds": [
+        "aiSaiaInstall",
+        "aiHighAnnouncement20261019",
+        "supplemental-6"
+      ],
+      "outcome": "partially-addressed",
+      "assessedAt": "2026-11-27T10:19:18.284000Z",
+      "rationale": "The October 19 High announcement is qualified by the 2.4.0 release notes, which document core SPL generation and explanation and explicitly exclude Agent Mode for supported High environments. The 2.3.6 IL2 hosted-model rule is separately scoped. Exact High runtime placement and customer activation remain open."
+    },
+    {
+      "findingId": "vci-observability-ai-us3-region-mapping",
+      "capabilityId": "ai.regional-observability",
+      "sourceIds": [
+        "aiObsAssistant",
+        "aiObsServiceDetails"
+      ],
+      "outcome": "still-present",
+      "assessedAt": "2026-11-27T10:19:18.284023Z",
+      "rationale": "Assistant Availability still includes us3. The current Observability Service Description realm-equivalence table does not map us3. Keep its location unresolved and assess the RCA agent’s non-governmental realms separately."
+    },
+    {
+      "findingId": "vci-es-soc-analyst-version-floor",
+      "capabilityId": "advisor.soc-workflow",
+      "sourceIds": [
+        "aiEsAgents88",
+        "aiEsSocTask87"
+      ],
+      "outcome": "still-present",
+      "assessedAt": "2026-11-27T10:19:18.284025Z",
+      "rationale": "The current renamed agents topic lists aggregate AI SOC Cloud Platform 10.2 and ES 8.6 floors. The task-specific historical workflow specifies ES 8.7 and retains different applicability. Preserve the discrepancy without moving the CMP floor or implying exact entitlement."
+    },
+    {
+      "findingId": "vci-es-88-soc-source-locators",
+      "capabilityId": "advisor.soc-workflow",
+      "sourceIds": [
+        "supplemental-0",
+        "aiEsAgents88",
+        "supplemental-1",
+        "aiEsSocTask88"
+      ],
+      "outcome": "partially-addressed",
+      "assessedAt": "2026-11-27T10:19:18.284025Z",
+      "rationale": "Both retired ES 8.8 addresses returned HTTP 404 in this occurrence. The registered renamed offerings and Triage/Response prerequisite topics resolved with substantive bodies. Both original failures and usable replacements retain their own clocks."
+    },
+    {
+      "findingId": "vci-saia-236-mcp-210-incompatibility",
+      "capabilityId": "ai.regional-platform",
+      "sourceIds": [
+        "aiSaiaKnownIssues",
+        "aiSaiaAbout"
+      ],
+      "outcome": "still-present",
+      "assessedAt": "2026-11-27T10:19:18.284000Z",
+      "rationale": "The 2.3.6 known-issues article shows SAIA-10157, dated November 6, for the exact SAIA 2.3.6 and MCP 2.1.0 incompatibility. Both current Dublin ITSI reports retained the exact finding with its official supplementary citation. This is a version-specific compatibility caveat."
+    },
+    {
+      "findingId": "vci-cloud-107-aws-israel-filter",
+      "capabilityId": "cloud-environment.regions",
+      "sourceIds": [
+        "service107",
+        "changes107"
+      ],
+      "outcome": "addressed-in-reviewed-scope",
+      "assessedAt": "2026-11-27T10:19:18.283995Z",
+      "rationale": "The 10.7 Victoria AWS row lists Israel for new stacks and the November 6 change log limits the addition to relevant 10.7 versions. The AWS Israel selected reader answer and official citation passed on the latest occurrence on both public domains, independently reopened offline and in printed PDFs. AWS EC2 endpoint labels and historical release availability remain independently scoped."
+    }
+  ],
   "ownerReaderArtifact": [],
   "readerEvidence": [
     {
@@ -4738,7 +6718,7 @@
       "checkedAt": "2026-11-27T10:18:17.567Z"
     }
   ],
-  "outcome": "partial",
+  "outcome": "assessed-no-change",
   "validation": {
     "candidateExport": "pending"
   },
@@ -4753,19 +6733,16 @@
   "issueFeed": {
     "schemaVersion": 1,
     "watchId": "csp-fedramp-watch",
-    "status": "no-new-observations",
-    "recordedAt": "2026-11-27T10:18:45.745Z",
-    "reviewDigest": "1ceefe9789fe1fb6661fc224ceb820d79a37b08de8edc672d88f902e7a76c7e4",
+    "status": "pending-public-provenance",
+    "recordedAt": "2026-11-27T10:19:56.483Z",
+    "reviewDigest": "49bc33cf24d6df6cf34b00a39f797ab9ead4e39acef24e2f260c8d5ed106b290",
     "publicationId": "vci-5a806422b8e2061bc5653c786dbe30fd55b7d5d625e4467d3b497055019979cd",
     "recordKeys": [],
     "notReassessedFindingIds": [
-      "vci-acs-fedramp-high-victoria-conflict",
       "vci-ai-report-source-directory",
       "vci-app-for-soar-88-onprem-matrix-cell",
       "vci-app-for-soar-es-pairing",
-      "vci-cloud-107-aws-israel-filter",
       "vci-cloud-107-release-service-pairing",
-      "vci-cloud-s3-restricted-scope",
       "vci-enterprise-104-legacy-tls-scope",
       "vci-enterprise-106-legacy-tls-override-conflict",
       "vci-enterprise-kv-106-upgrade-bridge",
@@ -4778,7 +6755,6 @@
       "vci-es-88-premier-uae-service-disruption",
       "vci-es-88-response-agent-rerun-coverage",
       "vci-es-88-response-deployment-column-conflict",
-      "vci-es-88-soc-source-locators",
       "vci-es-88-sop-upload-format-scope",
       "vci-es-88-threat-graph-minimum-event-copy",
       "vci-es-88-triage-credit-revision-scope",
@@ -4790,27 +6766,16 @@
       "vci-es-malware-phishing-version-floor",
       "vci-es-security-assistant-runtime-ap-routing",
       "vci-es-security-assistant-runtime-default",
-      "vci-es-soc-analyst-version-floor",
       "vci-es-taxii-protocol-version-scope",
-      "vci-fedramp-high-certified-services-display",
-      "vci-fedramp-moderate-certified-services-display",
       "vci-forwarder-104-stale-maintenance-wording",
       "vci-itsi-503-enterprise-102-patch-scope",
       "vci-itsi-503-service-discovery-46607",
       "vci-itsi-503-service-discovery-46608",
-      "vci-itsi-subagent-region",
-      "vci-o11y-database-monitoring-us2-conflict",
       "vci-o11y-november-saas-milestone-coverage",
       "vci-o11y-november-unmatched-pdf-heading-split",
       "vci-o11y-secure-app-dotnet-dual-mode-realms",
-      "vci-observability-ai-us3-region-mapping",
       "vci-observability-chat-history-scope",
       "vci-observability-rca-custom-metric-scope",
-      "vci-saia-236-mcp-210-incompatibility",
-      "vci-saia-agent-runtime-processing-scope",
-      "vci-saia-cloud-connected-agent-mode-scope",
-      "vci-saia-dublin-base-service-listing",
-      "vci-saia-high-runtime-scope",
       "vci-soar-broker-870245-maintenance-visibility",
       "vci-soar-cloud-880-release-stage",
       "vci-soar-cmp-88-fixed-issues-label",
@@ -4820,7 +6785,9 @@
       "vci-svd-2026-1015-applicability",
       "vci-uf-remote-upgrader-route-coverage"
     ],
-    "deferredConcerns": [],
+    "deferredConcerns": [
+      "Append supported assessments to the verified canonical checkpoint after this source audit becomes public. CSP FedRAMP Watch. Review by November 28."
+    ],
     "qualification": "Retain the current checkpoint and all existing immutable histories."
   }
 }
