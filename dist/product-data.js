@@ -1236,7 +1236,7 @@ Object.assign(window.SPLUNK_DATA, {
           "requirements": [
             [
               "Check the ITSI 5.0.3 package listing",
-              "Splunkbase lists platform lines 10.2, 10.3, 10.4, 10.5, 10.6, 10.7 and 10.8 for the 5.0.3 package. Confirm the installed Enterprise patch against the compatibility matrix and the managed Cloud stack against Service Details.",
+              "Splunkbase currently lists platform lines 10.4, 10.5, 10.6, 10.7 and 10.8 for the ITSI 5.0.3 package. The November 25 capture of this same package recorded the broader listing: “Splunkbase lists platform lines 10.2, 10.3, 10.4, 10.5, 10.6, 10.7 and 10.8 for the 5.0.3 package.” Splunk Help lists ITSI 5.0 on Enterprise 10.2.x without a patch range. Confirm the exact pairing and the managed Cloud stack separately.",
               "Validate",
               "https://splunkbase.splunk.com/app/1841",
               false

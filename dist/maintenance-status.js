@@ -754,10 +754,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-25T08:03:39.328400Z",
+      "lastAttempt": "2026-11-27T08:00:05.528151Z",
       "lastSuccess": "2026-11-21T19:40:05.303Z",
       "outcome": "blocked",
-      "summary": "Verified 25 Release sections in the public reports. Enterprise and SOAR guide reviews remain open.",
+      "summary": "Retained a partial public review and staged the ITSI package wording correction.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1699,9 +1699,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Verified 25 Release sections in the public reports. Enterprise and SOAR guide reviews remain open.",
           "scope": "The itemized Enterprise 10.6.2 and SOAR on-premises 8.8.0 issues could not be verified in the public sources. The November 24 confirmed evidence is retained."
+        },
+        {
+          "at": "2026-11-27T08:00:05.528151Z",
+          "outcome": "running",
+          "summary": "Began the dated public review.",
+          "scope": "Release Guide, Prep for 11.x, Exact Releases, AI availability, and Advisor source dependencies."
+        },
+        {
+          "at": "2026-11-27T08:16:53Z",
+          "outcome": "blocked",
+          "summary": "Retained a partial public review and staged the ITSI package wording correction.",
+          "scope": "Observability and the Cloud quarterly issue were checked. The ES 8.8 known-issue rows and the ITSI correction's live verification remain open."
         }
       ],
-      "scope": "The itemized Enterprise 10.6.2 and SOAR on-premises 8.8.0 issues could not be verified in the public sources. The November 24 confirmed evidence is retained."
+      "scope": "Observability and the Cloud quarterly issue were checked. The ES 8.8 known-issue rows and the ITSI correction's live verification remain open."
     },
     {
       "id": "es-editions-watch",
