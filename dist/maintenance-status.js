@@ -1742,10 +1742,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-27T09:01:57.548671Z",
-      "lastSuccess": "2026-11-27T09:08:13Z",
+      "lastAttempt": "2026-11-28T09:01:15.768523Z",
+      "lastSuccess": "2026-11-28T09:06:10.449047+00:00",
       "outcome": "no-change",
-      "summary": "Completed six bounded ES sections against current public evidence and reports.",
+      "summary": "Six ES sections retain their current qualified answers. Both public origins passed the selected screen, saved HTML and PDF checks.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -2531,9 +2531,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Completed six bounded ES sections against current public evidence and reports.",
           "scope": "Licensing, history, deployment, workflows, five ES AI capabilities and SOC Advisor dependency. Existing source conflicts and unknown applicability remain qualified."
+        },
+        {
+          "at": "2026-11-28T09:01:15.768523Z",
+          "outcome": "running",
+          "summary": "Review the current ES Editions, AI capability and SOC guidance.",
+          "scope": "Six ES sections and their public reports and citations."
+        },
+        {
+          "at": "2026-11-28T09:06:10.449047+00:00",
+          "outcome": "no-change",
+          "summary": "Six ES sections retain their current qualified answers. Both public origins passed the selected screen, saved HTML and PDF checks.",
+          "scope": "ES licensing, history, deployment, workflows, five AI capability families and the SOC Advisor dependency."
         }
       ],
-      "scope": "Licensing, history, deployment, workflows, five ES AI capabilities and SOC Advisor dependency. Existing source conflicts and unknown applicability remain qualified."
+      "scope": "ES licensing, history, deployment, workflows, five AI capability families and the SOC Advisor dependency."
     },
     {
       "id": "version-guidance-audit",
