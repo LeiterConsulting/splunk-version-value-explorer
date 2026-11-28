@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-es-activity-pricing-deployment-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-28T09:12:15.756Z",
+  "assessmentId": "vcia-es-20261128-186d1dc9-5",
+  "assessedAt": "2026-11-28T09:03:51.005Z",
+  "originalAssessedAt": "2026-11-28T09:03:51.005029+00:00",
+  "outcome": "still-present",
+  "rationale": "The pricing overview lists multiple models, while the detailed activity FAQ is scoped to Cloud Platform. ES deployment and individual contract eligibility need their own evidence.",
+  "reviewedScope": {
+    "products": [
+      "es-editions.licensing"
+    ],
+    "versions": [
+      "Exact ES 8.8 and named historical versions in the source audit"
+    ],
+    "editions": null,
+    "deployments": [
+      "Exact Cloud or Cloud Connected CMP scope in the source audit"
+    ],
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Scope stays with the named release and deployment. No tenant eligibility, unstated region, undocumented pairing or offering authorization is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-es-20261127-391ccb4b-5"
+  ],
+  "remainingConcerns": [
+    "Review the exact documentation and unresolved applicability with ES Editions Watch on November 29. Prior issue evidence retains its original scope and time."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "vcia-es-20261128-186d1dc9-5-0",
+      "url": "https://www.splunk.com/en_us/products/pricing.html",
+      "section": "Enterprise Security and SOAR pricing models",
+      "statement": "The pricing overview lists multiple models, while the detailed activity FAQ is scoped to Cloud Platform. ES deployment and individual contract eligibility need their own evidence.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-28T09:02:31.525Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "863128c25f98e98372392c1ae55af69682e36dc55a6d6765f16b324addf42584",
+        "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+      },
+      "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+    },
+    {
+      "evidenceId": "vcia-es-20261128-186d1dc9-5-1",
+      "url": "https://www.splunk.com/en_us/products/pricing/pricing-models.html",
+      "section": "Pricing Models",
+      "statement": "Exact supporting or contrasting vendor section examined during this review; see the source audit for release and deployment scope.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-28T09:02:31.858Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "26fa0517d0307468637a7fe592d5ef86eb2e0701421fdd4abdad955c9b5a3ffb",
+        "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+      },
+      "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/5d0fb07eebe93cc385e49cb852f402ae2bb01c0f/docs/audits/2026-11-28-es-editions-watch-review-132686911195582-sources.json",
+      "pointer": "/issueObservations/4",
+      "originalLabel": "still-present"
+    }
+  ]
+}
