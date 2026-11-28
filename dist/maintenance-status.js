@@ -6,10 +6,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "csp-fedramp-watch",
       "name": "CSP FedRAMP Watch",
-      "lastAttempt": "2026-11-27T10:14:34.633511Z",
-      "lastSuccess": "2026-11-27T10:20:56.815770Z",
+      "lastAttempt": "2026-11-28T09:57:50.524976Z",
+      "lastSuccess": "2026-11-28T10:09:12.990Z",
       "outcome": "no-change",
-      "summary": "Fresh source and reader checks passed for seven owned sections, with the supporting SOC prerequisites independently assessed.",
+      "summary": "Rechecked seven primary sections. Both public report origins and their HTML and PDF exports preserve the supported boundaries and documented uncertainties.",
       "history": [
         {
           "at": "2026-09-25T11:19:20.913079+00:00",
@@ -771,9 +771,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Fresh source and reader checks passed for seven owned sections, with the supporting SOC prerequisites independently assessed.",
           "scope": "Cloud Environment, regulated offerings, AI regional availability, and SOC prerequisites."
+        },
+        {
+          "at": "2026-11-28T09:57:50.524976Z",
+          "outcome": "running",
+          "summary": "Reviewing Cloud service, FedRAMP and AI regional guidance.",
+          "scope": "Four Cloud Environment sections, three AI regional sections and supporting SOC Advisor prerequisites"
+        },
+        {
+          "at": "2026-11-28T10:09:12.990Z",
+          "outcome": "no-change",
+          "summary": "Rechecked seven primary sections. Both public report origins and their HTML and PDF exports preserve the supported boundaries and documented uncertainties.",
+          "scope": "Four Cloud Environment sections, three AI regional sections and supporting SOC Advisor prerequisites"
         }
       ],
-      "scope": "Cloud Environment, regulated offerings, AI regional availability, and SOC prerequisites."
+      "scope": "Four Cloud Environment sections, three AI regional sections and supporting SOC Advisor prerequisites"
     },
     {
       "id": "version-release-watch",
