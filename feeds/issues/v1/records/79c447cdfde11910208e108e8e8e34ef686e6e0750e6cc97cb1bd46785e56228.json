@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "assessment",
+  "synthetic": false,
+  "findingId": "vci-cloud-s3-restricted-scope",
+  "revision": 1,
+  "recordedAt": "2026-11-28T10:11:00.687Z",
+  "assessmentId": "vcia-csp-20261128-44912960456088-4",
+  "assessedAt": "2026-11-28T10:03:29.481Z",
+  "originalAssessedAt": "2026-11-28T10:03:29.481975Z",
+  "outcome": "still-present",
+  "rationale": "The 10.7 and 10.8 service table excludes High and IL5 in both GovCloud regions for Federated Search for Amazon S3. The April 8 history names their addition in both for relevant 10.3 versions. Do not generalize either across the other release or the third-party search scope.",
+  "reviewedScope": {
+    "products": [
+      "cloud-environment.experience"
+    ],
+    "versions": null,
+    "editions": null,
+    "deployments": null,
+    "regions": null,
+    "audiences": null,
+    "exclusions": [
+      "Scope stays with the named release and deployment. No tenant eligibility, unstated region, undocumented pairing or offering authorization is established."
+    ]
+  },
+  "comparedAssessmentIds": [
+    "vcia-csp-20261127-101434-4"
+  ],
+  "remainingConcerns": [
+    "Review the exact documentation and unresolved applicability with CSP FedRAMP Watch on November 29. Prior issue evidence retains its original scope and time."
+  ],
+  "evidence": [
+    {
+      "evidenceId": "vcia-csp-20261128-44912960456088-4-0",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-platform-service-details",
+      "section": "Classic and Victoria experience, availability and service controls",
+      "statement": "The 10.7 and 10.8 service table excludes High and IL5 in both GovCloud regions for Federated Search for Amazon S3. The April 8 history names their addition in both for relevant 10.3 versions. Do not generalize either across the other release or the third-party search scope.",
+      "excerpt": null,
+      "role": "observed",
+      "sourceCheckedAt": "2026-11-28T09:59:13.299Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "f5a67e4ae8d6b6fc02d61d89f9a1b57b131ed68bb0d34a50a92bd3b45c8c89f6",
+        "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+      },
+      "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+    },
+    {
+      "evidenceId": "vcia-csp-20261128-44912960456088-4-1",
+      "url": "https://help.splunk.com/en/splunk-cloud-platform/get-started/service-terms-and-policies/10.7/information-about-the-service/splunk-cloud-service-description-change-log#8-april-2026-0",
+      "section": "8 April 2026 > Available region and region differences; added High and DoD IL5 availability in both AWS GovCloud regions for relevant Cloud Platform 10.3 versions.",
+      "statement": "Exact supporting or contrasting vendor section examined during this review; see the source audit for release and deployment scope.",
+      "excerpt": null,
+      "role": "challenging",
+      "sourceCheckedAt": "2026-11-28T09:59:21.223Z",
+      "availability": "retrieved",
+      "documentRevision": {
+        "type": "sha256",
+        "value": "34348a835c2b846269a328d86ec5bf265158c70d16528ba4d86e7991f2a6fd5c",
+        "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+      },
+      "qualification": "Current raw response hash and exact section; claim assessment independently recorded in the source audit."
+    }
+  ],
+  "provenance": [
+    {
+      "basis": "direct-public-review",
+      "url": "https://github.com/LeiterConsulting/splunk-version-value-explorer/blob/f0d94d5f5aed4850b0fbaee12204a3a95273fbaf/docs/audits/2026-11-28-csp-fedramp-watch-review-44912960456088-sources.json",
+      "pointer": "/issueObservations/3",
+      "originalLabel": "still-present"
+    }
+  ]
+}
