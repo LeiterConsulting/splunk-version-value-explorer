@@ -7223,7 +7223,6 @@ window.VersionCompassSources = {
         "release.productTracks.es.releasesData.8.8.requirements.1.3",
         "release.productTracks.es.hostRequirements.enterprise.10.6.source",
         "release.productTracks.itsi.compatibilitySource",
-        "release.productTracks.itsi.hostRequirements.enterprise.10.2.source",
         "release.productTracks.itsi.releasesData.4.15.source",
         "release.productTracks.itsi.releasesData.4.17.source",
         "release.productTracks.itsi.releasesData.5.0.3.requirements.1.3",
@@ -11616,11 +11615,12 @@ window.VersionCompassSources = {
     },
     {
       "url": "https://splunkbase.splunk.com/app/1841",
-      "title": "1841",
+      "title": "Confirm the exact ITSI 5.0.3 pairing on Enterprise 10.2",
       "areas": [
         "Release guide"
       ],
       "references": [
+        "release.productTracks.itsi.hostRequirements.enterprise.10.2.source",
         "release.productTracks.itsi.releasesData.5.0.3.source",
         "release.productTracks.itsi.releasesData.5.0.3.requirements.0.3"
       ],

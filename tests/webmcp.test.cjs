@@ -515,7 +515,13 @@ test('ITSI 5.0.3 retains host and Cloud Service Discovery boundaries', async () 
   function report(platform, host) {
     return rt.run('compare_routes', { routes: [{ product: 'itsi', platform, host, from: '5.0.2', to: '5.0.3' }] }).reports[0];
   }
-  assert.match(report('enterprise', '10.2').compatibility.title, /Confirm the exact ITSI 5\.0\.3 pairing/);
+  const enterprise102 = report('enterprise', '10.2').compatibility;
+  assert.equal(enterprise102.status, 'warning');
+  assert.match(enterprise102.title, /Confirm the exact ITSI 5\.0\.3 pairing/);
+  assert.match(enterprise102.detail, /currently lists platform lines 10\.4, 10\.5, 10\.6, 10\.7 and 10\.8/);
+  assert.match(enterprise102.detail, /November 25 capture also listed 10\.2 and 10\.3/);
+  assert.match(enterprise102.detail, /without an explicit 5\.0\.x range/);
+  assert.equal(enterprise102.source, 'https://splunkbase.splunk.com/app/1841');
   assert.equal(report('enterprise', '10.4').compatibility.status, 'ok');
   assert.match(report('enterprise', '10.6').compatibility.detail, /postgresMigrateOnStartup=false/);
   assert.match(report('cloud', '10.6').compatibility.title, /Confirm target availability/);

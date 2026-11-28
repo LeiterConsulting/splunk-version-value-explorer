@@ -778,10 +778,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "version-release-watch",
       "name": "Version Release Watch",
-      "lastAttempt": "2026-11-27T08:00:05.528151Z",
+      "lastAttempt": "2026-11-28T08:01:34.935558Z",
       "lastSuccess": "2026-11-21T19:40:05.303Z",
       "outcome": "blocked",
-      "summary": "Retained a partial public review and staged the ITSI package wording correction.",
+      "summary": "Reviewed 24 sections. Three remain open for missing ES issue rows or live confirmation of staged guide corrections.",
       "history": [
         {
           "at": "2026-09-25T09:49:25.513366+00:00",
@@ -1735,9 +1735,21 @@ window.VersionCompassMaintenance = {
           "outcome": "blocked",
           "summary": "Retained a partial public review and staged the ITSI package wording correction.",
           "scope": "Observability and the Cloud quarterly issue were checked. The ES 8.8 known-issue rows and the ITSI correction's live verification remain open."
+        },
+        {
+          "at": "2026-11-28T08:01:34.935558Z",
+          "outcome": "running",
+          "summary": "Review versioned product releases and the selected public reports.",
+          "scope": "Release Guide, Exact Releases, 11.x preparation, AI Availability and Advisor."
+        },
+        {
+          "at": "2026-11-28T08:18:07Z",
+          "outcome": "blocked",
+          "summary": "Reviewed 24 sections. Three remain open for missing ES issue rows or live confirmation of staged guide corrections.",
+          "scope": "Release Guide, Exact Releases, 11.x preparation, AI Availability and Advisor."
         }
       ],
-      "scope": "Observability and the Cloud quarterly issue were checked. The ES 8.8 known-issue rows and the ITSI correction's live verification remain open."
+      "scope": "Release Guide, Exact Releases, 11.x preparation, AI Availability and Advisor."
     },
     {
       "id": "es-editions-watch",
