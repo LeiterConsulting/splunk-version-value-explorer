@@ -117,10 +117,10 @@ window.VersionCompassDailyReviews = {
       "owner": "es-editions-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-28-es-editions-watch-review-132686911195582-coverage.json",
+      "receipt": "docs/audits/2026-11-28-es-editions-watch-review-96015775002966-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-28T09:05:20.275845Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-28-es-editions-watch-review-132686911195582-coverage.json"
+      "lastAssessedAt": "2026-11-28T09:15:37.763227Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-28-es-editions-watch-review-96015775002966-coverage.json"
     },
     {
       "id": "exact.identity",
@@ -205,10 +205,10 @@ window.VersionCompassDailyReviews = {
       "owner": "es-editions-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-28-es-editions-watch-review-132686911195582-coverage.json",
+      "receipt": "docs/audits/2026-11-28-es-editions-watch-review-96015775002966-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-28T09:05:20.275841Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-28-es-editions-watch-review-132686911195582-coverage.json"
+      "lastAssessedAt": "2026-11-28T09:15:37.763227Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-28-es-editions-watch-review-96015775002966-coverage.json"
     },
     {
       "id": "ai.observability-capabilities",
@@ -359,10 +359,10 @@ window.VersionCompassDailyReviews = {
       "owner": "es-editions-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-28-es-editions-watch-review-132686911195582-coverage.json",
+      "receipt": "docs/audits/2026-11-28-es-editions-watch-review-96015775002966-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-28T09:03:51.005029+00:00",
-      "lastAssessmentReceipt": "docs/audits/2026-11-28-es-editions-watch-review-132686911195582-coverage.json"
+      "lastAssessedAt": "2026-11-28T09:15:37.763227Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-28-es-editions-watch-review-96015775002966-coverage.json"
     },
     {
       "id": "es-editions.history",
@@ -370,10 +370,10 @@ window.VersionCompassDailyReviews = {
       "owner": "es-editions-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-28-es-editions-watch-review-132686911195582-coverage.json",
+      "receipt": "docs/audits/2026-11-28-es-editions-watch-review-96015775002966-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-28T09:04:23.793472Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-28-es-editions-watch-review-132686911195582-coverage.json"
+      "lastAssessedAt": "2026-11-28T09:15:37.763227Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-28-es-editions-watch-review-96015775002966-coverage.json"
     },
     {
       "id": "es-editions.deployment",
@@ -381,10 +381,10 @@ window.VersionCompassDailyReviews = {
       "owner": "es-editions-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-28-es-editions-watch-review-132686911195582-coverage.json",
+      "receipt": "docs/audits/2026-11-28-es-editions-watch-review-96015775002966-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-28T09:04:23.793680Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-28-es-editions-watch-review-132686911195582-coverage.json"
+      "lastAssessedAt": "2026-11-28T09:15:37.763227Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-28-es-editions-watch-review-96015775002966-coverage.json"
     },
     {
       "id": "es-editions.workflows",
@@ -392,10 +392,10 @@ window.VersionCompassDailyReviews = {
       "owner": "es-editions-watch",
       "disposition": "assessed-no-change",
       "reviewedOnDate": true,
-      "receipt": "docs/audits/2026-11-28-es-editions-watch-review-132686911195582-coverage.json",
+      "receipt": "docs/audits/2026-11-28-es-editions-watch-review-96015775002966-coverage.json",
       "followUp": null,
-      "lastAssessedAt": "2026-11-28T09:05:20.275831Z",
-      "lastAssessmentReceipt": "docs/audits/2026-11-28-es-editions-watch-review-132686911195582-coverage.json"
+      "lastAssessedAt": "2026-11-28T09:15:37.763227Z",
+      "lastAssessmentReceipt": "docs/audits/2026-11-28-es-editions-watch-review-96015775002966-coverage.json"
     },
     {
       "id": "cloud-environment.regions",

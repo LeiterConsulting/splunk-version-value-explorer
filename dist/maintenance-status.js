@@ -1742,10 +1742,10 @@ window.VersionCompassMaintenance = {
     {
       "id": "es-editions-watch",
       "name": "ES Editions Watch",
-      "lastAttempt": "2026-11-28T09:01:15.768523Z",
-      "lastSuccess": "2026-11-28T09:06:10.449047+00:00",
+      "lastAttempt": "2026-11-28T09:11:07.916495Z",
+      "lastSuccess": "2026-11-28T09:15:39.249972+00:00",
       "outcome": "no-change",
-      "summary": "Six ES sections retain their current qualified answers. Both public origins passed the selected screen, saved HTML and PDF checks.",
+      "summary": "The six ES sections retain their qualified answers after fresh source and public report checks.",
       "history": [
         {
           "at": "2026-09-25T10:03:41.288013+00:00",
@@ -2543,9 +2543,21 @@ window.VersionCompassMaintenance = {
           "outcome": "no-change",
           "summary": "Six ES sections retain their current qualified answers. Both public origins passed the selected screen, saved HTML and PDF checks.",
           "scope": "ES licensing, history, deployment, workflows, five AI capability families and the SOC Advisor dependency."
+        },
+        {
+          "at": "2026-11-28T09:11:07.916495Z",
+          "outcome": "running",
+          "summary": "Recheck current ES guidance and the selected public reports.",
+          "scope": "Six ES sections, official citations, saved HTML and printed reports."
+        },
+        {
+          "at": "2026-11-28T09:15:39.249972+00:00",
+          "outcome": "no-change",
+          "summary": "The six ES sections retain their qualified answers after fresh source and public report checks.",
+          "scope": "Licensing, history, deployment, workflows, ES AI capabilities and the SOC Advisor dependency."
         }
       ],
-      "scope": "ES licensing, history, deployment, workflows, five AI capability families and the SOC Advisor dependency."
+      "scope": "Licensing, history, deployment, workflows, ES AI capabilities and the SOC Advisor dependency."
     },
     {
       "id": "version-guidance-audit",
